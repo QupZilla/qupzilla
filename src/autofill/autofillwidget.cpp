@@ -23,21 +23,37 @@ AutoFillWidget::AutoFillWidget(QUrl url, QByteArray data, QString pass, QWidget 
 
     connect(ui->remember, SIGNAL(clicked()), this, SLOT(remember()));
     connect(ui->never, SIGNAL(clicked()), this, SLOT(never()));
-    connect(ui->notnow, SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(close()));
+    connect(ui->notnow, SIGNAL(clicked()), this, SLOT(hide()));
+    connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
 }
-//    addEntry(request.url(), outgoingData, pass);
+
+void AutoFillWidget::hide()
+{
+    m_animation = new QTimeLine(300, this);
+    m_animation->setFrameRange(0, 35);
+    m_animation->setDirection(QTimeLine::Backward);
+
+    m_animation->start();
+    connect(m_animation, SIGNAL(finished()), this, SLOT(close()));
+    connect(m_animation, SIGNAL(frameChanged(int)),this, SLOT(frameChanged(int)));
+}
+
+void AutoFillWidget::frameChanged(int frame)
+{
+    setMinimumHeight(frame);
+    setMaximumHeight(frame);
+}
 
 void AutoFillWidget::never()
 {
     MainApplication::getInstance()->autoFill()->blockStoringfor(m_url);
-    close();
+    hide();
 }
 
 void AutoFillWidget::remember()
 {
     MainApplication::getInstance()->autoFill()->addEntry(m_url, m_data, m_pass);
-    close();
+    hide();
 }
 
 AutoFillWidget::~AutoFillWidget()

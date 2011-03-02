@@ -25,6 +25,7 @@ void WebTab::showNotification(QWidget *notif)
         delete m_layout->itemAt(0)->widget();
 
     m_layout->insertWidget(0, notif);
+    notif->show();
 }
 
 WebTab::~WebTab()
