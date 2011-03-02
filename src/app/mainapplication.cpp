@@ -18,7 +18,7 @@
 #include "autofillmodel.h"
 
 MainApplication::MainApplication(int &argc, char **argv)
-    : QtSingleApplication("qupzillaMainApp", argc, argv)
+    : QtSingleApplication("QupZillaWebBrowser", argc, argv)
     ,m_bookmarksmanager(0)
     ,m_cookiemanager(0)
     ,m_historymanager(0)
