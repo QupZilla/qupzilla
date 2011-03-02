@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>html/errorPage.html</file>
+        <file>html/info.png</file>
+    </qresource>
+</RCC>
