@@ -1,0 +1,16 @@
+#######################
+## Building QupZilla ##
+#######################
+
+in src/ folder:
+    qmake QupZilla.pro
+    make (unix) or nmake (Windows)
+compiled binary is moved to bin folder
+
+Windows:
+    execute binary from bin folder
+    
+Unix
+    move all folders (data, locale, plugins) to /usr/share/qupzilla
+    move binary to /usr/bin
+    execute binary here

@@ -1,0 +1,9 @@
+#################################
+##    QUPZILLA - WEB BROWSER   ##
+#################################
+Version: 0.9.7
+
+QupZilla is new and very fast browser based on WebKit core http://www.webkit.org
+Written in Qt Framework http://qt.nokia.com
+
+More informations at http://www.qupzilla.ic.cz (Czech only)
