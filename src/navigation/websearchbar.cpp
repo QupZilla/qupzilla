@@ -11,12 +11,14 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget *parent)
     m_buttonSearch->setPixmap(QPixmap(":/icons/locationbar/search.png"));
     m_buttonSearch->setCursor(QCursor(Qt::PointingHandCursor));
     m_buttonSearch->setStyleSheet("QLabel{margin-bottom:2px;}");
+    m_buttonSearch->setFocusPolicy(Qt::ClickFocus);
 
     m_boxSearchType = new QToolButton(this);
     m_boxSearchType->setPopupMode(QToolButton::InstantPopup);
     m_boxSearchType->setCursor(Qt::ArrowCursor);
     m_boxSearchType->setMaximumSize(35, 25);
     m_boxSearchType->setMinimumSize(35, 25);
+    m_boxSearchType->setFocusPolicy(Qt::ClickFocus);
 
     this->setMinimumHeight(25);
     this->setMaximumHeight(25);
@@ -68,6 +70,7 @@ void WebSearchBar::searchChanged()
             m_boxSearchType->setIcon(QIcon(":/icons/menu/youtube.png"));
 
         m_boxSearchType->setToolTip(action->data().toString());
+        setPlaceholderText(action->data().toString());
     }
 }
 
