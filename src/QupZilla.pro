@@ -158,7 +158,7 @@ RESOURCES += \
     data/html.qrc
 
 OTHER_FILES += \
-    appicon.rc \
+    appicon.rc
 
 TRANSLATIONS +=cs_CZ.ts
 
