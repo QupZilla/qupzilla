@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QUrl>
+#include <QTimeLine>
 
 namespace Ui {
     class AutoFillWidget;
@@ -17,14 +18,18 @@ public:
     ~AutoFillWidget();
 
 private slots:
+    void frameChanged(int frame);
     void remember();
     void never();
+
+    void hide();
 
 private:
     Ui::AutoFillWidget *ui;
     QUrl m_url;
     QByteArray m_data;
     QString m_pass;
+    QTimeLine* m_animation;
 };
 
 #endif // AUTOFILLWIDGET_H
