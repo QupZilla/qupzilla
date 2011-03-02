@@ -141,22 +141,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/autofill/autofillwidget.ui" line="78"/>
         <source>Remember</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamatovat</translation>
     </message>
     <message>
         <location filename="../src/autofill/autofillwidget.ui" line="91"/>
         <source>Never For This Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Nikdy pro tuto stránku</translation>
     </message>
     <message>
         <location filename="../src/autofill/autofillwidget.ui" line="104"/>
         <source>Not Now</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyní ne</translation>
     </message>
     <message>
         <location filename="../src/autofill/autofillwidget.cpp" line="15"/>
         <source>Do you want QupZilla to remember password on %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>Chcete aby si QupZilla zapamatovala heslo pro %1?</translation>
     </message>
 </context>
 <context>
@@ -654,14 +654,16 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="219"/>
         <source>Not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubor neexistuje</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="219"/>
         <source>Sorry, the file 
  %1 
  is not found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Bohužel, soubor
+%1 
+neexistuje!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="231"/>
