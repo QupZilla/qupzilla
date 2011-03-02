@@ -25,6 +25,7 @@ LocationBar::LocationBar(QupZilla* mainClass, QWidget *parent)
     m_siteIcon->setMinimumSize(35, 25);
     m_siteIcon->setToolTip(tr("Show informations about this page"));
     m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/searchchoose.png); margin-left:2px;}");
+    m_siteIcon->setFocusPolicy(Qt::ClickFocus);
 
     m_rssIcon = new QToolButton(this);
     m_rssIcon->setIcon(QIcon(":/icons/menu/rss.png"));
@@ -35,6 +36,7 @@ LocationBar::LocationBar(QupZilla* mainClass, QWidget *parent)
     m_rssIcon->setPopupMode(QToolButton::InstantPopup);
     m_rssIcon->setToolTip(tr("Add RSS from this page..."));
     m_rssIcon->setStyleSheet("margin-bottom:2px");
+    m_rssIcon->setFocusPolicy(Qt::ClickFocus);
     m_rssMenu = new QMenu(this);
 
     m_goButton = new ClickableLabel(this);
@@ -48,6 +50,7 @@ LocationBar::LocationBar(QupZilla* mainClass, QWidget *parent)
     m_bookmarkButton->setCursor(Qt::PointingHandCursor);
     m_bookmarkButton->setStyleSheet("margin-bottom: 2px;");
     m_bookmarkButton->setToolTip(tr("Bookmark this Page"));
+    m_bookmarkButton->setFocusPolicy(Qt::ClickFocus);
 
     ClickableLabel* down = new ClickableLabel(this);
     down->setPixmap(QPixmap(":icons/locationbar/arrow-down.gif"));
