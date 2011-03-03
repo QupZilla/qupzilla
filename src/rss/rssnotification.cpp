@@ -9,8 +9,6 @@ RSSNotification::RSSNotification(QString host, QWidget *parent) :
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
-    setMinimumHeight(1);
-    setMaximumHeight(1);
     ui->closeButton->setIcon(
 #ifdef Q_WS_X11
     style()->standardIcon(QStyle::SP_DialogCloseButton)
@@ -25,7 +23,10 @@ RSSNotification::RSSNotification(QString host, QWidget *parent) :
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
 
     m_animation = new QTimeLine(300, this);
-    m_animation->setFrameRange(0, 35);
+    m_animation->setFrameRange(0, sizeHint().height());
+
+    setMinimumHeight(1);
+    setMaximumHeight(1);
     connect(m_animation, SIGNAL(frameChanged(int)),this, SLOT(frameChanged(int)));
     QTimer::singleShot(1, m_animation, SLOT(start()));
 }
