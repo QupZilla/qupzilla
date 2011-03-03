@@ -31,7 +31,7 @@ Updater::Updater(QupZilla* mainClass, QObject *parent) :
 
 void Updater::start()
 {
-    startDownloadingUpdateInfo(QUrl(QupZilla::WWWADDRESS+"/update.php?i=actualversion"));
+    startDownloadingUpdateInfo(QUrl(QupZilla::WWWADDRESS+"/update.php?v="+QupZilla::VERSION));
 }
 
 void Updater::createTrayIcon()
