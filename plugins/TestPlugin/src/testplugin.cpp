@@ -9,7 +9,7 @@ void TestPlugin::init(QString sPath)
 
 bool TestPlugin::testPlugin()
 {
-    //This function is loaded right after init()
+    //This function is called right after init()
     //There should be some testing if plugin is loaded correctly
     //If this function returns false, plugin is automatically unloaded
 
