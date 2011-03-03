@@ -5,6 +5,7 @@
 #include <QUrl>
 #include <QTimeLine>
 #include <QTimer>
+#include <QDebug>
 
 namespace Ui {
     class AutoFillWidget;

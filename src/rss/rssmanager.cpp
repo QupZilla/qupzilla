@@ -291,11 +291,10 @@ bool RSSManager::addRssFeed(const QString &address, const QString &title)
         query.bindValue(0, address);
         query.bindValue(1, title);
         query.exec();
-        QMessageBox::information(getQupZilla(), tr("RSS feed added"), tr("RSS with title '%1' has been successfuly added.").arg(title));
         return true;
-    } else {
-        QMessageBox::warning(getQupZilla(), tr("RSS feed duplicated"), tr("You already have this feed."));
     }
+
+    QMessageBox::warning(getQupZilla(), tr("RSS feed duplicated"), tr("You already have this feed."));
     return false;
 }
 

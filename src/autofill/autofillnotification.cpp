@@ -26,13 +26,14 @@ AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pa
     connect(ui->notnow, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
 
+    qDebug() << this->sizeHint().height();
     setMinimumHeight(1);
     setMaximumHeight(1);
 
     m_animation = new QTimeLine(300, this);
     m_animation->setFrameRange(0, 35);
     connect(m_animation, SIGNAL(frameChanged(int)),this, SLOT(frameChanged(int)));
-    QTimer::singleShot(300, m_animation, SLOT(start()));
+    QTimer::singleShot(1, m_animation, SLOT(start()));
 }
 
 void AutoFillNotification::hide()
