@@ -10,13 +10,13 @@ namespace Ui {
     class AutoFillWidget;
 }
 
-class AutoFillWidget : public QWidget
+class AutoFillNotification : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit AutoFillWidget(QUrl url, QByteArray data, QString pass, QWidget *parent = 0);
-    ~AutoFillWidget();
+    explicit AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget *parent = 0);
+    ~AutoFillNotification();
 
 private slots:
     void frameChanged(int frame);

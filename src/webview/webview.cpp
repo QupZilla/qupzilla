@@ -91,6 +91,7 @@ void WebView::setProgress(int prog)
     if (isCurrent()) {
         emit showUrl(url());
     }
+    checkRss();
 }
 
 void WebView::loadStarted()
@@ -172,7 +173,6 @@ void WebView::loadFinished(bool state)
     p_QupZilla->getMainApp()->history()->addHistoryEntry(this);
     if (isCurrent()) {
         emit showUrl(url());
-        emit checkRss();
     }
 
     iconChanged();
@@ -283,6 +283,25 @@ QUrl WebView::guessUrlFromString(const QString &string)
         return url;
 
     return QUrl();
+}
+
+void WebView::checkRss()
+{
+    QWebFrame* frame = page()->mainFrame();
+    QWebElementCollection links = frame->findAllElements("link");
+    m_rss.clear();
+
+    for (int i = 0; i<links.count(); i++) {
+        QWebElement element = links.at(i);
+        //We will show only atom+xml and rss+xml
+        if (element.attribute("rel")!="alternate" || (element.attribute("type")!="application/rss+xml" && element.attribute("type")!="application/atom+xml") )
+            continue;
+        QString title = element.attribute("title");
+        QString href = element.attribute("href");
+        if (href.isEmpty() || title.isEmpty())
+            continue;
+        m_rss.append(QPair<QString,QString>(title, href));
+    }
 }
 
 void WebView::mousePressEvent(QMouseEvent *event)

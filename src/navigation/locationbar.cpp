@@ -8,6 +8,7 @@
 #include "bookmarkswidget.h"
 #include "bookmarksmodel.h"
 #include "siteinfowidget.h"
+#include "rsswidget.h"
 
 LocationBar::LocationBar(QupZilla* mainClass, QWidget *parent)
     : LineEdit(parent)
@@ -27,17 +28,12 @@ LocationBar::LocationBar(QupZilla* mainClass, QWidget *parent)
     m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/searchchoose.png); margin-left:2px;}");
     m_siteIcon->setFocusPolicy(Qt::ClickFocus);
 
-    m_rssIcon = new QToolButton(this);
-    m_rssIcon->setIcon(QIcon(":/icons/menu/rss.png"));
-    m_rssIcon->setCursor(Qt::ArrowCursor);
-    m_rssIcon->setMaximumSize(30, 23);
-    m_rssIcon->setAutoRaise(true);
-    m_rssIcon->setVisible(false);
-    m_rssIcon->setPopupMode(QToolButton::InstantPopup);
+    m_rssIcon = new ClickableLabel(this);
+    m_rssIcon->setPixmap(QPixmap(":/icons/menu/rss.png"));
+    m_rssIcon->setCursor(Qt::PointingHandCursor);
     m_rssIcon->setToolTip(tr("Add RSS from this page..."));
     m_rssIcon->setStyleSheet("margin-bottom:2px");
     m_rssIcon->setFocusPolicy(Qt::ClickFocus);
-    m_rssMenu = new QMenu(this);
 
     m_goButton = new ClickableLabel(this);
     m_goButton->setPixmap(QPixmap(":/icons/locationbar/gotoaddress.png"));
@@ -78,10 +74,11 @@ LocationBar::LocationBar(QupZilla* mainClass, QWidget *parent)
     connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showPopup()));
     connect(m_goButton, SIGNAL(clicked(QPoint)), p_QupZilla, SLOT(urlEnter()));
     connect(m_bookmarkButton, SIGNAL(clicked(QPoint)), this, SLOT(bookmarkIconClicked()));
-
-    setLeftMargin(33);
+    connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
 
     setStyleSheet("QLineEdit { background: transparent; border-image: url(:/icons/locationbar/lineedit.png); border-width:4; color:black;}");
+//    setLeftMargin(33);
+    setLeftMargin(m_siteIcon->sizeHint().width()+1);
 }
 
 void LocationBar::loadSettings()
@@ -149,6 +146,14 @@ void LocationBar::bookmarkIconClicked()
     }
 }
 
+void LocationBar::rssIconClicked()
+{
+    QList<QPair<QString,QString> > _rss = p_QupZilla->weView()->getRss();
+
+    RSSWidget* rss = new RSSWidget(_rss, this);
+    rss->showAt(this);
+}
+
 void LocationBar::checkBookmark()
 {
     if (m_bookmarksModel->isBookmarked(QUrl(text()))) {
@@ -158,41 +163,6 @@ void LocationBar::checkBookmark()
         m_bookmarkButton->setPixmap(QPixmap(":/icons/locationbar/starg.png"));
         m_bookmarkButton->setToolTip(tr("Bookmark this Page"));
     }
-}
-
-void LocationBar::checkRss()
-{
-    WebView* view = p_QupZilla->weView();
-    if (!view)
-        return;
-    QWebFrame* frame = view->page()->mainFrame();
-    QWebElementCollection links = frame->findAllElements("link");
-
-    bool found = false;
-    m_rssMenu->clear();
-    for (int i = 0; i<links.count(); i++) {
-        QWebElement element = links.at(i);
-        //We will show only atom+xml and rss+xml
-        if (element.attribute("rel")!="alternate" || (element.attribute("type")!="application/rss+xml" && element.attribute("type")!="application/atom+xml") )
-            continue;
-        QString title = element.attribute("title");
-        QString href = element.attribute("href");
-        if (href.isEmpty() || title.isEmpty())
-            continue;
-
-        QAction* act = new QAction(tr("Add RSS channel with title '")+title+"'...", this);
-        connect(act, SIGNAL(triggered()), this, SLOT(addRss()));
-        act->setData(href);
-        act->setToolTip(title);
-        m_rssMenu->addAction(act);
-        found = true;
-    }
-
-    m_rssMenu->addSeparator();
-    m_rssMenu->addAction(QIcon(":/icons/menu/rss.png"), tr("Read RSS news"), p_QupZilla, SLOT(showRSSManager()));
-
-    m_rssIcon->setVisible(found);
-    m_rssIcon->setMenu(m_rssMenu);
 }
 
 QIcon LocationBar::icon(const QUrl &url)

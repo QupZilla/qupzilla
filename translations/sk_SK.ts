@@ -141,25 +141,28 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>AutoFillNotification</name>
+    <message>
+        <location filename="../src/autofill/autofillnotification.cpp" line="15"/>
+        <source>Do you want QupZilla to remember password on %1?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AutoFillWidget</name>
     <message>
-        <location filename="../src/autofill/autofillwidget.ui" line="78"/>
+        <location filename="../src/autofill/autofillnotification.ui" line="81"/>
         <source>Remember</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/autofill/autofillwidget.ui" line="91"/>
+        <location filename="../src/autofill/autofillnotification.ui" line="97"/>
         <source>Never For This Site</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/autofill/autofillwidget.ui" line="104"/>
+        <location filename="../src/autofill/autofillnotification.ui" line="113"/>
         <source>Not Now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/autofill/autofillwidget.cpp" line="15"/>
-        <source>Do you want QupZilla to remember password on %1?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -850,54 +853,44 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="26"/>
+        <location filename="../src/navigation/locationbar.cpp" line="27"/>
         <source>Show informations about this page</source>
         <translation>Zobraziť informácie o tejto stránke</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="36"/>
+        <location filename="../src/navigation/locationbar.cpp" line="34"/>
         <source>Add RSS from this page...</source>
         <translation>Pridať RSS kanál...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="50"/>
-        <location filename="../src/navigation/locationbar.cpp" line="156"/>
+        <location filename="../src/navigation/locationbar.cpp" line="48"/>
+        <location filename="../src/navigation/locationbar.cpp" line="164"/>
         <source>Bookmark this Page</source>
         <translation>Pridať stránku do záložiek</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="61"/>
+        <location filename="../src/navigation/locationbar.cpp" line="60"/>
         <source>Enter URL address or search on Google.com</source>
         <translation>Zadajte URL adresu alebo vyhľadajte na Google.com</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="180"/>
-        <source>Add RSS channel with title &apos;</source>
-        <translation>Pridať RSS kanál s názvom </translation>
-    </message>
-    <message>
-        <location filename="../src/navigation/locationbar.cpp" line="189"/>
-        <source>Read RSS news</source>
-        <translation>Čítať RSS novinky</translation>
-    </message>
-    <message>
-        <location filename="../src/navigation/locationbar.cpp" line="239"/>
+        <location filename="../src/navigation/locationbar.cpp" line="212"/>
         <source>Loading...</source>
         <translation>Nahrávam...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="244"/>
+        <location filename="../src/navigation/locationbar.cpp" line="217"/>
         <source>Done</source>
         <translation>Hotovo</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="145"/>
-        <location filename="../src/navigation/locationbar.cpp" line="153"/>
+        <location filename="../src/navigation/locationbar.cpp" line="161"/>
         <source>Edit this bookmark</source>
         <translation>Upraviť záložku</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="326"/>
+        <location filename="../src/navigation/locationbar.cpp" line="299"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT key = Should be different for every country</comment>
         <translation>.sk</translation>
@@ -2068,6 +2061,19 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     </message>
 </context>
 <context>
+    <name>RSSWidget</name>
+    <message>
+        <location filename="../src/rss/rsswidget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rsswidget.ui" line="51"/>
+        <source>Add RSS Feeds from this site</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SearchToolBar</name>
     <message>
         <location filename="../src/webview/searchtoolbar.cpp" line="13"/>
@@ -2442,14 +2448,14 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/webview/webview.cpp" line="103"/>
+        <location filename="../src/webview/webview.cpp" line="104"/>
         <location filename="../src/webview/webview.cpp" line="226"/>
         <source>Loading...</source>
         <translation>Načítavam...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="195"/>
-        <location filename="../src/webview/webview.cpp" line="654"/>
+        <location filename="../src/webview/webview.cpp" line="673"/>
         <source>No Named Page</source>
         <translation>Stránka bez mena</translation>
     </message>
@@ -2459,129 +2465,129 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
         <translation>Hotovo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="299"/>
-        <location filename="../src/webview/webview.cpp" line="303"/>
-        <location filename="../src/webview/webview.cpp" line="465"/>
+        <location filename="../src/webview/webview.cpp" line="318"/>
+        <location filename="../src/webview/webview.cpp" line="322"/>
+        <location filename="../src/webview/webview.cpp" line="484"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="353"/>
+        <location filename="../src/webview/webview.cpp" line="372"/>
         <source>Open link in new window</source>
         <translation>Otvoriť odkaz v novom okne</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="354"/>
+        <location filename="../src/webview/webview.cpp" line="373"/>
         <source>Open link in new tab</source>
         <translation>Otvoriť odkaz na novom panely</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="356"/>
+        <location filename="../src/webview/webview.cpp" line="375"/>
         <source>Bookmark link</source>
         <translation>Pridať odkaz do záložiek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="357"/>
+        <location filename="../src/webview/webview.cpp" line="376"/>
         <source>Save link as...</source>
         <translation>Odoslať odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="358"/>
+        <location filename="../src/webview/webview.cpp" line="377"/>
         <source>Send link...</source>
         <translation>Odoslať odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="359"/>
+        <location filename="../src/webview/webview.cpp" line="378"/>
         <source>Copy link address</source>
         <translation>Kopírovať adresu odkazu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="368"/>
+        <location filename="../src/webview/webview.cpp" line="387"/>
         <source>Show image</source>
         <translation>Zobraziť obrázok</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="369"/>
+        <location filename="../src/webview/webview.cpp" line="388"/>
         <source>Copy image</source>
         <translation>Kopírovať obrázok</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="370"/>
+        <location filename="../src/webview/webview.cpp" line="389"/>
         <source>Copy image address</source>
         <translation>Kopírovať adresu obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="372"/>
+        <location filename="../src/webview/webview.cpp" line="391"/>
         <source>Save image as...</source>
         <translation>Uložiť obrázok ako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="373"/>
+        <location filename="../src/webview/webview.cpp" line="392"/>
         <source>Send image...</source>
         <translation>Odoslať obrázok...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="389"/>
+        <location filename="../src/webview/webview.cpp" line="408"/>
         <source>Back</source>
         <translation>Späť</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="397"/>
+        <location filename="../src/webview/webview.cpp" line="416"/>
         <source>Forward</source>
         <translation>Dopredu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="411"/>
+        <location filename="../src/webview/webview.cpp" line="430"/>
         <source>Reload</source>
         <translation>Obnoviť</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="418"/>
+        <location filename="../src/webview/webview.cpp" line="437"/>
         <source>Stop</source>
         <translation>Zastaviť</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="422"/>
+        <location filename="../src/webview/webview.cpp" line="441"/>
         <source>Bookmark page</source>
         <translation>Pridať stránku do záložiek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="423"/>
+        <location filename="../src/webview/webview.cpp" line="442"/>
         <source>Save page as...</source>
         <translation>Uložiť stránku ako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="424"/>
+        <location filename="../src/webview/webview.cpp" line="443"/>
         <source>Send page...</source>
         <translation>Odoslať stránku...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="426"/>
+        <location filename="../src/webview/webview.cpp" line="445"/>
         <source>Select all</source>
         <translation>Vybrať všetko</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="431"/>
+        <location filename="../src/webview/webview.cpp" line="450"/>
         <source>Show source code</source>
         <translation>Zobraziť zdrojový kód</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="432"/>
+        <location filename="../src/webview/webview.cpp" line="451"/>
         <source>Show info about site</source>
         <translation>Zobraziť informácie o stránke</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="436"/>
+        <location filename="../src/webview/webview.cpp" line="455"/>
         <source>Show Web Inspector</source>
         <translation>Zobraziť Web inšpektora</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="442"/>
+        <location filename="../src/webview/webview.cpp" line="461"/>
         <source>Search </source>
         <translation>Hľadať </translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="442"/>
+        <location filename="../src/webview/webview.cpp" line="461"/>
         <source>... on Google</source>
         <translation>... na Googlu</translation>
     </message>

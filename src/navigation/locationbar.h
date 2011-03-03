@@ -36,8 +36,9 @@ public:
     void loadSettings();
 
 public slots:
-    void checkRss();
     void showUrl(const QUrl &url, bool empty = true);
+
+private slots:
     void siteIconChanged();
     void setPrivacy(bool state);
     void addRss();
@@ -46,6 +47,7 @@ public slots:
     void bookmarkIconClicked();
     void checkBookmark();
     void showSiteInfo();
+    void rssIconClicked();
 
 private:
     void focusOutEvent(QFocusEvent* e);
@@ -58,8 +60,8 @@ private:
 
     ClickableLabel* m_bookmarkButton;
     ClickableLabel* m_goButton;
+    ClickableLabel* m_rssIcon;
     QToolButton* m_siteIcon;
-    QToolButton* m_rssIcon;
     QMenu* m_rssMenu;
 
     bool m_selectAllOnDoubleClick;

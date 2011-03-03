@@ -1,9 +1,9 @@
-#include "autofillwidget.h"
-#include "ui_autofillwidget.h"
+#include "autofillnotification.h"
+#include "ui_autofillnotification.h"
 #include "autofillmodel.h"
 #include "mainapplication.h"
 
-AutoFillWidget::AutoFillWidget(QUrl url, QByteArray data, QString pass, QWidget *parent)
+AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget *parent)
    :QWidget(parent)
    ,ui(new Ui::AutoFillWidget)
    ,m_url(url)
@@ -35,7 +35,7 @@ AutoFillWidget::AutoFillWidget(QUrl url, QByteArray data, QString pass, QWidget 
     QTimer::singleShot(300, m_animation, SLOT(start()));
 }
 
-void AutoFillWidget::hide()
+void AutoFillNotification::hide()
 {
     m_animation->setDirection(QTimeLine::Backward);
 
@@ -44,25 +44,25 @@ void AutoFillWidget::hide()
     connect(m_animation, SIGNAL(finished()), this, SLOT(close()));
 }
 
-void AutoFillWidget::frameChanged(int frame)
+void AutoFillNotification::frameChanged(int frame)
 {
     setMinimumHeight(frame);
     setMaximumHeight(frame);
 }
 
-void AutoFillWidget::never()
+void AutoFillNotification::never()
 {
     MainApplication::getInstance()->autoFill()->blockStoringfor(m_url);
     hide();
 }
 
-void AutoFillWidget::remember()
+void AutoFillNotification::remember()
 {
     MainApplication::getInstance()->autoFill()->addEntry(m_url, m_data, m_pass);
     hide();
 }
 
-AutoFillWidget::~AutoFillWidget()
+AutoFillNotification::~AutoFillNotification()
 {
     delete ui;
 }
