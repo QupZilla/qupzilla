@@ -84,8 +84,7 @@ SOURCES += main.cpp\
     webview/webtab.cpp \
     rss/rsswidget.cpp \
     autofill/autofillnotification.cpp \
-    rss/rssnotification.cpp \
-    tools/notification.cpp
+    rss/rssnotification.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -139,8 +138,7 @@ HEADERS  += 3rdparty/squeezelabel.h \
     webview/webtab.h \
     rss/rsswidget.h \
     autofill/autofillnotification.h \
-    rss/rssnotification.h \
-    tools/notification.h
+    rss/rssnotification.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
