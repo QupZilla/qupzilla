@@ -150,7 +150,7 @@ void LocationBar::rssIconClicked()
 {
     QList<QPair<QString,QString> > _rss = p_QupZilla->weView()->getRss();
 
-    RSSWidget* rss = new RSSWidget(_rss, this);
+    RSSWidget* rss = new RSSWidget(p_QupZilla->weView(), _rss, this);
     rss->showAt(this);
 }
 
@@ -303,38 +303,6 @@ void LocationBar::keyPressEvent(QKeyEvent *event)
         setText(text().append(localDomain));
 
     QLineEdit::keyPressEvent(event);
-}
-
-void LocationBar::addRss()
-{
-    WebView* view = p_QupZilla->weView();
-    if(!view)
-        return;
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
-        QUrl url = action->data().toUrl();
-        QString urlString = url.toString();
-        if(url.host().isEmpty()) {
-            if(!urlString.startsWith("/"))
-                urlString="/"+urlString;
-            urlString = view->url().host()+urlString;
-            QUrl temp(urlString);
-            if(temp.scheme().isEmpty())
-                urlString="http://"+urlString;
-            temp = QUrl(urlString);
-            if(temp.scheme().isEmpty() || temp.host().isEmpty())
-                return;
-        }
-        if (!url.isValid())
-            return;
-
-        QString title;
-        if (action->toolTip().isEmpty())
-            title = view->url().host();
-        else
-            title = action->toolTip();
-
-        p_QupZilla->getMainApp()->rssManager()->addRssFeed(urlString, title);
-    }
 }
 
 LocationBar::~LocationBar()

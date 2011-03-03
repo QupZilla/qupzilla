@@ -24,7 +24,6 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget *parent) :
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)));
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla, SLOT(refreshHistory()));
-    connect(this, SIGNAL(currentChanged(int)), p_QupZilla->locationBar(), SLOT(checkRss()));
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
 
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
@@ -138,7 +137,6 @@ int TabWidget::addView(QUrl url, QString title, OpenUrlIn openIn, bool selectLin
 
     connect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
     connect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
-    connect(weView(index), SIGNAL(checkRss()), p_QupZilla->locationBar(), SLOT(checkRss()));
     connect(weView(index), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(weView(index), SIGNAL(changed()), p_QupZilla->getMainApp(), SLOT(setChanged()));
     connect(weView(index), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
@@ -168,7 +166,6 @@ void TabWidget::closeTab(int index)
     if (weView(index)) {
         disconnect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
         disconnect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
-        disconnect(weView(index), SIGNAL(checkRss()), p_QupZilla->locationBar(), SLOT(checkRss()));
         disconnect(weView(index), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
         disconnect(weView(index), SIGNAL(changed()), p_QupZilla->getMainApp(), SLOT(setChanged()));
         disconnect(weView(index), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
