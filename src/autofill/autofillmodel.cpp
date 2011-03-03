@@ -177,7 +177,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
         }
     }
 
-    AutoFillWidget* aWidget = new AutoFillWidget(request.url(), outgoingData, pass);
+    AutoFillNotification* aWidget = new AutoFillNotification(request.url(), outgoingData, pass);
     webView->addNotification(aWidget);
 
 }

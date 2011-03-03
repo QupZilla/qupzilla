@@ -41,6 +41,8 @@ public:
     QString getIp() { return m_currentIp; }
     QLabel* animationLoading(int index, bool addMovie);
     void addNotification(QWidget* notif);
+    bool hasRss() { return !m_rss.isEmpty(); }
+    QList<QPair<QString,QString> > getRss() { return m_rss; }
 
     static QUrl guessUrlFromString(const QString &string);
     static bool isUrlValid(const QUrl &url);
@@ -82,6 +84,7 @@ private slots:
     void showInspector();
     void stopAnimation();
     void setIp(QHostInfo info);
+    void checkRss();
 
 private:
     void keyPressEvent(QKeyEvent *event);
@@ -103,6 +106,7 @@ private:
     QUrl m_aboutToLoadUrl;
     bool m_wantsClose;
     QString m_currentIp;
+    QList<QPair<QString,QString> > m_rss;
 
     WebPage* m_page;
     NetworkManagerProxy* m_networkProxy;
@@ -112,7 +116,6 @@ signals:
     void showUrl(QUrl url);
     void siteIconChanged();
     void setPrivacy(bool state);
-    void checkRss();
     void wantsCloseTab(int index);
     void changed();
     void ipChanged(QString ip);
