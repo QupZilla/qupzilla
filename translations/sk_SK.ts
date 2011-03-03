@@ -145,7 +145,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/autofill/autofillnotification.cpp" line="15"/>
         <source>Do you want QupZilla to remember password on %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>Chcete aby si QupZilla zapamätala heslo pre %1?</translation>
     </message>
 </context>
 <context>
@@ -153,17 +153,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/autofill/autofillnotification.ui" line="81"/>
         <source>Remember</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamätať</translation>
     </message>
     <message>
         <location filename="../src/autofill/autofillnotification.ui" line="97"/>
         <source>Never For This Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Nikdy pre túto stránku</translation>
     </message>
     <message>
         <location filename="../src/autofill/autofillnotification.ui" line="113"/>
         <source>Not Now</source>
-        <translation type="unfinished"></translation>
+        <translation>Teraz nie</translation>
     </message>
 </context>
 <context>
@@ -436,12 +436,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="65"/>
         <source>Flash blocked by ClickToFlash</source>
-        <translation type="unfinished"></translation>
+        <translation>Zablokované pluginom ClickToFlash</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="67"/>
         <source>Add %1 to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať %1 na bielu listinu</translation>
     </message>
 </context>
 <context>
@@ -574,110 +574,112 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloaditem.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.ui" line="45"/>
         <source>A Clockwork Orange.avi</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.ui" line="52"/>
         <source>Remaining 26 minutes - 339MB of 693 MB (350kB/s)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="28"/>
         <source>Remaining time unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>Neznámy zostávajúci čas</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="55"/>
         <source>Done - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokončené - %1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="99"/>
         <location filename="../src/downloads/downloaditem.cpp" line="197"/>
         <source>Cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrušené</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="105"/>
         <source>few seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>pár sekúnd</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="107"/>
         <source>seconds</source>
-        <translation type="unfinished">sekúnd</translation>
+        <translation>sekúnd</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="109"/>
         <source>minutes</source>
-        <translation type="unfinished">minút</translation>
+        <translation>minút</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="111"/>
         <source>hours</source>
-        <translation type="unfinished">hodín</translation>
+        <translation>hodín</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="152"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation type="unfinished"></translation>
+        <translation>Zostáva %1 - %2 z %3 (%4)</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="161"/>
         <source>Cancelled - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrušene - %1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="184"/>
         <source>Open File</source>
-        <translation type="unfinished">Otvoriť súbor</translation>
+        <translation>Otvoriť súbor</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="186"/>
         <source>Open Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvoriť priečinok</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="194"/>
         <source>Cancel downloading</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrušiť sťahovanie</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="195"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyčistiť</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="197"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="219"/>
         <source>Not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Súbor neexistuje</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="219"/>
         <source>Sorry, the file 
  %1 
  is not found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Bohužiaľ, súbor 
+ %1 
+neexistuje!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="231"/>
         <source>Error: Cannot write to file!</source>
-        <translation type="unfinished">Chyba: Nejde zapisovať do súboru!</translation>
+        <translation>Chyba: Nejde zapisovať do súboru!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="240"/>
         <source>Error: </source>
-        <translation type="unfinished">Chyba:</translation>
+        <translation>Chyba: </translation>
     </message>
 </context>
 <context>
@@ -685,12 +687,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="88"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation type="unfinished"></translation>
+        <translation>%1% z %2 súborov (%3) %4 zostávajú</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="91"/>
         <source>% - Download Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>% - Správca sťahovania</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="133"/>
@@ -700,12 +702,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="229"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Upozornenie</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="230"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ste si istý, že chcete skončiť? Všetky nedokončené sťahovania budú zrušene!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="197"/>
@@ -717,12 +719,12 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/downloads/downloadmanager.cpp" line="52"/>
         <location filename="../src/downloads/downloadmanager.cpp" line="69"/>
         <source>Download Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Správca sťahovania</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="80"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyčistiť</translation>
     </message>
 </context>
 <context>
@@ -997,12 +999,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="24"/>
         <source>Application Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Doplnky aplikácie</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="30"/>
         <source>Allow Application Extensions to be loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Povoliť načítavanie doplnkov aplikácie</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="61"/>
@@ -1017,47 +1019,47 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="108"/>
         <source>WebKit Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>WebKit Pluginy</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="114"/>
         <source>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="121"/>
         <source>Click To Flash is a plugin which blocks auto loading of Flash content at page. You can always load it manually by clicking on the Flash play icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Click To Flash je plugin, ktorý blokuje automatické načítavanie Flash animácií. Avšak vždy ho môžete manuálne spustiť kliknutím na ikonku Flashe.</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="134"/>
         <source>Whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Biela listina</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="142"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="149"/>
         <source>Remove</source>
-        <translation type="unfinished">Odstrániť</translation>
+        <translation>Odstrániť</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="171"/>
         <source>Allow Click To Flash</source>
-        <translation type="unfinished"></translation>
+        <translation>Povoliť Click To Flash</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.cpp" line="44"/>
         <source>Add site to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať stránku do bielej listiny</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.cpp" line="44"/>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished"></translation>
+        <translation>Server bez http:// (napr. youtube.com)</translation>
     </message>
 </context>
 <context>
@@ -1817,7 +1819,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="351"/>
         <source>Download Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Správca sťahovania</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="354"/>
@@ -2055,17 +2057,17 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/rss/rssnotification.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../src/rss/rssnotification.ui" line="55"/>
         <source>Open RSS Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvoriť RSS Manažér</translation>
     </message>
     <message>
         <location filename="../src/rss/rssnotification.cpp" line="19"/>
         <source>You have successfuly added RSS feed &quot;%1&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanál &quot;%1&quot;. bol úspešne pridaný.</translation>
     </message>
 </context>
 <context>
@@ -2073,17 +2075,17 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/rss/rsswidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../src/rss/rsswidget.ui" line="59"/>
         <source>Add RSS Feeds from this site</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať RSS kanál z tejto stránky</translation>
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="18"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať</translation>
     </message>
 </context>
 <context>
