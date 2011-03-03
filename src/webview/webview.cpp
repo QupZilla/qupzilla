@@ -63,10 +63,11 @@ bool WebView::isCurrent()
 {
     if (!tabWidget())
         return false;
-    if (qobject_cast<WebTab*>(tabWidget()->widget(tabWidget()->currentIndex()))->view() == this)
-        return true;
+    WebTab* webTab = qobject_cast<WebTab*>(tabWidget()->widget(tabWidget()->currentIndex()));
+    if (!webTab)
+        return false;
 
-    return false;
+    return (webTab->view() == this);
 }
 
 void WebView::urlChanged(const QUrl &url)

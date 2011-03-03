@@ -2,7 +2,7 @@
 #include "qupzilla.h"
 #include "webview.h"
 #include "mainapplication.h"
-#include "autofillwidget.h"
+#include "autofillnotification.h"
 
 AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject *parent) :
     QObject(parent)
