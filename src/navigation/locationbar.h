@@ -41,7 +41,6 @@ public slots:
 private slots:
     void siteIconChanged();
     void setPrivacy(bool state);
-    void addRss();
     void textEdit();
     void showPopup();
     void bookmarkIconClicked();
