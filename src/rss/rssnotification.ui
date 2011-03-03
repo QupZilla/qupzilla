@@ -52,7 +52,7 @@
    <item>
     <widget class="QPushButton" name="pushButton">
      <property name="text">
-      <string>Read RSS</string>
+      <string>Open RSS Manager</string>
      </property>
     </widget>
    </item>

@@ -2040,16 +2040,6 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
         <translation>Chyba pri sťahovaní kanálu</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="294"/>
-        <source>RSS feed added</source>
-        <translation>RSS kanál pridaný</translation>
-    </message>
-    <message>
-        <location filename="../src/rss/rssmanager.cpp" line="294"/>
-        <source>RSS with title &apos;%1&apos; has been successfuly added.</source>
-        <translation>RSS kanál s názvom &apos;%1&apos; bol úspešne pridaný.</translation>
-    </message>
-    <message>
         <location filename="../src/rss/rssmanager.cpp" line="297"/>
         <source>RSS feed duplicated</source>
         <translation>Duplikovaný kanál</translation>
@@ -2061,6 +2051,24 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     </message>
 </context>
 <context>
+    <name>RSSNotification</name>
+    <message>
+        <location filename="../src/rss/rssnotification.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rssnotification.ui" line="55"/>
+        <source>Open RSS Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rssnotification.cpp" line="19"/>
+        <source>You have successfuly added RSS feed &quot;%1&quot;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RSSWidget</name>
     <message>
         <location filename="../src/rss/rsswidget.ui" line="14"/>
@@ -2068,8 +2076,13 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
         <translation type="unfinished">Form</translation>
     </message>
     <message>
-        <location filename="../src/rss/rsswidget.ui" line="51"/>
+        <location filename="../src/rss/rsswidget.ui" line="59"/>
         <source>Add RSS Feeds from this site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rsswidget.cpp" line="18"/>
+        <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2292,28 +2305,28 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="44"/>
+        <location filename="../src/webview/tabwidget.cpp" line="43"/>
         <source>Show list of opened tabs</source>
         <translation>Zobraziť zoznam otvorených panelov</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="50"/>
+        <location filename="../src/webview/tabwidget.cpp" line="49"/>
         <source>Add Tab</source>
         <translation>Pridať panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="87"/>
+        <location filename="../src/webview/tabwidget.cpp" line="86"/>
         <source>Loading...</source>
         <translation>Nahrávam...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="90"/>
-        <location filename="../src/webview/tabwidget.cpp" line="203"/>
+        <location filename="../src/webview/tabwidget.cpp" line="89"/>
+        <location filename="../src/webview/tabwidget.cpp" line="200"/>
         <source>No Named Page</source>
         <translation>Stránka bez mena</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="106"/>
+        <location filename="../src/webview/tabwidget.cpp" line="105"/>
         <source>Actually You have %1 opened tabs</source>
         <translation>Momentálne otvorených %1 panelov</translation>
     </message>
