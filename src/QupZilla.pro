@@ -81,8 +81,9 @@ SOURCES += main.cpp\
     plugins/webpluginfactory.cpp \
     downloads/downloaditem.cpp \
     3rdparty/ecwin7.cpp \
-    autofill/autofillwidget.cpp \
-    webview/webtab.cpp
+    webview/webtab.cpp \
+    rss/rsswidget.cpp \
+    autofill/autofillnotification.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -133,8 +134,9 @@ HEADERS  += 3rdparty/squeezelabel.h \
     plugins/webpluginfactory.h \
     downloads/downloaditem.h \
     3rdparty/ecwin7.h \
-    autofill/autofillwidget.h \
-    webview/webtab.h
+    webview/webtab.h \
+    rss/rsswidget.h \
+    autofill/autofillnotification.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -151,7 +153,8 @@ FORMS    += \
     webview/siteinfowidget.ui \
     downloads/downloaditem.ui \
     downloads/downloadmanager.ui \
-    autofill/autofillwidget.ui
+    rss/rsswidget.ui \
+    autofill/autofillnotification.ui
 
 RESOURCES += \
     data/icons.qrc \

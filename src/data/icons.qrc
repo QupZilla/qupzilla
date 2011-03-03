@@ -64,5 +64,6 @@
         <file>icons/other/flash.png</file>
         <file>icons/other/flashstart.png</file>
         <file>icons/other/keys.png</file>
+        <file>icons/other/bigrss.png</file>
     </qresource>
 </RCC>
