@@ -37,6 +37,7 @@ public:
 
 public slots:
     void showUrl(const QUrl &url, bool empty = true);
+    void checkBookmark();
 
 private slots:
     void siteIconChanged();
@@ -44,7 +45,6 @@ private slots:
     void textEdit();
     void showPopup();
     void bookmarkIconClicked();
-    void checkBookmark();
     void showSiteInfo();
     void rssIconClicked();
 
