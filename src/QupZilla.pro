@@ -84,7 +84,9 @@ SOURCES += main.cpp\
     webview/webtab.cpp \
     rss/rsswidget.cpp \
     autofill/autofillnotification.cpp \
-    rss/rssnotification.cpp
+    rss/rssnotification.cpp \
+    navigation/locationpopup.cpp \
+    preferences/sslmanager.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -138,7 +140,9 @@ HEADERS  += 3rdparty/squeezelabel.h \
     webview/webtab.h \
     rss/rsswidget.h \
     autofill/autofillnotification.h \
-    rss/rssnotification.h
+    rss/rssnotification.h \
+    navigation/locationpopup.h \
+    preferences/sslmanager.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -157,7 +161,8 @@ FORMS    += \
     downloads/downloadmanager.ui \
     rss/rsswidget.ui \
     autofill/autofillnotification.ui \
-    rss/rssnotification.ui
+    rss/rssnotification.ui \
+    preferences/sslmanager.ui
 
 RESOURCES += \
     data/icons.qrc \

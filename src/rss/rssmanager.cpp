@@ -45,7 +45,7 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget *parent) :
 QupZilla* RSSManager::getQupZilla()
 {
     if (!p_QupZilla)
-        p_QupZilla = MainApplication::getInstance()->getWindow();
+        p_QupZilla = mApp->getWindow();
     return p_QupZilla;
 }
 

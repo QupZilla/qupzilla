@@ -37,7 +37,7 @@ TabBar::TabBar(QupZilla* mainClass, QWidget *parent) :
 
 void TabBar::loadSettings()
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Browser-Tabs-Settings");
 
     setMovable( settings.value("makeTabsMovable",true).toBool() );

@@ -78,14 +78,14 @@ void ClearPrivateData::dialogAccepted()
     }
     if (m_clearCookies->isChecked()) {
         QList<QNetworkCookie> cookies;
-        p_QupZilla->getMainApp()->cookieJar()->setAllCookies(cookies);
+        mApp->cookieJar()->setAllCookies(cookies);
     }
     if (m_clearCache->isChecked()) {
-        p_QupZilla->getMainApp()->webSettings()->clearMemoryCaches();
-        p_QupZilla->getMainApp()->networkManager()->cache()->clear();
+        mApp->webSettings()->clearMemoryCaches();
+        mApp->networkManager()->cache()->clear();
     }
     if (m_clearIcons->isChecked()) {
-        p_QupZilla->getMainApp()->webSettings()->clearIconDatabase();
+        mApp->webSettings()->clearIconDatabase();
     }
     close();
 }

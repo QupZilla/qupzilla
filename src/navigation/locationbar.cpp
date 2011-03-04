@@ -84,11 +84,12 @@ LocationBar::LocationBar(QupZilla* mainClass, QWidget *parent)
     m_locationCompleter = new LocationCompleter();
     setCompleter(m_locationCompleter);
 
+//    LocationPopup* com = new LocationPopup(this);
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
     connect(this, SIGNAL(textEdited(QString)), m_locationCompleter, SLOT(refreshCompleter(QString)));
     connect(m_locationCompleter->popup(), SIGNAL(clicked(QModelIndex)), p_QupZilla, SLOT(urlEnter()));
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
-    connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showPopup()));
+//    connect(down, SIGNAL(clicked(QPoint)), com, SLOT(show()));
     connect(m_goButton, SIGNAL(clicked(QPoint)), p_QupZilla, SLOT(urlEnter()));
     connect(m_bookmarkButton, SIGNAL(clicked(QPoint)), this, SLOT(bookmarkIconClicked()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
@@ -237,7 +238,7 @@ void LocationBar::showUrl(const QUrl &url, bool empty)
     hideGoButton();
 
     if (!m_bookmarksModel)
-        m_bookmarksModel = MainApplication::getInstance()->bookmarks();
+        m_bookmarksModel = mApp->bookmarks();
     checkBookmark();
 
     m_rssIcon->setVisible(p_QupZilla->weView()->hasRss());

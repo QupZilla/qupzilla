@@ -35,7 +35,7 @@ RSSNotification::RSSNotification(QString host, QWidget *parent) :
     );
     ui->label->setText(tr("You have successfuly added RSS feed \"%1\".").arg(host));
 
-    connect(ui->pushButton, SIGNAL(clicked()), MainApplication::getInstance()->getWindow(), SLOT(showRSSManager()));
+    connect(ui->pushButton, SIGNAL(clicked()), mApp->getWindow(), SLOT(showRSSManager()));
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
 

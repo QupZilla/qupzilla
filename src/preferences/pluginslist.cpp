@@ -34,7 +34,7 @@ PluginsList::PluginsList(QWidget *parent) :
     connect(ui->butLoad, SIGNAL(clicked()), this, SLOT(reloadPlugins()));
     connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
     ui->allowAppPlugins->setChecked( settings.value("EnablePlugins",true).toBool() );
     settings.endGroup();
@@ -46,7 +46,7 @@ PluginsList::PluginsList(QWidget *parent) :
     connect(ui->allowClick2Flash, SIGNAL(clicked(bool)), this, SLOT(allowC2FChanged(bool)));
 
     settings.beginGroup("ClickToFlash");
-    QStringList whitelist = MainApplication::getInstance()->plugins()->c2f_getWhiteList();
+    QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
     ui->allowClick2Flash->setChecked( settings.value("Enable",true).toBool() );
     settings.endGroup();
     foreach (QString site, whitelist) {
@@ -62,7 +62,7 @@ void PluginsList::addWhitelist()
     if (site.isEmpty())
         return;
 
-    MainApplication::getInstance()->plugins()->c2f_addWhitelist(site);
+    mApp->plugins()->c2f_addWhitelist(site);
     ui->whitelist->insertTopLevelItem(0, new QTreeWidgetItem(QStringList(site)));
 }
 
@@ -72,13 +72,13 @@ void PluginsList::removeWhitelist()
     if (!item)
         return;
 
-    MainApplication::getInstance()->plugins()->c2f_removeWhitelist(item->text(0));
+    mApp->plugins()->c2f_removeWhitelist(item->text(0));
     delete item;
 }
 
 void PluginsList::save()
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
     settings.setValue("EnablePlugins",ui->allowAppPlugins->isChecked());
     settings.endGroup();
@@ -88,7 +88,7 @@ void PluginsList::save()
 
 void PluginsList::allowAppPluginsChanged(bool state)
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
     settings.setValue("EnablePlugins", state);
     settings.endGroup();
@@ -98,7 +98,7 @@ void PluginsList::allowAppPluginsChanged(bool state)
 
 void PluginsList::allowC2FChanged(bool state)
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("ClickToFlash");
     settings.setValue("Enable", state);
     settings.endGroup();
@@ -107,7 +107,7 @@ void PluginsList::allowC2FChanged(bool state)
     ui->add->setEnabled(state);
     ui->remove->setEnabled(state);
 
-    MainApplication::getInstance()->plugins()->c2f_setEnabled(state);
+    mApp->plugins()->c2f_setEnabled(state);
 }
 
 void PluginsList::refresh()
@@ -115,10 +115,10 @@ void PluginsList::refresh()
     ui->list->clear();
     ui->butSettings->setEnabled(false);
 
-    QStringList availablePlugins = MainApplication::getInstance()->plugins()->getAvailablePlugins();
-    QStringList allowedPlugins = MainApplication::getInstance()->plugins()->getAllowedPlugins();
+    QStringList availablePlugins = mApp->plugins()->getAvailablePlugins();
+    QStringList allowedPlugins = mApp->plugins()->getAllowedPlugins();
     foreach (QString fileName, availablePlugins) {
-        PluginInterface* plugin = MainApplication::getInstance()->plugins()->getPlugin(fileName);
+        PluginInterface* plugin = mApp->plugins()->getPlugin(fileName);
         if (!plugin)
             continue;
 
@@ -164,7 +164,7 @@ void PluginsList::settingsClicked()
         return;
 
     QString name = ui->list->currentItem()->toolTip();
-    PluginInterface* plugin = MainApplication::getInstance()->plugins()->getPlugin(name);
+    PluginInterface* plugin = mApp->plugins()->getPlugin(name);
     plugin->showSettings();
 }
 
@@ -175,13 +175,13 @@ void PluginsList::reloadPlugins()
         if (ui->list->item(i)->checkState() == Qt::Checked)
             allowedPlugins.append(ui->list->item(i)->toolTip());
     }
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
     settings.setValue("AllowedPlugins",allowedPlugins);
     settings.endGroup();
 
-    MainApplication::getInstance()->plugins()->loadSettings();
-    MainApplication::getInstance()->plugins()->loadPlugins();
+    mApp->plugins()->loadSettings();
+    mApp->plugins()->loadPlugins();
 
     refresh();
 }

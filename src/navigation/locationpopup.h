@@ -15,38 +15,35 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef AUTOSAVER_H
-#define AUTOSAVER_H
-
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
-#ifdef QT_NO_DEBUG
-#ifdef DEVELOPING
-#error "TRYING TO RELEASE WITH DEVELOPING FLAG"
-#endif
-#endif
-
-#include <QObject>
-#include <QBasicTimer>
+#ifndef LOCATIONPOPUP_H
+#define LOCATIONPOPUP_H
+#if 0
+#include <QAbstractItemView>
 #include <QDebug>
 
-class AutoSaver : public QObject
+class LocationPopup : public QAbstractItemView
 {
     Q_OBJECT
 public:
-    explicit AutoSaver(QObject *parent = 0);
+    explicit LocationPopup(QWidget *parent = 0);
 
 signals:
-    void saveApp();
 
 public slots:
-
+    void show();
 private:
-    void timerEvent(QTimerEvent *);
-    QBasicTimer m_timer;
+    QRect visualRect(const QModelIndex &index) const;
+    void scrollTo(const QModelIndex &index, ScrollHint hint);
+    QModelIndex indexAt(const QPoint &point) const;
+    QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);
+    int horizontalOffset() const;
+    int verticalOffset() const;
+    bool isIndexHidden(const QModelIndex &index) const;
+    void setSelection(const QRect &rect, QItemSelectionModel::SelectionFlags command);
+    QRegion visualRegionForSelection(const QItemSelection &selection) const;
 
+    QWidget* m_parent;
 };
 
-#endif // AUTOSAVER_H
+#endif // LOCATIONPOPUP_H
+#endif

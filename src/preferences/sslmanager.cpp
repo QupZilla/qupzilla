@@ -15,19 +15,27 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "autosaver.h"
+#include "sslmanager.h"
+#include "ui_sslmanager.h"
+#include "networkmanager.h"
 #include "mainapplication.h"
 
-AutoSaver::AutoSaver(QObject *parent) :
-     QObject(parent)
+SSLManager::SSLManager(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::SSLManager)
 {
-    m_timer.start(1000*5, this);
+    setAttribute(Qt::WA_DeleteOnClose);
+    ui->setupUi(this);
+    QList<QSslCertificate> certs = mApp->networkManager()->getCertExceptions();
+    foreach (QSslCertificate cert, certs) {
+        QListWidgetItem* item = new QListWidgetItem(ui->list);
+        item->setText(cert.serialNumber());
+        item->setData(0, certs.indexOf(cert));
+        ui->list->addItem(item);
+    }
 }
 
-void AutoSaver::timerEvent(QTimerEvent *event)
+SSLManager::~SSLManager()
 {
-    if (event->timerId() == m_timer.timerId() && mApp->isChanged())
-        emit saveApp();
-    else
-        QObject::timerEvent(event);
+    delete ui;
 }

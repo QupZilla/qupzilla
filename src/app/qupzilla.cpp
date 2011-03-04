@@ -53,7 +53,6 @@ const QString QupZilla::WEBKITVERSION=qWebKitVersion();
 
 QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     QMainWindow()
-    ,p_mainApp(MainApplication::getInstance())
     ,m_tryRestore(tryRestore)
     ,m_startingUrl(startUrl)
     ,m_actionPrivateBrowsing(0)
@@ -65,15 +64,15 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     this->setWindowTitle("QupZilla");
     setUpdatesEnabled(false);
 
-    m_activeProfil = p_mainApp->getActiveProfil();
-    m_activeLanguage = p_mainApp->getActiveLanguage();
+    m_activeProfil = mApp->getActiveProfil();
+    m_activeLanguage = mApp->getActiveLanguage();
 
     QDesktopServices::setUrlHandler("http", this, "loadAddress");
 
     setupUi();
     setupMenu();
     QTimer::singleShot(0, this, SLOT(postLaunch()));
-    connect(p_mainApp, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(receiveMessage(MainApplication::MessageType,bool)));
+    connect(mApp, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(receiveMessage(MainApplication::MessageType,bool)));
 }
 
 void QupZilla::loadSettings()
@@ -86,7 +85,7 @@ void QupZilla::loadSettings()
     m_newtab = settings.value("newTabUrl","").toUrl();
     settings.endGroup();
 
-    QWebSettings* websettings=p_mainApp->webSettings();
+    QWebSettings* websettings=mApp->webSettings();
     websettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
     //Web browsing settings
     settings.beginGroup("Web-Browser-Settings");
@@ -127,8 +126,8 @@ void QupZilla::loadSettings()
     m_buttonNext->setVisible(showBackForwardIcons);
 
     //Private browsing
-    m_actionPrivateBrowsing->setChecked( p_mainApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
-    m_privateBrowsing->setVisible( p_mainApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
+    m_actionPrivateBrowsing->setChecked( mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
+    m_privateBrowsing->setVisible( mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
 
     if (!makeTransparent)
         return;
@@ -354,7 +353,7 @@ void QupZilla::aboutToShowHelpMenu()
     m_menuHelp->clear();
     m_menuHelp->addAction(tr("Report Bug"), this, SLOT(reportBug()));
     m_menuHelp->addSeparator();
-    p_mainApp->plugins()->populateHelpMenu(m_menuHelp);
+    mApp->plugins()->populateHelpMenu(m_menuHelp);
     m_menuHelp->addAction(QIcon(":/icons/menu/qt.png"), tr("About Qt"), qApp, SLOT(aboutQt()));
     m_menuHelp->addAction(QIcon(":/icons/qupzilla.png"), tr("About QupZilla"), this, SLOT(aboutQupZilla()));
 }
@@ -371,11 +370,11 @@ void QupZilla::aboutToShowToolsMenu()
     m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent History"), this, SLOT(showClearPrivateData()));
     m_actionPrivateBrowsing = new QAction(tr("Private Browsing"), this);
     m_actionPrivateBrowsing->setCheckable(true);
-    m_actionPrivateBrowsing->setChecked(p_mainApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
+    m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), this, SLOT(startPrivate(bool)));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
-    p_mainApp->plugins()->populateToolsMenu(m_menuTools);
+    mApp->plugins()->populateToolsMenu(m_menuTools);
     m_menuTools->addAction(QIcon(":/icons/faenza/settings.png"), tr("Preferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
 }
 
@@ -392,17 +391,17 @@ void QupZilla::aboutToShowViewMenu()
 
 void QupZilla::bookmarkPage()
 {
-    p_mainApp->bookmarksManager()->addBookmark(weView());
+    mApp->bookmarksManager()->addBookmark(weView());
 }
 
 void QupZilla::addBookmark(const QUrl &url, const QString &title)
 {
-    p_mainApp->bookmarksManager()->insertBookmark(url, title);
+    mApp->bookmarksManager()->insertBookmark(url, title);
 }
 
 void QupZilla::bookmarkAllTabs()
 {
-    p_mainApp->bookmarksManager()->insertAllTabs();
+    mApp->bookmarksManager()->insertAllTabs();
 }
 
 void QupZilla::loadActionUrl()
@@ -422,14 +421,14 @@ void QupZilla::urlEnter()
 
 void QupZilla::showCookieManager()
 {
-    CookieManager* m = p_mainApp->cookieManager();
+    CookieManager* m = mApp->cookieManager();
     m->refreshTable();
     m->show();
 }
 
 void QupZilla::showHistoryManager()
 {
-    HistoryManager* m = p_mainApp->historyManager();
+    HistoryManager* m = mApp->historyManager();
     m->refreshTable();
     m->setMainWindow(this);
     m->show();
@@ -437,7 +436,7 @@ void QupZilla::showHistoryManager()
 
 void QupZilla::showRSSManager()
 {
-    RSSManager* m = p_mainApp->rssManager();
+    RSSManager* m = mApp->rssManager();
     m->refreshTable();
     m->setMainWindow(this);
     m->show();
@@ -445,7 +444,7 @@ void QupZilla::showRSSManager()
 
 void QupZilla::showBookmarksManager()
 {
-    BookmarksManager* m = p_mainApp->bookmarksManager();
+    BookmarksManager* m = mApp->bookmarksManager();
     m->refreshTable();
     m->setMainWindow(this);
     m->show();
@@ -459,7 +458,7 @@ void QupZilla::showClearPrivateData()
 
 void QupZilla::showDownloadManager()
 {
-    MainApplication::getInstance()->downManager()->show();
+    mApp->downManager()->show();
 }
 
 void QupZilla::showPreferences()
@@ -611,7 +610,7 @@ void QupZilla::savePage()
 {
     QNetworkRequest request(weView()->url());
 
-    DownloadManager* dManager = MainApplication::getInstance()->downManager();
+    DownloadManager* dManager = mApp->downManager();
     dManager->download(request);
 }
 
@@ -644,15 +643,15 @@ void QupZilla::startPrivate(bool state)
         if (button != QMessageBox::Yes)
             return;
     }
-    p_mainApp->webSettings()->setAttribute(QWebSettings::PrivateBrowsingEnabled, state);
-    p_mainApp->history()->setSaving(!state);
-    p_mainApp->cookieJar()->setAllowCookies(!state);
+    mApp->webSettings()->setAttribute(QWebSettings::PrivateBrowsingEnabled, state);
+    mApp->history()->setSaving(!state);
+    mApp->cookieJar()->setAllowCookies(!state);
     emit message(MainApplication::CheckPrivateBrowsing, state);
 }
 
 void QupZilla::closeEvent(QCloseEvent* event)
 {
-    if (p_mainApp->isClosing())
+    if (mApp->isClosing())
         return;
 
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
@@ -668,9 +667,9 @@ void QupZilla::closeEvent(QCloseEvent* event)
     }
     settings.endGroup();
 
-    p_mainApp->cookieJar()->saveCookies();
-    p_mainApp->saveStateSlot();
-    p_mainApp->aboutToCloseWindow(this);
+    mApp->cookieJar()->saveCookies();
+    mApp->saveStateSlot();
+    mApp->aboutToCloseWindow(this);
 
     this->~QupZilla();
     event->accept();
@@ -689,7 +688,7 @@ void QupZilla::quitApp()
     }
     settings.endGroup();
 
-    p_mainApp->quitApplication();
+    mApp->quitApplication();
 }
 
 QupZilla::~QupZilla()

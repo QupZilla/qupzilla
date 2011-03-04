@@ -32,7 +32,7 @@ BookmarksWidget::BookmarksWidget(int bookmarkId, QWidget *parent) :
     connect(ui->removeBookmark, SIGNAL(clicked()), this, SLOT(removeBookmark()));
     connect(ui->save, SIGNAL(clicked()), this, SLOT(saveBookmark()));
 
-    m_bookmarksModel = MainApplication::getInstance()->bookmarks();
+    m_bookmarksModel = mApp->bookmarks();
     loadBookmark();
 }
 
