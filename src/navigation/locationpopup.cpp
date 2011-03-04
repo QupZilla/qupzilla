@@ -16,13 +16,12 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationpopup.h"
-#if 0
 LocationPopup::LocationPopup(QWidget *parent)
    :QAbstractItemView()
    ,m_parent(parent)
 {
     setWindowFlags(Qt::Popup);
-}r
+}
 
 void LocationPopup::show()
 {
@@ -32,6 +31,7 @@ void LocationPopup::show()
     QAbstractItemView::show();
 }
 
+#if 0
 QRect LocationPopup::visualRect(const QModelIndex &index) const
 {
 
