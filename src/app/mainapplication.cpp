@@ -526,14 +526,16 @@ bool MainApplication::checkProfileDir()
     QString homePath = QDir::homePath();
     homePath+="/.qupzilla/";
 
+    QByteArray rData;
     if (QDir(homePath).exists()) {
         QFile versionFile(homePath+"version");
         versionFile.open(QFile::ReadOnly);
-        if (versionFile.readAll().contains(QupZilla::VERSION.toAscii())) {
+        rData = versionFile.readAll();
+        if (rData.contains(QupZilla::VERSION.toAscii())) {
             versionFile.close();
             return true;
         }
-        versionFile.close();
+    versionFile.close();
 #ifdef DEVELOPING
         return true;
 #endif
@@ -551,6 +553,9 @@ bool MainApplication::checkProfileDir()
     versionFile.open(QFile::WriteOnly);
     versionFile.write(QupZilla::VERSION.toAscii());
     versionFile.close();
+
+    if (rData.contains("0.9.6")) // Data not changed from this version
+        return true;
 
     dir.mkdir("profiles");
     dir.cd("profiles");
