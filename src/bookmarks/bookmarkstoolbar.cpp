@@ -82,7 +82,7 @@ void BookmarksToolbar::hidePanel()
 void BookmarksToolbar::refreshBookmarks()
 {
     if (!m_bookmarksModel)
-        m_bookmarksModel =MainApplication::getInstance()->bookmarks();
+        m_bookmarksModel =mApp->bookmarks();
 
     clear();
     QSqlQuery query;

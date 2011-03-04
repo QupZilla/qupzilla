@@ -32,7 +32,7 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget *parent) :
     ,m_isRefreshing(false)
     ,ui(new Ui::BookmarksManager)
     ,p_QupZilla(mainClass)
-    ,m_bookmarksModel(MainApplication::getInstance()->bookmarks())
+    ,m_bookmarksModel(mApp->bookmarks())
 {
     ui->setupUi(this);
     //CENTER on scren
@@ -52,7 +52,7 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget *parent) :
 QupZilla* BookmarksManager::getQupZilla()
 {
     if (!p_QupZilla)
-        p_QupZilla = MainApplication::getInstance()->getWindow();
+        p_QupZilla = mApp->getWindow();
     return p_QupZilla;
 }
 

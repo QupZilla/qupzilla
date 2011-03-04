@@ -17,6 +17,7 @@
 * ============================================================ */
 #ifndef MAINAPPLICATION_H
 #define MAINAPPLICATION_H
+#define mApp MainApplication::getInstance()
 
 #if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
 #define QT_NO_DEBUG_OUTPUT

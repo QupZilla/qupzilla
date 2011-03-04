@@ -29,7 +29,7 @@ HistoryModel::HistoryModel(QupZilla *mainClass, QObject *parent)
 
 void HistoryModel::loadSettings()
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
     m_isSaving = settings.value("allowHistory",true).toBool();
 }

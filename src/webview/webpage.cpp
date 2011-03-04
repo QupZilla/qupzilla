@@ -42,7 +42,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
     switch(reply->error()) {
     case QNetworkReply::NoError:
         if (reply->header(QNetworkRequest::ContentTypeHeader).isValid()) {
-            DownloadManager* dManager = MainApplication::getInstance()->downManager();
+            DownloadManager* dManager = mApp->downManager();
             dManager->handleUnsupportedContent(reply);
             return;
         }

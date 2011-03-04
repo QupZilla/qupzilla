@@ -15,19 +15,27 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "autosaver.h"
-#include "mainapplication.h"
 
-AutoSaver::AutoSaver(QObject *parent) :
-     QObject(parent)
-{
-    m_timer.start(1000*5, this);
+
+#ifndef SSLMANAGER_H
+#define SSLMANAGER_H
+
+#include <QWidget>
+
+namespace Ui {
+    class SSLManager;
 }
 
-void AutoSaver::timerEvent(QTimerEvent *event)
+class SSLManager : public QWidget
 {
-    if (event->timerId() == m_timer.timerId() && mApp->isChanged())
-        emit saveApp();
-    else
-        QObject::timerEvent(event);
-}
+    Q_OBJECT
+
+public:
+    explicit SSLManager(QWidget *parent = 0);
+    ~SSLManager();
+
+private:
+    Ui::SSLManager *ui;
+};
+
+#endif // SSLMANAGER_H

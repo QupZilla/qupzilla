@@ -69,13 +69,13 @@ void AutoFillNotification::frameChanged(int frame)
 
 void AutoFillNotification::never()
 {
-    MainApplication::getInstance()->autoFill()->blockStoringfor(m_url);
+    mApp->autoFill()->blockStoringfor(m_url);
     hide();
 }
 
 void AutoFillNotification::remember()
 {
-    MainApplication::getInstance()->autoFill()->addEntry(m_url, m_data, m_pass);
+    mApp->autoFill()->addEntry(m_url, m_data, m_pass);
     hide();
 }
 

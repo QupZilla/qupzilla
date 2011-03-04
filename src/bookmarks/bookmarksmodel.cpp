@@ -31,7 +31,7 @@ BookmarksModel::BookmarksModel()
 
 void BookmarksModel::loadSettings()
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
     m_showMostVisited = settings.value("showMostVisited",true).toBool();
     settings.endGroup();
@@ -39,7 +39,7 @@ void BookmarksModel::loadSettings()
 
 void BookmarksModel::setShowingMostVisited(bool state)
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
     settings.setValue("showMostVisited",state);
     settings.endGroup();

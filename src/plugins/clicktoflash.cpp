@@ -88,7 +88,7 @@ void ClickToFlash::customContextMenuRequested(const QPoint &pos)
 
 void ClickToFlash::toWhitelist()
 {
-    MainApplication::getInstance()->plugins()->c2f_addWhitelist(m_url.host());
+    mApp->plugins()->c2f_addWhitelist(m_url.host());
     load();
 }
 

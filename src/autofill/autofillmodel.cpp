@@ -31,7 +31,7 @@ AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject *parent) :
 
 void AutoFillModel::loadSettings()
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
     m_isStoring = settings.value("AutoFillForms",true).toBool();
     settings.endGroup();
@@ -150,7 +150,7 @@ void AutoFillModel::completePage(WebView* view)
 void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgoingData)
 {
     //Dont save in private browsing
-    if (MainApplication::getInstance()->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled))
+    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled))
         return;
     m_lastOutgoingData = outgoingData;
 

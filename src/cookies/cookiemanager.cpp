@@ -51,7 +51,7 @@ void CookieManager::removeAll()
         return;
 
     m_cookies.clear();
-    MainApplication::getInstance()->cookieJar()->setAllCookies(m_cookies);
+    mApp->cookieJar()->setAllCookies(m_cookies);
     ui->cookieTree->clear();
 }
 
@@ -69,14 +69,14 @@ void CookieManager::removeCookie()
         }
 
         delete current;
-        MainApplication::getInstance()->cookieJar()->setAllCookies(m_cookies);
+        mApp->cookieJar()->setAllCookies(m_cookies);
         refreshTable(false);
         return;
     }
 
     int index = current->whatsThis(1).toInt();
     m_cookies.removeAt(index);
-    MainApplication::getInstance()->cookieJar()->setAllCookies(m_cookies);
+    mApp->cookieJar()->setAllCookies(m_cookies);
     refreshTable(false);
 
     if (!ui->search->text().isEmpty())
@@ -118,7 +118,7 @@ void CookieManager::currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem
 void CookieManager::refreshTable(bool refreshCookieJar)
 {
     if (refreshCookieJar)
-        m_cookies = MainApplication::getInstance()->cookieJar()->getAllCookies();
+        m_cookies = mApp->cookieJar()->getAllCookies();
 
     ui->cookieTree->setUpdatesEnabled(false);
     ui->cookieTree->clear();
