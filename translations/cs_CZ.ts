@@ -73,11 +73,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AutoFillManager</name>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="14"/>
-        <source>Password Manager</source>
-        <translation>Správce hesel</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/autofillmanager.ui" line="31"/>
         <source>Passwords</source>
         <translation>Hesla</translation>
@@ -917,67 +912,67 @@ neexistuje!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="50"/>
+        <location filename="../src/network/networkmanager.cpp" line="56"/>
         <source>SSL Certificate Error!</source>
         <translation>Chyba zabezpečení!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="51"/>
+        <location filename="../src/network/networkmanager.cpp" line="57"/>
         <source>The page you trying to access has following errors in SSL Certificate:</source>
         <translation>Stránka kterou se snažíte navštívit zaslala SSL Certifikát s těmito chybami:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="62"/>
+        <location filename="../src/network/networkmanager.cpp" line="68"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizace: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="63"/>
+        <location filename="../src/network/networkmanager.cpp" line="69"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Doména: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="64"/>
+        <location filename="../src/network/networkmanager.cpp" line="70"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Vyprší: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="65"/>
+        <location filename="../src/network/networkmanager.cpp" line="71"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Chyba: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="68"/>
+        <location filename="../src/network/networkmanager.cpp" line="74"/>
         <source>Would you like to make exception for this certificate?</source>
         <translation>Chcete udělit vyjímku tomuto certifikátu?</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="72"/>
+        <location filename="../src/network/networkmanager.cpp" line="78"/>
         <source>SSL Certificate Error</source>
         <translation>Chyba zabezpečení</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="90"/>
+        <location filename="../src/network/networkmanager.cpp" line="96"/>
         <source>Authorization required</source>
         <translation>Vyžadována autorizace</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="97"/>
+        <location filename="../src/network/networkmanager.cpp" line="103"/>
         <source>Username: </source>
         <translation>Uživatelské jméno: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="98"/>
+        <location filename="../src/network/networkmanager.cpp" line="104"/>
         <source>Password: </source>
         <translation>Heslo: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="103"/>
+        <location filename="../src/network/networkmanager.cpp" line="109"/>
         <source>Save username and password on this site</source>
         <translation>Uložit jméno a heslo pro tuto stránku</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="112"/>
+        <location filename="../src/network/networkmanager.cpp" line="118"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Server %1 požaduje vaše uživatelské jméno a heslo s komentářem: &quot;%2&quot;</translation>
     </message>
@@ -985,14 +980,9 @@ neexistuje!</translation>
 <context>
     <name>PluginsList</name>
     <message>
-        <location filename="../src/preferences/pluginslist.ui" line="14"/>
-        <source>Form</source>
-        <translation>Form</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/pluginslist.ui" line="24"/>
         <source>Application Extensions</source>
-        <translation>Doplnky aplikace</translation>
+        <translation>Doplňky aplikace</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="30"/>
@@ -1068,25 +1058,9 @@ neexistuje!</translation>
         <translation>Obecné</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="58"/>
-        <source>0</source>
-        <translation>0</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="70"/>
         <location filename="../src/preferences/preferences.ui" line="937"/>
         <source>1</source>
         <translation>1</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="82"/>
-        <source>2</source>
-        <translation>2</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="94"/>
-        <source>3</source>
-        <translation>3</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="103"/>
@@ -1094,34 +1068,9 @@ neexistuje!</translation>
         <translation>Stahování</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="106"/>
-        <source>4</source>
-        <translation>4</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="118"/>
-        <source>5</source>
-        <translation>5</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="130"/>
-        <source>6</source>
-        <translation>6</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="139"/>
         <source>Plugins</source>
         <translation>Doplňky</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="142"/>
-        <source>7</source>
-        <translation>7</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="154"/>
-        <source>8</source>
-        <translation>8</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="234"/>
@@ -2054,11 +2003,6 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>RSSNotification</name>
     <message>
-        <location filename="../src/rss/rssnotification.ui" line="14"/>
-        <source>Form</source>
-        <translation>Form</translation>
-    </message>
-    <message>
         <location filename="../src/rss/rssnotification.ui" line="55"/>
         <source>Open RSS Manager</source>
         <translation>Otevřít RSS čtečku</translation>
@@ -2071,11 +2015,6 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 </context>
 <context>
     <name>RSSWidget</name>
-    <message>
-        <location filename="../src/rss/rsswidget.ui" line="14"/>
-        <source>Form</source>
-        <translation>Form</translation>
-    </message>
     <message>
         <location filename="../src/rss/rsswidget.ui" line="59"/>
         <source>Add RSS Feeds from this site</source>
@@ -2110,37 +2049,37 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Ignorovat všechna varování</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="50"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="56"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizace: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="51"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="57"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Doména: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="52"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="58"/>
         <source>&lt;b&gt;Locality Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Lokalita: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="53"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="59"/>
         <source>&lt;b&gt;Country Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Země: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="54"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="60"/>
         <source>&lt;b&gt;Verified by: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Ověřeno: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="55"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="61"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Vyprší: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="67"/>
         <source>SSL Certificate Informations</source>
         <translation>Informace o certifikátě</translation>
     </message>
@@ -2240,11 +2179,6 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 </context>
 <context>
     <name>SiteInfoWidget</name>
-    <message>
-        <location filename="../src/webview/siteinfowidget.ui" line="14"/>
-        <source>Form</source>
-        <translation>Form</translation>
-    </message>
     <message>
         <location filename="../src/webview/siteinfowidget.ui" line="87"/>
         <source>More...</source>
