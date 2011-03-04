@@ -33,12 +33,12 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject *parent) :
 
 void NetworkManager::loadSettings()
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
 
     if (settings.value("AllowLocalCache", true).toBool()) {
         m_diskCache = new QNetworkDiskCache(this);
-        m_diskCache->setCacheDirectory(MainApplication::getInstance()->getActiveProfil()+"/networkcache");
+        m_diskCache->setCacheDirectory(mApp->getActiveProfil()+"/networkcache");
         m_diskCache->setMaximumCacheSize(settings.value("MaximumCacheSize",50).toInt() * 1024*1024); //MegaBytes
         setCache(m_diskCache);
     }
@@ -118,7 +118,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     formLa->addRow(save);
 
     formLa->addWidget(box);
-    AutoFillModel* fill = MainApplication::getInstance()->autoFill();
+    AutoFillModel* fill = mApp->autoFill();
     if (fill->isStored(reply->url())) {
         save->setChecked(true);
         user->setText(fill->getUsername(reply->url()));
@@ -127,7 +127,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     emit wantsFocus(reply->url());
 
     //Do not save when private browsing is enabled
-    if (p_QupZilla->getMainApp()->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled))
+    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled))
         save->setVisible(false);
 
     if (!dialog->exec() == QDialog::Accepted)
@@ -143,7 +143,7 @@ QNetworkReply *NetworkManager::createRequest(QNetworkAccessManager::Operation op
 {
     if (op == PostOperation && outgoingData) {
             QByteArray outgoingDataByteArray = outgoingData->peek(1024 * 1024);
-            MainApplication::getInstance()->autoFill()->post(request, outgoingDataByteArray);
+            mApp->autoFill()->post(request, outgoingDataByteArray);
     }
 
     QNetworkRequest req = request;
@@ -155,7 +155,7 @@ QNetworkReply *NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
 void NetworkManager::saveCertExceptions()
 {
-    QFile file(MainApplication::getInstance()->getActiveProfil()+"sslexceptions.dat");
+    QFile file(mApp->getActiveProfil()+"sslexceptions.dat");
     file.open(QIODevice::WriteOnly);
     QDataStream stream(&file);
 
@@ -171,7 +171,7 @@ void NetworkManager::saveCertExceptions()
 
 void NetworkManager::loadCertExceptions()
 {
-    QFile file(MainApplication::getInstance()->getActiveProfil()+"sslexceptions.dat");
+    QFile file(mApp->getActiveProfil()+"sslexceptions.dat");
     file.open(QIODevice::ReadOnly);
     QDataStream stream(&file);
 

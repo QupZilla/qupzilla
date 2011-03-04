@@ -42,7 +42,7 @@ WebView::WebView(QupZilla* mainClass, QWidget *parent)
     //,m_loadingTimer(0)
 {
     m_networkProxy = new NetworkManagerProxy(p_QupZilla);
-    m_networkProxy->setPrimaryNetworkAccessManager(p_QupZilla->getMainApp()->networkManager());
+    m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
     m_networkProxy->setPage(m_page);
     m_networkProxy->setView(this);
     m_page->setNetworkAccessManager(m_networkProxy);
@@ -64,8 +64,8 @@ WebView::WebView(QupZilla* mainClass, QWidget *parent)
     connect(page(), SIGNAL(windowCloseRequested()), this, SLOT(closeTab()));
     connect(page(), SIGNAL(downloadRequested(const QNetworkRequest &)), this, SLOT(downloadRequested(const QNetworkRequest &)));
 
-    connect(p_QupZilla->getMainApp()->networkManager(), SIGNAL(finishLoading(bool)), this, SLOT(loadFinished(bool)));
-    connect(p_QupZilla->getMainApp()->networkManager(), SIGNAL(wantsFocus(QUrl)), this, SLOT(getFocus(QUrl)));
+    connect(mApp->networkManager(), SIGNAL(finishLoading(bool)), this, SLOT(loadFinished(bool)));
+    connect(mApp->networkManager(), SIGNAL(wantsFocus(QUrl)), this, SLOT(getFocus(QUrl)));
 
     //Zoom levels same as in firefox
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
@@ -188,7 +188,7 @@ void WebView::loadFinished(bool state)
     if (m_progress>100) qDebug() << "bug"; //cannot be more than 100
     m_isLoading = false;
 
-    p_QupZilla->getMainApp()->history()->addHistoryEntry(this);
+    mApp->history()->addHistoryEntry(this);
     if (isCurrent()) {
         emit showUrl(url());
     }
@@ -203,7 +203,7 @@ void WebView::loadFinished(bool state)
         QTimer::singleShot(1000, this, SLOT(iconChanged()));
 
     titleChanged(title());
-    MainApplication::getInstance()->autoFill()->completePage(this);
+    mApp->autoFill()->completePage(this);
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
 }
 
@@ -469,7 +469,7 @@ void WebView::contextMenuEvent(QContextMenuEvent *event)
         menu->addAction(QIcon::fromTheme("dialog-information"),tr("Show info about site"), this, SLOT(showSiteInfo()))->setData(url());
     }
 
-    MainApplication::getInstance()->plugins()->populateWebViewMenu(menu, this, r);
+    mApp->plugins()->populateWebViewMenu(menu, this, r);
     menu->addAction(tr("Show Web Inspector"), this, SLOT(showInspector()));
 
     if (!page()->selectedText().isEmpty()) {
@@ -506,7 +506,7 @@ void WebView::openUrlInNewTab()
 void WebView::openUrlInNewWindow()
 {
     if (QAction *action = qobject_cast<QAction*>(sender())) {
-        p_QupZilla->getMainApp()->makeNewWindow(false, action->data().toString());
+        mApp->makeNewWindow(false, action->data().toString());
     }
 }
 
@@ -562,14 +562,14 @@ void WebView::downloadLinkToDisk()
 {
     if (QAction *action = qobject_cast<QAction*>(sender())) {
         QNetworkRequest request(action->data().toUrl());
-        DownloadManager* dManager = MainApplication::getInstance()->downManager();
+        DownloadManager* dManager = mApp->downManager();
         dManager->download(request);
     }
 }
 
 void WebView::downloadRequested(const QNetworkRequest &request)
 {
-    DownloadManager* dManager = MainApplication::getInstance()->downManager();
+    DownloadManager* dManager = mApp->downManager();
     dManager->download(request);
 }
 

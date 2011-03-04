@@ -57,6 +57,7 @@ private slots:
     void useActualNewTab();
     void resetBackground();
     void chooseColor();
+    void openSslManager();
 
     void allowJavaScriptChanged(bool stat);
     void saveHistoryChanged(bool stat);

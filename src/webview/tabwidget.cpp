@@ -71,7 +71,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget *parent) :
 
 void TabWidget::loadSettings()
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Browser-Tabs-Settings");
     m_hideCloseButtonWithOneTab = settings.value("hideCloseButtonWithOneTab",false).toBool();
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab",false).toBool();
@@ -155,7 +155,7 @@ int TabWidget::addView(QUrl url, QString title, OpenUrlIn openIn, bool selectLin
     connect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
     connect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
     connect(weView(index), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    connect(weView(index), SIGNAL(changed()), p_QupZilla->getMainApp(), SLOT(setChanged()));
+    connect(weView(index), SIGNAL(changed()), mApp, SLOT(setChanged()));
     connect(weView(index), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid())
@@ -184,7 +184,7 @@ void TabWidget::closeTab(int index)
         disconnect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
         disconnect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
         disconnect(weView(index), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-        disconnect(weView(index), SIGNAL(changed()), p_QupZilla->getMainApp(), SLOT(setChanged()));
+        disconnect(weView(index), SIGNAL(changed()), mApp, SLOT(setChanged()));
         disconnect(weView(index), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
         //Save last tab url and history
         if (!weView(index)->url().isEmpty()) {

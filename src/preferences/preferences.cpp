@@ -29,6 +29,7 @@
 #include "pluginslist.h"
 #include "qtwin.h"
 #include "pluginproxy.h"
+#include "sslmanager.h"
 
 Preferences::Preferences(QupZilla* mainClass, QWidget *parent) :
     QDialog(parent)
@@ -39,7 +40,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget *parent) :
     ui->setupUi(this);
     m_bgLabelSize = this->sizeHint();
 
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
     m_homepage = settings.value("homepage","http://qupzilla.ic.cz/search/").toString();
@@ -146,7 +147,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget *parent) :
     //PRIVACY
     //Web storage
     ui->storeIcons->setChecked( settings.value("allowPersistentStorage",true).toBool() );
-    ui->saveHistory->setChecked( p_QupZilla->getMainApp()->history()->isSaving() );
+    ui->saveHistory->setChecked( mApp->history()->isSaving() );
     ui->deleteHistoryOnClose->setChecked( settings.value("deleteHistoryOnClose",false).toBool() );
     if (!ui->saveHistory->isChecked())
         ui->deleteHistoryOnClose->setEnabled(false);
@@ -192,7 +193,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget *parent) :
     }
     ui->languages->addItem("English (en_US)");
 
-    QDir lanDir(MainApplication::getInstance()->DATADIR+"locale");
+    QDir lanDir(mApp->DATADIR+"locale");
     QStringList list = lanDir.entryList(QStringList("*.qm"));
     foreach(QString name, list) {
         if (name.startsWith("qt_") || name == activeLanguage)
@@ -208,6 +209,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget *parent) :
 
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
     connect(ui->cookieManagerBut, SIGNAL(clicked()), this, SLOT(showCookieManager()));
+    connect(ui->sslManagerButton, SIGNAL(clicked()), this, SLOT(openSslManager()));
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5,5), true);
@@ -248,7 +250,7 @@ void Preferences::useActualNewTab()
 void Preferences::resetBackground()
 {
     QFile::remove(p_QupZilla->activeProfil()+"background.png");
-    QFile(MainApplication::getInstance()->DATADIR+"data/default/profiles/default/background.png").copy(p_QupZilla->activeProfil()+"background.png");
+    QFile(mApp->DATADIR+"data/default/profiles/default/background.png").copy(p_QupZilla->activeProfil()+"background.png");
 
     m_menuTextColor = QColor(Qt::black);
     ui->textColor->setStyleSheet("color: "+m_menuTextColor.name()+";");
@@ -323,6 +325,13 @@ void Preferences::showCookieManager()
     m->show();
 }
 
+void Preferences::openSslManager()
+{
+    SSLManager* m = new SSLManager();
+    m->setWindowModality(Qt::WindowModal);
+    m->show();
+}
+
 void Preferences::cacheValueChanged(int value)
 {
     ui->MBlabel->setText(QString::number(value) + " MB");
@@ -369,7 +378,7 @@ void Preferences::buttonClicked(QAbstractButton *button)
 
 void Preferences::saveSettings()
 {
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
     settings.setValue("homepage",ui->homepage->text());
@@ -471,11 +480,11 @@ void Preferences::saveSettings()
     m_pluginsList->save();
     p_QupZilla->loadSettings();
     p_QupZilla->tabWidget()->loadSettings();
-    p_QupZilla->getMainApp()->cookieJar()->loadSettings();
-    p_QupZilla->getMainApp()->history()->loadSettings();
+    mApp->cookieJar()->loadSettings();
+    mApp->history()->loadSettings();
     p_QupZilla->locationBar()->loadSettings();
-    MainApplication::getInstance()->loadSettings();
-    MainApplication::getInstance()->plugins()->c2f_saveSettings();
+    mApp->loadSettings();
+    mApp->plugins()->c2f_saveSettings();
 }
 
 Preferences::~Preferences()

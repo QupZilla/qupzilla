@@ -43,6 +43,7 @@ public:
     explicit NetworkManager(QupZilla* mainClass, QObject *parent = 0);
     QNetworkReply *createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice *outgoingData);
 
+    QList<QSslCertificate>& getCertExceptions() { return m_certExceptions; }
     void saveCertExceptions();
     void loadCertExceptions();
     void loadSettings();

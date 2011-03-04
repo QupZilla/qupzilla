@@ -28,7 +28,7 @@ NetworkManagerProxy::NetworkManagerProxy(QupZilla* mainClass, QObject *parent) :
     ,m_view(0)
     ,m_page(0)
 {
-    setCookieJar(MainApplication::getInstance()->cookieJar());
+    setCookieJar(mApp->cookieJar());
 }
 
 void NetworkManagerProxy::populateNetworkRequest(QNetworkRequest &request)

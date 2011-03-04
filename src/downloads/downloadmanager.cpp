@@ -37,7 +37,7 @@ DownloadManager::DownloadManager(QWidget *parent) :
     m_iconProvider = new QFileIconProvider();
     m_networkManager = new QNetworkAccessManager();
 
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
     m_downloadPath = settings.value("defaultDownloadPath", QDir::homePath()).toString();
     m_lastDownloadPath = settings.value("lastDownloadPath","").toString();
@@ -147,7 +147,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply *reply)
     QString _fileName = getFileName(reply);
 
     if (m_downloadPath.isEmpty())
-        userFileName = QFileDialog::getSaveFileName(MainApplication::getInstance()->getWindow(), tr("Save file as..."),m_lastDownloadPath+_fileName);
+        userFileName = QFileDialog::getSaveFileName(mApp->getWindow(), tr("Save file as..."),m_lastDownloadPath+_fileName);
     else
         userFileName = m_downloadPath+_fileName;
 
@@ -164,7 +164,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply *reply)
     }
 
     m_lastDownloadPath = path;
-    QSettings settings(MainApplication::getInstance()->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
     settings.setValue("lastDownloadPath",m_lastDownloadPath);
     settings.endGroup();
@@ -241,7 +241,7 @@ bool DownloadManager::canClose()
 
 void DownloadManager::closeEvent(QCloseEvent *e)
 {
-    if (!MainApplication::getInstance()->getWindow()) { // No main windows -> we are going to quit
+    if (!mApp->getWindow()) { // No main windows -> we are going to quit
         if (!canClose()){
             QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Warning"),
                              tr("Are you sure to quit? All uncompleted downloads will be cancelled!"), QMessageBox::Yes | QMessageBox::No);
@@ -251,7 +251,7 @@ void DownloadManager::closeEvent(QCloseEvent *e)
             }
             m_isClosing = true;
         }
-        MainApplication::getInstance()->quitApplication();
+        mApp->quitApplication();
     }
     e->accept();
 }

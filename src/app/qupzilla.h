@@ -101,7 +101,6 @@ public:
     inline LocationBar* locationBar(){ return m_locationBar; }
     inline TabWidget* tabWidget(){ return m_tabWidget; }
     inline BookmarksToolbar* bookmarksToolbar(){ return m_bookmarksToolbar; }
-    inline MainApplication* getMainApp() { return p_mainApp; }
 
     inline QAction* buttonStop(){ return m_buttonStop; }
     inline QAction* buttonReload(){ return m_buttonReload; }
@@ -165,7 +164,7 @@ private slots:
     void showPreferences();
 
     void bookmarkAllTabs();
-    void newWindow() { p_mainApp->makeNewWindow(false); }
+    void newWindow() { mApp->makeNewWindow(false); }
 
     void openLocation() { m_locationBar->setFocus(); m_locationBar->selectAll(); }
     void openFile();
@@ -188,8 +187,6 @@ private slots:
 private:
     void setupUi();
     void setupMenu();
-
-    MainApplication* p_mainApp;
 
     bool m_tryRestore;
     QUrl m_startingUrl;

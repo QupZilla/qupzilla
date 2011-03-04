@@ -53,7 +53,7 @@ void QupZilla::postLaunch()
             startUrl = m_homepage;
 
         if ( startingAfterCrash || (addTab && afterLaunch == 2) ) {
-            p_mainApp->restoreStateSlot(this);
+            mApp->restoreStateSlot(this);
             addTab = false;
         }
     } else
