@@ -55,7 +55,7 @@
        <string>General</string>
       </property>
       <property name="whatsThis">
-       <string>0</string>
+       <string notr="true">0</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
@@ -67,7 +67,7 @@
        <string>Window</string>
       </property>
       <property name="whatsThis">
-       <string>1</string>
+       <string notr="true">1</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
@@ -79,7 +79,7 @@
        <string>Tabs</string>
       </property>
       <property name="whatsThis">
-       <string>2</string>
+       <string notr="true">2</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
@@ -91,7 +91,7 @@
        <string>Browsing</string>
       </property>
       <property name="whatsThis">
-       <string>3</string>
+       <string notr="true">3</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
@@ -103,7 +103,7 @@
        <string>Downloads</string>
       </property>
       <property name="whatsThis">
-       <string>4</string>
+       <string notr="true">4</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
@@ -115,7 +115,7 @@
        <string>Password Manager</string>
       </property>
       <property name="whatsThis">
-       <string>5</string>
+       <string notr="true">5</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
@@ -127,7 +127,7 @@
        <string>Privacy</string>
       </property>
       <property name="whatsThis">
-       <string>6</string>
+       <string notr="true">6</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
@@ -139,7 +139,7 @@
        <string>Plugins</string>
       </property>
       <property name="whatsThis">
-       <string>7</string>
+       <string notr="true">7</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
@@ -151,7 +151,7 @@
        <string>Other</string>
       </property>
       <property name="whatsThis">
-       <string>8</string>
+       <string notr="true">8</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
