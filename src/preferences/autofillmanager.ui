@@ -11,10 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Password Manager</string>
+   <string notr="true"/>
   </property>
   <property name="windowIcon">
-   <iconset resource="../icons.qrc">
+   <iconset resource="../data/icons.qrc">
     <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -140,7 +140,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../icons.qrc"/>
+  <include location="../data/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
