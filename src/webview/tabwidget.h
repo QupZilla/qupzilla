@@ -68,8 +68,8 @@ private slots:
     void actionChangeIndex();
 
 private:
-    inline WebView* weView() { return qobject_cast<WebTab*>(widget(currentIndex()))->view(); }
-    inline WebView* weView(int index) { return qobject_cast<WebTab*>(widget(index))->view(); }
+    inline WebView* weView() { WebTab* webTab = qobject_cast<WebTab*>(widget(currentIndex())); if (!webTab) return 0; return webTab->view(); }
+    inline WebView* weView(int index) { WebTab* webTab = qobject_cast<WebTab*>(widget(index)); if (!webTab) return 0; return webTab->view(); }
 
     bool m_hideCloseButtonWithOneTab;
     bool m_hideTabBarWithOneTab;
