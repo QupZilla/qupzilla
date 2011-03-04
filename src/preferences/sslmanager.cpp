@@ -26,13 +26,69 @@ SSLManager::SSLManager(QWidget *parent) :
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
-    QList<QSslCertificate> certs = mApp->networkManager()->getCertExceptions();
-    foreach (QSslCertificate cert, certs) {
+    m_certs = mApp->networkManager()->getCertExceptions();
+    foreach (QSslCertificate cert, m_certs) {
         QListWidgetItem* item = new QListWidgetItem(ui->list);
-        item->setText(cert.serialNumber());
-        item->setData(0, certs.indexOf(cert));
+        item->setText( cert.subjectInfo(QSslCertificate::Organization) + " " + cert.subjectInfo(QSslCertificate::CommonName) );
+        item->setWhatsThis(QString::number(m_certs.indexOf(cert)));
         ui->list->addItem(item);
     }
+
+    connect(ui->list, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(showCertificateInfo()));
+    connect(ui->infoButton, SIGNAL(clicked()), this, SLOT(showCertificateInfo()));
+    connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteCertificate()));
+    connect(ui->ignoreAll, SIGNAL(clicked(bool)), this, SLOT(ignoreAll(bool)));
+
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    settings.beginGroup("Web-Browser-Settings");
+    ui->ignoreAll->setChecked( settings.value("IgnoreAllSSLWarnings", false).toBool() );
+    settings.endGroup();
+}
+
+void SSLManager::showCertificateInfo()
+{
+    QListWidgetItem* item = ui->list->currentItem();
+    if (!item)
+        return;
+
+    QSslCertificate cert = m_certs.at(item->whatsThis().toInt());
+    QStringList actions;
+    actions.append(tr("<b>Organization: </b>") + cert.subjectInfo(QSslCertificate::Organization));
+    actions.append(tr("<b>Domain Name: </b>") + cert.subjectInfo(QSslCertificate::CommonName));
+    actions.append(tr("<b>Locality Name: </b>") + cert.subjectInfo(QSslCertificate::LocalityName));
+    actions.append(tr("<b>Country Name: </b>") + cert.subjectInfo(QSslCertificate::CountryName));
+    actions.append(tr("<b>Verified by: </b>") + cert.subjectInfo(QSslCertificate::OrganizationalUnitName));
+    actions.append(tr("<b>Expiration Date: </b>") + cert.expiryDate().toString("hh:mm:ss dddd d. MMMM yyyy"));
+
+    QString message = QString(QLatin1String("<ul><li>%3</li></ul>")).arg(actions.join(QLatin1String("</li><li>")));
+
+    QMessageBox mes;
+    mes.setIcon(QMessageBox::Information);
+    mes.setWindowTitle(tr("SSL Certificate Informations"));
+    mes.setText(message);
+    mes.setDetailedText(cert.toPem());
+    mes.exec();
+}
+
+void SSLManager::deleteCertificate()
+{
+    QListWidgetItem* item = ui->list->currentItem();
+    if (!item)
+        return;
+
+    QSslCertificate cert = m_certs.at(item->whatsThis().toInt());
+    m_certs.removeOne(cert);
+    mApp->networkManager()->setCertExceptions(m_certs);
+    delete item;
+}
+
+void SSLManager::ignoreAll(bool state)
+{
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    settings.beginGroup("Web-Browser-Settings");
+    settings.setValue("IgnoreAllSSLWarnings", state);
+    settings.endGroup();
+    mApp->networkManager()->loadSettings();
 }
 
 SSLManager::~SSLManager()

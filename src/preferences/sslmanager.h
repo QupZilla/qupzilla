@@ -15,12 +15,15 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-
-
 #ifndef SSLMANAGER_H
 #define SSLMANAGER_H
 
 #include <QWidget>
+#include <QDebug>
+#include <QMessageBox>
+#include <QSslCertificate>
+#include <QDateTime>
+#include <QSettings>
 
 namespace Ui {
     class SSLManager;
@@ -34,8 +37,14 @@ public:
     explicit SSLManager(QWidget *parent = 0);
     ~SSLManager();
 
+private slots:
+    void showCertificateInfo();
+    void deleteCertificate();
+    void ignoreAll(bool state);
+
 private:
     Ui::SSLManager *ui;
+    QList<QSslCertificate> m_certs;
 };
 
 #endif // SSLMANAGER_H
