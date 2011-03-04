@@ -17,7 +17,7 @@
 * ============================================================ */
 #ifndef LOCATIONPOPUP_H
 #define LOCATIONPOPUP_H
-#if 0
+
 #include <QAbstractItemView>
 #include <QDebug>
 
@@ -32,6 +32,7 @@ signals:
 public slots:
     void show();
 private:
+#if 0
     QRect visualRect(const QModelIndex &index) const;
     void scrollTo(const QModelIndex &index, ScrollHint hint);
     QModelIndex indexAt(const QPoint &point) const;
@@ -41,9 +42,8 @@ private:
     bool isIndexHidden(const QModelIndex &index) const;
     void setSelection(const QRect &rect, QItemSelectionModel::SelectionFlags command);
     QRegion visualRegionForSelection(const QItemSelection &selection) const;
-
+#endif
     QWidget* m_parent;
 };
 
 #endif // LOCATIONPOPUP_H
-#endif
