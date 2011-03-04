@@ -39,7 +39,7 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget *parent) :
 #ifdef Q_WS_X11
     m_closeButton->setIcon(QIcon(style()->standardIcon(QStyle::SP_DialogCloseButton).pixmap(16,16)));
 #else
-    closeButton->setIcon(QIcon(QIcon(":/icons/faenza/close.png").pixmap(16,16)));
+    m_closeButton->setIcon(QIcon(QIcon(":/icons/faenza/close.png").pixmap(16,16)));
 #endif
     connect(m_closeButton, SIGNAL(triggered()), this, SLOT(hideBar()));
 
@@ -51,7 +51,7 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget *parent) :
 #ifdef Q_WS_X11
     m_nextButton->setIcon(style()->standardIcon(QStyle::SP_ArrowForward));
 #else
-    nextButton->setIcon(QIcon(":/icons/faenza/forward.png"));
+    m_nextButton->setIcon(QIcon(":/icons/faenza/forward.png"));
 #endif
 
     connect(m_nextButton, SIGNAL(triggered()), this, SLOT(findNext()));
@@ -60,7 +60,7 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget *parent) :
 #ifdef Q_WS_X11
     m_previousButton->setIcon(style()->standardIcon(QStyle::SP_ArrowBack));
 #else
-    previousButton->setIcon(QIcon(":/icons/faenza/back.png"));
+    m_previousButton->setIcon(QIcon(":/icons/faenza/back.png"));
 #endif
     connect(m_previousButton, SIGNAL(triggered()), this, SLOT(findPrevious()));
 
