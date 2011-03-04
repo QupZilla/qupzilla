@@ -40,6 +40,8 @@
 #include <QTimer>
 #include <QNetworkReply>
 
+#include "ecwin7.h"
+
 namespace Ui {
     class DownloadManager;
 }

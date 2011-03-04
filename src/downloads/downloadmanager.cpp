@@ -176,7 +176,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply *reply)
     QPixmap fileIcon = m_iconProvider->icon(tempInfo).pixmap(30,30);
 
     QListWidgetItem* item = new QListWidgetItem(ui->list);
-    DownloadItem* downItem = new DownloadItem(item, reply, path, fileName, fileIcon);
+    DownloadItem* downItem = new DownloadItem(item, reply, path, fileName, fileIcon, this);
     connect(downItem, SIGNAL(deleteItem(DownloadItem*)), this, SLOT(deleteItem(DownloadItem*)));
     ui->list->setItemWidget(item, downItem);
     item->setSizeHint(downItem->sizeHint());
