@@ -24,6 +24,7 @@
 NetworkManager::NetworkManager(QupZilla* mainClass, QObject *parent) :
     NetworkManagerProxy(mainClass, parent)
     ,p_QupZilla(mainClass)
+    ,m_ignoreAllWarnings(false)
 {
     connect(this, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)), this, SLOT(authentication(QNetworkReply*, QAuthenticator* )));
     connect(this, SIGNAL(sslErrors(QNetworkReply*,QList<QSslError>)), this, SLOT(sslError(QNetworkReply*,QList<QSslError>)));
@@ -42,11 +43,16 @@ void NetworkManager::loadSettings()
         m_diskCache->setMaximumCacheSize(settings.value("MaximumCacheSize",50).toInt() * 1024*1024); //MegaBytes
         setCache(m_diskCache);
     }
+    m_ignoreAllWarnings = settings.value("IgnoreAllSSLWarnings", false).toBool();
     settings.endGroup();
 }
 
 void NetworkManager::sslError(QNetworkReply *reply, QList<QSslError> errors)
 {
+    if (m_ignoreAllWarnings) {
+        reply->ignoreSslErrors(errors);
+        return;
+    }
     QString title = tr("SSL Certificate Error!");
     QString text1 = tr("The page you trying to access has following errors in SSL Certificate:");
 

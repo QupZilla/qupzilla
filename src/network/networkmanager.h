@@ -63,6 +63,7 @@ private:
     QList<QSslCertificate> m_certExceptions;
     QNetworkDiskCache* m_diskCache;
 
+    bool m_ignoreAllWarnings;
 };
 
 #endif // NETWORKMANAGER_H
