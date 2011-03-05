@@ -182,7 +182,7 @@ private slots:
     void fullScreen(bool make);
     void startPrivate(bool state);
 
-    void quitApp();
+    bool quitApp();
 
 private:
     void setupUi();
