@@ -39,8 +39,8 @@ DownloadManager::DownloadManager(QWidget *parent) :
 
     QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
-    m_downloadPath = settings.value("defaultDownloadPath", QDir::homePath()).toString();
-    m_lastDownloadPath = settings.value("lastDownloadPath","").toString();
+    m_downloadPath = settings.value("defaultDownloadPath", "");
+    m_lastDownloadPath = settings.value("lastDownloadPath",QDir::homePath()+"/").toString();
     settings.endGroup();
 
     connect(ui->clearButton, SIGNAL(clicked()), this, SLOT(clearList()));
