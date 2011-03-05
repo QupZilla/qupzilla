@@ -24,7 +24,7 @@
 #include <QWidget>
 
 // Windows only data definitions
-#ifdef Q_WS_WIN
+#ifdef W7TASKBAR
 
 #include <windows.h>
 #include <initguid.h>
