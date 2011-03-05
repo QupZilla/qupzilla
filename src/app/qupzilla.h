@@ -23,7 +23,7 @@
 #endif
 
 //Comment for release building
-#define DEVELOPING
+//#define DEVELOPING
 //Check if i don't fuck anything
 
 #ifdef QT_NO_DEBUG
