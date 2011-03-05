@@ -241,7 +241,7 @@ bool DownloadManager::canClose()
 
 void DownloadManager::closeEvent(QCloseEvent *e)
 {
-    if (!mApp->getWindow()) { // No main windows -> we are going to quit
+    if (mApp->windowCount() == 0) { // No main windows -> we are going to quit
         if (!canClose()){
             QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Warning"),
                              tr("Are you sure to quit? All uncompleted downloads will be cancelled!"), QMessageBox::Yes | QMessageBox::No);

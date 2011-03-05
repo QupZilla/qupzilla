@@ -1039,27 +1039,20 @@
         </widget>
        </item>
        <item row="3" column="1" colspan="2">
-        <widget class="QCheckBox" name="closeDownDialogOnFinish">
-         <property name="text">
-          <string>Automatically close download dialog after finish</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1" colspan="2">
         <widget class="QRadioButton" name="askEverytime">
          <property name="text">
           <string>Ask everytime for download location</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="1" colspan="2">
+       <item row="4" column="1" colspan="2">
         <widget class="QRadioButton" name="useDefined">
          <property name="text">
           <string>Use defined location: </string>
          </property>
         </widget>
        </item>
-       <item row="6" column="1" colspan="3">
+       <item row="5" column="1" colspan="3">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <widget class="QLineEdit" name="downLoc"/>
@@ -1073,7 +1066,7 @@
          </item>
         </layout>
        </item>
-       <item row="7" column="2">
+       <item row="6" column="2">
         <spacer name="verticalSpacer_10">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -1086,36 +1079,7 @@
          </property>
         </spacer>
        </item>
-       <item row="3" column="0">
-        <spacer name="horizontalSpacer_13">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="3">
-        <spacer name="horizontalSpacer_17">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="5" column="3">
+       <item row="4" column="3">
         <spacer name="horizontalSpacer_18">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -1128,7 +1092,7 @@
          </property>
         </spacer>
        </item>
-       <item row="6" column="0">
+       <item row="5" column="0">
         <spacer name="horizontalSpacer_19">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>

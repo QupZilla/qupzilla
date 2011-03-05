@@ -178,10 +178,6 @@ void MainApplication::loadSettings()
 
 QupZilla* MainApplication::getWindow()
 {
-    QupZilla *active = qobject_cast<QupZilla*>(QApplication::activeWindow());
-    if (active)
-        return active;
-
     for(int i=0; i<m_mainWindows.count(); i++) {
         if (!m_mainWindows.at(i))
             continue;
@@ -233,9 +229,9 @@ void MainApplication::addNewTab(QUrl url)
 void MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
 {
     QupZilla* newWindow = new QupZilla(tryRestore, startUrl);
-    newWindow->show();
     connect(newWindow, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(sendMessages(MainApplication::MessageType,bool)));
     m_mainWindows.append(newWindow);
+    newWindow->show();
 }
 
 void MainApplication::connectDatabase()
@@ -282,7 +278,6 @@ void MainApplication::quitApplication()
         return;
     }
 
-    delete m_updater;
     m_isClosing = true;
 
     if (m_mainWindows.count() > 0)

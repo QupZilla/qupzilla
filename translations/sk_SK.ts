@@ -1495,7 +1495,7 @@ neexistuje!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1424"/>
         <source>SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Správca SSL</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1463"/>
@@ -2052,12 +2052,12 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="56"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Organizácia: &lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Organizácia: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="57"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Doména: &lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Doména: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="58"/>
@@ -2077,7 +2077,7 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="61"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Platnosť do: &lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Platnosť do: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="67"/>
