@@ -62,7 +62,7 @@ public:
 
     void show() { m_timer.start(1000*2, this); QWidget::show(); }
 
-#ifdef Q_WS_WIN
+#ifdef W7TASKBAR
 protected:
     virtual bool winEvent(MSG *message, long *result);
 #endif
@@ -72,7 +72,7 @@ private slots:
     void deleteItem(DownloadItem* item);
 
 private:
-#ifdef Q_WS_WIN
+#ifdef W7TASKBAR
     EcWin7 win7;
 #endif
     void timerEvent(QTimerEvent *event);
