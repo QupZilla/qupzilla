@@ -59,6 +59,7 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     ,m_webInspectorDock(0)
     ,m_webSearchToolbar(0)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
     this->resize(640,480);
     this->setWindowState(Qt::WindowMaximized);
     this->setWindowTitle("QupZilla");
@@ -653,25 +654,13 @@ void QupZilla::closeEvent(QCloseEvent* event)
 {
     if (mApp->isClosing())
         return;
-
-    QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
-    settings.beginGroup("Web-URL-Settings");
-
-    if (settings.value("afterLaunch",0).toInt()!=2 && m_tabWidget->count()>1) {
-        QMessageBox::StandardButton button = QMessageBox::warning(this, tr("There are still open tabs"),
-                             tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit?").arg(m_tabWidget->count()), QMessageBox::Yes | QMessageBox::No);
-        if (button != QMessageBox::Yes) {
-            event->ignore();
-            return;
-        }
+    if (mApp->windowCount() == 1) {
+        quitApp();
+        return;
     }
-    settings.endGroup();
 
-    mApp->cookieJar()->saveCookies();
-    mApp->saveStateSlot();
     mApp->aboutToCloseWindow(this);
-
-    this->~QupZilla();
+    mApp->saveStateSlot();
     event->accept();
 }
 
