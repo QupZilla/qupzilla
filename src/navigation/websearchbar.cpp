@@ -50,7 +50,7 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget *parent)
 
     setStyleSheet("QLineEdit { background: transparent; border-image: url(:/icons/locationbar/lineedit.png) ;border-width:4;color:black;}");
 
-    setLeftMargin(30);
+    setLeftMargin(33);
     setWidgetSpacing(0);
 }
 

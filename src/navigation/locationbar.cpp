@@ -95,8 +95,8 @@ LocationBar::LocationBar(QupZilla* mainClass, QWidget *parent)
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
 
     setStyleSheet("QLineEdit { background: transparent; border-image: url(:/icons/locationbar/lineedit.png); border-width:4; color:black;}");
-//    setLeftMargin(33);
-    setLeftMargin(m_siteIcon->sizeHint().width()+1);
+    setLeftMargin(33);
+//    setLeftMargin(m_siteIcon->sizeHint().width()+1);
 }
 
 void LocationBar::loadSettings()
