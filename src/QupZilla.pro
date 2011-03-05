@@ -176,4 +176,4 @@ TRANSLATIONS +=cs_CZ.ts
 include(3rdparty/qtsingleapplication.pri)
 
 win32:RC_FILE = appicon.rc
-win32:LIBS += libole32
+#win32:LIBS += libole32
