@@ -78,7 +78,6 @@ private:
     ClickableLabel* m_goButton;
     ClickableLabel* m_rssIcon;
     QToolButton* m_siteIcon;
-    QMenu* m_rssMenu;
 
     bool m_selectAllOnDoubleClick;
     bool m_addComWithCtrl;
