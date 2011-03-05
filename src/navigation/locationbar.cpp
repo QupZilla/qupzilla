@@ -331,6 +331,5 @@ LocationBar::~LocationBar()
     delete m_goButton;
     delete m_siteIcon;
     delete m_rssIcon;
-    delete m_rssMenu;
     delete m_locationCompleter;
 }
