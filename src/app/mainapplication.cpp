@@ -404,7 +404,7 @@ void MainApplication::aboutToCloseWindow(QupZilla *window)
         quitApplication();
 }
 
-//Version of sessin.dat file
+//Version of session.dat file
 static const int sessionVersion = 0x0002;
 
 bool MainApplication::saveStateSlot()
