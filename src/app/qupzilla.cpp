@@ -655,7 +655,7 @@ void QupZilla::closeEvent(QCloseEvent* event)
     if (mApp->isClosing())
         return;
     if (mApp->windowCount() == 1) {
-        quitApp();
+        quitApp() ? event->accept() : event->ignore();
         return;
     }
 
@@ -664,20 +664,22 @@ void QupZilla::closeEvent(QCloseEvent* event)
     event->accept();
 }
 
-void QupZilla::quitApp()
+bool QupZilla::quitApp()
 {
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-URL-Settings");
 
     if (settings.value("afterLaunch",0).toInt()!=2 && m_tabWidget->count()>1) {
         QMessageBox::StandardButton button = QMessageBox::warning(this, tr("There are still open tabs"),
-                             tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit?").arg(m_tabWidget->count()), QMessageBox::Yes | QMessageBox::No);
+            tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit?").arg(m_tabWidget->count()), QMessageBox::Yes | QMessageBox::No);
         if (button != QMessageBox::Yes)
-            return;
+            return false;
     }
     settings.endGroup();
 
+    mApp->aboutToCloseWindow(this);
     mApp->quitApplication();
+    return true;
 }
 
 QupZilla::~QupZilla()

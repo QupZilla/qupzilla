@@ -170,7 +170,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget *parent) :
     else
         ui->useDefined->setChecked(true);
     connect(ui->useDefined, SIGNAL(toggled(bool)), this, SLOT(downLocChanged(bool)));
-    ui->closeDownDialogOnFinish->setChecked( settings.value("autoCloseOnFinish",false).toBool() );
     connect(ui->downButt, SIGNAL(clicked()), this, SLOT(chooseDownPath()));
     downLocChanged(ui->useDefined->isChecked());
     settings.endGroup();
@@ -431,7 +430,6 @@ void Preferences::saveSettings()
             text+="/";
         settings.setValue("defaultDownloadPath",text);
     }
-    settings.setValue("autoCloseOnFinish",ui->closeDownDialogOnFinish->isChecked());
     settings.endGroup();
 
     //BROWSING
