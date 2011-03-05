@@ -678,7 +678,6 @@ bool QupZilla::quitApp()
     settings.endGroup();
 
     mApp->aboutToCloseWindow(this);
-    mApp->quitApplication();
     return true;
 }
 
