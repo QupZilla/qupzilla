@@ -1,5 +1,5 @@
+RequestExecutionLevel user
 !include "FileAssociation.nsh"
-
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
@@ -16,6 +16,8 @@ SetCompressor /SOLID /FINAL lzma
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "wininstall\welcome.bmp"
 
 !insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_LICENSE COPYRIGHT.txt
+!insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 
@@ -40,6 +42,8 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Tradchinese"
 !insertmacro MUI_LANGUAGE "Simpchinese"
 
+!insertmacro MUI_RESERVEFILE_LANGDLL
+
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer.exe"
 InstallDir "$PROGRAMFILES\${PRODUCT_NAME}\"
@@ -47,17 +51,17 @@ InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
 
-Section "Main Components"
+!include "wininstall\languages.nsh"
+
+Section !$(TITLE_SecMain) SecMain
+  SectionIn RO
   KillProcDLL::KillProc "qupzilla.exe"
   Sleep 100
   SetOverwrite on
 
   SetOutPath "$INSTDIR"
+  File "COPYRIGHT.txt"
   File "qupzilla.exe"
-  File "AUTHORS"
-  File "COPYRIGHT"
-  File "GPLv3"
-  File "README"
   File "libeay32.dll"
   File "ssleay32.dll"
   File "libssl32.dll"
@@ -85,34 +89,75 @@ Section "Main Components"
   File "imageformats\qtiff4.dll"
   File "imageformats\qmng4.dll"
 
-  SetOutPath "$INSTDIR\locale"
-  File "locale\cs_CZ.qm"
-  File "locale\qt_cs.qm"
-  File "locale\sk_SK.qm"
-  File "locale\qt_sk.qm"
-
-  SetOutPath "$INSTDIR\plugins"
-  File "plugins\ExamplePlugin.dll"
-
   SetOutPath "$INSTDIR\sqldrivers"
   File "sqldrivers\qsqlite4.dll"
   File "sqldrivers\qsqlodbc4.dll"
 
 SectionEnd
 
-Section Icons
+SectionGroup $(TITLE_SecTranslations) SecTranslations
+  Section $(TITLE_SecEnglish) SecEnglish
+  SectionIn RO  
+  SectionEnd
+
+  Section $(TITLE_SecCzech) SecCzech
+  SetOutPath "$INSTDIR\locale"
+  File "locale\cs_CZ.qm"
+  File "locale\qt_cs.qm"
+  SectionEnd
+  
+  Section $(TITLE_SecSlovak) SecSlovak
+  SetOutPath "$INSTDIR\locale"
+  File "locale\sk_SK.qm"
+  File "locale\qt_sk.qm"
+  SectionEnd
+
+SectionGroupEnd
+
+SectionGroup $(TITLE_SecPlugins) SecPlugins
+  Section $(TITLE_SecExamplePlugin) SecExamplePlugin
+  SetOutPath "$INSTDIR\plugins"
+  File "plugins\ExamplePlugin.dll"
+  SectionEnd
+SectionGroupEnd
+
+
+Section "-Register Extension"
   SetOutPath "$INSTDIR"
-  CreateShortCut "$SMPROGRAMS\QupZilla.lnk" "$INSTDIR\qupzilla.exe" ""
-  CreateShortCut "$DESKTOP\QupZilla.lnk" "$INSTDIR\qupzilla.exe" "" 
-  ${registerExtension} "$INSTDIR\qupzilla.exe" ".htm" "HTM_FILE"
-  ${registerExtension} "$INSTDIR\qupzilla.exe" ".html" "HTML_FILE"
+  ${registerExtension} "$INSTDIR\qupzilla.exe" ".htm" "HTM File"
+  ${registerExtension} "$INSTDIR\qupzilla.exe" ".html" "HTML File"
 SectionEnd
 
-Section Uninstaller
+Section "-StartMenu"
+  SetOutPath "$INSTDIR"
+  SetShellVarContext all
+  CreateDirectory "$SMPROGRAMS\QupZilla"
+  CreateShortCut "$SMPROGRAMS\QupZilla\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
+  CreateShortCut "$SMPROGRAMS\QupZilla\QupZilla.lnk" "$INSTDIR\qupzilla.exe"
+  CreateShortCut "$SMPROGRAMS\QupZilla\License.lnk" "$INSTDIR\COPYRIGHT.txt"
+SectionEnd
+
+Section $(TITLE_SecDesktop) SecDesktop
+  SetOutPath "$INSTDIR"
+  CreateShortCut "$DESKTOP\QupZilla.lnk" "$INSTDIR\qupzilla.exe" "" 
+SectionEnd
+
+!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecMain} $(DESC_SecMain)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecTranslations} $(DESC_SecTranslations)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecEnglish} $(DESC_SecEnglish)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecCzech} $(DESC_SecCzech)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecSlovak} $(DESC_SecSlovak)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecPlugins} $(DESC_SecPlugins)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecExamplePlugin} $(DESC_SecExamplePlugin)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} $(DESC_SecDesktop)
+!insertmacro MUI_FUNCTION_DESCRIPTION_END
+
+Section "-Uninstaller"
   WriteUninstaller "$INSTDIR\uninstall.exe"
   WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\qupzilla.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\uninstall.exe"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\Uninstall.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\qupzilla.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
 SectionEnd
@@ -120,13 +165,15 @@ SectionEnd
 Section Uninstall
   KillProcDLL::KillProc "qupzilla.exe"
   Sleep 100
-  Delete "$SMPROGRAMS\QupZilla.lnk"
+
+  SetShellVarContext all
   Delete "$DESKTOP\QupZilla.lnk"
   RMDir /r "$INSTDIR"
+  RMDir /r "$SMPROGRAMS\QupZilla"
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
-  ${unregisterExtension} ".htm" "HTM_FILE"
-  ${unregisterExtension} ".html" "HTML_FILE"
+  ${unregisterExtension} ".htm" "HTM File"
+  ${unregisterExtension} ".html" "HTML File"
 SectionEnd
 
 BrandingText "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer"
