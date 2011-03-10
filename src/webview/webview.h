@@ -121,6 +121,7 @@ private:
     QList<int> m_zoomLevels;
     int m_currentZoom;
     QUrl m_aboutToLoadUrl;
+    QUrl m_lastUrl;
     bool m_wantsClose;
     QString m_currentIp;
     QList<QPair<QString,QString> > m_rss;
