@@ -37,6 +37,7 @@ WebView::WebView(QupZilla* mainClass, QWidget *parent)
     ,m_isLoading(false)
     ,m_currentZoom(100)
     ,m_aboutToLoadUrl(QUrl())
+    ,m_lastUrl(QUrl())
     ,m_wantsClose(false)
     ,m_page(new WebPage(this, p_QupZilla))
     //,m_loadingTimer(0)
@@ -188,15 +189,15 @@ void WebView::loadFinished(bool state)
     if (m_progress>100) qDebug() << "bug"; //cannot be more than 100
     m_isLoading = false;
 
-    mApp->history()->addHistoryEntry(this);
-    if (isCurrent()) {
+    if (m_lastUrl!=url())
+        mApp->history()->addHistoryEntry(this);
+    if (isCurrent())
         emit showUrl(url());
-    }
 
     iconChanged();
-
-    if (!p_QupZilla->locationBar()->hasFocus())
-        setFocus();
+    m_lastUrl = url();
+//    if (!p_QupZilla->locationBar()->hasFocus()) Ok lets disable it, confusing with gaining focus
+//        setFocus();
 
     //Fix the bug where sometimes icon is not available at the moment
     if (icon().isNull())
