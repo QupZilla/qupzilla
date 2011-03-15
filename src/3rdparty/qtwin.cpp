@@ -1,3 +1,20 @@
+/* ============================================================
+* QupZilla - WebKit based browser
+* Copyright (C) 2010-2011  nowrep
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* ============================================================ */
 /****************************************************************************
 **
 ** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
@@ -83,7 +100,27 @@ static bool resolveLibs()
 #endif
 
 /*!
-  * Chekcs and returns true if Windows DWM composition
+  * Chekcs and returns true if Windows version
+  * currently running is Windows 7
+  *
+  * This function is useful when you are using
+  * Windows7 new TaskBar API
+  *
+  */
+bool QtWin::isRunningWindows7()
+{
+    OSVERSIONINFO osvi;
+
+    ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
+    osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+    GetVersionEx(&osvi);
+
+    return ( (osvi.dwMajorVersion > 6) || ( (osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion >= 1) ));
+}
+
+/*!
+  * Checks and returns true if Windows DWM composition
   * is currently enabled on the system.
   *
   * To get live notification on the availability of
