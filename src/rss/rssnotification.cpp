@@ -21,7 +21,7 @@
 #include "qupzilla.h"
 
 RSSNotification::RSSNotification(QString host, QWidget *parent) :
-    QWidget(parent),
+    Notification(parent),
     ui(new Ui::RSSNotification)
 {
     setAttribute(Qt::WA_DeleteOnClose);
@@ -38,29 +38,7 @@ RSSNotification::RSSNotification(QString host, QWidget *parent) :
     connect(ui->pushButton, SIGNAL(clicked()), mApp->getWindow(), SLOT(showRSSManager()));
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
-
-    m_animation = new QTimeLine(300, this);
-    m_animation->setFrameRange(0, sizeHint().height());
-
-    setMinimumHeight(1);
-    setMaximumHeight(1);
-    connect(m_animation, SIGNAL(frameChanged(int)),this, SLOT(frameChanged(int)));
-    QTimer::singleShot(1, m_animation, SLOT(start()));
-}
-
-void RSSNotification::hide()
-{
-    m_animation->setDirection(QTimeLine::Backward);
-
-    m_animation->stop();
-    m_animation->start();
-    connect(m_animation, SIGNAL(finished()), this, SLOT(close()));
-}
-
-void RSSNotification::frameChanged(int frame)
-{
-    setMinimumHeight(frame);
-    setMaximumHeight(frame);
+    QTimer::singleShot(1, this, SLOT(startAnimation()));
 }
 
 RSSNotification::~RSSNotification()

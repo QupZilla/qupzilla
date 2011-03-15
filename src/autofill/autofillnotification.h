@@ -20,15 +20,16 @@
 
 #include <QWidget>
 #include <QUrl>
-#include <QTimeLine>
 #include <QTimer>
 #include <QDebug>
+
+#include "notification.h"
 
 namespace Ui {
     class AutoFillWidget;
 }
-
-class AutoFillNotification : public QWidget
+class Notification;
+class AutoFillNotification : public Notification
 {
     Q_OBJECT
 
@@ -37,11 +38,8 @@ public:
     ~AutoFillNotification();
 
 private slots:
-    void frameChanged(int frame);
     void remember();
     void never();
-
-    void hide();
 
 private:
     Ui::AutoFillWidget *ui;

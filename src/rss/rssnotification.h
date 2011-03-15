@@ -19,23 +19,21 @@
 #define RSSNOTIFICATION_H
 
 #include <QWidget>
-#include <QTimeLine>
+
+#include "notification.h"
 
 namespace Ui {
     class RSSNotification;
 }
 
-class RSSNotification : public QWidget
+class Notification;
+class RSSNotification : public Notification
 {
     Q_OBJECT
 
 public:
     explicit RSSNotification(QString host, QWidget *parent = 0);
     ~RSSNotification();
-
-private slots:
-    void hide();
-    void frameChanged(int frame);
 
 private:
     Ui::RSSNotification *ui;

@@ -19,9 +19,10 @@
 #include "ui_autofillnotification.h"
 #include "autofillmodel.h"
 #include "mainapplication.h"
+#include "notification.h"
 
 AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget *parent)
-   :QWidget(parent)
+   :Notification(parent)
    ,ui(new Ui::AutoFillWidget)
    ,m_url(url)
    ,m_data(data)
@@ -42,29 +43,7 @@ AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pa
     connect(ui->never, SIGNAL(clicked()), this, SLOT(never()));
     connect(ui->notnow, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
-
-    m_animation = new QTimeLine(300, this);
-    m_animation->setFrameRange(0, sizeHint().height());
-
-    setMinimumHeight(1);
-    setMaximumHeight(1);
-    connect(m_animation, SIGNAL(frameChanged(int)),this, SLOT(frameChanged(int)));
-    QTimer::singleShot(1, m_animation, SLOT(start()));
-}
-
-void AutoFillNotification::hide()
-{
-    m_animation->setDirection(QTimeLine::Backward);
-
-    m_animation->stop();
-    m_animation->start();
-    connect(m_animation, SIGNAL(finished()), this, SLOT(close()));
-}
-
-void AutoFillNotification::frameChanged(int frame)
-{
-    setMinimumHeight(frame);
-    setMaximumHeight(frame);
+    QTimer::singleShot(1, this, SLOT(startAnimation()));
 }
 
 void AutoFillNotification::never()
