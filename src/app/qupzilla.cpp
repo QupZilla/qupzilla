@@ -474,8 +474,7 @@ void QupZilla::showPreferences()
 
 void QupZilla::showSource()
 {
-    SourceViewer* source = new SourceViewer(this);
-    source->setAttribute(Qt::WA_DeleteOnClose);
+    SourceViewer* source = new SourceViewer(weView()->page());
     source->show();
 }
 
