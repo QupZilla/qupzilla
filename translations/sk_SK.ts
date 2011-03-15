@@ -2032,22 +2032,22 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="14"/>
         <source>SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Správca certifikátov</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="42"/>
         <source>Show info</source>
-        <translation type="unfinished"></translation>
+        <translation>Informácie</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="49"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="58"/>
         <source>Ignore all warnings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorovať všetky varovania</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="56"/>
@@ -2062,17 +2062,17 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="58"/>
         <source>&lt;b&gt;Locality Name: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Lokalita: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="59"/>
         <source>&lt;b&gt;Country Name: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Krajina: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="60"/>
         <source>&lt;b&gt;Verified by: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Overené: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="61"/>
@@ -2082,7 +2082,7 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="67"/>
         <source>SSL Certificate Informations</source>
-        <translation type="unfinished"></translation>
+        <translation>Informácie o certifikáte</translation>
     </message>
 </context>
 <context>
