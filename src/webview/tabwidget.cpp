@@ -35,7 +35,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget *parent) :
     m_tabBar = new TabBar(p_QupZilla);
     setTabBar(m_tabBar);
     setObjectName("tabWidget");
-    setStyleSheet(" QTabBar::tab{max-width:250px; height: 28px;}");
+    setStyleSheet(" QTabBar::tab{max-width:250px;}");
 
     loadSettings();
 
