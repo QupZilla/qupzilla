@@ -86,7 +86,9 @@ SOURCES += main.cpp\
     autofill/autofillnotification.cpp \
     rss/rssnotification.cpp \
     navigation/locationpopup.cpp \
-    preferences/sslmanager.cpp
+    preferences/sslmanager.cpp \
+    tools/notification.cpp \
+    tools/htmlhighlighter.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -142,7 +144,9 @@ HEADERS  += 3rdparty/squeezelabel.h \
     autofill/autofillnotification.h \
     rss/rssnotification.h \
     navigation/locationpopup.h \
-    preferences/sslmanager.h
+    preferences/sslmanager.h \
+    tools/notification.h \
+    tools/htmlhighlighter.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
