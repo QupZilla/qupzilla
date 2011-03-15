@@ -26,24 +26,41 @@
 #include <QBoxLayout>
 #include <QTextEdit>
 #include <QApplication>
+#include <QMenu>
+#include <QMenuBar>
+#include <QWebPage>
+#include <QWebFrame>
+#include <QStyle>
+#include <QDesktopWidget>
+#include <QInputDialog>
+#include <QFileDialog>
+#include <QFile>
+#include <QMessageBox>
+#include <QStatusBar>
 
-class QupZilla;
 class SourceViewer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SourceViewer(QupZilla* mainClass, QWidget *parent = 0);
+    explicit SourceViewer(QWebPage* page, QWidget *parent = 0);
 
 signals:
 
 public slots:
 
-private:
-    QupZilla* p_QupZilla;
+private slots:
+    void save();
+    void findText();
+    void reload();
+    void setTextEditable();
+    void setTextWordWrap();
+    void goToLine();
 
+private:
     QBoxLayout* m_layout;
     QTextEdit* m_sourceEdit;
-
+    QWebPage* m_page;
+    QStatusBar* m_statusBar;
 };
 
 #endif // SOURCEVIEWER_H
