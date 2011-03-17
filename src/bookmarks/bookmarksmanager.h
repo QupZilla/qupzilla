@@ -39,7 +39,7 @@ class BookmarksManager : public QWidget
     Q_OBJECT
 
 public:
-    explicit BookmarksManager(QupZilla* mainClass, QWidget *parent = 0);
+    explicit BookmarksManager(QupZilla* mainClass, QWidget* parent = 0);
     ~BookmarksManager();
     void addBookmark(WebView* view);
     void insertBookmark(const QUrl &url, const QString &title);
@@ -62,7 +62,7 @@ private:
     QupZilla* getQupZilla();
 
     bool m_isRefreshing;
-    Ui::BookmarksManager *ui;
+    Ui::BookmarksManager* ui;
     QPointer<QupZilla> p_QupZilla;
     BookmarksModel* m_bookmarksModel;
 };

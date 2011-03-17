@@ -32,11 +32,11 @@ class RSSNotification : public Notification
     Q_OBJECT
 
 public:
-    explicit RSSNotification(QString host, QWidget *parent = 0);
+    explicit RSSNotification(QString host, QWidget* parent = 0);
     ~RSSNotification();
 
 private:
-    Ui::RSSNotification *ui;
+    Ui::RSSNotification* ui;
     QTimeLine* m_animation;
 };
 

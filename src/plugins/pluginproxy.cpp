@@ -25,7 +25,7 @@ PluginProxy::PluginProxy() :
     c2f_loadSettings();
 }
 
-void PluginProxy::populateWebViewMenu(QMenu *menu, QWebView *view, QWebHitTestResult r)
+void PluginProxy::populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestResult r)
 {
     if (!menu || !view || loadedPlugins.count() == 0)
         return;
@@ -40,7 +40,7 @@ void PluginProxy::populateWebViewMenu(QMenu *menu, QWebView *view, QWebHitTestRe
         menu->removeAction(menu->actions().at(count));
 }
 
-void PluginProxy::populateToolsMenu(QMenu *menu)
+void PluginProxy::populateToolsMenu(QMenu* menu)
 {
     if (!menu || loadedPlugins.count() == 0)
         return;
@@ -54,7 +54,7 @@ void PluginProxy::populateToolsMenu(QMenu *menu)
         menu->addSeparator();
 }
 
-void PluginProxy::populateHelpMenu(QMenu *menu)
+void PluginProxy::populateHelpMenu(QMenu* menu)
 {
     if (!menu || loadedPlugins.count() == 0)
         return;

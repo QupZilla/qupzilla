@@ -33,7 +33,7 @@ class BookmarksToolbar : public QToolBar
 {
     Q_OBJECT
 public:
-    explicit BookmarksToolbar(QupZilla* mainClass, QWidget *parent = 0);
+    explicit BookmarksToolbar(QupZilla* mainClass, QWidget* parent = 0);
     void setColor(QColor color);
 
 signals:

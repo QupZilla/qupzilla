@@ -20,7 +20,7 @@
 #include "bookmarksmodel.h"
 #include "mainapplication.h"
 
-BookmarksWidget::BookmarksWidget(int bookmarkId, QWidget *parent) :
+BookmarksWidget::BookmarksWidget(int bookmarkId, QWidget* parent) :
     QMenu(parent)
     ,ui(new Ui::BookmarksWidget)
     ,m_bookmarkId(bookmarkId)

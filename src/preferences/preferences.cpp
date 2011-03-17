@@ -31,7 +31,7 @@
 #include "pluginproxy.h"
 #include "sslmanager.h"
 
-Preferences::Preferences(QupZilla* mainClass, QWidget *parent) :
+Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     QDialog(parent)
     ,ui(new Ui::Preferences)
     ,p_QupZilla(mainClass)
@@ -229,7 +229,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget *parent) :
     ui->version->setText(" QupZilla v"+QupZilla::VERSION);
 }
 
-void Preferences::showStackedPage(QListWidgetItem *item)
+void Preferences::showStackedPage(QListWidgetItem* item)
 {
     if (!item)
         return;
@@ -367,7 +367,7 @@ void Preferences::showPassManager(bool state)
     m_autoFillManager->setVisible(state);
 }
 
-void Preferences::buttonClicked(QAbstractButton *button)
+void Preferences::buttonClicked(QAbstractButton* button)
 {
     switch (ui->buttonBox->buttonRole(button)) {
     case QDialogButtonBox::ApplyRole:

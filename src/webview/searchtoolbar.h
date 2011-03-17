@@ -36,7 +36,7 @@ class SearchToolBar : public QToolBar
 {
     Q_OBJECT
 public:
-    explicit SearchToolBar(QupZilla* mainClass, QWidget *parent = 0);
+    explicit SearchToolBar(QupZilla* mainClass, QWidget* parent = 0);
     LineEdit* searchLine(){ return m_searchLine; }
 
 signals:

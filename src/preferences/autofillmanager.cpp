@@ -18,7 +18,7 @@
 #include "autofillmanager.h"
 #include "ui_autofillmanager.h"
 
-AutoFillManager::AutoFillManager(QWidget *parent) :
+AutoFillManager::AutoFillManager(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::AutoFillManager)
 {

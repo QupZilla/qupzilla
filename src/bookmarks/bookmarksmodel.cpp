@@ -123,7 +123,7 @@ bool BookmarksModel::saveBookmark(QUrl url, QString title, QString folder)
     return query.exec();
 }
 
-bool BookmarksModel::saveBookmark(WebView *view, QString folder)
+bool BookmarksModel::saveBookmark(WebView* view, QString folder)
 {
     return saveBookmark(view->url(), view->title(), folder);
 }
@@ -141,7 +141,7 @@ bool BookmarksModel::removeBookmark(QUrl url)
     return removeBookmark(bookmarkId(url));
 }
 
-bool BookmarksModel::removeBookmark(WebView *view)
+bool BookmarksModel::removeBookmark(WebView* view)
 {
     return removeBookmark(bookmarkId(view->url()));
 }

@@ -18,7 +18,7 @@
 #include "downloaditem.h"
 #include "ui_downloaditem.h"
 
-DownloadItem::DownloadItem(QListWidgetItem *item, QNetworkReply *reply, QString path, QString fileName, QPixmap fileIcon, QWidget *parent)
+DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString path, QString fileName, QPixmap fileIcon, QWidget* parent)
     : QWidget(parent)
    ,ui(new Ui::DownloadItem)
    ,m_item(item)
@@ -98,7 +98,7 @@ void DownloadItem::downloadProgress(qint64 received, qint64 total)
     m_total = total;
 }
 
-void DownloadItem::timerEvent(QTimerEvent *event)
+void DownloadItem::timerEvent(QTimerEvent* event)
 {
     if (event->timerId() == m_timer.timerId()) {
         updateDownloadInfo(m_currSpeed, m_received, m_total);
@@ -189,7 +189,7 @@ void DownloadItem::stop()
     m_downloading = false;
 }
 
-void DownloadItem::mouseDoubleClickEvent(QMouseEvent *e)
+void DownloadItem::mouseDoubleClickEvent(QMouseEvent* e)
 {
     openFile();
     e->accept();

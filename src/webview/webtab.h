@@ -28,7 +28,7 @@ class WebTab : public QWidget
 {
     Q_OBJECT
 public:
-    explicit WebTab(QupZilla* mainClass, QWidget *parent = 0);
+    explicit WebTab(QupZilla* mainClass, QWidget* parent = 0);
     ~WebTab();
     WebView* view() { return m_view; }
 

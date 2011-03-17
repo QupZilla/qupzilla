@@ -34,7 +34,7 @@ class PluginsList : public QWidget
     Q_OBJECT
 
 public:
-    explicit PluginsList(QWidget *parent = 0);
+    explicit PluginsList(QWidget* parent = 0);
     ~PluginsList();
     void save();
 
@@ -53,7 +53,7 @@ private slots:
 
 private:
     void refresh();
-    Ui::PluginsList *ui;
+    Ui::PluginsList* ui;
 };
 
 #endif // PLUGINSLIST_H

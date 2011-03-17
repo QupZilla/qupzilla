@@ -19,7 +19,7 @@
 #include "tabwidget.h"
 #include "qupzilla.h"
 
-TabBar::TabBar(QupZilla* mainClass, QWidget *parent) :
+TabBar::TabBar(QupZilla* mainClass, QWidget* parent) :
     QTabBar(parent)
     ,p_QupZilla(mainClass)
     ,m_clickedTab(0)
@@ -49,7 +49,7 @@ void TabBar::loadSettings()
 
 void TabBar::contextMenuRequested(const QPoint &position)
 {
-    TabWidget *tabWidget = qobject_cast<TabWidget*>(parentWidget());
+    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
     if (!tabWidget)
         return;
     int index = tabAt(position);
@@ -126,9 +126,9 @@ void TabBar::bookmarkTab()
     p_QupZilla->addBookmark(p_QupZilla->weView(m_clickedTab)->url(), p_QupZilla->weView(m_clickedTab)->title());
 }
 
-void TabBar::mouseDoubleClickEvent(QMouseEvent *event)
+void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
-    TabWidget *tabWidget = qobject_cast<TabWidget*>(parentWidget());
+    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
     if (!tabWidget)
         return;
     if (event->button() == Qt::LeftButton && tabAt(event->pos()) == -1) {

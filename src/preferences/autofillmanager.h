@@ -40,7 +40,7 @@ class AutoFillManager : public QDialog
     Q_OBJECT
 
 public:
-    explicit AutoFillManager(QWidget *parent = 0);
+    explicit AutoFillManager(QWidget* parent = 0);
     ~AutoFillManager();
 
     void showExceptions();
@@ -56,7 +56,7 @@ private slots:
     void removeAllExcept();
 
 private:
-    Ui::AutoFillManager *ui;
+    Ui::AutoFillManager* ui;
 };
 
 #endif // AUTOFILLMANAGER_H

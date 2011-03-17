@@ -20,7 +20,7 @@
 #include "networkmanager.h"
 #include "mainapplication.h"
 
-SSLManager::SSLManager(QWidget *parent) :
+SSLManager::SSLManager(QWidget* parent) :
     QWidget(parent),
     ui(new Ui::SSLManager)
 {

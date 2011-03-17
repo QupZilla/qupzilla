@@ -42,7 +42,7 @@ class SourceViewer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SourceViewer(QWebPage* page, QWidget *parent = 0);
+    explicit SourceViewer(QWebPage* page, QWidget* parent = 0);
 
 signals:
 

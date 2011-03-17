@@ -20,7 +20,7 @@
 #include "qupzilla.h"
 #include "webview.h"
 
-SiteInfo::SiteInfo(QupZilla* mainClass, QWidget *parent) :
+SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
     QDialog(parent)
     ,ui(new Ui::SiteInfo)
     ,p_QupZilla(mainClass)

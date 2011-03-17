@@ -20,7 +20,7 @@
 #include "locationbar.h"
 #include "bookmarksmodel.h"
 
-BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget *parent) :
+BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent) :
     QToolBar(parent)
     ,p_QupZilla(mainClass)
     ,m_bookmarksModel(0)

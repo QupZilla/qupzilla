@@ -34,7 +34,7 @@ class SSLManager : public QWidget
     Q_OBJECT
 
 public:
-    explicit SSLManager(QWidget *parent = 0);
+    explicit SSLManager(QWidget* parent = 0);
     ~SSLManager();
 
 private slots:
@@ -43,7 +43,7 @@ private slots:
     void ignoreAll(bool state);
 
 private:
-    Ui::SSLManager *ui;
+    Ui::SSLManager* ui;
     QList<QSslCertificate> m_certs;
 };
 

@@ -37,7 +37,7 @@ class CookieManager : public QWidget
     Q_OBJECT
 
 public:
-    explicit CookieManager(QWidget *parent = 0);
+    explicit CookieManager(QWidget* parent = 0);
     ~CookieManager();
 
 public slots:
@@ -50,7 +50,7 @@ private slots:
     void search();
 
 private:
-    Ui::CookieManager *ui;
+    Ui::CookieManager* ui;
 
     QList<QNetworkCookie> m_cookies;
 };

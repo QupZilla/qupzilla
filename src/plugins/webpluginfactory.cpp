@@ -20,7 +20,7 @@
 #include "mainapplication.h"
 #include "pluginproxy.h"
 
-WebPluginFactory::WebPluginFactory(QObject *parent)
+WebPluginFactory::WebPluginFactory(QObject* parent)
     : QWebPluginFactory(parent)
     ,m_loadClickToFlash(false)
 {

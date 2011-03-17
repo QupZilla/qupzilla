@@ -23,7 +23,7 @@
 #include "webpluginfactory.h"
 #include "mainapplication.h"
 
-WebPage::WebPage(WebView *parent, QupZilla* mainClass)
+WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     : QWebPage(parent)
     ,p_QupZilla(mainClass)
     ,m_view(parent)
@@ -59,7 +59,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
     qDebug() << "error" << reply->errorString();
 }
 
-bool WebPage::acceptNavigationRequest(QWebFrame *frame, const QNetworkRequest &request, NavigationType type)
+bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type)
 {
     m_lastRequest = request;
     m_lastRequestType = type;
@@ -108,7 +108,7 @@ QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
     return p_QupZilla->weView(index)->page();
 }
 
-bool WebPage::extension(Extension extension, const ExtensionOption *option, ExtensionReturn *output)
+bool WebPage::extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output)
 {
     if (extension == ChooseMultipleFilesExtension)
         return QWebPage::extension(extension, option, output);

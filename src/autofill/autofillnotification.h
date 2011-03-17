@@ -34,7 +34,7 @@ class AutoFillNotification : public Notification
     Q_OBJECT
 
 public:
-    explicit AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget *parent = 0);
+    explicit AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget* parent = 0);
     ~AutoFillNotification();
 
 private slots:
@@ -42,7 +42,7 @@ private slots:
     void never();
 
 private:
-    Ui::AutoFillWidget *ui;
+    Ui::AutoFillWidget* ui;
     QUrl m_url;
     QByteArray m_data;
     QString m_pass;

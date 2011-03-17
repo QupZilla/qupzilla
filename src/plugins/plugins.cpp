@@ -19,7 +19,7 @@
 #include "plugininterface.h"
 #include "mainapplication.h"
 
-Plugins::Plugins(QObject *parent) :
+Plugins::Plugins(QObject* parent) :
     QObject(parent)
 {
     loadSettings();
@@ -53,9 +53,9 @@ void Plugins::loadPlugins()
             continue;
 
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
-        QObject *plugin = loader.instance();
+        QObject* plugin = loader.instance();
         if (plugin) {
-            PluginInterface *iPlugin = qobject_cast<PluginInterface *>(plugin);
+            PluginInterface* iPlugin = qobject_cast<PluginInterface*>(plugin);
             iPlugin->init(mApp->getActiveProfil()+"plugins.ini");
             if (!iPlugin->testPlugin()) {
                 loader.unload();
@@ -76,9 +76,9 @@ PluginInterface* Plugins::getPlugin(QString pluginFileName)
     if (!QFile::exists(path))
         return 0;
     QPluginLoader loader(path);
-    QObject *plugin = loader.instance();
+    QObject* plugin = loader.instance();
     if (plugin) {
-        PluginInterface *iPlugin = qobject_cast<PluginInterface *>(plugin);
+        PluginInterface* iPlugin = qobject_cast<PluginInterface*>(plugin);
         return iPlugin;
     } else
         return 0;

@@ -33,7 +33,7 @@ class CookieJar : public QNetworkCookieJar
 {
     Q_OBJECT
 public:
-    explicit CookieJar(QupZilla* mainClass, QObject *parent = 0);
+    explicit CookieJar(QupZilla* mainClass, QObject* parent = 0);
 
     void loadSettings();
     bool setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url);

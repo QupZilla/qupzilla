@@ -20,7 +20,7 @@
 #include "mainapplication.h"
 #include "qupzilla.h"
 
-RSSNotification::RSSNotification(QString host, QWidget *parent) :
+RSSNotification::RSSNotification(QString host, QWidget* parent) :
     Notification(parent),
     ui(new Ui::RSSNotification)
 {

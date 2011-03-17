@@ -21,7 +21,7 @@
 #include "networkmanagerproxy.h"
 #include "mainapplication.h"
 
-NetworkManager::NetworkManager(QupZilla* mainClass, QObject *parent) :
+NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent) :
     NetworkManagerProxy(mainClass, parent)
     ,p_QupZilla(mainClass)
     ,m_ignoreAllWarnings(false)
@@ -47,7 +47,7 @@ void NetworkManager::loadSettings()
     settings.endGroup();
 }
 
-void NetworkManager::sslError(QNetworkReply *reply, QList<QSslError> errors)
+void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
 {
     if (m_ignoreAllWarnings) {
         reply->ignoreSslErrors(errors);
@@ -145,7 +145,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
         fill->addEntry(reply->url(), user->text(), pass->text());
 }
 
-QNetworkReply *NetworkManager::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice *outgoingData)
+QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
 {
     if (op == PostOperation && outgoingData) {
             QByteArray outgoingDataByteArray = outgoingData->peek(1024 * 1024);

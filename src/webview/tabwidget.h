@@ -38,7 +38,7 @@ class TabWidget : public QTabWidget
 {
     Q_OBJECT
 public:
-    explicit TabWidget(QupZilla* mainclass, QWidget *parent = 0);
+    explicit TabWidget(QupZilla* mainclass, QWidget* parent = 0);
     ~TabWidget();
     enum OpenUrlIn{ CurrentTab, NewSelectedTab, NewNotSelectedTab, NewTab = NewSelectedTab };
 

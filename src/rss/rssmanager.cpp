@@ -23,7 +23,7 @@
 #include "mainapplication.h"
 #include "treewidget.h"
 
-RSSManager::RSSManager(QupZilla* mainClass, QWidget *parent) :
+RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
     ,ui(new Ui::RSSManager)
     ,p_QupZilla(mainClass)
@@ -49,7 +49,7 @@ QupZilla* RSSManager::getQupZilla()
     return p_QupZilla;
 }
 
-void RSSManager::setMainWindow(QupZilla *window)
+void RSSManager::setMainWindow(QupZilla* window)
 {
     if (window)
         p_QupZilla = window;
@@ -202,7 +202,7 @@ void RSSManager::customContextMenuRequested(const QPoint &position)
     menu.exec(p);
 }
 
-void RSSManager::loadFeed(QTreeWidgetItem *item)
+void RSSManager::loadFeed(QTreeWidgetItem* item)
 {
     if (!item)
         return;
@@ -211,7 +211,7 @@ void RSSManager::loadFeed(QTreeWidgetItem *item)
     getQupZilla()->loadAddress(QUrl(item->whatsThis(0)));
 }
 
-void RSSManager::controlLoadFeed(QTreeWidgetItem *item)
+void RSSManager::controlLoadFeed(QTreeWidgetItem* item)
 {
     if (!item)
         return;
@@ -222,7 +222,7 @@ void RSSManager::controlLoadFeed(QTreeWidgetItem *item)
 
 void RSSManager::loadFeedInNewTab()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender()))
+    if (QAction* action = qobject_cast<QAction*>(sender()))
         getQupZilla()->tabWidget()->addView(action->data().toUrl(), tr("New Tab"), TabWidget::NewNotSelectedTab);
 }
 
@@ -231,10 +231,10 @@ void RSSManager::beginToLoadSlot(const QUrl &url)
     QNetworkReply* reply;
     reply=m_networkManager->get(QNetworkRequest(QUrl(url)));
 
-    connect(m_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finished(QNetworkReply *)));
+    connect(m_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finished(QNetworkReply*)));
 }
 
-void RSSManager::finished(QNetworkReply *reply)
+void RSSManager::finished(QNetworkReply* reply)
 {
     if (m_networkReplies.contains(reply))
         return;
@@ -270,7 +270,7 @@ void RSSManager::finished(QNetworkReply *reply)
             currentTag = xml.name().toString();
             } else if (xml.isEndElement()) {
                 if (xml.name() == "item") {
-                    QTreeWidgetItem *item = new QTreeWidgetItem;
+                    QTreeWidgetItem* item = new QTreeWidgetItem;
                     item->setText(0, titleString);
                     item->setWhatsThis(0, linkString);
                     item->setIcon(0, QIcon(":/icons/other/feed.png"));
@@ -289,7 +289,7 @@ void RSSManager::finished(QNetworkReply *reply)
     }
 
     if (treeWidget->topLevelItemCount() == 0) {
-        QTreeWidgetItem *item = new QTreeWidgetItem;
+        QTreeWidgetItem* item = new QTreeWidgetItem;
         item->setText(0, tr("Error in fetching feed"));
         treeWidget->addTopLevelItem(item);
     }

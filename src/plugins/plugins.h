@@ -34,7 +34,7 @@ class Plugins : public QObject
 {
     Q_OBJECT
 public:
-    explicit Plugins(QObject *parent = 0);
+    explicit Plugins(QObject* parent = 0);
 
     QStringList getAvailablePlugins() { return m_availablePluginFileNames; }
     QStringList getAllowedPlugins () { return m_allowedPluginFileNames; }

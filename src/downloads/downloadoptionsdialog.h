@@ -29,11 +29,11 @@ class DownloadOptionsDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit DownloadOptionsDialog(QWidget *parent = 0);
+    explicit DownloadOptionsDialog(QWidget* parent = 0);
     ~DownloadOptionsDialog();
 
 private:
-    Ui::DownloadOptionsDialog *ui;
+    Ui::DownloadOptionsDialog* ui;
 };
 
 #endif // DOWNLOADOPTIONSDIALOG_H

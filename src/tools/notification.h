@@ -9,7 +9,7 @@ class Notification : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Notification(QWidget *parent = 0);
+    explicit Notification(QWidget* parent = 0);
 
 public slots:
     void hide();

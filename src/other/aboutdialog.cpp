@@ -21,7 +21,7 @@
 #include "webview.h"
 #include "webpage.h"
 
-AboutDialog::AboutDialog(QWidget *parent) :
+AboutDialog::AboutDialog(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::AboutDialog)
 {

@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationpopup.h"
-LocationPopup::LocationPopup(QWidget *parent)
+LocationPopup::LocationPopup(QWidget* parent)
    :QAbstractItemView()
    ,m_parent(parent)
 {

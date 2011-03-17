@@ -33,7 +33,7 @@ class AboutDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit AboutDialog(QWidget *parent = 0);
+    explicit AboutDialog(QWidget* parent = 0);
     ~AboutDialog();
 
 private slots:
@@ -42,7 +42,7 @@ private slots:
     void buttonClicked();
 
 private:
-    Ui::AboutDialog *ui;
+    Ui::AboutDialog* ui;
 
     QString m_aboutHtml;
     QString m_authorsHtml;

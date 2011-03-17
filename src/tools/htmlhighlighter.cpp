@@ -56,7 +56,7 @@
  ****************************************************************************/
 #include "htmlhighlighter.h"
 
- HtmlHighlighter::HtmlHighlighter(QTextDocument *parent)
+ HtmlHighlighter::HtmlHighlighter(QTextDocument* parent)
      : QSyntaxHighlighter(parent)
  {
      HighlightingRule rule;
