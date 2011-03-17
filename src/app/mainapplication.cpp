@@ -170,6 +170,15 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::ZoomTextOnly, zoomTextOnly);
     m_websettings->setAttribute(QWebSettings::PrintElementBackgrounds, printElBg);
 
+    m_websettings->setFontFamily(QWebSettings::StandardFont, settings.value("StandardFont", m_websettings->fontFamily(QWebSettings::StandardFont)).toString());
+    m_websettings->setFontFamily(QWebSettings::CursiveFont, settings.value("CursiveFont", m_websettings->fontFamily(QWebSettings::CursiveFont)).toString());
+    m_websettings->setFontFamily(QWebSettings::FantasyFont, settings.value("FantasyFont", m_websettings->fontFamily(QWebSettings::FantasyFont)).toString());
+    m_websettings->setFontFamily(QWebSettings::FixedFont, settings.value("FixedFont", m_websettings->fontFamily(QWebSettings::FixedFont)).toString());
+    m_websettings->setFontFamily(QWebSettings::SansSerifFont, settings.value("SansSerifFont", m_websettings->fontFamily(QWebSettings::SansSerifFont)).toString());
+    m_websettings->setFontFamily(QWebSettings::SerifFont, settings.value("SerifFont", m_websettings->fontFamily(QWebSettings::SerifFont)).toString());
+    m_websettings->setFontSize(QWebSettings::DefaultFontSize, settings.value("DefaultFontSize", m_websettings->fontSize(QWebSettings::DefaultFontSize)).toInt() );
+    m_websettings->setFontSize(QWebSettings::DefaultFixedFontSize, settings.value("FixedFontSize", m_websettings->fontSize(QWebSettings::DefaultFixedFontSize)).toInt() );
+
     if (allowPersistentStorage) m_websettings->enablePersistentStorage(m_activeProfil);
     m_websettings->setMaximumPagesInCache(maxCachedPages);
 
@@ -251,7 +260,7 @@ void MainApplication::translateApp()
 {
     QLocale locale;
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
-    settings.beginGroup("Browser-Window-Settings");
+    settings.beginGroup("Browser-View-Settings");
     QString file = settings.value("language",locale.name()+".qm").toString();
     QString shortLoc = file.left(2);
 

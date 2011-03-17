@@ -174,6 +174,19 @@ Preferences::Preferences(QupZilla* mainClass, QWidget *parent) :
     downLocChanged(ui->useDefined->isChecked());
     settings.endGroup();
 
+    //FONTS
+    settings.beginGroup("Browser-Fonts");
+    ui->fontStandard->setCurrentFont(QFont( settings.value("StandardFont", mApp->webSettings()->fontFamily(QWebSettings::StandardFont)).toString() ));
+    ui->fontCursive->setCurrentFont(QFont( settings.value("CursiveFont", mApp->webSettings()->fontFamily(QWebSettings::CursiveFont)).toString() ));
+    ui->fontFantasy->setCurrentFont(QFont( settings.value("FantasyFont", mApp->webSettings()->fontFamily(QWebSettings::FantasyFont)).toString() ));
+    ui->fontFixed->setCurrentFont(QFont( settings.value("FixedFont", mApp->webSettings()->fontFamily(QWebSettings::FixedFont)).toString() ));
+    ui->fontSansSerif->setCurrentFont(QFont( settings.value("SansSerifFont", mApp->webSettings()->fontFamily(QWebSettings::SansSerifFont)).toString() ));
+    ui->fontSerif->setCurrentFont(QFont( settings.value("SerifFont", mApp->webSettings()->fontFamily(QWebSettings::SerifFont)).toString() ));
+
+    ui->sizeDefault->setValue( settings.value("DefaultFontSize", mApp->webSettings()->fontSize(QWebSettings::DefaultFontSize)).toInt() );
+    ui->sizeFixed->setValue( settings.value("FixedFontSize", mApp->webSettings()->fontSize(QWebSettings::DefaultFixedFontSize)).toInt() );
+    settings.endGroup();
+
     //PLUGINS
     m_pluginsList = new PluginsList(this);
     ui->pluginsFrame->addWidget(m_pluginsList);
@@ -420,7 +433,8 @@ void Preferences::saveSettings()
     settings.setValue("hideTabsWithOneTab",ui->hideTabsOnTab->isChecked() );
     settings.setValue("ActivateLastTabWhenClosingActual", ui->activateLastTab->isChecked());
     settings.endGroup();
-    //Downloads
+
+    //DOWNLOADS
     settings.beginGroup("DownloadManager");
     if (ui->askEverytime->isChecked())
         settings.setValue("defaultDownloadPath","");
@@ -430,6 +444,17 @@ void Preferences::saveSettings()
             text+="/";
         settings.setValue("defaultDownloadPath",text);
     }
+    settings.endGroup();
+
+    //FONTS
+    settings.beginGroup("Browser-Fonts");
+    settings.setValue("StandardFont", ui->fontStandard->currentFont().family());
+    settings.setValue("FantasyFont", ui->fontFantasy->currentFont().family());
+    settings.setValue("FixedFont", ui->fontFixed->currentFont().family());
+    settings.setValue("SansSerifFont", ui->fontSansSerif->currentFont().family());
+    settings.setValue("SerifFont", ui->fontSerif->currentFont().family());
+    settings.setValue("DefaultFontSize", ui->sizeDefault->value());
+    settings.setValue("FixedFontSize", ui->sizeFixed->value());
     settings.endGroup();
 
     //BROWSING
@@ -471,7 +496,7 @@ void Preferences::saveSettings()
     settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked() );
     settings.endGroup();
     //Languages
-    settings.beginGroup("Browser-Window-Settings");
+    settings.beginGroup("Browser-View-Settings");
     settings.setValue("language",ui->languages->itemData(ui->languages->currentIndex()).toString());
     settings.endGroup();
 
