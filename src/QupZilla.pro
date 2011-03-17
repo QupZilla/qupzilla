@@ -5,12 +5,12 @@
 #-------------------------------------------------
 
 DESTDIR = ../bin
-
 QT       += core gui webkit sql network
-
 TARGET = qupzilla
-
 TEMPLATE = app
+VERSION = 0.90.8
+TRANSLATIONS +=cs_CZ.ts\
+               sk_SK.ts
 
 INCLUDEPATH += 3rdparty\
                app\
@@ -174,8 +174,6 @@ RESOURCES += \
 
 OTHER_FILES += \
     appicon.rc
-
-TRANSLATIONS +=cs_CZ.ts
 
 include(3rdparty/qtsingleapplication.pri)
 
