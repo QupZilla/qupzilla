@@ -68,7 +68,7 @@
       <item>
        <widget class="QProgressBar" name="progressBar">
         <property name="styleSheet">
-         <string notr="true">margin-bottom: 1px;</string>
+         <string notr="true">QProgressBar {margin-bottom: 1px; border: 1px;}</string>
         </property>
         <property name="maximum">
          <number>0</number>
