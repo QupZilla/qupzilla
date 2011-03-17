@@ -148,6 +148,7 @@ private slots:
     void aboutToShowToolsMenu();
     void aboutToShowHelpMenu();
     void aboutToShowViewMenu();
+    void aboutToShowEncodingMenu();
 
     void searchOnPage();
     void showCookieManager();
@@ -181,6 +182,7 @@ private slots:
     void zoomReset() { weView()->zoomReset(); }
     void fullScreen(bool make);
     void startPrivate(bool state);
+    void changeEncoding();
 
     bool quitApp();
 
