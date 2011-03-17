@@ -901,12 +901,12 @@ neexistuje!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="453"/>
+        <location filename="../src/app/mainapplication.cpp" line="462"/>
         <source>Last session crashed</source>
         <translation>Posledná relácia spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="454"/>
+        <location filename="../src/app/mainapplication.cpp" line="463"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, posledná relácia QupZilly skončila chybou. Prepáčte. Chcete obnoviť uložený stav?</translation>
     </message>
@@ -1060,98 +1060,98 @@ neexistuje!</translation>
         <translation>Hlavné</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="937"/>
+        <location filename="../src/preferences/preferences.ui" line="949"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="103"/>
+        <location filename="../src/preferences/preferences.ui" line="115"/>
         <source>Downloads</source>
         <translation>Sťahovanie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="139"/>
+        <location filename="../src/preferences/preferences.ui" line="151"/>
         <source>Plugins</source>
         <translation>Doplnky</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="234"/>
+        <location filename="../src/preferences/preferences.ui" line="246"/>
         <source>After launch:  </source>
         <translation>Po spustení:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="242"/>
+        <location filename="../src/preferences/preferences.ui" line="254"/>
         <source>Open blank page</source>
         <translation>Otvoriť prádznu stránku</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="247"/>
-        <location filename="../src/preferences/preferences.ui" line="294"/>
+        <location filename="../src/preferences/preferences.ui" line="259"/>
+        <location filename="../src/preferences/preferences.ui" line="306"/>
         <source>Open homepage</source>
         <translation>Otvoriť domovskú stránku</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="252"/>
+        <location filename="../src/preferences/preferences.ui" line="264"/>
         <source>Restore session</source>
         <translation>Obnoviť reláciu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="260"/>
+        <location filename="../src/preferences/preferences.ui" line="272"/>
         <source>Homepage: </source>
         <translation>Domovská stránka:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="281"/>
+        <location filename="../src/preferences/preferences.ui" line="293"/>
         <source>On new tab: </source>
         <translation>Pri otvorení nového panelu: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="289"/>
+        <location filename="../src/preferences/preferences.ui" line="301"/>
         <source>Open blank tab</source>
         <translation>Otvoriť prádzny panel</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="299"/>
+        <location filename="../src/preferences/preferences.ui" line="311"/>
         <source>Open other page...</source>
         <translation>Otvoriť inú stránku...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="307"/>
+        <location filename="../src/preferences/preferences.ui" line="319"/>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
         <translation>&lt;b&gt;Profily&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="314"/>
+        <location filename="../src/preferences/preferences.ui" line="326"/>
         <source>Startup profile:</source>
         <translation>Štartovný profil:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="322"/>
+        <location filename="../src/preferences/preferences.ui" line="334"/>
         <source>default</source>
         <translation>default</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="370"/>
+        <location filename="../src/preferences/preferences.ui" line="382"/>
         <source>Create New</source>
         <translation>Nový profil</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="383"/>
+        <location filename="../src/preferences/preferences.ui" line="395"/>
         <source>Delete</source>
         <translation>Vymazať</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="211"/>
+        <location filename="../src/preferences/preferences.ui" line="223"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
         <translation>&lt;b&gt;Spustení&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="187"/>
+        <location filename="../src/preferences/preferences.ui" line="199"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="166"/>
+        <location filename="../src/preferences/preferences.ui" line="178"/>
         <source>&lt;b&gt;General&lt;/b&gt;</source>
         <translation>&lt;b&gt;Hlavné&lt;/b&gt;</translation>
     </message>
@@ -1161,72 +1161,72 @@ neexistuje!</translation>
         <translation>Okno prehliadača</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="468"/>
+        <location filename="../src/preferences/preferences.ui" line="480"/>
         <source>Show StatusBar on start</source>
         <translation>Zobraziť StatusBar pri štarte</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="488"/>
+        <location filename="../src/preferences/preferences.ui" line="500"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>Zobraziť panel záložiek pri štarte</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="495"/>
+        <location filename="../src/preferences/preferences.ui" line="507"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>Zobraziť navigačný panel pri štarte</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="502"/>
+        <location filename="../src/preferences/preferences.ui" line="514"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation>&lt;b&gt;Navigačný panel&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1037"/>
+        <location filename="../src/preferences/preferences.ui" line="1203"/>
         <source>&lt;b&gt;Downloads&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sťahovanie&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="893"/>
+        <location filename="../src/preferences/preferences.ui" line="905"/>
         <source>&lt;b&gt;Network Cache&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sieťová cache&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="978"/>
+        <location filename="../src/preferences/preferences.ui" line="990"/>
         <source>Allow storing network cache on disk</source>
         <translation>Povoliť ukladanie sieťovej cache na disk</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1282"/>
+        <location filename="../src/preferences/preferences.ui" line="1448"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1195"/>
+        <location filename="../src/preferences/preferences.ui" line="1361"/>
         <source>&lt;b&gt;Web storage&lt;/b&gt;</source>
         <translation>&lt;b&gt;Webové úložisko&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="680"/>
+        <location filename="../src/preferences/preferences.ui" line="692"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
         <translation>&lt;b&gt;Chovanie adresového riadku&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1420"/>
+        <location filename="../src/preferences/preferences.ui" line="1586"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jazyk&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="509"/>
+        <location filename="../src/preferences/preferences.ui" line="521"/>
         <source>Show Home button</source>
         <translation>Zobraziť tlačidlo domov</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="516"/>
+        <location filename="../src/preferences/preferences.ui" line="528"/>
         <source>Show Back / Forward buttons</source>
         <translation>Zobraziť tlačidlo Späť / Dopredu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="445"/>
+        <location filename="../src/preferences/preferences.ui" line="457"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;b&gt;Okno prehliadača&lt;/b&gt;</translation>
     </message>
@@ -1236,78 +1236,78 @@ neexistuje!</translation>
         <translation>Panely</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="272"/>
-        <location filename="../src/preferences/preferences.ui" line="418"/>
+        <location filename="../src/preferences/preferences.ui" line="284"/>
+        <location filename="../src/preferences/preferences.ui" line="430"/>
         <source>Use actual</source>
         <translation>Použiť aktuálny</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="523"/>
+        <location filename="../src/preferences/preferences.ui" line="535"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
         <translation>&lt;b&gt;Pozadie&lt;b/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="537"/>
+        <location filename="../src/preferences/preferences.ui" line="549"/>
         <source>Use background image</source>
         <translation>Použiť pozadie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="530"/>
+        <location filename="../src/preferences/preferences.ui" line="542"/>
         <source>Use transparent background</source>
         <translation>Použiť priehľadné pozadie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="569"/>
+        <location filename="../src/preferences/preferences.ui" line="581"/>
         <source>Choose image...</source>
         <translation>Zvoľte obrázok...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="562"/>
+        <location filename="../src/preferences/preferences.ui" line="574"/>
         <source>Reset default</source>
         <translation>Obnoviť povodné</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="623"/>
+        <location filename="../src/preferences/preferences.ui" line="635"/>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
         <translation>&lt;b&gt;Chovanie panelov&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="646"/>
+        <location filename="../src/preferences/preferences.ui" line="658"/>
         <source>Make tabs movable</source>
         <translation>Presunúť panely pretiahnutím</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="666"/>
+        <location filename="../src/preferences/preferences.ui" line="678"/>
         <source>Hide close button if there is only one tab</source>
         <translation>Skryť zavieracie tlačidlo pri jednom panely</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="673"/>
+        <location filename="../src/preferences/preferences.ui" line="685"/>
         <source>Hide tabs when if there is only one tab</source>
         <translation>Skryť zoznam panelov pri jednom panely</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="988"/>
+        <location filename="../src/preferences/preferences.ui" line="1000"/>
         <source>Maximum </source>
         <translation>Maximálne </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="995"/>
+        <location filename="../src/preferences/preferences.ui" line="1007"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1044"/>
+        <location filename="../src/preferences/preferences.ui" line="1210"/>
         <source>Ask everytime for download location</source>
         <translation>Pri každom súbore sa spýtať kde ho uložiť</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1051"/>
+        <location filename="../src/preferences/preferences.ui" line="1217"/>
         <source>Use defined location: </source>
         <translation>Uložiť všetky súbory do: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1063"/>
+        <location filename="../src/preferences/preferences.ui" line="1229"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -1317,198 +1317,253 @@ neexistuje!</translation>
         <translation>Prehliadanie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="747"/>
+        <location filename="../src/preferences/preferences.ui" line="759"/>
         <source>Load images</source>
         <translation>Nahrať obrázky</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="754"/>
+        <location filename="../src/preferences/preferences.ui" line="766"/>
         <source>Allow JAVA</source>
         <translation>Povoliť JAVA</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="761"/>
+        <location filename="../src/preferences/preferences.ui" line="773"/>
         <source>Allow  JavaScript</source>
         <translation>Povoliť  JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="775"/>
+        <location filename="../src/preferences/preferences.ui" line="787"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>Povoliť pluginy (Flash plugin)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="918"/>
+        <location filename="../src/preferences/preferences.ui" line="930"/>
         <source>Maximum pages in cache: </source>
         <translation>Maximum stránok v cache:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="115"/>
+        <location filename="../src/preferences/preferences.ui" line="127"/>
         <source>Password Manager</source>
         <translation>Správca hesiel</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1118"/>
+        <location filename="../src/preferences/preferences.ui" line="1284"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Možnosťi doplňovania&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1125"/>
+        <location filename="../src/preferences/preferences.ui" line="1291"/>
         <source>Allow saving passwords from sites</source>
         <translation>Povoliť ukladanie hesiel zo stránok</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="127"/>
+        <location filename="../src/preferences/preferences.ui" line="139"/>
         <source>Privacy</source>
         <translation>Súkromie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="589"/>
+        <location filename="../src/preferences/preferences.ui" line="103"/>
+        <source>Fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="601"/>
         <source>This is text color used in Menu</source>
         <translation>Toto je text používaný v menu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="612"/>
+        <location filename="../src/preferences/preferences.ui" line="624"/>
         <source>Menu text color</source>
         <translation>Farba menu textu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="734"/>
+        <location filename="../src/preferences/preferences.ui" line="746"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Aktivovať posledný panel pri zatváraní aktuálneho</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="768"/>
+        <location filename="../src/preferences/preferences.ui" line="780"/>
         <source>&lt;b&gt;WebKit&lt;/b&gt;</source>
         <translation>&lt;b&gt;WebKit&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="782"/>
+        <location filename="../src/preferences/preferences.ui" line="794"/>
         <source>Block PopUp windows</source>
         <translation>Blokovať vyskakovacie okna</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="805"/>
+        <location filename="../src/preferences/preferences.ui" line="817"/>
         <source>Allow DNS Prefetch</source>
         <translation>Povoliť DNS Prefetch</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="812"/>
+        <location filename="../src/preferences/preferences.ui" line="824"/>
         <source>JavaScript can access clipboard</source>
         <translation>Povoliť JavaScriptu prístup do schránky</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="819"/>
+        <location filename="../src/preferences/preferences.ui" line="831"/>
         <source>Include links in focus chain</source>
         <translation>Označovať odkazy tabulátorom</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="826"/>
+        <location filename="../src/preferences/preferences.ui" line="838"/>
         <source>Zoom text only</source>
         <translation>Približovať len text</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="833"/>
+        <location filename="../src/preferences/preferences.ui" line="845"/>
         <source>Print element background</source>
         <translation>Tlačiť pozadie objektu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="855"/>
+        <location filename="../src/preferences/preferences.ui" line="867"/>
         <source>Wheel scrolls</source>
         <translation>Koliesko posúva</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="869"/>
+        <location filename="../src/preferences/preferences.ui" line="881"/>
         <source>lines</source>
         <translation>riadky</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1289"/>
+        <location filename="../src/preferences/preferences.ui" line="1049"/>
+        <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1062"/>
+        <source>Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1069"/>
+        <source>Fixed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1079"/>
+        <source>Serif</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1089"/>
+        <source>Sans Serif</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1099"/>
+        <source>Cursive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1109"/>
+        <source>Default Font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1126"/>
+        <source>Fixed Font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1185"/>
+        <source>Fantasy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1192"/>
+        <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1455"/>
         <source>Filter Tracking Cookies</source>
         <translation>Filtrovať sledovacie cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1296"/>
+        <location filename="../src/preferences/preferences.ui" line="1462"/>
         <source>Allow storing of cookies</source>
         <translation>Povoliť prijímanie cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1303"/>
+        <location filename="../src/preferences/preferences.ui" line="1469"/>
         <source>Delete cookies on close</source>
         <translation>Vymazať cookies pri zavrení prehliadača</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1323"/>
+        <location filename="../src/preferences/preferences.ui" line="1489"/>
         <source>Match domain exactly</source>
         <translation>Požadovať presnú zhodu domény</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1359"/>
+        <location filename="../src/preferences/preferences.ui" line="1525"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Upozornenie:&lt;/b&gt; Možnosti požadovanie presnej zhody domény a filtrovať sledovacie cookies môžú viesť k odmietnutiu niektorých cookies zo stránok. Ak máte problémy s cookies, skuste tieto možnosti najskôr zakázať!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1375"/>
+        <location filename="../src/preferences/preferences.ui" line="1541"/>
         <source>Cookies Manager</source>
         <translation>Správca cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1202"/>
+        <location filename="../src/preferences/preferences.ui" line="1368"/>
         <source>Allow storing web icons</source>
         <translation>Povoliť ukládanie ikon</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1209"/>
+        <location filename="../src/preferences/preferences.ui" line="1375"/>
         <source>Allow saving history</source>
         <translation>Povoliť ukladanie histórie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1216"/>
+        <location filename="../src/preferences/preferences.ui" line="1382"/>
         <source>Delete history on close</source>
         <translation>Vymazať históriu pri zavretí prehliadača</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="151"/>
+        <location filename="../src/preferences/preferences.ui" line="163"/>
         <source>Other</source>
         <translation>Ostatné</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="687"/>
+        <location filename="../src/preferences/preferences.ui" line="699"/>
         <source>Select all text by double clicking in address bar</source>
         <oldsource>Select all text by clicking at address bar</oldsource>
         <translation>Označiť všetko pri dvojtom kliknutí do adresného riadku</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="694"/>
+        <location filename="../src/preferences/preferences.ui" line="706"/>
         <source>Add .com domain by pressing CTRL key</source>
         <translation>Pridať .com doménu stlačením CTRL klávesy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="701"/>
+        <location filename="../src/preferences/preferences.ui" line="713"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Pridať .sk doménu stlačením ALT klávesy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1388"/>
+        <location filename="../src/preferences/preferences.ui" line="1554"/>
         <source>SSL Manager</source>
         <translation>Správca SSL</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1427"/>
+        <location filename="../src/preferences/preferences.ui" line="1593"/>
         <source>Available translations: </source>
         <translation>Dostupné preklady: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1437"/>
+        <location filename="../src/preferences/preferences.ui" line="1603"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>K zmene jazyku je potrebný reštart prehliadača.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="267"/>
+        <location filename="../src/preferences/preferences.cpp" line="280"/>
         <source>Choose download location...</source>
         <translation>Vyberte zložku pre sťahovanie...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="275"/>
+        <location filename="../src/preferences/preferences.cpp" line="288"/>
         <source>Choose background location...</source>
         <translation>Zvoľte lokáciu pozadia...</translation>
     </message>
@@ -2226,83 +2281,134 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
         <translation>Zdrojový kód </translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="50"/>
+        <location filename="../src/other/sourceviewer.cpp" line="57"/>
         <source>File</source>
         <translation type="unfinished">Súbor</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="51"/>
+        <location filename="../src/other/sourceviewer.cpp" line="58"/>
         <source>Save as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="53"/>
+        <location filename="../src/other/sourceviewer.cpp" line="60"/>
         <source>Close</source>
         <translation type="unfinished">Zavrieť</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="56"/>
+        <location filename="../src/other/sourceviewer.cpp" line="63"/>
         <source>Edit</source>
         <translation type="unfinished">Upraviť</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="57"/>
+        <location filename="../src/other/sourceviewer.cpp" line="64"/>
         <source>Undo</source>
         <translation type="unfinished">Späť</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="58"/>
+        <location filename="../src/other/sourceviewer.cpp" line="65"/>
         <source>Redo</source>
         <translation type="unfinished">Dopredu</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="60"/>
+        <location filename="../src/other/sourceviewer.cpp" line="67"/>
         <source>Cut</source>
         <translation type="unfinished">Vystrihnúť</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="61"/>
+        <location filename="../src/other/sourceviewer.cpp" line="68"/>
         <source>Copy</source>
         <translation type="unfinished">Kopírovať</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="62"/>
+        <location filename="../src/other/sourceviewer.cpp" line="69"/>
         <source>Paste</source>
         <translation type="unfinished">Prilepiť</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="63"/>
+        <location filename="../src/other/sourceviewer.cpp" line="70"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="65"/>
+        <location filename="../src/other/sourceviewer.cpp" line="72"/>
         <source>Select All</source>
         <translation type="unfinished">Vybrať všetko</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="66"/>
+        <location filename="../src/other/sourceviewer.cpp" line="73"/>
         <source>Find</source>
         <translation type="unfinished">Hľadať</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="69"/>
+        <location filename="../src/other/sourceviewer.cpp" line="75"/>
+        <location filename="../src/other/sourceviewer.cpp" line="145"/>
+        <source>Go to Line...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/other/sourceviewer.cpp" line="78"/>
         <source>View</source>
         <translation type="unfinished">Zobraziť</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="76"/>
+        <location filename="../src/other/sourceviewer.cpp" line="85"/>
         <source>Reload</source>
         <translation type="unfinished">Obnoviť</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="78"/>
+        <location filename="../src/other/sourceviewer.cpp" line="87"/>
         <source>Editable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="79"/>
+        <location filename="../src/other/sourceviewer.cpp" line="88"/>
         <source>Word Wrap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/other/sourceviewer.cpp" line="100"/>
+        <source>Save file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/other/sourceviewer.cpp" line="106"/>
+        <source>Error!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/other/sourceviewer.cpp" line="106"/>
+        <source>Cannot write to file!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/other/sourceviewer.cpp" line="107"/>
+        <source>Error writing to file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/other/sourceviewer.cpp" line="113"/>
+        <source>Source successfuly saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/other/sourceviewer.cpp" line="126"/>
+        <source>Source reloaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/other/sourceviewer.cpp" line="133"/>
+        <source>Editable changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/other/sourceviewer.cpp" line="140"/>
+        <source>Word Wrap changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/other/sourceviewer.cpp" line="145"/>
+        <source>Enter line number</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
