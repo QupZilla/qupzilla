@@ -21,7 +21,7 @@
 #include "mainapplication.h"
 #include "notification.h"
 
-AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget *parent)
+AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget* parent)
    :Notification(parent)
    ,ui(new Ui::AutoFillWidget)
    ,m_url(url)

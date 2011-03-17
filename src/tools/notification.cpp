@@ -1,6 +1,6 @@
 #include "notification.h"
 
-Notification::Notification(QWidget *parent) :
+Notification::Notification(QWidget* parent) :
     QWidget(parent)
    ,m_animation(0)
 {

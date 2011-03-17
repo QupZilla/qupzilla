@@ -34,11 +34,11 @@ class SiteInfo : public QDialog
     Q_OBJECT
 
 public:
-    explicit SiteInfo(QupZilla* mainClass, QWidget *parent = 0);
+    explicit SiteInfo(QupZilla* mainClass, QWidget* parent = 0);
     ~SiteInfo();
 
 private:
-    Ui::SiteInfo *ui;
+    Ui::SiteInfo* ui;
     QupZilla* p_QupZilla;
 };
 

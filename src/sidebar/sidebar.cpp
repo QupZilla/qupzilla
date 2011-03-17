@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "sidebar.h"
 
-SideBar::SideBar(QWidget *parent) :
+SideBar::SideBar(QWidget* parent) :
     QDockWidget(parent)
 {
 }

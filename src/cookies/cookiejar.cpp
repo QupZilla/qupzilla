@@ -20,7 +20,7 @@
 #define COOKIE_DEBUG
 
 //TODO: black/white listing
-CookieJar::CookieJar(QupZilla* mainClass, QObject *parent) :
+CookieJar::CookieJar(QupZilla* mainClass, QObject* parent) :
     QNetworkCookieJar(parent)
     ,p_QupZilla(mainClass)
 {

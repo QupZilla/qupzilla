@@ -22,7 +22,7 @@
 #include "downloaditem.h"
 #include "ecwin7.h"
 
-DownloadManager::DownloadManager(QWidget *parent) :
+DownloadManager::DownloadManager(QWidget* parent) :
     QWidget(parent)
     ,ui(new Ui::DownloadManager)
     ,m_isClosing(false)
@@ -51,13 +51,13 @@ DownloadManager::DownloadManager(QWidget *parent) :
 }
 
 #ifdef W7TASKBAR
-bool DownloadManager::winEvent(MSG *message, long *result)
+bool DownloadManager::winEvent(MSG* message, long* result)
 {
     return win7.winEvent(message, result);
 }
 #endif
 
-void DownloadManager::timerEvent(QTimerEvent *event)
+void DownloadManager::timerEvent(QTimerEvent* event)
 {
     QList<QTime> remTimes;
     QList<int> progresses;
@@ -133,7 +133,7 @@ void DownloadManager::download(const QNetworkRequest &request)
     handleUnsupportedContent(m_networkManager->get(request));
 }
 
-void DownloadManager::handleUnsupportedContent(QNetworkReply *reply)
+void DownloadManager::handleUnsupportedContent(QNetworkReply* reply)
 {
 //    DownloadOptionsDialog* dialog = new DownloadOptionsDialog();
 //    dialog->show();
@@ -184,13 +184,13 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply *reply)
     activateWindow();
 }
 
-void DownloadManager::deleteItem(DownloadItem *item)
+void DownloadManager::deleteItem(DownloadItem* item)
 {
     if (item && !item->isDownloading())
         delete item;
 }
 
-QString DownloadManager::getFileName(QNetworkReply *reply)
+QString DownloadManager::getFileName(QNetworkReply* reply)
 {
     QString path;
     if (reply->hasRawHeader("Content-Disposition")) {
@@ -239,7 +239,7 @@ bool DownloadManager::canClose()
     return !isDownloading;
 }
 
-void DownloadManager::closeEvent(QCloseEvent *e)
+void DownloadManager::closeEvent(QCloseEvent* e)
 {
     if (mApp->windowCount() == 0) { // No main windows -> we are going to quit
         if (!canClose()){

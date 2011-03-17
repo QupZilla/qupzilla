@@ -18,14 +18,14 @@
 #include "locationcompleter.h"
 #include "locationbar.h"
 
-LocationCompleter::LocationCompleter(QObject *parent) :
+LocationCompleter::LocationCompleter(QObject* parent) :
     QCompleter(parent)
 {
     setMaxVisibleItems(6);
     QStandardItemModel* completeModel = new QStandardItemModel();
 
     setModel(completeModel);
-    QTreeView *treeView = new QTreeView;
+    QTreeView* treeView = new QTreeView;
 
     setPopup(treeView);
     treeView->setRootIsDecorated(false);
@@ -113,7 +113,7 @@ void LocationCompleter::refreshCompleter(QString string)
     query.exec("SELECT title, url FROM history WHERE title LIKE '%"+string+"%' OR url LIKE '%"+string+"%' ORDER BY count DESC LIMIT "+QString::number(limit));
     int i = 0;
     QStandardItemModel* cModel = (QStandardItemModel*)model();
-    QTreeView *treeView = (QTreeView*)popup();
+    QTreeView* treeView = (QTreeView*)popup();
 
     cModel->clear();
     while(query.next()) {

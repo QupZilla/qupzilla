@@ -27,7 +27,7 @@
 #include "siteinfowidget.h"
 #include "rsswidget.h"
 
-LocationBar::LocationBar(QupZilla* mainClass, QWidget *parent)
+LocationBar::LocationBar(QupZilla* mainClass, QWidget* parent)
     : LineEdit(parent)
     ,m_selectAllOnDoubleClick(false)
     ,m_addComWithCtrl(false)
@@ -267,7 +267,7 @@ void LocationBar::setPrivacy(bool state)
         m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/searchchoose.png); margin-left:2px;}");
 }
 
-void LocationBar::focusOutEvent(QFocusEvent *e)
+void LocationBar::focusOutEvent(QFocusEvent* e)
 {
     QLineEdit::focusOutEvent(e);
     if (!selectedText().isEmpty()  && e->reason() != Qt::TabFocusReason)
@@ -276,7 +276,7 @@ void LocationBar::focusOutEvent(QFocusEvent *e)
     hideGoButton();
 }
 
-void LocationBar::dropEvent(QDropEvent *event)
+void LocationBar::dropEvent(QDropEvent* event)
 {
     if (event->mimeData()->hasUrls()) {
         QUrl dropUrl = event->mimeData()->urls().at(0);
@@ -300,7 +300,7 @@ void LocationBar::dropEvent(QDropEvent *event)
     QLineEdit::dropEvent(event);
 }
 
-void LocationBar::mouseDoubleClickEvent(QMouseEvent *event)
+void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton && m_selectAllOnDoubleClick)
         selectAll();

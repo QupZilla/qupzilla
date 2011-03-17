@@ -46,7 +46,7 @@ class LocationBar : public LineEdit
 {
     Q_OBJECT;
 public:
-    explicit LocationBar(QupZilla* mainClass, QWidget *parent = 0);
+    explicit LocationBar(QupZilla* mainClass, QWidget* parent = 0);
     ~LocationBar();
     static QIcon icon(const QUrl &url);
 
@@ -67,9 +67,9 @@ private slots:
 
 private:
     void focusOutEvent(QFocusEvent* e);
-    void mouseDoubleClickEvent(QMouseEvent *event);
-    void keyPressEvent(QKeyEvent *event);
-    void dropEvent(QDropEvent *event);
+    void mouseDoubleClickEvent(QMouseEvent* event);
+    void keyPressEvent(QKeyEvent* event);
+    void dropEvent(QDropEvent* event);
 
     void showGoButton();
     void hideGoButton();

@@ -43,14 +43,14 @@
 #include "mainapplication.h"
 #include "pluginproxy.h"
 
-ClickToFlash::ClickToFlash(const QUrl &pluginUrl, QWidget *parent)
+ClickToFlash::ClickToFlash(const QUrl &pluginUrl, QWidget* parent)
         : QWidget(parent)
         , m_url(pluginUrl)
 {
-    QHBoxLayout *horizontalLayout;
-    QFrame *frame;
-    QHBoxLayout *horizontalLayout_2;
-    QToolButton *toolButton;
+    QHBoxLayout* horizontalLayout;
+    QFrame* frame;
+    QHBoxLayout* horizontalLayout_2;
+    QToolButton* toolButton;
 
     horizontalLayout = new QHBoxLayout(this);
     frame = new QFrame(this);
@@ -94,10 +94,10 @@ void ClickToFlash::toWhitelist()
 
 void ClickToFlash::load()
 {
-    QWidget *parent = parentWidget();
-    QWebView *view = 0;
+    QWidget* parent = parentWidget();
+    QWebView* view = 0;
     while (parent) {
-        if (QWebView *aView = qobject_cast<QWebView*>(parent)) {
+        if (QWebView* aView = qobject_cast<QWebView*>(parent)) {
             view = aView;
             break;
         }
@@ -112,7 +112,7 @@ void ClickToFlash::load()
     QList<QWebFrame*> frames;
     frames.append(view->page()->mainFrame());
     while (!frames.isEmpty()) {
-        QWebFrame *frame = frames.takeFirst();
+        QWebFrame* frame = frames.takeFirst();
         QWebElement docElement = frame->documentElement();
 
         QWebElementCollection elements;

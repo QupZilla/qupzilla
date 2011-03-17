@@ -24,7 +24,7 @@ class SideBar : public QDockWidget
 {
     Q_OBJECT
 public:
-    explicit SideBar(QWidget *parent = 0);
+    explicit SideBar(QWidget* parent = 0);
 
 signals:
 

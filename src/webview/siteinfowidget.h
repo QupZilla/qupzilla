@@ -31,13 +31,13 @@ class SiteInfoWidget : public QMenu
     Q_OBJECT
 
 public:
-    explicit SiteInfoWidget(QupZilla* mainClass, QWidget *parent = 0);
+    explicit SiteInfoWidget(QupZilla* mainClass, QWidget* parent = 0);
     ~SiteInfoWidget();
 
     void showAt(QWidget* _parent);
 
 private:
-    Ui::SiteInfoWidget *ui;
+    Ui::SiteInfoWidget* ui;
     QupZilla* p_QupZilla;
 };
 

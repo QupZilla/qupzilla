@@ -24,7 +24,7 @@
 #include "mainapplication.h"
 #include "webtab.h"
 
-TabWidget::TabWidget(QupZilla* mainClass, QWidget *parent) :
+TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     QTabWidget(parent)
     ,p_QupZilla(mainClass)
     ,m_canRestoreTab(false)
@@ -124,7 +124,7 @@ void TabWidget::aboutToShowTabsMenu()
 
 void TabWidget::actionChangeIndex()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         setCurrentIndex(action->data().toInt());
     }
 }
@@ -275,7 +275,7 @@ QByteArray TabWidget::saveState()
     QStringList tabs;
     QList<QByteArray> tabsHistory;
     for (int i = 0; i < count(); ++i) {
-        if (WebView *tab = weView(i)) {
+        if (WebView* tab = weView(i)) {
             tabs.append(QString::fromUtf8(tab->url().toEncoded()));
             if (tab->history()->count() != 0) {
                 QByteArray tabHistory;

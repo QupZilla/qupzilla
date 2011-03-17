@@ -20,7 +20,7 @@
 #include "qupzilla.h"
 #include "locationbar.h"
 
-HistoryManager::HistoryManager(QupZilla* mainClass, QWidget *parent) :
+HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
     ,ui(new Ui::HistoryManager)
     ,p_QupZilla(mainClass)
@@ -51,20 +51,20 @@ QupZilla* HistoryManager::getQupZilla()
     return p_QupZilla;
 }
 
-void HistoryManager::setMainWindow(QupZilla *window)
+void HistoryManager::setMainWindow(QupZilla* window)
 {
     if (window)
         p_QupZilla = window;
 }
 
-void HistoryManager::itemDoubleClicked(QTreeWidgetItem *item)
+void HistoryManager::itemDoubleClicked(QTreeWidgetItem* item)
 {
     if (!item || item->text(1).isEmpty())
         return;
     getQupZilla()->loadAddress(QUrl(item->text(1)));
 }
 
-void HistoryManager::itemControlClicked(QTreeWidgetItem *item)
+void HistoryManager::itemControlClicked(QTreeWidgetItem* item)
 {
     if (!item || item->text(1).isEmpty())
         return;
@@ -73,7 +73,7 @@ void HistoryManager::itemControlClicked(QTreeWidgetItem *item)
 
 void HistoryManager::loadInNewTab()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender()))
+    if (QAction* action = qobject_cast<QAction*>(sender()))
         getQupZilla()->tabWidget()->addView(action->data().toUrl(), tr("New Tab"), TabWidget::NewNotSelectedTab);
 }
 

@@ -19,7 +19,7 @@
 #include "webview.h"
 #include "htmlhighlighter.h"
 
-SourceViewer::SourceViewer(QWebPage* page, QWidget *parent) :
+SourceViewer::SourceViewer(QWebPage* page, QWidget* parent) :
     QWidget(parent)
     ,m_page(page)
 {
@@ -104,6 +104,7 @@ void SourceViewer::save()
     QFile file(filePath);
     if (!file.open(QFile::WriteOnly)) {
         QMessageBox::critical(this, tr("Error!"), tr("Cannot write to file!"));
+        m_statusBar->showMessage(tr("Error writing to file"));
         return;
     }
     file.write(m_sourceEdit->toPlainText().toAscii());

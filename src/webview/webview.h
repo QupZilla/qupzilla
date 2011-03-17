@@ -44,7 +44,7 @@ class WebView : public QWebView
 {
     Q_OBJECT
 public:
-    explicit WebView(QupZilla* mainClass, QWidget *parent = 0);
+    explicit WebView(QupZilla* mainClass, QWidget* parent = 0);
     ~WebView();
     bool isLoading() { return m_isLoading;}
     int getLoading() { return m_progress; }
@@ -104,11 +104,11 @@ private slots:
     void checkRss();
 
 private:
-    void keyPressEvent(QKeyEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
-    void contextMenuEvent(QContextMenuEvent *event);
-    void wheelEvent(QWheelEvent *event);
+    void keyPressEvent(QKeyEvent* event);
+    void mousePressEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
+    void contextMenuEvent(QContextMenuEvent* event);
+    void wheelEvent(QWheelEvent* event);
     TabWidget* tabWidget() const;
     int tabIndex() const;
     bool isCurrent();

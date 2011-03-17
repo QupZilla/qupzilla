@@ -36,7 +36,7 @@ class AutoSaver : public QObject
 {
     Q_OBJECT
 public:
-    explicit AutoSaver(QObject *parent = 0);
+    explicit AutoSaver(QObject* parent = 0);
 
 signals:
     void saveApp();
@@ -44,7 +44,7 @@ signals:
 public slots:
 
 private:
-    void timerEvent(QTimerEvent *);
+    void timerEvent(QTimerEvent* event);
     QBasicTimer m_timer;
 
 };

@@ -22,7 +22,7 @@
 #include "rssmanager.h"
 #include "rssnotification.h"
 
-RSSWidget::RSSWidget(WebView *view, QList<QPair<QString, QString> > availableRss, QWidget *parent)
+RSSWidget::RSSWidget(WebView* view, QList<QPair<QString, QString> > availableRss, QWidget* parent)
     :QMenu(parent)
     ,ui(new Ui::RSSWidget)
     ,m_avRss(availableRss)
@@ -54,7 +54,7 @@ void RSSWidget::addRss()
 {
     if(!m_view)
         return;
-    if (QPushButton *button = qobject_cast<QPushButton*>(sender())) {
+    if (QPushButton* button = qobject_cast<QPushButton*>(sender())) {
         QUrl url = QUrl(button->whatsThis());
         QString urlString = button->whatsThis();
         if(url.host().isEmpty()) {

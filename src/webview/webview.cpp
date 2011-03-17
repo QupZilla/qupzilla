@@ -30,7 +30,7 @@
 #include "pluginproxy.h"
 #include "webtab.h"
 
-WebView::WebView(QupZilla* mainClass, QWidget *parent)
+WebView::WebView(QupZilla* mainClass, QWidget* parent)
     : QWebView(parent)
     ,p_QupZilla(mainClass)
     ,m_progress(0)
@@ -135,17 +135,17 @@ void WebView::loadStarted()
 //    m_loadingTimer->start(1000*20); //20 seconds timeout to automatically "stop" loading animation
 }
 
-QLabel *WebView::animationLoading(int index, bool addMovie)
+QLabel* WebView::animationLoading(int index, bool addMovie)
 {
     if (-1 == index)
         return 0;
 
-    QLabel *loadingAnimation = qobject_cast<QLabel*>(tabWidget()->getTabBar()->tabButton(index, QTabBar::LeftSide));
+    QLabel* loadingAnimation = qobject_cast<QLabel*>(tabWidget()->getTabBar()->tabButton(index, QTabBar::LeftSide));
     if (!loadingAnimation) {
         loadingAnimation = new QLabel(this);
     }
     if (addMovie && !loadingAnimation->movie()) {
-        QMovie *movie = new QMovie(":icons/other/progress.gif", QByteArray(), loadingAnimation);
+        QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), loadingAnimation);
         movie->setSpeed(70);
         loadingAnimation->setMovie(movie);
         movie->start();
@@ -250,9 +250,9 @@ void WebView::linkHovered(const QString &link, const QString &title, const QStri
 
 TabWidget* WebView::tabWidget() const
 {
-    QObject *widget = this->parent();
+    QObject* widget = this->parent();
     while (widget) {
-        if (TabWidget *tw = qobject_cast<TabWidget*>(widget))
+        if (TabWidget* tw = qobject_cast<TabWidget*>(widget))
             return tw;
         widget = widget->parent();
     }
@@ -323,7 +323,7 @@ void WebView::checkRss()
     }
 }
 
-void WebView::mousePressEvent(QMouseEvent *event)
+void WebView::mousePressEvent(QMouseEvent* event)
 {
     switch (event->button()) {
     case Qt::XButton1:
@@ -354,7 +354,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
         QWebView::mouseReleaseEvent(event);
 }
 
-void WebView::keyPressEvent(QKeyEvent *event)
+void WebView::keyPressEvent(QKeyEvent* event)
 {
     switch (event->key()) {
     case Qt::Key_Back:
@@ -379,9 +379,9 @@ void WebView::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void WebView::contextMenuEvent(QContextMenuEvent *event)
+void WebView::contextMenuEvent(QContextMenuEvent* event)
 {
-    QMenu *menu = new QMenu(this);
+    QMenu* menu = new QMenu(this);
 
     QWebHitTestResult r = page()->mainFrame()->hitTestContent(event->pos());
 
@@ -492,42 +492,42 @@ void WebView::contextMenuEvent(QContextMenuEvent *event)
     QWebView::contextMenuEvent(event);
 }
 
-void WebView::addNotification(QWidget *notif)
+void WebView::addNotification(QWidget* notif)
 {
     emit showNotification(notif);
 }
 
 void WebView::openUrlInNewTab()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         tabWidget()->addView(action->data().toUrl(), tr("New tab"), TabWidget::NewNotSelectedTab);
     }
 }
 
 void WebView::openUrlInNewWindow()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         mApp->makeNewWindow(false, action->data().toString());
     }
 }
 
 void WebView::sendLinkByMail()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         QDesktopServices::openUrl(QUrl("mailto:?body="+action->data().toString()));
     }
 }
 
 void WebView::copyLinkToClipboard()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         QApplication::clipboard()->setText(action->data().toString());
     }
 }
 
 void WebView::searchOnGoogle()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         load(QUrl("http://www.google.com/search?client=qupzilla&q="+action->data().toString()));
     }
 }
@@ -549,7 +549,7 @@ void WebView::copyImageToClipboard()
 
 void WebView::showImage()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         load(QUrl(action->data().toString()));
     }
 }
@@ -561,7 +561,7 @@ void WebView::showSource()
 
 void WebView::downloadLinkToDisk()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         QNetworkRequest request(action->data().toUrl());
         DownloadManager* dManager = mApp->downManager();
         dManager->download(request);
@@ -576,7 +576,7 @@ void WebView::downloadRequested(const QNetworkRequest &request)
 
 void WebView::bookmarkLink()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         if (action->data().isNull())
             p_QupZilla->bookmarkPage();
         else
@@ -623,7 +623,7 @@ void WebView::zoomReset()
     applyZoom();
 }
 
-void WebView::wheelEvent(QWheelEvent *event)
+void WebView::wheelEvent(QWheelEvent* event)
 {
     if (event->modifiers() & Qt::ControlModifier) {
         int numDegrees = event->delta() / 8;

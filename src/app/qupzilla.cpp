@@ -192,7 +192,7 @@ void QupZilla::refreshHistory(int index)
 
 void QupZilla::goAtHistoryIndex()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         weView()->page()->history()->goToItem(weView()->page()->history()->itemAt(action->data().toInt()));
     }
     refreshHistory();
@@ -407,7 +407,7 @@ void QupZilla::bookmarkAllTabs()
 
 void QupZilla::loadActionUrl()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         loadAddress(action->data().toUrl());
     }
 }
