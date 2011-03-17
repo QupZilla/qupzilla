@@ -93,8 +93,8 @@ void WebSearchBar::searchChanged()
 
 void WebSearchBar::search()
 {
-    if (text().isEmpty())
-        return;
+//    if (text().isEmpty())
+//        return;
 
     QUrl searchUrl;
     if (m_boxSearchType->toolTip() == "Google")
@@ -106,7 +106,7 @@ void WebSearchBar::search()
     if (m_boxSearchType->toolTip() == "Wikipedia (en)")
         searchUrl = QUrl("http://en.wikipedia.org/w/index.php?search="+text());
     if (m_boxSearchType->toolTip() == "CSFD")
-        searchUrl = QUrl("http://www.csfd.cz/hledani-filmu-hercu-reziseru-ve-filmove-databazi/?search="+text());
+        searchUrl = QUrl("http://www.csfd.cz/hledat/?q="+text());
     if (m_boxSearchType->toolTip() == "Youtube")
         searchUrl = QUrl("http://www.youtube.com/results?search_query="+text());
 
