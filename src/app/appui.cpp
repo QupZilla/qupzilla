@@ -257,6 +257,8 @@ void QupZilla::setupMenu()
     m_menuView->addAction(QIcon::fromTheme("zoom-out"), tr("Zoom Out"), this, SLOT(zoomOut()))->setShortcut(QKeySequence("Ctrl+-"));
     m_menuView->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(zoomReset()))->setShortcut(QKeySequence("Ctrl+0"));
     m_menuView->addSeparator();
+
+    m_menuView->addSeparator();
     m_menuView->addAction(QIcon::fromTheme("text-html"), tr("Page Source"), this, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
     m_menuView->addAction(m_actionShowFullScreen);
     menuBar()->addMenu(m_menuView);
@@ -282,7 +284,7 @@ void QupZilla::setupMenu()
 
     //Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
-    foreach (QAction *action, actions) {
+    foreach (QAction* action, actions) {
         if (action->menu())
             actions += action->menu()->actions();
             addAction(action);

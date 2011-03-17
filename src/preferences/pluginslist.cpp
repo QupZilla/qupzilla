@@ -21,7 +21,7 @@
 #include "mainapplication.h"
 #include "plugininterface.h"
 
-PluginsList::PluginsList(QWidget *parent) :
+PluginsList::PluginsList(QWidget* parent) :
     QWidget(parent),
     ui(new Ui::PluginsList)
 {
@@ -140,7 +140,7 @@ void PluginsList::refresh()
     }
 }
 
-void PluginsList::currentChanged(QListWidgetItem *item)
+void PluginsList::currentChanged(QListWidgetItem* item)
 {
     if (!item)
         return;

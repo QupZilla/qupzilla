@@ -19,7 +19,7 @@
 #include "qupzilla.h"
 #include "webview.h"
 
-WebTab::WebTab(QupZilla* mainClass, QWidget *parent)
+WebTab::WebTab(QupZilla* mainClass, QWidget* parent)
     :QWidget(parent)
     ,p_QupZilla(mainClass)
     ,m_view(0)
@@ -36,7 +36,7 @@ WebTab::WebTab(QupZilla* mainClass, QWidget *parent)
     connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
 }
 
-void WebTab::showNotification(QWidget *notif)
+void WebTab::showNotification(QWidget* notif)
 {
     if (m_layout->count() > 1)
         delete m_layout->itemAt(0)->widget();

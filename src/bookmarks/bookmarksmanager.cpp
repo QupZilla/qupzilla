@@ -27,7 +27,7 @@
 
 //Won't be bad idea to rewrite bookmarks access via bookmarksmodel
 
-BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget *parent) :
+BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
     ,m_isRefreshing(false)
     ,ui(new Ui::BookmarksManager)
@@ -56,7 +56,7 @@ QupZilla* BookmarksManager::getQupZilla()
     return p_QupZilla;
 }
 
-void BookmarksManager::setMainWindow(QupZilla *window)
+void BookmarksManager::setMainWindow(QupZilla* window)
 {
     if (window)
         p_QupZilla = window;
@@ -72,7 +72,7 @@ void BookmarksManager::addFolder()
     refreshTable();
 }
 
-void BookmarksManager::itemChanged(QTreeWidgetItem *item)
+void BookmarksManager::itemChanged(QTreeWidgetItem* item)
 {
     if (!item || m_isRefreshing)
         return;
@@ -84,7 +84,7 @@ void BookmarksManager::itemChanged(QTreeWidgetItem *item)
     m_bookmarksModel->editBookmark(id, url, name);
 }
 
-void BookmarksManager::itemControlClicked(QTreeWidgetItem *item)
+void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
 {
     if (!item || item->text(1).isEmpty())
         return;
@@ -93,7 +93,7 @@ void BookmarksManager::itemControlClicked(QTreeWidgetItem *item)
 
 void BookmarksManager::loadInNewTab()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender()))
+    if (QAction* action = qobject_cast<QAction*>(sender()))
         getQupZilla()->tabWidget()->addView(action->data().toUrl(), tr("New Tab"), TabWidget::NewNotSelectedTab);
 }
 
@@ -122,7 +122,7 @@ void BookmarksManager::deleteItem()
     getQupZilla()->bookmarksToolbar()->refreshBookmarks();
 }
 
-void BookmarksManager::addBookmark(WebView *view)
+void BookmarksManager::addBookmark(WebView* view)
 {
     insertBookmark(view->url(), view->title());
 }
@@ -132,7 +132,7 @@ void BookmarksManager::moveBookmark()
     QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
     if (!item)
         return;
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         m_bookmarksModel->editBookmark(item->whatsThis(1).toInt(), item->text(0), action->data().toString());
     }
     refreshTable();

@@ -20,7 +20,7 @@
 #include "webview.h"
 #include "lineedit.h"
 
-SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget *parent) :
+SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent) :
     QToolBar(parent)
     ,p_QupZilla(mainClass)
     ,m_findFlags(0)

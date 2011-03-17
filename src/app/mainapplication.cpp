@@ -403,7 +403,7 @@ AutoFillModel* MainApplication::autoFill()
     return m_autofill;
 }
 
-void MainApplication::aboutToCloseWindow(QupZilla *window)
+void MainApplication::aboutToCloseWindow(QupZilla* window)
 {
     if (!window)
         return;
@@ -452,7 +452,7 @@ bool MainApplication::saveStateSlot()
     return true;
 }
 
-bool MainApplication::restoreStateSlot(QupZilla *window)
+bool MainApplication::restoreStateSlot(QupZilla* window)
 {
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("SessionRestore");

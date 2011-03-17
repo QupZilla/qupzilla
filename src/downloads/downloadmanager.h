@@ -53,7 +53,7 @@ class DownloadManager : public QWidget
     Q_OBJECT
 
 public:
-    explicit DownloadManager(QWidget *parent = 0);
+    explicit DownloadManager(QWidget* parent = 0);
     ~DownloadManager();
 
     void download(const QNetworkRequest &request);
@@ -64,7 +64,7 @@ public:
 
 #ifdef W7TASKBAR
 protected:
-    virtual bool winEvent(MSG *message, long *result);
+    virtual bool winEvent(MSG* message, long* result);
 #endif
 
 private slots:
@@ -75,11 +75,11 @@ private:
 #ifdef W7TASKBAR
     EcWin7 win7;
 #endif
-    void timerEvent(QTimerEvent *event);
+    void timerEvent(QTimerEvent* event);
     QString getFileName(QNetworkReply* reply);
-    void closeEvent(QCloseEvent *e);
+    void closeEvent(QCloseEvent* e);
 
-    Ui::DownloadManager *ui;
+    Ui::DownloadManager* ui;
     QNetworkAccessManager* m_networkManager;
     QFileIconProvider* m_iconProvider;
 

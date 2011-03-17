@@ -32,7 +32,7 @@ class Updater : public QObject
 {
     Q_OBJECT
 public:
-    explicit Updater(QupZilla* mainClass, QObject *parent = 0);
+    explicit Updater(QupZilla* mainClass, QObject* parent = 0);
     ~Updater();
 
 signals:

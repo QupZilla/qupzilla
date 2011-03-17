@@ -39,7 +39,7 @@ class RSSManager : public QWidget
     Q_OBJECT
 
 public:
-    explicit RSSManager(QupZilla* mainClass, QWidget *parent = 0);
+    explicit RSSManager(QupZilla* mainClass, QWidget* parent = 0);
     ~RSSManager();
 
     bool addRssFeed(const QString &address, const QString &title);
@@ -63,7 +63,7 @@ private:
     QupZilla* getQupZilla();
     QList<QNetworkReply*> m_networkReplies;
     QNetworkAccessManager* m_networkManager;
-    Ui::RSSManager *ui;
+    Ui::RSSManager* ui;
     QPointer<QupZilla> p_QupZilla;
 };
 

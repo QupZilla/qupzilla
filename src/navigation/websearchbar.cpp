@@ -20,7 +20,7 @@
 #include "webview.h"
 #include "clickablelabel.h"
 
-WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget *parent)
+WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     :LineEdit(parent)
     ,p_QupZilla(mainClass)
 {
@@ -74,7 +74,7 @@ void WebSearchBar::setupSearchTypes()
 
 void WebSearchBar::searchChanged()
 {
-    if (QAction *action = qobject_cast<QAction*>(sender())) {
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         if (action->data().toString() == "Google")
             m_boxSearchType->setIcon(QIcon(":/icons/menu/google.png"));
         else if (action->data().toString() == "Seznam")
@@ -114,7 +114,7 @@ void WebSearchBar::search()
     p_QupZilla->weView()->setFocus();
 }
 
-void WebSearchBar::focusOutEvent(QFocusEvent *e)
+void WebSearchBar::focusOutEvent(QFocusEvent* e)
 {
     if (text().isEmpty()) {
         QString search = m_boxSearchType->toolTip();
@@ -124,7 +124,7 @@ void WebSearchBar::focusOutEvent(QFocusEvent *e)
     QLineEdit::focusOutEvent(e);
 }
 
-void WebSearchBar::focusInEvent(QFocusEvent *e)
+void WebSearchBar::focusInEvent(QFocusEvent* e)
 {
     QString search = m_boxSearchType->toolTip();
 

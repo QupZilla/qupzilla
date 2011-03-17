@@ -35,7 +35,7 @@ class TabBar : public QTabBar
 {
     Q_OBJECT
 public:
-    explicit TabBar(QupZilla* mainClass, QWidget *parent = 0);
+    explicit TabBar(QupZilla* mainClass, QWidget* parent = 0);
 
 signals:
     void reloadTab(int index);
@@ -60,7 +60,7 @@ private slots:
     void closeTab() { emit closeTab(m_clickedTab); }
     void bookmarkTab();
 private:
-    void mouseDoubleClickEvent(QMouseEvent *event);
+    void mouseDoubleClickEvent(QMouseEvent* event);
 
     QupZilla* p_QupZilla;
     bool m_showCloseButtonWithOneTab;

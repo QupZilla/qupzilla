@@ -42,7 +42,7 @@ class DownloadItem : public QWidget
     Q_OBJECT
 
 public:
-    explicit DownloadItem(QListWidgetItem* item, QNetworkReply* reply ,QString path, QString fileName, QPixmap fileIcon, QWidget *parent = 0);
+    explicit DownloadItem(QListWidgetItem* item, QNetworkReply* reply ,QString path, QString fileName, QPixmap fileIcon, QWidget* parent = 0);
     bool isDownloading() { return m_downloading; }
     bool isCancelled();
     QTime remainingTime() { return m_remTime; }
@@ -70,10 +70,10 @@ private slots:
     void clear();
 
 private:
-    void timerEvent(QTimerEvent *event);
+    void timerEvent(QTimerEvent* event);
     void updateDownloadInfo(double currSpeed, qint64 received, qint64 total);
-    void mouseDoubleClickEvent(QMouseEvent *e);
-    Ui::DownloadItem *ui;
+    void mouseDoubleClickEvent(QMouseEvent* e);
+    Ui::DownloadItem* ui;
 
     QListWidgetItem* m_item;
     QNetworkReply* m_reply;

@@ -109,6 +109,7 @@ static bool resolveLibs()
   */
 bool QtWin::isRunningWindows7()
 {
+#ifdef Q_WS_WIN
     OSVERSIONINFO osvi;
 
     ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
@@ -117,6 +118,8 @@ bool QtWin::isRunningWindows7()
     GetVersionEx(&osvi);
 
     return ( (osvi.dwMajorVersion > 6) || ( (osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion >= 1) ));
+#endif
+    return false;
 }
 
 /*!

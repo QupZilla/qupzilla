@@ -69,7 +69,7 @@ class HtmlHighlighter : public QSyntaxHighlighter
     Q_OBJECT
 
 public:
-    HtmlHighlighter(QTextDocument *parent = 0);
+    HtmlHighlighter(QTextDocument* parent = 0);
 
 protected:
     void highlightBlock(const QString &text);

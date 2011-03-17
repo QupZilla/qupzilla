@@ -34,7 +34,7 @@ class ClearPrivateData : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ClearPrivateData(QupZilla* mainClass, QWidget *parent = 0);
+    explicit ClearPrivateData(QupZilla* mainClass, QWidget* parent = 0);
 
 signals:
 

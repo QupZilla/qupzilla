@@ -40,20 +40,20 @@ class WebPage : public QWebPage
 {
     Q_OBJECT
 public:
-    WebPage(WebView *parent, QupZilla* mainClass);
+    WebPage(WebView* parent, QupZilla* mainClass);
     void populateNetworkRequest(QNetworkRequest &request);
     ~WebPage();
 
     QString userAgentForUrl(const QUrl &url) const;
     bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
-    bool extension(Extension extension, const ExtensionOption *option, ExtensionReturn *output);
+    bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output);
 
 protected slots:
     QWebPage* createWindow(QWebPage::WebWindowType type);
     void handleUnsupportedContent(QNetworkReply* url);
 
 protected:
-    bool acceptNavigationRequest(QWebFrame *frame, const QNetworkRequest &request, NavigationType type);
+    bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
 
     QupZilla* p_QupZilla;
     QNetworkRequest m_lastRequest;

@@ -21,7 +21,7 @@
 #include "cookiejar.h"
 #include "mainapplication.h"
 
-CookieManager::CookieManager(QWidget *parent) :
+CookieManager::CookieManager(QWidget* parent) :
     QWidget(parent)
     ,ui(new Ui::CookieManager)
 {
@@ -83,7 +83,7 @@ void CookieManager::removeCookie()
         search();
 }
 
-void CookieManager::currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *parent)
+void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* parent)
 {
     Q_UNUSED(parent);
     if (!current)

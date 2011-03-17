@@ -19,7 +19,7 @@
 #include "webview.h"
 #include "qupzilla.h"
 
-HistoryModel::HistoryModel(QupZilla *mainClass, QObject *parent)
+HistoryModel::HistoryModel(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
     ,m_isSaving(true)
     ,p_QupZilla(mainClass)
@@ -66,7 +66,7 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
     return query.lastInsertId().toInt();
 }
 
-int HistoryModel::addHistoryEntry(WebView *view)
+int HistoryModel::addHistoryEntry(WebView* view)
 {
     if (!m_isSaving)
         return -2;

@@ -32,7 +32,7 @@ class AutoFillModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit AutoFillModel(QupZilla* mainClass, QObject *parent = 0);
+    explicit AutoFillModel(QupZilla* mainClass, QObject* parent = 0);
     void completePage(WebView* view);
 
     bool isStored(const QUrl &url);

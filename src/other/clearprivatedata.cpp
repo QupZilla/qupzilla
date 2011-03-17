@@ -22,7 +22,7 @@
 #include "networkmanager.h"
 #include "clickablelabel.h"
 
-ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget *parent) :
+ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent) :
     QDialog(parent)
     ,p_QupZilla(mainClass)
 {

@@ -19,7 +19,7 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 
-Updater::Updater(QupZilla* mainClass, QObject *parent) :
+Updater::Updater(QupZilla* mainClass, QObject* parent) :
     QObject(parent)
     ,p_QupZilla(mainClass)
 {
@@ -55,7 +55,7 @@ void Updater::startDownloadingUpdateInfo(const QUrl &url)
     QNetworkReply* reply;
     reply=manager->get(QNetworkRequest(QUrl(url)));
 
-    connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(downCompleted(QNetworkReply *)));
+    connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(downCompleted(QNetworkReply*)));
 }
 
 void Updater::downCompleted(QNetworkReply* reply)

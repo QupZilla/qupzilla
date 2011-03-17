@@ -35,7 +35,7 @@ class WebSearchBar : public LineEdit
 {
     Q_OBJECT;
 public:
-    explicit WebSearchBar(QupZilla* mainClass, QWidget *parent = 0);
+    explicit WebSearchBar(QupZilla* mainClass, QWidget* parent = 0);
 
 private slots:
     void searchChanged();

@@ -61,7 +61,7 @@ class ClickToFlash : public QWidget
     Q_OBJECT
 
 public:
-    explicit ClickToFlash(const QUrl &pluginUrl, QWidget *parent = 0);
+    explicit ClickToFlash(const QUrl &pluginUrl, QWidget* parent = 0);
 
 signals:
     void signalLoadClickToFlash(bool);

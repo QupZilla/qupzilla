@@ -18,7 +18,7 @@
 #include "downloadoptionsdialog.h"
 #include "ui_downloadoptionsdialog.h"
 
-DownloadOptionsDialog::DownloadOptionsDialog(QWidget *parent) :
+DownloadOptionsDialog::DownloadOptionsDialog(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::DownloadOptionsDialog)
 {

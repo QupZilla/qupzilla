@@ -26,15 +26,15 @@ class TreeWidget : public QTreeWidget
 {
     Q_OBJECT
 public:
-    explicit TreeWidget(QWidget *parent = 0);
+    explicit TreeWidget(QWidget* parent = 0);
 
 signals:
-    void itemControlClicked(QTreeWidgetItem *item);
+    void itemControlClicked(QTreeWidgetItem* item);
 
 public slots:
 
 private:
-    void mousePressEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent* event);
 
 };
 

@@ -36,10 +36,10 @@ class HistoryManager : public QWidget
     Q_OBJECT
 
 public:
-    explicit HistoryManager(QupZilla* mainClass, QWidget *parent = 0);
+    explicit HistoryManager(QupZilla* mainClass, QWidget* parent = 0);
     ~HistoryManager();
 
-    void setMainWindow(QupZilla *window);
+    void setMainWindow(QupZilla* window);
 
 public slots:
     void refreshTable();
@@ -55,7 +55,7 @@ private slots:
 
 private:
     QupZilla* getQupZilla();
-    Ui::HistoryManager *ui;
+    Ui::HistoryManager* ui;
     QPointer<QupZilla> p_QupZilla;
 };
 

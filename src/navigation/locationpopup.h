@@ -25,7 +25,7 @@ class LocationPopup : public QAbstractItemView
 {
     Q_OBJECT
 public:
-    explicit LocationPopup(QWidget *parent = 0);
+    explicit LocationPopup(QWidget* parent = 0);
 
 signals:
 

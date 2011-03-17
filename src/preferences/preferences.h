@@ -41,7 +41,7 @@ class Preferences : public QDialog
     Q_OBJECT
 
 public:
-    explicit Preferences(QupZilla* mainClass, QWidget *parent = 0);
+    explicit Preferences(QupZilla* mainClass, QWidget* parent = 0);
     ~Preferences();
 
 private slots:
@@ -71,7 +71,7 @@ private slots:
 
 private:
     void updateBgLabel();
-    Ui::Preferences *ui;
+    Ui::Preferences* ui;
     QupZilla* p_QupZilla;
     AutoFillManager* m_autoFillManager;
     PluginsList* m_pluginsList;
