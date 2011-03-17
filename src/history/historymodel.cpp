@@ -40,6 +40,8 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
         return -2;
     if (url.contains("file://") || title.contains(tr("Failed loading page")) || url.isEmpty() || url.contains("about:blank") )
         return -1;
+    if (title == "")
+        title=tr("No Named Page");
 
     QSqlQuery query;
     query.prepare("SELECT id FROM history WHERE url=?");
@@ -47,8 +49,6 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
     query.exec();
     if (!query.next()) {
         QDateTime now = QDateTime::currentDateTime();
-        if (title == "")
-            title=tr("No Named Page");
         query.prepare("INSERT INTO history (count, date, url, title) VALUES (1,?,?,?)");
         query.bindValue(0, now.toMSecsSinceEpoch());
         query.bindValue(1, url);
@@ -56,11 +56,10 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
         query.exec();
     }else{
         QDateTime now = QDateTime::currentDateTime();
-        if (title == "")
-            title=tr("No Named Page");
-        query.prepare("UPDATE history SET count = count + 1, date=? WHERE url=?");
+        query.prepare("UPDATE history SET count = count + 1, date=?, title=? WHERE url=?");
         query.bindValue(0, now.toMSecsSinceEpoch());
-        query.bindValue(1, url);
+        query.bindValue(1, title);
+        query.bindValue(2, url);
         query.exec();
     }
     return query.lastInsertId().toInt();
