@@ -390,6 +390,64 @@ void QupZilla::aboutToShowViewMenu()
         m_actionStop->setEnabled(false);
 }
 
+void QupZilla::aboutToShowEncodingMenu()
+{
+    m_menuEncoding->clear();
+    QMenu* menuISO = new QMenu("ISO", this);
+    QMenu* menuUTF = new QMenu("UTF", this);
+    QMenu* menuWindows = new QMenu("Windows", this);
+    QMenu* menuIscii = new QMenu("Iscii", this);
+    QMenu* menuOther = new QMenu(tr("Other"), this);
+
+    QList<QByteArray> available = QTextCodec::availableCodecs();
+    qSort(available);
+    QString activeCodec = mApp->webSettings()->defaultTextEncoding();
+
+    foreach (QByteArray name, available) {
+        if (QTextCodec::codecForName(name)->aliases().contains(name))
+            continue;
+        QAction* action = new QAction(name=="System" ? tr("Default") : name, this);
+        action->setData(name);
+        action->setCheckable(true);
+        connect(action, SIGNAL(triggered()), this, SLOT(changeEncoding()));
+        if (activeCodec.contains(name, Qt::CaseInsensitive))
+            action->setChecked(true);
+
+        if (name.startsWith("ISO"))
+            menuISO->addAction(action);
+        else if (name.startsWith("UTF"))
+            menuUTF->addAction(action);
+        else if (name.startsWith("windows"))
+            menuWindows->addAction(action);
+        else if (name.startsWith("Iscii"))
+            menuIscii->addAction(action);
+        else if (name == "System")
+            m_menuEncoding->addAction(action);
+        else
+            menuOther->addAction(action);
+    }
+
+    m_menuEncoding->addSeparator();
+    if (!menuISO->isEmpty())
+        m_menuEncoding->addMenu(menuISO);
+    if (!menuUTF->isEmpty())
+        m_menuEncoding->addMenu(menuUTF);
+    if (!menuWindows->isEmpty())
+        m_menuEncoding->addMenu(menuWindows);
+    if (!menuIscii->isEmpty())
+        m_menuEncoding->addMenu(menuIscii);
+    if (!menuOther->isEmpty())
+        m_menuEncoding->addMenu(menuOther);
+}
+
+void QupZilla::changeEncoding()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        mApp->webSettings()->setDefaultTextEncoding(action->data().toString());
+        reload();
+    }
+}
+
 void QupZilla::bookmarkPage()
 {
     mApp->bookmarksManager()->addBookmark(weView());
