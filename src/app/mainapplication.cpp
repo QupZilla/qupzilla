@@ -179,6 +179,8 @@ void MainApplication::loadSettings()
     m_websettings->setFontSize(QWebSettings::DefaultFontSize, settings.value("DefaultFontSize", m_websettings->fontSize(QWebSettings::DefaultFontSize)).toInt() );
     m_websettings->setFontSize(QWebSettings::DefaultFixedFontSize, settings.value("FixedFontSize", m_websettings->fontSize(QWebSettings::DefaultFixedFontSize)).toInt() );
 
+    m_websettings->setDefaultTextEncoding("System");
+
     if (allowPersistentStorage) m_websettings->enablePersistentStorage(m_activeProfil);
     m_websettings->setMaximumPagesInCache(maxCachedPages);
 

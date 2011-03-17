@@ -244,6 +244,10 @@ void QupZilla::setupMenu()
             , tr("Reload"), this);
     connect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
     m_actionReload->setShortcut(QKeySequence("Ctrl+R"));
+    QAction* actionEncoding = new QAction(tr("Character Encoding"), this);
+    m_menuEncoding = new QMenu(this);
+    actionEncoding->setMenu(m_menuEncoding);
+    connect(m_menuEncoding, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
 
     m_menuView->addAction(m_actionShowMenubar);
     m_menuView->addAction(m_actionShowToolbar);
@@ -257,7 +261,7 @@ void QupZilla::setupMenu()
     m_menuView->addAction(QIcon::fromTheme("zoom-out"), tr("Zoom Out"), this, SLOT(zoomOut()))->setShortcut(QKeySequence("Ctrl+-"));
     m_menuView->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(zoomReset()))->setShortcut(QKeySequence("Ctrl+0"));
     m_menuView->addSeparator();
-
+    m_menuView->addAction(actionEncoding);
     m_menuView->addSeparator();
     m_menuView->addAction(QIcon::fromTheme("text-html"), tr("Page Source"), this, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
     m_menuView->addAction(m_actionShowFullScreen);
