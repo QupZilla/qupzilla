@@ -574,83 +574,83 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="45"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="48"/>
         <source>Remaining time unavailable</source>
         <translation>Neznámý zbývající čas</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="72"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="75"/>
         <source>Done - %1</source>
         <translation>Hotovo - %1</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="116"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="214"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="119"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="217"/>
         <source>Cancelled</source>
         <translation>Zrušeno</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="122"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="125"/>
         <source>few seconds</source>
         <translation>několik sekund</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="124"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="127"/>
         <source>seconds</source>
         <translation>sekund</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="126"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="129"/>
         <source>minutes</source>
         <translation>minut</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="128"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="131"/>
         <source>hours</source>
         <translation>hodin</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="169"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="172"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
         <translation>Zbývá %1 - %2 z %3 (%4)</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="178"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="181"/>
         <source>Cancelled - %1</source>
         <translation>Zrušeno - %1</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="201"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="204"/>
         <source>Open File</source>
         <translation>Otevřít soubor</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="203"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="206"/>
         <source>Open Folder</source>
         <translation>Otevřít složku</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="211"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="214"/>
         <source>Cancel downloading</source>
         <translation>Zrušit stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="212"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="215"/>
         <source>Clear</source>
         <translation>Vyčistit</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="214"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="217"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="236"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="239"/>
         <source>Not found</source>
         <translation>Soubor neexistuje</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="236"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="239"/>
         <source>Sorry, the file 
  %1 
  is not found!</source>
@@ -659,12 +659,12 @@ p, li { white-space: pre-wrap; }
 neexistuje!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="248"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="251"/>
         <source>Error: Cannot write to file!</source>
         <translation>Chyba: Nelze zapisovat do souboru!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="257"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="260"/>
         <source>Error: </source>
         <translation>Chyba:</translation>
     </message>
@@ -1848,7 +1848,7 @@ neexistuje!</translation>
         <translation>Defaultní</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="698"/>
+        <location filename="../src/app/qupzilla.cpp" line="699"/>
         <source>Start Private Browsing</source>
         <translation>Spustit anonymní prohlížení</translation>
     </message>
@@ -1910,52 +1910,52 @@ neexistuje!</translation>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="600"/>
+        <location filename="../src/app/qupzilla.cpp" line="601"/>
         <source>Web Inspector</source>
         <translation>Web Inspektor</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="642"/>
+        <location filename="../src/app/qupzilla.cpp" line="643"/>
         <source>Open file...</source>
         <translation>Otevřít soubor...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="685"/>
+        <location filename="../src/app/qupzilla.cpp" line="686"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Jste si jistý že chcete zapnout soukromé prohlížení?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="686"/>
+        <location filename="../src/app/qupzilla.cpp" line="687"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Se zapnutým soukromým prohlížením jsou některé akce týkající se soukromí vypnuty:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="689"/>
+        <location filename="../src/app/qupzilla.cpp" line="690"/>
         <source>Webpages are not added to the history.</source>
         <translation>Stránky nejsou přidávány do historie.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="690"/>
+        <location filename="../src/app/qupzilla.cpp" line="691"/>
         <source>New cookies are not stored, but current cookies can be accessed.</source>
         <translation>Nové cookies nejsou přijímány, ale současné cookies jsou zasílány.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="691"/>
+        <location filename="../src/app/qupzilla.cpp" line="692"/>
         <source>Your session won&apos;t be stored.</source>
         <translation>Vaše relace nebude uložena.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="693"/>
+        <location filename="../src/app/qupzilla.cpp" line="694"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Než zavřete prohlížeč, stále můžete použít tlačítka Zpět a Vpřed k vrácení se na stránky které jste otevřeli.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="729"/>
+        <location filename="../src/app/qupzilla.cpp" line="730"/>
         <source>There are still open tabs</source>
         <translation>Stále jsou otevřeny panely</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="730"/>
+        <location filename="../src/app/qupzilla.cpp" line="731"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
         <translation>Ještě jsou otevřeny %1 panely a Vaše relace nebude uložena. Opravdu chcete skončit?</translation>
     </message>
