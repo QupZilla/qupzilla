@@ -12,6 +12,11 @@ VERSION = 0.90.8
 TRANSLATIONS +=cs_CZ.ts\
                sk_SK.ts
 
+OBJECTS_DIR = ../build
+MOC_DIR = ../build
+RCC_DIR = ../build
+UI_DIR = ../build
+
 INCLUDEPATH += 3rdparty\
                app\
                autofill\
