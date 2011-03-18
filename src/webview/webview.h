@@ -87,7 +87,7 @@ private slots:
     void loadFinished(bool state);
     void linkClicked(const QUrl &url);
     void urlChanged(const QUrl &url);
-    void titleChanged(QString title);
+    void titleChanged();
     void linkHovered(const QString &link, const QString &title, const QString &content);
     void openUrlInNewWindow();
     void openUrlInNewTab();
