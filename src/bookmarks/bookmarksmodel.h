@@ -17,9 +17,6 @@
 * ============================================================ */
 #ifndef BOOKMARKSMODEL_H
 #define BOOKMARKSMODEL_H
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
 
 #include <QUrl>
 #include <QSettings>

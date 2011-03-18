@@ -4,7 +4,6 @@
 #
 #-------------------------------------------------
 
-DESTDIR = ../bin
 QT       += core gui webkit sql network
 TARGET = qupzilla
 TEMPLATE = app
@@ -12,10 +11,13 @@ VERSION = 0.90.8
 TRANSLATIONS +=cs_CZ.ts\
                sk_SK.ts
 
+DESTDIR = ../bin
 OBJECTS_DIR = ../build
 MOC_DIR = ../build
 RCC_DIR = ../build
 UI_DIR = ../build
+
+!CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT
 
 INCLUDEPATH += 3rdparty\
                app\
@@ -171,7 +173,8 @@ FORMS    += \
     rss/rsswidget.ui \
     autofill/autofillnotification.ui \
     rss/rssnotification.ui \
-    preferences/sslmanager.ui
+    preferences/sslmanager.ui \
+    other/clearprivatedata.ui
 
 RESOURCES += \
     data/icons.qrc \

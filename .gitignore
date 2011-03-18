@@ -8,3 +8,4 @@ src0.9.7
 *.deb
 *.pro.user
 license_template
+Makefile

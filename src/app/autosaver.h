@@ -18,10 +18,6 @@
 #ifndef AUTOSAVER_H
 #define AUTOSAVER_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #ifdef QT_NO_DEBUG
 #ifdef DEVELOPING
 #error "TRYING TO RELEASE WITH DEVELOPING FLAG"

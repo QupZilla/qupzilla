@@ -18,10 +18,6 @@
 #ifndef NETWORKMANAGER_H
 #define NETWORKMANAGER_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QNetworkAccessManager>
 #include <QDialogButtonBox>
 #include <QBoxLayout>

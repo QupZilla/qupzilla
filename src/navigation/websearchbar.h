@@ -18,10 +18,6 @@
 #ifndef WEBSEARCHBAR_H
 #define WEBSEARCHBAR_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QWidget>
 #include <QPushButton>
 #include <QToolButton>

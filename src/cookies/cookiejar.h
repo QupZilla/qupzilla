@@ -18,10 +18,6 @@
 #ifndef COOKIEJAR_H
 #define COOKIEJAR_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QNetworkCookieJar>
 #include <QDebug>
 #include <QSettings>

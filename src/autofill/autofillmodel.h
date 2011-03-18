@@ -18,10 +18,6 @@
 #ifndef AUTOFILLMODEL_H
 #define AUTOFILLMODEL_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QObject>
 #include <QUrl>
 #include <QNetworkRequest>
