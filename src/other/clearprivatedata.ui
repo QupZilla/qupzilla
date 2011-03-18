@@ -63,7 +63,10 @@
     </widget>
    </item>
    <item row="7" column="1">
-    <widget class="QLabel" name="label">
+    <widget class="ClickableLabel" name="clearAdobeCookies">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
       <string notr="true">color: blue; text-decoration: underline;</string>
      </property>
@@ -109,7 +112,7 @@
     <widget class="QComboBox" name="historyLength">
      <item>
       <property name="text">
-       <string>Today</string>
+       <string>Later Today</string>
       </property>
      </item>
      <item>
@@ -144,6 +147,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ClickableLabel</class>
+   <extends>QLabel</extends>
+   <header>clickablelabel.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../data/icons.qrc"/>
  </resources>

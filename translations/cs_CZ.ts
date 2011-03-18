@@ -387,39 +387,64 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ClearPrivateData</name>
     <message>
-        <location filename="../src/other/clearprivatedata.cpp" line="29"/>
+        <location filename="../src/other/clearprivatedata.ui" line="14"/>
         <source>Clear Recent History</source>
         <translation>Vymazat nedávnou historii</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.cpp" line="39"/>
+        <location filename="../src/other/clearprivatedata.ui" line="24"/>
         <source>Choose what you want to delete:</source>
         <translation>Vyberte co chcete smazat:</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.cpp" line="42"/>
+        <location filename="../src/other/clearprivatedata.ui" line="31"/>
         <source>Clear history</source>
         <translation>Smazat historii</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.cpp" line="43"/>
+        <location filename="../src/other/clearprivatedata.ui" line="41"/>
         <source>Clear cookies</source>
         <translation>Smazat cookies</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.cpp" line="44"/>
+        <location filename="../src/other/clearprivatedata.ui" line="51"/>
         <source>Clear cache</source>
         <translation>Vyprázdnit vyrovnávací paměť</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.cpp" line="45"/>
+        <location filename="../src/other/clearprivatedata.ui" line="61"/>
         <source>Clear icons</source>
         <translation>Smazat ikony</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.cpp" line="47"/>
+        <location filename="../src/other/clearprivatedata.ui" line="71"/>
         <source>Clear cookies from Adobe Flash Player</source>
         <translation>Smazat cookies z Adobe Flash Playeru</translation>
+    </message>
+    <message>
+        <location filename="../src/other/clearprivatedata.ui" line="88"/>
+        <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Vymazat nedávnou historii&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/other/clearprivatedata.ui" line="112"/>
+        <source>Today</source>
+        <translation>Dnes</translation>
+    </message>
+    <message>
+        <location filename="../src/other/clearprivatedata.ui" line="117"/>
+        <source>Week</source>
+        <translation>Týden</translation>
+    </message>
+    <message>
+        <location filename="../src/other/clearprivatedata.ui" line="122"/>
+        <source>Month</source>
+        <translation>Měsíc</translation>
+    </message>
+    <message>
+        <location filename="../src/other/clearprivatedata.ui" line="127"/>
+        <source>All</source>
+        <translation>Vše</translation>
     </message>
 </context>
 <context>
@@ -1905,7 +1930,7 @@ neexistuje!</translation>
         <translation>Prázdný</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.h" line="141"/>
+        <location filename="../src/app/qupzilla.h" line="137"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
@@ -2518,7 +2543,7 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Dohromady máte otevřeno %1 panelů</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.h" line="56"/>
+        <location filename="../src/webview/tabwidget.h" line="52"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
@@ -2649,146 +2674,145 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
     <name>WebView</name>
     <message>
         <location filename="../src/webview/webview.cpp" line="123"/>
-        <location filename="../src/webview/webview.cpp" line="245"/>
+        <location filename="../src/webview/webview.cpp" line="244"/>
         <source>Loading...</source>
         <translation>Načítám...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="214"/>
-        <location filename="../src/webview/webview.cpp" line="692"/>
+        <location filename="../src/webview/webview.cpp" line="693"/>
         <source>No Named Page</source>
         <translation>Bezejmenná stránka</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="245"/>
+        <location filename="../src/webview/webview.cpp" line="244"/>
         <source>Done</source>
         <translation>Hotovo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="337"/>
-        <location filename="../src/webview/webview.cpp" line="341"/>
-        <location filename="../src/webview/webview.cpp" line="503"/>
+        <location filename="../src/webview/webview.cpp" line="336"/>
+        <location filename="../src/webview/webview.cpp" line="340"/>
+        <location filename="../src/webview/webview.cpp" line="502"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="391"/>
+        <location filename="../src/webview/webview.cpp" line="390"/>
         <source>Open link in new window</source>
         <translation>Otevřít odkaz v novém okně</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="392"/>
+        <location filename="../src/webview/webview.cpp" line="391"/>
         <source>Open link in new tab</source>
         <translation>Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="394"/>
+        <location filename="../src/webview/webview.cpp" line="393"/>
         <source>Bookmark link</source>
         <translation>Přidat odkaz do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="395"/>
+        <location filename="../src/webview/webview.cpp" line="394"/>
         <source>Save link as...</source>
         <translation>Uložit odkaz jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="396"/>
+        <location filename="../src/webview/webview.cpp" line="395"/>
         <source>Send link...</source>
         <translation>Odeslat odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="397"/>
+        <location filename="../src/webview/webview.cpp" line="396"/>
         <source>Copy link address</source>
         <translation>Kopírovat adresu odkazu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="406"/>
+        <location filename="../src/webview/webview.cpp" line="405"/>
         <source>Show image</source>
         <translation>Zobrazit obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="407"/>
+        <location filename="../src/webview/webview.cpp" line="406"/>
         <source>Copy image</source>
         <translation>Kopírovat obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="408"/>
+        <location filename="../src/webview/webview.cpp" line="407"/>
         <source>Copy image address</source>
         <oldsource>Coyp image address</oldsource>
         <translation>Kopírovat adresu obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="410"/>
+        <location filename="../src/webview/webview.cpp" line="409"/>
         <source>Save image as...</source>
         <translation>Uložit obrázek jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="411"/>
+        <location filename="../src/webview/webview.cpp" line="410"/>
         <source>Send image...</source>
         <translation>Odeslat obrázek...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="427"/>
+        <location filename="../src/webview/webview.cpp" line="426"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="435"/>
+        <location filename="../src/webview/webview.cpp" line="434"/>
         <source>Forward</source>
         <translation>Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="449"/>
+        <location filename="../src/webview/webview.cpp" line="448"/>
         <source>Reload</source>
         <translation>Obnovit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="456"/>
+        <location filename="../src/webview/webview.cpp" line="455"/>
         <source>Stop</source>
         <translation>Zastavit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="460"/>
+        <location filename="../src/webview/webview.cpp" line="459"/>
         <source>Bookmark page</source>
         <translation>Přidat stránku do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="461"/>
+        <location filename="../src/webview/webview.cpp" line="460"/>
         <source>Save page as...</source>
         <translation>Uložit stránku jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="462"/>
+        <location filename="../src/webview/webview.cpp" line="461"/>
         <source>Send page...</source>
         <translation>Odeslat stránku...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="464"/>
+        <location filename="../src/webview/webview.cpp" line="463"/>
         <source>Select all</source>
         <translation>Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="469"/>
+        <location filename="../src/webview/webview.cpp" line="468"/>
         <source>Show source code</source>
         <translation>Zobrazit zdrojový kód</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="470"/>
+        <location filename="../src/webview/webview.cpp" line="469"/>
         <source>Show info about site</source>
         <translation>Zobrazit informace o stránce</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="474"/>
+        <location filename="../src/webview/webview.cpp" line="470"/>
         <source>Show Web Inspector</source>
         <translation>Zobrazit Web Inspektor</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="480"/>
+        <location filename="../src/webview/webview.cpp" line="479"/>
         <source>Search </source>
         <translation>Hledat </translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="480"/>
+        <location filename="../src/webview/webview.cpp" line="479"/>
         <source>... on Google</source>
         <translation>... na Googlu</translation>
     </message>

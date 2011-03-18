@@ -26,66 +26,61 @@
 ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent) :
     QDialog(parent)
     ,p_QupZilla(mainClass)
+    ,ui(new Ui::ClearPrivateData)
 {
-    setWindowTitle(tr("Clear Recent History"));
-    setWindowIcon(QIcon(":/icons/qupzilla.png"));
-    m_layout = new QBoxLayout(QBoxLayout::TopToBottom, this);
-    m_label = new QLabel(this);
-    m_buttonBox = new QDialogButtonBox(this);
-    m_buttonBox->addButton(QDialogButtonBox::Ok);
-    m_buttonBox->addButton(QDialogButtonBox::Cancel);
-    connect(m_buttonBox, SIGNAL(accepted()), this, SLOT(dialogAccepted()));
-    connect(m_buttonBox, SIGNAL(rejected()), this, SLOT(close()));
-    m_layout->addWidget(m_label);
-    m_label->setText(tr("Choose what you want to delete:"));
-    m_layout->addWidget(m_buttonBox);
+    ui->setupUi(this);
+    ui->buttonBox->setFocus();
+    connect(ui->clearAdobeCookies, SIGNAL(clicked(QPoint)), this, SLOT(clearFlash()));
+    connect(ui->history, SIGNAL(clicked(bool)), this, SLOT(historyClicked(bool)));
+    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(dialogAccepted()));
+}
 
-    m_clearHistory = new QCheckBox(tr("Clear history"), this);
-    m_clearCookies = new QCheckBox(tr("Clear cookies"), this);
-    m_clearCache = new QCheckBox(tr("Clear cache"), this);
-    m_clearIcons = new QCheckBox(tr("Clear icons"), this);
-    m_clearFlashCookies = new ClickableLabel(this);
-    m_clearFlashCookies->setText(tr("Clear cookies from Adobe Flash Player"));
-
-    m_clearHistory->setChecked(true);
-    m_clearCookies->setChecked(true);
-    m_clearCache->setChecked(true);
-    m_clearIcons->setChecked(true);
-    m_clearFlashCookies->setStyleSheet("color: blue; text-decoration: underline;");
-    m_clearFlashCookies->setCursor(Qt::PointingHandCursor);
-
-    m_layout->addWidget(m_clearHistory);
-    m_layout->addWidget(m_clearCookies);
-    m_layout->addWidget(m_clearCache);
-    m_layout->addWidget(m_clearIcons);
-    m_layout->addWidget(m_clearFlashCookies);
-
-    m_layout->addWidget(m_buttonBox);
-
-    connect(m_clearFlashCookies, SIGNAL(clicked(QPoint)), this, SLOT(clearFlash()));
+void ClearPrivateData::historyClicked(bool state)
+{
+    ui->historyLength->setEnabled(state);
 }
 
 void ClearPrivateData::clearFlash()
 {
-    p_QupZilla->loadAddress(QUrl("http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html"));
+    p_QupZilla->tabWidget()->addView(QUrl("http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html"));
 }
 
 void ClearPrivateData::dialogAccepted()
 {
-    if (m_clearHistory->isChecked()) {
+    if (ui->history->isChecked()) {
+        QDateTime dateTime = QDateTime::currentDateTime();
+        qint64 nowMS = QDateTime::currentMSecsSinceEpoch();
+        qint64 date;
+
+        switch (ui->historyLength->currentIndex()) {
+        case 0: //Later Today
+            dateTime.setTime(QTime(0,0));
+            date = dateTime.toMSecsSinceEpoch();
+            break;
+        case 1: //Week
+            date = nowMS - 60u * 60u * 24u * 7u * 1000u;
+            break;
+        case 2: //Month
+            date = nowMS - 60u * 60u * 24u * 30u * 1000u;
+            break;
+        case 3: //All
+            date = 0;
+            break;
+        }
+
         QSqlQuery query;
-        query.exec("DELETE FROM history");
+        query.exec("DELETE FROM history WHERE date > "+QString::number(date));
         query.exec("VACUUM");
     }
-    if (m_clearCookies->isChecked()) {
+    if (ui->cookies->isChecked()) {
         QList<QNetworkCookie> cookies;
         mApp->cookieJar()->setAllCookies(cookies);
     }
-    if (m_clearCache->isChecked()) {
+    if (ui->cache->isChecked()) {
         mApp->webSettings()->clearMemoryCaches();
         mApp->networkManager()->cache()->clear();
     }
-    if (m_clearIcons->isChecked()) {
+    if (ui->icons->isChecked()) {
         mApp->webSettings()->clearIconDatabase();
     }
     close();
