@@ -577,83 +577,83 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="45"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="48"/>
         <source>Remaining time unavailable</source>
         <translation>Neznámy zostávajúci čas</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="72"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="75"/>
         <source>Done - %1</source>
         <translation>Dokončené - %1</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="116"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="214"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="119"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="217"/>
         <source>Cancelled</source>
         <translation>Zrušené</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="122"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="125"/>
         <source>few seconds</source>
         <translation>pár sekúnd</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="124"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="127"/>
         <source>seconds</source>
         <translation>sekúnd</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="126"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="129"/>
         <source>minutes</source>
         <translation>minút</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="128"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="131"/>
         <source>hours</source>
         <translation>hodín</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="169"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="172"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
         <translation>Zostáva %1 - %2 z %3 (%4)</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="178"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="181"/>
         <source>Cancelled - %1</source>
         <translation>Zrušene - %1</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="201"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="204"/>
         <source>Open File</source>
         <translation>Otvoriť súbor</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="203"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="206"/>
         <source>Open Folder</source>
         <translation>Otvoriť priečinok</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="211"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="214"/>
         <source>Cancel downloading</source>
         <translation>Zrušiť sťahovanie</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="212"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="215"/>
         <source>Clear</source>
         <translation>Vyčistiť</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="214"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="217"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="236"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="239"/>
         <source>Not found</source>
         <translation>Súbor neexistuje</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="236"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="239"/>
         <source>Sorry, the file 
  %1 
  is not found!</source>
@@ -662,12 +662,12 @@ p, li { white-space: pre-wrap; }
 neexistuje!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="248"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="251"/>
         <source>Error: Cannot write to file!</source>
         <translation>Chyba: Nejde zapisovať do súboru!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="257"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="260"/>
         <source>Error: </source>
         <translation>Chyba: </translation>
     </message>
@@ -1363,7 +1363,7 @@ neexistuje!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="103"/>
         <source>Fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Písma</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="601"/>
@@ -1428,52 +1428,52 @@ neexistuje!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1049"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Typy písmen&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1062"/>
         <source>Standard</source>
-        <translation type="unfinished"></translation>
+        <translation>Štandardné</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1069"/>
         <source>Fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>Proporcionálne</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1079"/>
         <source>Serif</source>
-        <translation type="unfinished"></translation>
+        <translation>Serif</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1089"/>
         <source>Sans Serif</source>
-        <translation type="unfinished"></translation>
+        <translation>Sans Serif</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1099"/>
         <source>Cursive</source>
-        <translation type="unfinished"></translation>
+        <translation>Cursive</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1109"/>
         <source>Default Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Základné písmo</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1126"/>
         <source>Fixed Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Proporcionálne písmo</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1185"/>
         <source>Fantasy</source>
-        <translation type="unfinished"></translation>
+        <translation>Fantasy</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1192"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Veľkosti písmen&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1455"/>
@@ -1719,7 +1719,7 @@ neexistuje!</translation>
     <message>
         <location filename="../src/app/appui.cpp" line="247"/>
         <source>Character Encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Kódovanie znakov</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="260"/>
@@ -1842,15 +1842,15 @@ neexistuje!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="400"/>
         <source>Other</source>
-        <translation type="unfinished">Ostatné</translation>
+        <translation>Ostatné</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="409"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Základné</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="698"/>
+        <location filename="../src/app/qupzilla.cpp" line="699"/>
         <source>Start Private Browsing</source>
         <translation>Spustiť anonymné prehliadanie</translation>
     </message>
@@ -1911,52 +1911,52 @@ neexistuje!</translation>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="600"/>
+        <location filename="../src/app/qupzilla.cpp" line="601"/>
         <source>Web Inspector</source>
         <translation>Web inšpektor</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="642"/>
+        <location filename="../src/app/qupzilla.cpp" line="643"/>
         <source>Open file...</source>
         <translation>Otvoriť súbor...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="685"/>
+        <location filename="../src/app/qupzilla.cpp" line="686"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Ste si istý, že chcete zapnúť súkromné prehliadanie?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="686"/>
+        <location filename="../src/app/qupzilla.cpp" line="687"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>So zapnutým súkromným prehliadaním sú niektoré akcie týkajúce sa súkromia vypnuté:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="689"/>
+        <location filename="../src/app/qupzilla.cpp" line="690"/>
         <source>Webpages are not added to the history.</source>
         <translation>Stránky nie sú pridávané do histórie.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="690"/>
+        <location filename="../src/app/qupzilla.cpp" line="691"/>
         <source>New cookies are not stored, but current cookies can be accessed.</source>
         <translation>Nové cookies nie sú prijímané, ale súčasné cookies sú zasielané.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="691"/>
+        <location filename="../src/app/qupzilla.cpp" line="692"/>
         <source>Your session won&apos;t be stored.</source>
         <translation>Vaša relácia nebude uložená.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="693"/>
+        <location filename="../src/app/qupzilla.cpp" line="694"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Dokiaľ nezavriete prehliadač, tak stále môžete používať tlačidla Späť a Dopredu k vráteniu sa na stránky, ktoré ste mali otvorené.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="729"/>
+        <location filename="../src/app/qupzilla.cpp" line="730"/>
         <source>There are still open tabs</source>
         <translation>Stále sú otvorené panely</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="730"/>
+        <location filename="../src/app/qupzilla.cpp" line="731"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
         <translation>Stále sú otvorené %1 panely a Vaša relácia nebude uložená. Skutočne chcete skončiť?</translation>
     </message>
@@ -2297,133 +2297,133 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="57"/>
         <source>File</source>
-        <translation type="unfinished">Súbor</translation>
+        <translation>Súbor</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="58"/>
         <source>Save as...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložiť ako...</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="60"/>
         <source>Close</source>
-        <translation type="unfinished">Zavrieť</translation>
+        <translation>Zavrieť</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="63"/>
         <source>Edit</source>
-        <translation type="unfinished">Upraviť</translation>
+        <translation>Upraviť</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="64"/>
         <source>Undo</source>
-        <translation type="unfinished">Späť</translation>
+        <translation>Späť</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="65"/>
         <source>Redo</source>
-        <translation type="unfinished">Dopredu</translation>
+        <translation>Dopredu</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="67"/>
         <source>Cut</source>
-        <translation type="unfinished">Vystrihnúť</translation>
+        <translation>Vystrihnúť</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="68"/>
         <source>Copy</source>
-        <translation type="unfinished">Kopírovať</translation>
+        <translation>Kopírovať</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="69"/>
         <source>Paste</source>
-        <translation type="unfinished">Prilepiť</translation>
+        <translation>Prilepiť</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="70"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazať</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="72"/>
         <source>Select All</source>
-        <translation type="unfinished">Vybrať všetko</translation>
+        <translation>Vybrať všetko</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="73"/>
         <source>Find</source>
-        <translation type="unfinished">Hľadať</translation>
+        <translation>Hľadať</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="75"/>
         <location filename="../src/other/sourceviewer.cpp" line="145"/>
         <source>Go to Line...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ísť na riadok...</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="78"/>
         <source>View</source>
-        <translation type="unfinished">Zobraziť</translation>
+        <translation>Zobraziť</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="85"/>
         <source>Reload</source>
-        <translation type="unfinished">Obnoviť</translation>
+        <translation>Obnoviť</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="87"/>
         <source>Editable</source>
-        <translation type="unfinished"></translation>
+        <translation>Povoliť úpravy</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="88"/>
         <source>Word Wrap</source>
-        <translation type="unfinished"></translation>
+        <translation>Zalamovať riadky</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="100"/>
         <source>Save file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložiť súbor...</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="106"/>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba!</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="106"/>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nemôžem zapisovať do súboru!</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="107"/>
         <source>Error writing to file</source>
-        <translation type="unfinished"></translation>
+        <translation>Nejde zapisovať do súboru</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="113"/>
         <source>Source successfuly saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Zdroj úspečne uložený</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="126"/>
         <source>Source reloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Zdroj novu načítaný</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="133"/>
         <source>Editable changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolenie úprav zmenené</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="140"/>
         <source>Word Wrap changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Zalamovanie riadkov zmenené</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="145"/>
         <source>Enter line number</source>
-        <translation type="unfinished"></translation>
+        <translation>Zadajte číslo riadku</translation>
     </message>
 </context>
 <context>
