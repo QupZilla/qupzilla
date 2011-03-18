@@ -48,16 +48,14 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
     query.bindValue(0, url);
     query.exec();
     if (!query.next()) {
-        QDateTime now = QDateTime::currentDateTime();
         query.prepare("INSERT INTO history (count, date, url, title) VALUES (1,?,?,?)");
-        query.bindValue(0, now.toMSecsSinceEpoch());
+        query.bindValue(0, QDateTime::currentMSecsSinceEpoch());
         query.bindValue(1, url);
         query.bindValue(2, title);
         query.exec();
     }else{
-        QDateTime now = QDateTime::currentDateTime();
         query.prepare("UPDATE history SET count = count + 1, date=?, title=? WHERE url=?");
-        query.bindValue(0, now.toMSecsSinceEpoch());
+        query.bindValue(0, QDateTime::currentMSecsSinceEpoch());
         query.bindValue(1, title);
         query.bindValue(2, url);
         query.exec();

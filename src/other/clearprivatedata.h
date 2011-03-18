@@ -24,7 +24,10 @@
 #include <QCheckBox>
 #include <QLabel>
 
-class ClickableLabel;
+namespace Ui {
+    class ClearPrivateData;
+}
+
 class QupZilla;
 class ClearPrivateData : public QDialog
 {
@@ -37,22 +40,14 @@ signals:
 public slots:
 
 private slots:
+    void historyClicked(bool state);
     void dialogAccepted();
     void clearFlash();
 
 private:
     QupZilla* p_QupZilla;
+    Ui::ClearPrivateData* ui;
 
-    QBoxLayout* m_layout;
-    QLabel* m_label;
-    QDialogButtonBox* m_buttonBox;
-
-    QCheckBox* m_clearHistory;
-    QCheckBox* m_clearCookies;
-    QCheckBox* m_clearCache;
-    QCheckBox* m_clearIcons;
-
-    ClickableLabel* m_clearFlashCookies;
 };
 
 #endif // CLEARPRIVATEDATA_H
