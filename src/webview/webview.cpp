@@ -384,7 +384,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
 
     QWebHitTestResult r = page()->mainFrame()->hitTestContent(event->pos());
 
-    if (!r.linkUrl().isEmpty()) {
+    if (!r.linkUrl().isEmpty() && r.linkUrl().scheme()!="javascript") {
         if (page()->selectedText() == r.linkText())
             findText("");
         menu->addAction(tr("Open link in new window"), this, SLOT(openUrlInNewWindow()))->setData(r.linkUrl());
