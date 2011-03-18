@@ -468,10 +468,10 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addSeparator();
         menu->addAction(QIcon::fromTheme("text-html"),tr("Show source code"), this, SLOT(showSource()));
         menu->addAction(QIcon::fromTheme("dialog-information"),tr("Show info about site"), this, SLOT(showSiteInfo()))->setData(url());
+        menu->addAction(tr("Show Web Inspector"), this, SLOT(showInspector()));
     }
 
     mApp->plugins()->populateWebViewMenu(menu, this, r);
-    menu->addAction(tr("Show Web Inspector"), this, SLOT(showInspector()));
 
     if (!page()->selectedText().isEmpty()) {
         menu->addSeparator();
