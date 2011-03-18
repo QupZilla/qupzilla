@@ -9,3 +9,4 @@ src0.9.7
 *.pro.user
 license_template
 Makefile
+TestPlugin-build
