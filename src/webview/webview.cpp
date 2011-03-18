@@ -44,7 +44,7 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
 {
     m_networkProxy = new NetworkManagerProxy(p_QupZilla);
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
-    m_networkProxy->setPage(m_page);
+    m_networkProxy->setPage(m_page) ;
     m_networkProxy->setView(this);
     m_page->setNetworkAccessManager(m_networkProxy);
     m_page->setView(this);
@@ -57,7 +57,7 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
 
     connect(this, SIGNAL(linkClicked(QUrl)), this, SLOT(linkClicked(QUrl)));
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
-    connect(this, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged(QString)));
+    connect(this, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
 
     connect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
 
@@ -203,23 +203,22 @@ void WebView::loadFinished(bool state)
     if (icon().isNull())
         QTimer::singleShot(1000, this, SLOT(iconChanged()));
 
-    titleChanged(title());
+    titleChanged();
     mApp->autoFill()->completePage(this);
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
 }
 
-void WebView::titleChanged(QString title)
+void WebView::titleChanged()
 {
-    if (title.isEmpty()) title = url().host();
-    if (title.isEmpty()) title = tr("No Named Page");
-    QString title2 = title;
+    QString title_ = title();
+    QString title2 = title_;
     tabWidget()->setTabToolTip(tabIndex(),title2);
 
     title2+=" - QupZilla";
     if (isCurrent())
         p_QupZilla->setWindowTitle(title2);
 
-    tabWidget()->setTabText(tabIndex(),title);
+    tabWidget()->setTabText(tabIndex(),title_);
 }
 
 void WebView::iconChanged()
@@ -688,6 +687,8 @@ QUrl WebView::url() const
 QString WebView::title() const
 {
     QString title = QWebView::title();
+    if (title.isEmpty()) title = url().path();
+    if (title.isEmpty()) title = url().host();
     if (title.isEmpty())
         return tr("No Named Page");
     return title;
