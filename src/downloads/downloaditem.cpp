@@ -54,6 +54,7 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
     connect(m_reply, SIGNAL(readyRead()), this, SLOT(readyRead()));
     connect(m_reply, SIGNAL(downloadProgress(qint64, qint64)), this, SLOT(downloadProgress(qint64, qint64)));
     connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error(QNetworkReply::NetworkError)));
+    connect(m_reply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged()));
     connect(ui->button, SIGNAL(clicked(QPoint)), this, SLOT(stop()));
 
     m_downloading = true;
@@ -67,6 +68,12 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
         error(m_reply->error());
     }
     show();
+}
+
+void DownloadItem::metaDataChanged()
+{
+    QVariant locationHeader = m_reply->header(QNetworkRequest::LocationHeader);
+    QMessageBox::information(this, "Meta Data Changed", QString("Meta data changed feature unimplemented yet, sorry.\n URL: '%̈́'").arg(locationHeader.toUrl().toString()));
 }
 
 void DownloadItem::finished()

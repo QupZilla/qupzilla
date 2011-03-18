@@ -59,6 +59,7 @@ signals:
 
 private slots:
     void finished();
+    void metaDataChanged();
     void downloadProgress(qint64 received, qint64 total);
     void stop();
     void openFile();
