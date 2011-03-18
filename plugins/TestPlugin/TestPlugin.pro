@@ -11,7 +11,7 @@ CONFIG       += plugin
 
 TARGET        = ExamplePlugin
 
-DESTDIR = ../../../bin/plugins
+DESTDIR = ../../bin/plugins
 
 SOURCES += testplugin.cpp
 

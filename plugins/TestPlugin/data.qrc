@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>cs_CZ.qm</file>
-        <file>qupzilla.png</file>
         <file>sk_SK.qm</file>
     </qresource>
 </RCC>
