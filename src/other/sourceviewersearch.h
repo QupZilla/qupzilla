@@ -15,48 +15,41 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SOURCEVIEWER_H
-#define SOURCEVIEWER_H
+#ifndef SOURCEVIEWERSEARCH_H
+#define SOURCEVIEWERSEARCH_H
+#include <QDebug>
+#include <QTextDocument>
+#include <QTextCursor>
 
-#include <QWidget>
-#include <QBoxLayout>
-#include <QTextEdit>
-#include <QApplication>
-#include <QMenu>
-#include <QMenuBar>
-#include <QWebPage>
-#include <QWebFrame>
-#include <QStyle>
-#include <QDesktopWidget>
-#include <QInputDialog>
-#include <QFileDialog>
-#include <QFile>
-#include <QMessageBox>
-#include <QStatusBar>
+#include "notification.h"
 
-class SourceViewer : public QWidget
+namespace Ui {
+    class SourceViewerSearch;
+}
+
+class SourceViewer;
+class SourceViewerSearch : public Notification
 {
     Q_OBJECT
 public:
-    explicit SourceViewer(QWebPage* page, QWidget* parent = 0);
-    QTextEdit* sourceEdit() { return m_sourceEdit; }
+    explicit SourceViewerSearch(SourceViewer* parent = 0);
+
+    void activateLineEdit();
+
 signals:
 
 public slots:
 
 private slots:
-    void save();
-    void findText();
-    void reload();
-    void setTextEditable();
-    void setTextWordWrap();
-    void goToLine();
+    void next();
+    void previous();
+    bool find(QTextDocument::FindFlags flags);
 
 private:
-    QBoxLayout* m_layout;
-    QTextEdit* m_sourceEdit;
-    QWebPage* m_page;
-    QStatusBar* m_statusBar;
+    SourceViewer* m_sourceViewer;
+    Ui::SourceViewerSearch* ui;
+
+    QString m_lastSearchedString;
 };
 
-#endif // SOURCEVIEWER_H
+#endif // SOURCEVIEWERSEARCH_H

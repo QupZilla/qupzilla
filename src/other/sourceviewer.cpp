@@ -18,6 +18,7 @@
 #include "sourceviewer.h"
 #include "webview.h"
 #include "htmlhighlighter.h"
+#include "sourceviewersearch.h"
 
 SourceViewer::SourceViewer(QWebPage* page, QWidget* parent) :
     QWidget(parent)
@@ -115,7 +116,14 @@ void SourceViewer::save()
 
 void SourceViewer::findText()
 {
+    if (m_layout->count() > 2) {
+        SourceViewerSearch* search= qobject_cast<SourceViewerSearch*>( m_layout->itemAt(1)->widget() );
+        search->activateLineEdit();
+        return;
+    }
 
+    SourceViewerSearch* search = new SourceViewerSearch(this);
+    m_layout->insertWidget(1, search);
 }
 
 void SourceViewer::reload()
@@ -142,7 +150,7 @@ void SourceViewer::setTextWordWrap()
 
 void SourceViewer::goToLine()
 {
-    int line = QInputDialog::getInt(this, tr("Go to Line..."), tr("Enter line number"));
+    int line = QInputDialog::getInt(this, tr("Go to Line..."), tr("Enter line number"), 0, 1, 5000);
     if (line == 0)
         return;
 

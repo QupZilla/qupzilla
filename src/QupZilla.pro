@@ -95,7 +95,8 @@ SOURCES += main.cpp\
     navigation/locationpopup.cpp \
     preferences/sslmanager.cpp \
     tools/notification.cpp \
-    tools/htmlhighlighter.cpp
+    tools/htmlhighlighter.cpp \
+    other/sourceviewersearch.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -153,7 +154,8 @@ HEADERS  += 3rdparty/squeezelabel.h \
     navigation/locationpopup.h \
     preferences/sslmanager.h \
     tools/notification.h \
-    tools/htmlhighlighter.h
+    tools/htmlhighlighter.h \
+    other/sourceviewersearch.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -174,7 +176,8 @@ FORMS    += \
     autofill/autofillnotification.ui \
     rss/rssnotification.ui \
     preferences/sslmanager.ui \
-    other/clearprivatedata.ui
+    other/clearprivatedata.ui \
+    other/sourceviewersearch.ui
 
 RESOURCES += \
     data/icons.qrc \
