@@ -18,10 +18,6 @@
 #ifndef CLEARPRIVATEDATA_H
 #define CLEARPRIVATEDATA_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QDialog>
 #include <QBoxLayout>
 #include <QDialogButtonBox>

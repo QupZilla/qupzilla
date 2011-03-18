@@ -18,10 +18,6 @@
 #ifndef WEBVIEW_H
 #define WEBVIEW_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QWebView>
 #include <QDebug>
 #include <QTabWidget>

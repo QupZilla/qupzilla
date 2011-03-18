@@ -18,10 +18,6 @@
 #ifndef NETWORKMANAGERPROXY_H
 #define NETWORKMANAGERPROXY_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QObject>
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>

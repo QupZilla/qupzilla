@@ -18,10 +18,6 @@
 #ifndef BOOKMARKSTOOLBAR_H
 #define BOOKMARKSTOOLBAR_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QToolBar>
 #include <QMenu>
 #include <QToolButton>

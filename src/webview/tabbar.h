@@ -18,10 +18,6 @@
 #ifndef TABBAR_H
 #define TABBAR_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QTabBar>
 #include <QAction>
 #include <QDebug>

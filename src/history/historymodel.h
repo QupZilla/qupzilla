@@ -18,10 +18,6 @@
 #ifndef HISTORYMODEL_H
 #define HISTORYMODEL_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include "QtSql/QSqlDatabase"
 #include "QSqlQuery"
 #include "QDateTime"
