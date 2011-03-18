@@ -21,6 +21,7 @@
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "clickablelabel.h"
+#include "ui_clearprivatedata.h"
 
 ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent) :
     QDialog(parent)

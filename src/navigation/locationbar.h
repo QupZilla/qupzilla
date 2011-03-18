@@ -18,10 +18,6 @@
 #ifndef LOCATIONBAR_H
 #define LOCATIONBAR_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QLabel>
 #include <QCompleter>
 #include <QStandardItemModel>

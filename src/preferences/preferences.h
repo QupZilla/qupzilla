@@ -18,10 +18,6 @@
 #ifndef PREFERENCES_H
 #define PREFERENCES_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QDialog>
 #include <QFileDialog>
 #include <QListWidgetItem>

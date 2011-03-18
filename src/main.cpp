@@ -15,9 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
+ 
 
 #include <QtGui/QApplication>
 #include <QTextCodec>

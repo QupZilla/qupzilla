@@ -18,10 +18,6 @@
 #ifndef TABWIDGET_H
 #define TABWIDGET_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include "webview.h"
 #include "webtab.h"
 #include <QTabWidget>

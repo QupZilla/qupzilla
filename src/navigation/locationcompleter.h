@@ -18,10 +18,6 @@
 #ifndef LOCATIONCOMPLETER_H
 #define LOCATIONCOMPLETER_H
 
-#if defined(QT_NO_DEBUG) & !defined(QT_NO_DEBUG_OUTPUT)
-#define QT_NO_DEBUG_OUTPUT
-#endif
-
 #include <QCompleter>
 #include <QDebug>
 #include <QStringList>
