@@ -52,7 +52,8 @@ SourceViewerSearch::SourceViewerSearch(SourceViewer* parent) :
     ui->lineEdit->setFocus();
     startAnimation();
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
-    connect(ui->lineEdit, SIGNAL(cursorPositionChanged(int,int)), this, SLOT(next()));
+    connect(ui->lineEdit, SIGNAL(textEdited(QString)), this, SLOT(next()));
+    connect(ui->lineEdit, SIGNAL(returnPressed()), this, SLOT(next()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(next()));
     connect(ui->previous, SIGNAL(clicked()), this, SLOT(previous()));
 }
@@ -97,7 +98,7 @@ bool SourceViewerSearch::find(QTextDocument::FindFlags flags)
 
     if (!m_sourceViewer->sourceEdit()->find(string, flags)) {
         QTextCursor cursor = m_sourceViewer->sourceEdit()->textCursor();
-        m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
+        m_sourceViewer->sourceEdit()->moveCursor( (flags == QTextDocument::FindBackward ) ? QTextCursor::End : QTextCursor::Start );
         if (!m_sourceViewer->sourceEdit()->find(string,flags)) {
             cursor.clearSelection();
             m_sourceViewer->sourceEdit()->setTextCursor(cursor);

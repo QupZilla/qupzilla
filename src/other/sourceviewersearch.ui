@@ -32,7 +32,7 @@
       <string/>
      </property>
      <property name="shortcut">
-      <string>Esc</string>
+      <string notr="true">Esc</string>
      </property>
      <property name="autoRaise">
       <bool>true</bool>
