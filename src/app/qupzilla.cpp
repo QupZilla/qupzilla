@@ -44,7 +44,7 @@
 #include "pluginproxy.h"
 #include "qtwin.h"
 
-const QString QupZilla::VERSION="0.9.8";
+const QString QupZilla::VERSION="0.9.9";
 const QString QupZilla::BUILDTIME="03/12/2011 14:48";
 const QString QupZilla::AUTHOR="nowrep";
 const QString QupZilla::COPYRIGHT="2010-2011";
