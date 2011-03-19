@@ -31,6 +31,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     setForwardUnsupportedContent(true);
     setPluginFactory(new WebPluginFactory(this));
     connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), SLOT(handleUnsupportedContent(QNetworkReply*)));
+//    connect(this, SIGNAL())
 }
 
 void WebPage::handleUnsupportedContent(QNetworkReply* reply)

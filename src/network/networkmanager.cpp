@@ -28,6 +28,7 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent) :
 {
     connect(this, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)), this, SLOT(authentication(QNetworkReply*, QAuthenticator* )));
     connect(this, SIGNAL(sslErrors(QNetworkReply*,QList<QSslError>)), this, SLOT(sslError(QNetworkReply*,QList<QSslError>)));
+//    connect(this, SIGNAL(finished(QNetworkReply*)), this, SLOT(setSSLConfiguration(QNetworkReply*)));
 
     loadSettings();
 }
@@ -46,6 +47,22 @@ void NetworkManager::loadSettings()
     m_ignoreAllWarnings = settings.value("IgnoreAllSSLWarnings", false).toBool();
     settings.endGroup();
 }
+
+//void NetworkManager::setSSLConfiguration(QNetworkReply *reply)
+//{
+//    if (!reply->sslConfiguration().isNull()) {
+//        QNetworkRequest request = reply->request();
+//        QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
+//        QWebPage* webPage = (QWebPage*)(v.value<void*>());
+//        v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102));
+//        WebView* webView = (WebView*)(v.value<void*>());
+//        if (!webPage || !webView)
+//            return;
+
+//        if (webView->url().host() == reply->url().host())
+//            qDebug() << reply->sslConfiguration().peerCertificate() << webPage << webView;
+//    }
+//}
 
 void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
 {
@@ -155,6 +172,7 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     QNetworkRequest req = request;
     req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     QNetworkReply* reply = QNetworkAccessManager::createRequest(op, req, outgoingData);
+
     //emit requestCreated(op, request, reply);
     return reply;
 }

@@ -25,6 +25,7 @@
 #include "networkmanager.h"
 #include "autofillmodel.h"
 #include "networkmanagerproxy.h"
+#include "networkmanager.h"
 #include "mainapplication.h"
 #include "tabbar.h"
 #include "pluginproxy.h"
@@ -687,8 +688,8 @@ QUrl WebView::url() const
 QString WebView::title() const
 {
     QString title = QWebView::title();
-    if (title.isEmpty()) title = url().path();
     if (title.isEmpty()) title = url().host();
+    if (title.isEmpty()) title = url().path();
     if (title.isEmpty())
         return tr("No Named Page");
     return title;
