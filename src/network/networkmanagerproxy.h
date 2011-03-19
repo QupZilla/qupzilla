@@ -25,6 +25,7 @@
 class WebView;
 class WebPage;
 class QupZilla;
+class NetworkManager;
 
 class NetworkManagerProxy : public QNetworkAccessManager
 {
@@ -34,7 +35,7 @@ public:
     void setView(WebView* view) { m_view = view; }
     void setPage(WebPage* page) { m_page = page; }
 
-    void setPrimaryNetworkAccessManager(NetworkManagerProxy* manager);
+    void setPrimaryNetworkAccessManager(NetworkManager* manager);
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 
 protected:
@@ -44,7 +45,7 @@ private:
     QupZilla* p_QupZilla;
     WebView* m_view;
     WebPage* m_page;
-    NetworkManagerProxy* m_manager;
+    NetworkManager* m_manager;
 };
 
 #endif // NETWORKMANAGERPROXY_H

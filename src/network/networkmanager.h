@@ -53,6 +53,7 @@ signals:
 public slots:
     void authentication(QNetworkReply* reply, QAuthenticator* auth);
     void sslError(QNetworkReply* reply, QList<QSslError> errors);
+//    void setSSLConfiguration(QNetworkReply* reply);
 
 private:
     QupZilla* p_QupZilla;

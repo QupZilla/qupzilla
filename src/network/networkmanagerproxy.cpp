@@ -38,7 +38,7 @@ void NetworkManagerProxy::populateNetworkRequest(QNetworkRequest &request)
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
 }
 
-void NetworkManagerProxy::setPrimaryNetworkAccessManager(NetworkManagerProxy* manager)
+void NetworkManagerProxy::setPrimaryNetworkAccessManager(NetworkManager* manager)
 {
     Q_ASSERT(manager);
     m_manager = manager;
