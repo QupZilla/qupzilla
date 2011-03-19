@@ -410,7 +410,7 @@ void QupZilla::aboutToShowEncodingMenu()
         action->setData(name);
         action->setCheckable(true);
         connect(action, SIGNAL(triggered()), this, SLOT(changeEncoding()));
-        if (activeCodec.contains(name, Qt::CaseInsensitive))
+        if (activeCodec.compare(name, Qt::CaseInsensitive) == 0)
             action->setChecked(true);
 
         if (name.startsWith("ISO"))
