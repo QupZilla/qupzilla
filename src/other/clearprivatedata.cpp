@@ -50,7 +50,7 @@ void ClearPrivateData::dialogAccepted()
     if (ui->history->isChecked()) {
         QDateTime dateTime = QDateTime::currentDateTime();
         qint64 nowMS = QDateTime::currentMSecsSinceEpoch();
-        qint64 date;
+        qint64 date = 0;
 
         switch (ui->historyLength->currentIndex()) {
         case 0: //Later Today

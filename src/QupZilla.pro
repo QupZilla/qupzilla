@@ -17,7 +17,9 @@ MOC_DIR = ../build
 RCC_DIR = ../build
 UI_DIR = ../build
 
-!CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT
+##It won't compile on windows with this define
+##Some bug in qtsingleapp / qvector template
+!win32: !CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT
 
 INCLUDEPATH += 3rdparty\
                app\
