@@ -3,7 +3,8 @@
 #################################
 Version: 0.9.8
 
-QupZilla is new and very fast browser based on WebKit core http://www.webkit.org
+QupZilla is new and very fast open source browser based on WebKit core http://www.webkit.org
 Written in Qt Framework http://qt.nokia.com
 
-More informations at http://www.qupzilla.ic.cz (Czech only)
+English wiki at https://github.com/nowrep/QupZilla/wiki
+More informations and download at http://www.qupzilla.ic.cz (Czech only)
