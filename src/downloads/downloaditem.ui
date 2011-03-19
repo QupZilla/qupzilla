@@ -67,9 +67,6 @@
       </property>
       <item>
        <widget class="QProgressBar" name="progressBar">
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
         <property name="maximum">
          <number>0</number>
         </property>
@@ -98,14 +95,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>SqueezeLabel</class>
-   <extends>QLabel</extends>
-   <header>squeezelabel.h</header>
-  </customwidget>
-  <customwidget>
    <class>ClickableLabel</class>
    <extends>QLabel</extends>
    <header>clickablelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>SqueezeLabel</class>
+   <extends>QLabel</extends>
+   <header>squeezelabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
