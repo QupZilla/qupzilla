@@ -84,6 +84,7 @@
                      << "(<cufon|</cufon)" << "(<cufontext|</cufontext)" << "(<button|</button)"
                      << "(<dl|</dl)" << "(<dt|</dt)" << "(<dd|</dd)"
                      << "(<strong|</strong)" << "(<dt|</dt)" << "(<dd|</dd)"
+                     << "(<em|</em)" /*<< "(<dt|</dt)" << "(<dd|</dd)"*/
                      << "(<ol|</ol)" << "(<small|</small)" << ">";
      foreach (const QString &pattern, keywordPatterns) {
          rule.pattern = QRegExp(pattern);
