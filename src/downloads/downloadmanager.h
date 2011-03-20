@@ -44,6 +44,7 @@ namespace Ui {
 
 class DownloadItem;
 class EcWin7;
+class NetworkManager;
 class DownloadManager : public QWidget
 {
     Q_OBJECT
@@ -76,7 +77,7 @@ private:
     void closeEvent(QCloseEvent* e);
 
     Ui::DownloadManager* ui;
-    QNetworkAccessManager* m_networkManager;
+    NetworkManager* m_networkManager;
     QFileIconProvider* m_iconProvider;
 
     QString m_lastDownloadPath;
