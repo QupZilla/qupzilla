@@ -21,6 +21,7 @@
 #include "downloadoptionsdialog.h"
 #include "downloaditem.h"
 #include "ecwin7.h"
+#include "networkmanager.h"
 
 DownloadManager::DownloadManager(QWidget* parent) :
     QWidget(parent)
@@ -35,7 +36,7 @@ DownloadManager::DownloadManager(QWidget* parent) :
     QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
 
     m_iconProvider = new QFileIconProvider();
-    m_networkManager = new QNetworkAccessManager();
+    m_networkManager = mApp->networkManager();
 
     QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
