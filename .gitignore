@@ -4,6 +4,7 @@ tools_
 src0.*
 *.deb
 *.pro.user
+headers*.tar.gz
 license_template
 Makefile
 TestPlugin-build

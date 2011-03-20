@@ -45,7 +45,7 @@
 #include "qtwin.h"
 
 const QString QupZilla::VERSION="0.9.9";
-const QString QupZilla::BUILDTIME="03/12/2011 14:48";
+const QString QupZilla::BUILDTIME=QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM dd yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
 const QString QupZilla::AUTHOR="nowrep";
 const QString QupZilla::COPYRIGHT="2010-2011";
 const QString QupZilla::WWWADDRESS="http://qupzilla.ic.cz";
