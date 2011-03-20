@@ -26,13 +26,8 @@ SSLManager::SSLManager(QWidget* parent) :
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
-    m_certs = mApp->networkManager()->getCertExceptions();
-    foreach (QSslCertificate cert, m_certs) {
-        QListWidgetItem* item = new QListWidgetItem(ui->list);
-        item->setText( cert.subjectInfo(QSslCertificate::Organization) + " " + cert.subjectInfo(QSslCertificate::CommonName) );
-        item->setWhatsThis(QString::number(m_certs.indexOf(cert)));
-        ui->list->addItem(item);
-    }
+
+    refresh();
 
     connect(ui->list, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(showCertificateInfo()));
     connect(ui->infoButton, SIGNAL(clicked()), this, SLOT(showCertificateInfo()));
@@ -43,6 +38,21 @@ SSLManager::SSLManager(QWidget* parent) :
     settings.beginGroup("Web-Browser-Settings");
     ui->ignoreAll->setChecked( settings.value("IgnoreAllSSLWarnings", false).toBool() );
     settings.endGroup();
+}
+
+void SSLManager::refresh()
+{
+    ui->list->setUpdatesEnabled(false);
+    ui->list->clear();
+    m_certs = mApp->networkManager()->getCertExceptions();
+    foreach (QSslCertificate cert, m_certs) {
+        QListWidgetItem* item = new QListWidgetItem(ui->list);
+        item->setText( cert.subjectInfo(QSslCertificate::Organization) + " " + cert.subjectInfo(QSslCertificate::CommonName) );
+        item->setWhatsThis(QString::number(m_certs.indexOf(cert)));
+        ui->list->addItem(item);
+    }
+    ui->list->setCurrentRow(0);
+    ui->list->setUpdatesEnabled(true);
 }
 
 void SSLManager::showCertificateInfo()
@@ -79,7 +89,7 @@ void SSLManager::deleteCertificate()
     QSslCertificate cert = m_certs.at(item->whatsThis().toInt());
     m_certs.removeOne(cert);
     mApp->networkManager()->setCertExceptions(m_certs);
-    delete item;
+    refresh();
 }
 
 void SSLManager::ignoreAll(bool state)
