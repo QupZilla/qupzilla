@@ -27,9 +27,6 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
    ,m_fileName(fileName)
    ,m_downloading(false)
 {
-#ifdef Q_WS_WIN
-    ui->progressBar->setStyleSheet("QProgressBar {border: 1px solid;}");
-#endif
     QString fullPath = path+fileName;
     if (QFile::exists(fullPath))
         QFile::remove(fullPath);
@@ -37,6 +34,9 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
     m_outputFile.setFileName(fullPath);
 
     ui->setupUi(this);
+#ifdef Q_WS_WIN
+    ui->progressBar->setStyleSheet("QProgressBar {border: 1px solid;}");
+#endif
     ui->button->setPixmap(
 #ifdef Q_WS_X11
                 style()->standardIcon(QStyle::SP_BrowserStop).pixmap(20,20)
