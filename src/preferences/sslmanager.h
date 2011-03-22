@@ -43,6 +43,7 @@ private slots:
     void ignoreAll(bool state);
 
 private:
+    void refresh();
     Ui::SSLManager* ui;
     QList<QSslCertificate> m_certs;
 };

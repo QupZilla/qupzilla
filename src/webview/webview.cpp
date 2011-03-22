@@ -73,7 +73,7 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
 }
 
-WebPage* WebView::getPage() const
+WebPage* WebView::webPage() const
 {
     return m_page;
 }

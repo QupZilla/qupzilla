@@ -50,7 +50,7 @@ public:
     QUrl url() const;
     QString title() const;
     void reload();
-    WebPage* getPage() const;
+    WebPage* webPage() const;
     QString getIp() { return m_currentIp; }
     QLabel* animationLoading(int index, bool addMovie);
     void addNotification(QWidget* notif);
