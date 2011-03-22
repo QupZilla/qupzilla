@@ -26,6 +26,7 @@
 #include "bookmarksmodel.h"
 #include "siteinfowidget.h"
 #include "rsswidget.h"
+#include "webpage.h"
 
 LocationBar::LocationBar(QupZilla* mainClass, QWidget* parent)
     : LineEdit(parent)
@@ -174,6 +175,9 @@ void LocationBar::rssIconClicked()
 
 void LocationBar::checkBookmark()
 {
+    if (!m_bookmarksModel)
+        m_bookmarksModel = mApp->bookmarks();
+
     if (m_bookmarksModel->isBookmarked(QUrl(text()))) {
         m_bookmarkButton->setPixmap(QPixmap(":/icons/locationbar/star.png"));
         m_bookmarkButton->setToolTip(tr("Edit this bookmark"));
@@ -217,14 +221,14 @@ void LocationBar::showUrl(const QUrl &url, bool empty)
         setText(url.toEncoded());
         setCursorPosition(0);
     }
-    if (url.scheme() == "https")
-        setPrivacy(true);
-    else setPrivacy(false);
 
-    if (p_QupZilla->weView()->isLoading()) {
+    WebView* view = p_QupZilla->weView();
+    setPrivacy(view->webPage()->sslCertificate().isValid());
+
+    if (view->isLoading()) {
         p_QupZilla->ipLabel()->hide();
         p_QupZilla->progressBar()->setVisible(true);
-        p_QupZilla->progressBar()->setValue(p_QupZilla->weView()->getLoading());
+        p_QupZilla->progressBar()->setValue(view->getLoading());
         p_QupZilla->buttonStop()->setVisible(true);
         p_QupZilla->buttonReload()->setVisible(false);
         p_QupZilla->statusBar()->showMessage(tr("Loading..."));
@@ -236,12 +240,8 @@ void LocationBar::showUrl(const QUrl &url, bool empty)
         p_QupZilla->ipLabel()->show();
     }
     hideGoButton();
-
-    if (!m_bookmarksModel)
-        m_bookmarksModel = mApp->bookmarks();
     checkBookmark();
-
-    m_rssIcon->setVisible(p_QupZilla->weView()->hasRss());
+    m_rssIcon->setVisible(view->hasRss());
 
 }
 

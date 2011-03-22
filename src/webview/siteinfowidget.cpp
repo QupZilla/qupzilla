@@ -18,21 +18,22 @@
 #include "siteinfowidget.h"
 #include "ui_siteinfowidget.h"
 #include "qupzilla.h"
+#include "webpage.h"
 
 SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent) :
     QMenu(parent)
     ,ui(new Ui::SiteInfoWidget)
     ,p_QupZilla(mainClass)
 {
-    QUrl url = p_QupZilla->weView()->url();
+    WebView* view = p_QupZilla->weView();
+    QUrl url = view->url();
     if (url.isEmpty())
         return;
 
     this->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    QString scheme = url.scheme();
-    if (scheme == "https") {
+    if (view->webPage()->sslCertificate().isValid()) {
         ui->secureLabel->setText(tr("Your connection to this site is <b>secured</b>."));
         ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/accept.png"));
     }
@@ -41,6 +42,7 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent) :
         ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/warning.png"));
     }
 
+    QString scheme = url.scheme();
     QSqlQuery query;
     QString host = url.host();
     QString host2 = host;

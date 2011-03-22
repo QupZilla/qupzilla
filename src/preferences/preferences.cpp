@@ -512,7 +512,6 @@ void Preferences::saveSettings()
 
 Preferences::~Preferences()
 {
-    qDebug() << __FUNCTION__ << "called";
     delete ui;
     delete m_autoFillManager;
     delete m_pluginsList;

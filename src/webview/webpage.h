@@ -40,6 +40,8 @@ public:
     void populateNetworkRequest(QNetworkRequest &request);
     ~WebPage();
 
+    void setSSLCertificate(QSslCertificate cert);
+    QSslCertificate sslCertificate() { return m_SslCert; }
     QString userAgentForUrl(const QUrl &url) const;
     bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
     bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output);
@@ -47,6 +49,7 @@ public:
 protected slots:
     QWebPage* createWindow(QWebPage::WebWindowType type);
     void handleUnsupportedContent(QNetworkReply* url);
+    void clearSSLCert() { m_SslCert = 0; }
 
 protected:
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
@@ -55,6 +58,7 @@ protected:
     QNetworkRequest m_lastRequest;
     QWebPage::NavigationType m_lastRequestType;
     WebView* m_view;
+    QSslCertificate m_SslCert;
 };
 
 #endif // WEBPAGE_H

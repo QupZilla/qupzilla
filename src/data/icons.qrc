@@ -66,5 +66,8 @@
         <file>icons/other/keys.png</file>
         <file>icons/other/bigrss.png</file>
         <file>icons/preferences/applications-fonts.png</file>
+        <file>icons/preferences/applications-graphics.png</file>
+        <file>icons/preferences/document-properties.png</file>
+        <file>icons/preferences/stock_keyring.png</file>
     </qresource>
 </RCC>

@@ -19,6 +19,7 @@
 #include "ui_siteinfo.h"
 #include "qupzilla.h"
 #include "webview.h"
+#include "webpage.h"
 
 SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
     QDialog(parent)
@@ -29,12 +30,14 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
     WebView* view = p_QupZilla->weView();
     QWebFrame* frame = view->page()->mainFrame();
     QString title = view->title();
-    if (title.isEmpty())
-        title = tr("No Named Page");
+    QSslCertificate cert = view->webPage()->sslCertificate();
 
-    ui->siteName->setText(title);
+    //GENERAL
+    ui->heading->setText(QString("<b>%1</b>:").arg(title));
     ui->siteAddress->setText(frame->baseUrl().toString());
 
+
+    //Meta
     QWebElementCollection meta = frame->findAllElements("meta");
     for (int i = 0; i<meta.count(); i++) {
         QWebElement element = meta.at(i);
@@ -52,6 +55,7 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
         ui->treeTags->addTopLevelItem(item);
     }
 
+    //MEDIA
     QWebElementCollection img = frame->findAllElements("img");
     for (int i = 0; i<img.count(); i++) {
         QWebElement element = img.at(i);
@@ -75,6 +79,35 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
         ui->treeImages->addTopLevelItem(item);
     }
 
+    //SECURITY
+    if (cert.isValid()) {
+        ui->certLabel->setText(tr("<b>Your connection to this page is secured: </b>"));
+        //Issued to
+        ui->issuedToCN->setText( cert.subjectInfo(QSslCertificate::CommonName) );
+        ui->issuedToO->setText( cert.subjectInfo(QSslCertificate::Organization) );
+        ui->issuedToOU->setText( cert.subjectInfo(QSslCertificate::OrganizationalUnitName) );
+        ui->issuedToSN->setText( cert.serialNumber() );
+        //Issued By
+        ui->issuedByCN->setText( cert.issuerInfo(QSslCertificate::CommonName) );
+        ui->issuedByO->setText( cert.issuerInfo(QSslCertificate::Organization) );
+        ui->issuedByOU->setText( cert.issuerInfo(QSslCertificate::OrganizationalUnitName) );
+        //Validity
+        ui->validityIssuedOn->setText( cert.effectiveDate().toString("dddd d. MMMM yyyy") );
+        ui->validityExpiresOn->setText( cert.expiryDate().toString("dddd d. MMMM yyyy") );
+    } else {
+        ui->certFrame->setVisible(false);
+        ui->certLabel->setText(tr("<b>Your connection to this page is not secured!</b>"));
+    }
+
+    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
+}
+
+void SiteInfo::itemChanged(QListWidgetItem *item)
+{
+    if (!item)
+        return;
+    int index = item->whatsThis().toInt();
+    ui->stackedWidget->setCurrentIndex(index);
 }
 
 SiteInfo::~SiteInfo()
