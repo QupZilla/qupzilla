@@ -6,53 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>727</width>
-    <height>571</height>
+    <width>590</width>
+    <height>455</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Site Info</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="../data/icons.qrc">
     <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="3" column="0" colspan="2">
-    <widget class="QTreeWidget" name="treeTags">
-     <attribute name="headerDefaultSectionSize">
-      <number>200</number>
-     </attribute>
-     <column>
-      <property name="text">
-       <string>Tag</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Value</string>
-      </property>
-     </column>
-    </widget>
-   </item>
-   <item row="5" column="0" colspan="2">
-    <widget class="QTreeWidget" name="treeImages">
-     <attribute name="headerDefaultSectionSize">
-      <number>200</number>
-     </attribute>
-     <column>
-      <property name="text">
-       <string>Image</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Image address</string>
-      </property>
-     </column>
-    </widget>
-   </item>
-   <item row="6" column="0" colspan="2">
+   <item row="7" column="1">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -62,52 +28,479 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="label_3">
+   <item row="1" column="1">
+    <widget class="SqueezeLabel" name="heading">
      <property name="text">
-      <string>Site address:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="label_4">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="text">
-      <string>Site name:</string>
+      <string/>
      </property>
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="SqueezeLabel" name="siteName">
-     <property name="text">
-      <string/>
+    <widget class="QListWidget" name="listWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>55</height>
+      </size>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="movement">
+      <enum>QListView::Static</enum>
+     </property>
+     <property name="flow">
+      <enum>QListView::LeftToRight</enum>
+     </property>
+     <property name="resizeMode">
+      <enum>QListView::Fixed</enum>
+     </property>
+     <property name="viewMode">
+      <enum>QListView::IconMode</enum>
+     </property>
+     <property name="uniformItemSizes">
+      <bool>true</bool>
+     </property>
+     <property name="currentRow">
+      <number>0</number>
+     </property>
+     <item>
+      <property name="text">
+       <string>General</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">0</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../data/icons.qrc">
+        <normaloff>:/icons/preferences/document-properties.png</normaloff>:/icons/preferences/document-properties.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Media</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">1</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../data/icons.qrc">
+        <normaloff>:/icons/preferences/applications-graphics.png</normaloff>:/icons/preferences/applications-graphics.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Security</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">2</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../data/icons.qrc">
+        <normaloff>:/icons/preferences/stock_keyring.png</normaloff>:/icons/preferences/stock_keyring.png</iconset>
+      </property>
+     </item>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="SqueezeLabel" name="siteAddress">
-     <property name="text">
-      <string/>
+   <item row="4" column="1">
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>0</number>
      </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_9">
-     <property name="text">
-      <string>Meta tags of site:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="label_10">
-     <property name="text">
-      <string>Images on site:</string>
-     </property>
+     <widget class="QWidget" name="page">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0" colspan="3">
+        <layout class="QFormLayout" name="formLayout">
+         <property name="fieldGrowthPolicy">
+          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+         </property>
+         <item row="1" column="1">
+          <widget class="SqueezeLabel" name="encodingLabel">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Size:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="SqueezeLabel" name="sizeLabel">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="SqueezeLabel" name="siteAddress">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Site address:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Encoding:</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0" colspan="3">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Meta tags of site:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="3">
+        <widget class="QTreeWidget" name="treeTags">
+         <attribute name="headerDefaultSectionSize">
+          <number>200</number>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>Tag</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Value</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QLabel" name="label_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>&lt;b&gt;Security information&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLabel" name="securityLabel">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="QPushButton" name="secDetailsButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Details</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+      <zorder>label_9</zorder>
+      <zorder>treeTags</zorder>
+      <zorder>label_2</zorder>
+      <zorder>securityLabel</zorder>
+      <zorder>secDetailsButton</zorder>
+      <zorder>horizontalSpacer</zorder>
+     </widget>
+     <widget class="QWidget" name="page_3">
+      <layout class="QGridLayout" name="gridLayout_3">
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QTreeWidget" name="treeImages">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>150</height>
+          </size>
+         </property>
+         <property name="itemsExpandable">
+          <bool>false</bool>
+         </property>
+         <attribute name="headerDefaultSectionSize">
+          <number>200</number>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>Image</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Image address</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>&lt;b&gt;Preview&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QGraphicsView" name="mediaPreview"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_2">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="2" column="0">
+        <widget class="QFrame" name="certFrame">
+         <layout class="QFormLayout" name="formLayout_2">
+          <property name="fieldGrowthPolicy">
+           <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+          </property>
+          <item row="1" column="0" colspan="2">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>&lt;b&gt;Issued To&lt;/b&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Common Name (CN):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="SqueezeLabel" name="issuedToCN">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Organization (O):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="SqueezeLabel" name="issuedToO">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Organizational Unit (OU):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="SqueezeLabel" name="issuedToOU">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Serial Number:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="SqueezeLabel" name="issuedToSN">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string>&lt;b&gt;Issued By&lt;/b&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_17">
+            <property name="text">
+             <string>Common Name (CN):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="SqueezeLabel" name="issuedByCN">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_18">
+            <property name="text">
+             <string>Organization (O):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
+           <widget class="SqueezeLabel" name="issuedByO">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="0">
+           <widget class="QLabel" name="label_19">
+            <property name="text">
+             <string>Organizational Unit (OU):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="1">
+           <widget class="SqueezeLabel" name="issuedByOU">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="0">
+           <widget class="QLabel" name="label_20">
+            <property name="text">
+             <string>&lt;b&gt;Validity&lt;/b&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="0">
+           <widget class="QLabel" name="label_21">
+            <property name="text">
+             <string>Issued On:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="1">
+           <widget class="SqueezeLabel" name="validityIssuedOn">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="0">
+           <widget class="QLabel" name="label_22">
+            <property name="text">
+             <string>Expires On:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="1">
+           <widget class="SqueezeLabel" name="validityExpiresOn">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="certLabel">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
@@ -120,7 +513,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="../data/icons.qrc"/>
  </resources>
  <connections>
   <connection>

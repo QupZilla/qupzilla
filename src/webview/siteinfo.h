@@ -19,6 +19,7 @@
 #define SITEINFO_H
 
 #include <QDialog>
+#include <QListWidgetItem>
 
 namespace Ui {
     class SiteInfo;
@@ -32,6 +33,9 @@ class SiteInfo : public QDialog
 public:
     explicit SiteInfo(QupZilla* mainClass, QWidget* parent = 0);
     ~SiteInfo();
+
+private slots:
+    void itemChanged(QListWidgetItem* item);
 
 private:
     Ui::SiteInfo* ui;
