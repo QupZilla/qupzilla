@@ -20,6 +20,7 @@
 #include "qupzilla.h"
 #include "webview.h"
 #include "webpage.h"
+#include "downloaditem.h"
 
 SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
     QDialog(parent)
@@ -35,7 +36,8 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
     //GENERAL
     ui->heading->setText(QString("<b>%1</b>:").arg(title));
     ui->siteAddress->setText(frame->baseUrl().toString());
-
+    ui->sizeLabel->setText( DownloadItem::fileSizeToString(view->webPage()->totalBytes()) );
+    QString encoding;
 
     //Meta
     QWebElementCollection meta = frame->findAllElements("meta");
@@ -46,6 +48,10 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
         QString name = element.attribute("name");
         if (name.isEmpty())
             name = element.attribute("http-equiv");
+        if (!element.attribute("charset").isEmpty())
+            encoding = element.attribute("charset");
+        if (content.contains("charset="))
+            encoding = content.mid(content.indexOf("charset=")+8);
 
         if (content.isEmpty() || name.isEmpty())
             continue;
@@ -54,6 +60,9 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
         item->setText(1, content);
         ui->treeTags->addTopLevelItem(item);
     }
+    if (encoding.isEmpty())
+        encoding = mApp->webSettings()->defaultTextEncoding();
+    ui->encodingLabel->setText(encoding.toUpper());
 
     //MEDIA
     QWebElementCollection img = frame->findAllElements("img");
@@ -81,7 +90,8 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
 
     //SECURITY
     if (cert.isValid()) {
-        ui->certLabel->setText(tr("<b>Your connection to this page is secured: </b>"));
+        ui->securityLabel->setText(tr("<b>Connection is Encrypted.</b>"));
+        ui->certLabel->setText(tr("<b>Your connection to this page is secured with this certificate: </b>"));
         //Issued to
         ui->issuedToCN->setText( cert.subjectInfo(QSslCertificate::CommonName) );
         ui->issuedToO->setText( cert.subjectInfo(QSslCertificate::Organization) );
@@ -95,11 +105,37 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
         ui->validityIssuedOn->setText( cert.effectiveDate().toString("dddd d. MMMM yyyy") );
         ui->validityExpiresOn->setText( cert.expiryDate().toString("dddd d. MMMM yyyy") );
     } else {
+        ui->securityLabel->setText(tr("<b>Connection Not Encrypted.</b>"));
         ui->certFrame->setVisible(false);
         ui->certLabel->setText(tr("<b>Your connection to this page is not secured!</b>"));
     }
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
+    connect(ui->secDetailsButton, SIGNAL(clicked()), this, SLOT(securityDetailsClicked()));
+    connect(ui->treeImages, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(showImagePreview(QTreeWidgetItem*)));
+}
+
+void SiteInfo::showImagePreview(QTreeWidgetItem *item)
+{
+    if (!item)
+        return;
+    QUrl imageUrl = item->text(1);
+    QIODevice* cacheData = mApp->networkCache()->data(imageUrl);
+    QPixmap pixmap;
+
+    if (!cacheData)
+        pixmap.load(":/icons/qupzilla.png");
+    else
+        pixmap.loadFromData(cacheData->readAll());
+
+    QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
+    scene->addPixmap(pixmap);
+    ui->mediaPreview->setScene(scene);
+}
+
+void SiteInfo::securityDetailsClicked()
+{
+    ui->listWidget->setCurrentRow(2);
 }
 
 void SiteInfo::itemChanged(QListWidgetItem *item)

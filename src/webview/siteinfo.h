@@ -20,6 +20,7 @@
 
 #include <QDialog>
 #include <QListWidgetItem>
+#include <QTreeWidgetItem>
 
 namespace Ui {
     class SiteInfo;
@@ -36,6 +37,8 @@ public:
 
 private slots:
     void itemChanged(QListWidgetItem* item);
+    void showImagePreview(QTreeWidgetItem* item);
+    void securityDetailsClicked();
 
 private:
     Ui::SiteInfo* ui;
