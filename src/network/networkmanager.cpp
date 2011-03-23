@@ -40,7 +40,7 @@ void NetworkManager::loadSettings()
     settings.beginGroup("Web-Browser-Settings");
 
     if (settings.value("AllowLocalCache", true).toBool()) {
-        m_diskCache = new QNetworkDiskCache(this);
+        m_diskCache = mApp->networkCache();
         m_diskCache->setCacheDirectory(mApp->getActiveProfil()+"/networkcache");
         m_diskCache->setMaximumCacheSize(settings.value("MaximumCacheSize",50).toInt() * 1024*1024); //MegaBytes
         setCache(m_diskCache);

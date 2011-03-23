@@ -23,6 +23,7 @@
 #include <QWebSettings>
 #include <QUrl>
 #include <QPointer>
+#include <QNetworkDiskCache>
 #include <iostream>
 
 #include "qtsingleapplication.h"
@@ -79,6 +80,7 @@ public:
     BookmarksModel* bookmarks();
     DownloadManager* downManager();
     AutoFillModel* autoFill();
+    QNetworkDiskCache* networkCache() { return m_networkCache; }
 
 public slots:
     bool saveStateSlot();
@@ -108,6 +110,7 @@ private:
     BookmarksModel* m_bookmarksModel;
     DownloadManager* m_downloadManager;
     AutoFillModel* m_autofill;
+    QNetworkDiskCache* m_networkCache;
 
     QList<QPointer<QupZilla> > m_mainWindows;
 
