@@ -129,33 +129,52 @@ void DownloadManager::clearList()
     qDeleteAll(items);
 }
 
-void DownloadManager::download(const QNetworkRequest &request)
+void DownloadManager::download(const QNetworkRequest &request, bool askWhatToDo)
 {
-    handleUnsupportedContent(m_networkManager->get(request));
+    handleUnsupportedContent(m_networkManager->get(request), askWhatToDo);
 }
 
-void DownloadManager::handleUnsupportedContent(QNetworkReply* reply)
+void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo)
 {
-//    DownloadOptionsDialog* dialog = new DownloadOptionsDialog();
-//    dialog->show();
-//    dialog->setAttribute(Qt::WA_DeleteOnClose);
-
     QString path;
     QString fileName;
-
     QString userFileName;
-
     QString _fileName = getFileName(reply);
 
-    if (m_downloadPath.isEmpty())
-        userFileName = QFileDialog::getSaveFileName(mApp->getWindow(), tr("Save file as..."),m_lastDownloadPath+_fileName);
-    else
-        userFileName = m_downloadPath+_fileName;
+    QFileInfo info(reply->url().toString());
+    QTemporaryFile tempFile("XXXXXX."+info.suffix());
+    tempFile.open();
+    QFileInfo tempInfo(tempFile.fileName());
+    QPixmap fileIcon = m_iconProvider->icon(tempInfo).pixmap(30,30);
+    QString mimeType = m_iconProvider->type(tempInfo);
 
-    if (userFileName.isEmpty()) {
-        reply->abort();
-        return;
+    bool openFileOptionsChoosed = false;
+    if (askWhatToDo) {
+        DownloadOptionsDialog* dialog = new DownloadOptionsDialog(_fileName, fileIcon, mimeType, reply->url(), mApp->activeWindow());
+        switch (dialog->exec()) {
+        case 0:  //Cancelled
+            return;
+            break;
+        case 1: //Open
+            openFileOptionsChoosed = true;
+            break;
+        case 2: //Save
+            break;
+        }
     }
+
+    if (!openFileOptionsChoosed) {
+        if (m_downloadPath.isEmpty())
+            userFileName = QFileDialog::getSaveFileName(mApp->getWindow(), tr("Save file as..."),m_lastDownloadPath+_fileName);
+        else
+            userFileName = m_downloadPath+_fileName;
+
+        if (userFileName.isEmpty()) {
+            reply->abort();
+            return;
+        }
+    } else
+        userFileName = QDir::tempPath()+"/"+_fileName;
 
     int pos = userFileName.lastIndexOf("/");
     if (pos!=-1) {
@@ -164,20 +183,16 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply)
         fileName = userFileName.right(size-pos-1);
     }
 
-    m_lastDownloadPath = path;
+    if (!path.contains(QDir::tempPath()))
+        m_lastDownloadPath = path;
+
     QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
     settings.setValue("lastDownloadPath",m_lastDownloadPath);
     settings.endGroup();
 
-    QFileInfo info(reply->url().toString());
-    QTemporaryFile tempFile("XXXXXX."+info.suffix());
-    tempFile.open();
-    QFileInfo tempInfo(tempFile.fileName());
-    QPixmap fileIcon = m_iconProvider->icon(tempInfo).pixmap(30,30);
-
     QListWidgetItem* item = new QListWidgetItem(ui->list);
-    DownloadItem* downItem = new DownloadItem(item, reply, path, fileName, fileIcon, this);
+    DownloadItem* downItem = new DownloadItem(item, reply, path, fileName, fileIcon, openFileOptionsChoosed, this);
     connect(downItem, SIGNAL(deleteItem(DownloadItem*)), this, SLOT(deleteItem(DownloadItem*)));
     ui->list->setItemWidget(item, downItem);
     item->setSizeHint(downItem->sizeHint());

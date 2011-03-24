@@ -18,11 +18,27 @@
 #include "downloadoptionsdialog.h"
 #include "ui_downloadoptionsdialog.h"
 
-DownloadOptionsDialog::DownloadOptionsDialog(QWidget* parent) :
-    QDialog(parent),
-    ui(new Ui::DownloadOptionsDialog)
+DownloadOptionsDialog::DownloadOptionsDialog(QString fileName, QPixmap fileIcon, QString mimeType, QUrl url, QWidget *parent)
+    : QDialog(parent)
+    ,ui(new Ui::DownloadOptionsDialog)
 {
     ui->setupUi(this);
+    ui->fileName->setText("<b>"+fileName+"</b>");
+    ui->fileIcon->setPixmap(fileIcon);
+    ui->fileType->setText(mimeType);
+    ui->fromServer->setText(url.host());
+    setWindowTitle(tr("Opening %1").arg(fileName));
+}
+
+int DownloadOptionsDialog::exec()
+{
+    int status = QDialog::exec();
+    if (status == 0)
+        return 0;
+    else if (ui->radioOpen->isChecked())
+        return 1;
+    else if (ui->radioSave->isChecked())
+        return 2;
 }
 
 DownloadOptionsDialog::~DownloadOptionsDialog()

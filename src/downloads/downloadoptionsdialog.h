@@ -19,6 +19,8 @@
 #define DOWNLOADOPTIONSDIALOG_H
 
 #include <QDialog>
+#include <QUrl>
+#include <QDebug>
 
 namespace Ui {
     class DownloadOptionsDialog;
@@ -29,8 +31,10 @@ class DownloadOptionsDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit DownloadOptionsDialog(QWidget* parent = 0);
+    explicit DownloadOptionsDialog(QString fileName, QPixmap fileIcon, QString mimeType, QUrl url, QWidget* parent = 0);
     ~DownloadOptionsDialog();
+
+    int exec();
 
 private:
     Ui::DownloadOptionsDialog* ui;

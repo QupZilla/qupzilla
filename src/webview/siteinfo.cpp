@@ -74,7 +74,7 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
         if (alt.isEmpty()) {
             if (src.indexOf("/") == -1)
                 alt = src;
-            else{
+            else {
                 int pos = src.lastIndexOf("/");
                 alt = src.mid(pos);
                 alt.remove("/");
@@ -113,6 +113,61 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
     connect(ui->secDetailsButton, SIGNAL(clicked()), this, SLOT(securityDetailsClicked()));
     connect(ui->treeImages, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(showImagePreview(QTreeWidgetItem*)));
+    ui->treeImages->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->treeImages, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(imagesCustomContextMenuRequested(const QPoint&)));
+}
+
+void SiteInfo::imagesCustomContextMenuRequested(const QPoint& p)
+{
+    QTreeWidgetItem* item = ui->treeImages->itemAt(p);
+    if (!item)
+        return;
+
+    QMenu menu;
+    menu.addAction(QIcon::fromTheme("edit-copy"), tr("Copy Image Location"), this, SLOT(copyActionData()))->setData(item->text(1));
+    menu.addAction(tr("Copy Image Name"), this, SLOT(copyActionData()))->setData(item->text(0));
+    menu.addSeparator();
+    menu.addAction(QIcon::fromTheme("document-save"), tr("Save Image to Disk"), this, SLOT(downloadImage()))->setData(ui->treeImages->indexOfTopLevelItem(item));
+    menu.exec(QCursor::pos());
+}
+
+void SiteInfo::copyActionData()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        qApp->clipboard()->setText(action->data().toString());
+    }
+}
+
+void SiteInfo::downloadImage()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        QTreeWidgetItem* item = ui->treeImages->topLevelItem(action->data().toInt());
+        if (!item)
+            return;
+
+        QUrl imageUrl = item->text(1);
+        if (imageUrl.host().isEmpty()) {
+            imageUrl.setHost(QUrl(ui->siteAddress->text()).host());
+            imageUrl.setScheme(QUrl(ui->siteAddress->text()).scheme());
+        }
+        QIODevice* cacheData = mApp->networkCache()->data(imageUrl);
+        if (!cacheData) {
+            QMessageBox::warning(this, tr("Error!"), tr("This preview is not available!"));
+            return;
+        }
+
+        QString filePath = QFileDialog::getSaveFileName(this, tr("Save image..."), QDir::homePath()+"/"+item->text(0));
+        if (filePath.isEmpty())
+            return;
+
+        QFile file(filePath);
+        if (!file.open(QFile::WriteOnly)) {
+            QMessageBox::critical(this, tr("Error!"), tr("Cannot write to file!"));
+            return;
+        }
+        file.write(cacheData->readAll());
+        file.close();
+    }
 }
 
 void SiteInfo::showImagePreview(QTreeWidgetItem *item)
@@ -120,16 +175,27 @@ void SiteInfo::showImagePreview(QTreeWidgetItem *item)
     if (!item)
         return;
     QUrl imageUrl = item->text(1);
+    if (imageUrl.host().isEmpty()) {
+        imageUrl.setHost(QUrl(ui->siteAddress->text()).host());
+        imageUrl.setScheme(QUrl(ui->siteAddress->text()).scheme());
+    }
     QIODevice* cacheData = mApp->networkCache()->data(imageUrl);
     QPixmap pixmap;
+    bool invalidPixmap = false;
+    QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
 
     if (!cacheData)
-        pixmap.load(":/icons/qupzilla.png");
-    else
+        invalidPixmap = true;
+    else {
         pixmap.loadFromData(cacheData->readAll());
+        if (pixmap.isNull())
+            invalidPixmap = true;
+    }
+    if (invalidPixmap)
+        scene->addText(tr("Preview not available"));
+    else
+        scene->addPixmap(pixmap);
 
-    QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
-    scene->addPixmap(pixmap);
     ui->mediaPreview->setScene(scene);
 }
 
