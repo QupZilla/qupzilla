@@ -15,12 +15,11 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
- 
 
 #include <QtGui/QApplication>
 #include <QTextCodec>
 #include <QtPlugin>
-#include <QDebug>
+#include <iostream>
 #include "mainapplication.h"
 
 int main(int argc, char *argv[])
@@ -34,7 +33,9 @@ int main(int argc, char *argv[])
 #endif
 
     MainApplication app(argc, argv);
-    if (app.isExited())
+    if (app.isExited()) {
+        std::cout << "QupZilla already running - activating existing window" << std::endl;
         return 1;
+    }
     return app.exec();
 }

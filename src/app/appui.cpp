@@ -41,7 +41,6 @@ void QupZilla::postLaunch()
     settings.beginGroup("SessionRestore");
     bool startingAfterCrash = settings.value("isCrashed",false).toBool();
     settings.endGroup();
-    qDebug() << "startingaftercrash" << startingAfterCrash;
 
     QUrl startUrl;
     if (m_tryRestore) {
