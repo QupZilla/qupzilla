@@ -407,7 +407,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addAction(tr("Copy image"), this, SLOT(copyImageToClipboard()))->setData(r.imageUrl());
         menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image address"), this, SLOT(copyLinkToClipboard()))->setData(r.imageUrl());
         menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("document-save"), tr("Save image as..."), this, SLOT(downloadImageToDisk()));
+        menu->addAction(QIcon::fromTheme("document-save"), tr("Save image as..."), this, SLOT(downloadImageToDisk()))->setData(r.imageUrl());
         menu->addAction(tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
         menu->addSeparator();
         //menu->addAction(tr("Block image"), this, SLOT(blockImage()))->setData(r.imageUrl().toString());
@@ -539,7 +539,11 @@ void WebView::selectAll()
 
 void WebView::downloadImageToDisk()
 {
-    triggerPageAction(QWebPage::DownloadImageToDisk);
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        DownloadManager* dManager = mApp->downManager();
+        QNetworkRequest request(action->data().toUrl());
+        dManager->download(request, false);
+    }
 }
 
 void WebView::copyImageToClipboard()
@@ -564,7 +568,7 @@ void WebView::downloadLinkToDisk()
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         QNetworkRequest request(action->data().toUrl());
         DownloadManager* dManager = mApp->downManager();
-        dManager->download(request);
+        dManager->download(request, false);
     }
 }
 

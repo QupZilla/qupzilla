@@ -1,7 +1,7 @@
 build
 DEBIAN
 tools_
-src0.*
+QupZilla-old-src.tar.gz
 *.deb
 *.pro.user
 headers*.tar.gz

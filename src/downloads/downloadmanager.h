@@ -53,8 +53,8 @@ public:
     explicit DownloadManager(QWidget* parent = 0);
     ~DownloadManager();
 
-    void download(const QNetworkRequest &request);
-    void handleUnsupportedContent(QNetworkReply* reply);
+    void download(const QNetworkRequest &request, bool askWhatToDo = true);
+    void handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo = true);
     bool canClose();
 
     void show() { m_timer.start(1000*2, this); QWidget::show(); }

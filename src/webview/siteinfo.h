@@ -21,6 +21,7 @@
 #include <QDialog>
 #include <QListWidgetItem>
 #include <QTreeWidgetItem>
+#include <QGraphicsItem>
 
 namespace Ui {
     class SiteInfo;
@@ -39,6 +40,10 @@ private slots:
     void itemChanged(QListWidgetItem* item);
     void showImagePreview(QTreeWidgetItem* item);
     void securityDetailsClicked();
+
+    void imagesCustomContextMenuRequested(const QPoint& p);
+    void copyActionData();
+    void downloadImage();
 
 private:
     Ui::SiteInfo* ui;

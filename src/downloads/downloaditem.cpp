@@ -18,7 +18,7 @@
 #include "downloaditem.h"
 #include "ui_downloaditem.h"
 
-DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString path, QString fileName, QPixmap fileIcon, QWidget* parent)
+DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString path, QString fileName, QPixmap fileIcon, bool openAfterFinishedDownload, QWidget* parent)
     : QWidget(parent)
    ,ui(new Ui::DownloadItem)
    ,m_item(item)
@@ -26,6 +26,7 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
    ,m_path(path)
    ,m_fileName(fileName)
    ,m_downloading(false)
+   ,m_openAfterFinish(openAfterFinishedDownload)
 {
     QString fullPath = path+fileName;
     if (QFile::exists(fullPath))
@@ -91,6 +92,9 @@ void DownloadItem::finished()
     ui->button->hide();
 #endif
     m_downloading = false;
+
+    if (m_openAfterFinish)
+        openFile();
 }
 
 void DownloadItem::downloadProgress(qint64 received, qint64 total)
