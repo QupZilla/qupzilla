@@ -197,7 +197,7 @@
        </item>
        <item row="3" column="0" colspan="4">
         <widget class="QTreeWidget" name="treeTags">
-         <attribute name="headerDefaultSectionSize">
+         <attribute name="headerMinimumSectionSize">
           <number>200</number>
          </attribute>
          <column>
@@ -286,16 +286,22 @@
        </property>
        <item row="0" column="0">
         <widget class="QTreeWidget" name="treeImages">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>110</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>150</height>
+           <height>110</height>
           </size>
          </property>
          <property name="itemsExpandable">
           <bool>false</bool>
          </property>
-         <attribute name="headerDefaultSectionSize">
+         <attribute name="headerMinimumSectionSize">
           <number>200</number>
          </attribute>
          <column>

@@ -343,32 +343,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BookmarksWidget</name>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="42"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="48"/>
         <source>Edit This Bookmark</source>
         <translation>Upraviť túto záložku</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="55"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="61"/>
         <source>Remove Bookmark</source>
         <translation>Odstrániť záložku</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="62"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="68"/>
         <source>Name:</source>
         <translation>Názov:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="72"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="78"/>
         <source>Folder:</source>
         <translation>Zložka:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="106"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="112"/>
         <source>Save</source>
         <translation>Uložiť</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="119"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="125"/>
         <source>Close</source>
         <translation>Zavrieť</translation>
     </message>
@@ -700,39 +700,39 @@ neexistuje!</translation>
 <context>
     <name>DownloadManager</name>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="105"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="106"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% z %2 súborov (%3) %4 zostávajú</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="108"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="109"/>
         <source>% - Download Manager</source>
         <translation>% - Správca sťahovania</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="150"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="151"/>
         <source>Save file as...</source>
         <translation>Uložiť súbor ako...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="246"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="247"/>
         <source>Warning</source>
         <translation>Upozornenie</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="247"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="248"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Ste si istý, že chcete skončiť? Všetky nedokončené sťahovania budú zrušene!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="214"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="215"/>
         <source>NoNameDownload</source>
         <translation>BezNázvu</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="14"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="69"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="86"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="70"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="87"/>
         <source>Download Manager</source>
         <translation>Správca sťahovania</translation>
     </message>
@@ -869,39 +869,39 @@ neexistuje!</translation>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="43"/>
+        <location filename="../src/navigation/locationbar.cpp" line="44"/>
         <source>Show informations about this page</source>
         <translation>Zobraziť informácie o tejto stránke</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="50"/>
+        <location filename="../src/navigation/locationbar.cpp" line="51"/>
         <source>Add RSS from this page...</source>
         <translation>Pridať RSS kanál...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="65"/>
-        <location filename="../src/navigation/locationbar.cpp" line="182"/>
+        <location filename="../src/navigation/locationbar.cpp" line="66"/>
+        <location filename="../src/navigation/locationbar.cpp" line="186"/>
         <source>Bookmark this Page</source>
         <translation>Pridať stránku do záložiek</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="77"/>
+        <location filename="../src/navigation/locationbar.cpp" line="78"/>
         <source>Enter URL address or search on Google.com</source>
         <translation>Zadajte URL adresu alebo vyhľadajte na Google.com</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="230"/>
+        <location filename="../src/navigation/locationbar.cpp" line="234"/>
         <source>Loading...</source>
         <translation>Nahrávam...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="235"/>
+        <location filename="../src/navigation/locationbar.cpp" line="239"/>
         <source>Done</source>
         <translation>Hotovo</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="163"/>
-        <location filename="../src/navigation/locationbar.cpp" line="179"/>
+        <location filename="../src/navigation/locationbar.cpp" line="164"/>
+        <location filename="../src/navigation/locationbar.cpp" line="183"/>
         <source>Edit this bookmark</source>
         <translation>Upraviť záložku</translation>
     </message>
@@ -925,12 +925,12 @@ neexistuje!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="464"/>
+        <location filename="../src/app/mainapplication.cpp" line="463"/>
         <source>Last session crashed</source>
         <translation>Posledná relácia spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="465"/>
+        <location filename="../src/app/mainapplication.cpp" line="464"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, posledná relácia QupZilly skončila chybou. Prepáčte. Chcete obnoviť uložený stav?</translation>
     </message>
@@ -938,67 +938,67 @@ neexistuje!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="73"/>
+        <location filename="../src/network/networkmanager.cpp" line="83"/>
         <source>SSL Certificate Error!</source>
         <translation>Chyba zabezpečenia!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="74"/>
+        <location filename="../src/network/networkmanager.cpp" line="84"/>
         <source>The page you trying to access has following errors in SSL Certificate:</source>
         <translation>Stránka na ktorú sa pokušáte pripojiť obsahuje následujúce chyby v SSL Certifikáte:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="85"/>
+        <location filename="../src/network/networkmanager.cpp" line="95"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizácia: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="86"/>
+        <location filename="../src/network/networkmanager.cpp" line="96"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Doména: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="87"/>
+        <location filename="../src/network/networkmanager.cpp" line="97"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Platnosť do: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="88"/>
+        <location filename="../src/network/networkmanager.cpp" line="98"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Chyba: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="91"/>
+        <location filename="../src/network/networkmanager.cpp" line="101"/>
         <source>Would you like to make exception for this certificate?</source>
         <translation>Chcete urobiť vynímku pre tento certifikát?</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="95"/>
+        <location filename="../src/network/networkmanager.cpp" line="105"/>
         <source>SSL Certificate Error</source>
         <translation>Chyba zabezpečenia</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="113"/>
+        <location filename="../src/network/networkmanager.cpp" line="123"/>
         <source>Authorization required</source>
         <translation>Požadovaná autorizácia</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="120"/>
+        <location filename="../src/network/networkmanager.cpp" line="130"/>
         <source>Username: </source>
         <translation>Uživateľské meno: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="121"/>
+        <location filename="../src/network/networkmanager.cpp" line="131"/>
         <source>Password: </source>
         <translation>Heslo: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="126"/>
+        <location filename="../src/network/networkmanager.cpp" line="136"/>
         <source>Save username and password on this site</source>
         <translation>Uložiť meno a heslo pre túto sieť</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="135"/>
+        <location filename="../src/network/networkmanager.cpp" line="145"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Server %1 požaduje vaše uživateľské meno a heslo s komentárom: &quot;%2&quot;</translation>
     </message>
@@ -1079,505 +1079,505 @@ neexistuje!</translation>
         <translation>Predvoľby</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="55"/>
+        <location filename="../src/preferences/preferences.ui" line="58"/>
         <source>General</source>
         <translation>Hlavné</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="949"/>
+        <location filename="../src/preferences/preferences.ui" line="952"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="115"/>
+        <location filename="../src/preferences/preferences.ui" line="118"/>
         <source>Downloads</source>
         <translation>Sťahovanie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="151"/>
+        <location filename="../src/preferences/preferences.ui" line="154"/>
         <source>Plugins</source>
         <translation>Doplnky</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="246"/>
+        <location filename="../src/preferences/preferences.ui" line="249"/>
         <source>After launch:  </source>
         <translation>Po spustení:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="254"/>
+        <location filename="../src/preferences/preferences.ui" line="257"/>
         <source>Open blank page</source>
         <translation>Otvoriť prádznu stránku</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="259"/>
-        <location filename="../src/preferences/preferences.ui" line="306"/>
+        <location filename="../src/preferences/preferences.ui" line="262"/>
+        <location filename="../src/preferences/preferences.ui" line="309"/>
         <source>Open homepage</source>
         <translation>Otvoriť domovskú stránku</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="264"/>
+        <location filename="../src/preferences/preferences.ui" line="267"/>
         <source>Restore session</source>
         <translation>Obnoviť reláciu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="272"/>
+        <location filename="../src/preferences/preferences.ui" line="275"/>
         <source>Homepage: </source>
         <translation>Domovská stránka:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="293"/>
+        <location filename="../src/preferences/preferences.ui" line="296"/>
         <source>On new tab: </source>
         <translation>Pri otvorení nového panelu: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="301"/>
+        <location filename="../src/preferences/preferences.ui" line="304"/>
         <source>Open blank tab</source>
         <translation>Otvoriť prádzny panel</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="311"/>
+        <location filename="../src/preferences/preferences.ui" line="314"/>
         <source>Open other page...</source>
         <translation>Otvoriť inú stránku...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="319"/>
+        <location filename="../src/preferences/preferences.ui" line="322"/>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
         <translation>&lt;b&gt;Profily&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="326"/>
+        <location filename="../src/preferences/preferences.ui" line="329"/>
         <source>Startup profile:</source>
         <translation>Štartovný profil:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="334"/>
+        <location filename="../src/preferences/preferences.ui" line="337"/>
         <source>default</source>
         <translation>default</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="382"/>
+        <location filename="../src/preferences/preferences.ui" line="385"/>
         <source>Create New</source>
         <translation>Nový profil</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="395"/>
+        <location filename="../src/preferences/preferences.ui" line="398"/>
         <source>Delete</source>
         <translation>Vymazať</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="223"/>
+        <location filename="../src/preferences/preferences.ui" line="226"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
         <translation>&lt;b&gt;Spustení&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="199"/>
+        <location filename="../src/preferences/preferences.ui" line="202"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="178"/>
+        <location filename="../src/preferences/preferences.ui" line="181"/>
         <source>&lt;b&gt;General&lt;/b&gt;</source>
         <translation>&lt;b&gt;Hlavné&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="67"/>
+        <location filename="../src/preferences/preferences.ui" line="70"/>
         <source>Window</source>
         <translation>Okno prehliadača</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="480"/>
+        <location filename="../src/preferences/preferences.ui" line="483"/>
         <source>Show StatusBar on start</source>
         <translation>Zobraziť StatusBar pri štarte</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="500"/>
+        <location filename="../src/preferences/preferences.ui" line="503"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>Zobraziť panel záložiek pri štarte</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="507"/>
+        <location filename="../src/preferences/preferences.ui" line="510"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>Zobraziť navigačný panel pri štarte</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="514"/>
+        <location filename="../src/preferences/preferences.ui" line="517"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation>&lt;b&gt;Navigačný panel&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1203"/>
+        <location filename="../src/preferences/preferences.ui" line="1206"/>
         <source>&lt;b&gt;Downloads&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sťahovanie&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="905"/>
+        <location filename="../src/preferences/preferences.ui" line="908"/>
         <source>&lt;b&gt;Network Cache&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sieťová cache&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="990"/>
+        <location filename="../src/preferences/preferences.ui" line="993"/>
         <source>Allow storing network cache on disk</source>
         <translation>Povoliť ukladanie sieťovej cache na disk</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1448"/>
+        <location filename="../src/preferences/preferences.ui" line="1451"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1361"/>
+        <location filename="../src/preferences/preferences.ui" line="1364"/>
         <source>&lt;b&gt;Web storage&lt;/b&gt;</source>
         <translation>&lt;b&gt;Webové úložisko&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="692"/>
+        <location filename="../src/preferences/preferences.ui" line="695"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
         <translation>&lt;b&gt;Chovanie adresového riadku&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1586"/>
+        <location filename="../src/preferences/preferences.ui" line="1589"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jazyk&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="521"/>
+        <location filename="../src/preferences/preferences.ui" line="524"/>
         <source>Show Home button</source>
         <translation>Zobraziť tlačidlo domov</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="528"/>
+        <location filename="../src/preferences/preferences.ui" line="531"/>
         <source>Show Back / Forward buttons</source>
         <translation>Zobraziť tlačidlo Späť / Dopredu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="457"/>
+        <location filename="../src/preferences/preferences.ui" line="460"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;b&gt;Okno prehliadača&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="79"/>
+        <location filename="../src/preferences/preferences.ui" line="82"/>
         <source>Tabs</source>
         <translation>Panely</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="284"/>
-        <location filename="../src/preferences/preferences.ui" line="430"/>
+        <location filename="../src/preferences/preferences.ui" line="287"/>
+        <location filename="../src/preferences/preferences.ui" line="433"/>
         <source>Use actual</source>
         <translation>Použiť aktuálny</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="535"/>
+        <location filename="../src/preferences/preferences.ui" line="538"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
         <translation>&lt;b&gt;Pozadie&lt;b/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="549"/>
+        <location filename="../src/preferences/preferences.ui" line="552"/>
         <source>Use background image</source>
         <translation>Použiť pozadie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="542"/>
+        <location filename="../src/preferences/preferences.ui" line="545"/>
         <source>Use transparent background</source>
         <translation>Použiť priehľadné pozadie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="581"/>
+        <location filename="../src/preferences/preferences.ui" line="584"/>
         <source>Choose image...</source>
         <translation>Zvoľte obrázok...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="574"/>
+        <location filename="../src/preferences/preferences.ui" line="577"/>
         <source>Reset default</source>
         <translation>Obnoviť povodné</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="635"/>
+        <location filename="../src/preferences/preferences.ui" line="638"/>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
         <translation>&lt;b&gt;Chovanie panelov&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="658"/>
+        <location filename="../src/preferences/preferences.ui" line="661"/>
         <source>Make tabs movable</source>
         <translation>Presunúť panely pretiahnutím</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="678"/>
+        <location filename="../src/preferences/preferences.ui" line="681"/>
         <source>Hide close button if there is only one tab</source>
         <translation>Skryť zavieracie tlačidlo pri jednom panely</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="685"/>
+        <location filename="../src/preferences/preferences.ui" line="688"/>
         <source>Hide tabs when if there is only one tab</source>
         <translation>Skryť zoznam panelov pri jednom panely</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1000"/>
+        <location filename="../src/preferences/preferences.ui" line="1003"/>
         <source>Maximum </source>
         <translation>Maximálne </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1007"/>
+        <location filename="../src/preferences/preferences.ui" line="1010"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1210"/>
+        <location filename="../src/preferences/preferences.ui" line="1213"/>
         <source>Ask everytime for download location</source>
         <translation>Pri každom súbore sa spýtať kde ho uložiť</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1217"/>
+        <location filename="../src/preferences/preferences.ui" line="1220"/>
         <source>Use defined location: </source>
         <translation>Uložiť všetky súbory do: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1229"/>
+        <location filename="../src/preferences/preferences.ui" line="1232"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="91"/>
+        <location filename="../src/preferences/preferences.ui" line="94"/>
         <source>Browsing</source>
         <translation>Prehliadanie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="759"/>
+        <location filename="../src/preferences/preferences.ui" line="762"/>
         <source>Load images</source>
         <translation>Nahrať obrázky</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="766"/>
+        <location filename="../src/preferences/preferences.ui" line="769"/>
         <source>Allow JAVA</source>
         <translation>Povoliť JAVA</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="773"/>
+        <location filename="../src/preferences/preferences.ui" line="776"/>
         <source>Allow  JavaScript</source>
         <translation>Povoliť  JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="787"/>
+        <location filename="../src/preferences/preferences.ui" line="790"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>Povoliť pluginy (Flash plugin)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="930"/>
+        <location filename="../src/preferences/preferences.ui" line="933"/>
         <source>Maximum pages in cache: </source>
         <translation>Maximum stránok v cache:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="127"/>
+        <location filename="../src/preferences/preferences.ui" line="130"/>
         <source>Password Manager</source>
         <translation>Správca hesiel</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1284"/>
+        <location filename="../src/preferences/preferences.ui" line="1287"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Možnosťi doplňovania&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1291"/>
+        <location filename="../src/preferences/preferences.ui" line="1294"/>
         <source>Allow saving passwords from sites</source>
         <translation>Povoliť ukladanie hesiel zo stránok</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="139"/>
+        <location filename="../src/preferences/preferences.ui" line="142"/>
         <source>Privacy</source>
         <translation>Súkromie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="103"/>
+        <location filename="../src/preferences/preferences.ui" line="106"/>
         <source>Fonts</source>
         <translation>Písma</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="601"/>
+        <location filename="../src/preferences/preferences.ui" line="604"/>
         <source>This is text color used in Menu</source>
         <translation>Toto je text používaný v menu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="624"/>
+        <location filename="../src/preferences/preferences.ui" line="627"/>
         <source>Menu text color</source>
         <translation>Farba menu textu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="746"/>
+        <location filename="../src/preferences/preferences.ui" line="749"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Aktivovať posledný panel pri zatváraní aktuálneho</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="780"/>
+        <location filename="../src/preferences/preferences.ui" line="783"/>
         <source>&lt;b&gt;WebKit&lt;/b&gt;</source>
         <translation>&lt;b&gt;WebKit&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="794"/>
+        <location filename="../src/preferences/preferences.ui" line="797"/>
         <source>Block PopUp windows</source>
         <translation>Blokovať vyskakovacie okna</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="817"/>
+        <location filename="../src/preferences/preferences.ui" line="820"/>
         <source>Allow DNS Prefetch</source>
         <translation>Povoliť DNS Prefetch</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="824"/>
+        <location filename="../src/preferences/preferences.ui" line="827"/>
         <source>JavaScript can access clipboard</source>
         <translation>Povoliť JavaScriptu prístup do schránky</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="831"/>
+        <location filename="../src/preferences/preferences.ui" line="834"/>
         <source>Include links in focus chain</source>
         <translation>Označovať odkazy tabulátorom</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="838"/>
+        <location filename="../src/preferences/preferences.ui" line="841"/>
         <source>Zoom text only</source>
         <translation>Približovať len text</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="845"/>
+        <location filename="../src/preferences/preferences.ui" line="848"/>
         <source>Print element background</source>
         <translation>Tlačiť pozadie objektu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="867"/>
+        <location filename="../src/preferences/preferences.ui" line="870"/>
         <source>Wheel scrolls</source>
         <translation>Koliesko posúva</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="881"/>
+        <location filename="../src/preferences/preferences.ui" line="884"/>
         <source>lines</source>
         <translation>riadky</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1049"/>
+        <location filename="../src/preferences/preferences.ui" line="1052"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Typy písmen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1062"/>
+        <location filename="../src/preferences/preferences.ui" line="1065"/>
         <source>Standard</source>
         <translation>Štandardné</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1069"/>
+        <location filename="../src/preferences/preferences.ui" line="1072"/>
         <source>Fixed</source>
         <translation>Proporcionálne</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1079"/>
+        <location filename="../src/preferences/preferences.ui" line="1082"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1089"/>
+        <location filename="../src/preferences/preferences.ui" line="1092"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1099"/>
+        <location filename="../src/preferences/preferences.ui" line="1102"/>
         <source>Cursive</source>
         <translation>Cursive</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1109"/>
+        <location filename="../src/preferences/preferences.ui" line="1112"/>
         <source>Default Font</source>
         <translation>Základné písmo</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1126"/>
+        <location filename="../src/preferences/preferences.ui" line="1129"/>
         <source>Fixed Font</source>
         <translation>Proporcionálne písmo</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1185"/>
+        <location filename="../src/preferences/preferences.ui" line="1188"/>
         <source>Fantasy</source>
         <translation>Fantasy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1192"/>
+        <location filename="../src/preferences/preferences.ui" line="1195"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Veľkosti písmen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1455"/>
+        <location filename="../src/preferences/preferences.ui" line="1458"/>
         <source>Filter Tracking Cookies</source>
         <translation>Filtrovať sledovacie cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1462"/>
+        <location filename="../src/preferences/preferences.ui" line="1465"/>
         <source>Allow storing of cookies</source>
         <translation>Povoliť prijímanie cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1469"/>
+        <location filename="../src/preferences/preferences.ui" line="1472"/>
         <source>Delete cookies on close</source>
         <translation>Vymazať cookies pri zavrení prehliadača</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1489"/>
+        <location filename="../src/preferences/preferences.ui" line="1492"/>
         <source>Match domain exactly</source>
         <translation>Požadovať presnú zhodu domény</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1525"/>
+        <location filename="../src/preferences/preferences.ui" line="1528"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Upozornenie:&lt;/b&gt; Možnosti požadovanie presnej zhody domény a filtrovať sledovacie cookies môžú viesť k odmietnutiu niektorých cookies zo stránok. Ak máte problémy s cookies, skuste tieto možnosti najskôr zakázať!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1541"/>
+        <location filename="../src/preferences/preferences.ui" line="1544"/>
         <source>Cookies Manager</source>
         <translation>Správca cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1368"/>
+        <location filename="../src/preferences/preferences.ui" line="1371"/>
         <source>Allow storing web icons</source>
         <translation>Povoliť ukládanie ikon</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1375"/>
+        <location filename="../src/preferences/preferences.ui" line="1378"/>
         <source>Allow saving history</source>
         <translation>Povoliť ukladanie histórie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1382"/>
+        <location filename="../src/preferences/preferences.ui" line="1385"/>
         <source>Delete history on close</source>
         <translation>Vymazať históriu pri zavretí prehliadača</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="163"/>
+        <location filename="../src/preferences/preferences.ui" line="166"/>
         <source>Other</source>
         <translation>Ostatné</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="699"/>
+        <location filename="../src/preferences/preferences.ui" line="702"/>
         <source>Select all text by double clicking in address bar</source>
         <oldsource>Select all text by clicking at address bar</oldsource>
         <translation>Označiť všetko pri dvojtom kliknutí do adresného riadku</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="706"/>
+        <location filename="../src/preferences/preferences.ui" line="709"/>
         <source>Add .com domain by pressing CTRL key</source>
         <translation>Pridať .com doménu stlačením CTRL klávesy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="713"/>
+        <location filename="../src/preferences/preferences.ui" line="716"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Pridať .sk doménu stlačením ALT klávesy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1554"/>
+        <location filename="../src/preferences/preferences.ui" line="1557"/>
         <source>SSL Manager</source>
         <translation>Správca SSL</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1593"/>
+        <location filename="../src/preferences/preferences.ui" line="1596"/>
         <source>Available translations: </source>
         <translation>Dostupné preklady: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1603"/>
+        <location filename="../src/preferences/preferences.ui" line="1606"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>K zmene jazyku je potrebný reštart prehliadača.</translation>
     </message>
@@ -1595,72 +1595,72 @@ neexistuje!</translation>
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/app/appui.cpp" line="183"/>
+        <location filename="../src/app/appui.cpp" line="182"/>
         <source>File</source>
         <translation>Súbor</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="198"/>
+        <location filename="../src/app/appui.cpp" line="197"/>
         <source>Edit</source>
         <translation>Upraviť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="174"/>
+        <location filename="../src/app/appui.cpp" line="173"/>
         <source>Tools</source>
         <translation>Nástroje</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="175"/>
+        <location filename="../src/app/appui.cpp" line="174"/>
         <source>Help</source>
         <translation>Pomocník</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="187"/>
+        <location filename="../src/app/appui.cpp" line="186"/>
         <source>Open File</source>
         <translation>Otvoriť súbor</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="212"/>
+        <location filename="../src/app/appui.cpp" line="211"/>
         <source>View</source>
         <translation>Zobraziť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="176"/>
+        <location filename="../src/app/appui.cpp" line="175"/>
         <source>Bookmarks</source>
         <translation>Záložky</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="177"/>
+        <location filename="../src/app/appui.cpp" line="176"/>
         <source>History</source>
         <translation>História</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="191"/>
+        <location filename="../src/app/appui.cpp" line="190"/>
         <source>Save Page As...</source>
         <translation>Uložiť stránku ako...</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="193"/>
+        <location filename="../src/app/appui.cpp" line="192"/>
         <source>Print</source>
         <translation>Tlačiť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="195"/>
+        <location filename="../src/app/appui.cpp" line="194"/>
         <source>Quit</source>
         <translation>Koniec</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="185"/>
+        <location filename="../src/app/appui.cpp" line="184"/>
         <source>New Tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="199"/>
+        <location filename="../src/app/appui.cpp" line="198"/>
         <source>Undo</source>
         <translation>Späť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="200"/>
+        <location filename="../src/app/appui.cpp" line="199"/>
         <source>Redo</source>
         <translation>Dopredu</translation>
     </message>
@@ -1680,111 +1680,111 @@ neexistuje!</translation>
         <translation>O Qt</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="188"/>
+        <location filename="../src/app/appui.cpp" line="187"/>
         <source>Close Tab</source>
         <translation>Zavriet panel</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="209"/>
+        <location filename="../src/app/appui.cpp" line="208"/>
         <source>Find</source>
         <translation>Hľadať</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="157"/>
+        <location filename="../src/app/appui.cpp" line="156"/>
         <source>IP Address of current page</source>
         <translation>IP Adresa aktuálnej stránky</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="202"/>
+        <location filename="../src/app/appui.cpp" line="201"/>
         <source>Cut</source>
         <translation>Vystrihnúť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="203"/>
+        <location filename="../src/app/appui.cpp" line="202"/>
         <source>Copy</source>
         <translation>Kopírovať</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="204"/>
+        <location filename="../src/app/appui.cpp" line="203"/>
         <source>Paste</source>
         <translation>Prilepiť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="205"/>
+        <location filename="../src/app/appui.cpp" line="204"/>
         <source>Delete</source>
         <translation>Vymazať</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="207"/>
+        <location filename="../src/app/appui.cpp" line="206"/>
         <source>Select All</source>
         <translation>Vybrať všetko</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="213"/>
+        <location filename="../src/app/appui.cpp" line="212"/>
         <source>Navigation Toolbar</source>
         <translation>Navigačná lišta</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="219"/>
+        <location filename="../src/app/appui.cpp" line="218"/>
         <source>Status Bar</source>
         <translation>Status bar</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="96"/>
-        <location filename="../src/app/appui.cpp" line="235"/>
+        <location filename="../src/app/appui.cpp" line="95"/>
+        <location filename="../src/app/appui.cpp" line="234"/>
         <source>Stop</source>
         <translation>Zastaviť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="97"/>
-        <location filename="../src/app/appui.cpp" line="244"/>
+        <location filename="../src/app/appui.cpp" line="96"/>
+        <location filename="../src/app/appui.cpp" line="243"/>
         <source>Reload</source>
         <translation>Obnoviť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="247"/>
+        <location filename="../src/app/appui.cpp" line="246"/>
         <source>Character Encoding</source>
         <translation>Kódovanie znakov</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="260"/>
+        <location filename="../src/app/appui.cpp" line="259"/>
         <source>Zoom In</source>
         <translation>Priblížiť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="261"/>
+        <location filename="../src/app/appui.cpp" line="260"/>
         <source>Zoom Out</source>
         <translation>Oddialiť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="262"/>
+        <location filename="../src/app/appui.cpp" line="261"/>
         <source>Reset</source>
         <translation>Resetovať</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="266"/>
+        <location filename="../src/app/appui.cpp" line="265"/>
         <source>Page Source</source>
         <translation>Zdrojový kód stránky</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="225"/>
+        <location filename="../src/app/appui.cpp" line="224"/>
         <source>Fullscreen</source>
         <translation>Celá obrazovka</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="92"/>
+        <location filename="../src/app/appui.cpp" line="91"/>
         <location filename="../src/app/qupzilla.cpp" line="315"/>
         <source>Back</source>
         <translation>Späť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="94"/>
+        <location filename="../src/app/appui.cpp" line="93"/>
         <location filename="../src/app/qupzilla.cpp" line="322"/>
         <source>Forward</source>
         <translation>Dopredu</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="99"/>
+        <location filename="../src/app/appui.cpp" line="98"/>
         <location filename="../src/app/qupzilla.cpp" line="329"/>
         <source>Home</source>
         <translation>Domov</translation>
@@ -1810,22 +1810,22 @@ neexistuje!</translation>
         <translation>Organizovať záložky</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="184"/>
+        <location filename="../src/app/appui.cpp" line="183"/>
         <source>New Window</source>
         <translation>Nové okno</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="189"/>
+        <location filename="../src/app/appui.cpp" line="188"/>
         <source>Close Window</source>
         <translation>Zavrieť okno</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="186"/>
+        <location filename="../src/app/appui.cpp" line="185"/>
         <source>Open Location</source>
         <translation>Otvoriť adresu</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="192"/>
+        <location filename="../src/app/appui.cpp" line="191"/>
         <source>Send Link...</source>
         <translation>Poslať odkaz...</translation>
     </message>
@@ -1885,37 +1885,37 @@ neexistuje!</translation>
         <translation>Správca cookies</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="216"/>
+        <location filename="../src/app/appui.cpp" line="215"/>
         <source>Bookmarks Toolbar</source>
         <translation>Panel záložiek</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="86"/>
+        <location filename="../src/app/appui.cpp" line="85"/>
         <source>Navigation</source>
         <translation>Navigácia</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="112"/>
+        <location filename="../src/app/appui.cpp" line="111"/>
         <source>Main Menu</source>
         <translation>Hlavné menu</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="138"/>
+        <location filename="../src/app/appui.cpp" line="137"/>
         <source>Exit Fullscreen</source>
         <translation>Ukončiť režím Fullscreen</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="150"/>
+        <location filename="../src/app/appui.cpp" line="149"/>
         <source>Private Browsing Enabled</source>
         <translation>Súkromné prehliadanie je zapnuté</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="154"/>
+        <location filename="../src/app/appui.cpp" line="153"/>
         <source>Flash Plugin Enabled</source>
         <translation>Flash Plugin zapnutý</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="222"/>
+        <location filename="../src/app/appui.cpp" line="221"/>
         <source>Menu Bar</source>
         <translation>Menu</translation>
     </message>
@@ -2137,37 +2137,37 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
         <translation>Ignorovať všetky varovania</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="56"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="66"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizácia: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="57"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="67"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Doména: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="58"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="68"/>
         <source>&lt;b&gt;Locality Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Lokalita: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="59"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="69"/>
         <source>&lt;b&gt;Country Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Krajina: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="60"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="70"/>
         <source>&lt;b&gt;Verified by: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Overené: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="61"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="71"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Platnosť do: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="67"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="77"/>
         <source>SSL Certificate Informations</source>
         <translation>Informácie o certifikáte</translation>
     </message>
@@ -2219,95 +2219,229 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
         <translation>Informácie o stránke</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="28"/>
+        <location filename="../src/webview/siteinfo.ui" line="81"/>
+        <source>General</source>
+        <translation type="unfinished">Hlavné</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="93"/>
+        <source>Media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="105"/>
+        <source>Security</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="145"/>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="185"/>
+        <source>Encoding:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="205"/>
         <source>Tag</source>
         <translation>Tag</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="33"/>
+        <location filename="../src/webview/siteinfo.ui" line="210"/>
         <source>Value</source>
         <translation>Hodnota</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="45"/>
+        <location filename="../src/webview/siteinfo.ui" line="224"/>
+        <source>&lt;b&gt;Security information&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="244"/>
+        <source>Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="309"/>
         <source>Image</source>
         <translation>Obrázok</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="50"/>
+        <location filename="../src/webview/siteinfo.ui" line="314"/>
         <source>Image address</source>
         <translation>Adresa obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="68"/>
+        <location filename="../src/webview/siteinfo.ui" line="322"/>
+        <source>&lt;b&gt;Preview&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="355"/>
+        <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="362"/>
+        <location filename="../src/webview/siteinfo.ui" line="425"/>
+        <source>Common Name (CN):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="376"/>
+        <location filename="../src/webview/siteinfo.ui" line="439"/>
+        <source>Organization (O):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="390"/>
+        <location filename="../src/webview/siteinfo.ui" line="453"/>
+        <source>Organizational Unit (OU):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="404"/>
+        <source>Serial Number:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="418"/>
+        <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="467"/>
+        <source>&lt;b&gt;Validity&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="474"/>
+        <source>Issued On:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="488"/>
+        <source>Expires On:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.ui" line="178"/>
         <source>Site address:</source>
         <translation>Adresa stránky:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="81"/>
-        <source>Site name:</source>
-        <translation>Méno stránky:</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/siteinfo.ui" line="102"/>
+        <location filename="../src/webview/siteinfo.ui" line="194"/>
         <source>Meta tags of site:</source>
         <translation>Meta tágy na stránke:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="109"/>
-        <source>Images on site:</source>
-        <translation>Orázky na stránke:</translation>
+        <location filename="../src/webview/siteinfo.cpp" line="93"/>
+        <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="33"/>
-        <source>No Named Page</source>
-        <translation>Stránka bez mena</translation>
+        <location filename="../src/webview/siteinfo.cpp" line="94"/>
+        <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.cpp" line="108"/>
+        <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.cpp" line="110"/>
+        <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.cpp" line="127"/>
+        <source>Copy Image Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.cpp" line="128"/>
+        <source>Copy Image Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.cpp" line="130"/>
+        <source>Save Image to Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.cpp" line="155"/>
+        <location filename="../src/webview/siteinfo.cpp" line="165"/>
+        <source>Error!</source>
+        <translation type="unfinished">Chyba!</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.cpp" line="155"/>
+        <source>This preview is not available!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.cpp" line="159"/>
+        <source>Save image...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.cpp" line="165"/>
+        <source>Cannot write to file!</source>
+        <translation type="unfinished">Nemôžem zapisovať do súboru!</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfo.cpp" line="195"/>
+        <source>Preview not available</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SiteInfoWidget</name>
     <message>
-        <location filename="../src/webview/siteinfowidget.ui" line="87"/>
+        <location filename="../src/webview/siteinfowidget.ui" line="93"/>
         <source>More...</source>
         <translation>Viac...</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="36"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="37"/>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
         <translation>Vaše pripojenie na túto sieť je &lt;b&gt;chránené&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="40"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="41"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
         <translation>Vaše pripojenie na túto sieť je &lt;b&gt;nechránené&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="54"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="56"/>
         <source>This is Your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
         <translation>Toto je Vaša &lt;b&gt;%1.&lt;/b&gt; návšteva tejto siete.</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="63"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="65"/>
         <source>first</source>
         <translation>prvá</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="65"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="67"/>
         <source>second</source>
         <translation>druhá</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="67"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="69"/>
         <source>third</source>
         <translation>tretia</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="68"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is Your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
         <translation>Toto je Vaša &lt;b&gt;%1&lt;/b&gt; návšteva tejto siete.</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="57"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="59"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
         <translation>Túto sieť ste &lt;b&gt;nikdy&lt;/b&gt; nenavštívili.</translation>
     </message>
@@ -2608,77 +2742,77 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="74"/>
+        <location filename="../src/webview/webpage.cpp" line="80"/>
         <source>Confirmation</source>
         <translation>Potvrdenie</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="75"/>
+        <location filename="../src/webview/webpage.cpp" line="81"/>
         <source>To show this page, QupZilla must resend request witch do it again (like searching on making an shoping, witch has been already done.</source>
         <translation>Na zobrazenie tejto stránky musí QuipZilla znovu odoslať požiadavok, ktorý zopakuje akciu (napr. hľadanie alebo potvrdenie objednávky), ktorá bola vykonaná už skorej.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="124"/>
+        <location filename="../src/webview/webpage.cpp" line="130"/>
         <source>Server refused the connection</source>
         <translation>Server odmietol spojenie</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="127"/>
+        <location filename="../src/webview/webpage.cpp" line="133"/>
         <source>Server closed the connection</source>
         <translation>Server ukončil spojenie</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="130"/>
+        <location filename="../src/webview/webpage.cpp" line="136"/>
         <source>Server not found</source>
         <translation>Server nebol nájdený</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="133"/>
+        <location filename="../src/webview/webpage.cpp" line="139"/>
         <source>Connection timed out</source>
         <translation>Spojenie vypršalo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="136"/>
+        <location filename="../src/webview/webpage.cpp" line="142"/>
         <source>Untrusted connection</source>
         <translation>Nedôveryhodné spojenie</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="141"/>
+        <location filename="../src/webview/webpage.cpp" line="147"/>
         <source>Unknown error</source>
         <translation>Neznáma chyba</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="146"/>
+        <location filename="../src/webview/webpage.cpp" line="152"/>
         <source>Error code %1</source>
         <translation>Chybový kód %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="157"/>
+        <location filename="../src/webview/webpage.cpp" line="163"/>
         <source>Failed loading page</source>
         <translation>Chyba pri načítaní stránky</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="176"/>
+        <location filename="../src/webview/webpage.cpp" line="182"/>
         <source>QupZilla can&apos;t load page at %1.</source>
         <translation>QupZilla nemôže načítať stránku %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="177"/>
+        <location filename="../src/webview/webpage.cpp" line="183"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Skontrolujte, či je adresa napísaná správne a neobsahuje chyby ako &lt;b&gt;ww.&lt;/b&gt;server.sk miesto &lt;b&gt;www.&lt;/b&gt;server.sk</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="178"/>
+        <location filename="../src/webview/webpage.cpp" line="184"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Pokiaľ sa vám nezobrazujú ani ostatné stránky, tak skontrolujte sieťové pripojenie svojho počítača.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="179"/>
+        <location filename="../src/webview/webpage.cpp" line="185"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Pokiaľ je váš počítač chránený firewallom alebo proxy severom, tak skontrolujte či má QupZilla prístup na internet.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="180"/>
+        <location filename="../src/webview/webpage.cpp" line="186"/>
         <source>Try Again</source>
         <translation>Skúsiť znova</translation>
     </message>

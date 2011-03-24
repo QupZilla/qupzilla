@@ -669,7 +669,7 @@ void QupZilla::savePage()
     QNetworkRequest request(weView()->url());
 
     DownloadManager* dManager = mApp->downManager();
-    dManager->download(request);
+    dManager->download(request, false);
 }
 
 void QupZilla::printPage()

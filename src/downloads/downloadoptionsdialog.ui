@@ -7,17 +7,38 @@
     <x>0</x>
     <y>0</y>
     <width>416</width>
-    <height>279</height>
+    <height>263</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Opening</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../icons.qrc">
+   <iconset resource="../data/icons.qrc">
     <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="6">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>You have chosen to open</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" rowspan="3">
+    <widget class="QLabel" name="fileIcon">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="4">
+    <widget class="QLabel" name="fileName">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
    <item row="2" column="1" colspan="4">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
@@ -66,65 +87,27 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="0" colspan="5">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>You have chosen to open</string>
+   <item row="3" column="5">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
-    </widget>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
-   <item row="6" column="0" colspan="5">
+   <item row="7" column="0" colspan="5">
     <widget class="QLabel" name="label_4">
      <property name="text">
       <string>&lt;b&gt;What should QupZilla do with this file?&lt;/b&gt;</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="1" colspan="4">
-    <widget class="QRadioButton" name="radioOpen">
-     <property name="text">
-      <string>Open...</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="1" colspan="4">
-    <widget class="QRadioButton" name="radioSave">
-     <property name="text">
-      <string>Save File</string>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="1">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="1" colspan="4">
-    <widget class="QLabel" name="fileName">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="fileIcon">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
+   <item row="8" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -140,20 +123,24 @@
      </property>
     </spacer>
    </item>
-   <item row="4" column="5">
-    <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+   <item row="8" column="1" colspan="4">
+    <widget class="QRadioButton" name="radioOpen">
+     <property name="text">
+      <string>Open...</string>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
+     <property name="checked">
+      <bool>true</bool>
      </property>
-    </spacer>
+    </widget>
    </item>
-   <item row="10" column="0" colspan="6">
+   <item row="9" column="1" colspan="4">
+    <widget class="QRadioButton" name="radioSave">
+     <property name="text">
+      <string>Save File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="0" colspan="6">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -163,10 +150,36 @@
      </property>
     </widget>
    </item>
+   <item row="6" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="10" column="1">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
   </layout>
  </widget>
  <resources>
-  <include location="../icons.qrc"/>
+  <include location="../data/icons.qrc"/>
  </resources>
  <connections>
   <connection>
