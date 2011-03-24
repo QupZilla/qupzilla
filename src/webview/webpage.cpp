@@ -57,7 +57,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
         qDebug() << reply->errorString();
         break;
     }
-    qDebug() << "error" << reply->errorString();
+    qDebug() << "WebPage::UnsupportedContent error" << reply->errorString();
 }
 
 void WebPage::setSSLCertificate(QSslCertificate cert)

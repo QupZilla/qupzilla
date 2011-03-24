@@ -289,13 +289,11 @@ void MainApplication::quitApplication()
         m_downloadManager->show();
         return;
     }
-
     m_isClosing = true;
-
     if (m_mainWindows.count() > 0)
         saveStateSlot();
 
-    qDebug() << __FUNCTION__ << "called";
+    qDebug() << "Quitting application...";
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("SessionRestore");
     settings.setValue("isRunning",false);
