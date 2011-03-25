@@ -20,37 +20,6 @@
 #include "qupzilla.h"
 #include "webtab.h"
 
-class CloseButton : public QToolButton
-{
-public:
-    explicit CloseButton(QWidget* parent ) : QToolButton(parent) { }
-
-private:
-    void paintEvent(QPaintEvent *)
-    {
-        QPainter p(this);
-        QStyleOption opt;
-        opt.init(this);
-        opt.state |= QStyle::State_AutoRaise;
-        if (isEnabled() && underMouse() && !isChecked() && !isDown())
-            opt.state |= QStyle::State_Raised;
-        if (isChecked())
-            opt.state |= QStyle::State_On;
-        if (isDown())
-            opt.state |= QStyle::State_Sunken;
-
-        if (const QTabBar *tb = qobject_cast<const QTabBar *>(parent())) {
-            int index = tb->currentIndex();
-            QTabBar::ButtonPosition position = (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, tb);
-            if (tb->tabButton(index, position) == this)
-                opt.state |= QStyle::State_Selected;
-        }
-
-        style()->drawPrimitive(QStyle::PE_IndicatorTabClose, &opt, &p, this);
-    }
-};
-
-
 TabBar::TabBar(QupZilla* mainClass, QWidget* parent) :
     QTabBar(parent)
     ,p_QupZilla(mainClass)
