@@ -31,14 +31,20 @@ public:
     explicit WebTab(QupZilla* mainClass, QWidget* parent = 0);
     ~WebTab();
     WebView* view() { return m_view; }
+    bool isPinned() { return m_pinned; }
+    void pinTab(int index);
+    void setPinned(bool state) { m_pinned = state; }
 
 private slots:
     void showNotification(QWidget* notif);
 
 private:
+    int tabIndex();
     QupZilla* p_QupZilla;
     QPointer<WebView> m_view;
     QVBoxLayout* m_layout;
+
+    bool m_pinned;
 };
 
 #endif // WEBTAB_H

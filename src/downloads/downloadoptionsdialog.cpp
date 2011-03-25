@@ -39,6 +39,7 @@ int DownloadOptionsDialog::exec()
         return 1;
     else if (ui->radioSave->isChecked())
         return 2;
+    return 2;
 }
 
 DownloadOptionsDialog::~DownloadOptionsDialog()

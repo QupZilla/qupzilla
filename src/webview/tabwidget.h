@@ -40,6 +40,9 @@ public:
 
     QByteArray saveState();
     bool restoreState(const QByteArray &state);
+    void savePinnedTabs();
+    void restorePinnedTabs();
+
     void setTabText(int index, const QString& text);
     void loadSettings();
 
@@ -59,9 +62,9 @@ public slots:
     void restoreClosedTab();
 
 private slots:
-    void tabChanged(int index);
     void aboutToShowTabsMenu();
     void actionChangeIndex();
+    void tabChanged(int index);
 
 private:
     inline WebView* weView() { WebTab* webTab = qobject_cast<WebTab*>(widget(currentIndex())); if (!webTab) return 0; return webTab->view(); }

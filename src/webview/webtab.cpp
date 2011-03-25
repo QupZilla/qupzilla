@@ -18,11 +18,13 @@
 #include "webtab.h"
 #include "qupzilla.h"
 #include "webview.h"
+#include "tabbar.h"
 
 WebTab::WebTab(QupZilla* mainClass, QWidget* parent)
     :QWidget(parent)
     ,p_QupZilla(mainClass)
     ,m_view(0)
+    ,m_pinned(false)
 {
     m_layout = new QVBoxLayout(this);
     setLayout(m_layout);
@@ -43,6 +45,31 @@ void WebTab::showNotification(QWidget* notif)
 
     m_layout->insertWidget(0, notif);
     notif->show();
+}
+
+int WebTab::tabIndex()
+{
+    return m_view->tabIndex();
+}
+
+void WebTab::pinTab(int index)
+{
+    TabWidget* tabWidget = p_QupZilla->tabWidget();
+    if (!tabWidget)
+        return;
+
+    if (m_pinned) { //Unpin tab
+        m_pinned = false;
+        tabWidget->setTabText(index, m_view->title());
+        tabWidget->getTabBar()->updateCloseButton(index);
+    } else { // Pin tab
+        m_pinned = true;
+        tabWidget->setCurrentIndex(0); //             <<-- those 2 lines fixes
+        tabWidget->getTabBar()->moveTab(index, 0);//     | weird bug with bad
+        tabWidget->setTabText(0, ""); //                 | tabwidget update if we
+        tabWidget->setCurrentIndex(0); //             <<-- are moving current tab
+        tabWidget->getTabBar()->updateCloseButton(0);
+    }
 }
 
 WebTab::~WebTab()

@@ -168,7 +168,12 @@ int TabWidget::addView(QUrl url, QString title, OpenUrlIn openIn, bool selectLin
 
 void TabWidget::setTabText(int index, const QString& text)
 {
-    QString newtext = text + "                                                               ";
+    QString newtext = text + "                                                                            ";
+
+    if (WebTab* webTab = qobject_cast<WebTab*>(p_QupZilla->tabWidget()->widget(index)) ) {
+        if (webTab->isPinned())
+            newtext = "";
+    }
     QTabWidget::setTabText(index, newtext);
 }
 
@@ -222,10 +227,10 @@ void TabWidget::tabChanged(int index)
 
     if (p_QupZilla->inspectorDock() && p_QupZilla->inspectorDock()->isVisible())
         p_QupZilla->showInspector();
-
     weView()->setFocus();
 
     m_lastTabIndex = index;
+    m_tabBar->updateCloseButton(index);
 }
 
 void TabWidget::reloadAllTabs()
@@ -267,6 +272,79 @@ void TabWidget::restoreClosedTab()
     m_canRestoreTab = false;
 }
 
+void TabWidget::savePinnedTabs()
+{
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+
+    QStringList tabs;
+    QList<QByteArray> tabsHistory;
+    for (int i = 0; i < count(); ++i) {
+        if (WebView* tab = weView(i)) {
+            WebTab* webTab = qobject_cast<WebTab*>(widget(i));
+            if (!webTab || !webTab->isPinned())
+                continue;
+
+            tabs.append(QString::fromUtf8(tab->url().toEncoded()));
+            if (tab->history()->count() != 0) {
+                QByteArray tabHistory;
+                QDataStream tabHistoryStream(&tabHistory, QIODevice::WriteOnly);
+                tabHistoryStream << *tab->history();
+                tabsHistory.append(tabHistory);
+            } else {
+                tabsHistory << QByteArray();
+            }
+        } else {
+            tabs.append(QString::null);
+            tabsHistory.append(QByteArray());
+        }
+    }
+    stream << tabs;
+    stream << tabsHistory;
+    QFile file(mApp->getActiveProfil()+"pinnedTabs.dat");
+    file.open(QIODevice::WriteOnly);
+    file.write(data);
+    file.close();
+}
+
+void TabWidget::restorePinnedTabs()
+{
+    QFile file(mApp->getActiveProfil()+"pinnedTabs.dat");
+    file.open(QIODevice::ReadOnly);
+    QByteArray sd = file.readAll();
+    file.close();
+
+    QDataStream stream(&sd, QIODevice::ReadOnly);
+    if (stream.atEnd())
+        return;
+
+    QStringList pinnedTabs;
+    stream >> pinnedTabs;
+    QList<QByteArray> tabHistory;
+    stream >> tabHistory;
+
+    for (int i = 0; i < pinnedTabs.count(); ++i) {
+        QUrl url = QUrl::fromEncoded(pinnedTabs.at(i).toUtf8());
+
+        QByteArray historyState = tabHistory.value(i);
+        int addedIndex;
+        if (!historyState.isEmpty()) {
+            addedIndex= addView(QUrl());
+            QDataStream historyStream(historyState);
+            historyStream >> *weView(addedIndex)->history();
+            weView(addedIndex)->load(url);
+        } else {
+            addedIndex = addView(url);
+        }
+        WebTab* webTab = (WebTab*)widget(addedIndex);
+        if (webTab)
+            webTab->setPinned(true);
+
+        m_tabBar->moveTab(addedIndex, i);
+        m_tabBar->updateCloseButton(i);
+    }
+}
+
 QByteArray TabWidget::saveState()
 {
     QByteArray data;
@@ -276,6 +354,10 @@ QByteArray TabWidget::saveState()
     QList<QByteArray> tabsHistory;
     for (int i = 0; i < count(); ++i) {
         if (WebView* tab = weView(i)) {
+            WebTab* webTab = qobject_cast<WebTab*>(widget(i));
+            if (webTab && webTab->isPinned())
+                continue;
+
             tabs.append(QString::fromUtf8(tab->url().toEncoded()));
             if (tab->history()->count() != 0) {
                 QByteArray tabHistory;
@@ -309,14 +391,12 @@ bool TabWidget::restoreState(const QByteArray &state)
 
     int currentTab;
     stream >> currentTab;
-    setCurrentIndex(currentTab);
     QList<QByteArray> tabHistory;
     stream >> tabHistory;
 
 
     for (int i = 0; i < openTabs.count(); ++i) {
         QUrl url = QUrl::fromEncoded(openTabs.at(i).toUtf8());
-        //TabWidget::OpenUrlIn tab =
 
         QByteArray historyState = tabHistory.value(i);
         if (!historyState.isEmpty()) {
@@ -328,6 +408,7 @@ bool TabWidget::restoreState(const QByteArray &state)
             addView(url);
         }
     }
+    setCurrentIndex(currentTab);
     return true;
 }
 
