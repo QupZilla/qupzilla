@@ -165,7 +165,7 @@ QSize TabBar::tabSizeHint(int index) const
     if (tabWidget) {
         WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(index));
         if (webTab && webTab->isPinned())
-            size.setWidth(35);
+            size.setWidth(31);
     }
     return size;
 }
