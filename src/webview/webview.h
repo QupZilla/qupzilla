@@ -59,6 +59,7 @@ public:
 
     static QUrl guessUrlFromString(const QString &string);
     static bool isUrlValid(const QUrl &url);
+    int tabIndex() const;
 
 public slots:
     void stop(){ if (page()) {emit ipChanged(m_currentIp); page()->triggerAction(QWebPage::Stop); loadFinished(true);} }
@@ -106,7 +107,6 @@ private:
     void contextMenuEvent(QContextMenuEvent* event);
     void wheelEvent(QWheelEvent* event);
     TabWidget* tabWidget() const;
-    int tabIndex() const;
     bool isCurrent();
     void applyZoom();
 

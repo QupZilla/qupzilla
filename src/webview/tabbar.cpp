@@ -18,6 +18,38 @@
 #include "tabbar.h"
 #include "tabwidget.h"
 #include "qupzilla.h"
+#include "webtab.h"
+
+class CloseButton : public QToolButton
+{
+public:
+    explicit CloseButton(QWidget* parent ) : QToolButton(parent) { }
+
+private:
+    void paintEvent(QPaintEvent *)
+    {
+        QPainter p(this);
+        QStyleOption opt;
+        opt.init(this);
+        opt.state |= QStyle::State_AutoRaise;
+        if (isEnabled() && underMouse() && !isChecked() && !isDown())
+            opt.state |= QStyle::State_Raised;
+        if (isChecked())
+            opt.state |= QStyle::State_On;
+        if (isDown())
+            opt.state |= QStyle::State_Sunken;
+
+        if (const QTabBar *tb = qobject_cast<const QTabBar *>(parent())) {
+            int index = tb->currentIndex();
+            QTabBar::ButtonPosition position = (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, tb);
+            if (tb->tabButton(index, position) == this)
+                opt.state |= QStyle::State_Selected;
+        }
+
+        style()->drawPrimitive(QStyle::PE_IndicatorTabClose, &opt, &p, this);
+    }
+};
+
 
 TabBar::TabBar(QupZilla* mainClass, QWidget* parent) :
     QTabBar(parent)
@@ -26,8 +58,8 @@ TabBar::TabBar(QupZilla* mainClass, QWidget* parent) :
 {
     setContextMenuPolicy(Qt::CustomContextMenu);
     setObjectName("tabBar");
-    setTabsClosable(true);
     setElideMode(Qt::ElideRight);
+    setTabsClosable(true);
     setDocumentMode(true);
     loadSettings();
 
@@ -49,16 +81,19 @@ void TabBar::loadSettings()
 
 void TabBar::contextMenuRequested(const QPoint &position)
 {
+    int index = tabAt(position);
+    m_clickedTab = index;
+
     TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
     if (!tabWidget)
         return;
-    int index = tabAt(position);
-    m_clickedTab = index;
+    WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(m_clickedTab));
+    if (!webTab)
+        return;
 
     QMenu menu;
     menu.addAction(QIcon(":/icons/menu/popup.png"),tr("New tab"), p_QupZilla, SLOT(addTab()));
     menu.addSeparator();
-
     if (index!=-1) {
         menu.addAction(
 #ifdef Q_WS_X11
@@ -88,6 +123,8 @@ void TabBar::contextMenuRequested(const QPoint &position)
                 QIcon(":/icons/faenza/reload.png")
 #endif
                 ,tr("Reload Tab"), this, SLOT(reloadTab()));
+        menu.addAction(webTab->isPinned() ? tr("Unpin Tab") : tr("Pin Tab"), this, SLOT(pinTab()));
+        menu.addSeparator();
         menu.addAction(tr("Reload All Tabs"), tabWidget, SLOT(reloadAllTabs()));
         menu.addAction(tr("Bookmark This Tab"), this, SLOT(bookmarkTab()));
         menu.addAction(tr("Bookmark All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
@@ -121,9 +158,101 @@ void TabBar::contextMenuRequested(const QPoint &position)
     menu.exec(p);
 }
 
+QSize TabBar::tabSizeHint(int index) const
+{
+    QSize size = QTabBar::tabSizeHint(index);
+    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
+    if (tabWidget) {
+        WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(index));
+        if (webTab && webTab->isPinned())
+            size.setWidth(35);
+    }
+    return size;
+}
+
+#ifdef Q_WS_X11
+void TabBar::tabInserted(int index)
+{
+//    CloseButton* closeButton = new CloseButton(this);
+//    closeButton->setAutoRaise(true);
+//    closeButton->setMaximumSize(17,17);
+//    closeButton->setIcon(style()->standardIcon(QStyle::SP_TitleBarMaxButton));
+//    connect(closeButton, SIGNAL(clicked()), this, SLOT(closeCurrentTab()));
+//    setTabButton(index, QTabBar::RightSide, closeButton);
+    QAbstractButton* button = (QAbstractButton*)tabButton(index, QTabBar::RightSide);
+    if (!button)
+        return;
+    button->setMaximumSize(17,17);
+}
+#endif
+
+//void TabBar::showCloseButton(int index)
+//{
+//    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
+//    if (!tabWidget)
+//        return;
+
+//    WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(index));
+//    if (webTab && webTab->isPinned())
+//        return;
+
+//    CloseButton* button = (CloseButton*)tabButton(index, QTabBar::RightSide);
+//    if (!button)
+//        return;
+
+//    button->show();
+//}
+
+//void TabBar::hideCloseButton(int index)
+//{
+//    CloseButton* button = (CloseButton*)tabButton(index, QTabBar::RightSide);
+//    if (!button)
+//        return;
+//    button->hide();
+//}
+
+void TabBar::updateCloseButton(int index)
+{
+    QAbstractButton* button = (QAbstractButton*)tabButton(index, QTabBar::RightSide);
+    if (!button)
+        return;
+
+    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
+    if (!tabWidget)
+        return;
+
+    WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(index));
+    if (webTab && webTab->isPinned())
+        button->hide();
+    else
+        button->show();
+}
+
+void TabBar::closeCurrentTab()
+{
+    int id = currentIndex();
+    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
+    if (!tabWidget || id < 0)
+        return;
+    tabWidget->closeTab(id);
+}
+
 void TabBar::bookmarkTab()
 {
     p_QupZilla->addBookmark(p_QupZilla->weView(m_clickedTab)->url(), p_QupZilla->weView(m_clickedTab)->title());
+}
+
+void TabBar::pinTab()
+{
+    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
+    if (!tabWidget)
+        return;
+
+    WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(m_clickedTab));
+    if (!webTab)
+        return;
+
+    webTab->pinTab(m_clickedTab);
 }
 
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
