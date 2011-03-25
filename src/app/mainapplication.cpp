@@ -439,6 +439,7 @@ bool MainApplication::saveStateSlot()
         stream << m_mainWindows.at(i)->saveState();
     }
     file.close();
+    getWindow()->tabWidget()->savePinnedTabs();
 
     settings.setValue("restoreSession",true);
     settings.endGroup();

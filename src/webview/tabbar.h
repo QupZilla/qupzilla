@@ -32,6 +32,12 @@ class TabBar : public QTabBar
     Q_OBJECT
 public:
     explicit TabBar(QupZilla* mainClass, QWidget* parent = 0);
+//    void hideCloseButton(int index);
+//    void showCloseButton(int index);
+    void updateCloseButton(int index);
+
+    QSize getTabSizeHint(int index) { return QTabBar::tabSizeHint(index); }
+    void loadSettings();
 
 signals:
     void reloadTab(int index);
@@ -43,9 +49,6 @@ signals:
 
 public slots:
 
-public:
-    void loadSettings();
-
 private slots:
     void contextMenuRequested(const QPoint &position);
     void reloadTab() { emit reloadTab(m_clickedTab); }
@@ -55,8 +58,15 @@ private slots:
     void closeAllButCurrent() { emit closeAllButCurrent(m_clickedTab); }
     void closeTab() { emit closeTab(m_clickedTab); }
     void bookmarkTab();
+    void pinTab();
+    void closeCurrentTab();
+
 private:
     void mouseDoubleClickEvent(QMouseEvent* event);
+    QSize tabSizeHint(int index) const;
+#ifdef Q_WS_X11
+    void tabInserted(int index);
+#endif
 
     QupZilla* p_QupZilla;
     bool m_showCloseButtonWithOneTab;

@@ -23,6 +23,7 @@
 void QupZilla::postLaunch()
 {
     loadSettings();
+    m_tabWidget->restorePinnedTabs();
     //Open tab from command line argument
     bool addTab = true;
     QStringList arguments = qApp->arguments();
