@@ -179,7 +179,8 @@ FORMS    += \
     rss/rssnotification.ui \
     preferences/sslmanager.ui \
     other/clearprivatedata.ui \
-    other/sourceviewersearch.ui
+    other/sourceviewersearch.ui \
+    other/closedialog.ui
 
 RESOURCES += \
     data/icons.qrc \

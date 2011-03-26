@@ -339,32 +339,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BookmarksWidget</name>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="48"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="40"/>
         <source>Edit This Bookmark</source>
         <translation>Upravit tuto záložku</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="61"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="53"/>
         <source>Remove Bookmark</source>
         <translation>Odstranit záložku</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="68"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="60"/>
         <source>Name:</source>
         <translation>Název:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="78"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="70"/>
         <source>Folder:</source>
         <translation>Složka:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="112"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="104"/>
         <source>Save</source>
         <translation>Uložit</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="125"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="117"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
@@ -387,62 +387,62 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ClearPrivateData</name>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="14"/>
+        <location filename="../src/other/clearprivatedata.ui" line="6"/>
         <source>Clear Recent History</source>
         <translation>Vymazat nedávnou historii</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="24"/>
+        <location filename="../src/other/clearprivatedata.ui" line="16"/>
         <source>Choose what you want to delete:</source>
         <translation>Vyberte co chcete smazat:</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="31"/>
+        <location filename="../src/other/clearprivatedata.ui" line="23"/>
         <source>Clear history</source>
         <translation>Smazat historii</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="41"/>
+        <location filename="../src/other/clearprivatedata.ui" line="33"/>
         <source>Clear cookies</source>
         <translation>Smazat cookies</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="51"/>
+        <location filename="../src/other/clearprivatedata.ui" line="43"/>
         <source>Clear cache</source>
         <translation>Vyprázdnit vyrovnávací paměť</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="61"/>
+        <location filename="../src/other/clearprivatedata.ui" line="53"/>
         <source>Clear icons</source>
         <translation>Smazat ikony</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="74"/>
+        <location filename="../src/other/clearprivatedata.ui" line="66"/>
         <source>Clear cookies from Adobe Flash Player</source>
         <translation>Smazat cookies z Adobe Flash Playeru</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="91"/>
+        <location filename="../src/other/clearprivatedata.ui" line="83"/>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
         <translation>&lt;b&gt;Vymazat nedávnou historii&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="115"/>
+        <location filename="../src/other/clearprivatedata.ui" line="107"/>
         <source>Later Today</source>
         <translation>Dnes</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="120"/>
+        <location filename="../src/other/clearprivatedata.ui" line="112"/>
         <source>Week</source>
         <translation>Týden</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="125"/>
+        <location filename="../src/other/clearprivatedata.ui" line="117"/>
         <source>Month</source>
         <translation>Měsíc</translation>
     </message>
     <message>
-        <location filename="../src/other/clearprivatedata.ui" line="130"/>
+        <location filename="../src/other/clearprivatedata.ui" line="122"/>
         <source>All</source>
         <translation>Vše</translation>
     </message>
@@ -458,6 +458,19 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/plugins/clicktoflash.cpp" line="84"/>
         <source>Add %1 to whitelist</source>
         <translation>Přidat %1 na bílou listinu</translation>
+    </message>
+</context>
+<context>
+    <name>CloseDialog</name>
+    <message>
+        <location filename="../src/other/closedialog.ui" line="6"/>
+        <source>There are still open tabs</source>
+        <translation>Stále jsou otevřeny panely</translation>
+    </message>
+    <message>
+        <location filename="../src/other/closedialog.ui" line="41"/>
+        <source>Don&apos;t ask again</source>
+        <translation>Příště se již nedotazovat</translation>
     </message>
 </context>
 <context>
@@ -712,12 +725,12 @@ neexistuje!</translation>
         <translation>Uložit soubor jako...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="262"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="268"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="263"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="269"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Jste si jistý že chcete skončit? Všechna nedokončená stahování budou zrušena!</translation>
     </message>
@@ -1668,17 +1681,17 @@ neexistuje!</translation>
         <translation>Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="379"/>
+        <location filename="../src/app/qupzilla.cpp" line="380"/>
         <source>Preferences</source>
         <translation>Předvolby</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="359"/>
+        <location filename="../src/app/qupzilla.cpp" line="360"/>
         <source>About QupZilla</source>
         <translation>O QupZille</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="358"/>
+        <location filename="../src/app/qupzilla.cpp" line="359"/>
         <source>About Qt</source>
         <translation>O Qt</translation>
     </message>
@@ -1776,39 +1789,39 @@ neexistuje!</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="92"/>
-        <location filename="../src/app/qupzilla.cpp" line="315"/>
+        <location filename="../src/app/qupzilla.cpp" line="316"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="94"/>
-        <location filename="../src/app/qupzilla.cpp" line="322"/>
+        <location filename="../src/app/qupzilla.cpp" line="323"/>
         <source>Forward</source>
         <translation>Vpřed</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="99"/>
-        <location filename="../src/app/qupzilla.cpp" line="329"/>
+        <location filename="../src/app/qupzilla.cpp" line="330"/>
         <source>Home</source>
         <translation>Domů</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="336"/>
+        <location filename="../src/app/qupzilla.cpp" line="337"/>
         <source>Show All History</source>
         <translation>Zobrazit celou historii</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="246"/>
+        <location filename="../src/app/qupzilla.cpp" line="247"/>
         <source>Bookmark This Page</source>
         <translation>Přidat stránku do záložek</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="247"/>
+        <location filename="../src/app/qupzilla.cpp" line="248"/>
         <source>Bookmark All Tabs</source>
         <translation>Přidat všechny panely do záložek</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="248"/>
+        <location filename="../src/app/qupzilla.cpp" line="249"/>
         <source>Organize Bookmarks</source>
         <translation>Organizovat záložky</translation>
     </message>
@@ -1833,57 +1846,57 @@ neexistuje!</translation>
         <translation>Poslat odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="355"/>
+        <location filename="../src/app/qupzilla.cpp" line="356"/>
         <source>Report Bug</source>
         <translation>Nahlásit bug</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="365"/>
+        <location filename="../src/app/qupzilla.cpp" line="366"/>
         <source>Web Search</source>
         <translation>Hledání na webu</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="366"/>
+        <location filename="../src/app/qupzilla.cpp" line="367"/>
         <source>Page Info</source>
         <translation>Informace o stránce</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="368"/>
+        <location filename="../src/app/qupzilla.cpp" line="369"/>
         <source>Download Manager</source>
         <translation>Správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="371"/>
+        <location filename="../src/app/qupzilla.cpp" line="372"/>
         <source>Clear Recent History</source>
         <translation>Vymazat nedávnou historii</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="372"/>
+        <location filename="../src/app/qupzilla.cpp" line="373"/>
         <source>Private Browsing</source>
         <translation>Soukromé prohlížení</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="370"/>
+        <location filename="../src/app/qupzilla.cpp" line="371"/>
         <source>RSS Reader</source>
         <translation>RSS čtečka</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="400"/>
+        <location filename="../src/app/qupzilla.cpp" line="401"/>
         <source>Other</source>
         <translation>Ostatní</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="409"/>
+        <location filename="../src/app/qupzilla.cpp" line="410"/>
         <source>Default</source>
         <translation>Defaultní</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="699"/>
+        <location filename="../src/app/qupzilla.cpp" line="700"/>
         <source>Start Private Browsing</source>
         <translation>Spustit anonymní prohlížení</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="369"/>
+        <location filename="../src/app/qupzilla.cpp" line="370"/>
         <source>Cookies Manager</source>
         <translation>Správce cookies</translation>
     </message>
@@ -1923,14 +1936,14 @@ neexistuje!</translation>
         <translation>Menu</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="264"/>
+        <location filename="../src/app/qupzilla.cpp" line="265"/>
         <source>Bookmarks In ToolBar</source>
         <oldsource>Bookmarks In Toolbar</oldsource>
         <translation>Panel záložek</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="278"/>
-        <location filename="../src/app/qupzilla.cpp" line="298"/>
+        <location filename="../src/app/qupzilla.cpp" line="279"/>
+        <location filename="../src/app/qupzilla.cpp" line="299"/>
         <source>Empty</source>
         <translation>Prázdný</translation>
     </message>
@@ -1940,54 +1953,49 @@ neexistuje!</translation>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="601"/>
+        <location filename="../src/app/qupzilla.cpp" line="602"/>
         <source>Web Inspector</source>
         <translation>Web Inspektor</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="643"/>
+        <location filename="../src/app/qupzilla.cpp" line="644"/>
         <source>Open file...</source>
         <translation>Otevřít soubor...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="686"/>
+        <location filename="../src/app/qupzilla.cpp" line="687"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Jste si jistý že chcete zapnout soukromé prohlížení?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="687"/>
+        <location filename="../src/app/qupzilla.cpp" line="688"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Se zapnutým soukromým prohlížením jsou některé akce týkající se soukromí vypnuty:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="690"/>
+        <location filename="../src/app/qupzilla.cpp" line="691"/>
         <source>Webpages are not added to the history.</source>
         <translation>Stránky nejsou přidávány do historie.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="691"/>
+        <location filename="../src/app/qupzilla.cpp" line="692"/>
         <source>New cookies are not stored, but current cookies can be accessed.</source>
         <translation>Nové cookies nejsou přijímány, ale současné cookies jsou zasílány.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="692"/>
+        <location filename="../src/app/qupzilla.cpp" line="693"/>
         <source>Your session won&apos;t be stored.</source>
         <translation>Vaše relace nebude uložena.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="694"/>
+        <location filename="../src/app/qupzilla.cpp" line="695"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Než zavřete prohlížeč, stále můžete použít tlačítka Zpět a Vpřed k vrácení se na stránky které jste otevřeli.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="730"/>
-        <source>There are still open tabs</source>
-        <translation>Stále jsou otevřeny panely</translation>
-    </message>
-    <message>
-        <location filename="../src/app/qupzilla.cpp" line="731"/>
+        <location filename="../src/app/qupzilla.cpp" line="734"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
-        <translation>Ještě jsou otevřeny %1 panely a Vaše relace nebude uložena. Opravdu chcete skončit?</translation>
+        <translation>Ještě je otevřeno %1 panelů a Vaše relace nebude uložena. Opravdu chcete skončit?</translation>
     </message>
 </context>
 <context>
@@ -2606,72 +2614,72 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="95"/>
-        <location filename="../src/webview/tabbar.cpp" line="264"/>
+        <location filename="../src/webview/tabbar.cpp" line="60"/>
+        <location filename="../src/webview/tabbar.cpp" line="236"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="104"/>
+        <location filename="../src/webview/tabbar.cpp" line="72"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="111"/>
+        <location filename="../src/webview/tabbar.cpp" line="79"/>
         <source>Forward</source>
         <translation>Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="118"/>
+        <location filename="../src/webview/tabbar.cpp" line="86"/>
         <source>Stop Tab</source>
         <translation>Zastavit panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="125"/>
+        <location filename="../src/webview/tabbar.cpp" line="93"/>
         <source>Reload Tab</source>
         <translation>Obnovit panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="126"/>
+        <location filename="../src/webview/tabbar.cpp" line="94"/>
         <source>Unpin Tab</source>
         <translation>Odepnout panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="126"/>
+        <location filename="../src/webview/tabbar.cpp" line="94"/>
         <source>Pin Tab</source>
         <translation>Připnout panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="128"/>
-        <location filename="../src/webview/tabbar.cpp" line="148"/>
+        <location filename="../src/webview/tabbar.cpp" line="96"/>
+        <location filename="../src/webview/tabbar.cpp" line="116"/>
         <source>Reload All Tabs</source>
         <oldsource>Close other tabs</oldsource>
         <translation>Obnovit všechny panely</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="129"/>
+        <location filename="../src/webview/tabbar.cpp" line="97"/>
         <source>Bookmark This Tab</source>
         <translation>Přidat panel do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="130"/>
-        <location filename="../src/webview/tabbar.cpp" line="149"/>
+        <location filename="../src/webview/tabbar.cpp" line="98"/>
+        <location filename="../src/webview/tabbar.cpp" line="117"/>
         <source>Bookmark All Tabs</source>
         <translation>Přidat všechny panely do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="132"/>
-        <location filename="../src/webview/tabbar.cpp" line="151"/>
+        <location filename="../src/webview/tabbar.cpp" line="100"/>
+        <location filename="../src/webview/tabbar.cpp" line="119"/>
         <source>Restore Closed Tab</source>
         <translation>Obnovit zavřený panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="135"/>
+        <location filename="../src/webview/tabbar.cpp" line="103"/>
         <source>Close Other Tabs</source>
         <translation>Zavřít ostatní panely</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="136"/>
+        <location filename="../src/webview/tabbar.cpp" line="104"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
@@ -2679,33 +2687,33 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="60"/>
+        <location filename="../src/webview/tabwidget.cpp" line="121"/>
         <source>Show list of opened tabs</source>
         <translation>Zobrazit seznam otevřených panelů</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="66"/>
+        <location filename="../src/webview/tabwidget.cpp" line="126"/>
         <source>Add Tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="103"/>
+        <location filename="../src/webview/tabwidget.cpp" line="162"/>
         <source>Loading...</source>
         <translation>Načítám...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="106"/>
-        <location filename="../src/webview/tabwidget.cpp" line="222"/>
+        <location filename="../src/webview/tabwidget.cpp" line="165"/>
+        <location filename="../src/webview/tabwidget.cpp" line="281"/>
         <source>No Named Page</source>
         <translation>Bezejmenná stránka</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="122"/>
+        <location filename="../src/webview/tabwidget.cpp" line="181"/>
         <source>Actually You have %1 opened tabs</source>
         <translation>Dohromady máte otevřeno %1 panelů</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.h" line="55"/>
+        <location filename="../src/webview/tabwidget.h" line="58"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
@@ -2808,8 +2816,8 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="182"/>
-        <source>QupZilla can&apos;t load page at %1.</source>
-        <translation>QupZilla nemůže načíst stránku %1.</translation>
+        <source>QupZilla can&apos;t load page from %1.</source>
+        <translation>QupZilla nemůže načíst stránku ze serveru %1.</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="183"/>
@@ -2836,145 +2844,145 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
     <name>WebView</name>
     <message>
         <location filename="../src/webview/webview.cpp" line="124"/>
-        <location filename="../src/webview/webview.cpp" line="245"/>
+        <location filename="../src/webview/webview.cpp" line="246"/>
         <source>Loading...</source>
         <translation>Načítám...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="698"/>
+        <location filename="../src/webview/webview.cpp" line="699"/>
         <source>No Named Page</source>
         <translation>Bezejmenná stránka</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="245"/>
+        <location filename="../src/webview/webview.cpp" line="246"/>
         <source>Done</source>
         <translation>Hotovo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="337"/>
-        <location filename="../src/webview/webview.cpp" line="341"/>
-        <location filename="../src/webview/webview.cpp" line="503"/>
+        <location filename="../src/webview/webview.cpp" line="338"/>
+        <location filename="../src/webview/webview.cpp" line="342"/>
+        <location filename="../src/webview/webview.cpp" line="504"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="391"/>
+        <location filename="../src/webview/webview.cpp" line="392"/>
         <source>Open link in new window</source>
         <translation>Otevřít odkaz v novém okně</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="392"/>
+        <location filename="../src/webview/webview.cpp" line="393"/>
         <source>Open link in new tab</source>
         <translation>Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="394"/>
+        <location filename="../src/webview/webview.cpp" line="395"/>
         <source>Bookmark link</source>
         <translation>Přidat odkaz do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="395"/>
+        <location filename="../src/webview/webview.cpp" line="396"/>
         <source>Save link as...</source>
         <translation>Uložit odkaz jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="396"/>
+        <location filename="../src/webview/webview.cpp" line="397"/>
         <source>Send link...</source>
         <translation>Odeslat odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="397"/>
+        <location filename="../src/webview/webview.cpp" line="398"/>
         <source>Copy link address</source>
         <translation>Kopírovat adresu odkazu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="406"/>
+        <location filename="../src/webview/webview.cpp" line="407"/>
         <source>Show image</source>
         <translation>Zobrazit obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="407"/>
+        <location filename="../src/webview/webview.cpp" line="408"/>
         <source>Copy image</source>
         <translation>Kopírovat obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="408"/>
+        <location filename="../src/webview/webview.cpp" line="409"/>
         <source>Copy image address</source>
         <oldsource>Coyp image address</oldsource>
         <translation>Kopírovat adresu obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="410"/>
+        <location filename="../src/webview/webview.cpp" line="411"/>
         <source>Save image as...</source>
         <translation>Uložit obrázek jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="411"/>
+        <location filename="../src/webview/webview.cpp" line="412"/>
         <source>Send image...</source>
         <translation>Odeslat obrázek...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="427"/>
+        <location filename="../src/webview/webview.cpp" line="428"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="435"/>
+        <location filename="../src/webview/webview.cpp" line="436"/>
         <source>Forward</source>
         <translation>Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="449"/>
+        <location filename="../src/webview/webview.cpp" line="450"/>
         <source>Reload</source>
         <translation>Obnovit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="456"/>
+        <location filename="../src/webview/webview.cpp" line="457"/>
         <source>Stop</source>
         <translation>Zastavit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="460"/>
+        <location filename="../src/webview/webview.cpp" line="461"/>
         <source>Bookmark page</source>
         <translation>Přidat stránku do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="461"/>
+        <location filename="../src/webview/webview.cpp" line="462"/>
         <source>Save page as...</source>
         <translation>Uložit stránku jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="462"/>
+        <location filename="../src/webview/webview.cpp" line="463"/>
         <source>Send page...</source>
         <translation>Odeslat stránku...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="464"/>
+        <location filename="../src/webview/webview.cpp" line="465"/>
         <source>Select all</source>
         <translation>Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="469"/>
+        <location filename="../src/webview/webview.cpp" line="470"/>
         <source>Show source code</source>
         <translation>Zobrazit zdrojový kód</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="470"/>
+        <location filename="../src/webview/webview.cpp" line="471"/>
         <source>Show info about site</source>
         <translation>Zobrazit informace o stránce</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="471"/>
+        <location filename="../src/webview/webview.cpp" line="472"/>
         <source>Show Web Inspector</source>
         <translation>Zobrazit Web Inspektor</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="480"/>
+        <location filename="../src/webview/webview.cpp" line="481"/>
         <source>Search </source>
         <translation>Hledat </translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="480"/>
+        <location filename="../src/webview/webview.cpp" line="481"/>
         <source>... on Google</source>
         <translation>... na Googlu</translation>
     </message>
