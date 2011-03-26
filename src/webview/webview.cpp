@@ -143,7 +143,8 @@ QLabel* WebView::animationLoading(int index, bool addMovie)
 
     QLabel* loadingAnimation = qobject_cast<QLabel*>(tabWidget()->getTabBar()->tabButton(index, QTabBar::LeftSide));
     if (!loadingAnimation) {
-        loadingAnimation = new QLabel(this);
+        loadingAnimation = new QLabel();
+        loadingAnimation->setStyleSheet("QLabel { margin: 0px; padding: 0px; }");
     }
     if (addMovie && !loadingAnimation->movie()) {
         QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), loadingAnimation);

@@ -24,11 +24,14 @@
 #include <QTabBar>
 #include <QDateTime>
 #include <QToolButton>
+#include <QStylePainter>
 
 class QupZilla;
 class WebView;
 class TabBar;
 class WebTab;
+class TabListButton;
+class NewTabButton;
 
 class TabWidget : public QTabWidget
 {
@@ -83,8 +86,8 @@ private:
     TabBar* m_tabBar;
 
     QMenu* m_menuTabs;
-    QToolButton* m_buttonAddTab;
-    QToolButton* m_buttonListTabs;
+    NewTabButton* m_buttonAddTab;
+    TabListButton* m_buttonListTabs;
 };
 
 #endif // TABWIDGET_H
