@@ -233,7 +233,13 @@ QString DownloadManager::getFileName(QNetworkReply* reply)
     if (!endName.isEmpty())
         endName="."+endName;
 
-    return baseName+endName;
+    QString name = baseName+endName;
+    if (name.startsWith("\""))
+        name = name.mid(1);
+    if (name.endsWith("\";"))
+        name.remove("\";");
+
+    return name;
 }
 
 bool DownloadManager::canClose()

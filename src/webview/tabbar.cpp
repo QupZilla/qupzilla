@@ -33,7 +33,6 @@ TabBar::TabBar(QupZilla* mainClass, QWidget* parent) :
     loadSettings();
 
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
-
 }
 
 void TabBar::loadSettings()
@@ -56,14 +55,14 @@ void TabBar::contextMenuRequested(const QPoint &position)
     TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
     if (!tabWidget)
         return;
-    WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(m_clickedTab));
-    if (!webTab)
-        return;
 
     QMenu menu;
     menu.addAction(QIcon(":/icons/menu/popup.png"),tr("New tab"), p_QupZilla, SLOT(addTab()));
     menu.addSeparator();
     if (index!=-1) {
+        WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(m_clickedTab));
+        if (!webTab)
+            return;
         menu.addAction(
 #ifdef Q_WS_X11
                 style()->standardIcon(QStyle::SP_ArrowBack)
@@ -134,7 +133,11 @@ QSize TabBar::tabSizeHint(int index) const
     if (tabWidget) {
         WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(index));
         if (webTab && webTab->isPinned())
+#ifdef Q_WS_WIN
+            size.setWidth(38);
+#else
             size.setWidth(31);
+#endif
     }
     return size;
 }
