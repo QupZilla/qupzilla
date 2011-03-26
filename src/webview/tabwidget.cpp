@@ -31,6 +31,7 @@ public:
     explicit NewTabButton(QWidget* parent ) : QToolButton(parent)
     {
     }
+
     QSize sizeHint() const
     {
         QSize siz = QToolButton::sizeHint();

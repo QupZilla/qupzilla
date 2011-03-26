@@ -33,6 +33,7 @@ ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent) :
     connect(ui->clearAdobeCookies, SIGNAL(clicked(QPoint)), this, SLOT(clearFlash()));
     connect(ui->history, SIGNAL(clicked(bool)), this, SLOT(historyClicked(bool)));
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(dialogAccepted()));
+    resize(sizeHint());
 }
 
 void ClearPrivateData::historyClicked(bool state)

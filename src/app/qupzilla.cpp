@@ -43,13 +43,14 @@
 #include "aboutdialog.h"
 #include "pluginproxy.h"
 #include "qtwin.h"
+#include "ui_closedialog.h"
 
-const QString QupZilla::VERSION="0.9.9";
-const QString QupZilla::BUILDTIME=QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM dd yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
-const QString QupZilla::AUTHOR="nowrep";
-const QString QupZilla::COPYRIGHT="2010-2011";
-const QString QupZilla::WWWADDRESS="http://qupzilla.ic.cz";
-const QString QupZilla::WEBKITVERSION=qWebKitVersion();
+const QString QupZilla::VERSION = "0.9.9";
+const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM dd yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
+const QString QupZilla::AUTHOR = "nowrep";
+const QString QupZilla::COPYRIGHT = "2010-2011";
+const QString QupZilla::WWWADDRESS = "http://qupzilla.ic.cz";
+const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
 QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     QMainWindow()
@@ -725,14 +726,21 @@ bool QupZilla::quitApp()
 {
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-URL-Settings");
-
-    if (settings.value("afterLaunch",0).toInt()!=2 && m_tabWidget->count()>1) {
-        QMessageBox::StandardButton button = QMessageBox::warning(this, tr("There are still open tabs"),
-            tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit?").arg(m_tabWidget->count()), QMessageBox::Yes | QMessageBox::No);
-        if (button != QMessageBox::Yes)
-            return false;
-    }
+    int afterLaunch = settings.value("afterLaunch",0).toInt();
     settings.endGroup();
+    bool askOnClose = !settings.value("Browser-View-Settings/DontAskOnClosing", false).toBool();
+
+    if (askOnClose && afterLaunch != 2 && m_tabWidget->count() > 1) {
+        QDialog* dialog = new QDialog(this);
+        Ui_CloseDialog* ui = new Ui_CloseDialog();
+        ui->setupUi(dialog);
+        ui->textLabel->setText(tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit?").arg(m_tabWidget->count()));
+        ui->iconLabel->setPixmap(style()->standardPixmap(QStyle::SP_MessageBoxWarning));
+        if (dialog->exec() != QDialog::Accepted)
+            return false;
+        if (ui->dontAskAgain->isChecked())
+            settings.setValue("Browser-View-Settings/DontAskOnClosing", true);
+    }
 
     mApp->quitApplication();
     return true;

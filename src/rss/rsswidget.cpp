@@ -46,7 +46,7 @@ RSSWidget::RSSWidget(WebView* view, QList<QPair<QString, QString> > availableRss
 void RSSWidget::showAt(QWidget* _parent)
 {
     QPoint p = _parent->mapToGlobal(QPoint(0, 0));
-    move( (p.x()+_parent->width() ) - width(), p.y() + _parent->height());
+    move( (p.x()+_parent->width() - width() ), p.y() + _parent->height());
     show();
 }
 
