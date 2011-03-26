@@ -179,7 +179,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         errString.replace("%FAVICON%", buffer.buffer().toBase64());
 
     errString.replace("%HEADING%", errorString);
-    errString.replace("%HEADING2%", tr("QupZilla can't load page at %1.").arg(loadedUrl));
+    errString.replace("%HEADING2%", tr("QupZilla can't load page from %1.").arg(QUrl(loadedUrl).host()));
     errString.replace("%LI-1%", tr("Check the address for typing errors such as <b>ww.</b>example.com instead of <b>www.</b>example.com"));
     errString.replace("%LI-2%", tr("If you are unable to load any pages, check your computer's network connection."));
     errString.replace("%LI-3%", tr("If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web."));

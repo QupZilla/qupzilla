@@ -69,5 +69,6 @@
         <file>icons/preferences/applications-graphics.png</file>
         <file>icons/preferences/document-properties.png</file>
         <file>icons/preferences/stock_keyring.png</file>
+        <file>icons/other/list-add.png</file>
     </qresource>
 </RCC>

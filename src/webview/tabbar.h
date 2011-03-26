@@ -38,6 +38,7 @@ public:
 
     QSize getTabSizeHint(int index) { return QTabBar::tabSizeHint(index); }
     void loadSettings();
+    QSize getTabSizeHint(int index) const { return QTabBar::tabSizeHint(index); }
 
 signals:
     void reloadTab(int index);

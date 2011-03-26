@@ -23,6 +23,68 @@
 #include "locationbar.h"
 #include "mainapplication.h"
 #include "webtab.h"
+#include "clickablelabel.h"
+
+class NewTabButton : public QToolButton
+{
+public:
+    explicit NewTabButton(QWidget* parent ) : QToolButton(parent)
+    {
+    }
+    QSize sizeHint() const
+    {
+        QSize siz = QToolButton::sizeHint();
+        siz.setWidth(25);
+        return siz;
+    }
+
+private:
+    void paintEvent(QPaintEvent*)
+    {
+        QPainter p(this);
+        QStyleOptionTabV3 opt;
+        opt.init(this);
+        style()->drawControl(QStyle::CE_TabBarTab, &opt, &p, this);
+
+        QPixmap pix(":/icons/other/list-add.png");
+        QRect r = this->rect();
+        r.setHeight(r.height()+3);
+        r.setWidth(r.width()-1);
+        style()->drawItemPixmap(&p, r, Qt::AlignCenter, pix);
+    }
+};
+
+class TabListButton : public QToolButton
+{
+public:
+    explicit TabListButton(QWidget* parent ) : QToolButton(parent)
+    {
+    }
+
+    QSize sizeHint() const
+    {
+        QSize siz = QToolButton::sizeHint();
+        siz.setWidth(20);
+        return siz;
+    }
+
+private:
+    void paintEvent(QPaintEvent*)
+    {
+        QPainter p(this);
+        QStyleOptionToolButton opt;
+        opt.init(this);
+        if (isDown())
+            opt.state |= QStyle::State_On;
+        if (opt.state & QStyle::State_MouseOver)
+            opt.activeSubControls = QStyle::SC_ToolButton;
+        if (!isChecked() && !isDown())
+                opt.state |= QStyle::State_Raised;
+        opt.state |= QStyle::State_AutoRaise;
+
+        style()->drawComplexControl(QStyle::CC_ToolButton, &opt, &p, this);
+    }
+};
 
 TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     QTabWidget(parent)
@@ -35,7 +97,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     m_tabBar = new TabBar(p_QupZilla);
     setTabBar(m_tabBar);
     setObjectName("tabWidget");
-    setStyleSheet(" QTabBar::tab{max-width:250px;}");
+    setStyleSheet("QTabBar::tab{ max-width:250px; }");
 
     loadSettings();
 
@@ -51,20 +113,16 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     connect(m_tabBar, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
 
-    m_buttonListTabs = new QToolButton(this);
+    m_buttonListTabs = new TabListButton(this);
     m_menuTabs = new QMenu();
     m_buttonListTabs->setMenu(m_menuTabs);
-    m_buttonListTabs->setToolButtonStyle(Qt::ToolButtonTextOnly);
     m_buttonListTabs->setPopupMode(QToolButton::InstantPopup);
-    m_buttonListTabs->setAutoRaise(true);
     m_buttonListTabs->setToolTip(tr("Show list of opened tabs"));
     connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowTabsMenu()));
     setCornerWidget(m_buttonListTabs);
 
-    m_buttonAddTab = new QToolButton(this);
-    m_buttonAddTab->setIcon(QIcon(":/icons/other/plus.png"));
+    m_buttonAddTab = new NewTabButton(this);
     m_buttonAddTab->setToolTip(tr("Add Tab"));
-    m_buttonAddTab->setAutoRaise(true);
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     setCornerWidget(m_buttonAddTab, Qt::TopLeftCorner);
 }

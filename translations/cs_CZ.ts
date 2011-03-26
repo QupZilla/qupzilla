@@ -2634,12 +2634,12 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
     <message>
         <location filename="../src/webview/tabbar.cpp" line="126"/>
         <source>Unpin Tab</source>
-        <translation>Zrušit připíchnutí</translation>
+        <translation>Odepnout panel</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="126"/>
         <source>Pin Tab</source>
-        <translation>Připíchnout panel</translation>
+        <translation>Připnout panel</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="128"/>
