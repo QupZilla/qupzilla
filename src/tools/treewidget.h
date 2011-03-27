@@ -27,11 +27,14 @@ class TreeWidget : public QTreeWidget
     Q_OBJECT
 public:
     explicit TreeWidget(QWidget* parent = 0);
+    QList<QTreeWidgetItem*> allItems(bool includeTopLevelItems = true);
 
 signals:
     void itemControlClicked(QTreeWidgetItem* item);
 
 public slots:
+    void filterStringWithTopItems(QString string);
+    void filterStringWithoutTopItems(QString string);
 
 private:
     void mousePressEvent(QMouseEvent* event);

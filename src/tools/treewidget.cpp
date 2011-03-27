@@ -29,3 +29,55 @@ void TreeWidget::mousePressEvent(QMouseEvent* event)
 
     QTreeWidget::mousePressEvent(event);
 }
+
+QList<QTreeWidgetItem*> allTreeItems;
+void iterateAllItems(QTreeWidgetItem* parent, QTreeWidget* treeWidget, bool includeTopLevelItems = true)
+{
+  int count = parent ? parent->childCount() : treeWidget->topLevelItemCount();
+
+  for (int i = 0; i < count; i++)
+  {
+    QTreeWidgetItem *item =
+      parent ? parent->child(i) : treeWidget->topLevelItem(i);
+
+    if (includeTopLevelItems)
+        allTreeItems.append(item);
+    else if (item->childCount() == 0)
+        allTreeItems.append(item);
+
+    iterateAllItems(item, treeWidget, includeTopLevelItems);
+  }
+}
+
+QList<QTreeWidgetItem*> TreeWidget::allItems(bool includeTopLevelItems)
+{
+    allTreeItems.clear();
+    iterateAllItems(0, this, includeTopLevelItems);
+    return allTreeItems;
+}
+
+void TreeWidget::filterStringWithoutTopItems(QString string)
+{
+    QList<QTreeWidgetItem*> _allItems = allItems(false);
+
+    if (string.isEmpty()) {
+        foreach (QTreeWidgetItem* item, _allItems)
+            item->setHidden(false);
+    } else {
+        foreach (QTreeWidgetItem* item, _allItems)
+            item->setHidden(!item->text(0).contains(string));
+    }
+}
+
+void TreeWidget::filterStringWithTopItems(QString string)
+{
+    QList<QTreeWidgetItem*> _allItems = allItems();
+
+    if (string.isEmpty()) {
+        foreach (QTreeWidgetItem* item, _allItems)
+            item->setHidden(false);
+    } else {
+        foreach (QTreeWidgetItem* item, _allItems)
+            item->setHidden(!item->text(0).contains(string));
+    }
+}

@@ -59,6 +59,7 @@ protected:
     QWebPage::NavigationType m_lastRequestType;
     WebView* m_view;
     QSslCertificate m_SslCert;
+//    bool m_isOpeningNextWindowAsNewTab;
 };
 
 #endif // WEBPAGE_H

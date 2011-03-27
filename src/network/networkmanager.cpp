@@ -21,9 +21,13 @@
 #include "networkmanagerproxy.h"
 #include "mainapplication.h"
 #include "webpage.h"
+#include "pluginproxy.h"
+#include "adblockmanager.h"
+#include "adblocknetwork.h"
 
 NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent) :
     NetworkManagerProxy(mainClass, parent)
+    ,m_adblockNetwork(0)
     ,p_QupZilla(mainClass)
     ,m_ignoreAllWarnings(false)
 {
@@ -181,9 +185,20 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
     QNetworkRequest req = request;
     req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    QNetworkReply* reply = QNetworkAccessManager::createRequest(op, req, outgoingData);
 
-    //emit requestCreated(op, request, reply);
+
+//    if (QNetworkReply* repl = mApp->plugins()->createNetworkRequest(op, request, outgoingData))
+//        return repl;
+    // Adblock
+        if (op == QNetworkAccessManager::GetOperation) {
+            if (!m_adblockNetwork)
+                m_adblockNetwork = AdBlockManager::instance()->network();
+            QNetworkReply* reply = m_adblockNetwork->block(req);
+            if (reply)
+                return reply;
+        }
+
+    QNetworkReply* reply = QNetworkAccessManager::createRequest(op, req, outgoingData);
     return reply;
 }
 

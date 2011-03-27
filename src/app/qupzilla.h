@@ -213,7 +213,7 @@ private:
     QAction* m_actionReload;
 
     QLabel* m_privateBrowsing;
-    QLabel* m_allowFlashIcon;
+    ClickableLabel* m_adblockIcon;
     QPointer<QWebInspector> m_webInspector;
     QPointer<QDockWidget> m_webInspectorDock;
 

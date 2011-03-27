@@ -53,6 +53,8 @@ public:
     virtual void formSent(const QNetworkRequest &request, const QByteArray &outgoingData) { Q_UNUSED(request) Q_UNUSED(outgoingData)}
     virtual void pageLoaded(QWebView* view) { Q_UNUSED(view) }
     virtual void downloadRequested(QWidget* requestWidget) { Q_UNUSED(requestWidget) }
+    virtual QNetworkReply* createNetworkRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
+    { Q_UNUSED(op) Q_UNUSED(request) Q_UNUSED(outgoingData) return 0; }
 };
 
  Q_DECLARE_INTERFACE(PluginInterface, "Qupzilla.Browser.PluginInterface/1.0")
