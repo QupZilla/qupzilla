@@ -44,6 +44,8 @@
 #include "pluginproxy.h"
 #include "qtwin.h"
 #include "ui_closedialog.h"
+#include "adblockmanager.h"
+#include "clickablelabel.h"
 
 const QString QupZilla::VERSION = "0.9.9";
 const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM dd yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
@@ -93,7 +95,7 @@ void QupZilla::loadSettings()
     settings.beginGroup("Web-Browser-Settings");
     bool allowFlash = settings.value("allowFlash",true).toBool();
     settings.endGroup();
-    m_allowFlashIcon->setVisible(allowFlash);
+    m_adblockIcon->setVisible(allowFlash);
 
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
@@ -156,7 +158,7 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
 {
     switch (mes) {
     case MainApplication::ShowFlashIcon:
-        m_allowFlashIcon->setVisible(state);
+        m_adblockIcon->setVisible(state);
         break;
 
     case MainApplication::CheckPrivateBrowsing:
@@ -368,6 +370,7 @@ void QupZilla::aboutToShowToolsMenu()
     m_menuTools->addSeparator();
     m_menuTools->addAction(tr("Download Manager"), this, SLOT(showDownloadManager()))->setShortcut(QKeySequence("Ctrl+Y"));
     m_menuTools->addAction(tr("Cookies Manager"), this, SLOT(showCookieManager()));
+    m_menuTools->addAction(tr("AdBlock"), AdBlockManager::instance(), SLOT(showDialog()));
     m_menuTools->addAction(QIcon(":/icons/menu/rss.png"), tr("RSS Reader"), this,  SLOT(showRSSManager()));
     m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent History"), this, SLOT(showClearPrivateData()));
     m_actionPrivateBrowsing = new QAction(tr("Private Browsing"), this);
@@ -523,12 +526,12 @@ void QupZilla::showDownloadManager()
 
 void QupZilla::showPreferences()
 {
-    bool flashIconVisibility = m_allowFlashIcon->isVisible();
+    bool flashIconVisibility = m_adblockIcon->isVisible();
     Preferences prefs(this, this);
     prefs.exec();
 
-    if (flashIconVisibility != m_allowFlashIcon->isVisible())
-        emit message(MainApplication::ShowFlashIcon, m_allowFlashIcon->isVisible());
+    if (flashIconVisibility != m_adblockIcon->isVisible())
+        emit message(MainApplication::ShowFlashIcon, m_adblockIcon->isVisible());
 }
 
 void QupZilla::showSource()
@@ -750,7 +753,7 @@ QupZilla::~QupZilla()
 {
     delete m_tabWidget;
     delete m_privateBrowsing;
-    delete m_allowFlashIcon;
+    delete m_adblockIcon;
     delete m_menuBack;
     delete m_menuForward;
     delete m_locationBar;

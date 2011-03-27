@@ -35,6 +35,7 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(hide()));
     connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));
     connect(ui->clearAll, SIGNAL(clicked()), this, SLOT(clearHistory()));
+//    connect(ui->search, SIGNAL(textChanged(QString)), ui->historyTree, SLOT(filterStringWithoutTopItems(QString)));
     connect(ui->search, SIGNAL(cursorPositionChanged(int, int)), this, SLOT(search()));
     connect(ui->historyTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(ui->historyTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));

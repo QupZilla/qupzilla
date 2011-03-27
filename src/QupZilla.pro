@@ -39,6 +39,7 @@ INCLUDEPATH += 3rdparty\
                plugins\
                sidebar\
                data\
+               adblock\
 
 SOURCES += main.cpp\
     3rdparty/squeezelabel.cpp \
@@ -98,7 +99,14 @@ SOURCES += main.cpp\
     preferences/sslmanager.cpp \
     tools/notification.cpp \
     tools/htmlhighlighter.cpp \
-    other/sourceviewersearch.cpp
+    other/sourceviewersearch.cpp \
+    adblock/adblocksubscription.cpp \
+    adblock/adblockrule.cpp \
+    adblock/adblockpage.cpp \
+    adblock/adblocknetwork.cpp \
+    adblock/adblockmanager.cpp \
+    adblock/adblockdialog.cpp \
+    adblock/adblockblockednetworkreply.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -157,7 +165,14 @@ HEADERS  += 3rdparty/squeezelabel.h \
     preferences/sslmanager.h \
     tools/notification.h \
     tools/htmlhighlighter.h \
-    other/sourceviewersearch.h
+    other/sourceviewersearch.h \
+    adblock/adblocksubscription.h \
+    adblock/adblockrule.h \
+    adblock/adblockpage.h \
+    adblock/adblocknetwork.h \
+    adblock/adblockmanager.h \
+    adblock/adblockdialog.h \
+    adblock/adblockblockednetworkreply.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -180,7 +195,8 @@ FORMS    += \
     preferences/sslmanager.ui \
     other/clearprivatedata.ui \
     other/sourceviewersearch.ui \
-    other/closedialog.ui
+    other/closedialog.ui \
+    adblock/adblockdialog.ui
 
 RESOURCES += \
     data/icons.qrc \

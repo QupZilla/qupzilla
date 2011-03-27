@@ -37,7 +37,7 @@ void PluginProxy::populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestRe
         iPlugin->populateWebViewMenu(menu, view, r);
 
     if (menu->actions().count() == count)
-        menu->removeAction(menu->actions().at(count));
+        menu->removeAction(menu->actions().at(count-1));
 }
 
 void PluginProxy::populateToolsMenu(QMenu* menu)
@@ -66,6 +66,17 @@ void PluginProxy::populateHelpMenu(QMenu* menu)
 
     if (menu->actions().count() != count)
         menu->addSeparator();
+}
+
+QNetworkReply* PluginProxy::createNetworkRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice *outgoingData)
+{
+    QNetworkReply* reply = 0;
+    foreach(PluginInterface* iPlugin, loadedPlugins) {
+        reply = iPlugin->createNetworkRequest(op, request, outgoingData);
+        if (reply)
+            break;
+    }
+    return reply;
 }
 
 void PluginProxy::c2f_loadSettings()

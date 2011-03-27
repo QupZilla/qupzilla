@@ -33,6 +33,7 @@
 #include "bookmarksmodel.h"
 #include "downloadmanager.h"
 #include "autofillmodel.h"
+#include "adblockmanager.h"
 
 MainApplication::MainApplication(int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -53,12 +54,12 @@ MainApplication::MainApplication(int &argc, char **argv)
     ,m_isChanged(false)
     ,m_isExited(false)
 {
+    setOverrideCursor(Qt::WaitCursor);
 #if defined(Q_WS_X11) & !defined(DEVELOPING)
     DATADIR = "/usr/share/qupzilla/";
 #else
     DATADIR = qApp->applicationDirPath()+"/";
 #endif
-    setOverrideCursor(Qt::WaitCursor);
     setWindowIcon(QIcon(":/icons/qupzilla.png"));
     bool noAddons = false;
     QUrl startUrl("");
@@ -122,6 +123,7 @@ MainApplication::MainApplication(int &argc, char **argv)
     QupZilla* qupzilla = new QupZilla(true, startUrl);
     m_mainWindows.append(qupzilla);
     connect(qupzilla, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(sendMessages(MainApplication::MessageType,bool)));
+    qApp->processEvents();
     qupzilla->show();
 
     AutoSaver* saver = new AutoSaver();
@@ -136,6 +138,7 @@ MainApplication::MainApplication(int &argc, char **argv)
     networkManager()->loadCertExceptions();
     plugins()->loadPlugins();
     loadSettings();
+    QApplication::restoreOverrideCursor();
 }
 
 void MainApplication::loadSettings()
@@ -314,6 +317,7 @@ void MainApplication::quitApplication()
     cookieJar()->saveCookies();
     m_networkmanager->saveCertExceptions();
     m_plugins->c2f_saveSettings();
+    AdBlockManager::instance()->save();
 
     quit();
 }

@@ -19,6 +19,8 @@
 #include "autofillmodel.h"
 #include "bookmarkstoolbar.h"
 #include "locationbar.h"
+#include "clickablelabel.h"
+#include "adblockmanager.h"
 
 void QupZilla::postLaunch()
 {
@@ -73,7 +75,6 @@ void QupZilla::postLaunch()
     if (m_tabWidget->count() == 0) //Something went really wrong .. add one tab
         m_tabWidget->addView(m_homepage);
 
-    QApplication::restoreOverrideCursor();
     setUpdatesEnabled(true);
     emit startingCompleted();
 }
@@ -148,10 +149,12 @@ void QupZilla::setupUi()
     m_privateBrowsing->setPixmap(QPixmap(":/icons/locationbar/privatebrowsing.png"));
     m_privateBrowsing->setVisible(false);
     m_privateBrowsing->setToolTip(tr("Private Browsing Enabled"));
-    m_allowFlashIcon = new QLabel(this);
-    m_allowFlashIcon->setPixmap(QPixmap(":/icons/menu/flash.png"));
-    m_allowFlashIcon->setVisible(false);
-    m_allowFlashIcon->setToolTip(tr("Flash Plugin Enabled"));
+    m_adblockIcon = new ClickableLabel(this);
+    m_adblockIcon->setPixmap(QPixmap(":/icons/other/adblock.png"));
+    m_adblockIcon->setMaximumHeight(16);
+    m_adblockIcon->setVisible(false);
+    m_adblockIcon->setCursor(Qt::PointingHandCursor);
+    m_adblockIcon->setToolTip(tr("Click to show AdBlock options"));
     m_ipLabel = new QLabel(this);
     m_ipLabel->setStyleSheet("padding-right: 5px;");
     m_ipLabel->setToolTip(tr("IP Address of current page"));
@@ -159,7 +162,7 @@ void QupZilla::setupUi()
     statusBar()->insertPermanentWidget(0, m_progressBar);
     statusBar()->insertPermanentWidget(1, m_ipLabel);
     statusBar()->insertPermanentWidget(2, m_privateBrowsing);
-    statusBar()->insertPermanentWidget(3, m_allowFlashIcon);
+    statusBar()->insertPermanentWidget(3, m_adblockIcon);
 
     m_bookmarksToolbar = new BookmarksToolbar(this);
     addToolBar(m_bookmarksToolbar);
@@ -285,6 +288,7 @@ void QupZilla::setupMenu()
     connect(m_buttonReload, SIGNAL(triggered()), this, SLOT(reload()));
     connect(m_buttonHome, SIGNAL(triggered()), this, SLOT(goHome()));
     connect(m_actionExitFullscreen, SIGNAL(triggered(bool)), this, SLOT(fullScreen(bool)));
+    connect(m_adblockIcon, SIGNAL(clicked(QPoint)), AdBlockManager::instance(), SLOT(showDialog()));
 
     //Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();

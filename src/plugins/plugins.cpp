@@ -77,6 +77,7 @@ PluginInterface* Plugins::getPlugin(QString pluginFileName)
         return 0;
     QPluginLoader loader(path);
     QObject* plugin = loader.instance();
+
     if (plugin) {
         PluginInterface* iPlugin = qobject_cast<PluginInterface*>(plugin);
         return iPlugin;
