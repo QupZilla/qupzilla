@@ -32,6 +32,7 @@ public:
     void populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestResult r);
     void populateToolsMenu(QMenu* menu);
     void populateHelpMenu(QMenu* menu);
+    QNetworkReply* createNetworkRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 
     // CLick2Flash
     void c2f_loadSettings();

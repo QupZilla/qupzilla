@@ -27,6 +27,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     : QWebPage(parent)
     ,p_QupZilla(mainClass)
     ,m_view(parent)
+//    ,m_isOpeningNextWindowAsNewTab(false)
 {
     setForwardUnsupportedContent(true);
     setPluginFactory(new WebPluginFactory(this));
@@ -54,7 +55,6 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
         return;
         break;
     default:
-        qDebug() << reply->errorString();
         break;
     }
     qDebug() << "WebPage::UnsupportedContent error" << reply->errorString();
@@ -88,7 +88,8 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 
     bool accept = QWebPage::acceptNavigationRequest(frame, request, type);
     if (accept && openIn == TabWidget::NewTab) {
-        //p_QupZilla->tabWidget()->addView(request.url(),tr("New tab"), openIn);
+//        m_isOpeningNextWindowAsNewTab = true;
+//        p_QupZilla->tabWidget()->addView(request.url(),tr("New tab"), openIn);
     }
     return accept;
 }
@@ -110,6 +111,13 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
 
 QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
 {
+//    if (m_isOpeningNextWindowAsNewTab)
+//        return 0;
+//    m_isOpeningNextWindowAsNewTab = false;
+//    qDebug() << type;
+//    QWebView* view = new QWebView();
+//    view->show();
+//    return view->page();
     Q_UNUSED(type);
     int index = p_QupZilla->tabWidget()->addView();
     return p_QupZilla->weView(index)->page();

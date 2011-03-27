@@ -32,6 +32,7 @@
 #include "networkmanagerproxy.h"
 
 class QupZilla;
+class AdBlockNetwork;
 class NetworkManager : public NetworkManagerProxy
 {
     Q_OBJECT
@@ -56,6 +57,7 @@ public slots:
     void setSSLConfiguration(QNetworkReply* reply);
 
 private:
+    AdBlockNetwork* m_adblockNetwork;
     QupZilla* p_QupZilla;
     QList<QSslCertificate> m_certExceptions;
     QNetworkDiskCache* m_diskCache;
