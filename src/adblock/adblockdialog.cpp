@@ -43,7 +43,6 @@
  * SUCH DAMAGE.
  */
 #include "adblockdialog.h"
-#include "adblockmodel.h"
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
 #include "ui_adblockdialog.h"
