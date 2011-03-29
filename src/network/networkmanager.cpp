@@ -186,17 +186,14 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     QNetworkRequest req = request;
     req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
 
-
-//    if (QNetworkReply* repl = mApp->plugins()->createNetworkRequest(op, request, outgoingData))
-//        return repl;
     // Adblock
-        if (op == QNetworkAccessManager::GetOperation) {
-            if (!m_adblockNetwork)
-                m_adblockNetwork = AdBlockManager::instance()->network();
-            QNetworkReply* reply = m_adblockNetwork->block(req);
-            if (reply)
-                return reply;
-        }
+    if (op == QNetworkAccessManager::GetOperation) {
+        if (!m_adblockNetwork)
+            m_adblockNetwork = AdBlockManager::instance()->network();
+        QNetworkReply* reply = m_adblockNetwork->block(req);
+        if (reply)
+            return reply;
+    }
 
     QNetworkReply* reply = QNetworkAccessManager::createRequest(op, req, outgoingData);
     return reply;

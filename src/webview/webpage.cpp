@@ -123,6 +123,15 @@ QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
     return p_QupZilla->weView(index)->page();
 }
 
+void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
+{
+    AdBlockedEntry entry;
+    entry.rule = filter;
+    entry.url = url;
+
+    m_adBlockedEntries.append(entry);
+}
+
 bool WebPage::extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output)
 {
     if (extension == ChooseMultipleFilesExtension)

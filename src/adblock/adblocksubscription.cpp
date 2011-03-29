@@ -47,7 +47,7 @@
 #include "networkmanager.h"
 // #define ADBLOCKSUBSCRIPTION_DEBUG
 
-AdBlockSubscription::AdBlockSubscription(QObject *parent)
+AdBlockSubscription::AdBlockSubscription(QObject* parent)
     : QObject(parent)
     , m_downloading(0)
 {
@@ -88,14 +88,14 @@ void AdBlockSubscription::updateNow()
         return;
 
     QNetworkRequest request(QUrl("https://easylist-downloads.adblockplus.org/easylist.txt"));
-    QNetworkReply *reply = mApp->networkManager()->get(request);
+    QNetworkReply* reply = mApp->networkManager()->get(request);
     m_downloading = reply;
     connect(reply, SIGNAL(finished()), this, SLOT(rulesDownloaded()));
 }
 
 void AdBlockSubscription::rulesDownloaded()
 {
-    QNetworkReply *reply = qobject_cast<QNetworkReply*>(sender());
+    QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
     if (!reply)
         return;
 
@@ -111,7 +111,7 @@ void AdBlockSubscription::rulesDownloaded()
 
     QString fileName = mApp->getActiveProfil()+"adblocklist.txt";
     QFile file(fileName);
-    if (!file.open(QFile::ReadWrite)) {
+    if (!file.open(QFile::WriteOnly)) {
         qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << fileName;
         return;
     }
@@ -155,7 +155,7 @@ void AdBlockSubscription::saveRules()
 
 const AdBlockRule* AdBlockSubscription::allow(const QString &urlString) const
 {
-    foreach (const AdBlockRule *rule, m_networkExceptionRules) {
+    foreach (const AdBlockRule* rule, m_networkExceptionRules) {
         if (rule->networkMatch(urlString))
             return rule;
     }
@@ -208,7 +208,7 @@ void AdBlockSubscription::populateCache()
     m_pageRules.clear();
 
     for (int i = 0; i < m_rules.count(); ++i) {
-        const AdBlockRule *rule = &m_rules.at(i);
+        const AdBlockRule* rule = &m_rules.at(i);
         if (!rule->isEnabled())
             continue;
 

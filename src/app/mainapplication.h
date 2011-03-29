@@ -50,7 +50,7 @@ public:
     QString DATADIR;
     explicit MainApplication(int &argc, char **argv);
 
-    enum MessageType{ ShowFlashIcon, CheckPrivateBrowsing };
+    enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing };
 
     void loadSettings();
     bool restoreStateSlot(QupZilla* window);
