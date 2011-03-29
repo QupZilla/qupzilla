@@ -55,14 +55,47 @@ AdBlockDialog::AdBlockDialog(QWidget *parent)
 {
     setupUi(this);
     adblockCheckBox->setChecked(m_manager->isEnabled());
+
+    treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(adblockCheckBox, SIGNAL(toggled(bool)), m_manager, SLOT(setEnabled(bool)));
     connect(addButton, SIGNAL(clicked()), this, SLOT(addCustomRule()));
     connect(reloadButton, SIGNAL(clicked()), this, SLOT(updateSubscription()));
     connect(search, SIGNAL(textChanged(QString)), treeWidget, SLOT(filterStringWithoutTopItems(QString)));
     connect(m_manager->subscription(), SIGNAL(changed()), this, SLOT(refreshAfterUpdate()));
+    connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested()));
 
 //    QTimer::singleShot(0, this, SLOT(firstRefresh()));
     firstRefresh();
+}
+
+void AdBlockDialog::editRule()
+{
+    QTreeWidgetItem* item = treeWidget->currentItem();
+    if (!item || !(item->flags() & Qt::ItemIsEditable))
+        return;
+
+    item->setSelected(true);
+}
+
+void AdBlockDialog::deleteRule()
+{
+    QTreeWidgetItem* item = treeWidget->currentItem();
+    if (!item)
+        return;
+
+    int offset = item->whatsThis(0).toInt();
+    m_manager->subscription()->removeRule(offset);
+    delete item;
+    refresh();
+}
+
+void AdBlockDialog::customContextMenuRequested()
+{
+    QMenu menu;
+    menu.addAction(tr("Add Rule"), this, SLOT(addCustomRule()));
+    menu.addSeparator();
+    menu.addAction(tr("Delete Rule"), this, SLOT(deleteRule()));
+    menu.exec(QCursor::pos());
 }
 
 void AdBlockDialog::firstRefresh()
@@ -88,10 +121,10 @@ void AdBlockDialog::refresh()
     QFont italicFont;
     italicFont.setItalic(true);
 
-    m_customListItem = new QTreeWidgetItem(treeWidget);
-    m_customListItem->setText(0,tr("Custom List"));
-    m_customListItem->setFont(0, boldFont);
-    treeWidget->addTopLevelItem(m_customListItem);
+    m_customRulesItem = new QTreeWidgetItem(treeWidget);
+    m_customRulesItem->setText(0,tr("Custom Rules"));
+    m_customRulesItem->setFont(0, boldFont);
+    treeWidget->addTopLevelItem(m_customRulesItem);
 
     m_easyListItem = new QTreeWidgetItem(treeWidget);
     m_easyListItem->setText(0,"EasyList");
@@ -108,8 +141,8 @@ void AdBlockDialog::refresh()
             customRulesStarted = true;
             continue;
         }
-        QTreeWidgetItem* item = new QTreeWidgetItem(customRulesStarted ? m_customListItem : m_easyListItem);
-        if (item->parent() == m_customListItem)
+        QTreeWidgetItem* item = new QTreeWidgetItem(customRulesStarted ? m_customRulesItem : m_easyListItem);
+        if (item->parent() == m_customRulesItem)
             item->setFlags(item->flags() | Qt::ItemIsEditable);
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(0, (rule.filter().startsWith("!") ) ? Qt::Unchecked : Qt::Checked);
@@ -168,10 +201,11 @@ void AdBlockDialog::addCustomRule()
         return;
 
     AdBlockSubscription *subscription = m_manager->subscription();
-    subscription->addRule(AdBlockRule(newRule));
+    int offset = subscription->addRule(AdBlockRule(newRule));
     m_itemChangingBlock = true;
-    QTreeWidgetItem* item = new QTreeWidgetItem(m_customListItem);
+    QTreeWidgetItem* item = new QTreeWidgetItem(m_customRulesItem);
     item->setText(0, newRule);
+    item->setWhatsThis(0, QString::number(offset));
     item->setFlags(item->flags() | Qt::ItemIsEditable);
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
     item->setCheckState(0, Qt::Checked);

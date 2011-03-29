@@ -76,12 +76,16 @@ private slots:
     void addCustomRule();
     void firstRefresh();
     void refreshAfterUpdate();
+    void customContextMenuRequested();
+
+    void editRule();
+    void deleteRule();
 
 private:
     void refresh();
 
     bool m_itemChangingBlock;
-    QTreeWidgetItem* m_customListItem;
+    QTreeWidgetItem* m_customRulesItem;
     QTreeWidgetItem* m_easyListItem;
     AdBlockManager* m_manager;
 
