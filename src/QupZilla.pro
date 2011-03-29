@@ -106,7 +106,8 @@ SOURCES += main.cpp\
     adblock/adblocknetwork.cpp \
     adblock/adblockmanager.cpp \
     adblock/adblockdialog.cpp \
-    adblock/adblockblockednetworkreply.cpp
+    adblock/adblockblockednetworkreply.cpp \
+    adblock/adblockicon.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -172,7 +173,8 @@ HEADERS  += 3rdparty/squeezelabel.h \
     adblock/adblocknetwork.h \
     adblock/adblockmanager.h \
     adblock/adblockdialog.h \
-    adblock/adblockblockednetworkreply.h
+    adblock/adblockblockednetworkreply.h \
+    adblock/adblockicon.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

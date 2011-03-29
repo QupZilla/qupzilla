@@ -18,6 +18,8 @@
 #include "downloaditem.h"
 #include "ui_downloaditem.h"
 
+//#define DOWNMANAGER_DEBUG
+
 DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString path, QString fileName, QPixmap fileIcon, bool openAfterFinishedDownload, QWidget* parent)
     : QWidget(parent)
    ,ui(new Ui::DownloadItem)
@@ -28,6 +30,9 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
    ,m_downloading(false)
    ,m_openAfterFinish(openAfterFinishedDownload)
 {
+#ifdef DOWNMANAGER_DEBUG
+    qDebug() << __FUNCTION__ << item << reply << path << fileName;
+#endif
     QString fullPath = path+fileName;
     if (QFile::exists(fullPath))
         QFile::remove(fullPath);
@@ -51,6 +56,8 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
 
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
+
+    m_reply->setParent(this);
     connect(m_reply, SIGNAL(finished()), this, SLOT(finished()));
     connect(m_reply, SIGNAL(readyRead()), this, SLOT(readyRead()));
     connect(m_reply, SIGNAL(downloadProgress(qint64, qint64)), this, SLOT(downloadProgress(qint64, qint64)));
@@ -74,11 +81,14 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
 void DownloadItem::metaDataChanged()
 {
     QVariant locationHeader = m_reply->header(QNetworkRequest::LocationHeader);
-    QMessageBox::information(this, "Meta Data Changed", QString("Meta data changed feature unimplemented yet, sorry.\n URL: '%̈́'").arg(locationHeader.toUrl().toString()));
+    QMessageBox::information(m_item->listWidget()->parentWidget(), "Meta Data Changed", QString("Meta data changed feature unimplemented yet, sorry.\n URL: '%̈́'").arg(locationHeader.toUrl().toString()));
 }
 
 void DownloadItem::finished()
 {
+#ifdef DOWNMANAGER_DEBUG
+    qDebug() << __FUNCTION__ << m_reply;
+#endif
     m_timer.stop();
     ui->downloadInfo->setText(tr("Done - %1").arg(m_reply->url().host()));
     ui->progressBar->hide();
@@ -99,6 +109,9 @@ void DownloadItem::finished()
 
 void DownloadItem::downloadProgress(qint64 received, qint64 total)
 {
+#ifdef DOWNMANAGER_DEBUG
+    qDebug() << __FUNCTION__ << received << total;
+#endif
     qint64 currentValue = 0;
     qint64 totalValue = 0;
     if (total > 0) {
@@ -164,6 +177,9 @@ QString DownloadItem::fileSizeToString(int size)
 
 void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 total)
 {
+#ifdef DOWNMANAGER_DEBUG
+    qDebug() << __FUNCTION__ << currSpeed << received << total;
+#endif
     //            QString          QString       QString     QString
     //          | m_remTime |   |m_currSize|  |m_fileSize|  |m_speed|
     // Remaining 26 minutes -     339MB of      693 MB        (350kB/s)
@@ -183,8 +199,12 @@ void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 
     ui->downloadInfo->setText(tr("Remaining %1 - %2 of %3 (%4)").arg(remTime, currSize, fileSize, speed));
 }
 
-void DownloadItem::stop()
+void DownloadItem::stop(bool askForDeleteFile)
 {
+#ifdef DOWNMANAGER_DEBUG
+    qDebug() << __FUNCTION__;
+#endif
+    m_openAfterFinish = false;
     m_timer.stop();
     m_reply->abort();
     QString outputfile = QFileInfo(m_outputFile).absoluteFilePath();
@@ -198,9 +218,14 @@ void DownloadItem::stop()
     ui->button->show();
     ui->button->hide();
 #endif
-
-    QFile::remove(outputfile);
     m_downloading = false;
+
+    if (askForDeleteFile) {
+        QMessageBox::StandardButton button = QMessageBox::question(m_item->listWidget()->parentWidget(), tr("Delete file"), tr("Do you want to also delete dowloaded file?"), QMessageBox::Yes | QMessageBox::No);
+        if (button != QMessageBox::Yes)
+            return;
+    }
+    QFile::remove(outputfile);
 }
 
 void DownloadItem::mouseDoubleClickEvent(QMouseEvent* e)
@@ -247,7 +272,7 @@ void DownloadItem::openFile()
     if (info.exists())
         QDesktopServices::openUrl(QUrl::fromLocalFile(info.absoluteFilePath()));
     else
-        QMessageBox::warning(m_item->listWidget(), tr("Not found"), tr("Sorry, the file \n %1 \n is not found!").arg(info.absoluteFilePath()));
+        QMessageBox::warning(m_item->listWidget()->parentWidget(), tr("Not found"), tr("Sorry, the file \n %1 \n was not found!").arg(info.absoluteFilePath()));
 }
 
 void DownloadItem::openFolder()
@@ -257,6 +282,9 @@ void DownloadItem::openFolder()
 
 void DownloadItem::readyRead()
 {
+#ifdef DOWNMANAGER_DEBUG
+    qDebug() << __FUNCTION__ ;
+#endif
     if (!m_outputFile.isOpen() && !m_outputFile.open(QIODevice::WriteOnly)) {
         stop();
         ui->downloadInfo->setText(tr("Error: Cannot write to file!"));
@@ -267,12 +295,18 @@ void DownloadItem::readyRead()
 
 void DownloadItem::error(QNetworkReply::NetworkError error)
 {
+#ifdef DOWNMANAGER_DEBUG
+    qDebug() << __FUNCTION__ << error;
+#endif
     if (error != QNetworkReply::NoError)
         ui->downloadInfo->setText(tr("Error: ")+m_reply->errorString());
 }
 
 void DownloadItem::updateDownload()
 {
+#ifdef DOWNMANAGER_DEBUG
+    qDebug() << __FUNCTION__ ;
+#endif
     if (ui->progressBar->maximum() == 0 && m_outputFile.isOpen() && m_reply->isFinished()) {
         downloadProgress(0,0);
         finished();

@@ -70,6 +70,7 @@ class BookmarksToolbar;
 class AutoFillModel;
 class MainApplication;
 class WebTab;
+class AdBlockIcon;
 class QupZilla : public QMainWindow
 {
     Q_OBJECT
