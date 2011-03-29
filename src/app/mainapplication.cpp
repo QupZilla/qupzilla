@@ -138,7 +138,8 @@ MainApplication::MainApplication(int &argc, char **argv)
     networkManager()->loadCertExceptions();
     plugins()->loadPlugins();
     loadSettings();
-    QApplication::restoreOverrideCursor();
+
+    QTimer::singleShot(2000, this, SLOT(restoreCursor()));
 }
 
 void MainApplication::loadSettings()
@@ -414,8 +415,6 @@ void MainApplication::aboutToCloseWindow(QupZilla* window)
         return;
 
     m_mainWindows.removeOne(window);
-    if (m_mainWindows.count() == 0 )
-        quitApplication();
 }
 
 //Version of session.dat file
@@ -443,13 +442,13 @@ bool MainApplication::saveStateSlot()
         stream << m_mainWindows.at(i)->saveState();
     }
     file.close();
-    getWindow()->tabWidget()->savePinnedTabs();
 
     settings.setValue("restoreSession",true);
     settings.endGroup();
 
     QupZilla* qupzilla_ = getWindow();
     if (qupzilla_) {
+        qupzilla_->tabWidget()->savePinnedTabs();
         settings.setValue("Browser-View-Settings/showBookmarksToolbar",qupzilla_->bookmarksToolbar()->isVisible());
         settings.setValue("Browser-View-Settings/showNavigationToolbar",qupzilla_->navigationToolbar()->isVisible());
         settings.setValue("Browser-View-Settings/showStatusbar",qupzilla_->statusBar()->isVisible());
@@ -564,7 +563,7 @@ bool MainApplication::checkProfileDir()
     versionFile.write(QupZilla::VERSION.toAscii());
     versionFile.close();
 
-    if (rData.contains("0.9.6") || rData.contains("0.9.7")) // Data not changed from this version
+    if (rData.contains("0.9.6") || rData.contains("0.9.7") || rData.contains("0.9.8")) // Data not changed from this version
         return true;
 
     dir.mkdir("profiles");
