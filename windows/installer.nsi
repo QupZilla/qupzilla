@@ -64,7 +64,6 @@ Section !$(TITLE_SecMain) SecMain
   File "qupzilla.exe"
   File "libeay32.dll"
   File "ssleay32.dll"
-  File "libssl32.dll"
   File "msvcp90.dll"
   File "msvcr90.dll"
   File "phonon4.dll"
