@@ -213,7 +213,6 @@ bool MainApplication::isChanged()
 
 void MainApplication::sendMessages(MainApplication::MessageType mes, bool state)
 {
-    qDebug() << mes << state;
     emit message(mes, state);
 }
 

@@ -176,11 +176,12 @@ QList<AdBlockRule> AdBlockSubscription::allRules() const
     return m_rules;
 }
 
-void AdBlockSubscription::addRule(const AdBlockRule &rule)
+int AdBlockSubscription::addRule(const AdBlockRule &rule)
 {
     m_rules.append(rule);
     populateCache();
     emit rulesChanged();
+    return m_rules.count() - 1;
 }
 
 void AdBlockSubscription::removeRule(int offset)
