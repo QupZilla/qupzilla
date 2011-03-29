@@ -92,6 +92,9 @@ public slots:
 signals:
     void message(MainApplication::MessageType mes, bool state);
 
+private slots:
+    void restoreCursor() { QApplication::restoreOverrideCursor(); }
+
 private:
     void connectDatabase();
     void translateApp();

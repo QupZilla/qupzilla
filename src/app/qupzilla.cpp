@@ -715,13 +715,15 @@ void QupZilla::closeEvent(QCloseEvent* event)
 {
     if (mApp->isClosing())
         return;
-    if (mApp->windowCount() == 1) {
+
+    mApp->saveStateSlot();
+    mApp->aboutToCloseWindow(this);
+
+    if (mApp->windowCount() == 0) {
         quitApp() ? event->accept() : event->ignore();
         return;
     }
 
-    mApp->aboutToCloseWindow(this);
-    mApp->saveStateSlot();
     event->accept();
 }
 
