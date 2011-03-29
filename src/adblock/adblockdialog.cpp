@@ -46,27 +46,23 @@
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
 #include "ui_adblockdialog.h"
+#include "mainapplication.h"
 
 AdBlockDialog::AdBlockDialog(QWidget *parent)
     : QDialog(parent)
     , m_itemChangingBlock(false)
+    , m_manager(AdBlockManager::instance())
 {
     setupUi(this);
-//    m_adBlockModel = new AdBlockModel(this);
-//    m_proxyModel = new TreeSortFilterProxyModel(this);
-//    m_proxyModel->setSourceModel(m_adBlockModel);
-//    treeWidget->setModel(m_proxyModel);
-//    connect(search, SIGNAL(textChanged(QString)), m_proxyModel, SLOT(setFilterFixedString(QString)));
-
-    AdBlockManager* manager = AdBlockManager::instance();
-    adblockCheckBox->setChecked(manager->isEnabled());
-    connect(adblockCheckBox, SIGNAL(toggled(bool)), manager, SLOT(setEnabled(bool)));
+    adblockCheckBox->setChecked(m_manager->isEnabled());
+    connect(adblockCheckBox, SIGNAL(toggled(bool)), m_manager, SLOT(setEnabled(bool)));
     connect(addButton, SIGNAL(clicked()), this, SLOT(addCustomRule()));
     connect(reloadButton, SIGNAL(clicked()), this, SLOT(updateSubscription()));
     connect(search, SIGNAL(textChanged(QString)), treeWidget, SLOT(filterStringWithoutTopItems(QString)));
-    connect(manager->subscription(), SIGNAL(changed()), this, SLOT(refreshAfterUpdate()));
+    connect(m_manager->subscription(), SIGNAL(changed()), this, SLOT(refreshAfterUpdate()));
 
-    QTimer::singleShot(0, this, SLOT(firstRefresh()));
+//    QTimer::singleShot(0, this, SLOT(firstRefresh()));
+    firstRefresh();
 }
 
 void AdBlockDialog::firstRefresh()
@@ -86,7 +82,6 @@ void AdBlockDialog::refresh()
     m_itemChangingBlock = true;
     treeWidget->setUpdatesEnabled(false);
     treeWidget->clear();
-    AdBlockManager *manager = AdBlockManager::instance();
 
     QFont boldFont;
     boldFont.setBold(true);
@@ -104,7 +99,7 @@ void AdBlockDialog::refresh()
     treeWidget->addTopLevelItem(m_easyListItem);
 
     bool customRulesStarted = false;
-    QList<AdBlockRule> allRules = manager->subscription()->allRules();
+    QList<AdBlockRule> allRules = m_manager->subscription()->allRules();
 
     int index = 0;
     foreach (const AdBlockRule rule, allRules) {
@@ -143,7 +138,7 @@ void AdBlockDialog::itemChanged(QTreeWidgetItem *item)
         item->setText(0, item->text(0).prepend("!"));
 
         AdBlockRule rul(item->text(0));
-        AdBlockManager::instance()->subscription()->replaceRule(rul, offset);
+        m_manager->subscription()->replaceRule(rul, offset);
 
     } else if (item->checkState(0) == Qt::Checked && item->text(0).startsWith("!")) { //Enable rule
         int offset = item->whatsThis(0).toInt();
@@ -152,13 +147,13 @@ void AdBlockDialog::itemChanged(QTreeWidgetItem *item)
         item->setText(0, newText);
 
         AdBlockRule rul(newText);
-        AdBlockManager::instance()->subscription()->replaceRule(rul, offset);
+        m_manager->subscription()->replaceRule(rul, offset);
 
     } else { //Custom rule has been changed
         int offset = item->whatsThis(0).toInt();
 
         AdBlockRule rul(item->text(0));
-        AdBlockManager::instance()->subscription()->replaceRule(rul, offset);
+        m_manager->subscription()->replaceRule(rul, offset);
 
     }
 
@@ -172,8 +167,7 @@ void AdBlockDialog::addCustomRule()
     if (newRule.isEmpty())
         return;
 
-    AdBlockManager *manager = AdBlockManager::instance();
-    AdBlockSubscription *subscription = manager->subscription();
+    AdBlockSubscription *subscription = m_manager->subscription();
     subscription->addRule(AdBlockRule(newRule));
     m_itemChangingBlock = true;
     QTreeWidgetItem* item = new QTreeWidgetItem(m_customListItem);
@@ -186,6 +180,6 @@ void AdBlockDialog::addCustomRule()
 
 void AdBlockDialog::updateSubscription()
 {
-    AdBlockSubscription *subscription = AdBlockManager::instance()->subscription();
+    AdBlockSubscription *subscription = m_manager->subscription();
     subscription->updateNow();
 }

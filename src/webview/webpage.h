@@ -36,6 +36,11 @@ class WebPage : public QWebPage
 {
     Q_OBJECT
 public:
+    struct AdBlockedEntry {
+        QString rule;
+        QUrl url;
+    };
+
     WebPage(WebView* parent, QupZilla* mainClass);
     void populateNetworkRequest(QNetworkRequest &request);
     ~WebPage();
@@ -46,10 +51,13 @@ public:
     bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
     bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output);
 
+    void addAdBlockRule(const QString &filter, const QUrl &url);
+    QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
+
 protected slots:
     QWebPage* createWindow(QWebPage::WebWindowType type);
     void handleUnsupportedContent(QNetworkReply* url);
-    void clearSSLCert() { m_SslCert = 0; }
+    void clearSSLCert() { m_SslCert = 0; m_adBlockedEntries.clear(); }
 
 protected:
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
@@ -59,6 +67,7 @@ protected:
     QWebPage::NavigationType m_lastRequestType;
     WebView* m_view;
     QSslCertificate m_SslCert;
+    QList<AdBlockedEntry> m_adBlockedEntries;
 //    bool m_isOpeningNextWindowAsNewTab;
 };
 

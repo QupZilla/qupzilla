@@ -65,10 +65,9 @@ AdBlockManager::AdBlockManager(QObject* parent)
 
 AdBlockManager* AdBlockManager::instance()
 {
-    if (!s_adBlockManager) {
-        qDebug() << "creating adblock manager";
+    if (!s_adBlockManager)
         s_adBlockManager = new AdBlockManager(mApp->networkManager());
-    }
+
     return s_adBlockManager;
 }
 
@@ -78,6 +77,7 @@ void AdBlockManager::setEnabled(bool enabled)
         return;
     m_enabled = enabled;
     emit rulesChanged();
+    mApp->sendMessages(MainApplication::SetAdBlockIconEnabled, enabled);
 }
 
 AdBlockNetwork* AdBlockManager::network()
@@ -130,6 +130,14 @@ AdBlockDialog* AdBlockManager::showDialog()
     }
     m_adBlockDialog->show();
     return m_adBlockDialog;
+}
+
+void AdBlockManager::showRule()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        AdBlockDialog* dialog = showDialog();
+        dialog->search->setText(action->data().toString());
+    }
 }
 
 AdBlockManager::~AdBlockManager()
