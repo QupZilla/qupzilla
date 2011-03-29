@@ -95,7 +95,8 @@ void WebView::urlChanged(const QUrl &url)
         emit showUrl(url);
         p_QupZilla->refreshHistory();
     }
-    emit changed();
+    if (m_lastUrl != url)
+        emit changed();
 }
 
 void WebView::linkClicked(const QUrl &url)

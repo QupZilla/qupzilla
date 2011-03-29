@@ -61,6 +61,7 @@
 #include "ui_adblockdialog.h"
 
 class AdBlockModel;
+class AdBlockManager;
 class TreeSortFilterProxyModel;
 class AdBlockDialog : public QDialog, public Ui_AdBlockDialog
 {
@@ -82,6 +83,7 @@ private:
     bool m_itemChangingBlock;
     QTreeWidgetItem* m_customListItem;
     QTreeWidgetItem* m_easyListItem;
+    AdBlockManager* m_manager;
 
 };
 

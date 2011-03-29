@@ -91,11 +91,6 @@ void QupZilla::loadSettings()
 
     QWebSettings* websettings=mApp->webSettings();
     websettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
-    //Web browsing settings
-    settings.beginGroup("Web-Browser-Settings");
-    bool allowFlash = settings.value("allowFlash",true).toBool();
-    settings.endGroup();
-    m_adblockIcon->setVisible(allowFlash);
 
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
@@ -111,6 +106,9 @@ void QupZilla::loadSettings()
     bool showMenuBar = settings.value("showMenubar",true).toBool();
     bool makeTransparent = settings.value("useTransparentBackground",false).toBool();
     settings.endGroup();
+    bool adBlockEnabled = settings.value("AdBlock/enabled", true).toBool();
+
+    m_adblockIcon->setEnabled(adBlockEnabled);
 
     statusBar()->setVisible(showStatusBar);
     m_actionShowStatusbar->setChecked(showStatusBar);
@@ -157,8 +155,8 @@ void QupZilla::loadSettings()
 void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
 {
     switch (mes) {
-    case MainApplication::ShowFlashIcon:
-        m_adblockIcon->setVisible(state);
+    case MainApplication::SetAdBlockIconEnabled:
+        m_adblockIcon->setEnabled(state);
         break;
 
     case MainApplication::CheckPrivateBrowsing:
@@ -526,12 +524,8 @@ void QupZilla::showDownloadManager()
 
 void QupZilla::showPreferences()
 {
-    bool flashIconVisibility = m_adblockIcon->isVisible();
     Preferences prefs(this, this);
     prefs.exec();
-
-    if (flashIconVisibility != m_adblockIcon->isVisible())
-        emit message(MainApplication::ShowFlashIcon, m_adblockIcon->isVisible());
 }
 
 void QupZilla::showSource()

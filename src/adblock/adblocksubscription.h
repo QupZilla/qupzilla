@@ -77,8 +77,8 @@ public:
 
     void saveRules();
 
-    const AdBlockRule *allow(const QString &urlString) const;
-    const AdBlockRule *block(const QString &urlString) const;
+    const AdBlockRule* allow(const QString &urlString) const;
+    const AdBlockRule* block(const QString &urlString) const;
     QList<const AdBlockRule*> pageRules() const { return m_pageRules; }
 
     QList<AdBlockRule> allRules() const;
@@ -98,7 +98,7 @@ private:
     QString m_title;
     bool m_enabled;
 
-    QNetworkReply *m_downloading;
+    QNetworkReply* m_downloading;
     QList<AdBlockRule> m_rules;
 
     // sorted list

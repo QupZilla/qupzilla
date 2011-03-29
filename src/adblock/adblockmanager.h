@@ -78,7 +78,8 @@ public:
 
 public slots:
     void setEnabled(bool enabled);
-    AdBlockDialog *showDialog();
+    AdBlockDialog* showDialog();
+    void showRule();
 
 private:
     static AdBlockManager* s_adBlockManager;
@@ -86,8 +87,8 @@ private:
     bool m_loaded;
     bool m_enabled;
     QPointer<AdBlockDialog> m_adBlockDialog;
-    AdBlockNetwork *m_adBlockNetwork;
-    AdBlockPage *m_adBlockPage;
+    AdBlockNetwork* m_adBlockNetwork;
+    AdBlockPage* m_adBlockPage;
     AdBlockSubscription* m_subscription;
 };
 

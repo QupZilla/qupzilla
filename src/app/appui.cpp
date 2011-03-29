@@ -20,7 +20,7 @@
 #include "bookmarkstoolbar.h"
 #include "locationbar.h"
 #include "clickablelabel.h"
-#include "adblockmanager.h"
+#include "adblockicon.h"
 
 void QupZilla::postLaunch()
 {
@@ -149,12 +149,7 @@ void QupZilla::setupUi()
     m_privateBrowsing->setPixmap(QPixmap(":/icons/locationbar/privatebrowsing.png"));
     m_privateBrowsing->setVisible(false);
     m_privateBrowsing->setToolTip(tr("Private Browsing Enabled"));
-    m_adblockIcon = new ClickableLabel(this);
-    m_adblockIcon->setPixmap(QPixmap(":/icons/other/adblock.png"));
-    m_adblockIcon->setMaximumHeight(16);
-    m_adblockIcon->setVisible(false);
-    m_adblockIcon->setCursor(Qt::PointingHandCursor);
-    m_adblockIcon->setToolTip(tr("Click to show AdBlock options"));
+    m_adblockIcon = new AdBlockIcon(this);
     m_ipLabel = new QLabel(this);
     m_ipLabel->setStyleSheet("padding-right: 5px;");
     m_ipLabel->setToolTip(tr("IP Address of current page"));
@@ -288,7 +283,6 @@ void QupZilla::setupMenu()
     connect(m_buttonReload, SIGNAL(triggered()), this, SLOT(reload()));
     connect(m_buttonHome, SIGNAL(triggered()), this, SLOT(goHome()));
     connect(m_actionExitFullscreen, SIGNAL(triggered(bool)), this, SLOT(fullScreen(bool)));
-    connect(m_adblockIcon, SIGNAL(clicked(QPoint)), AdBlockManager::instance(), SLOT(showDialog()));
 
     //Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
