@@ -123,7 +123,6 @@ MainApplication::MainApplication(int &argc, char **argv)
     QupZilla* qupzilla = new QupZilla(true, startUrl);
     m_mainWindows.append(qupzilla);
     connect(qupzilla, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(sendMessages(MainApplication::MessageType,bool)));
-    qApp->processEvents();
     qupzilla->show();
 
     AutoSaver* saver = new AutoSaver();
