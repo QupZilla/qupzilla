@@ -80,8 +80,14 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
 
 void DownloadItem::metaDataChanged()
 {
+//    http://www.olympus.cz/consumer/images/XD-Picture_card_1GB_Hand_CROP(1).jpg
+//    << download this picture emits metaDataChanged signal, but image is downloaded correctly
+
     QVariant locationHeader = m_reply->header(QNetworkRequest::LocationHeader);
-    QMessageBox::information(m_item->listWidget()->parentWidget(), "Meta Data Changed", QString("Meta data changed feature unimplemented yet, sorry.\n URL: '%̈́'").arg(locationHeader.toUrl().toString()));
+    if (!locationHeader.toUrl().isEmpty())
+    qWarning() << "DownloadManager: metaDataChanged << URL: " << locationHeader.toUrl();
+
+//    QMessageBox::information(m_item->listWidget()->parentWidget(), "Meta Data Changed", QString("Meta data changed feature unimplemented yet, sorry.\n URL: '%̈́'").arg(locationHeader.toUrl().toString()));
 }
 
 void DownloadItem::finished()
