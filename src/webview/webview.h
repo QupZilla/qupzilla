@@ -99,6 +99,7 @@ private slots:
     void stopAnimation();
     void setIp(QHostInfo info);
     void checkRss();
+    void slotIconChanged();
 
 private:
     void keyPressEvent(QKeyEvent* event);

@@ -223,7 +223,7 @@ void MainApplication::receiveAppMessage(QString message)
     }
 
     QupZilla* actWin = getWindow();
-    if (!actWin) { // It can only occur if download manager window was still open
+    if (!actWin && !isClosing()) { // It can only occur if download manager window was still open
         makeNewWindow(true);
         return;
     }

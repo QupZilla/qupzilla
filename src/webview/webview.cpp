@@ -59,6 +59,7 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
     connect(this, SIGNAL(linkClicked(QUrl)), this, SLOT(linkClicked(QUrl)));
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
     connect(this, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
+    connect(this, SIGNAL(iconChanged()), this, SLOT(slotIconChanged()));
 
     connect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
 
@@ -71,6 +72,12 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
 
     //Zoom levels same as in firefox
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
+}
+
+void WebView::slotIconChanged()
+{
+    if (!isLoading())
+        qDebug() << "icon changed";
 }
 
 WebPage* WebView::webPage() const
