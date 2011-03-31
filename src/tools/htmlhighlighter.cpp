@@ -109,7 +109,7 @@
                      << "wmode=\"" << "classid=\"" << "border=\""
                      << "cellspacing=\"" << "cellpadding=\"" << "clear=\""
                      << "for=\"" << "tabindex=\"" << "selected=\""
-                     << "href=\"" << "title=\"";
+                     << "href=\"" << "title=\"" << "xmlns=\"";
      foreach (const QString &pattern, optionsPatterns) {
          rule.pattern = QRegExp(pattern);
          rule.format = tagOptionsFormat;
