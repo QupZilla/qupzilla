@@ -210,4 +210,5 @@ OTHER_FILES += \
 include(3rdparty/qtsingleapplication.pri)
 
 win32:RC_FILE = appicon.rc
-#win32:LIBS += libole32
+win32:LIBS += User32.lib
+win32:LIBS += Ole32.lib

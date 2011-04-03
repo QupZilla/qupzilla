@@ -35,7 +35,11 @@ public:
     QSize sizeHint() const
     {
         QSize siz = QToolButton::sizeHint();
+#ifdef Q_WS_X11
         siz.setWidth(25);
+#else
+        siz.setWidth(26);
+#endif
         return siz;
     }
 
@@ -50,7 +54,11 @@ private:
         QPixmap pix(":/icons/other/list-add.png");
         QRect r = this->rect();
         r.setHeight(r.height()+3);
+#ifdef Q_WS_X11
         r.setWidth(r.width()-1);
+#else
+        r.setWidth(r.width()+3);
+#endif
         style()->drawItemPixmap(&p, r, Qt::AlignCenter, pix);
     }
 };

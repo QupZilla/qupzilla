@@ -64,20 +64,28 @@ MainApplication::MainApplication(int &argc, char **argv)
     bool noAddons = false;
     QUrl startUrl("");
     QString message;
+    QString startProfile;
     if (argc > 1) {
         CommandLineOptions cmd(argc, argv);
-        switch (cmd.getAction()) {
-        case CommandLineOptions::StartWithoutAddons:
-            noAddons = true;
-            break;
-        case CommandLineOptions::OpenUrl:
-            startUrl = QUrl(cmd.getActionString());
-            message = "URL:"+startUrl.toString();
-            break;
-        default:
-            m_isExited = true;
-            return;
-            break;
+        QList<QPair<int, QString> > cmdActions = cmd.getActions();
+        for (int i = 0; i < cmdActions.count(); i++) {
+            QPair<int, QString> act = cmdActions.at(i);
+            switch (act.first) {
+            case CommandLineOptions::StartWithoutAddons:
+                noAddons = true;
+                break;
+            case CommandLineOptions::OpenUrl:
+                startUrl = act.second;
+                message = "URL:"+startUrl.toString();
+                break;
+            case CommandLineOptions::StartWithProfile:
+                startProfile = act.second;
+                break;
+            default:
+                m_isExited = true;
+                return;
+                break;
+            }
         }
     }
 
@@ -100,11 +108,15 @@ MainApplication::MainApplication(int &argc, char **argv)
     checkProfileDir();
 
     QSettings::setDefaultFormat(QSettings::IniFormat);
-    QSettings settings(homePath+"profiles/profiles.ini", QSettings::IniFormat);
-    if (settings.value("Profiles/startProfile","default").toString().contains("/"))
-        m_activeProfil=homePath+"profiles/default/";
-    else
-        m_activeProfil=homePath+"profiles/"+settings.value("Profiles/startProfile","default").toString()+"/";
+    if (startProfile.isEmpty()) {
+        QSettings settings(homePath+"profiles/profiles.ini", QSettings::IniFormat);
+        if (settings.value("Profiles/startProfile","default").toString().contains("/"))
+            m_activeProfil=homePath+"profiles/default/";
+        else
+            m_activeProfil=homePath+"profiles/"+settings.value("Profiles/startProfile","default").toString()+"/";
+    } else
+        m_activeProfil = homePath+"profiles/"+startProfile+"/";
+
     if (!QDir(m_activeProfil).exists())
         m_activeProfil=homePath+"profiles/default/";
 

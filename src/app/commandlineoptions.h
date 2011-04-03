@@ -19,7 +19,7 @@
 #define COMMANDLINEOPTIONS_H
 
 #include <QObject>
-
+#include <QPair>
 #include <iostream>
 
 class CommandLineOptions : public QObject
@@ -28,17 +28,15 @@ class CommandLineOptions : public QObject
 public:
     enum Action {NoAction, OpenUrl, StartWithProfile, StartWithoutAddons};
     explicit CommandLineOptions(int &argc, char **argv);
-    Action getAction();
-    QString getActionString();
+    QList<QPair<int, QString> > getActions() { return m_actions; }
 
 private:
     void showHelp();
     void parseActions();
 
-    QString m_actionString;
     int m_argc;
     char **m_argv;
-    Action m_action;
+    QList<QPair<int, QString> > m_actions;
 };
 
 #endif // COMMANDLINEOPTIONS_H
