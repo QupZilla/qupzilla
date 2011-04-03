@@ -71,7 +71,7 @@
       <enum>QListView::IconMode</enum>
      </property>
      <property name="uniformItemSizes">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="currentRow">
       <number>0</number>

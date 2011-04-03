@@ -20,10 +20,8 @@
 
 CommandLineOptions::CommandLineOptions(int &argc, char **argv) :
   QObject(0)
-  ,m_actionString("")
   ,m_argc(argc)
   ,m_argv(argv)
-  ,m_action(NoAction)
 {
     parseActions();
 }
@@ -43,9 +41,11 @@ void CommandLineOptions::showHelp()
                       "\n"
                       " QupZilla is a new, fast and secure web browser\n"
                       " based on WebKit core (http://webkit.org) and\n"
-                      " written in Qt Framework (http://qt.nokia.com) \n"
+                      " written in Qt Framework (http://qt.nokia.com) \n\n"
+                      " For more informations please visit wiki at \n"
+                      " https://github.com/nowrep/QupZilla/wiki \n"
                       ;
-    cout << help << " " << QupZilla::WWWADDRESS.toAscii().data() << endl;
+    cout << help << " > " << QupZilla::WWWADDRESS.toAscii().data() << endl;
 }
 
 void CommandLineOptions::parseActions()
@@ -80,13 +80,18 @@ void CommandLineOptions::parseActions()
             arg.remove("-profile=");
             found = true;
             cout << "starting with profile " << arg.toAscii().data() << endl;
-            m_actionString = arg;
-            m_action = StartWithProfile;
+            QPair<int, QString> pair;
+            pair.first = StartWithProfile;
+            pair.second = arg;
+            m_actions.append(pair);
         }
 
         if (arg.startsWith("-np") || arg.startsWith("-no-plugins")) {
             found = true;
-            m_action = StartWithoutAddons;
+            QPair<int, QString> pair;
+            pair.first = StartWithoutAddons;
+            pair.second = "";
+            m_actions.append(pair);
         }
     }
 
@@ -94,8 +99,10 @@ void CommandLineOptions::parseActions()
     if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-")) {
         found = true;
         cout << "starting with url " << url.toAscii().data() << endl;
-        m_actionString = url;
-        m_action = OpenUrl;
+        QPair<int, QString> pair;
+        pair.first = OpenUrl;
+        pair.second = url;
+        m_actions.append(pair);
     }
 
     if (m_argc > 1 && !found) {
@@ -104,14 +111,3 @@ void CommandLineOptions::parseActions()
     }
 
 }
-CommandLineOptions::Action CommandLineOptions::getAction()
-{
-    return m_action;
-}
-
-QString CommandLineOptions::getActionString()
-{
-    return m_actionString;
-}
-
-
