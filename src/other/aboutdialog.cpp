@@ -49,7 +49,7 @@ void AboutDialog::showAbout()
         m_aboutHtml.append(tr("<p><b>Application version %1</b><br/>").arg(QupZilla::VERSION));
         m_aboutHtml.append(tr("<b>WebKit version %1</b></p>").arg(QupZilla::WEBKITVERSION));
         m_aboutHtml.append(tr("<p>&copy; %1 %2<br/>All rights reserved.<br/>").arg(QupZilla::COPYRIGHT, QupZilla::AUTHOR));
-        m_aboutHtml.append(tr("Build time: %1 </p>").arg(QupZilla::BUILDTIME));
+        m_aboutHtml.append(tr("<small>Build time: %1 </small></p>").arg(QupZilla::BUILDTIME));
         m_aboutHtml.append(QString("<p><a href=%1>%1</a></p>").arg(QupZilla::WWWADDRESS));
         m_aboutHtml.append("<p>"+mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl())+"</p>");
         m_aboutHtml.append("</div>");

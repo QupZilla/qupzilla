@@ -495,7 +495,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addSeparator();
         QString selectedText = page()->selectedText();
         selectedText.truncate(20);
-        menu->addAction(QIcon(":icons/used/google.png"), tr("Search ")+selectedText+tr("... on Google"), this, SLOT(searchOnGoogle()))->setData(page()->selectedText());
+        menu->addAction(QIcon(":icons/menu/google.png"), tr("Search \"%1 ..\" on Google").arg(selectedText), this, SLOT(searchOnGoogle()))->setData(page()->selectedText());
     }
 
     if (!menu->isEmpty()) {

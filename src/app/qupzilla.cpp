@@ -48,11 +48,8 @@
 #include "clickablelabel.h"
 
 const QString QupZilla::VERSION = "0.9.9";
-#ifdef Q_WS_X11
-const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM dd yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
-#else
-const QString QupZilla::BUILDTIME = __DATE__" "__TIME__;
-#endif
+//const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM d yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
+const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "nowrep";
 const QString QupZilla::COPYRIGHT = "2010-2011";
 const QString QupZilla::WWWADDRESS = "http://qupzilla.ic.cz";
