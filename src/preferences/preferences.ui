@@ -448,7 +448,7 @@
         </spacer>
        </item>
        <item row="9" column="1" colspan="2">
-        <widget class="QLabel" name="label_36">
+        <widget class="QLabel" name="cannotDeleteActiveProfileLabel">
          <property name="text">
           <string>Note: You cannot delete active profile.</string>
          </property>
