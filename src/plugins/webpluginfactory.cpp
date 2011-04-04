@@ -36,7 +36,6 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
         qDebug()  << mimeType;
         return 0;
     }
-
     if (!mApp->plugins()->c2f_isEnabled())
         return 0;
 
