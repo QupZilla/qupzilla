@@ -466,6 +466,7 @@ void Preferences::deleteProfile()
 void Preferences::startProfileIndexChanged(QString index)
 {
     ui->deleteProfile->setEnabled(m_actProfileName != index);
+    ui->cannotDeleteActiveProfileLabel->setVisible(m_actProfileName == index);
 }
 
 void Preferences::saveSettings()

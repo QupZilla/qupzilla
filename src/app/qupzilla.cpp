@@ -544,13 +544,12 @@ void QupZilla::showPageInfo()
 
 void QupZilla::showBookmarksToolbar()
 {
-    if (m_bookmarksToolbar->isVisible()) {
-        m_bookmarksToolbar->setVisible(false);
-        m_actionShowBookmarksToolbar->setChecked(false);
-    }else{
-        m_bookmarksToolbar->setVisible(true);
-        m_actionShowBookmarksToolbar->setChecked(true);
-    }
+    bool status = m_bookmarksToolbar->isVisible();
+    m_bookmarksToolbar->setVisible(!status);
+    m_actionShowBookmarksToolbar->setChecked(!status);
+
+    QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
+    settings.setValue("Browser-View-Settings/showBookmarksToolbar", !status);
 }
 
 void QupZilla::showNavigationToolbar()
@@ -558,13 +557,12 @@ void QupZilla::showNavigationToolbar()
     if (!menuBar()->isVisible() && !m_actionShowToolbar->isChecked())
         showMenubar();
 
-    if (m_navigation->isVisible()) {
-        m_navigation->setVisible(false);
-        m_actionShowToolbar->setChecked(false);
-    }else{
-        m_navigation->setVisible(true);
-        m_actionShowToolbar->setChecked(true);
-    }
+    bool status = m_navigation->isVisible();
+    m_navigation->setVisible(!status);
+    m_actionShowToolbar->setChecked(!status);
+
+    QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
+    settings.setValue("Browser-View-Settings/showNavigationToolbar", !status);
 }
 
 void QupZilla::showMenubar()
@@ -575,17 +573,19 @@ void QupZilla::showMenubar()
     menuBar()->setVisible(!menuBar()->isVisible());
     m_navigation->actions().at(m_navigation->actions().count()-2)->setVisible(!menuBar()->isVisible());
     m_actionShowMenubar->setChecked(menuBar()->isVisible());
+
+    QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
+    settings.setValue("Browser-View-Settings/showMenubar", menuBar()->isVisible());
 }
 
 void QupZilla::showStatusbar()
 {
-    if (statusBar()->isVisible()) {
-        statusBar()->setVisible(false);
-        m_actionShowStatusbar->setChecked(false);
-    }else{
-        statusBar()->setVisible(true);
-        m_actionShowStatusbar->setChecked(true);
-    }
+    bool status = statusBar()->isVisible();
+    statusBar()->setVisible(!status);
+    m_actionShowStatusbar->setChecked(!status);
+
+    QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
+    settings.setValue("Browser-View-Settings/showStatusbar", !status);
 }
 
 void QupZilla::showInspector()
