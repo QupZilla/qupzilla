@@ -406,8 +406,8 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
     if (!r.linkUrl().isEmpty() && r.linkUrl().scheme()!="javascript") {
         if (page()->selectedText() == r.linkText())
             findText("");
-        menu->addAction(tr("Open link in new window"), this, SLOT(openUrlInNewWindow()))->setData(r.linkUrl());
         menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new tab"), this, SLOT(openUrlInNewTab()))->setData(r.linkUrl());
+        menu->addAction(tr("Open link in new window"), this, SLOT(openUrlInNewWindow()))->setData(r.linkUrl());
         menu->addSeparator();
         menu->addAction(QIcon::fromTheme("user-bookmarks"), tr("Bookmark link"), this, SLOT(bookmarkLink()))->setData(r.linkUrl());
         menu->addAction(QIcon::fromTheme("document-save"), tr("Save link as..."), this, SLOT(downloadLinkToDisk()))->setData(r.linkUrl());
