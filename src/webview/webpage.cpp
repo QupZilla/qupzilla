@@ -75,7 +75,10 @@ QSslCertificate WebPage::sslCertificate()
 //            return c;
 //    }
 //    return cert;
-    return m_SslCert;
+    if (mainFrame()->url().scheme() == "https")
+        return m_SslCert;
+    else
+        return QSslCertificate();
 }
 
 bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type)
