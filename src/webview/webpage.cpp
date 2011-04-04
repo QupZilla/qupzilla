@@ -32,7 +32,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     setForwardUnsupportedContent(true);
     setPluginFactory(new WebPluginFactory(this));
     connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), SLOT(handleUnsupportedContent(QNetworkReply*)));
-    connect(this, SIGNAL(loadStarted()), this, SLOT(clearSSLCert()));
+    connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
 }
 
 void WebPage::handleUnsupportedContent(QNetworkReply* reply)
@@ -64,6 +64,18 @@ void WebPage::setSSLCertificate(QSslCertificate cert)
 {
 //    if (cert != m_SslCert)
         m_SslCert = cert;
+}
+
+QSslCertificate WebPage::sslCertificate()
+{
+//    QSslCertificate cert;
+//    foreach (QSslCertificate c, m_SslCerts) {
+//        qDebug() << c;
+//        if (c.subjectInfo(QSslCertificate::CommonName).contains(QRegExp(mainFrame()->url().host())))
+//            return c;
+//    }
+//    return cert;
+    return m_SslCert;
 }
 
 bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type)

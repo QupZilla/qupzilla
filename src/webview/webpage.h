@@ -46,7 +46,7 @@ public:
     ~WebPage();
 
     void setSSLCertificate(QSslCertificate cert);
-    QSslCertificate sslCertificate() { return m_SslCert; }
+    QSslCertificate sslCertificate();
     QString userAgentForUrl(const QUrl &url) const;
     bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
     bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output);
@@ -57,7 +57,7 @@ public:
 protected slots:
     QWebPage* createWindow(QWebPage::WebWindowType type);
     void handleUnsupportedContent(QNetworkReply* url);
-    void clearSSLCert() { m_SslCert = 0; m_adBlockedEntries.clear(); }
+    void loadingStarted() { m_adBlockedEntries.clear(); /*m_SslCert.clear();*/ }
 
 protected:
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
@@ -67,6 +67,7 @@ protected:
     QWebPage::NavigationType m_lastRequestType;
     WebView* m_view;
     QSslCertificate m_SslCert;
+    QList<QSslCertificate> m_SslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
 //    bool m_isOpeningNextWindowAsNewTab;
 };

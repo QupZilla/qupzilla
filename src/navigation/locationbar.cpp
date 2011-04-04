@@ -247,15 +247,17 @@ void LocationBar::showUrl(const QUrl &url, bool empty)
 
 void LocationBar::siteIconChanged()
 {
-    const QPixmap* icon_ = 0;
-    if (!p_QupZilla->weView()->isLoading())
-        icon_ = p_QupZilla->weView()->animationLoading( p_QupZilla->tabWidget()->currentIndex(), false)->pixmap();
+//    const QPixmap* icon_ = 0;
+    QIcon icon_;
+//    if (!p_QupZilla->weView()->isLoading())
+//        icon_ = p_QupZilla->weView()->animationLoading( p_QupZilla->tabWidget()->currentIndex(), false)->pixmap();
+        icon_ = p_QupZilla->weView()->siteIcon();
 
-    if (!icon_) {
+    if (icon_.isNull()) {
         m_siteIcon->setIcon(QIcon(":icons/locationbar/unknownpage.png"));
     } else {
-        QIcon icon = *icon_;
-        m_siteIcon->setIcon(icon);
+//        QIcon icon(*icon_);
+        m_siteIcon->setIcon(icon_);
     }
 }
 
