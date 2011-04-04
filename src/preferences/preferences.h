@@ -65,6 +65,10 @@ private slots:
     void cacheValueChanged(int value);
     void pageCacheValueChanged(int value);
 
+    void createProfile();
+    void deleteProfile();
+    void startProfileIndexChanged(QString index);
+
 private:
     void updateBgLabel();
     Ui::Preferences* ui;
@@ -75,6 +79,7 @@ private:
     QColor m_menuTextColor;
     QString m_homepage;
     QString m_newTabUrl;
+    QString m_actProfileName;
     int m_afterLaunch;
     int m_onNewTab;
     QSize m_bgLabelSize;

@@ -31,6 +31,35 @@
 #include "pluginproxy.h"
 #include "sslmanager.h"
 
+bool removeFile(QString fullFileName)
+{
+    QFile f(fullFileName);
+    if (f.exists())
+        return f.remove();
+    else return false;
+}
+
+void removeDir(const QString d)
+{
+    QDir dir(d);
+    if (dir.exists())
+    {
+        const QFileInfoList list = dir.entryInfoList();
+        QFileInfo fi;
+        for (int l = 0; l < list.size(); l++)
+        {
+            fi = list.at(l);
+            if (fi.isDir() && fi.fileName() != "." && fi.fileName() != "..")
+                removeDir(fi.absoluteFilePath());
+            else if (fi.isFile())
+                removeFile(fi.absoluteFilePath());
+
+        }
+        dir.rmdir(d);
+
+    }
+}
+
 Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     QDialog(parent)
     ,ui(new Ui::Preferences)
@@ -48,6 +77,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     ui->homepage->setText(m_homepage);
     ui->newTabUrl->setText(m_newTabUrl);
     int afterLaunch = settings.value("afterLaunch",1).toInt();
+    settings.endGroup();
     ui->afterLaunch->setCurrentIndex(afterLaunch);
 
     ui->newTabFrame->setVisible(false);
@@ -64,10 +94,21 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     connect(ui->newTabUseActual, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
 
     //PROFILES
-    ui->startPRofile->setEnabled(false);
-    ui->createProfile->setEnabled(false);
-    ui->deleteProfile->setEnabled(false);
-    settings.endGroup();
+    m_actProfileName = mApp->getActiveProfil();
+    m_actProfileName = m_actProfileName.left(m_actProfileName.length()-1);
+    m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf("/"));
+    m_actProfileName.remove("/");
+    ui->startProfile->addItem(m_actProfileName);
+    QDir profilesDir(QDir::homePath()+"/.qupzilla/profiles/");
+    QStringList list_ = profilesDir.entryList(QStringList(), QDir::Dirs | QDir::NoDotAndDotDot);
+    foreach (QString name, list_) {
+        if (m_actProfileName == name)
+            continue;
+        ui->startProfile->addItem(name);
+    }
+    connect(ui->createProfile, SIGNAL(clicked()), this, SLOT(createProfile()));
+    connect(ui->deleteProfile, SIGNAL(clicked()), this, SLOT(deleteProfile()));
+    connect(ui->startProfile, SIGNAL(currentIndexChanged(QString)), this, SLOT(startProfileIndexChanged(QString)));
 
     //WINDOW
     settings.beginGroup("Browser-View-Settings");
@@ -388,6 +429,45 @@ void Preferences::buttonClicked(QAbstractButton* button)
     }
 }
 
+void Preferences::createProfile()
+{
+    QString name = QInputDialog::getText(this, tr("New Profile"), tr("Enter the new profile's name:"));
+    if (name.contains("/") || name.contains("\\"))
+        return;
+    QDir dir(QDir::homePath()+"/.qupzilla/profiles/");
+    if (QDir(dir.absolutePath() + "/" + name).exists()) {
+        QMessageBox::warning(this, tr("Error!"), tr("This profile already exists!"));
+        return;
+    }
+    if (!dir.mkdir(name)) {
+        QMessageBox::warning(this, tr("Error!"), tr("Cannot create profile directory!"));
+        return;
+    }
+    dir.cd(name);
+    QFile(mApp->DATADIR+"data/default/profiles/default/browsedata.db").copy(dir.absolutePath()+"/browsedata.db");
+    QFile(mApp->DATADIR+"data/default/profiles/default/background.png").copy(dir.absolutePath()+"/background.png");
+
+    ui->startProfile->insertItem(0, name);
+    ui->startProfile->setCurrentIndex(0);
+}
+
+void Preferences::deleteProfile()
+{
+    QString name = ui->startProfile->currentText();
+    QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Confirmation"),
+                         tr("Are you sure to permanently delete \"%1\" profile? This action cannot be undone!").arg(name), QMessageBox::Yes | QMessageBox::No);
+    if (button != QMessageBox::Yes)
+        return;
+
+    removeDir(QDir::homePath()+"/.qupzilla/profiles/"+name);
+    ui->startProfile->removeItem(ui->startProfile->currentIndex());
+}
+
+void Preferences::startProfileIndexChanged(QString index)
+{
+    ui->deleteProfile->setEnabled(m_actProfileName != index);
+}
+
 void Preferences::saveSettings()
 {
     QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
@@ -499,6 +579,12 @@ void Preferences::saveSettings()
     settings.beginGroup("Browser-View-Settings");
     settings.setValue("language",ui->languages->itemData(ui->languages->currentIndex()).toString());
     settings.endGroup();
+
+    //Profiles
+    QString homePath = QDir::homePath();
+    homePath+="/.qupzilla/";
+    QSettings profileSettings(homePath+"profiles/profiles.ini", QSettings::IniFormat);
+    profileSettings.setValue("Profiles/startProfile",ui->startProfile->currentText());
 
     m_pluginsList->save();
     p_QupZilla->loadSettings();
