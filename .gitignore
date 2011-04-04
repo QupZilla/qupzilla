@@ -6,5 +6,5 @@ QupZilla-old-src.tar.gz
 *.pro.user
 headers*.tar.gz
 license_template
-Makefile
+Makefile*
 TestPlugin-build
