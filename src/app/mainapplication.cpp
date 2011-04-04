@@ -573,7 +573,7 @@ bool MainApplication::checkProfileDir()
     versionFile.write(QupZilla::VERSION.toAscii());
     versionFile.close();
 
-    if (rData.contains("0.9.6") || rData.contains("0.9.7") || rData.contains("0.9.8")) // Data not changed from this version
+    if (rData.contains("0.9.") || rData.contains("0.9.7") || rData.contains("0.9.8")) // Data not changed from this version
         return true;
 
     dir.mkdir("profiles");

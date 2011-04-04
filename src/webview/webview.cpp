@@ -76,8 +76,7 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
 
 void WebView::slotIconChanged()
 {
-    if (!isLoading())
-        qDebug() << "icon changed";
+    m_siteIcon = icon();
 }
 
 WebPage* WebView::webPage() const
@@ -233,7 +232,8 @@ void WebView::titleChanged()
 
 void WebView::iconChanged()
 {
-    QIcon icon_ = icon();
+//    QIcon icon_ = icon();
+    QIcon icon_ = siteIcon();
     if (!icon_.isNull())
         animationLoading(tabIndex(), false)->setPixmap(icon_.pixmap(16,16));
     else
