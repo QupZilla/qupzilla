@@ -457,13 +457,9 @@ bool MainApplication::saveStateSlot()
     settings.endGroup();
 
     QupZilla* qupzilla_ = getWindow();
-    if (qupzilla_) {
+    if (qupzilla_)
         qupzilla_->tabWidget()->savePinnedTabs();
-        settings.setValue("Browser-View-Settings/showBookmarksToolbar",qupzilla_->bookmarksToolbar()->isVisible());
-        settings.setValue("Browser-View-Settings/showNavigationToolbar",qupzilla_->navigationToolbar()->isVisible());
-        settings.setValue("Browser-View-Settings/showStatusbar",qupzilla_->statusBar()->isVisible());
-        settings.setValue("Browser-View-Settings/showMenubar",qupzilla_->menuBar()->isVisible());
-    }
+
     return true;
 }
 
