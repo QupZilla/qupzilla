@@ -42,11 +42,55 @@
 #include "clickablelabel.h"
 #include "mainapplication.h"
 #include "pluginproxy.h"
+#include "adblockmanager.h"
+#include "adblocksubscription.h"
 
 ClickToFlash::ClickToFlash(const QUrl &pluginUrl, QWidget* parent)
         : QWidget(parent)
         , m_url(pluginUrl)
 {
+    //AdBlock
+    AdBlockManager* manager = AdBlockManager::instance();
+    if (manager->isEnabled()) {
+        QString urlString = pluginUrl.toEncoded();
+        AdBlockSubscription* subscription = manager->subscription();
+        if (!subscription->allow(urlString) && subscription->block(urlString)) {
+            QWidget* parent = parentWidget();
+            QWebView* view = 0;
+            while (parent) {
+                if (QWebView* aView = qobject_cast<QWebView*>(parent)) {
+                    view = aView;
+                    break;
+                }
+                parent = parent->parentWidget();
+            }
+            if (!view)
+                return;
+
+            const QString selector = "%1[type=\"application/x-shockwave-flash\"]";
+
+            QList<QWebFrame*> frames;
+            frames.append(view->page()->mainFrame());
+            while (!frames.isEmpty()) {
+                QWebFrame* frame = frames.takeFirst();
+                QWebElement docElement = frame->documentElement();
+
+                QWebElementCollection elements;
+                elements.append(docElement.findAll(selector.arg("object")));
+                elements.append(docElement.findAll(selector.arg("embed")));
+
+                foreach(QWebElement element, elements) {
+                    if (checkElement(element)) {
+                        element.setAttribute("style", "visible:none;");
+                        deleteLater();
+                        return;
+                    }
+                }
+                frames += frame->childFrames();
+            }
+        }
+    }
+
     QHBoxLayout* horizontalLayout;
     QFrame* frame;
     QHBoxLayout* horizontalLayout_2;
@@ -93,7 +137,7 @@ void ClickToFlash::toWhitelist()
 }
 
 void ClickToFlash::load()
-{
+{    
     QWidget* parent = parentWidget();
     QWebView* view = 0;
     while (parent) {
