@@ -243,6 +243,15 @@ void WebView::iconChanged()
         emit siteIconChanged();
 }
 
+QIcon WebView::siteIcon()
+{
+    if (!m_siteIcon.isNull())
+        return m_siteIcon;
+    if (!icon().isNull())
+        return icon();
+    return LocationBar::icon(url());
+}
+
 void WebView::linkHovered(const QString &link, const QString &title, const QString &content)
 {
     Q_UNUSED(title);
