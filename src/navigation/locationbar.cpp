@@ -257,7 +257,7 @@ void LocationBar::siteIconChanged()
         m_siteIcon->setIcon(QIcon(":icons/locationbar/unknownpage.png"));
     } else {
 //        QIcon icon(*icon_);
-        m_siteIcon->setIcon(icon_);
+        m_siteIcon->setIcon(QIcon(icon_.pixmap(16,16)));
     }
 }
 
