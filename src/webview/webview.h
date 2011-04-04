@@ -53,6 +53,7 @@ public:
     WebPage* webPage() const;
     QString getIp() { return m_currentIp; }
     QLabel* animationLoading(int index, bool addMovie);
+    QIcon siteIcon() { return m_siteIcon; }
     void addNotification(QWidget* notif);
     bool hasRss() { return !m_rss.isEmpty(); }
     QList<QPair<QString,QString> > getRss() { return m_rss; }
@@ -122,6 +123,7 @@ private:
     bool m_wantsClose;
     QString m_currentIp;
     QList<QPair<QString,QString> > m_rss;
+    QIcon m_siteIcon;
 
     WebPage* m_page;
     NetworkManagerProxy* m_networkProxy;
