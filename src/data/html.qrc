@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>html/errorPage.html</file>
         <file>html/info.png</file>
+        <file>html/adblock_big.png</file>
+        <file>html/adblockPage.html</file>
     </qresource>
 </RCC>

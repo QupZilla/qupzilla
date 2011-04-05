@@ -77,6 +77,7 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
 void WebView::slotIconChanged()
 {
     m_siteIcon = icon();
+//    iconChanged();
 }
 
 WebPage* WebView::webPage() const
@@ -245,10 +246,10 @@ void WebView::iconChanged()
 
 QIcon WebView::siteIcon()
 {
-    if (!m_siteIcon.isNull())
-        return m_siteIcon;
     if (!icon().isNull())
         return icon();
+    if (!m_siteIcon.isNull())
+        return m_siteIcon;
     return LocationBar::icon(url());
 }
 

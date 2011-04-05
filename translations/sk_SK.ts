@@ -56,7 +56,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="52"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt;Dátum zostavenia: %1 &lt;/small&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="65"/>
@@ -75,80 +75,72 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>AdBlockBlockedNetworkReply</name>
-    <message>
-        <location filename="../src/adblock/adblockblockednetworkreply.cpp" line="59"/>
-        <source>Blocked by AdBlockRule: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>AdBlockDialog</name>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="14"/>
         <source>AdBlock Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Natavenia AdBlocku</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="20"/>
         <source>Enable AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation>Povoliť AdBlock</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="39"/>
         <source>Search...</source>
-        <translation type="unfinished">Hľadať...</translation>
+        <translation>Hľadať...</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="50"/>
         <source>Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Pravidlo</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="76"/>
         <location filename="../src/adblock/adblockdialog.cpp" line="95"/>
         <source>Add Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať pravidlo</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="83"/>
         <source>Update EasyList</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizovať EasyList</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="114"/>
         <source>AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="97"/>
         <source>Delete Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazať pravidlo</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="109"/>
         <source>Update completed</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizácia dokončena</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="109"/>
         <source>EasyList has been successfuly updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyList bol úspešne aktualizovaný.</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="125"/>
         <source>Custom Rules</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlastné pravídlá</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="199"/>
         <source>Add Custom Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať vlastné pravidlo</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="199"/>
         <source>Please write your rule here:</source>
-        <translation type="unfinished"></translation>
+        <translation>Napíšte nové pravidlo:</translation>
     </message>
 </context>
 <context>
@@ -156,37 +148,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="30"/>
         <source>AdBlock let you block any unwanted content on pages</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock blokuje nevyžiadaný obsah na stránkach</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="40"/>
         <source>Show AdBlock Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť nastavenia AdBlocku</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="44"/>
         <source>No content blocked</source>
-        <translation type="unfinished"></translation>
+        <translation>Žiadny obsah nebol zablokovaný</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="46"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokovaná adresa (AdBlock pravidlo) - kliknptím upravíte pravidlo</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="49"/>
         <source>%1 with (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 s (%2)</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="53"/>
         <source>Learn About Writing Rules</source>
-        <translation type="unfinished"></translation>
+        <translation>Zistiť viac o písaní pravidiel</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="60"/>
         <source>New tab</source>
-        <translation type="unfinished">Nový panel</translation>
+        <translation>Nový panel</translation>
     </message>
 </context>
 <context>
@@ -569,12 +561,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ClickToFlash</name>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="82"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="126"/>
         <source>Flash blocked by ClickToFlash</source>
         <translation>Zablokované pluginom ClickToFlash</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="84"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="128"/>
         <source>Add %1 to whitelist</source>
         <translation>Pridať %1 na bielu listinu</translation>
     </message>
@@ -584,12 +576,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/closedialog.ui" line="6"/>
         <source>There are still open tabs</source>
-        <translation type="unfinished">Stále sú otvorené panely</translation>
+        <translation>Stále sú otvorené panely</translation>
     </message>
     <message>
         <location filename="../src/other/closedialog.ui" line="43"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished"></translation>
+        <translation>Nabudúce sa uz nepýtať</translation>
     </message>
 </context>
 <context>
@@ -778,12 +770,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="230"/>
         <source>Delete file</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazať súbor</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="230"/>
         <source>Do you want to also delete dowloaded file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Chcete zmazať sťahovaný súbor?</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="246"/>
@@ -820,7 +812,9 @@ p, li { white-space: pre-wrap; }
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Súbor 
+ %1 
+ nebol nájdený!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="296"/>
@@ -918,7 +912,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.cpp" line="30"/>
         <source>Opening %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Otváram %1</translation>
     </message>
 </context>
 <context>
@@ -1066,12 +1060,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="477"/>
+        <location filename="../src/app/mainapplication.cpp" line="473"/>
         <source>Last session crashed</source>
         <translation>Posledná relácia spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="478"/>
+        <location filename="../src/app/mainapplication.cpp" line="474"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, posledná relácia QupZilly skončila chybou. Prepáčte. Chcete obnoviť uložený stav?</translation>
     </message>
@@ -1529,7 +1523,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="453"/>
         <source>Note: You cannot delete active profile.</source>
-        <translation type="unfinished"></translation>
+        <translation>Poznámka: Nemôžete zmazať aktívny profil.</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="611"/>
@@ -1735,38 +1729,38 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.cpp" line="434"/>
         <source>New Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Nový profil</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="434"/>
         <source>Enter the new profile&apos;s name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zadajte nové meno profilu:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="439"/>
         <location filename="../src/preferences/preferences.cpp" line="443"/>
         <source>Error!</source>
-        <translation type="unfinished">Chyba!</translation>
+        <translation>Chyba!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="439"/>
         <source>This profile already exists!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento profil už existuje!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="443"/>
         <source>Cannot create profile directory!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nemožno vytvoriť zložku profilu!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="457"/>
         <source>Confirmation</source>
-        <translation type="unfinished">Potvrdenie</translation>
+        <translation>Potvrdenie</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="458"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ste si istý, že chcete permanentne zmazať profil &quot;%1&quot;? Táto akcia sa nebude dať vrátiť späť!</translation>
     </message>
 </context>
 <context>
@@ -2029,7 +2023,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="372"/>
         <source>AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="374"/>
@@ -2391,183 +2385,183 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
         <translation>Informácie o stránke</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="81"/>
+        <location filename="../src/webview/siteinfo.ui" line="87"/>
         <source>General</source>
-        <translation type="unfinished">Hlavné</translation>
+        <translation>Hlavné</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="93"/>
+        <location filename="../src/webview/siteinfo.ui" line="99"/>
         <source>Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Média</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="105"/>
+        <location filename="../src/webview/siteinfo.ui" line="111"/>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Zabezpečenie</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="145"/>
+        <location filename="../src/webview/siteinfo.ui" line="151"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Veľkosť:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="191"/>
+        <location filename="../src/webview/siteinfo.ui" line="197"/>
         <source>Encoding:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kódovanie:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="211"/>
+        <location filename="../src/webview/siteinfo.ui" line="217"/>
         <source>Tag</source>
         <translation>Tag</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="216"/>
+        <location filename="../src/webview/siteinfo.ui" line="222"/>
         <source>Value</source>
         <translation>Hodnota</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="230"/>
+        <location filename="../src/webview/siteinfo.ui" line="236"/>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Informácie o zabezpečení&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="250"/>
+        <location filename="../src/webview/siteinfo.ui" line="256"/>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Detaily</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="315"/>
+        <location filename="../src/webview/siteinfo.ui" line="321"/>
         <source>Image</source>
         <translation>Obrázok</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="320"/>
+        <location filename="../src/webview/siteinfo.ui" line="326"/>
         <source>Image address</source>
         <translation>Adresa obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="328"/>
+        <location filename="../src/webview/siteinfo.ui" line="334"/>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Náhlad&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="361"/>
+        <location filename="../src/webview/siteinfo.ui" line="367"/>
         <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Vydané pre&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="368"/>
-        <location filename="../src/webview/siteinfo.ui" line="431"/>
+        <location filename="../src/webview/siteinfo.ui" line="374"/>
+        <location filename="../src/webview/siteinfo.ui" line="437"/>
         <source>Common Name (CN):</source>
-        <translation type="unfinished"></translation>
+        <translation>Obyčajné meno (CN):</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="382"/>
-        <location filename="../src/webview/siteinfo.ui" line="445"/>
+        <location filename="../src/webview/siteinfo.ui" line="388"/>
+        <location filename="../src/webview/siteinfo.ui" line="451"/>
         <source>Organization (O):</source>
-        <translation type="unfinished"></translation>
+        <translation>Organizácia (O):</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="396"/>
-        <location filename="../src/webview/siteinfo.ui" line="459"/>
+        <location filename="../src/webview/siteinfo.ui" line="402"/>
+        <location filename="../src/webview/siteinfo.ui" line="465"/>
         <source>Organizational Unit (OU):</source>
-        <translation type="unfinished"></translation>
+        <translation>Organizačná jednotka (OU):</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="410"/>
+        <location filename="../src/webview/siteinfo.ui" line="416"/>
         <source>Serial Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sériové číslo:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="424"/>
+        <location filename="../src/webview/siteinfo.ui" line="430"/>
         <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Vydal&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="473"/>
+        <location filename="../src/webview/siteinfo.ui" line="479"/>
         <source>&lt;b&gt;Validity&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Platnosť&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="480"/>
+        <location filename="../src/webview/siteinfo.ui" line="486"/>
         <source>Issued On:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vdané dňa:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="494"/>
+        <location filename="../src/webview/siteinfo.ui" line="500"/>
         <source>Expires On:</source>
-        <translation type="unfinished"></translation>
+        <translation>Platný do:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="184"/>
+        <location filename="../src/webview/siteinfo.ui" line="190"/>
         <source>Site address:</source>
         <translation>Adresa stránky:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="200"/>
+        <location filename="../src/webview/siteinfo.ui" line="206"/>
         <source>Meta tags of site:</source>
         <translation>Meta tágy na stránke:</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="93"/>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Pripojenie je zabezpečené.&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="94"/>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Vaše pripojenie k serveru je zabezpečené týmto certifikátom: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="108"/>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Pripojenie nie je zabezpečené.&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="110"/>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Vaše pripojenie k serveru nie je zabezpečené&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="127"/>
         <source>Copy Image Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovať adresu obrázku</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="128"/>
         <source>Copy Image Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovať meno obrázku</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="130"/>
         <source>Save Image to Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložiť obrázok na disk</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="155"/>
         <location filename="../src/webview/siteinfo.cpp" line="165"/>
         <source>Error!</source>
-        <translation type="unfinished">Chyba!</translation>
+        <translation>Chyba!</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="155"/>
         <source>This preview is not available!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento náhlad nie je k dispozícií!</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="159"/>
         <source>Save image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložiť obrázok...</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="165"/>
         <source>Cannot write to file!</source>
-        <translation type="unfinished">Nemôžem zapisovať do súboru!</translation>
+        <translation>Nemôžem zapisovať do súboru!</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="195"/>
         <source>Preview not available</source>
-        <translation type="unfinished"></translation>
+        <translation>Náhlad nie je k dispozícií</translation>
     </message>
 </context>
 <context>
@@ -2801,12 +2795,12 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/webview/tabbar.cpp" line="94"/>
         <source>Unpin Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Odopnúť panel</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="94"/>
         <source>Pin Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Pripnúť panel</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="97"/>
@@ -2959,42 +2953,57 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
         <translation>Nedôveryhodné spojenie</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="179"/>
+        <location filename="../src/webview/webpage.cpp" line="184"/>
+        <source>AdBlocked Content</source>
+        <translation>AdBlock obsah</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webpage.cpp" line="196"/>
+        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation>Blokováno pravidlom &lt;i&gt;%1&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webpage.cpp" line="203"/>
+        <source>Content Access Denied</source>
+        <translation>Odmietnuť prístup k obsahu</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webpage.cpp" line="208"/>
         <source>Unknown error</source>
         <translation>Neznáma chyba</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="184"/>
+        <location filename="../src/webview/webpage.cpp" line="213"/>
         <source>Error code %1</source>
         <translation>Chybový kód %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="195"/>
+        <location filename="../src/webview/webpage.cpp" line="224"/>
         <source>Failed loading page</source>
         <translation>Chyba pri načítaní stránky</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="214"/>
+        <location filename="../src/webview/webpage.cpp" line="243"/>
         <source>QupZilla can&apos;t load page from %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla nemôže načítať stránku zo serveru %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="215"/>
+        <location filename="../src/webview/webpage.cpp" line="244"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Skontrolujte, či je adresa napísaná správne a neobsahuje chyby ako &lt;b&gt;ww.&lt;/b&gt;server.sk miesto &lt;b&gt;www.&lt;/b&gt;server.sk</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="216"/>
+        <location filename="../src/webview/webpage.cpp" line="245"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Pokiaľ sa vám nezobrazujú ani ostatné stránky, tak skontrolujte sieťové pripojenie svojho počítača.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="217"/>
+        <location filename="../src/webview/webpage.cpp" line="246"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Pokiaľ je váš počítač chránený firewallom alebo proxy severom, tak skontrolujte či má QupZilla prístup na internet.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="218"/>
+        <location filename="../src/webview/webpage.cpp" line="247"/>
         <source>Try Again</source>
         <translation>Skúsiť znova</translation>
     </message>
@@ -3010,7 +3019,7 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/webview/webview.cpp" line="498"/>
         <source>Search &quot;%1 ..&quot; on Google</source>
-        <translation type="unfinished"></translation>
+        <translation>Hľadať &quot;%1 ..&quot; na Googli</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="716"/>
