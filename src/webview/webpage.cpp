@@ -173,6 +173,35 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         case QNetworkReply::SslHandshakeFailedError:
             errorString = tr("Untrusted connection");
             break;
+        case QNetworkReply::ContentAccessDenied:
+            if (exOption->errorString.startsWith("AdBlockRule")) {
+                QString rule = exOption->errorString;
+                rule.remove("AdBlockRule:");
+
+                QFile file(":/html/adblockPage.html");
+                file.open(QFile::ReadOnly);
+                QString errString = file.readAll();
+                errString.replace("%TITLE%", tr("AdBlocked Content"));
+
+                //QPixmap pixmap = QIcon::fromTheme("dialog-warning").pixmap(45,45);
+                QPixmap pixmap(":/html/adblock_big.png");
+                QByteArray bytes;
+                QBuffer buffer(&bytes);
+                buffer.open(QIODevice::WriteOnly);
+                if (pixmap.save(&buffer, "PNG")) {
+                    errString.replace("%IMAGE%", buffer.buffer().toBase64());
+                    errString.replace("%FAVICON%", buffer.buffer().toBase64());
+                }
+
+                errString.replace("%RULE%", tr("Blocked by rule <i>%1</i>").arg(rule));
+
+                exReturn->baseUrl = exOption->url.toString();
+                exReturn->content = errString.toUtf8();
+                return true;
+                break;
+            }
+            errorString = tr("Content Access Denied");
+            break;
         default:
             //errorString = exOption->error;
             if (errorString.isEmpty())

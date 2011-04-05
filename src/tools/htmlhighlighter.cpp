@@ -84,7 +84,7 @@
                      << "(<cufon|</cufon)" << "(<cufontext|</cufontext)" << "(<button|</button)"
                      << "(<dl|</dl)" << "(<dt|</dt)" << "(<dd|</dd)"
                      << "(<strong|</strong)" << "(<dt|</dt)" << "(<dd|</dd)"
-                     << "(<em|</em)" /*<< "(<dt|</dt)" << "(<dd|</dd)"*/
+                     << "(<em|</em)" << "(<iframe|</iframe)" << "(<th|</th)"
                      << "(<ol|</ol)" << "(<small|</small)" << ">";
      foreach (const QString &pattern, keywordPatterns) {
          rule.pattern = QRegExp(pattern);
@@ -96,7 +96,7 @@
      tagOptionsFormat.setFontWeight(QFont::Bold);
      QStringList optionsPatterns;
      optionsPatterns << "type=\"" << "value=\"" << "name=\""
-                     << "on(.{0,15})=\"" << "id=\"" << "style=\""
+                     << "on(\\S{0,15})=\"" << "id=\"" << "style=\""
                      << "action=\"" << "method=\"" << "src=\""
                      << "rel=\"" << "content=\"" << "width=\""
                      << "height=\"" << "alt=\"" << "class=\""
@@ -109,6 +109,8 @@
                      << "wmode=\"" << "classid=\"" << "border=\""
                      << "cellspacing=\"" << "cellpadding=\"" << "clear=\""
                      << "for=\"" << "tabindex=\"" << "selected=\""
+                     << "frameborder=\"" << "marginwidth=\"" << "marginheight=\""
+                     << "scrolling=\""
                      << "href=\"" << "title=\"" << "xmlns=\"";
      foreach (const QString &pattern, optionsPatterns) {
          rule.pattern = QRegExp(pattern);

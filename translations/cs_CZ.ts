@@ -71,14 +71,6 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>AdBlockBlockedNetworkReply</name>
-    <message>
-        <location filename="../src/adblock/adblockblockednetworkreply.cpp" line="59"/>
-        <source>Blocked by AdBlockRule: %1</source>
-        <translation>Blokováno AdBlock pravidlem: %1</translation>
-    </message>
-</context>
-<context>
     <name>AdBlockDialog</name>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="14"/>
@@ -565,12 +557,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ClickToFlash</name>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="82"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="126"/>
         <source>Flash blocked by ClickToFlash</source>
         <translation>Zablokováno pluginem ClickToFlash</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="84"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="128"/>
         <source>Add %1 to whitelist</source>
         <translation>Přidat %1 na bílou listinu</translation>
     </message>
@@ -1066,12 +1058,12 @@ nebyl nalezen!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="477"/>
+        <location filename="../src/app/mainapplication.cpp" line="473"/>
         <source>Last session crashed</source>
         <translation>Poslední relace spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="478"/>
+        <location filename="../src/app/mainapplication.cpp" line="474"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
@@ -2392,121 +2384,121 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Informace o stránce</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="81"/>
+        <location filename="../src/webview/siteinfo.ui" line="87"/>
         <source>General</source>
         <translation>Obecné</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="93"/>
+        <location filename="../src/webview/siteinfo.ui" line="99"/>
         <source>Media</source>
         <translation>Média</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="105"/>
+        <location filename="../src/webview/siteinfo.ui" line="111"/>
         <source>Security</source>
         <translation>Zabezpečení</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="145"/>
+        <location filename="../src/webview/siteinfo.ui" line="151"/>
         <source>Size:</source>
         <translation>Velikost:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="191"/>
+        <location filename="../src/webview/siteinfo.ui" line="197"/>
         <source>Encoding:</source>
         <translation>Kódování:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="211"/>
+        <location filename="../src/webview/siteinfo.ui" line="217"/>
         <source>Tag</source>
         <translation>Tag</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="216"/>
+        <location filename="../src/webview/siteinfo.ui" line="222"/>
         <source>Value</source>
         <translation>Hodnota</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="230"/>
+        <location filename="../src/webview/siteinfo.ui" line="236"/>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
         <translation>&lt;b&gt;Informace o zabezpečení&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="250"/>
+        <location filename="../src/webview/siteinfo.ui" line="256"/>
         <source>Details</source>
         <translation>Detaily</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="315"/>
+        <location filename="../src/webview/siteinfo.ui" line="321"/>
         <source>Image</source>
         <translation>Obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="320"/>
+        <location filename="../src/webview/siteinfo.ui" line="326"/>
         <source>Image address</source>
         <translation>Adresa obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="328"/>
+        <location filename="../src/webview/siteinfo.ui" line="334"/>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
         <translation>&lt;b&gt;Náhled&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="361"/>
+        <location filename="../src/webview/siteinfo.ui" line="367"/>
         <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
         <translation>&lt;b&gt;Vydáno pro&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="368"/>
-        <location filename="../src/webview/siteinfo.ui" line="431"/>
+        <location filename="../src/webview/siteinfo.ui" line="374"/>
+        <location filename="../src/webview/siteinfo.ui" line="437"/>
         <source>Common Name (CN):</source>
         <translation>Obecné jméno (CN):</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="382"/>
-        <location filename="../src/webview/siteinfo.ui" line="445"/>
+        <location filename="../src/webview/siteinfo.ui" line="388"/>
+        <location filename="../src/webview/siteinfo.ui" line="451"/>
         <source>Organization (O):</source>
         <translation>Organizace (O):</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="396"/>
-        <location filename="../src/webview/siteinfo.ui" line="459"/>
+        <location filename="../src/webview/siteinfo.ui" line="402"/>
+        <location filename="../src/webview/siteinfo.ui" line="465"/>
         <source>Organizational Unit (OU):</source>
         <translation>Jednotka organizace (OU):</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="410"/>
+        <location filename="../src/webview/siteinfo.ui" line="416"/>
         <source>Serial Number:</source>
         <translation>Sériové číslo:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="424"/>
+        <location filename="../src/webview/siteinfo.ui" line="430"/>
         <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
         <translation>&lt;b&gt;Vydal&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="473"/>
+        <location filename="../src/webview/siteinfo.ui" line="479"/>
         <source>&lt;b&gt;Validity&lt;/b&gt;</source>
         <translation>&lt;b&gt;Platnost&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="480"/>
+        <location filename="../src/webview/siteinfo.ui" line="486"/>
         <source>Issued On:</source>
         <translation>Vydáno dne:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="494"/>
+        <location filename="../src/webview/siteinfo.ui" line="500"/>
         <source>Expires On:</source>
         <translation>Platný do:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="184"/>
+        <location filename="../src/webview/siteinfo.ui" line="190"/>
         <source>Site address:</source>
         <oldsource>Site address</oldsource>
         <translation>Adresa stránky:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="200"/>
+        <location filename="../src/webview/siteinfo.ui" line="206"/>
         <source>Meta tags of site:</source>
         <translation>Meta tagy na stránce:</translation>
     </message>
@@ -2961,42 +2953,57 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Nedůvěryhodné spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="179"/>
+        <location filename="../src/webview/webpage.cpp" line="184"/>
+        <source>AdBlocked Content</source>
+        <translation>AdBlock obsah</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webpage.cpp" line="196"/>
+        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation>Blokováno pravidlem &lt;i&gt;%1&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webpage.cpp" line="203"/>
+        <source>Content Access Denied</source>
+        <translation>Odmítnut přístup k obsahu</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webpage.cpp" line="208"/>
         <source>Unknown error</source>
         <translation>Neznámá chyba</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="184"/>
+        <location filename="../src/webview/webpage.cpp" line="213"/>
         <source>Error code %1</source>
         <translation>Chybový kód %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="195"/>
+        <location filename="../src/webview/webpage.cpp" line="224"/>
         <source>Failed loading page</source>
         <translation>Chyba při načítání stránky</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="214"/>
+        <location filename="../src/webview/webpage.cpp" line="243"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla nemůže načíst stránku ze serveru %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="215"/>
+        <location filename="../src/webview/webpage.cpp" line="244"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Zkontrolujte, zda je adresa napsána správně a neobsahuje chyby jako &lt;b&gt;ww.&lt;/b&gt;server.cz místo &lt;b&gt;www&lt;/b&gt;.server.cz</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="216"/>
+        <location filename="../src/webview/webpage.cpp" line="245"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Pokud se vám nezobrazují ani ostatní stránky, zkontrolujte síťové připojení svého počítače.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="217"/>
+        <location filename="../src/webview/webpage.cpp" line="246"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Pokud je váš počítač chráněn firewallem a nebo proxy serverem, zkontrolujte, zda má QupZilla přístup na Internet.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="218"/>
+        <location filename="../src/webview/webpage.cpp" line="247"/>
         <source>Try Again</source>
         <translation>Zkusit znovu</translation>
     </message>
