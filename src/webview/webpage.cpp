@@ -62,7 +62,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 
 void WebPage::setSSLCertificate(QSslCertificate cert)
 {
-//    if (cert != m_SslCert)
+//    if (cert != m_SslCert) -- crashing on linux :-|
         m_SslCert = cert;
 }
 
@@ -70,12 +70,16 @@ QSslCertificate WebPage::sslCertificate()
 {
 //    QSslCertificate cert;
 //    foreach (QSslCertificate c, m_SslCerts) {
-//        qDebug() << c;
-//        if (c.subjectInfo(QSslCertificate::CommonName).contains(QRegExp(mainFrame()->url().host())))
+//        if (c.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(mainFrame()->url().host())))
 //            return c;
 //    }
 //    return cert;
-    if (mainFrame()->url().scheme() == "https")
+//    if (mainFrame()->url().scheme() == "https" && !mainFrame()->title().contains(tr("Failed loading page")))
+//        return m_SslCert;
+//    else
+//        return QSslCertificate();
+
+    if (m_SslCert.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(mainFrame()->url().host())))
         return m_SslCert;
     else
         return QSslCertificate();
