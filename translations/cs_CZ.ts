@@ -1071,67 +1071,67 @@ nebyl nalezen!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="87"/>
+        <location filename="../src/network/networkmanager.cpp" line="88"/>
         <source>SSL Certificate Error!</source>
         <translation>Chyba zabezpečení!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="88"/>
+        <location filename="../src/network/networkmanager.cpp" line="89"/>
         <source>The page you trying to access has following errors in SSL Certificate:</source>
         <translation>Stránka kterou se snažíte navštívit zaslala SSL Certifikát s těmito chybami:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="99"/>
+        <location filename="../src/network/networkmanager.cpp" line="100"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizace: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="100"/>
+        <location filename="../src/network/networkmanager.cpp" line="101"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Doména: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="101"/>
+        <location filename="../src/network/networkmanager.cpp" line="102"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Vyprší: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="102"/>
+        <location filename="../src/network/networkmanager.cpp" line="103"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Chyba: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="105"/>
+        <location filename="../src/network/networkmanager.cpp" line="106"/>
         <source>Would you like to make exception for this certificate?</source>
         <translation>Chcete udělit vyjímku tomuto certifikátu?</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="109"/>
+        <location filename="../src/network/networkmanager.cpp" line="110"/>
         <source>SSL Certificate Error</source>
         <translation>Chyba zabezpečení</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="127"/>
+        <location filename="../src/network/networkmanager.cpp" line="128"/>
         <source>Authorization required</source>
         <translation>Vyžadována autorizace</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="134"/>
+        <location filename="../src/network/networkmanager.cpp" line="135"/>
         <source>Username: </source>
         <translation>Uživatelské jméno: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="135"/>
+        <location filename="../src/network/networkmanager.cpp" line="136"/>
         <source>Password: </source>
         <translation>Heslo: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="140"/>
+        <location filename="../src/network/networkmanager.cpp" line="141"/>
         <source>Save username and password on this site</source>
         <translation>Uložit jméno a heslo pro tuto stránku</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="149"/>
+        <location filename="../src/network/networkmanager.cpp" line="150"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Server %1 požaduje vaše uživatelské jméno a heslo s komentářem: &quot;%2&quot;</translation>
     </message>
@@ -1217,7 +1217,7 @@ nebyl nalezen!</translation>
         <translation>Obecné</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="959"/>
+        <location filename="../src/preferences/preferences.ui" line="953"/>
         <source>1</source>
         <translation>1</translation>
     </message>
@@ -1309,17 +1309,17 @@ nebyl nalezen!</translation>
         <translation>Obnovit původní</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1010"/>
+        <location filename="../src/preferences/preferences.ui" line="1004"/>
         <source>Maximum </source>
         <translation>Maximálně</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1017"/>
+        <location filename="../src/preferences/preferences.ui" line="1011"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1213"/>
+        <location filename="../src/preferences/preferences.ui" line="1207"/>
         <source>&lt;b&gt;Downloads&lt;/b&gt;</source>
         <translation>&lt;b&gt;Stahování&lt;/b&gt;</translation>
     </message>
@@ -1329,22 +1329,22 @@ nebyl nalezen!</translation>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="915"/>
+        <location filename="../src/preferences/preferences.ui" line="909"/>
         <source>&lt;b&gt;Network Cache&lt;/b&gt;</source>
         <translation>&lt;b&gt;Síťová cache&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1000"/>
+        <location filename="../src/preferences/preferences.ui" line="994"/>
         <source>Allow storing network cache on disk</source>
         <translation>Povolit ukládání cache na disk</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1458"/>
+        <location filename="../src/preferences/preferences.ui" line="1452"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1371"/>
+        <location filename="../src/preferences/preferences.ui" line="1365"/>
         <source>&lt;b&gt;Web storage&lt;/b&gt;</source>
         <translation>&lt;b&gt;Webové úložiště&lt;/b&gt;</translation>
     </message>
@@ -1354,7 +1354,7 @@ nebyl nalezen!</translation>
         <translation>&lt;b&gt;Chování adresního řádku&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1596"/>
+        <location filename="../src/preferences/preferences.ui" line="1590"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jazyk&lt;/b&gt;</translation>
     </message>
@@ -1509,77 +1509,82 @@ nebyl nalezen!</translation>
         <translation>Tisknout pozadí objektů</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="877"/>
+        <location filename="../src/preferences/preferences.ui" line="864"/>
         <source>Wheel scrolls</source>
         <translation>Kolečko posouvá</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="891"/>
+        <location filename="../src/preferences/preferences.ui" line="878"/>
         <source>lines</source>
         <translation>řádků</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1059"/>
+        <location filename="../src/preferences/preferences.ui" line="900"/>
+        <source>Send Do Not Track header to servers</source>
+        <translation>Zasílat serverům Do Not Track hlavičku</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1053"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Typy písem&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1072"/>
+        <location filename="../src/preferences/preferences.ui" line="1066"/>
         <source>Standard</source>
         <translation>Standardní</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1079"/>
+        <location filename="../src/preferences/preferences.ui" line="1073"/>
         <source>Fixed</source>
         <translation>Proporcionální</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1089"/>
+        <location filename="../src/preferences/preferences.ui" line="1083"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1099"/>
+        <location filename="../src/preferences/preferences.ui" line="1093"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1109"/>
+        <location filename="../src/preferences/preferences.ui" line="1103"/>
         <source>Cursive</source>
         <translation>Kurzíva</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1119"/>
+        <location filename="../src/preferences/preferences.ui" line="1113"/>
         <source>Default Font</source>
         <translation>Základní písmo</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1136"/>
+        <location filename="../src/preferences/preferences.ui" line="1130"/>
         <source>Fixed Font</source>
         <translation>Proporcionální písmo</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1195"/>
+        <location filename="../src/preferences/preferences.ui" line="1189"/>
         <source>Fantasy</source>
         <translation>Fantasy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1202"/>
+        <location filename="../src/preferences/preferences.ui" line="1196"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Velikosti písem&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1220"/>
+        <location filename="../src/preferences/preferences.ui" line="1214"/>
         <source>Ask everytime for download location</source>
         <translation>U každého souboru se dotázat kam ho uložit</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1227"/>
+        <location filename="../src/preferences/preferences.ui" line="1221"/>
         <source>Use defined location: </source>
         <translation>Uložit všechny soubory do:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1239"/>
+        <location filename="../src/preferences/preferences.ui" line="1233"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -1609,7 +1614,7 @@ nebyl nalezen!</translation>
         <translation>Povolit pluginy (Flash plugin)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="940"/>
+        <location filename="../src/preferences/preferences.ui" line="934"/>
         <source>Maximum pages in cache: </source>
         <translation>Maximum stránek v cache:</translation>
     </message>
@@ -1619,12 +1624,12 @@ nebyl nalezen!</translation>
         <translation>Správce hesel</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1294"/>
+        <location filename="../src/preferences/preferences.ui" line="1288"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Možnosti doplňování&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1301"/>
+        <location filename="../src/preferences/preferences.ui" line="1295"/>
         <source>Allow saving passwords from sites</source>
         <translation>Povolit ukládání hesel ze stránek</translation>
     </message>
@@ -1634,47 +1639,47 @@ nebyl nalezen!</translation>
         <translation>Soukromí</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1465"/>
+        <location filename="../src/preferences/preferences.ui" line="1459"/>
         <source>Filter Tracking Cookies</source>
         <translation>Filtrovat sledovací cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1472"/>
+        <location filename="../src/preferences/preferences.ui" line="1466"/>
         <source>Allow storing of cookies</source>
         <translation>Povolit přijímání cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1479"/>
+        <location filename="../src/preferences/preferences.ui" line="1473"/>
         <source>Delete cookies on close</source>
         <translation>Vymazat cookies při zavření prohlížeče</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1499"/>
+        <location filename="../src/preferences/preferences.ui" line="1493"/>
         <source>Match domain exactly</source>
         <translation>Vyžadovat přesnou shodu domény</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1535"/>
+        <location filename="../src/preferences/preferences.ui" line="1529"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Upozornění:&lt;/b&gt; Možnosti vyžadovat přesnou shodu domény a filtrovat sledovací cookies mohou vést k odmítnutí některých cookies. Pokud máte problémy s cookies, zkuste nejdříve tyto možnosti zakázat!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1551"/>
+        <location filename="../src/preferences/preferences.ui" line="1545"/>
         <source>Cookies Manager</source>
         <translation>Správce cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1378"/>
+        <location filename="../src/preferences/preferences.ui" line="1372"/>
         <source>Allow storing web icons</source>
         <translation>Povolit ukládání ikon</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1385"/>
+        <location filename="../src/preferences/preferences.ui" line="1379"/>
         <source>Allow saving history</source>
         <translation>Povolit ukládání historie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1392"/>
+        <location filename="../src/preferences/preferences.ui" line="1386"/>
         <source>Delete history on close</source>
         <translation>Vymazat historii při zavření prohlížeče</translation>
     </message>
@@ -1700,63 +1705,63 @@ nebyl nalezen!</translation>
         <translation>Přidat .cz doménu stísknutím ALT klávesy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1564"/>
+        <location filename="../src/preferences/preferences.ui" line="1558"/>
         <source>SSL Manager</source>
         <translation>Správce certifikátů</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1603"/>
+        <location filename="../src/preferences/preferences.ui" line="1597"/>
         <source>Available translations: </source>
         <translation>Dostupné překlady:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1613"/>
+        <location filename="../src/preferences/preferences.ui" line="1607"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>Ke změně jazyka je nutný restart prohlížeče.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="321"/>
+        <location filename="../src/preferences/preferences.cpp" line="322"/>
         <source>Choose download location...</source>
         <translation>Vyberte složku pro stahování...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="329"/>
+        <location filename="../src/preferences/preferences.cpp" line="330"/>
         <source>Choose background location...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="434"/>
+        <location filename="../src/preferences/preferences.cpp" line="435"/>
         <source>New Profile</source>
         <translation>Nový profil</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="434"/>
+        <location filename="../src/preferences/preferences.cpp" line="435"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Zvolte jméno nového profilu:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="439"/>
-        <location filename="../src/preferences/preferences.cpp" line="443"/>
+        <location filename="../src/preferences/preferences.cpp" line="440"/>
+        <location filename="../src/preferences/preferences.cpp" line="444"/>
         <source>Error!</source>
         <translation>Chyba!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="439"/>
+        <location filename="../src/preferences/preferences.cpp" line="440"/>
         <source>This profile already exists!</source>
         <translation>Tento profil již existuje!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="443"/>
+        <location filename="../src/preferences/preferences.cpp" line="444"/>
         <source>Cannot create profile directory!</source>
         <translation>Nemohu vytvořit složku profilu!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="457"/>
+        <location filename="../src/preferences/preferences.cpp" line="458"/>
         <source>Confirmation</source>
         <translation>Potvrzení</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="458"/>
+        <location filename="../src/preferences/preferences.cpp" line="459"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Jste si jisti že chcete permanentně smazat profil &quot;%1&quot;? Tato akce nelze vrátit zpět!</translation>
     </message>
@@ -2918,92 +2923,92 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="95"/>
+        <location filename="../src/webview/webpage.cpp" line="99"/>
         <source>Confirmation</source>
         <translation>Potvrzení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="96"/>
+        <location filename="../src/webview/webpage.cpp" line="100"/>
         <source>To show this page, QupZilla must resend request witch do it again (like searching on making an shoping, witch has been already done.</source>
         <translation>Pro zobrazení této stránky musí QupZilla znovu odeslat požadavek, který zopakuje akci (jako např. hledání nebo potvrzení objednávky), která byla provedena již dříve.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="162"/>
+        <location filename="../src/webview/webpage.cpp" line="166"/>
         <source>Server refused the connection</source>
         <translation>Server odmítl spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="165"/>
+        <location filename="../src/webview/webpage.cpp" line="169"/>
         <source>Server closed the connection</source>
         <translation>Server ukončil spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="168"/>
+        <location filename="../src/webview/webpage.cpp" line="172"/>
         <source>Server not found</source>
         <translation>Server nenalezen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="171"/>
+        <location filename="../src/webview/webpage.cpp" line="175"/>
         <source>Connection timed out</source>
         <translation>Spojení vypršelo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="174"/>
+        <location filename="../src/webview/webpage.cpp" line="178"/>
         <source>Untrusted connection</source>
         <translation>Nedůvěryhodné spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="184"/>
+        <location filename="../src/webview/webpage.cpp" line="188"/>
         <source>AdBlocked Content</source>
         <translation>AdBlock obsah</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="196"/>
+        <location filename="../src/webview/webpage.cpp" line="200"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Blokováno pravidlem &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="203"/>
+        <location filename="../src/webview/webpage.cpp" line="207"/>
         <source>Content Access Denied</source>
         <translation>Odmítnut přístup k obsahu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="208"/>
+        <location filename="../src/webview/webpage.cpp" line="212"/>
         <source>Unknown error</source>
         <translation>Neznámá chyba</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="213"/>
+        <location filename="../src/webview/webpage.cpp" line="217"/>
         <source>Error code %1</source>
         <translation>Chybový kód %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="224"/>
+        <location filename="../src/webview/webpage.cpp" line="228"/>
         <source>Failed loading page</source>
         <translation>Chyba při načítání stránky</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="243"/>
+        <location filename="../src/webview/webpage.cpp" line="247"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla nemůže načíst stránku ze serveru %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="244"/>
+        <location filename="../src/webview/webpage.cpp" line="248"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Zkontrolujte, zda je adresa napsána správně a neobsahuje chyby jako &lt;b&gt;ww.&lt;/b&gt;server.cz místo &lt;b&gt;www&lt;/b&gt;.server.cz</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="245"/>
+        <location filename="../src/webview/webpage.cpp" line="249"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Pokud se vám nezobrazují ani ostatní stránky, zkontrolujte síťové připojení svého počítače.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="246"/>
+        <location filename="../src/webview/webpage.cpp" line="250"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Pokud je váš počítač chráněn firewallem a nebo proxy serverem, zkontrolujte, zda má QupZilla přístup na Internet.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="247"/>
+        <location filename="../src/webview/webpage.cpp" line="251"/>
         <source>Try Again</source>
         <translation>Zkusit znovu</translation>
     </message>
@@ -3011,141 +3016,141 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/webview/webview.cpp" line="131"/>
-        <location filename="../src/webview/webview.cpp" line="263"/>
+        <location filename="../src/webview/webview.cpp" line="132"/>
+        <location filename="../src/webview/webview.cpp" line="264"/>
         <source>Loading...</source>
         <translation>Načítám...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="498"/>
+        <location filename="../src/webview/webview.cpp" line="499"/>
         <source>Search &quot;%1 ..&quot; on Google</source>
         <translation>Hledat &quot;%1 ..&quot; na Googlu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="716"/>
+        <location filename="../src/webview/webview.cpp" line="717"/>
         <source>No Named Page</source>
         <translation>Bezejmenná stránka</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="263"/>
+        <location filename="../src/webview/webview.cpp" line="264"/>
         <source>Done</source>
         <translation>Hotovo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="355"/>
-        <location filename="../src/webview/webview.cpp" line="359"/>
-        <location filename="../src/webview/webview.cpp" line="521"/>
+        <location filename="../src/webview/webview.cpp" line="356"/>
+        <location filename="../src/webview/webview.cpp" line="360"/>
+        <location filename="../src/webview/webview.cpp" line="522"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="410"/>
+        <location filename="../src/webview/webview.cpp" line="411"/>
         <source>Open link in new window</source>
         <translation>Otevřít odkaz v novém okně</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="409"/>
+        <location filename="../src/webview/webview.cpp" line="410"/>
         <source>Open link in new tab</source>
         <translation>Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="412"/>
+        <location filename="../src/webview/webview.cpp" line="413"/>
         <source>Bookmark link</source>
         <translation>Přidat odkaz do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="413"/>
+        <location filename="../src/webview/webview.cpp" line="414"/>
         <source>Save link as...</source>
         <translation>Uložit odkaz jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="414"/>
+        <location filename="../src/webview/webview.cpp" line="415"/>
         <source>Send link...</source>
         <translation>Odeslat odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="415"/>
+        <location filename="../src/webview/webview.cpp" line="416"/>
         <source>Copy link address</source>
         <translation>Kopírovat adresu odkazu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="424"/>
+        <location filename="../src/webview/webview.cpp" line="425"/>
         <source>Show image</source>
         <translation>Zobrazit obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="425"/>
+        <location filename="../src/webview/webview.cpp" line="426"/>
         <source>Copy image</source>
         <translation>Kopírovat obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="426"/>
+        <location filename="../src/webview/webview.cpp" line="427"/>
         <source>Copy image address</source>
         <oldsource>Coyp image address</oldsource>
         <translation>Kopírovat adresu obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="428"/>
+        <location filename="../src/webview/webview.cpp" line="429"/>
         <source>Save image as...</source>
         <translation>Uložit obrázek jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="429"/>
+        <location filename="../src/webview/webview.cpp" line="430"/>
         <source>Send image...</source>
         <translation>Odeslat obrázek...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="445"/>
+        <location filename="../src/webview/webview.cpp" line="446"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="453"/>
+        <location filename="../src/webview/webview.cpp" line="454"/>
         <source>Forward</source>
         <translation>Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="467"/>
+        <location filename="../src/webview/webview.cpp" line="468"/>
         <source>Reload</source>
         <translation>Obnovit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="474"/>
+        <location filename="../src/webview/webview.cpp" line="475"/>
         <source>Stop</source>
         <translation>Zastavit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="478"/>
+        <location filename="../src/webview/webview.cpp" line="479"/>
         <source>Bookmark page</source>
         <translation>Přidat stránku do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="479"/>
+        <location filename="../src/webview/webview.cpp" line="480"/>
         <source>Save page as...</source>
         <translation>Uložit stránku jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="480"/>
+        <location filename="../src/webview/webview.cpp" line="481"/>
         <source>Send page...</source>
         <translation>Odeslat stránku...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="482"/>
+        <location filename="../src/webview/webview.cpp" line="483"/>
         <source>Select all</source>
         <translation>Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="487"/>
+        <location filename="../src/webview/webview.cpp" line="488"/>
         <source>Show source code</source>
         <translation>Zobrazit zdrojový kód</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="488"/>
+        <location filename="../src/webview/webview.cpp" line="489"/>
         <source>Show info about site</source>
         <translation>Zobrazit informace o stránce</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="489"/>
+        <location filename="../src/webview/webview.cpp" line="490"/>
         <source>Show Web Inspector</source>
         <translation>Zobrazit Web Inspektor</translation>
     </message>

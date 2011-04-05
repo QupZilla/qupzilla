@@ -857,19 +857,6 @@
           </widget>
          </item>
          <item row="6" column="3">
-          <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="5" column="3">
           <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
             <widget class="QLabel" name="label_14">
@@ -906,6 +893,13 @@
             </spacer>
            </item>
           </layout>
+         </item>
+         <item row="5" column="3">
+          <widget class="QCheckBox" name="doNotTrack">
+           <property name="text">
+            <string>Send Do Not Track header to servers</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

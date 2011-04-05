@@ -50,6 +50,7 @@ void NetworkManager::loadSettings()
         setCache(m_diskCache);
     }
     m_ignoreAllWarnings = settings.value("IgnoreAllSSLWarnings", false).toBool();
+    m_doNotTrack = settings.value("DoNotTrack", false).toBool();
     settings.endGroup();
 
     QSslConfiguration config = QSslConfiguration::defaultConfiguration();
@@ -185,6 +186,8 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
     QNetworkRequest req = request;
     req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    if (m_doNotTrack)
+        req.setRawHeader("DNT", "1");
 
     // Adblock
     if (op == QNetworkAccessManager::GetOperation) {

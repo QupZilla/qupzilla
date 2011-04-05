@@ -63,6 +63,7 @@ private:
     QNetworkDiskCache* m_diskCache;
 
     bool m_ignoreAllWarnings;
+    bool m_doNotTrack;
 };
 
 #endif // NETWORKMANAGER_H
