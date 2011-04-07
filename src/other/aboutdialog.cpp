@@ -20,12 +20,19 @@
 #include "qupzilla.h"
 #include "webview.h"
 #include "webpage.h"
+#include "qtwin.h"
 
 AboutDialog::AboutDialog(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
+#ifdef Q_WS_WIN
+    if (QtWin::isCompositionEnabled()) {
+        QtWin::extendFrameIntoClientArea(this);
+        ui->verticalLayout->setContentsMargins(0, 0, 0, 0);
+    }
+#endif
 
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->authorsButton, SIGNAL(clicked()), this, SLOT(buttonClicked()));

@@ -22,6 +22,7 @@
 #include "downloaditem.h"
 #include "ecwin7.h"
 #include "networkmanager.h"
+#include "qtwin.h"
 
 DownloadManager::DownloadManager(QWidget* parent) :
     QWidget(parent)
@@ -29,6 +30,10 @@ DownloadManager::DownloadManager(QWidget* parent) :
     ,m_isClosing(false)
 {
     ui->setupUi(this);
+#ifdef Q_WS_WIN
+    if (QtWin::isCompositionEnabled())
+        QtWin::extendFrameIntoClientArea(this);
+#endif
     ui->clearButton->setIcon(QIcon::fromTheme("edit-clear"));
     //CENTER on screen
     const QRect screen = QApplication::desktop()->screenGeometry();

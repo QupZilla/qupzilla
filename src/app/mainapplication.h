@@ -64,7 +64,8 @@ public:
     inline QString getActiveLanguage() { return m_activeLanguage; }
     inline bool isClosing() { return m_isClosing; }
     inline bool isExited() { return m_isExited; }
-    bool checkProfileDir();
+    bool checkSettingsDir();
+    void checkProfile(QString path);
     inline int windowCount() { return m_mainWindows.count(); }
 
     QupZilla* getWindow();
@@ -123,6 +124,7 @@ private:
     bool m_isClosing;
     bool m_isChanged;
     bool m_isExited;
+    bool m_isRestoring;
 };
 
 #endif // MAINAPPLICATION_H

@@ -19,6 +19,7 @@
 #include "ui_historymanager.h"
 #include "qupzilla.h"
 #include "locationbar.h"
+#include "qtwin.h"
 
 HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
@@ -30,6 +31,13 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
     const QRect screen = QApplication::desktop()->screenGeometry();
     const QRect &size = QWidget::geometry();
     QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+
+#ifdef Q_WS_WIN
+    if (QtWin::isCompositionEnabled()) {
+        QtWin::extendFrameIntoClientArea(this);
+        ui->gridLayout->setContentsMargins(0, 0, 0, 0);
+    }
+#endif
 
     connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(hide()));
