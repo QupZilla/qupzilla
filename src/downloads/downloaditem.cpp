@@ -85,7 +85,7 @@ void DownloadItem::metaDataChanged()
 
     QVariant locationHeader = m_reply->header(QNetworkRequest::LocationHeader);
     if (!locationHeader.toUrl().isEmpty())
-    qWarning() << "DownloadManager: metaDataChanged << URL: " << locationHeader.toUrl();
+    qWarning("DownloadManager: metaDataChanged << URL: %s", qPrintable(locationHeader.toString()));
 
 //    QMessageBox::information(m_item->listWidget()->parentWidget(), "Meta Data Changed", QString("Meta data changed feature unimplemented yet, sorry.\n URL: '%̈́'").arg(locationHeader.toUrl().toString()));
 }
