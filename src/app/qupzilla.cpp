@@ -47,7 +47,7 @@
 #include "adblockmanager.h"
 #include "clickablelabel.h"
 
-const QString QupZilla::VERSION = "1.0.0-rc1";
+const QString QupZilla::VERSION = "1.0.0-b1";
 //const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM d yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "nowrep";
