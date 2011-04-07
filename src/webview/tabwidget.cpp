@@ -454,13 +454,13 @@ bool TabWidget::restoreState(const QByteArray &state)
         return false;
 
     QStringList openTabs;
-    stream >> openTabs;
-
     int currentTab;
-    stream >> currentTab;
     QList<QByteArray> tabHistory;
+    stream >> openTabs;
+    stream >> currentTab;
     stream >> tabHistory;
 
+    qDebug() << "restoring: " << openTabs;
 
     for (int i = 0; i < openTabs.count(); ++i) {
         QUrl url = QUrl::fromEncoded(openTabs.at(i).toUtf8());
@@ -475,6 +475,7 @@ bool TabWidget::restoreState(const QByteArray &state)
             addView(url);
         }
     }
+
     setCurrentIndex(currentTab);
     return true;
 }

@@ -24,6 +24,7 @@
 #include "bookmarkstoolbar.h"
 #include "tabwidget.h"
 #include "bookmarksmodel.h"
+#include "qtwin.h"
 
 //Won't be bad idea to rewrite bookmarks access via bookmarksmodel
 
@@ -39,6 +40,13 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent) :
     const QRect screen = QApplication::desktop()->screenGeometry();
     const QRect &size = QWidget::geometry();
     QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+
+#ifdef Q_WS_WIN
+    if (QtWin::isCompositionEnabled()) {
+        QtWin::extendFrameIntoClientArea(this);
+        ui->gridLayout->setContentsMargins(0, 0, 0, 0);
+    }
+#endif
 
     connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(hide()));
