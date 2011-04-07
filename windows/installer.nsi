@@ -121,7 +121,7 @@ SectionGroup $(TITLE_SecPlugins) SecPlugins
 SectionGroupEnd
 
 
-Section "-Register Extension"
+Section $(TITLE_SecExtensions) SecExtensions
   SetOutPath "$INSTDIR"
   ${registerExtension} "$INSTDIR\qupzilla.exe" ".htm" "HTM File"
   ${registerExtension} "$INSTDIR\qupzilla.exe" ".html" "HTML File"
@@ -150,6 +150,7 @@ SectionEnd
   !insertmacro MUI_DESCRIPTION_TEXT ${SecPlugins} $(DESC_SecPlugins)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecExamplePlugin} $(DESC_SecExamplePlugin)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} $(DESC_SecDesktop)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecExtensions} $(DESC_SecExtensions)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Section "-Uninstaller"
@@ -171,8 +172,8 @@ Section Uninstall
   RMDir /r "$SMPROGRAMS\QupZilla"
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
-  ${unregisterExtension} ".htm" "HTM File"
-  ${unregisterExtension} ".html" "HTML File"
+  ${unregisterExtension} ".htm" $(FILE_Htm)
+  ${unregisterExtension} ".html" $(FILE_Html)
 SectionEnd
 
 BrandingText "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer"

@@ -23,49 +23,49 @@ p, li { white-space: pre-wrap; }
         <translation>Autoři</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="38"/>
-        <location filename="../src/other/aboutdialog.cpp" line="46"/>
+        <location filename="../src/other/aboutdialog.cpp" line="45"/>
+        <location filename="../src/other/aboutdialog.cpp" line="53"/>
         <source>Authors and Contributors</source>
         <translation>Autoři a Spolupracovníci</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="40"/>
-        <location filename="../src/other/aboutdialog.cpp" line="62"/>
+        <location filename="../src/other/aboutdialog.cpp" line="47"/>
+        <location filename="../src/other/aboutdialog.cpp" line="69"/>
         <source>&lt; About QupZilla</source>
         <translation>&lt; O QupZille</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="49"/>
+        <location filename="../src/other/aboutdialog.cpp" line="56"/>
         <source>&lt;p&gt;&lt;b&gt;Application version %1&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Verze aplikace %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="50"/>
+        <location filename="../src/other/aboutdialog.cpp" line="57"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>&lt;b&gt;Verze WebKitu %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="51"/>
+        <location filename="../src/other/aboutdialog.cpp" line="58"/>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
         <translation>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Všechna práva vyhrazena.&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="52"/>
+        <location filename="../src/other/aboutdialog.cpp" line="59"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;Datum sestavení: %1&lt;/small&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="65"/>
+        <location filename="../src/other/aboutdialog.cpp" line="72"/>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Hlavní vývojáři:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="66"/>
+        <location filename="../src/other/aboutdialog.cpp" line="73"/>
         <source>&lt;p&gt;&lt;b&gt;Other contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Ostatní spolupracovníci:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="67"/>
+        <location filename="../src/other/aboutdialog.cpp" line="74"/>
         <source>&lt;p&gt;&lt;b&gt;Thanks to:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Poděkování:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -297,95 +297,95 @@ p, li { white-space: pre-wrap; }
         <translation>Přidat složku</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="67"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="75"/>
         <source>Add new folder</source>
         <translation>Přidat složku</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="67"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="75"/>
         <source>Choose name for new bookmark folder: </source>
         <translation>Zvolte jméno pro novou složku:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="97"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="105"/>
         <source>New Tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="109"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="157"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="182"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="207"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="263"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="288"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="318"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="343"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="117"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="165"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="190"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="215"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="271"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="296"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="326"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="351"/>
         <source>Bookmarks In Menu</source>
         <translation>Záložky v menu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="109"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="158"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="187"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="209"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="264"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="290"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="319"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="345"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="117"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="166"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="195"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="217"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="272"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="298"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="327"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="353"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Panel záložek</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="150"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="158"/>
         <source>Open link in actual tab</source>
         <translation>Otevřít odkaz v aktuálním panelu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="151"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="159"/>
         <source>Open link in new tab</source>
         <translation>Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="155"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="163"/>
         <source>Move bookmark to folder</source>
         <translation>Přesunout záložku do složky</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="156"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="262"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="292"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="317"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="347"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="164"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="270"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="300"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="325"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="355"/>
         <source>Unsorted Bookmarks</source>
         <translation>Nesetříděné záložky</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="166"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="174"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="259"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="267"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
         <translation>&lt;b&gt;Upozornění: &lt;/b&gt;Tuto stránku již máte v záložkách!</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="270"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="278"/>
         <source>Choose name and location of bookmark.</source>
         <translation>Zvolte jméno a umístění záložky.</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="274"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="282"/>
         <source>Add New Bookmark</source>
         <translation>Přidat záložku</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="325"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="333"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Zvolte složku pro záložky:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="327"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="335"/>
         <source>Bookmark All Tabs</source>
         <translation>Přidat všechny panely do záložek</translation>
     </message>
@@ -827,39 +827,39 @@ nebyl nalezen!</translation>
 <context>
     <name>DownloadManager</name>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="106"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="111"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% z %2 souborů (%3) %4 zbyvá</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="109"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="114"/>
         <source>% - Download Manager</source>
         <translation>% - Správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="168"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="173"/>
         <source>Save file as...</source>
         <translation>Uložit soubor jako...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="268"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="273"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="269"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="274"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Jste si jistý že chcete skončit? Všechna nedokončená stahování budou zrušena!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="230"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="235"/>
         <source>NoNameDownload</source>
         <translation>BezNazvu</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="14"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="70"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="87"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="75"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="92"/>
         <source>Download Manager</source>
         <translation>Správce stahování</translation>
     </message>
@@ -950,37 +950,37 @@ nebyl nalezen!</translation>
         <translation>Vymazat celou historii</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="45"/>
+        <location filename="../src/history/historymanager.cpp" line="53"/>
         <source>Search</source>
         <translation>Vyhledávání</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="78"/>
+        <location filename="../src/history/historymanager.cpp" line="86"/>
         <source>New Tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="90"/>
+        <location filename="../src/history/historymanager.cpp" line="98"/>
         <source>Open link in actual tab</source>
         <translation>Otevřít odkaz v aktuálním panelu</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="91"/>
+        <location filename="../src/history/historymanager.cpp" line="99"/>
         <source>Open link in new tab</source>
         <translation>Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="95"/>
+        <location filename="../src/history/historymanager.cpp" line="103"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="119"/>
+        <location filename="../src/history/historymanager.cpp" line="127"/>
         <source>Confirmation</source>
         <translation>Potvrzení</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="120"/>
+        <location filename="../src/history/historymanager.cpp" line="128"/>
         <source>Are you sure to delete all history?</source>
         <translation>Opravdu chcete vymazat celou historii?</translation>
     </message>
@@ -1058,12 +1058,12 @@ nebyl nalezen!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="473"/>
+        <location filename="../src/app/mainapplication.cpp" line="478"/>
         <source>Last session crashed</source>
         <translation>Poslední relace spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="474"/>
+        <location filename="../src/app/mainapplication.cpp" line="479"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
@@ -1769,72 +1769,72 @@ nebyl nalezen!</translation>
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/app/appui.cpp" line="181"/>
+        <location filename="../src/app/appui.cpp" line="180"/>
         <source>File</source>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="185"/>
+        <location filename="../src/app/appui.cpp" line="184"/>
         <source>Open File</source>
         <translation>Otevřít soubor</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="196"/>
+        <location filename="../src/app/appui.cpp" line="195"/>
         <source>Edit</source>
         <translation>Úpravy</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="172"/>
+        <location filename="../src/app/appui.cpp" line="171"/>
         <source>Tools</source>
         <translation>Nástroje</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="173"/>
+        <location filename="../src/app/appui.cpp" line="172"/>
         <source>Help</source>
         <translation>Nápověda</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="210"/>
+        <location filename="../src/app/appui.cpp" line="209"/>
         <source>View</source>
         <translation>Zobrazení</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="174"/>
+        <location filename="../src/app/appui.cpp" line="173"/>
         <source>Bookmarks</source>
         <translation>Záložky</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="175"/>
+        <location filename="../src/app/appui.cpp" line="174"/>
         <source>History</source>
         <translation>Historie</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="189"/>
+        <location filename="../src/app/appui.cpp" line="188"/>
         <source>Save Page As...</source>
         <translation>Uložit stránku jako...</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="191"/>
+        <location filename="../src/app/appui.cpp" line="190"/>
         <source>Print</source>
         <translation>Tisk</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="193"/>
+        <location filename="../src/app/appui.cpp" line="192"/>
         <source>Quit</source>
         <translation>Konec</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="183"/>
+        <location filename="../src/app/appui.cpp" line="182"/>
         <source>New Tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="197"/>
+        <location filename="../src/app/appui.cpp" line="196"/>
         <source>Undo</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="198"/>
+        <location filename="../src/app/appui.cpp" line="197"/>
         <source>Redo</source>
         <translation>Vpřed</translation>
     </message>
@@ -1854,111 +1854,111 @@ nebyl nalezen!</translation>
         <translation>O Qt</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="186"/>
+        <location filename="../src/app/appui.cpp" line="185"/>
         <source>Close Tab</source>
         <translation>Zavřít panel</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="207"/>
+        <location filename="../src/app/appui.cpp" line="206"/>
         <source>Find</source>
         <translation>Najít</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="200"/>
+        <location filename="../src/app/appui.cpp" line="199"/>
         <source>Cut</source>
         <translation>Vyjmout</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="155"/>
+        <location filename="../src/app/appui.cpp" line="154"/>
         <source>IP Address of current page</source>
         <translation>IP Adresa aktuální stránky</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="201"/>
+        <location filename="../src/app/appui.cpp" line="200"/>
         <source>Copy</source>
         <translation>Kopírovat</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="202"/>
+        <location filename="../src/app/appui.cpp" line="201"/>
         <source>Paste</source>
         <translation>Vložit</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="203"/>
+        <location filename="../src/app/appui.cpp" line="202"/>
         <source>Delete</source>
         <translation>Odstranit</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="205"/>
+        <location filename="../src/app/appui.cpp" line="204"/>
         <source>Select All</source>
         <translation>Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="211"/>
+        <location filename="../src/app/appui.cpp" line="210"/>
         <source>Navigation Toolbar</source>
         <translation>Navigační lišta</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="217"/>
+        <location filename="../src/app/appui.cpp" line="216"/>
         <source>Status Bar</source>
         <translation>Status bar</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="97"/>
-        <location filename="../src/app/appui.cpp" line="233"/>
+        <location filename="../src/app/appui.cpp" line="96"/>
+        <location filename="../src/app/appui.cpp" line="232"/>
         <source>Stop</source>
         <translation>Zastavit</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="98"/>
-        <location filename="../src/app/appui.cpp" line="242"/>
+        <location filename="../src/app/appui.cpp" line="97"/>
+        <location filename="../src/app/appui.cpp" line="241"/>
         <source>Reload</source>
         <translation>Obnovit</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="245"/>
+        <location filename="../src/app/appui.cpp" line="244"/>
         <source>Character Encoding</source>
         <translation>Kódování znaků</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="258"/>
+        <location filename="../src/app/appui.cpp" line="257"/>
         <source>Zoom In</source>
         <translation>Zoom +</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="259"/>
+        <location filename="../src/app/appui.cpp" line="258"/>
         <source>Zoom Out</source>
         <translation>Zoom -</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="260"/>
+        <location filename="../src/app/appui.cpp" line="259"/>
         <source>Reset</source>
         <translation>Původní</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="264"/>
+        <location filename="../src/app/appui.cpp" line="263"/>
         <source>Page Source</source>
         <translation>Zdrojový kód stránky</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="223"/>
+        <location filename="../src/app/appui.cpp" line="222"/>
         <source>Fullscreen</source>
         <translation>Celá obrazovka</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="93"/>
+        <location filename="../src/app/appui.cpp" line="92"/>
         <location filename="../src/app/qupzilla.cpp" line="317"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="95"/>
+        <location filename="../src/app/appui.cpp" line="94"/>
         <location filename="../src/app/qupzilla.cpp" line="324"/>
         <source>Forward</source>
         <translation>Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="100"/>
+        <location filename="../src/app/appui.cpp" line="99"/>
         <location filename="../src/app/qupzilla.cpp" line="331"/>
         <source>Home</source>
         <translation>Domů</translation>
@@ -1984,22 +1984,22 @@ nebyl nalezen!</translation>
         <translation>Organizovat záložky</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="182"/>
+        <location filename="../src/app/appui.cpp" line="181"/>
         <source>New Window</source>
         <translation>Nové okno</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="187"/>
+        <location filename="../src/app/appui.cpp" line="186"/>
         <source>Close Window</source>
         <translation>Zavřít okno</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="184"/>
+        <location filename="../src/app/appui.cpp" line="183"/>
         <source>Open Location</source>
         <translation>Otevřít adresu</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="190"/>
+        <location filename="../src/app/appui.cpp" line="189"/>
         <source>Send Link...</source>
         <translation>Poslat odkaz...</translation>
     </message>
@@ -2064,32 +2064,32 @@ nebyl nalezen!</translation>
         <translation>Správce cookies</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="214"/>
+        <location filename="../src/app/appui.cpp" line="213"/>
         <source>Bookmarks Toolbar</source>
         <translation>Panel záložek</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="87"/>
+        <location filename="../src/app/appui.cpp" line="86"/>
         <source>Navigation</source>
         <translation>Navigace</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="113"/>
+        <location filename="../src/app/appui.cpp" line="112"/>
         <source>Main Menu</source>
         <translation>Hlavní menu</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="139"/>
+        <location filename="../src/app/appui.cpp" line="138"/>
         <source>Exit Fullscreen</source>
         <translation>Zrušit celou obrazovku</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="151"/>
+        <location filename="../src/app/appui.cpp" line="150"/>
         <source>Private Browsing Enabled</source>
         <translation>Soukromé prohlížení zapnuto</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="220"/>
+        <location filename="../src/app/appui.cpp" line="219"/>
         <source>Menu Bar</source>
         <translation>Menu</translation>
     </message>
@@ -2164,7 +2164,7 @@ nebyl nalezen!</translation>
         <translation>RSS čtečka</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.ui" line="37"/>
+        <location filename="../src/rss/rssmanager.ui" line="40"/>
         <source>Empty</source>
         <translation>Prázdný</translation>
     </message>
@@ -2191,69 +2191,69 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Smazat kanál</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="74"/>
+        <location filename="../src/rss/rssmanager.cpp" line="82"/>
         <source>News</source>
         <translation>Novinky</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="83"/>
-        <location filename="../src/rss/rssmanager.cpp" line="108"/>
+        <location filename="../src/rss/rssmanager.cpp" line="91"/>
+        <location filename="../src/rss/rssmanager.cpp" line="116"/>
         <source>Loading...</source>
         <translation>Načítám...</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="148"/>
+        <location filename="../src/rss/rssmanager.cpp" line="156"/>
         <source>Fill title and URL of a feed: </source>
         <translation>Vyplňte titulek a adresu kanálu: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="150"/>
+        <location filename="../src/rss/rssmanager.cpp" line="158"/>
         <source>Feed title: </source>
         <translation>Titulek kanálu: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="151"/>
+        <location filename="../src/rss/rssmanager.cpp" line="159"/>
         <source>Feed URL: </source>
         <translation>Adresa kanálu: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="157"/>
+        <location filename="../src/rss/rssmanager.cpp" line="165"/>
         <source>Edit RSS Feed</source>
         <translation>Upravit kanál</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="194"/>
+        <location filename="../src/rss/rssmanager.cpp" line="202"/>
         <source>Open link in actual tab</source>
         <translation>Otevřít odkaz v aktuálním panelu</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="195"/>
+        <location filename="../src/rss/rssmanager.cpp" line="203"/>
         <source>Open link in new tab</source>
         <translation>Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="197"/>
+        <location filename="../src/rss/rssmanager.cpp" line="205"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="220"/>
-        <location filename="../src/rss/rssmanager.cpp" line="226"/>
+        <location filename="../src/rss/rssmanager.cpp" line="228"/>
+        <location filename="../src/rss/rssmanager.cpp" line="234"/>
         <source>New Tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="293"/>
+        <location filename="../src/rss/rssmanager.cpp" line="301"/>
         <source>Error in fetching feed</source>
         <translation>Chyba při stahování kanálu</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="314"/>
+        <location filename="../src/rss/rssmanager.cpp" line="322"/>
         <source>RSS feed duplicated</source>
         <translation>Duplikovaný kanál</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="314"/>
+        <location filename="../src/rss/rssmanager.cpp" line="322"/>
         <source>You already have this feed.</source>
         <translation>Tento kanál již odebíráte.</translation>
     </message>
