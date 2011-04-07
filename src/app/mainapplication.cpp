@@ -53,6 +53,7 @@ MainApplication::MainApplication(int &argc, char **argv)
     ,m_isClosing(false)
     ,m_isChanged(false)
     ,m_isExited(false)
+    ,m_isRestoring(false)
 {
     setOverrideCursor(Qt::WaitCursor);
 #if defined(Q_WS_X11) & !defined(DEVELOPING)
