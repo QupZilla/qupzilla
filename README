@@ -1,7 +1,7 @@
 #################################
 ##    QUPZILLA - WEB BROWSER   ##
 #################################
-Version: 0.9.9
+Version: 1.0.0-rc1
 
 QupZilla is new and very fast open source browser based on WebKit core http://www.webkit.org
 Written in Qt Framework http://qt.nokia.com
