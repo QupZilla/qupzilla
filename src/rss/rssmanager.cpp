@@ -22,6 +22,7 @@
 #include "tabwidget.h"
 #include "mainapplication.h"
 #include "treewidget.h"
+#include "qtwin.h"
 
 RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
@@ -33,6 +34,13 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent) :
     const QRect screen = QApplication::desktop()->screenGeometry();
     const QRect &size = geometry();
     QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+
+#ifdef Q_WS_WIN
+    if (QtWin::isCompositionEnabled()) {
+        QtWin::extendFrameIntoClientArea(this);
+        layout()->setContentsMargins(0, 0, 0, 0);
+    }
+#endif
 
     ui->tabWidget->setElideMode(Qt::ElideRight);
     m_networkManager = new QNetworkAccessManager();

@@ -105,7 +105,7 @@ MainApplication::MainApplication(int &argc, char **argv)
     QString homePath = QDir::homePath();
     homePath+="/.qupzilla/";
 
-    checkProfileDir();
+    checkSettingsDir();
 
     QSettings::setDefaultFormat(QSettings::IniFormat);
     if (startProfile.isEmpty()) {
@@ -432,10 +432,11 @@ static const int sessionVersion = 0x0002;
 
 bool MainApplication::saveStateSlot()
 {
-    if (m_websettings->testAttribute(QWebSettings::PrivateBrowsingEnabled))
+    if (m_websettings->testAttribute(QWebSettings::PrivateBrowsingEnabled) || m_isRestoring)
         return false;
-
+#ifndef QT_NO_DEBUG
     qDebug() << "Saving state";
+#endif
 
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("SessionRestore");
@@ -465,19 +466,27 @@ bool MainApplication::saveStateSlot()
 
 bool MainApplication::restoreStateSlot(QupZilla* window)
 {
+    m_isRestoring = true;
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
+    int afterStart = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
     settings.beginGroup("SessionRestore");
-    if (!settings.value("restoreSession",false).toBool())
+    if (!settings.value("restoreSession",false).toBool()) {
+        m_isRestoring = false;
         return false;
-    if (settings.value("isCrashed",false).toBool()) {
+    }
+    if (settings.value("isCrashed",false).toBool() && afterStart != 2) {
         QMessageBox::StandardButton button = QMessageBox::warning(window, tr("Last session crashed"),
                                                                   tr("<b>QupZilla crashed :-(</b><br/>Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?"),
                                                                   QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
-        if (button != QMessageBox::Yes)
+        if (button != QMessageBox::Yes) {
+            m_isRestoring = false;
             return false;
+        }
     }
-    if (!QFile::exists(m_activeProfil+"session.dat"))
+    if (!QFile::exists(m_activeProfil+"session.dat")) {
+        m_isRestoring = false;
         return false;
+    }
 
     settings.setValue("isCrashed",false);
     QFile file(m_activeProfil+"session.dat");
@@ -490,23 +499,24 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
     int windowCount;
 
     stream >> version;
-    if (version != sessionVersion)
+    if (version != sessionVersion) {
+        m_isRestoring = false;
         return false;
+    }
     stream >> windowCount;
     stream >> tabState;
     stream >> qMainWindowState;
 
-    file.close();
-
     window->tabWidget()->restoreState(tabState);
     window->restoreState(qMainWindowState);
 
-    settings.endGroup();
-
     if (windowCount > 1) {
-        for (int i = 0; i<(windowCount-1); i++) {
+        qDebug() << windowCount;
+        for (int i = 1; i < windowCount; i++) {
             stream >> tabState;
             stream >> qMainWindowState;
+
+            qDebug() << "restoring another window" << tabState.size();
 
             QupZilla* window = new QupZilla(false);
             m_mainWindows.append(window);
@@ -517,15 +527,34 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
 
             window->tabWidget()->restoreState(tabState);
             window->restoreState(qMainWindowState);
-            window->tabWidget()->closeTab(0);
+//            window->tabWidget()->closeTab(0);
             window->show();
         }
     }
+    file.close();
 
+    m_isRestoring = false;
     return true;
 }
 
-bool MainApplication::checkProfileDir()
+void MainApplication::checkProfile(QString path)
+{
+    QByteArray rData;
+    QFile versionFile(path+"version");
+    versionFile.open(QFile::ReadOnly);
+    rData = versionFile.readAll();
+    if (rData.contains(QupZilla::VERSION.toAscii())) {
+        versionFile.close();
+        return;
+    }
+    versionFile.close();
+#ifdef DEVELOPING
+    return;
+#endif
+    //Starting profile migration manager
+}
+
+bool MainApplication::checkSettingsDir()
 {
     /*
     $HOMEDIR
@@ -535,8 +564,9 @@ bool MainApplication::checkProfileDir()
     profiles/-----------
         |              |
     default/      profiles.ini
-        |
-    browsedata.db
+        | ---------------
+        |               |
+    browsedata.db    background.png
     */
     QString homePath = QDir::homePath();
     homePath+="/.qupzilla/";

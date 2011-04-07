@@ -26,6 +26,7 @@ void QupZilla::postLaunch()
 {
     loadSettings();
     m_tabWidget->restorePinnedTabs();
+
     //Open tab from command line argument
     bool addTab = true;
     QStringList arguments = qApp->arguments();
@@ -54,10 +55,8 @@ void QupZilla::postLaunch()
         else
             startUrl = m_homepage;
 
-        if ( startingAfterCrash || (addTab && afterLaunch == 2) ) {
-            mApp->restoreStateSlot(this);
-            addTab = false;
-        }
+        if ( startingAfterCrash || (addTab && afterLaunch == 2) )
+            addTab = !mApp->restoreStateSlot(this);
     } else
         startUrl = m_homepage;
 

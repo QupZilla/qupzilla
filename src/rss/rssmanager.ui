@@ -7,17 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>431</height>
+    <height>410</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>RSS Reader</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../icons.qrc">
+   <iconset resource="../data/icons.qrc">
     <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="focusPolicy">
@@ -66,11 +69,8 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <property name="text">
-             <string/>
-            </property>
             <property name="pixmap">
-             <pixmap resource="../icons.qrc">:/icons/menu/rss.png</pixmap>
+             <pixmap resource="../data/icons.qrc">:/icons/menu/rss.png</pixmap>
             </property>
             <property name="alignment">
              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
@@ -152,7 +152,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</str
   </layout>
  </widget>
  <resources>
-  <include location="../icons.qrc"/>
+  <include location="../data/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
