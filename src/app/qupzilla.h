@@ -116,6 +116,7 @@ signals:
     void message(MainApplication::MessageType mes, bool state);
 
 public slots:
+    void showBookmarksToolbar();
     void refreshHistory(int index=-1);
     void loadActionUrl();
     void bookmarkPage();
@@ -156,7 +157,6 @@ private slots:
 
     void showMenubar();
     void showNavigationToolbar();
-    void showBookmarksToolbar();
     void showStatusbar();
     void showClearPrivateData();
     void showPreferences();

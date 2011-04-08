@@ -37,7 +37,7 @@ void AdBlockIcon::showMenu(const QPoint &pos)
     AdBlockManager* manager = AdBlockManager::instance();
 
     QMenu menu;
-    menu.addAction(tr("Show AdBlock Settings"), manager, SLOT(showDialog()));
+    menu.addAction(tr("Show AdBlock &Settings"), manager, SLOT(showDialog()));
     menu.addSeparator();
     QList<WebPage::AdBlockedEntry> entries = p_QupZilla->weView()->webPage()->adBlockedEntries();
     if (entries.isEmpty())
@@ -50,7 +50,7 @@ void AdBlockIcon::showMenu(const QPoint &pos)
         }
     }
     menu.addSeparator();
-    menu.addAction(tr("Learn About Writing Rules"), this, SLOT(learnAboutRules()));
+    menu.addAction(tr("Learn About Writing &Rules"), this, SLOT(learnAboutRules()));
 
     menu.exec(pos);
 }
@@ -62,5 +62,4 @@ void AdBlockIcon::learnAboutRules()
 
 AdBlockIcon::~AdBlockIcon()
 {
-
 }
