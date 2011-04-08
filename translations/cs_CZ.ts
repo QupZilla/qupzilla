@@ -1058,12 +1058,12 @@ nebyl nalezen!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="478"/>
+        <location filename="../src/app/mainapplication.cpp" line="479"/>
         <source>Last session crashed</source>
         <translation>Poslední relace spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="479"/>
+        <location filename="../src/app/mainapplication.cpp" line="480"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
@@ -2773,71 +2773,66 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
     <name>TabBar</name>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="60"/>
-        <location filename="../src/webview/tabbar.cpp" line="236"/>
+        <location filename="../src/webview/tabbar.cpp" line="217"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="72"/>
-        <source>Back</source>
-        <translation>Zpět</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbar.cpp" line="79"/>
-        <source>Forward</source>
-        <translation>Vpřed</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbar.cpp" line="86"/>
+        <location filename="../src/webview/tabbar.cpp" line="73"/>
         <source>Stop Tab</source>
         <translation>Zastavit panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="93"/>
+        <location filename="../src/webview/tabbar.cpp" line="81"/>
         <source>Reload Tab</source>
         <translation>Obnovit panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="94"/>
+        <location filename="../src/webview/tabbar.cpp" line="83"/>
+        <source>Duplicate Tab</source>
+        <translation>Duplikovat panel</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/tabbar.cpp" line="84"/>
         <source>Unpin Tab</source>
         <translation>Odepnout panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="94"/>
+        <location filename="../src/webview/tabbar.cpp" line="84"/>
         <source>Pin Tab</source>
         <translation>Připnout panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="96"/>
-        <location filename="../src/webview/tabbar.cpp" line="116"/>
+        <location filename="../src/webview/tabbar.cpp" line="86"/>
+        <location filename="../src/webview/tabbar.cpp" line="97"/>
         <source>Reload All Tabs</source>
         <oldsource>Close other tabs</oldsource>
         <translation>Obnovit všechny panely</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="97"/>
+        <location filename="../src/webview/tabbar.cpp" line="87"/>
         <source>Bookmark This Tab</source>
         <translation>Přidat panel do záložek</translation>
     </message>
     <message>
+        <location filename="../src/webview/tabbar.cpp" line="88"/>
         <location filename="../src/webview/tabbar.cpp" line="98"/>
-        <location filename="../src/webview/tabbar.cpp" line="117"/>
         <source>Bookmark All Tabs</source>
         <translation>Přidat všechny panely do záložek</translation>
     </message>
     <message>
+        <location filename="../src/webview/tabbar.cpp" line="90"/>
         <location filename="../src/webview/tabbar.cpp" line="100"/>
-        <location filename="../src/webview/tabbar.cpp" line="119"/>
         <source>Restore Closed Tab</source>
         <translation>Obnovit zavřený panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="103"/>
+        <location filename="../src/webview/tabbar.cpp" line="93"/>
         <source>Close Other Tabs</source>
         <translation>Zavřít ostatní panely</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="104"/>
+        <location filename="../src/webview/tabbar.cpp" line="94"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
@@ -2845,32 +2840,33 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="129"/>
+        <location filename="../src/webview/tabwidget.cpp" line="130"/>
         <source>Show list of opened tabs</source>
         <translation>Zobrazit seznam otevřených panelů</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="134"/>
+        <location filename="../src/webview/tabwidget.cpp" line="135"/>
         <source>Add Tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="170"/>
+        <location filename="../src/webview/tabwidget.cpp" line="171"/>
         <source>Loading...</source>
         <translation>Načítám...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="173"/>
-        <location filename="../src/webview/tabwidget.cpp" line="289"/>
+        <location filename="../src/webview/tabwidget.cpp" line="174"/>
+        <location filename="../src/webview/tabwidget.cpp" line="290"/>
         <source>No Named Page</source>
         <translation>Bezejmenná stránka</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="189"/>
+        <location filename="../src/webview/tabwidget.cpp" line="190"/>
         <source>Actually You have %1 opened tabs</source>
         <translation>Dohromady máte otevřeno %1 panelů</translation>
     </message>
     <message>
+        <location filename="../src/webview/tabwidget.cpp" line="339"/>
         <location filename="../src/webview/tabwidget.h" line="58"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
