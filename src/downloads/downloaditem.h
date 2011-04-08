@@ -70,6 +70,9 @@ private slots:
     void customContextMenuRequested(QPoint pos);
     void clear();
 
+    void goToDownloadPage();
+    void copyDownloadLink();
+
 private:
     void timerEvent(QTimerEvent* event);
     void updateDownloadInfo(double currSpeed, qint64 received, qint64 total);
@@ -84,6 +87,8 @@ private:
     QTime m_remTime;
     QBasicTimer m_timer;
     QFile m_outputFile;
+    QUrl m_downUrl;
+    QUrl m_downloadPage;
 
     bool m_downloading;
     bool m_openAfterFinish;
