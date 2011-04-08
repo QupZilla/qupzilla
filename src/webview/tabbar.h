@@ -47,6 +47,7 @@ signals:
     void forwardTab(int index);
     void closeAllButCurrent(int index);
     void closeTab(int index);
+    void duplicateTab(int index);
 
 public slots:
 
@@ -58,6 +59,7 @@ private slots:
     void forwardTab() { emit forwardTab(m_clickedTab); }
     void closeAllButCurrent() { emit closeAllButCurrent(m_clickedTab); }
     void closeTab() { emit closeTab(m_clickedTab); }
+    void duplicateTab() { emit duplicateTab(m_clickedTab); }
     void bookmarkTab();
     void pinTab();
     void closeCurrentTab();

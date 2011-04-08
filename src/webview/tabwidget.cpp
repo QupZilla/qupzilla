@@ -121,6 +121,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     connect(m_tabBar, SIGNAL(stopTab(int)), this, SLOT(stopTab(int)));
     connect(m_tabBar, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
+    connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
 
     m_buttonListTabs = new TabListButton(this);
     m_menuTabs = new QMenu();
@@ -328,6 +329,18 @@ void TabWidget::closeAllButCurrent(int index)
     }
 }
 
+void TabWidget::duplicateTab(int index)
+{
+    QUrl url = weView(index)->url();
+    QByteArray history;
+    QDataStream tabHistoryStream(&history, QIODevice::WriteOnly);
+    tabHistoryStream << *weView(index)->history();
+
+    int id = addView(url, tr("New tab"), TabWidget::NewSelectedTab);
+    QDataStream historyStream(history);
+    historyStream >> *weView(id)->history();
+}
+
 void TabWidget::restoreClosedTab()
 {
     if (m_lastTabUrl.isEmpty())
@@ -459,8 +472,6 @@ bool TabWidget::restoreState(const QByteArray &state)
     stream >> openTabs;
     stream >> currentTab;
     stream >> tabHistory;
-
-    qDebug() << "restoring: " << openTabs;
 
     for (int i = 0; i < openTabs.count(); ++i) {
         QUrl url = QUrl::fromEncoded(openTabs.at(i).toUtf8());

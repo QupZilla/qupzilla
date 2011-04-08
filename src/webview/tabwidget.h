@@ -61,6 +61,7 @@ public slots:
     void stopTab(int index) { weView(index)->stop(); }
     void backTab(int index) { weView(index)->back(); }
     void forwardTab(int index) { weView(index)->forward(); }
+    void duplicateTab(int index);
     void closeAllButCurrent(int index);
     void restoreClosedTab();
 

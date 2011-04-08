@@ -63,34 +63,24 @@ void TabBar::contextMenuRequested(const QPoint &position)
         WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(m_clickedTab));
         if (!webTab)
             return;
-        menu.addAction(
-#ifdef Q_WS_X11
-                style()->standardIcon(QStyle::SP_ArrowBack)
-#else
-                QIcon(":/icons/faenza/back.png")
-#endif
-                       ,tr("Back"), this, SLOT(backTab()));
-        menu.addAction(
-#ifdef Q_WS_X11
-                style()->standardIcon(QStyle::SP_ArrowForward)
-#else
-                QIcon(":/icons/faenza/forward.png")
-#endif
-                ,tr("Forward"), this, SLOT(forwardTab()));
-        menu.addAction(
+        if (p_QupZilla->weView(m_clickedTab)->isLoading()) {
+            menu.addAction(
 #ifdef Q_WS_X11
                 style()->standardIcon(QStyle::SP_BrowserStop)
 #else
                 QIcon(":/icons/faenza/stop.png")
 #endif
                 ,tr("Stop Tab"), this, SLOT(stopTab()));
-        menu.addAction(
+        } else {
+            menu.addAction(
 #ifdef Q_WS_X11
                 style()->standardIcon(QStyle::SP_BrowserReload)
 #else
                 QIcon(":/icons/faenza/reload.png")
 #endif
                 ,tr("Reload Tab"), this, SLOT(reloadTab()));
+        }
+        menu.addAction(tr("Duplicate Tab"), this, SLOT(duplicateTab()));
         menu.addAction(webTab->isPinned() ? tr("Unpin Tab") : tr("Pin Tab"), this, SLOT(pinTab()));
         menu.addSeparator();
         menu.addAction(tr("Reload All Tabs"), tabWidget, SLOT(reloadAllTabs()));
@@ -103,16 +93,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
         menu.addAction(tr("Close Other Tabs"), this, SLOT(closeAllButCurrent()));
         menu.addAction(QIcon::fromTheme("window-close"),tr("Close"), this, SLOT(closeTab()));
         menu.addSeparator();
-
-        if (!p_QupZilla->weView(m_clickedTab)->history()->canGoBack())
-            menu.actions().at(2)->setEnabled(false);
-
-        if (!p_QupZilla->weView(m_clickedTab)->history()->canGoForward())
-            menu.actions().at(3)->setEnabled(false);
-
-        if (!p_QupZilla->weView(m_clickedTab)->isLoading())
-            menu.actions().at(4)->setEnabled(false);
-    }else{
+    } else {
         menu.addAction(tr("Reload All Tabs"), tabWidget, SLOT(reloadAllTabs()));
         menu.addAction(tr("Bookmark All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
