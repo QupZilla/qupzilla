@@ -245,9 +245,9 @@ void QupZilla::aboutToShowHistoryNextMenu()
 void QupZilla::aboutToShowBookmarksMenu()
 {
     m_menuBookmarks->clear();
-    m_menuBookmarks->addAction(tr("Bookmark This Page"), this, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
-    m_menuBookmarks->addAction(tr("Bookmark All Tabs"), this, SLOT(bookmarkAllTabs()));
-    m_menuBookmarks->addAction(QIcon::fromTheme("user-bookmarks"), tr("Organize Bookmarks"), this, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
+    m_menuBookmarks->addAction(tr("Bookmark &This Page"), this, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
+    m_menuBookmarks->addAction(tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()));
+    m_menuBookmarks->addAction(QIcon::fromTheme("user-bookmarks"), tr("Organize &Bookmarks"), this, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
     m_menuBookmarks->addSeparator();
     if (m_tabWidget->count() == 1)
         m_menuBookmarks->actions().at(1)->setEnabled(false);
@@ -314,28 +314,28 @@ void QupZilla::aboutToShowHistoryMenu()
 #else
             QIcon(":/icons/faenza/back.png")
 #endif
-            , tr("Back"), this, SLOT(goBack()))->setShortcut(QKeySequence("Ctrl+Left"));
+            , tr("&Back"), this, SLOT(goBack()))->setShortcut(QKeySequence("Ctrl+Left"));
     m_menuHistory->addAction(
 #ifdef Q_WS_X11
             style()->standardIcon(QStyle::SP_ArrowForward)
 #else
             QIcon(":/icons/faenza/forward.png")
 #endif
-            , tr("Forward"), this, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
+            , tr("&Forward"), this, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
     m_menuHistory->addAction(
 #ifdef Q_WS_X11
             QIcon::fromTheme("go-home")
 #else
             QIcon(":/icons/faenza/home.png")
 #endif
-            , tr("Home"), this, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
+            , tr("&Home"), this, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
 
     if (!weView()->history()->canGoBack())
         m_menuHistory->actions().at(0)->setEnabled(false);
     if (!weView()->history()->canGoForward())
         m_menuHistory->actions().at(1)->setEnabled(false);
 
-    m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show All History"), this, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+H"));
+    m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), this, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+H"));
     m_menuHistory->addSeparator();
 
     QSqlQuery query;
@@ -354,32 +354,32 @@ void QupZilla::aboutToShowHistoryMenu()
 void QupZilla::aboutToShowHelpMenu()
 {
     m_menuHelp->clear();
-    m_menuHelp->addAction(tr("Report Bug"), this, SLOT(reportBug()));
+    m_menuHelp->addAction(tr("Report &Bug"), this, SLOT(reportBug()));
     m_menuHelp->addSeparator();
     mApp->plugins()->populateHelpMenu(m_menuHelp);
-    m_menuHelp->addAction(QIcon(":/icons/menu/qt.png"), tr("About Qt"), qApp, SLOT(aboutQt()));
-    m_menuHelp->addAction(QIcon(":/icons/qupzilla.png"), tr("About QupZilla"), this, SLOT(aboutQupZilla()));
+    m_menuHelp->addAction(QIcon(":/icons/menu/qt.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
+    m_menuHelp->addAction(QIcon(":/icons/qupzilla.png"), tr("&About QupZilla"), this, SLOT(aboutQupZilla()));
 }
 
 void QupZilla::aboutToShowToolsMenu()
 {
     m_menuTools->clear();
-    m_menuTools->addAction(tr("Web Search"), this, SLOT(webSearch()))->setShortcut(QKeySequence("Ctrl+K"));
-    m_menuTools->addAction(QIcon::fromTheme("dialog-information"), tr("Page Info"), this, SLOT(showPageInfo()))->setShortcut(QKeySequence("Ctrl+I"));
+    m_menuTools->addAction(tr("&Web Search"), this, SLOT(webSearch()))->setShortcut(QKeySequence("Ctrl+K"));
+    m_menuTools->addAction(QIcon::fromTheme("dialog-information"), tr("Page &Info"), this, SLOT(showPageInfo()))->setShortcut(QKeySequence("Ctrl+I"));
     m_menuTools->addSeparator();
-    m_menuTools->addAction(tr("Download Manager"), this, SLOT(showDownloadManager()))->setShortcut(QKeySequence("Ctrl+Y"));
-    m_menuTools->addAction(tr("Cookies Manager"), this, SLOT(showCookieManager()));
-    m_menuTools->addAction(tr("AdBlock"), AdBlockManager::instance(), SLOT(showDialog()));
-    m_menuTools->addAction(QIcon(":/icons/menu/rss.png"), tr("RSS Reader"), this,  SLOT(showRSSManager()));
-    m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent History"), this, SLOT(showClearPrivateData()));
-    m_actionPrivateBrowsing = new QAction(tr("Private Browsing"), this);
+    m_menuTools->addAction(tr("&Download Manager"), this, SLOT(showDownloadManager()))->setShortcut(QKeySequence("Ctrl+Y"));
+    m_menuTools->addAction(tr("&Cookies Manager"), this, SLOT(showCookieManager()));
+    m_menuTools->addAction(tr("&AdBlock"), AdBlockManager::instance(), SLOT(showDialog()));
+    m_menuTools->addAction(QIcon(":/icons/menu/rss.png"), tr("RSS &Reader"), this,  SLOT(showRSSManager()));
+    m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), this, SLOT(showClearPrivateData()));
+    m_actionPrivateBrowsing = new QAction(tr("&Private Browsing"), this);
     m_actionPrivateBrowsing->setCheckable(true);
     m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), this, SLOT(startPrivate(bool)));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
     mApp->plugins()->populateToolsMenu(m_menuTools);
-    m_menuTools->addAction(QIcon(":/icons/faenza/settings.png"), tr("Preferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
+    m_menuTools->addAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
 }
 
 void QupZilla::aboutToShowViewMenu()

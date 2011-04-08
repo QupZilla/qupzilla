@@ -147,9 +147,13 @@ p, li { white-space: pre-wrap; }
         <translation>AdBlock blokuje nevyžádaný obsah na stánkách</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="40"/>
         <source>Show AdBlock Settings</source>
-        <translation>Zobrazit nastavení AdBlocku</translation>
+        <translation type="obsolete">Zobrazit nastavení AdBlocku</translation>
+    </message>
+    <message>
+        <location filename="../src/adblock/adblockicon.cpp" line="40"/>
+        <source>Show AdBlock &amp;Settings</source>
+        <translation>Zobrazit &amp;nastavení AdBlocku</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="44"/>
@@ -168,8 +172,12 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="53"/>
+        <source>Learn About Writing &amp;Rules</source>
+        <translation>Zjistit více o psaní &amp;pravidel</translation>
+    </message>
+    <message>
         <source>Learn About Writing Rules</source>
-        <translation>Zjistit více o psaní pravidel</translation>
+        <translation type="obsolete">Zjistit více o psaní pravidel</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="60"/>
@@ -337,18 +345,35 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="158"/>
-        <source>Open link in actual tab</source>
-        <translation>Otevřít odkaz v aktuálním panelu</translation>
+        <source>Open link in actual &amp;tab</source>
+        <translation>Otevřít odkaz v &amp;aktuálním panelu</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="159"/>
-        <source>Open link in new tab</source>
-        <translation>Otevřít odkaz v novém panelu</translation>
+        <source>Open link in &amp;new tab</source>
+        <translation>Otevřít odkaz v novém &amp;panelu</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="163"/>
+        <source>Move bookmark to &amp;folder</source>
+        <translation>Přesunout záložku do &amp;složky</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="174"/>
+        <source>&amp;Close</source>
+        <translation>&amp;Zavřít</translation>
+    </message>
+    <message>
+        <source>Open link in actual tab</source>
+        <translation type="obsolete">Otevřít odkaz v aktuálním panelu</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="obsolete">Otevřít odkaz v novém panelu</translation>
+    </message>
+    <message>
         <source>Move bookmark to folder</source>
-        <translation>Přesunout záložku do složky</translation>
+        <translation type="obsolete">Přesunout záložku do složky</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="164"/>
@@ -360,9 +385,8 @@ p, li { white-space: pre-wrap; }
         <translation>Nesetříděné záložky</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="174"/>
         <source>Close</source>
-        <translation>Zavřít</translation>
+        <translation type="obsolete">Zavřít</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="267"/>
@@ -398,47 +422,75 @@ p, li { white-space: pre-wrap; }
         <translation>Záložky</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="49"/>
         <source>Bookmark Current Page</source>
-        <translation>Přidat stránku do záložek</translation>
+        <translation type="obsolete">Přidat stránku do záložek</translation>
+    </message>
+    <message>
+        <source>Bookmark All Tabs</source>
+        <translation type="obsolete">Přidat všechny panely do záložek</translation>
+    </message>
+    <message>
+        <source>Organize Bookmarks</source>
+        <translation type="obsolete">Organizovat záložky</translation>
+    </message>
+    <message>
+        <source>Reload Toolbar</source>
+        <translation type="obsolete">Obnovit panel</translation>
+    </message>
+    <message>
+        <source>Hide Most Visited</source>
+        <translation type="obsolete">Skrýt Nejnavštěvovanější</translation>
+    </message>
+    <message>
+        <source>Show Most Visited</source>
+        <translation type="obsolete">Zobrazit Nejnavštěvovanější</translation>
+    </message>
+    <message>
+        <source>Hide Toolbar</source>
+        <translation type="obsolete">Skrýt panel</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="49"/>
+        <source>&amp;Bookmark Current Page</source>
+        <translation>Přidat &amp;stránku do záložek</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="50"/>
-        <source>Bookmark All Tabs</source>
-        <translation>Přidat všechny panely do záložek</translation>
+        <source>Bookmark &amp;All Tabs</source>
+        <translation>Přidat &amp;všechny panely do záložek</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="51"/>
-        <source>Organize Bookmarks</source>
-        <translation>Organizovat záložky</translation>
+        <source>&amp;Organize Bookmarks</source>
+        <translation>Organizovat &amp;záložky</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="59"/>
-        <source>Reload Toolbar</source>
-        <translation>Obnovit panel</translation>
+        <source>&amp;Reload Toolbar</source>
+        <translation>&amp;Obnovit panel</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="61"/>
-        <source>Hide Most Visited</source>
-        <translation>Skrýt Nejnavštěvovanější</translation>
+        <source>Hide Most &amp;Visited</source>
+        <translation>Skrýt &amp;Nejnavštěvovanější</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="61"/>
-        <source>Show Most Visited</source>
-        <translation>Zobrazit Nejnavštěvovanější</translation>
+        <source>Show Most &amp;Visited</source>
+        <translation>Zobrazit &amp;Nejnavštěvovanější</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="62"/>
-        <source>Hide Toolbar</source>
-        <translation>Skrýt panel</translation>
+        <source>&amp;Hide Toolbar</source>
+        <translation>S&amp;krýt panel</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="118"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="117"/>
         <source>Most visited</source>
         <translation>Nejnavštěvovanější</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="119"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="118"/>
         <source>Sites You visited the most</source>
         <translation>Nejvíce navštěvované stránky</translation>
     </message>
@@ -1789,9 +1841,8 @@ nebyl nalezen!</translation>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="184"/>
         <source>Open File</source>
-        <translation>Otevřít soubor</translation>
+        <translation type="obsolete">Otevřít soubor</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="195"/>
@@ -1824,14 +1875,12 @@ nebyl nalezen!</translation>
         <translation>Historie</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="188"/>
         <source>Save Page As...</source>
-        <translation>Uložit stránku jako...</translation>
+        <translation type="obsolete">Uložit stránku jako...</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="190"/>
         <source>Print</source>
-        <translation>Tisk</translation>
+        <translation type="obsolete">Tisk</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="192"/>
@@ -1844,29 +1893,24 @@ nebyl nalezen!</translation>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="196"/>
         <source>Undo</source>
-        <translation>Zpět</translation>
+        <translation type="obsolete">Zpět</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="197"/>
         <source>Redo</source>
-        <translation>Vpřed</translation>
+        <translation type="obsolete">Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="382"/>
         <source>Preferences</source>
-        <translation>Předvolby</translation>
+        <translation type="obsolete">Předvolby</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="361"/>
         <source>About QupZilla</source>
-        <translation>O QupZille</translation>
+        <translation type="obsolete">O QupZille</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="360"/>
         <source>About Qt</source>
-        <translation>O Qt</translation>
+        <translation type="obsolete">O Qt</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="185"/>
@@ -1874,14 +1918,12 @@ nebyl nalezen!</translation>
         <translation>Zavřít panel</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="206"/>
         <source>Find</source>
-        <translation>Najít</translation>
+        <translation type="obsolete">Najít</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="199"/>
         <source>Cut</source>
-        <translation>Vyjmout</translation>
+        <translation type="obsolete">Vyjmout</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="154"/>
@@ -1889,61 +1931,177 @@ nebyl nalezen!</translation>
         <translation>IP Adresa aktuální stránky</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="200"/>
+        <location filename="../src/app/appui.cpp" line="181"/>
+        <source>&amp;New Window</source>
+        <translation>&amp;Nové okno</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="184"/>
+        <source>Open &amp;File</source>
+        <translation>Otevřít &amp;soubor</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="188"/>
+        <source>&amp;Save Page As...</source>
+        <translation>&amp;Uložit stránku jako...</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="190"/>
+        <source>&amp;Print</source>
+        <translation>&amp;Tisk</translation>
+    </message>
+    <message>
         <source>Copy</source>
-        <translation>Kopírovat</translation>
+        <translation type="obsolete">Kopírovat</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="201"/>
         <source>Paste</source>
-        <translation>Vložit</translation>
+        <translation type="obsolete">Vložit</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="202"/>
         <source>Delete</source>
-        <translation>Odstranit</translation>
+        <translation type="obsolete">Odstranit</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="204"/>
         <source>Select All</source>
-        <translation>Vybrat vše</translation>
+        <translation type="obsolete">Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="210"/>
         <source>Navigation Toolbar</source>
-        <translation>Navigační lišta</translation>
+        <translation type="obsolete">Navigační lišta</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="216"/>
         <source>Status Bar</source>
-        <translation>Status bar</translation>
+        <translation type="obsolete">Status bar</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="96"/>
-        <location filename="../src/app/appui.cpp" line="232"/>
         <source>Stop</source>
         <translation>Zastavit</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="97"/>
-        <location filename="../src/app/appui.cpp" line="241"/>
         <source>Reload</source>
         <translation>Obnovit</translation>
     </message>
     <message>
+        <location filename="../src/app/appui.cpp" line="196"/>
+        <source>&amp;Undo</source>
+        <translation>&amp;Zpět</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="197"/>
+        <source>&amp;Redo</source>
+        <translation>&amp;Vpřed</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="199"/>
+        <source>&amp;Cut</source>
+        <translation>V&amp;yjmout</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="200"/>
+        <source>C&amp;opy</source>
+        <translation>&amp;Kopírovat</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="201"/>
+        <source>&amp;Paste</source>
+        <translation>V&amp;ložit</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="202"/>
+        <source>&amp;Delete</source>
+        <translation>&amp;Odstranit</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="204"/>
+        <source>Select &amp;All</source>
+        <translation>Vyb&amp;rat vše</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="206"/>
+        <source>&amp;Find</source>
+        <translation>&amp;Najít</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="210"/>
+        <source>&amp;Navigation Toolbar</source>
+        <translation>&amp;Navigační lišta</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="213"/>
+        <source>&amp;Bookmarks Toolbar</source>
+        <translation>Panel &amp;záložek</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="216"/>
+        <source>Sta&amp;tus Bar</source>
+        <translation>Sta&amp;tus bar</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="263"/>
+        <source>&amp;Page Source</source>
+        <translation>Zdrojový &amp;kód stránky</translation>
+    </message>
+    <message>
+        <source>&amp;Status Bar</source>
+        <translation type="obsolete">&amp;Status bar</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="219"/>
+        <source>&amp;Menu Bar</source>
+        <translation>&amp;Menu</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="222"/>
+        <source>&amp;Fullscreen</source>
+        <translation>&amp;Celá obrazovka</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="232"/>
+        <source>&amp;Stop</source>
+        <translation>Z&amp;astavit</translation>
+    </message>
+    <message>
+        <location filename="../src/app/appui.cpp" line="241"/>
+        <source>&amp;Reload</source>
+        <translation>O&amp;bnovit</translation>
+    </message>
+    <message>
         <location filename="../src/app/appui.cpp" line="244"/>
-        <source>Character Encoding</source>
-        <translation>Kódování znaků</translation>
+        <source>Character &amp;Encoding</source>
+        <translation>Kó&amp;dování znaků</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="257"/>
-        <source>Zoom In</source>
-        <translation>Zoom +</translation>
+        <source>Zoom &amp;In</source>
+        <translation>Zoo&amp;m +</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="258"/>
+        <source>Zoom &amp;Out</source>
+        <translation>Z&amp;oom -</translation>
+    </message>
+    <message>
+        <source>&amp;Reset</source>
+        <translation type="obsolete">&amp;Původní</translation>
+    </message>
+    <message>
+        <source>Page &amp;Source</source>
+        <translation type="obsolete">Zdrojový &amp;kód stránky</translation>
+    </message>
+    <message>
+        <source>Character Encoding</source>
+        <translation type="obsolete">Kódování znaků</translation>
+    </message>
+    <message>
+        <source>Zoom In</source>
+        <translation type="obsolete">Zoom +</translation>
+    </message>
+    <message>
         <source>Zoom Out</source>
-        <translation>Zoom -</translation>
+        <translation type="obsolete">Zoom -</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="259"/>
@@ -1951,57 +2109,43 @@ nebyl nalezen!</translation>
         <translation>Původní</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="263"/>
         <source>Page Source</source>
-        <translation>Zdrojový kód stránky</translation>
+        <translation type="obsolete">Zdrojový kód stránky</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="222"/>
         <source>Fullscreen</source>
-        <translation>Celá obrazovka</translation>
+        <translation type="obsolete">Celá obrazovka</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="92"/>
-        <location filename="../src/app/qupzilla.cpp" line="317"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="94"/>
-        <location filename="../src/app/qupzilla.cpp" line="324"/>
         <source>Forward</source>
         <translation>Vpřed</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="99"/>
-        <location filename="../src/app/qupzilla.cpp" line="331"/>
         <source>Home</source>
         <translation>Domů</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="338"/>
         <source>Show All History</source>
-        <translation>Zobrazit celou historii</translation>
+        <translation type="obsolete">Zobrazit celou historii</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="248"/>
         <source>Bookmark This Page</source>
-        <translation>Přidat stránku do záložek</translation>
+        <translation type="obsolete">Přidat stránku do záložek</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="249"/>
         <source>Bookmark All Tabs</source>
-        <translation>Přidat všechny panely do záložek</translation>
+        <translation type="obsolete">Přidat všechny panely do záložek</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="250"/>
         <source>Organize Bookmarks</source>
-        <translation>Organizovat záložky</translation>
-    </message>
-    <message>
-        <location filename="../src/app/appui.cpp" line="181"/>
-        <source>New Window</source>
-        <translation>Nové okno</translation>
+        <translation type="obsolete">Organizovat záložky</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="186"/>
@@ -2019,44 +2163,36 @@ nebyl nalezen!</translation>
         <translation>Poslat odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="357"/>
         <source>Report Bug</source>
-        <translation>Nahlásit bug</translation>
+        <translation type="obsolete">Nahlásit bug</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="367"/>
         <source>Web Search</source>
-        <translation>Hledání na webu</translation>
+        <translation type="obsolete">Hledání na webu</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="368"/>
         <source>Page Info</source>
-        <translation>Informace o stránce</translation>
+        <translation type="obsolete">Informace o stránce</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="370"/>
         <source>Download Manager</source>
-        <translation>Správce stahování</translation>
+        <translation type="obsolete">Správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="372"/>
         <source>AdBlock</source>
-        <translation>AdBlock</translation>
+        <translation type="obsolete">AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="374"/>
         <source>Clear Recent History</source>
-        <translation>Vymazat nedávnou historii</translation>
+        <translation type="obsolete">Vymazat nedávnou historii</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="375"/>
         <source>Private Browsing</source>
-        <translation>Soukromé prohlížení</translation>
+        <translation type="obsolete">Soukromé prohlížení</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="373"/>
         <source>RSS Reader</source>
-        <translation>RSS čtečka</translation>
+        <translation type="obsolete">RSS čtečka</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="403"/>
@@ -2074,14 +2210,12 @@ nebyl nalezen!</translation>
         <translation>Spustit anonymní prohlížení</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="371"/>
         <source>Cookies Manager</source>
-        <translation>Správce cookies</translation>
+        <translation type="obsolete">Správce cookies</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="213"/>
         <source>Bookmarks Toolbar</source>
-        <translation>Panel záložek</translation>
+        <translation type="obsolete">Panel záložek</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="86"/>
@@ -2104,9 +2238,8 @@ nebyl nalezen!</translation>
         <translation>Soukromé prohlížení zapnuto</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="219"/>
         <source>Menu Bar</source>
-        <translation>Menu</translation>
+        <translation type="obsolete">Menu</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="266"/>
@@ -2121,9 +2254,104 @@ nebyl nalezen!</translation>
         <translation>Prázdný</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.h" line="138"/>
+        <location filename="../src/app/qupzilla.h" line="139"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="248"/>
+        <source>Bookmark &amp;This Page</source>
+        <translation>Přidat &amp;stránku do záložek</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="249"/>
+        <source>Bookmark &amp;All Tabs</source>
+        <translation>Přidat &amp;všechny panely do záložek</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="250"/>
+        <source>Organize &amp;Bookmarks</source>
+        <translation>Organizovat &amp;záložky</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="317"/>
+        <source>&amp;Back</source>
+        <translation>&amp;Zpět</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="324"/>
+        <source>&amp;Forward</source>
+        <translation>&amp;Vpřed</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="331"/>
+        <source>&amp;Home</source>
+        <translation>&amp;Domů</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="338"/>
+        <source>Show &amp;All History</source>
+        <translation>Zobrazit celou &amp;historii</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="357"/>
+        <source>Report &amp;Bug</source>
+        <translation>Nahlásit &amp;bug</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="360"/>
+        <source>About &amp;Qt</source>
+        <translation>O &amp;Qt</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="361"/>
+        <source>&amp;About QupZilla</source>
+        <translation>&amp;O QupZille</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="367"/>
+        <source>&amp;Web Search</source>
+        <translation>Hledání na &amp;webu</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="368"/>
+        <source>Page &amp;Info</source>
+        <translation>Informace o &amp;stránce</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="370"/>
+        <source>&amp;Download Manager</source>
+        <translation>Správce s&amp;tahování</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="371"/>
+        <source>&amp;Cookies Manager</source>
+        <translation>Správce coo&amp;kies</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="372"/>
+        <source>&amp;AdBlock</source>
+        <translation>&amp;AdBlock</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="373"/>
+        <source>RSS &amp;Reader</source>
+        <translation>&amp;RSS čtečka</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="374"/>
+        <source>Clear Recent &amp;History</source>
+        <translation>Vymazat nedá&amp;vnou historii</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="375"/>
+        <source>&amp;Private Browsing</source>
+        <translation>Soukromé prohlíž&amp;ení</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="382"/>
+        <source>Pr&amp;eferences</source>
+        <translation>Předvo&amp;lby</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="600"/>
@@ -2787,69 +3015,125 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="60"/>
         <location filename="../src/webview/tabbar.cpp" line="217"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="73"/>
         <source>Stop Tab</source>
-        <translation>Zastavit panel</translation>
+        <translation type="obsolete">Zastavit panel</translation>
+    </message>
+    <message>
+        <source>Reload Tab</source>
+        <translation type="obsolete">Obnovit panel</translation>
+    </message>
+    <message>
+        <source>Duplicate Tab</source>
+        <translation type="obsolete">Duplikovat panel</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/tabbar.cpp" line="60"/>
+        <source>&amp;New tab</source>
+        <translation>&amp;Nový panel</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/tabbar.cpp" line="73"/>
+        <source>&amp;Stop Tab</source>
+        <translation>&amp;Zastavit panel</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="81"/>
-        <source>Reload Tab</source>
-        <translation>Obnovit panel</translation>
+        <source>&amp;Reload Tab</source>
+        <translation>&amp;Obnovit panel</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="83"/>
-        <source>Duplicate Tab</source>
-        <translation>Duplikovat panel</translation>
+        <source>&amp;Duplicate Tab</source>
+        <translation>&amp;Duplikovat panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="84"/>
         <source>Unpin Tab</source>
-        <translation>Odepnout panel</translation>
+        <translation type="obsolete">Odepnout panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="84"/>
         <source>Pin Tab</source>
-        <translation>Připnout panel</translation>
+        <translation type="obsolete">Připnout panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="86"/>
         <location filename="../src/webview/tabbar.cpp" line="97"/>
-        <source>Reload All Tabs</source>
-        <oldsource>Close other tabs</oldsource>
-        <translation>Obnovit všechny panely</translation>
+        <source>Reloa&amp;d All Tabs</source>
+        <translation>Obnovit &amp;všechny panely</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="87"/>
-        <source>Bookmark This Tab</source>
-        <translation>Přidat panel do záložek</translation>
+        <source>&amp;Bookmark This Tab</source>
+        <translation>Přidat pane&amp;l do záložek</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/tabbar.cpp" line="84"/>
+        <source>Un&amp;pin Tab</source>
+        <translation>Ode&amp;pnout panel</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/tabbar.cpp" line="84"/>
+        <source>&amp;Pin Tab</source>
+        <translation>&amp;Připnout panel</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/tabbar.cpp" line="86"/>
+        <source>Re&amp;load All Tabs</source>
+        <translation>Obnovit všec&amp;hny panely</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="88"/>
-        <location filename="../src/webview/tabbar.cpp" line="98"/>
-        <source>Bookmark All Tabs</source>
-        <translation>Přidat všechny panely do záložek</translation>
+        <source>Bookmark &amp;All Tabs</source>
+        <translation>Přidat &amp;všechny panely do záložek</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="90"/>
         <location filename="../src/webview/tabbar.cpp" line="100"/>
-        <source>Restore Closed Tab</source>
-        <translation>Obnovit zavřený panel</translation>
+        <source>Restore &amp;Closed Tab</source>
+        <translation>Obnovit zavř&amp;ený panel</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="93"/>
-        <source>Close Other Tabs</source>
-        <translation>Zavřít ostatní panely</translation>
+        <source>Close Ot&amp;her Tabs</source>
+        <translation>Zavřít osta&amp;tní panely</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="94"/>
+        <source>Cl&amp;ose</source>
+        <translation>Z&amp;avřít</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/tabbar.cpp" line="98"/>
+        <source>Bookmark &amp;All Ta&amp;bs</source>
+        <translation>Přidat &amp;všechny panely do záložek</translation>
+    </message>
+    <message>
+        <source>Reload All Tabs</source>
+        <oldsource>Close other tabs</oldsource>
+        <translation type="obsolete">Obnovit všechny panely</translation>
+    </message>
+    <message>
+        <source>Bookmark This Tab</source>
+        <translation type="obsolete">Přidat panel do záložek</translation>
+    </message>
+    <message>
+        <source>Bookmark All Tabs</source>
+        <translation type="obsolete">Přidat všechny panely do záložek</translation>
+    </message>
+    <message>
+        <source>Restore Closed Tab</source>
+        <translation type="obsolete">Obnovit zavřený panel</translation>
+    </message>
+    <message>
+        <source>Close Other Tabs</source>
+        <translation type="obsolete">Zavřít ostatní panely</translation>
+    </message>
+    <message>
         <source>Close</source>
-        <translation>Zavřít</translation>
+        <translation type="obsolete">Zavřít</translation>
     </message>
 </context>
 <context>
@@ -3033,9 +3317,120 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Načítám...</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="410"/>
+        <source>Open link in new &amp;tab</source>
+        <translation>Otevřít odkaz v novém &amp;panelu</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="411"/>
+        <source>Open link in new &amp;window</source>
+        <translation>Otevřít odkaz v novém &amp;okně</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="413"/>
+        <source>B&amp;ookmark link</source>
+        <translation>Přidat odkaz do zá&amp;ložek</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="414"/>
+        <source>&amp;Save link as...</source>
+        <translation>&amp;Uložit odkaz jako...</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="416"/>
+        <source>&amp;Copy link address</source>
+        <translation>&amp;Kopírovat adresu odkazu</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="425"/>
+        <source>Show i&amp;mage</source>
+        <translation>Zobrazit &amp;obrázek</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="426"/>
+        <source>Copy im&amp;age</source>
+        <translation>&amp;Kopírovat obrázek</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="427"/>
+        <source>Copy image ad&amp;dress</source>
+        <translation>Kopírovat adr&amp;esu obrázku</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="475"/>
+        <source>S&amp;top</source>
+        <translation>&amp;Zastavit</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="489"/>
+        <source>Show info ab&amp;out site</source>
+        <translation>Zobrazit &amp;informace o stránce</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="490"/>
+        <source>Show Web &amp;Inspector</source>
+        <translation>Zobrazit Web &amp;Inspektor</translation>
+    </message>
+    <message>
         <location filename="../src/webview/webview.cpp" line="499"/>
+        <source>Search &quot;%1 ..&quot; on &amp;Google</source>
+        <translation>Hledat &quot;%1 ..&quot; na &amp;Googlu</translation>
+    </message>
+    <message>
+        <source>Copy &amp;image address</source>
+        <translation type="obsolete">Kopírovat adresu &amp;obrázku</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="429"/>
+        <source>&amp;Save image as...</source>
+        <translation>&amp;Uložit obrázek jako...</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="446"/>
+        <source>&amp;Back</source>
+        <translation>&amp;Zpět</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="454"/>
+        <source>&amp;Forward</source>
+        <translation>&amp;Vpřed</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="468"/>
+        <source>&amp;Reload</source>
+        <translation>&amp;Obnovit</translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="obsolete">Z&amp;astavit</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="479"/>
+        <source>Book&amp;mark page</source>
+        <translation>Přidat stránku do zá&amp;ložek</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="480"/>
+        <source>&amp;Save page as...</source>
+        <translation>&amp;Uložit stránku jako...</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="483"/>
+        <source>Select &amp;all</source>
+        <translation>Vyb&amp;rat vše</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="488"/>
+        <source>Show so&amp;urce code</source>
+        <translation>Zobrazit zdrojový kó&amp;d</translation>
+    </message>
+    <message>
+        <source>Show &amp;info about site</source>
+        <translation type="obsolete">Zobrazit &amp;informace o stránce</translation>
+    </message>
+    <message>
         <source>Search &quot;%1 ..&quot; on Google</source>
-        <translation>Hledat &quot;%1 ..&quot; na Googlu</translation>
+        <translation type="obsolete">Hledat &quot;%1 ..&quot; na Googlu</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="717"/>
@@ -3055,24 +3450,20 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="411"/>
         <source>Open link in new window</source>
-        <translation>Otevřít odkaz v novém okně</translation>
+        <translation type="obsolete">Otevřít odkaz v novém okně</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="410"/>
         <source>Open link in new tab</source>
-        <translation>Otevřít odkaz v novém panelu</translation>
+        <translation type="obsolete">Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="413"/>
         <source>Bookmark link</source>
-        <translation>Přidat odkaz do záložek</translation>
+        <translation type="obsolete">Přidat odkaz do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="414"/>
         <source>Save link as...</source>
-        <translation>Uložit odkaz jako...</translation>
+        <translation type="obsolete">Uložit odkaz jako...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="415"/>
@@ -3080,30 +3471,25 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Odeslat odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="416"/>
         <source>Copy link address</source>
-        <translation>Kopírovat adresu odkazu</translation>
+        <translation type="obsolete">Kopírovat adresu odkazu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="425"/>
         <source>Show image</source>
-        <translation>Zobrazit obrázek</translation>
+        <translation type="obsolete">Zobrazit obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="426"/>
         <source>Copy image</source>
-        <translation>Kopírovat obrázek</translation>
+        <translation type="obsolete">Kopírovat obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="427"/>
         <source>Copy image address</source>
         <oldsource>Coyp image address</oldsource>
-        <translation>Kopírovat adresu obrázku</translation>
+        <translation type="obsolete">Kopírovat adresu obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="429"/>
         <source>Save image as...</source>
-        <translation>Uložit obrázek jako...</translation>
+        <translation type="obsolete">Uložit obrázek jako...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="430"/>
@@ -3111,34 +3497,28 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Odeslat obrázek...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="446"/>
         <source>Back</source>
-        <translation>Zpět</translation>
+        <translation type="obsolete">Zpět</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="454"/>
         <source>Forward</source>
-        <translation>Vpřed</translation>
+        <translation type="obsolete">Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="468"/>
         <source>Reload</source>
-        <translation>Obnovit</translation>
+        <translation type="obsolete">Obnovit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="475"/>
         <source>Stop</source>
-        <translation>Zastavit</translation>
+        <translation type="obsolete">Zastavit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="479"/>
         <source>Bookmark page</source>
-        <translation>Přidat stránku do záložek</translation>
+        <translation type="obsolete">Přidat stránku do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="480"/>
         <source>Save page as...</source>
-        <translation>Uložit stránku jako...</translation>
+        <translation type="obsolete">Uložit stránku jako...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="481"/>
@@ -3146,24 +3526,20 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Odeslat stránku...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="483"/>
         <source>Select all</source>
-        <translation>Vybrat vše</translation>
+        <translation type="obsolete">Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="488"/>
         <source>Show source code</source>
-        <translation>Zobrazit zdrojový kód</translation>
+        <translation type="obsolete">Zobrazit zdrojový kód</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="489"/>
         <source>Show info about site</source>
-        <translation>Zobrazit informace o stránce</translation>
+        <translation type="obsolete">Zobrazit informace o stránce</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="490"/>
         <source>Show Web Inspector</source>
-        <translation>Zobrazit Web Inspektor</translation>
+        <translation type="obsolete">Zobrazit Web Inspektor</translation>
     </message>
 </context>
 </TS>

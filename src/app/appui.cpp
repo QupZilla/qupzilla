@@ -178,48 +178,48 @@ void QupZilla::setupMenu()
     connect(m_menuTools, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolsMenu()));
 
     m_menuFile = new QMenu(tr("File"));
-    m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("New Window"), this, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
+    m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), this, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
     m_menuFile->addAction(QIcon(":/icons/menu/popup.png"), tr("New Tab"), this, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
     m_menuFile->addAction(tr("Open Location"), this, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
-    m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open File"), this, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
+    m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File"), this, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
     m_menuFile->addAction(tr("Close Tab"), m_tabWidget, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
     m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), this, SLOT(close()))->setShortcut(QKeySequence("Ctrl+Shift+W"));
     m_menuFile->addSeparator();
-    m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("Save Page As..."), this, SLOT(savePage()))->setShortcut(QKeySequence("Ctrl+S"));
+    m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), this, SLOT(savePage()))->setShortcut(QKeySequence("Ctrl+S"));
     m_menuFile->addAction(tr("Send Link..."), this, SLOT(sendLink()));
-    m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("Print"), this, SLOT(printPage()));
+    m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print"), this, SLOT(printPage()));
     m_menuFile->addSeparator();
     m_menuFile->addAction(QIcon::fromTheme("application-exit"), tr("Quit"), this, SLOT(quitApp()))->setShortcut(QKeySequence("Ctrl+Q"));
     menuBar()->addMenu(m_menuFile);
 
     m_menuEdit = new QMenu(tr("Edit"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("Undo"))->setShortcut(QKeySequence("Ctrl+Z"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("Redo"))->setShortcut(QKeySequence("Ctrl+Shift+Z"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("&Undo"))->setShortcut(QKeySequence("Ctrl+Z"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("&Redo"))->setShortcut(QKeySequence("Ctrl+Shift+Z"));
     m_menuEdit->addSeparator();
-    m_menuEdit->addAction(QIcon::fromTheme("edit-cut"), tr("Cut"))->setShortcut(QKeySequence("Ctrl+X"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-copy"), tr("Copy"), this, SLOT(copy()))->setShortcut(QKeySequence("Ctrl+C"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-paste"), tr("Paste"))->setShortcut(QKeySequence("Ctrl+V"));
-    m_menuEdit->addAction(QIcon::fromTheme("edit-delete"), tr("Delete"))->setShortcut(QKeySequence("Del"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-cut"), tr("&Cut"))->setShortcut(QKeySequence("Ctrl+X"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-copy"), tr("C&opy"), this, SLOT(copy()))->setShortcut(QKeySequence("Ctrl+C"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-paste"), tr("&Paste"))->setShortcut(QKeySequence("Ctrl+V"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-delete"), tr("&Delete"))->setShortcut(QKeySequence("Del"));
     m_menuEdit->addSeparator();
-    m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select All"), this, SLOT(selectAll()))->setShortcut(QKeySequence("Ctrl+A"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &All"), this, SLOT(selectAll()))->setShortcut(QKeySequence("Ctrl+A"));
     m_menuEdit->addSeparator();
-    m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
+    m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     menuBar()->addMenu(m_menuEdit);
 
     m_menuView = new QMenu(tr("View"));
-    m_actionShowToolbar = new QAction(tr("Navigation Toolbar"), this);
+    m_actionShowToolbar = new QAction(tr("&Navigation Toolbar"), this);
     m_actionShowToolbar->setCheckable(true);
     connect(m_actionShowToolbar, SIGNAL(triggered(bool)), this, SLOT(showNavigationToolbar()));
-    m_actionShowBookmarksToolbar = new QAction(tr("Bookmarks Toolbar"), this);
+    m_actionShowBookmarksToolbar = new QAction(tr("&Bookmarks Toolbar"), this);
     m_actionShowBookmarksToolbar->setCheckable(true);
     connect(m_actionShowBookmarksToolbar, SIGNAL(triggered(bool)), this, SLOT(showBookmarksToolbar()));
-    m_actionShowStatusbar = new QAction(tr("Status Bar"), this);
+    m_actionShowStatusbar = new QAction(tr("Sta&tus Bar"), this);
     m_actionShowStatusbar->setCheckable(true);
     connect(m_actionShowStatusbar, SIGNAL(triggered(bool)), this, SLOT(showStatusbar()));
-    m_actionShowMenubar = new QAction(tr("Menu Bar"), this);
+    m_actionShowMenubar = new QAction(tr("&Menu Bar"), this);
     m_actionShowMenubar->setCheckable(true);
     connect(m_actionShowMenubar, SIGNAL(triggered(bool)), this, SLOT(showMenubar()));
-    m_actionShowFullScreen = new QAction(tr("Fullscreen"), this);
+    m_actionShowFullScreen = new QAction(tr("&Fullscreen"), this);
     m_actionShowFullScreen->setCheckable(true);
     m_actionShowFullScreen->setShortcut(QKeySequence("F11"));
     connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), this, SLOT(fullScreen(bool)));
@@ -229,7 +229,7 @@ void QupZilla::setupMenu()
 #else
             QIcon(":/icons/faenza/stop.png")
 #endif
-            , tr("Stop"), this);
+            , tr("&Stop"), this);
     connect(m_actionStop, SIGNAL(triggered()), this, SLOT(stop()));
     m_actionStop->setShortcut(QKeySequence("Esc"));
     m_actionReload = new QAction(
@@ -238,10 +238,10 @@ void QupZilla::setupMenu()
 #else
             QIcon(":/icons/faenza/reload.png")
 #endif
-            , tr("Reload"), this);
+            , tr("&Reload"), this);
     connect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
     m_actionReload->setShortcut(QKeySequence("Ctrl+R"));
-    QAction* actionEncoding = new QAction(tr("Character Encoding"), this);
+    QAction* actionEncoding = new QAction(tr("Character &Encoding"), this);
     m_menuEncoding = new QMenu(this);
     actionEncoding->setMenu(m_menuEncoding);
     connect(m_menuEncoding, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
@@ -254,13 +254,13 @@ void QupZilla::setupMenu()
     m_menuView->addAction(m_actionStop);
     m_menuView->addAction(m_actionReload);
     m_menuView->addSeparator();
-    m_menuView->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom In"), this, SLOT(zoomIn()))->setShortcut(QKeySequence("Ctrl++"));
-    m_menuView->addAction(QIcon::fromTheme("zoom-out"), tr("Zoom Out"), this, SLOT(zoomOut()))->setShortcut(QKeySequence("Ctrl+-"));
+    m_menuView->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &In"), this, SLOT(zoomIn()))->setShortcut(QKeySequence("Ctrl++"));
+    m_menuView->addAction(QIcon::fromTheme("zoom-out"), tr("Zoom &Out"), this, SLOT(zoomOut()))->setShortcut(QKeySequence("Ctrl+-"));
     m_menuView->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(zoomReset()))->setShortcut(QKeySequence("Ctrl+0"));
     m_menuView->addSeparator();
     m_menuView->addAction(actionEncoding);
     m_menuView->addSeparator();
-    m_menuView->addAction(QIcon::fromTheme("text-html"), tr("Page Source"), this, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
+    m_menuView->addAction(QIcon::fromTheme("text-html"), tr("&Page Source"), this, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
     m_menuView->addAction(m_actionShowFullScreen);
     menuBar()->addMenu(m_menuView);
     connect(m_menuView, SIGNAL(aboutToShow()), this, SLOT(aboutToShowViewMenu()));

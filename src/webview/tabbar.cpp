@@ -57,7 +57,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
         return;
 
     QMenu menu;
-    menu.addAction(QIcon(":/icons/menu/popup.png"),tr("New tab"), p_QupZilla, SLOT(addTab()));
+    menu.addAction(QIcon(":/icons/menu/popup.png"),tr("&New tab"), p_QupZilla, SLOT(addTab()));
     menu.addSeparator();
     if (index!=-1) {
         WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(m_clickedTab));
@@ -70,7 +70,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
 #else
                 QIcon(":/icons/faenza/stop.png")
 #endif
-                ,tr("Stop Tab"), this, SLOT(stopTab()));
+                ,tr("&Stop Tab"), this, SLOT(stopTab()));
         } else {
             menu.addAction(
 #ifdef Q_WS_X11
@@ -78,26 +78,26 @@ void TabBar::contextMenuRequested(const QPoint &position)
 #else
                 QIcon(":/icons/faenza/reload.png")
 #endif
-                ,tr("Reload Tab"), this, SLOT(reloadTab()));
+                ,tr("&Reload Tab"), this, SLOT(reloadTab()));
         }
-        menu.addAction(tr("Duplicate Tab"), this, SLOT(duplicateTab()));
-        menu.addAction(webTab->isPinned() ? tr("Unpin Tab") : tr("Pin Tab"), this, SLOT(pinTab()));
+        menu.addAction(tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
+        menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
         menu.addSeparator();
-        menu.addAction(tr("Reload All Tabs"), tabWidget, SLOT(reloadAllTabs()));
-        menu.addAction(tr("Bookmark This Tab"), this, SLOT(bookmarkTab()));
-        menu.addAction(tr("Bookmark All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
+        menu.addAction(tr("Re&load All Tabs"), tabWidget, SLOT(reloadAllTabs()));
+        menu.addAction(tr("&Bookmark This Tab"), this, SLOT(bookmarkTab()));
+        menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
-        QAction* action = menu.addAction(QIcon::fromTheme("user-trash"),tr("Restore Closed Tab"), tabWidget, SLOT(restoreClosedTab()));
+        QAction* action = menu.addAction(QIcon::fromTheme("user-trash"),tr("Restore &Closed Tab"), tabWidget, SLOT(restoreClosedTab()));
         tabWidget->canRestoreTab() ? action->setEnabled(true) : action->setEnabled(false);
         menu.addSeparator();
-        menu.addAction(tr("Close Other Tabs"), this, SLOT(closeAllButCurrent()));
-        menu.addAction(QIcon::fromTheme("window-close"),tr("Close"), this, SLOT(closeTab()));
+        menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
+        menu.addAction(QIcon::fromTheme("window-close"),tr("Cl&ose"), this, SLOT(closeTab()));
         menu.addSeparator();
     } else {
-        menu.addAction(tr("Reload All Tabs"), tabWidget, SLOT(reloadAllTabs()));
-        menu.addAction(tr("Bookmark All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
+        menu.addAction(tr("Reloa&d All Tabs"), tabWidget, SLOT(reloadAllTabs()));
+        menu.addAction(tr("Bookmark &All Ta&bs"), p_QupZilla, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
-        QAction* action = menu.addAction(QIcon::fromTheme("user-trash"),tr("Restore Closed Tab"), tabWidget, SLOT(restoreClosedTab()));
+        QAction* action = menu.addAction(QIcon::fromTheme("user-trash"),tr("Restore &Closed Tab"), tabWidget, SLOT(restoreClosedTab()));
         tabWidget->canRestoreTab() ? action->setEnabled(true) : action->setEnabled(false);
     }
 
