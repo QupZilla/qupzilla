@@ -90,6 +90,10 @@ void DownloadManager::timerEvent(QTimerEvent* event)
         if (remTimes.isEmpty()) {
             ui->speedLabel->clear();
             setWindowTitle(tr("Download Manager"));
+#ifdef W7API
+        win7.setProgressValue(0, 0);
+        win7.setProgressState(win7.Normal);
+#endif
             return;
         }
 

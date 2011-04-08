@@ -17,6 +17,10 @@
 * ============================================================ */
 #include "downloaditem.h"
 #include "ui_downloaditem.h"
+#include "mainapplication.h"
+#include "qupzilla.h"
+#include "tabwidget.h"
+#include "webpage.h"
 
 //#define DOWNMANAGER_DEBUG
 
@@ -27,6 +31,8 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
    ,m_reply(reply)
    ,m_path(path)
    ,m_fileName(fileName)
+   ,m_downUrl(reply->url())
+   ,m_downloadPage(QUrl())
    ,m_downloading(false)
    ,m_openAfterFinish(openAfterFinishedDownload)
 {
@@ -76,6 +82,17 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
         error(m_reply->error());
     }
     show();
+
+    //Get Download Page
+    QNetworkRequest request = m_reply->request();
+    QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
+    WebPage* webPage = (WebPage*)(v.value<void*>());
+    if (webPage) {
+        if (!webPage->mainFrame()->url().isEmpty())
+            m_downloadPage = webPage->mainFrame()->url();
+        else if (webPage->history()->canGoBack())
+            m_downloadPage = webPage->history()->backItem().url();
+    }
 }
 
 void DownloadItem::metaDataChanged()
@@ -85,7 +102,7 @@ void DownloadItem::metaDataChanged()
 
     QVariant locationHeader = m_reply->header(QNetworkRequest::LocationHeader);
     if (!locationHeader.toUrl().isEmpty())
-    qWarning("DownloadManager: metaDataChanged << URL: %s", qPrintable(locationHeader.toString()));
+        qWarning("DownloadManager: metaDataChanged << URL: %s", qPrintable(locationHeader.toString()));
 
 //    QMessageBox::information(m_item->listWidget()->parentWidget(), "Meta Data Changed", QString("Meta data changed feature unimplemented yet, sorry.\n URL: '%̈́'").arg(locationHeader.toUrl().toString()));
 }
@@ -247,22 +264,31 @@ void DownloadItem::customContextMenuRequested(QPoint pos)
 
     menu.addAction(tr("Open Folder"), this, SLOT(openFolder()));
     menu.addSeparator();
+    menu.addAction(tr("Go to Download Page"), this, SLOT(goToDownloadPage()))->setEnabled(!m_downloadPage.isEmpty());
+    menu.addAction(QIcon::fromTheme("edit-copy"), tr("Copy Download Link"), this, SLOT(copyDownloadLink()));
+    menu.addSeparator();
     menu.addAction(
 #ifdef Q_WS_X11
                    style()->standardIcon(QStyle::SP_BrowserStop)
 #else
                    QIcon(":/icons/faenza/stop.png")
 #endif
-                   ,tr("Cancel downloading"), this, SLOT(stop()));
-    menu.addAction(QIcon::fromTheme("window-close"), tr("Clear"), this, SLOT(clear()));
+                   ,tr("Cancel downloading"), this, SLOT(stop()))->setEnabled(m_downloading);
+    menu.addAction(QIcon::fromTheme("window-close"), tr("Clear"), this, SLOT(clear()))->setEnabled(!m_downloading);
 
     if (m_downloading || ui->downloadInfo->text().startsWith(tr("Cancelled")) || ui->downloadInfo->text().startsWith(tr("Error")))
         menu.actions().at(0)->setEnabled(false);
-    if (!m_downloading)
-        menu.actions().at(3)->setEnabled(false);
-    if (m_downloading)
-        menu.actions().at(4)->setEnabled(false);
     menu.exec(mapToGlobal(pos));
+}
+
+void DownloadItem::goToDownloadPage()
+{
+    mApp->getWindow()->tabWidget()->addView(m_downloadPage, tr("New tab"), TabWidget::NewSelectedTab);
+}
+
+void DownloadItem::copyDownloadLink()
+{
+    qApp->clipboard()->setText(m_downUrl.toString());
 }
 
 void DownloadItem::clear()
