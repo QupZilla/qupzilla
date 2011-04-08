@@ -46,9 +46,9 @@ void BookmarksToolbar::customContextMenuRequested(const QPoint &pos)
         return;
 
     QMenu menu;
-    menu.addAction(tr("Bookmark Current Page"), p_QupZilla, SLOT(bookmarkPage()));
-    menu.addAction(tr("Bookmark All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
-    menu.addAction(QIcon::fromTheme("user-bookmarks"), tr("Organize Bookmarks"), p_QupZilla, SLOT(showBookmarksManager()));
+    menu.addAction(tr("&Bookmark Current Page"), p_QupZilla, SLOT(bookmarkPage()));
+    menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
+    menu.addAction(QIcon::fromTheme("user-bookmarks"), tr("&Organize Bookmarks"), p_QupZilla, SLOT(showBookmarksManager()));
     menu.addSeparator();
     menu.addAction(
 #ifdef Q_WS_X11
@@ -56,10 +56,10 @@ void BookmarksToolbar::customContextMenuRequested(const QPoint &pos)
 #else
             QIcon(":/icons/faenza/reload.png")
 #endif
-            ,tr("Reload Toolbar"), this, SLOT(refreshBookmarks()));
+            ,tr("&Reload Toolbar"), this, SLOT(refreshBookmarks()));
     menu.addSeparator();
-    menu.addAction(m_bookmarksModel->isShowingMostVisited() ? tr("Hide Most Visited") : tr("Show Most Visited"), this, SLOT(showMostVisited()));
-    menu.addAction(tr("Hide Toolbar"), this, SLOT(hidePanel()));
+    menu.addAction(m_bookmarksModel->isShowingMostVisited() ? tr("Hide Most &Visited") : tr("Show Most &Visited"), this, SLOT(showMostVisited()));
+    menu.addAction(tr("&Hide Toolbar"), this, SLOT(hidePanel()));
 
     //Prevent choosing first option with double rightclick
     QPoint position = QCursor::pos();
@@ -75,8 +75,7 @@ void BookmarksToolbar::showMostVisited()
 
 void BookmarksToolbar::hidePanel()
 {
-    this->hide();
-    p_QupZilla->acShowBookmarksToolbar()->setChecked(false);
+    p_QupZilla->showBookmarksToolbar();
 }
 
 void BookmarksToolbar::refreshBookmarks()

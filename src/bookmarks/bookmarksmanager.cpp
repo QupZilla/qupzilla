@@ -155,12 +155,12 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
         return;
 
     QMenu menu;
-    menu.addAction(tr("Open link in actual tab"), getQupZilla(), SLOT(loadActionUrl()))->setData(link);
-    menu.addAction(tr("Open link in new tab"), this, SLOT(loadInNewTab()))->setData(link);
+    menu.addAction(tr("Open link in actual &tab"), getQupZilla(), SLOT(loadActionUrl()))->setData(link);
+    menu.addAction(tr("Open link in &new tab"), this, SLOT(loadInNewTab()))->setData(link);
     menu.addSeparator();
 
     QMenu moveMenu;
-    moveMenu.setTitle(tr("Move bookmark to folder"));
+    moveMenu.setTitle(tr("Move bookmark to &folder"));
     moveMenu.addAction(QIcon(":icons/other/unsortedbookmarks.png"), tr("Unsorted Bookmarks"), this, SLOT(moveBookmark()))->setData("unsorted");
     moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In Menu"), this, SLOT(moveBookmark()))->setData("bookmarksMenu");
     moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In ToolBar"), this, SLOT(moveBookmark()))->setData("bookmarksToolbar");
@@ -171,7 +171,7 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
     menu.addMenu(&moveMenu);
 
     menu.addSeparator();
-    menu.addAction(tr("Close"), this, SLOT(close()));
+    menu.addAction(tr("&Close"), this, SLOT(close()));
 
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();
