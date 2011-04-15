@@ -32,14 +32,14 @@ BookmarksWidget::BookmarksWidget(int bookmarkId, QWidget* parent) :
     connect(ui->removeBookmark, SIGNAL(clicked()), this, SLOT(removeBookmark()));
     connect(ui->save, SIGNAL(clicked()), this, SLOT(saveBookmark()));
 
-    m_bookmarksModel = mApp->bookmarks();
+    m_bookmarksModel = mApp->bookmarksModel();
     loadBookmark();
 }
 
 void BookmarksWidget::loadBookmark()
 {
-    QStringList bookmark = m_bookmarksModel->getBookmark(m_bookmarkId);
-    ui->name->setText( bookmark.at(1) );
+    BookmarksModel::Bookmark bookmark = m_bookmarksModel->getBookmark(m_bookmarkId);
+    ui->name->setText( bookmark.title );
 
     // Bookmark folders
     ui->folder->addItem(QIcon(":icons/other/unsortedbookmarks.png"), tr("Unsorted Bookmarks"), "unsorted");
@@ -50,7 +50,7 @@ void BookmarksWidget::loadBookmark()
     while(query.next())
         ui->folder->addItem(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString(), query.value(0).toString());
 
-    ui->folder->setCurrentIndex( ui->folder->findData(bookmark.at(2)) );
+    ui->folder->setCurrentIndex( ui->folder->findData(bookmark.folder) );
     ui->name->setCursorPosition(0);
 }
 
@@ -63,7 +63,7 @@ void BookmarksWidget::removeBookmark()
 
 void BookmarksWidget::saveBookmark()
 {
-    m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), ui->folder->itemData(ui->folder->currentIndex()).toString() );
+    m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), QUrl(), ui->folder->itemData(ui->folder->currentIndex()).toString() );
     close();
 }
 

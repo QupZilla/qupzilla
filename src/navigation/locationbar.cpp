@@ -22,11 +22,10 @@
 #include "mainapplication.h"
 #include "locationcompleter.h"
 #include "clickablelabel.h"
-#include "bookmarkswidget.h"
-#include "bookmarksmodel.h"
 #include "siteinfowidget.h"
 #include "rsswidget.h"
 #include "webpage.h"
+#include "bookmarkicon.h"
 
 LocationBar::LocationBar(QupZilla* mainClass, QWidget* parent)
     : LineEdit(parent)
@@ -34,7 +33,6 @@ LocationBar::LocationBar(QupZilla* mainClass, QWidget* parent)
     ,m_addComWithCtrl(false)
     ,m_addCountryWithAlt(false)
     ,p_QupZilla(mainClass)
-    ,m_bookmarksModel(0)
 {
     m_siteIcon = new QToolButton(this);
     m_siteIcon->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -59,19 +57,14 @@ LocationBar::LocationBar(QupZilla* mainClass, QWidget* parent)
     m_goButton->setHidden(true);
     m_goButton->setStyleSheet("margin-bottom:2px;");
 
-    m_bookmarkButton = new ClickableLabel(this);
-    m_bookmarkButton->setPixmap(QPixmap(":/icons/locationbar/starg.png"));
-    m_bookmarkButton->setCursor(Qt::PointingHandCursor);
-    m_bookmarkButton->setStyleSheet("margin-bottom: 2px;");
-    m_bookmarkButton->setToolTip(tr("Bookmark this Page"));
-    m_bookmarkButton->setFocusPolicy(Qt::ClickFocus);
+    m_bookmarkIcon = new BookmarkIcon(p_QupZilla);
 
     ClickableLabel* down = new ClickableLabel(this);
     down->setPixmap(QPixmap(":icons/locationbar/arrow-down.gif"));
     down->setCursor(Qt::ArrowCursor);
 
     addWidget(down, LineEdit::RightSide);
-    addWidget(m_bookmarkButton, LineEdit::RightSide);
+    addWidget(m_bookmarkIcon, LineEdit::RightSide);
     addWidget(m_goButton, LineEdit::RightSide);
     addWidget(m_rssIcon, LineEdit::RightSide);
 
@@ -92,7 +85,6 @@ LocationBar::LocationBar(QupZilla* mainClass, QWidget* parent)
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
 //    connect(down, SIGNAL(clicked(QPoint)), com, SLOT(show()));
     connect(m_goButton, SIGNAL(clicked(QPoint)), p_QupZilla, SLOT(urlEnter()));
-    connect(m_bookmarkButton, SIGNAL(clicked(QPoint)), this, SLOT(bookmarkIconClicked()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
 
     setStyleSheet("QLineEdit { background: transparent; border-image: url(:/icons/locationbar/lineedit.png); border-width:4; color:black;}");
@@ -122,7 +114,7 @@ void LocationBar::showGoButton()
 
     m_rssIconVisible = m_rssIcon->isVisible();
 
-    m_bookmarkButton->hide();
+    m_bookmarkIcon->hide();
     m_rssIcon->hide();
     m_goButton->show();
 }
@@ -133,7 +125,7 @@ void LocationBar::hideGoButton()
         return;
 
     m_rssIcon->setVisible(m_rssIconVisible);
-    m_bookmarkButton->show();
+    m_bookmarkIcon->show();
     m_goButton->hide();
 }
 
@@ -151,40 +143,12 @@ void LocationBar::showSiteInfo()
     info->showAt(this);
 }
 
-void LocationBar::bookmarkIconClicked()
-{
-    QUrl url = p_QupZilla->weView()->url();
-
-    if (m_bookmarksModel->isBookmarked(url)) {
-        BookmarksWidget* menu = new BookmarksWidget(m_bookmarksModel->bookmarkId(url), this);
-        menu->showAt(this);
-        connect(menu, SIGNAL(bookmarkDeleted()), this, SLOT(checkBookmark()));
-    } else if (m_bookmarksModel->saveBookmark(p_QupZilla->weView())) {
-        m_bookmarkButton->setPixmap(QPixmap(":/icons/locationbar/star.png"));
-        m_bookmarkButton->setToolTip(tr("Edit this bookmark"));
-    }
-}
-
 void LocationBar::rssIconClicked()
 {
     QList<QPair<QString,QString> > _rss = p_QupZilla->weView()->getRss();
 
     RSSWidget* rss = new RSSWidget(p_QupZilla->weView(), _rss, this);
     rss->showAt(this);
-}
-
-void LocationBar::checkBookmark()
-{
-    if (!m_bookmarksModel)
-        m_bookmarksModel = mApp->bookmarks();
-
-    if (m_bookmarksModel->isBookmarked(QUrl(text()))) {
-        m_bookmarkButton->setPixmap(QPixmap(":/icons/locationbar/star.png"));
-        m_bookmarkButton->setToolTip(tr("Edit this bookmark"));
-    } else {
-        m_bookmarkButton->setPixmap(QPixmap(":/icons/locationbar/starg.png"));
-        m_bookmarkButton->setToolTip(tr("Bookmark this Page"));
-    }
 }
 
 QIcon LocationBar::icon(const QUrl &url)
@@ -239,8 +203,10 @@ void LocationBar::showUrl(const QUrl &url, bool empty)
         p_QupZilla->statusBar()->showMessage(tr("Done"));
         p_QupZilla->ipLabel()->show();
     }
+
     hideGoButton();
-    checkBookmark();
+
+    m_bookmarkIcon->checkBookmark(url);
     m_rssIcon->setVisible(view->hasRss());
 
 }
@@ -329,7 +295,7 @@ void LocationBar::keyPressEvent(QKeyEvent *event)
 
 LocationBar::~LocationBar()
 {
-    delete m_bookmarkButton;
+    delete m_bookmarkIcon;
     delete m_goButton;
     delete m_siteIcon;
     delete m_rssIcon;

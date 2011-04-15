@@ -46,6 +46,8 @@
 #include "ui_closedialog.h"
 #include "adblockmanager.h"
 #include "clickablelabel.h"
+#include "docktitlebarwidget.h"
+#include "sidebar.h"
 
 const QString QupZilla::VERSION = "1.0.0-b1";
 //const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM d yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
@@ -62,6 +64,7 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     ,m_actionPrivateBrowsing(0)
     ,m_webInspectorDock(0)
     ,m_webSearchToolbar(0)
+    ,m_sideBar(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     this->resize(640,480);
@@ -552,6 +555,17 @@ void QupZilla::showBookmarksToolbar()
     settings.setValue("Browser-View-Settings/showBookmarksToolbar", !status);
 }
 
+void QupZilla::showBookmarksSideBar()
+{
+    if (!m_sideBar) {
+        m_sideBar = new SideBar(this);
+        addDockWidget(Qt::LeftDockWidgetArea, m_sideBar);
+        m_sideBar->showBookmarks();
+    } else {
+        delete m_sideBar;
+    }
+}
+
 void QupZilla::showNavigationToolbar()
 {
     if (!menuBar()->isVisible() && !m_actionShowToolbar->isChecked())
@@ -598,6 +612,7 @@ void QupZilla::showInspector()
         m_webInspector->setPage(weView()->page());
         addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock);
         m_webInspectorDock->setWindowTitle(tr("Web Inspector"));
+        m_webInspectorDock->setTitleBarWidget(new DockTitleBarWidget(tr("Web Inspector"), m_webInspectorDock));
         m_webInspectorDock->setObjectName("WebInspector");
         m_webInspectorDock->setWidget(m_webInspector);
         m_webInspectorDock->setFeatures(QDockWidget::DockWidgetClosable);

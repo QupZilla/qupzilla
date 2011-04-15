@@ -16,8 +16,32 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "sidebar.h"
+#include "docktitlebarwidget.h"
+#include "bookmarkssidebar.h"
+#include "qupzilla.h"
 
 SideBar::SideBar(QWidget* parent) :
     QDockWidget(parent)
 {
+    setObjectName("SideBar");
+    setAttribute(Qt::WA_DeleteOnClose);
+    m_titleBar = new DockTitleBarWidget("", this);
+    setTitleBarWidget(m_titleBar);
+}
+
+void SideBar::showBookmarks()
+{
+    m_titleBar->setTitle(tr("Bookmarks"));
+    BookmarksSideBar* bar = new BookmarksSideBar((QupZilla*)parentWidget(), this);
+    setWidget(bar);
+}
+
+void SideBar::showHistory()
+{
+
+}
+
+void SideBar::showRSS()
+{
+
 }

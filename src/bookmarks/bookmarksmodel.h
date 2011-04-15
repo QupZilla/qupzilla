@@ -18,35 +18,59 @@
 #ifndef BOOKMARKSMODEL_H
 #define BOOKMARKSMODEL_H
 
+#include <QObject>
 #include <QUrl>
 #include <QSettings>
 #include <QSqlQuery>
 
 class WebView;
-class BookmarksModel
+class BookmarksModel : public QObject
 {
+    Q_OBJECT
 public:
-    explicit BookmarksModel();
+    explicit BookmarksModel(QObject* parent);
+
+    struct Bookmark {
+        int id;
+        QString title;
+        QString folder;
+        QUrl url;
+    };
+
     void loadSettings();
     inline bool isShowingMostVisited() { return m_showMostVisited; }
     void setShowingMostVisited(bool state);
 
-    bool isBookmarked(QUrl url);
-    int bookmarkId(QUrl url);
-    int bookmarkId(QUrl url, QString title, QString folder);
-    QStringList getBookmark(int id);
+    bool isBookmarked(const QUrl &url);
+    int bookmarkId(const QUrl &url);
+    int bookmarkId(const QUrl &url, const QString &title, const QString &folder);
+    Bookmark getBookmark(int id);
 
-    bool saveBookmark(QUrl url, QString title, QString folder = "unsorted");
-    bool saveBookmark(WebView* view, QString folder = "unsorted");
+    bool saveBookmark(const QUrl &url, const QString &title, const QString &folder = "unsorted");
+    bool saveBookmark(WebView* view, const QString &folder = "unsorted");
 
     bool removeBookmark(int id);
-    bool removeBookmark(QUrl url);
+    bool removeBookmark(const QUrl &url);
     bool removeBookmark(WebView* view);
 
-    bool editBookmark(int id, QString title, QString folder);
-    bool editBookmark(int id, QUrl url, QString title);
+    bool editBookmark(int id, const QString &title = "", const QUrl &url = QUrl(), const QString &folder = "");
+//    bool editBookmark(int id, const QString &title, const QString &folder);
+//    bool editBookmark(int id, const QUrl &url, const QString &title);
+
+    bool createFolder(const QString &name);
+    bool removeFolder(const QString &name);
+
+    static bool bookmarksEqual(const Bookmark &one, const Bookmark &two);
+    static QString toTranslatedFolder(const QString &name);
+    static QString fromTranslatedFolder(const QString &name);
 
 signals:
+    void bookmarkAdded(const BookmarksModel::Bookmark &bookmark);
+    void bookmarkDeleted(const BookmarksModel::Bookmark &bookmark);
+    void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
+
+    void folderAdded(const QString &title);
+    void folderDeleted(const QString &title);
 
 public slots:
 
