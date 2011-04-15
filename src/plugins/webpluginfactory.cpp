@@ -22,9 +22,7 @@
 
 WebPluginFactory::WebPluginFactory(QObject* parent)
     : QWebPluginFactory(parent)
-    ,m_loadClickToFlash(false)
 {
-    connect(this, SIGNAL(signalLoadClickToFlash(bool)), SLOT(setLoadClickToFlash(bool)));
 }
 
 QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const
@@ -33,7 +31,8 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
     Q_UNUSED(argumentValues)
 
     if (mimeType != "application/x-shockwave-flash") {
-        qDebug()  << mimeType;
+        if (mimeType != "application/futuresplash")
+            qDebug()  << mimeType;
         return 0;
     }
     if (!mApp->plugins()->c2f_isEnabled())
@@ -44,14 +43,8 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
     if (whitelist.contains(url.host()) || whitelist.contains("www."+url.host()) || whitelist.contains(url.host().remove("www.")))
         return 0;
 
-    if (m_loadClickToFlash) {
-        emit signalLoadClickToFlash(false);
-        return 0;
-    } else {
-        ClickToFlash* ctf = new ClickToFlash(url);
-        connect(ctf, SIGNAL(signalLoadClickToFlash(bool)), this, SLOT(setLoadClickToFlash(bool)));
-        return ctf;
-    }
+    ClickToFlash* ctf = new ClickToFlash(url);
+    return ctf;
 }
 
 QList<QWebPluginFactory::Plugin> WebPluginFactory::plugins() const
