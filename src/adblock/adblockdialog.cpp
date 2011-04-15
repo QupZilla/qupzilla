@@ -45,7 +45,6 @@
 #include "adblockdialog.h"
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
-#include "ui_adblockdialog.h"
 #include "mainapplication.h"
 
 AdBlockDialog::AdBlockDialog(QWidget *parent)

@@ -36,8 +36,7 @@ class QupZilla;
 class LineEdit;
 class LocationCompleter;
 class ClickableLabel;
-class BookmarksModel;
-
+class BookmarkIcon;
 class LocationBar : public LineEdit
 {
     Q_OBJECT;
@@ -50,14 +49,12 @@ public:
 
 public slots:
     void showUrl(const QUrl &url, bool empty = true);
-    void checkBookmark();
 
 private slots:
     void siteIconChanged();
     void setPrivacy(bool state);
     void textEdit();
     void showPopup();
-    void bookmarkIconClicked();
     void showSiteInfo();
     void rssIconClicked();
 
@@ -70,7 +67,7 @@ private:
     void showGoButton();
     void hideGoButton();
 
-    ClickableLabel* m_bookmarkButton;
+    BookmarkIcon* m_bookmarkIcon;
     ClickableLabel* m_goButton;
     ClickableLabel* m_rssIcon;
     QToolButton* m_siteIcon;
@@ -80,7 +77,6 @@ private:
     bool m_addCountryWithAlt;
     QupZilla* p_QupZilla;
     LocationCompleter* m_locationCompleter;
-    BookmarksModel* m_bookmarksModel;
 
     bool m_rssIconVisible;
 };

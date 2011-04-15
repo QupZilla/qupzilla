@@ -399,10 +399,10 @@ RSSManager* MainApplication::rssManager()
     return m_rssmanager;
 }
 
-BookmarksModel* MainApplication::bookmarks()
+BookmarksModel* MainApplication::bookmarksModel()
 {
     if (!m_bookmarksModel)
-        m_bookmarksModel = new BookmarksModel();
+        m_bookmarksModel = new BookmarksModel(this);
     return m_bookmarksModel;
 }
 

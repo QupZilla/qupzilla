@@ -246,10 +246,18 @@ void QupZilla::setupMenu()
     actionEncoding->setMenu(m_menuEncoding);
     connect(m_menuEncoding, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
 
-    m_menuView->addAction(m_actionShowMenubar);
-    m_menuView->addAction(m_actionShowToolbar);
-    m_menuView->addAction(m_actionShowBookmarksToolbar);
-    m_menuView->addAction(m_actionShowStatusbar);
+    QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
+    toolbarsMenu->addAction(m_actionShowMenubar);
+    toolbarsMenu->addAction(m_actionShowToolbar);
+    toolbarsMenu->addAction(m_actionShowBookmarksToolbar);
+    toolbarsMenu->addAction(m_actionShowStatusbar);
+    QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
+    sidebarsMenu->addAction(tr("Bookmarks"), this, SLOT(showBookmarksSideBar()))->setCheckable(true);
+    sidebarsMenu->addAction(tr("History"), this, SLOT(showHistorySideBar()))->setCheckable(true);
+    sidebarsMenu->addAction(tr("RSS Reader"), this, SLOT(showRssSideBar()))->setCheckable(true);
+
+    m_menuView->addMenu(toolbarsMenu);
+    m_menuView->addMenu(sidebarsMenu);
     m_menuView->addSeparator();
     m_menuView->addAction(m_actionStop);
     m_menuView->addAction(m_actionReload);
@@ -307,8 +315,8 @@ void QupZilla::setBackground(QColor textColor)
                   "QMenuBar{color:"+color+";background-image:url(:icons/transp.png); border:none;} QStatusBar{background-image:url(:icons/transp.png); border:none; color:"+color+";}"
                   "QMenuBar:item{spacing: 5px; padding: 2px 6px;background: transparent;}"
                   "QMenuBar::item:pressed { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 lightgray, stop:1 darkgray); border: 1px solid darkgrey; border-top-left-radius: 4px;border-top-right-radius: 4px; border-bottom: none;}"
-                  "QSplitter::handle{background-color:transparent;}"
                   );
+    m_navigation->setStyleSheet("QSplitter::handle{background-color:transparent;}");
 
 }
 

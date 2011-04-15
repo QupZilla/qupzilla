@@ -28,6 +28,7 @@ class TreeWidget : public QTreeWidget
 public:
     explicit TreeWidget(QWidget* parent = 0);
     QList<QTreeWidgetItem*> allItems(bool includeTopLevelItems = true);
+    bool addToParentItem(const QString &text, QTreeWidgetItem* item);
 
 signals:
     void itemControlClicked(QTreeWidgetItem* item);
