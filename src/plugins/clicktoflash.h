@@ -63,9 +63,6 @@ class ClickToFlash : public QWidget
 public:
     explicit ClickToFlash(const QUrl &pluginUrl, QWidget* parent = 0);
 
-signals:
-    void signalLoadClickToFlash(bool);
-
 private slots:
     void load();
     void customContextMenuRequested(const QPoint &pos);
