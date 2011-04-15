@@ -65,7 +65,7 @@ void TreeWidget::filterStringWithoutTopItems(QString string)
             item->setHidden(false);
     } else {
         foreach (QTreeWidgetItem* item, _allItems)
-            item->setHidden(!item->text(0).contains(string));
+            item->setHidden(!item->text(0).contains(string, Qt::CaseInsensitive));
     }
 }
 
@@ -78,6 +78,16 @@ void TreeWidget::filterStringWithTopItems(QString string)
             item->setHidden(false);
     } else {
         foreach (QTreeWidgetItem* item, _allItems)
-            item->setHidden(!item->text(0).contains(string));
+            item->setHidden(!item->text(0).contains(string, Qt::CaseInsensitive));
     }
+}
+
+bool TreeWidget::addToParentItem(const QString &text, QTreeWidgetItem* item)
+{
+    QTreeWidgetItem* parentItem = findItems(text, Qt::MatchExactly).at(0);
+    if (!parentItem)
+        return false;
+
+    parentItem->addChild(item);
+    return true;
 }

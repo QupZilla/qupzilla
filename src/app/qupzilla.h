@@ -71,6 +71,7 @@ class AutoFillModel;
 class MainApplication;
 class WebTab;
 class AdBlockIcon;
+class SideBar;
 class QupZilla : public QMainWindow
 {
     Q_OBJECT
@@ -152,9 +153,9 @@ private slots:
     void showCookieManager();
     void showHistoryManager();
     void showBookmarksManager();
+    void showBookmarksSideBar();
     void showRSSManager();
     void showDownloadManager();
-
     void showMenubar();
     void showNavigationToolbar();
     void showStatusbar();
@@ -223,6 +224,7 @@ private:
     BookmarksToolbar* m_bookmarksToolbar;
     LocationBar* m_locationBar;
     TabWidget* m_tabWidget;
+    QPointer<SideBar> m_sideBar;
 
     QSplitter* m_navigationSplitter;
     QAction* m_buttonBack;

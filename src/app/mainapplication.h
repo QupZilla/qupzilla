@@ -78,7 +78,7 @@ public:
     CookieJar* cookieJar();
     RSSManager* rssManager();
     PluginProxy* plugins();
-    BookmarksModel* bookmarks();
+    BookmarksModel* bookmarksModel();
     DownloadManager* downManager();
     AutoFillModel* autoFill();
     QNetworkDiskCache* networkCache() { return m_networkCache; }

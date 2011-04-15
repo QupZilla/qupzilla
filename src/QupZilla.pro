@@ -107,7 +107,10 @@ SOURCES += main.cpp\
     adblock/adblockmanager.cpp \
     adblock/adblockdialog.cpp \
     adblock/adblockblockednetworkreply.cpp \
-    adblock/adblockicon.cpp
+    adblock/adblockicon.cpp \
+    tools/docktitlebarwidget.cpp \
+    sidebar/bookmarkssidebar.cpp \
+    bookmarks/bookmarkicon.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -174,7 +177,10 @@ HEADERS  += 3rdparty/squeezelabel.h \
     adblock/adblockmanager.h \
     adblock/adblockdialog.h \
     adblock/adblockblockednetworkreply.h \
-    adblock/adblockicon.h
+    adblock/adblockicon.h \
+    tools/docktitlebarwidget.h \
+    sidebar/bookmarkssidebar.h \
+    bookmarks/bookmarkicon.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -198,7 +204,9 @@ FORMS    += \
     other/clearprivatedata.ui \
     other/sourceviewersearch.ui \
     other/closedialog.ui \
-    adblock/adblockdialog.ui
+    adblock/adblockdialog.ui \
+    tools/docktitlebarwidget.ui \
+    sidebar/bookmarkssidebar.ui
 
 RESOURCES += \
     data/icons.qrc \

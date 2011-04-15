@@ -33,7 +33,7 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent) :
     ,m_isRefreshing(false)
     ,ui(new Ui::BookmarksManager)
     ,p_QupZilla(mainClass)
-    ,m_bookmarksModel(mApp->bookmarks())
+    ,m_bookmarksModel(mApp->bookmarksModel())
 {
     ui->setupUi(this);
     //CENTER on scren
@@ -75,8 +75,8 @@ void BookmarksManager::addFolder()
     QString text = QInputDialog::getText(this, tr("Add new folder"), tr("Choose name for new bookmark folder: "));
     if (text.isEmpty())
         return;
-    QSqlQuery query;
-    query.exec("INSERT INTO folders (name) VALUES ('"+text+"')");
+
+    m_bookmarksModel->createFolder(text);
     refreshTable();
 }
 
@@ -89,7 +89,7 @@ void BookmarksManager::itemChanged(QTreeWidgetItem* item)
     QUrl url = QUrl(item->text(1));
     int id = item->whatsThis(1).toInt();
 
-    m_bookmarksModel->editBookmark(id, url, name);
+    m_bookmarksModel->editBookmark(id, name, url, "");
 }
 
 void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
@@ -110,24 +110,18 @@ void BookmarksManager::deleteItem()
     QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
     if (!item)
         return;
-    QSqlQuery query;
 
     if (item->text(1).isEmpty()) { // Delete folder
         QString folder = item->text(0);
-        if (folder == tr("Bookmarks In Menu") || folder == tr("Bookmarks In ToolBar"))
-            return;
-
-        query.exec("DELETE FROM folders WHERE name='"+folder+"'");
-        query.exec("DELETE FROM bookmarks WHERE folder='"+folder+"'");
-        delete item;
+        if (m_bookmarksModel->removeFolder(folder))
+            delete item;
         return;
     }
 
-    QString id = item->whatsThis(1);
+    int id = item->whatsThis(1).toInt();
 
-    query.exec("DELETE FROM bookmarks WHERE id="+id);
+    m_bookmarksModel->removeBookmark(id);
     delete item;
-    getQupZilla()->bookmarksToolbar()->refreshBookmarks();
 }
 
 void BookmarksManager::addBookmark(WebView* view)
@@ -141,7 +135,7 @@ void BookmarksManager::moveBookmark()
     if (!item)
         return;
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        m_bookmarksModel->editBookmark(item->whatsThis(1).toInt(), item->text(0), action->data().toString());
+        m_bookmarksModel->editBookmark(item->whatsThis(1).toInt(), item->text(0), QUrl(), action->data().toString());
     }
     refreshTable();
 }
@@ -290,20 +284,7 @@ void BookmarksManager::insertBookmark(const QUrl &url, const QString &title)
     if (edit->text().isEmpty())
         return;
 
-    query.prepare("INSERT INTO bookmarks (title, url, folder) VALUES (?,?,?)");
-    query.bindValue(0, edit->text());
-    query.bindValue(1, url.toString());
-    if (combo->currentText() == tr("Bookmarks In Menu"))
-        query.bindValue(2,"bookmarksMenu");
-    else if (combo->currentText() == tr("Bookmarks In ToolBar"))
-        query.bindValue(2,"bookmarksToolbar");
-    else if (combo->currentText() == tr("Unsorted Bookmarks"))
-        query.bindValue(2, "unsorted");
-    else query.bindValue(2, combo->currentText());
-    query.exec();
-
-    getQupZilla()->bookmarksToolbar()->refreshBookmarks();
-    getQupZilla()->locationBar()->checkBookmark();
+    m_bookmarksModel->saveBookmark(url, edit->text(), BookmarksModel::fromTranslatedFolder(combo->currentText()));
     delete dialog;
 }
 
@@ -345,20 +326,10 @@ void BookmarksManager::insertAllTabs()
         WebView* view = getQupZilla()->weView(i);
         if (!view || view->url().isEmpty())
             continue;
-        query.prepare("INSERT INTO bookmarks (title, url, folder) VALUES (?,?,?)");
-        query.bindValue(0, view->title());
-        query.bindValue(1, view->url().toString());
-        if (combo->currentText() == tr("Bookmarks In Menu"))
-            query.bindValue(2,"bookmarksMenu");
-        else if (combo->currentText() == tr("Bookmarks In ToolBar"))
-            query.bindValue(2,"bookmarksToolbar");
-        else if (combo->currentText() == tr("Unsorted Bookmarks"))
-            query.bindValue(2, "unsorted");
-        else query.bindValue(2, combo->currentText());
-        query.exec();
+
+        m_bookmarksModel->saveBookmark(view->url(), view->title(), BookmarksModel::fromTranslatedFolder(combo->currentText()));
     }
-    getQupZilla()->bookmarksToolbar()->refreshBookmarks();
-    getQupZilla()->locationBar()->checkBookmark();
+
     delete dialog;
 }
 

@@ -22,9 +22,10 @@
 #include <QMenu>
 #include <QToolButton>
 
+#include "bookmarksmodel.h"
+
 class QupZilla;
 class BookmarksModel;
-
 class BookmarksToolbar : public QToolBar
 {
     Q_OBJECT
@@ -37,14 +38,20 @@ signals:
 public slots:
     void refreshBookmarks();
     void refreshMostVisited();
-    void customContextMenuRequested(const QPoint &pos);
     void hidePanel();
     void showMostVisited();
+
+private slots:
+    void addBookmark(const BookmarksModel::Bookmark &bookmark);
+    void removeBookmark(const BookmarksModel::Bookmark &bookmark);
+    void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
+    void customContextMenuRequested(const QPoint &pos);
 
 private:
     QupZilla* p_QupZilla;
     BookmarksModel* m_bookmarksModel;
     QMenu* m_menuMostVisited;
+    QToolButton* m_mostVis;
 
 };
 

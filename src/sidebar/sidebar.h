@@ -20,16 +20,22 @@
 
 #include <QDockWidget>
 
+class DockTitleBarWidget;
 class SideBar : public QDockWidget
 {
     Q_OBJECT
 public:
     explicit SideBar(QWidget* parent = 0);
+    void showBookmarks();
+    void showHistory();
+    void showRSS();
 
 signals:
 
 public slots:
 
+private:
+    DockTitleBarWidget* m_titleBar;
 };
 
 #endif // SIDEBAR_H

@@ -31,7 +31,14 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent) :
     setMovable(false);
     setContextMenuPolicy(Qt::CustomContextMenu);
 
+    m_bookmarksModel = mApp->bookmarksModel();
+
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
+
+    connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)));
+
     QTimer::singleShot(0, this, SLOT(refreshBookmarks()));
 }
 
@@ -78,17 +85,91 @@ void BookmarksToolbar::hidePanel()
     p_QupZilla->showBookmarksToolbar();
 }
 
+void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
+{
+    if (bookmark.folder != "bookmarksToolbar")
+        return;
+    QAction* action = new QAction(this);
+    QString title = bookmark.title;
+    if (title.length()>15) {
+        title.truncate(13);
+        title+="..";
+    }
+
+    action->setText(title);
+    action->setData(bookmark.url);
+    action->setIcon(LocationBar::icon(bookmark.url));
+    QToolButton* button = new QToolButton(this);
+    button->setDefaultAction(action);
+    button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    button->setMaximumHeight(25);
+    button->setToolTip(bookmark.url.toEncoded());
+    button->setWhatsThis(bookmark.title);
+
+    connect(action, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
+    insertWidget(actions().at(actions().count() - 1), button);
+}
+
+void BookmarksToolbar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
+{
+    foreach (QAction* act, actions()) {
+        QToolButton* button = qobject_cast<QToolButton*>(widgetForAction(act));
+        if (!button)
+            continue;
+
+        QAction* action = button->actions().at(0);
+        if (!action)
+            continue;
+
+        if (action->data().toUrl() == bookmark.url) {
+            delete button;
+            return;
+        }
+    }
+}
+
+void BookmarksToolbar::bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after)
+{
+    if (before.folder == "bookmarksToolbar" && after.folder != "bookmarksToolbar") //Editing from toolbar folder to other folder -> Remove bookmark
+        removeBookmark(before);
+    else if (before.folder != "bookmarksToolbar" && after.folder == "bookmarksToolbar") //Editing from other folder to toolbar folder -> Add bookmark
+        addBookmark(after);
+    else { //Editing bookmark already in toolbar
+        foreach (QAction* act, actions()) {
+            QToolButton* button = qobject_cast<QToolButton*>(widgetForAction(act));
+            if (!button)
+                continue;
+
+            QAction* action = button->actions().at(0);
+            if (!action)
+                continue;
+
+            if (action->data().toUrl() == before.url && button->whatsThis() == before.title) {
+                QString title = after.title;
+                if (title.length()>15) {
+                    title.truncate(13);
+                    title+="..";
+                }
+
+                action->setText(title);
+                action->setData(after.url);
+                action->setIcon(LocationBar::icon(after.url));
+                button->setToolTip(after.url.toEncoded());
+                button->setWhatsThis(after.title);
+            }
+        }
+    }
+}
+
 void BookmarksToolbar::refreshBookmarks()
 {
-    if (!m_bookmarksModel)
-        m_bookmarksModel =mApp->bookmarks();
-
     clear();
     QSqlQuery query;
     query.exec("SELECT title, url FROM bookmarks WHERE folder='bookmarksToolbar'");
     while(query.next()) {
         QUrl url = query.value(1).toUrl();
         QString title = query.value(0).toString();
+        QString title_ = title;
         QAction* action = new QAction(this);
         if (title.length()>15) {
             title.truncate(13);
@@ -102,6 +183,8 @@ void BookmarksToolbar::refreshBookmarks()
         button->setDefaultAction(action);
         button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         button->setMaximumHeight(25);
+        button->setToolTip(url.toEncoded());
+        button->setWhatsThis(title_);
         connect(action, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
         addWidget(button);
     }
@@ -109,18 +192,19 @@ void BookmarksToolbar::refreshBookmarks()
     if (!m_bookmarksModel->isShowingMostVisited())
         return;
 
-    QToolButton* mostVis = new QToolButton(this);
-    mostVis->setPopupMode(QToolButton::InstantPopup);
-    mostVis->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    mostVis->setMaximumHeight(25);
-    mostVis->setIcon(style()->standardIcon(QStyle::SP_DirIcon));
-    mostVis->setText(tr("Most visited"));
-    mostVis->setToolTip(tr("Sites You visited the most"));
+    m_mostVis = new QToolButton(this);
+    m_mostVis->setPopupMode(QToolButton::InstantPopup);
+    m_mostVis->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    m_mostVis->setMaximumHeight(25);
+    m_mostVis->setIcon(style()->standardIcon(QStyle::SP_DirIcon));
+    m_mostVis->setText(tr("Most visited"));
+    m_mostVis->setToolTip(tr("Sites You visited the most"));
+
     m_menuMostVisited = new QMenu();
-    mostVis->setMenu(m_menuMostVisited);
+    m_mostVis->setMenu(m_menuMostVisited);
     connect(m_menuMostVisited, SIGNAL(aboutToShow()), this, SLOT(refreshMostVisited()));
 
-    addWidget(mostVis);
+    addWidget(m_mostVis);
 }
 
 void BookmarksToolbar::refreshMostVisited()
