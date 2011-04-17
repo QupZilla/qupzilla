@@ -84,7 +84,10 @@ void TreeWidget::filterStringWithTopItems(QString string)
 
 bool TreeWidget::addToParentItem(const QString &text, QTreeWidgetItem* item)
 {
-    QTreeWidgetItem* parentItem = findItems(text, Qt::MatchExactly).at(0);
+    QList<QTreeWidgetItem*> list = findItems(text, Qt::MatchExactly);
+    if (list.count() == 0)
+        return false;
+    QTreeWidgetItem* parentItem = list.at(0);
     if (!parentItem)
         return false;
 

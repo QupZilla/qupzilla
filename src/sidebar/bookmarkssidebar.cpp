@@ -140,11 +140,17 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
 void BookmarksSideBar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
 {
     if (bookmark.folder == "unsorted") {
-        QTreeWidgetItem* item = ui->bookmarksTree->findItems(bookmark.title, Qt::MatchExactly).at(0);
+        QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(bookmark.title, Qt::MatchExactly);
+        if (list.count() == 0)
+            return;
+        QTreeWidgetItem* item = list.at(0);
         if (item && item->whatsThis(0) == QString::number(bookmark.id))
             delete item;
     } else {
-        QTreeWidgetItem* parentItem = ui->bookmarksTree->findItems(BookmarksModel::toTranslatedFolder(bookmark.folder), Qt::MatchExactly).at(0);
+        QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(BookmarksModel::toTranslatedFolder(bookmark.folder), Qt::MatchExactly);
+        if (list.count() == 0)
+            return;
+        QTreeWidgetItem* parentItem = list.at(0);
         if (!parentItem)
             return;
         for (int i = 0; i < parentItem->childCount(); i++) {
