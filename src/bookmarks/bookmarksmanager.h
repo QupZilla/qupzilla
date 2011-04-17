@@ -23,6 +23,8 @@
 #include <QInputDialog>
 #include <QPointer>
 
+#include "bookmarksmodel.h"
+
 namespace Ui {
     class BookmarksManager;
 }
@@ -53,6 +55,12 @@ private slots:
     void loadInNewTab();
     void itemControlClicked(QTreeWidgetItem* item);
     void moveBookmark();
+
+    void addBookmark(const BookmarksModel::Bookmark &bookmark);
+    void removeBookmark(const BookmarksModel::Bookmark &bookmark);
+    void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
+    void addFolder(const QString &name);
+    void removeFolder(const QString &name);
 
 private:
     QupZilla* getQupZilla();
