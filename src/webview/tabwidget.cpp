@@ -310,22 +310,12 @@ void TabWidget::reloadAllTabs()
 
 void TabWidget::closeAllButCurrent(int index)
 {
-    WebView* akt = qobject_cast<WebView*>(widget(index));
+    WebTab* akt = qobject_cast<WebTab*>(widget(index));
 
-    int cycleCounter = 0;          // Only tab count * 1.6 attempts to
-    int maxCycles = count()*1.6;   // close tabs -> it sometimes hangs here
-    while(count()!=1) {
-        for (int i = 0;i<=count();i++) {
-            if (widget(i) == akt)
-                continue;
-            closeTab(i);
-            cycleCounter++;
-
-            if (cycleCounter >= maxCycles)
-                break;
-        }
-        if (cycleCounter >= maxCycles)
-            break;
+    foreach (WebTab* tab, allTabs(false)) {
+        if (akt == widget(tab->view()->tabIndex()))
+            continue;
+        closeTab(tab->view()->tabIndex());
     }
 }
 
@@ -350,6 +340,18 @@ void TabWidget::restoreClosedTab()
     historyStream >> *weView(index)->history();
     weView(index)->load(m_lastTabUrl);
     m_canRestoreTab = false;
+}
+
+QList<WebTab*> TabWidget::allTabs(bool withPinned)
+{
+    QList<WebTab*> allTabs;
+    for (int i = 0; i < count(); i++) {
+        WebTab* tab = qobject_cast<WebTab*>(widget(i));
+        if (!tab || (!withPinned && tab->isPinned()) )
+            continue;
+        allTabs.append(tab);
+    }
+    return allTabs;
 }
 
 void TabWidget::savePinnedTabs()
