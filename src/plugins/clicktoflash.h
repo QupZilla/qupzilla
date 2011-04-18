@@ -61,15 +61,21 @@ class ClickToFlash : public QWidget
     Q_OBJECT
 
 public:
-    explicit ClickToFlash(const QUrl &pluginUrl, QWidget* parent = 0);
+    explicit ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, QWidget* parent = 0);
 
 private slots:
     void load();
     void customContextMenuRequested(const QPoint &pos);
     void toWhitelist();
+    void findElement();
 
 private:
     bool checkElement(QWebElement el);
+    bool checkUrlOnElement(QWebElement el);
+    QStringList m_argumentNames;
+    QStringList m_argumentValues;
+    QWebElement m_element;
+    QWebFrame* m_mainFrame;
 
     /**
     used to find the right QWebElement between the ones of the different plugins

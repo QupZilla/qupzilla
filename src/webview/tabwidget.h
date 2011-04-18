@@ -51,6 +51,7 @@ public:
 
     inline TabBar* getTabBar() { return m_tabBar; }
     inline bool canRestoreTab() { return m_canRestoreTab; }
+    QList<WebTab*> allTabs(bool withPinned = true);
 
 
 public slots:
