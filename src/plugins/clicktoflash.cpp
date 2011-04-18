@@ -45,9 +45,11 @@
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
 
-ClickToFlash::ClickToFlash(const QUrl &pluginUrl, QWidget* parent)
+ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, QWidget* parent)
         : QWidget(parent)
         , m_url(pluginUrl)
+        , m_argumentNames(argumentNames)
+        , m_argumentValues(argumentValues)
 {
     //AdBlock
     AdBlockManager* manager = AdBlockManager::instance();
@@ -136,48 +138,12 @@ void ClickToFlash::toWhitelist()
     load();
 }
 
-void ClickToFlash::load()
-{    
-//    QWidget* parent = parentWidget();
-//    QWebView* view = 0;
-//    while (parent) {
-//        if (QWebView* aView = qobject_cast<QWebView*>(parent)) {
-//            view = aView;
-//            break;
-//        }
-//        parent = parent->parentWidget();
-//    }
-//    if (!view)
-//        return;
-
-//    const QString selector = "%1[type=\"application/x-shockwave-flash\"]";
-//    hide();
-
-//    QList<QWebFrame*> frames;
-//    frames.append(view->page()->mainFrame());
-//    while (!frames.isEmpty()) {
-//        QWebFrame* frame = frames.takeFirst();
-//        QWebElement docElement = frame->documentElement();
-
-//        QWebElementCollection elements;
-//        elements.append(docElement.findAll(selector.arg("object")));
-//        elements.append(docElement.findAll(selector.arg("embed")));
-
-//        foreach(QWebElement element, elements) {
-//            if (checkElement(element)) {
-//                QWebElement substitute = element.clone();
-//                emit signalLoadClickToFlash(true);
-//                element.replace(substitute);
-//                deleteLater();
-//                return;
-//            }
-//        }
-//        frames += frame->childFrames();
-//    }
-    QWidget *parent = parentWidget();
-    QWebView *view = 0;
+void ClickToFlash::findElement()
+{
+    QWidget* parent = parentWidget();
+    QWebView* view = 0;
     while (parent) {
-        if (QWebView *aView = qobject_cast<QWebView*>(parent)) {
+        if (QWebView* aView = qobject_cast<QWebView*>(parent)) {
             view = aView;
             break;
         }
@@ -186,63 +152,62 @@ void ClickToFlash::load()
     if (!view)
         return;
 
-//    const QString selector = QLatin1String("%1[type=\"application/x-shockwave-flash\"]");
-    const QString mime = QLatin1String("application/futuresplash");
-
-    hide();
     QList<QWebFrame*> frames;
-    frames.append(view->page()->mainFrame());
+    m_mainFrame = view->page()->mainFrame();
+    frames.append(m_mainFrame);
+
     while (!frames.isEmpty()) {
-        QWebFrame *frame = frames.takeFirst();
+        QWebFrame* frame = frames.takeFirst();
         QWebElement docElement = frame->documentElement();
 
         QWebElementCollection elements;
-        elements.append(docElement.findAll(QLatin1String("object")));
-//        elements.append(docElement.findAll(selector.arg(QLatin1String("object"))));
         elements.append(docElement.findAll(QLatin1String("embed")));
-//        elements.append(docElement.findAll(selector.arg(QLatin1String("embed"))));
+        elements.append(docElement.findAll(QLatin1String("object")));
 
         QWebElement element;
         foreach (element, elements) {
-            if (!checkElement(element))
+            if (!checkElement(element) && !checkUrlOnElement(element))
                 continue;
-            QWebElement substitute = element.clone();
-            substitute.setAttribute(QLatin1String("type"), mime);
-            element.replace(substitute);
+            m_element = element;
             return;
         }
-
         frames += frame->childFrames();
     }
 }
 
+void ClickToFlash::load()
+{
+    findElement();
+    if (m_element.isNull()) {
+
+    } else {
+        QWebElement substitute = m_element.clone();
+        substitute.setAttribute(QLatin1String("type"), "application/futuresplash");
+        m_element.replace(substitute);
+    }
+}
+
+bool ClickToFlash::checkUrlOnElement(QWebElement el)
+{
+    QString checkString = QUrl(el.attribute("src")).toString(QUrl::RemoveQuery);
+    if (checkString.isEmpty())
+        checkString = QUrl(el.attribute("data")).toString(QUrl::RemoveQuery);
+    if (checkString.isEmpty())
+        checkString = QUrl(el.attribute("value")).toString(QUrl::RemoveQuery);
+
+    if (m_url.toEncoded().contains(checkString.toAscii()))
+        return true;
+    return false;
+}
 
 bool ClickToFlash::checkElement(QWebElement el)
 {
-    QString checkString;
-    QString urlString;
-    checkString = QUrl(el.attribute("src")).toString(QUrl::RemoveQuery);
-    if (checkString.isEmpty())
-        checkString = QUrl(el.attribute("data")).toString(QUrl::RemoveQuery);
-
-    if (checkString.isEmpty())
-        return false;
-    urlString = m_url.toString(QUrl::RemoveQuery);
-
-    if (urlString.contains(checkString))
+    if (m_argumentNames == el.attributeNames()) {
+        foreach (QString name, m_argumentNames) {
+            if (m_argumentValues.indexOf(el.attribute(name)) == -1)
+                return false;
+        }
         return true;
-
-    qDebug() << checkString << m_url;
-
-//    QWebElementCollection collec = el.findAll("*");
-//    int i = 0;
-//    while (i < collec.count()) {
-//        QWebElement el = collec.at(i);
-//        checkString = QUrl(el.attribute("src")).toString(QUrl::RemoveQuery);
-//        urlString = m_url.toString(QUrl::RemoveQuery);
-//        if (urlString.contains(checkString))
-//            return true;
-//        i++;
-//    }
+    }
     return false;
 }
