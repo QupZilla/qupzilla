@@ -30,19 +30,20 @@ class NewTabButton : public QToolButton
 public:
     explicit NewTabButton(QWidget* parent ) : QToolButton(parent)
     {
+#ifndef Q_WS_WIN
+        setIcon(QIcon::fromTheme("list-add"));
+        setIconSize(QSize(16,16));
+        setAutoRaise(true);
+#endif
     }
-
     QSize sizeHint() const
     {
         QSize siz = QToolButton::sizeHint();
-#ifdef Q_WS_X11
-        siz.setWidth(25);
-#else
         siz.setWidth(26);
-#endif
         return siz;
     }
 
+#ifdef Q_WS_WIN
 private:
     void paintEvent(QPaintEvent*)
     {
@@ -54,13 +55,11 @@ private:
         QPixmap pix(":/icons/other/list-add.png");
         QRect r = this->rect();
         r.setHeight(r.height()+3);
-#ifdef Q_WS_X11
-        r.setWidth(r.width()-1);
-#else
         r.setWidth(r.width()+3);
-#endif
         style()->drawItemPixmap(&p, r, Qt::AlignCenter, pix);
     }
+#endif
+
 };
 
 class TabListButton : public QToolButton
@@ -108,8 +107,6 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     setObjectName("tabWidget");
     setStyleSheet("QTabBar::tab{ max-width:250px; }");
 
-    loadSettings();
-
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)));
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla, SLOT(refreshHistory()));
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
@@ -135,6 +132,8 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     m_buttonAddTab->setToolTip(tr("Add Tab"));
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     setCornerWidget(m_buttonAddTab, Qt::TopLeftCorner);
+
+    loadSettings();
 }
 
 void TabWidget::loadSettings()
@@ -146,6 +145,14 @@ void TabWidget::loadSettings()
     settings.endGroup();
     settings.beginGroup("Web-URL-Settings");
     m_urlOnNewTab = settings.value("newTabUrl","").toUrl();
+    settings.endGroup();
+    settings.beginGroup("Browser-View-Settings");
+    bool showAddTab = settings.value("showAddTabButton", true).toBool();
+    m_buttonAddTab->setVisible(showAddTab);
+    if (showAddTab && !cornerWidget(Qt::TopLeftCorner))
+        setCornerWidget(m_buttonAddTab, Qt::TopLeftCorner);
+    else if (!showAddTab && cornerWidget(Qt::TopLeftCorner))
+        setCornerWidget(0, Qt::TopLeftCorner);
     settings.endGroup();
 
     m_tabBar->loadSettings();
