@@ -397,9 +397,9 @@ void BookmarksManager::insertAllTabs()
     if (dialog->result() == QDialog::Rejected)
         return;
 
-    for (int i = 0; i<getQupZilla()->tabWidget()->count(); i++) {
-        WebView* view = getQupZilla()->weView(i);
-        if (!view || view->url().isEmpty())
+    foreach (WebTab* tab, getQupZilla()->tabWidget()->allTabs(false)) {
+        WebView* view = tab->view();
+        if (view->url().isEmpty())
             continue;
 
         m_bookmarksModel->saveBookmark(view->url(), view->title(), BookmarksModel::fromTranslatedFolder(combo->currentText()));
