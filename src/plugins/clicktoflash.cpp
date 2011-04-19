@@ -47,9 +47,9 @@
 
 ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, QWidget* parent)
         : QWidget(parent)
-        , m_url(pluginUrl)
         , m_argumentNames(argumentNames)
         , m_argumentValues(argumentValues)
+        , m_url(pluginUrl)
 {
     //AdBlock
     AdBlockManager* manager = AdBlockManager::instance();
