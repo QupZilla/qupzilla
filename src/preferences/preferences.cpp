@@ -56,7 +56,6 @@ void removeDir(const QString d)
 
         }
         dir.rmdir(d);
-
     }
 }
 
@@ -117,6 +116,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     ui->showNavigationToolbar->setChecked( p_QupZilla->navigationToolbar()->isVisible() );
     ui->showHome->setChecked( settings.value("showHomeButton",true).toBool() );
     ui->showBackForward->setChecked( settings.value("showBackForwardButtons",true).toBool() );
+    ui->showAddTabButton->setChecked( settings.value("showAddTabButton", true).toBool() );
     if (settings.value("useTransparentBackground",false).toBool())
         ui->useTransparentBg->setChecked(true);
     else
@@ -506,6 +506,7 @@ void Preferences::saveSettings()
     settings.setValue("showBackForwardButtons",ui->showBackForward->isChecked());
     settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
     settings.setValue("menuTextColor", m_menuTextColor);
+    settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
     settings.endGroup();
 
     //TABS
