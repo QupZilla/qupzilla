@@ -561,8 +561,37 @@ void QupZilla::showBookmarksSideBar()
         m_sideBar = new SideBar(this);
         addDockWidget(Qt::LeftDockWidgetArea, m_sideBar);
         m_sideBar->showBookmarks();
+    } else if (m_actionShowBookmarksSideBar->isChecked()){
+        m_sideBar->showBookmarks();
     } else {
         delete m_sideBar;
+    }
+}
+
+void QupZilla::showHistorySideBar()
+{
+    if (!m_sideBar) {
+        m_sideBar = new SideBar(this);
+        addDockWidget(Qt::LeftDockWidgetArea, m_sideBar);
+        m_sideBar->showHistory();
+    } else if (m_actionShowHistorySideBar->isChecked()) {
+        m_sideBar->showHistory();
+    } else {
+        delete m_sideBar;
+    }
+}
+
+void QupZilla::aboutToShowSidebarsMenu()
+{
+    if (!m_sideBar) {
+        m_actionShowBookmarksSideBar->setChecked(false);
+        m_actionShowHistorySideBar->setChecked(false);
+        m_actionShowRssSideBar->setChecked(false);
+    } else {
+        SideBar::SideWidget actWidget = m_sideBar->activeWidget();
+        m_actionShowBookmarksSideBar->setChecked(actWidget == SideBar::Bookmarks);
+        m_actionShowHistorySideBar->setChecked(actWidget == SideBar::History);
+        m_actionShowRssSideBar->setChecked(actWidget == SideBar::RSS);
     }
 }
 
@@ -615,7 +644,7 @@ void QupZilla::showInspector()
         m_webInspectorDock->setTitleBarWidget(new DockTitleBarWidget(tr("Web Inspector"), m_webInspectorDock));
         m_webInspectorDock->setObjectName("WebInspector");
         m_webInspectorDock->setWidget(m_webInspector);
-        m_webInspectorDock->setFeatures(QDockWidget::DockWidgetClosable);
+        m_webInspectorDock->setFeatures(0);
         m_webInspectorDock->setContextMenuPolicy(Qt::CustomContextMenu);
     } else if (m_webInspectorDock->isVisible()) { //Next tab
         m_webInspectorDock->show();

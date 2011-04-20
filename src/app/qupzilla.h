@@ -148,10 +148,12 @@ private slots:
     void aboutToShowHelpMenu();
     void aboutToShowViewMenu();
     void aboutToShowEncodingMenu();
+    void aboutToShowSidebarsMenu();
 
     void searchOnPage();
     void showCookieManager();
     void showHistoryManager();
+    void showHistorySideBar();
     void showBookmarksManager();
     void showBookmarksSideBar();
     void showRSSManager();
@@ -210,6 +212,9 @@ private:
     QAction* m_actionShowStatusbar;
     QAction* m_actionShowMenubar;
     QAction* m_actionShowFullScreen;
+    QAction* m_actionShowBookmarksSideBar;
+    QAction* m_actionShowHistorySideBar;
+    QAction* m_actionShowRssSideBar;
     QAction* m_actionPrivateBrowsing;
     QAction* m_actionStop;
     QAction* m_actionReload;
