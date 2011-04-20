@@ -25,10 +25,12 @@ class SideBar : public QDockWidget
 {
     Q_OBJECT
 public:
+    enum SideWidget { None = 0, Bookmarks, History, RSS };
     explicit SideBar(QWidget* parent = 0);
     void showBookmarks();
     void showHistory();
     void showRSS();
+    SideWidget activeWidget() { return m_activeWidget; }
 
 signals:
 
@@ -36,6 +38,7 @@ public slots:
 
 private:
     DockTitleBarWidget* m_titleBar;
+    SideWidget m_activeWidget;
 };
 
 #endif // SIDEBAR_H

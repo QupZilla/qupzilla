@@ -18,15 +18,19 @@
 #include "sidebar.h"
 #include "docktitlebarwidget.h"
 #include "bookmarkssidebar.h"
+#include "historysidebar.h"
 #include "qupzilla.h"
 
 SideBar::SideBar(QWidget* parent) :
     QDockWidget(parent)
+   ,m_activeWidget(None)
 {
     setObjectName("SideBar");
+    setWindowTitle(tr("SideBar"));
     setAttribute(Qt::WA_DeleteOnClose);
     m_titleBar = new DockTitleBarWidget("", this);
     setTitleBarWidget(m_titleBar);
+    setFeatures(0);
 }
 
 void SideBar::showBookmarks()
@@ -34,11 +38,15 @@ void SideBar::showBookmarks()
     m_titleBar->setTitle(tr("Bookmarks"));
     BookmarksSideBar* bar = new BookmarksSideBar((QupZilla*)parentWidget(), this);
     setWidget(bar);
+    m_activeWidget = Bookmarks;
 }
 
 void SideBar::showHistory()
 {
-
+    m_titleBar->setTitle(tr("History"));
+    HistorySideBar* bar = new HistorySideBar((QupZilla*)parentWidget(), this);
+    setWidget(bar);
+    m_activeWidget = History;
 }
 
 void SideBar::showRSS()
