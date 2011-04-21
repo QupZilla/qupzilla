@@ -69,6 +69,8 @@ private slots:
     void toWhitelist();
     void findElement();
 
+    void hideAdBlocked();
+
 private:
     bool checkElement(QWebElement el);
     bool checkUrlOnElement(QWebElement el);

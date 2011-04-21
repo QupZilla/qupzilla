@@ -57,39 +57,8 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
         QString urlString = pluginUrl.toEncoded();
         AdBlockSubscription* subscription = manager->subscription();
         if (!subscription->allow(urlString) && subscription->block(urlString)) {
-            QWidget* parent = parentWidget();
-            QWebView* view = 0;
-            while (parent) {
-                if (QWebView* aView = qobject_cast<QWebView*>(parent)) {
-                    view = aView;
-                    break;
-                }
-                parent = parent->parentWidget();
-            }
-            if (!view)
-                return;
-
-            const QString selector = "%1[type=\"application/x-shockwave-flash\"]";
-
-            QList<QWebFrame*> frames;
-            frames.append(view->page()->mainFrame());
-            while (!frames.isEmpty()) {
-                QWebFrame* frame = frames.takeFirst();
-                QWebElement docElement = frame->documentElement();
-
-                QWebElementCollection elements;
-                elements.append(docElement.findAll(selector.arg("object")));
-                elements.append(docElement.findAll(selector.arg("embed")));
-
-                foreach(QWebElement element, elements) {
-                    if (checkElement(element)) {
-                        element.setAttribute("style", "visible:none;");
-                        deleteLater();
-                        return;
-                    }
-                }
-                frames += frame->childFrames();
-            }
+            QTimer::singleShot(200, this, SLOT(hideAdBlocked()));
+            return;
         }
     }
 
@@ -138,6 +107,15 @@ void ClickToFlash::toWhitelist()
     load();
 }
 
+void ClickToFlash::hideAdBlocked()
+{
+    findElement();
+    if (!m_element.isNull()) {
+        m_element.setAttribute("style", "display:none;");
+        deleteLater();
+    }
+}
+
 void ClickToFlash::findElement()
 {
     QWidget* parent = parentWidget();
@@ -179,7 +157,7 @@ void ClickToFlash::load()
 {
     findElement();
     if (m_element.isNull()) {
-
+        qWarning("Click2Flash: Cannot find Flash object.");
     } else {
         QWebElement substitute = m_element.clone();
         substitute.setAttribute(QLatin1String("type"), "application/futuresplash");

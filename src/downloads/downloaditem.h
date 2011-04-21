@@ -52,7 +52,7 @@ public:
 
     static QString remaingTimeToString(QTime time);
     static QString currentSpeedToString(double speed);
-    static QString fileSizeToString(int size);
+    static QString fileSizeToString(qint64 size);
 
 signals:
     void deleteItem(DownloadItem*);
