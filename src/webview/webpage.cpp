@@ -68,17 +68,6 @@ void WebPage::setSSLCertificate(QSslCertificate cert)
 
 QSslCertificate WebPage::sslCertificate()
 {
-//    QSslCertificate cert;
-//    foreach (QSslCertificate c, m_SslCerts) {
-//        if (c.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(mainFrame()->url().host())))
-//            return c;
-//    }
-//    return cert;
-//    if (mainFrame()->url().scheme() == "https" && !mainFrame()->title().contains(tr("Failed loading page")))
-//        return m_SslCert;
-//    else
-//        return QSslCertificate();
-
     if (m_SslCert.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(mainFrame()->url().host())))
         return m_SslCert;
     else
@@ -201,6 +190,18 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
                 exReturn->baseUrl = exOption->url.toString();
                 exReturn->content = errString.toUtf8();
+                if (exOption->frame != exOption->frame->page()->mainFrame()) {
+                    QWebElement docElement = exOption->frame->page()->mainFrame()->documentElement();
+
+                    QWebElementCollection elements;
+                    elements.append(docElement.findAll("iframe"));
+                    foreach (QWebElement element, elements) {
+                        QString src = element.attribute("src");
+                        if (exOption->url.toString().contains(src))
+                            element.setAttribute("style", "display:none;");
+                    }
+                }
+
                 return true;
                 break;
             }
