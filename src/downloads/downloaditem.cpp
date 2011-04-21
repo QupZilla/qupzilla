@@ -180,22 +180,37 @@ QString DownloadItem::remaingTimeToString(QTime time)
 
 QString DownloadItem::currentSpeedToString(double speed)
 {
-    speed/=1024; // Conversion to kB/s
-    if (speed>1000) {
-        speed/=1024;
-        return QString::number(speed, 'g', 3)+" MB/s";
-    }else
-        return QString::number(speed, 'g', 3)+" kB/s";
+    if (speed < 0)
+        return tr("Unknown speed");
+
+    speed /= 1024; // kB
+    if (speed < 1000)
+        return QString::number(speed, 'f', 0)+" kB/s";
+
+    speed /= 1024; //MB
+    if (speed < 1000)
+        return QString::number(speed, 'f', 2)+" MB/s";
+
+    speed /= 1024; //GB
+    return QString::number(speed, 'f', 2)+" GB/s";
 }
 
-QString DownloadItem::fileSizeToString(int size)
+QString DownloadItem::fileSizeToString(qint64 size)
 {
-    size/=1024;
-    if (size>1000) {
-        size/=1024;
-        return QString::number(size)+" MB";
-    }else
-        return QString::number(size)+" kB";
+    if (size < 0)
+        return tr("Unknown size");
+
+    double _size = (double)size;
+    _size /= 1024; //kB
+    if (_size < 1000)
+        return QString::number(_size, 'f', 0)+" kB";
+
+    _size /= 1024; //MB
+    if (_size < 1000)
+        return QString::number(_size, 'f', 1)+" MB";
+
+    _size /= 1024; //GB
+    return QString::number(_size, 'f', 2)+" GB";
 }
 
 void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 total)
