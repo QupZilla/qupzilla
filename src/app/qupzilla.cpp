@@ -83,6 +83,7 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     connect(mApp, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(receiveMessage(MainApplication::MessageType,bool)));
 }
 
+#include "desktopnotification.h"
 void QupZilla::loadSettings()
 {
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
@@ -128,6 +129,9 @@ void QupZilla::loadSettings()
     m_actionPrivateBrowsing->setChecked( mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
     m_privateBrowsing->setVisible( mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
 
+//    DesktopNotification* notif = new DesktopNotification(QPixmap(), "bla", "ble", 10000);
+//    notif->show();
+
     if (!makeTransparent)
         return;
     //Opacity
@@ -162,7 +166,8 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
         break;
 
     default:
-        qWarning() << "Unresolved message sent!";
+        qWarning("Unresolved message sent!");
+        qDebug();
         break;
     }
 }
