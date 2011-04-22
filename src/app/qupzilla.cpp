@@ -115,15 +115,8 @@ void QupZilla::loadSettings()
     m_adblockIcon->setEnabled(adBlockEnabled);
 
     statusBar()->setVisible(showStatusBar);
-    m_actionShowStatusbar->setChecked(showStatusBar);
-
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
-    m_actionShowBookmarksToolbar->setChecked(showBookmarksToolbar);
-
     m_navigation->setVisible(showNavigationToolbar);
-    m_actionShowToolbar->setChecked(showNavigationToolbar);
-
-    m_actionShowMenubar->setChecked(showMenuBar);
     menuBar()->setVisible(showMenuBar);
     m_navigation->actions().at(m_navigation->actions().count()-2)->setVisible(!showMenuBar);
 
@@ -446,6 +439,28 @@ void QupZilla::aboutToShowEncodingMenu()
         m_menuEncoding->addMenu(menuOther);
 }
 
+void QupZilla::aboutToShowSidebarsMenu()
+{
+    if (!m_sideBar) {
+        m_actionShowBookmarksSideBar->setChecked(false);
+        m_actionShowHistorySideBar->setChecked(false);
+        m_actionShowRssSideBar->setChecked(false);
+    } else {
+        SideBar::SideWidget actWidget = m_sideBar->activeWidget();
+        m_actionShowBookmarksSideBar->setChecked(actWidget == SideBar::Bookmarks);
+        m_actionShowHistorySideBar->setChecked(actWidget == SideBar::History);
+        m_actionShowRssSideBar->setChecked(actWidget == SideBar::RSS);
+    }
+}
+
+void QupZilla::aboutToShowToolbarsMenu()
+{
+    m_actionShowToolbar->setChecked(m_navigation->isVisible());
+    m_actionShowMenubar->setChecked(menuBar()->isVisible());
+    m_actionShowStatusbar->setChecked(statusBar()->isVisible());
+    m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
+}
+
 void QupZilla::changeEncoding()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
@@ -549,7 +564,6 @@ void QupZilla::showBookmarksToolbar()
 {
     bool status = m_bookmarksToolbar->isVisible();
     m_bookmarksToolbar->setVisible(!status);
-    m_actionShowBookmarksToolbar->setChecked(!status);
 
     QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/showBookmarksToolbar", !status);
@@ -581,20 +595,6 @@ void QupZilla::showHistorySideBar()
     }
 }
 
-void QupZilla::aboutToShowSidebarsMenu()
-{
-    if (!m_sideBar) {
-        m_actionShowBookmarksSideBar->setChecked(false);
-        m_actionShowHistorySideBar->setChecked(false);
-        m_actionShowRssSideBar->setChecked(false);
-    } else {
-        SideBar::SideWidget actWidget = m_sideBar->activeWidget();
-        m_actionShowBookmarksSideBar->setChecked(actWidget == SideBar::Bookmarks);
-        m_actionShowHistorySideBar->setChecked(actWidget == SideBar::History);
-        m_actionShowRssSideBar->setChecked(actWidget == SideBar::RSS);
-    }
-}
-
 void QupZilla::showNavigationToolbar()
 {
     if (!menuBar()->isVisible() && !m_actionShowToolbar->isChecked())
@@ -602,7 +602,6 @@ void QupZilla::showNavigationToolbar()
 
     bool status = m_navigation->isVisible();
     m_navigation->setVisible(!status);
-    m_actionShowToolbar->setChecked(!status);
 
     QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/showNavigationToolbar", !status);
@@ -615,7 +614,6 @@ void QupZilla::showMenubar()
 
     menuBar()->setVisible(!menuBar()->isVisible());
     m_navigation->actions().at(m_navigation->actions().count()-2)->setVisible(!menuBar()->isVisible());
-    m_actionShowMenubar->setChecked(menuBar()->isVisible());
 
     QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/showMenubar", menuBar()->isVisible());
@@ -625,7 +623,6 @@ void QupZilla::showStatusbar()
 {
     bool status = statusBar()->isVisible();
     statusBar()->setVisible(!status);
-    m_actionShowStatusbar->setChecked(!status);
 
     QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/showStatusbar", !status);
