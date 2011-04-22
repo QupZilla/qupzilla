@@ -451,7 +451,10 @@ bool MainApplication::saveStateSlot()
     stream << m_mainWindows.count();
     for (int i = 0; i < m_mainWindows.count(); i++) {
         stream << m_mainWindows.at(i)->tabWidget()->saveState();
-        stream << m_mainWindows.at(i)->saveState();
+        if (m_mainWindows.at(i)->isFullScreen())
+            stream << QByteArray();
+        else
+            stream << m_mainWindows.at(i)->saveState();
     }
     file.close();
 
@@ -516,8 +519,6 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
         for (int i = 1; i < windowCount; i++) {
             stream >> tabState;
             stream >> qMainWindowState;
-
-            qDebug() << "restoring another window" << tabState.size();
 
             QupZilla* window = new QupZilla(false);
             m_mainWindows.append(window);

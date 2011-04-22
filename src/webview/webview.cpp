@@ -41,6 +41,8 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
     ,m_lastUrl(QUrl())
     ,m_wantsClose(false)
     ,m_page(new WebPage(this, p_QupZilla))
+    ,m_mouseTrack(false)
+    ,m_navigationVisible(false)
     //,m_loadingTimer(0)
 {
     m_networkProxy = new NetworkManagerProxy(p_QupZilla);
@@ -69,6 +71,8 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
 
     connect(mApp->networkManager(), SIGNAL(finishLoading(bool)), this, SLOT(loadFinished(bool)));
     connect(mApp->networkManager(), SIGNAL(wantsFocus(QUrl)), this, SLOT(getFocus(QUrl)));
+
+    connect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
 
     //Zoom levels same as in firefox
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
@@ -396,6 +400,20 @@ void WebView::keyPressEvent(QKeyEvent* event)
         QWebView::keyPressEvent(event);
         return;
     }
+}
+
+void WebView::mouseMoveEvent(QMouseEvent *event)
+{
+    if (m_mouseTrack) {
+        if (m_navigationVisible) {
+            m_navigationVisible = false;
+            p_QupZilla->showNavigationWithFullscreen();
+        } else if (event->y() < 5) {
+            m_navigationVisible = true;
+            p_QupZilla->showNavigationWithFullscreen();
+        }
+    }
+    QWebView::mouseMoveEvent(event);
 }
 
 void WebView::contextMenuEvent(QContextMenuEvent* event)

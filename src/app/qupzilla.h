@@ -93,6 +93,7 @@ public:
     void loadSettings();
     void showInspector();
     void setBackground(QColor textColor);
+    void showNavigationWithFullscreen();
 
     inline WebView* weView() const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabWidget->currentIndex())); if (!webTab) return 0; return webTab->view(); }
     inline WebView* weView(int index) const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index)); if (!webTab) return 0; return webTab->view(); }
@@ -115,6 +116,7 @@ signals:
     void loadHistory();
     void startingCompleted();
     void message(MainApplication::MessageType mes, bool state);
+    void setWebViewMouseTracking(bool state);
 
 public slots:
     void showBookmarksToolbar();
@@ -127,7 +129,6 @@ public slots:
     void receiveMessage(MainApplication::MessageType mes, bool state);
 
 private slots:
-    void closeEvent(QCloseEvent* event);
     void postLaunch();
     void goAtHistoryIndex();
     void goNext() { weView()->forward(); }
@@ -187,6 +188,8 @@ private slots:
     bool quitApp();
 
 private:
+    void closeEvent(QCloseEvent* event);
+
     void setupUi();
     void setupMenu();
 
@@ -250,6 +253,8 @@ private:
     //of menubar and statusbar
     bool m_menuBarVisible;
     bool m_statusBarVisible;
+    bool m_navigationVisible;
+    bool m_bookmarksToolBarVisible;
 };
 
 #endif // QUPZILLA_H
