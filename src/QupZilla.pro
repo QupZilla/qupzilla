@@ -40,6 +40,7 @@ INCLUDEPATH += 3rdparty\
                sidebar\
                data\
                adblock\
+               desktopnotifications\
 
 SOURCES += main.cpp\
     3rdparty/squeezelabel.cpp \
@@ -111,7 +112,9 @@ SOURCES += main.cpp\
     tools/docktitlebarwidget.cpp \
     sidebar/bookmarkssidebar.cpp \
     bookmarks/bookmarkicon.cpp \
-    sidebar/historysidebar.cpp
+    sidebar/historysidebar.cpp \
+    desktopnotifications/desktopnotification.cpp \
+    desktopnotifications/desktopnotificationsfactory.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -182,7 +185,9 @@ HEADERS  += 3rdparty/squeezelabel.h \
     tools/docktitlebarwidget.h \
     sidebar/bookmarkssidebar.h \
     bookmarks/bookmarkicon.h \
-    sidebar/historysidebar.h
+    sidebar/historysidebar.h \
+    desktopnotifications/desktopnotification.h \
+    desktopnotifications/desktopnotificationsfactory.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -209,7 +214,8 @@ FORMS    += \
     adblock/adblockdialog.ui \
     tools/docktitlebarwidget.ui \
     sidebar/bookmarkssidebar.ui \
-    sidebar/historysidebar.ui
+    sidebar/historysidebar.ui \
+    desktopnotifications/desktopnotification.ui
 
 RESOURCES += \
     data/icons.qrc \
@@ -220,6 +226,7 @@ OTHER_FILES += \
 
 include(3rdparty/qtsingleapplication.pri)
 
+unix:QT += dbus
 win32:RC_FILE = appicon.rc
 win32:LIBS += User32.lib
 win32:LIBS += Ole32.lib
