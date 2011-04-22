@@ -74,6 +74,7 @@ public slots:
     void zoomOut();
 
 private slots:
+    void trackMouse(bool state) { m_mouseTrack = state; }
     void showImage();
     void copyImageToClipboard();
     void downloadImageToDisk();
@@ -108,6 +109,7 @@ private:
     void mouseReleaseEvent(QMouseEvent* event);
     void contextMenuEvent(QContextMenuEvent* event);
     void wheelEvent(QWheelEvent* event);
+    void mouseMoveEvent(QMouseEvent* event);
     TabWidget* tabWidget() const;
     bool isCurrent();
     void applyZoom();
@@ -127,6 +129,9 @@ private:
 
     WebPage* m_page;
     NetworkManagerProxy* m_networkProxy;
+
+    bool m_mouseTrack;
+    bool m_navigationVisible;
     //QTimer* m_loadingTimer; //Too confusing
 
 signals:
