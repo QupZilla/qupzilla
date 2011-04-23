@@ -70,6 +70,5 @@
         <file>icons/preferences/stock_keyring.png</file>
         <file>icons/other/list-add.png</file>
         <file>icons/other/adblock.png</file>
-        <file>icons/other/notifbackground.png</file>
     </qresource>
 </RCC>

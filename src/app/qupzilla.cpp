@@ -83,7 +83,6 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     connect(mApp, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(receiveMessage(MainApplication::MessageType,bool)));
 }
 
-#include "desktopnotification.h"
 void QupZilla::loadSettings()
 {
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
@@ -129,8 +128,7 @@ void QupZilla::loadSettings()
     m_actionPrivateBrowsing->setChecked( mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
     m_privateBrowsing->setVisible( mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
 
-//    DesktopNotification* notif = new DesktopNotification(QPixmap(), "bla", "ble", 10000);
-//    notif->show();
+    setWindowIcon(QIcon(":/icons/qupzilla.png"));
 
     if (!makeTransparent)
         return;
@@ -150,7 +148,6 @@ void QupZilla::loadSettings()
         QtWin::extendFrameIntoClientArea(this);
         setContentsMargins(0, 0, 0, 0);
     }
-    setWindowIcon(QIcon(":/icons/qupzilla.png"));
 }
 
 void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
