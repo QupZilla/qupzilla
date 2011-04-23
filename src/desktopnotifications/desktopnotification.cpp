@@ -1,9 +1,12 @@
 #include "desktopnotification.h"
 #include "ui_desktopnotification.h"
 
-DesktopNotification::DesktopNotification(const QPixmap &icon, const QString &heading, const QString &text, int timeout)
+DesktopNotification::DesktopNotification(bool settingPosition)
    : QWidget(0)
    , ui(new Ui::DesktopNotification)
+   , m_settingPosition(settingPosition)
+   , m_timeout(6000)
+   , m_timer(new QTimer(this))
 {
     ui->setupUi(this);
     setStyleSheet("background:transparent;");
@@ -17,11 +20,23 @@ DesktopNotification::DesktopNotification(const QPixmap &icon, const QString &hea
     setWindowFlags(flags);
     setWindowOpacity(0.9);
 
-    ui->icon->setPixmap(icon);
-    ui->heading->setText(QString("<b>%1</b>").arg(heading));
-    ui->text->setText(text);
+    m_timer->setSingleShot(true);
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(close()));
+}
 
-    QTimer::singleShot(timeout, this, SLOT(close()));
+void DesktopNotification::show()
+{
+    ui->icon->setPixmap(m_icon);
+    ui->heading->setText(QString("<b>%1</b>").arg(m_heading));
+    ui->text->setText(m_text);
+
+    if (!m_settingPosition) {
+        m_timer->stop();
+        m_timer->setInterval(m_timeout);
+        m_timer->start();
+    }
+
+    QWidget::show();
 }
 
 void DesktopNotification::enterEvent(QEvent *e)
@@ -38,8 +53,23 @@ void DesktopNotification::leaveEvent(QEvent *e)
 
 void DesktopNotification::mousePressEvent(QMouseEvent *e)
 {
-    Q_UNUSED(e)
-    close();
+    if (!m_settingPosition) {
+        close();
+        return;
+    }
+
+    if (e->button() == Qt::LeftButton) {
+        m_dragPosition = e->globalPos() - frameGeometry().topLeft();
+        e->accept();
+    }
+}
+
+void DesktopNotification::mouseMoveEvent(QMouseEvent *e)
+{
+    if (e->buttons() & Qt::LeftButton) {
+        move(e->globalPos() - m_dragPosition);
+        e->accept();
+    }
 }
 
 DesktopNotification::~DesktopNotification()
