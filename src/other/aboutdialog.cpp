@@ -38,6 +38,7 @@ AboutDialog::AboutDialog(QWidget* parent) :
     connect(ui->authorsButton, SIGNAL(clicked()), this, SLOT(buttonClicked()));
 
     showAbout();
+
 }
 
 void AboutDialog::buttonClicked()
