@@ -151,10 +151,22 @@
      </item>
      <item>
       <property name="text">
-       <string>Plugins</string>
+       <string>Notifications</string>
       </property>
       <property name="whatsThis">
        <string notr="true">8</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../data/icons.qrc">
+        <normaloff>:/icons/preferences/stock_dialog-question.png</normaloff>:/icons/preferences/stock_dialog-question.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Plugins</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">9</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
@@ -166,7 +178,7 @@
        <string>Other</string>
       </property>
       <property name="whatsThis">
-       <string notr="true">9</string>
+       <string notr="true">10</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
@@ -1574,6 +1586,7 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="page_3"/>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout_14">
        <item row="0" column="0" colspan="2">

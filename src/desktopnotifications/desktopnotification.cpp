@@ -27,7 +27,7 @@ DesktopNotification::DesktopNotification(bool settingPosition)
 void DesktopNotification::show()
 {
     ui->icon->setPixmap(m_icon);
-    ui->heading->setText(QString("<b>%1</b>").arg(m_heading));
+    ui->heading->setText(m_heading);
     ui->text->setText(m_text);
 
     if (!m_settingPosition) {

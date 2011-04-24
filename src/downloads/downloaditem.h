@@ -56,6 +56,7 @@ public:
 
 signals:
     void deleteItem(DownloadItem*);
+    void downloadFinished(bool success);
 
 private slots:
     void finished();

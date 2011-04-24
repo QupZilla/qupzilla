@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>356</width>
-    <height>91</height>
+    <height>74</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,26 +35,13 @@ background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #e4ecf1, stop:1 
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="1">
-       <widget class="QLabel" name="heading">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" rowspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
        <widget class="QLabel" name="icon">
         <property name="maximumSize">
          <size>
-          <width>64</width>
-          <height>64</height>
+          <width>48</width>
+          <height>48</height>
          </size>
         </property>
         <property name="text">
@@ -62,15 +49,67 @@ background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #e4ecf1, stop:1 
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLabel" name="text">
-        <property name="text">
-         <string/>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>0</number>
         </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-        </property>
-       </widget>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="heading">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+font: bold;
+font-size: 13pt;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="text">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
