@@ -36,15 +36,9 @@ signals:
 public slots:
     void downCompleted(QNetworkReply* reply);
     void start();
-    void goUpdate();
-    void clicked(QSystemTrayIcon::ActivationReason reason);
 
 private:
-    void createTrayIcon();
     void startDownloadingUpdateInfo(const QUrl &url);
-
-    QSystemTrayIcon* m_trayIcon;
-    QMenu* m_trayIconMenu;
 
     QupZilla* p_QupZilla;
 

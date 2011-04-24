@@ -34,6 +34,7 @@
 #include "downloadmanager.h"
 #include "autofillmodel.h"
 #include "adblockmanager.h"
+#include "desktopnotificationsfactory.h"
 
 MainApplication::MainApplication(int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -50,6 +51,7 @@ MainApplication::MainApplication(int &argc, char **argv)
     ,m_downloadManager(0)
     ,m_autofill(0)
     ,m_networkCache(new QNetworkDiskCache)
+    ,m_desktopNotifications(0)
     ,m_isClosing(false)
     ,m_isChanged(false)
     ,m_isExited(false)
@@ -418,6 +420,13 @@ AutoFillModel* MainApplication::autoFill()
     if (!m_autofill)
         m_autofill = new AutoFillModel(getWindow());
     return m_autofill;
+}
+
+DesktopNotificationsFactory* MainApplication::desktopNotifications()
+{
+    if (!m_desktopNotifications)
+        m_desktopNotifications = new DesktopNotificationsFactory(this);
+    return m_desktopNotifications;
 }
 
 void MainApplication::aboutToCloseWindow(QupZilla* window)

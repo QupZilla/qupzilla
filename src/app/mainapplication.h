@@ -41,6 +41,7 @@ class PluginProxy;
 class BookmarksModel;
 class DownloadManager;
 class AutoFillModel;
+class DesktopNotificationsFactory;
 
 class MainApplication : public QtSingleApplication
 {
@@ -82,6 +83,7 @@ public:
     DownloadManager* downManager();
     AutoFillModel* autoFill();
     QNetworkDiskCache* networkCache() { return m_networkCache; }
+    DesktopNotificationsFactory* desktopNotifications();
 
 public slots:
     bool saveStateSlot();
@@ -115,6 +117,7 @@ private:
     DownloadManager* m_downloadManager;
     AutoFillModel* m_autofill;
     QNetworkDiskCache* m_networkCache;
+    DesktopNotificationsFactory* m_desktopNotifications;
 
     QList<QPointer<QupZilla> > m_mainWindows;
 

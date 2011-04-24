@@ -8,6 +8,7 @@
 #include <QPoint>
 #include <QTimer>
 #include <QPointer>
+#include <QDir>
 
 class DesktopNotification;
 class DesktopNotificationsFactory : public QObject
