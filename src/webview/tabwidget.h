@@ -46,7 +46,7 @@ public:
     void savePinnedTabs();
     void restorePinnedTabs();
 
-    void setTabText(int index, const QString& text);
+    void setTabText(int index, const QString &text);
     void loadSettings();
 
     inline TabBar* getTabBar() { return m_tabBar; }
@@ -56,7 +56,7 @@ public:
 
 public slots:
     void closeTab(int index=-1);
-    int addView(QUrl url = QUrl(), QString title = tr("New tab"), OpenUrlIn openIn = NewTab, bool selectLine = false);
+    int addView(QUrl url = QUrl(), const QString &title = tr("New tab"), OpenUrlIn openIn = NewTab, bool selectLine = false);
     void reloadTab(int index) { weView(index)->reload(); }
     void reloadAllTabs();
     void stopTab(int index) { weView(index)->stop(); }
