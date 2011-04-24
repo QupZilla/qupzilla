@@ -60,7 +60,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
     qDebug() << "WebPage::UnsupportedContent error" << reply->errorString();
 }
 
-void WebPage::setSSLCertificate(QSslCertificate cert)
+void WebPage::setSSLCertificate(const QSslCertificate &cert)
 {
 //    if (cert != m_SslCert) -- crashing on linux :-|
         m_SslCert = cert;
@@ -140,7 +140,7 @@ void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
     m_adBlockedEntries.append(entry);
 }
 
-bool WebPage::extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output)
+bool WebPage::extension(const Extension &extension, const ExtensionOption* option, ExtensionReturn* output)
 {
     if (extension == ChooseMultipleFilesExtension)
         return QWebPage::extension(extension, option, output);

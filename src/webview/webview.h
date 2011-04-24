@@ -46,7 +46,7 @@ public:
     int getLoading() { return m_progress; }
 
     void zoomReset();
-    void load(QUrl url);
+    void load(const QUrl &url);
     QUrl url() const;
     QString title() const;
     void reload();
@@ -56,7 +56,7 @@ public:
     QIcon siteIcon();
     void addNotification(QWidget* notif);
     bool hasRss() { return !m_rss.isEmpty(); }
-    QList<QPair<QString,QString> > getRss() { return m_rss; }
+    QList<QPair<QString,QString> > getRss() { return m_rss; } //FIXME: Make RSS as struct
 
     static QUrl guessUrlFromString(const QString &string);
     static bool isUrlValid(const QUrl &url);
@@ -99,7 +99,7 @@ private slots:
     void getFocus(const QUrl &urla);
     void showInspector();
     void stopAnimation();
-    void setIp(QHostInfo info);
+    void setIp(const QHostInfo &info);
     void checkRss();
     void slotIconChanged();
 

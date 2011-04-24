@@ -182,7 +182,7 @@ void WebView::stopAnimation()
     }
 }
 
-void WebView::setIp(QHostInfo info)
+void WebView::setIp(const QHostInfo &info)
 {
     if (info.addresses().isEmpty())
         return;
@@ -695,7 +695,7 @@ void WebView::closeTab()
     }
 }
 
-void WebView::load(QUrl url)
+void WebView::load(const QUrl &url)
 {
     if (url.toString().startsWith("javascript:")) {
         page()->mainFrame()->evaluateJavaScript(url.toString());

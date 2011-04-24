@@ -45,11 +45,11 @@ public:
     void populateNetworkRequest(QNetworkRequest &request);
     ~WebPage();
 
-    void setSSLCertificate(QSslCertificate cert);
+    void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
     QString userAgentForUrl(const QUrl &url) const;
-    bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
-    bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output);
+    bool supportsExtension(const Extension &extension) const { return (extension == ErrorPageExtension); }
+    bool extension(const Extension &extension, const ExtensionOption* option, ExtensionReturn* output);
 
     void addAdBlockRule(const QString &filter, const QUrl &url);
     QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
