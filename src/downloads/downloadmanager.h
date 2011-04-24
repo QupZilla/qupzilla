@@ -67,6 +67,7 @@ protected:
 private slots:
     void clearList();
     void deleteItem(DownloadItem* item);
+    void downloadFinished(bool success);
 
 private:
 #ifdef W7API

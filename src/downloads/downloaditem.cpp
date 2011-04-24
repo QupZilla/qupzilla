@@ -128,6 +128,8 @@ void DownloadItem::finished()
 
     if (m_openAfterFinish)
         openFile();
+
+    emit downloadFinished(true);
 }
 
 void DownloadItem::downloadProgress(qint64 received, qint64 total)
@@ -257,6 +259,8 @@ void DownloadItem::stop(bool askForDeleteFile)
     ui->button->hide();
 #endif
     m_downloading = false;
+
+    emit downloadFinished(false);
 
     if (askForDeleteFile) {
         QMessageBox::StandardButton button = QMessageBox::question(m_item->listWidget()->parentWidget(), tr("Delete file"), tr("Do you want to also delete dowloaded file?"), QMessageBox::Yes | QMessageBox::No);

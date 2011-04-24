@@ -23,6 +23,7 @@
 #include "ecwin7.h"
 #include "networkmanager.h"
 #include "qtwin.h"
+#include "desktopnotificationsfactory.h"
 
 DownloadManager::DownloadManager(QWidget* parent) :
     QWidget(parent)
@@ -77,25 +78,14 @@ void DownloadManager::timerEvent(QTimerEvent* event)
         }
         for (int i = 0; i < ui->list->count(); i++) {
             DownloadItem* downItem = qobject_cast<DownloadItem*>(ui->list->itemWidget(ui->list->item(i)));
-            if (!downItem || (downItem && downItem->isCancelled()))
+            if (!downItem || (downItem && downItem->isCancelled()) || !downItem->isDownloading())
                 continue;
-            if (!downItem->isDownloading()) {
-                progresses.append(100);
-                continue;
-            } else
-                progresses.append(downItem->progress());
+            progresses.append(downItem->progress());
             remTimes.append(downItem->remainingTime());
             speeds.append(downItem->currentSpeed());
         }
-        if (remTimes.isEmpty()) {
-            ui->speedLabel->clear();
-            setWindowTitle(tr("Download Manager"));
-#ifdef W7API
-        win7.setProgressValue(0, 0);
-        win7.setProgressState(win7.Normal);
-#endif
+        if (remTimes.isEmpty())
             return;
-        }
 
         QTime remaining;
         foreach (QTime time, remTimes) {
@@ -203,10 +193,33 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWha
     QListWidgetItem* item = new QListWidgetItem(ui->list);
     DownloadItem* downItem = new DownloadItem(item, reply, path, fileName, fileIcon, openFileOptionsChoosed, this);
     connect(downItem, SIGNAL(deleteItem(DownloadItem*)), this, SLOT(deleteItem(DownloadItem*)));
+    connect(downItem, SIGNAL(downloadFinished(bool)), this, SLOT(downloadFinished(bool)));
     ui->list->setItemWidget(item, downItem);
     item->setSizeHint(downItem->sizeHint());
     show();
     activateWindow();
+}
+
+void DownloadManager::downloadFinished(bool success)
+{
+    bool downloadingAllFilesFinished = true;
+    for (int i = 0; i < ui->list->count(); i++) {
+        DownloadItem* downItem = qobject_cast<DownloadItem*>(ui->list->itemWidget(ui->list->item(i)));
+        if (!downItem || (downItem && downItem->isCancelled()) || !downItem->isDownloading())
+            continue;
+        downloadingAllFilesFinished = false;
+    }
+
+    if (downloadingAllFilesFinished) {
+        if (success)
+            mApp->desktopNotifications()->notify(QPixmap(":icons/notifications/download.png"), tr("Download Finished"), tr("All files has been successfuly downloaded."));
+        ui->speedLabel->clear();
+        setWindowTitle(tr("Download Manager"));
+#ifdef W7API
+        win7.setProgressValue(0, 0);
+        win7.setProgressState(win7.Normal);
+#endif
+    }
 }
 
 void DownloadManager::deleteItem(DownloadItem* item)
