@@ -204,7 +204,7 @@ void TabWidget::actionChangeIndex()
     }
 }
 
-int TabWidget::addView(QUrl url, QString title, OpenUrlIn openIn, bool selectLine)
+int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool selectLine)
 {
     if (url.isEmpty())
         url = m_urlOnNewTab;
