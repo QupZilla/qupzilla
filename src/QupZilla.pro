@@ -114,7 +114,8 @@ SOURCES += main.cpp\
     bookmarks/bookmarkicon.cpp \
     sidebar/historysidebar.cpp \
     desktopnotifications/desktopnotification.cpp \
-    desktopnotifications/desktopnotificationsfactory.cpp
+    desktopnotifications/desktopnotificationsfactory.cpp \
+    tools/progressbar.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -187,7 +188,8 @@ HEADERS  += 3rdparty/squeezelabel.h \
     bookmarks/bookmarkicon.h \
     sidebar/historysidebar.h \
     desktopnotifications/desktopnotification.h \
-    desktopnotifications/desktopnotificationsfactory.h
+    desktopnotifications/desktopnotificationsfactory.h \
+    tools/progressbar.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

@@ -48,6 +48,7 @@
 #include "clickablelabel.h"
 #include "docktitlebarwidget.h"
 #include "sidebar.h"
+#include "progressbar.h"
 
 const QString QupZilla::VERSION = "1.0.0-b1";
 //const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM d yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
@@ -58,7 +59,7 @@ const QString QupZilla::WWWADDRESS = "http://qupzilla.ic.cz";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
 QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
-    QMainWindow()
+    QMainWindow(0)
     ,m_tryRestore(tryRestore)
     ,m_startingUrl(startUrl)
     ,m_actionPrivateBrowsing(0)
@@ -93,7 +94,7 @@ void QupZilla::loadSettings()
     m_newtab = settings.value("newTabUrl","").toUrl();
     settings.endGroup();
 
-    QWebSettings* websettings=mApp->webSettings();
+    QWebSettings* websettings = mApp->webSettings();
     websettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
 
     //Browser Window settings
@@ -179,13 +180,13 @@ void QupZilla::refreshHistory(int index)
 
     if (history->canGoBack()) {
         m_buttonBack->setEnabled(true);
-    }else{
+    } else {
         m_buttonBack->setEnabled(false);
     }
 
     if (history->canGoForward()) {
         m_buttonNext->setEnabled(true);
-    }else{
+    } else {
         m_buttonNext->setEnabled(false);
     }
 }

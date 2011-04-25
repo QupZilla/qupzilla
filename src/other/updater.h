@@ -33,15 +33,15 @@ public:
 
 signals:
 
-public slots:
+private slots:
     void downCompleted(QNetworkReply* reply);
     void start();
+    void downloadNewVersion();
 
 private:
     void startDownloadingUpdateInfo(const QUrl &url);
 
     QupZilla* p_QupZilla;
-
 };
 
 #endif // UPDATER_H

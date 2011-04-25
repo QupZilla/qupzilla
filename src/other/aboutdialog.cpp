@@ -44,7 +44,6 @@ AboutDialog::AboutDialog(QWidget* parent) :
 
 void AboutDialog::buttonClicked()
 {
-    mApp->desktopNotifications()->notify(QPixmap(":qupzilla.png"), "heading","text");
     if (ui->authorsButton->text() == tr("Authors and Contributors"))
         showAuthors();
     else if (ui->authorsButton->text() == tr("< About QupZilla"))

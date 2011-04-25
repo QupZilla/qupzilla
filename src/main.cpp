@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
         std::cout << "QupZilla already running - activating existing window" << std::endl;
         return 1;
     }
+
     int result = app.exec();
     return result;
 }
