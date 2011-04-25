@@ -72,6 +72,7 @@ class MainApplication;
 class WebTab;
 class AdBlockIcon;
 class SideBar;
+class ProgressBar;
 class QupZilla : public QMainWindow
 {
     Q_OBJECT
@@ -103,7 +104,7 @@ public:
 
     inline QAction* buttonStop(){ return m_buttonStop; }
     inline QAction* buttonReload(){ return m_buttonReload; }
-    inline QProgressBar* progressBar(){ return m_progressBar; }
+    inline ProgressBar* progressBar(){ return m_progressBar; }
     inline QToolBar* navigationToolbar(){ return m_navigation; }
     inline QString activeProfil(){ return m_activeProfil; }
     inline QString activeLanguage(){ return m_activeLanguage; }
@@ -111,6 +112,7 @@ public:
     inline QLabel* ipLabel(){ return m_ipLabel; }
     inline QColor menuTextColor() { return m_menuTextColor; }
     inline QAction* acShowBookmarksToolbar() { return m_actionShowBookmarksToolbar; }
+    inline QMenu* menuHelp() { return m_menuHelp; }
 
 signals:
     void loadHistory();
@@ -242,7 +244,7 @@ private:
     QAction* m_buttonStop;
     QAction* m_buttonReload;
     QAction* m_actionExitFullscreen;
-    QProgressBar* m_progressBar;
+    ProgressBar* m_progressBar;
     QLabel* m_ipLabel;
     QToolBar* m_navigation;
 

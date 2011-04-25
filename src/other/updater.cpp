@@ -27,7 +27,6 @@ Updater::Updater(QupZilla* mainClass, QObject* parent) :
 #ifndef DEVELOPING
     QTimer::singleShot(60*1000, this, SLOT(start()) ); //Start checking after 1 minute
 #endif
-    QTimer::singleShot(1000, this, SLOT(start()));
 }
 
 void Updater::start()
@@ -49,11 +48,19 @@ void Updater::downCompleted(QNetworkReply* reply)
     QString html = QString(reply->readAll());
     if (html.startsWith("Version:")){
         html.remove("Version:");
-        if (html != QupZilla::VERSION)
-            mApp->desktopNotifications()->notify(QPixmap(":icons/qupzillaupdate.png"), tr("Update is available"), tr("Newer version of QupZilla is ready to download."));
-
+        if (html != QupZilla::VERSION) {
+            mApp->desktopNotifications()->notify(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
+            QAction* action = new QAction(QIcon(":icons/qupzillaupdate.png"), "Update", this);
+            connect(action, SIGNAL(triggered()), this, SLOT(downloadNewVersion()));
+            p_QupZilla->menuBar()->addAction(action);
+        }
     }
     reply->manager()->deleteLater();
+}
+
+void Updater::downloadNewVersion()
+{
+    p_QupZilla->tabWidget()->addView(QUrl(QupZilla::WWWADDRESS + "/download.php"), tr("Update"), TabWidget::NewSelectedTab);
 }
 
 Updater::~Updater()

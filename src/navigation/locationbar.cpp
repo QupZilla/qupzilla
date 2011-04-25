@@ -26,6 +26,7 @@
 #include "rsswidget.h"
 #include "webpage.h"
 #include "bookmarkicon.h"
+#include "progressbar.h"
 
 LocationBar::LocationBar(QupZilla* mainClass, QWidget* parent)
     : LineEdit(parent)

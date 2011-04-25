@@ -21,6 +21,7 @@
 #include "locationbar.h"
 #include "clickablelabel.h"
 #include "adblockicon.h"
+#include "progressbar.h"
 
 void QupZilla::postLaunch()
 {
@@ -142,8 +143,7 @@ void QupZilla::setupUi()
     m_navigation->addWidget(new QLabel()); //Elegant spacer -,-
     m_navigation->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    m_progressBar = new QProgressBar(this);
-    m_progressBar->setMaximumSize(QSize(150, 16));
+    m_progressBar = new ProgressBar(statusBar());
     m_privateBrowsing = new QLabel(this);
     m_privateBrowsing->setPixmap(QPixmap(":/icons/locationbar/privatebrowsing.png"));
     m_privateBrowsing->setVisible(false);
