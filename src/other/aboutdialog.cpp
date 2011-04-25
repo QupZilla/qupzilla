@@ -21,7 +21,6 @@
 #include "webview.h"
 #include "webpage.h"
 #include "qtwin.h"
-#include "desktopnotificationsfactory.h"
 
 AboutDialog::AboutDialog(QWidget* parent) :
     QDialog(parent),
@@ -39,7 +38,6 @@ AboutDialog::AboutDialog(QWidget* parent) :
     connect(ui->authorsButton, SIGNAL(clicked()), this, SLOT(buttonClicked()));
 
     showAbout();
-
 }
 
 void AboutDialog::buttonClicked()

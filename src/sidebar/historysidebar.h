@@ -6,6 +6,8 @@
 #include <QPointer>
 #include <QShortcut>
 
+#include "historymodel.h"
+
 namespace Ui {
     class HistorySideBar;
 }
@@ -30,9 +32,13 @@ private slots:
     void loadInNewTab();
     void itemControlClicked(QTreeWidgetItem* item);
 
+    void historyEntryAdded(const HistoryModel::HistoryEntry &entry);
+    void historyEntryDeleted(const HistoryModel::HistoryEntry &entry);
+
 private:
     Ui::HistorySideBar* ui;
     QPointer<QupZilla> p_QupZilla;
+    HistoryModel* m_historyModel;
 };
 
 #endif // HISTORYSIDEBAR_H

@@ -42,6 +42,7 @@ class BookmarksModel;
 class DownloadManager;
 class AutoFillModel;
 class DesktopNotificationsFactory;
+class IconProvider;
 
 class MainApplication : public QtSingleApplication
 {
@@ -84,6 +85,7 @@ public:
     AutoFillModel* autoFill();
     QNetworkDiskCache* networkCache() { return m_networkCache; }
     DesktopNotificationsFactory* desktopNotifications();
+    IconProvider* iconProvider() { return m_iconProvider; }
 
 public slots:
     bool saveStateSlot();
@@ -118,6 +120,7 @@ private:
     AutoFillModel* m_autofill;
     QNetworkDiskCache* m_networkCache;
     DesktopNotificationsFactory* m_desktopNotifications;
+    IconProvider* m_iconProvider;
 
     QList<QPointer<QupZilla> > m_mainWindows;
 

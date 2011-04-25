@@ -22,6 +22,8 @@
 #include <QTreeWidgetItem>
 #include <QPointer>
 
+#include "historymodel.h"
+
 namespace Ui {
     class HistoryManager;
 }
@@ -49,10 +51,14 @@ private slots:
     void loadInNewTab();
     void itemControlClicked(QTreeWidgetItem* item);
 
+    void historyEntryAdded(const HistoryModel::HistoryEntry &entry);
+    void historyEntryDeleted(const HistoryModel::HistoryEntry &entry);
+
 private:
     QupZilla* getQupZilla();
     Ui::HistoryManager* ui;
     QPointer<QupZilla> p_QupZilla;
+    HistoryModel* m_historyModel;
 };
 
 #endif // HISTORYMANAGER_H

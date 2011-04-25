@@ -35,6 +35,7 @@
 #include "autofillmodel.h"
 #include "adblockmanager.h"
 #include "desktopnotificationsfactory.h"
+#include "iconprovider.h"
 
 MainApplication::MainApplication(int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -52,6 +53,7 @@ MainApplication::MainApplication(int &argc, char **argv)
     ,m_autofill(0)
     ,m_networkCache(new QNetworkDiskCache)
     ,m_desktopNotifications(0)
+    ,m_iconProvider(new IconProvider)
     ,m_isClosing(false)
     ,m_isChanged(false)
     ,m_isExited(false)
@@ -199,6 +201,9 @@ void MainApplication::loadSettings()
     m_websettings->setFontSize(QWebSettings::DefaultFixedFontSize, settings.value("FixedFontSize", m_websettings->fontSize(QWebSettings::DefaultFixedFontSize)).toInt() );
 
     m_websettings->setDefaultTextEncoding("System");
+#ifdef Q_WS_X11
+    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, QIcon::fromTheme("text-plain").pixmap(16,16));
+#endif
 
     if (allowPersistentStorage) m_websettings->enablePersistentStorage(m_activeProfil);
     m_websettings->setMaximumPagesInCache(maxCachedPages);
@@ -330,8 +335,10 @@ void MainApplication::quitApplication()
 
     cookieJar()->saveCookies();
     m_networkmanager->saveCertExceptions();
+    m_iconProvider->saveIconsToDatabase();
     m_plugins->c2f_saveSettings();
     AdBlockManager::instance()->save();
+    QFile::remove(getActiveProfil() + "WebpageIcons.db");
 
     quit();
 }

@@ -19,14 +19,12 @@
 #include "bookmarksmanager.h"
 #include "ui_bookmarksmanager.h"
 #include "qupzilla.h"
-#include "locationbar.h"
 #include "webview.h"
 #include "bookmarkstoolbar.h"
 #include "tabwidget.h"
 #include "bookmarksmodel.h"
 #include "qtwin.h"
-
-//Won't be bad idea to rewrite bookmarks access via bookmarksmodel
+#include "iconprovider.h"
 
 BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
@@ -233,7 +231,7 @@ void BookmarksManager::refreshTable()
         item->setToolTip(1, url.toEncoded());
 
         item->setWhatsThis(1, QString::number(id));
-        item->setIcon(0, LocationBar::icon(url));
+        item->setIcon(0, _iconForUrl(url));
         item->setFlags(item->flags() | Qt::ItemIsEditable);
         ui->bookmarksTree->addTopLevelItem(item);
     }
@@ -251,7 +249,7 @@ void BookmarksManager::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
     item->setWhatsThis(1, QString::number(bookmark.id));
-    item->setIcon(0, LocationBar::icon(bookmark.url));
+    item->setIcon(0, _iconForUrl(bookmark.url));
     item->setToolTip(0, bookmark.title);
     item->setToolTip(1, bookmark.url.toEncoded());
     item->setFlags(item->flags() | Qt::ItemIsEditable);
@@ -347,7 +345,7 @@ void BookmarksManager::insertBookmark(const QUrl &url, const QString &title)
     label->setText(tr("Choose name and location of bookmark."));
     edit->setText(title);
     edit->setCursorPosition(0);
-    dialog->setWindowIcon(LocationBar::icon(url));
+    dialog->setWindowIcon(_iconForUrl(url));
     dialog->setWindowTitle(tr("Add New Bookmark"));
 
     QSize size = dialog->size();

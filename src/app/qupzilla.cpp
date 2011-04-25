@@ -48,6 +48,7 @@
 #include "clickablelabel.h"
 #include "docktitlebarwidget.h"
 #include "sidebar.h"
+#include "iconprovider.h"
 #include "progressbar.h"
 
 const QString QupZilla::VERSION = "1.0.0-b1";
@@ -214,7 +215,7 @@ void QupZilla::aboutToShowHistoryBackMenu()
                 title.truncate(40);
                 title+="..";
             }
-            QAction* action = m_menuBack->addAction(m_locationBar->icon(item.url()),title, this, SLOT(goAtHistoryIndex()));
+            QAction* action = m_menuBack->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
             action->setData(i);
         }
     }
@@ -235,7 +236,7 @@ void QupZilla::aboutToShowHistoryNextMenu()
                 title.truncate(40);
                 title+="..";
             }
-            QAction* action = m_menuForward->addAction(m_locationBar->icon(item.url()),title, this, SLOT(goAtHistoryIndex()));
+            QAction* action = m_menuForward->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
             action->setData(i);
         }
     }
@@ -259,7 +260,7 @@ void QupZilla::aboutToShowBookmarksMenu()
             title.truncate(40);
             title+="..";
         }
-        m_menuBookmarks->addAction(LocationBar::icon(url), title, this, SLOT(loadActionUrl()))->setData(url);
+        m_menuBookmarks->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
     }
 
     QMenu* folderBookmarks = new QMenu(tr("Bookmarks In ToolBar"), m_menuBookmarks);
@@ -273,7 +274,7 @@ void QupZilla::aboutToShowBookmarksMenu()
             title.truncate(40);
             title+="..";
         }
-        folderBookmarks->addAction(LocationBar::icon(url), title, this, SLOT(loadActionUrl()))->setData(url);
+        folderBookmarks->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
     }
     if (folderBookmarks->isEmpty())
         folderBookmarks->addAction(tr("Empty"));
@@ -293,7 +294,7 @@ void QupZilla::aboutToShowBookmarksMenu()
                 title.truncate(40);
                 title+="..";
             }
-            tempFolder->addAction(LocationBar::icon(url), title, this, SLOT(loadActionUrl()))->setData(url);
+            tempFolder->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
         }
         if (tempFolder->isEmpty())
             tempFolder->addAction(tr("Empty"));
@@ -346,7 +347,7 @@ void QupZilla::aboutToShowHistoryMenu()
             title.truncate(40);
             title+="..";
         }
-        m_menuHistory->addAction(LocationBar::icon(url), title, this, SLOT(loadActionUrl()))->setData(url);
+        m_menuHistory->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
     }
 }
 

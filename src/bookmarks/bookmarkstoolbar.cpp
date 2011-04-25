@@ -17,8 +17,8 @@
 * ============================================================ */
 #include "bookmarkstoolbar.h"
 #include "qupzilla.h"
-#include "locationbar.h"
 #include "bookmarksmodel.h"
+#include "iconprovider.h"
 
 BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent) :
     QToolBar(parent)
@@ -98,7 +98,7 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
 
     action->setText(title);
     action->setData(bookmark.url);
-    action->setIcon(LocationBar::icon(bookmark.url));
+    action->setIcon(_iconForUrl(bookmark.url));
     QToolButton* button = new QToolButton(this);
     button->setDefaultAction(action);
     button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -153,7 +153,7 @@ void BookmarksToolbar::bookmarkEdited(const BookmarksModel::Bookmark &before, co
 
                 action->setText(title);
                 action->setData(after.url);
-                action->setIcon(LocationBar::icon(after.url));
+                action->setIcon(_iconForUrl(after.url));
                 button->setToolTip(after.url.toEncoded());
                 button->setWhatsThis(after.title);
             }
@@ -178,7 +178,7 @@ void BookmarksToolbar::refreshBookmarks()
 
         action->setText(title);
         action->setData(url);
-        action->setIcon(LocationBar::icon(url));
+        action->setIcon(_iconForUrl(url));
         QToolButton* button = new QToolButton(this);
         button->setDefaultAction(action);
         button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -220,6 +220,6 @@ void BookmarksToolbar::refreshMostVisited()
             title.truncate(40);
             title+="..";
         }
-        m_menuMostVisited->addAction(LocationBar::icon(url), title, p_QupZilla, SLOT(loadActionUrl()))->setData(url);
+        m_menuMostVisited->addAction(_iconForUrl(url), title, p_QupZilla, SLOT(loadActionUrl()))->setData(url);
     }
 }
