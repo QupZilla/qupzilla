@@ -43,7 +43,6 @@ class LocationBar : public LineEdit
 public:
     explicit LocationBar(QupZilla* mainClass, QWidget* parent = 0);
     ~LocationBar();
-    static QIcon icon(const QUrl &url);
 
     void loadSettings();
 

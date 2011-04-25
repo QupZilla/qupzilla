@@ -29,6 +29,7 @@
 #include "mainapplication.h"
 #include "tabbar.h"
 #include "pluginproxy.h"
+#include "iconprovider.h"
 #include "webtab.h"
 
 WebView::WebView(QupZilla* mainClass, QWidget* parent)
@@ -80,8 +81,8 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
 
 void WebView::slotIconChanged()
 {
+    mApp->iconProvider()->saveIcon(this);
     m_siteIcon = icon();
-//    iconChanged();
 }
 
 WebPage* WebView::webPage() const
@@ -242,7 +243,7 @@ void WebView::iconChanged()
     if (!icon_.isNull())
         animationLoading(tabIndex(), false)->setPixmap(icon_.pixmap(16,16));
     else
-        animationLoading(tabIndex(), false)->setPixmap(QIcon(":icons/locationbar/unknownpage.png").pixmap(16,16));
+        animationLoading(tabIndex(), false)->setPixmap(QIcon::fromTheme("text-plain").pixmap(16,16));
 
     if (isCurrent())
         emit siteIconChanged();
@@ -254,7 +255,7 @@ QIcon WebView::siteIcon()
         return icon();
     if (!m_siteIcon.isNull())
         return m_siteIcon;
-    return LocationBar::icon(url());
+    return _iconForUrl(url());
 }
 
 void WebView::linkHovered(const QString &link, const QString &title, const QString &content)

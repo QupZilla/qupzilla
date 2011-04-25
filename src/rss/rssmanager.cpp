@@ -18,11 +18,11 @@
 #include "rssmanager.h"
 #include "ui_rssmanager.h"
 #include "qupzilla.h"
-#include "locationbar.h"
 #include "tabwidget.h"
 #include "mainapplication.h"
 #include "treewidget.h"
 #include "qtwin.h"
+#include "iconprovider.h"
 
 RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
@@ -91,10 +91,8 @@ void RSSManager::refreshTable()
         item->setText(0, tr("Loading..."));
         tree->addTopLevelItem(item);
 
-        QIcon icon = LocationBar::icon(address);
+        QIcon icon = _iconForUrl(address);
 
-        if (icon.pixmap(16,16).toImage() == QIcon(":/icons/locationbar/unknownpage.png").pixmap(16,16).toImage())
-            icon = QIcon(":/icons/menu/rss.png");
         ui->tabWidget->setTabIcon(i, icon );
         beginToLoadSlot(address);
         i++;

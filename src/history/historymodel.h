@@ -18,10 +18,11 @@
 #ifndef HISTORYMODEL_H
 #define HISTORYMODEL_H
 
-#include "QtSql/QSqlDatabase"
-#include "QSqlQuery"
-#include "QDateTime"
-#include "QFile"
+#include <QtSql/QSqlDatabase>
+#include <QSqlQuery>
+#include <QDateTime>
+#include <QFile>
+#include <QUrl>
 
 class QupZilla;
 class WebView;
@@ -30,6 +31,14 @@ class HistoryModel : public QObject
     Q_OBJECT
 public:
     HistoryModel(QupZilla* mainClass, QObject* parent = 0);
+
+    struct HistoryEntry {
+        int id;
+        int count;
+        QDateTime date;
+        QUrl url;
+        QString title;
+    };
 
     int addHistoryEntry(WebView* view);
     int addHistoryEntry(const QString &url, QString &title);
@@ -42,6 +51,11 @@ public:
     void setSaving(bool state);
 
     void loadSettings();
+
+signals:
+    void historyEntryAdded(HistoryModel::HistoryEntry entry);
+    void historyEntryDeleted(HistoryModel::HistoryEntry entry);
+    void historyClear();
 
 private:
     bool m_isSaving;
