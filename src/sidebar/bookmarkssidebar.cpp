@@ -19,7 +19,7 @@
 #include "mainapplication.h"
 #include "ui_bookmarkssidebar.h"
 #include "qupzilla.h"
-#include "locationbar.h"
+#include "iconprovider.h"
 #include "webview.h"
 #include "bookmarkstoolbar.h"
 #include "tabwidget.h"
@@ -125,7 +125,7 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
     item->setWhatsThis(0, QString::number(bookmark.id));
-    item->setIcon(0, LocationBar::icon(bookmark.url));
+    item->setIcon(0, _iconForUrl(bookmark.url));
     item->setToolTip(0, bookmark.url.toEncoded());
 
     if (bookmark.folder != "unsorted")
@@ -242,7 +242,7 @@ void BookmarksSideBar::refreshTable()
 //        item->setToolTip(1, url.toEncoded());
 
         item->setWhatsThis(0, QString::number(id));
-        item->setIcon(0, LocationBar::icon(url));
+        item->setIcon(0, _iconForUrl(url));
         ui->bookmarksTree->addTopLevelItem(item);
     }
     ui->bookmarksTree->expandAll();

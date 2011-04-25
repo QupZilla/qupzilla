@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "locationcompleter.h"
 #include "locationbar.h"
+#include "iconprovider.h"
+#include "mainapplication.h"
 
 LocationCompleter::LocationCompleter(QObject* parent) :
     QCompleter(parent)
@@ -89,7 +91,7 @@ void LocationCompleter::loadInitialHistory()
         QStandardItem* findUrl = new QStandardItem();
         QString url = query.value(1).toUrl().toEncoded();
 
-        iconText->setIcon(LocationBar::icon(query.value(1).toUrl()).pixmap(16,16));
+        iconText->setIcon(_iconForUrl(query.value(1).toUrl()).pixmap(16,16));
         iconText->setText(query.value(0).toString().replace("\n","").append("\n"+url));
 
         findUrl->setText(url);
@@ -121,7 +123,7 @@ void LocationCompleter::refreshCompleter(QString string)
         QStandardItem* findUrl = new QStandardItem();
         QString url = query.value(1).toUrl().toEncoded();
 
-        iconText->setIcon(LocationBar::icon(query.value(1).toUrl()).pixmap(16,16));
+        iconText->setIcon(_iconForUrl(query.value(1).toUrl()).pixmap(16,16));
         iconText->setText(query.value(0).toString().replace("\n","").append("\n"+url));
 
         findUrl->setText(url);

@@ -53,7 +53,16 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
         query.bindValue(1, url);
         query.bindValue(2, title);
         query.exec();
-    }else{
+
+        int id = query.lastInsertId().toInt();
+        HistoryEntry entry;
+        entry.id = id;
+        entry.count = 1;
+        entry.date = QDateTime::currentDateTime();
+        entry.url = url;
+        entry.title = title;
+        emit historyEntryAdded(entry);
+    } else {
         query.prepare("UPDATE history SET count = count + 1, date=?, title=? WHERE url=?");
         query.bindValue(0, QDateTime::currentMSecsSinceEpoch());
         query.bindValue(1, title);
@@ -67,6 +76,7 @@ int HistoryModel::addHistoryEntry(WebView* view)
 {
     if (!m_isSaving)
         return -2;
+
     QString url = view->url().toString();
     QString title = view->title();
     return addHistoryEntry(url, title);
@@ -75,22 +85,39 @@ int HistoryModel::addHistoryEntry(WebView* view)
 bool HistoryModel::deleteHistoryEntry(int index)
 {
     QSqlQuery query;
+    query.prepare("SELECT id, count, date, url, title FROM history WHERE id=?");
+    query.bindValue(0, index);
+    query.exec();
+    if (!query.next())
+        return false;
+    HistoryEntry entry;
+    entry.id = query.value(0).toInt();
+    entry.count = query.value(1).toInt();
+    entry.date = QDateTime::fromMSecsSinceEpoch(query.value(2).toLongLong());
+    entry.url = query.value(3).toUrl();
+    entry.title = query.value(4).toString();
+
     query.prepare("DELETE FROM history WHERE id=?");
     query.bindValue(0, index);
-    if (query.exec())
+    if (query.exec()) {
+        emit historyEntryDeleted(entry);
         return true;
-    else return false;
+    }
+    return false;
 }
 
 bool HistoryModel::deleteHistoryEntry(const QString &url, const QString &title)
 {
     QSqlQuery query;
-    query.prepare("DELETE FROM history WHERE url=? AND title=?");
+    query.prepare("SELECT id FROM history WHERE url=? AND title=?");
     query.bindValue(0, url);
     query.bindValue(1, title);
-    if (query.exec())
-        return true;
-    else return false;
+    query.exec();
+    if (query.next()) {
+        int id = query.value(0).toInt();
+        return deleteHistoryEntry(id);
+    }
+    return false;
 }
 
 bool HistoryModel::optimizeHistory()
@@ -102,7 +129,11 @@ bool HistoryModel::optimizeHistory()
 bool HistoryModel::clearHistory()
 {
     QSqlQuery query;
-    return query.exec("DELETE FROM history");
+    if (query.exec("DELETE FROM history")) {
+        emit historyClear();
+        return true;
+    }
+    return false;
 }
 
 void HistoryModel::setSaving(bool state)

@@ -140,7 +140,7 @@ void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
     m_adBlockedEntries.append(entry);
 }
 
-bool WebPage::extension(const Extension &extension, const ExtensionOption* option, ExtensionReturn* output)
+bool WebPage::extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output)
 {
     if (extension == ChooseMultipleFilesExtension)
         return QWebPage::extension(extension, option, output);

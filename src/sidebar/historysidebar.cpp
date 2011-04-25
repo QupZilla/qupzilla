@@ -1,11 +1,14 @@
 #include "historysidebar.h"
 #include "ui_historysidebar.h"
 #include "qupzilla.h"
+#include "historymodel.h"
+#include "iconprovider.h"
 
 HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
     ,ui(new Ui::HistorySideBar)
     ,p_QupZilla(mainClass)
+    ,m_historyModel(mApp->history())
 {
     ui->setupUi(this);
     connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
@@ -13,7 +16,9 @@ HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent) :
     connect(ui->historyTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
     connect(ui->search, SIGNAL(textEdited(QString)), this, SLOT(search()));
 
-    new QShortcut(QKeySequence("Del"), this, SLOT(deleteItem()), 0,  Qt::WidgetWithChildrenShortcut);
+    connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryModel::HistoryEntry)), this, SLOT(historyEntryAdded(HistoryModel::HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryModel::HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryModel::HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyClear()), ui->historyTree, SLOT(clear()));
 
     QTimer::singleShot(0, this, SLOT(refreshTable()));
 }
@@ -50,8 +55,6 @@ void HistorySideBar::contextMenuRequested(const QPoint &position)
     menu.addAction(tr("Open link in actual tab"), p_QupZilla, SLOT(loadActionUrl()))->setData(link);
     menu.addAction(tr("Open link in new tab"), this, SLOT(loadInNewTab()))->setData(link);
     menu.addSeparator();
-
-    menu.addSeparator();
     menu.addAction(tr("Remove Entry"), this, SLOT(deleteItem()));
 
     //Prevent choosing first option with double rightclick
@@ -68,10 +71,51 @@ void HistorySideBar::deleteItem()
     if (item->text(1).isEmpty())
         return;
 
-    QString id = item->whatsThis(1);
-    QSqlQuery query;
-    query.exec("DELETE FROM history WHERE id="+id);
-    delete item;
+    int id = item->whatsThis(1).toInt();
+    m_historyModel->deleteHistoryEntry(id);
+}
+
+void HistorySideBar::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
+{
+    QLocale locale(p_QupZilla->activeLanguage().remove(".qm"));
+
+    QString localDate; //date.toString("dddd d. MMMM yyyy");
+    QString month = locale.monthName(entry.date.toString("M").toInt());
+    localDate =  entry.date.toString(" d. ") + month + entry.date.toString(" yyyy");
+
+    QTreeWidgetItem* item;
+    QList<QTreeWidgetItem*> findParent = ui->historyTree->findItems(localDate, 0);
+    if (findParent.count() == 1) {
+        item = new QTreeWidgetItem(findParent.at(0));
+    } else {
+        QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->historyTree);
+        newParent->setText(0, localDate);
+        newParent->setIcon(0, QIcon(":/icons/menu/history_entry.png"));
+        ui->historyTree->addTopLevelItem(newParent);
+        item = new QTreeWidgetItem(newParent);
+    }
+
+    item->setText(0, entry.title);
+    item->setText(1, entry.url.toEncoded());
+    item->setToolTip(0, entry.title);
+    item->setToolTip(1, entry.url.toEncoded());
+
+    item->setWhatsThis(1, QString::number(entry.id));
+    item->setIcon(0, _iconForUrl(entry.url));
+    ui->historyTree->addTopLevelItem(item);
+}
+
+void HistorySideBar::historyEntryDeleted(const HistoryModel::HistoryEntry &entry)
+{
+    QList<QTreeWidgetItem*> list = ui->historyTree->allItems();
+    foreach (QTreeWidgetItem* item, list) {
+        if (!item)
+            continue;
+        if (item->whatsThis(1).toInt() != entry.id)
+            continue;
+        delete item;
+        return;
+    }
 }
 
 void HistorySideBar::search()
@@ -94,7 +138,7 @@ void HistorySideBar::search()
         item->setText(0, fitem->text(0));
         item->setText(1, fitem->text(1));
         item->setWhatsThis(1, fitem->whatsThis(1));
-        item->setIcon(0, LocationBar::icon(QUrl(fitem->text(1))));
+        item->setIcon(0, _iconForUrl(fitem->text(1)));
         foundItems.append(item);
     }
     ui->historyTree->clear();
@@ -144,7 +188,7 @@ void HistorySideBar::refreshTable()
         item->setToolTip(1, url.toEncoded());
 
         item->setWhatsThis(1, QString::number(id));
-        item->setIcon(0, LocationBar::icon(url));
+        item->setIcon(0, _iconForUrl(url));
         ui->historyTree->addTopLevelItem(item);
     }
 

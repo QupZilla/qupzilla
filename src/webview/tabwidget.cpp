@@ -20,7 +20,7 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "tabbar.h"
-#include "locationbar.h"
+#include "iconprovider.h"
 #include "mainapplication.h"
 #include "webtab.h"
 #include "clickablelabel.h"
@@ -172,7 +172,7 @@ void TabWidget::aboutToShowTabsMenu()
         if (view == actView)
             action->setIcon(QIcon(":/icons/menu/circle.png"));
         else
-            action->setIcon(LocationBar::icon(view->url()));
+            action->setIcon(_iconForUrl(view->url()));
         if (view->title().isEmpty()) {
             if (view->isLoading()) {
                 action->setText(tr("Loading..."));
@@ -212,7 +212,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
     int index = addTab(new WebTab(p_QupZilla),"");
     setTabText(index, title);
     weView(index)->animationLoading(index, true)->movie()->stop();
-    weView(index)->animationLoading(index, false)->setPixmap(LocationBar::icon(url).pixmap(16,16));
+    weView(index)->animationLoading(index, false)->setPixmap(_iconForUrl(url).pixmap(16,16));
 
     if (openIn == TabWidget::NewSelectedTab) {
         setCurrentIndex(index);

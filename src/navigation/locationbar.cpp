@@ -152,31 +152,6 @@ void LocationBar::rssIconClicked()
     rss->showAt(this);
 }
 
-QIcon LocationBar::icon(const QUrl &url)
-{
-    QUrl url2 = url.scheme() + "://" + url.host();
-    url2.host().remove("www");
-
-    QIcon icon = QWebSettings::iconForUrl(url);
-    if (icon.isNull())
-        icon = QWebSettings::iconForUrl(url2);
-
-    if (icon.isNull())
-        icon = QWebSettings::iconForUrl(url2.host().prepend("www"));
-
-    if (!icon.isNull())
-        return icon.pixmap(16, 16);
-    if (icon.isNull()) {
-        QPixmap pixmap = QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic);
-        if (pixmap.isNull()) {
-            pixmap = QPixmap(":icons/locationbar/unknownpage.png");
-            QWebSettings::setWebGraphic(QWebSettings::DefaultFrameIconGraphic, pixmap);
-        }
-        return pixmap;
-    }
-    return icon;
-}
-
 void LocationBar::showUrl(const QUrl &url, bool empty)
 {
     if (url.isEmpty() && empty)
@@ -221,7 +196,7 @@ void LocationBar::siteIconChanged()
         icon_ = p_QupZilla->weView()->siteIcon();
 
     if (icon_.isNull()) {
-        m_siteIcon->setIcon(QIcon(":icons/locationbar/unknownpage.png"));
+        m_siteIcon->setIcon(QIcon(QIcon::fromTheme("text-plain").pixmap(16,16)));
     } else {
 //        QIcon icon(*icon_);
         m_siteIcon->setIcon(QIcon(icon_.pixmap(16,16)));
