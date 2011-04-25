@@ -85,6 +85,8 @@
                      << "(<dl|</dl)" << "(<dt|</dt)" << "(<dd|</dd)"
                      << "(<strong|</strong)" << "(<dt|</dt)" << "(<dd|</dd)"
                      << "(<em|</em)" << "(<iframe|</iframe)" << "(<th|</th)"
+                     << "(<textarea|</textarea)" << "(<nav|</nav)" <<"(<section|</section)"
+                     << "(<fieldset|</fieldset)" << "(<footer|</footer)"
                      << "(<ol|</ol)" << "(<small|</small)" << ">";
      foreach (const QString &pattern, keywordPatterns) {
          rule.pattern = QRegExp(pattern);
@@ -110,7 +112,8 @@
                      << "cellspacing=\"" << "cellpadding=\"" << "clear=\""
                      << "for=\"" << "tabindex=\"" << "selected=\""
                      << "frameborder=\"" << "marginwidth=\"" << "marginheight=\""
-                     << "scrolling=\""
+                     << "scrolling=\"" << "quality=\"" << "bgcolor=\""
+                     << "allowscriptaccess=\"" << "cols=\"" << "rows=\""
                      << "href=\"" << "title=\"" << "xmlns=\"";
      foreach (const QString &pattern, optionsPatterns) {
          rule.pattern = QRegExp(pattern);
