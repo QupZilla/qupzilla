@@ -315,7 +315,6 @@ void MainApplication::quitApplication()
     if (m_mainWindows.count() > 0)
         saveStateSlot();
 
-    qDebug() << "Quitting application...";
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("SessionRestore");
     settings.setValue("isRunning",false);
@@ -327,19 +326,16 @@ void MainApplication::quitApplication()
 
     if (deleteCookies)
         QFile::remove(m_activeProfil+"cookies.dat");
-    if (deleteHistory) {
-        QSqlQuery query;
-        query.exec("DELETE FROM history");
-        query.exec("VACUUM");
-    }
+    if (deleteHistory)
+        m_historymodel->clearHistory();
 
     cookieJar()->saveCookies();
     m_networkmanager->saveCertExceptions();
-    m_iconProvider->saveIconsToDatabase();
     m_plugins->c2f_saveSettings();
     AdBlockManager::instance()->save();
     QFile::remove(getActiveProfil() + "WebpageIcons.db");
 
+    qDebug() << "Quitting application...";
     quit();
 }
 

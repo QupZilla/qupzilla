@@ -81,8 +81,12 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
 
 void WebView::slotIconChanged()
 {
-    mApp->iconProvider()->saveIcon(this);
     m_siteIcon = icon();
+
+    if (url().toString().contains("file://") || title().contains(tr("Failed loading page")))
+        return;
+
+    mApp->iconProvider()->saveIcon(this);
 }
 
 WebPage* WebView::webPage() const
