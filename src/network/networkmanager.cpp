@@ -24,6 +24,7 @@
 #include "pluginproxy.h"
 #include "adblockmanager.h"
 #include "adblocknetwork.h"
+#include "networkproxyfactory.h"
 
 NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent) :
     NetworkManagerProxy(mainClass, parent)
@@ -32,9 +33,12 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent) :
     ,m_ignoreAllWarnings(false)
 {
     connect(this, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)), this, SLOT(authentication(QNetworkReply*, QAuthenticator* )));
+    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)), this, SLOT(proxyAuthentication(QNetworkProxy,QAuthenticator*)));
     connect(this, SIGNAL(sslErrors(QNetworkReply*,QList<QSslError>)), this, SLOT(sslError(QNetworkReply*,QList<QSslError>)));
     connect(this, SIGNAL(finished(QNetworkReply*)), this, SLOT(setSSLConfiguration(QNetworkReply*)));
 
+    m_proxyFactory = new NetworkProxyFactory();
+    setProxyFactory(m_proxyFactory);
     loadSettings();
 }
 
@@ -57,6 +61,7 @@ void NetworkManager::loadSettings()
     config.setProtocol(QSsl::AnyProtocol);
     QSslConfiguration::setDefaultConfiguration(config);
 
+    m_proxyFactory->loadSettings();
 }
 
 void NetworkManager::setSSLConfiguration(QNetworkReply *reply)
@@ -177,6 +182,41 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
         fill->addEntry(reply->url(), user->text(), pass->text());
 }
 
+void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator *auth)
+{
+    QDialog* dialog = new QDialog(p_QupZilla);
+    dialog->setWindowTitle(tr("Proxy authorization required"));
+
+    QFormLayout* formLa = new QFormLayout(dialog);
+
+    QLabel* label = new QLabel(dialog);
+    QLabel* userLab = new QLabel(dialog);
+    QLabel* passLab = new QLabel(dialog);
+    userLab->setText(tr("Username: "));
+    passLab->setText(tr("Password: "));
+
+    QLineEdit* user = new QLineEdit(dialog);
+    QLineEdit* pass = new QLineEdit(dialog);
+    pass->setEchoMode(QLineEdit::Password);
+
+    QDialogButtonBox* box = new QDialogButtonBox(dialog);
+    box->addButton(QDialogButtonBox::Ok);
+    box->addButton(QDialogButtonBox::Cancel);
+    connect(box, SIGNAL(rejected()), dialog, SLOT(reject()));
+    connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
+
+    label->setText(tr("A username and password are being requested by proxy %1. ").arg(proxy.hostName()));
+    formLa->addRow(label);
+    formLa->addRow(userLab, user);
+    formLa->addRow(passLab, pass);
+    formLa->addWidget(box);
+
+    if (!dialog->exec() == QDialog::Accepted)
+        return;
+    auth->setUser(user->text());
+    auth->setPassword(pass->text());
+}
+
 QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
 {
     if (op == PostOperation && outgoingData) {
@@ -186,6 +226,9 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
     QNetworkRequest req = request;
     req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    if (req.attribute(QNetworkRequest::CacheLoadControlAttribute).toInt() == QNetworkRequest::PreferNetwork)
+        req.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
+
     if (m_doNotTrack)
         req.setRawHeader("DNT", "1");
 

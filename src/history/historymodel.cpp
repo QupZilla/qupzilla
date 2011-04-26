@@ -32,6 +32,7 @@ void HistoryModel::loadSettings()
     QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
     m_isSaving = settings.value("allowHistory",true).toBool();
+    settings.endGroup();
 }
 
 int HistoryModel::addHistoryEntry(const QString &url, QString &title)

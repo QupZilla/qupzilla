@@ -164,9 +164,14 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
         m_actionPrivateBrowsing->setChecked(state);
         break;
 
+    case MainApplication::ReloadSettings:
+        loadSettings();
+        m_tabWidget->loadSettings();
+        m_locationBar->loadSettings();
+        break;
+
     default:
         qWarning("Unresolved message sent!");
-        qDebug();
         break;
     }
 }

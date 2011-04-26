@@ -54,7 +54,6 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
     m_page->setView(this);
     setPage(m_page);
 
-
     connect(this, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(setProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished(bool)));

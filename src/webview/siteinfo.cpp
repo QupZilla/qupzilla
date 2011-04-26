@@ -22,6 +22,13 @@
 #include "webpage.h"
 #include "downloaditem.h"
 
+QString SiteInfo::showCertInfo(const QString &string)
+{
+    if (string.isEmpty())
+        return tr("<not set in certificate>");
+    else return string;
+}
+
 SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
     QDialog(parent)
     ,ui(new Ui::SiteInfo)
@@ -93,14 +100,14 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
         ui->securityLabel->setText(tr("<b>Connection is Encrypted.</b>"));
         ui->certLabel->setText(tr("<b>Your connection to this page is secured with this certificate: </b>"));
         //Issued to
-        ui->issuedToCN->setText( cert.subjectInfo(QSslCertificate::CommonName) );
-        ui->issuedToO->setText( cert.subjectInfo(QSslCertificate::Organization) );
-        ui->issuedToOU->setText( cert.subjectInfo(QSslCertificate::OrganizationalUnitName) );
-        ui->issuedToSN->setText( cert.serialNumber() );
+        ui->issuedToCN->setText( showCertInfo(cert.subjectInfo(QSslCertificate::CommonName)) );
+        ui->issuedToO->setText( showCertInfo(cert.subjectInfo(QSslCertificate::Organization)) );
+        ui->issuedToOU->setText( showCertInfo(cert.subjectInfo(QSslCertificate::OrganizationalUnitName)) );
+        ui->issuedToSN->setText( showCertInfo(cert.serialNumber()) );
         //Issued By
-        ui->issuedByCN->setText( cert.issuerInfo(QSslCertificate::CommonName) );
-        ui->issuedByO->setText( cert.issuerInfo(QSslCertificate::Organization) );
-        ui->issuedByOU->setText( cert.issuerInfo(QSslCertificate::OrganizationalUnitName) );
+        ui->issuedByCN->setText( showCertInfo(cert.issuerInfo(QSslCertificate::CommonName)) );
+        ui->issuedByO->setText( showCertInfo(cert.issuerInfo(QSslCertificate::Organization)) );
+        ui->issuedByOU->setText( showCertInfo(cert.issuerInfo(QSslCertificate::OrganizationalUnitName)) );
         //Validity
         ui->validityIssuedOn->setText( cert.effectiveDate().toString("dddd d. MMMM yyyy") );
         ui->validityExpiresOn->setText( cert.expiryDate().toString("dddd d. MMMM yyyy") );

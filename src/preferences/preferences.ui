@@ -1615,35 +1615,12 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
+       <item row="1" column="1" colspan="2">
         <widget class="QLabel" name="label_16">
          <property name="text">
           <string>Available translations: </string>
          </property>
         </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QComboBox" name="languages"/>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLabel" name="label_17">
-         <property name="text">
-          <string>In order to change language, you must restart browser.</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <spacer name="verticalSpacer_13">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item row="2" column="0">
         <spacer name="horizontalSpacer_24">
@@ -1661,7 +1638,10 @@
          </property>
         </spacer>
        </item>
-       <item row="2" column="2">
+       <item row="2" column="1">
+        <widget class="QComboBox" name="languages"/>
+       </item>
+       <item row="2" column="3">
         <spacer name="horizontalSpacer_6">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -1673,6 +1653,139 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="3" column="1" colspan="2">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>In order to change language, you must restart browser.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="3">
+        <widget class="QLabel" name="label_36">
+         <property name="text">
+          <string>&lt;b&gt;Proxy Configuration&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1" colspan="2">
+        <widget class="QRadioButton" name="systemProxy">
+         <property name="text">
+          <string>System proxy configuration</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1" colspan="2">
+        <widget class="QRadioButton" name="noProxy">
+         <property name="text">
+          <string>Do not use proxy</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1" colspan="2">
+        <widget class="QRadioButton" name="manualProxy">
+         <property name="text">
+          <string>Manual configuration</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1" colspan="2">
+        <spacer name="verticalSpacer_13">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="8" column="1" colspan="3">
+        <layout class="QGridLayout" name="manualProxyLayout">
+         <item row="0" column="0">
+          <widget class="QComboBox" name="proxyType">
+           <item>
+            <property name="text">
+             <string>HTTP</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SOCKS5</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QLineEdit" name="proxyServer"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_37">
+             <property name="text">
+              <string>Port:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="proxyPort">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_38">
+           <property name="text">
+            <string>Username:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="proxyUsername"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_39">
+           <property name="text">
+            <string>Password:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="proxyPassword"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_40">
+           <property name="text">
+            <string>Don't use on:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1" colspan="2">
+          <widget class="QLineEdit" name="proxyExceptions"/>
+         </item>
+         <item row="1" column="2">
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>

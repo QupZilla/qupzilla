@@ -43,13 +43,10 @@ void NetworkManagerProxy::setPrimaryNetworkAccessManager(NetworkManager* manager
     Q_ASSERT(manager);
     m_manager = manager;
 
-    connect(this, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)),
-            manager, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)));
-    connect(this, SIGNAL(finished(QNetworkReply*)),
-            manager, SIGNAL(finished(QNetworkReply*)));
-
-    connect(this, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)),
-            manager, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)));
+    connect(this, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)), manager, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)));
+    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)), manager, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)));
+    connect(this, SIGNAL(finished(QNetworkReply*)), manager, SIGNAL(finished(QNetworkReply*)));
+    connect(this, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)), manager, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)));
 }
 
 QNetworkReply* NetworkManagerProxy::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
