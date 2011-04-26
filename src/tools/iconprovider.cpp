@@ -5,7 +5,7 @@ IconProvider::IconProvider(QObject *parent) :
     QObject(parent)
 {
     m_timer = new QTimer(this);
-    m_timer->setInterval(30*1000);
+    m_timer->setInterval(10*1000);
     m_timer->start();
     connect(m_timer, SIGNAL(timeout()), this, SLOT(saveIconsToDatabase()));
 }
@@ -36,7 +36,7 @@ QIcon IconProvider::iconForUrl(const QUrl &url)
 
     QSqlQuery query;
     query.prepare("SELECT icon FROM icons WHERE url = ?");
-    query.bindValue(0, url.toEncoded());
+    query.bindValue(0, url.toEncoded(QUrl::RemoveFragment));
     query.exec();
     if (query.next()) {
         QIcon image;
@@ -70,7 +70,7 @@ void IconProvider::saveIconsToDatabase()
 
         QSqlQuery query;
         query.prepare("SELECT id FROM icons WHERE url = ?");
-        query.bindValue(0, ic.url.toEncoded());
+        query.bindValue(0, ic.url.toEncoded(QUrl::RemoveFragment));
         query.exec();
 
         if (query.next())
@@ -79,7 +79,7 @@ void IconProvider::saveIconsToDatabase()
             query.prepare("INSERT INTO icons (icon, url) VALUES (?,?)");
 
         query.bindValue(0, bArray.toBase64());
-        query.bindValue(1, ic.url.toEncoded());
+        query.bindValue(1, ic.url.toEncoded(QUrl::RemoveFragment));
         query.exec();
     }
 
