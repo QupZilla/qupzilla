@@ -52,9 +52,10 @@ public:
     QString DATADIR;
     explicit MainApplication(int &argc, char **argv);
 
-    enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing };
+    enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing , ReloadSettings };
 
     void loadSettings();
+    void reloadSettings() { emit message(ReloadSettings, true); }
     bool restoreStateSlot(QupZilla* window);
     void makeNewWindow(bool tryRestore, const QUrl &startUrl=QUrl());
     void addNewTab(QUrl url);

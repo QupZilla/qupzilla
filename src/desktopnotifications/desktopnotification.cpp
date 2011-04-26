@@ -22,6 +22,8 @@ DesktopNotification::DesktopNotification(bool settingPosition)
 
     m_timer->setSingleShot(true);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(close()));
+    if (m_settingPosition)
+        setCursor(Qt::OpenHandCursor);
 }
 
 void DesktopNotification::show()

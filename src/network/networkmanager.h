@@ -33,6 +33,7 @@
 
 class QupZilla;
 class AdBlockNetwork;
+class NetworkProxyFactory;
 class NetworkManager : public NetworkManagerProxy
 {
     Q_OBJECT
@@ -51,8 +52,9 @@ signals:
     void wantsFocus(const QUrl &url);
     void sslDialogClosed();
 
-public slots:
+private slots:
     void authentication(QNetworkReply* reply, QAuthenticator* auth);
+    void proxyAuthentication(const QNetworkProxy& proxy,QAuthenticator* auth);
     void sslError(QNetworkReply* reply, QList<QSslError> errors);
     void setSSLConfiguration(QNetworkReply* reply);
 
@@ -61,6 +63,7 @@ private:
     QupZilla* p_QupZilla;
     QList<QSslCertificate> m_certExceptions;
     QNetworkDiskCache* m_diskCache;
+    NetworkProxyFactory* m_proxyFactory;
 
     bool m_ignoreAllWarnings;
     bool m_doNotTrack;
