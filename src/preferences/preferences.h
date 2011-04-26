@@ -62,6 +62,7 @@ private slots:
     void allowCacheChanged(bool state);
     void showPassManager(bool state);
     void useBgImageChanged(bool state);
+    void setManualProxyConfigurationEnabled(bool state);
     void cacheValueChanged(int value);
     void pageCacheValueChanged(int value);
 
