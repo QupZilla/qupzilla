@@ -199,7 +199,7 @@ void AdBlockDialog::addCustomRule()
     if (newRule.isEmpty())
         return;
 
-    AdBlockSubscription *subscription = m_manager->subscription();
+    AdBlockSubscription* subscription = m_manager->subscription();
     int offset = subscription->addRule(AdBlockRule(newRule));
     m_itemChangingBlock = true;
     QTreeWidgetItem* item = new QTreeWidgetItem(m_customRulesItem);
@@ -213,6 +213,6 @@ void AdBlockDialog::addCustomRule()
 
 void AdBlockDialog::updateSubscription()
 {
-    AdBlockSubscription *subscription = m_manager->subscription();
+    AdBlockSubscription* subscription = m_manager->subscription();
     subscription->updateNow();
 }
