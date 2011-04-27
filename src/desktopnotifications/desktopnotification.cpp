@@ -18,10 +18,10 @@
 #include "desktopnotification.h"
 #include "ui_desktopnotification.h"
 
-DesktopNotification::DesktopNotification(bool settingPosition)
+DesktopNotification::DesktopNotification(bool setPosition)
    : QWidget(0)
    , ui(new Ui::DesktopNotification)
-   , m_settingPosition(settingPosition)
+   , m_settingPosition(setPosition)
    , m_timeout(6000)
    , m_timer(new QTimer(this))
 {
@@ -29,8 +29,7 @@ DesktopNotification::DesktopNotification(bool settingPosition)
     setStyleSheet("background:transparent;");
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
-    Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint |
-                            Qt::X11BypassWindowManagerHint;
+    Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint;
   #ifdef Q_WS_WIN
     flags |= Qt::ToolTip;
   #endif
@@ -39,6 +38,7 @@ DesktopNotification::DesktopNotification(bool settingPosition)
 
     m_timer->setSingleShot(true);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(close()));
+
     if (m_settingPosition)
         setCursor(Qt::OpenHandCursor);
 }
@@ -58,16 +58,16 @@ void DesktopNotification::show()
     QWidget::show();
 }
 
-void DesktopNotification::enterEvent(QEvent *e)
+void DesktopNotification::enterEvent(QEvent*)
 {
-    Q_UNUSED(e)
-    setWindowOpacity(0.5);
+    if (!m_settingPosition)
+        setWindowOpacity(0.5);
 }
 
-void DesktopNotification::leaveEvent(QEvent *e)
+void DesktopNotification::leaveEvent(QEvent*)
 {
-    Q_UNUSED(e)
-    setWindowOpacity(0.9);
+    if (!m_settingPosition)
+        setWindowOpacity(0.9);
 }
 
 void DesktopNotification::mousePressEvent(QMouseEvent *e)

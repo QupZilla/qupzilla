@@ -31,7 +31,7 @@ class DesktopNotification : public QWidget
     Q_OBJECT
 
 public:
-    explicit DesktopNotification(bool settingPosition = false);
+    explicit DesktopNotification(bool setPosition = false);
     void setPixmap(const QPixmap &icon) { m_icon = icon; }
     void setHeading(const QString &heading) { m_heading = heading; }
     void setText(const QString &text) { m_text = text; }
