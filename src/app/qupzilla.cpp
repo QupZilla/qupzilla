@@ -552,8 +552,8 @@ void QupZilla::showDownloadManager()
 
 void QupZilla::showPreferences()
 {
-    Preferences prefs(this, this);
-    prefs.exec();
+    Preferences* prefs = new Preferences(this, this);
+    prefs->show();
 }
 
 void QupZilla::showSource()

@@ -23,6 +23,7 @@
 #include <QListWidgetItem>
 #include <QColorDialog>
 #include <QAbstractButton>
+#include <QPointer>
 
 namespace Ui {
     class Preferences;
@@ -31,6 +32,7 @@ namespace Ui {
 class AutoFillManager;
 class QupZilla;
 class PluginsList;
+class DesktopNotification;
 
 class Preferences : public QDialog
 {
@@ -76,6 +78,7 @@ private:
     QupZilla* p_QupZilla;
     AutoFillManager* m_autoFillManager;
     PluginsList* m_pluginsList;
+    QPointer<DesktopNotification> m_notification;
 
     QColor m_menuTextColor;
     QString m_homepage;
@@ -84,6 +87,7 @@ private:
     int m_afterLaunch;
     int m_onNewTab;
     QSize m_bgLabelSize;
+    QPoint m_notifPosition;
 };
 
 #endif // PREFERENCES_H

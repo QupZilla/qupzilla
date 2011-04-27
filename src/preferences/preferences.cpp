@@ -32,8 +32,10 @@
 #include "sslmanager.h"
 #include "networkproxyfactory.h"
 #include "networkmanager.h"
+#include "desktopnotificationsfactory.h"
+#include "desktopnotification.h"
 
-bool removeFile(QString fullFileName)
+bool removeFile(const QString &fullFileName)
 {
     QFile f(fullFileName);
     if (f.exists())
@@ -41,7 +43,7 @@ bool removeFile(QString fullFileName)
     else return false;
 }
 
-void removeDir(const QString d)
+void removeDir(const QString &d)
 {
     QDir dir(d);
     if (dir.exists())
@@ -67,6 +69,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     ,p_QupZilla(mainClass)
     ,m_pluginsList(0)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
     m_bgLabelSize = this->sizeHint();
 
@@ -235,6 +238,27 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     m_pluginsList = new PluginsList(this);
     ui->pluginsFrame->addWidget(m_pluginsList);
 
+    //NOTIFICATIONS
+#ifdef Q_WS_X11
+    ui->useNativeSystemNotifications->setEnabled(true);
+#endif
+    DesktopNotificationsFactory::Type notifyType;
+    settings.beginGroup("Notifications");
+    ui->notificationTimeout->setValue(settings.value("Timeout", 6000).toInt() / 1000);
+#ifdef Q_WS_X11
+        notifyType = settings.value("UseNativeDesktop", true).toBool() ? DesktopNotificationsFactory::DesktopNative : DesktopNotificationsFactory::PopupWidget;
+#else
+        notifTyype = DesktopNotificationsFactory::PopupWidget;
+#endif
+    if (notifyType == DesktopNotificationsFactory::DesktopNative)
+        ui->useNativeSystemNotifications->setChecked(true);
+    else
+        ui->useOSDNotifications->setChecked(true);
+
+    ui->doNotUseNotifications->setChecked(!settings.value("Enabled", true).toBool());
+    m_notifPosition = settings.value("Position", QPoint(10,10)).toPoint();
+    settings.endGroup();
+
     //OTHER
     //Languages
     QString activeLanguage="";
@@ -301,6 +325,18 @@ void Preferences::showStackedPage(QListWidgetItem* item)
         return;
    ui->caption->setText("<b>"+item->text()+"</b>");
    ui->stackedWidget->setCurrentIndex(item->whatsThis().toInt());
+
+   if (ui->stackedWidget->currentIndex() == 8) {
+       m_notification = new DesktopNotification(true);
+       m_notification->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
+       m_notification->setHeading(tr("OSD Notification"));
+       m_notification->setText(tr("Drag it on the screen to place it where You want."));
+       m_notification->move(m_notifPosition);
+       m_notification->show();
+   } else if (m_notification) {
+       m_notifPosition = m_notification->pos();
+       delete m_notification;
+   }
 }
 
 void Preferences::chooseColor()
@@ -606,6 +642,14 @@ void Preferences::saveSettings()
     settings.setValue("filterTrackingCookie",ui->filterTracking->isChecked() );
     settings.endGroup();
 
+    //NOTIFICATIONS
+    settings.beginGroup("Notifications");
+    settings.setValue("Timeout", ui->notificationTimeout->value() * 1000);
+    settings.setValue("Enabled", !ui->doNotUseNotifications->isChecked());
+    settings.setValue("UseNativeDesktop", ui->useNativeSystemNotifications->isChecked());
+    settings.setValue("Position", m_notification ? m_notification->pos() : m_notifPosition);
+    settings.endGroup();
+
     //OTHER
     //AddressBar
     settings.beginGroup("AddressBar");
@@ -655,6 +699,7 @@ void Preferences::saveSettings()
     mApp->plugins()->c2f_saveSettings();
     mApp->networkManager()->loadSettings();
     mApp->reloadSettings();
+    mApp->desktopNotifications()->loadSettings();
 }
 
 Preferences::~Preferences()
@@ -662,4 +707,6 @@ Preferences::~Preferences()
     delete ui;
     delete m_autoFillManager;
     delete m_pluginsList;
+    if (m_notification)
+        delete m_notification;
 }
