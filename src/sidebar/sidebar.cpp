@@ -39,6 +39,9 @@ void SideBar::showBookmarks()
     BookmarksSideBar* bar = new BookmarksSideBar((QupZilla*)parentWidget(), this);
     setWidget(bar);
     m_activeWidget = Bookmarks;
+
+    QSettings settings(mApp->getActiveProfil() + "settings.ini", QSettings::IniFormat);
+    settings.setValue("Browser-View-Settings/SideBar", "Bookmarks");
 }
 
 void SideBar::showHistory()
@@ -47,9 +50,20 @@ void SideBar::showHistory()
     HistorySideBar* bar = new HistorySideBar((QupZilla*)parentWidget(), this);
     setWidget(bar);
     m_activeWidget = History;
+
+    QSettings settings(mApp->getActiveProfil() + "settings.ini", QSettings::IniFormat);
+    settings.setValue("Browser-View-Settings/SideBar", "History");
 }
 
 void SideBar::showRSS()
 {
 
+}
+
+void SideBar::close()
+{
+    QSettings settings(mApp->getActiveProfil() + "settings.ini", QSettings::IniFormat);
+    settings.setValue("Browser-View-Settings/SideBar", "None");
+
+    QDockWidget::close();
 }

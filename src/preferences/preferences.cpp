@@ -503,7 +503,7 @@ void Preferences::buttonClicked(QAbstractButton* button)
 void Preferences::createProfile()
 {
     QString name = QInputDialog::getText(this, tr("New Profile"), tr("Enter the new profile's name:"));
-    if (name.contains("/") || name.contains("\\"))
+    if (name.isEmpty() || name.contains("/") || name.contains("\\"))
         return;
     QDir dir(QDir::homePath()+"/.qupzilla/profiles/");
     if (QDir(dir.absolutePath() + "/" + name).exists()) {
