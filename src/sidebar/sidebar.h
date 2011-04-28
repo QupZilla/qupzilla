@@ -35,6 +35,7 @@ public:
 signals:
 
 public slots:
+    void close();
 
 private:
     DockTitleBarWidget* m_titleBar;

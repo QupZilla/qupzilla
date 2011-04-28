@@ -111,6 +111,7 @@ void QupZilla::loadSettings()
     bool showNavigationToolbar = settings.value("showNavigationToolbar",true).toBool();
     bool showMenuBar = settings.value("showMenubar",true).toBool();
     bool makeTransparent = settings.value("useTransparentBackground",false).toBool();
+    QString activeSideBar = settings.value("SideBar", "None").toString();
     settings.endGroup();
     bool adBlockEnabled = settings.value("AdBlock/enabled", true).toBool();
 
@@ -125,6 +126,13 @@ void QupZilla::loadSettings()
     m_buttonHome->setVisible(showHomeIcon);
     m_buttonBack->setVisible(showBackForwardIcons);
     m_buttonNext->setVisible(showBackForwardIcons);
+
+    if (activeSideBar != "None") {
+        if (activeSideBar == "Bookmarks")
+            m_actionShowBookmarksSideBar->trigger();
+        else if (activeSideBar == "History")
+            m_actionShowHistorySideBar->trigger();
+    }
 
     //Private browsing
     m_actionPrivateBrowsing->setChecked( mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
@@ -453,12 +461,12 @@ void QupZilla::aboutToShowSidebarsMenu()
     if (!m_sideBar) {
         m_actionShowBookmarksSideBar->setChecked(false);
         m_actionShowHistorySideBar->setChecked(false);
-        m_actionShowRssSideBar->setChecked(false);
+//        m_actionShowRssSideBar->setChecked(false);
     } else {
         SideBar::SideWidget actWidget = m_sideBar->activeWidget();
         m_actionShowBookmarksSideBar->setChecked(actWidget == SideBar::Bookmarks);
         m_actionShowHistorySideBar->setChecked(actWidget == SideBar::History);
-        m_actionShowRssSideBar->setChecked(actWidget == SideBar::RSS);
+//        m_actionShowRssSideBar->setChecked(actWidget == SideBar::RSS);
     }
 }
 
@@ -580,14 +588,17 @@ void QupZilla::showBookmarksToolbar()
 
 void QupZilla::showBookmarksSideBar()
 {
+    bool saveToSettings = false;
     if (!m_sideBar) {
         m_sideBar = new SideBar(this);
         addDockWidget(Qt::LeftDockWidgetArea, m_sideBar);
         m_sideBar->showBookmarks();
+        saveToSettings = true;
     } else if (m_actionShowBookmarksSideBar->isChecked()){
         m_sideBar->showBookmarks();
+        saveToSettings = true;
     } else {
-        delete m_sideBar;
+        m_sideBar->close();
     }
 }
 
@@ -600,7 +611,7 @@ void QupZilla::showHistorySideBar()
     } else if (m_actionShowHistorySideBar->isChecked()) {
         m_sideBar->showHistory();
     } else {
-        delete m_sideBar;
+        m_sideBar->close();
     }
 }
 

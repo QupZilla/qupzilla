@@ -22,6 +22,7 @@
 #include "networkmanager.h"
 #include "clickablelabel.h"
 #include "ui_clearprivatedata.h"
+#include "iconprovider.h"
 
 ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent) :
     QDialog(parent)
@@ -83,6 +84,7 @@ void ClearPrivateData::dialogAccepted()
     }
     if (ui->icons->isChecked()) {
         mApp->webSettings()->clearIconDatabase();
+        mApp->iconProvider()->clearIconDatabase();
     }
     close();
 }

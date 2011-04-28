@@ -36,6 +36,8 @@ public:
     void saveIcon(WebView* view);
     QIcon iconForUrl(const QUrl &url);
 
+    void clearIconDatabase();
+
 signals:
 
 public slots:

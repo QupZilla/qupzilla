@@ -252,9 +252,9 @@ void QupZilla::setupMenu()
     m_actionShowHistorySideBar = new QAction(tr("History"), this);
     m_actionShowHistorySideBar->setCheckable(true);
     connect(m_actionShowHistorySideBar, SIGNAL(triggered()), this, SLOT(showHistorySideBar()));
-    m_actionShowRssSideBar = new QAction(tr("RSS Reader"), this);
-    m_actionShowRssSideBar->setCheckable(true);
-    connect(m_actionShowRssSideBar, SIGNAL(triggered()), this, SLOT(showRssSideBar()));
+//    m_actionShowRssSideBar = new QAction(tr("RSS Reader"), this);
+//    m_actionShowRssSideBar->setCheckable(true);
+//    connect(m_actionShowRssSideBar, SIGNAL(triggered()), this, SLOT(showRssSideBar()));
 
     QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
     toolbarsMenu->addAction(m_actionShowMenubar);
@@ -265,7 +265,7 @@ void QupZilla::setupMenu()
     QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
     sidebarsMenu->addAction(m_actionShowBookmarksSideBar);
     sidebarsMenu->addAction(m_actionShowHistorySideBar);
-    sidebarsMenu->addAction(m_actionShowRssSideBar);
+//    sidebarsMenu->addAction(m_actionShowRssSideBar);
     connect(sidebarsMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowSidebarsMenu()));
 
     m_menuView->addMenu(toolbarsMenu);
