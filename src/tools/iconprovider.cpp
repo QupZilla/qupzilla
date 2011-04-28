@@ -18,7 +18,7 @@
 #include "iconprovider.h"
 #include "webview.h"
 
-IconProvider::IconProvider(QObject *parent) :
+IconProvider::IconProvider(QObject* parent) :
     QObject(parent)
 {
     m_timer = new QTimer(this);
@@ -27,7 +27,7 @@ IconProvider::IconProvider(QObject *parent) :
     connect(m_timer, SIGNAL(timeout()), this, SLOT(saveIconsToDatabase()));
 }
 
-void IconProvider::saveIcon(WebView *view)
+void IconProvider::saveIcon(WebView* view)
 {
     Icon item;
     item.icon = view->icon();
@@ -36,11 +36,13 @@ void IconProvider::saveIcon(WebView *view)
     if (item.icon.isNull())
         return;
 
+    QPixmap iconPixmap = item.icon.pixmap(16,16);
     foreach (Icon ic, m_iconBuffer) {
-        if (ic.url == item.url && ic.icon.pixmap(16,16).toImage() == item.icon.pixmap(16,16).toImage())
+        if (ic.url == item.url && ic.icon.pixmap(16,16).toImage() == iconPixmap.toImage())
             return;
     }
 
+    item.icon = QIcon(iconPixmap);
     m_iconBuffer.append(item);
 }
 
@@ -103,3 +105,11 @@ void IconProvider::saveIconsToDatabase()
     m_iconBuffer.clear();
 }
 
+void IconProvider::clearIconDatabase()
+{
+    QSqlQuery query;
+    query.exec("DELETE FROM icons");
+    query.exec("VACUUM");
+
+    m_iconBuffer.clear();
+}

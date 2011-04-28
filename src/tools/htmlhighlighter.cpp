@@ -78,7 +78,7 @@
                      << "(<label|</label)" << "(<input|</input)" << "(<img|</img)"
                      << "(<center|</center)" << "(<option|</option)" << "(<select|</select)"
                      << "(<hr|</hr)" << "(<object|</object)" << "(<param|</param)"
-                     << "(<tbody|</tbody)" << "(<thead|</thead)" << "(<tfooter|</tfooter)"
+                     << "(<tbody|</tbody)" << "(<thead|</thead)" << "(<tfoot|</tfoot)"
                      << "(<h6|</h6)" << "(<font|</font)" << "(<noscript|</noscript)"
                      << "(<embed|</embed)" << "(<base|</base)" << "(<canvas|</canvas)"
                      << "(<cufon|</cufon)" << "(<cufontext|</cufontext)" << "(<button|</button)"
@@ -114,6 +114,7 @@
                      << "frameborder=\"" << "marginwidth=\"" << "marginheight=\""
                      << "scrolling=\"" << "quality=\"" << "bgcolor=\""
                      << "allowscriptaccess=\"" << "cols=\"" << "rows=\""
+                     << "profile=\"" << "colspan=\"" << "scope=\""
                      << "href=\"" << "title=\"" << "xmlns=\"";
      foreach (const QString &pattern, optionsPatterns) {
          rule.pattern = QRegExp(pattern);
