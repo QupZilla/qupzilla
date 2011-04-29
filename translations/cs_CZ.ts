@@ -958,24 +958,24 @@ nebyl nalezen!</translation>
         <translation>Všechny soubory byly stažené.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="290"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="293"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="291"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="294"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Jste si jistý že chcete skončit? Všechna nedokončená stahování budou zrušena!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="252"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="255"/>
         <source>NoNameDownload</source>
         <translation>BezNazvu</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="14"/>
         <location filename="../src/downloads/downloadmanager.cpp" line="76"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="217"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="220"/>
         <source>Download Manager</source>
         <translation>Správce stahování</translation>
     </message>
@@ -1195,12 +1195,12 @@ nebyl nalezen!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="494"/>
+        <location filename="../src/app/mainapplication.cpp" line="496"/>
         <source>Last session crashed</source>
         <translation>Poslední relace spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="495"/>
+        <location filename="../src/app/mainapplication.cpp" line="497"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
@@ -2055,7 +2055,7 @@ nebyl nalezen!</translation>
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="174"/>
-        <location filename="../src/app/appui.cpp" line="252"/>
+        <location filename="../src/app/appui.cpp" line="253"/>
         <source>History</source>
         <translation>Historie</translation>
     </message>
@@ -2165,17 +2165,17 @@ nebyl nalezen!</translation>
         <translation>Sta&amp;tus bar</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="259"/>
+        <location filename="../src/app/appui.cpp" line="261"/>
         <source>Toolbars</source>
         <translation>Nástrojové lišty</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="265"/>
+        <location filename="../src/app/appui.cpp" line="267"/>
         <source>Sidebars</source>
         <translation>Postranní lišta</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="283"/>
+        <location filename="../src/app/appui.cpp" line="285"/>
         <source>&amp;Page Source</source>
         <translation>Zdrojový &amp;kód stránky</translation>
     </message>
@@ -2205,17 +2205,17 @@ nebyl nalezen!</translation>
         <translation>Kó&amp;dování znaků</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="277"/>
+        <location filename="../src/app/appui.cpp" line="279"/>
         <source>Zoom &amp;In</source>
         <translation>Zoo&amp;m +</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="278"/>
+        <location filename="../src/app/appui.cpp" line="280"/>
         <source>Zoom &amp;Out</source>
         <translation>Z&amp;oom -</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="279"/>
+        <location filename="../src/app/appui.cpp" line="281"/>
         <source>Reset</source>
         <translation>Původní</translation>
     </message>
@@ -2297,7 +2297,7 @@ nebyl nalezen!</translation>
         <translation>Prázdný</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.h" line="143"/>
+        <location filename="../src/app/qupzilla.h" line="142"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
