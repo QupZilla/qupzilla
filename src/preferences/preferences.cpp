@@ -248,7 +248,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
 #ifdef Q_WS_X11
         notifyType = settings.value("UseNativeDesktop", true).toBool() ? DesktopNotificationsFactory::DesktopNative : DesktopNotificationsFactory::PopupWidget;
 #else
-        notifTyype = DesktopNotificationsFactory::PopupWidget;
+        notifyType = DesktopNotificationsFactory::PopupWidget;
 #endif
     if (notifyType == DesktopNotificationsFactory::DesktopNative)
         ui->useNativeSystemNotifications->setChecked(true);

@@ -203,6 +203,8 @@ void MainApplication::loadSettings()
     m_websettings->setDefaultTextEncoding("System");
 #ifdef Q_WS_X11
     m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, QIcon::fromTheme("text-plain").pixmap(16,16));
+#else
+    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, QPixmap(":icons/locationbar/unknownpage.png");
 #endif
 
     if (allowPersistentStorage) m_websettings->enablePersistentStorage(m_activeProfil);
@@ -613,8 +615,8 @@ bool MainApplication::checkSettingsDir()
     versionFile.write(QupZilla::VERSION.toAscii());
     versionFile.close();
 
-    if (rData.contains("0.9.") || rData.contains("0.9.7") || rData.contains("0.9.8")) // Data not changed from this version
-        return true;
+//    if (rData.contains("0.9.9") || rData.contains("0.9.7") || rData.contains("0.9.8")) // Data not changed from this version
+//        return true;
 
     dir.mkdir("profiles");
     dir.cd("profiles");
