@@ -19,7 +19,9 @@
 #define DESKTOPNOTIFICATIONSFACTORY_H
 
 #include <QObject>
+#ifdef Q_WS_X11
 #include <QDBusInterface>
+#endif
 #include <QStringList>
 #include <QSettings>
 #include <QPoint>

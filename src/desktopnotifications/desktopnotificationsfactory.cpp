@@ -57,8 +57,8 @@ void DesktopNotificationsFactory::notify(const QPixmap &icon, const QString &hea
         m_desktopNotif->move(m_position);
         m_desktopNotif->show();
         break;
-
     case DesktopNative:
+#ifdef Q_WS_X11
         QFile tmp(QDir::tempPath() + "/qupzilla_notif.png");
         tmp.open(QFile::WriteOnly);
         icon.save(tmp.fileName());
@@ -77,6 +77,7 @@ void DesktopNotificationsFactory::notify(const QPixmap &icon, const QString &hea
         QVariantList list = message.arguments();
         if (list.count() > 0)
             m_uint = list.at(0).toInt();
+#endif
         break;
     }
 }

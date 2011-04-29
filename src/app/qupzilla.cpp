@@ -348,7 +348,7 @@ void QupZilla::aboutToShowHistoryMenu()
     if (!weView()->history()->canGoForward())
         m_menuHistory->actions().at(1)->setEnabled(false);
 
-    m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), this, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+H"));
+    m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), this, SLOT(showHistoryManager()));
     m_menuHistory->addSeparator();
 
     QSqlQuery query;
