@@ -961,24 +961,24 @@ p, li { white-space: pre-wrap; }
         <translation>Všetky súbory boli úspešne stiahnuté.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="290"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="293"/>
         <source>Warning</source>
         <translation>Upozornenie</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="291"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="294"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Ste si istý, že chcete skončiť? Všetky nedokončené sťahovania budú zrušene!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="252"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="255"/>
         <source>NoNameDownload</source>
         <translation>BezNázvu</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="14"/>
         <location filename="../src/downloads/downloadmanager.cpp" line="76"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="217"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="220"/>
         <source>Download Manager</source>
         <translation>Správca sťahovania</translation>
     </message>
@@ -1197,12 +1197,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="494"/>
+        <location filename="../src/app/mainapplication.cpp" line="496"/>
         <source>Last session crashed</source>
         <translation>Posledná relácia spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="495"/>
+        <location filename="../src/app/mainapplication.cpp" line="497"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, posledná relácia QupZilly skončila chybou. Prepáčte. Chcete obnoviť uložený stav?</translation>
     </message>
@@ -2057,7 +2057,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/app/appui.cpp" line="174"/>
-        <location filename="../src/app/appui.cpp" line="252"/>
+        <location filename="../src/app/appui.cpp" line="253"/>
         <source>History</source>
         <translation>História</translation>
     </message>
@@ -2167,17 +2167,17 @@ p, li { white-space: pre-wrap; }
         <translation>Status &amp;bar</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="259"/>
+        <location filename="../src/app/appui.cpp" line="261"/>
         <source>Toolbars</source>
         <translation>Nástrojové lišty</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="265"/>
+        <location filename="../src/app/appui.cpp" line="267"/>
         <source>Sidebars</source>
         <translation>Bočné lišty</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="283"/>
+        <location filename="../src/app/appui.cpp" line="285"/>
         <source>&amp;Page Source</source>
         <translation>Zdrojový &amp;kód stránky</translation>
     </message>
@@ -2207,17 +2207,17 @@ p, li { white-space: pre-wrap; }
         <translation>Kódovan&amp;ie znakov</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="277"/>
+        <location filename="../src/app/appui.cpp" line="279"/>
         <source>Zoom &amp;In</source>
         <translation>Prib&amp;lížiť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="278"/>
+        <location filename="../src/app/appui.cpp" line="280"/>
         <source>Zoom &amp;Out</source>
         <translation>Od&amp;dialiť</translation>
     </message>
     <message>
-        <location filename="../src/app/appui.cpp" line="279"/>
+        <location filename="../src/app/appui.cpp" line="281"/>
         <source>Reset</source>
         <translation>Resetovať</translation>
     </message>
@@ -2298,7 +2298,7 @@ p, li { white-space: pre-wrap; }
         <translation>Prázdny</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.h" line="143"/>
+        <location filename="../src/app/qupzilla.h" line="142"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
