@@ -248,9 +248,11 @@ void QupZilla::setupMenu()
 
     m_actionShowBookmarksSideBar = new QAction(tr("Bookmarks"), this);
     m_actionShowBookmarksSideBar->setCheckable(true);
+    m_actionShowBookmarksSideBar->setShortcut(QKeySequence("Ctrl+B"));
     connect(m_actionShowBookmarksSideBar, SIGNAL(triggered()), this, SLOT(showBookmarksSideBar()));
     m_actionShowHistorySideBar = new QAction(tr("History"), this);
     m_actionShowHistorySideBar->setCheckable(true);
+    m_actionShowHistorySideBar->setShortcut(QKeySequence("Ctrl+H"));
     connect(m_actionShowHistorySideBar, SIGNAL(triggered()), this, SLOT(showHistorySideBar()));
 //    m_actionShowRssSideBar = new QAction(tr("RSS Reader"), this);
 //    m_actionShowRssSideBar->setCheckable(true);

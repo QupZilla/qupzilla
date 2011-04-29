@@ -73,7 +73,7 @@ QIcon IconProvider::iconForUrl(const QUrl &url)
 #ifdef Q_WS_X11
     return QIcon::fromTheme("text-plain");
 #else
-    return QIcon(":icons/other/unknownpage.png");
+    return QIcon(":icons/locationbar/unknownpage.png");
 #endif
 }
 

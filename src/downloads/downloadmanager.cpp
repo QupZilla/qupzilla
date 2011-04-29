@@ -211,8 +211,11 @@ void DownloadManager::downloadFinished(bool success)
     }
 
     if (downloadingAllFilesFinished) {
-        if (success)
+        if (success && qApp->activeWindow() != this) {
             mApp->desktopNotifications()->notify(QPixmap(":icons/notifications/download.png"), tr("Download Finished"), tr("All files has been successfuly downloaded."));
+            raise();
+            activateWindow();
+        }
         ui->speedLabel->clear();
         setWindowTitle(tr("Download Manager"));
 #ifdef W7API
