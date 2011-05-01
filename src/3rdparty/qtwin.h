@@ -29,16 +29,25 @@
 
 #include <QColor>
 #include <QWidget>
+#include <QSysInfo>
 /**
   * This is a helper class for using the Desktop Window Manager
   * functionality on Windows 7 and Windows Vista. On other platforms
   * these functions will simply not do anything.
   */
+#ifdef Q_WS_WIN
+#include <ShlObj.h>
+#include <shlwapi.h>
+#include <Propvarutil.h>
 
+DEFINE_PROPERTYKEY(PKEY_Title, 0xF29F85E0, 0x4FF9, 0x1068, 0xAB, 0x91, 0x08, 0x00, 0x2B, 0x27, 0xB3, 0xD9, 2);
+DEFINE_PROPERTYKEY(PKEY_AppUserModel_IsDestListSeparator, 0x9F4C2855, 0x9F79, 0x4B39, 0xA8, 0xD0, 0xE1, 0xD4, 0x2D, 0xE1, 0xD5, 0xF3, 6);
+
+#endif
 class WindowNotifier;
-
-class QtWin
+class QtWin : public QObject
 {
+    Q_OBJECT
 public:
     static bool isRunningWindows7();
     static bool enableBlurBehindWindow(QWidget *widget, bool enable = true);
@@ -48,8 +57,14 @@ public:
     static bool isCompositionEnabled();
     static QColor colorizatinColor();
 
+    static void setupJumpList();
+
 private:
     static WindowNotifier *windowNotifier();
+#ifdef Q_WS_WIN
+    static void AddTasksToList(ICustomDestinationList* destinationList);
+    static IShellLink* CreateShellLink(const QString &title, const QString &description, const QString &app_path, const QString &app_args, const QString &icon_path, int app_index);
+#endif
 };
 
 #endif // QTWIN_H
