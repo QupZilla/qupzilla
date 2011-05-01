@@ -36,6 +36,7 @@
 #include "adblockmanager.h"
 #include "desktopnotificationsfactory.h"
 #include "iconprovider.h"
+#include "qtwin.h"
 
 MainApplication::MainApplication(int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -156,6 +157,8 @@ MainApplication::MainApplication(int &argc, char **argv)
     loadSettings();
 
     QTimer::singleShot(2000, this, SLOT(restoreCursor()));
+
+    QtWin::setupJumpList();
 }
 
 void MainApplication::loadSettings()
@@ -204,7 +207,7 @@ void MainApplication::loadSettings()
 #ifdef Q_WS_X11
     m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, QIcon::fromTheme("text-plain").pixmap(16,16));
 #else
-    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, QPixmap(":icons/locationbar/unknownpage.png");
+    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, QPixmap(":icons/locationbar/unknownpage.png"));
 #endif
 
     if (allowPersistentStorage) m_websettings->enablePersistentStorage(m_activeProfil);

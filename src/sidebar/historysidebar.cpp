@@ -114,8 +114,7 @@ void HistorySideBar::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
 
     item->setText(0, entry.title);
     item->setText(1, entry.url.toEncoded());
-    item->setToolTip(0, entry.title);
-    item->setToolTip(1, entry.url.toEncoded());
+    item->setToolTip(0, entry.url.toEncoded());
 
     item->setWhatsThis(1, QString::number(entry.id));
     item->setIcon(0, _iconForUrl(entry.url));
@@ -201,8 +200,7 @@ void HistorySideBar::refreshTable()
 
         item->setText(0, title);
         item->setText(1, url.toEncoded());
-        item->setToolTip(0, title);
-        item->setToolTip(1, url.toEncoded());
+        item->setToolTip(0, url.toEncoded());
 
         item->setWhatsThis(1, QString::number(id));
         item->setIcon(0, _iconForUrl(url));

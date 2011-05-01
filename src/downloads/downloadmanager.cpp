@@ -53,7 +53,8 @@ DownloadManager::DownloadManager(QWidget* parent) :
     connect(ui->clearButton, SIGNAL(clicked()), this, SLOT(clearList()));
 
 #ifdef W7API
-    win7.init(this->winId());
+    if (QtWin::isRunningWindows7())
+        win7.init(this->winId());
 #endif
 }
 
@@ -107,8 +108,10 @@ void DownloadManager::timerEvent(QTimerEvent* event)
                                                                             DownloadItem::remaingTimeToString(remaining)));
         setWindowTitle(QString::number(progress) + tr("% - Download Manager"));
 #ifdef W7API
-        win7.setProgressValue(progress, 100);
-        win7.setProgressState(win7.Normal);
+        if (QtWin::isRunningWindows7()) {
+            win7.setProgressValue(progress, 100);
+            win7.setProgressState(win7.Normal);
+        }
 #endif
     } else
         QWidget::timerEvent(event);
@@ -219,8 +222,10 @@ void DownloadManager::downloadFinished(bool success)
         ui->speedLabel->clear();
         setWindowTitle(tr("Download Manager"));
 #ifdef W7API
-        win7.setProgressValue(0, 0);
-        win7.setProgressState(win7.Normal);
+        if (QtWin::isRunningWindows7()) {
+            win7.setProgressValue(0, 0);
+            win7.setProgressState(win7.Normal);
+        }
 #endif
     }
 }
