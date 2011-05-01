@@ -32,7 +32,6 @@
 #include <QPointer>
 
 #ifdef Q_WS_WIN
-
 #include <qt_windows.h>
 
 // Blur behind data structures
@@ -110,14 +109,7 @@ static bool resolveLibs()
 bool QtWin::isRunningWindows7()
 {
 #ifdef Q_WS_WIN
-    OSVERSIONINFO osvi;
-
-    ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
-    osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-
-    GetVersionEx(&osvi);
-
-    return ( (osvi.dwMajorVersion > 6) || ( (osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion >= 1) ));
+    return QSysInfo::windowsVersion() == QSysInfo::WV_WINDOWS7;
 #endif
     return false;
 }
@@ -262,4 +254,111 @@ bool WindowNotifier::winEvent(MSG *message, long *result)
     }
     return QWidget::winEvent(message, result);
 }
+
+IShellLink* QtWin::CreateShellLink(const QString &title, const QString &description,
+                             const QString &app_path, const QString &app_args,
+                             const QString &icon_path, int app_index)  {
+
+    const wchar_t* _title = reinterpret_cast<const wchar_t*>(title.utf16());
+    const wchar_t* _description = reinterpret_cast<const wchar_t*>(description.utf16());
+    const wchar_t* _app_path = reinterpret_cast<const wchar_t*>(app_path.utf16());
+    const wchar_t* _icon_path = reinterpret_cast<const wchar_t*>(icon_path.utf16());
+    const wchar_t* _app_args = reinterpret_cast<const wchar_t*>(app_args.utf16());
+
+    IShellLink* shell_link = NULL;
+    IPropertyStore* prop_store = NULL;
+    bool is_not_separator = (app_path.length() > 0);
+
+    HRESULT hr = CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_IShellLink,
+                                  reinterpret_cast<void**> (&(shell_link)));
+    if(SUCCEEDED(hr)) {
+        if (is_not_separator) {
+            shell_link->SetPath(_app_path);
+            shell_link->SetArguments(_app_args);
+            shell_link->SetIconLocation(_icon_path, app_index);
+            shell_link->SetDescription(_description);
+        }
+
+        hr = shell_link->QueryInterface(IID_IPropertyStore, reinterpret_cast<void**> (&(prop_store)));
+
+        if (SUCCEEDED(hr)) {
+            PROPVARIANT pv;
+
+            if (is_not_separator) {
+                hr = InitPropVariantFromString(_title, &pv);
+                if (SUCCEEDED(hr)) {
+                    hr = prop_store->SetValue(PKEY_Title, pv);
+                }
+            } else {
+                hr = InitPropVariantFromBoolean(TRUE, &pv);
+
+                if (SUCCEEDED(hr)) {
+                    hr = prop_store->SetValue(PKEY_AppUserModel_IsDestListSeparator, pv);
+                }
+            }
+
+            //Save the changes we made to the property store
+            prop_store->Commit();
+            prop_store->Release();
+
+            PropVariantClear(&pv);
+        }
+    }
+    return shell_link;
+}
+
+
+void QtWin::AddTasksToList(ICustomDestinationList* destinationList) {
+    IObjectArray* object_array;
+    IObjectCollection* obj_collection;
+
+    CoCreateInstance(CLSID_EnumerableObjectCollection, NULL,
+                                  CLSCTX_INPROC, IID_IObjectCollection, reinterpret_cast<void**> (&(obj_collection)));
+
+    obj_collection->QueryInterface(IID_IObjectArray, reinterpret_cast<void**> (&(object_array)));
+
+    QString icons_source = qApp->applicationFilePath();
+    QString app_path = qApp->applicationFilePath();
+
+    obj_collection->AddObject(CreateShellLink(tr("Open new tab"), tr("Opens a new tab if browser is running"),
+                                               app_path, "--new-tab",
+                                               icons_source, 0));
+
+    obj_collection->AddObject(CreateShellLink(tr("Open new window"), tr("Opens a new window if browser is running"),
+                                               app_path, "--new-window",
+                                               icons_source, 0));
+
+    obj_collection->AddObject(CreateShellLink(tr("Open download manager"), tr("Opens a download manager if browser is running"),
+                                               app_path, "--download-manager",
+                                               icons_source, 0));
+
+    destinationList->AddUserTasks(object_array);
+
+    object_array->Release();
+    obj_collection->Release();
+}
 #endif
+
+void QtWin::setupJumpList() {
+#ifdef Q_WS_WIN
+    if (!isRunningWindows7())
+        return;
+
+    UINT max_count = 0;
+    IObjectArray* objectArray;
+    ICustomDestinationList* destinationList;
+
+    //create the custom jump list object
+    CoCreateInstance(CLSID_DestinationList, NULL, CLSCTX_INPROC_SERVER, IID_ICustomDestinationList,
+                                              reinterpret_cast<void**> (&(destinationList)));
+
+    //initialize list
+    destinationList->BeginList(&max_count, IID_IObjectArray, reinterpret_cast<void**> (&(objectArray)));
+    AddTasksToList(destinationList);
+
+    //commit list
+    destinationList->CommitList();
+    objectArray->Release();
+    destinationList->Release();
+#endif
+}
