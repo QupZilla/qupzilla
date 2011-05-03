@@ -936,49 +936,49 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DownloadManager</name>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="105"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="106"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% z %2 súborov (%3) %4 zostávajú</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="108"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="109"/>
         <source>% - Download Manager</source>
         <translation>% - Správca sťahovania</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="167"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="170"/>
         <source>Save file as...</source>
         <translation>Uložiť súbor ako...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="215"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="218"/>
         <source>Download Finished</source>
         <translation>Sťahovanie dokončené</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="215"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="218"/>
         <source>All files has been successfuly downloaded.</source>
         <translation>Všetky súbory boli úspešne stiahnuté.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="293"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="298"/>
         <source>Warning</source>
         <translation>Upozornenie</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="294"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="299"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Ste si istý, že chcete skončiť? Všetky nedokončené sťahovania budú zrušene!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="255"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="260"/>
         <source>NoNameDownload</source>
         <translation>BezNázvu</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="14"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="76"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="220"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="77"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="223"/>
         <source>Download Manager</source>
         <translation>Správca sťahovania</translation>
     </message>
@@ -1197,12 +1197,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="496"/>
+        <location filename="../src/app/mainapplication.cpp" line="499"/>
         <source>Last session crashed</source>
         <translation>Posledná relácia spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="497"/>
+        <location filename="../src/app/mainapplication.cpp" line="500"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, posledná relácia QupZilly skončila chybou. Prepáčte. Chcete obnoviť uložený stav?</translation>
     </message>
@@ -2020,6 +2020,39 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences/preferences.cpp" line="529"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Ste si istý, že chcete permanentne zmazať profil &quot;%1&quot;? Táto akcia sa nebude dať vrátiť späť!</translation>
+    </message>
+</context>
+<context>
+    <name>QtWin</name>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="323"/>
+        <source>Open new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="323"/>
+        <source>Opens a new tab if browser is running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="327"/>
+        <source>Open new window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="327"/>
+        <source>Opens a new window if browser is running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="331"/>
+        <source>Open download manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="331"/>
+        <source>Opens a download manager if browser is running</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

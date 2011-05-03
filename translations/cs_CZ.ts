@@ -933,49 +933,49 @@ nebyl nalezen!</translation>
 <context>
     <name>DownloadManager</name>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="105"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="106"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% z %2 souborů (%3) %4 zbyvá</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="108"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="109"/>
         <source>% - Download Manager</source>
         <translation>% - Správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="167"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="170"/>
         <source>Save file as...</source>
         <translation>Uložit soubor jako...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="215"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="218"/>
         <source>Download Finished</source>
         <translation>Stahování dokončeno</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="215"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="218"/>
         <source>All files has been successfuly downloaded.</source>
         <translation>Všechny soubory byly stažené.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="293"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="298"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="294"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="299"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Jste si jistý že chcete skončit? Všechna nedokončená stahování budou zrušena!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="255"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="260"/>
         <source>NoNameDownload</source>
         <translation>BezNazvu</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="14"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="76"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="220"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="77"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="223"/>
         <source>Download Manager</source>
         <translation>Správce stahování</translation>
     </message>
@@ -1195,12 +1195,12 @@ nebyl nalezen!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="496"/>
+        <location filename="../src/app/mainapplication.cpp" line="499"/>
         <source>Last session crashed</source>
         <translation>Poslední relace spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="497"/>
+        <location filename="../src/app/mainapplication.cpp" line="500"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
@@ -2018,6 +2018,39 @@ nebyl nalezen!</translation>
         <location filename="../src/preferences/preferences.cpp" line="529"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Jste si jisti že chcete permanentně smazat profil &quot;%1&quot;? Tato akce nelze vrátit zpět!</translation>
+    </message>
+</context>
+<context>
+    <name>QtWin</name>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="323"/>
+        <source>Open new tab</source>
+        <translation>Otevřít nový panel</translation>
+    </message>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="323"/>
+        <source>Opens a new tab if browser is running</source>
+        <translation>Otevře nový panel pokud je prohlížeč spuštěný</translation>
+    </message>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="327"/>
+        <source>Open new window</source>
+        <translation>Otevřít nové okno</translation>
+    </message>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="327"/>
+        <source>Opens a new window if browser is running</source>
+        <translation>Otevře nové okno pokud je prohlížeč spuštěný</translation>
+    </message>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="331"/>
+        <source>Open download manager</source>
+        <translation>Otevřít správce stahování</translation>
+    </message>
+    <message>
+        <location filename="../src/3rdparty/qtwin.cpp" line="331"/>
+        <source>Opens a download manager if browser is running</source>
+        <translation>Otevře správce stahování pokud je prohlížeč spuštěný</translation>
     </message>
 </context>
 <context>
