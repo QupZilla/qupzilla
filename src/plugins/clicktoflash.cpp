@@ -61,7 +61,6 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
             return;
         }
     }
-
     QHBoxLayout* horizontalLayout;
     QFrame* frame;
     QHBoxLayout* horizontalLayout_2;
@@ -112,7 +111,7 @@ void ClickToFlash::hideAdBlocked()
     findElement();
     if (!m_element.isNull()) {
         m_element.setAttribute("style", "display:none;");
-        deleteLater();
+        //deleteLater(); //Well, it should be there, but therefore it sometimes crashes
     }
 }
 
