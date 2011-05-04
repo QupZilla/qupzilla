@@ -27,11 +27,15 @@ WebPluginFactory::WebPluginFactory(QObject* parent)
 
 QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const
 {
+    if (mimeType.isEmpty())
+        return 0;
+
     if (mimeType != "application/x-shockwave-flash") {
         if (mimeType != "application/futuresplash")
-            qDebug()  << mimeType;
+            qDebug()  << "missing mimeType handler for: " << mimeType;
         return 0;
     }
+
     if (!mApp->plugins()->c2f_isEnabled())
         return 0;
 

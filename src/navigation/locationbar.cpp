@@ -154,7 +154,7 @@ void LocationBar::rssIconClicked()
 
 void LocationBar::showUrl(const QUrl &url, bool empty)
 {
-    if (url.isEmpty() && empty)
+    if (hasFocus() || (url.isEmpty() && empty))
         return;
 
     if (url.toEncoded()!=text()) {
