@@ -18,6 +18,7 @@
 #ifndef MAINAPPLICATION_H
 #define MAINAPPLICATION_H
 #define mApp MainApplication::getInstance()
+#define mStyle MainApplication::appStyle
 
 #include <QToolBar>
 #include <QWebSettings>
@@ -43,6 +44,7 @@ class DownloadManager;
 class AutoFillModel;
 class DesktopNotificationsFactory;
 class IconProvider;
+class Style;
 
 class MainApplication : public QtSingleApplication
 {
@@ -87,6 +89,8 @@ public:
     QNetworkDiskCache* networkCache() { return m_networkCache; }
     DesktopNotificationsFactory* desktopNotifications();
     IconProvider* iconProvider() { return m_iconProvider; }
+
+    static Style* appStyle;
 
 public slots:
     bool saveStateSlot();
