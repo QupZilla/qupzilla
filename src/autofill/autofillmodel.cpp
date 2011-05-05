@@ -120,8 +120,15 @@ void AutoFillModel::completePage(WebView* view)
     if (!isStored(view->url()))
         return;
 
-    QWebFrame* frame = view->page()->mainFrame();
-    QWebElementCollection inputs = frame->findAllElements("input");
+    QWebElementCollection inputs;
+    QList<QWebFrame*> frames;
+    frames.append(view->page()->mainFrame());
+    while (!frames.isEmpty()) {
+        QWebFrame* frame = frames.takeFirst();
+        inputs.append(frame->findAllElements("input"));
+        frames += frame->childFrames();
+    }
+
     QSqlQuery query;
     query.exec("SELECT data FROM autofill WHERE server='"+view->url().host()+"'");
     query.next();
@@ -131,10 +138,10 @@ void AutoFillModel::completePage(WebView* view)
 
     QList<QPair<QString, QString> > arguments = QUrl::fromEncoded(QByteArray("http://bla.com/?"+data)).queryItems();
     for (int i = 0; i<arguments.count(); i++) {
-        QString key = arguments.at(i).first;
-        QString value = arguments.at(i).second;
-        key.replace("+"," ");
-        value.replace("+"," ");
+        QString key = QUrl::fromEncoded(arguments.at(i).first.toAscii()).toString();
+        QString value = QUrl::fromEncoded(arguments.at(i).second.toAscii()).toString();
+        //key.replace("+"," ");
+        //value.replace("+"," ");
 
         for (int i = 0; i<inputs.count(); i++) {
             QWebElement element = inputs.at(i);
@@ -167,34 +174,34 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     if (type!=QWebPage::NavigationTypeFormSubmitted)
         return;
 
-    QString passwordName="";
-    QWebFrame* frame = webPage->mainFrame();
-    QWebElementCollection inputs = frame->findAllElements("input");
-    for (int i = 0; i<inputs.count(); i++) {
-        QWebElement element = inputs.at(i);
-        QString type = element.attribute("type");
+    QString passwordName = "";
+    QString passwordValue = "";
 
-        if (type == "password")
-            passwordName = element.attribute("name");
+    QWebElementCollection inputs;
+    QList<QWebFrame*> frames;
+    frames.append(webPage->mainFrame());
+    while (!frames.isEmpty()) {
+        QWebFrame* frame = frames.takeFirst();
+        inputs.append(frame->findAllElements("input[type=\"password\"]"));
+        frames += frame->childFrames();
+    }
+
+    foreach (QWebElement element, inputs) {
+        passwordName = element.attribute("name");
+        passwordValue = element.evaluateJavaScript("this.value").toString();
+        if (!passwordValue.isEmpty())
+            break;
     }
 
     //Return if storing is not enabled, data for this page is already stored, no password element found in sent data
-    if (!isStoringEnabled(request.url()) || isStored(request.url()) || passwordName.isEmpty())
+    if (passwordName.isEmpty() || !isStoringEnabled(request.url()) || isStored(request.url()))
         return;
+
     //Return if no password form has been sent
-    if (!outgoingData.contains((passwordName+"=").toAscii()))
+    if (!outgoingData.contains((QUrl(passwordName).toEncoded() + "=")) || passwordValue.isEmpty())
         return;
 
-    QString pass = "";
-    QList<QPair<QString, QString> > arguments = QUrl::fromEncoded(QByteArray("http://bla.com/?"+outgoingData)).queryItems();
-    for (int i = 0; i<arguments.count(); i++) {
-        if (arguments.at(i).first == passwordName) {
-            pass = arguments.at(i).second;
-            break;
-        }
-    }
-
-    AutoFillNotification* aWidget = new AutoFillNotification(request.url(), outgoingData, pass);
+    AutoFillNotification* aWidget = new AutoFillNotification(request.url(), outgoingData, passwordValue);
     webView->addNotification(aWidget);
 
 }

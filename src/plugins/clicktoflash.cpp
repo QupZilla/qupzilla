@@ -64,7 +64,6 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     QHBoxLayout* horizontalLayout;
     QFrame* frame;
     QHBoxLayout* horizontalLayout_2;
-    QToolButton* toolButton;
 
     horizontalLayout = new QHBoxLayout(this);
     frame = new QFrame(this);
@@ -83,7 +82,7 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     horizontalLayout->setContentsMargins(0,0,0,0);
     horizontalLayout_2->setContentsMargins(0,0,0,0);
 
-    connect(toolButton, SIGNAL(clicked(bool)), this, SLOT(load()));
+    connect(toolButton, SIGNAL(clicked()), this, SLOT(load()));
     setMinimumSize(27,27);
 
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -109,10 +108,10 @@ void ClickToFlash::toWhitelist()
 void ClickToFlash::hideAdBlocked()
 {
     findElement();
-    if (!m_element.isNull()) {
+    if (!m_element.isNull())
         m_element.setAttribute("style", "display:none;");
-        //deleteLater(); //Well, it should be there, but therefore it sometimes crashes
-    }
+
+    //deleteLater(); //Well, it should be there, but therefore it sometimes crashes
 }
 
 void ClickToFlash::findElement()
@@ -130,11 +129,14 @@ void ClickToFlash::findElement()
         return;
 
     QList<QWebFrame*> frames;
+    frames.append(view->page()->frameAt(view->mapFromGlobal(toolButton->mapToGlobal(toolButton->pos()))));
     m_mainFrame = view->page()->mainFrame();
     frames.append(m_mainFrame);
 
     while (!frames.isEmpty()) {
         QWebFrame* frame = frames.takeFirst();
+        if (!frame)
+            continue;
         QWebElement docElement = frame->documentElement();
 
         QWebElementCollection elements;
