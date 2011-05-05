@@ -79,6 +79,7 @@ private:
     QWebElement m_element;
     QWebFrame* m_mainFrame;
 
+    QToolButton* toolButton;
     /**
     used to find the right QWebElement between the ones of the different plugins
     */
