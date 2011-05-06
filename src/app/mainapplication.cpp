@@ -157,8 +157,7 @@ MainApplication::MainApplication(int &argc, char **argv)
     loadSettings();
 
     QTimer::singleShot(2000, this, SLOT(restoreCursor()));
-
-    QtWin::setupJumpList();
+    QTimer::singleShot(10*1000, this, SLOT(setupJumpList()));
 }
 
 void MainApplication::loadSettings()
@@ -214,6 +213,11 @@ void MainApplication::loadSettings()
     m_websettings->setMaximumPagesInCache(maxCachedPages);
 
     setWheelScrollLines(scrollingLines);
+}
+
+void MainApplication::setupJumpList()
+{
+    QtWin::setupJumpList();
 }
 
 QupZilla* MainApplication::getWindow()

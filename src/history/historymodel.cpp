@@ -121,6 +121,23 @@ bool HistoryModel::deleteHistoryEntry(const QString &url, const QString &title)
     return false;
 }
 
+QList<HistoryModel::HistoryEntry> HistoryModel::mostVisited(int count)
+{
+    QList<HistoryEntry> list;
+    QSqlQuery query;
+    query.exec(QString("SELECT count, date, id, title, url FROM history ORDER BY count DESC LIMIT %1").arg(count));
+    while(query.next()) {
+        HistoryEntry entry;
+        entry.count = query.value(0).toInt();
+        entry.date = query.value(1).toDateTime();
+        entry.id = query.value(2).toInt();
+        entry.title = query.value(3).toString();
+        entry.url = query.value(4).toUrl();
+        list.append(entry);
+    }
+    return list;
+}
+
 bool HistoryModel::optimizeHistory()
 {
     QSqlQuery query;

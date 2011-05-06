@@ -26,6 +26,7 @@
 
 class QupZilla;
 class BookmarksModel;
+class HistoryModel;
 class BookmarksToolbar : public QToolBar
 {
     Q_OBJECT
@@ -50,6 +51,7 @@ private slots:
 private:
     QupZilla* p_QupZilla;
     BookmarksModel* m_bookmarksModel;
+    HistoryModel* m_historyModel;
     QMenu* m_menuMostVisited;
     QToolButton* m_mostVis;
 

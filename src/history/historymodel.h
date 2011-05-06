@@ -45,6 +45,8 @@ public:
     bool deleteHistoryEntry(int index);
     bool deleteHistoryEntry(const QString &url, const QString &title);
 
+    QList<HistoryModel::HistoryEntry> mostVisited(int count);
+
     bool clearHistory();
     bool optimizeHistory();
     bool isSaving();

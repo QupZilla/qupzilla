@@ -638,12 +638,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ClickToFlash</name>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="97"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="95"/>
         <source>Flash blocked by ClickToFlash</source>
         <translation>Zablokováno pluginem ClickToFlash</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="99"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="97"/>
         <source>Add %1 to whitelist</source>
         <translation>Přidat %1 na bílou listinu</translation>
     </message>
@@ -2023,32 +2023,32 @@ nebyl nalezen!</translation>
 <context>
     <name>QtWin</name>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="323"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="267"/>
         <source>Open new tab</source>
         <translation>Otevřít nový panel</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="323"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="267"/>
         <source>Opens a new tab if browser is running</source>
         <translation>Otevře nový panel pokud je prohlížeč spuštěný</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="327"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="271"/>
         <source>Open new window</source>
         <translation>Otevřít nové okno</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="327"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="271"/>
         <source>Opens a new window if browser is running</source>
         <translation>Otevře nové okno pokud je prohlížeč spuštěný</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="331"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="275"/>
         <source>Open download manager</source>
         <translation>Otevřít správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="331"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="275"/>
         <source>Opens a download manager if browser is running</source>
         <translation>Otevře správce stahování pokud je prohlížeč spuštěný</translation>
     </message>
