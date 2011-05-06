@@ -56,13 +56,15 @@ public:
                                           int left = -1, int top = -1,
                                           int right = -1, int bottom = -1);
     static bool isCompositionEnabled();
-    static QColor colorizatinColor();
+    static QColor colorizationColor();
 
+public slots:
     static void setupJumpList();
 
 private:
     static WindowNotifier *windowNotifier();
-#ifdef Q_WS_WIN
+#ifdef W7API
+    static void populateFrequentSites(IObjectCollection* collection, const QString &appPath);
     static void AddTasksToList(ICustomDestinationList* destinationList);
     static IShellLink* CreateShellLink(const QString &title, const QString &description, const QString &app_path, const QString &app_args, const QString &icon_path, int app_index);
 #endif

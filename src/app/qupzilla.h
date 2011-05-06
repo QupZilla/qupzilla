@@ -19,7 +19,7 @@
 #define QUPZILLA_H
 
 //Comment for release building
-#define DEVELOPING
+//#define DEVELOPING
 
 #ifdef QT_NO_DEBUG
 #ifdef DEVELOPING

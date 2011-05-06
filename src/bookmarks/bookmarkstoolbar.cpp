@@ -19,19 +19,19 @@
 #include "qupzilla.h"
 #include "bookmarksmodel.h"
 #include "iconprovider.h"
+#include "historymodel.h"
 
 BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent) :
     QToolBar(parent)
     ,p_QupZilla(mainClass)
-    ,m_bookmarksModel(0)
+    ,m_bookmarksModel(mApp->bookmarksModel())
+    ,m_historyModel(mApp->history())
 {
     setObjectName("bookmarksToolbar");
     setWindowTitle(tr("Bookmarks"));
     setStyleSheet("QToolBar{background-image:url(:icons/transp.png); border:none;}");
     setMovable(false);
     setContextMenuPolicy(Qt::CustomContextMenu);
-
-    m_bookmarksModel = mApp->bookmarksModel();
 
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
 
@@ -211,15 +211,24 @@ void BookmarksToolbar::refreshMostVisited()
 {
     m_menuMostVisited->clear();
 
-    QSqlQuery query;
-    query.exec("SELECT title, url FROM history ORDER BY count DESC LIMIT 10");
-    while(query.next()) {
-        QUrl url = query.value(1).toUrl();
-        QString title = query.value(0).toString();
-        if (title.length()>40) {
-            title.truncate(40);
-            title+="..";
+    QList<HistoryModel::HistoryEntry> mostList = m_historyModel->mostVisited(10);
+    foreach (HistoryModel::HistoryEntry entry, mostList) {
+        if (entry.title.length()>40) {
+            entry.title.truncate(40);
+            entry.title+="..";
         }
-        m_menuMostVisited->addAction(_iconForUrl(url), title, p_QupZilla, SLOT(loadActionUrl()))->setData(url);
+        m_menuMostVisited->addAction(_iconForUrl(entry.url), entry.title, p_QupZilla, SLOT(loadActionUrl()))->setData(entry.url);
     }
+
+//    QSqlQuery query;
+//    query.exec("SELECT title, url FROM history ORDER BY count DESC LIMIT 10");
+//    while(query.next()) {
+//        QUrl url = query.value(1).toUrl();
+//        QString title = query.value(0).toString();
+//        if (title.length()>40) {
+//            title.truncate(40);
+//            title+="..";
+//        }
+//        m_menuMostVisited->addAction(_iconForUrl(url), title, p_QupZilla, SLOT(loadActionUrl()))->setData(url);
+//    }
 }

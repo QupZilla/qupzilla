@@ -30,6 +30,8 @@
 #include <QWidget>
 #include <QList>
 #include <QPointer>
+#include "historymodel.h"
+#include "mainapplication.h"
 
 #ifdef Q_WS_WIN
 #include <qt_windows.h>
@@ -132,7 +134,6 @@ bool QtWin::enableBlurBehindWindow(QWidget *widget, bool enable)
   */
 bool QtWin::extendFrameIntoClientArea(QWidget *widget, int left, int top, int right, int bottom)
 {
-
     Q_ASSERT(widget);
     Q_UNUSED(left);
     Q_UNUSED(top);
@@ -159,10 +160,9 @@ bool QtWin::extendFrameIntoClientArea(QWidget *widget, int left, int top, int ri
   *
   * \a enable tells if the blur should be enabled or not
   */
-QColor QtWin::colorizatinColor()
+QColor QtWin::colorizationColor()
 {
     QColor resultColor = QApplication::palette().window().color();
-
 #ifdef Q_WS_WIN
     DWORD color = 0;
     BOOL opaque = FALSE;
@@ -174,7 +174,7 @@ QColor QtWin::colorizatinColor()
     return resultColor;
 }
 
-#ifdef Q_WS_WIN
+#ifdef W7API
 WindowNotifier *QtWin::windowNotifier()
 {
     static WindowNotifier *windowNotifierInstance = 0;
@@ -251,6 +251,15 @@ IShellLink* QtWin::CreateShellLink(const QString &title, const QString &descript
     return shell_link;
 }
 
+void QtWin::populateFrequentSites(IObjectCollection* collection, const QString &appPath)
+{
+    HistoryModel* historyModel = mApp->history();
+    QList<HistoryModel::HistoryEntry> mostList = historyModel->mostVisited(6);
+    foreach (HistoryModel::HistoryEntry entry, mostList)
+        collection->AddObject(CreateShellLink(entry.title, entry.url.toString(), appPath, " "+entry.url.toEncoded(), appPath, 1));
+
+    collection->AddObject(CreateShellLink("", "", "", "", "", 0)); //Spacer
+}
 
 void QtWin::AddTasksToList(ICustomDestinationList* destinationList) {
     IObjectArray* object_array;
@@ -263,6 +272,8 @@ void QtWin::AddTasksToList(ICustomDestinationList* destinationList) {
 
     QString icons_source = qApp->applicationFilePath();
     QString app_path = qApp->applicationFilePath();
+
+    populateFrequentSites(obj_collection, icons_source);
 
     obj_collection->AddObject(CreateShellLink(tr("Open new tab"), tr("Opens a new tab if browser is running"),
                                                app_path, "--new-tab",
@@ -284,7 +295,7 @@ void QtWin::AddTasksToList(ICustomDestinationList* destinationList) {
 #endif
 
 void QtWin::setupJumpList() {
-#ifdef Q_WS_WIN
+#ifdef W7API
     if (!isRunningWindows7())
         return;
 

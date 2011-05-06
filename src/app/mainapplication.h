@@ -103,6 +103,7 @@ signals:
     void message(MainApplication::MessageType mes, bool state);
 
 private slots:
+    void setupJumpList();
     void restoreCursor() { QApplication::restoreOverrideCursor(); }
 
 private:
