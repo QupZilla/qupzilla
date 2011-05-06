@@ -1,4 +1,4 @@
-RequestExecutionLevel user
+RequestExecutionLevel admin
 !include "FileAssociation.nsh"
 SetCompressor /SOLID /FINAL lzma
 
