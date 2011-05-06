@@ -223,8 +223,8 @@ void DownloadManager::downloadFinished(bool success)
         setWindowTitle(tr("Download Manager"));
 #ifdef W7API
         if (QtWin::isRunningWindows7()) {
-            win7.setProgressValue(0, 0);
-            win7.setProgressState(win7.Normal);
+            win7.setProgressValue(0, 100);
+            win7.setProgressState(win7.NoProgress);
         }
 #endif
     }
