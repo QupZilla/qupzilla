@@ -87,8 +87,9 @@ void TabBar::contextMenuRequested(const QPoint &position)
         menu.addAction(tr("&Bookmark This Tab"), this, SLOT(bookmarkTab()));
         menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
-        QAction* action = menu.addAction(QIcon::fromTheme("user-trash"),tr("Restore &Closed Tab"), tabWidget, SLOT(restoreClosedTab()));
+        QAction* action = p_QupZilla->actionRestoreTab();
         tabWidget->canRestoreTab() ? action->setEnabled(true) : action->setEnabled(false);
+        menu.addAction(action);
         menu.addSeparator();
         menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
         menu.addAction(QIcon::fromTheme("window-close"),tr("Cl&ose"), this, SLOT(closeTab()));
@@ -105,6 +106,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
     QPoint pos = QCursor::pos();
     QPoint p(pos.x(), pos.y()+1);
     menu.exec(p);
+    p_QupZilla->actionRestoreTab()->setEnabled(true);
 }
 
 QSize TabBar::tabSizeHint(int index) const
