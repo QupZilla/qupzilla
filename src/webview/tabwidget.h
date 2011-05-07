@@ -32,6 +32,7 @@ class TabBar;
 class WebTab;
 class TabListButton;
 class NewTabButton;
+class ClosedTabsManager;
 
 class TabWidget : public QTabWidget
 {
@@ -50,7 +51,8 @@ public:
     void loadSettings();
 
     inline TabBar* getTabBar() { return m_tabBar; }
-    inline bool canRestoreTab() { return m_canRestoreTab; }
+    inline ClosedTabsManager* closedTabsManager() { return m_closedTabsManager; }
+    bool canRestoreTab();
     QList<WebTab*> allTabs(bool withPinned = true);
 
 
@@ -80,16 +82,14 @@ private:
     QUrl m_urlOnNewTab;
     QupZilla* p_QupZilla;
 
-    bool m_canRestoreTab;
     int m_lastTabIndex;
-    QUrl m_lastTabUrl;
-    QByteArray m_lastTabHistory;
 
     TabBar* m_tabBar;
 
     QMenu* m_menuTabs;
     NewTabButton* m_buttonAddTab;
     TabListButton* m_buttonListTabs;
+    ClosedTabsManager* m_closedTabsManager;
 };
 
 #endif // TABWIDGET_H
