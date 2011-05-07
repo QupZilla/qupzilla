@@ -124,10 +124,9 @@ void AdBlockManager::save()
 
 AdBlockDialog* AdBlockManager::showDialog()
 {
-    if (!m_adBlockDialog) {
+    if (!m_adBlockDialog)
         m_adBlockDialog = new AdBlockDialog(mApp->getWindow());
-        m_adBlockDialog->setAttribute(Qt::WA_DeleteOnClose, true);
-    }
+
     m_adBlockDialog->show();
     return m_adBlockDialog;
 }
@@ -135,8 +134,7 @@ AdBlockDialog* AdBlockManager::showDialog()
 void AdBlockManager::showRule()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        AdBlockDialog* dialog = showDialog();
-        dialog->search->setText(action->data().toString());
+        showDialog()->search->setText(action->data().toString());
     }
 }
 

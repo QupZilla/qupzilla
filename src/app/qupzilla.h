@@ -19,7 +19,7 @@
 #define QUPZILLA_H
 
 //Comment for release building
-//#define DEVELOPING
+#define DEVELOPING
 
 #ifdef QT_NO_DEBUG
 #ifdef DEVELOPING
@@ -110,8 +110,8 @@ public:
     inline QDockWidget* inspectorDock(){ return m_webInspectorDock; }
     inline QLabel* ipLabel(){ return m_ipLabel; }
     inline QColor menuTextColor() { return m_menuTextColor; }
-    inline QAction* acShowBookmarksToolbar() { return m_actionShowBookmarksToolbar; }
     inline QMenu* menuHelp() { return m_menuHelp; }
+    inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
 
 signals:
     void loadHistory();
@@ -223,6 +223,7 @@ private:
     QAction* m_actionPrivateBrowsing;
     QAction* m_actionStop;
     QAction* m_actionReload;
+    QAction* m_actionRestoreTab;
 
     QLabel* m_privateBrowsing;
     ClickableLabel* m_adblockIcon;

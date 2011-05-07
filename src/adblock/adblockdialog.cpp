@@ -52,6 +52,7 @@ AdBlockDialog::AdBlockDialog(QWidget *parent)
     , m_itemChangingBlock(false)
     , m_manager(AdBlockManager::instance())
 {
+    setAttribute(Qt::WA_DeleteOnClose);
     setupUi(this);
     adblockCheckBox->setChecked(m_manager->isEnabled());
 

@@ -24,6 +24,7 @@
 #include "mainapplication.h"
 #include "webtab.h"
 #include "clickablelabel.h"
+#include "closedtabsmanager.h"
 
 class NewTabButton : public QToolButton
 {
@@ -97,10 +98,8 @@ private:
 TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     QTabWidget(parent)
     ,p_QupZilla(mainClass)
-    ,m_canRestoreTab(false)
     ,m_lastTabIndex(0)
-    ,m_lastTabUrl(0)
-    ,m_lastTabHistory(0)
+    ,m_closedTabsManager(new ClosedTabsManager(this))
 {
     m_tabBar = new TabBar(p_QupZilla);
     setTabBar(m_tabBar);
@@ -267,14 +266,8 @@ void TabWidget::closeTab(int index)
         disconnect(weView(index), SIGNAL(changed()), mApp, SLOT(setChanged()));
         disconnect(weView(index), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
         //Save last tab url and history
-        if (!weView(index)->url().isEmpty()) {
-            m_lastTabUrl = weView(index)->url().toString();
-            QDataStream tabHistoryStream(&m_lastTabHistory, QIODevice::WriteOnly);
-            tabHistoryStream << *weView(index)->history();
-            m_canRestoreTab = true;
-        }
-        //weView(index)->page()->~QWebPage();
-        //weView(index)->~QWebView();
+        m_closedTabsManager->saveView(weView(index));
+
         delete weView(index);
         removeTab(index);
 
@@ -310,7 +303,7 @@ void TabWidget::tabChanged(int index)
 
 void TabWidget::reloadAllTabs()
 {
-    for (int i = 0;i<count();i++) {
+    for (int i = 0; i<count(); i++) {
         reloadTab(i);
     }
 }
@@ -340,13 +333,26 @@ void TabWidget::duplicateTab(int index)
 
 void TabWidget::restoreClosedTab()
 {
-    if (m_lastTabUrl.isEmpty())
+    if (!m_closedTabsManager->isClosedTabAvailable())
         return;
-    int index = addView(QUrl());
-    QDataStream historyStream(m_lastTabHistory);
+
+    ClosedTabsManager::Tab tab;
+
+    QAction* action = qobject_cast<QAction*>(sender());
+    if (action && action->data().toInt() != 0)
+        tab = m_closedTabsManager->getTabAt(action->data().toInt());
+    else
+        tab = m_closedTabsManager->getFirstClosedTab();
+    int index = addView(QUrl(), tab.title);
+    QDataStream historyStream(tab.history);
     historyStream >> *weView(index)->history();
-    weView(index)->load(m_lastTabUrl);
-    m_canRestoreTab = false;
+
+    weView(index)->load(tab.url);
+}
+
+bool TabWidget::canRestoreTab()
+{
+    return m_closedTabsManager->isClosedTabAvailable();
 }
 
 QList<WebTab*> TabWidget::allTabs(bool withPinned)
