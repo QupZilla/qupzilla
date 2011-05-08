@@ -684,7 +684,12 @@ void QupZilla::aboutToShowHistoryMenu()
     QMenu* menuClosedTabs = new QMenu(tr("Closed Tabs"));
     int i = 0;
     foreach (ClosedTabsManager::Tab tab, m_tabWidget->closedTabsManager()->allClosedTabs()) {
-        menuClosedTabs->addAction(_iconForUrl(tab.url), tab.title, m_tabWidget, SLOT(restoreClosedTab()))->setData(i);
+        QString title = tab.title;
+        if (title.length()>40) {
+            title.truncate(40);
+            title+="..";
+        }
+        menuClosedTabs->addAction(_iconForUrl(tab.url), title, m_tabWidget, SLOT(restoreClosedTab()))->setData(i);
         i++;
     }
     if (i == 0)
