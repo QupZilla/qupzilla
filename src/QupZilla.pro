@@ -79,7 +79,6 @@ SOURCES += main.cpp\
     plugins/plugins.cpp \
     preferences/pluginslist.cpp \
     plugins/pluginproxy.cpp \
-    app/appui.cpp \
     tools/clickablelabel.cpp \
     downloads/downloadoptionsdialog.cpp \
     tools/treewidget.cpp \
@@ -117,7 +116,8 @@ SOURCES += main.cpp\
     desktopnotifications/desktopnotificationsfactory.cpp \
     tools/progressbar.cpp \
     tools/iconprovider.cpp \
-    network/networkproxyfactory.cpp
+    network/networkproxyfactory.cpp \
+    tools/closedtabsmanager.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -193,7 +193,8 @@ HEADERS  += 3rdparty/squeezelabel.h \
     desktopnotifications/desktopnotificationsfactory.h \
     tools/progressbar.h \
     tools/iconprovider.h \
-    network/networkproxyfactory.h
+    network/networkproxyfactory.h \
+    tools/closedtabsmanager.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

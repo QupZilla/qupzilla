@@ -137,6 +137,7 @@ private slots:
     void goHome() { loadAddress(m_homepage); }
     void stop() { weView()->stop(); }
     void reload() { weView()->reload(); }
+    void reloadByPassCache() { weView()->page()->triggerAction(QWebPage::ReloadAndBypassCache); }
     void urlEnter();
     void aboutQupZilla();
     void addTab() { m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewTab, true); }
