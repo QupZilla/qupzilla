@@ -69,6 +69,7 @@ public slots:
     void slotReload(){ if (page()) {emit ipChanged(m_currentIp); page()->triggerAction(QWebPage::Reload);} }
     void iconChanged();
     void selectAll();
+    void closeTab();
 
     void zoomIn();
     void zoomOut();
@@ -90,7 +91,6 @@ private slots:
     void linkHovered(const QString &link, const QString &title, const QString &content);
     void openUrlInNewWindow();
     void openUrlInNewTab();
-    void closeTab();
     void downloadLinkToDisk();
     void sendLinkByMail();
     void bookmarkLink();
