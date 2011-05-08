@@ -45,6 +45,7 @@ public:
     void populateNetworkRequest(QNetworkRequest &request);
     ~WebPage();
 
+    WebView* getView() { return m_view; }
     void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
     QString userAgentForUrl(const QUrl &url) const;
