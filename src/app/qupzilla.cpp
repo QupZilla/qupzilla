@@ -374,6 +374,11 @@ void QupZilla::setupMenu()
     connect(m_actionRestoreTab, SIGNAL(triggered()), m_tabWidget, SLOT(restoreClosedTab()));
     addAction(m_actionRestoreTab);
 
+    QAction* reloadByPassCacheAction = new QAction(this);
+    reloadByPassCacheAction->setShortcut(QKeySequence("Ctrl+F5"));
+    connect(reloadByPassCacheAction, SIGNAL(triggered()), this, SLOT(reloadByPassCache()));
+    addAction(reloadByPassCacheAction);
+
     //Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
     foreach (QAction* action, actions) {
