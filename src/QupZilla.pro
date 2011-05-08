@@ -79,6 +79,7 @@ SOURCES += main.cpp\
     plugins/plugins.cpp \
     preferences/pluginslist.cpp \
     plugins/pluginproxy.cpp \
+    app/appui.cpp \
     tools/clickablelabel.cpp \
     downloads/downloadoptionsdialog.cpp \
     tools/treewidget.cpp \
@@ -116,8 +117,7 @@ SOURCES += main.cpp\
     desktopnotifications/desktopnotificationsfactory.cpp \
     tools/progressbar.cpp \
     tools/iconprovider.cpp \
-    network/networkproxyfactory.cpp \
-    tools/closedtabsmanager.cpp
+    network/networkproxyfactory.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -193,8 +193,7 @@ HEADERS  += 3rdparty/squeezelabel.h \
     desktopnotifications/desktopnotificationsfactory.h \
     tools/progressbar.h \
     tools/iconprovider.h \
-    network/networkproxyfactory.h \
-    tools/closedtabsmanager.h
+    network/networkproxyfactory.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -236,4 +235,4 @@ include(3rdparty/qtsingleapplication.pri)
 unix:QT += dbus
 win32:DEFINES += W7API
 win32:RC_FILE = appicon.rc
-win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib DwmApi.lib
+win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
