@@ -20,7 +20,7 @@
 
 #include <QDialog>
 #include <QUrl>
-#include <QDebug>
+#include <QCloseEvent>
 
 namespace Ui {
     class DownloadOptionsDialog;
@@ -34,7 +34,11 @@ public:
     explicit DownloadOptionsDialog(QString fileName, QPixmap fileIcon, QString mimeType, QUrl url, QWidget* parent = 0);
     ~DownloadOptionsDialog();
 
-    int exec();
+private slots:
+    void emitDialogFinished(int status);
+
+signals:
+    void dialogFinished(int);
 
 private:
     Ui::DownloadOptionsDialog* ui;

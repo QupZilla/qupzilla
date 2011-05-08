@@ -136,57 +136,83 @@ void DownloadManager::download(const QNetworkRequest &request, bool askWhatToDo)
     handleUnsupportedContent(m_networkManager->get(request), askWhatToDo);
 }
 
+//////////////////////////////////////////////////////
+//// Getting where to download requested file
+//// in 3 functions, as we are using non blocking
+//// dialogs ( this is important to make secured downloading
+//// on windows working properly )
+//////////////////////////////////////////////////////
 void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo)
 {
-    QString path;
-    QString fileName;
-    QString userFileName;
-    QString _fileName = getFileName(reply);
+    m_h_fileName = getFileName(reply);
+    m_hreply = reply;
 
     QFileInfo info(reply->url().toString());
     QTemporaryFile tempFile("XXXXXX."+info.suffix());
     tempFile.open();
     QFileInfo tempInfo(tempFile.fileName());
-    QPixmap fileIcon = m_iconProvider->icon(tempInfo).pixmap(30,30);
+    m_hfileIcon = m_iconProvider->icon(tempInfo).pixmap(30,30);
     QString mimeType = m_iconProvider->type(tempInfo);
 
-    bool openFileOptionsChoosed = false;
     if (askWhatToDo) {
-        DownloadOptionsDialog* dialog = new DownloadOptionsDialog(_fileName, fileIcon, mimeType, reply->url(), mApp->activeWindow());
-        switch (dialog->exec()) {
-        case 0:  //Cancelled
-            return;
-            break;
-        case 1: //Open
-            openFileOptionsChoosed = true;
-            break;
-        case 2: //Save
-            break;
-        }
-    }
-
-    if (!openFileOptionsChoosed) {
-        if (m_downloadPath.isEmpty())
-            userFileName = QFileDialog::getSaveFileName(mApp->getWindow(), tr("Save file as..."),m_lastDownloadPath+_fileName);
-        else
-            userFileName = m_downloadPath+_fileName;
-
-        if (userFileName.isEmpty()) {
-            reply->abort();
-            return;
-        }
+        DownloadOptionsDialog* dialog = new DownloadOptionsDialog(m_h_fileName, m_hfileIcon, mimeType, reply->url(), mApp->activeWindow());
+        dialog->show();
+        connect(dialog, SIGNAL(dialogFinished(int)), this, SLOT(optionsDialogAccepted(int)));
     } else
-        userFileName = QDir::tempPath()+"/"+_fileName;
+        optionsDialogAccepted(2);
+}
 
-    int pos = userFileName.lastIndexOf("/");
-    if (pos!=-1) {
-        int size = userFileName.size();
-        path = userFileName.left(pos+1);
-        fileName = userFileName.right(size-pos-1);
+void DownloadManager::optionsDialogAccepted(int finish)
+{
+    m_hOpenFileChoosed = false;
+    switch (finish) {
+    case 0:  //Cancelled
+        return;
+        break;
+    case 1: //Open
+        m_hOpenFileChoosed = true;
+        break;
+    case 2: //Save
+        break;
     }
 
-    if (!path.contains(QDir::tempPath()))
-        m_lastDownloadPath = path;
+    if (!m_hOpenFileChoosed) {
+        if (m_downloadPath.isEmpty()) {
+#ifdef Q_WS_WIN //Well, poor Windows users will use non-native file dialog for downloads
+            QFileDialog* dialog = new QFileDialog(mApp->getWindow());
+            dialog->setAttribute(Qt::WA_DeleteOnClose);
+            dialog->setWindowTitle(tr("Save file as..."));
+            dialog->setDirectory(m_lastDownloadPath);
+            dialog->selectFile(m_h_fileName);
+            dialog->show();
+            connect(dialog, SIGNAL(fileSelected(QString)), this, SLOT(fileNameChoosed(QString)));
+#else
+            fileNameChoosed(QFileDialog::getSaveFileName(mApp->getWindow(), tr("Save file as..."), m_lastDownloadPath + m_h_fileName));
+#endif
+        }
+        else
+            fileNameChoosed(m_downloadPath + m_h_fileName);
+    } else
+        fileNameChoosed(QDir::tempPath() + "/" + m_h_fileName);
+}
+
+void DownloadManager::fileNameChoosed(const QString &name)
+{
+    m_huserFileName = name;
+    if (m_huserFileName.isEmpty()) {
+        m_hreply->abort();
+        return;
+    }
+
+    int pos = m_huserFileName.lastIndexOf("/");
+    if (pos != -1) {
+        int size = m_huserFileName.size();
+        m_hpath = m_huserFileName.left(pos+1);
+        m_hfileName = m_huserFileName.right(size-pos-1);
+    }
+
+    if (!m_hpath.contains(QDir::tempPath()))
+        m_lastDownloadPath = m_hpath;
 
     QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
@@ -194,14 +220,26 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWha
     settings.endGroup();
 
     QListWidgetItem* item = new QListWidgetItem(ui->list);
-    DownloadItem* downItem = new DownloadItem(item, reply, path, fileName, fileIcon, openFileOptionsChoosed, this);
+    DownloadItem* downItem = new DownloadItem(item, m_hreply, m_hpath, m_hfileName, m_hfileIcon, m_hOpenFileChoosed, this);
     connect(downItem, SIGNAL(deleteItem(DownloadItem*)), this, SLOT(deleteItem(DownloadItem*)));
     connect(downItem, SIGNAL(downloadFinished(bool)), this, SLOT(downloadFinished(bool)));
     ui->list->setItemWidget(item, downItem);
     item->setSizeHint(downItem->sizeHint());
     show();
     activateWindow();
+
+    //Negating all used variables
+    m_hpath.clear();
+    m_hfileName.clear();
+    m_huserFileName.clear();
+    m_h_fileName.clear();
+    m_hreply = 0;
+    m_hfileIcon = QPixmap();
+    m_hOpenFileChoosed = false;
 }
+//////////////////////////////////////////////////////
+//// End here
+//////////////////////////////////////////////////////
 
 void DownloadManager::downloadFinished(bool success)
 {

@@ -69,6 +69,10 @@ private slots:
     void deleteItem(DownloadItem* item);
     void downloadFinished(bool success);
 
+
+    void optionsDialogAccepted(int finish);
+    void fileNameChoosed(const QString &name = "");
+
 private:
 #ifdef W7API
     EcWin7 win7;
@@ -86,6 +90,15 @@ private:
     QBasicTimer m_timer;
 
     bool m_isClosing;
+
+    // Variables used by HandleUnsupportContent:
+    QString m_hpath;
+    QString m_hfileName;
+    QString m_huserFileName;
+    QString m_h_fileName;
+    QNetworkReply* m_hreply;
+    QPixmap m_hfileIcon;
+    bool m_hOpenFileChoosed;
 };
 
 #endif // DOWNLOADMANAGER_H

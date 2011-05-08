@@ -68,7 +68,7 @@ void WebPage::setSSLCertificate(const QSslCertificate &cert)
 
 QSslCertificate WebPage::sslCertificate()
 {
-    if (m_SslCert.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(mainFrame()->url().host())))
+    if (mainFrame()->url().scheme() == "https" && m_SslCert.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(mainFrame()->url().host())))
         return m_SslCert;
     else
         return QSslCertificate();

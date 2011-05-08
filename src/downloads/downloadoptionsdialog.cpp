@@ -20,7 +20,7 @@
 
 DownloadOptionsDialog::DownloadOptionsDialog(QString fileName, QPixmap fileIcon, QString mimeType, QUrl url, QWidget *parent)
     : QDialog(parent)
-    ,ui(new Ui::DownloadOptionsDialog)
+    , ui(new Ui::DownloadOptionsDialog)
 {
     ui->setupUi(this);
     ui->fileName->setText("<b>"+fileName+"</b>");
@@ -28,18 +28,19 @@ DownloadOptionsDialog::DownloadOptionsDialog(QString fileName, QPixmap fileIcon,
     ui->fileType->setText(mimeType);
     ui->fromServer->setText(url.host());
     setWindowTitle(tr("Opening %1").arg(fileName));
+
+    connect(this, SIGNAL(finished(int)), this, SLOT(emitDialogFinished(int)));
 }
 
-int DownloadOptionsDialog::exec()
+void DownloadOptionsDialog::emitDialogFinished(int status)
 {
-    int status = QDialog::exec();
-    if (status == 0)
-        return 0;
-    else if (ui->radioOpen->isChecked())
-        return 1;
-    else if (ui->radioSave->isChecked())
-        return 2;
-    return 2;
+    if (status != 0) {
+        if (ui->radioOpen->isChecked())
+            status =  1;
+        else if (ui->radioSave->isChecked())
+            status =  2;
+    }
+    emit dialogFinished(status);
 }
 
 DownloadOptionsDialog::~DownloadOptionsDialog()
