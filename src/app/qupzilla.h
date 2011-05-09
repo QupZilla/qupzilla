@@ -72,6 +72,7 @@ class WebTab;
 class AdBlockIcon;
 class SideBar;
 class ProgressBar;
+class StatusBarMessage;
 class QupZilla : public QMainWindow
 {
     Q_OBJECT
@@ -97,9 +98,10 @@ public:
 
     inline WebView* weView() const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabWidget->currentIndex())); if (!webTab) return 0; return webTab->view(); }
     inline WebView* weView(int index) const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index)); if (!webTab) return 0; return webTab->view(); }
-    inline LocationBar* locationBar(){ return m_locationBar; }
-    inline TabWidget* tabWidget(){ return m_tabWidget; }
-    inline BookmarksToolbar* bookmarksToolbar(){ return m_bookmarksToolbar; }
+    inline LocationBar* locationBar() { return m_locationBar; }
+    inline TabWidget* tabWidget() { return m_tabWidget; }
+    inline BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
+    inline StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
 
     inline QAction* buttonStop(){ return m_buttonStop; }
     inline QAction* buttonReload(){ return m_buttonReload; }
@@ -237,6 +239,7 @@ private:
     LocationBar* m_locationBar;
     TabWidget* m_tabWidget;
     QPointer<SideBar> m_sideBar;
+    StatusBarMessage* m_statusBarMessage;
 
     QSplitter* m_navigationSplitter;
     QAction* m_buttonBack;

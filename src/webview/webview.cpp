@@ -31,6 +31,7 @@
 #include "pluginproxy.h"
 #include "iconprovider.h"
 #include "webtab.h"
+#include "statusbarmessage.h"
 
 WebView::WebView(QupZilla* mainClass, QWidget* parent)
     : QWebView(parent)
@@ -266,11 +267,10 @@ void WebView::linkHovered(const QString &link, const QString &title, const QStri
     Q_UNUSED(title);
     Q_UNUSED(content);
     if (isCurrent()) {
-        if (link!="") {
-            p_QupZilla->statusBar()->showMessage(link);
-        }else{
-            isLoading() ? p_QupZilla->statusBar()->showMessage(tr("Loading...")) : p_QupZilla->statusBar()->showMessage(tr("Done"));
-        }
+        if (link!="")
+            p_QupZilla->statusBarMessage()->showMessage(link);
+        else
+            p_QupZilla->statusBarMessage()->clearMessage();
     }
     m_hoveredLink = link;
 }

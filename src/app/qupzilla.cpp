@@ -52,6 +52,7 @@
 #include "progressbar.h"
 #include "adblockicon.h"
 #include "closedtabsmanager.h"
+#include "statusbarmessage.h"
 
 const QString QupZilla::VERSION = "1.0.0-b2";
 //const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM d yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
@@ -69,6 +70,7 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     ,m_webInspectorDock(0)
     ,m_webSearchToolbar(0)
     ,m_sideBar(0)
+    ,m_statusBarMessage(new StatusBarMessage(this))
 {
     setAttribute(Qt::WA_DeleteOnClose);
     this->resize(640,480);

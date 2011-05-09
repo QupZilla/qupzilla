@@ -593,8 +593,13 @@ void Preferences::saveSettings()
         settings.setValue("defaultDownloadPath","");
     else{
         QString text = ui->downLoc->text();
+#ifdef Q_WS_WIN
+        if (!text.endsWith("\\"))
+            text+="\\";
+#else
         if (!text.endsWith("/"))
             text+="/";
+#endif
         settings.setValue("defaultDownloadPath",text);
     }
     settings.endGroup();
