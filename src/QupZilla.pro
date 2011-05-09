@@ -117,7 +117,8 @@ SOURCES += main.cpp\
     tools/progressbar.cpp \
     tools/iconprovider.cpp \
     network/networkproxyfactory.cpp \
-    tools/closedtabsmanager.cpp
+    tools/closedtabsmanager.cpp \
+    other/statusbarmessage.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -194,7 +195,8 @@ HEADERS  += 3rdparty/squeezelabel.h \
     tools/progressbar.h \
     tools/iconprovider.h \
     network/networkproxyfactory.h \
-    tools/closedtabsmanager.h
+    tools/closedtabsmanager.h \
+    other/statusbarmessage.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

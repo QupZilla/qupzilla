@@ -27,6 +27,7 @@
 #include "webpage.h"
 #include "bookmarkicon.h"
 #include "progressbar.h"
+#include "statusbarmessage.h"
 
 LocationBar::LocationBar(QupZilla* mainClass, QWidget* parent)
     : LineEdit(parent)
@@ -154,7 +155,7 @@ void LocationBar::rssIconClicked()
 
 void LocationBar::showUrl(const QUrl &url, bool empty)
 {
-    if (hasFocus() || (url.isEmpty() && empty))
+    if (/*hasFocus() || (*/url.isEmpty() && empty/*)*/)
         return;
 
     if (url.toEncoded()!=text()) {
@@ -171,14 +172,14 @@ void LocationBar::showUrl(const QUrl &url, bool empty)
         p_QupZilla->progressBar()->setValue(view->getLoading());
         p_QupZilla->buttonStop()->setVisible(true);
         p_QupZilla->buttonReload()->setVisible(false);
-        p_QupZilla->statusBar()->showMessage(tr("Loading..."));
-    }else{
+    } else {
         p_QupZilla->progressBar()->setVisible(false);
         p_QupZilla->buttonStop()->setVisible(false);
         p_QupZilla->buttonReload()->setVisible(true);
-        p_QupZilla->statusBar()->showMessage(tr("Done"));
         p_QupZilla->ipLabel()->show();
     }
+
+    p_QupZilla->statusBarMessage()->clearMessage();
 
     hideGoButton();
 
