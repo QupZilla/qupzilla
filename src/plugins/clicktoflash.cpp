@@ -51,16 +51,6 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
         , m_argumentValues(argumentValues)
         , m_url(pluginUrl)
 {
-    //AdBlock
-    AdBlockManager* manager = AdBlockManager::instance();
-    if (manager->isEnabled()) {
-        QString urlString = pluginUrl.toEncoded();
-        AdBlockSubscription* subscription = manager->subscription();
-        if (!subscription->allow(urlString) && subscription->block(urlString)) {
-            QTimer::singleShot(200, this, SLOT(hideAdBlocked()));
-            return;
-        }
-    }
     QHBoxLayout* horizontalLayout;
     QFrame* frame;
     QHBoxLayout* horizontalLayout_2;
@@ -71,6 +61,18 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     frame->setContentsMargins(0,0,0,0);
     horizontalLayout_2 = new QHBoxLayout(frame);
     toolButton = new QToolButton(frame);
+
+    //AdBlock
+    AdBlockManager* manager = AdBlockManager::instance();
+    if (manager->isEnabled()) {
+        QString urlString = pluginUrl.toEncoded();
+        AdBlockSubscription* subscription = manager->subscription();
+        if (!subscription->allow(urlString) && subscription->block(urlString)) {
+            QTimer::singleShot(200, this, SLOT(hideAdBlocked()));
+            return;
+        }
+    }
+
     toolButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     toolButton->setStyleSheet("QToolButton { background: url(:/icons/other/flash.png) no-repeat;\n"
         "background-position: center; border: none;}\n"

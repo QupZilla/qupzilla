@@ -144,6 +144,8 @@ void DownloadManager::download(const QNetworkRequest &request, bool askWhatToDo)
 //////////////////////////////////////////////////////
 void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo)
 {
+    m_htimer = new QTime();
+    m_htimer->start();
     m_h_fileName = getFileName(reply);
     m_hreply = reply;
 
@@ -167,6 +169,8 @@ void DownloadManager::optionsDialogAccepted(int finish)
     m_hOpenFileChoosed = false;
     switch (finish) {
     case 0:  //Cancelled
+        if (m_htimer)
+            delete m_htimer;
         return;
         break;
     case 1: //Open
@@ -201,6 +205,8 @@ void DownloadManager::fileNameChoosed(const QString &name)
     m_huserFileName = name;
     if (m_huserFileName.isEmpty()) {
         m_hreply->abort();
+        if (m_htimer)
+            delete m_htimer;
         return;
     }
 
@@ -220,7 +226,7 @@ void DownloadManager::fileNameChoosed(const QString &name)
     settings.endGroup();
 
     QListWidgetItem* item = new QListWidgetItem(ui->list);
-    DownloadItem* downItem = new DownloadItem(item, m_hreply, m_hpath, m_hfileName, m_hfileIcon, m_hOpenFileChoosed, this);
+    DownloadItem* downItem = new DownloadItem(item, m_hreply, m_hpath, m_hfileName, m_hfileIcon, m_htimer, m_hOpenFileChoosed, this);
     connect(downItem, SIGNAL(deleteItem(DownloadItem*)), this, SLOT(deleteItem(DownloadItem*)));
     connect(downItem, SIGNAL(downloadFinished(bool)), this, SLOT(downloadFinished(bool)));
     ui->list->setItemWidget(item, downItem);
@@ -253,7 +259,7 @@ void DownloadManager::downloadFinished(bool success)
 
     if (downloadingAllFilesFinished) {
         if (success && qApp->activeWindow() != this) {
-            mApp->desktopNotifications()->notify(QPixmap(":icons/notifications/download.png"), tr("Download Finished"), tr("All files has been successfuly downloaded."));
+            mApp->desktopNotifications()->notify(QPixmap(":icons/notifications/download.png"), tr("Download Finished"), tr("All files have been successfuly downloaded."));
             raise();
             activateWindow();
         }

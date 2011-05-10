@@ -53,7 +53,7 @@ void CommandLineOptions::parseActions()
     using namespace std;
 
     bool found = false;
-    // Skip first argument (program itself)
+    // Skip first argument (it should be program itself)
     for (int i = 1; i < m_argc; i++) {
         QString arg(m_argv[i]);
         if (arg == "-h" || arg == "-help") {
