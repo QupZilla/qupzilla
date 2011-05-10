@@ -69,9 +69,10 @@ public:
     inline QString getActiveLanguage() { return m_activeLanguage; }
     inline bool isClosing() { return m_isClosing; }
     inline bool isExited() { return m_isExited; }
+    inline int windowCount() { return m_mainWindows.count(); }
+
     bool checkSettingsDir();
     void checkProfile(QString path);
-    inline int windowCount() { return m_mainWindows.count(); }
 
     QupZilla* getWindow();
     BookmarksManager* bookmarksManager();

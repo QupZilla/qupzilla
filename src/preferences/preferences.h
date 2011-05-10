@@ -56,6 +56,7 @@ private slots:
     void resetBackground();
     void chooseColor();
     void openSslManager();
+    void chooseUserStyleClicked();
 
     void allowJavaScriptChanged(bool stat);
     void saveHistoryChanged(bool stat);

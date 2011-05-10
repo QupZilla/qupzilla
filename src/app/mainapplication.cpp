@@ -71,6 +71,7 @@ MainApplication::MainApplication(int &argc, char **argv)
     QUrl startUrl("");
     QString message;
     QString startProfile;
+
     if (argc > 1) {
         CommandLineOptions cmd(argc, argv);
         QList<QPair<int, QString> > cmdActions = cmd.getActions();
@@ -179,6 +180,7 @@ void MainApplication::loadSettings()
     bool printElBg = settings.value("PrintElementBackground", true).toBool();
     int maxCachedPages = settings.value("maximumCachedPages",3).toInt();
     int scrollingLines = settings.value("wheelScrollLines", wheelScrollLines()).toInt();
+    QUrl userStyleSheet = settings.value("userStyleSheet", QUrl()).toUrl();
     settings.endGroup();
 
     m_websettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
@@ -202,6 +204,7 @@ void MainApplication::loadSettings()
     m_websettings->setFontSize(QWebSettings::DefaultFontSize, settings.value("DefaultFontSize", m_websettings->fontSize(QWebSettings::DefaultFontSize)).toInt() );
     m_websettings->setFontSize(QWebSettings::DefaultFixedFontSize, settings.value("FixedFontSize", m_websettings->fontSize(QWebSettings::DefaultFixedFontSize)).toInt() );
 
+    m_websettings->setUserStyleSheetUrl(userStyleSheet);
     m_websettings->setDefaultTextEncoding("System");
 #ifdef Q_WS_X11
     m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, QIcon::fromTheme("text-plain").pixmap(16,16));

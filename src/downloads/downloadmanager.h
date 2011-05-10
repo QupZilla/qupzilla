@@ -92,6 +92,7 @@ private:
     bool m_isClosing;
 
     // Variables used by HandleUnsupportContent:
+    QTime* m_htimer;
     QString m_hpath;
     QString m_hfileName;
     QString m_huserFileName;

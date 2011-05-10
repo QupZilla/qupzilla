@@ -42,7 +42,7 @@ class DownloadItem : public QWidget
     Q_OBJECT
 
 public:
-    explicit DownloadItem(QListWidgetItem* item, QNetworkReply* reply ,QString path, QString fileName, QPixmap fileIcon, bool openAfterFinishedDownload, QWidget* parent = 0);
+    explicit DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString path, QString fileName, QPixmap fileIcon, QTime* timer, bool openAfterFinishedDownload, QWidget* parent = 0);
     bool isDownloading() { return m_downloading; }
     bool isCancelled();
     QTime remainingTime() { return m_remTime; }
@@ -84,7 +84,7 @@ private:
     QNetworkReply* m_reply;
     QString m_path;
     QString m_fileName;
-    QTime m_downTimer;
+    QTime* m_downTimer;
     QTime m_remTime;
     QBasicTimer m_timer;
     QFile m_outputFile;

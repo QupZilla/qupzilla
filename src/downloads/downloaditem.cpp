@@ -24,13 +24,14 @@
 
 //#define DOWNMANAGER_DEBUG
 
-DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString path, QString fileName, QPixmap fileIcon, bool openAfterFinishedDownload, QWidget* parent)
+DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString path, QString fileName, QPixmap fileIcon, QTime* timer, bool openAfterFinishedDownload, QWidget* parent)
     : QWidget(parent)
    ,ui(new Ui::DownloadItem)
    ,m_item(item)
    ,m_reply(reply)
    ,m_path(path)
    ,m_fileName(fileName)
+   ,m_downTimer(timer)
    ,m_downUrl(reply->url())
    ,m_downloadPage(QUrl())
    ,m_downloading(false)
@@ -72,7 +73,6 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
     connect(ui->button, SIGNAL(clicked(QPoint)), this, SLOT(stop()));
 
     m_downloading = true;
-    m_downTimer.start();
     m_timer.start(1000*1, this);
     readyRead();
     QTimer::singleShot(500, this, SLOT(updateDownload()));
@@ -147,7 +147,7 @@ void DownloadItem::downloadProgress(qint64 received, qint64 total)
     }
     ui->progressBar->setValue(currentValue);
     ui->progressBar->setMaximum(totalValue);
-    m_currSpeed = received * 1000.0 / m_downTimer.elapsed();
+    m_currSpeed = received * 1000.0 / m_downTimer->elapsed();
     m_received = received;
     m_total = total;
 }
@@ -370,4 +370,5 @@ DownloadItem::~DownloadItem()
 {
     delete ui;
     delete m_item;
+    delete m_downTimer;
 }

@@ -204,9 +204,11 @@ void QupZilla::setupUi()
 
     m_actionExitFullscreen = new QAction(tr("Exit Fullscreen"),this);
     m_actionExitFullscreen->setVisible(false);
+    QWidget* _spacer = new QWidget();
+    _spacer->setMinimumWidth(4);
+    m_navigation->addWidget(_spacer); //Elegant spacer -,-
     m_navigation->addAction(m_actionExitFullscreen);
     m_navigation->addWidget(m_supMenu);
-    m_navigation->addWidget(new QLabel()); //Elegant spacer -,-
     m_navigation->setContextMenuPolicy(Qt::CustomContextMenu);
 
     m_progressBar = new ProgressBar(statusBar());
@@ -446,7 +448,7 @@ void QupZilla::loadSettings()
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
     m_navigation->setVisible(showNavigationToolbar);
     menuBar()->setVisible(showMenuBar);
-    m_navigation->actions().at(m_navigation->actions().count()-2)->setVisible(!showMenuBar);
+    m_navigation->actions().at(m_navigation->actions().count() - 1)->setVisible(!showMenuBar);
 
     m_buttonHome->setVisible(showHomeIcon);
     m_buttonBack->setVisible(showBackForwardIcons);
@@ -974,7 +976,7 @@ void QupZilla::showMenubar()
         showNavigationToolbar();
 
     menuBar()->setVisible(!menuBar()->isVisible());
-    m_navigation->actions().at(m_navigation->actions().count()-2)->setVisible(!menuBar()->isVisible());
+    m_navigation->actions().at(m_navigation->actions().count() - 1)->setVisible(!menuBar()->isVisible());
 
     QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/showMenubar", menuBar()->isVisible());
