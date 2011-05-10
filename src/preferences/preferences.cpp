@@ -207,6 +207,10 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     ui->deleteCookiesOnClose->setChecked( settings.value("deleteCookiesOnClose", false).toBool() );
     ui->matchExactly->setChecked( settings.value("allowCookiesFromVisitedDomainOnly",false).toBool() );
     ui->filterTracking->setChecked( settings.value("filterTrackingCookie",false).toBool() );
+
+    //CSS Style
+    ui->userStyleSheet->setText( settings.value("userStyleSheet", "").toString() );
+    connect(ui->chooseUserStylesheet, SIGNAL(clicked()), this, SLOT(chooseUserStyleClicked()));
     settings.endGroup();
 
     //DOWNLOADS
@@ -394,6 +398,14 @@ void Preferences::chooseBackgroundPath()
     QFile(file).copy(p_QupZilla->activeProfil()+"background.png");
 
     updateBgLabel();
+}
+
+void Preferences::chooseUserStyleClicked()
+{
+    QString file = QFileDialog::getOpenFileName(p_QupZilla, tr("Choose stylesheet location..."), QDir::homePath(), "*.css");
+    if (file.isEmpty())
+        return;
+    ui->userStyleSheet->setText(file);
 }
 
 void Preferences::newTabChanged()
@@ -633,6 +645,8 @@ void Preferences::saveSettings()
     //Cache
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
     settings.setValue("LocalCacheSize", ui->cacheMB->value());
+    //CSS Style
+    settings.setValue("userStyleSheet", ui->userStyleSheet->text());
 
     //PRIVACY
     //Web storage
