@@ -26,6 +26,7 @@ public:
     ClosedTabsManager::Tab getTabAt(int index);
 
     bool isClosedTabAvailable();
+    void clearList();
 
     QList<ClosedTabsManager::Tab> allClosedTabs() { return m_closedTabs; }
 

@@ -67,6 +67,7 @@ public slots:
     void duplicateTab(int index);
     void closeAllButCurrent(int index);
     void restoreClosedTab();
+    void restoreAllClosedTabs();
 
 private slots:
     void aboutToShowTabsMenu();

@@ -47,3 +47,8 @@ bool ClosedTabsManager::isClosedTabAvailable()
 {
     return (m_closedTabs.count() != 0);
 }
+
+void ClosedTabsManager::clearList()
+{
+    m_closedTabs.clear();
+}

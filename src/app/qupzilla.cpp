@@ -701,8 +701,11 @@ void QupZilla::aboutToShowHistoryMenu()
         menuClosedTabs->addAction(_iconForUrl(tab.url), title, m_tabWidget, SLOT(restoreClosedTab()))->setData(i);
         i++;
     }
+    menuClosedTabs->addSeparator();
     if (i == 0)
         menuClosedTabs->addAction(tr("Empty"))->setEnabled(false);
+    else
+        menuClosedTabs->addAction(tr("Restore All Closed Tabs"), m_tabWidget, SLOT(restoreAllClosedTabs()));
 
     m_menuHistory->addMenu(menuClosedTabs);
 }
