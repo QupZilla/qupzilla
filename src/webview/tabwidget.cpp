@@ -350,6 +350,22 @@ void TabWidget::restoreClosedTab()
     weView(index)->load(tab.url);
 }
 
+void TabWidget::restoreAllClosedTabs()
+{
+    if (!m_closedTabsManager->isClosedTabAvailable())
+        return;
+
+    QList<ClosedTabsManager::Tab> closedTabs = m_closedTabsManager->allClosedTabs();
+    foreach (ClosedTabsManager::Tab tab, closedTabs) {
+        int index = addView(QUrl(), tab.title);
+        QDataStream historyStream(tab.history);
+        historyStream >> *weView(index)->history();
+
+        weView(index)->load(tab.url);
+    }
+    m_closedTabsManager->clearList();
+}
+
 bool TabWidget::canRestoreTab()
 {
     return m_closedTabsManager->isClosedTabAvailable();
