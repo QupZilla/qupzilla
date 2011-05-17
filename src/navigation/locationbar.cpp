@@ -226,7 +226,7 @@ void LocationBar::dropEvent(QDropEvent* event)
     if (event->mimeData()->hasUrls()) {
         QUrl dropUrl = event->mimeData()->urls().at(0);
         if (WebView::isUrlValid(dropUrl)) {
-            setText(dropUrl.toEncoded());
+            setText(dropUrl.toString());
             p_QupZilla->loadAddress(dropUrl);
             QLineEdit::focusOutEvent(new QFocusEvent(QFocusEvent::FocusOut));
             return;
@@ -235,7 +235,7 @@ void LocationBar::dropEvent(QDropEvent* event)
     if (event->mimeData()->hasText()) {
         QUrl dropUrl = QUrl(event->mimeData()->text());
         if (WebView::isUrlValid(dropUrl)) {
-            setText(dropUrl.toEncoded());
+            setText(dropUrl.toString());
             p_QupZilla->loadAddress(dropUrl);
             QLineEdit::focusOutEvent(new QFocusEvent(QFocusEvent::FocusOut));
             return;
