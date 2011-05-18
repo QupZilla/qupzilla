@@ -26,9 +26,15 @@ class CommandLineOptions : public QObject
 {
     Q_OBJECT
 public:
-    enum Action {NoAction, OpenUrl, StartWithProfile, StartWithoutAddons};
+    enum Action {NoAction, OpenUrl, StartWithProfile, StartWithoutAddons, NewTab, NewWindow, ShowDownloadManager, ExitAction};
+
+    struct ActionPair {
+        Action action;
+        QString text;
+    };
+
     explicit CommandLineOptions(int &argc, char **argv);
-    QList<QPair<int, QString> > getActions() { return m_actions; }
+    QList<ActionPair> getActions() { return m_actions; }
 
 private:
     void showHelp();
@@ -36,7 +42,7 @@ private:
 
     int m_argc;
     char **m_argv;
-    QList<QPair<int, QString> > m_actions;
+    QList<ActionPair> m_actions;
 };
 
 #endif // COMMANDLINEOPTIONS_H
