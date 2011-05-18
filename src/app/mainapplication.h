@@ -28,6 +28,7 @@
 #include <iostream>
 
 #include "qtsingleapplication.h"
+#include "commandlineoptions.h"
 
 class QupZilla;
 class BookmarksManager;
@@ -52,7 +53,7 @@ class MainApplication : public QtSingleApplication
 
 public:
     QString DATADIR;
-    explicit MainApplication(int &argc, char **argv);
+    explicit MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv);
 
     enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing , ReloadSettings };
 
@@ -60,7 +61,7 @@ public:
     void reloadSettings() { emit message(ReloadSettings, true); }
     bool restoreStateSlot(QupZilla* window);
     void makeNewWindow(bool tryRestore, const QUrl &startUrl=QUrl());
-    void addNewTab(QUrl url);
+    void addNewTab(const QUrl &url = QUrl());
     void aboutToCloseWindow(QupZilla* window);
     bool isChanged();
 

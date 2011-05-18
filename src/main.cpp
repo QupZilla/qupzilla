@@ -20,6 +20,7 @@
 #include <QTextCodec>
 #include <QtPlugin>
 #include <iostream>
+#include "commandlineoptions.h"
 #include "mainapplication.h"
 
 int main(int argc, char *argv[])
@@ -32,9 +33,26 @@ int main(int argc, char *argv[])
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11
 #endif
 
-    MainApplication app(argc, argv);
+    QList<CommandLineOptions::ActionPair> cmdActions;
+
+    if (argc > 1) {
+        CommandLineOptions cmd(argc, argv);
+        cmdActions = cmd.getActions();
+        foreach (CommandLineOptions::ActionPair pair, cmdActions) {
+            switch (pair.action) {
+            case CommandLineOptions::ExitAction:
+                return 1;
+                break;
+            default:
+                break;
+            }
+        }
+    }
+
+    MainApplication app(cmdActions, argc, argv);
     if (app.isExited()) {
-        std::cout << "QupZilla already running - activating existing window" << std::endl;
+        if (argc == 1)
+            std::cout << "QupZilla already running - activating existing window" << std::endl;
         return 1;
     }
 

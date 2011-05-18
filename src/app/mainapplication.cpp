@@ -28,7 +28,6 @@
 #include "rssmanager.h"
 #include "updater.h"
 #include "autosaver.h"
-#include "commandlineoptions.h"
 #include "pluginproxy.h"
 #include "bookmarksmodel.h"
 #include "downloadmanager.h"
@@ -38,7 +37,7 @@
 #include "iconprovider.h"
 #include "qtwin.h"
 
-MainApplication::MainApplication(int &argc, char **argv)
+MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
     ,m_bookmarksmanager(0)
     ,m_cookiemanager(0)
@@ -73,24 +72,28 @@ MainApplication::MainApplication(int &argc, char **argv)
     QString startProfile;
 
     if (argc > 1) {
-        CommandLineOptions cmd(argc, argv);
-        QList<QPair<int, QString> > cmdActions = cmd.getActions();
-        for (int i = 0; i < cmdActions.count(); i++) {
-            QPair<int, QString> act = cmdActions.at(i);
-            switch (act.first) {
+        foreach (CommandLineOptions::ActionPair pair, cmdActions) {
+            switch (pair.action) {
             case CommandLineOptions::StartWithoutAddons:
                 noAddons = true;
                 break;
-            case CommandLineOptions::OpenUrl:
-                startUrl = act.second;
-                message = "URL:"+startUrl.toString();
-                break;
             case CommandLineOptions::StartWithProfile:
-                startProfile = act.second;
+                startProfile = pair.text;
+                break;
+            case CommandLineOptions::NewTab:
+                message = "ACTION:NewTab";
+                break;
+            case CommandLineOptions::NewWindow:
+                message = "ACTION:NewWindow";
+                break;
+            case CommandLineOptions::ShowDownloadManager:
+                message = "ACTION:ShowDownloadManager";
+                break;
+            case CommandLineOptions::OpenUrl:
+                startUrl = pair.text;
+                message = "URL:" + startUrl.toString();
                 break;
             default:
-                m_isExited = true;
-                return;
                 break;
             }
         }
@@ -252,6 +255,14 @@ void MainApplication::receiveAppMessage(QString message)
     if (message.startsWith("URL:")) {
         QString url(message.remove("URL:"));
         addNewTab(WebView::guessUrlFromString(url));
+    } else if (message.startsWith("ACTION:")) {
+        QString text = message.mid(7);
+        if (text == "NewTab")
+            addNewTab();
+        else if (text == "NewWindow")
+            makeNewWindow(false);
+        else if (text == "ShowDownloadManager")
+            downManager()->show();
     }
 
     QupZilla* actWin = getWindow();
@@ -265,7 +276,7 @@ void MainApplication::receiveAppMessage(QString message)
     actWin->setFocus();
 }
 
-void MainApplication::addNewTab(QUrl url)
+void MainApplication::addNewTab(const QUrl &url)
 {
     if (!getWindow())
         return;
