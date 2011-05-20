@@ -25,7 +25,6 @@ CookieJar::CookieJar(QupZilla* mainClass, QObject* parent) :
     ,p_QupZilla(mainClass)
 {
     loadSettings();
-//    activeProfil = mApp->getActiveProfil();
     m_activeProfil = mApp->getActiveProfil();
 }
 
@@ -127,3 +126,15 @@ void CookieJar::setAllCookies(const QList<QNetworkCookie> &cookieList)
 {
     QNetworkCookieJar::setAllCookies(cookieList);
 }
+
+void CookieJar::turnPrivateJar(bool state)
+{
+    if (state) {
+        m_tempList = QNetworkCookieJar::allCookies();
+        QNetworkCookieJar::setAllCookies(QList<QNetworkCookie>());
+    } else {
+        QNetworkCookieJar::setAllCookies(m_tempList);
+        m_tempList.clear();
+    }
+}
+

@@ -39,6 +39,8 @@ public:
     void restoreCookies();
     void setAllowCookies(bool allow);
 
+    void turnPrivateJar(bool state);
+
 signals:
 
 public slots:
@@ -51,6 +53,7 @@ private:
     bool m_deleteOnClose;
 
     QString m_activeProfil;
+    QList<QNetworkCookie> m_tempList;
 };
 
 #endif // COOKIEJAR_H
