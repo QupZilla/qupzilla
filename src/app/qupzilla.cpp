@@ -1129,7 +1129,7 @@ void QupZilla::startPrivate(bool state)
     }
     mApp->webSettings()->setAttribute(QWebSettings::PrivateBrowsingEnabled, state);
     mApp->history()->setSaving(!state);
-    mApp->cookieJar()->setAllowCookies(!state);
+    mApp->cookieJar()->turnPrivateJar(state);
     emit message(MainApplication::CheckPrivateBrowsing, state);
 }
 
