@@ -99,6 +99,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     QTabWidget(parent)
     ,p_QupZilla(mainClass)
     ,m_lastTabIndex(0)
+    ,m_isClosingToLastTabIndex(false)
     ,m_closedTabsManager(new ClosedTabsManager(this))
 {
     m_tabBar = new TabBar(p_QupZilla);
@@ -118,6 +119,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     connect(m_tabBar, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
+    connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
 
     m_buttonListTabs = new TabListButton(this);
     m_menuTabs = new QMenu();
@@ -205,6 +207,8 @@ void TabWidget::actionChangeIndex()
 
 int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool selectLine)
 {
+    m_lastTabIndex = currentIndex();
+
     if (url.isEmpty())
         url = m_urlOnNewTab;
 
@@ -236,6 +240,8 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
         weView(index)->load(url);
     if (selectLine)
         p_QupZilla->locationBar()->setFocus();
+    if (openIn == NewSelectedTab)
+        m_isClosingToLastTabIndex = true;
 
     return index;
 }
@@ -257,7 +263,6 @@ void TabWidget::closeTab(int index)
         return;
     if (index == -1)
         index = currentIndex();
-    else m_lastTabIndex-=1;
 
     if (weView(index)) {
         disconnect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
@@ -268,6 +273,9 @@ void TabWidget::closeTab(int index)
         //Save last tab url and history
         m_closedTabsManager->saveView(weView(index));
 
+        if (m_isClosingToLastTabIndex && m_lastTabIndex < count())
+            setCurrentIndex(m_lastTabIndex);
+
         delete weView(index);
         removeTab(index);
 
@@ -276,14 +284,24 @@ void TabWidget::closeTab(int index)
         if (count() == 1 && m_hideTabBarWithOneTab)
             tabBar()->setVisible(false);
     }
+
 //    if (count() < 1)
 //        p_QupZilla->close();
 }
 
+void TabWidget::tabMoved(int before, int after)
+{
+    Q_UNUSED(before)
+    Q_UNUSED(after)
+    m_isClosingToLastTabIndex = false;
+}
+
 void TabWidget::tabChanged(int index)
 {
-    if (index<0)
+    if (index < 0)
         return;
+
+    m_isClosingToLastTabIndex = false;
 
     QString title = p_QupZilla->weView()->title();
     if (title.isEmpty())
@@ -297,7 +315,6 @@ void TabWidget::tabChanged(int index)
         p_QupZilla->showInspector();
     weView()->setFocus();
 
-    m_lastTabIndex = index;
     m_tabBar->updateCloseButton(index);
 }
 
