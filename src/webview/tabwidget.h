@@ -73,6 +73,7 @@ private slots:
     void aboutToShowTabsMenu();
     void actionChangeIndex();
     void tabChanged(int index);
+    void tabMoved(int before, int after);
 
 private:
     inline WebView* weView() { WebTab* webTab = qobject_cast<WebTab*>(widget(currentIndex())); if (!webTab) return 0; return webTab->view(); }
@@ -84,6 +85,7 @@ private:
     QupZilla* p_QupZilla;
 
     int m_lastTabIndex;
+    bool m_isClosingToLastTabIndex;
 
     TabBar* m_tabBar;
 
