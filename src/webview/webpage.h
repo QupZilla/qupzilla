@@ -49,8 +49,10 @@ public:
     void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
     QString userAgentForUrl(const QUrl &url) const;
-    virtual bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
-    virtual bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
+
+    bool javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, const QString &defaultValue, QString* result);
+    bool javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg);
+    void javaScriptAlert(QWebFrame* originatingFrame, const QString &msg);
 
     void addAdBlockRule(const QString &filter, const QUrl &url);
     QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
@@ -58,9 +60,11 @@ public:
 protected slots:
     QWebPage* createWindow(QWebPage::WebWindowType type);
     void handleUnsupportedContent(QNetworkReply* url);
-    void loadingStarted() { m_adBlockedEntries.clear(); /*m_SslCert.clear();*/ }
+    void loadingStarted();
 
-protected:
+private:
+    virtual bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
+    virtual bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
 
     QupZilla* p_QupZilla;
@@ -70,6 +74,7 @@ protected:
     QSslCertificate m_SslCert;
     QList<QSslCertificate> m_SslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
+    bool m_blockAlerts;
 //    bool m_isOpeningNextWindowAsNewTab;
 };
 

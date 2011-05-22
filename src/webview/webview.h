@@ -35,12 +35,13 @@ class QupZilla;
 class TabWidget;
 class WebPage;
 class NetworkManagerProxy;
+class WebTab;
 
 class WebView : public QWebView
 {
     Q_OBJECT
 public:
-    explicit WebView(QupZilla* mainClass, QWidget* parent = 0);
+    explicit WebView(QupZilla* mainClass, WebTab* webTab);
     ~WebView();
     bool isLoading() { return m_isLoading;}
     int getLoading() { return m_progress; }
@@ -51,12 +52,14 @@ public:
     QString title() const;
     void reload();
     WebPage* webPage() const;
+    WebTab* webTab() const;
     QString getIp() { return m_currentIp; }
     QLabel* animationLoading(int index, bool addMovie);
     QIcon siteIcon();
     void addNotification(QWidget* notif);
     bool hasRss() { return !m_rss.isEmpty(); }
     QList<QPair<QString,QString> > getRss() { return m_rss; } //FIXME: Make RSS as struct
+    void setMouseWheelEnabled(bool state) { m_mouseWheelEnabled = state; }
 
     static QUrl guessUrlFromString(const QString &string);
     static bool isUrlValid(const QUrl &url);
@@ -110,6 +113,7 @@ private:
     void contextMenuEvent(QContextMenuEvent* event);
     void wheelEvent(QWheelEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
+    void resizeEvent(QResizeEvent* event);
     TabWidget* tabWidget() const;
     bool isCurrent();
     void applyZoom();
@@ -128,10 +132,12 @@ private:
     QIcon m_siteIcon;
 
     WebPage* m_page;
+    WebTab* m_webTab;
     NetworkManagerProxy* m_networkProxy;
 
     bool m_mouseTrack;
     bool m_navigationVisible;
+    bool m_mouseWheelEnabled;
     //QTimer* m_loadingTimer; //Too confusing
 
 signals:
@@ -142,6 +148,7 @@ signals:
     void changed();
     void ipChanged(QString ip);
     void showNotification(QWidget* notif);
+    void viewportResized(QSize size);
 };
 
 #endif // WEBVIEW_H

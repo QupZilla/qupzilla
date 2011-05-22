@@ -30,7 +30,7 @@ WebTab::WebTab(QupZilla* mainClass, QWidget* parent)
     setLayout(m_layout);
     m_layout->setContentsMargins(0,0,0,0);
     m_layout->setSpacing(0);
-    m_view = new WebView(p_QupZilla);
+    m_view = new WebView(p_QupZilla, this);
     m_layout->addWidget(m_view);
 
     setAutoFillBackground(true); // We don't want this transparent
