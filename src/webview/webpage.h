@@ -67,6 +67,8 @@ private:
     virtual bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
 
+    QString chooseFile(QWebFrame *originatingFrame, const QString &oldFile);
+
     QupZilla* p_QupZilla;
     QNetworkRequest m_lastRequest;
     QWebPage::NavigationType m_lastRequestType;
@@ -75,6 +77,7 @@ private:
     QList<QSslCertificate> m_SslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
     bool m_blockAlerts;
+    QString m_lastUploadLocation;
 //    bool m_isOpeningNextWindowAsNewTab;
 };
 
