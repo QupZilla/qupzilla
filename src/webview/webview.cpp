@@ -33,8 +33,8 @@
 #include "webtab.h"
 #include "statusbarmessage.h"
 
-WebView::WebView(QupZilla* mainClass, QWidget* parent)
-    : QWebView(parent)
+WebView::WebView(QupZilla* mainClass, WebTab* webTab)
+    : QWebView()
     ,p_QupZilla(mainClass)
     ,m_progress(0)
     ,m_isLoading(false)
@@ -43,8 +43,10 @@ WebView::WebView(QupZilla* mainClass, QWidget* parent)
     ,m_lastUrl(QUrl())
     ,m_wantsClose(false)
     ,m_page(new WebPage(this, p_QupZilla))
+    ,m_webTab(webTab)
     ,m_mouseTrack(false)
     ,m_navigationVisible(false)
+    ,m_mouseWheelEnabled(true)
     //,m_loadingTimer(0)
 {
     m_networkProxy = new NetworkManagerProxy(p_QupZilla);
@@ -92,6 +94,12 @@ void WebView::slotIconChanged()
 WebPage* WebView::webPage() const
 {
     return m_page;
+}
+
+
+WebTab* WebView::webTab() const
+{
+    return m_webTab;
 }
 
 bool WebView::isCurrent()
@@ -372,6 +380,12 @@ void WebView::mousePressEvent(QMouseEvent* event)
         QWebView::mousePressEvent(event);
         break;
     }
+}
+
+void WebView::resizeEvent(QResizeEvent *event)
+{
+    QWebView::resizeEvent(event);
+    emit viewportResized(m_page->viewportSize());
 }
 
 void WebView::mouseReleaseEvent(QMouseEvent* event)
@@ -680,7 +694,8 @@ void WebView::wheelEvent(QWheelEvent* event)
         event->accept();
         return;
     }
-    QWebView::wheelEvent(event);
+    if (m_mouseWheelEnabled)
+        QWebView::wheelEvent(event);
 }
 
 void WebView::getFocus(const QUrl &urla)
