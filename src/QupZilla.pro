@@ -118,7 +118,9 @@ SOURCES += main.cpp\
     tools/iconprovider.cpp \
     network/networkproxyfactory.cpp \
     tools/closedtabsmanager.cpp \
-    other/statusbarmessage.cpp
+    other/statusbarmessage.cpp \
+    tools/buttonbox.cpp \
+    tools/widget.cpp
 
 HEADERS  += 3rdparty/squeezelabel.h \
     3rdparty/qtwin.h \
@@ -196,7 +198,9 @@ HEADERS  += 3rdparty/squeezelabel.h \
     tools/iconprovider.h \
     network/networkproxyfactory.h \
     tools/closedtabsmanager.h \
-    other/statusbarmessage.h
+    other/statusbarmessage.h \
+    tools/buttonbox.h \
+    tools/widget.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -224,7 +228,10 @@ FORMS    += \
     tools/docktitlebarwidget.ui \
     sidebar/bookmarkssidebar.ui \
     sidebar/historysidebar.ui \
-    desktopnotifications/desktopnotification.ui
+    desktopnotifications/desktopnotification.ui \
+    webview/jsconfirm.ui \
+    webview/jsalert.ui \
+    webview/jsprompt.ui
 
 RESOURCES += \
     data/icons.qrc \

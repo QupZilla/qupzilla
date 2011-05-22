@@ -22,17 +22,29 @@
 #include "downloadmanager.h"
 #include "webpluginfactory.h"
 #include "mainapplication.h"
+#include "ui_jsconfirm.h"
+#include "ui_jsalert.h"
+#include "ui_jsprompt.h"
+#include "widget.h"
 
 WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     : QWebPage(parent)
     ,p_QupZilla(mainClass)
     ,m_view(parent)
+    ,m_blockAlerts(false)
 //    ,m_isOpeningNextWindowAsNewTab(false)
 {
     setForwardUnsupportedContent(true);
     setPluginFactory(new WebPluginFactory(this));
     connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), SLOT(handleUnsupportedContent(QNetworkReply*)));
     connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
+}
+
+void WebPage::loadingStarted()
+{
+    m_adBlockedEntries.clear();
+    m_blockAlerts = false;
+    //m_SslCert.clear();
 }
 
 void WebPage::handleUnsupportedContent(QNetworkReply* reply)
@@ -85,10 +97,9 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
     }
 
     if (type == QWebPage::NavigationTypeFormResubmitted) {
-        QMessageBox::StandardButton button = QMessageBox::warning(view(), tr("Confirmation"),
-                             tr("To show this page, QupZilla must resend request witch do it again "
-                             "(like searching on making an shoping, witch has been already done."), QMessageBox::Yes | QMessageBox::No);
-        if (button != QMessageBox::Yes)
+        bool result = javaScriptConfirm(frame, tr("To show this page, QupZilla must resend request which do it again \n"
+                                          "(like searching on making an shoping, witch has been already done.)"));
+        if (!result)
             return false;
     }
 
@@ -253,6 +264,126 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
     exReturn->content = errString.toUtf8();
     return true;
+}
+
+bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, const QString &defaultValue, QString* result)
+{
+    WebView* _view = (WebView*)originatingFrame->page()->view();
+
+    Widget* widget = new Widget(_view->webTab());
+    Ui_jsPrompt* ui = new Ui_jsPrompt();
+    ui->setupUi(widget);
+    ui->message->setText(msg);
+    ui->lineEdit->setText(defaultValue);
+    ui->lineEdit->setFocus();
+    widget->resize(originatingFrame->page()->viewportSize());
+    widget->show();
+
+    connect(_view, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
+    connect(ui->lineEdit, SIGNAL(returnPressed()), ui->buttonBox->button(QDialogButtonBox::Ok), SLOT(animateClick()));
+
+    QWebElement bodyElement = originatingFrame->findFirstElement("body");
+    if (!bodyElement.isNull()) {
+        QString height = QString::number(originatingFrame->contentsSize().height());
+        QString width = QString::number(originatingFrame->contentsSize().width());
+        bodyElement.prependInside("<span id='qupzilla-background-content' style='display: block;background: #6b6b6b;"
+                                  "position: absolute;opacity: .9;filter: alpha(opacity=90);top: 0px;"
+                                  "left: 0px;z-index: 998;overflow:  hidden;width:"+width+"px; height:"+height+"px;'> </span>");
+    } else {
+        widget->setAutoFillBackground(true);
+    }
+
+    QEventLoop eLoop;
+    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()) );
+    eLoop.exec();
+
+    QString x = ui->lineEdit->text();
+    bool _result = ui->buttonBox->clickedButtonRole() == QDialogButtonBox::AcceptRole;
+    *result = x;
+    delete widget;
+
+    originatingFrame->findFirstElement("span[id=\"qupzilla-background-content\"]").removeFromDocument();
+    _view->setFocus();
+
+    return _result;
+}
+
+bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
+{
+    WebView* _view = (WebView*)originatingFrame->page()->view();
+
+    Widget* widget = new Widget(_view->webTab());
+    Ui_jsConfirm* ui = new Ui_jsConfirm();
+    ui->setupUi(widget);
+    ui->message->setText(msg);
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setFocus();
+    widget->resize(originatingFrame->page()->viewportSize());
+    widget->show();
+
+    connect(_view, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
+
+    QWebElement bodyElement = originatingFrame->findFirstElement("body");
+    if (!bodyElement.isNull()) {
+        QString height = QString::number(originatingFrame->contentsSize().height());
+        QString width = QString::number(originatingFrame->contentsSize().width());
+        bodyElement.prependInside("<span id='qupzilla-background-content' style='display: block;background: #6b6b6b;"
+                                  "position: absolute;opacity: .9;filter: alpha(opacity=90);top: 0px;"
+                                  "left: 0px;z-index: 998;overflow:  hidden;width:"+width+"px; height:"+height+"px;'> </span>");
+    } else {
+        widget->setAutoFillBackground(true);
+    }
+
+    QEventLoop eLoop;
+    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()) );
+    eLoop.exec();
+
+    bool result = ui->buttonBox->clickedButtonRole() == QDialogButtonBox::AcceptRole;
+    delete widget;
+
+    originatingFrame->findFirstElement("span[id=\"qupzilla-background-content\"]").removeFromDocument();
+    _view->setFocus();
+
+    return result;
+}
+
+void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
+{
+    if (m_blockAlerts)
+        return;
+
+    WebView* _view = (WebView*)originatingFrame->page()->view();
+
+    Widget* widget = new Widget(_view->webTab());
+    Ui_jsAlert* ui = new Ui_jsAlert();
+    ui->setupUi(widget);
+    ui->message->setText(msg);
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setFocus();
+    widget->resize(originatingFrame->page()->viewportSize());
+    widget->show();
+
+    connect(_view, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
+
+    QWebElement bodyElement = originatingFrame->findFirstElement("body");
+    if (!bodyElement.isNull()) {
+        QString height = QString::number(originatingFrame->contentsSize().height());
+        QString width = QString::number(originatingFrame->contentsSize().width());
+        bodyElement.prependInside("<span id='qupzilla-background-content' style='display: block;background: #6b6b6b;"
+                                  "position: absolute;opacity: .9;filter: alpha(opacity=90);top: 0px;"
+                                  "left: 0px;z-index: 998;overflow:  hidden;width:"+width+"px; height:"+height+"px;'> </span>");
+    } else {
+        widget->setAutoFillBackground(true);
+    }
+
+    QEventLoop eLoop;
+    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()) );
+    eLoop.exec();
+
+    m_blockAlerts = ui->preventAlerts->isChecked();
+
+    delete widget;
+
+    originatingFrame->findFirstElement("span[id=\"qupzilla-background-content\"]").removeFromDocument();
+    _view->setFocus();
 }
 
 WebPage::~WebPage()

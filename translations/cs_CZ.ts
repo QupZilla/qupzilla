@@ -1186,12 +1186,12 @@ nebyl nalezen!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="506"/>
+        <location filename="../src/app/mainapplication.cpp" line="517"/>
         <source>Last session crashed</source>
         <translation>Poslední relace spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="507"/>
+        <location filename="../src/app/mainapplication.cpp" line="518"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
@@ -3211,33 +3211,33 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="126"/>
+        <location filename="../src/webview/tabwidget.cpp" line="128"/>
         <source>Show list of opened tabs</source>
         <translation>Zobrazit seznam otevřených panelů</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="131"/>
+        <location filename="../src/webview/tabwidget.cpp" line="133"/>
         <source>Add Tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="177"/>
+        <location filename="../src/webview/tabwidget.cpp" line="179"/>
         <source>Loading...</source>
         <translation>Načítám...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="180"/>
-        <location filename="../src/webview/tabwidget.cpp" line="290"/>
+        <location filename="../src/webview/tabwidget.cpp" line="182"/>
+        <location filename="../src/webview/tabwidget.cpp" line="308"/>
         <source>No Named Page</source>
         <translation>Bezejmenná stránka</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="196"/>
+        <location filename="../src/webview/tabwidget.cpp" line="198"/>
         <source>Actually You have %1 opened tabs</source>
         <translation>Dohromady máte otevřeno %1 panelů</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="329"/>
+        <location filename="../src/webview/tabwidget.cpp" line="346"/>
         <location filename="../src/webview/tabwidget.h" line="61"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
@@ -3264,92 +3264,89 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="88"/>
-        <source>Confirmation</source>
-        <translation>Potvrzení</translation>
+        <location filename="../src/webview/webpage.cpp" line="100"/>
+        <source>To show this page, QupZilla must resend request which do it again 
+(like searching on making an shoping, witch has been already done.)</source>
+        <translation>Pro zobrazení této stránky musí QupZilla znovu odeslat požadavek na server 
+(jako např. hledaní při nakupování, které již bylo provedeno.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="89"/>
-        <source>To show this page, QupZilla must resend request witch do it again (like searching on making an shoping, witch has been already done.</source>
-        <translation>Pro zobrazení této stránky musí QupZilla znovu odeslat požadavek, který zopakuje akci (jako např. hledání nebo potvrzení objednávky), která byla provedena již dříve.</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webpage.cpp" line="155"/>
+        <location filename="../src/webview/webpage.cpp" line="166"/>
         <source>Server refused the connection</source>
         <translation>Server odmítl spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="158"/>
+        <location filename="../src/webview/webpage.cpp" line="169"/>
         <source>Server closed the connection</source>
         <translation>Server ukončil spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="161"/>
+        <location filename="../src/webview/webpage.cpp" line="172"/>
         <source>Server not found</source>
         <translation>Server nenalezen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="164"/>
+        <location filename="../src/webview/webpage.cpp" line="175"/>
         <source>Connection timed out</source>
         <translation>Spojení vypršelo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="167"/>
+        <location filename="../src/webview/webpage.cpp" line="178"/>
         <source>Untrusted connection</source>
         <translation>Nedůvěryhodné spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="177"/>
+        <location filename="../src/webview/webpage.cpp" line="188"/>
         <source>AdBlocked Content</source>
         <translation>AdBlock obsah</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="189"/>
+        <location filename="../src/webview/webpage.cpp" line="200"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Blokováno pravidlem &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="208"/>
+        <location filename="../src/webview/webpage.cpp" line="219"/>
         <source>Content Access Denied</source>
         <translation>Odmítnut přístup k obsahu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="213"/>
+        <location filename="../src/webview/webpage.cpp" line="224"/>
         <source>Unknown error</source>
         <translation>Neznámá chyba</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="218"/>
+        <location filename="../src/webview/webpage.cpp" line="229"/>
         <source>Error code %1</source>
         <translation>Chybový kód %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="229"/>
+        <location filename="../src/webview/webpage.cpp" line="240"/>
         <source>Failed loading page</source>
         <translation>Chyba při načítání stránky</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="248"/>
+        <location filename="../src/webview/webpage.cpp" line="259"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla nemůže načíst stránku ze serveru %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="249"/>
+        <location filename="../src/webview/webpage.cpp" line="260"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Zkontrolujte, zda je adresa napsána správně a neobsahuje chyby jako &lt;b&gt;ww.&lt;/b&gt;server.cz místo &lt;b&gt;www&lt;/b&gt;.server.cz</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="250"/>
+        <location filename="../src/webview/webpage.cpp" line="261"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Pokud se vám nezobrazují ani ostatní stránky, zkontrolujte síťové připojení svého počítače.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="251"/>
+        <location filename="../src/webview/webpage.cpp" line="262"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Pokud je váš počítač chráněn firewallem a nebo proxy serverem, zkontrolujte, zda má QupZilla přístup na Internet.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="252"/>
+        <location filename="../src/webview/webpage.cpp" line="263"/>
         <source>Try Again</source>
         <translation>Zkusit znovu</translation>
     </message>
@@ -3357,141 +3354,149 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/webview/webview.cpp" line="141"/>
+        <location filename="../src/webview/webview.cpp" line="149"/>
         <source>Loading...</source>
         <translation>Načítám...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="432"/>
+        <location filename="../src/webview/webview.cpp" line="446"/>
         <source>Open link in new &amp;tab</source>
         <translation>Otevřít odkaz v novém &amp;panelu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="433"/>
+        <location filename="../src/webview/webview.cpp" line="447"/>
         <source>Open link in new &amp;window</source>
         <translation>Otevřít odkaz v novém &amp;okně</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="435"/>
+        <location filename="../src/webview/webview.cpp" line="449"/>
         <source>B&amp;ookmark link</source>
         <translation>Přidat odkaz do zá&amp;ložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="436"/>
+        <location filename="../src/webview/webview.cpp" line="450"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Uložit odkaz jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="438"/>
+        <location filename="../src/webview/webview.cpp" line="452"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Kopírovat adresu odkazu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="447"/>
+        <location filename="../src/webview/webview.cpp" line="461"/>
         <source>Show i&amp;mage</source>
         <translation>Zobrazit &amp;obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="448"/>
+        <location filename="../src/webview/webview.cpp" line="462"/>
         <source>Copy im&amp;age</source>
         <translation>&amp;Kopírovat obrázek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="449"/>
+        <location filename="../src/webview/webview.cpp" line="463"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Kopírovat adr&amp;esu obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="497"/>
+        <location filename="../src/webview/webview.cpp" line="511"/>
         <source>S&amp;top</source>
         <translation>&amp;Zastavit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="511"/>
+        <location filename="../src/webview/webview.cpp" line="525"/>
         <source>Show info ab&amp;out site</source>
         <translation>Zobrazit &amp;informace o stránce</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="512"/>
+        <location filename="../src/webview/webview.cpp" line="526"/>
         <source>Show Web &amp;Inspector</source>
         <translation>Zobrazit Web &amp;Inspektor</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="521"/>
+        <location filename="../src/webview/webview.cpp" line="535"/>
         <source>Search &quot;%1 ..&quot; on &amp;Google</source>
         <translation>Hledat &quot;%1 ..&quot; na &amp;Googlu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="451"/>
+        <location filename="../src/webview/webview.cpp" line="465"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Uložit obrázek jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="86"/>
+        <location filename="../src/webview/webview.cpp" line="88"/>
         <source>Failed loading page</source>
         <translation>Chyba při načítání stránky</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="468"/>
+        <location filename="../src/webview/webview.cpp" line="482"/>
         <source>&amp;Back</source>
         <translation>&amp;Zpět</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="476"/>
+        <location filename="../src/webview/webview.cpp" line="490"/>
         <source>&amp;Forward</source>
         <translation>&amp;Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="490"/>
+        <location filename="../src/webview/webview.cpp" line="504"/>
         <source>&amp;Reload</source>
         <translation>&amp;Obnovit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="501"/>
+        <location filename="../src/webview/webview.cpp" line="515"/>
         <source>Book&amp;mark page</source>
         <translation>Přidat stránku do zá&amp;ložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="502"/>
+        <location filename="../src/webview/webview.cpp" line="516"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Uložit stránku jako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="505"/>
+        <location filename="../src/webview/webview.cpp" line="519"/>
         <source>Select &amp;all</source>
         <translation>Vyb&amp;rat vše</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="510"/>
+        <location filename="../src/webview/webview.cpp" line="524"/>
         <source>Show so&amp;urce code</source>
         <translation>Zobrazit zdrojový kó&amp;d</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="739"/>
+        <location filename="../src/webview/webview.cpp" line="754"/>
         <source>No Named Page</source>
         <translation>Bezejmenná stránka</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="364"/>
-        <location filename="../src/webview/webview.cpp" line="368"/>
-        <location filename="../src/webview/webview.cpp" line="544"/>
+        <location filename="../src/webview/webview.cpp" line="372"/>
+        <location filename="../src/webview/webview.cpp" line="376"/>
+        <location filename="../src/webview/webview.cpp" line="558"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="437"/>
+        <location filename="../src/webview/webview.cpp" line="451"/>
         <source>Send link...</source>
         <translation>Odeslat odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="452"/>
+        <location filename="../src/webview/webview.cpp" line="466"/>
         <source>Send image...</source>
         <translation>Odeslat obrázek...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="503"/>
+        <location filename="../src/webview/webview.cpp" line="517"/>
         <source>Send page...</source>
         <translation>Odeslat stránku...</translation>
+    </message>
+</context>
+<context>
+    <name>jsAlert</name>
+    <message>
+        <location filename="../src/webview/jsalert.ui" line="132"/>
+        <source>Prevent this page from creating additional dialogs</source>
+        <translation>Zabránit stránce ve vytváření dalších dialogů</translation>
     </message>
 </context>
 </TS>

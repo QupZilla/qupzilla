@@ -16,7 +16,7 @@ void ClosedTabsManager::saveView(WebView* view)
     tab.url = view->url();
     tab.title = view->title();
     QDataStream tabHistoryStream(&tab.history, QIODevice::WriteOnly);
-    tabHistoryStream << view->history();
+    tabHistoryStream << *view->history();
 
     m_closedTabs.prepend(tab);
 }
