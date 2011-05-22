@@ -32,6 +32,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     ,p_QupZilla(mainClass)
     ,m_view(parent)
     ,m_blockAlerts(false)
+    ,m_lastUploadLocation(QDir::homePath())
 //    ,m_isOpeningNextWindowAsNewTab(false)
 {
     setForwardUnsupportedContent(true);
@@ -384,6 +385,21 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
 
     originatingFrame->findFirstElement("span[id=\"qupzilla-background-content\"]").removeFromDocument();
     _view->setFocus();
+}
+
+QString WebPage::chooseFile(QWebFrame *originatingFrame, const QString &oldFile)
+{
+    QString suggFileName;
+    if (oldFile.isEmpty())
+        suggFileName = m_lastUploadLocation;
+    else
+        suggFileName = oldFile;
+    QString fileName = QFileDialog::getOpenFileName(originatingFrame->page()->view(), tr("Choose file..."), suggFileName);
+
+    if (!fileName.isEmpty())
+        m_lastUploadLocation = fileName;
+
+    return fileName;
 }
 
 WebPage::~WebPage()
