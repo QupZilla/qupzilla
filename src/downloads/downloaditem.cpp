@@ -21,6 +21,7 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "webpage.h"
+#include "downloadmanager.h"
 
 //#define DOWNMANAGER_DEBUG
 
@@ -47,6 +48,7 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
     m_outputFile.setFileName(fullPath);
 
     ui->setupUi(this);
+    setMaximumWidth(525);
 #ifdef Q_WS_WIN
     ui->progressBar->setStyleSheet("QProgressBar {border: 1px solid;}");
 #endif
@@ -71,6 +73,7 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
     connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error(QNetworkReply::NetworkError)));
     connect(m_reply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged()));
     connect(ui->button, SIGNAL(clicked(QPoint)), this, SLOT(stop()));
+    connect((DownloadManager*)parentWidget(), SIGNAL(resized(QSize)), this, SLOT(parentResized(QSize)));
 
     m_downloading = true;
     m_timer.start(1000*1, this);
@@ -95,6 +98,13 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
         else if (webPage->history()->count() == 0)
             webPage->getView()->closeTab();
     }
+}
+
+void DownloadItem::parentResized(const QSize &size)
+{
+    if (size.width() < 200)
+        return;
+    setMaximumWidth(size.width());
 }
 
 void DownloadItem::metaDataChanged()
@@ -278,7 +288,7 @@ void DownloadItem::mouseDoubleClickEvent(QMouseEvent* e)
     e->accept();
 }
 
-void DownloadItem::customContextMenuRequested(QPoint pos)
+void DownloadItem::customContextMenuRequested(const QPoint &pos)
 {
     QMenu menu;
     menu.addAction(QIcon::fromTheme("document-open"), tr("Open File"), this, SLOT(openFile()));

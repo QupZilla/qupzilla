@@ -8,3 +8,4 @@ headers*.tar.gz
 license_template
 Makefile*
 TestPlugin-build
+search_*

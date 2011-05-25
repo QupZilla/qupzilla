@@ -219,6 +219,9 @@ void MainApplication::loadSettings()
     m_websettings->setMaximumPagesInCache(maxCachedPages);
 
     setWheelScrollLines(scrollingLines);
+
+    if (m_downloadManager)
+        m_downloadManager->loadSettings();
 }
 
 void MainApplication::setupJumpList()

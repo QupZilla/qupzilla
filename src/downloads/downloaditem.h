@@ -59,6 +59,7 @@ signals:
     void downloadFinished(bool success);
 
 private slots:
+    void parentResized(const QSize &size);
     void finished();
     void metaDataChanged();
     void downloadProgress(qint64 received, qint64 total);
@@ -68,7 +69,7 @@ private slots:
     void readyRead();
     void error(QNetworkReply::NetworkError);
     void updateDownload();
-    void customContextMenuRequested(QPoint pos);
+    void customContextMenuRequested(const QPoint &pos);
     void clear();
 
     void goToDownloadPage();

@@ -5,15 +5,21 @@ SqueezeLabel::SqueezeLabel(QWidget *parent)
 {
 }
 
-void SqueezeLabel::paintEvent(QPaintEvent *event)
+void SqueezeLabel::setText(const QString &txt)
 {
-    if (m_SqueezedTextCache != text()) {
-        m_SqueezedTextCache = text();
-        QFontMetrics fm = fontMetrics();
-        if (fm.width(m_SqueezedTextCache) > contentsRect().width()) {
-            QString elided = fm.elidedText(text(), Qt::ElideMiddle, width());
-            setText(elided);
-        }
-    }
-    QLabel::paintEvent(event);
+    m_originalText = txt;
+    QLabel::setText(txt);
+}
+
+QString SqueezeLabel::originalText()
+{
+    return m_originalText;
+}
+
+void SqueezeLabel::resizeEvent(QResizeEvent *event)
+{
+    QLabel::resizeEvent(event);
+    QFontMetrics fm = fontMetrics();
+    QString elided = fm.elidedText(originalText(), Qt::ElideMiddle, width());
+    QLabel::setText(elided);
 }
