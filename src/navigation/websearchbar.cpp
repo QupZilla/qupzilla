@@ -27,7 +27,7 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     m_buttonSearch = new ClickableLabel(this);
     m_buttonSearch->setPixmap(QPixmap(":/icons/locationbar/search.png"));
     m_buttonSearch->setCursor(QCursor(Qt::PointingHandCursor));
-    m_buttonSearch->setStyleSheet("QLabel{margin-bottom:1px;}");
+    m_buttonSearch->setStyleSheet("QLabel{margin-bottom:2px;}");
     m_buttonSearch->setFocusPolicy(Qt::ClickFocus);
 
     m_boxSearchType = new QToolButton(this);

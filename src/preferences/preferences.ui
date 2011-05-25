@@ -228,7 +228,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="stackedWidgetPage1">
       <layout class="QGridLayout" name="gridLayout_6">
@@ -1424,7 +1424,7 @@
        <item row="0" column="0" colspan="4">
         <widget class="QLabel" name="label_23">
          <property name="text">
-          <string>&lt;b&gt;Downloads&lt;/b&gt;</string>
+          <string>&lt;b&gt;Download Location&lt;/b&gt;</string>
          </property>
         </widget>
        </item>
@@ -1456,7 +1456,7 @@
          </item>
         </layout>
        </item>
-       <item row="6" column="2">
+       <item row="8" column="2">
         <spacer name="verticalSpacer_10">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -1497,6 +1497,21 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="6" column="0" colspan="4">
+        <widget class="QLabel" name="label_22">
+         <property name="text">
+          <string>&lt;b&gt;Download Options&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1" colspan="3">
+        <widget class="QCheckBox" name="downlaodNativeSystemDialog">
+         <property name="text">
+          <string>Use native system file dialog
+(may or may not cause problems with downloading SSL secured content)</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

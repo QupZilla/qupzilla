@@ -53,6 +53,8 @@ public:
     explicit DownloadManager(QWidget* parent = 0);
     ~DownloadManager();
 
+    void loadSettings();
+
     void download(const QNetworkRequest &request, bool askWhatToDo = true);
     void handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo = true);
     bool canClose();
@@ -73,6 +75,9 @@ private slots:
     void optionsDialogAccepted(int finish);
     void fileNameChoosed(const QString &name = "");
 
+signals:
+    void resized(QSize);
+
 private:
 #ifdef W7API
     EcWin7 win7;
@@ -80,6 +85,7 @@ private:
     void timerEvent(QTimerEvent* event);
     QString getFileName(QNetworkReply* reply);
     void closeEvent(QCloseEvent* e);
+    void resizeEvent(QResizeEvent *e);
 
     Ui::DownloadManager* ui;
     NetworkManager* m_networkManager;
@@ -87,6 +93,8 @@ private:
 
     QString m_lastDownloadPath;
     QString m_downloadPath;
+    bool m_useNativeDialog;
+
     QBasicTimer m_timer;
 
     bool m_isClosing;

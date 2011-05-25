@@ -41,12 +41,15 @@ class SqueezeLabel : public QLabel
 
 public:
     SqueezeLabel(QWidget *parent = 0);
+    QString originalText();
+    void setText(const QString &txt);
 
 protected:
-    void paintEvent(QPaintEvent *event);
+    void resizeEvent(QResizeEvent *event);
 
 private:
     QString m_SqueezedTextCache;
+    QString m_originalText;
 };
 
 #endif // SQUEEZELABEL_H
