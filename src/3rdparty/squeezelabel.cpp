@@ -8,7 +8,9 @@ SqueezeLabel::SqueezeLabel(QWidget *parent)
 void SqueezeLabel::setText(const QString &txt)
 {
     m_originalText = txt;
-    QLabel::setText(txt);
+    QFontMetrics fm = fontMetrics();
+    QString elided = fm.elidedText(m_originalText, Qt::ElideMiddle, width());
+    QLabel::setText(elided);
 }
 
 QString SqueezeLabel::originalText()
@@ -20,6 +22,6 @@ void SqueezeLabel::resizeEvent(QResizeEvent *event)
 {
     QLabel::resizeEvent(event);
     QFontMetrics fm = fontMetrics();
-    QString elided = fm.elidedText(originalText(), Qt::ElideMiddle, width());
+    QString elided = fm.elidedText(m_originalText, Qt::ElideMiddle, width());
     QLabel::setText(elided);
 }
