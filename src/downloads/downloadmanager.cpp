@@ -30,6 +30,7 @@ DownloadManager::DownloadManager(QWidget* parent) :
     ,ui(new Ui::DownloadManager)
     ,m_isClosing(false)
 {
+    setWindowFlags(windowFlags() ^ Qt::WindowMaximizeButtonHint);
     ui->setupUi(this);
 #ifdef Q_WS_WIN
     if (QtWin::isCompositionEnabled())
@@ -44,18 +45,36 @@ DownloadManager::DownloadManager(QWidget* parent) :
     m_iconProvider = new QFileIconProvider();
     m_networkManager = mApp->networkManager();
 
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
-    settings.beginGroup("DownloadManager");
-    m_downloadPath = settings.value("defaultDownloadPath", "").toString();
-    m_lastDownloadPath = settings.value("lastDownloadPath",QDir::homePath()+"/").toString();
-    settings.endGroup();
-
     connect(ui->clearButton, SIGNAL(clicked()), this, SLOT(clearList()));
+
+    loadSettings();
 
 #ifdef W7API
     if (QtWin::isRunningWindows7())
         win7.init(this->winId());
 #endif
+}
+
+void DownloadManager::loadSettings()
+{
+    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    settings.beginGroup("DownloadManager");
+    m_downloadPath = settings.value("defaultDownloadPath", "").toString();
+    m_lastDownloadPath = settings.value("lastDownloadPath",QDir::homePath()+"/").toString();
+    m_useNativeDialog = settings.value("useNativeDialog",
+                                   #ifdef Q_WS_WIN
+                                       false
+                                   #else
+                                       true
+                                   #endif
+                                       ).toBool();
+    settings.endGroup();
+}
+
+void DownloadManager::resizeEvent(QResizeEvent *e)
+{
+    QWidget::resizeEvent(e);
+    emit resized(size());
 }
 
 #ifdef W7API
@@ -182,17 +201,17 @@ void DownloadManager::optionsDialogAccepted(int finish)
 
     if (!m_hOpenFileChoosed) {
         if (m_downloadPath.isEmpty()) {
-#ifdef Q_WS_WIN //Well, poor Windows users will use non-native file dialog for downloads
-            QFileDialog* dialog = new QFileDialog(mApp->getWindow());
-            dialog->setAttribute(Qt::WA_DeleteOnClose);
-            dialog->setWindowTitle(tr("Save file as..."));
-            dialog->setDirectory(m_lastDownloadPath);
-            dialog->selectFile(m_h_fileName);
-            dialog->show();
-            connect(dialog, SIGNAL(fileSelected(QString)), this, SLOT(fileNameChoosed(QString)));
-#else
-            fileNameChoosed(QFileDialog::getSaveFileName(mApp->getWindow(), tr("Save file as..."), m_lastDownloadPath + m_h_fileName));
-#endif
+            if (m_useNativeDialog) {
+                fileNameChoosed(QFileDialog::getSaveFileName(mApp->getWindow(), tr("Save file as..."), m_lastDownloadPath + m_h_fileName));
+            } else {
+                QFileDialog* dialog = new QFileDialog(mApp->getWindow());
+                dialog->setAttribute(Qt::WA_DeleteOnClose);
+                dialog->setWindowTitle(tr("Save file as..."));
+                dialog->setDirectory(m_lastDownloadPath);
+                dialog->selectFile(m_h_fileName);
+                dialog->show();
+                connect(dialog, SIGNAL(fileSelected(QString)), this, SLOT(fileNameChoosed(QString)));
+            }
         }
         else
             fileNameChoosed(m_downloadPath + m_h_fileName);
