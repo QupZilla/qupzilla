@@ -228,7 +228,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="stackedWidgetPage1">
       <layout class="QGridLayout" name="gridLayout_6">
@@ -623,7 +623,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="SqueezeLabel" name="textColor">
+           <widget class="SqueezeLabelV2" name="textColor">
             <property name="text">
              <string>This is text color used in Menu</string>
             </property>
@@ -1957,9 +1957,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>SqueezeLabel</class>
+   <class>SqueezeLabelV2</class>
    <extends>QLabel</extends>
-   <header>squeezelabel.h</header>
+   <header>squeezelabelv2.h</header>
   </customwidget>
  </customwidgets>
  <resources>

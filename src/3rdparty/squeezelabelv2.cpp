@@ -1,11 +1,11 @@
-#include "squeezelabel.h"
+#include "squeezelabelv2.h"
 
-SqueezeLabel::SqueezeLabel(QWidget *parent)
+SqueezeLabelV2::SqueezeLabelV2(QWidget *parent)
     : QLabel(parent)
 {
 }
 
-void SqueezeLabel::setText(const QString &txt)
+void SqueezeLabelV2::setText(const QString &txt)
 {
     m_originalText = txt;
     QFontMetrics fm = fontMetrics();
@@ -13,12 +13,12 @@ void SqueezeLabel::setText(const QString &txt)
     QLabel::setText(elided);
 }
 
-QString SqueezeLabel::originalText()
+QString SqueezeLabelV2::originalText()
 {
     return m_originalText;
 }
 
-void SqueezeLabel::resizeEvent(QResizeEvent *event)
+void SqueezeLabelV2::resizeEvent(QResizeEvent *event)
 {
     QLabel::resizeEvent(event);
     QFontMetrics fm = fontMetrics();

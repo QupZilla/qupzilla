@@ -43,7 +43,6 @@ INCLUDEPATH += 3rdparty\
                desktopnotifications\
 
 SOURCES += main.cpp\
-    3rdparty/squeezelabel.cpp \
     3rdparty/qtwin.cpp \
     3rdparty/lineedit.cpp \
     app/qupzilla.cpp \
@@ -120,9 +119,11 @@ SOURCES += main.cpp\
     tools/closedtabsmanager.cpp \
     other/statusbarmessage.cpp \
     tools/buttonbox.cpp \
-    tools/widget.cpp
+    tools/widget.cpp \
+    3rdparty/squeezelabelv2.cpp \
+    3rdparty/squeezelabelv1.cpp
 
-HEADERS  += 3rdparty/squeezelabel.h \
+HEADERS  += \
     3rdparty/qtwin.h \
     3rdparty/lineedit.h \
     app/qupzilla.h \
@@ -200,7 +201,9 @@ HEADERS  += 3rdparty/squeezelabel.h \
     tools/closedtabsmanager.h \
     other/statusbarmessage.h \
     tools/buttonbox.h \
-    tools/widget.h
+    tools/widget.h \
+    3rdparty/squeezelabelv2.h \
+    3rdparty/squeezelabelv1.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
