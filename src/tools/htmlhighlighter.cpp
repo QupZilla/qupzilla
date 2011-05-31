@@ -87,6 +87,7 @@
                      << "(<em|</em)" << "(<iframe|</iframe)" << "(<th|</th)"
                      << "(<textarea|</textarea)" << "(<nav|</nav)" <<"(<section|</section)"
                      << "(<fieldset|</fieldset)" << "(<footer|</footer)" << "(<address|</address)"
+                     << "(<video|</video)"
                      << "(<ol|</ol)" << "(<small|</small)" << ">";
      foreach (const QString &pattern, keywordPatterns) {
          rule.pattern = QRegExp(pattern);
@@ -115,7 +116,7 @@
                      << "scrolling=\"" << "quality=\"" << "bgcolor=\""
                      << "allowscriptaccess=\"" << "cols=\"" << "rows=\""
                      << "profile=\"" << "colspan=\"" << "scope=\""
-                     << "data=\""
+                     << "data=\"" << "autoplay=\""
                      << "href=\"" << "title=\"" << "xmlns=\"";
      foreach (const QString &pattern, optionsPatterns) {
          rule.pattern = QRegExp(pattern);

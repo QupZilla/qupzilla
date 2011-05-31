@@ -330,7 +330,6 @@ void QupZilla::setupMenu()
     toolbarsMenu->addAction(m_actionShowMenubar);
     toolbarsMenu->addAction(m_actionShowToolbar);
     toolbarsMenu->addAction(m_actionShowBookmarksToolbar);
-    toolbarsMenu->addAction(m_actionShowStatusbar);
     connect(toolbarsMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolbarsMenu()));
     QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
     sidebarsMenu->addAction(m_actionShowBookmarksSideBar);
@@ -340,6 +339,7 @@ void QupZilla::setupMenu()
 
     m_menuView->addMenu(toolbarsMenu);
     m_menuView->addMenu(sidebarsMenu);
+    m_menuView->addAction(m_actionShowStatusbar);
     m_menuView->addSeparator();
     m_menuView->addAction(m_actionStop);
     m_menuView->addAction(m_actionReload);

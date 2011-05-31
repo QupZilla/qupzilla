@@ -29,7 +29,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="SqueezeLabel" name="heading">
+    <widget class="SqueezeLabelV2" name="heading">
      <property name="maximumSize">
       <size>
        <width>550</width>
@@ -139,7 +139,7 @@
           <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
          </property>
          <item row="1" column="1">
-          <widget class="SqueezeLabel" name="encodingLabel">
+          <widget class="SqueezeLabelV2" name="encodingLabel">
            <property name="text">
             <string/>
            </property>
@@ -153,14 +153,14 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="SqueezeLabel" name="sizeLabel">
+          <widget class="SqueezeLabelV2" name="sizeLabel">
            <property name="text">
             <string/>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="SqueezeLabel" name="siteAddress">
+          <widget class="SqueezeLabelV2" name="siteAddress">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -319,7 +319,7 @@
            </property>
           </column>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
             <widget class="QLabel" name="label_5">
@@ -379,7 +379,7 @@
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="SqueezeLabel" name="issuedToCN">
+           <widget class="SqueezeLabelV2" name="issuedToCN">
             <property name="text">
              <string/>
             </property>
@@ -393,7 +393,7 @@
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="SqueezeLabel" name="issuedToO">
+           <widget class="SqueezeLabelV2" name="issuedToO">
             <property name="text">
              <string/>
             </property>
@@ -407,7 +407,7 @@
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="SqueezeLabel" name="issuedToOU">
+           <widget class="SqueezeLabelV2" name="issuedToOU">
             <property name="text">
              <string/>
             </property>
@@ -421,7 +421,7 @@
            </widget>
           </item>
           <item row="6" column="1">
-           <widget class="SqueezeLabel" name="issuedToSN">
+           <widget class="SqueezeLabelV2" name="issuedToSN">
             <property name="text">
              <string/>
             </property>
@@ -442,7 +442,7 @@
            </widget>
           </item>
           <item row="8" column="1">
-           <widget class="SqueezeLabel" name="issuedByCN">
+           <widget class="SqueezeLabelV2" name="issuedByCN">
             <property name="text">
              <string/>
             </property>
@@ -456,7 +456,7 @@
            </widget>
           </item>
           <item row="9" column="1">
-           <widget class="SqueezeLabel" name="issuedByO">
+           <widget class="SqueezeLabelV2" name="issuedByO">
             <property name="text">
              <string/>
             </property>
@@ -470,7 +470,7 @@
            </widget>
           </item>
           <item row="10" column="1">
-           <widget class="SqueezeLabel" name="issuedByOU">
+           <widget class="SqueezeLabelV2" name="issuedByOU">
             <property name="text">
              <string/>
             </property>
@@ -491,7 +491,7 @@
            </widget>
           </item>
           <item row="12" column="1">
-           <widget class="SqueezeLabel" name="validityIssuedOn">
+           <widget class="SqueezeLabelV2" name="validityIssuedOn">
             <property name="text">
              <string/>
             </property>
@@ -505,7 +505,7 @@
            </widget>
           </item>
           <item row="13" column="1">
-           <widget class="SqueezeLabel" name="validityExpiresOn">
+           <widget class="SqueezeLabelV2" name="validityExpiresOn">
             <property name="text">
              <string/>
             </property>
@@ -535,9 +535,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>SqueezeLabel</class>
+   <class>SqueezeLabelV2</class>
    <extends>QLabel</extends>
-   <header>squeezelabel.h</header>
+   <header>squeezelabelv2.h</header>
   </customwidget>
  </customwidgets>
  <resources>
