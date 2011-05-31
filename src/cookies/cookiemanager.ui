@@ -14,7 +14,7 @@
    <string>Cookies</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../icons.qrc">
+   <iconset resource="../data/icons.qrc">
     <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -137,42 +137,42 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="SqueezeLabel" name="name">
+       <widget class="SqueezeLabelV2" name="name">
         <property name="text">
          <string>&lt;cookie not selected&gt;</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="SqueezeLabel" name="value">
+       <widget class="SqueezeLabelV2" name="value">
         <property name="text">
          <string>&lt;cookie not selected&gt;</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="SqueezeLabel" name="server">
+       <widget class="SqueezeLabelV2" name="server">
         <property name="text">
          <string>&lt;cookie not selected&gt;</string>
         </property>
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="SqueezeLabel" name="path">
+       <widget class="QLabel" name="path">
         <property name="text">
          <string>&lt;cookie not selected&gt;</string>
         </property>
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="SqueezeLabel" name="secure">
+       <widget class="SqueezeLabelV2" name="secure">
         <property name="text">
          <string>&lt;cookie not selected&gt;</string>
         </property>
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="SqueezeLabel" name="expiration">
+       <widget class="SqueezeLabelV2" name="expiration">
         <property name="text">
          <string>&lt;cookie not selected&gt;</string>
         </property>
@@ -238,13 +238,13 @@
    <header>lineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>SqueezeLabel</class>
+   <class>SqueezeLabelV2</class>
    <extends>QLabel</extends>
-   <header>squeezelabel.h</header>
+   <header>squeezelabelv2.h</header>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../icons.qrc"/>
+  <include location="../data/icons.qrc"/>
  </resources>
  <connections/>
 </ui>

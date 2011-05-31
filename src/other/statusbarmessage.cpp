@@ -1,9 +1,9 @@
 #include "statusbarmessage.h"
 #include "qupzilla.h"
-#include "squeezelabel.h"
+#include "squeezelabelv1.h"
 
 
-class TipLabel : public SqueezeLabel {
+class TipLabel : public SqueezeLabelV1 {
 public:
     TipLabel()
     {
@@ -24,7 +24,7 @@ public:
         p.drawPrimitive(QStyle::PE_PanelTipLabel, opt);
         p.end();
 
-        SqueezeLabel::paintEvent(ev);
+        SqueezeLabelV1::paintEvent(ev);
     }
 };
 
