@@ -19,6 +19,7 @@
 #include "qupzilla.h"
 #include "webview.h"
 #include "clickablelabel.h"
+#include "buttonwithmenu.h"
 
 WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     :LineEdit(parent)
@@ -30,12 +31,9 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     m_buttonSearch->setStyleSheet("QLabel{margin-bottom:2px;}");
     m_buttonSearch->setFocusPolicy(Qt::ClickFocus);
 
-    m_boxSearchType = new QToolButton(this);
-    m_boxSearchType->setPopupMode(QToolButton::InstantPopup);
-    m_boxSearchType->setCursor(Qt::ArrowCursor);
+    m_boxSearchType = new ButtonWithMenu(this);
     m_boxSearchType->setMaximumSize(35, 25);
     m_boxSearchType->setMinimumSize(35, 25);
-    m_boxSearchType->setFocusPolicy(Qt::ClickFocus);
 
     this->setMinimumHeight(25);
     this->setMaximumHeight(25);
@@ -44,70 +42,51 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
 
     addWidget(m_buttonSearch, LineEdit::RightSide);
 
-    setupSearchTypes();
     connect(this, SIGNAL(returnPressed()), this, SLOT(search()));
     connect(m_buttonSearch, SIGNAL(clicked(QPoint)), this, SLOT(search()));
+    connect(m_boxSearchType, SIGNAL(activeItemChanged(ButtonWithMenu::Item)), this, SLOT(searchChanged(ButtonWithMenu::Item)));
 
     setStyleSheet("QLineEdit { background: transparent; border-image: url(:/icons/locationbar/lineedit.png) ;border-width:4;color:black;}");
 
     setLeftMargin(33);
     setWidgetSpacing(0);
+    setupSearchTypes();
 }
 
 void WebSearchBar::setupSearchTypes()
 {
-    QMenu* menu = new QMenu(this);
-    menu->addAction(QIcon(":/icons/menu/google.png"),"Google", this, SLOT(searchChanged()))->setData("Google");
-    menu->addAction(QIcon(":/icons/menu/cz_seznam.png"),"Seznam", this, SLOT(searchChanged()))->setData("Seznam");
-    menu->addAction(QIcon(":/icons/menu/icon-wikipedia.png"),"Wikipedia (en)", this, SLOT(searchChanged()))->setData("Wikipedia (en)");
-    menu->addAction(QIcon(":/icons/menu/icon-wikipedia.png"),"Wikipedia (cs)", this, SLOT(searchChanged()))->setData("Wikipedia (cs)");
-    menu->addAction(QIcon(":/icons/menu/csfd.png"),"CSFD", this, SLOT(searchChanged()))->setData("CSFD");
-    menu->addAction(QIcon(":/icons/menu/youtube.png"),"Youtube", this, SLOT(searchChanged()))->setData("Youtube");
-
-    m_boxSearchType->setMenu(menu);
-    m_boxSearchType->setIcon(QIcon(":/icons/menu/google.png"));
-    m_boxSearchType->setToolTip("Google");
-
-    setPlaceholderText("Google");
-
+    QList<ButtonWithMenu::Item> items;
+    items.append(ButtonWithMenu::Item("Google", QIcon(":/icons/menu/google.png")));
+    items.append(ButtonWithMenu::Item("Seznam", QIcon(":/icons/menu/cz_seznam.png")));
+    items.append(ButtonWithMenu::Item("Wikipedia (en)", QIcon(":/icons/menu/icon-wikipedia.png")));
+    items.append(ButtonWithMenu::Item("Wikipedia (cs)", QIcon(":/icons/menu/icon-wikipedia.png")));
+    items.append(ButtonWithMenu::Item("CSFD", QIcon(":/icons/menu/csfd.png")));
+    items.append(ButtonWithMenu::Item("Youtube", QIcon(":/icons/menu/youtube.png")));
+    m_boxSearchType->addItems(items);
 }
 
-void WebSearchBar::searchChanged()
+void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
 {
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        if (action->data().toString() == "Google")
-            m_boxSearchType->setIcon(QIcon(":/icons/menu/google.png"));
-        else if (action->data().toString() == "Seznam")
-            m_boxSearchType->setIcon(QIcon(":/icons/menu/cz_seznam.png"));
-        else if (action->data().toString().contains("Wikipedia"))
-            m_boxSearchType->setIcon(QIcon(":/icons/menu/icon-wikipedia.png"));
-        else if (action->data().toString() == "CSFD")
-            m_boxSearchType->setIcon(QIcon(":/icons/menu/csfd.png"));
-        else if (action->data().toString() == "Youtube")
-            m_boxSearchType->setIcon(QIcon(":/icons/menu/youtube.png"));
-
-        m_boxSearchType->setToolTip(action->data().toString());
-        setPlaceholderText(action->data().toString());
-    }
+    setPlaceholderText(item.text);
 }
 
 void WebSearchBar::search()
 {
 //    if (text().isEmpty())
 //        return;
-
+    ButtonWithMenu::Item* item = m_boxSearchType->activeItem();
     QUrl searchUrl;
-    if (m_boxSearchType->toolTip() == "Google")
+    if (item->text == "Google")
         searchUrl = QUrl("http://www.google.com/search?client=qupzilla&q="+text());
-    if (m_boxSearchType->toolTip() == "Seznam")
+    if (item->text == "Seznam")
         searchUrl = QUrl("http://search.seznam.cz/?q="+text());
-    if (m_boxSearchType->toolTip() == "Wikipedia (cs)")
+    if (item->text == "Wikipedia (cs)")
         searchUrl = QUrl("http://cs.wikipedia.org/w/index.php?search="+text());
-    if (m_boxSearchType->toolTip() == "Wikipedia (en)")
+    if (item->text == "Wikipedia (en)")
         searchUrl = QUrl("http://en.wikipedia.org/w/index.php?search="+text());
-    if (m_boxSearchType->toolTip() == "CSFD")
+    if (item->text == "CSFD")
         searchUrl = QUrl("http://www.csfd.cz/hledat/?q="+text());
-    if (m_boxSearchType->toolTip() == "Youtube")
+    if (item->text == "Youtube")
         searchUrl = QUrl("http://www.youtube.com/results?search_query="+text());
 
     p_QupZilla->weView()->load(searchUrl);
@@ -117,7 +96,7 @@ void WebSearchBar::search()
 void WebSearchBar::focusOutEvent(QFocusEvent* e)
 {
     if (text().isEmpty()) {
-        QString search = m_boxSearchType->toolTip();
+        QString search = m_boxSearchType->activeItem()->text;
         //clear();
         setPlaceholderText(search);
     }

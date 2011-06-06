@@ -23,23 +23,24 @@
 #include <QToolButton>
 #include <QMenu>
 #include "lineedit.h"
+#include "buttonwithmenu.h"
 
 class QupZilla;
 class LineEdit;
 class ClickableLabel;
 class WebSearchBar : public LineEdit
 {
-    Q_OBJECT;
+    Q_OBJECT
 public:
     explicit WebSearchBar(QupZilla* mainClass, QWidget* parent = 0);
 
 private slots:
-    void searchChanged();
+    void searchChanged(const ButtonWithMenu::Item &item);
     void search();
 
 private:
     ClickableLabel* m_buttonSearch;
-    QToolButton* m_boxSearchType;
+    ButtonWithMenu* m_boxSearchType;
 
     void setupSearchTypes();
     void focusInEvent(QFocusEvent* e);

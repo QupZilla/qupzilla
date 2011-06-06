@@ -213,7 +213,7 @@ void WebView::loadFinished(bool state)
 
     if (animationLoading(tabIndex(), false)->movie())
         animationLoading(tabIndex(), false)->movie()->stop();
-    if (m_progress>100) qDebug() << "bug"; //cannot be more than 100
+
     m_isLoading = false;
 
     if (m_lastUrl!=url())
@@ -223,8 +223,6 @@ void WebView::loadFinished(bool state)
 
     iconChanged();
     m_lastUrl = url();
-//    if (!p_QupZilla->locationBar()->hasFocus()) Ok lets disable it, confusing with gaining focus
-//        setFocus();
 
     //Fix the bug where sometimes icon is not available at the moment
     if (icon().isNull())
