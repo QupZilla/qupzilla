@@ -48,7 +48,7 @@ void ButtonWithMenu::removeItem(const Item &item)
     m_items.removeOne(item);
 
     if (*m_currentItem == item)
-        setActiveItem(m_items.takeFirst());
+        setActiveItem(m_items.first());
 
     generateMenu();
 }

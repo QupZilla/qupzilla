@@ -215,7 +215,7 @@ void LocationBar::setPrivacy(bool state)
 void LocationBar::focusOutEvent(QFocusEvent* e)
 {
     QLineEdit::focusOutEvent(e);
-    if (!selectedText().isEmpty()  && e->reason() != Qt::TabFocusReason)
+    if (!selectedText().isEmpty() && e->reason() != Qt::TabFocusReason)
         return;
     setCursorPosition(0);
     hideGoButton();
@@ -232,7 +232,7 @@ void LocationBar::dropEvent(QDropEvent* event)
             return;
         }
     }
-    if (event->mimeData()->hasText()) {
+    else if (event->mimeData()->hasText()) {
         QUrl dropUrl = QUrl(event->mimeData()->text());
         if (WebView::isUrlValid(dropUrl)) {
             setText(dropUrl.toString());
