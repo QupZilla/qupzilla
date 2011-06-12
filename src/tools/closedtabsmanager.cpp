@@ -24,10 +24,8 @@ void ClosedTabsManager::saveView(WebView* view)
 ClosedTabsManager::Tab ClosedTabsManager::getFirstClosedTab()
 {
     Tab tab;
-    if (m_closedTabs.count() > 0) {
+    if (m_closedTabs.count() > 0)
         tab = m_closedTabs.takeFirst();
-        m_closedTabs.removeOne(tab);
-    }
 
     return tab;
 }
