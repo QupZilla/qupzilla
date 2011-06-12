@@ -90,6 +90,13 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
         reply->ignoreSslErrors(errors);
         return;
     }
+
+    QNetworkRequest request = reply->request();
+    QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
+    WebPage* webPage = (WebPage*)(v.value<void*>());
+    if (!webPage)
+        return;
+
     QString title = tr("SSL Certificate Error!");
     QString text1 = tr("The page you trying to access has following errors in SSL Certificate:");
 
@@ -112,9 +119,11 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     QString message = QString(QLatin1String("<b>%1</b><p>%2</p><ul><li>%3</li></ul><p>%4</p>")).arg(title, text1, actions.join(QLatin1String("</li><li>")), text2);
 
     if (!actions.isEmpty())  {
-        QMessageBox::StandardButton button = QMessageBox::critical(p_QupZilla, tr("SSL Certificate Error"),
-                                                               message, QMessageBox::Yes | QMessageBox::No);
-        if (button != QMessageBox::Yes)
+//        QMessageBox::StandardButton button = QMessageBox::critical(p_QupZilla, tr("SSL Certificate Error"),
+//                                                               message, QMessageBox::Yes | QMessageBox::No);
+//        if (button != QMessageBox::Yes)
+//            return;
+        if (!webPage->javaScriptConfirm(webPage->mainFrame(), message))
             return;
     }
 
