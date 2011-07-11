@@ -722,10 +722,9 @@ void Preferences::saveSettings()
     m_pluginsList->save();
     mApp->cookieJar()->loadSettings();
     mApp->history()->loadSettings();
-    mApp->loadSettings();
+    mApp->reloadSettings();
     mApp->plugins()->c2f_saveSettings();
     mApp->networkManager()->loadSettings();
-    mApp->reloadSettings();
     mApp->desktopNotifications()->loadSettings();
 }
 

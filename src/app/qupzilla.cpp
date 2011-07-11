@@ -53,6 +53,7 @@
 #include "adblockicon.h"
 #include "closedtabsmanager.h"
 #include "statusbarmessage.h"
+#include "locationbarsettings.h"
 
 const QString QupZilla::VERSION = "1.0.0-b3";
 //const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM d yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
@@ -499,7 +500,7 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
     case MainApplication::ReloadSettings:
         loadSettings();
         m_tabWidget->loadSettings();
-//        m_locationBar->loadSettings();
+        LocationBarSettings::instance()->loadSettings();
         break;
 
     default:
@@ -934,15 +935,12 @@ void QupZilla::showBookmarksToolbar()
 
 void QupZilla::showBookmarksSideBar()
 {
-    bool saveToSettings = false;
     if (!m_sideBar) {
         m_sideBar = new SideBar(this);
         addDockWidget(Qt::LeftDockWidgetArea, m_sideBar);
         m_sideBar->showBookmarks();
-        saveToSettings = true;
     } else if (m_actionShowBookmarksSideBar->isChecked()){
         m_sideBar->showBookmarks();
-        saveToSettings = true;
     } else {
         m_sideBar->close();
     }
