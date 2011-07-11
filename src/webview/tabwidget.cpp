@@ -25,6 +25,7 @@
 #include "webtab.h"
 #include "clickablelabel.h"
 #include "closedtabsmanager.h"
+#include "progressbar.h"
 
 class NewTabButton : public QToolButton
 {
@@ -60,7 +61,6 @@ private:
         style()->drawItemPixmap(&p, r, Qt::AlignCenter, pix);
     }
 #endif
-
 };
 
 class TabListButton : public QToolButton
@@ -97,19 +97,20 @@ private:
 
 TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     QTabWidget(parent)
-    ,p_QupZilla(mainClass)
-    ,m_lastTabIndex(0)
-    ,m_isClosingToLastTabIndex(false)
-    ,m_closedTabsManager(new ClosedTabsManager(this))
+  , p_QupZilla(mainClass)
+  , m_lastTabIndex(0)
+  , m_isClosingToLastTabIndex(false)
+  , m_closedTabsManager(new ClosedTabsManager(this))
+  , m_locationBars(new QStackedWidget())
 {
     m_tabBar = new TabBar(p_QupZilla);
     setTabBar(m_tabBar);
     setObjectName("tabWidget");
     setStyleSheet("QTabBar::tab{ max-width:250px; }");
 
-    connect(this, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)));
+    connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla, SLOT(refreshHistory()));
-    connect(this, SIGNAL(currentChanged(int)), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
+//    connect(this, SIGNAL(currentChanged(int)), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
 
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(backTab(int)), this, SLOT(backTab(int)));
@@ -212,10 +213,15 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
     if (url.isEmpty())
         url = m_urlOnNewTab;
 
-    int index = addTab(new WebTab(p_QupZilla),"");
+    LocationBar* locBar = new LocationBar(p_QupZilla);
+    m_locationBars->addWidget(locBar);
+    int index = addTab(new WebTab(p_QupZilla, locBar),"");
+    WebView* webView = weView(index);
+    locBar->setWebView(webView);
+
     setTabText(index, title);
-    weView(index)->animationLoading(index, true)->movie()->stop();
-    weView(index)->animationLoading(index, false)->setPixmap(_iconForUrl(url).pixmap(16,16));
+    webView->animationLoading(index, true)->movie()->stop();
+    webView->animationLoading(index, false)->setPixmap(_iconForUrl(url).pixmap(16,16));
 
     if (openIn == TabWidget::NewSelectedTab) {
         setCurrentIndex(index);
@@ -230,18 +236,22 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
         tabBar()->setTabsClosable(false);
     else tabBar()->setTabsClosable(true);
 
-    connect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
-    connect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
-    connect(weView(index), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    connect(weView(index), SIGNAL(changed()), mApp, SLOT(setChanged()));
-    connect(weView(index), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
+//    connect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
+//    connect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
+    connect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
+    connect(webView, SIGNAL(changed()), mApp, SLOT(setChanged()));
+    connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid())
-        weView(index)->load(url);
+        webView->load(url);
+
     if (selectLine)
         p_QupZilla->locationBar()->setFocus();
-    if (openIn == NewSelectedTab)
+
+    if (openIn == NewSelectedTab) {
         m_isClosingToLastTabIndex = true;
+        m_locationBars->setCurrentWidget(locBar);
+    }
 
     return index;
 }
@@ -264,26 +274,28 @@ void TabWidget::closeTab(int index)
     if (index == -1)
         index = currentIndex();
 
-    if (weView(index)) {
-        disconnect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
-        disconnect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
-        disconnect(weView(index), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-        disconnect(weView(index), SIGNAL(changed()), mApp, SLOT(setChanged()));
-        disconnect(weView(index), SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
-        //Save last tab url and history
-        m_closedTabsManager->saveView(weView(index));
+    WebView* webView = weView(index);
+    if (!webView)
+        return;
 
-        if (m_isClosingToLastTabIndex && m_lastTabIndex < count())
-            setCurrentIndex(m_lastTabIndex);
+    m_locationBars->removeWidget(webView->webTab()->locationBar());
+//        disconnect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
+//        disconnect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
+    disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
+    disconnect(webView, SIGNAL(changed()), mApp, SLOT(setChanged()));
+    disconnect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
+    //Save last tab url and history
+    m_closedTabsManager->saveView(webView);
 
-        delete weView(index);
-        removeTab(index);
+    if (m_isClosingToLastTabIndex && m_lastTabIndex < count())
+        setCurrentIndex(m_lastTabIndex);
 
-        if (count() == 1 && m_hideCloseButtonWithOneTab)
-            tabBar()->setTabsClosable(false);
-        if (count() == 1 && m_hideTabBarWithOneTab)
-            tabBar()->setVisible(false);
-    }
+    delete widget(index);
+
+    if (count() == 1 && m_hideCloseButtonWithOneTab)
+        tabBar()->setTabsClosable(false);
+    if (count() == 1 && m_hideTabBarWithOneTab)
+        tabBar()->setVisible(false);
 
 //    if (count() < 1)
 //        p_QupZilla->close();
@@ -296,24 +308,40 @@ void TabWidget::tabMoved(int before, int after)
     m_isClosingToLastTabIndex = false;
 }
 
-void TabWidget::tabChanged(int index)
+void TabWidget::currentTabChanged(int index)
 {
     if (index < 0)
         return;
 
     m_isClosingToLastTabIndex = false;
+    WebView* webView = weView();
 
-    QString title = p_QupZilla->weView()->title();
+    QString title = webView->title();
     if (title.isEmpty())
         title = tr("No Named Page");
 
     p_QupZilla->setWindowTitle(title + " - QupZilla");
-    p_QupZilla->locationBar()->showUrl(weView()->url(),false);
-    p_QupZilla->ipLabel()->setText(weView()->getIp());
+//    p_QupZilla->locationBar()->showUrl(weView()->url(),false);
+
+    m_locationBars->setCurrentWidget(webView->webTab()->locationBar());
+    p_QupZilla->ipLabel()->setText(webView->getIp());
+
+    if (webView->isLoading()) {
+        p_QupZilla->ipLabel()->hide();
+        p_QupZilla->progressBar()->setVisible(true);
+        p_QupZilla->progressBar()->setValue(webView->getLoading());
+        p_QupZilla->buttonStop()->setVisible(true);
+        p_QupZilla->buttonReload()->setVisible(false);
+    } else {
+        p_QupZilla->progressBar()->setVisible(false);
+        p_QupZilla->buttonStop()->setVisible(false);
+        p_QupZilla->buttonReload()->setVisible(true);
+        p_QupZilla->ipLabel()->show();
+    }
 
     if (p_QupZilla->inspectorDock() && p_QupZilla->inspectorDock()->isVisible())
         p_QupZilla->showInspector();
-    weView()->setFocus();
+    webView->setFocus();
 
     m_tabBar->updateCloseButton(index);
 }
@@ -541,9 +569,6 @@ bool TabWidget::restoreState(const QByteArray &state)
 
 TabWidget::~TabWidget()
 {
-    int index = currentIndex();
-    closeAllButCurrent(index);
-    closeTab(index);
     delete m_menuTabs;
     delete m_buttonAddTab;
     delete m_buttonListTabs;

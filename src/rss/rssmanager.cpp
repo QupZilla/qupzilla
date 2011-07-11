@@ -234,8 +234,7 @@ void RSSManager::loadFeedInNewTab()
 
 void RSSManager::beginToLoadSlot(const QUrl &url)
 {
-    QNetworkReply* reply;
-    reply=m_networkManager->get(QNetworkRequest(QUrl(url)));
+    m_networkManager->get(QNetworkRequest(QUrl(url)));
 
     connect(m_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finished(QNetworkReply*)));
 }

@@ -37,8 +37,7 @@ void Updater::start()
 void Updater::startDownloadingUpdateInfo(const QUrl &url)
 {
     QNetworkAccessManager* manager = new QNetworkAccessManager();
-    QNetworkReply* reply;
-    reply=manager->get(QNetworkRequest(QUrl(url)));
+    manager->get(QNetworkRequest(QUrl(url)));
 
     connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(downCompleted(QNetworkReply*)));
 }

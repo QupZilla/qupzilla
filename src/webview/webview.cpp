@@ -32,6 +32,7 @@
 #include "iconprovider.h"
 #include "webtab.h"
 #include "statusbarmessage.h"
+#include "progressbar.h"
 
 WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     : QWebView()
@@ -44,6 +45,7 @@ WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     ,m_wantsClose(false)
     ,m_page(new WebPage(this, p_QupZilla))
     ,m_webTab(webTab)
+    ,m_locationBar(0)
     ,m_mouseTrack(false)
     ,m_navigationVisible(false)
     ,m_mouseWheelEnabled(true)
@@ -137,6 +139,14 @@ void WebView::setProgress(int prog)
         emit showUrl(url());
     }
     checkRss();
+
+    if (isCurrent()) {
+        p_QupZilla->ipLabel()->hide();
+        p_QupZilla->progressBar()->setVisible(true);
+        p_QupZilla->progressBar()->setValue(m_progress);
+        p_QupZilla->buttonStop()->setVisible(true);
+        p_QupZilla->buttonReload()->setVisible(false);
+    }
 }
 
 void WebView::loadStarted()
@@ -231,6 +241,13 @@ void WebView::loadFinished(bool state)
     titleChanged();
     mApp->autoFill()->completePage(this);
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
+
+    if (isCurrent()) {
+        p_QupZilla->progressBar()->setVisible(false);
+        p_QupZilla->buttonStop()->setVisible(false);
+        p_QupZilla->buttonReload()->setVisible(true);
+        p_QupZilla->ipLabel()->show();
+    }
 }
 
 void WebView::titleChanged()
@@ -354,6 +371,8 @@ void WebView::checkRss()
             continue;
         m_rss.append(QPair<QString,QString>(title, href));
     }
+
+    emit rssChanged(!m_rss.isEmpty());
 }
 
 void WebView::mousePressEvent(QMouseEvent* event)
