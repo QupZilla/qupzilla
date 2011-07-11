@@ -148,6 +148,8 @@ void QupZilla::postLaunch()
 void QupZilla::setupUi()
 {
     setContentsMargins(0,0,0,0);
+    m_tabWidget = new TabWidget(this);
+    setCentralWidget(m_tabWidget);
 
     m_navigation = new QToolBar(this);
     m_navigation->setWindowTitle(tr("Navigation"));
@@ -186,11 +188,10 @@ void QupZilla::setupUi()
     m_navigation->addAction(m_buttonStop);
     m_navigation->addAction(m_buttonHome);
 
-    m_locationBar = new LocationBar(this);
     m_searchLine = new WebSearchBar(this);
 
     m_navigationSplitter = new QSplitter(m_navigation);
-    m_navigationSplitter->addWidget(m_locationBar);
+    m_navigationSplitter->addWidget(m_tabWidget->locationBars());
     m_navigationSplitter->addWidget(m_searchLine);
 
     m_navigationSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
@@ -229,9 +230,6 @@ void QupZilla::setupUi()
     m_bookmarksToolbar = new BookmarksToolbar(this);
     addToolBar(m_bookmarksToolbar);
     insertToolBarBreak(m_bookmarksToolbar);
-
-    m_tabWidget = new TabWidget(this);
-    setCentralWidget(m_tabWidget);
 }
 
 void QupZilla::setupMenu()
@@ -365,7 +363,6 @@ void QupZilla::setupMenu()
     aboutToShowToolsMenu();
     aboutToShowHelpMenu();
 
-    connect(m_locationBar, SIGNAL(returnPressed()), this, SLOT(urlEnter()));
     connect(m_buttonBack, SIGNAL(triggered()), this, SLOT(goBack()));
     connect(m_buttonNext, SIGNAL(triggered()), this, SLOT(goNext()));
     connect(m_buttonStop, SIGNAL(triggered()), this, SLOT(stop()));
@@ -502,7 +499,7 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
     case MainApplication::ReloadSettings:
         loadSettings();
         m_tabWidget->loadSettings();
-        m_locationBar->loadSettings();
+//        m_locationBar->loadSettings();
         break;
 
     default:
@@ -513,6 +510,9 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
 
 void QupZilla::refreshHistory(int index)
 {
+    if (mApp->isClosing())
+        return;
+
     QWebHistory* history;
     if (index == -1)
         history = weView()->page()->history();
@@ -856,9 +856,9 @@ void QupZilla::loadActionUrl()
 
 void QupZilla::urlEnter()
 {
-    if (m_locationBar->text().isEmpty())
+    if (locationBar()->text().isEmpty())
         return;
-    loadAddress(QUrl(WebView::guessUrlFromString(m_locationBar->text())));
+    loadAddress(QUrl(WebView::guessUrlFromString(locationBar()->text())));
     weView()->setFocus();
 }
 
@@ -1180,7 +1180,6 @@ QupZilla::~QupZilla()
     delete m_adblockIcon;
     delete m_menuBack;
     delete m_menuForward;
-    delete m_locationBar;
     delete m_searchLine;
     delete m_bookmarksToolbar;
     delete m_webSearchToolbar;

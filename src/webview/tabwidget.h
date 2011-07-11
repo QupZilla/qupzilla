@@ -25,6 +25,7 @@
 #include <QDateTime>
 #include <QToolButton>
 #include <QStylePainter>
+#include <QStackedWidget>
 
 class QupZilla;
 class WebView;
@@ -54,6 +55,7 @@ public:
     inline ClosedTabsManager* closedTabsManager() { return m_closedTabsManager; }
     bool canRestoreTab();
     QList<WebTab*> allTabs(bool withPinned = true);
+    QStackedWidget* locationBars() { return m_locationBars; }
 
 
 public slots:
@@ -72,7 +74,7 @@ public slots:
 private slots:
     void aboutToShowTabsMenu();
     void actionChangeIndex();
-    void tabChanged(int index);
+    void currentTabChanged(int index);
     void tabMoved(int before, int after);
 
 private:
@@ -93,6 +95,8 @@ private:
     NewTabButton* m_buttonAddTab;
     TabListButton* m_buttonListTabs;
     ClosedTabsManager* m_closedTabsManager;
+
+    QStackedWidget* m_locationBars;
 };
 
 #endif // TABWIDGET_H

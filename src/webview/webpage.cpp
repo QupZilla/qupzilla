@@ -33,12 +33,25 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     ,m_view(parent)
     ,m_blockAlerts(false)
     ,m_lastUploadLocation(QDir::homePath())
+    ,m_secureStatus(false)
 //    ,m_isOpeningNextWindowAsNewTab(false)
 {
     setForwardUnsupportedContent(true);
     setPluginFactory(new WebPluginFactory(this));
     connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), SLOT(handleUnsupportedContent(QNetworkReply*)));
     connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
+    connect(this, SIGNAL(loadProgress(int)), this, SLOT(progress(int)));
+}
+
+void WebPage::progress(int prog)
+{
+    Q_UNUSED(prog)
+    bool secStatus = sslCertificate().isValid();
+
+    if (secStatus != m_secureStatus) {
+        m_secureStatus = secStatus;
+        emit privacyChanged(sslCertificate().isValid());
+    }
 }
 
 void WebPage::loadingStarted()
@@ -76,7 +89,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 void WebPage::setSSLCertificate(const QSslCertificate &cert)
 {
 //    if (cert != m_SslCert) -- crashing on linux :-|
-        m_SslCert = cert;
+    m_SslCert = cert;
 }
 
 QSslCertificate WebPage::sslCertificate()
