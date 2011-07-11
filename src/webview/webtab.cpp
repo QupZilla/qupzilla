@@ -18,12 +18,15 @@
 #include "webtab.h"
 #include "qupzilla.h"
 #include "webview.h"
+#include "webpage.h"
 #include "tabbar.h"
+#include "locationbar.h"
 
-WebTab::WebTab(QupZilla* mainClass, QWidget* parent)
-    :QWidget(parent)
+WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
+    :QWidget()
     ,p_QupZilla(mainClass)
     ,m_view(0)
+    ,m_locationBar(locationBar)
     ,m_pinned(false)
 {
     m_layout = new QVBoxLayout(this);
@@ -36,6 +39,12 @@ WebTab::WebTab(QupZilla* mainClass, QWidget* parent)
     setAutoFillBackground(true); // We don't want this transparent
 
     connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
+    connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(siteIconChanged()));
+    connect(m_view, SIGNAL(loadStarted()), m_locationBar, SLOT(clearIcon()));
+    connect(m_view, SIGNAL(loadFinished(bool)), m_locationBar, SLOT(siteIconChanged()));
+    connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar, SLOT(showUrl(QUrl)));
+    connect(m_view, SIGNAL(rssChanged(bool)), m_locationBar, SLOT(showRSSIcon(bool)));
+    connect(m_view->webPage(), SIGNAL(privacyChanged(bool)), m_locationBar, SLOT(setPrivacy(bool)));
 }
 
 void WebTab::showNotification(QWidget* notif)
@@ -74,5 +83,6 @@ void WebTab::pinTab(int index)
 
 WebTab::~WebTab()
 {
+    delete m_locationBar;
     delete m_view;
 }

@@ -37,12 +37,15 @@ class LineEdit;
 class LocationCompleter;
 class ClickableLabel;
 class BookmarkIcon;
+class WebView;
 class LocationBar : public LineEdit
 {
-    Q_OBJECT;
+    Q_OBJECT
 public:
-    explicit LocationBar(QupZilla* mainClass, QWidget* parent = 0);
+    explicit LocationBar(QupZilla* mainClass);
     ~LocationBar();
+
+    void setWebView(WebView* view) { m_webView = view; }
 
     void loadSettings();
 
@@ -56,6 +59,9 @@ private slots:
     void showPopup();
     void showSiteInfo();
     void rssIconClicked();
+    void urlEnter();
+    void clearIcon();
+    void showRSSIcon(bool state);
 
 private:
     void focusOutEvent(QFocusEvent* e);
@@ -75,6 +81,7 @@ private:
     bool m_addComWithCtrl;
     bool m_addCountryWithAlt;
     QupZilla* p_QupZilla;
+    WebView* m_webView;
     LocationCompleter* m_locationCompleter;
 
     bool m_rssIconVisible;

@@ -24,16 +24,20 @@
 #include "webview.h"
 
 class QupZilla;
+class LocationBar;
 class WebTab : public QWidget
 {
     Q_OBJECT
 public:
-    explicit WebTab(QupZilla* mainClass, QWidget* parent = 0);
+    explicit WebTab(QupZilla* mainClass, LocationBar* locationBar);
     ~WebTab();
     WebView* view() { return m_view; }
     bool isPinned() { return m_pinned; }
     void pinTab(int index);
     void setPinned(bool state) { m_pinned = state; }
+
+    void setLocationBar(LocationBar* bar) { m_locationBar = bar; }
+    LocationBar* locationBar() { return m_locationBar; }
 
 private slots:
     void showNotification(QWidget* notif);
@@ -43,6 +47,7 @@ private:
     QupZilla* p_QupZilla;
     QPointer<WebView> m_view;
     QVBoxLayout* m_layout;
+    LocationBar* m_locationBar;
 
     bool m_pinned;
 };

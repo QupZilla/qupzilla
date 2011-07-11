@@ -57,10 +57,14 @@ public:
     void addAdBlockRule(const QString &filter, const QUrl &url);
     QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
 
+signals:
+    void privacyChanged(bool status);
+
 protected slots:
     QWebPage* createWindow(QWebPage::WebWindowType type);
     void handleUnsupportedContent(QNetworkReply* url);
     void loadingStarted();
+    void progress(int prog);
 
 private:
     virtual bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
@@ -78,6 +82,8 @@ private:
     QList<AdBlockedEntry> m_adBlockedEntries;
     bool m_blockAlerts;
     QString m_lastUploadLocation;
+
+    bool m_secureStatus;
 //    bool m_isOpeningNextWindowAsNewTab;
 };
 

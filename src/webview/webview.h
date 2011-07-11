@@ -36,7 +36,7 @@ class TabWidget;
 class WebPage;
 class NetworkManagerProxy;
 class WebTab;
-
+class LocationBar;
 class WebView : public QWebView
 {
     Q_OBJECT
@@ -60,6 +60,9 @@ public:
     bool hasRss() { return !m_rss.isEmpty(); }
     QList<QPair<QString,QString> > getRss() { return m_rss; } //FIXME: Make RSS as struct
     void setMouseWheelEnabled(bool state) { m_mouseWheelEnabled = state; }
+
+    void setLocationBar(LocationBar* bar) { m_locationBar = bar; }
+    LocationBar* locationBar() { return m_locationBar; }
 
     static QUrl guessUrlFromString(const QString &string);
     static bool isUrlValid(const QUrl &url);
@@ -134,6 +137,7 @@ private:
     WebPage* m_page;
     WebTab* m_webTab;
     NetworkManagerProxy* m_networkProxy;
+    LocationBar* m_locationBar;
 
     bool m_mouseTrack;
     bool m_navigationVisible;
@@ -143,12 +147,12 @@ private:
 signals:
     void showUrl(QUrl url);
     void siteIconChanged();
-    void setPrivacy(bool state);
     void wantsCloseTab(int index);
     void changed();
     void ipChanged(QString ip);
     void showNotification(QWidget* notif);
     void viewportResized(QSize size);
+    void rssChanged(bool state);
 };
 
 #endif // WEBVIEW_H
