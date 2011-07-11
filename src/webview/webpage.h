@@ -65,6 +65,7 @@ protected slots:
     void handleUnsupportedContent(QNetworkReply* url);
     void loadingStarted();
     void progress(int prog);
+    void finished();
 
 private:
     virtual bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }

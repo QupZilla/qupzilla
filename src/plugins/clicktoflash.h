@@ -54,6 +54,7 @@
 #include <QFrame>
 #include <QAction>
 #include <QMenu>
+#include <QFormLayout>
 
 class QWebElement;
 class ClickToFlash : public QWidget
@@ -70,6 +71,7 @@ private slots:
     void findElement();
 
     void hideAdBlocked();
+    void showInfo();
 
 private:
     bool checkElement(QWebElement el);
