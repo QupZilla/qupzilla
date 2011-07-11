@@ -262,6 +262,7 @@ void LocationBar::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
         setText(m_webView->url().toEncoded());
+        qDebug(m_webView->url().toEncoded());
         event->accept();
         return;
     }

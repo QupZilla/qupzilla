@@ -94,7 +94,8 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
 void ClickToFlash::customContextMenuRequested(const QPoint &pos)
 {
     QMenu menu;
-    menu.addAction(tr("Flash blocked by ClickToFlash"));
+    menu.addAction(tr("Object blocked by ClickToFlash"));
+    menu.addAction(tr("Show more informations about object"), this, SLOT(showInfo()));
     menu.addSeparator();
     menu.addAction(tr("Add %1 to whitelist").arg(m_url.host()), this, SLOT(toWhitelist()));
     menu.actions().at(0)->setEnabled(false);
@@ -191,4 +192,27 @@ bool ClickToFlash::checkElement(QWebElement el)
         return true;
     }
     return false;
+}
+
+void ClickToFlash::showInfo()
+{
+    QWidget* widg = new QWidget();
+    widg->setAttribute(Qt::WA_DeleteOnClose);
+    widg->setWindowTitle(tr("Flash Object"));
+    QFormLayout* lay = new QFormLayout(widg);
+
+    lay->addRow(new QLabel(tr("<b>Attribute Name</b>")), new QLabel(tr("<b>Value</b>")));
+
+    int i = 0;
+    foreach (QString name, m_argumentNames) {
+        QString value = m_argumentValues.at(i);
+        lay->addRow(new QLabel(name), new QLabel(value));
+
+        i++;
+    }
+
+    if (i == 0)
+        lay->addRow(new QLabel(tr("No more informations available.")));
+
+    widg->show();
 }

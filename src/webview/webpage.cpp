@@ -41,6 +41,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), SLOT(handleUnsupportedContent(QNetworkReply*)));
     connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(progress(int)));
+    connect(this, SIGNAL(loadFinished(bool)), this, SLOT(finished()));
 }
 
 void WebPage::progress(int prog)
@@ -52,6 +53,11 @@ void WebPage::progress(int prog)
         m_secureStatus = secStatus;
         emit privacyChanged(sslCertificate().isValid());
     }
+}
+
+void WebPage::finished()
+{
+    progress(100);
 }
 
 void WebPage::loadingStarted()
