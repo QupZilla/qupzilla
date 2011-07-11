@@ -38,6 +38,7 @@ class LocationCompleter;
 class ClickableLabel;
 class BookmarkIcon;
 class WebView;
+class LocationBarSettings;
 class LocationBar : public LineEdit
 {
     Q_OBJECT
@@ -46,8 +47,6 @@ public:
     ~LocationBar();
 
     void setWebView(WebView* view) { m_webView = view; }
-
-    void loadSettings();
 
 public slots:
     void showUrl(const QUrl &url, bool empty = true);
@@ -77,12 +76,10 @@ private:
     ClickableLabel* m_rssIcon;
     QToolButton* m_siteIcon;
 
-    bool m_selectAllOnDoubleClick;
-    bool m_addComWithCtrl;
-    bool m_addCountryWithAlt;
     QupZilla* p_QupZilla;
     WebView* m_webView;
     LocationCompleter* m_locationCompleter;
+    LocationBarSettings* m_locationBarSettings;
 
     bool m_rssIconVisible;
 };
