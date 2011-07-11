@@ -28,14 +28,13 @@
 #include "bookmarkicon.h"
 #include "progressbar.h"
 #include "statusbarmessage.h"
+#include "locationbarsettings.h"
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit()
-    ,m_selectAllOnDoubleClick(false)
-    ,m_addComWithCtrl(false)
-    ,m_addCountryWithAlt(false)
     ,p_QupZilla(mainClass)
     ,m_webView(0)
+    ,m_locationBarSettings(LocationBarSettings::instance())
 {
     m_siteIcon = new QToolButton(this);
     m_siteIcon->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -76,7 +75,6 @@ LocationBar::LocationBar(QupZilla* mainClass)
     setWidgetSpacing(0);
     this->setMinimumHeight(25);
     this->setMaximumHeight(25);
-    loadSettings();
 
     m_locationCompleter = new LocationCompleter();
     setCompleter(m_locationCompleter);
@@ -95,15 +93,6 @@ LocationBar::LocationBar(QupZilla* mainClass)
     setLeftMargin(33);
     clearIcon();
 //    setLeftMargin(m_siteIcon->sizeHint().width()+1);
-}
-
-void LocationBar::loadSettings()
-{
-    QSettings settings(p_QupZilla->activeProfil()+"settings.ini", QSettings::IniFormat);
-    settings.beginGroup("AddressBar");
-    m_selectAllOnDoubleClick = settings.value("SelectAllTextOnDoubleClick",true).toBool();
-    m_addComWithCtrl = settings.value("AddComDomainWithCtrlKey",false).toBool();
-    m_addCountryWithAlt = settings.value("AddCountryDomainWithAltKey",true).toBool();
 }
 
 void LocationBar::urlEnter()
@@ -263,7 +252,7 @@ void LocationBar::dropEvent(QDropEvent* event)
 
 void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton && m_selectAllOnDoubleClick)
+    if (event->button() == Qt::LeftButton && m_locationBarSettings->selectAllOnDoubleClick)
         selectAll();
     else
         QLineEdit::mouseDoubleClickEvent(event);
@@ -278,9 +267,9 @@ void LocationBar::keyPressEvent(QKeyEvent *event)
     }
 
     QString localDomain = tr(".co.uk","Append domain name on ALT key = Should be different for every country");
-    if (event->key() == Qt::Key_Control && m_addComWithCtrl && !text().endsWith(".com")) //Disabled for a while
+    if (event->key() == Qt::Key_Control && m_locationBarSettings->addComWithCtrl && !text().endsWith(".com")) //Disabled for a while
         setText(text().append(".com"));
-    if (event->key() == Qt::Key_Alt && m_addCountryWithAlt && !text().endsWith(localDomain) && !text().endsWith("/"))
+    if (event->key() == Qt::Key_Alt && m_locationBarSettings->addCountryWithAlt && !text().endsWith(localDomain) && !text().endsWith("/"))
         setText(text().append(localDomain));
 
     QLineEdit::keyPressEvent(event);

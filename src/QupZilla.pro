@@ -122,7 +122,8 @@ SOURCES += main.cpp\
     tools/widget.cpp \
     3rdparty/squeezelabelv2.cpp \
     3rdparty/squeezelabelv1.cpp \
-    tools/buttonwithmenu.cpp
+    tools/buttonwithmenu.cpp \
+    navigation/locationbarsettings.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -205,7 +206,8 @@ HEADERS  += \
     tools/widget.h \
     3rdparty/squeezelabelv2.h \
     3rdparty/squeezelabelv1.h \
-    tools/buttonwithmenu.h
+    tools/buttonwithmenu.h \
+    navigation/locationbarsettings.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

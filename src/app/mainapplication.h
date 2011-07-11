@@ -58,7 +58,7 @@ public:
     enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing , ReloadSettings };
 
     void loadSettings();
-    void reloadSettings() { emit message(ReloadSettings, true); }
+    void reloadSettings() { loadSettings(); emit message(ReloadSettings, true); }
     bool restoreStateSlot(QupZilla* window);
     void makeNewWindow(bool tryRestore, const QUrl &startUrl=QUrl());
     void addNewTab(const QUrl &url = QUrl());
