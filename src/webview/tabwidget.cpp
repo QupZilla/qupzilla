@@ -106,7 +106,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     m_tabBar = new TabBar(p_QupZilla);
     setTabBar(m_tabBar);
     setObjectName("tabWidget");
-    setStyleSheet("QTabBar::tab{ max-width:250px; }");
+    setStyleSheet("QTabBar::tab{ max-width:250px; max-height: 28px; }");
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla, SLOT(refreshHistory()));

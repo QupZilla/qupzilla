@@ -35,7 +35,7 @@
 #include "progressbar.h"
 
 WebView::WebView(QupZilla* mainClass, WebTab* webTab)
-    : QWebView()
+    : QWebView(webTab)
     ,p_QupZilla(mainClass)
     ,m_progress(0)
     ,m_isLoading(false)
