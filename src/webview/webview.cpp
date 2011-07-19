@@ -468,7 +468,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addAction(tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
         menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(r.linkUrl());
         menu->addSeparator();
-        if (!page()->selectedText().isEmpty())
+        if (!selectedText().isEmpty())
             menu->addAction(pageAction(QWebPage::Copy));
     }
 
@@ -483,7 +483,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addAction(tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
         menu->addSeparator();
         //menu->addAction(tr("Block image"), this, SLOT(blockImage()))->setData(r.imageUrl().toString());
-        if (!page()->selectedText().isEmpty())
+        if (!selectedText().isEmpty())
             menu->addAction(pageAction(QWebPage::Copy));
     }
 
@@ -534,7 +534,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addAction(tr("Send page..."), this, SLOT(sendLinkByMail()))->setData(url());
         menu->addSeparator();
         menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
-        if (!page()->selectedText().isEmpty())
+        if (!selectedText().isEmpty())
             menu->addAction(pageAction(QWebPage::Copy));
 
         menu->addSeparator();
@@ -545,12 +545,17 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
 
     mApp->plugins()->populateWebViewMenu(menu, this, r);
 
-    if (!page()->selectedText().isEmpty()) {
+    if (!selectedText().isEmpty()) {
         menu->addSeparator();
         QString selectedText = page()->selectedText();
         selectedText.truncate(20);
         menu->addAction(QIcon(":icons/menu/google.png"), tr("Search \"%1 ..\" on &Google").arg(selectedText), this, SLOT(searchOnGoogle()))->setData(page()->selectedText());
     }
+
+#if QT_VERSION == 0x040800
+//    if (!selectedHtml().isEmpty())
+//        menu->addAction(tr("Show source of selection"), this, SLOT(showSourceOfSelection()));
+#endif
 
     if (!menu->isEmpty()) {
         //Prevent choosing first option with double rightclick
@@ -633,6 +638,11 @@ void WebView::showImage()
 void WebView::showSource()
 {
     p_QupZilla->showSource();
+}
+
+void WebView::showSourceOfSelection()
+{
+    p_QupZilla->showSource(selectedHtml());
 }
 
 void WebView::downloadLinkToDisk()

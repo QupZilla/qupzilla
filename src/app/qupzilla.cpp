@@ -911,9 +911,9 @@ void QupZilla::showPreferences()
     prefs->show();
 }
 
-void QupZilla::showSource()
+void QupZilla::showSource(const QString &selectedHtml)
 {
-    SourceViewer* source = new SourceViewer(weView()->page());
+    SourceViewer* source = new SourceViewer(weView()->page(), selectedHtml);
     source->show();
 }
 

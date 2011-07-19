@@ -20,8 +20,8 @@
 #include "htmlhighlighter.h"
 #include "sourceviewersearch.h"
 
-SourceViewer::SourceViewer(QWebPage* page, QWidget* parent) :
-    QWidget(parent)
+SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
+    QWidget(0)
     ,m_page(page)
 {
     setAttribute(Qt::WA_DeleteOnClose);
@@ -94,6 +94,10 @@ SourceViewer::SourceViewer(QWebPage* page, QWidget* parent) :
     const QRect screen = QApplication::desktop()->screenGeometry();
     const QRect &size = QWidget::geometry();
     QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+
+    //Highlight selectedHtml
+    if (!selectedHtml.isEmpty())
+        m_sourceEdit->find(selectedHtml, QTextDocument::FindWholeWords);
 }
 
 void SourceViewer::save()
@@ -117,7 +121,7 @@ void SourceViewer::save()
 void SourceViewer::findText()
 {
     if (m_layout->count() > 2) {
-        SourceViewerSearch* search= qobject_cast<SourceViewerSearch*>( m_layout->itemAt(1)->widget() );
+        SourceViewerSearch* search = qobject_cast<SourceViewerSearch*>( m_layout->itemAt(1)->widget() );
         search->activateLineEdit();
         return;
     }

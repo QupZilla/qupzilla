@@ -38,7 +38,7 @@ class SourceViewer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SourceViewer(QWebPage* page, QWidget* parent = 0);
+    explicit SourceViewer(QWebPage* page, const QString &selectedHtml);
     QTextEdit* sourceEdit() { return m_sourceEdit; }
 signals:
 
