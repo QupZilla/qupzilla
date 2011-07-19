@@ -146,6 +146,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     ui->hideCloseOnTab->setChecked( settings.value("hideCloseButtonWithOneTab",false).toBool() );
     ui->hideTabsOnTab->setChecked( settings.value("hideTabsWithOneTab",false).toBool() );
     ui->activateLastTab->setChecked( settings.value("ActivateLastTabWhenClosingActual", false).toBool() );
+    ui->askWhenClosingMultipleTabs->setChecked( settings.value("AskOnClosing", false).toBool() );
     settings.endGroup();
     //AddressBar
     settings.beginGroup("AddressBar");
@@ -604,6 +605,7 @@ void Preferences::saveSettings()
     settings.setValue("hideCloseButtonWithOneTab",ui->hideCloseOnTab->isChecked());
     settings.setValue("hideTabsWithOneTab",ui->hideTabsOnTab->isChecked() );
     settings.setValue("ActivateLastTabWhenClosingActual", ui->activateLastTab->isChecked());
+    settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.endGroup();
 
     //DOWNLOADS

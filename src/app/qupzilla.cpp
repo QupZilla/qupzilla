@@ -1153,7 +1153,7 @@ bool QupZilla::quitApp()
     settings.beginGroup("Web-URL-Settings");
     int afterLaunch = settings.value("afterLaunch",0).toInt();
     settings.endGroup();
-    bool askOnClose = !settings.value("Browser-View-Settings/DontAskOnClosing", false).toBool();
+    bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", false).toBool();
 
     if (askOnClose && afterLaunch != 2 && m_tabWidget->count() > 1) {
         QDialog* dialog = new QDialog(this);
@@ -1164,7 +1164,7 @@ bool QupZilla::quitApp()
         if (dialog->exec() != QDialog::Accepted)
             return false;
         if (ui->dontAskAgain->isChecked())
-            settings.setValue("Browser-View-Settings/DontAskOnClosing", true);
+            settings.setValue("Browser-Tabs-Settings/AskOnClosing", false);
     }
 
     mApp->quitApplication();
