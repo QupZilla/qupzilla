@@ -329,12 +329,10 @@ void QupZilla::setupMenu()
     toolbarsMenu->addAction(m_actionShowMenubar);
     toolbarsMenu->addAction(m_actionShowToolbar);
     toolbarsMenu->addAction(m_actionShowBookmarksToolbar);
-    connect(toolbarsMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolbarsMenu()));
     QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
     sidebarsMenu->addAction(m_actionShowBookmarksSideBar);
     sidebarsMenu->addAction(m_actionShowHistorySideBar);
 //    sidebarsMenu->addAction(m_actionShowRssSideBar);
-    connect(sidebarsMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowSidebarsMenu()));
 
     m_menuView->addMenu(toolbarsMenu);
     m_menuView->addMenu(sidebarsMenu);
@@ -751,6 +749,22 @@ void QupZilla::aboutToShowViewMenu()
         m_actionStop->setEnabled(true);
     else
         m_actionStop->setEnabled(false);
+
+    m_actionShowToolbar->setChecked(m_navigation->isVisible());
+    m_actionShowMenubar->setChecked(menuBar()->isVisible());
+    m_actionShowStatusbar->setChecked(statusBar()->isVisible());
+    m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
+
+    if (!m_sideBar) {
+        m_actionShowBookmarksSideBar->setChecked(false);
+        m_actionShowHistorySideBar->setChecked(false);
+        //        m_actionShowRssSideBar->setChecked(false);
+    } else {
+        SideBar::SideWidget actWidget = m_sideBar->activeWidget();
+        m_actionShowBookmarksSideBar->setChecked(actWidget == SideBar::Bookmarks);
+        m_actionShowHistorySideBar->setChecked(actWidget == SideBar::History);
+        //        m_actionShowRssSideBar->setChecked(actWidget == SideBar::RSS);
+    }
 }
 
 void QupZilla::aboutToShowEncodingMenu()
@@ -801,28 +815,6 @@ void QupZilla::aboutToShowEncodingMenu()
         m_menuEncoding->addMenu(menuIscii);
     if (!menuOther->isEmpty())
         m_menuEncoding->addMenu(menuOther);
-}
-
-void QupZilla::aboutToShowSidebarsMenu()
-{
-    if (!m_sideBar) {
-        m_actionShowBookmarksSideBar->setChecked(false);
-        m_actionShowHistorySideBar->setChecked(false);
-//        m_actionShowRssSideBar->setChecked(false);
-    } else {
-        SideBar::SideWidget actWidget = m_sideBar->activeWidget();
-        m_actionShowBookmarksSideBar->setChecked(actWidget == SideBar::Bookmarks);
-        m_actionShowHistorySideBar->setChecked(actWidget == SideBar::History);
-//        m_actionShowRssSideBar->setChecked(actWidget == SideBar::RSS);
-    }
-}
-
-void QupZilla::aboutToShowToolbarsMenu()
-{
-    m_actionShowToolbar->setChecked(m_navigation->isVisible());
-    m_actionShowMenubar->setChecked(menuBar()->isVisible());
-    m_actionShowStatusbar->setChecked(statusBar()->isVisible());
-    m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
 }
 
 void QupZilla::changeEncoding()
