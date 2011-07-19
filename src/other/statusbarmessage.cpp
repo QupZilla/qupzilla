@@ -2,38 +2,60 @@
 #include "qupzilla.h"
 #include "squeezelabelv1.h"
 
+TipLabel::TipLabel(QupZilla* parent) : SqueezeLabelV1(parent) , p_QupZilla(parent)
+{
+    m_timer = new QTimer();
+    m_timer->setInterval(300);
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(checkMainWindowFocus()));
 
-class TipLabel : public SqueezeLabelV1 {
-public:
-    TipLabel()
-    {
-        setWindowFlags(Qt::ToolTip);
-        setForegroundRole(QPalette::ToolTipText);
-        setBackgroundRole(QPalette::ToolTipBase);
-        setPalette(QToolTip::palette());
-        ensurePolished();
-        setFrameStyle(QFrame::NoFrame);
-        setMargin(2);
-    }
+    setWindowFlags(Qt::ToolTip);
+    setForegroundRole(QPalette::ToolTipText);
+    setBackgroundRole(QPalette::ToolTipBase);
+    setPalette(QToolTip::palette());
+    ensurePolished();
+    setFrameStyle(QFrame::NoFrame);
+    setMargin(2);
+}
 
-    void paintEvent(QPaintEvent *ev)
-    {
-        QStylePainter p(this);
-        QStyleOptionFrame opt;
-        opt.init(this);
-        p.drawPrimitive(QStyle::PE_PanelTipLabel, opt);
-        p.end();
+void TipLabel::paintEvent(QPaintEvent *ev)
+{
+    QStylePainter p(this);
+    QStyleOptionFrame opt;
+    opt.init(this);
+    p.drawPrimitive(QStyle::PE_PanelTipLabel, opt);
+    p.end();
 
-        SqueezeLabelV1::paintEvent(ev);
-    }
-};
+    SqueezeLabelV1::paintEvent(ev);
+}
+
+void TipLabel::show()
+{
+    if (!p_QupZilla->weView()->hasFocus())
+        return;
+
+    m_timer->start();
+    SqueezeLabelV1::show();
+}
+
+void TipLabel::hide()
+{
+    m_timer->stop();
+    SqueezeLabelV1::hide();
+}
+
+void TipLabel::checkMainWindowFocus()
+{
+    if (!p_QupZilla->weView()->hasFocus())
+        hide();
+}
+
 
 
 StatusBarMessage::StatusBarMessage(QupZilla* mainClass)
     : QObject()
     , p_QupZilla(mainClass)
 {
-    m_statusBarText = new TipLabel();
+    m_statusBarText = new TipLabel(mainClass);
 }
 
 #define STATUS_Y_OFFSET -35
