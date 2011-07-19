@@ -101,6 +101,7 @@ private slots:
     void sendLinkByMail();
     void bookmarkLink();
     void showSource();
+    void showSourceOfSelection();
     void showSiteInfo();
     void getFocus(const QUrl &urla);
     void showInspector();

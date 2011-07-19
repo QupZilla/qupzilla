@@ -127,7 +127,7 @@ public slots:
     void loadActionUrl();
     void bookmarkPage();
     void loadAddress(QUrl url) { weView()->load(url); locationBar()->setText(url.toEncoded()); }
-    void showSource();
+    void showSource(const QString& selectedHtml = "");
     void showPageInfo();
     void receiveMessage(MainApplication::MessageType mes, bool state);
 
