@@ -42,7 +42,11 @@ LocationBar::LocationBar(QupZilla* mainClass)
     m_siteIcon->setMaximumSize(35, 25);
     m_siteIcon->setMinimumSize(35, 25);
     m_siteIcon->setToolTip(tr("Show informations about this page"));
+#if QT_VERSION == 0x040800
+    m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/searchchoose.png); margin-left:2px; padding-left: 4px; }");
+#else
     m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/searchchoose.png); margin-left:2px;}");
+#endif
     m_siteIcon->setFocusPolicy(Qt::ClickFocus);
 
     m_rssIcon = new ClickableLabel(this);
@@ -262,7 +266,6 @@ void LocationBar::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
         setText(m_webView->url().toEncoded());
-        qDebug(m_webView->url().toEncoded());
         event->accept();
         return;
     }
