@@ -60,7 +60,7 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     frame->setStyleSheet("QFrame { border: 1px solid #e8e8e8; }");
     frame->setContentsMargins(0,0,0,0);
     horizontalLayout_2 = new QHBoxLayout(frame);
-    toolButton = new QToolButton(frame);
+    toolButton = new QToolButton(this);
 
     //AdBlock
     AdBlockManager* manager = AdBlockManager::instance();

@@ -30,12 +30,13 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     ,m_pinned(false)
 {
     m_layout = new QVBoxLayout(this);
-    setLayout(m_layout);
     m_layout->setContentsMargins(0,0,0,0);
     m_layout->setSpacing(0);
+
     m_view = new WebView(p_QupZilla, this);
     m_layout->addWidget(m_view);
 
+    setLayout(m_layout);
     setAutoFillBackground(true); // We don't want this transparent
 
     connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));

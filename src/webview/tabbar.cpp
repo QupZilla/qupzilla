@@ -125,7 +125,7 @@ QSize TabBar::tabSizeHint(int index) const
     return size;
 }
 
-#ifdef Q_WS_X11
+#if 0
 void TabBar::tabInserted(int index)
 {
 //    CloseButton* closeButton = new CloseButton(this);
@@ -137,34 +137,34 @@ void TabBar::tabInserted(int index)
     QAbstractButton* button = (QAbstractButton*)tabButton(index, QTabBar::RightSide);
     if (!button)
         return;
-    button->setMaximumSize(17,17);
+    button->resize(17,17);
+}
+
+void TabBar::showCloseButton(int index)
+{
+    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
+    if (!tabWidget)
+        return;
+
+    WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(index));
+    if (webTab && webTab->isPinned())
+        return;
+
+    CloseButton* button = (CloseButton*)tabButton(index, QTabBar::RightSide);
+    if (!button)
+        return;
+
+    button->show();
+}
+
+void TabBar::hideCloseButton(int index)
+{
+    CloseButton* button = (CloseButton*)tabButton(index, QTabBar::RightSide);
+    if (!button)
+        return;
+    button->hide();
 }
 #endif
-
-//void TabBar::showCloseButton(int index)
-//{
-//    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
-//    if (!tabWidget)
-//        return;
-
-//    WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(index));
-//    if (webTab && webTab->isPinned())
-//        return;
-
-//    CloseButton* button = (CloseButton*)tabButton(index, QTabBar::RightSide);
-//    if (!button)
-//        return;
-
-//    button->show();
-//}
-
-//void TabBar::hideCloseButton(int index)
-//{
-//    CloseButton* button = (CloseButton*)tabButton(index, QTabBar::RightSide);
-//    if (!button)
-//        return;
-//    button->hide();
-//}
 
 void TabBar::updateCloseButton(int index)
 {

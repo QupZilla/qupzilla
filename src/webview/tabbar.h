@@ -67,9 +67,7 @@ private slots:
 private:
     void mouseDoubleClickEvent(QMouseEvent* event);
     QSize tabSizeHint(int index) const;
-#ifdef Q_WS_X11
-    void tabInserted(int index);
-#endif
+//    void tabInserted(int index);
 
     QupZilla* p_QupZilla;
     bool m_showCloseButtonWithOneTab;
