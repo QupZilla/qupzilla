@@ -153,8 +153,6 @@ private slots:
     void aboutToShowHelpMenu();
     void aboutToShowViewMenu();
     void aboutToShowEncodingMenu();
-    void aboutToShowSidebarsMenu();
-    void aboutToShowToolbarsMenu();
 
     void searchOnPage();
     void showCookieManager();
