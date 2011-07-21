@@ -215,10 +215,17 @@ void LocationBar::clearIcon()
 
 void LocationBar::setPrivacy(bool state)
 {
+    QString img;
     if (state)
-        m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/safeline.png); margin-left:2px;}");
+        img = "safeline.png";
     else
-        m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/searchchoose.png); margin-left:2px;}");
+        img = "searchchoose.png";
+
+#if QT_VERSION == 0x040800
+    m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/"+img+"); margin-left:2px; padding-left: 4px; }");
+#else
+    m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/"+img+"); margin-left:2px;}");
+#endif
 }
 
 void LocationBar::focusOutEvent(QFocusEvent* e)
@@ -242,7 +249,7 @@ void LocationBar::dropEvent(QDropEvent* event)
         }
     }
     else if (event->mimeData()->hasText()) {
-        QUrl dropUrl = QUrl(event->mimeData()->text());
+        QUrl dropUrl = QUrl(event->mimeData()->text().trimmed());
         if (WebView::isUrlValid(dropUrl)) {
             setText(dropUrl.toString());
             p_QupZilla->loadAddress(dropUrl);
