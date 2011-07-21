@@ -34,6 +34,7 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     m_layout->setSpacing(0);
 
     m_view = new WebView(p_QupZilla, this);
+    m_view->setLocationBar(locationBar);
     m_layout->addWidget(m_view);
 
     setLayout(m_layout);

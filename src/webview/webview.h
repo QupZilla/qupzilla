@@ -69,7 +69,7 @@ public:
     int tabIndex() const;
 
 public slots:
-    void stop(){ if (page()) {emit ipChanged(m_currentIp); page()->triggerAction(QWebPage::Stop); loadFinished(true);} }
+    void stop();
     void back(){ if (page()) {emit ipChanged(m_currentIp); page()->triggerAction(QWebPage::Back);} }
     void forward(){ if (page()) {emit ipChanged(m_currentIp); page()->triggerAction(QWebPage::Forward);} }
     void slotReload(){ if (page()) {emit ipChanged(m_currentIp); page()->triggerAction(QWebPage::Reload);} }

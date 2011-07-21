@@ -569,6 +569,18 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
     QWebView::contextMenuEvent(event);
 }
 
+void WebView::stop()
+{
+    if (page()) {
+        emit ipChanged(m_currentIp);
+        page()->triggerAction(QWebPage::Stop);
+        loadFinished(true);
+
+        if (m_locationBar->text().isEmpty())
+            m_locationBar->setText(url().toEncoded());
+    }
+}
+
 void WebView::addNotification(QWidget* notif)
 {
     emit showNotification(notif);
