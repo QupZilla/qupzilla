@@ -55,7 +55,7 @@ public:
     QString DATADIR;
     explicit MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv);
 
-    enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing , ReloadSettings };
+    enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,  StateChanged };
 
     void loadSettings();
     void reloadSettings() { loadSettings(); emit message(ReloadSettings, true); }
@@ -63,7 +63,7 @@ public:
     void makeNewWindow(bool tryRestore, const QUrl &startUrl=QUrl());
     void addNewTab(const QUrl &url = QUrl());
     void aboutToCloseWindow(QupZilla* window);
-    bool isChanged();
+    bool isStateChanged();
 
     inline static MainApplication* getInstance() { return static_cast<MainApplication*>(QCoreApplication::instance()); }
     inline QString getActiveProfil() { return m_activeProfil; }
@@ -99,7 +99,7 @@ public slots:
     void quitApplication();
     void sendMessages(MainApplication::MessageType mes, bool state);
     void receiveAppMessage(QString message);
-    inline void setChanged() { m_isChanged = true; }
+    void setStateChanged();
 
 signals:
     void message(MainApplication::MessageType mes, bool state);
@@ -136,7 +136,7 @@ private:
     QString m_activeLanguage;
 
     bool m_isClosing;
-    bool m_isChanged;
+    bool m_isStateChanged;
     bool m_isExited;
     bool m_isRestoring;
 };

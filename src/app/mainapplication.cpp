@@ -55,7 +55,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     ,m_desktopNotifications(0)
     ,m_iconProvider(new IconProvider)
     ,m_isClosing(false)
-    ,m_isChanged(false)
+    ,m_isStateChanged(false)
     ,m_isExited(false)
     ,m_isRestoring(false)
 {
@@ -239,10 +239,16 @@ QupZilla* MainApplication::getWindow()
     return 0;
 }
 
-bool MainApplication::isChanged()
+void MainApplication::setStateChanged()
 {
-    if (m_isChanged) {
-        m_isChanged = false;
+    m_isStateChanged = true;
+    sendMessages(StateChanged, true);
+}
+
+bool MainApplication::isStateChanged()
+{
+    if (m_isStateChanged) {
+        m_isStateChanged = false;
         return true;
     }
     return false;

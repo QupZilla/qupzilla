@@ -26,7 +26,7 @@ AutoSaver::AutoSaver(QObject* parent) :
 
 void AutoSaver::timerEvent(QTimerEvent* event)
 {
-    if (event->timerId() == m_timer.timerId() && mApp->isChanged())
+    if (event->timerId() == m_timer.timerId() && mApp->isStateChanged())
         emit saveApp();
     else
         QObject::timerEvent(event);
