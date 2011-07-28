@@ -721,8 +721,10 @@ void QupZilla::aboutToShowClosedTabsMenu()
     m_menuClosedTabs->addSeparator();
     if (i == 0)
         m_menuClosedTabs->addAction(tr("Empty"))->setEnabled(false);
-    else
+    else {
         m_menuClosedTabs->addAction(tr("Restore All Closed Tabs"), m_tabWidget, SLOT(restoreAllClosedTabs()));
+        m_menuClosedTabs->addAction(tr("Clear list"), m_tabWidget, SLOT(clearClosedTabsList()));
+    }
 }
 
 void QupZilla::aboutToShowHelpMenu()
