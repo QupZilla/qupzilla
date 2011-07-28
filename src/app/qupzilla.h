@@ -148,6 +148,7 @@ private slots:
     void aboutToShowHistoryBackMenu();
     void aboutToShowHistoryNextMenu();
     void aboutToShowHistoryMenu();
+    void aboutToShowClosedTabsMenu();
     void aboutToShowBookmarksMenu();
     void aboutToShowToolsMenu();
     void aboutToShowHelpMenu();
@@ -197,6 +198,7 @@ private:
     void setupMenu();
 
     bool m_tryRestore;
+    bool m_historyMenuChanged;
     QUrl m_startingUrl;
     QUrl m_newtab;
     QUrl m_homepage;
@@ -210,6 +212,7 @@ private:
     QMenu* m_menuView;
     QMenu* m_menuBookmarks;
     QMenu* m_menuHistory;
+    QMenu* m_menuClosedTabs;
     QMenu* m_menuBack;
     QMenu* m_menuForward;
     QMenu* m_menuEncoding;
