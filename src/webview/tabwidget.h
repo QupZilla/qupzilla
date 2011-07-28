@@ -70,6 +70,7 @@ public slots:
     void closeAllButCurrent(int index);
     void restoreClosedTab();
     void restoreAllClosedTabs();
+    void clearClosedTabsList();
 
 private slots:
     void aboutToShowTabsMenu();

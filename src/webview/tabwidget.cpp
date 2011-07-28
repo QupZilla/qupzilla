@@ -411,6 +411,11 @@ void TabWidget::restoreAllClosedTabs()
     m_closedTabsManager->clearList();
 }
 
+void TabWidget::clearClosedTabsList()
+{
+    m_closedTabsManager->clearList();
+}
+
 bool TabWidget::canRestoreTab()
 {
     return m_closedTabsManager->isClosedTabAvailable();
