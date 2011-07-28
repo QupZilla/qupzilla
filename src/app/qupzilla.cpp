@@ -66,6 +66,7 @@ const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     QMainWindow(0)
     ,m_tryRestore(tryRestore)
+    ,m_historyMenuChanged(true)
     ,m_startingUrl(startUrl)
     ,m_actionPrivateBrowsing(0)
     ,m_webInspectorDock(0)
@@ -359,6 +360,9 @@ void QupZilla::setupMenu()
 
     menuBar()->setContextMenuPolicy(Qt::CustomContextMenu);
 
+    m_menuClosedTabs = new QMenu(tr("Closed Tabs"));
+    connect(m_menuClosedTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
+
     aboutToShowToolsMenu();
     aboutToShowHelpMenu();
 
@@ -501,8 +505,12 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
         LocationBarSettings::instance()->loadSettings();
         break;
 
+    case MainApplication::StateChanged:
+        m_historyMenuChanged = true;
+        break;
+
     default:
-        qWarning("Unresolved message sent!");
+        qWarning("Unresolved message sent! This could never happen!");
         break;
     }
 }
@@ -646,6 +654,11 @@ void QupZilla::aboutToShowHistoryMenu()
 {
     if (!weView())
         return;
+
+    if (!m_historyMenuChanged)
+        return;
+    m_historyMenuChanged = false;
+
     m_menuHistory->clear();
     m_menuHistory->addAction(
 #ifdef Q_WS_X11
@@ -689,7 +702,12 @@ void QupZilla::aboutToShowHistoryMenu()
         m_menuHistory->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
     }
     m_menuHistory->addSeparator();
-    QMenu* menuClosedTabs = new QMenu(tr("Closed Tabs"));
+    m_menuHistory->addMenu(m_menuClosedTabs);
+}
+
+void QupZilla::aboutToShowClosedTabsMenu()
+{
+    m_menuClosedTabs->clear();
     int i = 0;
     foreach (ClosedTabsManager::Tab tab, m_tabWidget->closedTabsManager()->allClosedTabs()) {
         QString title = tab.title;
@@ -697,16 +715,14 @@ void QupZilla::aboutToShowHistoryMenu()
             title.truncate(40);
             title+="..";
         }
-        menuClosedTabs->addAction(_iconForUrl(tab.url), title, m_tabWidget, SLOT(restoreClosedTab()))->setData(i);
+        m_menuClosedTabs->addAction(_iconForUrl(tab.url), title, m_tabWidget, SLOT(restoreClosedTab()))->setData(i);
         i++;
     }
-    menuClosedTabs->addSeparator();
+    m_menuClosedTabs->addSeparator();
     if (i == 0)
-        menuClosedTabs->addAction(tr("Empty"))->setEnabled(false);
+        m_menuClosedTabs->addAction(tr("Empty"))->setEnabled(false);
     else
-        menuClosedTabs->addAction(tr("Restore All Closed Tabs"), m_tabWidget, SLOT(restoreAllClosedTabs()));
-
-    m_menuHistory->addMenu(menuClosedTabs);
+        m_menuClosedTabs->addAction(tr("Restore All Closed Tabs"), m_tabWidget, SLOT(restoreAllClosedTabs()));
 }
 
 void QupZilla::aboutToShowHelpMenu()
