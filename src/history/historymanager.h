@@ -41,12 +41,12 @@ public:
 
 public slots:
     void refreshTable();
+    void search(const QString &searchText);
 
 private slots:
     void itemDoubleClicked(QTreeWidgetItem* item);
     void deleteItem();
     void clearHistory();
-    void search();
     void contextMenuRequested(const QPoint &position);
     void loadInNewTab();
     void itemControlClicked(QTreeWidgetItem* item);

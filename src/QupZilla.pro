@@ -123,7 +123,10 @@ SOURCES += main.cpp\
     3rdparty/squeezelabelv2.cpp \
     3rdparty/squeezelabelv1.cpp \
     tools/buttonwithmenu.cpp \
-    navigation/locationbarsettings.cpp
+    navigation/locationbarsettings.cpp \
+    other/browsinglibrary.cpp \
+    3rdparty/stylehelper.cpp \
+    3rdparty/fancytabwidget.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -207,7 +210,10 @@ HEADERS  += \
     3rdparty/squeezelabelv2.h \
     3rdparty/squeezelabelv1.h \
     tools/buttonwithmenu.h \
-    navigation/locationbarsettings.h
+    navigation/locationbarsettings.h \
+    other/browsinglibrary.h \
+    3rdparty/stylehelper.h \
+    3rdparty/fancytabwidget.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -238,7 +244,8 @@ FORMS    += \
     desktopnotifications/desktopnotification.ui \
     webview/jsconfirm.ui \
     webview/jsalert.ui \
-    webview/jsprompt.ui
+    webview/jsprompt.ui \
+    other/browsinglibrary.ui
 
 RESOURCES += \
     data/icons.qrc \

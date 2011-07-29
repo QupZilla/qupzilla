@@ -19,7 +19,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
-    <number>0</number>
+    <number>6</number>
    </property>
    <item>
     <widget class="QTabWidget" name="tabWidget">
@@ -49,48 +49,6 @@
        <property name="rightMargin">
         <number>0</number>
        </property>
-       <item>
-        <widget class="QFrame" name="frame">
-         <property name="styleSheet">
-          <string notr="true">background: white;</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <widget class="QLabel" name="label_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="../data/icons.qrc">:/icons/menu/rss.png</pixmap>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>You don't have any RSS Feeds.&lt;br/&gt;
-Please add some with RSS icon in navigation bar on site which offers feeds.</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignHCenter|Qt::AlignTop</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
       </layout>
      </widget>
     </widget>
@@ -139,13 +97,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</str
         </size>
        </property>
       </spacer>
-     </item>
-     <item>
-      <widget class="QDialogButtonBox" name="buttonBox">
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Close</set>
-       </property>
-      </widget>
      </item>
     </layout>
    </item>

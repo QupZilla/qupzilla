@@ -46,7 +46,6 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
         QFile::remove(fullPath);
 
     m_outputFile.setFileName(fullPath);
-    qDebug() << m_fileName  << m_outputFile.fileName();
 
     ui->setupUi(this);
     setMaximumWidth(525);

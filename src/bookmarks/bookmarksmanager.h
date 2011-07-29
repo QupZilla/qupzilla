@@ -22,6 +22,7 @@
 #include <QTreeWidgetItem>
 #include <QInputDialog>
 #include <QPointer>
+#include <QDialogButtonBox>
 
 #include "bookmarksmodel.h"
 

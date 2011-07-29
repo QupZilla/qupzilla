@@ -28,7 +28,6 @@
 #include "downloadmanager.h"
 #include "cookiejar.h"
 #include "cookiemanager.h"
-#include "historymanager.h"
 #include "bookmarksmanager.h"
 #include "bookmarkstoolbar.h"
 #include "clearprivatedata.h"
@@ -54,6 +53,7 @@
 #include "closedtabsmanager.h"
 #include "statusbarmessage.h"
 #include "locationbarsettings.h"
+#include "browsinglibrary.h"
 
 const QString QupZilla::VERSION = "1.0.0-b3";
 //const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM d yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
@@ -845,17 +845,17 @@ void QupZilla::changeEncoding()
 
 void QupZilla::bookmarkPage()
 {
-    mApp->bookmarksManager()->addBookmark(weView());
+    mApp->browsingLibrary()->bookmarksManager()->addBookmark(weView());
 }
 
 void QupZilla::addBookmark(const QUrl &url, const QString &title)
 {
-    mApp->bookmarksManager()->insertBookmark(url, title);
+    mApp->browsingLibrary()->bookmarksManager()->insertBookmark(url, title);
 }
 
 void QupZilla::bookmarkAllTabs()
 {
-    mApp->bookmarksManager()->insertAllTabs();
+    mApp->browsingLibrary()->bookmarksManager()->insertAllTabs();
 }
 
 void QupZilla::loadActionUrl()
@@ -882,26 +882,17 @@ void QupZilla::showCookieManager()
 
 void QupZilla::showHistoryManager()
 {
-    HistoryManager* m = mApp->historyManager();
-    m->refreshTable();
-    m->setMainWindow(this);
-    m->show();
+    mApp->browsingLibrary()->showHistory(this);
 }
 
 void QupZilla::showRSSManager()
 {
-    RSSManager* m = mApp->rssManager();
-    m->refreshTable();
-    m->setMainWindow(this);
-    m->show();
+    mApp->browsingLibrary()->showRSS(this);
 }
 
 void QupZilla::showBookmarksManager()
 {
-    BookmarksManager* m = mApp->bookmarksManager();
-    m->refreshTable();
-    m->setMainWindow(this);
-    m->show();
+    mApp->browsingLibrary()->showBookmarks(this);
 }
 
 void QupZilla::showClearPrivateData()

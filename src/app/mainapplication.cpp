@@ -19,10 +19,9 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "bookmarkstoolbar.h"
-#include "bookmarksmanager.h"
 #include "cookiemanager.h"
 #include "cookiejar.h"
-#include "historymanager.h"
+#include "browsinglibrary.h"
 #include "historymodel.h"
 #include "networkmanager.h"
 #include "rssmanager.h"
@@ -39,9 +38,8 @@
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
-    ,m_bookmarksmanager(0)
     ,m_cookiemanager(0)
-    ,m_historymanager(0)
+    ,m_browsingLibrary(0)
     ,m_historymodel(0)
     ,m_websettings(0)
     ,m_networkmanager(0)
@@ -371,11 +369,11 @@ void MainApplication::quitApplication()
     quit();
 }
 
-BookmarksManager* MainApplication::bookmarksManager()
+BrowsingLibrary* MainApplication::browsingLibrary()
 {
-    if (!m_bookmarksmanager)
-        m_bookmarksmanager = new BookmarksManager(getWindow());
-    return m_bookmarksmanager;
+    if (!m_browsingLibrary)
+        m_browsingLibrary = new BrowsingLibrary(getWindow());
+    return m_browsingLibrary;
 }
 
 PluginProxy* MainApplication::plugins()
@@ -390,13 +388,6 @@ CookieManager* MainApplication::cookieManager()
     if (!m_cookiemanager)
         m_cookiemanager = new CookieManager();
     return m_cookiemanager;
-}
-
-HistoryManager* MainApplication::historyManager()
-{
-    if (!m_historymanager)
-        m_historymanager = new HistoryManager(getWindow());
-    return m_historymanager;
 }
 
 HistoryModel* MainApplication::history()

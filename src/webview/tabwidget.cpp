@@ -282,7 +282,7 @@ void TabWidget::closeTab(int index)
 //        disconnect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
 //        disconnect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    disconnect(webView, SIGNAL(changed()), mApp, SLOT(setChanged()));
+    disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     disconnect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
     //Save last tab url and history
     m_closedTabsManager->saveView(webView);
