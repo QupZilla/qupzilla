@@ -47,7 +47,6 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent) :
 #endif
 
     connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));
-    connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(hide()));
     connect(ui->bookmarksTree, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
     connect(ui->addFolder, SIGNAL(clicked()), this, SLOT(addFolder()));
     connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));

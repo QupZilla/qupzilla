@@ -31,9 +31,8 @@
 #include "commandlineoptions.h"
 
 class QupZilla;
-class BookmarksManager;
 class CookieManager;
-class HistoryManager;
+class BrowsingLibrary;
 class HistoryModel;
 class NetworkManager;
 class CookieJar;
@@ -76,9 +75,8 @@ public:
     void checkProfile(QString path);
 
     QupZilla* getWindow();
-    BookmarksManager* bookmarksManager();
     CookieManager* cookieManager();
-    HistoryManager* historyManager();
+    BrowsingLibrary* browsingLibrary();
     HistoryModel* history();
     QWebSettings* webSettings();
     NetworkManager* networkManager();
@@ -113,9 +111,8 @@ private:
     void translateApp();
     void restoreOtherWindows();
 
-    BookmarksManager* m_bookmarksmanager;
     CookieManager* m_cookiemanager;
-    HistoryManager* m_historymanager;
+    BrowsingLibrary* m_browsingLibrary;
     HistoryModel* m_historymodel;
     QWebSettings* m_websettings;
     NetworkManager* m_networkmanager;
