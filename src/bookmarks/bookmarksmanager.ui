@@ -14,7 +14,7 @@
    <string>Bookmarks</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../icons.qrc">
+   <iconset resource="../data/icons.qrc">
     <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -41,13 +41,6 @@
      </column>
     </widget>
    </item>
-   <item row="1" column="4">
-    <widget class="QDialogButtonBox" name="close">
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Close</set>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="0" colspan="3">
     <widget class="QPushButton" name="deleteB">
      <property name="text">
@@ -65,6 +58,19 @@
      </property>
     </widget>
    </item>
+   <item row="1" column="4">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -75,7 +81,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../icons.qrc"/>
+  <include location="../data/icons.qrc"/>
  </resources>
  <connections/>
 </ui>

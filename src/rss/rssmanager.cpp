@@ -44,7 +44,6 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent) :
 
     ui->tabWidget->setElideMode(Qt::ElideRight);
     m_networkManager = new QNetworkAccessManager();
-    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->reload, SIGNAL(clicked()), this, SLOT(reloadFeed()));
     connect(ui->deletebutton, SIGNAL(clicked()), this, SLOT(deleteFeed()));
     connect(ui->edit, SIGNAL(clicked()), this, SLOT(editFeed()));
@@ -66,12 +65,6 @@ void RSSManager::setMainWindow(QupZilla* window)
 void RSSManager::refreshTable()
 {
     QSqlQuery query;
-    query.exec("SELECT count(id) FROM rss");
-    if (!query.next())
-        return;
-    if (query.value(0).toInt() == 0)
-        return;
-
     ui->tabWidget->clear();
     query.exec("SELECT address, title FROM rss");
     int i = 0;
@@ -101,6 +94,23 @@ void RSSManager::refreshTable()
         ui->deletebutton->setEnabled(true);
         ui->reload->setEnabled(true);
         ui->edit->setEnabled(true);
+    } else {
+        ui->deletebutton->setEnabled(false);
+        ui->reload->setEnabled(false);
+        ui->edit->setEnabled(false);
+
+        QFrame *frame = new QFrame();
+        frame->setStyleSheet("background: white;");
+        QVBoxLayout *verticalLayout = new QVBoxLayout(frame);
+        QLabel *label_2 = new QLabel(frame);
+        label_2->setPixmap(QPixmap(":/icons/menu/rss.png"));
+        label_2->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
+        verticalLayout->addWidget(label_2);
+        QLabel *label = new QLabel(frame);
+        label->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
+        label->setText(tr("You don't have any RSS Feeds.<br/>\nPlease add some with RSS icon in navigation bar on site which offers feeds."));
+        verticalLayout->addWidget(label);
+        ui->tabWidget->addTab(frame, tr("Empty"));
     }
 }
 
@@ -126,12 +136,8 @@ void RSSManager::deleteFeed()
     query.exec("DELETE FROM rss WHERE address='"+url+"'");
 
     ui->tabWidget->removeTab(ui->tabWidget->currentIndex());
-    if (ui->tabWidget->count() == 0) {
-        ui->deletebutton->setEnabled(false);
-        ui->reload->setEnabled(false);
-        ui->edit->setEnabled(false);
+    if (ui->tabWidget->count() == 0)
         refreshTable();
-    }
 }
 
 void RSSManager::editFeed()

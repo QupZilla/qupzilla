@@ -24,6 +24,7 @@
 #include <QNetworkAccessManager>
 #include <QFormLayout>
 #include <QPointer>
+#include <QDialogButtonBox>
 
 namespace Ui {
     class RSSManager;

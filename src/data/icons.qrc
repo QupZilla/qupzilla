@@ -72,5 +72,9 @@
         <file>icons/other/adblock.png</file>
         <file>icons/preferences/stock_dialog-question.png</file>
         <file>icons/notifications/download.png</file>
+        <file>icons/other/background.png</file>
+        <file>icons/other/bighistory.png</file>
+        <file>icons/other/library-bg-top.png</file>
+        <file>icons/other/library-bg-top-right.png</file>
     </qresource>
 </RCC>
