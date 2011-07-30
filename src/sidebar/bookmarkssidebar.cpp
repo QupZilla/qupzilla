@@ -34,10 +34,11 @@ BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent) :
 {
     ui->setupUi(this);
 
+    ui->bookmarksTree->setDefaultItemShowMode(TreeWidget::ItemsExpanded);
     connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(ui->bookmarksTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
     connect(ui->bookmarksTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
-    connect(ui->search, SIGNAL(textChanged(QString)), ui->bookmarksTree, SLOT(filterStringWithoutTopItems(QString)));
+    connect(ui->search, SIGNAL(textChanged(QString)), ui->bookmarksTree, SLOT(filterString(QString)));
 
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
@@ -129,7 +130,7 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setToolTip(0, bookmark.url.toEncoded());
 
     if (bookmark.folder != "unsorted")
-        ui->bookmarksTree->addToParentItem(translatedFolder, item);
+        ui->bookmarksTree->appendToParentItem(translatedFolder, item);
     else
         ui->bookmarksTree->addTopLevelItem(item);
 
@@ -145,7 +146,7 @@ void BookmarksSideBar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
             return;
         QTreeWidgetItem* item = list.at(0);
         if (item && item->whatsThis(0) == QString::number(bookmark.id))
-            delete item;
+            ui->bookmarksTree->deleteItem(item);
     } else {
         QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(BookmarksModel::toTranslatedFolder(bookmark.folder), Qt::MatchExactly);
         if (list.count() == 0)
@@ -158,7 +159,7 @@ void BookmarksSideBar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
             if (!item)
                 continue;
             if (item->text(0) == bookmark.title  && item->whatsThis(0) == QString::number(bookmark.id)) {
-                delete item;
+                ui->bookmarksTree->deleteItem(item);
                 return;
             }
         }
@@ -182,7 +183,7 @@ void BookmarksSideBar::removeFolder(const QString &name)
 {
     QTreeWidgetItem* item = ui->bookmarksTree->findItems(name, Qt::MatchExactly).at(0);
     if (item)
-        delete item;
+        ui->bookmarksTree->deleteItem(item);
 }
 
 void BookmarksSideBar::refreshTable()

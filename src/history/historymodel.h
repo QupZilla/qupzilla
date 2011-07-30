@@ -22,10 +22,12 @@
 #include <QSqlQuery>
 #include <QDateTime>
 #include <QFile>
+#include <QIcon>
 #include <QUrl>
 
 class QupZilla;
 class WebView;
+class QIcon;
 class HistoryModel : public QObject
 {
     Q_OBJECT
@@ -39,6 +41,8 @@ public:
         QUrl url;
         QString title;
     };
+
+    static QString titleCaseLocalizedMonth(int month);
 
     int addHistoryEntry(WebView* view);
     int addHistoryEntry(const QString &url, QString &title);

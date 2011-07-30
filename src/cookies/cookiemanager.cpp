@@ -38,9 +38,11 @@ CookieManager::CookieManager(QWidget* parent) :
     connect(ui->removeCookie, SIGNAL(clicked()), this, SLOT(removeCookie()));
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(hide()));
     connect(ui->search, SIGNAL(returnPressed()), this, SLOT(search()));
-    connect(ui->search, SIGNAL(cursorPositionChanged(int, int)), this, SLOT(search()));
+//    connect(ui->search, SIGNAL(cursorPositionChanged(int, int)), this, SLOT(search()));
+    connect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
 
     ui->search->setInactiveText(tr("Search"));
+    ui->cookieTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
 }
 
 void CookieManager::removeAll()
@@ -68,7 +70,7 @@ void CookieManager::removeCookie()
                 m_cookies.removeOne(cok);
         }
 
-        delete current;
+        ui->cookieTree->deleteItem(current);
         mApp->cookieJar()->setAllCookies(m_cookies);
         refreshTable(false);
         return;
@@ -183,6 +185,5 @@ void CookieManager::search()
 
 CookieManager::~CookieManager()
 {
-    qDebug() << __FUNCTION__ << "called";
     delete ui;
 }

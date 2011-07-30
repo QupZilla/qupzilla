@@ -102,7 +102,6 @@ void AutoFillManager::removeExcept()
         return;
     QString id = curItem->whatsThis(0);
     QSqlQuery query;
-    qDebug() << id;
     query.exec("DELETE FROM autofill_exceptions WHERE id="+id);
     loadPasswords();
 }

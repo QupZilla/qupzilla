@@ -18,6 +18,7 @@
 #include "bookmarksmodel.h"
 #include "mainapplication.h"
 #include "webview.h"
+#include "iconprovider.h"
 
 // SQLite DB -> table bookmarks + folders
 // Unique in bookmarks table is id
@@ -100,7 +101,7 @@ BookmarksModel::Bookmark BookmarksModel::getBookmark(int id)
 {
     Bookmark bookmark;
     QSqlQuery query;
-    query.prepare("SELECT url, title, folder FROM bookmarks WHERE id=?");
+    query.prepare("SELECT url, title, folder, icon FROM bookmarks WHERE id=?");
     query.bindValue(0, id);
     query.exec();
     if (query.next()) {
@@ -108,20 +109,22 @@ BookmarksModel::Bookmark BookmarksModel::getBookmark(int id)
         bookmark.url = query.value(0).toUrl();
         bookmark.title = query.value(1).toString();
         bookmark.folder = query.value(2).toString();
+        bookmark.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
     }
     return bookmark;
 }
 
-bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const QString &folder)
+bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder)
 {
     if (url.isEmpty() || title.isEmpty() || folder.isEmpty())
         return false;
 
     QSqlQuery query;
-    query.prepare("INSERT INTO bookmarks (url, title, folder) VALUES (?,?,?)");
+    query.prepare("INSERT INTO bookmarks (url, title, folder, icon) VALUES (?,?,?,?)");
     query.bindValue(0, url.toString());
     query.bindValue(1, title);
     query.bindValue(2, folder);
+    query.bindValue(3, IconProvider::iconToBase64(icon));
 
     if (!query.exec())
         return false;
@@ -131,13 +134,15 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     bookmark.url = url;
     bookmark.title = title;
     bookmark.folder = folder;
+    bookmark.icon = icon;
     emit bookmarkAdded(bookmark);
+    mApp->sendMessages(MainApplication::BookmarksChanged, true);
     return true;
 }
 
 bool BookmarksModel::saveBookmark(WebView *view, const QString &folder)
 {
-    return saveBookmark(view->url(), view->title(), folder);
+    return saveBookmark(view->url(), view->title(), view->siteIcon(), folder);
 }
 
 bool BookmarksModel::removeBookmark(int id)
@@ -154,11 +159,13 @@ bool BookmarksModel::removeBookmark(int id)
     bookmark.url = query.value(0).toUrl();
     bookmark.title = query.value(1).toString();
     bookmark.folder = query.value(2).toString();
+    bookmark.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
 
     if (!query.exec("DELETE FROM bookmarks WHERE id = " + QString::number(id)))
         return false;
 
     emit bookmarkDeleted(bookmark);
+    mApp->sendMessages(MainApplication::BookmarksChanged, true);
     return true;
 }
 
@@ -197,7 +204,7 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     if (title.isEmpty() && url.isEmpty() && folder.isEmpty())
         return false;
     QSqlQuery query;
-    if (!query.exec("SELECT title, url, folder FROM bookmarks WHERE id = "+QString::number(id)))
+    if (!query.exec("SELECT title, url, folder, icon FROM bookmarks WHERE id = "+QString::number(id)))
         return false;
 
     query.next();
@@ -207,12 +214,14 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     before.title = query.value(0).toString();
     before.url = query.value(1).toUrl();
     before.folder = query.value(2).toString();
+    before.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
 
     Bookmark after;
     after.id = id;
     after.title = title.isEmpty() ? before.title : title;
     after.url = url.isEmpty() ? before.url : url;
     after.folder = folder.isEmpty() ? before.folder : folder;
+    after.icon = before.icon;
 
     query.prepare("UPDATE bookmarks SET title=?, url=?, folder=? WHERE id = ?");
     query.bindValue(0, after.title);
@@ -224,6 +233,7 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
         return false;
 
     emit bookmarkEdited(before, after);
+    mApp->sendMessages(MainApplication::BookmarksChanged, true);
     return true;
 }
 
@@ -236,6 +246,7 @@ bool BookmarksModel::createFolder(const QString &name)
         return false;
 
     emit folderAdded(name);
+    mApp->sendMessages(MainApplication::BookmarksChanged, true);
     return true;
 }
 
@@ -263,6 +274,7 @@ bool BookmarksModel::removeFolder(const QString &name)
         return false;
 
     emit folderDeleted(name);
+    mApp->sendMessages(MainApplication::BookmarksChanged, true);
     return true;
 }
 

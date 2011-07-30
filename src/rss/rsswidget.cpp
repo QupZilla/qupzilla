@@ -77,7 +77,7 @@ void RSSWidget::addRss()
         else
             title = button->toolTip();
 
-        if (mApp->rssManager()->addRssFeed(urlString, title)) {
+        if (mApp->rssManager()->addRssFeed(urlString, title, m_view->siteIcon())) {
             RSSNotification* notif = new RSSNotification(title, m_view);
             m_view->addNotification(notif);
             close();

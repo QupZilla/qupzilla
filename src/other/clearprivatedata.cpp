@@ -49,6 +49,7 @@ void ClearPrivateData::clearFlash()
 
 void ClearPrivateData::dialogAccepted()
 {
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     if (ui->history->isChecked()) {
         QDateTime dateTime = QDateTime::currentDateTime();
         qint64 nowMS = QDateTime::currentMSecsSinceEpoch();
@@ -86,5 +87,6 @@ void ClearPrivateData::dialogAccepted()
         mApp->webSettings()->clearIconDatabase();
         mApp->iconProvider()->clearIconDatabase();
     }
+    QApplication::restoreOverrideCursor();
     close();
 }

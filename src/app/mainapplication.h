@@ -54,7 +54,7 @@ public:
     QString DATADIR;
     explicit MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv);
 
-    enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,  StateChanged };
+    enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,  HistoryStateChanged, BookmarksChanged };
 
     void loadSettings();
     void reloadSettings() { loadSettings(); emit message(ReloadSettings, true); }

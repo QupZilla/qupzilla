@@ -38,6 +38,9 @@ public:
 
     void clearIconDatabase();
 
+    static QIcon iconFromBase64(const QByteArray &data);
+    static QByteArray iconToBase64(const QIcon &icon);
+
 signals:
 
 public slots:

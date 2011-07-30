@@ -98,7 +98,7 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
 
     action->setText(title);
     action->setData(bookmark.url);
-    action->setIcon(_iconForUrl(bookmark.url));
+    action->setIcon(bookmark.icon);
     QToolButton* button = new QToolButton(this);
     button->setDefaultAction(action);
     button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -153,7 +153,7 @@ void BookmarksToolbar::bookmarkEdited(const BookmarksModel::Bookmark &before, co
 
                 action->setText(title);
                 action->setData(after.url);
-                action->setIcon(_iconForUrl(after.url));
+                action->setIcon(after.icon);
                 button->setToolTip(after.url.toEncoded());
                 button->setWhatsThis(after.title);
             }
@@ -165,10 +165,11 @@ void BookmarksToolbar::refreshBookmarks()
 {
     clear();
     QSqlQuery query;
-    query.exec("SELECT title, url FROM bookmarks WHERE folder='bookmarksToolbar'");
+    query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar'");
     while(query.next()) {
-        QUrl url = query.value(1).toUrl();
         QString title = query.value(0).toString();
+        QUrl url = query.value(1).toUrl();
+        QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
         QString title_ = title;
         QAction* action = new QAction(this);
         if (title.length()>15) {
@@ -178,7 +179,7 @@ void BookmarksToolbar::refreshBookmarks()
 
         action->setText(title);
         action->setData(url);
-        action->setIcon(_iconForUrl(url));
+        action->setIcon(icon);
         QToolButton* button = new QToolButton(this);
         button->setDefaultAction(action);
         button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -219,16 +220,4 @@ void BookmarksToolbar::refreshMostVisited()
         }
         m_menuMostVisited->addAction(_iconForUrl(entry.url), entry.title, p_QupZilla, SLOT(loadActionUrl()))->setData(entry.url);
     }
-
-//    QSqlQuery query;
-//    query.exec("SELECT title, url FROM history ORDER BY count DESC LIMIT 10");
-//    while(query.next()) {
-//        QUrl url = query.value(1).toUrl();
-//        QString title = query.value(0).toString();
-//        if (title.length()>40) {
-//            title.truncate(40);
-//            title+="..";
-//        }
-//        m_menuMostVisited->addAction(_iconForUrl(url), title, p_QupZilla, SLOT(loadActionUrl()))->setData(url);
-//    }
 }

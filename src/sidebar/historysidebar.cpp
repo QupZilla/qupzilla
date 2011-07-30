@@ -31,7 +31,8 @@ HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent) :
     connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
     connect(ui->historyTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(ui->historyTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
-    connect(ui->search, SIGNAL(textEdited(QString)), this, SLOT(search()));
+    connect(ui->search, SIGNAL(textEdited(QString)), ui->historyTree, SLOT(filterString(QString)));
+//    connect(ui->search, SIGNAL(textEdited(QString)), this, SLOT(search()));
 
     connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryModel::HistoryEntry)), this, SLOT(historyEntryAdded(HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryModel::HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryModel::HistoryEntry)));
@@ -71,8 +72,6 @@ void HistorySideBar::contextMenuRequested(const QPoint &position)
     QMenu menu;
     menu.addAction(tr("Open link in actual tab"), p_QupZilla, SLOT(loadActionUrl()))->setData(link);
     menu.addAction(tr("Open link in new tab"), this, SLOT(loadInNewTab()))->setData(link);
-    menu.addSeparator();
-    menu.addAction(tr("Remove Entry"), this, SLOT(deleteItem()));
 
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();
@@ -80,36 +79,33 @@ void HistorySideBar::contextMenuRequested(const QPoint &position)
     menu.exec(p);
 }
 
-void HistorySideBar::deleteItem()
-{
-    QTreeWidgetItem* item = ui->historyTree->currentItem();
-    if (!item)
-        return;
-    if (item->text(1).isEmpty())
-        return;
-
-    int id = item->whatsThis(1).toInt();
-    m_historyModel->deleteHistoryEntry(id);
-}
-
 void HistorySideBar::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
 {
-    QLocale locale(p_QupZilla->activeLanguage().remove(".qm"));
+    QDate todayDate = QDate::currentDate();
+    QDate startOfWeekDate = todayDate.addDays(1 - todayDate.dayOfWeek());
 
-    QString localDate; //date.toString("dddd d. MMMM yyyy");
-    QString month = locale.monthName(entry.date.toString("M").toInt());
-    localDate =  entry.date.toString(" d. ") + month + entry.date.toString(" yyyy");
+    QDate date = entry.date.date();
+    QString localDate;
 
-    QTreeWidgetItem* item;
+    if (date == todayDate)
+        localDate = tr("Today");
+    else if (date >= startOfWeekDate)
+        localDate = tr("This Week");
+    else if (date.month() == todayDate.month())
+        localDate = tr("This Month");
+    else
+        localDate = QString("%1 %2").arg(HistoryModel::titleCaseLocalizedMonth(date.month()), QString::number(date.year()));
+
+    QTreeWidgetItem* item = new QTreeWidgetItem();
+    QTreeWidgetItem* parentItem;
     QList<QTreeWidgetItem*> findParent = ui->historyTree->findItems(localDate, 0);
     if (findParent.count() == 1) {
-        item = new QTreeWidgetItem(findParent.at(0));
+        parentItem = findParent.at(0);
     } else {
-        QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->historyTree);
-        newParent->setText(0, localDate);
-        newParent->setIcon(0, QIcon(":/icons/menu/history_entry.png"));
-        ui->historyTree->addTopLevelItem(newParent);
-        item = new QTreeWidgetItem(newParent);
+        parentItem = new QTreeWidgetItem();
+        parentItem->setText(0, localDate);
+        parentItem->setIcon(0, QIcon(":/icons/menu/history_entry.png"));
+        ui->historyTree->addTopLevelItem(parentItem);
     }
 
     item->setText(0, entry.title);
@@ -118,7 +114,7 @@ void HistorySideBar::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
 
     item->setWhatsThis(1, QString::number(entry.id));
     item->setIcon(0, _iconForUrl(entry.url));
-    ui->historyTree->addTopLevelItem(item);
+    ui->historyTree->prependToParentItem(parentItem, item);
 }
 
 void HistorySideBar::historyEntryDeleted(const HistoryModel::HistoryEntry &entry)
@@ -129,7 +125,7 @@ void HistorySideBar::historyEntryDeleted(const HistoryModel::HistoryEntry &entry
             continue;
         if (item->whatsThis(1).toInt() != entry.id)
             continue;
-        delete item;
+        ui->historyTree->deleteItem(item);
         return;
     }
 }
@@ -167,8 +163,8 @@ void HistorySideBar::refreshTable()
     ui->historyTree->setUpdatesEnabled(false);
     ui->historyTree->clear();
 
-    QLocale locale(p_QupZilla->activeLanguage().remove(".qm"));
-
+    QDate todayDate = QDate::currentDate();
+    QDate startOfWeekDate = todayDate.addDays(1 - todayDate.dayOfWeek());
     QSqlQuery query;
     query.exec("SELECT title, url, id, date FROM history ORDER BY date DESC");
 
@@ -176,15 +172,17 @@ void HistorySideBar::refreshTable()
         QString title = query.value(0).toString();
         QUrl url = query.value(1).toUrl();
         int id = query.value(2).toInt();
-        qint64 unixDate = query.value(3).toLongLong();
-        QDateTime date = QDateTime();
-        date = date.fromMSecsSinceEpoch(unixDate);
+        QDate date = QDateTime::fromMSecsSinceEpoch(query.value(3).toLongLong()).date();
+        QString localDate;
 
-        QString localDate; //date.toString("dddd d. MMMM yyyy");
-        //QString day = locale.dayName(date.toString("d").toInt());
-
-        QString month = locale.monthName(date.toString("M").toInt());
-        localDate =  date.toString(" d. ") + month + date.toString(" yyyy");
+        if (date == todayDate)
+            localDate = tr("Today");
+        else if (date >= startOfWeekDate)
+            localDate = tr("This Week");
+        else if (date.month() == todayDate.month())
+            localDate = tr("This Month");
+        else
+            localDate = QString("%1 %2").arg(HistoryModel::titleCaseLocalizedMonth(date.month()), QString::number(date.year()));
 
         QTreeWidgetItem* item;
         QList<QTreeWidgetItem*> findParent = ui->historyTree->findItems(localDate, 0);

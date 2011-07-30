@@ -54,39 +54,18 @@ QIcon IconProvider::iconForUrl(const QUrl &url)
     }
 
     QSqlQuery query;
-    query.prepare("SELECT icon FROM icons WHERE url = ?");
+    query.prepare("SELECT icon FROM icons WHERE url=?");
     query.bindValue(0, url.toEncoded(QUrl::RemoveFragment));
     query.exec();
-    if (query.next()) {
-        QIcon image;
-        QByteArray bArray = QByteArray::fromBase64(query.value(0).toByteArray());
-        QBuffer buffer(&bArray);
-        buffer.open(QIODevice::ReadOnly);
-        QDataStream in(&buffer);
-        in >> image;
-        buffer.close();
+    if (query.next())
+        return iconFromBase64(query.value(0).toByteArray());
 
-        if (!image.isNull())
-            return image;
-    }
-
-#ifdef Q_WS_X11
-    return QIcon::fromTheme("text-plain");
-#else
-    return QIcon(":icons/locationbar/unknownpage.png");
-#endif
+    return QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic);
 }
 
 void IconProvider::saveIconsToDatabase()
 {
     foreach (Icon ic, m_iconBuffer) {
-        QByteArray bArray;
-        QBuffer buffer(&bArray);
-        buffer.open(QIODevice::WriteOnly);
-        QDataStream out(&buffer);
-        out << ic.icon;
-        buffer.close();
-
         QSqlQuery query;
         query.prepare("SELECT id FROM icons WHERE url = ?");
         query.bindValue(0, ic.url.toEncoded(QUrl::RemoveFragment));
@@ -97,7 +76,7 @@ void IconProvider::saveIconsToDatabase()
         else
             query.prepare("INSERT INTO icons (icon, url) VALUES (?,?)");
 
-        query.bindValue(0, bArray.toBase64());
+        query.bindValue(0, iconToBase64(ic.icon));
         query.bindValue(1, ic.url.toEncoded(QUrl::RemoveFragment));
         query.exec();
     }
@@ -112,4 +91,30 @@ void IconProvider::clearIconDatabase()
     query.exec("VACUUM");
 
     m_iconBuffer.clear();
+}
+
+QIcon IconProvider::iconFromBase64(const QByteArray &data)
+{
+    QIcon image;
+    QByteArray bArray = QByteArray::fromBase64(data);
+    QBuffer buffer(&bArray);
+    buffer.open(QIODevice::ReadOnly);
+    QDataStream in(&buffer);
+    in >> image;
+    buffer.close();
+
+    if (!image.isNull())
+        return image;
+    return QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic);
+}
+
+QByteArray IconProvider::iconToBase64(const QIcon &icon)
+{
+    QByteArray bArray;
+    QBuffer buffer(&bArray);
+    buffer.open(QIODevice::WriteOnly);
+    QDataStream out(&buffer);
+    out << icon;
+    buffer.close();
+    return bArray.toBase64();
 }

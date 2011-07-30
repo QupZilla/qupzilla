@@ -21,8 +21,8 @@
 #include "tabwidget.h"
 #include "mainapplication.h"
 #include "treewidget.h"
-#include "qtwin.h"
 #include "iconprovider.h"
+#include "browsinglibrary.h"
 
 RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
@@ -35,18 +35,13 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent) :
     const QRect &size = geometry();
     QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
 
-#ifdef Q_WS_WIN
-    if (QtWin::isCompositionEnabled()) {
-        QtWin::extendFrameIntoClientArea(this);
-        layout()->setContentsMargins(0, 0, 0, 0);
-    }
-#endif
-
     ui->tabWidget->setElideMode(Qt::ElideRight);
     m_networkManager = new QNetworkAccessManager();
     connect(ui->reload, SIGNAL(clicked()), this, SLOT(reloadFeed()));
     connect(ui->deletebutton, SIGNAL(clicked()), this, SLOT(deleteFeed()));
     connect(ui->edit, SIGNAL(clicked()), this, SLOT(editFeed()));
+
+    connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
 }
 
 QupZilla* RSSManager::getQupZilla()
@@ -66,11 +61,12 @@ void RSSManager::refreshTable()
 {
     QSqlQuery query;
     ui->tabWidget->clear();
-    query.exec("SELECT address, title FROM rss");
+    query.exec("SELECT address, title, icon FROM rss");
     int i = 0;
     while (query.next()) {
         QUrl address = query.value(0).toUrl();
         QString title = query.value(1).toString();
+        QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
         TreeWidget* tree = new TreeWidget();
         tree->setHeaderLabel(tr("News"));
         tree->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -83,8 +79,6 @@ void RSSManager::refreshTable()
         QTreeWidgetItem* item = new QTreeWidgetItem();
         item->setText(0, tr("Loading..."));
         tree->addTopLevelItem(item);
-
-        QIcon icon = _iconForUrl(address);
 
         ui->tabWidget->setTabIcon(i, icon );
         beginToLoadSlot(address);
@@ -308,22 +302,37 @@ void RSSManager::finished(QNetworkReply* reply)
     m_networkReplies.append(reply);
 }
 
-bool RSSManager::addRssFeed(const QString &address, const QString &title)
+bool RSSManager::addRssFeed(const QString &address, const QString &title, const QIcon &icon)
 {
     if (address.isEmpty())
         return false;
     QSqlQuery query;
     query.exec("SELECT id FROM rss WHERE address='"+address+"'");
     if (!query.next()) {
-        query.prepare("INSERT INTO rss (address, title) VALUES(?,?)");
+        QByteArray iconData;
+        if (icon.pixmap(16,16).toImage() == QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage())
+            iconData = IconProvider::iconToBase64(QIcon(":icons/other/feed.png"));
+        else
+            iconData = IconProvider::iconToBase64(icon);
+
+        query.prepare("INSERT INTO rss (address, title, icon) VALUES(?,?,?)");
         query.bindValue(0, address);
         query.bindValue(1, title);
+        query.bindValue(2, iconData);
         query.exec();
         return true;
     }
 
     QMessageBox::warning(getQupZilla(), tr("RSS feed duplicated"), tr("You already have this feed."));
     return false;
+}
+
+void RSSManager::optimizeDb()
+{
+    BrowsingLibrary* b = (BrowsingLibrary*) parentWidget();
+    if (!b)
+        return;
+    b->optimizeDatabase();
 }
 
 RSSManager::~RSSManager()
