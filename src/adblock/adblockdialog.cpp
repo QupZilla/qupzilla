@@ -60,7 +60,7 @@ AdBlockDialog::AdBlockDialog(QWidget *parent)
     connect(adblockCheckBox, SIGNAL(toggled(bool)), m_manager, SLOT(setEnabled(bool)));
     connect(addButton, SIGNAL(clicked()), this, SLOT(addCustomRule()));
     connect(reloadButton, SIGNAL(clicked()), this, SLOT(updateSubscription()));
-    connect(search, SIGNAL(textChanged(QString)), treeWidget, SLOT(filterStringWithoutTopItems(QString)));
+    connect(search, SIGNAL(textChanged(QString)), treeWidget, SLOT(filterString(QString)));
     connect(m_manager->subscription(), SIGNAL(changed()), this, SLOT(refreshAfterUpdate()));
     connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested()));
 
@@ -85,7 +85,7 @@ void AdBlockDialog::deleteRule()
 
     int offset = item->whatsThis(0).toInt();
     m_manager->subscription()->removeRule(offset);
-    delete item;
+    treeWidget->deleteItem(item);
     refresh();
 }
 
@@ -203,12 +203,13 @@ void AdBlockDialog::addCustomRule()
     AdBlockSubscription* subscription = m_manager->subscription();
     int offset = subscription->addRule(AdBlockRule(newRule));
     m_itemChangingBlock = true;
-    QTreeWidgetItem* item = new QTreeWidgetItem(m_customRulesItem);
+    QTreeWidgetItem* item = new QTreeWidgetItem();
     item->setText(0, newRule);
     item->setWhatsThis(0, QString::number(offset));
     item->setFlags(item->flags() | Qt::ItemIsEditable);
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
     item->setCheckState(0, Qt::Checked);
+    treeWidget->appendToParentItem(m_customRulesItem, item);
     m_itemChangingBlock = false;
 }
 

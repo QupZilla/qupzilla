@@ -89,7 +89,7 @@ public:
     ~QupZilla();
 
     void refreshAddressBar();
-    void addBookmark(const QUrl &url, const QString &title);
+    void addBookmark(const QUrl &url, const QString &title, const QIcon &icon);
     void installTranslator();
     void loadSettings();
     void showInspector();
@@ -199,6 +199,7 @@ private:
 
     bool m_tryRestore;
     bool m_historyMenuChanged;
+    bool m_bookmarksMenuChanged;
     QUrl m_startingUrl;
     QUrl m_newtab;
     QUrl m_homepage;

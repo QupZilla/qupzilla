@@ -19,7 +19,39 @@
 
 TreeWidget::TreeWidget(QWidget* parent) :
     QTreeWidget(parent)
+  , m_refreshAllItemsNeeded(true)
+  , m_showMode(ItemsCollapsed)
 {
+    connect(this, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(sheduleRefresh()));
+}
+
+void TreeWidget::sheduleRefresh()
+{
+    m_refreshAllItemsNeeded = true;
+}
+
+void TreeWidget::addTopLevelItem(QTreeWidgetItem *item)
+{
+    m_allTreeItems.append(item);
+    QTreeWidget::addTopLevelItem(item);
+}
+
+void TreeWidget::addTopLevelItems(const QList<QTreeWidgetItem *> &items)
+{
+    m_allTreeItems.append(items);
+    QTreeWidget::addTopLevelItems(items);
+}
+
+void TreeWidget::insertTopLevelItem(int index, QTreeWidgetItem *item)
+{
+    m_allTreeItems.append(item);
+    QTreeWidget::insertTopLevelItem(index, item);
+}
+
+void TreeWidget::insertTopLevelItems(int index, const QList<QTreeWidgetItem *> &items)
+{
+    m_allTreeItems.append(items);
+    QTreeWidget::insertTopLevelItems(index, items);
 }
 
 void TreeWidget::mousePressEvent(QMouseEvent* event)
@@ -30,67 +62,117 @@ void TreeWidget::mousePressEvent(QMouseEvent* event)
     QTreeWidget::mousePressEvent(event);
 }
 
-QList<QTreeWidgetItem*> allTreeItems;
-void iterateAllItems(QTreeWidgetItem* parent, QTreeWidget* treeWidget, bool includeTopLevelItems = true)
+void TreeWidget::iterateAllItems(QTreeWidgetItem* parent)
 {
-  int count = parent ? parent->childCount() : treeWidget->topLevelItemCount();
+  int count = parent ? parent->childCount() : topLevelItemCount();
 
   for (int i = 0; i < count; i++)
   {
-    QTreeWidgetItem *item =
-      parent ? parent->child(i) : treeWidget->topLevelItem(i);
+    QTreeWidgetItem *item = parent ? parent->child(i) : topLevelItem(i);
 
-    if (includeTopLevelItems)
-        allTreeItems.append(item);
-    else if (item->childCount() == 0)
-        allTreeItems.append(item);
+    if (item->childCount() == 0)
+        m_allTreeItems.append(item);
 
-    iterateAllItems(item, treeWidget, includeTopLevelItems);
+    iterateAllItems(item);
   }
 }
 
-QList<QTreeWidgetItem*> TreeWidget::allItems(bool includeTopLevelItems)
+QList<QTreeWidgetItem*> TreeWidget::allItems()
 {
-    allTreeItems.clear();
-    iterateAllItems(0, this, includeTopLevelItems);
-    return allTreeItems;
-}
-
-void TreeWidget::filterStringWithoutTopItems(QString string)
-{
-    QList<QTreeWidgetItem*> _allItems = allItems(false);
-
-    if (string.isEmpty()) {
-        foreach (QTreeWidgetItem* item, _allItems)
-            item->setHidden(false);
-    } else {
-        foreach (QTreeWidgetItem* item, _allItems)
-            item->setHidden(!item->text(0).contains(string, Qt::CaseInsensitive));
+    if (m_refreshAllItemsNeeded) {
+        m_allTreeItems.clear();
+        iterateAllItems(0);
+        m_refreshAllItemsNeeded = false;
     }
+    return m_allTreeItems;
 }
-
-void TreeWidget::filterStringWithTopItems(QString string)
+void TreeWidget::filterString(QString string)
 {
+    expandAll();
     QList<QTreeWidgetItem*> _allItems = allItems();
 
     if (string.isEmpty()) {
         foreach (QTreeWidgetItem* item, _allItems)
             item->setHidden(false);
+        for (int i = 0; i < topLevelItemCount(); i++)
+            topLevelItem(i)->setHidden(false);
+        if (m_showMode == ItemsCollapsed)
+            collapseAll();
     } else {
-        foreach (QTreeWidgetItem* item, _allItems)
+        foreach (QTreeWidgetItem* item, _allItems) {
             item->setHidden(!item->text(0).contains(string, Qt::CaseInsensitive));
+            item->setExpanded(true);
+        }
+        for (int i = 0; i < topLevelItemCount(); i++)
+            topLevelItem(i)->setHidden(false);
+
+        QTreeWidgetItem* firstItem = topLevelItem(0);
+        QTreeWidgetItem* belowItem = itemBelow(firstItem);
+        while (firstItem) {
+            if (!firstItem->parent() && !belowItem)
+                firstItem->setHidden(true);
+            else if (!belowItem)
+                break;
+            else if (!firstItem->parent() && !belowItem->parent())
+                firstItem->setHidden(true);
+            firstItem = belowItem;
+            belowItem = itemBelow(firstItem);
+        }
     }
 }
 
-bool TreeWidget::addToParentItem(const QString &text, QTreeWidgetItem* item)
+bool TreeWidget::appendToParentItem(const QString &parentText, QTreeWidgetItem* item)
 {
-    QList<QTreeWidgetItem*> list = findItems(text, Qt::MatchExactly);
+    QList<QTreeWidgetItem*> list = findItems(parentText, Qt::MatchExactly);
     if (list.count() == 0)
         return false;
     QTreeWidgetItem* parentItem = list.at(0);
     if (!parentItem)
         return false;
 
+    m_allTreeItems.append(item);
     parentItem->addChild(item);
     return true;
+}
+
+bool TreeWidget::appendToParentItem(QTreeWidgetItem* parent, QTreeWidgetItem* item)
+{
+    if (!parent || parent->treeWidget() != this)
+        return false;
+
+    m_allTreeItems.append(item);
+    parent->addChild(item);
+    return true;
+}
+
+bool TreeWidget::prependToParentItem(const QString &parentText, QTreeWidgetItem* item)
+{
+    QList<QTreeWidgetItem*> list = findItems(parentText, Qt::MatchExactly);
+    if (list.count() == 0)
+        return false;
+    QTreeWidgetItem* parentItem = list.at(0);
+    if (!parentItem)
+        return false;
+
+    m_allTreeItems.append(item);
+    parentItem->insertChild(0, item);
+    return true;
+}
+
+bool TreeWidget::prependToParentItem(QTreeWidgetItem* parent, QTreeWidgetItem* item)
+{
+    if (!parent || parent->treeWidget() != this)
+        return false;
+
+    m_allTreeItems.append(item);
+    parent->insertChild(0, item);
+    return true;
+}
+
+void TreeWidget::deleteItem(QTreeWidgetItem *item)
+{
+    if (m_allTreeItems.contains(item))
+        m_allTreeItems.removeOne(item);
+
+    delete item;
 }

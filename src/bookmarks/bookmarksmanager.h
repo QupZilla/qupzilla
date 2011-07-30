@@ -41,14 +41,17 @@ public:
     explicit BookmarksManager(QupZilla* mainClass, QWidget* parent = 0);
     ~BookmarksManager();
     void addBookmark(WebView* view);
-    void insertBookmark(const QUrl &url, const QString &title);
+    void insertBookmark(const QUrl &url, const QString &title, const QIcon &icon);
     void setMainWindow(QupZilla* window);
+
+    void search(const QString &string);
 
 public slots:
     void refreshTable();
     void insertAllTabs();
 
 private slots:
+    void optimizeDb();
     void deleteItem();
     void itemChanged(QTreeWidgetItem* item);
     void addFolder();

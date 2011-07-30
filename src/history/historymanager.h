@@ -44,12 +44,12 @@ public slots:
     void search(const QString &searchText);
 
 private slots:
+    void optimizeDb();
     void itemDoubleClicked(QTreeWidgetItem* item);
     void deleteItem();
     void clearHistory();
     void contextMenuRequested(const QPoint &position);
     void loadInNewTab();
-    void itemControlClicked(QTreeWidgetItem* item);
 
     void historyEntryAdded(const HistoryModel::HistoryEntry &entry);
     void historyEntryDeleted(const HistoryModel::HistoryEntry &entry);

@@ -194,7 +194,7 @@ void TabBar::closeCurrentTab()
 
 void TabBar::bookmarkTab()
 {
-    p_QupZilla->addBookmark(p_QupZilla->weView(m_clickedTab)->url(), p_QupZilla->weView(m_clickedTab)->title());
+    p_QupZilla->addBookmark(p_QupZilla->weView(m_clickedTab)->url(), p_QupZilla->weView(m_clickedTab)->title(), p_QupZilla->weView(m_clickedTab)->siteIcon());
 }
 
 void TabBar::pinTab()

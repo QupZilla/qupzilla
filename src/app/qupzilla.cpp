@@ -67,6 +67,7 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     QMainWindow(0)
     ,m_tryRestore(tryRestore)
     ,m_historyMenuChanged(true)
+    ,m_bookmarksMenuChanged(true)
     ,m_startingUrl(startUrl)
     ,m_actionPrivateBrowsing(0)
     ,m_webInspectorDock(0)
@@ -505,8 +506,12 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
         LocationBarSettings::instance()->loadSettings();
         break;
 
-    case MainApplication::StateChanged:
+    case MainApplication::HistoryStateChanged:
         m_historyMenuChanged = true;
+        break;
+
+    case MainApplication::BookmarksChanged:
+        m_bookmarksMenuChanged = true;
         break;
 
     default:
@@ -591,6 +596,10 @@ void QupZilla::aboutToShowHistoryNextMenu()
 
 void QupZilla::aboutToShowBookmarksMenu()
 {
+    if (!m_bookmarksMenuChanged)
+        return;
+    m_bookmarksMenuChanged = false;
+
     m_menuBookmarks->clear();
     m_menuBookmarks->addAction(tr("Bookmark &This Page"), this, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
     m_menuBookmarks->addAction(tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()));
@@ -599,29 +608,31 @@ void QupZilla::aboutToShowBookmarksMenu()
     if (m_tabWidget->count() == 1)
         m_menuBookmarks->actions().at(1)->setEnabled(false);
     QSqlQuery query;
-    query.exec("SELECT title, url FROM bookmarks WHERE folder='bookmarksMenu'");
+    query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksMenu'");
     while(query.next()) {
-        QUrl url = query.value(1).toUrl();
         QString title = query.value(0).toString();
+        QUrl url = query.value(1).toUrl();
+        QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
         if (title.length()>40) {
             title.truncate(40);
             title+="..";
         }
-        m_menuBookmarks->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
+        m_menuBookmarks->addAction(icon, title, this, SLOT(loadActionUrl()))->setData(url);
     }
 
     QMenu* folderBookmarks = new QMenu(tr("Bookmarks In ToolBar"), m_menuBookmarks);
     folderBookmarks->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
 
-    query.exec("SELECT title, url FROM bookmarks WHERE folder='bookmarksToolbar'");
+    query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar'");
     while(query.next()) {
-        QUrl url = query.value(1).toUrl();
         QString title = query.value(0).toString();
+        QUrl url = query.value(1).toUrl();
+        QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
         if (title.length()>40) {
             title.truncate(40);
             title+="..";
         }
-        folderBookmarks->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
+        folderBookmarks->addAction(icon, title, this, SLOT(loadActionUrl()))->setData(url);
     }
     if (folderBookmarks->isEmpty())
         folderBookmarks->addAction(tr("Empty"));
@@ -633,15 +644,16 @@ void QupZilla::aboutToShowBookmarksMenu()
         tempFolder->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
 
         QSqlQuery query2;
-        query2.exec("SELECT title, url FROM bookmarks WHERE folder='"+query.value(0).toString()+"'");
+        query2.exec("SELECT title, url, icon FROM bookmarks WHERE folder='"+query.value(0).toString()+"'");
         while(query2.next()) {
-            QUrl url = query2.value(1).toUrl();
-            QString title = query2.value(0).toString();
+            QString title = query.value(0).toString();
+            QUrl url = query.value(1).toUrl();
+            QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
             if (title.length()>40) {
                 title.truncate(40);
                 title+="..";
             }
-            tempFolder->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
+            tempFolder->addAction(icon, title, this, SLOT(loadActionUrl()))->setData(url);
         }
         if (tempFolder->isEmpty())
             tempFolder->addAction(tr("Empty"));
@@ -848,9 +860,9 @@ void QupZilla::bookmarkPage()
     mApp->browsingLibrary()->bookmarksManager()->addBookmark(weView());
 }
 
-void QupZilla::addBookmark(const QUrl &url, const QString &title)
+void QupZilla::addBookmark(const QUrl &url, const QString &title, const QIcon &icon)
 {
-    mApp->browsingLibrary()->bookmarksManager()->insertBookmark(url, title);
+    mApp->browsingLibrary()->bookmarksManager()->insertBookmark(url, title, icon);
 }
 
 void QupZilla::bookmarkAllTabs()

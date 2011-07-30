@@ -678,7 +678,7 @@ void WebView::bookmarkLink()
         if (action->data().isNull())
             p_QupZilla->bookmarkPage();
         else
-            p_QupZilla->addBookmark(action->data().toUrl(), action->data().toString());
+            p_QupZilla->addBookmark(action->data().toUrl(), action->data().toString(), siteIcon());
     }
 }
 
