@@ -123,10 +123,10 @@ signals:
 
 public slots:
     void showBookmarksToolbar();
-    void refreshHistory(int index=-1);
+    void refreshHistory();
     void loadActionUrl();
     void bookmarkPage();
-    void loadAddress(QUrl url) { weView()->load(url); locationBar()->setText(url.toEncoded()); }
+    void loadAddress(const QUrl &url);
     void showSource(const QString& selectedHtml = "");
     void showPageInfo();
     void receiveMessage(MainApplication::MessageType mes, bool state);

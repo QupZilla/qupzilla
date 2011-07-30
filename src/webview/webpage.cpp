@@ -38,6 +38,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
 {
     setForwardUnsupportedContent(true);
     setPluginFactory(new WebPluginFactory(this));
+    history()->setMaximumItemCount(20);
     connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), SLOT(handleUnsupportedContent(QNetworkReply*)));
     connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(progress(int)));
@@ -199,29 +200,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             break;
         case QNetworkReply::ContentAccessDenied:
             if (exOption->errorString.startsWith("AdBlockRule")) {
-                QString rule = exOption->errorString;
-                rule.remove("AdBlockRule:");
-
-                QFile file(":/html/adblockPage.html");
-                file.open(QFile::ReadOnly);
-                QString errString = file.readAll();
-                errString.replace("%TITLE%", tr("AdBlocked Content"));
-
-                //QPixmap pixmap = QIcon::fromTheme("dialog-warning").pixmap(45,45);
-                QPixmap pixmap(":/html/adblock_big.png");
-                QByteArray bytes;
-                QBuffer buffer(&bytes);
-                buffer.open(QIODevice::WriteOnly);
-                if (pixmap.save(&buffer, "PNG")) {
-                    errString.replace("%IMAGE%", buffer.buffer().toBase64());
-                    errString.replace("%FAVICON%", buffer.buffer().toBase64());
-                }
-
-                errString.replace("%RULE%", tr("Blocked by rule <i>%1</i>").arg(rule));
-
-                exReturn->baseUrl = exOption->url.toString();
-                exReturn->content = errString.toUtf8();
-                if (exOption->frame != exOption->frame->page()->mainFrame()) {
+                if (exOption->frame != exOption->frame->page()->mainFrame()) { //Content in <iframe>
                     QWebElement docElement = exOption->frame->page()->mainFrame()->documentElement();
 
                     QWebElementCollection elements;
@@ -231,18 +210,40 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                         if (exOption->url.toString().contains(src))
                             element.setAttribute("style", "display:none;");
                     }
-                }
+                    return false;
+                } else { //The whole page is blocked
+                    QString rule = exOption->errorString;
+                    rule.remove("AdBlockRule:");
 
-                return true;
-                break;
+                    QFile file(":/html/adblockPage.html");
+                    file.open(QFile::ReadOnly);
+                    QString errString = file.readAll();
+                    errString.replace("%TITLE%", tr("AdBlocked Content"));
+
+                    //QPixmap pixmap = QIcon::fromTheme("dialog-warning").pixmap(45,45);
+                    QPixmap pixmap(":/html/adblock_big.png");
+                    QByteArray bytes;
+                    QBuffer buffer(&bytes);
+                    buffer.open(QIODevice::WriteOnly);
+                    if (pixmap.save(&buffer, "PNG")) {
+                        errString.replace("%IMAGE%", buffer.buffer().toBase64());
+                        errString.replace("%FAVICON%", buffer.buffer().toBase64());
+                    }
+
+                    errString.replace("%RULE%", tr("Blocked by rule <i>%1</i>").arg(rule));
+
+                    exReturn->baseUrl = exOption->url.toString();
+                    exReturn->content = errString.toUtf8();
+                    return true;
+                }
             }
             errorString = tr("Content Access Denied");
             break;
         default:
-            //errorString = exOption->error;
-            if (errorString.isEmpty())
-                errorString = tr("Unknown error");
-            break;
+            qDebug() << "Content error: " << exOption->errorString;
+            return false;
+//            if (errorString.isEmpty())
+//                errorString = tr("Unknown error");
         }
     }
     else if (exOption->domain == QWebPage::Http) {
@@ -284,6 +285,19 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
     exReturn->content = errString.toUtf8();
     return true;
+}
+
+void WebPage::adBlockCleanup()
+{
+    QWebElement docElement = mainFrame()->documentElement();
+
+    foreach (AdBlockedEntry entry, m_adBlockedEntries) {
+        QWebElementCollection elements;
+        elements.append(docElement.findAll("*[src=\"" + entry.url.toString() + "\"]"));
+        foreach (QWebElement element, elements)
+//            element.setAttribute("style", "display:none;");
+            element.removeFromDocument();
+    }
 }
 
 bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, const QString &defaultValue, QString* result)
