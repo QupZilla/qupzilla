@@ -57,6 +57,8 @@ AdBlockDialog::AdBlockDialog(QWidget *parent)
     adblockCheckBox->setChecked(m_manager->isEnabled());
 
     treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeWidget->setDefaultItemShowMode(TreeWidget::ItemsExpanded);
+
     connect(adblockCheckBox, SIGNAL(toggled(bool)), m_manager, SLOT(setEnabled(bool)));
     connect(addButton, SIGNAL(clicked()), this, SLOT(addCustomRule()));
     connect(reloadButton, SIGNAL(clicked()), this, SLOT(updateSubscription()));

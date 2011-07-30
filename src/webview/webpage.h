@@ -56,6 +56,7 @@ public:
 
     void addAdBlockRule(const QString &filter, const QUrl &url);
     QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
+    void adBlockCleanup();
 
 signals:
     void privacyChanged(bool status);
