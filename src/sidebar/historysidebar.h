@@ -44,7 +44,6 @@ public slots:
 private slots:
     void search();
     void itemDoubleClicked(QTreeWidgetItem* item);
-    void deleteItem();
     void contextMenuRequested(const QPoint &position);
     void loadInNewTab();
     void itemControlClicked(QTreeWidgetItem* item);

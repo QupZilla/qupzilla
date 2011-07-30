@@ -18,9 +18,9 @@
 #include "historymanager.h"
 #include "ui_historymanager.h"
 #include "qupzilla.h"
-#include "qtwin.h"
 #include "historymodel.h"
 #include "iconprovider.h"
+#include "browsinglibrary.h"
 
 HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
@@ -29,28 +29,23 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
     ,m_historyModel(mApp->history())
 {
     ui->setupUi(this);
+    ui->historyTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
+    ui->historyTree->setSelectionMode(QAbstractItemView::ExtendedSelection);
     //CENTER on scren
     const QRect screen = QApplication::desktop()->screenGeometry();
     const QRect &size = QWidget::geometry();
     QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
 
-#ifdef Q_WS_WIN
-    if (QtWin::isCompositionEnabled()) {
-        QtWin::extendFrameIntoClientArea(this);
-        ui->gridLayout->setContentsMargins(0, 0, 0, 0);
-    }
-#endif
-
     connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
     connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));
     connect(ui->clearAll, SIGNAL(clicked()), this, SLOT(clearHistory()));
-//    connect(ui->search, SIGNAL(textChanged(QString)), ui->historyTree, SLOT(filterStringWithoutTopItems(QString)));
     connect(ui->historyTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
-    connect(ui->historyTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
 
     connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryModel::HistoryEntry)), this, SLOT(historyEntryAdded(HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryModel::HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyClear()), ui->historyTree, SLOT(clear()));
+
+    connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
 
     //QTimer::singleShot(0, this, SLOT(refreshTable()));
 
@@ -71,13 +66,6 @@ void HistoryManager::setMainWindow(QupZilla* window)
 }
 
 void HistoryManager::itemDoubleClicked(QTreeWidgetItem* item)
-{
-    if (!item || item->text(1).isEmpty())
-        return;
-    getQupZilla()->loadAddress(QUrl(item->text(1)));
-}
-
-void HistoryManager::itemControlClicked(QTreeWidgetItem* item)
 {
     if (!item || item->text(1).isEmpty())
         return;
@@ -114,32 +102,53 @@ void HistoryManager::contextMenuRequested(const QPoint &position)
 
 void HistoryManager::deleteItem()
 {
-    QTreeWidgetItem* item = ui->historyTree->currentItem();
-    if (!item || item->text(1).isEmpty())
-        return;
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    foreach (QTreeWidgetItem* item, ui->historyTree->selectedItems()) {
+        if (!item)
+            return;
 
-    int id = item->whatsThis(1).toInt();
-    m_historyModel->deleteHistoryEntry(id);
+        if (!item->parent()) {
+            for (int i = 0; i < item->childCount(); i++) {
+                QTreeWidgetItem* children = item->child(i);
+                int id = children->whatsThis(1).toInt();
+                m_historyModel->deleteHistoryEntry(id);
+            }
+            ui->historyTree->deleteItem(item);
+        } else {
+            int id = item->whatsThis(1).toInt();
+            m_historyModel->deleteHistoryEntry(id);
+        }
+    }
+    QApplication::restoreOverrideCursor();
 }
 
 void HistoryManager::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
 {
-    QLocale locale(getQupZilla()->activeLanguage().remove(".qm"));
+    QDate todayDate = QDate::currentDate();
+    QDate startOfWeekDate = todayDate.addDays(1 - todayDate.dayOfWeek());
 
-    QString localDate; //date.toString("dddd d. MMMM yyyy");
-    QString month = locale.monthName(entry.date.toString("M").toInt());
-    localDate =  entry.date.toString(" d. ") + month + entry.date.toString(" yyyy");
+    QDate date = entry.date.date();
+    QString localDate;
 
-    QTreeWidgetItem* item;
+    if (date == todayDate)
+        localDate = tr("Today");
+    else if (date >= startOfWeekDate)
+        localDate = tr("This Week");
+    else if (date.month() == todayDate.month())
+        localDate = tr("This Month");
+    else
+        localDate = QString("%1 %2").arg(HistoryModel::titleCaseLocalizedMonth(date.month()), QString::number(date.year()));
+
+    QTreeWidgetItem* item = new QTreeWidgetItem();
+    QTreeWidgetItem* parentItem;
     QList<QTreeWidgetItem*> findParent = ui->historyTree->findItems(localDate, 0);
     if (findParent.count() == 1) {
-        item = new QTreeWidgetItem(findParent.at(0));
+        parentItem = findParent.at(0);
     } else {
-        QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->historyTree);
-        newParent->setText(0, localDate);
-        newParent->setIcon(0, QIcon(":/icons/menu/history_entry.png"));
-        ui->historyTree->addTopLevelItem(newParent);
-        item = new QTreeWidgetItem(newParent);
+        parentItem = new QTreeWidgetItem();
+        parentItem->setText(0, localDate);
+        parentItem->setIcon(0, QIcon(":/icons/menu/history_entry.png"));
+        ui->historyTree->addTopLevelItem(parentItem);
     }
 
     item->setText(0, entry.title);
@@ -149,7 +158,7 @@ void HistoryManager::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
 
     item->setWhatsThis(1, QString::number(entry.id));
     item->setIcon(0, _iconForUrl(entry.url));
-    ui->historyTree->addTopLevelItem(item);
+    ui->historyTree->prependToParentItem(parentItem, item);
 }
 
 void HistoryManager::historyEntryDeleted(const HistoryModel::HistoryEntry &entry)
@@ -160,7 +169,7 @@ void HistoryManager::historyEntryDeleted(const HistoryModel::HistoryEntry &entry
             continue;
         if (item->whatsThis(1).toInt() != entry.id)
             continue;
-        delete item;
+        ui->historyTree->deleteItem(item);
         return;
     }
 }
@@ -181,8 +190,8 @@ void HistoryManager::refreshTable()
     ui->historyTree->setUpdatesEnabled(false);
     ui->historyTree->clear();
 
-    QLocale locale(getQupZilla()->activeLanguage().remove(".qm"));
-
+    QDate todayDate = QDate::currentDate();
+    QDate startOfWeekDate = todayDate.addDays(1 - todayDate.dayOfWeek());
     QSqlQuery query;
     query.exec("SELECT title, url, id, date FROM history ORDER BY date DESC");
 
@@ -190,15 +199,19 @@ void HistoryManager::refreshTable()
         QString title = query.value(0).toString();
         QUrl url = query.value(1).toUrl();
         int id = query.value(2).toInt();
-        qint64 unixDate = query.value(3).toLongLong();
-        QDateTime date = QDateTime();
-        date = date.fromMSecsSinceEpoch(unixDate);
+        QDate date = QDateTime::fromMSecsSinceEpoch(query.value(3).toLongLong()).date();
+        QString localDate;
 
-        QString localDate; //date.toString("dddd d. MMMM yyyy");
-        QString month = locale.monthName(date.toString("M").toInt());
-        localDate =  date.toString(" d. ") + month + date.toString(" yyyy");
+        if (date == todayDate)
+            localDate = tr("Today");
+        else if (date >= startOfWeekDate)
+            localDate = tr("This Week");
+        else if (date.month() == todayDate.month())
+            localDate = tr("This Month");
+        else
+            localDate = QString("%1 %2").arg(HistoryModel::titleCaseLocalizedMonth(date.month()), QString::number(date.year()));
 
-        QTreeWidgetItem* item;
+        QTreeWidgetItem* item = new QTreeWidgetItem();
         QList<QTreeWidgetItem*> findParent = ui->historyTree->findItems(localDate, 0);
         if (findParent.count() == 1) {
             item = new QTreeWidgetItem(findParent.at(0));
@@ -225,6 +238,8 @@ void HistoryManager::refreshTable()
 
 void HistoryManager::search(const QString &searchText)
 {
+    ui->historyTree->filterString(searchText);
+    return;
     if (searchText.isEmpty()) {
         refreshTable();
         return;
@@ -250,6 +265,15 @@ void HistoryManager::search(const QString &searchText)
     ui->historyTree->addTopLevelItems(foundItems);
     ui->historyTree->setUpdatesEnabled(true);
 }
+
+void HistoryManager::optimizeDb()
+{
+    BrowsingLibrary* b = (BrowsingLibrary*) parentWidget();
+    if (!b)
+        return;
+    b->optimizeDatabase();
+}
+
 
 HistoryManager::~HistoryManager()
 {

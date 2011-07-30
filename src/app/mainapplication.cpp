@@ -240,7 +240,7 @@ QupZilla* MainApplication::getWindow()
 void MainApplication::setStateChanged()
 {
     m_isStateChanged = true;
-    sendMessages(StateChanged, true);
+    sendMessages(HistoryStateChanged, true);
 }
 
 bool MainApplication::isStateChanged()
@@ -365,7 +365,7 @@ void MainApplication::quitApplication()
     AdBlockManager::instance()->save();
     QFile::remove(getActiveProfil() + "WebpageIcons.db");
 
-    qDebug() << "Quitting application...";
+//    qDebug() << "Quitting application...";
     quit();
 }
 
@@ -470,9 +470,6 @@ bool MainApplication::saveStateSlot()
 {
     if (m_websettings->testAttribute(QWebSettings::PrivateBrowsingEnabled) || m_isRestoring)
         return false;
-#ifndef QT_NO_DEBUG
-    qDebug() << "Saving state";
-#endif
 
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("SessionRestore");

@@ -27,18 +27,37 @@ class TreeWidget : public QTreeWidget
     Q_OBJECT
 public:
     explicit TreeWidget(QWidget* parent = 0);
-    QList<QTreeWidgetItem*> allItems(bool includeTopLevelItems = true);
-    bool addToParentItem(const QString &text, QTreeWidgetItem* item);
+    enum ItemShowMode { ItemsCollapsed = 0, ItemsExpanded = 1 };
+    void setDefaultItemShowMode(ItemShowMode mode) { m_showMode = mode; }
+    QList<QTreeWidgetItem*> allItems();
+    bool appendToParentItem(const QString &parentText, QTreeWidgetItem* item);
+    bool appendToParentItem(QTreeWidgetItem* parent, QTreeWidgetItem* item);
+    bool prependToParentItem(const QString &parentText, QTreeWidgetItem* item);
+    bool prependToParentItem(QTreeWidgetItem* parent, QTreeWidgetItem* item);
+
+    void addTopLevelItem(QTreeWidgetItem *item);
+    void addTopLevelItems(const QList<QTreeWidgetItem *> &items);
+    void insertTopLevelItem(int index, QTreeWidgetItem *item);
+    void insertTopLevelItems(int index, const QList<QTreeWidgetItem *> &items);
+
+    void deleteItem(QTreeWidgetItem* item);
 
 signals:
     void itemControlClicked(QTreeWidgetItem* item);
 
 public slots:
-    void filterStringWithTopItems(QString string);
-    void filterStringWithoutTopItems(QString string);
+    void filterString(QString string);
+
+private slots:
+    void sheduleRefresh();
 
 private:
     void mousePressEvent(QMouseEvent* event);
+    void iterateAllItems(QTreeWidgetItem* parent);
+
+    bool m_refreshAllItemsNeeded;
+    QList<QTreeWidgetItem*> m_allTreeItems;
+    ItemShowMode m_showMode;
 
 };
 

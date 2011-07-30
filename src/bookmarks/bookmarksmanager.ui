@@ -18,7 +18,7 @@
     <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="5">
+   <item row="0" column="0" colspan="6">
     <widget class="TreeWidget" name="bookmarksTree">
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
@@ -71,6 +71,20 @@
      </property>
     </spacer>
    </item>
+   <item row="1" column="5">
+    <widget class="ClickableLabel" name="optimizeDb">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: blue;
+text-decoration: underline;</string>
+     </property>
+     <property name="text">
+      <string>Optimize Database</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -78,6 +92,11 @@
    <class>TreeWidget</class>
    <extends>QTreeWidget</extends>
    <header>treewidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ClickableLabel</class>
+   <extends>QLabel</extends>
+   <header>clickablelabel.h</header>
   </customwidget>
  </customwidgets>
  <resources>

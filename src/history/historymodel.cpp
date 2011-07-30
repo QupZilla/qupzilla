@@ -18,6 +18,7 @@
 #include "historymodel.h"
 #include "webview.h"
 #include "qupzilla.h"
+#include "iconprovider.h"
 
 HistoryModel::HistoryModel(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
@@ -78,7 +79,7 @@ int HistoryModel::addHistoryEntry(WebView* view)
     if (!m_isSaving)
         return -2;
 
-    QString url = view->url().toString();
+    QString url = view->url().toEncoded();
     QString title = view->title();
     return addHistoryEntry(url, title);
 }
@@ -162,4 +163,37 @@ void HistoryModel::setSaving(bool state)
 bool HistoryModel::isSaving()
 {
     return m_isSaving;
+}
+
+QString HistoryModel::titleCaseLocalizedMonth(int month)
+{
+    switch (month) {
+    case 1:
+        return tr("January");
+    case 2:
+        return tr("February");
+    case 3:
+        return tr("March");
+    case 4:
+        return tr("April");
+    case 5:
+        return tr("May");
+    case 6:
+        return tr("June");
+    case 7:
+        return tr("July");
+    case 8:
+        return tr("August");
+    case 9:
+        return tr("September");
+    case 10:
+        return tr("October");
+    case 11:
+        return tr("November");
+    case 12:
+        return tr("December");
+    default:
+        qWarning("Month number out of range!");
+        return QString();
+    }
 }

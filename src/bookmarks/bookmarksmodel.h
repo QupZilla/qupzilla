@@ -22,6 +22,7 @@
 #include <QUrl>
 #include <QSettings>
 #include <QSqlQuery>
+#include <QIcon>
 
 class WebView;
 class BookmarksModel : public QObject
@@ -35,6 +36,7 @@ public:
         QString title;
         QString folder;
         QUrl url;
+        QIcon icon;
     };
 
     void loadSettings();
@@ -46,7 +48,7 @@ public:
     int bookmarkId(const QUrl &url, const QString &title, const QString &folder);
     Bookmark getBookmark(int id);
 
-    bool saveBookmark(const QUrl &url, const QString &title, const QString &folder = "unsorted");
+    bool saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder = "unsorted");
     bool saveBookmark(WebView* view, const QString &folder = "unsorted");
 
     bool removeBookmark(int id);
