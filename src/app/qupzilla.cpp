@@ -520,28 +520,14 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
     }
 }
 
-void QupZilla::refreshHistory(int index)
+void QupZilla::refreshHistory()
 {
     if (mApp->isClosing())
         return;
 
-    QWebHistory* history;
-    if (index == -1)
-        history = weView()->page()->history();
-    else
-        history = weView()->page()->history();
-
-    if (history->canGoBack()) {
-        m_buttonBack->setEnabled(true);
-    } else {
-        m_buttonBack->setEnabled(false);
-    }
-
-    if (history->canGoForward()) {
-        m_buttonNext->setEnabled(true);
-    } else {
-        m_buttonNext->setEnabled(false);
-    }
+    QWebHistory* history = weView()->page()->history();
+    m_buttonBack->setEnabled(history->canGoBack());
+    m_buttonNext->setEnabled(history->canGoForward());
 }
 
 void QupZilla::goAtHistoryIndex()
@@ -559,13 +545,13 @@ void QupZilla::aboutToShowHistoryBackMenu()
     m_menuBack->clear();
     QWebHistory* history = weView()->history();
     int curindex = history->currentItemIndex();
-    for (int i = curindex-1;i>=0;i--) {
+    for (int i = curindex-1; i >= 0; i--) {
         QWebHistoryItem item = history->itemAt(i);
         if (item.isValid()) {
             QString title = item.title();
-            if (title.length()>40) {
+            if (title.length() > 40) {
                 title.truncate(40);
-                title+="..";
+                title += "..";
             }
             QAction* action = m_menuBack->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
             action->setData(i);
@@ -580,13 +566,13 @@ void QupZilla::aboutToShowHistoryNextMenu()
     m_menuForward->clear();
     QWebHistory* history = weView()->history();
     int curindex = history->currentItemIndex();
-    for (int i = curindex+1;i<history->count();i++) {
+    for (int i = curindex+1; i < history->count(); i++) {
         QWebHistoryItem item = history->itemAt(i);
         if (item.isValid()) {
             QString title = item.title();
-            if (title.length()>40) {
+            if (title.length() > 40) {
                 title.truncate(40);
-                title+="..";
+                title += "..";
             }
             QAction* action = m_menuForward->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
             action->setData(i);
@@ -875,6 +861,12 @@ void QupZilla::loadActionUrl()
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         loadAddress(action->data().toUrl());
     }
+}
+
+void QupZilla::loadAddress(const QUrl &url)
+{
+    weView()->load(url);
+    locationBar()->setText(url.toEncoded());
 }
 
 void QupZilla::urlEnter()

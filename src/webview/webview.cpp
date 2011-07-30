@@ -241,6 +241,7 @@ void WebView::loadFinished(bool state)
     titleChanged();
     mApp->autoFill()->completePage(this);
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
+    m_page->adBlockCleanup();
 
     if (isCurrent()) {
         p_QupZilla->progressBar()->setVisible(false);
