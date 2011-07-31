@@ -43,6 +43,7 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
 
     connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryModel::HistoryEntry)), this, SLOT(historyEntryAdded(HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryModel::HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryModel::HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryModel::HistoryEntry,HistoryModel::HistoryEntry)), this, SLOT(historyEntryEdited(HistoryModel::HistoryEntry,HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyClear()), ui->historyTree, SLOT(clear()));
 
     connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
@@ -172,6 +173,12 @@ void HistoryManager::historyEntryDeleted(const HistoryModel::HistoryEntry &entry
         ui->historyTree->deleteItem(item);
         return;
     }
+}
+
+void HistoryManager::historyEntryEdited(const HistoryModel::HistoryEntry &before, const HistoryModel::HistoryEntry &after)
+{
+    historyEntryDeleted(before);
+    historyEntryAdded(after);
 }
 
 void HistoryManager::clearHistory()

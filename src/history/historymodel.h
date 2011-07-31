@@ -48,6 +48,7 @@ public:
     int addHistoryEntry(const QString &url, QString &title);
     bool deleteHistoryEntry(int index);
     bool deleteHistoryEntry(const QString &url, const QString &title);
+    bool urlIsStored(const QString &url);
 
     QList<HistoryModel::HistoryEntry> mostVisited(int count);
 
@@ -61,6 +62,8 @@ public:
 signals:
     void historyEntryAdded(HistoryModel::HistoryEntry entry);
     void historyEntryDeleted(HistoryModel::HistoryEntry entry);
+    void historyEntryEdited(HistoryModel::HistoryEntry before, HistoryModel::HistoryEntry after);
+    //WARNING: Incomplete HistoryEntry structs are passed to historyEntryEdited!
     void historyClear();
 
 private:

@@ -35,6 +35,8 @@
 #include "desktopnotificationsfactory.h"
 #include "iconprovider.h"
 #include "qtwin.h"
+#include "mainapplication.h"
+#include "webhistoryinterface.h"
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -139,6 +141,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
 
     translateApp();
     connectDatabase();
+    QWebHistoryInterface::setDefaultInterface(new WebHistoryInterface(this));
 
     QupZilla* qupzilla = new QupZilla(true, startUrl);
     m_mainWindows.append(qupzilla);
@@ -150,8 +153,8 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     m_updater = new Updater(qupzilla);
 
     if (noAddons) {
-        settings2.setValue("Plugin-Settings/AllowedPlugins",QStringList());
-        settings2.setValue("Plugin-Settings/EnablePlugins",false);
+        settings2.setValue("Plugin-Settings/AllowedPlugins", QStringList());
+        settings2.setValue("Plugin-Settings/EnablePlugins", false);
     }
 
     networkManager()->loadCertExceptions();

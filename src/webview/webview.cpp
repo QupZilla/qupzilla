@@ -127,9 +127,7 @@ void WebView::urlChanged(const QUrl &url)
 
 void WebView::linkClicked(const QUrl &url)
 {
-    qDebug() << __FUNCTION__ << "called";
-    if (isCurrent())
-        emit showUrl(url);
+    load(url);
 }
 
 void WebView::setProgress(int prog)

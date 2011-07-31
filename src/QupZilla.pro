@@ -126,7 +126,8 @@ SOURCES += main.cpp\
     navigation/locationbarsettings.cpp \
     other/browsinglibrary.cpp \
     3rdparty/stylehelper.cpp \
-    3rdparty/fancytabwidget.cpp
+    3rdparty/fancytabwidget.cpp \
+    history/webhistoryinterface.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -213,7 +214,8 @@ HEADERS  += \
     navigation/locationbarsettings.h \
     other/browsinglibrary.h \
     3rdparty/stylehelper.h \
-    3rdparty/fancytabwidget.h
+    3rdparty/fancytabwidget.h \
+    history/webhistoryinterface.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
