@@ -50,6 +50,7 @@ private slots:
 
     void historyEntryAdded(const HistoryModel::HistoryEntry &entry);
     void historyEntryDeleted(const HistoryModel::HistoryEntry &entry);
+    void historyEntryEdited(const HistoryModel::HistoryEntry &before, const HistoryModel::HistoryEntry &after);
 
 private:
     Ui::HistorySideBar* ui;

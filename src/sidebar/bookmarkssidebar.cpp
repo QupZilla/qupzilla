@@ -126,7 +126,7 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
     item->setWhatsThis(0, QString::number(bookmark.id));
-    item->setIcon(0, _iconForUrl(bookmark.url));
+    item->setIcon(0, bookmark.icon);
     item->setToolTip(0, bookmark.url.toEncoded());
 
     if (bookmark.folder != "unsorted")
@@ -211,12 +211,13 @@ void BookmarksSideBar::refreshTable()
         ui->bookmarksTree->addTopLevelItem(newItem);
     }
 
-    query.exec("SELECT title, url, id, folder FROM bookmarks");
+    query.exec("SELECT title, url, id, folder, icon FROM bookmarks");
     while(query.next()) {
         QString title = query.value(0).toString();
         QUrl url = query.value(1).toUrl();
         int id = query.value(2).toInt();
         QString folder = query.value(3).toString();
+        QIcon icon = IconProvider::iconFromBase64(query.value(4).toByteArray());
         QTreeWidgetItem* item;
         if (folder == "bookmarksMenu")
             folder = tr("Bookmarks In Menu");
@@ -243,7 +244,7 @@ void BookmarksSideBar::refreshTable()
 //        item->setToolTip(1, url.toEncoded());
 
         item->setWhatsThis(0, QString::number(id));
-        item->setIcon(0, _iconForUrl(url));
+        item->setIcon(0, icon);
         ui->bookmarksTree->addTopLevelItem(item);
     }
     ui->bookmarksTree->expandAll();

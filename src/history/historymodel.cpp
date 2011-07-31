@@ -65,11 +65,22 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
         entry.title = title;
         emit historyEntryAdded(entry);
     } else {
+        int id = query.value(0).toInt();
         query.prepare("UPDATE history SET count = count + 1, date=?, title=? WHERE url=?");
         query.bindValue(0, QDateTime::currentMSecsSinceEpoch());
         query.bindValue(1, title);
         query.bindValue(2, url);
         query.exec();
+
+        HistoryEntry before;
+        before.id = id;
+
+        HistoryEntry after;
+        after.id = id;
+        after.date = QDateTime::currentDateTime();
+        after.url = url;
+        after.title = title;
+        emit historyEntryEdited(before, after);
     }
     return query.lastInsertId().toInt();
 }
@@ -101,7 +112,11 @@ bool HistoryModel::deleteHistoryEntry(int index)
 
     query.prepare("DELETE FROM history WHERE id=?");
     query.bindValue(0, index);
-    if (query.exec()) {
+    bool removeHistorySuccess = query.exec();
+    query.prepare("DELETE FROM icons WHERE url=?");
+    query.bindValue(0, entry.url.toEncoded(QUrl::RemoveFragment));
+    query.exec();
+    if (removeHistorySuccess) {
         emit historyEntryDeleted(entry);
         return true;
     }
@@ -120,6 +135,15 @@ bool HistoryModel::deleteHistoryEntry(const QString &url, const QString &title)
         return deleteHistoryEntry(id);
     }
     return false;
+}
+
+bool HistoryModel::urlIsStored(const QString &url)
+{
+    QSqlQuery query;
+    query.prepare("SELECT id FROM history WHERE url=?");
+    query.bindValue(0, url);
+    query.exec();
+    return query.next();
 }
 
 QList<HistoryModel::HistoryEntry> HistoryModel::mostVisited(int count)

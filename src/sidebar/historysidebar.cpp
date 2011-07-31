@@ -36,6 +36,7 @@ HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent) :
 
     connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryModel::HistoryEntry)), this, SLOT(historyEntryAdded(HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryModel::HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryModel::HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryModel::HistoryEntry,HistoryModel::HistoryEntry)), this, SLOT(historyEntryEdited(HistoryModel::HistoryEntry,HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyClear()), ui->historyTree, SLOT(clear()));
 
     QTimer::singleShot(0, this, SLOT(refreshTable()));
@@ -128,6 +129,12 @@ void HistorySideBar::historyEntryDeleted(const HistoryModel::HistoryEntry &entry
         ui->historyTree->deleteItem(item);
         return;
     }
+}
+
+void HistorySideBar::historyEntryEdited(const HistoryModel::HistoryEntry &before, const HistoryModel::HistoryEntry &after)
+{
+    historyEntryDeleted(before);
+    historyEntryAdded(after);
 }
 
 void HistorySideBar::search()
