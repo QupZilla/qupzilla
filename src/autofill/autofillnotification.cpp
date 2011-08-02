@@ -19,17 +19,17 @@
 #include "ui_autofillnotification.h"
 #include "autofillmodel.h"
 #include "mainapplication.h"
-#include "notification.h"
+#include "animatedwidget.h"
 
 AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget* parent)
-   :Notification(parent)
+   :AnimatedWidget(AnimatedWidget::Down, parent)
    ,ui(new Ui::AutoFillWidget)
    ,m_url(url)
    ,m_data(data)
    ,m_pass(pass)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(this);
+    ui->setupUi(widget());
     ui->label->setText(tr("Do you want QupZilla to remember password on %1?").arg(url.host()));
     ui->closeButton->setIcon(
 #ifdef Q_WS_X11
@@ -43,7 +43,8 @@ AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pa
     connect(ui->never, SIGNAL(clicked()), this, SLOT(never()));
     connect(ui->notnow, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
-    QTimer::singleShot(1, this, SLOT(startAnimation()));
+
+    startAnimation();
 }
 
 void AutoFillNotification::never()

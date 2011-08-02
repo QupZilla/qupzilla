@@ -20,14 +20,14 @@
 
 #include <QWidget>
 
-#include "notification.h"
+#include "animatedwidget.h"
 
 namespace Ui {
     class RSSNotification;
 }
 
-class Notification;
-class RSSNotification : public Notification
+class AnimatedWidget;
+class RSSNotification : public AnimatedWidget
 {
     Q_OBJECT
 
@@ -37,7 +37,6 @@ public:
 
 private:
     Ui::RSSNotification* ui;
-    QTimeLine* m_animation;
 };
 
 #endif // RSSNOTIFICATION_H
