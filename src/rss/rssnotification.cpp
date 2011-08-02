@@ -21,11 +21,11 @@
 #include "qupzilla.h"
 
 RSSNotification::RSSNotification(QString host, QWidget* parent) :
-    Notification(parent),
+    AnimatedWidget(AnimatedWidget::Down, parent),
     ui(new Ui::RSSNotification)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(this);
+    ui->setupUi(widget());
     ui->closeButton->setIcon(
 #ifdef Q_WS_X11
     style()->standardIcon(QStyle::SP_DialogCloseButton)
@@ -38,7 +38,7 @@ RSSNotification::RSSNotification(QString host, QWidget* parent) :
     connect(ui->pushButton, SIGNAL(clicked()), mApp->getWindow(), SLOT(showRSSManager()));
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
-    QTimer::singleShot(1, this, SLOT(startAnimation()));
+    startAnimation();
 }
 
 RSSNotification::~RSSNotification()

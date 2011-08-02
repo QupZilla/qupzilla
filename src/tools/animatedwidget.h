@@ -15,41 +15,41 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SOURCEVIEWERSEARCH_H
-#define SOURCEVIEWERSEARCH_H
-#include <QDebug>
-#include <QTextDocument>
-#include <QTextCursor>
+#ifndef NOTIFICATION_H
+#define NOTIFICATION_H
 
-#include "animatedwidget.h"
+#include <QWidget>
+#include <QPropertyAnimation>
+#include <QParallelAnimationGroup>
+#include <QResizeEvent>
 
-namespace Ui {
-    class SourceViewerSearch;
-}
-
-class SourceViewer;
-class SourceViewerSearch : public AnimatedWidget
+class AnimatedWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SourceViewerSearch(SourceViewer* parent = 0);
+    enum Direction { Down, Up };
+    explicit AnimatedWidget(const Direction &direction = Down, QWidget* parent = 0);
+    ~AnimatedWidget();
 
-    void activateLineEdit();
-
-signals:
+    QWidget* widget() { return m_widget; }
 
 public slots:
-
-private slots:
-    void next();
-    void previous();
-    bool find(QTextDocument::FindFlags flags);
+    void hide();
+    void startAnimation();
 
 private:
-    SourceViewer* m_sourceViewer;
-    Ui::SourceViewerSearch* ui;
+    void resizeEvent(QResizeEvent *e);
 
-    QString m_lastSearchedString;
+    QPropertyAnimation* m_positionAni;
+    QPropertyAnimation* m_minHeightAni;
+    QPropertyAnimation* m_maxHeightAni;
+    QParallelAnimationGroup* m_aniGroup;
+
+    QWidget* m_widget;
+
+    int Y_SHOWN;
+    int Y_HIDDEN;
+    Direction m_direction;
 };
 
-#endif // SOURCEVIEWERSEARCH_H
+#endif // NOTIFICATION_H
