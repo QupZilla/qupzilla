@@ -20,12 +20,12 @@
 #include "sourceviewer.h"
 
 SourceViewerSearch::SourceViewerSearch(SourceViewer* parent) :
-    Notification((QWidget*)parent)
+    AnimatedWidget(AnimatedWidget::Up)
    ,m_sourceViewer(parent)
    ,ui(new Ui::SourceViewerSearch)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(this);
+    ui->setupUi(widget());
     ui->closeButton->setIcon(
 #ifdef Q_WS_X11
     style()->standardIcon(QStyle::SP_DialogCloseButton)
@@ -50,12 +50,13 @@ SourceViewerSearch::SourceViewerSearch(SourceViewer* parent) :
 #endif
     );
     ui->lineEdit->setFocus();
-    startAnimation();
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->lineEdit, SIGNAL(textEdited(QString)), this, SLOT(next()));
     connect(ui->lineEdit, SIGNAL(returnPressed()), this, SLOT(next()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(next()));
     connect(ui->previous, SIGNAL(clicked()), this, SLOT(previous()));
+
+    startAnimation();
 }
 
 void SourceViewerSearch::activateLineEdit()

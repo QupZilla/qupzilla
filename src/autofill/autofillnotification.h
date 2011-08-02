@@ -23,13 +23,13 @@
 #include <QTimer>
 #include <QDebug>
 
-#include "notification.h"
+#include "animatedwidget.h"
 
 namespace Ui {
     class AutoFillWidget;
 }
-class Notification;
-class AutoFillNotification : public Notification
+class AnimatedWidget;
+class AutoFillNotification : public AnimatedWidget
 {
     Q_OBJECT
 
@@ -46,7 +46,6 @@ private:
     QUrl m_url;
     QByteArray m_data;
     QString m_pass;
-    QTimeLine* m_animation;
 };
 
 #endif // AUTOFILLWIDGET_H

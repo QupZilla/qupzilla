@@ -96,7 +96,7 @@ SOURCES += main.cpp\
     rss/rssnotification.cpp \
     navigation/locationpopup.cpp \
     preferences/sslmanager.cpp \
-    tools/notification.cpp \
+    tools/animatedwidget.cpp \
     tools/htmlhighlighter.cpp \
     other/sourceviewersearch.cpp \
     adblock/adblocksubscription.cpp \
@@ -184,7 +184,7 @@ HEADERS  += \
     rss/rssnotification.h \
     navigation/locationpopup.h \
     preferences/sslmanager.h \
-    tools/notification.h \
+    tools/animatedwidget.h \
     tools/htmlhighlighter.h \
     other/sourceviewersearch.h \
     adblock/adblocksubscription.h \
@@ -247,7 +247,8 @@ FORMS    += \
     webview/jsconfirm.ui \
     webview/jsalert.ui \
     webview/jsprompt.ui \
-    other/browsinglibrary.ui
+    other/browsinglibrary.ui \
+    webview/searchtoolbar.ui
 
 RESOURCES += \
     data/icons.qrc \

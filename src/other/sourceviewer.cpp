@@ -126,8 +126,7 @@ void SourceViewer::findText()
         return;
     }
 
-    SourceViewerSearch* search = new SourceViewerSearch(this);
-    m_layout->insertWidget(1, search);
+    m_layout->insertWidget(1, new SourceViewerSearch(this));
 }
 
 void SourceViewer::reload()

@@ -71,7 +71,6 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     ,m_startingUrl(startUrl)
     ,m_actionPrivateBrowsing(0)
     ,m_webInspectorDock(0)
-    ,m_webSearchToolbar(0)
     ,m_sideBar(0)
     ,m_statusBarMessage(new StatusBarMessage(this))
 {
@@ -150,9 +149,13 @@ void QupZilla::postLaunch()
 
 void QupZilla::setupUi()
 {
-    setContentsMargins(0,0,0,0);
+    QWidget* widget = new QWidget(this);
+    m_mainLayout = new QVBoxLayout(widget);
+    m_mainLayout->setContentsMargins(0,0,0,0);
+    m_mainLayout->setSpacing(0);
+    setCentralWidget(widget);
     m_tabWidget = new TabWidget(this);
-    setCentralWidget(m_tabWidget);
+    m_mainLayout->addWidget(m_tabWidget);
 
     m_navigation = new QToolBar(this);
     m_navigation->setWindowTitle(tr("Navigation"));
@@ -1033,18 +1036,16 @@ void QupZilla::aboutQupZilla()
 
 void QupZilla::searchOnPage()
 {
-    if (!m_webSearchToolbar) {
-        m_webSearchToolbar = new SearchToolBar(this);
-        addToolBar(Qt::BottomToolBarArea, m_webSearchToolbar);
-        m_webSearchToolbar->showBar();
+
+    if (m_mainLayout->count() == 2) {
+        SearchToolBar* search = qobject_cast<SearchToolBar*>( m_mainLayout->itemAt(1)->widget() );
+        search->searchLine()->setFocus();
         return;
     }
-    if (m_webSearchToolbar->isVisible()) {
-        m_webSearchToolbar->hideBar();
-        weView()->setFocus();
-    }else{
-        m_webSearchToolbar->showBar();
-    }
+
+    SearchToolBar* search = new SearchToolBar(this);
+    m_mainLayout->insertWidget(1, search);
+    search->searchLine()->setFocus();
 }
 
 void QupZilla::openFile()
@@ -1185,7 +1186,6 @@ QupZilla::~QupZilla()
     delete m_menuForward;
     delete m_searchLine;
     delete m_bookmarksToolbar;
-    delete m_webSearchToolbar;
     delete m_buttonBack;
     delete m_buttonNext;
     delete m_buttonHome;

@@ -204,6 +204,7 @@ private:
     QUrl m_newtab;
     QUrl m_homepage;
 
+    QVBoxLayout* m_mainLayout;
     QToolButton* m_supMenu;
     QMenu* m_superMenu;
     QMenu* m_menuFile;
@@ -236,7 +237,6 @@ private:
     QPointer<QDockWidget> m_webInspectorDock;
 
     WebSearchBar* m_searchLine;
-    SearchToolBar* m_webSearchToolbar;
     BookmarksToolbar* m_bookmarksToolbar;
     TabWidget* m_tabWidget;
     QPointer<SideBar> m_sideBar;
