@@ -315,6 +315,7 @@ void TabWidget::currentTabChanged(int index)
 
     m_isClosingToLastTabIndex = false;
     WebView* webView = weView();
+    LocationBar* locBar = webView->webTab()->locationBar();
 
     QString title = webView->title();
     if (title.isEmpty())
@@ -323,7 +324,8 @@ void TabWidget::currentTabChanged(int index)
     p_QupZilla->setWindowTitle(title + " - QupZilla");
 //    p_QupZilla->locationBar()->showUrl(weView()->url(),false);
 
-    m_locationBars->setCurrentWidget(webView->webTab()->locationBar());
+    if (m_locationBars->indexOf(locBar) != -1)
+        m_locationBars->setCurrentWidget(locBar);
     p_QupZilla->ipLabel()->setText(webView->getIp());
 
     if (webView->isLoading()) {
