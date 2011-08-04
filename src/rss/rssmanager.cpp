@@ -199,8 +199,6 @@ void RSSManager::customContextMenuRequested(const QPoint &position)
     QMenu menu;
     menu.addAction(tr("Open link in actual tab"), getQupZilla(), SLOT(loadActionUrl()))->setData(link);
     menu.addAction(tr("Open link in new tab"), this, SLOT(loadFeedInNewTab()))->setData(link);
-    menu.addSeparator();
-    menu.addAction(tr("Close"), this, SLOT(close()));
 
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();
