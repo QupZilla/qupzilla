@@ -170,6 +170,12 @@ void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
     entry.url = url;
 
     m_adBlockedEntries.append(entry);
+
+    QWebElement docElement = mainFrame()->documentElement();
+    QWebElementCollection elements;
+    elements.append(docElement.findAll("*[src=\"" + url.toString() + "\"]"));
+    foreach (QWebElement element, elements)
+        element.removeFromDocument();
 }
 
 bool WebPage::extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output)
@@ -285,19 +291,6 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
     exReturn->content = errString.toUtf8();
     return true;
-}
-
-void WebPage::adBlockCleanup()
-{
-    QWebElement docElement = mainFrame()->documentElement();
-
-    foreach (AdBlockedEntry entry, m_adBlockedEntries) {
-        QWebElementCollection elements;
-        elements.append(docElement.findAll("*[src=\"" + entry.url.toString() + "\"]"));
-        foreach (QWebElement element, elements)
-//            element.setAttribute("style", "display:none;");
-            element.removeFromDocument();
-    }
 }
 
 bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, const QString &defaultValue, QString* result)
