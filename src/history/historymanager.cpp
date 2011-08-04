@@ -92,9 +92,6 @@ void HistoryManager::contextMenuRequested(const QPoint &position)
     menu.addAction(tr("Open link in new tab"), this, SLOT(loadInNewTab()))->setData(link);
     menu.addSeparator();
 
-    menu.addSeparator();
-    menu.addAction(tr("Close"), this, SLOT(close()));
-
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();
     QPoint p(pos.x(), pos.y()+1);

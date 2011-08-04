@@ -166,9 +166,6 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
         moveMenu.addAction(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString(), this, SLOT(moveBookmark()))->setData(query.value(0).toString());
     menu.addMenu(&moveMenu);
 
-    menu.addSeparator();
-    menu.addAction(tr("&Close"), this, SLOT(close()));
-
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();
     QPoint p(pos.x(), pos.y()+1);
