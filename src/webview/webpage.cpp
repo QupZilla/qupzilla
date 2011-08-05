@@ -175,7 +175,7 @@ void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
     QWebElementCollection elements;
     elements.append(docElement.findAll("*[src=\"" + url.toString() + "\"]"));
     foreach (QWebElement element, elements)
-        element.removeFromDocument();
+        element.setAttribute("style", "display:none;");
 }
 
 bool WebPage::extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output)
