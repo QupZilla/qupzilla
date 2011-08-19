@@ -650,10 +650,12 @@ void WebView::showSource()
     p_QupZilla->showSource();
 }
 
+#if QT_VERSION == 0x040800
 void WebView::showSourceOfSelection()
 {
     p_QupZilla->showSource(selectedHtml());
 }
+#endif
 
 void WebView::downloadLinkToDisk()
 {
