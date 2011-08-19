@@ -101,7 +101,9 @@ private slots:
     void sendLinkByMail();
     void bookmarkLink();
     void showSource();
+#if QT_VERSION == 0x040800
     void showSourceOfSelection();
+#endif
     void showSiteInfo();
     void getFocus(const QUrl &urla);
     void showInspector();
