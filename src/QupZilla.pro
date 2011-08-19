@@ -7,7 +7,7 @@
 QT       += core gui webkit sql network
 TARGET = qupzilla
 TEMPLATE = app
-VERSION = 0.90.9
+VERSION = 1.00.b3
 TRANSLATIONS +=cs_CZ.ts\
                sk_SK.ts
 
