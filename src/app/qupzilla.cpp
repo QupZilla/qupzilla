@@ -548,6 +548,8 @@ void QupZilla::aboutToShowHistoryBackMenu()
     m_menuBack->clear();
     QWebHistory* history = weView()->history();
     int curindex = history->currentItemIndex();
+    int count = 0;
+
     for (int i = curindex-1; i >= 0; i--) {
         QWebHistoryItem item = history->itemAt(i);
         if (item.isValid()) {
@@ -558,7 +560,10 @@ void QupZilla::aboutToShowHistoryBackMenu()
             }
             QAction* action = m_menuBack->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
             action->setData(i);
+            count++;
         }
+        if (count == 20)
+            break;
     }
 }
 
@@ -569,6 +574,8 @@ void QupZilla::aboutToShowHistoryNextMenu()
     m_menuForward->clear();
     QWebHistory* history = weView()->history();
     int curindex = history->currentItemIndex();
+    int count = 0;
+
     for (int i = curindex+1; i < history->count(); i++) {
         QWebHistoryItem item = history->itemAt(i);
         if (item.isValid()) {
@@ -579,7 +586,10 @@ void QupZilla::aboutToShowHistoryNextMenu()
             }
             QAction* action = m_menuForward->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
             action->setData(i);
+            count++;
         }
+        if (count == 20)
+            break;
     }
 }
 
