@@ -246,6 +246,8 @@ void WebView::loadFinished(bool state)
         p_QupZilla->buttonReload()->setVisible(true);
         p_QupZilla->ipLabel()->show();
     }
+
+    emit urlChanged(url());
 }
 
 void WebView::titleChanged()
