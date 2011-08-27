@@ -41,6 +41,8 @@ class SqueezeLabelV2 : public QLabel
 
 public:
     SqueezeLabelV2(QWidget *parent = 0);
+    SqueezeLabelV2(const QString &string);
+
     QString originalText();
     void setText(const QString &txt);
 
