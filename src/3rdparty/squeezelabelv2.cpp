@@ -5,6 +5,12 @@ SqueezeLabelV2::SqueezeLabelV2(QWidget *parent)
 {
 }
 
+SqueezeLabelV2::SqueezeLabelV2(const QString &string)
+    : QLabel()
+{
+    setText(string);
+}
+
 void SqueezeLabelV2::setText(const QString &txt)
 {
     m_originalText = txt;
