@@ -44,6 +44,7 @@
 #include "pluginproxy.h"
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
+#include "squeezelabelv2.h"
 
 ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, QWidget* parent)
         : QWidget(parent)
@@ -206,7 +207,7 @@ void ClickToFlash::showInfo()
     int i = 0;
     foreach (QString name, m_argumentNames) {
         QString value = m_argumentValues.at(i);
-        lay->addRow(new QLabel(name), new QLabel(value));
+        lay->addRow(new SqueezeLabelV2(name), new SqueezeLabelV2(value));
 
         i++;
     }
@@ -214,5 +215,6 @@ void ClickToFlash::showInfo()
     if (i == 0)
         lay->addRow(new QLabel(tr("No more informations available.")));
 
+    widg->setMaximumHeight(500);
     widg->show();
 }

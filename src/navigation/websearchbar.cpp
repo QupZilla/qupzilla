@@ -112,3 +112,15 @@ void WebSearchBar::focusInEvent(QFocusEvent* e)
     }
     QLineEdit::focusInEvent(e);
 }
+
+void WebSearchBar::dropEvent(QDropEvent* event)
+{
+    if (event->mimeData()->hasText()) {
+        QString dropText = event->mimeData()->text();
+        setText(dropText);
+        search();
+        QLineEdit::focusOutEvent(new QFocusEvent(QFocusEvent::FocusOut));
+        return;
+    }
+    QLineEdit::dropEvent(event);
+}

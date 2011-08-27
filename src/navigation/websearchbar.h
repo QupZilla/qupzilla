@@ -45,6 +45,7 @@ private:
     void setupSearchTypes();
     void focusInEvent(QFocusEvent* e);
     void focusOutEvent(QFocusEvent* e);
+    void dropEvent(QDropEvent* event);
 
     QupZilla* p_QupZilla;
 };
