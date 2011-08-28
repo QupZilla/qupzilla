@@ -317,7 +317,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="84"/>
         <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
+        <translation>Optimalizovať databázu</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="81"/>
@@ -586,7 +586,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/browsinglibrary.ui" line="14"/>
         <source>Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Knižnica</translation>
     </message>
     <message>
         <location filename="../src/other/browsinglibrary.ui" line="95"/>
@@ -611,12 +611,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/browsinglibrary.cpp" line="145"/>
         <source>Database Optimized</source>
-        <translation type="unfinished"></translation>
+        <translation>Databáza optimalizovaná</translation>
     </message>
     <message>
         <location filename="../src/other/browsinglibrary.cpp" line="145"/>
         <source>Database successfuly optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Databse Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Databáza bola úspešne optimalizovaná.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Veľkosť databáze pred: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Veľkosť databáze por: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -687,12 +687,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="97"/>
         <source>Object blocked by ClickToFlash</source>
-        <translation type="unfinished"></translation>
+        <translation>Objekt zablokovaný ClickToFlash pluginom</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="98"/>
         <source>Show more informations about object</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť viac informácií o projekte</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="100"/>
@@ -702,22 +702,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="201"/>
         <source>Flash Object</source>
-        <translation type="unfinished"></translation>
+        <translation>Flash objekt</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="204"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Názov atribúty&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="204"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Hodnota&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="215"/>
         <source>No more informations available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Žiadne ďalšie informácie.</translation>
     </message>
 </context>
 <context>
@@ -1135,7 +1135,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/history/historymanager.ui" line="84"/>
         <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
+        <translation>Optimalizovať databázu</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="79"/>
@@ -1161,19 +1161,19 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/history/historymanager.cpp" line="135"/>
         <location filename="../src/history/historymanager.cpp" line="213"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Dnes</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="137"/>
         <location filename="../src/history/historymanager.cpp" line="215"/>
         <source>This Week</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento týždeň</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="139"/>
         <location filename="../src/history/historymanager.cpp" line="217"/>
         <source>This Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento mesiac</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="186"/>
@@ -1201,62 +1201,62 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/history/historymodel.cpp" line="196"/>
         <source>January</source>
-        <translation type="unfinished"></translation>
+        <translation>Január</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="198"/>
         <source>February</source>
-        <translation type="unfinished"></translation>
+        <translation>Február</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="200"/>
         <source>March</source>
-        <translation type="unfinished"></translation>
+        <translation>Marec</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="202"/>
         <source>April</source>
-        <translation type="unfinished"></translation>
+        <translation>Apríl</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="204"/>
         <source>May</source>
-        <translation type="unfinished"></translation>
+        <translation>Máj</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="206"/>
         <source>June</source>
-        <translation type="unfinished"></translation>
+        <translation>Jún</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="208"/>
         <source>July</source>
-        <translation type="unfinished"></translation>
+        <translation>Júl</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="210"/>
         <source>August</source>
-        <translation type="unfinished"></translation>
+        <translation>August</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="212"/>
         <source>September</source>
-        <translation type="unfinished"></translation>
+        <translation>September</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="214"/>
         <source>October</source>
-        <translation type="unfinished"></translation>
+        <translation>Október</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="216"/>
         <source>November</source>
-        <translation type="unfinished"></translation>
+        <translation>November</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="218"/>
         <source>December</source>
-        <translation type="unfinished"></translation>
+        <translation>December</translation>
     </message>
 </context>
 <context>
@@ -1290,19 +1290,19 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/sidebar/historysidebar.cpp" line="92"/>
         <location filename="../src/sidebar/historysidebar.cpp" line="186"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Dnes</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="94"/>
         <location filename="../src/sidebar/historysidebar.cpp" line="188"/>
         <source>This Week</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento týždeň</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
         <location filename="../src/sidebar/historysidebar.cpp" line="190"/>
         <source>This Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento mesiac</translation>
     </message>
 </context>
 <context>
@@ -1868,7 +1868,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="786"/>
         <source>Ask when closing multiple tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Pýtať sa pri zavieraní viacerých panelov</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="913"/>
@@ -2557,7 +2557,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="727"/>
         <source>Clear list</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyčistiť list</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="734"/>
@@ -2704,7 +2704,7 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/rss/rssmanager.ui" line="111"/>
         <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
+        <translation>Optimalizovať databázu</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="71"/>
@@ -2871,22 +2871,22 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/webview/searchtoolbar.ui" line="36"/>
         <source>Search: </source>
-        <translation type="unfinished">Hľadať: </translation>
+        <translation>Hľadať: </translation>
     </message>
     <message>
         <location filename="../src/webview/searchtoolbar.ui" line="55"/>
         <source>Search...</source>
-        <translation type="unfinished">Hľadať...</translation>
+        <translation>Hľadať...</translation>
     </message>
     <message>
         <location filename="../src/webview/searchtoolbar.ui" line="88"/>
         <source>Highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvýrazniť</translation>
     </message>
     <message>
         <location filename="../src/webview/searchtoolbar.ui" line="98"/>
         <source>Case sensitive</source>
-        <translation type="unfinished">Rozlišovať veľkosť</translation>
+        <translation>Rozlišovať veľkosť</translation>
     </message>
 </context>
 <context>
