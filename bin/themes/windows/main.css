@@ -103,13 +103,6 @@
 }
 
 /*TabWidget*/
-#tabbar
-{
-    background-image: url(images/tabs-bg.png);
-    background-repeat: repeat-x;
-    height: 27px;
-}
-
 #tabwidget::tab-bar
 {
     right: 17px;
