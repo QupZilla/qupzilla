@@ -209,7 +209,7 @@
          <string>Remove cookie</string>
         </property>
         <property name="shortcut">
-         <string>Del</string>
+         <string notr="true">Del</string>
         </property>
        </widget>
       </item>

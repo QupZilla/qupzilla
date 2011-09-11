@@ -9,9 +9,8 @@ BookmarkIcon::BookmarkIcon(QupZilla* mainClass, QWidget* parent)
     , p_QupZilla(mainClass)
     , m_bookmarksModel(0)
 {
-    setPixmap(QPixmap(":/icons/locationbar/starg.png"));
+    setObjectName("locationbar-bookmarkicon");
     setCursor(Qt::PointingHandCursor);
-    setStyleSheet("margin-bottom: 2px;");
     setToolTip(tr("Bookmark this Page"));
     setFocusPolicy(Qt::ClickFocus);
 
@@ -55,4 +54,20 @@ void BookmarkIcon::bookmarkAdded(const BookmarksModel::Bookmark &bookmark)
 {
     if (bookmark.url == m_lastUrl)
         setBookmarkSaved();
+}
+
+void BookmarkIcon::setBookmarkSaved()
+{
+    setProperty("bookmarked", true);
+    style()->unpolish(this);
+    style()->polish(this);
+    setToolTip(tr("Edit this bookmark"));
+}
+
+void BookmarkIcon::setBookmarkDisabled()
+{
+    setProperty("bookmarked", false);
+    style()->unpolish(this);
+    style()->polish(this);
+    setToolTip(tr("Bookmark this Page"));
 }

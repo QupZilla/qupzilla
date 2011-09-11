@@ -29,6 +29,7 @@
 #include "progressbar.h"
 #include "statusbarmessage.h"
 #include "locationbarsettings.h"
+#include "toolbutton.h"
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit()
@@ -36,37 +37,30 @@ LocationBar::LocationBar(QupZilla* mainClass)
     ,m_webView(0)
     ,m_locationBarSettings(LocationBarSettings::instance())
 {
-    m_siteIcon = new QToolButton(this);
+    setObjectName("locationbar");
+    m_siteIcon = new ToolButton(this);
+    m_siteIcon->setObjectName("locationbar-siteicon");
     m_siteIcon->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     m_siteIcon->setCursor(Qt::ArrowCursor);
-    m_siteIcon->setMaximumSize(35, 25);
-    m_siteIcon->setMinimumSize(35, 25);
     m_siteIcon->setToolTip(tr("Show informations about this page"));
-#if QT_VERSION == 0x040800
-    m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/searchchoose.png); margin-left:2px; padding-left: 4px; }");
-#else
-    m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/searchchoose.png); margin-left:2px;}");
-#endif
     m_siteIcon->setFocusPolicy(Qt::ClickFocus);
 
     m_rssIcon = new ClickableLabel(this);
-    m_rssIcon->setPixmap(QPixmap(":/icons/menu/rss.png"));
+    m_rssIcon->setObjectName("locationbar-rss-icon");
     m_rssIcon->setCursor(Qt::PointingHandCursor);
     m_rssIcon->setToolTip(tr("Add RSS from this page..."));
-    m_rssIcon->setStyleSheet("margin-bottom:2px");
     m_rssIcon->setFocusPolicy(Qt::ClickFocus);
     m_rssIcon->setVisible(false);
 
     m_goButton = new ClickableLabel(this);
-    m_goButton->setPixmap(QPixmap(":/icons/locationbar/gotoaddress.png"));
+    m_goButton->setObjectName("locationbar-goicon");
     m_goButton->setCursor(Qt::PointingHandCursor);
     m_goButton->setHidden(true);
-    m_goButton->setStyleSheet("margin-bottom:2px;");
 
     m_bookmarkIcon = new BookmarkIcon(p_QupZilla);
 
     ClickableLabel* down = new ClickableLabel(this);
-    down->setPixmap(QPixmap(":icons/locationbar/arrow-down.gif"));
+    down->setObjectName("locationbar-down-icon");
     down->setCursor(Qt::ArrowCursor);
 
     addWidget(down, LineEdit::RightSide);
@@ -77,8 +71,6 @@ LocationBar::LocationBar(QupZilla* mainClass)
     setPlaceholderText(tr("Enter URL address or search on Google.com"));
 
     setWidgetSpacing(0);
-    this->setMinimumHeight(25);
-    this->setMaximumHeight(25);
 
     m_locationCompleter = new LocationCompleter();
     setCompleter(m_locationCompleter);
@@ -93,10 +85,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(m_goButton, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
 
-    setStyleSheet("QLineEdit { background: transparent; border-image: url(:/icons/locationbar/lineedit.png); border-width:4; color:black;}");
-    setLeftMargin(33);
     clearIcon();
-//    setLeftMargin(m_siteIcon->sizeHint().width()+1);
 }
 
 void LocationBar::urlEnter()
@@ -138,9 +127,9 @@ void LocationBar::hideGoButton()
 void LocationBar::showPopup()
 {
     //TODO: Fix to next version
-    return;
-    emit textEdited("");
-    m_locationCompleter->popup()->showNormal();
+//    return;
+//    emit textEdited("");
+//    m_locationCompleter->popup()->showNormal();
 }
 
 void LocationBar::showSiteInfo()
@@ -171,20 +160,6 @@ void LocationBar::showUrl(const QUrl &url, bool empty)
         setText(url.toEncoded());
         setCursorPosition(0);
     }
-
-//    if (m_webView->isLoading()) {
-//        p_QupZilla->ipLabel()->hide();
-//        p_QupZilla->progressBar()->setVisible(true);
-//        p_QupZilla->progressBar()->setValue(m_webView->getLoading());
-//        p_QupZilla->buttonStop()->setVisible(true);
-//        p_QupZilla->buttonReload()->setVisible(false);
-//    } else {
-//        p_QupZilla->progressBar()->setVisible(false);
-//        p_QupZilla->buttonStop()->setVisible(false);
-//        p_QupZilla->buttonReload()->setVisible(true);
-//        p_QupZilla->ipLabel()->show();
-//    }
-
     p_QupZilla->statusBarMessage()->clearMessage();
 
     hideGoButton();
@@ -194,16 +169,11 @@ void LocationBar::showUrl(const QUrl &url, bool empty)
 
 void LocationBar::siteIconChanged()
 {
-//    const QPixmap* icon_ = 0;
-    QIcon icon_;
-//    if (!p_QupZilla->weView()->isLoading())
-//        icon_ = p_QupZilla->weView()->animationLoading( p_QupZilla->tabWidget()->currentIndex(), false)->pixmap();
-        icon_ = m_webView->siteIcon();
+    QIcon icon_ = m_webView->siteIcon();
 
     if (icon_.isNull()) {
         clearIcon();
     } else {
-//        QIcon icon(*icon_);
         m_siteIcon->setIcon(QIcon(icon_.pixmap(16,16)));
     }
 }
@@ -215,17 +185,9 @@ void LocationBar::clearIcon()
 
 void LocationBar::setPrivacy(bool state)
 {
-    QString img;
-    if (state)
-        img = "safeline.png";
-    else
-        img = "searchchoose.png";
-
-#if QT_VERSION == 0x040800
-    m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/"+img+"); margin-left:2px; padding-left: 4px; }");
-#else
-    m_siteIcon->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/"+img+"); margin-left:2px;}");
-#endif
+    m_siteIcon->setProperty("secured", state);
+    m_siteIcon->style()->unpolish(m_siteIcon);
+    m_siteIcon->style()->polish(m_siteIcon);
 }
 
 void LocationBar::focusOutEvent(QFocusEvent* e)

@@ -26,9 +26,6 @@
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
      </property>
-     <property name="styleSheet">
-      <string notr="true">QTabBar::tab{ max-width:100px;}</string>
-     </property>
      <property name="usesScrollButtons">
       <bool>false</bool>
      </property>
@@ -103,12 +100,11 @@
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
-       <property name="styleSheet">
-        <string notr="true">color: blue;
-text-decoration: underline;</string>
-       </property>
        <property name="text">
         <string>Optimize Database</string>
+       </property>
+       <property name="html-link-look" stdset="0">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

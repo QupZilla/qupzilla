@@ -28,7 +28,7 @@ DesktopNotificationsFactory::DesktopNotificationsFactory(QObject* parent)
 
 void DesktopNotificationsFactory::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Notifications");
     m_enabled = settings.value("Enabled", true).toBool();
     m_timeout = settings.value("Timeout", 6000).toInt();

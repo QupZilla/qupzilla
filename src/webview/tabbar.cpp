@@ -25,8 +25,8 @@ TabBar::TabBar(QupZilla* mainClass, QWidget* parent) :
     ,p_QupZilla(mainClass)
     ,m_clickedTab(0)
 {
+    setObjectName("tabbar");
     setContextMenuPolicy(Qt::CustomContextMenu);
-    setObjectName("tabBar");
     setElideMode(Qt::ElideRight);
     setTabsClosable(true);
     setDocumentMode(true);
@@ -37,7 +37,7 @@ TabBar::TabBar(QupZilla* mainClass, QWidget* parent) :
 
 void TabBar::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Browser-Tabs-Settings");
 
     setMovable( settings.value("makeTabsMovable",true).toBool() );

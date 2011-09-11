@@ -65,6 +65,10 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
 #else
     DATADIR = qApp->applicationDirPath()+"/";
 #endif
+    PLUGINSDIR = DATADIR + "plugins/";
+    TRANSLATIONSDIR = DATADIR + "locale/";
+    THEMESDIR = DATADIR + "themes/";
+
     setWindowIcon(QIcon(":/icons/qupzilla.png"));
     bool noAddons = false;
     QUrl startUrl("");
@@ -168,6 +172,36 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
 void MainApplication::loadSettings()
 {
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
+    settings.beginGroup("Themes");
+    QString activeTheme = settings.value("activeTheme", "default").toString();
+    settings.endGroup();
+    m_activeThemePath = THEMESDIR + activeTheme + "/";
+    QFile cssFile(m_activeThemePath + "main.css");
+    cssFile.open(QFile::ReadOnly);
+    QString css = cssFile.readAll();
+    cssFile.close();
+#ifdef Q_WS_X11
+    if (QFile(m_activeThemePath + "linux.css").exists()) {
+        cssFile.setFileName(m_activeThemePath + "linux.css");
+        cssFile.open(QFile::ReadOnly);
+        css.append(cssFile.readAll());
+        cssFile.close();
+    }
+#endif
+#ifdef Q_WS_WIN
+    if (QFile(m_activeThemePath + "windows.css").exists()) {
+        cssFile.setFileName(m_activeThemePath + "windows.css");
+        cssFile.open(QFile::ReadOnly);
+        css.append(cssFile.readAll());
+        cssFile.close();
+    }
+#endif
+
+    QString relativePath = QDir::current().relativeFilePath(m_activeThemePath);
+    css.replace(QRegExp("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)", Qt::CaseSensitive, QRegExp::RegExp2),
+                QString("url(%1\\1)").arg(relativePath + "/"));
+    setStyleSheet(css);
+
     webSettings();
     //Web browsing settings
     settings.beginGroup("Web-Browser-Settings");
@@ -322,15 +356,15 @@ void MainApplication::translateApp()
     QString file = settings.value("language",locale.name()+".qm").toString();
     QString shortLoc = file.left(2);
 
-    if (file == "" || !QFile::exists(DATADIR+"locale/"+file) )
+    if (file == "" || !QFile::exists(TRANSLATIONSDIR + file) )
         return;
 
     QTranslator* app = new QTranslator();
     app->load(DATADIR+"locale/"+file);
     QTranslator* sys = new QTranslator();
 
-    if (QFile::exists(DATADIR+"locale/qt_"+shortLoc+".qm"))
-        sys->load(DATADIR+"locale/qt_"+shortLoc+".qm");
+    if (QFile::exists(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm"))
+        sys->load(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm");
 
     m_activeLanguage = file;
 
@@ -366,7 +400,7 @@ void MainApplication::quitApplication()
     m_networkmanager->saveCertExceptions();
     m_plugins->c2f_saveSettings();
     AdBlockManager::instance()->save();
-    QFile::remove(getActiveProfil() + "WebpageIcons.db");
+    QFile::remove(getActiveProfilPath() + "WebpageIcons.db");
 
 //    qDebug() << "Quitting application...";
     quit();
@@ -550,7 +584,6 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
     window->restoreState(qMainWindowState);
 
     if (windowCount > 1) {
-        qDebug() << windowCount;
         for (int i = 1; i < windowCount; i++) {
             stream >> tabState;
             stream >> qMainWindowState;

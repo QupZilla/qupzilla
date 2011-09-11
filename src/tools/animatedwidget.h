@@ -26,9 +26,11 @@
 class AnimatedWidget : public QWidget
 {
     Q_OBJECT
+    Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
+
 public:
     enum Direction { Down, Up };
-    explicit AnimatedWidget(const Direction &direction = Down, QWidget* parent = 0);
+    explicit AnimatedWidget(const Direction &direction = Down, int duration = 300, QWidget* parent = 0);
     ~AnimatedWidget();
 
     QWidget* widget() { return m_widget; }
@@ -41,8 +43,7 @@ private:
     void resizeEvent(QResizeEvent *e);
 
     QPropertyAnimation* m_positionAni;
-    QPropertyAnimation* m_minHeightAni;
-    QPropertyAnimation* m_maxHeightAni;
+    QPropertyAnimation* m_heightAni;
     QParallelAnimationGroup* m_aniGroup;
 
     QWidget* m_widget;

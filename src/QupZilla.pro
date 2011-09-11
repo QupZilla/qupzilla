@@ -7,7 +7,7 @@
 QT       += core gui webkit sql network
 TARGET = qupzilla
 TEMPLATE = app
-VERSION = 1.00.b3
+VERSION = 1.00.b4
 TRANSLATIONS +=cs_CZ.ts\
                sk_SK.ts
 
@@ -127,7 +127,11 @@ SOURCES += main.cpp\
     other/browsinglibrary.cpp \
     3rdparty/stylehelper.cpp \
     3rdparty/fancytabwidget.cpp \
-    history/webhistoryinterface.cpp
+    history/webhistoryinterface.cpp \
+    tools/toolbutton.cpp \
+    navigation/navigationbar.cpp \
+    navigation/reloadstopbutton.cpp \
+    preferences/thememanager.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -215,7 +219,11 @@ HEADERS  += \
     other/browsinglibrary.h \
     3rdparty/stylehelper.h \
     3rdparty/fancytabwidget.h \
-    history/webhistoryinterface.h
+    history/webhistoryinterface.h \
+    tools/toolbutton.h \
+    navigation/navigationbar.h \
+    navigation/reloadstopbutton.h \
+    preferences/thememanager.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -248,14 +256,16 @@ FORMS    += \
     webview/jsalert.ui \
     webview/jsprompt.ui \
     other/browsinglibrary.ui \
-    webview/searchtoolbar.ui
+    webview/searchtoolbar.ui \
+    preferences/thememanager.ui
 
 RESOURCES += \
     data/icons.qrc \
     data/html.qrc
 
 OTHER_FILES += \
-    appicon.rc
+    appicon.rc \
+    themes/default/main.css
 
 include(3rdparty/qtsingleapplication.pri)
 
@@ -263,3 +273,6 @@ unix:QT += dbus
 win32:DEFINES += W7API
 win32:RC_FILE = appicon.rc
 win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
+
+
+

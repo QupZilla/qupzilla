@@ -57,7 +57,7 @@ DownloadManager::DownloadManager(QWidget* parent) :
 
 void DownloadManager::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
     m_downloadPath = settings.value("defaultDownloadPath", "").toString();
     m_lastDownloadPath = settings.value("lastDownloadPath",QDir::homePath()+"/").toString();
@@ -256,7 +256,7 @@ void DownloadManager::fileNameChoosed(const QString &name, bool fileNameAutoGene
     if (!m_hpath.contains(QDir::tempPath()))
         m_lastDownloadPath = m_hpath;
 
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
     settings.setValue("lastDownloadPath",m_lastDownloadPath);
     settings.endGroup();

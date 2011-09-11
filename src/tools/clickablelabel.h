@@ -24,6 +24,10 @@
 class ClickableLabel : public QLabel
 {
     Q_OBJECT
+    Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)
+    Q_PROPERTY(int fixedwidth READ width WRITE setFixedWidth)
+    Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
+
 public:
     explicit ClickableLabel(QWidget* parent = 0);
 

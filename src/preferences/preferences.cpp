@@ -34,6 +34,8 @@
 #include "networkmanager.h"
 #include "desktopnotificationsfactory.h"
 #include "desktopnotification.h"
+#include "navigationbar.h"
+#include "thememanager.h"
 
 bool removeFile(const QString &fullFileName)
 {
@@ -73,7 +75,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     ui->setupUi(this);
     m_bgLabelSize = this->sizeHint();
 
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
     m_homepage = settings.value("homepage","http://qupzilla.ic.cz/search/").toString();
@@ -98,13 +100,13 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     connect(ui->newTabUseActual, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
 
     //PROFILES
-    m_actProfileName = mApp->getActiveProfil();
+    m_actProfileName = mApp->getActiveProfilPath();
     m_actProfileName = m_actProfileName.left(m_actProfileName.length()-1);
     m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf("/"));
     m_actProfileName.remove("/");
     ui->startProfile->addItem(m_actProfileName);
     QDir profilesDir(QDir::homePath()+"/.qupzilla/profiles/");
-    QStringList list_ = profilesDir.entryList(QStringList(), QDir::Dirs | QDir::NoDotAndDotDot);
+    QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
     foreach (QString name, list_) {
         if (m_actProfileName == name)
             continue;
@@ -114,31 +116,20 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     connect(ui->deleteProfile, SIGNAL(clicked()), this, SLOT(deleteProfile()));
     connect(ui->startProfile, SIGNAL(currentIndexChanged(QString)), this, SLOT(startProfileIndexChanged(QString)));
 
-    //WINDOW
+    //APPEREANCE
+    m_themesManager = new ThemeManager(ui->themesWidget);
     settings.beginGroup("Browser-View-Settings");
     ui->showStatusbar->setChecked( settings.value("showStatusBar",true).toBool() );
     ui->showBookmarksToolbar->setChecked( p_QupZilla->bookmarksToolbar()->isVisible() );
-    ui->showNavigationToolbar->setChecked( p_QupZilla->navigationToolbar()->isVisible() );
+    ui->showNavigationToolbar->setChecked( p_QupZilla->navigationBar()->isVisible() );
     ui->showHome->setChecked( settings.value("showHomeButton",true).toBool() );
     ui->showBackForward->setChecked( settings.value("showBackForwardButtons",true).toBool() );
     ui->showAddTabButton->setChecked( settings.value("showAddTabButton", true).toBool() );
-    if (settings.value("useTransparentBackground",false).toBool())
-        ui->useTransparentBg->setChecked(true);
-    else
-        ui->useBgImage->setChecked(true);
-
-    m_menuTextColor = settings.value("menuTextColor", QColor(Qt::black)).value<QColor>();
-    ui->textColor->setStyleSheet("color: "+m_menuTextColor.name()+";");
-    useBgImageChanged(ui->useBgImage->isChecked());
+    ui->useTransparentBg->setChecked( settings.value("useTransparentBackground",false).toBool() );
     settings.endGroup();
 #ifdef Q_WS_WIN
     ui->useTransparentBg->setEnabled(QtWin::isCompositionEnabled());
 #endif
-    connect(ui->useBgImage, SIGNAL(toggled(bool)), this, SLOT(useBgImageChanged(bool)));
-    connect(ui->backgroundButton, SIGNAL(clicked()), this, SLOT(chooseBackgroundPath()));
-    connect(ui->resetDefaultBgButton, SIGNAL(clicked()), this, SLOT(resetBackground()));
-    connect(ui->textColorChooser, SIGNAL(clicked()), this, SLOT(chooseColor()));
-    updateBgLabel();
 
     //TABS
     settings.beginGroup("Browser-Tabs-Settings");
@@ -285,7 +276,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     }
     ui->languages->addItem("English (en_US)");
 
-    QDir lanDir(mApp->DATADIR+"locale");
+    QDir lanDir(mApp->TRANSLATIONSDIR);
     QStringList list = lanDir.entryList(QStringList("*.qm"));
     foreach(QString name, list) {
         if (name.startsWith("qt_") || name == activeLanguage)
@@ -350,13 +341,6 @@ void Preferences::showStackedPage(QListWidgetItem* item)
        delete m_notification;
    }
 }
-
-void Preferences::chooseColor()
-{
-    m_menuTextColor = QColorDialog::getColor(Qt::black, this);
-    ui->textColor->setStyleSheet("color: "+m_menuTextColor.name()+";");
-}
-
 void Preferences::allowCacheChanged(bool state)
 {
     ui->cacheFrame->setEnabled(state);
@@ -373,39 +357,12 @@ void Preferences::useActualNewTab()
     ui->newTabUrl->setText(p_QupZilla->weView()->url().toString());
 }
 
-void Preferences::resetBackground()
-{
-    QFile::remove(p_QupZilla->activeProfil()+"background.png");
-    QFile(mApp->DATADIR+"data/default/profiles/default/background.png").copy(p_QupZilla->activeProfil()+"background.png");
-
-    m_menuTextColor = QColor(Qt::black);
-    ui->textColor->setStyleSheet("color: "+m_menuTextColor.name()+";");
-
-    updateBgLabel();
-}
-
-void Preferences::updateBgLabel()
-{
-    ui->bgLabel->setStyleSheet("#bgLabel {background: url("+p_QupZilla->activeProfil()+"background.png) top right;}");
-}
-
 void Preferences::chooseDownPath()
 {
     QString userFileName = QFileDialog::getExistingDirectory(p_QupZilla, tr("Choose download location..."), QDir::homePath());
     if (userFileName.isEmpty())
         return;
     ui->downLoc->setText(userFileName);
-}
-
-void Preferences::chooseBackgroundPath()
-{
-    QString file = QFileDialog::getOpenFileName(p_QupZilla, tr("Choose background location..."), QDir::homePath(), "*.png");
-    if (file.isEmpty())
-        return;
-    QFile::remove(p_QupZilla->activeProfil()+"background.png");
-    QFile(file).copy(p_QupZilla->activeProfil()+"background.png");
-
-    updateBgLabel();
 }
 
 void Preferences::chooseUserStyleClicked()
@@ -422,11 +379,6 @@ void Preferences::newTabChanged()
         ui->newTabFrame->setVisible(true);
     else
         ui->newTabFrame->setVisible(false);
-}
-
-void Preferences::useBgImageChanged(bool state)
-{
-    ui->bgLabel->setEnabled(state);
 }
 
 void Preferences::downLocChanged(bool state)
@@ -562,7 +514,7 @@ void Preferences::startProfileIndexChanged(QString index)
 
 void Preferences::saveSettings()
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
     settings.setValue("homepage",ui->homepage->text());
@@ -722,6 +674,7 @@ void Preferences::saveSettings()
     profileSettings.setValue("Profiles/startProfile",ui->startProfile->currentText());
 
     m_pluginsList->save();
+    m_themesManager->save();
     mApp->cookieJar()->loadSettings();
     mApp->history()->loadSettings();
     mApp->reloadSettings();

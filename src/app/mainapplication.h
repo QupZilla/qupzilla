@@ -52,6 +52,9 @@ class MainApplication : public QtSingleApplication
 
 public:
     QString DATADIR;
+    QString PLUGINSDIR;
+    QString TRANSLATIONSDIR;
+    QString THEMESDIR;
     explicit MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv);
 
     enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,  HistoryStateChanged, BookmarksChanged };
@@ -65,7 +68,7 @@ public:
     bool isStateChanged();
 
     inline static MainApplication* getInstance() { return static_cast<MainApplication*>(QCoreApplication::instance()); }
-    inline QString getActiveProfil() { return m_activeProfil; }
+    inline QString getActiveProfilPath() { return m_activeProfil; }
     inline QString getActiveLanguage() { return m_activeLanguage; }
     inline bool isClosing() { return m_isClosing; }
     inline bool isExited() { return m_isExited; }
@@ -131,6 +134,7 @@ private:
 
     QString m_activeProfil;
     QString m_activeLanguage;
+    QString m_activeThemePath;
 
     bool m_isClosing;
     bool m_isStateChanged;

@@ -26,6 +26,8 @@
 #include "clickablelabel.h"
 #include "closedtabsmanager.h"
 #include "progressbar.h"
+#include "navigationbar.h"
+#include "toolbutton.h"
 
 class NewTabButton : public QToolButton
 {
@@ -103,10 +105,9 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
   , m_closedTabsManager(new ClosedTabsManager(this))
   , m_locationBars(new QStackedWidget())
 {
+    setObjectName("tabwidget");
     m_tabBar = new TabBar(p_QupZilla);
     setTabBar(m_tabBar);
-    setObjectName("tabWidget");
-    setStyleSheet("QTabBar::tab{ max-width:250px; max-height: 28px; }");
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla, SLOT(refreshHistory()));
@@ -122,25 +123,22 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
     connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
 
-    m_buttonListTabs = new TabListButton(this);
+    m_buttonListTabs = new ToolButton(this);
+    m_buttonListTabs->setObjectName("tabwidget-button-opentabs");
     m_menuTabs = new QMenu();
     m_buttonListTabs->setMenu(m_menuTabs);
     m_buttonListTabs->setPopupMode(QToolButton::InstantPopup);
     m_buttonListTabs->setToolTip(tr("Show list of opened tabs"));
-    connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowTabsMenu()));
-    setCornerWidget(m_buttonListTabs);
+    m_buttonListTabs->setAutoRaise(true);
 
-    m_buttonAddTab = new NewTabButton(this);
-    m_buttonAddTab->setToolTip(tr("Add Tab"));
-    connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
-    setCornerWidget(m_buttonAddTab, Qt::TopLeftCorner);
+    connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowTabsMenu()));
 
     loadSettings();
 }
 
 void TabWidget::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Browser-Tabs-Settings");
     m_hideCloseButtonWithOneTab = settings.value("hideCloseButtonWithOneTab",false).toBool();
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab",false).toBool();
@@ -148,16 +146,20 @@ void TabWidget::loadSettings()
     settings.beginGroup("Web-URL-Settings");
     m_urlOnNewTab = settings.value("newTabUrl","").toUrl();
     settings.endGroup();
-    settings.beginGroup("Browser-View-Settings");
-    bool showAddTab = settings.value("showAddTabButton", true).toBool();
-    m_buttonAddTab->setVisible(showAddTab);
-    if (showAddTab && !cornerWidget(Qt::TopLeftCorner))
-        setCornerWidget(m_buttonAddTab, Qt::TopLeftCorner);
-    else if (!showAddTab && cornerWidget(Qt::TopLeftCorner))
-        setCornerWidget(0, Qt::TopLeftCorner);
-    settings.endGroup();
 
     m_tabBar->loadSettings();
+}
+
+void TabWidget::resizeEvent(QResizeEvent *e)
+{
+    QPoint posit;
+    posit.setY(0);
+    posit.setX(width() - m_buttonListTabs->width());
+    m_buttonListTabs->move(posit);
+
+    m_buttonListTabs->setVisible(getTabBar()->isVisible());
+
+    QTabWidget::resizeEvent(e);
 }
 
 void TabWidget::aboutToShowTabsMenu()
@@ -172,7 +174,7 @@ void TabWidget::aboutToShowTabsMenu()
             continue;
         QAction* action = new QAction(this);
         if (view == actView)
-            action->setIcon(QIcon(":/icons/menu/circle.png"));
+            action->setIcon(QIcon(":/icons/menu/dot.png"));
         else
             action->setIcon(_iconForUrl(view->url()));
         if (view->title().isEmpty()) {
@@ -243,7 +245,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
     connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid())
-        webView->load(url);
+        webView->setUrl(url);
 
     if (selectLine)
         p_QupZilla->locationBar()->setFocus();
@@ -332,12 +334,10 @@ void TabWidget::currentTabChanged(int index)
         p_QupZilla->ipLabel()->hide();
         p_QupZilla->progressBar()->setVisible(true);
         p_QupZilla->progressBar()->setValue(webView->getLoading());
-        p_QupZilla->buttonStop()->setVisible(true);
-        p_QupZilla->buttonReload()->setVisible(false);
+        p_QupZilla->navigationBar()->showStopButton();
     } else {
         p_QupZilla->progressBar()->setVisible(false);
-        p_QupZilla->buttonStop()->setVisible(false);
-        p_QupZilla->buttonReload()->setVisible(true);
+        p_QupZilla->navigationBar()->showReloadButton();
         p_QupZilla->ipLabel()->show();
     }
 
@@ -394,7 +394,7 @@ void TabWidget::restoreClosedTab()
     QDataStream historyStream(tab.history);
     historyStream >> *weView(index)->history();
 
-    weView(index)->load(tab.url);
+    weView(index)->setUrl(tab.url);
 }
 
 void TabWidget::restoreAllClosedTabs()
@@ -408,7 +408,7 @@ void TabWidget::restoreAllClosedTabs()
         QDataStream historyStream(tab.history);
         historyStream >> *weView(index)->history();
 
-        weView(index)->load(tab.url);
+        weView(index)->setUrl(tab.url);
     }
     m_closedTabsManager->clearList();
 }
@@ -464,7 +464,7 @@ void TabWidget::savePinnedTabs()
     }
     stream << tabs;
     stream << tabsHistory;
-    QFile file(mApp->getActiveProfil()+"pinnedtabs.dat");
+    QFile file(mApp->getActiveProfilPath()+"pinnedtabs.dat");
     file.open(QIODevice::WriteOnly);
     file.write(data);
     file.close();
@@ -472,7 +472,7 @@ void TabWidget::savePinnedTabs()
 
 void TabWidget::restorePinnedTabs()
 {
-    QFile file(mApp->getActiveProfil()+"pinnedtabs.dat");
+    QFile file(mApp->getActiveProfilPath()+"pinnedtabs.dat");
     file.open(QIODevice::ReadOnly);
     QByteArray sd = file.readAll();
     file.close();
@@ -495,7 +495,7 @@ void TabWidget::restorePinnedTabs()
             addedIndex= addView(QUrl());
             QDataStream historyStream(historyState);
             historyStream >> *weView(addedIndex)->history();
-            weView(addedIndex)->load(url);
+            weView(addedIndex)->setUrl(url);
         } else {
             addedIndex = addView(url);
         }
@@ -564,7 +564,7 @@ bool TabWidget::restoreState(const QByteArray &state)
             int index = addView(QUrl());
             QDataStream historyStream(historyState);
             historyStream >> *weView(index)->history();
-            weView(index)->load(url);
+            weView(index)->setUrl(url);
         } else {
             addView(url);
         }
@@ -577,6 +577,5 @@ bool TabWidget::restoreState(const QByteArray &state)
 TabWidget::~TabWidget()
 {
     delete m_menuTabs;
-    delete m_buttonAddTab;
     delete m_buttonListTabs;
 }

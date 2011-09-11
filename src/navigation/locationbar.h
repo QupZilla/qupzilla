@@ -39,9 +39,14 @@ class ClickableLabel;
 class BookmarkIcon;
 class WebView;
 class LocationBarSettings;
+class ToolButton;
 class LocationBar : public LineEdit
 {
     Q_OBJECT
+    Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)
+    Q_PROPERTY(int fixedwidth READ width WRITE setFixedWidth)
+    Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
+
 public:
     explicit LocationBar(QupZilla* mainClass);
     ~LocationBar();
@@ -74,7 +79,7 @@ private:
     BookmarkIcon* m_bookmarkIcon;
     ClickableLabel* m_goButton;
     ClickableLabel* m_rssIcon;
-    QToolButton* m_siteIcon;
+    ToolButton* m_siteIcon;
 
     QupZilla* p_QupZilla;
     WebView* m_webView;

@@ -34,7 +34,7 @@ PluginsList::PluginsList(QWidget* parent) :
     connect(ui->butLoad, SIGNAL(clicked()), this, SLOT(reloadPlugins()));
     connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
     ui->allowAppPlugins->setChecked( settings.value("EnablePlugins",true).toBool() );
     settings.endGroup();
@@ -78,7 +78,7 @@ void PluginsList::removeWhitelist()
 
 void PluginsList::save()
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
     settings.setValue("EnablePlugins",ui->allowAppPlugins->isChecked());
     settings.endGroup();
@@ -88,7 +88,7 @@ void PluginsList::save()
 
 void PluginsList::allowAppPluginsChanged(bool state)
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
     settings.setValue("EnablePlugins", state);
     settings.endGroup();
@@ -98,7 +98,7 @@ void PluginsList::allowAppPluginsChanged(bool state)
 
 void PluginsList::allowC2FChanged(bool state)
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("ClickToFlash");
     settings.setValue("Enable", state);
     settings.endGroup();
@@ -175,7 +175,7 @@ void PluginsList::reloadPlugins()
         if (ui->list->item(i)->checkState() == Qt::Checked)
             allowedPlugins.append(ui->list->item(i)->toolTip());
     }
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
     settings.setValue("AllowedPlugins",allowedPlugins);
     settings.endGroup();

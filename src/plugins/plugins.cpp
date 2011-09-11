@@ -29,7 +29,7 @@ void Plugins::loadSettings()
 {
     m_allowedPluginFileNames.clear();
 
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
     m_pluginsEnabled = settings.value("EnablePlugins", true).toBool();
     m_allowedPluginFileNames = settings.value("AllowedPlugins", QStringList()).toStringList();
@@ -44,7 +44,7 @@ void Plugins::loadPlugins()
     m_availablePluginFileNames.clear();
     loadedPlugins.clear();
 
-    QDir pluginsDir = QDir(mApp->DATADIR+"plugins/");
+    QDir pluginsDir = QDir(mApp->PLUGINSDIR);
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
         m_availablePluginFileNames.append(fileName);
@@ -56,7 +56,7 @@ void Plugins::loadPlugins()
         QObject* plugin = loader.instance();
         if (plugin) {
             PluginInterface* iPlugin = qobject_cast<PluginInterface*>(plugin);
-            iPlugin->init(mApp->getActiveProfil()+"plugins.ini");
+            iPlugin->init(mApp->getActiveProfilPath()+"plugins.ini");
             if (!iPlugin->testPlugin()) {
                 loader.unload();
                 continue;
@@ -72,7 +72,7 @@ void Plugins::loadPlugins()
 
 PluginInterface* Plugins::getPlugin(QString pluginFileName)
 {
-    QString path = mApp->DATADIR+"plugins/"+pluginFileName;
+    QString path = mApp->PLUGINSDIR + pluginFileName;
     if (!QFile::exists(path))
         return 0;
     QPluginLoader loader(path);

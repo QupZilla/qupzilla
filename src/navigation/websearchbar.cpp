@@ -25,20 +25,14 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     :LineEdit(parent)
     ,p_QupZilla(mainClass)
 {
+    setObjectName("websearchbar");
     m_buttonSearch = new ClickableLabel(this);
-    m_buttonSearch->setPixmap(QPixmap(":/icons/locationbar/search.png"));
+    m_buttonSearch->setObjectName("websearchbar-searchbutton");
     m_buttonSearch->setCursor(QCursor(Qt::PointingHandCursor));
-    m_buttonSearch->setStyleSheet("QLabel{margin-bottom:2px;}");
     m_buttonSearch->setFocusPolicy(Qt::ClickFocus);
 
     m_boxSearchType = new ButtonWithMenu(this);
-    m_boxSearchType->setMaximumSize(35, 25);
-    m_boxSearchType->setMinimumSize(35, 25);
-
-    this->setMinimumHeight(25);
-    this->setMaximumHeight(25);
-    m_boxSearchType->setStyleSheet("QToolButton{border-image: url(:/icons/locationbar/searchchoose.png); padding-left:-6px; margin-left:2px;}"
-                                 "QToolButton::menu-indicator {background-image: url(:icons/locationbar/arrow-down.gif); background-repeat: no-repeat;}");
+    m_boxSearchType->setObjectName("websearchbar-searchprovider-comobobox");
 
     addWidget(m_buttonSearch, LineEdit::RightSide);
 
@@ -46,9 +40,6 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     connect(m_buttonSearch, SIGNAL(clicked(QPoint)), this, SLOT(search()));
     connect(m_boxSearchType, SIGNAL(activeItemChanged(ButtonWithMenu::Item)), this, SLOT(searchChanged(ButtonWithMenu::Item)));
 
-    setStyleSheet("QLineEdit { background: transparent; border-image: url(:/icons/locationbar/lineedit.png) ;border-width:4;color:black;}");
-
-    setLeftMargin(33);
     setWidgetSpacing(0);
     setupSearchTypes();
 }

@@ -33,6 +33,7 @@
 #include "webtab.h"
 #include "statusbarmessage.h"
 #include "progressbar.h"
+#include "navigationbar.h"
 
 WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     : QWebView(webTab)
@@ -119,7 +120,7 @@ void WebView::urlChanged(const QUrl &url)
 {
     if (isCurrent()) {
         emit showUrl(url);
-        p_QupZilla->refreshHistory();
+        p_QupZilla->navigationBar()->refreshHistory();
     }
     if (m_lastUrl != url)
         emit changed();
@@ -142,8 +143,7 @@ void WebView::setProgress(int prog)
         p_QupZilla->ipLabel()->hide();
         p_QupZilla->progressBar()->setVisible(true);
         p_QupZilla->progressBar()->setValue(m_progress);
-        p_QupZilla->buttonStop()->setVisible(true);
-        p_QupZilla->buttonReload()->setVisible(false);
+        p_QupZilla->navigationBar()->showStopButton();
     }
 }
 
@@ -177,7 +177,7 @@ QLabel* WebView::animationLoading(int index, bool addMovie)
     QLabel* loadingAnimation = qobject_cast<QLabel*>(tabWidget()->getTabBar()->tabButton(index, QTabBar::LeftSide));
     if (!loadingAnimation) {
         loadingAnimation = new QLabel();
-        loadingAnimation->setStyleSheet("QLabel { margin: 0px; padding: 0px; }");
+        loadingAnimation->setStyleSheet("margin: 0px; padding: 0px; width: 16px; height: 16px;");
     }
     if (addMovie && !loadingAnimation->movie()) {
         QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), loadingAnimation);
@@ -232,7 +232,7 @@ void WebView::loadFinished(bool state)
     iconChanged();
     m_lastUrl = url();
 
-    //Fix the bug where sometimes icon is not available at the moment
+    //Icon is sometimes not available at the moment of finished loading
     if (icon().isNull())
         QTimer::singleShot(1000, this, SLOT(iconChanged()));
 
@@ -242,8 +242,7 @@ void WebView::loadFinished(bool state)
 
     if (isCurrent()) {
         p_QupZilla->progressBar()->setVisible(false);
-        p_QupZilla->buttonStop()->setVisible(false);
-        p_QupZilla->buttonReload()->setVisible(true);
+        p_QupZilla->navigationBar()->showReloadButton();
         p_QupZilla->ipLabel()->show();
     }
 
@@ -265,6 +264,9 @@ void WebView::titleChanged()
 
 void WebView::iconChanged()
 {
+    if (mApp->isClosing())
+        return;
+
 //    QIcon icon_ = icon();
     QIcon icon_ = siteIcon();
     if (!icon_.isNull())

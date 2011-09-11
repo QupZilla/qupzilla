@@ -18,24 +18,20 @@
 #include "animatedwidget.h"
 #include <QDebug>
 
-AnimatedWidget::AnimatedWidget(const Direction &direction, QWidget* parent)
+AnimatedWidget::AnimatedWidget(const Direction &direction, int duration, QWidget* parent)
     : QWidget(parent)
     , m_widget(new QWidget(this))
     , m_direction(direction)
 {
     m_positionAni = new QPropertyAnimation(m_widget, "pos");
-    m_positionAni->setDuration(300);
+    m_positionAni->setDuration(duration);
 
-    m_minHeightAni = new QPropertyAnimation(this, "minimumHeight");
-    m_minHeightAni->setDuration(300);
-
-    m_maxHeightAni = new QPropertyAnimation(this, "maximumHeight");
-    m_maxHeightAni->setDuration(300);
+    m_heightAni = new QPropertyAnimation(this, "fixedheight");
+    m_heightAni->setDuration(duration);
 
     m_aniGroup = new QParallelAnimationGroup();
     m_aniGroup->addAnimation(m_positionAni);
-    m_aniGroup->addAnimation(m_minHeightAni);
-    m_aniGroup->addAnimation(m_maxHeightAni);
+    m_aniGroup->addAnimation(m_heightAni);
 
     setMaximumHeight(0);
 }
@@ -53,8 +49,7 @@ void AnimatedWidget::startAnimation()
     m_widget->move(QPoint(m_widget->pos().x(), Y_HIDDEN));
 
     m_positionAni->setEndValue(QPoint(m_widget->pos().x(), Y_SHOWN));
-    m_minHeightAni->setEndValue(m_widget->height());
-    m_maxHeightAni->setEndValue(m_widget->height());
+    m_heightAni->setEndValue(m_widget->height());
 
     m_aniGroup->start();
 }
@@ -62,8 +57,7 @@ void AnimatedWidget::startAnimation()
 void AnimatedWidget::hide()
 {
     m_positionAni->setEndValue(QPoint(m_widget->pos().x(), Y_HIDDEN));
-    m_minHeightAni->setEndValue(0);
-    m_maxHeightAni->setEndValue(0);
+    m_heightAni->setEndValue(0);
 
     m_aniGroup->start();
     connect(m_aniGroup, SIGNAL(finished()), this, SLOT(close()));
@@ -80,9 +74,7 @@ void AnimatedWidget::resizeEvent(QResizeEvent *event)
 AnimatedWidget::~AnimatedWidget()
 {
     delete m_positionAni;
-    delete m_minHeightAni;
-    delete m_maxHeightAni;
+    delete m_heightAni;
     delete m_aniGroup;
-
     delete m_widget;
 }

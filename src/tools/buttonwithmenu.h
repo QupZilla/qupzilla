@@ -6,7 +6,9 @@
 #include <QMenu>
 #include <QWheelEvent>
 
-class ButtonWithMenu : public QToolButton
+#include "toolbutton.h"
+
+class ButtonWithMenu : public ToolButton
 {
     Q_OBJECT
 public:
