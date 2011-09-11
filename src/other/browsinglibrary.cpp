@@ -34,7 +34,7 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget *parent)
     , m_rssLoaded(false)
 {
     ui->setupUi(this);
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("BrowsingLibrary");
     resize(settings.value("size", QSize(760, 470)).toSize());
     settings.endGroup();
@@ -49,7 +49,6 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget *parent)
     ui->tabs->AddTab(m_rssManager, QIcon(":/icons/other/bigrss.png"), tr("RSS"));
 
     ui->tabs->SetMode(FancyTabWidget::Mode_LargeSidebar);
-    ui->tabs->SetBackgroundPixmap(QPixmap(":icons/other/background.png"));
     ui->tabs->setFocus();
 
     connect(ui->tabs, SIGNAL(CurrentChanged(int)), this, SLOT(currentIndexChanged(int)));
@@ -137,7 +136,7 @@ void BrowsingLibrary::showRSS(QupZilla* mainClass)
 void BrowsingLibrary::optimizeDatabase()
 {
     mApp->setOverrideCursor(Qt::WaitCursor);
-    QString profilePath = mApp->getActiveProfil();
+    QString profilePath = mApp->getActiveProfilPath();
     QString sizeBefore = DownloadItem::fileSizeToString(QFileInfo(profilePath+"/browsedata.db").size());
     mApp->history()->optimizeHistory();
     QString sizeAfter = DownloadItem::fileSizeToString(QFileInfo(profilePath+"/browsedata.db").size());
@@ -147,7 +146,7 @@ void BrowsingLibrary::optimizeDatabase()
 
 void BrowsingLibrary::closeEvent(QCloseEvent *e)
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("BrowsingLibrary");
     settings.setValue("size", size());
     settings.endGroup();

@@ -28,6 +28,7 @@ SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     setWindowTitle(tr("Source of ")+page->mainFrame()->url().toString());
     m_layout = new QBoxLayout(QBoxLayout::TopToBottom, this);
     m_sourceEdit = new QTextEdit(this);
+    m_sourceEdit->setObjectName("sourceviewer-textedit");
 
     m_statusBar = new QStatusBar(this);
     m_statusBar->showMessage(page->mainFrame()->url().toString());
@@ -45,7 +46,6 @@ SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     this->resize(650, 600);
     m_sourceEdit->setReadOnly(true);
     m_sourceEdit->moveCursor(QTextCursor::Start);
-    m_sourceEdit->setStyleSheet("QTextEdit{border:none;}");
 
     QFont font;
     font.setFamily("Tahoma");

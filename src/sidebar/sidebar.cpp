@@ -22,36 +22,41 @@
 #include "qupzilla.h"
 
 SideBar::SideBar(QWidget* parent) :
-    QDockWidget(parent)
+    QWidget(parent)
    ,m_activeWidget(None)
 {
-    setObjectName("SideBar");
-    setWindowTitle(tr("SideBar"));
+    setObjectName("sidebar");
     setAttribute(Qt::WA_DeleteOnClose);
+    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
+
+    m_layout = new QVBoxLayout();
+    m_layout->setContentsMargins(0, 0, 0, 0);
+    m_layout->setSpacing(0);
+    setLayout(m_layout);
+
     m_titleBar = new DockTitleBarWidget("", this);
-    setTitleBarWidget(m_titleBar);
-    setFeatures(0);
+    m_layout->addWidget(m_titleBar);
 }
 
 void SideBar::showBookmarks()
 {
     m_titleBar->setTitle(tr("Bookmarks"));
-    BookmarksSideBar* bar = new BookmarksSideBar((QupZilla*)parentWidget(), this);
+    BookmarksSideBar* bar = new BookmarksSideBar((QupZilla*)parentWidget());
     setWidget(bar);
     m_activeWidget = Bookmarks;
 
-    QSettings settings(mApp->getActiveProfil() + "settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/SideBar", "Bookmarks");
 }
 
 void SideBar::showHistory()
 {
     m_titleBar->setTitle(tr("History"));
-    HistorySideBar* bar = new HistorySideBar((QupZilla*)parentWidget(), this);
+    HistorySideBar* bar = new HistorySideBar((QupZilla*)parentWidget());
     setWidget(bar);
     m_activeWidget = History;
 
-    QSettings settings(mApp->getActiveProfil() + "settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/SideBar", "History");
 }
 
@@ -60,10 +65,24 @@ void SideBar::showRSS()
 
 }
 
+void SideBar::setWidget(QWidget* widget)
+{
+    if (m_layout->count() == 2)
+        delete m_layout->itemAt(1)->widget();
+
+    m_layout->addWidget(widget);
+}
+
 void SideBar::close()
 {
-    QSettings settings(mApp->getActiveProfil() + "settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/SideBar", "None");
 
-    QDockWidget::close();
+    QWidget::close();
+}
+
+SideBar::~SideBar()
+{
+    delete m_titleBar;
+    delete m_layout;
 }

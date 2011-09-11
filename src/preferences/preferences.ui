@@ -67,14 +67,14 @@
      </item>
      <item>
       <property name="text">
-       <string>Window</string>
+       <string>Appereance</string>
       </property>
       <property name="whatsThis">
        <string notr="true">1</string>
       </property>
       <property name="icon">
        <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/gnome-window-manager.png</normaloff>:/icons/preferences/gnome-window-manager.png</iconset>
+        <normaloff>:/icons/preferences/appereance.png</normaloff>:/icons/preferences/appereance.png</iconset>
       </property>
      </item>
      <item>
@@ -472,191 +472,149 @@
       </layout>
      </widget>
      <widget class="QWidget" name="stackedWidgetPage2">
-      <layout class="QGridLayout" name="gridLayout_16">
-       <item row="0" column="0" colspan="2">
-        <widget class="QLabel" name="label_18">
-         <property name="text">
-          <string>&lt;b&gt;Browser Window&lt;/b&gt;</string>
+      <layout class="QGridLayout" name="gridLayout_21">
+       <item row="0" column="0">
+        <widget class="QTabWidget" name="tabWidget_2">
+         <property name="currentIndex">
+          <number>0</number>
          </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <spacer name="horizontalSpacer_8">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="1">
-        <layout class="QGridLayout" name="gridLayout_7">
-         <item row="0" column="0">
-          <widget class="QCheckBox" name="showStatusbar">
-           <property name="text">
-            <string>Show StatusBar on start</string>
+         <widget class="QWidget" name="tab_5">
+          <attribute name="title">
+           <string>Themes</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_22">
+           <property name="margin">
+            <number>0</number>
            </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QCheckBox" name="showBookmarksToolbar">
-           <property name="text">
-            <string>Show Bookmarks ToolBar on start</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QCheckBox" name="showNavigationToolbar">
-           <property name="text">
-            <string>Show Navigation ToolBar on start</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QCheckBox" name="showAddTabButton">
-           <property name="text">
-            <string>Show Add Tab button</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="2" column="0" colspan="2">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</string>
-         </property>
+           <item row="0" column="0">
+            <widget class="QWidget" name="themesWidget" native="true"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_4">
+          <attribute name="title">
+           <string>Advanced options</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_16">
+           <item row="0" column="0" colspan="2">
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>&lt;b&gt;Browser Window&lt;/b&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <spacer name="horizontalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1">
+            <layout class="QGridLayout" name="gridLayout_7">
+             <item row="0" column="0">
+              <widget class="QCheckBox" name="showStatusbar">
+               <property name="text">
+                <string>Show StatusBar on start</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QCheckBox" name="showBookmarksToolbar">
+               <property name="text">
+                <string>Show Bookmarks ToolBar on start</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QCheckBox" name="showNavigationToolbar">
+               <property name="text">
+                <string>Show Navigation ToolBar on start</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="2">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QCheckBox" name="showHome">
+             <property name="text">
+              <string>Show Home button</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QCheckBox" name="showBackForward">
+             <property name="text">
+              <string>Show Back / Forward buttons</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QCheckBox" name="showAddTabButton">
+             <property name="text">
+              <string>Show Add Tab button</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0" colspan="2">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>&lt;b&gt;Background&lt;b/&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <spacer name="verticalSpacer_12">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="1">
+            <widget class="QCheckBox" name="useTransparentBg">
+             <property name="text">
+              <string>Use transparent background</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QCheckBox" name="showHome">
-         <property name="text">
-          <string>Show Home button</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QCheckBox" name="showBackForward">
-         <property name="text">
-          <string>Show Back / Forward buttons</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0" colspan="2">
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string>&lt;b&gt;Background&lt;b/&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QRadioButton" name="useTransparentBg">
-         <property name="text">
-          <string>Use transparent background</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="1">
-        <widget class="QRadioButton" name="useBgImage">
-         <property name="text">
-          <string>Use background image</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="1">
-        <widget class="QToolButton" name="textColorChooser">
-         <property name="text">
-          <string>Menu text color</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="1">
-        <widget class="QFrame" name="bgLabel">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_8">
-          <property name="leftMargin">
-           <number>9</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QToolButton" name="resetDefaultBgButton">
-            <property name="text">
-             <string>Reset default</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="backgroundButton">
-            <property name="text">
-             <string>Choose image...</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_25">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="SqueezeLabelV2" name="textColor">
-            <property name="text">
-             <string>This is text color used in Menu</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_27">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </widget>
@@ -1962,13 +1920,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>SqueezeLabelV2</class>
-   <extends>QLabel</extends>
-   <header>squeezelabelv2.h</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="../data/icons.qrc"/>
  </resources>

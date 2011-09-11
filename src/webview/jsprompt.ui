@@ -13,9 +13,6 @@
   <property name="windowTitle">
    <string notr="true"/>
   </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="spacing">
     <number>0</number>
@@ -48,18 +45,14 @@
    </item>
    <item row="1" column="1">
     <widget class="QFrame" name="frame">
-     <property name="styleSheet">
-      <string notr="true">#frame {
-border: 1px solid  black;
-border-bottom: 0px;
-background-color: white;
-}</string>
-     </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
+     </property>
+     <property name="js-frame" stdset="0">
+      <bool>true</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <property name="leftMargin">
@@ -128,18 +121,14 @@ background-color: white;
    </item>
    <item row="2" column="1">
     <widget class="QFrame" name="frame_2">
-     <property name="styleSheet">
-      <string notr="true">#frame_2 {
-background-color: #f3f3f3;
-border: 1px solid black;
-border-top: 0px;
-}</string>
-     </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
+     </property>
+     <property name="js-frame2" stdset="0">
+      <bool>true</bool>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">

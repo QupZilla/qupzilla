@@ -1,10 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>icons/navigation/home.png</file>
-        <file>icons/navigation/reload.png</file>
-        <file>icons/navigation/stop.png</file>
-        <file>icons/navigation/vpred.png</file>
-        <file>icons/navigation/zpet.png</file>
         <file>icons/qupzilla.png</file>
         <file>icons/qupzillaupdate.png</file>
         <file>icons/preferences/applications-accessories.png</file>
@@ -26,19 +21,11 @@
         <file>icons/preferences/extension.png</file>
         <file>icons/faenza/settings.png</file>
         <file>qupzilla.png</file>
-        <file>icons/locationbar/arrow-down.gif</file>
-        <file>icons/locationbar/gotoaddress.png</file>
-        <file>icons/locationbar/lineedit.png</file>
         <file>icons/locationbar/privatebrowsing.png</file>
-        <file>icons/locationbar/safeline.png</file>
-        <file>icons/locationbar/search.png</file>
-        <file>icons/locationbar/searchchoose.png</file>
-        <file>icons/locationbar/secure.gif</file>
         <file>icons/locationbar/unknownpage.png</file>
         <file>icons/menu/bookmark_add.png</file>
         <file>icons/menu/book_open_mark.png</file>
         <file>icons/menu/bug_magnify.png</file>
-        <file>icons/menu/circle.png</file>
         <file>icons/menu/csfd.png</file>
         <file>icons/menu/cz_seznam.png</file>
         <file>icons/menu/flash.png</file>
@@ -53,28 +40,23 @@
         <file>icons/other/about.png</file>
         <file>icons/other/feed.png</file>
         <file>icons/other/progress.gif</file>
-        <file>icons/navigation/search.gif</file>
-        <file>icons/locationbar/star.png</file>
-        <file>icons/locationbar/starg.png</file>
         <file>icons/other/bigstar.png</file>
         <file>icons/other/unsortedbookmarks.png</file>
         <file>icons/locationbar/accept.png</file>
         <file>icons/locationbar/warning.png</file>
-        <file>icons/other/flash.png</file>
-        <file>icons/other/flashstart.png</file>
         <file>icons/other/keys.png</file>
         <file>icons/other/bigrss.png</file>
         <file>icons/preferences/applications-fonts.png</file>
         <file>icons/preferences/applications-graphics.png</file>
         <file>icons/preferences/document-properties.png</file>
         <file>icons/preferences/stock_keyring.png</file>
-        <file>icons/other/list-add.png</file>
         <file>icons/other/adblock.png</file>
         <file>icons/preferences/stock_dialog-question.png</file>
         <file>icons/notifications/download.png</file>
-        <file>icons/other/background.png</file>
         <file>icons/other/bighistory.png</file>
-        <file>icons/other/library-bg-top.png</file>
-        <file>icons/other/library-bg-top-right.png</file>
+        <file>icons/menu/dot.png</file>
+        <file>icons/preferences/appereance.png</file>
+        <file>icons/preferences/style-default.png</file>
+        <file>icons/other/background.png</file>
     </qresource>
 </RCC>

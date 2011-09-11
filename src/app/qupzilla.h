@@ -19,7 +19,7 @@
 #define QUPZILLA_H
 
 //Comment for release building
-//#define DEVELOPING
+#define DEVELOPING
 
 #ifdef QT_NO_DEBUG
 #ifdef DEVELOPING
@@ -55,16 +55,13 @@
 #include "webtab.h"
 #include "webview.h"
 #include "tabwidget.h"
-#include "locationbar.h"
 #include "mainapplication.h"
-#include "websearchbar.h"
+#include "locationbar.h"
 
 class TabWidget;
 class WebView;
 class LineEdit;
-class LocationBar;
 class SearchToolBar;
-class WebSearchBar;
 class BookmarksToolbar;
 class AutoFillModel;
 class MainApplication;
@@ -73,6 +70,8 @@ class AdBlockIcon;
 class SideBar;
 class ProgressBar;
 class StatusBarMessage;
+class NavigationBar;
+class ClickableLabel;
 class QupZilla : public QMainWindow
 {
     Q_OBJECT
@@ -93,7 +92,6 @@ public:
     void installTranslator();
     void loadSettings();
     void showInspector();
-    void setBackground(QColor textColor);
     void showNavigationWithFullscreen();
 
     inline WebView* weView() const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabWidget->currentIndex())); if (!webTab) return 0; return webTab->view(); }
@@ -102,11 +100,9 @@ public:
     inline TabWidget* tabWidget() { return m_tabWidget; }
     inline BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
     inline StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
+    inline NavigationBar* navigationBar() { return m_navigationBar; }
 
-    inline QAction* buttonStop(){ return m_buttonStop; }
-    inline QAction* buttonReload(){ return m_buttonReload; }
     inline ProgressBar* progressBar(){ return m_progressBar; }
-    inline QToolBar* navigationToolbar(){ return m_navigation; }
     inline QString activeProfil(){ return m_activeProfil; }
     inline QString activeLanguage(){ return m_activeLanguage; }
     inline QDockWidget* inspectorDock(){ return m_webInspectorDock; }
@@ -114,6 +110,7 @@ public:
     inline QColor menuTextColor() { return m_menuTextColor; }
     inline QMenu* menuHelp() { return m_menuHelp; }
     inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
+    inline QMenu* superMenu() { return m_superMenu; }
 
 signals:
     void loadHistory();
@@ -123,7 +120,6 @@ signals:
 
 public slots:
     void showBookmarksToolbar();
-    void refreshHistory();
     void loadActionUrl();
     void bookmarkPage();
     void loadAddress(const QUrl &url);
@@ -133,7 +129,6 @@ public slots:
 
 private slots:
     void postLaunch();
-    void goAtHistoryIndex();
     void goNext() { weView()->forward(); }
     void goBack() { weView()->back(); }
     void goHome() { loadAddress(m_homepage); }
@@ -145,8 +140,6 @@ private slots:
     void addTab() { m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewTab, true); }
     void printPage();
 
-    void aboutToShowHistoryBackMenu();
-    void aboutToShowHistoryNextMenu();
     void aboutToShowHistoryMenu();
     void aboutToShowClosedTabsMenu();
     void aboutToShowBookmarksMenu();
@@ -169,6 +162,7 @@ private slots:
     void showClearPrivateData();
     void showPreferences();
 
+    void refreshHistory();
     void bookmarkAllTabs();
     void newWindow() { mApp->makeNewWindow(false); }
 
@@ -176,7 +170,7 @@ private slots:
     void openFile();
     void savePage();
     void sendLink() { QDesktopServices::openUrl(QUrl("mailto:?body="+weView()->url().toString())); }
-    void webSearch() { m_searchLine->setFocus(); }
+    void webSearch();
 
     void copy() { QApplication::clipboard()->setText(weView()->selectedText()); }
     void selectAll() { weView()->selectAll(); }
@@ -197,6 +191,8 @@ private:
     void setupUi();
     void setupMenu();
 
+    void addSideBar();
+
     bool m_tryRestore;
     bool m_historyMenuChanged;
     bool m_bookmarksMenuChanged;
@@ -205,7 +201,7 @@ private:
     QUrl m_homepage;
 
     QVBoxLayout* m_mainLayout;
-    QToolButton* m_supMenu;
+    QSplitter* m_mainSplitter;
     QMenu* m_superMenu;
     QMenu* m_menuFile;
     QMenu* m_menuEdit;
@@ -215,8 +211,6 @@ private:
     QMenu* m_menuBookmarks;
     QMenu* m_menuHistory;
     QMenu* m_menuClosedTabs;
-    QMenu* m_menuBack;
-    QMenu* m_menuForward;
     QMenu* m_menuEncoding;
     QAction* m_actionShowToolbar;
     QAction* m_actionShowBookmarksToolbar;
@@ -236,22 +230,14 @@ private:
     QPointer<QWebInspector> m_webInspector;
     QPointer<QDockWidget> m_webInspectorDock;
 
-    WebSearchBar* m_searchLine;
     BookmarksToolbar* m_bookmarksToolbar;
     TabWidget* m_tabWidget;
     QPointer<SideBar> m_sideBar;
     StatusBarMessage* m_statusBarMessage;
+    NavigationBar* m_navigationBar;
 
-    QSplitter* m_navigationSplitter;
-    QAction* m_buttonBack;
-    QAction* m_buttonNext;
-    QAction* m_buttonHome;
-    QAction* m_buttonStop;
-    QAction* m_buttonReload;
-    QAction* m_actionExitFullscreen;
     ProgressBar* m_progressBar;
     QLabel* m_ipLabel;
-    QToolBar* m_navigation;
 
     QString m_activeProfil;
     QString m_activeLanguage;

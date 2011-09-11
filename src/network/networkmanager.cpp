@@ -44,12 +44,12 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent) :
 
 void NetworkManager::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
 
     if (settings.value("AllowLocalCache", true).toBool()) {
         m_diskCache = mApp->networkCache();
-        m_diskCache->setCacheDirectory(mApp->getActiveProfil()+"/networkcache");
+        m_diskCache->setCacheDirectory(mApp->getActiveProfilPath()+"/networkcache");
         m_diskCache->setMaximumCacheSize(settings.value("MaximumCacheSize",50).toInt() * 1024*1024); //MegaBytes
         setCache(m_diskCache);
     }
@@ -256,7 +256,7 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
 void NetworkManager::saveCertExceptions()
 {
-    QFile file(mApp->getActiveProfil()+"sslexceptions.dat");
+    QFile file(mApp->getActiveProfilPath()+"sslexceptions.dat");
     file.open(QIODevice::WriteOnly);
     QDataStream stream(&file);
 
@@ -272,7 +272,7 @@ void NetworkManager::saveCertExceptions()
 
 void NetworkManager::loadCertExceptions()
 {
-    QFile file(mApp->getActiveProfil()+"sslexceptions.dat");
+    QFile file(mApp->getActiveProfilPath()+"sslexceptions.dat");
     file.open(QIODevice::ReadOnly);
     QDataStream stream(&file);
 

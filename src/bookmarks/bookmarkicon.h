@@ -24,17 +24,9 @@ private slots:
     void bookmarkDeleted(const BookmarksModel::Bookmark &bookmark);
 
 private:
-    inline void setBookmarkSaved()
-    {
-        setPixmap(QPixmap(":/icons/locationbar/star.png"));
-        setToolTip(tr("Edit this bookmark"));
-    }
+    void setBookmarkSaved();
+    void setBookmarkDisabled();
 
-    inline void setBookmarkDisabled()
-    {
-        setPixmap(QPixmap(":/icons/locationbar/starg.png"));
-        setToolTip(tr("Bookmark this Page"));
-    }
     QupZilla* p_QupZilla;
     BookmarksModel* m_bookmarksModel;
 

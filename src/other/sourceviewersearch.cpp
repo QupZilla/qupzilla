@@ -66,22 +66,26 @@ void SourceViewerSearch::activateLineEdit()
 
 void SourceViewerSearch::next()
 {
-    if (!find(0)) {
-        ui->lineEdit->setStyleSheet("QLineEdit {background:#ff6666;; }");
+    bool found = find(0);
+    if (!found)
         m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
-    } else {
-        ui->lineEdit->setStyleSheet("");
-    }
+
+    ui->lineEdit->setProperty("notfound", !found);
+
+    ui->lineEdit->style()->unpolish(ui->lineEdit);
+    ui->lineEdit->style()->polish(ui->lineEdit);
 }
 
 void SourceViewerSearch::previous()
 {
-    if (!find(QTextDocument::FindBackward)) {
-        ui->lineEdit->setStyleSheet("QLineEdit {background:#ff6666;; }");
+    bool found = find(QTextDocument::FindBackward);
+    if (!found)
         m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
-    } else {
-        ui->lineEdit->setStyleSheet("");
-    }
+
+    ui->lineEdit->setProperty("notfound", !found);
+
+    ui->lineEdit->style()->unpolish(ui->lineEdit);
+    ui->lineEdit->style()->polish(ui->lineEdit);
 }
 
 bool SourceViewerSearch::find(QTextDocument::FindFlags flags)

@@ -1,0 +1,291 @@
+/*************************************
+ * Default Theme v0.1                *
+ * Author: nowrep                    *
+ * Based on: Firefox Chromifox Theme *
+ * Last updated: 08.09 2011          *
+ *************************************/
+
+*[html-link-look="true"]
+{
+    color: blue;
+    text-decoration: underline;
+}
+
+/*MainWindow*/
+#statusbar-ip-label
+{
+    padding-right: 5px;
+}
+
+/*NavigationBar*/
+#navigation-button-back
+{
+    qproperty-themeIcon: "go-previous";
+}
+
+#navigation-button-next
+{
+    qproperty-themeIcon: "go-next";
+}
+
+#navigation-button-stop
+{
+    qproperty-themeIcon: "process-stop";
+}
+
+#navigation-button-reload
+{
+    qproperty-themeIcon: "view-refresh";
+}
+
+#navigation-button-home
+{
+    qproperty-themeIcon: "go-home";
+}
+
+#navigation-button-addtab
+{
+    qproperty-themeIcon: "list-add";
+}
+
+#navigation-button-supermenu
+{
+    qproperty-themeIcon: "preferences-desktop";
+}
+
+/*TabWidget*/
+#tabbar::tab
+{
+    max-width:250px;
+    height: 26px;
+}
+
+#tabwidget::tab-bar
+{
+    right: 20px;
+}
+
+#tabwidget-button-opentabs
+{
+    qproperty-icon: url(images/tabs-list-button.png);
+    qproperty-fixedsize: 20px 27px;
+}
+
+#tabwidget-button-opentabs::menu-indicator
+{
+    background: url(images/transp.png);
+}
+
+#tabbar
+{
+    min-height: 27px;
+    max-height: 27px;
+}
+
+/*LocationBar*/
+#locationbar
+{
+    background: transparent;
+    border-width:4;
+    color:black;
+    padding-left: 22px;
+    qproperty-fixedheight: 27;
+}
+
+#locationbar-bookmarkicon
+{
+    margin-bottom: 2px;
+    qproperty-pixmap: url(images/star.png);
+}
+
+#locationbar-bookmarkicon[bookmarked="true"]
+{
+    qproperty-pixmap: url(images/star-a.png);
+}
+
+#locationbar-siteicon
+{
+    border-image: url(images/transp.png);
+    qproperty-fixedsize:30px 27px;
+    padding-left: 0px;
+}
+
+#locationbar-rss-icon
+{
+    margin-bottom:2px;
+    qproperty-pixmap: url(images/rss.png);
+}
+
+#locationbar-goicon
+{
+    margin-bottom:2px;
+    qproperty-pixmap: url(images/gotoaddress.png);
+}
+
+#locationbar-down-icon
+{
+    margin-right: -4px;
+    margin-bottom: 1px;
+    qproperty-pixmap: url(images/navigation-dropdown.png);
+}
+
+/*BookmarksToolbar*/
+#bookmarksbar QToolButton
+{
+    border-image: url(images/transp.png);
+    border-width: 1px;
+    padding-right: -5px;
+    height: 15px;
+}
+
+#bookmarksbar QToolButton::menu-indicator
+{
+    background: url(images/transp.png);
+}
+
+/*WebSearchBar*/
+#websearchbar
+{
+    background: transparent;
+    border-width:4;
+    color:black;
+    padding-left: 30px;
+    qproperty-fixedheight: 27;
+}
+
+#websearchbar-searchbutton
+{
+    margin-bottom:2px;
+    margin-right: 2px;
+    qproperty-pixmap: url(images/search-icon.png);
+}
+
+#websearchbar-searchprovider-comobobox
+{
+    border-image: url(images/transp.png);
+    padding-left:-8px;
+    qproperty-fixedsize: 37px 27px;
+}
+
+/*SourceViewer*/
+#sourceviewer-textedit
+{
+    border:none;
+}
+
+/*SourceViewerSearch*/
+SourceViewerSearch #lineEdit[notfound="true"]
+{
+    background:#ff6666;
+}
+
+/*SearchToolbar*/
+SearchToolBar #lineEdit[notfound="true"]
+{
+    background:#ff6666;
+}
+
+/*Click2Flash*/
+#click2flash-frame
+{
+    border: 1px solid #e8e8e8;
+}
+
+#click2flash-toolbutton
+{
+    background: url(images/flash.png) no-repeat;
+    background-position: center;
+    border: none;
+}
+
+#click2flash-toolbutton:hover
+{
+    background: url(images/flashstart.png) no-repeat;
+    background-position: center;
+    border:none;
+}
+
+/*RSSManager*/
+#rssmanager-frame
+{
+    background: white;
+}
+
+RSSManager QTabBar::tab
+{
+    max-width:100px;
+}
+
+/*AboutDialog*/
+AboutDialog #label
+{
+    background:white;
+}
+
+AboutDialog #textBrowser
+{
+    border:none;
+}
+
+/*DesktopNotification*/
+DesktopNotification
+{
+    background: transparent;
+}
+DesktopNotification #frame
+{
+    border: 2px solid darkblue;
+    border-radius: 20px;
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #e4ecf1, stop:1 #d3e5f1);
+}
+
+DesktopNotification #heading
+{
+    font: bold;
+    font-size: 13pt;
+}
+
+/*BrowsingLibrary*/
+BrowsingLibrary #frame
+{
+    background: url(images/library-bg-top.png) no-repeat;
+}
+
+BrowsingLibrary #frame_2
+{
+    background: url(images/library-bg-top-right.png);
+}
+
+BrowsingLibrary #searchLine
+{
+    background: transparent;
+    border-image: url(images/library-search-bg.png);
+    border-width:4;
+    color:black;
+}
+
+/*Downloads*/
+DownloadItem #fileName
+{
+    font-size: 13pt;
+}
+
+DownloadManager #list
+{
+    border: none;
+}
+
+/*JavaScript Dialogs*/
+QFrame[js-frame="true"]
+{
+    border: 1px solid  black;
+    border-bottom: 0px;
+    background-color: white;
+}
+
+QFrame[js-frame2="true"]
+{
+    border: 1px solid  black;
+    border-top: 0px;
+    background-color: #f3f3f3;
+}

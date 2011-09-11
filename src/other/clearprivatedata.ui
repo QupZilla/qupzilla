@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>ClearPrivateData</class>
  <widget class="QDialog" name="ClearPrivateData">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>308</width>
+    <height>243</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>Clear Recent History</string>
   </property>
@@ -59,11 +67,11 @@
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
-     <property name="styleSheet">
-      <string notr="true">color: blue; text-decoration: underline;</string>
-     </property>
      <property name="text">
       <string>Clear cookies from Adobe Flash Player</string>
+     </property>
+     <property name="html-link-look" stdset="0">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

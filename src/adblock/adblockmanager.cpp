@@ -100,7 +100,7 @@ void AdBlockManager::load()
         return;
     m_loaded = true;
 
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("AdBlock");
     m_enabled = settings.value("enabled", m_enabled).toBool();
     settings.endGroup();
@@ -116,7 +116,7 @@ void AdBlockManager::save()
         return;
     m_subscription->saveRules();
 
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup(QLatin1String("AdBlock"));
     settings.setValue(QLatin1String("enabled"), m_enabled);
     settings.endGroup();

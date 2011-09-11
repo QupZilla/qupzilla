@@ -1,7 +1,7 @@
 #include "buttonwithmenu.h"
 
 ButtonWithMenu::ButtonWithMenu(QWidget* parent) :
-    QToolButton(parent)
+    ToolButton(parent)
   , m_menu(new QMenu(this))
   , m_currentItem(0)
 {

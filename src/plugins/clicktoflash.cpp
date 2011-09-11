@@ -58,10 +58,11 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
 
     horizontalLayout = new QHBoxLayout(this);
     frame = new QFrame(this);
-    frame->setStyleSheet("QFrame { border: 1px solid #e8e8e8; }");
+    frame->setObjectName("click2flash-frame");
     frame->setContentsMargins(0,0,0,0);
     horizontalLayout_2 = new QHBoxLayout(frame);
     toolButton = new QToolButton(this);
+    toolButton->setObjectName("click2flash-toolbutton");
 
     //AdBlock
     AdBlockManager* manager = AdBlockManager::instance();
@@ -75,10 +76,6 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     }
 
     toolButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    toolButton->setStyleSheet("QToolButton { background: url(:/icons/other/flash.png) no-repeat;\n"
-        "background-position: center; border: none;}\n"
-        "QToolButton:hover { background: url(:/icons/other/flashstart.png) no-repeat; \n"
-        "background-position: center;  border:none;}");
     toolButton->setCursor(Qt::PointingHandCursor);
     horizontalLayout_2->addWidget(toolButton);
     horizontalLayout->addWidget(frame);
