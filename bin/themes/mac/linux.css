@@ -1,4 +1,10 @@
 /*TabWidget*/
+#tabbar
+{
+    background-image: url(images/tabs-bg.png);
+    background-repeat: repeat-x;
+}
+
 #tabbar::tab
 {
     max-width: 250px;

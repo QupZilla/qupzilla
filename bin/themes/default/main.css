@@ -108,6 +108,11 @@
     qproperty-fixedsize: 20px 27px;
 }
 
+#tabwidget::tab-bar
+{
+    right: 20px;
+}
+
 #tabwidget-button-opentabs::menu-indicator
 {
     background: url(images/transp.png);
