@@ -41,9 +41,6 @@
    </property>
    <item>
     <widget class="QListWidget" name="list">
-     <property name="styleSheet">
-      <string notr="true">border: none;</string>
-     </property>
      <property name="horizontalScrollBarPolicy">
       <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>

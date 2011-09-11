@@ -21,7 +21,7 @@
 #include "qupzilla.h"
 
 RSSNotification::RSSNotification(QString host, QWidget* parent) :
-    AnimatedWidget(AnimatedWidget::Down, parent),
+    AnimatedWidget(AnimatedWidget::Down, 300, parent),
     ui(new Ui::RSSNotification)
 {
     setAttribute(Qt::WA_DeleteOnClose);

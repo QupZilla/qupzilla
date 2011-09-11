@@ -33,7 +33,7 @@ class AutoFillManager;
 class QupZilla;
 class PluginsList;
 class DesktopNotification;
-
+class ThemeManager;
 class Preferences : public QDialog
 {
     Q_OBJECT
@@ -50,11 +50,8 @@ private slots:
     void newTabChanged();
     void chooseDownPath();
     void showCookieManager();
-    void chooseBackgroundPath();
     void useActualHomepage();
     void useActualNewTab();
-    void resetBackground();
-    void chooseColor();
     void openSslManager();
     void chooseUserStyleClicked();
 
@@ -64,7 +61,6 @@ private slots:
     void downLocChanged(bool state);
     void allowCacheChanged(bool state);
     void showPassManager(bool state);
-    void useBgImageChanged(bool state);
     void setManualProxyConfigurationEnabled(bool state);
     void cacheValueChanged(int value);
     void pageCacheValueChanged(int value);
@@ -74,11 +70,11 @@ private slots:
     void startProfileIndexChanged(QString index);
 
 private:
-    void updateBgLabel();
     Ui::Preferences* ui;
     QupZilla* p_QupZilla;
     AutoFillManager* m_autoFillManager;
     PluginsList* m_pluginsList;
+    ThemeManager* m_themesManager;
     QPointer<DesktopNotification> m_notification;
 
     QColor m_menuTextColor;

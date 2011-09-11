@@ -31,6 +31,10 @@ class ClickableLabel;
 class WebSearchBar : public LineEdit
 {
     Q_OBJECT
+    Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)
+    Q_PROPERTY(int fixedwidth READ width WRITE setFixedWidth)
+    Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
+
 public:
     explicit WebSearchBar(QupZilla* mainClass, QWidget* parent = 0);
 

@@ -34,6 +34,7 @@ class WebTab;
 class TabListButton;
 class NewTabButton;
 class ClosedTabsManager;
+class ToolButton;
 
 class TabWidget : public QTabWidget
 {
@@ -79,6 +80,7 @@ private slots:
     void tabMoved(int before, int after);
 
 private:
+    void resizeEvent(QResizeEvent *e);
     inline WebView* weView() { WebTab* webTab = qobject_cast<WebTab*>(widget(currentIndex())); if (!webTab) return 0; return webTab->view(); }
     inline WebView* weView(int index) { WebTab* webTab = qobject_cast<WebTab*>(widget(index)); if (!webTab) return 0; return webTab->view(); }
 
@@ -93,8 +95,7 @@ private:
     TabBar* m_tabBar;
 
     QMenu* m_menuTabs;
-    NewTabButton* m_buttonAddTab;
-    TabListButton* m_buttonListTabs;
+    ToolButton* m_buttonListTabs;
     ClosedTabsManager* m_closedTabsManager;
 
     QStackedWidget* m_locationBars;

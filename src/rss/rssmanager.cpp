@@ -94,7 +94,7 @@ void RSSManager::refreshTable()
         ui->edit->setEnabled(false);
 
         QFrame *frame = new QFrame();
-        frame->setStyleSheet("background: white;");
+        frame->setObjectName("rssmanager-frame");
         QVBoxLayout *verticalLayout = new QVBoxLayout(frame);
         QLabel *label_2 = new QLabel(frame);
         label_2->setPixmap(QPixmap(":/icons/menu/rss.png"));

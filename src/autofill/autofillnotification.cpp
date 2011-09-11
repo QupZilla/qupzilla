@@ -22,7 +22,7 @@
 #include "animatedwidget.h"
 
 AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget* parent)
-   :AnimatedWidget(AnimatedWidget::Down, parent)
+   :AnimatedWidget(AnimatedWidget::Down, 300, parent)
    ,ui(new Ui::AutoFillWidget)
    ,m_url(url)
    ,m_data(data)

@@ -34,7 +34,7 @@ SSLManager::SSLManager(QWidget* parent) :
     connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteCertificate()));
     connect(ui->ignoreAll, SIGNAL(clicked(bool)), this, SLOT(ignoreAll(bool)));
 
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
     ui->ignoreAll->setChecked( settings.value("IgnoreAllSSLWarnings", false).toBool() );
     settings.endGroup();
@@ -94,7 +94,7 @@ void SSLManager::deleteCertificate()
 
 void SSLManager::ignoreAll(bool state)
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
     settings.setValue("IgnoreAllSSLWarnings", state);
     settings.endGroup();

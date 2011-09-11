@@ -9,3 +9,4 @@ license_template
 Makefile*
 TestPlugin-build
 search_*
+src-*

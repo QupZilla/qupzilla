@@ -56,7 +56,7 @@ AdBlockSubscription::AdBlockSubscription(QObject* parent)
 
 void AdBlockSubscription::loadRules()
 {
-    QString fileName = mApp->getActiveProfil()+"adblocklist.txt";
+    QString fileName = mApp->getActiveProfilPath()+"adblocklist.txt";
 
     QFile file(fileName);
     if (file.exists()) {
@@ -109,7 +109,7 @@ void AdBlockSubscription::rulesDownloaded()
     if (response.isEmpty())
         return;
 
-    QString fileName = mApp->getActiveProfil()+"adblocklist.txt";
+    QString fileName = mApp->getActiveProfilPath()+"adblocklist.txt";
     QFile file(fileName);
     if (!file.open(QFile::WriteOnly)) {
         qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << fileName;
@@ -139,7 +139,7 @@ void AdBlockSubscription::rulesDownloaded()
 
 void AdBlockSubscription::saveRules()
 {
-    QString fileName = mApp->getActiveProfil()+"adblocklist.txt";
+    QString fileName = mApp->getActiveProfilPath()+"adblocklist.txt";
 
     QFile file(fileName);
     if (!file.open(QFile::ReadWrite | QIODevice::Truncate)) {

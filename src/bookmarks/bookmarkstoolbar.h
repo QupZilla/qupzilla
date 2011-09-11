@@ -18,31 +18,32 @@
 #ifndef BOOKMARKSTOOLBAR_H
 #define BOOKMARKSTOOLBAR_H
 
-#include <QToolBar>
 #include <QMenu>
 #include <QToolButton>
+#include <QHBoxLayout>
 
 #include "bookmarksmodel.h"
 
 class QupZilla;
 class BookmarksModel;
 class HistoryModel;
-class BookmarksToolbar : public QToolBar
+class ToolButton;
+class BookmarksToolbar : public QWidget
 {
     Q_OBJECT
 public:
     explicit BookmarksToolbar(QupZilla* mainClass, QWidget* parent = 0);
-    void setColor(QColor color);
 
 signals:
 
 public slots:
     void refreshBookmarks();
     void refreshMostVisited();
-    void hidePanel();
     void showMostVisited();
 
 private slots:
+    void loadClickedBookmark();
+    void hidePanel();
     void addBookmark(const BookmarksModel::Bookmark &bookmark);
     void removeBookmark(const BookmarksModel::Bookmark &bookmark);
     void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
@@ -53,7 +54,8 @@ private:
     BookmarksModel* m_bookmarksModel;
     HistoryModel* m_historyModel;
     QMenu* m_menuMostVisited;
-    QToolButton* m_mostVis;
+    ToolButton* m_mostVis;
+    QHBoxLayout* m_layout;
 
 };
 

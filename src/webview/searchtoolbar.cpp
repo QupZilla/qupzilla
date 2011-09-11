@@ -22,7 +22,7 @@
 #include "ui_searchtoolbar.h"
 
 SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
-  : AnimatedWidget(AnimatedWidget::Up, parent)
+  : AnimatedWidget(AnimatedWidget::Up, 300, parent)
   , ui(new Ui::SearchToolbar)
   , p_QupZilla(mainClass)
   , m_findFlags(0)
@@ -102,14 +102,19 @@ void SearchToolBar::refreshFindFlags()
 void SearchToolBar::searchText(const QString &text)
 {
     bool found = p_QupZilla->weView()->findText(text, QFlags<QWebPage::FindFlag>(m_findFlags));
-    if (!found && !ui->lineEdit->text().isEmpty()) {
-        ui->lineEdit->setStyleSheet("background-color: #ff6666;");
+    if (text.isEmpty())
+        found = true;
+
+    if (!found)
         ui->results->setText(tr("No results found."));
-    }
-    else{
-        ui->lineEdit->setStyleSheet("");
+    else
         ui->results->clear();
-    }
+
+
+    ui->lineEdit->setProperty("notfound", !found);
+
+    ui->lineEdit->style()->unpolish(ui->lineEdit);
+    ui->lineEdit->style()->polish(ui->lineEdit);
 }
 
 SearchToolBar::~SearchToolBar()

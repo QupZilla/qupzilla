@@ -18,15 +18,19 @@
 #ifndef SIDEBAR_H
 #define SIDEBAR_H
 
-#include <QDockWidget>
+#include <QWidget>
+#include <QVBoxLayout>
 
 class DockTitleBarWidget;
-class SideBar : public QDockWidget
+class SideBar : public QWidget
 {
     Q_OBJECT
 public:
     enum SideWidget { None = 0, Bookmarks, History, RSS };
+
     explicit SideBar(QWidget* parent = 0);
+    ~SideBar();
+
     void showBookmarks();
     void showHistory();
     void showRSS();
@@ -38,6 +42,9 @@ public slots:
     void close();
 
 private:
+    void setWidget(QWidget* widget);
+
+    QVBoxLayout* m_layout;
     DockTitleBarWidget* m_titleBar;
     SideWidget m_activeWidget;
 };

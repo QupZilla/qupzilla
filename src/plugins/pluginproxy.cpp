@@ -81,7 +81,7 @@ QNetworkReply* PluginProxy::createNetworkRequest(QNetworkAccessManager::Operatio
 
 void PluginProxy::c2f_loadSettings()
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("ClickToFlash");
     c2f_whitelist = settings.value("whitelist", QStringList()).toStringList();
     c2f_enabled = settings.value("Enabled", true).toBool();
@@ -90,7 +90,7 @@ void PluginProxy::c2f_loadSettings()
 
 void PluginProxy::c2f_saveSettings()
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("ClickToFlash");
     settings.setValue("whitelist", c2f_whitelist);
     settings.setValue("Enabled", c2f_enabled);

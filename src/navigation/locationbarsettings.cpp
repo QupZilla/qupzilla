@@ -20,7 +20,7 @@ LocationBarSettings* LocationBarSettings::instance()
 
 void LocationBarSettings::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfil()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("AddressBar");
     selectAllOnDoubleClick = settings.value("SelectAllTextOnDoubleClick",true).toBool();
     addComWithCtrl = settings.value("AddComDomainWithCtrlKey",false).toBool();

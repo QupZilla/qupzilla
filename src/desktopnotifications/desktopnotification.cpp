@@ -26,7 +26,6 @@ DesktopNotification::DesktopNotification(bool setPosition)
    , m_timer(new QTimer(this))
 {
     ui->setupUi(this);
-    setStyleSheet("background:transparent;");
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
     Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint;

@@ -139,7 +139,9 @@ private:
 };
 
 class FancyTabWidget : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
+
+    Q_PROPERTY(QPixmap bgPixmap READ bgPixmap WRITE SetBackgroundPixmap)
 
 public:
   FancyTabWidget(QWidget* parent = 0);
@@ -179,6 +181,7 @@ public:
 
   int current_index() const;
   Mode mode() const { return mode_; }
+  QPixmap bgPixmap() { return background_pixmap_; }
 
 public slots:
   void SetCurrentIndex(int index);

@@ -25,7 +25,7 @@ CookieJar::CookieJar(QupZilla* mainClass, QObject* parent) :
     ,p_QupZilla(mainClass)
 {
     loadSettings();
-    m_activeProfil = mApp->getActiveProfil();
+    m_activeProfil = mApp->getActiveProfilPath();
 }
 
 void CookieJar::loadSettings()

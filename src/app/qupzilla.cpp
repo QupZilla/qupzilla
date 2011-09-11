@@ -54,8 +54,9 @@
 #include "statusbarmessage.h"
 #include "locationbarsettings.h"
 #include "browsinglibrary.h"
+#include "navigationbar.h"
 
-const QString QupZilla::VERSION = "1.0.0-b3";
+const QString QupZilla::VERSION = "1.0.0-b4";
 //const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM d yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "nowrep";
@@ -74,13 +75,14 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     ,m_sideBar(0)
     ,m_statusBarMessage(new StatusBarMessage(this))
 {
+    setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
     this->resize(640,480);
     this->setWindowState(Qt::WindowMaximized);
     this->setWindowTitle("QupZilla");
     setUpdatesEnabled(false);
 
-    m_activeProfil = mApp->getActiveProfil();
+    m_activeProfil = mApp->getActiveProfilPath();
     m_activeLanguage = mApp->getActiveLanguage();
 
     QDesktopServices::setUrlHandler("http", this, "loadAddress");
@@ -150,74 +152,24 @@ void QupZilla::postLaunch()
 void QupZilla::setupUi()
 {
     QWidget* widget = new QWidget(this);
+    setCentralWidget(widget);
+
     m_mainLayout = new QVBoxLayout(widget);
     m_mainLayout->setContentsMargins(0,0,0,0);
     m_mainLayout->setSpacing(0);
-    setCentralWidget(widget);
+    m_mainSplitter = new QSplitter(this);
+    m_mainSplitter->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     m_tabWidget = new TabWidget(this);
-    m_mainLayout->addWidget(m_tabWidget);
-
-    m_navigation = new QToolBar(this);
-    m_navigation->setWindowTitle(tr("Navigation"));
-    m_navigation->setObjectName("Navigation bar");
-    addToolBar(m_navigation);
-    m_navigation->setMovable(false);
-    m_navigation->setStyleSheet("QToolBar{background-image:url(:icons/transp.png); border:none;}");
-
-    m_buttonBack = new QAction(QIcon(":/icons/navigation/zpet.png"),tr("Back"),this);
-    m_buttonBack->setEnabled(false);
-    m_buttonNext = new QAction(QIcon(":/icons/navigation/vpred.png"),tr("Forward"),this);
-    m_buttonNext->setEnabled(false);
-    m_buttonStop = new QAction(QIcon(":/icons/navigation/stop.png"),tr("Stop"),this);
-    m_buttonReload = new QAction(QIcon(":/icons/navigation/reload.png"),tr("Reload"),this);
-    m_buttonReload->setShortcut(QKeySequence("F5"));
-    m_buttonHome = new QAction(QIcon(":/icons/navigation/home.png"),tr("Home"),this);
-
-    m_menuBack = new QMenu();
-    m_buttonBack->setMenu(m_menuBack);
-    connect(m_menuBack, SIGNAL(aboutToShow()),this, SLOT(aboutToShowHistoryBackMenu()));
-
-    m_menuForward = new QMenu();
-    m_buttonNext->setMenu(m_menuForward);
-    connect(m_menuForward, SIGNAL(aboutToShow()),this, SLOT(aboutToShowHistoryNextMenu()));
-
-    m_supMenu = new QToolButton(this);
-    m_supMenu->setPopupMode(QToolButton::InstantPopup);
-    m_supMenu->setIcon(QIcon(":/icons/qupzilla.png"));
-    m_supMenu->setToolTip(tr("Main Menu"));
     m_superMenu = new QMenu(this);
-    m_supMenu->setMenu(m_superMenu);
+    m_navigationBar = new NavigationBar(this);
+    m_bookmarksToolbar = new BookmarksToolbar(this);
+    m_mainSplitter->addWidget(m_tabWidget);
+    m_mainLayout->addWidget(m_navigationBar);
+    m_mainLayout->addWidget(m_bookmarksToolbar);
+    m_mainLayout->addWidget(m_mainSplitter);
+    m_mainSplitter->setCollapsible(0, false);
 
-    m_navigation->addAction(m_buttonBack);
-    m_navigation->addAction(m_buttonNext);
-    m_navigation->addAction(m_buttonReload);
-    m_navigation->addAction(m_buttonStop);
-    m_navigation->addAction(m_buttonHome);
-
-    m_searchLine = new WebSearchBar(this);
-
-    m_navigationSplitter = new QSplitter(m_navigation);
-    m_navigationSplitter->addWidget(m_tabWidget->locationBars());
-    m_navigationSplitter->addWidget(m_searchLine);
-
-    m_navigationSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
-    m_navigationSplitter->setCollapsible(0, false);
-
-    m_navigation->addWidget(m_navigationSplitter);
-    int splitterWidth = m_navigationSplitter->width();
-    QList<int> sizes;
-    sizes << (int)((double)splitterWidth * .75) << (int)((double)splitterWidth * .25);
-    m_navigationSplitter->setSizes(sizes);
-
-    m_actionExitFullscreen = new QAction(tr("Exit Fullscreen"),this);
-    m_actionExitFullscreen->setVisible(false);
-    QWidget* _spacer = new QWidget();
-    _spacer->setMinimumWidth(4);
-    m_navigation->addWidget(_spacer); //Elegant spacer -,-
-    m_navigation->addAction(m_actionExitFullscreen);
-    m_navigation->addWidget(m_supMenu);
-    m_navigation->setContextMenuPolicy(Qt::CustomContextMenu);
-
+    statusBar()->setObjectName("mainwindow-statusbar");
     m_progressBar = new ProgressBar(statusBar());
     m_privateBrowsing = new QLabel(this);
     m_privateBrowsing->setPixmap(QPixmap(":/icons/locationbar/privatebrowsing.png"));
@@ -225,21 +177,18 @@ void QupZilla::setupUi()
     m_privateBrowsing->setToolTip(tr("Private Browsing Enabled"));
     m_adblockIcon = new AdBlockIcon(this);
     m_ipLabel = new QLabel(this);
-    m_ipLabel->setStyleSheet("padding-right: 5px;");
+    m_ipLabel->setObjectName("statusbar-ip-label");
     m_ipLabel->setToolTip(tr("IP Address of current page"));
 
     statusBar()->insertPermanentWidget(0, m_progressBar);
     statusBar()->insertPermanentWidget(1, m_ipLabel);
     statusBar()->insertPermanentWidget(2, m_privateBrowsing);
     statusBar()->insertPermanentWidget(3, m_adblockIcon);
-
-    m_bookmarksToolbar = new BookmarksToolbar(this);
-    addToolBar(m_bookmarksToolbar);
-    insertToolBarBreak(m_bookmarksToolbar);
 }
 
 void QupZilla::setupMenu()
 {
+    menuBar()->setObjectName("mainwindow-menubar");
     m_menuTools = new QMenu(tr("Tools"));
     m_menuHelp = new QMenu(tr("Help"));
     m_menuBookmarks = new QMenu(tr("Bookmarks"));
@@ -312,7 +261,7 @@ void QupZilla::setupMenu()
 #endif
             , tr("&Reload"), this);
     connect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
-    m_actionReload->setShortcut(QKeySequence("Ctrl+R"));
+    m_actionReload->setShortcut(QKeySequence("F5"));
     QAction* actionEncoding = new QAction(tr("Character &Encoding"), this);
     m_menuEncoding = new QMenu(this);
     actionEncoding->setMenu(m_menuEncoding);
@@ -370,13 +319,6 @@ void QupZilla::setupMenu()
     aboutToShowToolsMenu();
     aboutToShowHelpMenu();
 
-    connect(m_buttonBack, SIGNAL(triggered()), this, SLOT(goBack()));
-    connect(m_buttonNext, SIGNAL(triggered()), this, SLOT(goNext()));
-    connect(m_buttonStop, SIGNAL(triggered()), this, SLOT(stop()));
-    connect(m_buttonReload, SIGNAL(triggered()), this, SLOT(reload()));
-    connect(m_buttonHome, SIGNAL(triggered()), this, SLOT(goHome()));
-    connect(m_actionExitFullscreen, SIGNAL(triggered(bool)), this, SLOT(fullScreen(bool)));
-
     m_actionRestoreTab = new QAction(QIcon::fromTheme("user-trash"),tr("Restore &Closed Tab"), this);
     m_actionRestoreTab->setShortcut(QKeySequence("Ctrl+Shift+T"));
     connect(m_actionRestoreTab, SIGNAL(triggered()), m_tabWidget, SLOT(restoreClosedTab()));
@@ -404,18 +346,6 @@ void QupZilla::setupMenu()
     m_superMenu->addMenu(m_menuHelp);
 }
 
-void QupZilla::setBackground(QColor textColor)
-{
-    QString color = textColor.name();
-    setStyleSheet("QMainWindow { background-image: url("+m_activeProfil+"background.png); background-position: top right; } QToolBar{background-image:url(:icons/transp.png); border:none;}"
-                  "QMenuBar{color:"+color+";background-image:url(:icons/transp.png); border:none;} QStatusBar{background-image:url(:icons/transp.png); border:none; color:"+color+";}"
-                  "QMenuBar:item{spacing: 5px; padding: 2px 6px;background: transparent;}"
-                  "QMenuBar::item:pressed { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 lightgray, stop:1 darkgray); border: 1px solid darkgrey; border-top-left-radius: 4px;border-top-right-radius: 4px; border-bottom: none;}"
-                  );
-    m_navigation->setStyleSheet("QSplitter::handle{background-color:transparent;}");
-
-}
-
 void QupZilla::loadSettings()
 {
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
@@ -432,15 +362,13 @@ void QupZilla::loadSettings()
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
     m_menuTextColor = settings.value("menuTextColor", QColor(Qt::black)).value<QColor>();
-    setBackground(m_menuTextColor);
-    m_bookmarksToolbar->setColor(m_menuTextColor);
-    m_ipLabel->setStyleSheet("QLabel {color: "+m_menuTextColor.name()+";}");
     bool showStatusBar = settings.value("showStatusBar",true).toBool();
     bool showHomeIcon = settings.value("showHomeButton",true).toBool();
     bool showBackForwardIcons = settings.value("showBackForwardButtons",true).toBool();
     bool showBookmarksToolbar = settings.value("showBookmarksToolbar",true).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar",true).toBool();
     bool showMenuBar = settings.value("showMenubar",true).toBool();
+    bool showAddTab = settings.value("showAddTabButton", true).toBool();
     bool makeTransparent = settings.value("useTransparentBackground",false).toBool();
     QString activeSideBar = settings.value("SideBar", "None").toString();
     settings.endGroup();
@@ -450,13 +378,14 @@ void QupZilla::loadSettings()
 
     statusBar()->setVisible(showStatusBar);
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
-    m_navigation->setVisible(showNavigationToolbar);
+    m_navigationBar->setVisible(showNavigationToolbar);
     menuBar()->setVisible(showMenuBar);
-    m_navigation->actions().at(m_navigation->actions().count() - 1)->setVisible(!showMenuBar);
 
-    m_buttonHome->setVisible(showHomeIcon);
-    m_buttonBack->setVisible(showBackForwardIcons);
-    m_buttonNext->setVisible(showBackForwardIcons);
+    m_navigationBar->buttonSuperMenu()->setVisible(!showMenuBar);
+    m_navigationBar->buttonHome()->setVisible(showHomeIcon);
+    m_navigationBar->buttonBack()->setVisible(showBackForwardIcons);
+    m_navigationBar->buttonNext()->setVisible(showBackForwardIcons);
+    m_navigationBar->buttonAddTab()->setVisible(showAddTab);
 
     if (activeSideBar != "None") {
         if (activeSideBar == "Bookmarks")
@@ -520,76 +449,6 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
     default:
         qWarning("Unresolved message sent! This could never happen!");
         break;
-    }
-}
-
-void QupZilla::refreshHistory()
-{
-    if (mApp->isClosing())
-        return;
-
-    QWebHistory* history = weView()->page()->history();
-    m_buttonBack->setEnabled(history->canGoBack());
-    m_buttonNext->setEnabled(history->canGoForward());
-}
-
-void QupZilla::goAtHistoryIndex()
-{
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        weView()->page()->history()->goToItem(weView()->page()->history()->itemAt(action->data().toInt()));
-    }
-    refreshHistory();
-}
-
-void QupZilla::aboutToShowHistoryBackMenu()
-{
-    if (!m_menuBack || !weView())
-        return;
-    m_menuBack->clear();
-    QWebHistory* history = weView()->history();
-    int curindex = history->currentItemIndex();
-    int count = 0;
-
-    for (int i = curindex-1; i >= 0; i--) {
-        QWebHistoryItem item = history->itemAt(i);
-        if (item.isValid()) {
-            QString title = item.title();
-            if (title.length() > 40) {
-                title.truncate(40);
-                title += "..";
-            }
-            QAction* action = m_menuBack->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
-            action->setData(i);
-            count++;
-        }
-        if (count == 20)
-            break;
-    }
-}
-
-void QupZilla::aboutToShowHistoryNextMenu()
-{
-    if (!m_menuForward || !weView())
-        return;
-    m_menuForward->clear();
-    QWebHistory* history = weView()->history();
-    int curindex = history->currentItemIndex();
-    int count = 0;
-
-    for (int i = curindex+1; i < history->count(); i++) {
-        QWebHistoryItem item = history->itemAt(i);
-        if (item.isValid()) {
-            QString title = item.title();
-            if (title.length() > 40) {
-                title.truncate(40);
-                title += "..";
-            }
-            QAction* action = m_menuForward->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
-            action->setData(i);
-            count++;
-        }
-        if (count == 20)
-            break;
     }
 }
 
@@ -779,7 +638,7 @@ void QupZilla::aboutToShowViewMenu()
     else
         m_actionStop->setEnabled(false);
 
-    m_actionShowToolbar->setChecked(m_navigation->isVisible());
+    m_actionShowToolbar->setChecked(m_navigationBar->isVisible());
     m_actionShowMenubar->setChecked(menuBar()->isVisible());
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
@@ -953,28 +812,33 @@ void QupZilla::showBookmarksToolbar()
 
 void QupZilla::showBookmarksSideBar()
 {
-    if (!m_sideBar) {
-        m_sideBar = new SideBar(this);
-        addDockWidget(Qt::LeftDockWidgetArea, m_sideBar);
+    addSideBar();
+
+    if (m_sideBar->activeWidget() != SideBar::Bookmarks)
         m_sideBar->showBookmarks();
-    } else if (m_actionShowBookmarksSideBar->isChecked()){
-        m_sideBar->showBookmarks();
-    } else {
+    else
         m_sideBar->close();
-    }
 }
 
 void QupZilla::showHistorySideBar()
 {
-    if (!m_sideBar) {
-        m_sideBar = new SideBar(this);
-        addDockWidget(Qt::LeftDockWidgetArea, m_sideBar);
+    addSideBar();
+
+    if (m_sideBar->activeWidget() != SideBar::History)
         m_sideBar->showHistory();
-    } else if (m_actionShowHistorySideBar->isChecked()) {
-        m_sideBar->showHistory();
-    } else {
+    else
         m_sideBar->close();
-    }
+}
+
+void QupZilla::addSideBar()
+{
+    if (m_sideBar)
+        return;
+
+    m_sideBar = new SideBar(this);
+
+    m_mainSplitter->insertWidget(0, m_sideBar);
+    m_mainSplitter->setCollapsible(0, false);
 }
 
 void QupZilla::showNavigationToolbar()
@@ -982,8 +846,8 @@ void QupZilla::showNavigationToolbar()
     if (!menuBar()->isVisible() && !m_actionShowToolbar->isChecked())
         showMenubar();
 
-    bool status = m_navigation->isVisible();
-    m_navigation->setVisible(!status);
+    bool status = m_navigationBar->isVisible();
+    m_navigationBar->setVisible(!status);
 
     QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/showNavigationToolbar", !status);
@@ -991,11 +855,11 @@ void QupZilla::showNavigationToolbar()
 
 void QupZilla::showMenubar()
 {
-    if (!m_navigation->isVisible() && !m_actionShowMenubar->isChecked())
+    if (!m_navigationBar->isVisible() && !m_actionShowMenubar->isChecked())
         showNavigationToolbar();
 
     menuBar()->setVisible(!menuBar()->isVisible());
-    m_navigation->actions().at(m_navigation->actions().count() - 1)->setVisible(!menuBar()->isVisible());
+    m_navigationBar->buttonSuperMenu()->setVisible(!menuBar()->isVisible());
 
     QSettings settings(activeProfil()+"settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/showMenubar", menuBar()->isVisible());
@@ -1038,23 +902,36 @@ void QupZilla::showInspector()
     }
 }
 
+void QupZilla::refreshHistory()
+{
+    m_navigationBar->refreshHistory();
+}
+
 void QupZilla::aboutQupZilla()
 {
     AboutDialog about(this);
     about.exec();
 }
 
+void QupZilla::webSearch()
+{
+    m_navigationBar->searchLine()->setFocus();
+}
+
 void QupZilla::searchOnPage()
 {
 
-    if (m_mainLayout->count() == 2) {
-        SearchToolBar* search = qobject_cast<SearchToolBar*>( m_mainLayout->itemAt(1)->widget() );
+    if (m_mainLayout->count() == 4) {
+        SearchToolBar* search = qobject_cast<SearchToolBar*>( m_mainLayout->itemAt(3)->widget() );
+        if (!search)
+            return;
+
         search->searchLine()->setFocus();
         return;
     }
 
     SearchToolBar* search = new SearchToolBar(this);
-    m_mainLayout->insertWidget(1, search);
+    m_mainLayout->insertWidget(3, search);
     search->searchLine()->setFocus();
 }
 
@@ -1069,11 +946,11 @@ void QupZilla::showNavigationWithFullscreen()
 {
     bool state;
     if (m_navigationVisible)
-        state = !m_navigation->isVisible();
+        state = !m_navigationBar->isVisible();
     else
         state = !m_tabWidget->getTabBar()->isVisible();
     if (m_navigationVisible)
-        m_navigation->setVisible(state);
+        m_navigationBar->setVisible(state);
     m_tabWidget->getTabBar()->setVisible(state);
     if (m_bookmarksToolBarVisible)
         m_bookmarksToolbar->setVisible(state);
@@ -1084,22 +961,22 @@ void QupZilla::fullScreen(bool make)
     if (make) {
         m_menuBarVisible = menuBar()->isVisible();
         m_statusBarVisible = statusBar()->isVisible();
-        m_navigationVisible = m_navigation->isVisible();
+        m_navigationVisible = m_navigationBar->isVisible();
         m_bookmarksToolBarVisible = m_bookmarksToolbar->isVisible();
         setWindowState(windowState() | Qt::WindowFullScreen);
         menuBar()->hide();
         statusBar()->hide();
         bookmarksToolbar()->hide();
-        m_navigation->hide();
+        m_navigationBar->hide();
     } else {
         setWindowState(windowState() & ~Qt::WindowFullScreen);
         menuBar()->setVisible(m_menuBarVisible);
         statusBar()->setVisible(m_statusBarVisible);
         m_bookmarksToolbar->setVisible(m_bookmarksToolBarVisible);
-        m_navigation->setVisible(m_navigationVisible);
+        m_navigationBar->setVisible(m_navigationVisible);
     }
     m_actionShowFullScreen->setChecked(make);
-    m_actionExitFullscreen->setVisible(make);
+    m_navigationBar->buttonExitFullscreen()->setVisible(make);
     m_tabWidget->getTabBar()->setVisible(!make);
     emit setWebViewMouseTracking(make);
 }
@@ -1190,20 +1067,10 @@ bool QupZilla::quitApp()
 QupZilla::~QupZilla()
 {
     delete m_tabWidget;
+    delete m_navigationBar;
     delete m_privateBrowsing;
     delete m_adblockIcon;
-    delete m_menuBack;
-    delete m_menuForward;
-    delete m_searchLine;
     delete m_bookmarksToolbar;
-    delete m_buttonBack;
-    delete m_buttonNext;
-    delete m_buttonHome;
-    delete m_buttonStop;
-    delete m_buttonReload;
-    delete m_actionExitFullscreen;
-    delete m_navigationSplitter;
-    delete m_navigation;
     delete m_progressBar;
 
     if (m_webInspectorDock) {
