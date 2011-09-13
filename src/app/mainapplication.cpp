@@ -173,7 +173,13 @@ void MainApplication::loadSettings()
 {
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Themes");
-    QString activeTheme = settings.value("activeTheme", "default").toString();
+    QString activeTheme = settings.value("activeTheme",
+#ifdef Q_WS_X11
+                                         "linux"
+#else
+                                         "windows"
+#endif
+                                         ).toString();
     settings.endGroup();
     m_activeThemePath = THEMESDIR + activeTheme + "/";
     QFile cssFile(m_activeThemePath + "main.css");

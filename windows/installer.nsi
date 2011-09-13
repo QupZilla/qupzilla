@@ -1,9 +1,9 @@
 RequestExecutionLevel admin
-!include "FileAssociation.nsh"
+!include "wininstall\FileAssociation.nsh"
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "0.9.9"
+!define /date PRODUCT_VERSION "1.0.0-b4"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -64,8 +64,8 @@ Section !$(TITLE_SecMain) SecMain
   File "qupzilla.exe"
   File "libeay32.dll"
   File "ssleay32.dll"
-  File "msvcp90.dll"
-  File "msvcr90.dll"
+  File "msvcp100.dll"
+  File "msvcr100.dll"
   File "phonon4.dll"
   File "QtCore4.dll"
   File "QtGui4.dll"
@@ -93,6 +93,38 @@ Section !$(TITLE_SecMain) SecMain
   File "sqldrivers\qsqlodbc4.dll"
 
 SectionEnd
+
+SectionGroup $(TITLE_SecThemes) SecThemes
+  Section Default SecDefault
+  SectionIn RO  
+  SetOutPath "$INSTDIR\themes\windows"
+  File "themes\windows\*"  
+  SetOutPath "$INSTDIR\themes\windows\images"
+  File "themes\windows\images\*"
+  SectionEnd
+
+  Section Chrome SecChrome
+  SetOutPath "$INSTDIR\themes\chrome"
+  File "themes\chrome\*"
+  SetOutPath "$INSTDIR\themes\chrome\images"
+  File "themes\chrome\images\*"
+  SectionEnd
+  
+  Section Mac SecMac
+  SetOutPath "$INSTDIR\themes\mac"
+  File "themes\mac\*"
+  SetOutPath "$INSTDIR\themes\mac\images"
+  File "themes\mac\images\*"
+  SectionEnd
+
+  Section Old SecOld
+  SetOutPath "$INSTDIR\themes\default"
+  File "themes\default\*"
+  SetOutPath "$INSTDIR\themes\default\images"
+  File "themes\default\images\*"
+  SectionEnd
+
+SectionGroupEnd
 
 SectionGroup $(TITLE_SecTranslations) SecTranslations
   Section $(TITLE_SecEnglish) SecEnglish
@@ -123,8 +155,8 @@ SectionGroupEnd
 
 Section $(TITLE_SecExtensions) SecExtensions
   SetOutPath "$INSTDIR"
-  ${registerExtension} "$INSTDIR\qupzilla.exe" ".htm" "HTM File"
-  ${registerExtension} "$INSTDIR\qupzilla.exe" ".html" "HTML File"
+  ${registerExtension} "$INSTDIR\qupzilla.exe" ".htm" $(FILE_Htm)
+  ${registerExtension} "$INSTDIR\qupzilla.exe" ".html" $(FILE_Html)
 SectionEnd
 
 Section "-StartMenu"
@@ -151,6 +183,7 @@ SectionEnd
   !insertmacro MUI_DESCRIPTION_TEXT ${SecExamplePlugin} $(DESC_SecExamplePlugin)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} $(DESC_SecDesktop)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecExtensions} $(DESC_SecExtensions)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecThemes} $(DESC_SecThemes)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Section "-Uninstaller"
