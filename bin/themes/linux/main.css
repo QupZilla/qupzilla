@@ -84,7 +84,6 @@
 /*LocationBar*/
 #locationbar
 {
-    background: transparent;
     border-width:4;
     color:black;
     padding-left: 22px;
@@ -151,7 +150,6 @@
 /*WebSearchBar*/
 #websearchbar
 {
-    background: transparent;
     border-width:4;
     color:black;
     padding-left: 30px;
