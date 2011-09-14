@@ -245,7 +245,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
     connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid())
-        webView->setUrl(url);
+        webView->load(url);
 
     if (selectLine)
         p_QupZilla->locationBar()->setFocus();
@@ -394,7 +394,7 @@ void TabWidget::restoreClosedTab()
     QDataStream historyStream(tab.history);
     historyStream >> *weView(index)->history();
 
-    weView(index)->setUrl(tab.url);
+    weView(index)->load(tab.url);
 }
 
 void TabWidget::restoreAllClosedTabs()
@@ -408,7 +408,7 @@ void TabWidget::restoreAllClosedTabs()
         QDataStream historyStream(tab.history);
         historyStream >> *weView(index)->history();
 
-        weView(index)->setUrl(tab.url);
+        weView(index)->load(tab.url);
     }
     m_closedTabsManager->clearList();
 }
@@ -495,7 +495,7 @@ void TabWidget::restorePinnedTabs()
             addedIndex= addView(QUrl());
             QDataStream historyStream(historyState);
             historyStream >> *weView(addedIndex)->history();
-            weView(addedIndex)->setUrl(url);
+            weView(addedIndex)->load(url);
         } else {
             addedIndex = addView(url);
         }
@@ -564,7 +564,7 @@ bool TabWidget::restoreState(const QByteArray &state)
             int index = addView(QUrl());
             QDataStream historyStream(historyState);
             historyStream >> *weView(index)->history();
-            weView(index)->setUrl(url);
+            weView(index)->load(url);
         } else {
             addView(url);
         }
