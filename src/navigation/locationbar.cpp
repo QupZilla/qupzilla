@@ -92,7 +92,10 @@ void LocationBar::urlEnter()
 {
     m_webView->setFocus();
     QUrl guessedUrl = WebView::guessUrlFromString(text());
-    m_webView->load(guessedUrl);
+    if (guessedUrl.isEmpty())
+        m_webView->load(QUrl(text()));
+    else
+        m_webView->load(guessedUrl);
     setText(guessedUrl.toString());
 }
 
