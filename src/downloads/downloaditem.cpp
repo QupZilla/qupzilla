@@ -248,7 +248,10 @@ void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 
     QString currSize = fileSizeToString(received);
     QString fileSize = fileSizeToString(total);
 
-    ui->downloadInfo->setText(tr("Remaining %1 - %2 of %3 (%4)").arg(remTime, currSize, fileSize, speed));
+    if (fileSize == tr("Unknown size"))
+        ui->downloadInfo->setText(tr("%2 of %3 (%4)").arg(currSize, fileSize, speed));
+    else
+        ui->downloadInfo->setText(tr("Remaining %1 - %2 of %3 (%4)").arg(remTime, currSize, fileSize, speed));
 }
 
 void DownloadItem::stop(bool askForDeleteFile)
