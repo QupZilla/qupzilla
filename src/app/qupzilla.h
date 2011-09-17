@@ -119,6 +119,8 @@ signals:
     void setWebViewMouseTracking(bool state);
 
 public slots:
+    void setWindowTitle(const QString &t);
+
     void showBookmarksToolbar();
     void loadActionUrl();
     void bookmarkPage();
