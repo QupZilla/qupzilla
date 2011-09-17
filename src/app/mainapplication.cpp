@@ -69,7 +69,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     TRANSLATIONSDIR = DATADIR + "locale/";
     THEMESDIR = DATADIR + "themes/";
 
-    setWindowIcon(QIcon(":/icons/qupzilla.png"));
+    setWindowIcon(QupZilla::qupzillaIcon());
     bool noAddons = false;
     QUrl startUrl("");
     QString message;

@@ -13,10 +13,6 @@
   <property name="windowTitle">
    <string>Cookies</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="../data/icons.qrc">
-    <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QLabel" name="label">
@@ -233,6 +229,11 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>TreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>treewidget.h</header>
+  </customwidget>
+  <customwidget>
    <class>LineEdit</class>
    <extends>QLineEdit</extends>
    <header>lineedit.h</header>
@@ -242,14 +243,7 @@
    <extends>QLabel</extends>
    <header>squeezelabelv2.h</header>
   </customwidget>
-  <customwidget>
-   <class>TreeWidget</class>
-   <extends>QTreeWidget</extends>
-   <header>treewidget.h</header>
-  </customwidget>
  </customwidgets>
- <resources>
-  <include location="../data/icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

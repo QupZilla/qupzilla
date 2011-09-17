@@ -13,10 +13,6 @@
   <property name="windowTitle">
    <string>Preferences</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="../data/icons.qrc">
-    <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
-  </property>
   <layout class="QGridLayout" name="gridLayout_5">
    <item row="0" column="0" rowspan="5">
     <widget class="QListWidget" name="listWidget">

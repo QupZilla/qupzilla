@@ -83,6 +83,7 @@ public:
     static const QString COPYRIGHT;
     static const QString WWWADDRESS;
     static const QString WEBKITVERSION;
+    static QIcon qupzillaIcon();
 
     explicit QupZilla(bool m_tryRestore=true, QUrl startUrl=QUrl());
     ~QupZilla();
