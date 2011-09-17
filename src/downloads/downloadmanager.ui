@@ -19,10 +19,6 @@
   <property name="windowTitle">
    <string>Download Manager</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="../data/icons.qrc">
-    <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
     <number>0</number>
@@ -127,8 +123,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../data/icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

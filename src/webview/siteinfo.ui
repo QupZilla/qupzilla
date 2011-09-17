@@ -13,10 +13,6 @@
   <property name="windowTitle">
    <string>Site Info</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="../data/icons.qrc">
-    <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="6" column="1">
     <widget class="QDialogButtonBox" name="buttonBox">

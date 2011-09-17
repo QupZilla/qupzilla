@@ -384,7 +384,6 @@ void BookmarksManager::insertAllTabs()
         combo->addItem(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString());
 
     label->setText(tr("Choose folder for bookmarks:"));
-    dialog->setWindowIcon(QIcon(":/icons/qupzilla.png"));
     dialog->setWindowTitle(tr("Bookmark All Tabs"));
 
     QSize size = dialog->size();

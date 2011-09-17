@@ -2,12 +2,16 @@
 <ui version="4.0">
  <class>CloseDialog</class>
  <widget class="QDialog" name="CloseDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>208</width>
+    <height>98</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>There are still open tabs</string>
-  </property>
-  <property name="windowIcon">
-   <iconset resource="../data/icons.qrc">
-    <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="1">
@@ -46,9 +50,7 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../data/icons.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>
