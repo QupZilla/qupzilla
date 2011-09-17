@@ -420,6 +420,14 @@ void QupZilla::loadSettings()
     }
 }
 
+void QupZilla::setWindowTitle(const QString &t)
+{
+    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled))
+        QMainWindow::setWindowTitle(t + tr(" (Private Browsing)"));
+    else
+        QMainWindow::setWindowTitle(t);
+}
+
 void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
 {
     switch (mes) {
@@ -430,6 +438,10 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
     case MainApplication::CheckPrivateBrowsing:
         m_privateBrowsing->setVisible(state);
         m_actionPrivateBrowsing->setChecked(state);
+        if (state)
+            setWindowTitle(windowTitle());
+        else
+            setWindowTitle(windowTitle().remove(tr(" (Private Browsing)")));
         break;
 
     case MainApplication::ReloadSettings:
@@ -1005,8 +1017,8 @@ void QupZilla::startPrivate(bool state)
 
         QStringList actions;
         actions.append(tr("Webpages are not added to the history."));
-        actions.append(tr("New cookies are not stored, but current cookies can be accessed."));
-        actions.append(tr("Your session won't be stored."));
+        actions.append(tr("Current cookies cannot be accessed."));
+        actions.append(tr("Your session is not stored."));
 
         QString text2 = tr("Until you close the window, you can still click the Back and Forward "
                                    "buttons to return to the webpages you have opened.");
