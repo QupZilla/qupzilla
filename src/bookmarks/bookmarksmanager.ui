@@ -13,10 +13,6 @@
   <property name="windowTitle">
    <string>Bookmarks</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="../data/icons.qrc">
-    <normaloff>:/icons/qupzilla.png</normaloff>:/icons/qupzilla.png</iconset>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="6">
     <widget class="TreeWidget" name="bookmarksTree">
@@ -98,8 +94,6 @@
    <header>clickablelabel.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../data/icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

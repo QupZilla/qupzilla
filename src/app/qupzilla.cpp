@@ -64,6 +64,18 @@ const QString QupZilla::COPYRIGHT = "2010-2011";
 const QString QupZilla::WWWADDRESS = "http://qupzilla.ic.cz";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
+QIcon QupZilla::qupzillaIcon()
+{
+    QIcon i;
+    i.addFile(":icons/exeicons/qupzilla16.png");
+    i.addFile(":icons/exeicons/qupzilla32.png");
+    i.addFile(":icons/exeicons/qupzilla48.png");
+    i.addFile(":icons/exeicons/qupzilla64.png");
+    i.addFile(":icons/exeicons/qupzilla128.png");
+    i.addFile(":icons/exeicons/qupzilla256.png");
+    return i;
+}
+
 QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
     QMainWindow(0)
     ,m_tryRestore(tryRestore)
@@ -398,8 +410,6 @@ void QupZilla::loadSettings()
     m_actionPrivateBrowsing->setChecked( mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
     m_privateBrowsing->setVisible( mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) );
 
-    setWindowIcon(QIcon(":/icons/qupzilla.png"));
-
     if (!makeTransparent)
         return;
     //Opacity
@@ -475,8 +485,6 @@ void QupZilla::aboutToShowBookmarksMenu()
     m_menuBookmarks->addAction(tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()));
     m_menuBookmarks->addAction(QIcon::fromTheme("user-bookmarks"), tr("Organize &Bookmarks"), this, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
     m_menuBookmarks->addSeparator();
-    if (m_tabWidget->count() == 1)
-        m_menuBookmarks->actions().at(1)->setEnabled(false);
     QSqlQuery query;
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksMenu'");
     while(query.next()) {

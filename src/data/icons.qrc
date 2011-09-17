@@ -57,6 +57,11 @@
         <file>icons/menu/dot.png</file>
         <file>icons/preferences/appereance.png</file>
         <file>icons/preferences/style-default.png</file>
-        <file>icons/other/background.png</file>
+        <file>icons/exeicons/qupzilla16.png</file>
+        <file>icons/exeicons/qupzilla32.png</file>
+        <file>icons/exeicons/qupzilla48.png</file>
+        <file>icons/exeicons/qupzilla64.png</file>
+        <file>icons/exeicons/qupzilla128.png</file>
+        <file>icons/exeicons/qupzilla256.png</file>
     </qresource>
 </RCC>
