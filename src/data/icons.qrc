@@ -63,5 +63,6 @@
         <file>icons/exeicons/qupzilla64.png</file>
         <file>icons/exeicons/qupzilla128.png</file>
         <file>icons/exeicons/qupzilla256.png</file>
+        <file>icons/menu/informations.png</file>
     </qresource>
 </RCC>

@@ -26,6 +26,7 @@
 #include "ui_jsalert.h"
 #include "ui_jsprompt.h"
 #include "widget.h"
+#include "globalfunctions.h"
 
 WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     : QWebPage(parent)
@@ -124,13 +125,13 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
             return false;
     }
 
-    TabWidget::OpenUrlIn openIn= frame ? TabWidget::CurrentTab: TabWidget::NewTab;
+//    TabWidget::OpenUrlIn openIn= frame ? TabWidget::CurrentTab: TabWidget::NewTab;
 
     bool accept = QWebPage::acceptNavigationRequest(frame, request, type);
-    if (accept && openIn == TabWidget::NewTab) {
+//    if (accept && openIn == TabWidget::NewTab) {
 //        m_isOpeningNextWindowAsNewTab = true;
 //        p_QupZilla->tabWidget()->addView(request.url(),tr("New tab"), openIn);
-    }
+//    }
     return accept;
 }
 
@@ -267,20 +268,14 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     errString.replace("%TITLE%", tr("Failed loading page"));
 
     //QPixmap pixmap = QIcon::fromTheme("dialog-warning").pixmap(45,45);
-    QPixmap pixmap = MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45,45);
-    QByteArray bytes;
-    QBuffer buffer(&bytes);
-    buffer.open(QIODevice::WriteOnly);
-    if (pixmap.save(&buffer, "PNG"))
-        errString.replace("%IMAGE%", buffer.buffer().toBase64());
+    QByteArray image = qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45,45));
+    if (!image.isEmpty())
+        errString.replace("%IMAGE%", image);
 
     //pixmap = QIcon::fromTheme("dialog-warning").pixmap(16,16);
-    pixmap = MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16,16);
-    bytes.clear();
-    QBuffer buffer2(&bytes);
-    buffer2.open(QIODevice::WriteOnly);
-    if (pixmap.save(&buffer2, "PNG"))
-        errString.replace("%FAVICON%", buffer.buffer().toBase64());
+    image = qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16,16));
+    if (!image.isEmpty())
+        errString.replace("%FAVICON%", image);
 
     errString.replace("%HEADING%", errorString);
     errString.replace("%HEADING2%", tr("QupZilla can't load page from %1.").arg(QUrl(loadedUrl).host()));

@@ -131,7 +131,9 @@ SOURCES += main.cpp\
     tools/toolbutton.cpp \
     navigation/navigationbar.cpp \
     navigation/reloadstopbutton.cpp \
-    preferences/thememanager.cpp
+    preferences/thememanager.cpp \
+    network/qupzillaschemehandler.cpp \
+    tools/globalfunctions.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -223,7 +225,9 @@ HEADERS  += \
     tools/toolbutton.h \
     navigation/navigationbar.h \
     navigation/reloadstopbutton.h \
-    preferences/thememanager.h
+    preferences/thememanager.h \
+    network/qupzillaschemehandler.h \
+    tools/globalfunctions.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -273,6 +277,14 @@ unix:QT += dbus
 win32:DEFINES += W7API
 win32:RC_FILE = appicon.rc
 win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
+
+
+
+
+
+
+
+
 
 
 
