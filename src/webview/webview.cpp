@@ -759,7 +759,7 @@ void WebView::closeTab()
 
 void WebView::load(const QUrl &url)
 {
-    if (url.toString().startsWith("javascript:")) {
+    if (url.scheme() == "javascript") {
         page()->mainFrame()->evaluateJavaScript(url.toString());
         return;
     }
@@ -801,7 +801,7 @@ QString WebView::title() const
 void WebView::reload()
 {
     if (QWebView::url().isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
-        qDebug() << "loading about to load";
+//        qDebug() << "loading about to load";
         load(m_aboutToLoadUrl);
         return;
     }
@@ -810,6 +810,9 @@ void WebView::reload()
 
 bool WebView::isUrlValid(const QUrl &url)
 {
+    if (url.scheme() == "qupzilla")
+        return true;
+
     if (url.isValid() && !url.host().isEmpty() && !url.scheme().isEmpty())
         return true;
     return false;

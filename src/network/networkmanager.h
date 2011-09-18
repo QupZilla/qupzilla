@@ -34,6 +34,7 @@
 class QupZilla;
 class AdBlockNetwork;
 class NetworkProxyFactory;
+class QupZillaSchemeHandler;
 class NetworkManager : public NetworkManagerProxy
 {
     Q_OBJECT
@@ -64,6 +65,8 @@ private:
     QList<QSslCertificate> m_certExceptions;
     QNetworkDiskCache* m_diskCache;
     NetworkProxyFactory* m_proxyFactory;
+
+    QupZillaSchemeHandler* m_qupzillaSchemeHandler;
 
     bool m_ignoreAllWarnings;
     bool m_doNotTrack;

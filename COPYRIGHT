@@ -15,14 +15,8 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-
-******************************************************************
-******************************************************************
-Some files in 3rdparty/ folder are under different licenses
-
 -----------------------------------------------------------
- lineedit.h, lineedit.cpp, squeezelabel.h, squeezelabel.cpp
- and all files in adblock/ folder:
+ AdBlock, LineEdit class and SqueezeLabel class:
 -----------------------------------------------------------
 * Copyright (c) 2008 - 2009, Benjamin C. Meyer <ben@meyerhome.net>
 *
@@ -51,8 +45,7 @@ Some files in 3rdparty/ folder are under different licenses
 * SUCH DAMAGE.
 
 -----------------------------------------------------------------------------
- qtlocalpeer.h, qtlocalpeer.cpp, qtsingleapplication.h, qtsingleapplication.cpp,
- qtlockedfile.h, qtlockedfile_unix.cpp, qtlockedfile_win.cpp:
+ QtSingleApplication class:
 -----------------------------------------------------------------------------
 ** 
 ** Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
@@ -98,7 +91,7 @@ Some files in 3rdparty/ folder are under different licenses
 ** contact Nokia at qt-info@nokia.com.
 ** 
 ---------------------------------------------------------------------------
- Files clicktoflash.cpp and clicktoflash.h:
+ Click2Flash plugin:
 ---------------------------------------------------------------------------
 /* ============================================================
 *
@@ -124,7 +117,7 @@ Some files in 3rdparty/ folder are under different licenses
 * ============================================================ */
 
 -----------------------------------------------------------------------------
- Files ecwin7.cpp and ecwin7.h:
+ EcWin7 class:
 ---------------------------------------------------------------------------
 /* EcWin7 - Support library for integrating Windows 7 taskbar features
  * into any Qt application
@@ -146,7 +139,7 @@ Some files in 3rdparty/ folder are under different licenses
  */
 
 -----------------------------------------------------------------------------
- Files qtwin.cpp and qtwin.h are used from 
+ QtWin class from
  http://labs.qt.nokia.com/2009/09/15/using-blur-behind-on-windows/
 -----------------------------------------------------------------------------
  In application are used also some icons from Faenza icon set, which are 

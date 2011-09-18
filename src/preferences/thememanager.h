@@ -6,6 +6,7 @@
 #include <QDir>
 #include <QListWidgetItem>
 #include <QHash>
+#include <QTextBrowser>
 
 namespace Ui {
     class ThemeManager;
@@ -23,6 +24,7 @@ public:
 
 private slots:
     void currentChanged();
+    void showLicense();
 
 private:
     struct Theme {
@@ -32,6 +34,7 @@ private:
         QString author;
         QString shortDescription;
         QString longDescription;
+        QString license;
     };
 
     Theme parseTheme(const QString &name);

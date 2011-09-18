@@ -25,12 +25,14 @@
 #include "adblockmanager.h"
 #include "adblocknetwork.h"
 #include "networkproxyfactory.h"
+#include "qupzillaschemehandler.h"
 
-NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent) :
-    NetworkManagerProxy(mainClass, parent)
-    ,m_adblockNetwork(0)
-    ,p_QupZilla(mainClass)
-    ,m_ignoreAllWarnings(false)
+NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
+    : NetworkManagerProxy(mainClass, parent)
+    , m_adblockNetwork(0)
+    , p_QupZilla(mainClass)
+    , m_qupzillaSchemeHandler(new QupZillaSchemeHandler)
+    , m_ignoreAllWarnings(false)
 {
     connect(this, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)), this, SLOT(authentication(QNetworkReply*, QAuthenticator* )));
     connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)), this, SLOT(proxyAuthentication(QNetworkProxy,QAuthenticator*)));
@@ -234,23 +236,31 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     }
 
     QNetworkRequest req = request;
-    req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    if (req.attribute(QNetworkRequest::CacheLoadControlAttribute).toInt() == QNetworkRequest::PreferNetwork)
-        req.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
+    QNetworkReply* reply = 0;
 
     if (m_doNotTrack)
         req.setRawHeader("DNT", "1");
+
+    //SchemeHandlers
+    if (req.url().scheme() == "qupzilla")
+        reply = m_qupzillaSchemeHandler->createRequest(op, req, outgoingData);
+    if (reply)
+        return reply;
+
+    req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    if (req.attribute(QNetworkRequest::CacheLoadControlAttribute).toInt() == QNetworkRequest::PreferNetwork)
+        req.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
 
     // Adblock
     if (op == QNetworkAccessManager::GetOperation) {
         if (!m_adblockNetwork)
             m_adblockNetwork = AdBlockManager::instance()->network();
-        QNetworkReply* reply = m_adblockNetwork->block(req);
+        reply = m_adblockNetwork->block(req);
         if (reply)
             return reply;
     }
 
-    QNetworkReply* reply = QNetworkAccessManager::createRequest(op, req, outgoingData);
+    reply = QNetworkAccessManager::createRequest(op, req, outgoingData);
     return reply;
 }
 
