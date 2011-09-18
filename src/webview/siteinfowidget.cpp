@@ -27,7 +27,7 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent) :
 {
     WebView* view = p_QupZilla->weView();
     QUrl url = view->url();
-    if (url.isEmpty())
+    if (url.isEmpty() || url.scheme() == "qupzilla")
         return;
 
     this->setAttribute(Qt::WA_DeleteOnClose);

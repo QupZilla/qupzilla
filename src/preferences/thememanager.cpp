@@ -1,12 +1,14 @@
 #include "thememanager.h"
 #include "ui_thememanager.h"
 #include "mainapplication.h"
+#include "globalfunctions.h"
 
 ThemeManager::ThemeManager(QWidget* parent)
     : QWidget()
     , ui(new Ui::ThemeManager)
 {
     ui->setupUi(parent);
+    ui->license->hide();
     QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Themes");
     m_activeTheme = settings.value("activeTheme", "default").toString();
@@ -31,8 +33,26 @@ ThemeManager::ThemeManager(QWidget* parent)
     }
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentChanged()));
+    connect(ui->license, SIGNAL(clicked(QPoint)), this, SLOT(showLicense()));
 
     currentChanged();
+}
+
+void ThemeManager::showLicense()
+{
+    QListWidgetItem* currentItem = ui->listWidget->currentItem();
+    if (!currentItem)
+        return;
+
+    Theme currentTheme = m_themeHash[currentItem->data(Qt::UserRole).toString()];
+
+    QTextBrowser* b = new QTextBrowser();
+    b->setAttribute(Qt::WA_DeleteOnClose);
+    b->setWindowTitle(tr("License Viewer"));
+//    b->move(mapToGlobal(parent()->pos()));
+    b->resize(450, 500);
+    b->setText(currentTheme.license);
+    b->show();
 }
 
 void ThemeManager::currentChanged()
@@ -46,6 +66,7 @@ void ThemeManager::currentChanged()
     ui->name->setText(currentTheme.name);
     ui->author->setText(currentTheme.author);
     ui->descirption->setText(currentTheme.longDescription);
+    ui->license->setHidden(currentTheme.license.isEmpty());
 }
 
 ThemeManager::Theme ThemeManager::parseTheme(const QString &name)
@@ -64,9 +85,10 @@ ThemeManager::Theme ThemeManager::parseTheme(const QString &name)
     else
         info.icon = QIcon(":icons/preferences/style-default.png");
 
-    QFile file(path + "theme.info");
-    file.open(QFile::ReadOnly);
-    QString theme_info = file.readAll();
+    if (QFile(path + "theme.license").exists())
+        info.license = qz_readAllFileContents(path + "theme.license");
+
+    QString theme_info = qz_readAllFileContents(path + "theme.info");
 
     QRegExp rx("Name:(.*)\\n");
     rx.setMinimal(true);
