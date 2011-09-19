@@ -57,6 +57,7 @@ public:
     bool canRestoreTab();
     QList<WebTab*> allTabs(bool withPinned = true);
     QStackedWidget* locationBars() { return m_locationBars; }
+    ToolButton* buttonListTabs() { return m_buttonListTabs; }
 
 
 public slots:

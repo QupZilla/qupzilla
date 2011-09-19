@@ -983,6 +983,7 @@ void QupZilla::showNavigationWithFullscreen()
     m_tabWidget->getTabBar()->setVisible(state);
     if (m_bookmarksToolBarVisible)
         m_bookmarksToolbar->setVisible(state);
+    m_tabWidget->buttonListTabs()->setVisible(state);
 }
 
 void QupZilla::fullScreen(bool make)
