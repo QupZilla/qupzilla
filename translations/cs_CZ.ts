@@ -2530,11 +2530,6 @@ nebyl nalezen!</translation>
         <translation>Vyčistit seznam</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="629"/>
-        <source>Report &amp;Bug</source>
-        <translation>Nahlásit &amp;bug</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="625"/>
         <source>About &amp;Qt</source>
         <translation>O &amp;Qt</translation>
@@ -2548,6 +2543,11 @@ nebyl nalezen!</translation>
         <location filename="../src/app/qupzilla.cpp" line="628"/>
         <source>Informations about application</source>
         <translation>Informace o aplikaci</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="629"/>
+        <source>Report &amp;Issue</source>
+        <translation>Nahlásit &amp;problém</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="635"/>
@@ -2646,86 +2646,147 @@ nebyl nalezen!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="88"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="89"/>
+        <source>Report issue</source>
+        <translation>Nahlásit problém</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="90"/>
+        <source>If You are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
+        <translation>Pokud máte problém s používáním QupZilly, zakažte prosím všechny doplňky. &lt;br/&gt; Pokud problém přetrvává, vyplňte tento formulář: </translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="92"/>
+        <source>Your E-mail</source>
+        <translation>Váš e-mail</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="93"/>
+        <source>Issue type</source>
+        <translation>Typ problému</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="94"/>
+        <source>Priority</source>
+        <translation>Priorita</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="95"/>
+        <source>Low</source>
+        <translation>Nízká</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="96"/>
+        <source>Normal</source>
+        <translation>Normální</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="97"/>
+        <source>High</source>
+        <translation>Vysoká</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="98"/>
+        <source>Issue description</source>
+        <translation>Popis problému</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="99"/>
+        <source>Send</source>
+        <translation>Odeslat</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="100"/>
+        <source>E-mail is optional</source>
+        <translation>e-mail je nepovinný</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="101"/>
+        <source>Please fill all required fields!</source>
+        <translation>Vyplňte prosím všechna povinná pole!</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="115"/>
         <source>About QupZilla</source>
         <translation>O QupZille</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="90"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="116"/>
         <source>Informations about version</source>
         <translation>Informace o verzi</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="91"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="117"/>
         <source>Browser Identification</source>
         <translation>Identifikace prohlížeče</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="92"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="118"/>
         <source>Paths</source>
         <translation>Cesty</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="93"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="119"/>
         <source>Copyright</source>
         <translation>Copyright</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="97"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="123"/>
         <source>Linux</source>
         <translation>Linux</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="100"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="126"/>
         <source>Windows</source>
         <translation>Windows</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="103"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="129"/>
         <source>Version</source>
         <translation>Verze</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="104"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
         <source>WebKit version</source>
         <translation>Verze WebKitu</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="105"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="131"/>
         <source>Build time</source>
         <translation>Sestaveno</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="106"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="132"/>
         <source>Platform</source>
         <translation>Platforma</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="110"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="111"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Saved session</source>
         <translation>Uložené relace</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="112"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="138"/>
         <source>Pinned tabs</source>
         <translation>Připíchnuté panely</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="113"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="139"/>
         <source>Themes</source>
         <translation>Témata</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="140"/>
         <source>Plugins</source>
         <translation>Doplňky</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="115"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="141"/>
         <source>Translations</source>
         <translation>Překlady</translation>
     </message>

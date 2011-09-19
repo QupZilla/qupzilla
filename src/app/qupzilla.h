@@ -124,6 +124,7 @@ public slots:
 
     void showBookmarksToolbar();
     void loadActionUrl();
+    void loadActionUrlInNewTab();
     void bookmarkPage();
     void loadAddress(const QUrl &url);
     void showSource(const QString& selectedHtml = "");
