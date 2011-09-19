@@ -625,8 +625,8 @@ void QupZilla::aboutToShowHelpMenu()
     m_menuHelp->addAction(QIcon(":/icons/menu/qt.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
     m_menuHelp->addAction(QIcon(":/icons/qupzilla.png"), tr("&About QupZilla"), this, SLOT(aboutQupZilla()));
     m_menuHelp->addSeparator();
-    m_menuHelp->addAction(QIcon(":/icons/menu/informations.png"), tr("Informations about application"), this, SLOT(loadActionUrl()))->setData(QUrl("qupzilla:about"));
-    m_menuHelp->addAction(tr("Report &Bug"), this, SLOT(reportBug()));
+    m_menuHelp->addAction(QIcon(":/icons/menu/informations.png"), tr("Informations about application"), this, SLOT(loadActionUrlInNewTab()))->setData(QUrl("qupzilla:about"));
+    m_menuHelp->addAction(tr("Report &Issue"), this, SLOT(loadActionUrlInNewTab()))->setData(QUrl("qupzilla:reportbug"));
 }
 
 void QupZilla::aboutToShowToolsMenu()
@@ -754,6 +754,13 @@ void QupZilla::loadActionUrl()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         loadAddress(action->data().toUrl());
+    }
+}
+
+void QupZilla::loadActionUrlInNewTab()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        m_tabWidget->addView(action->data().toUrl());
     }
 }
 

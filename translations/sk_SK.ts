@@ -2531,11 +2531,6 @@ p, li { white-space: pre-wrap; }
         <translation>Vyčistiť list</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="629"/>
-        <source>Report &amp;Bug</source>
-        <translation>Nahlásiť &amp;chybu</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="625"/>
         <source>About &amp;Qt</source>
         <translation>O &amp;Qt</translation>
@@ -2548,6 +2543,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="628"/>
         <source>Informations about application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="629"/>
+        <source>Report &amp;Issue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2647,86 +2647,147 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="88"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="89"/>
-        <source>About QupZilla</source>
-        <translation type="unfinished">O QupZille</translation>
-    </message>
-    <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="90"/>
-        <source>Informations about version</source>
+        <source>Report issue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="91"/>
-        <source>Browser Identification</source>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="90"/>
+        <source>If You are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="92"/>
-        <source>Paths</source>
+        <source>Your E-mail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="93"/>
-        <source>Copyright</source>
+        <source>Issue type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="94"/>
+        <source>Priority</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="95"/>
+        <source>Low</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="96"/>
+        <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="97"/>
-        <source>Linux</source>
+        <source>High</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="98"/>
+        <source>Issue description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="99"/>
+        <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="100"/>
+        <source>E-mail is optional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="101"/>
+        <source>Please fill all required fields!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="115"/>
+        <source>About QupZilla</source>
+        <translation type="unfinished">O QupZille</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="116"/>
+        <source>Informations about version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="117"/>
+        <source>Browser Identification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="118"/>
+        <source>Paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="119"/>
+        <source>Copyright</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="123"/>
+        <source>Linux</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="126"/>
         <source>Windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="103"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="129"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="104"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
         <source>WebKit version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="105"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="131"/>
         <source>Build time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="106"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="132"/>
         <source>Platform</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="110"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>Settings</source>
         <translation type="unfinished">Nastavenia</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="111"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Saved session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="112"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="138"/>
         <source>Pinned tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="113"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="139"/>
         <source>Themes</source>
         <translation type="unfinished">Témy</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="140"/>
         <source>Plugins</source>
         <translation type="unfinished">Doplnky</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="115"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="141"/>
         <source>Translations</source>
         <translation type="unfinished"></translation>
     </message>

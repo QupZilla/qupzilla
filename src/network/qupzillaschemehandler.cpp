@@ -28,7 +28,7 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject *pa
     setUrl(req.url());
 
     m_pageName = req.url().path();
-    if (m_pageName == "about") {
+    if (m_pageName == "about" || m_pageName == "reportbug") {
         m_buffer.open(QIODevice::ReadWrite);
         setError(QNetworkReply::NoError, tr("No Error"));
 
@@ -39,12 +39,14 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject *pa
         QTimer::singleShot(0, this, SLOT(delayedFinish()));
     }
 }
-#include <QDebug>
+
 void QupZillaSchemeReply::loadPage()
 {
     QTextStream stream(&m_buffer);
     if (m_pageName == "about")
         stream << aboutPage();
+    else if (m_pageName == "reportbug")
+        stream << reportbugPage();
 
     stream.flush();
     m_buffer.reset();
@@ -74,6 +76,30 @@ qint64 QupZillaSchemeReply::bytesAvailable() const
 qint64 QupZillaSchemeReply::readData(char *data, qint64 maxSize)
 {
     return m_buffer.read(data, maxSize);
+}
+
+QString QupZillaSchemeReply::reportbugPage()
+{
+    QString page;
+    page.append(qz_readAllFileContents(":html/reportbug.html"));
+    page.replace("%FAVICON%", qz_pixmapToByteArray(QPixmap(":icons/qupzilla.png")));
+    page.replace("%BOX-BORDER%", qz_pixmapToByteArray(QPixmap(":html/box-border.png")));
+
+    page.replace("%TITLE%", tr("Report issue"));
+    page.replace("%REPORT-ISSUE%", tr("Report issue"));
+    page.replace("%PLUGINS-TEXT%", tr("If You are experiencing problems with QupZilla, please try first disable"
+                                      " all plugins. <br/>If it won't help, then please fill this form: "));
+    page.replace("%EMAIL%", tr("Your E-mail"));
+    page.replace("%TYPE%", tr("Issue type"));
+    page.replace("%PRIORITY%", tr("Priority"));
+    page.replace("%LOW%", tr("Low"));
+    page.replace("%NORMAL%", tr("Normal"));
+    page.replace("%HIGH%", tr("High"));
+    page.replace("%DESCRIPTION%", tr("Issue description"));
+    page.replace("%SEND%", tr("Send"));
+    page.replace("%E-MAIL-OPTIONAL%", tr("E-mail is optional"));
+    page.replace("%FIELDS-ARE-REQUIRED%", tr("Please fill all required fields!"));
+    return page;
 }
 
 QString QupZillaSchemeReply::aboutPage()
