@@ -7,5 +7,6 @@
         <file>html/about.html</file>
         <file>html/box-border.png</file>
         <file>html/copyright</file>
+        <file>html/reportbug.html</file>
     </qresource>
 </RCC>

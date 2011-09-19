@@ -1,0 +1,87 @@
+<html><head>
+<title>%TITLE%</title>
+<link rel="icon" href="data:image/png;base64,%FAVICON%" type="image/x-icon" />
+<style>
+html {
+  background: #eeeeee;
+  font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #525c66;
+}
+
+html * {
+  font-size: 100%;
+  line-height: 1.6;
+}
+
+#box {
+  max-width: 650px;
+  overflow:auto;
+  margin: 25px auto 10px auto;
+  padding: 10px 40px;
+  border-width: 20px;
+  -webkit-border-image: url(data:image/png;base64,%BOX-BORDER%) 25;
+  text-align: left;
+}
+
+h1 {
+  color: #1a4ba4;
+  font-size: 160%;
+  margin-bottom: 0px;
+}
+
+p {
+    margin-left: 1%;
+}
+
+input {
+    width: 200px;
+}
+.submit
+{
+    width: 100px;
+}
+select {
+    width: 200px;
+}
+textarea {
+    width: 400px;
+    height: 100px;
+}
+
+</style>
+<script>
+function checkFields()
+{
+  var type = document.getElementById("type").value;
+  var priority = document.getElementById("priority").value;
+  var description = document.getElementById("text").value;
+  
+  if (type == null || type == "" || priority == null || priority == "" || description == null || description == "") {
+  alert("%FIELDS-ARE-REQUIRED%");
+  return false;
+  }
+  return true;
+}
+</script>
+</head>
+<body>
+  <div id="box">
+
+<h1>%REPORT-ISSUE%</h1>
+  <p>%PLUGINS-TEXT%</p>
+  <p style="display:none" id="result"> </p>
+  <p>
+<table>
+<form action="http://qupzilla.ic.cz/reportbug.php" onsubmit="return checkFields()" method="POST">
+<tr><td>%EMAIL%*:</td><td><input type="text" id="mail" name="mail"> </tr>
+<tr><td>%TYPE%:</td><td><input type="text" id="type" name="type"> </tr>
+<tr><td>%PRIORITY%:</td><td><select id="priority" name="priority"> <option>%LOW%</option><option>%NORMAL%</option><option>%HIGH%</option> </select></tr>
+<tr><td>%DESCRIPTION%:</td><td><textarea id="text" name="text"> </textarea> </tr>
+<tr><td colspan=2 align=right><input class="submit" type="submit" name="ok" value="%SEND%"> </tr>
+</form>
+</table>
+</p>
+<p>* %E-MAIL-OPTIONAL%</p>
+
+  </div>
+</body></html>
