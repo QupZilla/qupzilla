@@ -156,7 +156,6 @@ void TabWidget::resizeEvent(QResizeEvent *e)
     posit.setY(0);
     posit.setX(width() - m_buttonListTabs->width());
     m_buttonListTabs->move(posit);
-
     m_buttonListTabs->setVisible(getTabBar()->isVisible());
 
     QTabWidget::resizeEvent(e);
