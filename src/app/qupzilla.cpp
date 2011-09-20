@@ -89,8 +89,6 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
 {
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
-    this->resize(640,480);
-    this->setWindowState(Qt::WindowMaximized);
     this->setWindowTitle("QupZilla");
     setUpdatesEnabled(false);
 
@@ -373,6 +371,13 @@ void QupZilla::loadSettings()
 
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
+    if (settings.value("WindowMaximised", false).toBool()) {
+        setWindowState(Qt::WindowMaximized);
+        resize(800, 550);
+    } else {
+        setGeometry(settings.value("WindowGeometry", QRect(0, 0, 800, 550)).toRect());
+    }
+
     m_menuTextColor = settings.value("menuTextColor", QColor(Qt::black)).value<QColor>();
     bool showStatusBar = settings.value("showStatusBar",true).toBool();
     bool showHomeIcon = settings.value("showHomeButton",true).toBool();
@@ -1073,10 +1078,11 @@ void QupZilla::closeEvent(QCloseEvent* event)
 bool QupZilla::quitApp()
 {
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
-    settings.beginGroup("Web-URL-Settings");
-    int afterLaunch = settings.value("afterLaunch",0).toInt();
-    settings.endGroup();
+    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch",0).toInt();
     bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", false).toBool();
+
+    settings.setValue("Browser-View-Settings/WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
+    settings.setValue("Browser-View-Settings/WindowGeometry", geometry());
 
     if (askOnClose && afterLaunch != 2 && m_tabWidget->count() > 1) {
         QDialog* dialog = new QDialog(this);
