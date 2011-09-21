@@ -24,6 +24,7 @@
 #include "networkmanager.h"
 #include "qtwin.h"
 #include "desktopnotificationsfactory.h"
+#include "globalfunctions.h"
 
 DownloadManager::DownloadManager(QWidget* parent) :
     QWidget(parent)
@@ -37,10 +38,7 @@ DownloadManager::DownloadManager(QWidget* parent) :
         QtWin::extendFrameIntoClientArea(this);
 #endif
     ui->clearButton->setIcon(QIcon::fromTheme("edit-clear"));
-    //CENTER on screen
-    const QRect screen = QApplication::desktop()->screenGeometry();
-    const QRect &size = QWidget::geometry();
-    QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+    qz_centerWidgetOnScreen(this);
 
     m_iconProvider = new QFileIconProvider();
     m_networkManager = mApp->networkManager();

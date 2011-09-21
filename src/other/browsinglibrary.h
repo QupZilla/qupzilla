@@ -19,7 +19,6 @@
 #define LIBRARY_H
 
 #include <QWidget>
-#include <QDesktopWidget>
 #include <QFileInfo>
 #include <QCloseEvent>
 

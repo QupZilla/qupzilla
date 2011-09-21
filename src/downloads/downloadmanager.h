@@ -21,7 +21,6 @@
 #include <QDialog>
 #include <QLabel>
 #include <QFileIconProvider>
-#include <QDesktopWidget>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QDebug>

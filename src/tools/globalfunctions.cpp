@@ -20,3 +20,10 @@ QByteArray qz_readAllFileContents(const QString &filename)
 
     return a;
 }
+
+void qz_centerWidgetOnScreen(QWidget *w)
+{
+    const QRect screen = QApplication::desktop()->screenGeometry();
+    const QRect &size = w->geometry();
+    w->move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+}

@@ -22,6 +22,7 @@
 #include "rssmanager.h"
 #include "mainapplication.h"
 #include "downloaditem.h"
+#include "globalfunctions.h"
 
 BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget *parent)
     : QWidget(parent)
@@ -39,10 +40,7 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget *parent)
     resize(settings.value("size", QSize(760, 470)).toSize());
     settings.endGroup();
 
-    //CENTER on scren
-    const QRect screen = QApplication::desktop()->screenGeometry();
-    const QRect &size = QWidget::geometry();
-    QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+    qz_centerWidgetOnScreen(this);
 
     ui->tabs->AddTab(m_historyManager, QIcon(":/icons/other/bighistory.png"), tr("History"));
     ui->tabs->AddTab(m_bookmarksManager, QIcon(":/icons/other/bigstar.png"), tr("Bookmarks"));
