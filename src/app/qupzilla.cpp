@@ -161,6 +161,15 @@ void QupZilla::postLaunch()
 
 void QupZilla::setupUi()
 {
+    QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
+    settings.beginGroup("Browser-View-Settings");
+    if (settings.value("WindowMaximised", false).toBool()) {
+        setWindowState(Qt::WindowMaximized);
+        resize(800, 550);
+    } else {
+        setGeometry(settings.value("WindowGeometry", QRect(0, 0, 800, 550)).toRect());
+    }
+
     QWidget* widget = new QWidget(this);
     setCentralWidget(widget);
 
@@ -371,13 +380,6 @@ void QupZilla::loadSettings()
 
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
-    if (settings.value("WindowMaximised", false).toBool()) {
-        setWindowState(Qt::WindowMaximized);
-        resize(800, 550);
-    } else {
-        setGeometry(settings.value("WindowGeometry", QRect(0, 0, 800, 550)).toRect());
-    }
-
     m_menuTextColor = settings.value("menuTextColor", QColor(Qt::black)).value<QColor>();
     bool showStatusBar = settings.value("showStatusBar",true).toBool();
     bool showHomeIcon = settings.value("showHomeButton",true).toBool();
