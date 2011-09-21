@@ -21,6 +21,7 @@
 #include "historymodel.h"
 #include "iconprovider.h"
 #include "browsinglibrary.h"
+#include "globalfunctions.h"
 
 HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
@@ -31,10 +32,7 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
     ui->setupUi(this);
     ui->historyTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
     ui->historyTree->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    //CENTER on scren
-    const QRect screen = QApplication::desktop()->screenGeometry();
-    const QRect &size = QWidget::geometry();
-    QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+    qz_centerWidgetOnScreen(this);
 
     connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
     connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));

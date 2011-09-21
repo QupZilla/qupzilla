@@ -133,7 +133,8 @@ SOURCES += main.cpp\
     navigation/reloadstopbutton.cpp \
     preferences/thememanager.cpp \
     network/qupzillaschemehandler.cpp \
-    tools/globalfunctions.cpp
+    tools/globalfunctions.cpp \
+    other/pagescreen.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -227,7 +228,8 @@ HEADERS  += \
     navigation/reloadstopbutton.h \
     preferences/thememanager.h \
     network/qupzillaschemehandler.h \
-    tools/globalfunctions.h
+    tools/globalfunctions.h \
+    other/pagescreen.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -261,7 +263,8 @@ FORMS    += \
     webview/jsprompt.ui \
     other/browsinglibrary.ui \
     webview/searchtoolbar.ui \
-    preferences/thememanager.ui
+    preferences/thememanager.ui \
+    other/pagescreen.ui
 
 RESOURCES += \
     data/icons.qrc \
@@ -277,6 +280,9 @@ unix:QT += dbus
 win32:DEFINES += W7API
 win32:RC_FILE = appicon.rc
 win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
+
+
+
 
 
 

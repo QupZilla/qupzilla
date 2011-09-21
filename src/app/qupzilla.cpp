@@ -55,6 +55,7 @@
 #include "locationbarsettings.h"
 #include "browsinglibrary.h"
 #include "navigationbar.h"
+#include "pagescreen.h"
 
 const QString QupZilla::VERSION = "1.0.0-b4";
 //const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM d yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
@@ -226,9 +227,9 @@ void QupZilla::setupMenu()
     m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), this, SLOT(close()))->setShortcut(QKeySequence("Ctrl+Shift+W"));
     m_menuFile->addSeparator();
     m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), this, SLOT(savePage()))->setShortcut(QKeySequence("Ctrl+S"));
+    m_menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()));
     m_menuFile->addAction(tr("Send Link..."), this, SLOT(sendLink()));
-    m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print"), this, SLOT(printPage()));
-    m_menuFile->addSeparator();
+    m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print"), this, SLOT(printPage()));    m_menuFile->addSeparator();
     m_menuFile->addAction(QIcon::fromTheme("application-exit"), tr("Quit"), this, SLOT(quitApp()))->setShortcut(QKeySequence("Ctrl+Q"));
     menuBar()->addMenu(m_menuFile);
 
@@ -1032,6 +1033,12 @@ void QupZilla::printPage()
     connect(dialog, SIGNAL(paintRequested(QPrinter*)), weView(), SLOT(print(QPrinter*)));
     dialog->exec();
     delete dialog;
+}
+
+void QupZilla::savePageScreen()
+{
+    PageScreen* p = new PageScreen(weView());
+    p->show();
 }
 
 void QupZilla::startPrivate(bool state)

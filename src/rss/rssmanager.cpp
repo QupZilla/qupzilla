@@ -23,6 +23,7 @@
 #include "treewidget.h"
 #include "iconprovider.h"
 #include "browsinglibrary.h"
+#include "globalfunctions.h"
 
 RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
@@ -30,10 +31,7 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent) :
     ,p_QupZilla(mainClass)
 {
     ui->setupUi(this);
-//    CENTER on scren
-    const QRect screen = QApplication::desktop()->screenGeometry();
-    const QRect &size = geometry();
-    QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+    qz_centerWidgetOnScreen(this);
 
     ui->tabWidget->setElideMode(Qt::ElideRight);
     m_networkManager = new QNetworkAccessManager();

@@ -19,6 +19,7 @@
 #include "webview.h"
 #include "htmlhighlighter.h"
 #include "sourceviewersearch.h"
+#include "globalfunctions.h"
 
 SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     QWidget(0)
@@ -90,10 +91,7 @@ SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     menuView->actions().at(3)->setChecked(true);
     menuBar->addMenu(menuView);
 
-    //CENTER on scren
-    const QRect screen = QApplication::desktop()->screenGeometry();
-    const QRect &size = QWidget::geometry();
-    QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+    qz_centerWidgetOnScreen(this);
 
     //Highlight selectedHtml
     if (!selectedHtml.isEmpty())
