@@ -143,6 +143,7 @@ private slots:
     void aboutQupZilla();
     void addTab() { m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewTab, true); }
     void printPage();
+    void savePageScreen();
 
     void aboutToShowHistoryMenu();
     void aboutToShowClosedTabsMenu();

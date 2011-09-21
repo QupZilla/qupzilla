@@ -25,6 +25,7 @@
 #include "bookmarksmodel.h"
 #include "iconprovider.h"
 #include "browsinglibrary.h"
+#include "globalfunctions.h"
 
 BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
@@ -34,10 +35,7 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent) :
     ,m_bookmarksModel(mApp->bookmarksModel())
 {
     ui->setupUi(this);
-    //CENTER on scren
-    const QRect screen = QApplication::desktop()->screenGeometry();
-    const QRect &size = QWidget::geometry();
-    QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+    qz_centerWidgetOnScreen(this);
 
     connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));
     connect(ui->bookmarksTree, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(itemChanged(QTreeWidgetItem*)));

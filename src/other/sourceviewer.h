@@ -27,7 +27,6 @@
 #include <QWebPage>
 #include <QWebFrame>
 #include <QStyle>
-#include <QDesktopWidget>
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QFile>

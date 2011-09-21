@@ -20,16 +20,14 @@
 #include "qupzilla.h"
 #include "cookiejar.h"
 #include "mainapplication.h"
+#include "globalfunctions.h"
 
 CookieManager::CookieManager(QWidget* parent) :
     QWidget(parent)
     ,ui(new Ui::CookieManager)
 {
     ui->setupUi(this);
-    //CENTER on scren
-    const QRect screen = QApplication::desktop()->screenGeometry();
-    const QRect &size = QWidget::geometry();
-    QWidget::move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+    qz_centerWidgetOnScreen(this);
 
     //QTimer::singleShot(0, this, SLOT(refreshTable()));
 
