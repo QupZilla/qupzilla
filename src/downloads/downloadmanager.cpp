@@ -25,6 +25,7 @@
 #include "qtwin.h"
 #include "desktopnotificationsfactory.h"
 #include "globalfunctions.h"
+#include "webpage.h"
 
 DownloadManager::DownloadManager(QWidget* parent) :
     QWidget(parent)
@@ -172,6 +173,13 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWha
     QFileInfo tempInfo(tempFile.fileName());
     m_hfileIcon = m_iconProvider->icon(tempInfo).pixmap(30,30);
     QString mimeType = m_iconProvider->type(tempInfo);
+
+    //Get Download Page and Close Empty Tab
+    QNetworkRequest request = m_hreply->request();
+    QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
+    WebPage* webPage = (WebPage*)(v.value<void*>());
+    if (webPage && webPage->mainFrame()->url().isEmpty() && !webPage->history()->canGoBack() && webPage->history()->count() == 0)
+        webPage->getView()->closeTab();
 
     if (askWhatToDo) {
         DownloadOptionsDialog* dialog = new DownloadOptionsDialog(m_h_fileName, m_hfileIcon, mimeType, reply->url(), mApp->activeWindow());
