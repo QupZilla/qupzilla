@@ -52,6 +52,7 @@ void ThemeManager::showLicense()
 //    b->move(mapToGlobal(parent()->pos()));
     b->resize(450, 500);
     b->setText(currentTheme.license);
+    qz_centerWidgetOnScreen(b);
     b->show();
 }
 
