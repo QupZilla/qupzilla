@@ -1447,17 +1447,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/pagescreen.ui" line="14"/>
         <source>Page Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázok stránky</translation>
     </message>
     <message>
         <location filename="../src/other/pagescreen.cpp" line="31"/>
         <source>Save Page Screen...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložiť obrázok stránky...</translation>
     </message>
     <message>
         <location filename="../src/other/pagescreen.cpp" line="31"/>
         <source>screen.png</source>
-        <translation type="unfinished"></translation>
+        <translation>obrazok.png</translation>
     </message>
 </context>
 <context>
@@ -2453,12 +2453,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1053"/>
         <source>Current cookies cannot be accessed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Súčasne cookies nie sú dostupné.</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1054"/>
         <source>Your session is not stored.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaša relácia nie je uložená.</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1061"/>
@@ -2535,7 +2535,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="232"/>
         <source>Save Page Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložiť obrázok stránky</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="445"/>
@@ -2566,12 +2566,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="637"/>
         <source>Informations about application</source>
-        <translation type="unfinished"></translation>
+        <translation>Informácie o aplikácii</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="638"/>
         <source>Report &amp;Issue</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahlásiť &amp;problém</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="644"/>
@@ -2660,159 +2660,159 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="33"/>
         <source>No Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Žiadna chyba</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="38"/>
         <source>Not Found</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenájdeno</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="88"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="89"/>
         <source>Report issue</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahlásiť problém</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="90"/>
         <source>If You are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Pokiaľ máte problém s používaním QupZilly, zakážte  prosím všetky doplnky. &lt;br/&gt; Pokiaľ problém trvá, vyplňte tento formulár: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="92"/>
         <source>Your E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>Tvoj E-mail</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="93"/>
         <source>Issue type</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ problému</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="94"/>
         <source>Priority</source>
-        <translation type="unfinished"></translation>
+        <translation>Priorita</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="95"/>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>Nízka</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="96"/>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normálna</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="97"/>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>Vysoká</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="98"/>
         <source>Issue description</source>
-        <translation type="unfinished"></translation>
+        <translation>Popis problému</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="99"/>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>Poslať</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="100"/>
         <source>E-mail is optional</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mail je nepovinný</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="101"/>
         <source>Please fill all required fields!</source>
-        <translation type="unfinished"></translation>
+        <translation>Prosím vypl§te všetky povinné políčka!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="115"/>
         <source>About QupZilla</source>
-        <translation type="unfinished">O QupZille</translation>
+        <translation>O QupZille</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="116"/>
         <source>Informations about version</source>
-        <translation type="unfinished"></translation>
+        <translation>Informácie o verzii</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="117"/>
         <source>Browser Identification</source>
-        <translation type="unfinished"></translation>
+        <translation>Identifikácia prehliadača</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="118"/>
         <source>Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Cesty</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="119"/>
         <source>Copyright</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="123"/>
         <source>Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="126"/>
         <source>Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="129"/>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzia</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
         <source>WebKit version</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzia WebKitu</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="131"/>
         <source>Build time</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyrobene</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="132"/>
         <source>Platform</source>
-        <translation type="unfinished"></translation>
+        <translation>Platforma</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>Settings</source>
-        <translation type="unfinished">Nastavenia</translation>
+        <translation>Nastavenia</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Saved session</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložiť reláciu</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="138"/>
         <source>Pinned tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Pripevnené panely</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="139"/>
         <source>Themes</source>
-        <translation type="unfinished">Témy</translation>
+        <translation>Témy</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="140"/>
         <source>Plugins</source>
-        <translation type="unfinished">Doplnky</translation>
+        <translation>Doplnky</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="141"/>
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Preklady</translation>
     </message>
 </context>
 <context>
@@ -3579,12 +3579,12 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/preferences/thememanager.ui" line="103"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licencia</translation>
     </message>
     <message>
         <location filename="../src/preferences/thememanager.cpp" line="51"/>
         <source>License Viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>Prehliadač licencie</translation>
     </message>
 </context>
 <context>
