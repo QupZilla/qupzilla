@@ -95,8 +95,8 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
             m_downloadPage = webPage->mainFrame()->url();
         else if (webPage->history()->canGoBack())
             m_downloadPage = webPage->history()->backItem().url();
-        else if (webPage->history()->count() == 0)
-            webPage->getView()->closeTab();
+//        else if (webPage->history()->count() == 0)
+//            webPage->getView()->closeTab();
     }
 }
 
