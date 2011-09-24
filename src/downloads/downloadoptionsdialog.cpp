@@ -29,6 +29,8 @@ DownloadOptionsDialog::DownloadOptionsDialog(QString fileName, QPixmap fileIcon,
     ui->fromServer->setText(url.host());
     setWindowTitle(tr("Opening %1").arg(fileName));
 
+    setFixedHeight(sizeHint().height());
+
     connect(this, SIGNAL(finished(int)), this, SLOT(emitDialogFinished(int)));
 }
 
