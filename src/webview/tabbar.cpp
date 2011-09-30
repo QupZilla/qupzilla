@@ -19,6 +19,7 @@
 #include "tabwidget.h"
 #include "qupzilla.h"
 #include "webtab.h"
+#include "iconprovider.h"
 
 TabBar::TabBar(QupZilla* mainClass, QWidget* parent) :
     QTabBar(parent)
@@ -63,23 +64,11 @@ void TabBar::contextMenuRequested(const QPoint &position)
         WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(m_clickedTab));
         if (!webTab)
             return;
-        if (p_QupZilla->weView(m_clickedTab)->isLoading()) {
-            menu.addAction(
-#ifdef Q_WS_X11
-                style()->standardIcon(QStyle::SP_BrowserStop)
-#else
-                QIcon(":/icons/faenza/stop.png")
-#endif
-                ,tr("&Stop Tab"), this, SLOT(stopTab()));
-        } else {
-            menu.addAction(
-#ifdef Q_WS_X11
-                style()->standardIcon(QStyle::SP_BrowserReload)
-#else
-                QIcon(":/icons/faenza/reload.png")
-#endif
-                ,tr("&Reload Tab"), this, SLOT(reloadTab()));
-        }
+        if (p_QupZilla->weView(m_clickedTab)->isLoading())
+            menu.addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop Tab"), this, SLOT(stopTab()));
+        else
+            menu.addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload Tab"), this, SLOT(reloadTab()));
+
         menu.addAction(tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
         menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
         menu.addSeparator();

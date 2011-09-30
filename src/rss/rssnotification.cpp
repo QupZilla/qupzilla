@@ -19,6 +19,7 @@
 #include "ui_rssnotification.h"
 #include "mainapplication.h"
 #include "qupzilla.h"
+#include "iconprovider.h"
 
 RSSNotification::RSSNotification(QString host, QWidget* parent) :
     AnimatedWidget(AnimatedWidget::Down, 300, parent),
@@ -26,13 +27,7 @@ RSSNotification::RSSNotification(QString host, QWidget* parent) :
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
-    ui->closeButton->setIcon(
-#ifdef Q_WS_X11
-    style()->standardIcon(QStyle::SP_DialogCloseButton)
-#else
-    QIcon(":/icons/faenza/close.png")
-#endif
-    );
+    ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
     ui->label->setText(tr("You have successfuly added RSS feed \"%1\".").arg(host));
 
     connect(ui->pushButton, SIGNAL(clicked()), mApp->getWindow(), SLOT(showRSSManager()));

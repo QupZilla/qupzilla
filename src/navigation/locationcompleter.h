@@ -40,7 +40,6 @@ public:
 signals:
 
 public slots:
-    void loadInitialHistory();
     void refreshCompleter(QString string);
 
 };
