@@ -227,7 +227,6 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     QString errString = file.readAll();
                     errString.replace("%TITLE%", tr("AdBlocked Content"));
 
-                    //QPixmap pixmap = QIcon::fromTheme("dialog-warning").pixmap(45,45);
                     QPixmap pixmap(":/html/adblock_big.png");
                     QByteArray bytes;
                     QBuffer buffer(&bytes);
@@ -267,12 +266,10 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     QString errString = file.readAll();
     errString.replace("%TITLE%", tr("Failed loading page"));
 
-    //QPixmap pixmap = QIcon::fromTheme("dialog-warning").pixmap(45,45);
     QByteArray image = qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45,45));
     if (!image.isEmpty())
         errString.replace("%IMAGE%", image);
 
-    //pixmap = QIcon::fromTheme("dialog-warning").pixmap(16,16);
     image = qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16,16));
     if (!image.isEmpty())
         errString.replace("%FAVICON%", image);

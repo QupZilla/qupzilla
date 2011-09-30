@@ -40,7 +40,6 @@ LocationCompleter::LocationCompleter(QObject* parent) :
     setCaseSensitivity(Qt::CaseInsensitive);
     setWrapAround(true);
     setCompletionColumn(1);
-    QTimer::singleShot(0, this, SLOT(loadInitialHistory()));
 }
 
 //QString LocationCompleter::pathFromIndex(const QModelIndex &index) const
@@ -79,39 +78,15 @@ QStringList LocationCompleter::splitPath(const QString &path) const
 #endif
 }
 
-void LocationCompleter::loadInitialHistory()
-{
-    QSqlQuery query;
-    query.exec("SELECT title, url FROM history LIMIT 5");
-    int i = 0;
-    QStandardItemModel* cModel = (QStandardItemModel*)model();
-
-    while(query.next()) {
-        QStandardItem* iconText = new QStandardItem();
-        QStandardItem* findUrl = new QStandardItem();
-        QString url = query.value(1).toUrl().toEncoded();
-
-        iconText->setIcon(_iconForUrl(query.value(1).toUrl()).pixmap(16,16));
-        iconText->setText(query.value(0).toString().replace("\n","").append("\n"+url));
-
-        findUrl->setText(url);
-        QList<QStandardItem*> items;
-        items.append(iconText);
-        items.append(findUrl);
-        cModel->insertRow(i, items);
-        i++;
-    }
-}
-
 void LocationCompleter::refreshCompleter(QString string)
 {
-    QSqlQuery query;
     int limit;
     if (string.size() < 3)
         limit = 25;
     else
         limit = 15;
 
+    QSqlQuery query;
     query.exec("SELECT title, url FROM history WHERE title LIKE '%"+string+"%' OR url LIKE '%"+string+"%' ORDER BY count DESC LIMIT "+QString::number(limit));
     int i = 0;
     QStandardItemModel* cModel = (QStandardItemModel*)model();
@@ -155,5 +130,6 @@ void LocationCompleter::refreshCompleter(QString string)
         popup()->setMinimumHeight(190);
     else
         popup()->setMinimumHeight(0);
+
     popup()->setUpdatesEnabled(true);
 }

@@ -20,6 +20,7 @@
 #include "htmlhighlighter.h"
 #include "sourceviewersearch.h"
 #include "globalfunctions.h"
+#include "iconprovider.h"
 
 SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     QWidget(0)
@@ -78,13 +79,7 @@ SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     menuBar->addMenu(menuEdit);
 
     QMenu* menuView = new QMenu(tr("View"));
-    menuView->addAction(
-            #ifdef Q_WS_X11
-                        style()->standardIcon(QStyle::SP_BrowserReload)
-            #else
-                        QIcon(":/icons/faenza/reload.png")
-            #endif
-                , tr("Reload"), this, SLOT(reload()))->setShortcut(QKeySequence("F5"));
+    menuView->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("Reload"), this, SLOT(reload()))->setShortcut(QKeySequence("F5"));
     menuView->addSeparator();
     menuView->addAction(tr("Editable"), this, SLOT(setTextEditable()))->setCheckable(true);
     menuView->addAction(tr("Word Wrap"), this, SLOT(setTextWordWrap()))->setCheckable(true);

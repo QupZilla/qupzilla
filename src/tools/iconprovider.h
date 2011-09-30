@@ -26,6 +26,7 @@
 #include <QSqlQuery>
 #include <QBuffer>
 #include <QTimer>
+#include <QStyle>
 
 class WebView;
 class IconProvider : public QObject
@@ -40,6 +41,10 @@ public:
 
     static QIcon iconFromBase64(const QByteArray &data);
     static QByteArray iconToBase64(const QIcon &icon);
+
+    static QIcon standardIcon(QStyle::StandardPixmap icon);
+    static QPixmap standardPixmap(QStyle::StandardPixmap icon);
+    static QIcon fromTheme(const QString &icon);
 
 signals:
 

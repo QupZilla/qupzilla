@@ -76,12 +76,13 @@ LocationBar::LocationBar(QupZilla* mainClass)
     setCompleter(m_locationCompleter);
 
 //    LocationPopup* com = new LocationPopup(this);
+//    connect(down, SIGNAL(clicked(QPoint)), com, SLOT(show()));
+
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
     connect(this, SIGNAL(textEdited(QString)), m_locationCompleter, SLOT(refreshCompleter(QString)));
     connect(this, SIGNAL(returnPressed()), this, SLOT(urlEnter()));
     connect(m_locationCompleter->popup(), SIGNAL(clicked(QModelIndex)), p_QupZilla, SLOT(urlEnter()));
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
-//    connect(down, SIGNAL(clicked(QPoint)), com, SLOT(show()));
     connect(m_goButton, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
 

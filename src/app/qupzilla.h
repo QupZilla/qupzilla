@@ -145,7 +145,7 @@ private slots:
     void printPage();
     void savePageScreen();
 
-    void aboutToShowHistoryMenu();
+    void aboutToShowHistoryMenu(bool loadHistory = true);
     void aboutToShowClosedTabsMenu();
     void aboutToShowBookmarksMenu();
     void aboutToShowToolsMenu();

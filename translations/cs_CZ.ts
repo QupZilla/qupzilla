@@ -836,6 +836,20 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>DownloadFileHelper</name>
+    <message>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="82"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="86"/>
+        <source>Save file as...</source>
+        <translation>Uložit soubor jako...</translation>
+    </message>
+    <message>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="172"/>
+        <source>NoNameDownload</source>
+        <translation>BezNazvu</translation>
+    </message>
+</context>
+<context>
     <name>DownloadItem</name>
     <message>
         <location filename="../src/downloads/downloaditem.ui" line="42"/>
@@ -853,119 +867,119 @@ p, li { white-space: pre-wrap; }
         <translation>Neznámý zbývající čas</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="128"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="115"/>
         <source>Done - %1</source>
         <translation>Hotovo - %1</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="180"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="313"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="167"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="300"/>
         <source>Cancelled</source>
         <translation>Zrušeno</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="186"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="173"/>
         <source>few seconds</source>
         <translation>několik sekund</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="188"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="175"/>
         <source>seconds</source>
         <translation>sekund</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="190"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="177"/>
         <source>minutes</source>
         <translation>minut</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="192"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="179"/>
         <source>hours</source>
         <translation>hodin</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="198"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="185"/>
         <source>Unknown speed</source>
         <translation>Neznámá rychlost</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="215"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="251"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="202"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="238"/>
         <source>Unknown size</source>
         <translation>Neznámá velikost</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="252"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="239"/>
         <source>%2 of %3 (%4)</source>
         <translation>%2 z %3 (%4)</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="254"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="241"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
         <translation>Zbývá %1 - %2 z %3 (%4)</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="267"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="254"/>
         <source>Cancelled - %1</source>
         <translation>Zrušeno - %1</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="281"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="268"/>
         <source>Delete file</source>
         <translation>Smazat soubor</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="281"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="268"/>
         <source>Do you want to also delete dowloaded file?</source>
         <translation>Chcete také smazat stahovaný soubor?</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="297"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="284"/>
         <source>Open File</source>
         <translation>Otevřít soubor</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="299"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="286"/>
         <source>Open Folder</source>
         <translation>Otevřít složku</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="301"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="288"/>
         <source>Go to Download Page</source>
         <translation>Přejít na stránku stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="302"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="289"/>
         <source>Copy Download Link</source>
         <translation>Kopírovat stahovaný odkaz</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="310"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="297"/>
         <source>Cancel downloading</source>
         <translation>Zrušit stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="311"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="298"/>
         <source>Clear</source>
         <translation>Vyčistit</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="313"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="300"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="320"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="307"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="341"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="328"/>
         <source>Not found</source>
         <translation>Soubor neexistuje</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="341"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="328"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
@@ -974,12 +988,12 @@ p, li { white-space: pre-wrap; }
 nebyl nalezen!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="356"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="343"/>
         <source>Error: Cannot write to file!</source>
         <translation>Chyba: Nelze zapisovat do souboru!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="368"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="355"/>
         <source>Error: </source>
         <translation>Chyba:</translation>
     </message>
@@ -997,40 +1011,37 @@ nebyl nalezen!</translation>
         <translation>% - Správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="211"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="215"/>
         <source>Save file as...</source>
-        <translation>Uložit soubor jako...</translation>
+        <translation type="obsolete">Uložit soubor jako...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="304"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="191"/>
         <source>Download Finished</source>
         <translation>Stahování dokončeno</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="304"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="191"/>
         <source>All files have been successfuly downloaded.</source>
         <translation>Všechna stahování byla úspěšně dokončena.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="384"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="235"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="385"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="236"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Jste si jistý že chcete skončit? Všechna nedokončená stahování budou zrušena!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="346"/>
         <source>NoNameDownload</source>
-        <translation>BezNazvu</translation>
+        <translation type="obsolete">BezNazvu</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="20"/>
         <location filename="../src/downloads/downloadmanager.cpp" line="95"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="309"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="196"/>
         <source>Download Manager</source>
         <translation>Správce stahování</translation>
     </message>

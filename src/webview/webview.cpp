@@ -272,7 +272,7 @@ void WebView::iconChanged()
     if (!icon_.isNull())
         animationLoading(tabIndex(), false)->setPixmap(icon_.pixmap(16,16));
     else
-        animationLoading(tabIndex(), false)->setPixmap(QIcon::fromTheme("text-plain").pixmap(16,16));
+        animationLoading(tabIndex(), false)->setPixmap(IconProvider::fromTheme("text-plain").pixmap(16,16));
 
     if (isCurrent())
         emit siteIconChanged();
@@ -465,7 +465,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInNewTab()))->setData(r.linkUrl());
         menu->addAction(tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(r.linkUrl());
         menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(r.linkUrl());
+        menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(r.linkUrl());
         menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadLinkToDisk()))->setData(r.linkUrl());
         menu->addAction(tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
         menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(r.linkUrl());
@@ -499,39 +499,20 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
 
     if (menu->isEmpty()) {
         QAction* action = menu->addAction(tr("&Back"), this, SLOT(back()));
-#ifdef Q_WS_X11
-        action->setIcon(style()->standardIcon(QStyle::SP_ArrowBack));
-#else
-        action->setIcon(QIcon(":/icons/faenza/back.png"));
-#endif
+        action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
         history()->canGoBack() ? action->setEnabled(true) : action->setEnabled(false);
 
         action = menu->addAction(tr("&Forward"), this, SLOT(forward()));
-#ifdef Q_WS_X11
-        action->setIcon(style()->standardIcon(QStyle::SP_ArrowForward));
-#else
-        action->setIcon(QIcon(":/icons/faenza/forward.png"));
-#endif
+        action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
+
         history()->canGoForward() ? action->setEnabled(true) : action->setEnabled(false);
 
-        menu->addAction(
-#ifdef Q_WS_X11
-                style()->standardIcon(QStyle::SP_BrowserReload)
-#else
-                QIcon(":/icons/faenza/reload.png")
-#endif
-                ,tr("&Reload"), this, SLOT(slotReload()));
-        action = menu->addAction(
-#ifdef Q_WS_X11
-                style()->standardIcon(QStyle::SP_BrowserStop)
-#else
-                QIcon(":/icons/faenza/stop.png")
-#endif
-                ,tr("S&top"), this, SLOT(stop()));
+        menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(slotReload()));
+        action = menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this, SLOT(stop()));
         isLoading() ? action->setEnabled(true) : action->setEnabled(false);
 
         menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
+        menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
         menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadLinkToDisk()))->setData(url());
         menu->addAction(tr("Send page..."), this, SLOT(sendLinkByMail()))->setData(url());
         menu->addSeparator();
