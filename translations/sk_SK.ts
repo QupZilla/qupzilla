@@ -1038,7 +1038,7 @@ p, li { white-space: pre-wrap; }
         <translation>Správca sťahovania</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.ui" line="82"/>
+        <location filename="../src/downloads/downloadmanager.ui" line="73"/>
         <source>Clear</source>
         <translation>Vyčistiť</translation>
     </message>
@@ -1063,7 +1063,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="107"/>
         <source>What should QupZilla do with this file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Čo by mala QupZilla urobiť s tímto súborom?</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="32"/>
