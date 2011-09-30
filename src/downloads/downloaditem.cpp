@@ -25,18 +25,18 @@
 
 //#define DOWNMANAGER_DEBUG
 
-DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString path, QString fileName, QPixmap fileIcon, QTime* timer, bool openAfterFinishedDownload, QWidget* parent)
-    : QWidget(parent)
-   ,ui(new Ui::DownloadItem)
-   ,m_item(item)
-   ,m_reply(reply)
-   ,m_path(path)
-   ,m_fileName(fileName)
-   ,m_downTimer(timer)
-   ,m_downUrl(reply->url())
-   ,m_downloadPage(QUrl())
-   ,m_downloading(false)
-   ,m_openAfterFinish(openAfterFinishedDownload)
+DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QString &path, const QString &fileName, const QPixmap &fileIcon, QTime* timer, bool openAfterFinishedDownload, const QUrl &downloadPage)
+    : QWidget()
+    , ui(new Ui::DownloadItem)
+    , m_item(item)
+    , m_reply(reply)
+    , m_path(path)
+    , m_fileName(fileName)
+    , m_downTimer(timer)
+    , m_downUrl(reply->url())
+    , m_downloadPage(downloadPage)
+    , m_downloading(false)
+    , m_openAfterFinish(openAfterFinishedDownload)
 {
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__ << item << reply << path << fileName;
@@ -85,19 +85,6 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, QString 
         error(m_reply->error());
     }
     show();
-
-    //Get Download Page
-    QNetworkRequest request = m_reply->request();
-    QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-    WebPage* webPage = (WebPage*)(v.value<void*>());
-    if (webPage) {
-        if (!webPage->mainFrame()->url().isEmpty())
-            m_downloadPage = webPage->mainFrame()->url();
-        else if (webPage->history()->canGoBack())
-            m_downloadPage = webPage->history()->backItem().url();
-//        else if (webPage->history()->count() == 0)
-//            webPage->getView()->closeTab();
-    }
 }
 
 void DownloadItem::parentResized(const QSize &size)

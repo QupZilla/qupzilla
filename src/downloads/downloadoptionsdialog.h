@@ -31,7 +31,7 @@ class DownloadOptionsDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit DownloadOptionsDialog(QString fileName, QPixmap fileIcon, QString mimeType, QUrl url, QWidget* parent = 0);
+    explicit DownloadOptionsDialog(const QString &fileName, const QPixmap &fileIcon, const QString &mimeType, const QUrl &url, QWidget* parent = 0);
     ~DownloadOptionsDialog();
 
 private slots:
