@@ -18,7 +18,7 @@
 #include "downloadoptionsdialog.h"
 #include "ui_downloadoptionsdialog.h"
 
-DownloadOptionsDialog::DownloadOptionsDialog(QString fileName, QPixmap fileIcon, QString mimeType, QUrl url, QWidget *parent)
+DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPixmap &fileIcon, const QString &mimeType, const QUrl &url, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::DownloadOptionsDialog)
 {

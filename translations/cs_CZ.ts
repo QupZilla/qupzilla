@@ -1035,7 +1035,7 @@ nebyl nalezen!</translation>
         <translation>Správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.ui" line="82"/>
+        <location filename="../src/downloads/downloadmanager.ui" line="73"/>
         <source>Clear</source>
         <translation>Vyčistit</translation>
     </message>
