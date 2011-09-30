@@ -250,11 +250,7 @@ void MainApplication::loadSettings()
 
     m_websettings->setUserStyleSheetUrl(userStyleSheet);
     m_websettings->setDefaultTextEncoding("System");
-#ifdef Q_WS_X11
-    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, QIcon::fromTheme("text-plain").pixmap(16,16));
-#else
-    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, QPixmap(":icons/locationbar/unknownpage.png"));
-#endif
+    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::fromTheme("text-plain").pixmap(16,16));
 
     if (allowPersistentStorage) m_websettings->enablePersistentStorage(m_activeProfil);
     m_websettings->setMaximumPagesInCache(maxCachedPages);

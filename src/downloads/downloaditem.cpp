@@ -22,6 +22,7 @@
 #include "tabwidget.h"
 #include "webpage.h"
 #include "downloadmanager.h"
+#include "iconprovider.h"
 
 //#define DOWNMANAGER_DEBUG
 
@@ -49,16 +50,8 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
 
     ui->setupUi(this);
     setMaximumWidth(525);
-#ifdef Q_WS_WIN
-    ui->progressBar->setStyleSheet("QProgressBar {border: 1px solid;}");
-#endif
-    ui->button->setPixmap(
-#ifdef Q_WS_X11
-                style()->standardIcon(QStyle::SP_BrowserStop).pixmap(20,20)
-#else
-                QIcon(":/icons/faenza/stop.png").pixmap(20,20)
-#endif
-                );
+
+    ui->button->setPixmap(IconProvider::standardIcon(QStyle::SP_BrowserStop).pixmap(20,20));
     ui->fileName->setText(m_fileName);
     ui->downloadInfo->setText(tr("Remaining time unavailable"));
     ui->fileIcon->setPixmap(fileIcon);

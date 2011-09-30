@@ -12,3 +12,9 @@
     max-width: 250px;
     height: 26px;
 }
+
+/*Downloads*/
+DownloadItem #progressBar
+{
+    border: 1px solid;
+}

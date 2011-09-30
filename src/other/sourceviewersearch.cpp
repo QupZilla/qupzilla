@@ -18,6 +18,7 @@
 #include "sourceviewersearch.h"
 #include "ui_sourceviewersearch.h"
 #include "sourceviewer.h"
+#include "iconprovider.h"
 
 SourceViewerSearch::SourceViewerSearch(SourceViewer* parent) :
     AnimatedWidget(AnimatedWidget::Up)
@@ -26,29 +27,11 @@ SourceViewerSearch::SourceViewerSearch(SourceViewer* parent) :
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
-    ui->closeButton->setIcon(
-#ifdef Q_WS_X11
-    style()->standardIcon(QStyle::SP_DialogCloseButton)
-#else
-    QIcon(":/icons/faenza/close.png")
-#endif
-    );
+    ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
 
-    ui->next->setIcon(
-#ifdef Q_WS_X11
-    style()->standardIcon(QStyle::SP_ArrowForward)
-#else
-    QIcon(":/icons/faenza/forward.png")
-#endif
-    );
+    ui->next->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
 
-    ui->previous->setIcon(
-#ifdef Q_WS_X11
-    style()->standardIcon(QStyle::SP_ArrowBack)
-#else
-    QIcon(":/icons/faenza/back.png")
-#endif
-    );
+    ui->previous->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
     ui->lineEdit->setFocus();
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->lineEdit, SIGNAL(textEdited(QString)), this, SLOT(next()));

@@ -20,6 +20,7 @@
 #include "autofillmodel.h"
 #include "mainapplication.h"
 #include "animatedwidget.h"
+#include "iconprovider.h"
 
 AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget* parent)
    :AnimatedWidget(AnimatedWidget::Down, 300, parent)
@@ -31,13 +32,7 @@ AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pa
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
     ui->label->setText(tr("Do you want QupZilla to remember password on %1?").arg(url.host()));
-    ui->closeButton->setIcon(
-#ifdef Q_WS_X11
-    style()->standardIcon(QStyle::SP_DialogCloseButton)
-#else
-    QIcon(":/icons/faenza/close.png")
-#endif
-    );
+    ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
 
     connect(ui->remember, SIGNAL(clicked()), this, SLOT(remember()));
     connect(ui->never, SIGNAL(clicked()), this, SLOT(never()));

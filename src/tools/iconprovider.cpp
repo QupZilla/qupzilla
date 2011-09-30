@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "iconprovider.h"
 #include "webview.h"
+#include "mainapplication.h"
 
 IconProvider::IconProvider(QObject* parent) :
     QObject(parent)
@@ -91,6 +92,78 @@ void IconProvider::clearIconDatabase()
     query.exec("VACUUM");
 
     m_iconBuffer.clear();
+}
+
+QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
+{
+#ifdef Q_WS_X11
+    return mApp->style()->standardIcon(icon);
+#else
+    switch (icon) {
+    case QStyle::SP_DialogCloseButton:
+        return QIcon(":/icons/faenza/close.png");
+
+    case QStyle::SP_BrowserStop:
+        return QIcon(":/icons/faenza/stop.png");
+
+    case QStyle::SP_BrowserReload:
+        return QIcon(":/icons/faenza/reload.png");
+
+    case QStyle::SP_ArrowForward:
+        return QIcon(":/icons/faenza/forward.png");
+
+    case QStyle::QStyle::SP_ArrowBack:
+        return QIcon(":/icons/faenza/back.png");
+
+    default:
+        return QIcon();
+        break;
+    }
+#endif
+}
+
+QPixmap IconProvider::standardPixmap(QStyle::StandardPixmap icon)
+{
+#ifdef Q_WS_X11
+    return mApp->style()->standardPixmap(icon);
+#else
+    switch (icon) {
+    case QStyle::SP_DialogCloseButton:
+        return QPixmap(":/icons/faenza/close.png");
+
+    case QStyle::SP_BrowserStop:
+        return QPixmap(":/icons/faenza/stop.png");
+
+    case QStyle::SP_BrowserReload:
+        return QPixmap(":/icons/faenza/reload.png");
+
+    case QStyle::SP_ArrowForward:
+        return QPixmap(":/icons/faenza/forward.png");
+
+    case QStyle::QStyle::SP_ArrowBack:
+        return QPixmap(":/icons/faenza/back.png");
+
+    default:
+        return QPixmap();
+        break;
+    }
+#endif
+}
+
+QIcon IconProvider::fromTheme(const QString &icon)
+{
+#ifdef Q_WS_X11
+    return QIcon::fromTheme(icon);
+#else
+    if (icon == "go-home")
+        return QIcon(":/icons/faenza/home.png");
+    else if (icon == "text-plain")
+        return QIcon(":icons/locationbar/unknownpage.png");
+    else if (icon == "user-bookmarks")
+        return QIcon(":icons/faenza/user-bookmarks.png");
+    else
+        return QIcon();
+#endif
 }
 
 QIcon IconProvider::iconFromBase64(const QByteArray &data)

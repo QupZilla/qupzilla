@@ -150,7 +150,7 @@ void QupZilla::postLaunch()
     if (addTab)
         m_tabWidget->addView(startUrl);
 
-    aboutToShowHistoryMenu();
+    aboutToShowHistoryMenu(false);
     aboutToShowBookmarksMenu();
 
     if (m_tabWidget->count() == 0) //Something went really wrong .. add one tab
@@ -264,22 +264,10 @@ void QupZilla::setupMenu()
     m_actionShowFullScreen->setCheckable(true);
     m_actionShowFullScreen->setShortcut(QKeySequence("F11"));
     connect(m_actionShowFullScreen, SIGNAL(triggered(bool)), this, SLOT(fullScreen(bool)));
-    m_actionStop = new QAction(
-#ifdef Q_WS_X11
-            style()->standardIcon(QStyle::SP_BrowserStop)
-#else
-            QIcon(":/icons/faenza/stop.png")
-#endif
-            , tr("&Stop"), this);
+    m_actionStop = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop"), this);
     connect(m_actionStop, SIGNAL(triggered()), this, SLOT(stop()));
     m_actionStop->setShortcut(QKeySequence("Esc"));
-    m_actionReload = new QAction(
-#ifdef Q_WS_X11
-            style()->standardIcon(QStyle::SP_BrowserReload)
-#else
-            QIcon(":/icons/faenza/reload.png")
-#endif
-            , tr("&Reload"), this);
+    m_actionReload = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
     connect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
     m_actionReload->setShortcut(QKeySequence("F5"));
     QAction* actionEncoding = new QAction(tr("Character &Encoding"), this);
@@ -491,7 +479,7 @@ void QupZilla::aboutToShowBookmarksMenu()
     m_menuBookmarks->clear();
     m_menuBookmarks->addAction(tr("Bookmark &This Page"), this, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
     m_menuBookmarks->addAction(tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()));
-    m_menuBookmarks->addAction(QIcon::fromTheme("user-bookmarks"), tr("Organize &Bookmarks"), this, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
+    m_menuBookmarks->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Organize &Bookmarks"), this, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
     m_menuBookmarks->addSeparator();
     QSqlQuery query;
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksMenu'");
@@ -548,7 +536,7 @@ void QupZilla::aboutToShowBookmarksMenu()
 
 }
 
-void QupZilla::aboutToShowHistoryMenu()
+void QupZilla::aboutToShowHistoryMenu(bool loadHistory)
 {
     if (!weView())
         return;
@@ -556,29 +544,13 @@ void QupZilla::aboutToShowHistoryMenu()
     if (!m_historyMenuChanged)
         return;
     m_historyMenuChanged = false;
+    if (!loadHistory)
+        m_historyMenuChanged = true;
 
     m_menuHistory->clear();
-    m_menuHistory->addAction(
-#ifdef Q_WS_X11
-            style()->standardIcon(QStyle::SP_ArrowBack)
-#else
-            QIcon(":/icons/faenza/back.png")
-#endif
-            , tr("&Back"), this, SLOT(goBack()))->setShortcut(QKeySequence("Ctrl+Left"));
-    m_menuHistory->addAction(
-#ifdef Q_WS_X11
-            style()->standardIcon(QStyle::SP_ArrowForward)
-#else
-            QIcon(":/icons/faenza/forward.png")
-#endif
-            , tr("&Forward"), this, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
-    m_menuHistory->addAction(
-#ifdef Q_WS_X11
-            QIcon::fromTheme("go-home")
-#else
-            QIcon(":/icons/faenza/home.png")
-#endif
-            , tr("&Home"), this, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
+    m_menuHistory->addAction(IconProvider::standardIcon(QStyle::SP_ArrowBack), tr("&Back"), this, SLOT(goBack()))->setShortcut(QKeySequence("Ctrl+Left"));
+    m_menuHistory->addAction(IconProvider::standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
+    m_menuHistory->addAction(IconProvider::fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
 
     if (!weView()->history()->canGoBack())
         m_menuHistory->actions().at(0)->setEnabled(false);
@@ -588,18 +560,20 @@ void QupZilla::aboutToShowHistoryMenu()
     m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), this, SLOT(showHistoryManager()));
     m_menuHistory->addSeparator();
 
-    QSqlQuery query;
-    query.exec("SELECT title, url FROM history ORDER BY date DESC LIMIT 10");
-    while(query.next()) {
-        QUrl url = query.value(1).toUrl();
-        QString title = query.value(0).toString();
-        if (title.length()>40) {
-            title.truncate(40);
-            title+="..";
+    if (loadHistory) {
+        QSqlQuery query;
+        query.exec("SELECT title, url FROM history ORDER BY date DESC LIMIT 10");
+        while(query.next()) {
+            QUrl url = query.value(1).toUrl();
+            QString title = query.value(0).toString();
+            if (title.length()>40) {
+                title.truncate(40);
+                title+="..";
+            }
+            m_menuHistory->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
         }
-        m_menuHistory->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
+        m_menuHistory->addSeparator();
     }
-    m_menuHistory->addSeparator();
     m_menuHistory->addMenu(m_menuClosedTabs);
 }
 

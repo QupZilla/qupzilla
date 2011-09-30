@@ -29,6 +29,7 @@
 #include <QMessageBox>
 #include <QDesktopServices>
 #include <QStyle>
+#include <QFileDialog>
 
 class QupZilla;
 class WebView;

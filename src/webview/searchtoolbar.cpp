@@ -20,6 +20,7 @@
 #include "webview.h"
 #include "lineedit.h"
 #include "ui_searchtoolbar.h"
+#include "iconprovider.h"
 
 SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
   : AnimatedWidget(AnimatedWidget::Up, 300, parent)
@@ -29,29 +30,11 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
-    ui->closeButton->setIcon(
-#ifdef Q_WS_X11
-    style()->standardIcon(QStyle::SP_DialogCloseButton)
-#else
-    QIcon(":/icons/faenza/close.png")
-#endif
-    );
+    ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
 
-    ui->next->setIcon(
-#ifdef Q_WS_X11
-    style()->standardIcon(QStyle::SP_ArrowForward)
-#else
-    QIcon(":/icons/faenza/forward.png")
-#endif
-    );
+    ui->next->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
 
-    ui->previous->setIcon(
-#ifdef Q_WS_X11
-    style()->standardIcon(QStyle::SP_ArrowBack)
-#else
-    QIcon(":/icons/faenza/back.png")
-#endif
-    );
+    ui->previous->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
 
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(searchText(QString)));
