@@ -88,7 +88,7 @@ NavigationBar::NavigationBar(QupZilla *mainClass, QWidget *parent)
 
     int splitterWidth = m_navigationSplitter->width();
     QList<int> sizes;
-    sizes << (int)((double)splitterWidth * .75) << (int)((double)splitterWidth * .25);
+    sizes << (int)((double)splitterWidth * .85) << (int)((double)splitterWidth * .15);
     m_navigationSplitter->setSizes(sizes);
 
     m_exitFullscreen = new ToolButton();
