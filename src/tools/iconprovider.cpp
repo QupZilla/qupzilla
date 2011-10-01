@@ -112,7 +112,7 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
     case QStyle::SP_ArrowForward:
         return QIcon(":/icons/faenza/forward.png");
 
-    case QStyle::QStyle::SP_ArrowBack:
+    case QStyle::SP_ArrowBack:
         return QIcon(":/icons/faenza/back.png");
 
     default:
@@ -140,7 +140,7 @@ QPixmap IconProvider::standardPixmap(QStyle::StandardPixmap icon)
     case QStyle::SP_ArrowForward:
         return QPixmap(":/icons/faenza/forward.png");
 
-    case QStyle::QStyle::SP_ArrowBack:
+    case QStyle::SP_ArrowBack:
         return QPixmap(":/icons/faenza/back.png");
 
     default:
