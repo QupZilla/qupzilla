@@ -179,7 +179,6 @@ private slots:
 
     void copy() { QApplication::clipboard()->setText(weView()->selectedText()); }
     void selectAll() { weView()->selectAll(); }
-    void reportBug() { m_tabWidget->addView(QUrl("http://qupzilla.ic.cz/bugzilla/?do=newtask&project=2")); }
 
     void zoomIn() { weView()->zoomIn(); }
     void zoomOut() { weView()->zoomOut(); }

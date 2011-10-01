@@ -1,0 +1,58 @@
+<html><head>
+<title>%TITLE%</title>
+<link rel="icon" href="data:image/png;base64,%FAVICON%" type="image/x-icon" />
+<style>
+html {
+  background: #eeeeee;
+  font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #525c66;
+}
+
+#box {
+  max-width: 500px;
+  margin: 25px auto 0px auto;
+  padding: 0px 40px 0px 40px;
+  border-width: 20px;
+  -webkit-border-image: url(data:image/png;base64,%BOX-BORDER%) 25;
+}
+
+.line {
+    width: 400px;
+    height: 25px;
+    text-align: center;
+    border: 1px solid #babcb8;
+}
+.line:focus{
+    border-color: #579eea;
+}
+.submit
+{
+    margin-top: 5px;
+}
+
+a {
+    color: #1a4ba4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bottom {
+    margin-top: 20px;
+    margin-bottom: 3px;
+}
+</style>
+</head>
+<body onload="document.getElementById('inp').focus()">
+  <div id="box">
+<center>
+
+<img src="data:image/png;base64,%ABOUT-IMG%"">
+<form action="http://www.google.com/search?client=qupzilla" method="GET">
+    <input class="line" id="inp" class="question" name="q"/> <br/>
+    <input class="submit" type="submit" name="search" value="%BUTTON-LABEL%">
+</form>
+
+<p class="bottom">%SEARCH-BY-GOOGLE% | <a href="%WWW%">%ABOUT-QUPZILLA%</a></p>
+</center>
+  </div>
+</body></html>
