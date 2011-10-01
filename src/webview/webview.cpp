@@ -757,8 +757,11 @@ void WebView::load(const QUrl &url)
     if (QFile::exists(url.path()))
 #endif
         QWebView::load(url);
-    else
-        QWebView::load(QUrl("http://www.google.com/search?client=qupzilla&q="+url.toString()));
+    else {
+        QString urlString = "http://www.google.com/search?client=qupzilla&q=" + url.toString();
+        QWebView::load(QUrl(urlString));
+        m_locationBar->setText(urlString);
+    }
 }
 
 QUrl WebView::url() const
