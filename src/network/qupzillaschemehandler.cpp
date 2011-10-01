@@ -45,7 +45,7 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject *pa
     setUrl(req.url());
 
     m_pageName = req.url().path();
-    if (m_pageName == "about" || m_pageName == "reportbug") {
+    if (m_pageName == "about" || m_pageName == "reportbug" || m_pageName == "start") {
         m_buffer.open(QIODevice::ReadWrite);
         setError(QNetworkReply::NoError, tr("No Error"));
 
@@ -64,6 +64,8 @@ void QupZillaSchemeReply::loadPage()
         stream << aboutPage();
     else if (m_pageName == "reportbug")
         stream << reportbugPage();
+    else if (m_pageName == "start")
+        stream << startPage();
 
     stream.flush();
     m_buffer.reset();
@@ -116,6 +118,23 @@ QString QupZillaSchemeReply::reportbugPage()
     page.replace("%SEND%", tr("Send"));
     page.replace("%E-MAIL-OPTIONAL%", tr("E-mail is optional"));
     page.replace("%FIELDS-ARE-REQUIRED%", tr("Please fill all required fields!"));
+    return page;
+}
+
+QString QupZillaSchemeReply::startPage()
+{
+    QString page;
+    page.append(qz_readAllFileContents(":html/start.html"));
+    page.replace("%FAVICON%", qz_pixmapToByteArray(QPixmap(":icons/qupzilla.png")));
+    page.replace("%BOX-BORDER%", qz_pixmapToByteArray(QPixmap(":html/box-border.png")));
+    page.replace("%ABOUT-IMG%", qz_pixmapToByteArray(QPixmap(":icons/other/about.png")));
+
+    page.replace("%TITLE%", tr("Start Page"));
+    page.replace("%BUTTON-LABEL%", tr("Google Search"));
+    page.replace("%SEARCH-BY-GOOGLE%", tr("Search results provided by Google"));
+    page.replace("%WWW%", QupZilla::WWWADDRESS);
+    page.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
+
     return page;
 }
 

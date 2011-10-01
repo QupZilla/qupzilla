@@ -58,6 +58,7 @@ private slots:
 private:
     QString aboutPage();
     QString reportbugPage();
+    QString startPage();
 
     QBuffer m_buffer;
     QString m_pageName;
