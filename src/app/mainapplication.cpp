@@ -671,7 +671,7 @@ bool MainApplication::checkSettingsDir()
     versionFile.write(QupZilla::VERSION.toAscii());
     versionFile.close();
 
-    if (rData.contains("1.0.0-b1")) // Data not changed from this version
+    if (rData.contains("1.0.0-b3")) // Data not changed from this version
         return true;
 
     dir.mkdir("profiles");
