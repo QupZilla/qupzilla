@@ -165,8 +165,8 @@ void QupZilla::setupUi()
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Browser-View-Settings");
     if (settings.value("WindowMaximised", false).toBool()) {
-        setWindowState(Qt::WindowMaximized);
         resize(800, 550);
+        setWindowState(Qt::WindowMaximized);
     } else {
         setGeometry(settings.value("WindowGeometry", QRect(0, 0, 800, 550)).toRect());
     }
@@ -360,7 +360,7 @@ void QupZilla::loadSettings()
 
     //Url settings
     settings.beginGroup("Web-URL-Settings");
-    m_homepage = settings.value("homepage","http://qupzilla.ic.cz/search/").toUrl();
+    m_homepage = settings.value("homepage","qupzilla:start").toUrl();
     m_newtab = settings.value("newTabUrl","").toUrl();
     settings.endGroup();
 

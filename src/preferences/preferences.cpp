@@ -78,7 +78,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
-    m_homepage = settings.value("homepage","http://qupzilla.ic.cz/search/").toString();
+    m_homepage = settings.value("homepage","qupzilla:start").toString();
     m_newTabUrl = settings.value("newTabUrl","").toString();
     ui->homepage->setText(m_homepage);
     ui->newTabUrl->setText(m_newTabUrl);
