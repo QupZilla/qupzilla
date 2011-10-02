@@ -40,24 +40,25 @@
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
-    ,m_cookiemanager(0)
-    ,m_browsingLibrary(0)
-    ,m_historymodel(0)
-    ,m_websettings(0)
-    ,m_networkmanager(0)
-    ,m_cookiejar(0)
-    ,m_rssmanager(0)
-    ,m_plugins(0)
-    ,m_bookmarksModel(0)
-    ,m_downloadManager(0)
-    ,m_autofill(0)
-    ,m_networkCache(new QNetworkDiskCache)
-    ,m_desktopNotifications(0)
-    ,m_iconProvider(new IconProvider)
-    ,m_isClosing(false)
-    ,m_isStateChanged(false)
-    ,m_isExited(false)
-    ,m_isRestoring(false)
+    , m_cookiemanager(0)
+    , m_browsingLibrary(0)
+    , m_historymodel(0)
+    , m_websettings(0)
+    , m_networkmanager(0)
+    , m_cookiejar(0)
+    , m_rssmanager(0)
+    , m_updater(0)
+    , m_plugins(0)
+    , m_bookmarksModel(0)
+    , m_downloadManager(0)
+    , m_autofill(0)
+    , m_networkCache(new QNetworkDiskCache)
+    , m_desktopNotifications(0)
+    , m_iconProvider(new IconProvider)
+    , m_isClosing(false)
+    , m_isStateChanged(false)
+    , m_isExited(false)
+    , m_isRestoring(false)
 {
     setOverrideCursor(Qt::WaitCursor);
 #if defined(Q_WS_X11) & !defined(DEVELOPING)
@@ -154,7 +155,9 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
 
     AutoSaver* saver = new AutoSaver();
     connect(saver, SIGNAL(saveApp()), this, SLOT(saveStateSlot()));
-    m_updater = new Updater(qupzilla);
+
+    if (settings2.value("Web-Browser-Settings/CheckUpdates", true).toBool())
+        m_updater = new Updater(qupzilla);
 
     if (noAddons) {
         settings2.setValue("Plugin-Settings/AllowedPlugins", QStringList());

@@ -63,6 +63,7 @@ const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "nowrep";
 const QString QupZilla::COPYRIGHT = "2010-2011";
 const QString QupZilla::WWWADDRESS = "http://qupzilla.ic.cz";
+const QString QupZilla::WIKIADDRESS = "https://github.com/nowrep/QupZilla/wiki";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
 QIcon QupZilla::qupzillaIcon()
