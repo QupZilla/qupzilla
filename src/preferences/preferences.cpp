@@ -85,6 +85,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     int afterLaunch = settings.value("afterLaunch",1).toInt();
     settings.endGroup();
     ui->afterLaunch->setCurrentIndex(afterLaunch);
+    ui->checkUpdates->setChecked( settings.value("Web-Browser-Settings/CheckUpdates", true).toBool() );
 
     ui->newTabFrame->setVisible(false);
     if (m_newTabUrl.isEmpty())
@@ -509,7 +510,11 @@ void Preferences::deleteProfile()
 void Preferences::startProfileIndexChanged(QString index)
 {
     ui->deleteProfile->setEnabled(m_actProfileName != index);
-    ui->cannotDeleteActiveProfileLabel->setVisible(m_actProfileName == index);
+
+    if (m_actProfileName == index)
+        ui->cannotDeleteActiveProfileLabel->setText(tr("Note: You cannot delete active profile."));
+    else
+        ui->cannotDeleteActiveProfileLabel->setText(" ");
 }
 
 void Preferences::saveSettings()
@@ -604,6 +609,7 @@ void Preferences::saveSettings()
     settings.setValue("PrintElementBackground", ui->printEBackground->isChecked());
     settings.setValue("wheelScrollLines", ui->wheelScroll->value());
     settings.setValue("DoNotTrack", ui->doNotTrack->isChecked());
+    settings.setValue("CheckUpdates", ui->checkUpdates->isChecked());
     //Cache
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
     settings.setValue("LocalCacheSize", ui->cacheMB->value());

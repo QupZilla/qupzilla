@@ -49,9 +49,9 @@ void Updater::downCompleted(QNetworkReply* reply)
         html.remove("Version:");
         if (html != QupZilla::VERSION) {
             mApp->desktopNotifications()->notify(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
-            QAction* action = new QAction(QIcon(":icons/qupzillaupdate.png"), "Update", this);
-            connect(action, SIGNAL(triggered()), this, SLOT(downloadNewVersion()));
-            p_QupZilla->menuBar()->addAction(action);
+//            QAction* action = new QAction(QIcon(":icons/qupzillaupdate.png"), "Update", this);
+//            connect(action, SIGNAL(triggered()), this, SLOT(downloadNewVersion()));
+//            p_QupZilla->menuBar()->addAction(action);
         }
     }
     reply->manager()->deleteLater();

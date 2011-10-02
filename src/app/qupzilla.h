@@ -82,6 +82,7 @@ public:
     static const QString AUTHOR;
     static const QString COPYRIGHT;
     static const QString WWWADDRESS;
+    static const QString WIKIADDRESS;
     static const QString WEBKITVERSION;
     static QIcon qupzillaIcon();
 
