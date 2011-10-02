@@ -132,7 +132,7 @@ QString QupZillaSchemeReply::startPage()
     page.replace("%TITLE%", tr("Start Page"));
     page.replace("%BUTTON-LABEL%", tr("Google Search"));
     page.replace("%SEARCH-BY-GOOGLE%", tr("Search results provided by Google"));
-    page.replace("%WWW%", QupZilla::WWWADDRESS);
+    page.replace("%WWW%", QupZilla::WIKIADDRESS);
     page.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
 
     return page;

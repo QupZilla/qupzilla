@@ -229,7 +229,7 @@ void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 
     QString fileSize = fileSizeToString(total);
 
     if (fileSize == tr("Unknown size"))
-        ui->downloadInfo->setText(tr("%2 of %3 (%4)").arg(currSize, fileSize, speed));
+        ui->downloadInfo->setText(tr("%2 - unknown size (%3)").arg(currSize, speed));
     else
         ui->downloadInfo->setText(tr("Remaining %1 - %2 of %3 (%4)").arg(remTime, currSize, fileSize, speed));
 }
