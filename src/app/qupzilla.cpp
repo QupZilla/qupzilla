@@ -91,6 +91,7 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
 {
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
+    setCursor(Qt::ArrowCursor);
     this->setWindowTitle("QupZilla");
     setUpdatesEnabled(false);
 
