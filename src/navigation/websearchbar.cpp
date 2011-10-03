@@ -42,6 +42,10 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
 
     setWidgetSpacing(0);
     setupSearchTypes();
+
+#ifdef Q_WS_WIN
+    setMaximumWidth(350);
+#endif
 }
 
 void WebSearchBar::setupSearchTypes()

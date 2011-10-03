@@ -170,7 +170,7 @@ void QupZilla::setupUi()
         resize(800, 550);
         setWindowState(Qt::WindowMaximized);
     } else {
-        setGeometry(settings.value("WindowGeometry", QRect(0, 0, 800, 550)).toRect());
+        setGeometry(settings.value("WindowGeometry", QRect(20, 20, 800, 550)).toRect());
     }
 
     QWidget* widget = new QWidget(this);
