@@ -24,9 +24,7 @@ Updater::Updater(QupZilla* mainClass, QObject* parent) :
     QObject(parent)
     ,p_QupZilla(mainClass)
 {
-#ifndef DEVELOPING
     QTimer::singleShot(60*1000, this, SLOT(start()) ); //Start checking after 1 minute
-#endif
 }
 
 void Updater::start()

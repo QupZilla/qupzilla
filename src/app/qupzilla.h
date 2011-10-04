@@ -18,15 +18,6 @@
 #ifndef QUPZILLA_H
 #define QUPZILLA_H
 
-//Comment for release building
-#define DEVELOPING
-
-#ifdef QT_NO_DEBUG
-#ifdef DEVELOPING
-#error "TRYING TO RELEASE WITH DEVELOPING FLAG"
-#endif
-#endif
-
 #include <QMainWindow>
 #include <QMenuBar>
 #include <QTranslator>
