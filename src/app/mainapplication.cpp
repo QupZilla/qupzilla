@@ -61,7 +61,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     , m_isRestoring(false)
 {
     setOverrideCursor(Qt::WaitCursor);
-#if defined(Q_WS_X11) & !defined(DEVELOPING)
+#if defined(Q_WS_X11) & !defined(NO_SYSTEM_DATAPATH)
     DATADIR = "/usr/share/qupzilla/";
 #else
     DATADIR = qApp->applicationDirPath()+"/";
@@ -623,7 +623,7 @@ void MainApplication::checkProfile(QString path)
         return;
     }
     versionFile.close();
-#ifdef DEVELOPING
+#ifdef UNRELEASED_BUILD
     return;
 #endif
     //Starting profile migration manager
@@ -656,7 +656,7 @@ bool MainApplication::checkSettingsDir()
             return true;
         }
     versionFile.close();
-#ifdef DEVELOPING
+#ifdef UNRELEASED_BUILD
         return true;
 #endif
     }
