@@ -18,12 +18,6 @@
 #ifndef AUTOSAVER_H
 #define AUTOSAVER_H
 
-#ifdef QT_NO_DEBUG
-#ifdef DEVELOPING
-#error "TRYING TO RELEASE WITH DEVELOPING FLAG"
-#endif
-#endif
-
 #include <QObject>
 #include <QBasicTimer>
 #include <QDebug>

@@ -7,9 +7,7 @@
 QT       += core gui webkit sql network
 TARGET = qupzilla
 TEMPLATE = app
-VERSION = 1.00.b4
-TRANSLATIONS +=cs_CZ.ts\
-               sk_SK.ts
+VERSION = 1.00.rc1
 
 DESTDIR = ../bin
 OBJECTS_DIR = ../build
@@ -20,6 +18,15 @@ UI_DIR = ../build
 ##It won't compile on windows with this define
 ##Some bug in qtsingleapp / qvector template
 !win32: !CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT
+
+unix:QT += dbus
+win32:DEFINES += W7API
+win32:RC_FILE = appicon.rc
+win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
+
+
+TRANSLATIONS +=cs_CZ.ts\
+               sk_SK.ts
 
 INCLUDEPATH += 3rdparty\
                app\
@@ -273,15 +280,9 @@ RESOURCES += \
     data/html.qrc
 
 OTHER_FILES += \
-    appicon.rc \
-    themes/default/main.css
+    appicon.rc
 
 include(3rdparty/qtsingleapplication.pri)
-
-unix:QT += dbus
-win32:DEFINES += W7API
-win32:RC_FILE = appicon.rc
-win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 
 
 
