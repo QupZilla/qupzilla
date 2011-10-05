@@ -19,6 +19,7 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "desktopnotificationsfactory.h"
+#include <QDebug>
 
 Updater::Updater(QupZilla* mainClass, QObject* parent) :
     QObject(parent)
@@ -27,9 +28,55 @@ Updater::Updater(QupZilla* mainClass, QObject* parent) :
     QTimer::singleShot(60*1000, this, SLOT(start()) ); //Start checking after 1 minute
 }
 
+Updater::Version Updater::parseVersionFromString(const QString &string)
+{
+    Version ver;
+    ver.isValid = false;
+
+    QStringList v = string.split(".");
+    if (v.count() != 3)
+        return ver;
+
+    QStringList r = v.at(2).split("-");
+
+    ver.majorVersion = v.at(0).toInt();
+    ver.minorVersion = v.at(1).toInt();
+    ver.revisionNumber = r.at(0).toInt();
+    if (r.count() == 2)
+        ver.specialSymbol = r.at(1);
+
+    ver.isValid = true;
+    return ver;
+}
+
+bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
+{
+    if (one.contains("rc") && two.contains("b"))
+        return true;
+
+    if (one.contains("b") && two.contains("rc"))
+        return false;
+
+    if (one.contains("b")) {
+        int o = one.remove("b").toInt();
+        int t = two.remove("b").toInt();
+
+        return o > t;
+    }
+
+    if (one.contains("rc")) {
+        int o = one.remove("rc").toInt();
+        int t = two.remove("rc").toInt();
+
+        return o > t;
+    }
+
+    return false;
+}
+
 void Updater::start()
 {
-    startDownloadingUpdateInfo(QUrl(QupZilla::WWWADDRESS+"/update.php?v="+QupZilla::VERSION));
+    startDownloadingUpdateInfo(QUrl(QupZilla::WWWADDRESS + "/update.php?v=" + QupZilla::VERSION));
 }
 
 void Updater::startDownloadingUpdateInfo(const QUrl &url)
@@ -45,7 +92,9 @@ void Updater::downCompleted(QNetworkReply* reply)
     QString html = QString(reply->readAll());
     if (html.startsWith("Version:")){
         html.remove("Version:");
-        if (html != QupZilla::VERSION) {
+        Version current = parseVersionFromString(QupZilla::VERSION);
+        Version updated = parseVersionFromString(html);
+        if (current < updated) {
             mApp->desktopNotifications()->notify(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
 //            QAction* action = new QAction(QIcon(":icons/qupzillaupdate.png"), "Update", this);
 //            connect(action, SIGNAL(triggered()), this, SLOT(downloadNewVersion()));

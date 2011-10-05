@@ -39,6 +39,39 @@ private slots:
     void downloadNewVersion();
 
 private:
+    struct Version {
+        bool isValid;
+        int majorVersion;
+        int minorVersion;
+        int revisionNumber;
+        QString specialSymbol;
+
+        bool operator<(const Version &other) const
+        {
+            if (!this->isValid || !other.isValid)
+                return false;
+            if (this->majorVersion < other.majorVersion)
+                return true;
+            if (this->minorVersion < other.minorVersion)
+                return true;
+            if (this->revisionNumber < other.revisionNumber)
+                return true;
+
+            if (this->revisionNumber == other.revisionNumber)
+                return !isBiggerThan_SpecialSymbol(this->specialSymbol, other.specialSymbol);
+
+            return false;
+        }
+
+        bool operator>(const Version &other) const
+        {
+            return !operator<(other);
+        }
+    };
+
+    Version parseVersionFromString(const QString &string);
+    static bool isBiggerThan_SpecialSymbol(QString one, QString two);
+
     void startDownloadingUpdateInfo(const QUrl &url);
 
     QupZilla* p_QupZilla;
