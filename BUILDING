@@ -17,19 +17,32 @@
 >> Microsoft Windows <<
 >>                   <<
 
- You need Microsoft Visual C++ Compiler 2010
- in order to build QupZilla. It is because 
- QupZilla is using Windows 7 API and therefore
- corresponding headers are included only on versions
- 2010 and above.
- If you don't meet this, please use precompiled versions,
- which are also in smart windows installer.
+  You need Microsoft Visual C++ Compiler 2010
+  in order to build QupZilla. It is because 
+  QupZilla is using Windows 7 API and therefore
+  corresponding headers are included only on versions
+  2010 and above.
+  If you don't meet this, please use precompiled versions,
+  which are also in smart windows installer.
  
 >>   Linux / Unix    <<
 >>                   <<
 
- There is no extra dependency, you only need Qt tools.
+  There is no extra dependency, you only need Qt tools.
  
+>>        OS/2       <<
+>>                   <<
+
+  I cannot provide support for QupZilla on OS/2 as I don't have access to 
+  machine with OS/2, but it is possible to get QupZilla working there.
+  There may be some more things to do, but as far as I know, you need to
+  add Q_WS_WIN define to qmake.
+  You will do this by adding one line
+               
+               DEFINES += Q_WS_WIN
+               
+  to QupZilla.pro file.
+
 #######################
 ## Available Defines ##
 #######################

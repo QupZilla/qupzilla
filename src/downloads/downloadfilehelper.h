@@ -29,6 +29,7 @@
 #include <QFileDialog>
 
 class DownloadItem;
+class DownloadManager;
 class DownloadFileHelper : public QObject
 {
     Q_OBJECT
@@ -37,6 +38,7 @@ public:
     ~DownloadFileHelper();
 
     void setListWidget(QListWidget* tw) { m_listWidget = tw; }
+    void setDownloadManager(DownloadManager* m) { m_manager = m; }
     void handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo);
 
 signals:
@@ -65,7 +67,7 @@ private:
 
     QListWidget* m_listWidget;
     QFileIconProvider* m_iconProvider;
-
+    DownloadManager* m_manager;
 };
 
 #endif // DOWNLOADFILEHELPER_H

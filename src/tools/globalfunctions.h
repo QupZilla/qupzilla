@@ -30,5 +30,6 @@ QByteArray qz_pixmapToByteArray(const QPixmap &pix);
 QByteArray qz_readAllFileContents(const QString &filename);
 
 void qz_centerWidgetOnScreen(QWidget* w);
+QString qz_buildSystem();
 
 #endif // GLOBALFUNCTIONS_H
