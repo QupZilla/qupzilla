@@ -58,7 +58,6 @@
 #include "pagescreen.h"
 
 const QString QupZilla::VERSION = "1.0.0-rc1";
-//const QString QupZilla::BUILDTIME = QLocale(QLocale::English).toDateTime(__DATE__" "__TIME__, "MMM d yyyy hh:mm:ss").toString("MM/dd/yyyy hh:ss");
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "nowrep";
 const QString QupZilla::COPYRIGHT = "2010-2011";
@@ -66,7 +65,7 @@ const QString QupZilla::WWWADDRESS = "http://qupzilla.ic.cz";
 const QString QupZilla::WIKIADDRESS = "https://github.com/nowrep/QupZilla/wiki";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
-QIcon QupZilla::qupzillaIcon()
+const QIcon QupZilla::qupzillaIcon()
 {
     QIcon i;
     i.addFile(":icons/exeicons/qupzilla16.png");

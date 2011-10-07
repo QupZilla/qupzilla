@@ -24,7 +24,6 @@ win32:DEFINES += W7API
 win32:RC_FILE = appicon.rc
 win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 
-
 TRANSLATIONS +=cs_CZ.ts\
                sk_SK.ts
 

@@ -157,6 +157,7 @@ void DownloadManager::download(const QNetworkRequest &request, bool askWhatToDo)
 void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo)
 {
     DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog);
+    h->setDownloadManager(this);
     h->setListWidget(ui->list);
     h->handleUnsupportedContent(reply, askWhatToDo);
 
@@ -165,7 +166,6 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWha
 
 void DownloadManager::itemCreated(QListWidgetItem *item, DownloadItem *downItem)
 {
-    downItem->setParent(this);
     connect(downItem, SIGNAL(deleteItem(DownloadItem*)), this, SLOT(deleteItem(DownloadItem*)));
     connect(downItem, SIGNAL(downloadFinished(bool)), this, SLOT(downloadFinished(bool)));
 
