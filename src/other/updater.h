@@ -31,14 +31,6 @@ public:
     explicit Updater(QupZilla* mainClass, QObject* parent = 0);
     ~Updater();
 
-signals:
-
-private slots:
-    void downCompleted(QNetworkReply* reply);
-    void start();
-    void downloadNewVersion();
-
-private:
     struct Version {
         bool isValid;
         int majorVersion;
@@ -67,11 +59,44 @@ private:
         {
             return !operator<(other);
         }
+
+        bool operator==(const Version &other) const
+        {
+            if (!this->isValid || !other.isValid)
+                return false;
+
+            return (this->majorVersion == other.majorVersion &&
+                    this->minorVersion == other.minorVersion &&
+                    this->revisionNumber == other.revisionNumber &&
+                    this->specialSymbol == other.specialSymbol);
+        }
+
+        bool operator>=(const Version &other) const
+        {
+            if (*this == other)
+                return true;
+            return *this > other;
+        }
+
+        bool operator<=(const Version &other) const
+        {
+            if (*this == other)
+                return true;
+            return *this < other;
+        }
     };
 
-    Version parseVersionFromString(const QString &string);
+    static Version parseVersionFromString(const QString &string);
     static bool isBiggerThan_SpecialSymbol(QString one, QString two);
 
+signals:
+
+private slots:
+    void downCompleted(QNetworkReply* reply);
+    void start();
+    void downloadNewVersion();
+
+private:
     void startDownloadingUpdateInfo(const QUrl &url);
 
     QupZilla* p_QupZilla;
