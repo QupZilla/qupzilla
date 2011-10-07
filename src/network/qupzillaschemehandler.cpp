@@ -154,19 +154,11 @@ QString QupZillaSchemeReply::aboutPage()
     page.replace("%PATHS%", tr("Paths"));
     page.replace("%COPYRIGHT%", tr("Copyright"));
 
-    QString platform;
-#ifdef Q_WS_X11
-    platform = tr("Linux");
-#endif
-#ifdef Q_WS_WIN
-    platform = tr("Windows");
-#endif
     page.replace("%VERSION-INFO%",
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), QupZilla::VERSION) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
-                 QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), platform)
-                 );
+                 QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
     page.replace("%USER-AGENT%", mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()));
     page.replace("%PATHS-TEXT%",
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->getActiveProfilPath() + "settings.ini") +
@@ -174,8 +166,6 @@ QString QupZillaSchemeReply::aboutPage()
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), mApp->getActiveProfilPath() + "pinnedtabs.dat") +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Plugins"), mApp->PLUGINSDIR) +
-                 QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR)
-                 );
-
+                 QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
     return page;
 }

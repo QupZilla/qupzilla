@@ -26,7 +26,7 @@
 
 //#define DOWNMANAGER_DEBUG
 
-DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QString &path, const QString &fileName, const QPixmap &fileIcon, QTime* timer, bool openAfterFinishedDownload, const QUrl &downloadPage)
+DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QString &path, const QString &fileName, const QPixmap &fileIcon, QTime* timer, bool openAfterFinishedDownload, const QUrl &downloadPage, DownloadManager* manager)
     : QWidget()
     , ui(new Ui::DownloadItem)
     , m_item(item)
@@ -66,7 +66,7 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error(QNetworkReply::NetworkError)));
     connect(m_reply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged()));
     connect(ui->button, SIGNAL(clicked(QPoint)), this, SLOT(stop()));
-    connect((DownloadManager*)parentWidget(), SIGNAL(resized(QSize)), this, SLOT(parentResized(QSize)));
+    connect(manager, SIGNAL(resized(QSize)), this, SLOT(parentResized(QSize)));
 
     m_downloading = true;
     m_timer.start(1000*1, this);

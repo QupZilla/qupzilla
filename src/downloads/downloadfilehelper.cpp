@@ -32,6 +32,7 @@ DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QS
     , m_reply(0)
     , m_openFileChoosed(false)
     , m_iconProvider(new QFileIconProvider)
+    , m_manager(0)
 {
 }
 
@@ -156,7 +157,7 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
     settings.endGroup();
 
     QListWidgetItem* item = new QListWidgetItem(m_listWidget);
-    DownloadItem* downItem = new DownloadItem(item, m_reply, m_path, m_fileName, m_fileIcon, m_timer, m_openFileChoosed, m_downloadPage);
+    DownloadItem* downItem = new DownloadItem(item, m_reply, m_path, m_fileName, m_fileIcon, m_timer, m_openFileChoosed, m_downloadPage, m_manager);
 
     emit itemCreated(item, downItem);
 }

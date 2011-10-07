@@ -46,8 +46,10 @@ void PageScreen::buttonClicked(QAbstractButton* b)
 
     case QDialogButtonBox::Save:
         path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."), tr("screen.png"));
-        if (!path.isEmpty())
+        if (!path.isEmpty()) {
             m_pagePixmap.save(path);
+            close();
+        }
         break;
 
     default:

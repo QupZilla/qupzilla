@@ -44,3 +44,55 @@ void qz_centerWidgetOnScreen(QWidget *w)
     const QRect &size = w->geometry();
     w->move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
 }
+
+QString qz_buildSystem()
+{
+#ifdef Q_OS_LINUX
+    return "Linux";
+#endif
+#ifdef Q_OS_UNIX
+    return "Unix";
+#endif
+#ifdef Q_OS_BSD4
+    return "BSD 4.4";
+#endif
+#ifdef Q_OS_BSDI
+    return "BSD/OS";
+#endif
+#ifdef Q_OS_FREEBSD
+    return "FreeBSD";
+#endif
+#ifdef Q_OS_HPUX
+    return "HP-UX";
+#endif
+#ifdef Q_OS_HURD
+    return "GNU Hurd";
+#endif
+#ifdef Q_OS_LYNX
+    return "LynxOS";
+#endif
+#ifdef Q_OS_MAC
+    return "MAC OS";
+#endif
+#ifdef Q_OS_NETBSD
+    return "NetBSD";
+#endif
+#ifdef Q_OS_OS2
+    return "OS/2";
+#endif
+#ifdef Q_OS_OPENBSD
+    return "OpenBSD";
+#endif
+#ifdef Q_OS_OSF
+    return "HP Tru64 UNIX";
+#endif
+#ifdef Q_OS_SOLARIS
+    return "Sun Solaris";
+#endif
+#ifdef Q_OS_UNIXWARE
+    return "UnixWare 7 / Open UNIX 8";
+#endif
+#ifdef Q_OS_WIN32
+    return "Windows";
+#endif
+}
