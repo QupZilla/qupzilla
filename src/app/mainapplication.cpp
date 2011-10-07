@@ -37,6 +37,7 @@
 #include "qtwin.h"
 #include "mainapplication.h"
 #include "webhistoryinterface.h"
+#include "globalfunctions.h"
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -646,16 +647,12 @@ bool MainApplication::checkSettingsDir()
     QString homePath = QDir::homePath();
     homePath+="/.qupzilla/";
 
-    QByteArray rData;
+    QString profileVersion;
     if (QDir(homePath).exists()) {
-        QFile versionFile(homePath+"version");
-        versionFile.open(QFile::ReadOnly);
-        rData = versionFile.readAll();
-        if (rData.contains(QupZilla::VERSION.toAscii())) {
-            versionFile.close();
+        profileVersion = qz_readAllFileContents(homePath + "version");
+
+        if (profileVersion == QupZilla::VERSION)
             return true;
-        }
-    versionFile.close();
 #ifdef UNRELEASED_BUILD
         return true;
 #endif
@@ -668,30 +665,30 @@ bool MainApplication::checkSettingsDir()
     dir.cd(".qupzilla");
 
     //.qupzilla
-    QFile(homePath+"version").remove();
-    QFile versionFile(homePath+"version");
+    QFile(homePath + "version").remove();
+    QFile versionFile(homePath + "version");
     versionFile.open(QFile::WriteOnly);
     versionFile.write(QupZilla::VERSION.toAscii());
     versionFile.close();
 
-    if (rData.contains("1.0.0-b3")) // Data not changed from this version
+    if (Updater::parseVersionFromString(QupZilla::VERSION) >= Updater::parseVersionFromString("1.0.0-b3") ) // Data not changed from this version
         return true;
 
     dir.mkdir("profiles");
     dir.cd("profiles");
 
     //.qupzilla/profiles
-    QFile(homePath+"profiles/profiles.ini").remove();
-    QFile(DATADIR+"data/default/profiles/profiles.ini").copy(homePath+"profiles/profiles.ini");
+    QFile(homePath + "profiles/profiles.ini").remove();
+    QFile(DATADIR + "data/default/profiles/profiles.ini").copy(homePath + "profiles/profiles.ini");
 
     dir.mkdir("default");
     dir.cd("default");
 
     //.qupzilla/profiles/default
-    QFile(homePath+"profiles/default/browsedata.db").remove();
-    QFile(DATADIR+"data/default/profiles/default/browsedata.db").copy(homePath+"profiles/default/browsedata.db");
-    QFile(homePath+"profiles/default/background.png").remove();
-    QFile(DATADIR+"data/default/profiles/default/background.png").copy(homePath+"profiles/default/background.png");
+    QFile(homePath + "profiles/default/browsedata.db").remove();
+    QFile(DATADIR + "data/default/profiles/default/browsedata.db").copy(homePath + "profiles/default/browsedata.db");
+    QFile(homePath + "profiles/default/background.png").remove();
+    QFile(DATADIR + "data/default/profiles/default/background.png").copy(homePath + "profiles/default/background.png");
 
     return dir.isReadable();
 }
