@@ -156,12 +156,15 @@ void DownloadManager::download(const QNetworkRequest &request, bool askWhatToDo)
 
 void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo)
 {
+    if (reply->url().scheme() == "qupzilla")
+        return;
+
     DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog);
+    connect(h, SIGNAL(itemCreated(QListWidgetItem*,DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*,DownloadItem*)));
+
     h->setDownloadManager(this);
     h->setListWidget(ui->list);
     h->handleUnsupportedContent(reply, askWhatToDo);
-
-    connect(h, SIGNAL(itemCreated(QListWidgetItem*,DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*,DownloadItem*)));
 }
 
 void DownloadManager::itemCreated(QListWidgetItem *item, DownloadItem *downItem)
