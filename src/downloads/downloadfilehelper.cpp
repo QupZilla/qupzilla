@@ -40,7 +40,7 @@ DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QS
 //// Getting where to download requested file
 //// in 3 functions, as we are using non blocking
 //// dialogs ( this is important to make secure downloading
-//// on windows working properly )
+//// on Windows working properly )
 //////////////////////////////////////////////////////
 
 void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo)
@@ -51,7 +51,7 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
     m_reply = reply;
 
     QFileInfo info(reply->url().toString());
-    QTemporaryFile tempFile("XXXXXX."+info.suffix());
+    QTemporaryFile tempFile("XXXXXX." + info.suffix());
     tempFile.open();
     QFileInfo tempInfo(tempFile.fileName());
     m_fileIcon = m_iconProvider->icon(tempInfo).pixmap(30,30);
@@ -123,6 +123,7 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
             delete m_timer;
         return;
     }
+
 
     int pos = m_userFileName.lastIndexOf("/");
     if (pos != -1) {
