@@ -601,6 +601,62 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>CertificateInfoWidget</name>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.ui" line="17"/>
+        <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Vydáno pro&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.ui" line="24"/>
+        <location filename="../src/tools/certificateinfowidget.ui" line="87"/>
+        <source>Common Name (CN):</source>
+        <translation>Obecné jméno (CN):</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.ui" line="38"/>
+        <location filename="../src/tools/certificateinfowidget.ui" line="101"/>
+        <source>Organization (O):</source>
+        <translation>Organizace (O):</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.ui" line="52"/>
+        <location filename="../src/tools/certificateinfowidget.ui" line="115"/>
+        <source>Organizational Unit (OU):</source>
+        <translation>Jednotka organizace (OU):</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.ui" line="66"/>
+        <source>Serial Number:</source>
+        <translation>Sériové číslo:</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.ui" line="80"/>
+        <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Vydal&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.ui" line="129"/>
+        <source>&lt;b&gt;Validity&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Platnost&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.ui" line="136"/>
+        <source>Issued On:</source>
+        <translation>Vydáno dne:</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.ui" line="150"/>
+        <source>Expires On:</source>
+        <translation>Platný do:</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.cpp" line="7"/>
+        <source>&lt;not set in certificate&gt;</source>
+        <translation>&lt;není součástí certifikátu&gt;</translation>
+    </message>
+</context>
+<context>
     <name>ClearPrivateData</name>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="14"/>
@@ -838,13 +894,13 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DownloadFileHelper</name>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="99"/>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="103"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="100"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="104"/>
         <source>Save file as...</source>
         <translation>Uložit soubor jako...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="189"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="191"/>
         <source>NoNameDownload</source>
         <translation>BezNazvu</translation>
     </message>
@@ -1011,29 +1067,29 @@ nebyl nalezen!</translation>
         <translation>% - Správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="191"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="194"/>
         <source>Download Finished</source>
         <translation>Stahování dokončeno</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="191"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="194"/>
         <source>All files have been successfuly downloaded.</source>
         <translation>Všechna stahování byla úspěšně dokončena.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="235"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="238"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="236"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="239"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Jste si jistý že chcete skončit? Všechna nedokončená stahování budou zrušena!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="20"/>
         <location filename="../src/downloads/downloadmanager.cpp" line="95"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="196"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="199"/>
         <source>Download Manager</source>
         <translation>Správce stahování</translation>
     </message>
@@ -1324,12 +1380,12 @@ nebyl nalezen!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="556"/>
+        <location filename="../src/app/mainapplication.cpp" line="557"/>
         <source>Last session crashed</source>
         <translation>Poslední relace spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="557"/>
+        <location filename="../src/app/mainapplication.cpp" line="558"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
@@ -2496,7 +2552,7 @@ nebyl nalezen!</translation>
         <translation>Prázdný</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.h" line="145"/>
+        <location filename="../src/app/qupzilla.h" line="137"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
@@ -2779,62 +2835,52 @@ nebyl nalezen!</translation>
         <translation>Copyright</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="159"/>
-        <source>Linux</source>
-        <translation>Linux</translation>
-    </message>
-    <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="162"/>
-        <source>Windows</source>
-        <translation>Windows</translation>
-    </message>
-    <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="165"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="158"/>
         <source>Version</source>
         <translation>Verze</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="166"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="159"/>
         <source>WebKit version</source>
         <translation>Verze WebKitu</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="167"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="160"/>
         <source>Build time</source>
         <translation>Sestaveno</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="168"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="161"/>
         <source>Platform</source>
         <translation>Platforma</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="172"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="164"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="173"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="165"/>
         <source>Saved session</source>
         <translation>Uložené relace</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="174"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="166"/>
         <source>Pinned tabs</source>
         <translation>Připíchnuté panely</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="175"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="167"/>
         <source>Themes</source>
         <translation>Témata</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="176"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="168"/>
         <source>Plugins</source>
         <translation>Doplňky</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="177"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="169"/>
         <source>Translations</source>
         <translation>Překlady</translation>
     </message>
@@ -3151,54 +3197,6 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>&lt;b&gt;Náhled&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.ui" line="366"/>
-        <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Vydáno pro&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/siteinfo.ui" line="373"/>
-        <location filename="../src/webview/siteinfo.ui" line="436"/>
-        <source>Common Name (CN):</source>
-        <translation>Obecné jméno (CN):</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/siteinfo.ui" line="387"/>
-        <location filename="../src/webview/siteinfo.ui" line="450"/>
-        <source>Organization (O):</source>
-        <translation>Organizace (O):</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/siteinfo.ui" line="401"/>
-        <location filename="../src/webview/siteinfo.ui" line="464"/>
-        <source>Organizational Unit (OU):</source>
-        <translation>Jednotka organizace (OU):</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/siteinfo.ui" line="415"/>
-        <source>Serial Number:</source>
-        <translation>Sériové číslo:</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/siteinfo.ui" line="429"/>
-        <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Vydal&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/siteinfo.ui" line="478"/>
-        <source>&lt;b&gt;Validity&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Platnost&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/siteinfo.ui" line="485"/>
-        <source>Issued On:</source>
-        <translation>Vydáno dne:</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/siteinfo.ui" line="499"/>
-        <source>Expires On:</source>
-        <translation>Platný do:</translation>
-    </message>
-    <message>
         <location filename="../src/webview/siteinfo.ui" line="186"/>
         <source>Site address:</source>
         <oldsource>Site address</oldsource>
@@ -3210,68 +3208,68 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Meta tagy na stránce:</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="28"/>
+        <location filename="../src/webview/siteinfo.cpp" line="29"/>
         <source>&lt;not set in certificate&gt;</source>
         <translation>&lt;není součástí certifikátu&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="100"/>
+        <location filename="../src/webview/siteinfo.cpp" line="102"/>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
         <translation>&lt;b&gt;Připojení je zabezpečené.&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="101"/>
+        <location filename="../src/webview/siteinfo.cpp" line="103"/>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Vaše připojení k serveru je zabezpečeno tímto certifikátem: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="115"/>
+        <location filename="../src/webview/siteinfo.cpp" line="108"/>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
         <translation>&lt;b&gt;Připojení není zabezpečené.&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="117"/>
+        <location filename="../src/webview/siteinfo.cpp" line="109"/>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
         <translation>&lt;b&gt;Vaše připojení k serveru není zabezpečené!&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="134"/>
+        <location filename="../src/webview/siteinfo.cpp" line="126"/>
         <source>Copy Image Location</source>
         <translation>Kopírovat adresu obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="135"/>
+        <location filename="../src/webview/siteinfo.cpp" line="127"/>
         <source>Copy Image Name</source>
         <translation>Kopírovat jméno obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="137"/>
+        <location filename="../src/webview/siteinfo.cpp" line="129"/>
         <source>Save Image to Disk</source>
         <translation>Uložit obrázek na disk</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="162"/>
-        <location filename="../src/webview/siteinfo.cpp" line="172"/>
+        <location filename="../src/webview/siteinfo.cpp" line="154"/>
+        <location filename="../src/webview/siteinfo.cpp" line="164"/>
         <source>Error!</source>
         <translation>Chyba!</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="162"/>
+        <location filename="../src/webview/siteinfo.cpp" line="154"/>
         <source>This preview is not available!</source>
         <translation>Tento náhled není k dispozici!</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="166"/>
+        <location filename="../src/webview/siteinfo.cpp" line="158"/>
         <source>Save image...</source>
         <translation>Uložit obrázek...</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="172"/>
+        <location filename="../src/webview/siteinfo.cpp" line="164"/>
         <source>Cannot write to file!</source>
         <translation>Nemohu zapisovat do souboru!</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfo.cpp" line="202"/>
+        <location filename="../src/webview/siteinfo.cpp" line="194"/>
         <source>Preview not available</source>
         <translation>Náhled není k dispozici</translation>
     </message>
@@ -3615,17 +3613,17 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>Updater</name>
     <message>
-        <location filename="../src/other/updater.cpp" line="51"/>
+        <location filename="../src/other/updater.cpp" line="98"/>
         <source>Update available</source>
         <translation>Dostupná aktualizace</translation>
     </message>
     <message>
-        <location filename="../src/other/updater.cpp" line="51"/>
+        <location filename="../src/other/updater.cpp" line="98"/>
         <source>New version of QupZilla is ready to download.</source>
         <translation>Nová verze QupZilly je připravena ke stažení.</translation>
     </message>
     <message>
-        <location filename="../src/other/updater.cpp" line="62"/>
+        <location filename="../src/other/updater.cpp" line="109"/>
         <source>Update</source>
         <translation>Aktualizovat</translation>
     </message>

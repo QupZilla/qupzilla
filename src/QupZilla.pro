@@ -141,7 +141,8 @@ SOURCES += main.cpp\
     network/qupzillaschemehandler.cpp \
     tools/globalfunctions.cpp \
     other/pagescreen.cpp \
-    downloads/downloadfilehelper.cpp
+    downloads/downloadfilehelper.cpp \
+    tools/certificateinfowidget.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -237,7 +238,8 @@ HEADERS  += \
     network/qupzillaschemehandler.h \
     tools/globalfunctions.h \
     other/pagescreen.h \
-    downloads/downloadfilehelper.h
+    downloads/downloadfilehelper.h \
+    tools/certificateinfowidget.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -272,7 +274,8 @@ FORMS    += \
     other/browsinglibrary.ui \
     webview/searchtoolbar.ui \
     preferences/thememanager.ui \
-    other/pagescreen.ui
+    other/pagescreen.ui \
+    tools/certificateinfowidget.ui
 
 RESOURCES += \
     data/icons.qrc \
@@ -282,6 +285,9 @@ OTHER_FILES += \
     appicon.rc
 
 include(3rdparty/qtsingleapplication.pri)
+
+
+
 
 
 
