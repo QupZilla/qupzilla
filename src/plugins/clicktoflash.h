@@ -63,6 +63,7 @@ class ClickToFlash : public QWidget
 
 public:
     explicit ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, QWidget* parent = 0);
+    ~ClickToFlash();
 
 private slots:
     void load();
@@ -81,7 +82,10 @@ private:
     QWebElement m_element;
     QWebFrame* m_mainFrame;
 
-    QToolButton* toolButton;
+    QToolButton* m_toolButton;
+    QHBoxLayout* m_layout1;
+    QHBoxLayout* m_layout2;
+    QFrame* m_frame;
     /**
     used to find the right QWebElement between the ones of the different plugins
     */
