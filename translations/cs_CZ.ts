@@ -733,26 +733,31 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="98"/>
+        <source>Delete object</source>
+        <translation>Odstranit objekt</translation>
+    </message>
+    <message>
+        <location filename="../src/plugins/clicktoflash.cpp" line="99"/>
         <source>Add %1 to whitelist</source>
         <translation>Přidat %1 na bílou listinu</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="199"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="205"/>
         <source>Flash Object</source>
         <translation>Flash objekt</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="202"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="208"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jméno atributu&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="202"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="208"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Hodnota&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="213"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="219"/>
         <source>No more informations available.</source>
         <translation>Žádné další informace.</translation>
     </message>
@@ -3391,7 +3396,7 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="78"/>
-        <location filename="../src/other/sourceviewer.cpp" line="149"/>
+        <location filename="../src/other/sourceviewer.cpp" line="151"/>
         <source>Go to Line...</source>
         <translation>Jít na řádek...</translation>
     </message>
@@ -3441,22 +3446,22 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Zdroj úspěšně uložen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="130"/>
+        <location filename="../src/other/sourceviewer.cpp" line="132"/>
         <source>Source reloaded</source>
         <translation>Zdroj znovu načten</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="137"/>
+        <location filename="../src/other/sourceviewer.cpp" line="139"/>
         <source>Editable changed</source>
         <translation>Povolení úprav změněno</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="144"/>
+        <location filename="../src/other/sourceviewer.cpp" line="146"/>
         <source>Word Wrap changed</source>
         <translation>Zalamování řádků změněno</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="149"/>
+        <location filename="../src/other/sourceviewer.cpp" line="151"/>
         <source>Enter line number</source>
         <translation>Zadejte číslo řádku</translation>
     </message>
@@ -3631,89 +3636,89 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="122"/>
+        <location filename="../src/webview/webpage.cpp" line="130"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, witch has been already done.)</source>
         <translation>Pro zobrazení této stránky musí QupZilla znovu odeslat požadavek na server 
 (jako např. hledaní při nakupování, které již bylo provedeno.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="194"/>
+        <location filename="../src/webview/webpage.cpp" line="224"/>
         <source>Server refused the connection</source>
         <translation>Server odmítl spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="197"/>
+        <location filename="../src/webview/webpage.cpp" line="227"/>
         <source>Server closed the connection</source>
         <translation>Server ukončil spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="200"/>
+        <location filename="../src/webview/webpage.cpp" line="230"/>
         <source>Server not found</source>
         <translation>Server nenalezen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="203"/>
+        <location filename="../src/webview/webpage.cpp" line="233"/>
         <source>Connection timed out</source>
         <translation>Spojení vypršelo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="206"/>
+        <location filename="../src/webview/webpage.cpp" line="236"/>
         <source>Untrusted connection</source>
         <translation>Nedůvěryhodné spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="228"/>
+        <location filename="../src/webview/webpage.cpp" line="258"/>
         <source>AdBlocked Content</source>
         <translation>AdBlock obsah</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="239"/>
+        <location filename="../src/webview/webpage.cpp" line="269"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Blokováno pravidlem &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="246"/>
+        <location filename="../src/webview/webpage.cpp" line="276"/>
         <source>Content Access Denied</source>
         <translation>Odmítnut přístup k obsahu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="256"/>
+        <location filename="../src/webview/webpage.cpp" line="286"/>
         <source>Error code %1</source>
         <translation>Chybový kód %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="267"/>
+        <location filename="../src/webview/webpage.cpp" line="297"/>
         <source>Failed loading page</source>
         <translation>Chyba při načítání stránky</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="278"/>
+        <location filename="../src/webview/webpage.cpp" line="308"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla nemůže načíst stránku ze serveru %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="279"/>
+        <location filename="../src/webview/webpage.cpp" line="309"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Zkontrolujte, zda je adresa napsána správně a neobsahuje chyby jako &lt;b&gt;ww.&lt;/b&gt;server.cz místo &lt;b&gt;www&lt;/b&gt;.server.cz</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="280"/>
+        <location filename="../src/webview/webpage.cpp" line="310"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Pokud se vám nezobrazují ani ostatní stránky, zkontrolujte síťové připojení svého počítače.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="281"/>
+        <location filename="../src/webview/webpage.cpp" line="311"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Pokud je váš počítač chráněn firewallem a nebo proxy serverem, zkontrolujte, zda má QupZilla přístup na Internet.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="282"/>
+        <location filename="../src/webview/webpage.cpp" line="312"/>
         <source>Try Again</source>
         <translation>Zkusit znovu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="415"/>
+        <location filename="../src/webview/webpage.cpp" line="445"/>
         <source>Choose file...</source>
         <translation>Vyberte soubor...</translation>
     </message>

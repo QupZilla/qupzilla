@@ -95,6 +95,7 @@ void ClickToFlash::customContextMenuRequested(const QPoint &pos)
     menu.addAction(tr("Object blocked by ClickToFlash"));
     menu.addAction(tr("Show more informations about object"), this, SLOT(showInfo()));
     menu.addSeparator();
+    menu.addAction(tr("Delete object"), this, SLOT(hideAdBlocked()));
     menu.addAction(tr("Add %1 to whitelist").arg(m_url.host()), this, SLOT(toWhitelist()));
     menu.actions().at(0)->setEnabled(false);
     menu.exec(mapToGlobal(pos));
@@ -111,6 +112,8 @@ void ClickToFlash::hideAdBlocked()
     findElement();
     if (!m_element.isNull())
         m_element.setAttribute("style", "display:none;");
+    else
+        hide();
 
     //deleteLater(); //Well, it should be there, but therefore it sometimes crashes
 }
