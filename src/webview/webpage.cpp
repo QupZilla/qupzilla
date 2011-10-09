@@ -44,6 +44,13 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(progress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(finished()));
+    connect(m_view, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
+}
+
+void WebPage::urlChanged(const QUrl &url)
+{
+    Q_UNUSED(url)
+    m_adBlockedEntries.clear();
 }
 
 void WebPage::progress(int prog)
@@ -60,11 +67,12 @@ void WebPage::progress(int prog)
 void WebPage::finished()
 {
     progress(100);
+    QTimer::singleShot(100, this, SLOT(cleanBlockedObjects()));
 }
 
 void WebPage::loadingStarted()
 {
-    m_adBlockedEntries.clear();
+//    m_adBlockedEntries.clear();
     m_blockAlerts = false;
     //m_SslCert.clear();
 }
@@ -170,11 +178,33 @@ void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
     entry.rule = filter;
     entry.url = url;
 
-    m_adBlockedEntries.append(entry);
+    if (!m_adBlockedEntries.contains(entry))
+        m_adBlockedEntries.append(entry);
+}
+
+void WebPage::cleanBlockedObjects()
+{
+    QStringList findingStrings;
+
+    foreach (AdBlockedEntry entry, m_adBlockedEntries) {
+        if (entry.url.toString().endsWith(".js"))
+            continue;
+
+        findingStrings.append(entry.url.toString());
+        QUrl mainFrameUrl = mainFrame()->url();
+        if (entry.url.scheme() == mainFrameUrl.scheme() && entry.url.host() == mainFrameUrl.host()) {
+            //May be relative url
+            QString relativeUrl = qz_makeRelativeUrl(mainFrameUrl, entry.url).toString();
+            findingStrings.append(relativeUrl);
+            if (relativeUrl.startsWith("/"))
+                findingStrings.append(relativeUrl.right(relativeUrl.size() - 1));
+        }
+    }
 
     QWebElement docElement = mainFrame()->documentElement();
     QWebElementCollection elements;
-    elements.append(docElement.findAll("*[src=\"" + url.toString() + "\"]"));
+    foreach (QString s, findingStrings)
+        elements.append(docElement.findAll("*[src=\"" + s + "\"]"));
     foreach (QWebElement element, elements)
         element.setAttribute("style", "display:none;");
 }

@@ -45,6 +45,49 @@ void qz_centerWidgetOnScreen(QWidget *w)
     w->move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
 }
 
+QString qz_samePartOfStrings(const QString &one, const QString &other)
+{
+    int i = 0;
+    int maxSize = qMin(one.size(), other.size());
+    while (one.at(i) == other.at(i)) {
+        i++;
+        if (i == maxSize)
+            break;
+    }
+    return one.left(i);
+}
+#include  <QDebug>
+
+QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
+{
+    QString baseUrlPath = baseUrl.path();
+    QString rUrlPath = rUrl.path();
+
+    QString samePart = qz_samePartOfStrings(baseUrlPath, rUrlPath);
+
+    QUrl returnUrl;
+    if (samePart.isEmpty()) {
+        returnUrl = rUrl;
+    }
+    else if (samePart == "/") {
+        returnUrl = QUrl(rUrl.path());
+    }
+    else {
+        samePart = samePart.left(samePart.lastIndexOf("/") + 1);
+        int slashCount = samePart.count("/") + 1;
+        if (samePart.startsWith("/"))
+            slashCount--;
+        if (samePart.endsWith("/"))
+            slashCount--;
+
+        rUrlPath.remove(samePart);
+        rUrlPath.prepend(QString("../").repeated(slashCount));
+        returnUrl = QUrl(rUrlPath);
+    }
+
+    return returnUrl;
+}
+
 QString qz_buildSystem()
 {
 #ifdef Q_OS_LINUX

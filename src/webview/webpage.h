@@ -40,6 +40,11 @@ public:
     struct AdBlockedEntry {
         QString rule;
         QUrl url;
+
+        bool operator==(const AdBlockedEntry &other)
+        {
+            return (this->rule == other.rule && this->url == other.url);
+        }
     };
 
     WebPage(WebView* parent, QupZilla* mainClass);
@@ -67,6 +72,10 @@ protected slots:
     void loadingStarted();
     void progress(int prog);
     void finished();
+
+private slots:
+    void cleanBlockedObjects();
+    void urlChanged(const QUrl &url);
 
 private:
     virtual bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }

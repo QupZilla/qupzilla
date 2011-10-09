@@ -21,6 +21,7 @@
 #include "webview.h"
 #include "webpage.h"
 #include "downloaditem.h"
+#include "certificateinfowidget.h"
 
 QString SiteInfo::showCertInfo(const QString &string)
 {
@@ -29,10 +30,11 @@ QString SiteInfo::showCertInfo(const QString &string)
     else return string;
 }
 
-SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
-    QDialog(parent)
-    ,ui(new Ui::SiteInfo)
-    ,p_QupZilla(mainClass)
+SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent)
+    : QDialog(parent)
+    , ui(new Ui::SiteInfo)
+    , p_QupZilla(mainClass)
+    , m_certWidget(0)
 {
     ui->setupUi(this);
     WebView* view = p_QupZilla->weView();
@@ -99,21 +101,11 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent) :
     if (cert.isValid()) {
         ui->securityLabel->setText(tr("<b>Connection is Encrypted.</b>"));
         ui->certLabel->setText(tr("<b>Your connection to this page is secured with this certificate: </b>"));
-        //Issued to
-        ui->issuedToCN->setText( showCertInfo(cert.subjectInfo(QSslCertificate::CommonName)) );
-        ui->issuedToO->setText( showCertInfo(cert.subjectInfo(QSslCertificate::Organization)) );
-        ui->issuedToOU->setText( showCertInfo(cert.subjectInfo(QSslCertificate::OrganizationalUnitName)) );
-        ui->issuedToSN->setText( showCertInfo(cert.serialNumber()) );
-        //Issued By
-        ui->issuedByCN->setText( showCertInfo(cert.issuerInfo(QSslCertificate::CommonName)) );
-        ui->issuedByO->setText( showCertInfo(cert.issuerInfo(QSslCertificate::Organization)) );
-        ui->issuedByOU->setText( showCertInfo(cert.issuerInfo(QSslCertificate::OrganizationalUnitName)) );
-        //Validity
-        ui->validityIssuedOn->setText( cert.effectiveDate().toString("dddd d. MMMM yyyy") );
-        ui->validityExpiresOn->setText( cert.expiryDate().toString("dddd d. MMMM yyyy") );
+        m_certWidget = new CertificateInfoWidget(cert);
+        ui->certFrame->addWidget(m_certWidget);
+
     } else {
         ui->securityLabel->setText(tr("<b>Connection Not Encrypted.</b>"));
-        ui->certFrame->setVisible(false);
         ui->certLabel->setText(tr("<b>Your connection to this page is not secured!</b>"));
     }
 
@@ -222,4 +214,6 @@ void SiteInfo::itemChanged(QListWidgetItem *item)
 SiteInfo::~SiteInfo()
 {
     delete ui;
+    if (m_certWidget)
+        delete m_certWidget;
 }

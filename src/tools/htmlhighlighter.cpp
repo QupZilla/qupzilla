@@ -116,7 +116,8 @@
                      << "scrolling=\"" << "quality=\"" << "bgcolor=\""
                      << "allowscriptaccess=\"" << "cols=\"" << "rows=\""
                      << "profile=\"" << "colspan=\"" << "scope=\""
-                     << "data=\"" << "autoplay=\""
+                     << "data=\"" << "autoplay=\"" << "hspace=\""
+                     << "valign=\"" << "vspace=\""
                      << "href=\"" << "title=\"" << "xmlns=\"";
      foreach (const QString &pattern, optionsPatterns) {
          rule.pattern = QRegExp(pattern);

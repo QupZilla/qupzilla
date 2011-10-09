@@ -28,6 +28,7 @@ namespace Ui {
 }
 
 class QupZilla;
+class CertificateInfoWidget;
 class SiteInfo : public QDialog
 {
     Q_OBJECT
@@ -50,6 +51,7 @@ private slots:
 private:
     Ui::SiteInfo* ui;
     QupZilla* p_QupZilla;
+    CertificateInfoWidget* m_certWidget;
 };
 
 #endif // SITEINFO_H

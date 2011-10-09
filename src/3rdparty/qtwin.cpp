@@ -250,8 +250,8 @@ bool WindowNotifier::winEvent(MSG *message, long *result)
         foreach(QWidget * widget, widgets) {
             if (widget) {
                 widget->setAttribute(Qt::WA_NoSystemBackground, compositionEnabled);
+                widget->update();
             }
-            widget->update();
         }
     }
     return QWidget::winEvent(message, result);

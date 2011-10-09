@@ -119,7 +119,9 @@ void SourceViewer::findText()
         return;
     }
 
-    m_layout->insertWidget(1, new SourceViewerSearch(this));
+    SourceViewerSearch* s = new SourceViewerSearch(this);
+    m_layout->insertWidget(1, s);
+    s->activateLineEdit();
 }
 
 void SourceViewer::reload()

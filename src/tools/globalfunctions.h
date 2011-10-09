@@ -25,11 +25,15 @@
 #include <QWidget>
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QUrl>
 
 QByteArray qz_pixmapToByteArray(const QPixmap &pix);
 QByteArray qz_readAllFileContents(const QString &filename);
 
 void qz_centerWidgetOnScreen(QWidget* w);
+QString qz_samePartOfStrings(const QString &one, const QString &other);
+QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
+
 QString qz_buildSystem();
 
 #endif // GLOBALFUNCTIONS_H

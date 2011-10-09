@@ -50,20 +50,12 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
         : QWidget(parent)
         , m_argumentNames(argumentNames)
         , m_argumentValues(argumentValues)
+        , m_toolButton(0)
+        , m_layout1(0)
+        , m_layout2(0)
+        , m_frame(0)
         , m_url(pluginUrl)
 {
-    QHBoxLayout* horizontalLayout;
-    QFrame* frame;
-    QHBoxLayout* horizontalLayout_2;
-
-    horizontalLayout = new QHBoxLayout(this);
-    frame = new QFrame(this);
-    frame->setObjectName("click2flash-frame");
-    frame->setContentsMargins(0,0,0,0);
-    horizontalLayout_2 = new QHBoxLayout(frame);
-    toolButton = new QToolButton(this);
-    toolButton->setObjectName("click2flash-toolbutton");
-
     //AdBlock
     AdBlockManager* manager = AdBlockManager::instance();
     if (manager->isEnabled()) {
@@ -75,14 +67,22 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
         }
     }
 
-    toolButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    toolButton->setCursor(Qt::PointingHandCursor);
-    horizontalLayout_2->addWidget(toolButton);
-    horizontalLayout->addWidget(frame);
-    horizontalLayout->setContentsMargins(0,0,0,0);
-    horizontalLayout_2->setContentsMargins(0,0,0,0);
+    m_layout1 = new QHBoxLayout(this);
+    m_frame = new QFrame(this);
+    m_frame->setObjectName("click2flash-frame");
+    m_frame->setContentsMargins(0,0,0,0);
+    m_layout2 = new QHBoxLayout(m_frame);
+    m_toolButton = new QToolButton(this);
+    m_toolButton->setObjectName("click2flash-toolbutton");
 
-    connect(toolButton, SIGNAL(clicked()), this, SLOT(load()));
+    m_toolButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_toolButton->setCursor(Qt::PointingHandCursor);
+    m_layout2->addWidget(m_toolButton);
+    m_layout1->addWidget(m_frame);
+    m_layout1->setContentsMargins(0,0,0,0);
+    m_layout2->setContentsMargins(0,0,0,0);
+
+    connect(m_toolButton, SIGNAL(clicked()), this, SLOT(load()));
     setMinimumSize(27,27);
 
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -117,6 +117,9 @@ void ClickToFlash::hideAdBlocked()
 
 void ClickToFlash::findElement()
 {
+    if (!m_toolButton)
+        return;
+
     QWidget* parent = parentWidget();
     QWebView* view = 0;
     while (parent) {
@@ -130,7 +133,7 @@ void ClickToFlash::findElement()
         return;
 
     QList<QWebFrame*> frames;
-    frames.append(view->page()->frameAt(view->mapFromGlobal(toolButton->mapToGlobal(toolButton->pos()))));
+    frames.append(view->page()->frameAt(view->mapFromGlobal(m_toolButton->mapToGlobal(m_toolButton->pos()))));
     m_mainFrame = view->page()->mainFrame();
     frames.append(m_mainFrame);
 
@@ -214,4 +217,16 @@ void ClickToFlash::showInfo()
 
     widg->setMaximumHeight(500);
     widg->show();
+}
+
+ClickToFlash::~ClickToFlash()
+{
+    if (m_toolButton)
+        delete m_toolButton;
+    if (m_layout1)
+        delete m_layout1;
+    if (m_layout2)
+        delete m_layout2;
+    if (m_frame)
+        delete m_frame;
 }
