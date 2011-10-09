@@ -47,6 +47,7 @@ signals:
 
 public slots:
     void filterString(QString string);
+    void clear();
 
 private slots:
     void sheduleRefresh();

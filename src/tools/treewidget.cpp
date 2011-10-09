@@ -25,6 +25,12 @@ TreeWidget::TreeWidget(QWidget* parent) :
     connect(this, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(sheduleRefresh()));
 }
 
+void TreeWidget::clear()
+{
+    QTreeWidget::clear();
+    m_allTreeItems.clear();
+}
+
 void TreeWidget::sheduleRefresh()
 {
     m_refreshAllItemsNeeded = true;
