@@ -17,11 +17,10 @@
 >> Microsoft Windows <<
 >>                   <<
 
-  You need Microsoft Visual C++ Compiler 2010
-  in order to build QupZilla. It is because 
-  QupZilla is using Windows 7 API and therefore
-  corresponding headers are included only on versions
-  2010 and above.
+  You need Microsoft Visual C++ Compiler 2008
+  or higher in order to build QupZilla. If You want
+  use JumpLists in Windows TaskBar, then You need
+  Microsoft Visual C++ Compiler 2010 and define W7API (more info at the bottom)
   If you don't meet this, please use precompiled versions,
   which are also in smart windows installer.
  
@@ -54,6 +53,7 @@
                        
  Windows specific defines
      W7API                Build QupZilla with Windows 7 API support
+                          Requires Microsoft Visual C++ Compiler 2010
                           (enabled by default)
  
  Linux / Unix specific defines:
