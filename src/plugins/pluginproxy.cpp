@@ -84,7 +84,7 @@ void PluginProxy::c2f_loadSettings()
     QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("ClickToFlash");
     c2f_whitelist = settings.value("whitelist", QStringList()).toStringList();
-    c2f_enabled = settings.value("Enabled", true).toBool();
+    c2f_enabled = settings.value("Enabled", false).toBool();
     settings.endGroup();
 }
 
