@@ -233,6 +233,7 @@ QColor QtWin::colorizationColor()
 }
 
 #ifdef Q_WS_WIN
+#ifdef W7API
 WindowNotifier *QtWin::windowNotifier()
 {
     static WindowNotifier *windowNotifierInstance = 0;
@@ -350,7 +351,8 @@ void QtWin::AddTasksToList(ICustomDestinationList* destinationList) {
     object_array->Release();
     obj_collection->Release();
 }
-#endif
+#endif //Q_WS_WIN
+#endif //W7API
 
 void QtWin::setupJumpList() {
 #ifdef W7API
