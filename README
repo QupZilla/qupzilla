@@ -3,6 +3,17 @@
 #################################
 Version: 1.0.0-rc1
 
+Windows:
+    use precompiled windows installer in downloads
+    
+Unix:
+    cd src/
+    qmake
+    make
+    make install
+    
+You may need to run make install as root.
+
 NOTE: Before building, please read BUILDING informations. Thank You!
 
 QupZilla is new and very fast open source browser based on WebKit core http://www.webkit.org

@@ -15,17 +15,22 @@ MOC_DIR = ../build
 RCC_DIR = ../build
 UI_DIR = ../build
 
-##It won't compile on windows with this define
-##Some bug in qtsingleapp / qvector template
-!win32: !CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT
+# Please read BUILD informations #
+#win32:DEFINES += UNRELEASED_BUILD
+#win32:DEFINES += NO_SYSTEM_DATAPATH
+#win32:DEFINES += W7API
 
 unix:QT += dbus
-win32:DEFINES += W7API
 win32:RC_FILE = appicon.rc
 win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 
+##It won't compile on windows with this define. Some bug in qtsingleapp / qvector template
+!win32: !CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT
+
 TRANSLATIONS +=cs_CZ.ts\
-               sk_SK.ts
+               sk_SK.ts\
+               nl_NL.ts\
+               es.ts
 
 INCLUDEPATH += 3rdparty\
                app\
@@ -286,21 +291,18 @@ OTHER_FILES += \
 
 include(3rdparty/qtsingleapplication.pri)
 
+unix {
+    target.path = /usr/bin
 
+    target1.files = ../bin/data
+    target1.files += ../bin/locale
+    target1.files += ../bin/plugins
+    target1.files += ../bin/themes
+    target1.path = /usr/share/qupzilla
 
+    target2.files = ../linux/applications
+    target2.files += ../linux/pixmaps
+    target2.path = /usr/share
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    INSTALLS += target target1 target2
+}

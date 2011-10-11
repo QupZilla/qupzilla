@@ -10,3 +10,6 @@ Makefile*
 TestPlugin-build
 search_*
 src-*
+bin/qupzilla
+bin/plugins/libExamplePlugin.so
+*.autosave
