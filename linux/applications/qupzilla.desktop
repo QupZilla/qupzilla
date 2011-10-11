@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=QupZilla
+Comment=A fast and secure web browser
+Comment[cs]=Rychlý a bezpečný webový prohlížeč
+Comment[sk]=Rychlý a bezpečný webový prehliadač
+GenericName=Web Browser
+GenericName[cs]=Webový prohlížeč
+GenericName[sk]=Webový prehliadač
+Exec=qupzilla %u
+MimeType=text/html;application/xhtml+xml;
+Terminal=false
+Type=Application
+Icon=qupzilla.png
+Categories=Network;WebBrowser;

@@ -54,7 +54,7 @@
  Windows specific defines
      W7API                Build QupZilla with Windows 7 API support
                           Requires Microsoft Visual C++ Compiler 2010
-                          (enabled by default)
+                          (disabled by default)
  
  Linux / Unix specific defines:
      NO_SYSTEM_DATAPATH   By default, QupZilla is using /usr/share/qupzilla/ path
