@@ -651,7 +651,7 @@ p, li { white-space: pre-wrap; }
         <translation>Platný do:</translation>
     </message>
     <message>
-        <location filename="../src/tools/certificateinfowidget.cpp" line="7"/>
+        <location filename="../src/tools/certificateinfowidget.cpp" line="111"/>
         <source>&lt;not set in certificate&gt;</source>
         <translation>&lt;není součástí certifikátu&gt;</translation>
     </message>
@@ -1432,74 +1432,74 @@ nebyl nalezen!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="102"/>
+        <location filename="../src/network/networkmanager.cpp" line="103"/>
         <source>SSL Certificate Error!</source>
         <translation>Chyba zabezpečení!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="103"/>
+        <location filename="../src/network/networkmanager.cpp" line="104"/>
         <source>The page you trying to access has following errors in SSL Certificate:</source>
         <translation>Stránka kterou se snažíte navštívit zaslala SSL Certifikát s těmito chybami:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="114"/>
+        <location filename="../src/network/networkmanager.cpp" line="115"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizace: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="115"/>
+        <location filename="../src/network/networkmanager.cpp" line="116"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Doména: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="116"/>
+        <location filename="../src/network/networkmanager.cpp" line="117"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Vyprší: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="117"/>
+        <location filename="../src/network/networkmanager.cpp" line="118"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Chyba: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="120"/>
+        <location filename="../src/network/networkmanager.cpp" line="121"/>
         <source>Would you like to make exception for this certificate?</source>
         <translation>Chcete udělit vyjímku tomuto certifikátu?</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="144"/>
+        <location filename="../src/network/networkmanager.cpp" line="145"/>
         <source>Authorization required</source>
         <translation>Vyžadována autorizace</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="151"/>
-        <location filename="../src/network/networkmanager.cpp" line="206"/>
+        <location filename="../src/network/networkmanager.cpp" line="152"/>
+        <location filename="../src/network/networkmanager.cpp" line="207"/>
         <source>Username: </source>
         <translation>Uživatelské jméno: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="152"/>
-        <location filename="../src/network/networkmanager.cpp" line="207"/>
+        <location filename="../src/network/networkmanager.cpp" line="153"/>
+        <location filename="../src/network/networkmanager.cpp" line="208"/>
         <source>Password: </source>
         <translation>Heslo: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="157"/>
+        <location filename="../src/network/networkmanager.cpp" line="158"/>
         <source>Save username and password on this site</source>
         <translation>Uložit jméno a heslo pro tuto stránku</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="166"/>
+        <location filename="../src/network/networkmanager.cpp" line="167"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Server %1 požaduje vaše uživatelské jméno a heslo s komentářem: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="199"/>
+        <location filename="../src/network/networkmanager.cpp" line="200"/>
         <source>Proxy authorization required</source>
         <translation>Proxy autorizace</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="219"/>
+        <location filename="../src/network/networkmanager.cpp" line="220"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Proxy %1 požaduje uživatelské jméno a heslo.</translation>
     </message>
@@ -3040,53 +3040,102 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Správce certifikátů</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.ui" line="38"/>
+        <location filename="../src/preferences/sslmanager.ui" line="24"/>
+        <source>CA Authorities Certificates</source>
+        <translation>Certifikáty CA Autorit</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="48"/>
+        <location filename="../src/preferences/sslmanager.ui" line="92"/>
         <source>Show info</source>
         <translation>Informace</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.ui" line="45"/>
+        <location filename="../src/preferences/sslmanager.ui" line="57"/>
+        <source>This is list of CA Authorities Certificates stored in standard system path and in user specified paths.</source>
+        <translation>Toto je seznam certifikátů CA Autorit uložených ve standardní systémové a uživatelem specifikovaných složkách.</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="68"/>
+        <source>Local Certificates</source>
+        <translation>Lokální certifikáty</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="99"/>
+        <location filename="../src/preferences/sslmanager.ui" line="150"/>
         <source>Delete</source>
         <translation>Odstranit</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.ui" line="54"/>
+        <location filename="../src/preferences/sslmanager.ui" line="108"/>
+        <source>This is list of Local Certificates stored in user profile. This list also contains all certificates, that have received an exception.</source>
+        <translation>Toto je seznam lokálních certifikátů uložených v uživatelském profilu. Tento list také obsahuje všechny certifikáty, jenž obdržely vyjímku.</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="119"/>
+        <source>Settings</source>
+        <translation>Nastavení</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="143"/>
+        <source>Add</source>
+        <translation>Přidat</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="159"/>
+        <source>If CA Authorities Certificates were not automatically loaded from system, You can specify manual paths where certificates are stored.</source>
+        <translation>Pokud nebyly certifikáty CA Autorit automaticky načtené ze systému, můžete zde manuálně přidat cestu, kde jsou certifikáty uloženy.</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="171"/>
+        <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is big security vulnerability!</source>
+        <translation>&lt;b&gt;Poznámka&lt;/b&gt; Tato možnost představuje velké bezpečnostní ohrožení!</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="210"/>
+        <source>Ignore all SSL Warnings</source>
+        <translation>Ignorovat všechna SSL varování</translation>
+    </message>
+    <message>
         <source>Ignore all warnings</source>
-        <translation>Ignorovat všechna varování</translation>
+        <translation type="obsolete">Ignorovat všechna varování</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="66"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Organizace: &lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Organizace: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="67"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Doména: &lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Doména: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="68"/>
         <source>&lt;b&gt;Locality Name: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Lokalita: &lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Lokalita: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="69"/>
         <source>&lt;b&gt;Country Name: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Země: &lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Země: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="70"/>
         <source>&lt;b&gt;Verified by: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Ověřeno: &lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Ověřeno: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="71"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Vyprší: &lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Vyprší: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="77"/>
         <source>SSL Certificate Informations</source>
+        <translation type="obsolete">Informace o certifikátě</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.cpp" line="63"/>
+        <source>Choose path...</source>
+        <translation>Vyberte cestu...</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.cpp" line="133"/>
+        <source>Certificate Informations</source>
         <translation>Informace o certifikátě</translation>
     </message>
 </context>
