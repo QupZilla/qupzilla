@@ -24,6 +24,8 @@
 #include <QSslCertificate>
 #include <QDateTime>
 #include <QSettings>
+#include <QFileDialog>
+#include <QCloseEvent>
 
 namespace Ui {
     class SSLManager;
@@ -38,14 +40,27 @@ public:
     ~SSLManager();
 
 private slots:
-    void showCertificateInfo();
+    void showLocalCertInfo();
+    void showCaCertInfo();
+
     void deleteCertificate();
     void ignoreAll(bool state);
 
+    void addPath();
+    void deletePath();
+
 private:
-    void refresh();
+    void closeEvent(QCloseEvent *e);
+
+    void refreshLocalList();
+    void refreshCAList();
+    void refreshPaths();
+
+    void showCertificateInfo(const QSslCertificate &cert);
+
     Ui::SSLManager* ui;
-    QList<QSslCertificate> m_certs;
+    QList<QSslCertificate> m_localCerts;
+    QList<QSslCertificate> m_caCerts;
 };
 
 #endif // SSLMANAGER_H

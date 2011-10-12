@@ -26,6 +26,8 @@
 #include "adblocknetwork.h"
 #include "networkproxyfactory.h"
 #include "qupzillaschemehandler.h"
+#include "certificateinfowidget.h"
+#include "globalfunctions.h"
 
 NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
     : NetworkManagerProxy(mainClass, parent)
@@ -55,7 +57,6 @@ void NetworkManager::loadSettings()
         m_diskCache->setMaximumCacheSize(settings.value("MaximumCacheSize",50).toInt() * 1024*1024); //MegaBytes
         setCache(m_diskCache);
     }
-    m_ignoreAllWarnings = settings.value("IgnoreAllSSLWarnings", false).toBool();
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
     settings.endGroup();
 
@@ -105,14 +106,14 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     QStringList actions;
 
     foreach (QSslError error, errors) {
-        if (m_certExceptions.contains(error.certificate()))
+        if (m_localCerts.contains(error.certificate()))
             continue;
         if (error.error() == QSslError::NoError) //Weird behavior on Windows
             continue;
 
         QSslCertificate cert = error.certificate();
-        actions.append(tr("<b>Organization: </b>") + cert.subjectInfo(QSslCertificate::Organization));
-        actions.append(tr("<b>Domain Name: </b>") + cert.subjectInfo(QSslCertificate::CommonName));
+        actions.append(tr("<b>Organization: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::Organization)));
+        actions.append(tr("<b>Domain Name: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::CommonName)));
         actions.append(tr("<b>Expiration Date: </b>") + cert.expiryDate().toString("hh:mm:ss dddd d. MMMM yyyy"));
         actions.append(tr("<b>Error: </b>") + error.errorString());
     }
@@ -130,9 +131,9 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     }
 
     foreach (QSslError error, errors) {
-        if (m_certExceptions.contains(error.certificate()))
+        if (m_localCerts.contains(error.certificate()))
             continue;
-        m_certExceptions.append(error.certificate());
+        addLocalCertificate(error.certificate());
     }
 
     reply->ignoreSslErrors(errors);
@@ -264,36 +265,102 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     return reply;
 }
 
-void NetworkManager::saveCertExceptions()
+void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
 {
-    QFile file(mApp->getActiveProfilPath()+"sslexceptions.dat");
-    file.open(QIODevice::WriteOnly);
-    QDataStream stream(&file);
+    m_localCerts.removeOne(cert);
+    QList<QSslCertificate> certs = QSslSocket::defaultCaCertificates();
+    certs.removeOne(cert);
+    QSslSocket::setDefaultCaCertificates(certs);
 
-    int count = m_certExceptions.count();
-    stream << count;
+    //Delete cert file from profile
+    QString certFileName = CertificateInfoWidget::certificateItemText(cert);
+    int startIndex = 0;
+    QDirIterator it(mApp->getActiveProfilPath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        QString filePath = startIndex == 0 ? it.next() : it.next().mid(startIndex);
+        if (!filePath.contains(certFileName))
+            continue;
 
-    for (int i = 0; i < count; i++) {
-         stream << m_certExceptions.at(i).toPem();
+        QFile file(filePath);
+        file.remove();
+        break;
     }
-
-    file.close();
 }
 
-void NetworkManager::loadCertExceptions()
+void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
 {
-    QFile file(mApp->getActiveProfilPath()+"sslexceptions.dat");
-    file.open(QIODevice::ReadOnly);
-    QDataStream stream(&file);
+    if (!cert.isValid())
+        return;
 
-    int count;
-    stream >> count;
-    QByteArray cert;
+    m_localCerts.append(cert);
+    QSslSocket::addDefaultCaCertificate(cert);
 
-    for (int i = 0; i < count; i++) {
-         stream >> cert;
-         m_certExceptions.append(QSslCertificate::fromData(cert));
+    QDir dir(mApp->getActiveProfilPath());
+    if (!dir.exists("certificates"))
+        dir.mkdir("certificates");
+
+    QString fileName = qz_ensureUniqueFilename(mApp->getActiveProfilPath() + "certificates/" + CertificateInfoWidget::certificateItemText(cert).remove(" ") + ".crt");
+    QFile file(fileName);
+    if (file.open(QFile::WriteOnly)) {
+        file.write(cert.toPem());
+        file.close();
     }
+}
 
-    file.close();
+void NetworkManager::saveCertificates()
+{
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    settings.beginGroup("SSL-Configuration");
+    settings.setValue("CACertPaths", m_certPaths);
+    settings.setValue("IgnoreAllSSLWarnings", m_ignoreAllWarnings);
+    settings.endGroup();
+}
+
+void NetworkManager::loadCertificates()
+{
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    settings.beginGroup("SSL-Configuration");
+    m_certPaths = settings.value("CACertPaths", QStringList()).toStringList();
+    m_ignoreAllWarnings = settings.value("IgnoreAllSSLWarnings", false).toBool();
+    settings.endGroup();
+
+    //CA Certificates
+    m_caCerts = QSslSocket::defaultCaCertificates();
+    foreach (QString path, m_certPaths) {
+#ifdef Q_WS_WIN
+        // Used from Qt 4.7.4 qsslcertificate.cpp and modified because QSslCertificate::fromPath
+        // is kind of a bugged on Windows, it does work only with full path to cert file
+        int startIndex = 0;
+        QDirIterator it(path, QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
+        while (it.hasNext()) {
+            QString filePath = startIndex == 0 ? it.next() : it.next().mid(startIndex);
+            if (!filePath.endsWith(".crt"))
+                continue;
+
+            QFile file(filePath);
+            if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+                m_caCerts += QSslCertificate::fromData(file.readAll(), QSsl::Pem);
+        }
+#else
+        m_caCerts += QSslCertificate::fromPath(path + "/*.crt", QSsl::Pem, QRegExp::Wildcard);
+#endif
+    }
+    //Local Certificates
+#ifdef Q_WS_WIN
+        int startIndex = 0;
+        QDirIterator it_(mApp->getActiveProfilPath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
+        while (it_.hasNext()) {
+            QString filePath = startIndex == 0 ? it_.next() : it_.next().mid(startIndex);
+            if (!filePath.endsWith(".crt"))
+                continue;
+
+            QFile file(filePath);
+            if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+                m_localCerts += QSslCertificate::fromData(file.readAll(), QSsl::Pem);
+        }
+#else
+        m_localCerts += QSslCertificate::fromPath(mApp->getActiveProfilPath() + "certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
+#endif
+
+    QSslSocket::setDefaultCaCertificates(m_caCerts + m_localCerts);
 }

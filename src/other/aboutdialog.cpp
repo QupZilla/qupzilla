@@ -70,8 +70,9 @@ void AboutDialog::showAuthors()
     if (m_authorsHtml.isEmpty()) {
         m_authorsHtml.append("<div style='margin:10px;'>");
         m_authorsHtml.append(tr("<p><b>Main developers:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>"));
-        m_authorsHtml.append(tr("<p><b>Other contributors:</b><br/>%1</p>").arg("Rajny :: Graphics <br/> Mikino :: Slovakia Translation"));
-        m_authorsHtml.append(tr("<p><b>Thanks to:</b><br/>%1</p>").arg("Patrick :: First User"));
+        m_authorsHtml.append(tr("<p><b>Other contributors:</b><br/>%1</p>").arg("Heimen Stoffels - Dutch Translation<br/>"
+                                                                                "Peter Vacula - Slovakia Translation"));
+        m_authorsHtml.append(tr("<p><b>Thanks to:</b><br/>%1</p>").arg("Patrick for support in the beginning"));
         m_authorsHtml.append("</div>");
     }
     ui->textBrowser->setHtml(m_authorsHtml);

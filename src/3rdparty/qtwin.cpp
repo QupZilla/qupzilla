@@ -233,7 +233,6 @@ QColor QtWin::colorizationColor()
 }
 
 #ifdef Q_WS_WIN
-#ifdef W7API
 WindowNotifier *QtWin::windowNotifier()
 {
     static WindowNotifier *windowNotifierInstance = 0;
@@ -258,6 +257,7 @@ bool WindowNotifier::winEvent(MSG *message, long *result)
     return QWidget::winEvent(message, result);
 }
 
+#ifdef W7API
 IShellLink* QtWin::CreateShellLink(const QString &title, const QString &description,
                              const QString &app_path, const QString &app_args,
                              const QString &icon_path, int app_index)  {
@@ -351,8 +351,8 @@ void QtWin::AddTasksToList(ICustomDestinationList* destinationList) {
     object_array->Release();
     obj_collection->Release();
 }
-#endif //Q_WS_WIN
 #endif //W7API
+#endif //Q_WS_WIN
 
 void QtWin::setupJumpList() {
 #ifdef W7API
