@@ -165,7 +165,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
         settings2.setValue("Plugin-Settings/EnablePlugins", false);
     }
 
-    networkManager()->loadCertExceptions();
+    networkManager()->loadCertificates();
     plugins()->loadPlugins();
     loadSettings();
 
@@ -403,7 +403,7 @@ void MainApplication::quitApplication()
         m_historymodel->clearHistory();
 
     cookieJar()->saveCookies();
-    m_networkmanager->saveCertExceptions();
+    m_networkmanager->saveCertificates();
     m_plugins->c2f_saveSettings();
     AdBlockManager::instance()->save();
     QFile::remove(getActiveProfilPath() + "WebpageIcons.db");

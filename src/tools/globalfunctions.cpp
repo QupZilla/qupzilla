@@ -56,7 +56,6 @@ QString qz_samePartOfStrings(const QString &one, const QString &other)
     }
     return one.left(i);
 }
-#include  <QDebug>
 
 QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
 {
@@ -86,6 +85,27 @@ QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
     }
 
     return returnUrl;
+}
+
+QString qz_ensureUniqueFilename(const QString &pathToFile)
+{
+    if (!QFile::exists(pathToFile))
+        return pathToFile;
+
+    QString tmpFileName = pathToFile;
+    int i = 1;
+    while (QFile::exists(tmpFileName)) {
+        tmpFileName = pathToFile;
+        int index = tmpFileName.lastIndexOf(".");
+
+        if (index == -1) {
+            tmpFileName.append("("+QString::number(i)+")");
+        } else {
+            tmpFileName = tmpFileName.mid(0, index) + "("+QString::number(i)+")" + tmpFileName.mid(index);
+        }
+        i++;
+    }
+    return tmpFileName;
 }
 
 QString qz_buildSystem()
