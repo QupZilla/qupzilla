@@ -42,7 +42,7 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__ << item << reply << path << fileName;
 #endif
-    QString fullPath = path+fileName;
+    QString fullPath = path + fileName;
     if (QFile::exists(fullPath))
         QFile::remove(fullPath);
 
@@ -69,7 +69,7 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     connect(manager, SIGNAL(resized(QSize)), this, SLOT(parentResized(QSize)));
 
     m_downloading = true;
-    m_timer.start(1000*1, this);
+    m_timer.start(1000, this);
     readyRead();
     QTimer::singleShot(500, this, SLOT(updateDownload()));
 
@@ -281,13 +281,7 @@ void DownloadItem::customContextMenuRequested(const QPoint &pos)
     menu.addAction(tr("Go to Download Page"), this, SLOT(goToDownloadPage()))->setEnabled(!m_downloadPage.isEmpty());
     menu.addAction(QIcon::fromTheme("edit-copy"), tr("Copy Download Link"), this, SLOT(copyDownloadLink()));
     menu.addSeparator();
-    menu.addAction(
-#ifdef Q_WS_X11
-                   style()->standardIcon(QStyle::SP_BrowserStop)
-#else
-                   QIcon(":/icons/faenza/stop.png")
-#endif
-                   ,tr("Cancel downloading"), this, SLOT(stop()))->setEnabled(m_downloading);
+    menu.addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("Cancel downloading"), this, SLOT(stop()))->setEnabled(m_downloading);
     menu.addAction(QIcon::fromTheme("window-close"), tr("Clear"), this, SLOT(clear()))->setEnabled(!m_downloading);
 
     if (m_downloading || ui->downloadInfo->text().startsWith(tr("Cancelled")) || ui->downloadInfo->text().startsWith(tr("Error")))

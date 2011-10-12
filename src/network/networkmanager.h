@@ -28,6 +28,8 @@
 #include <QCheckBox>
 #include <QSslError>
 #include <QNetworkDiskCache>
+#include <QSslSocket>
+#include <QSslConfiguration>
 
 #include "networkmanagerproxy.h"
 
@@ -42,10 +44,21 @@ public:
     explicit NetworkManager(QupZilla* mainClass, QObject* parent = 0);
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 
-    QList<QSslCertificate> getCertExceptions() { return m_certExceptions; }
-    void setCertExceptions(QList<QSslCertificate> certs) { m_certExceptions = certs; }
-    void saveCertExceptions();
-    void loadCertExceptions();
+    void saveCertificates();
+    void loadCertificates();
+
+    QList<QSslCertificate> getCaCertificates() { return m_caCerts; }
+    QList<QSslCertificate> getLocalCertificates() { return m_localCerts; }
+
+    void removeLocalCertificate(const QSslCertificate &cert);
+    void addLocalCertificate(const QSslCertificate &cert);
+
+    void setCertificatePaths(const QStringList &paths) { m_certPaths = paths; }
+    QStringList certificatePaths() { return m_certPaths; }
+
+    void setIgnoreAllWarnings(bool state) { m_ignoreAllWarnings = state; }
+    bool isIgnoringAllWarnings() { return m_ignoreAllWarnings; }
+
     void loadSettings();
 
 signals:
@@ -62,11 +75,13 @@ private slots:
 private:
     AdBlockNetwork* m_adblockNetwork;
     QupZilla* p_QupZilla;
-    QList<QSslCertificate> m_certExceptions;
     QNetworkDiskCache* m_diskCache;
     NetworkProxyFactory* m_proxyFactory;
-
     QupZillaSchemeHandler* m_qupzillaSchemeHandler;
+
+    QStringList m_certPaths;
+    QList<QSslCertificate> m_caCerts;
+    QList<QSslCertificate> m_localCerts;
 
     bool m_ignoreAllWarnings;
     bool m_doNotTrack;

@@ -19,86 +19,157 @@
 #include "ui_sslmanager.h"
 #include "networkmanager.h"
 #include "mainapplication.h"
+#include "globalfunctions.h"
+#include "certificateinfowidget.h"
 
-SSLManager::SSLManager(QWidget* parent) :
-    QWidget(parent),
-    ui(new Ui::SSLManager)
+SSLManager::SSLManager(QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::SSLManager)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
+    qz_centerWidgetOnScreen(this);
 
-    refresh();
+    refreshLocalList();
+    refreshCAList();
+    refreshPaths();
 
-    connect(ui->list, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(showCertificateInfo()));
-    connect(ui->infoButton, SIGNAL(clicked()), this, SLOT(showCertificateInfo()));
+    connect(ui->caList, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(showCaCertInfo()));
+    connect(ui->caInfoButton, SIGNAL(clicked()), this, SLOT(showCaCertInfo()));
     connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteCertificate()));
+
+    connect(ui->localList, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(showLocalCertInfo()));
+    connect(ui->localInfoButton, SIGNAL(clicked()), this, SLOT(showLocalCertInfo()));
+
+    connect(ui->addPath, SIGNAL(clicked()), this, SLOT(addPath()));
+    connect(ui->deletePath, SIGNAL(clicked()), this, SLOT(deletePath()));
     connect(ui->ignoreAll, SIGNAL(clicked(bool)), this, SLOT(ignoreAll(bool)));
 
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
-    settings.beginGroup("Web-Browser-Settings");
-    ui->ignoreAll->setChecked( settings.value("IgnoreAllSSLWarnings", false).toBool() );
-    settings.endGroup();
+    ui->ignoreAll->setChecked(mApp->networkManager()->isIgnoringAllWarnings());
 }
 
-void SSLManager::refresh()
+void SSLManager::addPath()
 {
-    ui->list->setUpdatesEnabled(false);
-    ui->list->clear();
-    m_certs = mApp->networkManager()->getCertExceptions();
-    foreach (QSslCertificate cert, m_certs) {
-        QListWidgetItem* item = new QListWidgetItem(ui->list);
-        item->setText( cert.subjectInfo(QSslCertificate::Organization) + " " + cert.subjectInfo(QSslCertificate::CommonName) );
-        item->setWhatsThis(QString::number(m_certs.indexOf(cert)));
-        ui->list->addItem(item);
+    QString path = QFileDialog::getExistingDirectory(this, tr("Choose path..."));
+    if (path.isEmpty())
+        return;
+
+    ui->pathList->addItem(path);
+}
+
+void SSLManager::deletePath()
+{
+    QListWidgetItem* currentItem = ui->pathList->currentItem();
+    if (!currentItem)
+        return;
+
+    delete currentItem;
+}
+
+void SSLManager::refreshCAList()
+{
+    ui->caList->setUpdatesEnabled(false);
+    ui->caList->clear();
+    m_caCerts = QSslSocket::defaultCaCertificates();
+    foreach (QSslCertificate cert, m_caCerts) {
+        QListWidgetItem* item = new QListWidgetItem(ui->caList);
+        item->setText( CertificateInfoWidget::certificateItemText(cert) );
+        item->setWhatsThis(QString::number(m_caCerts.indexOf(cert)));
+        ui->caList->addItem(item);
     }
-    ui->list->setCurrentRow(0);
-    ui->list->setUpdatesEnabled(true);
+    ui->caList->setCurrentRow(0);
+    ui->caList->setUpdatesEnabled(true);
 }
 
-void SSLManager::showCertificateInfo()
+void SSLManager::refreshLocalList()
 {
-    QListWidgetItem* item = ui->list->currentItem();
+    ui->localList->setUpdatesEnabled(false);
+    ui->localList->clear();
+    m_localCerts = mApp->networkManager()->getLocalCertificates();
+    foreach (QSslCertificate cert, m_localCerts) {
+        QListWidgetItem* item = new QListWidgetItem(ui->localList);
+        item->setText( CertificateInfoWidget::certificateItemText(cert) );
+        item->setWhatsThis(QString::number(m_localCerts.indexOf(cert)));
+        ui->localList->addItem(item);
+    }
+    ui->localList->setCurrentRow(0);
+    ui->localList->setUpdatesEnabled(true);
+}
+
+void SSLManager::refreshPaths()
+{
+    foreach (QString path, mApp->networkManager()->certificatePaths())
+        ui->pathList->addItem(path);
+}
+
+void SSLManager::showCaCertInfo()
+{
+    QListWidgetItem* item = ui->caList->currentItem();
     if (!item)
         return;
 
-    QSslCertificate cert = m_certs.at(item->whatsThis().toInt());
-    QStringList actions;
-    actions.append(tr("<b>Organization: </b>") + cert.subjectInfo(QSslCertificate::Organization));
-    actions.append(tr("<b>Domain Name: </b>") + cert.subjectInfo(QSslCertificate::CommonName));
-    actions.append(tr("<b>Locality Name: </b>") + cert.subjectInfo(QSslCertificate::LocalityName));
-    actions.append(tr("<b>Country Name: </b>") + cert.subjectInfo(QSslCertificate::CountryName));
-    actions.append(tr("<b>Verified by: </b>") + cert.subjectInfo(QSslCertificate::OrganizationalUnitName));
-    actions.append(tr("<b>Expiration Date: </b>") + cert.expiryDate().toString("hh:mm:ss dddd d. MMMM yyyy"));
+    QSslCertificate cert = m_caCerts.at(item->whatsThis().toInt());
+    showCertificateInfo(cert);
+}
 
-    QString message = QString(QLatin1String("<ul><li>%3</li></ul>")).arg(actions.join(QLatin1String("</li><li>")));
+void SSLManager::showLocalCertInfo()
+{
+    QListWidgetItem* item = ui->localList->currentItem();
+    if (!item)
+        return;
 
-    QMessageBox mes;
-    mes.setIcon(QMessageBox::Information);
-    mes.setWindowTitle(tr("SSL Certificate Informations"));
-    mes.setText(message);
-    mes.setDetailedText(cert.toPem());
-    mes.exec();
+    QSslCertificate cert = m_localCerts.at(item->whatsThis().toInt());
+    showCertificateInfo(cert);
+}
+
+void SSLManager::showCertificateInfo(const QSslCertificate &cert)
+{
+    QWidget* w = new QWidget();
+    w->setAttribute(Qt::WA_DeleteOnClose);
+    w->setWindowTitle(tr("Certificate Informations"));
+    w->setLayout(new QVBoxLayout);
+    CertificateInfoWidget* c = new CertificateInfoWidget(cert);
+    w->layout()->addWidget(c);
+    QDialogButtonBox* b = new QDialogButtonBox(w);
+    b->setStandardButtons(QDialogButtonBox::Close);
+    connect(b, SIGNAL(clicked(QAbstractButton*)), w, SLOT(close()));
+    w->layout()->addWidget(b);
+    w->resize(w->sizeHint());
+    qz_centerWidgetOnScreen(w);
+    w->show();
 }
 
 void SSLManager::deleteCertificate()
 {
-    QListWidgetItem* item = ui->list->currentItem();
+    QListWidgetItem* item = ui->localList->currentItem();
     if (!item)
         return;
 
-    QSslCertificate cert = m_certs.at(item->whatsThis().toInt());
-    m_certs.removeOne(cert);
-    mApp->networkManager()->setCertExceptions(m_certs);
-    refresh();
+    QSslCertificate cert = m_localCerts.at(item->whatsThis().toInt());
+    m_localCerts.removeOne(cert);
+    mApp->networkManager()->removeLocalCertificate(cert);
+    refreshLocalList();
 }
 
 void SSLManager::ignoreAll(bool state)
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
-    settings.beginGroup("Web-Browser-Settings");
-    settings.setValue("IgnoreAllSSLWarnings", state);
-    settings.endGroup();
-    mApp->networkManager()->loadSettings();
+    mApp->networkManager()->setIgnoreAllWarnings(state);
+}
+
+void SSLManager::closeEvent(QCloseEvent *e)
+{
+    QStringList paths;
+    for (int i = 0; i < ui->pathList->count(); i++) {
+        QListWidgetItem* item = ui->pathList->item(i);
+        if (!item || item->text().isEmpty())
+            continue;
+
+        paths.append(item->text());
+    }
+
+    mApp->networkManager()->setCertificatePaths(paths);
+
+    QWidget::closeEvent(e);
 }
 
 SSLManager::~SSLManager()

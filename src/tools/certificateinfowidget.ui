@@ -26,7 +26,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="SqueezeLabelV2" name="issuedToCN">
+    <widget class="QLabel" name="issuedToCN">
      <property name="text">
       <string/>
      </property>
@@ -40,7 +40,7 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="SqueezeLabelV2" name="issuedToO">
+    <widget class="QLabel" name="issuedToO">
      <property name="text">
       <string/>
      </property>
@@ -54,7 +54,7 @@
     </widget>
    </item>
    <item row="3" column="1">
-    <widget class="SqueezeLabelV2" name="issuedToOU">
+    <widget class="QLabel" name="issuedToOU">
      <property name="text">
       <string/>
      </property>
@@ -68,7 +68,7 @@
     </widget>
    </item>
    <item row="4" column="1">
-    <widget class="SqueezeLabelV2" name="issuedToSN">
+    <widget class="QLabel" name="issuedToSN">
      <property name="text">
       <string/>
      </property>
@@ -89,7 +89,7 @@
     </widget>
    </item>
    <item row="6" column="1">
-    <widget class="SqueezeLabelV2" name="issuedByCN">
+    <widget class="QLabel" name="issuedByCN">
      <property name="text">
       <string/>
      </property>
@@ -103,7 +103,7 @@
     </widget>
    </item>
    <item row="7" column="1">
-    <widget class="SqueezeLabelV2" name="issuedByO">
+    <widget class="QLabel" name="issuedByO">
      <property name="text">
       <string/>
      </property>
@@ -117,7 +117,7 @@
     </widget>
    </item>
    <item row="8" column="1">
-    <widget class="SqueezeLabelV2" name="issuedByOU">
+    <widget class="QLabel" name="issuedByOU">
      <property name="text">
       <string/>
      </property>
@@ -138,7 +138,7 @@
     </widget>
    </item>
    <item row="10" column="1">
-    <widget class="SqueezeLabelV2" name="validityIssuedOn">
+    <widget class="QLabel" name="validityIssuedOn">
      <property name="text">
       <string/>
      </property>
@@ -152,7 +152,7 @@
     </widget>
    </item>
    <item row="11" column="1">
-    <widget class="SqueezeLabelV2" name="validityExpiresOn">
+    <widget class="QLabel" name="validityExpiresOn">
      <property name="text">
       <string/>
      </property>
@@ -160,13 +160,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>SqueezeLabelV2</class>
-   <extends>QLabel</extends>
-   <header>squeezelabelv2.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
