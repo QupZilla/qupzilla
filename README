@@ -14,7 +14,9 @@ Unix:
     
 You may need to run make install as root.
 
-NOTE: Before building, please read BUILDING informations. Thank You!
+NOTE: Before building, please read BUILDING informations.
+      If you are experiencing some sort of issue, please read FAQ first.
+      Thank You!
 
 QupZilla is new and very fast open source browser based on WebKit core http://www.webkit.org
 Written in Qt Framework http://qt.nokia.com
