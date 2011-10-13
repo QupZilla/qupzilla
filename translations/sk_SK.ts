@@ -69,7 +69,7 @@ p, li { white-space: pre-wrap; }
         <translation>&lt;p&gt;&lt;b&gt;Ostatní prispievatelia:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="74"/>
+        <location filename="../src/other/aboutdialog.cpp" line="75"/>
         <source>&lt;p&gt;&lt;b&gt;Thanks to:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Poďakovanie:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -655,7 +655,7 @@ p, li { white-space: pre-wrap; }
         <translation>Platný do:</translation>
     </message>
     <message>
-        <location filename="../src/tools/certificateinfowidget.cpp" line="111"/>
+        <location filename="../src/tools/certificateinfowidget.cpp" line="122"/>
         <source>&lt;not set in certificate&gt;</source>
         <translation>&lt;nie je súčasťou certifikátu&gt;</translation>
     </message>
@@ -937,7 +937,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="160"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="293"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="287"/>
         <source>Cancelled</source>
         <translation>Zrušené</translation>
     </message>
@@ -1018,32 +1018,32 @@ p, li { white-space: pre-wrap; }
         <translation>Kopírovať sťahovaný odkaz</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="290"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="284"/>
         <source>Cancel downloading</source>
         <translation>Zrušiť sťahovanie</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="291"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="285"/>
         <source>Clear</source>
         <translation>Vyčistiť</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="293"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="287"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="300"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="294"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="321"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="315"/>
         <source>Not found</source>
         <translation>Súbor neexistuje</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="321"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="315"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
@@ -1052,12 +1052,12 @@ p, li { white-space: pre-wrap; }
  nebol nájdený!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="336"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="330"/>
         <source>Error: Cannot write to file!</source>
         <translation>Chyba: Nejde zapisovať do súboru!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="348"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="342"/>
         <source>Error: </source>
         <translation>Chyba: </translation>
     </message>
@@ -2276,32 +2276,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>QtWin</name>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="336"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="337"/>
         <source>Open new tab</source>
         <translation>Otvoriť nový panel</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="336"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="337"/>
         <source>Opens a new tab if browser is running</source>
         <translation>Otvoriť nový panel ak je prehliadač spustený</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="340"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="341"/>
         <source>Open new window</source>
         <translation>Otvoriť nové okno</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="340"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="341"/>
         <source>Opens a new window if browser is running</source>
         <translation>Otvoriť nové okno ak je prehliadač spustený</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="344"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="345"/>
         <source>Open download manager</source>
         <translation>Otvoriť správcu sťahovania</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="344"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="345"/>
         <source>Opens a download manager if browser is running</source>
         <translation>Otvoriť správcu sťahovania pokiaľ je prehliadač spustený</translation>
     </message>
@@ -3064,8 +3064,13 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="99"/>
         <location filename="../src/preferences/sslmanager.ui" line="150"/>
-        <source>Delete</source>
+        <source>Remove</source>
         <translation>Odstrániť</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="232"/>
+        <source>After adding or removing certificate paths, it is neccessary to restart browser in order to changes take effect.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="108"/>
@@ -3089,8 +3094,8 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="171"/>
-        <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is big security vulnerability!</source>
-        <translation>&lt;b&gt;Poznámka&lt;/b&gt; Tato možnosť predstavuje veľké nebezpečenstvo ohrozenia!</translation>
+        <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is big security risk!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="210"/>
@@ -3098,44 +3103,12 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
         <translation>Ignorovať SSL upozornenia</translation>
     </message>
     <message>
-        <source>Ignore all warnings</source>
-        <translation type="obsolete">Ignorovať všetky varovania</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Organizácia: &lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Doména: &lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Locality Name: &lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Lokalita: &lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Country Name: &lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Krajina: &lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Verified by: &lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Overené: &lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Platnosť do: &lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>SSL Certificate Informations</source>
-        <translation type="obsolete">Informácie o certifikáte</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="63"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="53"/>
         <source>Choose path...</source>
         <translation>Vyberte cestu...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="133"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="129"/>
         <source>Certificate Informations</source>
         <translation>Informácie o certifkáte</translation>
     </message>

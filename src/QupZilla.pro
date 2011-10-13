@@ -16,8 +16,9 @@ RCC_DIR = ../build
 UI_DIR = ../build
 
 # Please read BUILD informations #
-#win32:DEFINES += UNRELEASED_BUILD
-#win32:DEFINES += NO_SYSTEM_DATAPATH
+#DEFINES += UNRELEASED_BUILD
+#DEFINES += NO_SYSTEM_DATAPATH
+#DEFINES += USE_WEBGL
 #win32:DEFINES += W7API
 
 unix:QT += dbus

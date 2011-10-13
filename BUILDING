@@ -50,9 +50,14 @@
      UNRELEASED_BUILD     QupZilla won't check profile version,
                           thus, it won't reset your profile is lower version
                           (disabled by default)
+                          
+     USE_WEBGL            Enable WebGL. You need to build QupZilla with WebKit built
+                          with WebGL support, otherwise you won't be able to compile
+                          without errors.
+                          (disabled by default)
                        
  Windows specific defines
-     W7API                Build QupZilla with Windows 7 API support
+     W7API                Enable Windows 7 API support
                           Requires Microsoft Visual C++ Compiler 2010
                           (disabled by default)
  

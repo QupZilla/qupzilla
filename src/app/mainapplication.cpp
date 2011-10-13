@@ -242,6 +242,10 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::LinksIncludedInFocusChain, linkInFocuschain);
     m_websettings->setAttribute(QWebSettings::ZoomTextOnly, zoomTextOnly);
     m_websettings->setAttribute(QWebSettings::PrintElementBackgrounds, printElBg);
+#ifdef USE_WEBGL
+    m_websettings->setAttribute(QWebSettings::WebGLEnabled , true);
+    m_websettings->setAttribute(QWebSettings::AcceleratedCompositingEnabled, true);
+#endif
 
     m_websettings->setFontFamily(QWebSettings::StandardFont, settings.value("StandardFont", m_websettings->fontFamily(QWebSettings::StandardFont)).toString());
     m_websettings->setFontFamily(QWebSettings::CursiveFont, settings.value("CursiveFont", m_websettings->fontFamily(QWebSettings::CursiveFont)).toString());
