@@ -309,3 +309,16 @@ unix {
 
     INSTALLS += target target1 target2 target3
 }
+
+d_unreleased_build = $$(UNRELEASED_BUILD)
+d_no_system_datapath = $$(NO_SYSTEM_DATAPATH)
+d_use_webgl = $$(USE_WEBGL)
+d_w7api = $$(W7API)
+
+equals(d_unreleased_build, "true"): DEFINES += UNRELEASED_BUILD
+equals(d_no_system_datapath, "true"): DEFINES += NO_SYSTEM_DATAPATH
+equals(d_use_webgl, "true"): DEFINES += USE_WEBGL
+win32 { equals(d_w7api, "true"): DEFINES += W7API }
+
+message(Using following defines)
+message($$DEFINES)
