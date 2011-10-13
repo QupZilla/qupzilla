@@ -45,6 +45,9 @@
 #######################
 ## Available Defines ##
 #######################
+  You can set define directly in project file (QupZilla.pro)
+  or set environment variable by
+    $ export NAME="true"
 
  General:
      UNRELEASED_BUILD     QupZilla won't check profile version,
