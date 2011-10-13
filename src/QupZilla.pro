@@ -300,9 +300,11 @@ unix {
     target1.files += ../bin/themes
     target1.path = /usr/share/qupzilla
 
-    target2.files = ../linux/applications
-    target2.files += ../linux/pixmaps
-    target2.path = /usr/share
+    target2.files = ../linux/applications/qupzilla.desktop
+    target2.path = /usr/share/applications
 
-    INSTALLS += target target1 target2
+    target3.files = ../linux/pixmaps/qupzilla.png
+    target3.path = /usr/share/pixmaps
+
+    INSTALLS += target target1 target2 target3
 }
