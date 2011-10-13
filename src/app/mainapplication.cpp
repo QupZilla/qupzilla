@@ -65,7 +65,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
 #if defined(Q_WS_X11) & !defined(NO_SYSTEM_DATAPATH)
     DATADIR = "/usr/share/qupzilla/";
 #else
-    DATADIR = qApp->applicationDirPath()+"/";
+    DATADIR = qApp->applicationDirPath() + "/";
 #endif
     PLUGINSDIR = DATADIR + "plugins/";
     TRANSLATIONSDIR = DATADIR + "locale/";
