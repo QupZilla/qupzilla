@@ -65,7 +65,7 @@ p, li { white-space: pre-wrap; }
         <translation>&lt;p&gt;&lt;b&gt;Andere bijdragers:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="74"/>
+        <location filename="../src/other/aboutdialog.cpp" line="75"/>
         <source>&lt;p&gt;&lt;b&gt;Thanks to:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Bedankt aan:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -651,7 +651,7 @@ p, li { white-space: pre-wrap; }
         <translation>Vervalt op:</translation>
     </message>
     <message>
-        <location filename="../src/tools/certificateinfowidget.cpp" line="7"/>
+        <location filename="../src/tools/certificateinfowidget.cpp" line="122"/>
         <source>&lt;not set in certificate&gt;</source>
         <translation>&lt;niet aangegeven in certificaat&gt;</translation>
     </message>
@@ -934,7 +934,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="160"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="293"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="287"/>
         <source>Cancelled</source>
         <translation>Geannuleerd</translation>
     </message>
@@ -1015,32 +1015,32 @@ p, li { white-space: pre-wrap; }
         <translation>Kopieer downloadlink</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="290"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="284"/>
         <source>Cancel downloading</source>
         <translation>Zrušit stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="291"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="285"/>
         <source>Clear</source>
         <translation>Wis</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="293"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="287"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="300"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="294"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="321"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="315"/>
         <source>Not found</source>
         <translation>Niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="321"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="315"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
@@ -1049,12 +1049,12 @@ p, li { white-space: pre-wrap; }
 werd niet gevonden!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="336"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="330"/>
         <source>Error: Cannot write to file!</source>
         <translation>Fout: Kan niet schrijven naar bestand!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="348"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="342"/>
         <source>Error: </source>
         <translation>Fout:</translation>
     </message>
@@ -1432,74 +1432,74 @@ werd niet gevonden!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="102"/>
+        <location filename="../src/network/networkmanager.cpp" line="103"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL-certificaatfout!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="103"/>
+        <location filename="../src/network/networkmanager.cpp" line="104"/>
         <source>The page you trying to access has following errors in SSL Certificate:</source>
         <translation>De pagina die u probeert te bereiken bevat de volgende fouten in SSL-certificaat:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="114"/>
+        <location filename="../src/network/networkmanager.cpp" line="115"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organisatie: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="115"/>
+        <location filename="../src/network/networkmanager.cpp" line="116"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Domeinnaam: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="116"/>
+        <location filename="../src/network/networkmanager.cpp" line="117"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Vervaldatum: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="117"/>
+        <location filename="../src/network/networkmanager.cpp" line="118"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Fout: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="120"/>
+        <location filename="../src/network/networkmanager.cpp" line="121"/>
         <source>Would you like to make exception for this certificate?</source>
         <translation>Wilt u een uitzondering maken voor dit certificaat?</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="144"/>
+        <location filename="../src/network/networkmanager.cpp" line="145"/>
         <source>Authorization required</source>
         <translation>Machtiging benodigd</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="151"/>
-        <location filename="../src/network/networkmanager.cpp" line="206"/>
+        <location filename="../src/network/networkmanager.cpp" line="152"/>
+        <location filename="../src/network/networkmanager.cpp" line="207"/>
         <source>Username: </source>
         <translation>Gebruikersnaam: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="152"/>
-        <location filename="../src/network/networkmanager.cpp" line="207"/>
+        <location filename="../src/network/networkmanager.cpp" line="153"/>
+        <location filename="../src/network/networkmanager.cpp" line="208"/>
         <source>Password: </source>
         <translation>Wachtwoord: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="157"/>
+        <location filename="../src/network/networkmanager.cpp" line="158"/>
         <source>Save username and password on this site</source>
         <translation>Sla gebruikersnaam en wachtwoord van deze site op</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="166"/>
+        <location filename="../src/network/networkmanager.cpp" line="167"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Er wordt om een gebruikersnaam en wachtwoord gevraagd door %1. De site zegt: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="199"/>
+        <location filename="../src/network/networkmanager.cpp" line="200"/>
         <source>Proxy authorization required</source>
         <translation>Proxy-machtiging benodigd</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="219"/>
+        <location filename="../src/network/networkmanager.cpp" line="220"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Er wordt om een gebruikersnaam en wachtwoord gevraagd door proxy %1. </translation>
     </message>
@@ -2274,32 +2274,32 @@ werd niet gevonden!</translation>
 <context>
     <name>QtWin</name>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="336"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="337"/>
         <source>Open new tab</source>
         <translation>Open nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="336"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="337"/>
         <source>Opens a new tab if browser is running</source>
         <translation>Opent een nieuw tabblad wanneer browser draait</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="340"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="341"/>
         <source>Open new window</source>
         <translation>Open nieuw venster</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="340"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="341"/>
         <source>Opens a new window if browser is running</source>
         <translation>Opent een nieuw venster wanneer browser draait</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="344"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="345"/>
         <source>Open download manager</source>
         <translation>Open downloadbeheerder</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="344"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="345"/>
         <source>Opens a download manager if browser is running</source>
         <translation>Opent een downloadbeheerder wanneer browser draait</translation>
     </message>
@@ -3040,54 +3040,76 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
         <translation>SSL-beheerder</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.ui" line="38"/>
+        <location filename="../src/preferences/sslmanager.ui" line="24"/>
+        <source>CA Authorities Certificates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="48"/>
+        <location filename="../src/preferences/sslmanager.ui" line="92"/>
         <source>Show info</source>
         <translation>Toon info</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.ui" line="45"/>
-        <source>Delete</source>
-        <translation>Verwijder</translation>
+        <location filename="../src/preferences/sslmanager.ui" line="57"/>
+        <source>This is list of CA Authorities Certificates stored in standard system path and in user specified paths.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.ui" line="54"/>
-        <source>Ignore all warnings</source>
-        <translation>Negeer alle waarschuwingen</translation>
+        <location filename="../src/preferences/sslmanager.ui" line="68"/>
+        <source>Local Certificates</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="66"/>
-        <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Organisatie: &lt;/b&gt;</translation>
+        <location filename="../src/preferences/sslmanager.ui" line="99"/>
+        <location filename="../src/preferences/sslmanager.ui" line="150"/>
+        <source>Remove</source>
+        <translation type="unfinished">Verwijder</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="67"/>
-        <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Domeinnaam: &lt;/b&gt;</translation>
+        <location filename="../src/preferences/sslmanager.ui" line="108"/>
+        <source>This is list of Local Certificates stored in user profile. This list also contains all certificates, that have received an exception.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="68"/>
-        <source>&lt;b&gt;Locality Name: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Plaatsnaam: &lt;/b&gt;</translation>
+        <location filename="../src/preferences/sslmanager.ui" line="119"/>
+        <source>Settings</source>
+        <translation type="unfinished">Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="69"/>
-        <source>&lt;b&gt;Country Name: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Landnaam: &lt;/b&gt;</translation>
+        <location filename="../src/preferences/sslmanager.ui" line="143"/>
+        <source>Add</source>
+        <translation type="unfinished">Voeg toe</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="70"/>
-        <source>&lt;b&gt;Verified by: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Geverifieerd door: &lt;/b&gt;</translation>
+        <location filename="../src/preferences/sslmanager.ui" line="159"/>
+        <source>If CA Authorities Certificates were not automatically loaded from system, You can specify manual paths where certificates are stored.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="71"/>
-        <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Vervaldatum: &lt;/b&gt;</translation>
+        <location filename="../src/preferences/sslmanager.ui" line="171"/>
+        <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is big security risk!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="77"/>
-        <source>SSL Certificate Informations</source>
-        <translation>SSL-certificaat-informatie</translation>
+        <location filename="../src/preferences/sslmanager.ui" line="210"/>
+        <source>Ignore all SSL Warnings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.ui" line="232"/>
+        <source>After adding or removing certificate paths, it is neccessary to restart browser in order to changes take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.cpp" line="53"/>
+        <source>Choose path...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/sslmanager.cpp" line="129"/>
+        <source>Certificate Informations</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
