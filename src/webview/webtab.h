@@ -39,17 +39,22 @@ public:
     void setLocationBar(LocationBar* bar) { m_locationBar = bar; }
     LocationBar* locationBar() { return m_locationBar; }
 
+    bool inspectorVisible() { return m_inspectorVisible; }
+    void setInspectorVisible(bool v) { m_inspectorVisible = v; }
+
 private slots:
     void showNotification(QWidget* notif);
 
 private:
     int tabIndex();
+
     QupZilla* p_QupZilla;
     QPointer<WebView> m_view;
     QVBoxLayout* m_layout;
     LocationBar* m_locationBar;
 
     bool m_pinned;
+    bool m_inspectorVisible;
 };
 
 #endif // WEBTAB_H

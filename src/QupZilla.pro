@@ -148,7 +148,8 @@ SOURCES += main.cpp\
     tools/globalfunctions.cpp \
     other/pagescreen.cpp \
     downloads/downloadfilehelper.cpp \
-    tools/certificateinfowidget.cpp
+    tools/certificateinfowidget.cpp \
+    webview/webinspectordockwidget.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -245,7 +246,8 @@ HEADERS  += \
     tools/globalfunctions.h \
     other/pagescreen.h \
     downloads/downloadfilehelper.h \
-    tools/certificateinfowidget.h
+    tools/certificateinfowidget.h \
+    webview/webinspectordockwidget.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

@@ -56,6 +56,7 @@
 #include "browsinglibrary.h"
 #include "navigationbar.h"
 #include "pagescreen.h"
+#include "webinspectordockwidget.h"
 
 const QString QupZilla::VERSION = "1.0.0-rc1";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
@@ -886,32 +887,17 @@ void QupZilla::showStatusbar()
     settings.setValue("Browser-View-Settings/showStatusbar", !status);
 }
 
-void QupZilla::showInspector()
+void QupZilla::showWebInspector()
 {
-    if (!m_webInspectorDock) {
-        m_webInspectorDock = new QDockWidget(this);
-        if (m_webInspector)
-            delete m_webInspector;
-        m_webInspector = new QWebInspector(this);
-        m_webInspector->setPage(weView()->page());
-        addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock);
-        m_webInspectorDock->setWindowTitle(tr("Web Inspector"));
-        m_webInspectorDock->setTitleBarWidget(new DockTitleBarWidget(tr("Web Inspector"), m_webInspectorDock));
-        m_webInspectorDock->setObjectName("WebInspector");
-        m_webInspectorDock->setWidget(m_webInspector);
-        m_webInspectorDock->setFeatures(0);
-        m_webInspectorDock->setContextMenuPolicy(Qt::CustomContextMenu);
-    } else if (m_webInspectorDock->isVisible()) { //Next tab
+    if (m_webInspectorDock) {
+        m_webInspectorDock->setPage(weView()->webPage());
         m_webInspectorDock->show();
-        m_webInspector->setPage(weView()->page());
-        m_webInspectorDock->setWidget(m_webInspector);
-    } else { //Showing hidden dock
-        m_webInspectorDock->show();
-        if (m_webInspector->page() != weView()->page()) {
-            m_webInspector->setPage(weView()->page());
-            m_webInspectorDock->setWidget(m_webInspector);
-        }
+        return;
     }
+
+    m_webInspectorDock = new WebInspectorDockWidget(this);
+    connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock, SLOT(tabChanged()));
+    addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock);
 }
 
 void QupZilla::refreshHistory()
@@ -1093,8 +1079,6 @@ QupZilla::~QupZilla()
     delete m_bookmarksToolbar;
     delete m_progressBar;
 
-    if (m_webInspectorDock) {
-        delete m_webInspector;
+    if (m_webInspectorDock)
         delete m_webInspectorDock;
-    }
 }

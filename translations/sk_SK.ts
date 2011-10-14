@@ -3070,7 +3070,7 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="232"/>
         <source>After adding or removing certificate paths, it is neccessary to restart browser in order to changes take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Po pridaní či odstránení ciest k certifikátom je nutné k zobrazeniu zmien reštart počítača.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="108"/>
@@ -3095,7 +3095,7 @@ Prosím pridajte si nejaký kliknutím na RSS ikonku v navigačnom riadku.</tran
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="171"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is big security risk!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Zaškrtnutím tejto možnosti sa vystavujete veľkému bezpečnostnému riziku!</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="210"/>
