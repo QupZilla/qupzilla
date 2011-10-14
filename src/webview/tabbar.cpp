@@ -230,3 +230,17 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
     }
     QTabBar::mouseDoubleClickEvent(event);
 }
+
+void TabBar::mousePressEvent(QMouseEvent* event)
+{
+    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
+    if (!tabWidget)
+        return;
+
+    int id = tabAt(event->pos());
+    if (id != -1 && event->buttons() == Qt::MiddleButton) {
+        tabWidget->closeTab(id);
+        return;
+    }
+    QTabBar::mousePressEvent(event);
+}
