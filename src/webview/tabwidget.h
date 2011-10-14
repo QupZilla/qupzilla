@@ -59,6 +59,9 @@ public:
     QStackedWidget* locationBars() { return m_locationBars; }
     ToolButton* buttonListTabs() { return m_buttonListTabs; }
 
+signals:
+    void pinnedTabClosed();
+    void pinnedTabAdded();
 
 public slots:
     void closeTab(int index=-1);

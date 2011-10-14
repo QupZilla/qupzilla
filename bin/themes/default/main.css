@@ -98,7 +98,6 @@
 /*TabWidget*/
 #tabbar::tab
 {
-    max-width:250px;
     max-height: 28px;
 }
 
@@ -108,9 +107,9 @@
     qproperty-fixedsize: 20px 27px;
 }
 
-#tabwidget::tab-bar
+#tabbar::scroller
 {
-    right: 20px;
+    width: 0px;
 }
 
 #tabwidget-button-opentabs::menu-indicator
