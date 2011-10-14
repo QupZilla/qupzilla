@@ -30,6 +30,7 @@
 #include <QDesktopServices>
 #include <QStyle>
 #include <QFileDialog>
+#include <QWebInspector>
 
 class QupZilla;
 class WebView;

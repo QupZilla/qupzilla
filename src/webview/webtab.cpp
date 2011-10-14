@@ -23,11 +23,12 @@
 #include "locationbar.h"
 
 WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
-    :QWidget()
-    ,p_QupZilla(mainClass)
-    ,m_view(0)
-    ,m_locationBar(locationBar)
-    ,m_pinned(false)
+    : QWidget()
+    , p_QupZilla(mainClass)
+    , m_view(0)
+    , m_locationBar(locationBar)
+    , m_pinned(false)
+    , m_inspectorVisible(false)
 {
     m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0,0,0,0);

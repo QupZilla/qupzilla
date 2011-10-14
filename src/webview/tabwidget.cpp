@@ -340,8 +340,6 @@ void TabWidget::currentTabChanged(int index)
         p_QupZilla->ipLabel()->show();
     }
 
-    if (p_QupZilla->inspectorDock() && p_QupZilla->inspectorDock()->isVisible())
-        p_QupZilla->showInspector();
     webView->setFocus();
 
     m_tabBar->updateCloseButton(index);

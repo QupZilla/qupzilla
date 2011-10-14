@@ -63,6 +63,7 @@ class ProgressBar;
 class StatusBarMessage;
 class NavigationBar;
 class ClickableLabel;
+class WebInspectorDockWidget;
 class QupZilla : public QMainWindow
 {
     Q_OBJECT
@@ -85,7 +86,6 @@ public:
     void addBookmark(const QUrl &url, const QString &title, const QIcon &icon);
     void installTranslator();
     void loadSettings();
-    void showInspector();
     void showNavigationWithFullscreen();
 
     inline WebView* weView() const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabWidget->currentIndex())); if (!webTab) return 0; return webTab->view(); }
@@ -99,7 +99,6 @@ public:
     inline ProgressBar* progressBar(){ return m_progressBar; }
     inline QString activeProfil(){ return m_activeProfil; }
     inline QString activeLanguage(){ return m_activeLanguage; }
-    inline QDockWidget* inspectorDock(){ return m_webInspectorDock; }
     inline QLabel* ipLabel(){ return m_ipLabel; }
     inline QColor menuTextColor() { return m_menuTextColor; }
     inline QMenu* menuHelp() { return m_menuHelp; }
@@ -115,6 +114,7 @@ signals:
 public slots:
     void setWindowTitle(const QString &t);
 
+    void showWebInspector();
     void showBookmarksToolbar();
     void loadActionUrl();
     void loadActionUrlInNewTab();
@@ -224,8 +224,7 @@ private:
 
     QLabel* m_privateBrowsing;
     ClickableLabel* m_adblockIcon;
-    QPointer<QWebInspector> m_webInspector;
-    QPointer<QDockWidget> m_webInspectorDock;
+    QPointer<WebInspectorDockWidget> m_webInspectorDock;
 
     BookmarksToolbar* m_bookmarksToolbar;
     TabWidget* m_tabWidget;

@@ -669,7 +669,7 @@ void WebView::bookmarkLink()
 
 void WebView::showInspector()
 {
-    p_QupZilla->showInspector();
+    p_QupZilla->showWebInspector();
 }
 
 void WebView::showSiteInfo()
