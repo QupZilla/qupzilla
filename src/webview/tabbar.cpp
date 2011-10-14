@@ -20,11 +20,22 @@
 #include "qupzilla.h"
 #include "webtab.h"
 #include "iconprovider.h"
+#include "toolbutton.h"
 
-TabBar::TabBar(QupZilla* mainClass, QWidget* parent) :
-    QTabBar(parent)
-    ,p_QupZilla(mainClass)
-    ,m_clickedTab(0)
+#define MAXIMUM_TAB_WIDTH 250
+#define MINIMUM_TAB_WIDTH 50
+#ifdef Q_WS_WIN
+#define PINNED_TAB_WIDTH 38
+#else
+#define PINNED_TAB_WIDTH 31
+#endif
+
+TabBar::TabBar(QupZilla* mainClass, QWidget* parent)
+    : QTabBar(parent)
+    , p_QupZilla(mainClass)
+    , m_tabWidget((TabWidget*)parentWidget())
+    , m_clickedTab(0)
+    , m_pinnedTabsCount(0)
 {
     setObjectName("tabbar");
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -34,6 +45,8 @@ TabBar::TabBar(QupZilla* mainClass, QWidget* parent) :
     loadSettings();
 
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
+    connect(m_tabWidget, SIGNAL(pinnedTabClosed()), this, SLOT(pinnedTabClosed()));
+    connect(m_tabWidget, SIGNAL(pinnedTabAdded()), this, SLOT(pinnedTabAdded()));
 }
 
 void TabBar::loadSettings()
@@ -53,15 +66,11 @@ void TabBar::contextMenuRequested(const QPoint &position)
     int index = tabAt(position);
     m_clickedTab = index;
 
-    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
-    if (!tabWidget)
-        return;
-
     QMenu menu;
     menu.addAction(QIcon(":/icons/menu/popup.png"),tr("&New tab"), p_QupZilla, SLOT(addTab()));
     menu.addSeparator();
     if (index!=-1) {
-        WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(m_clickedTab));
+        WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
         if (!webTab)
             return;
         if (p_QupZilla->weView(m_clickedTab)->isLoading())
@@ -72,23 +81,23 @@ void TabBar::contextMenuRequested(const QPoint &position)
         menu.addAction(tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
         menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
         menu.addSeparator();
-        menu.addAction(tr("Re&load All Tabs"), tabWidget, SLOT(reloadAllTabs()));
+        menu.addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
         menu.addAction(tr("&Bookmark This Tab"), this, SLOT(bookmarkTab()));
         menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
         QAction* action = p_QupZilla->actionRestoreTab();
-        tabWidget->canRestoreTab() ? action->setEnabled(true) : action->setEnabled(false);
+        m_tabWidget->canRestoreTab() ? action->setEnabled(true) : action->setEnabled(false);
         menu.addAction(action);
         menu.addSeparator();
         menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
         menu.addAction(QIcon::fromTheme("window-close"),tr("Cl&ose"), this, SLOT(closeTab()));
         menu.addSeparator();
     } else {
-        menu.addAction(tr("Reloa&d All Tabs"), tabWidget, SLOT(reloadAllTabs()));
+        menu.addAction(tr("Reloa&d All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
         menu.addAction(tr("Bookmark &All Ta&bs"), p_QupZilla, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
-        QAction* action = menu.addAction(QIcon::fromTheme("user-trash"),tr("Restore &Closed Tab"), tabWidget, SLOT(restoreClosedTab()));
-        tabWidget->canRestoreTab() ? action->setEnabled(true) : action->setEnabled(false);
+        QAction* action = menu.addAction(QIcon::fromTheme("user-trash"),tr("Restore &Closed Tab"), m_tabWidget, SLOT(restoreClosedTab()));
+        m_tabWidget->canRestoreTab() ? action->setEnabled(true) : action->setEnabled(false);
     }
 
     //Prevent choosing first option with double rightclick
@@ -101,15 +110,25 @@ void TabBar::contextMenuRequested(const QPoint &position)
 QSize TabBar::tabSizeHint(int index) const
 {
     QSize size = QTabBar::tabSizeHint(index);
-    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
-    if (tabWidget) {
-        WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(index));
-        if (webTab && webTab->isPinned())
-#ifdef Q_WS_WIN
-            size.setWidth(38);
-#else
-            size.setWidth(31);
-#endif
+    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
+
+    if (webTab && webTab->isPinned()) {
+        size.setWidth(PINNED_TAB_WIDTH);
+    } else {
+        int availableWidth = width() - (PINNED_TAB_WIDTH * m_pinnedTabsCount) - m_tabWidget->buttonListTabs()->width();
+        int normalTabsCount = count() - m_pinnedTabsCount;
+        if (availableWidth >= MAXIMUM_TAB_WIDTH * normalTabsCount)
+            size.setWidth(MAXIMUM_TAB_WIDTH);
+        else if (availableWidth < MINIMUM_TAB_WIDTH * normalTabsCount)
+            size.setWidth(MINIMUM_TAB_WIDTH);
+        else {
+            int maxWidthForTab = availableWidth / normalTabsCount;
+            //Fill any empty space (gotten from rounding) with last tab
+            if (index == count() - 1)
+                size.setWidth( (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab);
+            else
+                size.setWidth(maxWidthForTab);
+        }
     }
     return size;
 }
@@ -131,11 +150,8 @@ void TabBar::tabInserted(int index)
 
 void TabBar::showCloseButton(int index)
 {
-    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
-    if (!tabWidget)
-        return;
 
-    WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(index));
+    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
     if (webTab && webTab->isPinned())
         return;
 
@@ -161,11 +177,7 @@ void TabBar::updateCloseButton(int index)
     if (!button)
         return;
 
-    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
-    if (!tabWidget)
-        return;
-
-    WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(index));
+    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
     if (webTab && webTab->isPinned())
         button->hide();
     else
@@ -175,10 +187,10 @@ void TabBar::updateCloseButton(int index)
 void TabBar::closeCurrentTab()
 {
     int id = currentIndex();
-    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
-    if (!tabWidget || id < 0)
+    if (id < 0)
         return;
-    tabWidget->closeTab(id);
+
+    m_tabWidget->closeTab(id);
 }
 
 void TabBar::bookmarkTab()
@@ -188,24 +200,32 @@ void TabBar::bookmarkTab()
 
 void TabBar::pinTab()
 {
-    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
-    if (!tabWidget)
-        return;
-
-    WebTab* webTab = qobject_cast<WebTab*>(tabWidget->widget(m_clickedTab));
+    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
     if (!webTab)
         return;
 
     webTab->pinTab(m_clickedTab);
+
+    if (webTab->isPinned())
+        m_pinnedTabsCount++;
+    else
+        m_pinnedTabsCount--;
+}
+
+void TabBar::pinnedTabClosed()
+{
+    m_pinnedTabsCount--;
+}
+
+void TabBar::pinnedTabAdded()
+{
+    m_pinnedTabsCount++;
 }
 
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
-    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
-    if (!tabWidget)
-        return;
     if (event->button() == Qt::LeftButton && tabAt(event->pos()) == -1) {
-        tabWidget->addView(QUrl(),tr("New tab"), TabWidget::NewTab, true);
+        m_tabWidget->addView(QUrl(),tr("New tab"), TabWidget::NewTab, true);
         return;
     }
     QTabBar::mouseDoubleClickEvent(event);

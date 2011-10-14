@@ -6,7 +6,7 @@
 #include "qupzilla.h"
 
 WebInspectorDockWidget::WebInspectorDockWidget(QupZilla* mainClass)
-    : QDockWidget()
+    : QDockWidget(mainClass)
     , p_QupZilla(mainClass)
     , m_inspector(0)
 {

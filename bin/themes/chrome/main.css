@@ -98,9 +98,9 @@
 }
 
 /*TabWidget*/
-#tabwidget::tab-bar
+#tabbar::scroller
 {
-    right: 31px;
+    width: 0px;
 }
 
 #tabwidget-button-opentabs

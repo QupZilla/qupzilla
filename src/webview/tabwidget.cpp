@@ -106,7 +106,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
   , m_locationBars(new QStackedWidget())
 {
     setObjectName("tabwidget");
-    m_tabBar = new TabBar(p_QupZilla);
+    m_tabBar = new TabBar(p_QupZilla, this);
     setTabBar(m_tabBar);
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
@@ -140,7 +140,7 @@ void TabWidget::loadSettings()
 {
     QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Browser-Tabs-Settings");
-    m_hideCloseButtonWithOneTab = settings.value("hideCloseButtonWithOneTab",false).toBool();
+    m_hideCloseButtonWithOneTab = settings.value("hideCloseButtonWithOneTab", false).toBool();
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab",false).toBool();
     settings.endGroup();
     settings.beginGroup("Web-URL-Settings");
@@ -259,7 +259,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
 
 void TabWidget::setTabText(int index, const QString& text)
 {
-    QString newtext = text + "                                                                            ";
+    QString newtext = text;
 
     if (WebTab* webTab = qobject_cast<WebTab*>(p_QupZilla->tabWidget()->widget(index)) ) {
         if (webTab->isPinned())
@@ -279,9 +279,10 @@ void TabWidget::closeTab(int index)
     if (!webView)
         return;
 
+    if (webView->webTab()->isPinned())
+        emit pinnedTabClosed();
+
     m_locationBars->removeWidget(webView->webTab()->locationBar());
-//        disconnect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
-//        disconnect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     disconnect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
@@ -497,8 +498,10 @@ void TabWidget::restorePinnedTabs()
             addedIndex = addView(url);
         }
         WebTab* webTab = (WebTab*)widget(addedIndex);
-        if (webTab)
+        if (webTab) {
             webTab->setPinned(true);
+            emit pinnedTabAdded();
+        }
 
         m_tabBar->moveTab(addedIndex, i);
         m_tabBar->updateCloseButton(i);
