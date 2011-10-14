@@ -27,6 +27,7 @@
 #include <QSettings>
 
 class QupZilla;
+class TabWidget;
 class TabBar : public QTabBar
 {
     Q_OBJECT
@@ -52,6 +53,9 @@ signals:
 public slots:
 
 private slots:
+    void pinnedTabAdded();
+    void pinnedTabClosed();
+
     void contextMenuRequested(const QPoint &position);
     void reloadTab() { emit reloadTab(m_clickedTab); }
     void stopTab() { emit stopTab(m_clickedTab); }
@@ -70,9 +74,13 @@ private:
 //    void tabInserted(int index);
 
     QupZilla* p_QupZilla;
+    TabWidget* m_tabWidget;
+
     bool m_showCloseButtonWithOneTab;
     bool m_showTabBarWithOneTab;
+
     int m_clickedTab;
+    int m_pinnedTabsCount;
 
 };
 
