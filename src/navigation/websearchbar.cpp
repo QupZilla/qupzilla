@@ -104,6 +104,8 @@ void WebSearchBar::focusInEvent(QFocusEvent* e)
 
     if (text() == search) {
         clear();
+    } else {
+        selectAll();
     }
     QLineEdit::focusInEvent(e);
 }
