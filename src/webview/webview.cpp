@@ -255,11 +255,11 @@ void WebView::titleChanged()
     QString title2 = title_;
     tabWidget()->setTabToolTip(tabIndex(),title2);
 
-    title2+=" - QupZilla";
+    title2 += " - QupZilla";
     if (isCurrent())
         p_QupZilla->setWindowTitle(title2);
 
-    tabWidget()->setTabText(tabIndex(),title_);
+    tabWidget()->setTabText(tabIndex(), title_);
 }
 
 void WebView::iconChanged()
@@ -267,15 +267,17 @@ void WebView::iconChanged()
     if (mApp->isClosing())
         return;
 
-//    QIcon icon_ = icon();
+    if (isCurrent())
+        emit siteIconChanged();
+
+    if (m_isLoading)
+        return;
+
     QIcon icon_ = siteIcon();
     if (!icon_.isNull())
         animationLoading(tabIndex(), false)->setPixmap(icon_.pixmap(16,16));
     else
         animationLoading(tabIndex(), false)->setPixmap(IconProvider::fromTheme("text-plain").pixmap(16,16));
-
-    if (isCurrent())
-        emit siteIconChanged();
 }
 
 QIcon WebView::siteIcon()

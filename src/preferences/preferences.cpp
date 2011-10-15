@@ -101,12 +101,13 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     connect(ui->newTabUseActual, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
 
     //PROFILES
-    m_actProfileName = mApp->getActiveProfilPath();
-    m_actProfileName = m_actProfileName.left(m_actProfileName.length()-1);
-    m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf("/"));
-    m_actProfileName.remove("/");
+    QString homePath = QDir::homePath();
+    homePath += "/.qupzilla/";
+    QSettings profileSettings(homePath + "profiles/profiles.ini", QSettings::IniFormat);
+    m_actProfileName = profileSettings.value("Profiles/startProfile", "default").toString();
+
     ui->startProfile->addItem(m_actProfileName);
-    QDir profilesDir(QDir::homePath()+"/.qupzilla/profiles/");
+    QDir profilesDir(QDir::homePath() + "/.qupzilla/profiles/");
     QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
     foreach (QString name, list_) {
         if (m_actProfileName == name)
@@ -675,9 +676,9 @@ void Preferences::saveSettings()
 
     //Profiles
     QString homePath = QDir::homePath();
-    homePath+="/.qupzilla/";
-    QSettings profileSettings(homePath+"profiles/profiles.ini", QSettings::IniFormat);
-    profileSettings.setValue("Profiles/startProfile",ui->startProfile->currentText());
+    homePath += "/.qupzilla/";
+    QSettings profileSettings(homePath + "profiles/profiles.ini", QSettings::IniFormat);
+    profileSettings.setValue("Profiles/startProfile", ui->startProfile->currentText());
 
     m_pluginsList->save();
     m_themesManager->save();

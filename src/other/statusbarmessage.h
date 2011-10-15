@@ -21,6 +21,7 @@
 #include <QObject>
 #include <QToolTip>
 #include "squeezelabelv1.h"
+#include "animatedwidget.h"
 
 class QupZilla;
 class TipLabel;
@@ -31,14 +32,8 @@ class TipLabel : public SqueezeLabelV1 {
 public:
     TipLabel(QupZilla* parent);
     void paintEvent(QPaintEvent *ev);
-    void show();
-    void hide();
-
-private slots:
-    void checkMainWindowFocus();
 
 private:
-    QTimer* m_timer;
     QupZilla* p_QupZilla;
 };
 

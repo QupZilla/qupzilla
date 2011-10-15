@@ -65,5 +65,6 @@
         <file>icons/exeicons/qupzilla256.png</file>
         <file>icons/menu/informations.png</file>
         <file>icons/faenza/user-bookmarks.png</file>
+        <file>icons/other/adblock-disabled.png</file>
     </qresource>
 </RCC>
