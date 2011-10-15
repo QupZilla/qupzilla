@@ -118,12 +118,13 @@ bool WebView::isCurrent()
 
 void WebView::urlChanged(const QUrl &url)
 {
-    if (isCurrent()) {
-        emit showUrl(url);
+    if (isCurrent())
         p_QupZilla->navigationBar()->refreshHistory();
-    }
+
     if (m_lastUrl != url)
         emit changed();
+
+    emit showUrl(url);
 }
 
 void WebView::linkClicked(const QUrl &url)
@@ -134,9 +135,6 @@ void WebView::linkClicked(const QUrl &url)
 void WebView::setProgress(int prog)
 {
     m_progress = prog;
-    if (isCurrent()) {
-        emit showUrl(url());
-    }
     checkRss();
 
     if (isCurrent()) {
@@ -155,10 +153,6 @@ void WebView::loadStarted()
     animationLoading(tabIndex(),true);
     if (title().isNull())
         tabWidget()->setTabText(tabIndex(),tr("Loading..."));
-
-    if (isCurrent()) {
-        emit showUrl(url());
-    }
 
     m_currentIp.clear();
 
@@ -216,18 +210,16 @@ void WebView::setIp(const QHostInfo &info)
 void WebView::loadFinished(bool state)
 {
     Q_UNUSED(state);
-    if (!animationLoading(tabIndex(), false))
-        return;
 
     if (animationLoading(tabIndex(), false)->movie())
         animationLoading(tabIndex(), false)->movie()->stop();
 
     m_isLoading = false;
 
-    if (m_lastUrl!=url())
+    if (m_lastUrl != url())
         mApp->history()->addHistoryEntry(this);
-    if (isCurrent())
-        emit showUrl(url());
+
+    emit showUrl(url());
 
     iconChanged();
     m_lastUrl = url();

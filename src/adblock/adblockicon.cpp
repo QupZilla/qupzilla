@@ -20,7 +20,7 @@
 #include "qupzilla.h"
 #include "webpage.h"
 
-AdBlockIcon::AdBlockIcon(QupZilla *mainClass, QWidget *parent)
+AdBlockIcon::AdBlockIcon(QupZilla* mainClass, QWidget* parent)
    : ClickableLabel(parent)
    , p_QupZilla(mainClass)
 {
