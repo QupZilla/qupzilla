@@ -296,13 +296,9 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     QString errString = file.readAll();
     errString.replace("%TITLE%", tr("Failed loading page"));
 
-    QByteArray image = qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45,45));
-    if (!image.isEmpty())
-        errString.replace("%IMAGE%", image);
-
-    image = qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16,16));
-    if (!image.isEmpty())
-        errString.replace("%FAVICON%", image);
+    errString.replace("%IMAGE%", qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45,45)));
+    errString.replace("%FAVICON%", qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16,16)));
+    errString.replace("%BOX-BORDER%", qz_pixmapToByteArray(QPixmap(":html/box-border.png")));
 
     errString.replace("%HEADING%", errorString);
     errString.replace("%HEADING2%", tr("QupZilla can't load page from %1.").arg(QUrl(loadedUrl).host()));

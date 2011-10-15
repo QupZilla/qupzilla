@@ -2,10 +2,28 @@
 <title>%TITLE%</title>
 <link rel="icon" href="data:image/png;base64,%FAVICON%" type="image/x-icon" />
 <style>
-body {
-  padding: 3em 0em;
+html {
   background: #eeeeee;
+  font: 14px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #525c66;
 }
+
+html * {
+  font-size: 100%;
+  line-height: 1.6;
+}
+
+#box {
+  max-width: 650px;
+  max-height: 330px;
+  overflow:auto;
+  margin: 25px auto 10px auto;
+  padding: 10px 40px;
+  border-width: 20px;
+  text-align: left;
+  -webkit-border-image: url(data:image/png;base64,%BOX-BORDER%) 25;
+}
+
 hr {
   color: lightgray;
   width: 100%;
@@ -15,17 +33,7 @@ img {
   margin-left: -20px;
   margin-top: 15px;
 }
-#box {
-  background: white;
-  border: 1px solid lightgrey;
-  max-width: 700px;
-  max-height: 330px;
-  overflow:auto;
-  padding: 20px 20px 30px 50px;
-  margin: auto;
-  border-radius: 15px;
 
-}
 h1 {
   font-size: 150%;
   font-weight: bold;
@@ -38,7 +46,7 @@ h2 {
   font-weight: normal;
   border-bottom: 1px solid #f4f4f4;
   margin-left: 48px;
-  padding: 5px 0px 20px 2px;
+  padding: 5px 0px 10px 2px;
   margin-right: 50px;
 }
 ul {
