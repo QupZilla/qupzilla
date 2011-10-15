@@ -78,16 +78,16 @@ const QIcon QupZilla::qupzillaIcon()
     return i;
 }
 
-QupZilla::QupZilla(bool tryRestore, QUrl startUrl) :
-    QMainWindow(0)
-    ,m_tryRestore(tryRestore)
-    ,m_historyMenuChanged(true)
-    ,m_bookmarksMenuChanged(true)
-    ,m_startingUrl(startUrl)
-    ,m_actionPrivateBrowsing(0)
-    ,m_webInspectorDock(0)
-    ,m_sideBar(0)
-    ,m_statusBarMessage(new StatusBarMessage(this))
+QupZilla::QupZilla(bool tryRestore, QUrl startUrl)
+    : QMainWindow(0)
+    , m_tryRestore(tryRestore)
+    , m_historyMenuChanged(true)
+    , m_bookmarksMenuChanged(true)
+    , m_startingUrl(startUrl)
+    , m_actionPrivateBrowsing(0)
+    , m_webInspectorDock(0)
+    , m_sideBar(0)
+    , m_statusBarMessage(new StatusBarMessage(this))
 {
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);

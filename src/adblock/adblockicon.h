@@ -34,6 +34,7 @@ public:
 signals:
 
 public slots:
+    void setEnabled(bool enabled);
 
 private slots:
     void showMenu(const QPoint &pos);

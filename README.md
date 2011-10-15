@@ -26,6 +26,7 @@ Compiling
 
 Before compiling, make sure you have have installed Qt (>=4.7) development libraries and
 you read BUILDING informations.
+
 Then you can start compile by running this commands:
 
     $ cd src/
@@ -33,6 +34,7 @@ Then you can start compile by running this commands:
     $ make
 
 The executable binary can now be found in bin/ directory.
+
 To install QupZilla, run this command: (it may be neccessary to run as root)
 
     $ make install
@@ -53,4 +55,5 @@ FAQ and Changelog
 If you are experiencing some sort of issue, before you open an issue, please read FAQ.
 
 FAQ:       https://github.com/nowrep/QupZilla/blob/master/FAQ
+
 Changelog: https://github.com/nowrep/QupZilla/wiki/Changelog
