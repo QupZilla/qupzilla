@@ -237,8 +237,6 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
         tabBar()->setTabsClosable(false);
     else tabBar()->setTabsClosable(true);
 
-//    connect(weView(index), SIGNAL(siteIconChanged()), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
-//    connect(weView(index), SIGNAL(showUrl(QUrl)), p_QupZilla->locationBar(), SLOT(showUrl(QUrl)));
     connect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
