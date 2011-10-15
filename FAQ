@@ -7,7 +7,7 @@ Q: Where are all my profile data stored?
 A: Go to Menu Help -> Informations about application and then scroll to 
    Paths section.
 
-
+_____________________________________________________________________________
 Q: I have bookmarked a page, the star icon is shining, but I cannot see
    the bookmark in Menu nor Bookmark Panel. Where is it?
       
@@ -15,7 +15,7 @@ A: When you add a bookmark from the star icon, it is automatically added
    to unsorted bookmarks folder. You will see it only in Library (Ctrl+Shift+O).
    You can move the bookmark to other folder in star icon or in Library.
    
-
+_____________________________________________________________________________
 Q: I am getting a lot of SSL errors when visiting secured (https) pages.
    Why is that?
    
@@ -29,3 +29,23 @@ A: Your system CA Certificates list is probably too small or even missing.
    After downloading this file, you may put it into $yourprofile/certificates/
    directory or in some other place, but then you have to add new certificate
    path in SSL Manager (last tab - settings).
+   
+_____________________________________________________________________________
+Q: I cannot save any bookmark and my history is empty. What to do?
+
+A: At first, please check that you have installed Qt SQLite plugin.
+   On Debian, this package is called libqt4-sql-sqlite.
+   If you have it installed and you are still experiencing this issue,
+   please run QupZilla from terminal and read the output.
+   If it contains something like
+   
+         QSqlQuery::value: not positioned on a valid record
+         QSqlQuery::value: not positioned on a valid record
+   
+   it seems that your profile database is broken. You can check it by some
+   SQLite database viewer. If the database is empty, then you can recover
+   it by copying
+       Windows: Program Files/QupZilla/data/profiles/default/browsedata.db
+       Unix: /usr/share/qupzilla/data/profiles/default/browsedata.db
+   into your profile directory.
+   If it doesn't help, please open an issue.
