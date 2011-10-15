@@ -21,10 +21,9 @@
 #include "webpage.h"
 
 AdBlockIcon::AdBlockIcon(QupZilla *mainClass, QWidget *parent)
-   :ClickableLabel(parent)
-   ,p_QupZilla(mainClass)
+   : ClickableLabel(parent)
+   , p_QupZilla(mainClass)
 {
-    setPixmap(QPixmap(":/icons/other/adblock.png"));
     setMaximumHeight(16);
     setCursor(Qt::PointingHandCursor);
     setToolTip(tr("AdBlock let you block any unwanted content on pages"));
@@ -58,6 +57,14 @@ void AdBlockIcon::showMenu(const QPoint &pos)
 void AdBlockIcon::learnAboutRules()
 {
     p_QupZilla->tabWidget()->addView(QUrl("http://adblockplus.org/en/filters"), tr("New tab"), TabWidget::NewSelectedTab);
+}
+
+void AdBlockIcon::setEnabled(bool enabled)
+{
+    if (enabled)
+        setPixmap(QPixmap(":icons/other/adblock.png"));
+    else
+        setPixmap(QPixmap(":icons/other/adblock-disabled.png"));
 }
 
 AdBlockIcon::~AdBlockIcon()

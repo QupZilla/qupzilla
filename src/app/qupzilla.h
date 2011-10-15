@@ -223,7 +223,7 @@ private:
     QAction* m_actionRestoreTab;
 
     QLabel* m_privateBrowsing;
-    ClickableLabel* m_adblockIcon;
+    AdBlockIcon* m_adblockIcon;
     QPointer<WebInspectorDockWidget> m_webInspectorDock;
 
     BookmarksToolbar* m_bookmarksToolbar;
