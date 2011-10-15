@@ -70,6 +70,7 @@ private slots:
 
 private:
     void mouseDoubleClickEvent(QMouseEvent* event);
+    void mousePressEvent(QMouseEvent* event);
     QSize tabSizeHint(int index) const;
 //    void tabInserted(int index);
 
