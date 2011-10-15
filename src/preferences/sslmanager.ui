@@ -156,7 +156,7 @@
        <item row="0" column="0" colspan="4">
         <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>If CA Authorities Certificates were not automatically loaded from system, You can specify manual paths where certificates are stored.</string>
+          <string>If CA Authorities Certificates were not automatically loaded from system, you can specify manual paths where certificates are stored.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -229,7 +229,8 @@
        <item row="5" column="0" colspan="2">
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>After adding or removing certificate paths, it is neccessary to restart browser in order to changes take effect.</string>
+          <string>All certificates must have .crt suffix.
+After adding or removing certificate paths, it is neccessary to restart browser in order to changes take effect.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>

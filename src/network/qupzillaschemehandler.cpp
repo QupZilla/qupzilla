@@ -161,11 +161,21 @@ QString QupZillaSchemeReply::aboutPage()
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
     page.replace("%USER-AGENT%", mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()));
     page.replace("%PATHS-TEXT%",
+                 QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->getActiveProfilPath()) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->getActiveProfilPath() + "settings.ini") +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), mApp->getActiveProfilPath() + "session.dat") +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), mApp->getActiveProfilPath() + "pinnedtabs.dat") +
+                 QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), mApp->DATADIR) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Plugins"), mApp->PLUGINSDIR) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
+    page.replace("%MAIN-DEVELOPER%", tr("Main developer"));
+    page.replace("%MAIN-DEVELOPER-TEXT%", QupZilla::AUTHOR + " &lt;<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>&gt;");
+    page.replace("%CONTRIBUTORS%", tr("Contributors"));
+    page.replace("%CONTRIBUTORS-TEXT%", "Daniele Cocca &lt;<a href=mailto:jmc@chakra-project.org>jmc@chakra-project.org</a>&gt;");
+    page.replace("%TRANSLATORS%", tr("Translators"));
+    page.replace("%TRANSLATORS-TEXT%", "Heimen Stoffels &lt;<a href=mailto:vistausss@gmail.com>vistausss@gmail.com</a>&gt; (Dutch)<br/>"
+                                        "Peter Vacula &lt;<a href=mailto:pvacula1989@gmail.com>pvacula1989@gmail.com</a>&gt; (Slovak)");
+
     return page;
 }
