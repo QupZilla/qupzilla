@@ -60,9 +60,15 @@ void NetworkManager::loadSettings()
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
     settings.endGroup();
 
+#ifdef Q_WS_WIN
+    // From doc:
+    // QSslSocket::VerifyNone ... The connection will still be encrypted, and your socket
+    // will still send its local certificate to the peer if it's requested.
+
     QSslConfiguration config = QSslConfiguration::defaultConfiguration();
-    config.setProtocol(QSsl::AnyProtocol);
+    config.setPeerVerifyMode(QSslSocket::VerifyNone);
     QSslConfiguration::setDefaultConfiguration(config);
+#endif
 
     m_proxyFactory->loadSettings();
 }

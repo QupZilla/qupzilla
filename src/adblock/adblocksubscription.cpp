@@ -109,7 +109,7 @@ void AdBlockSubscription::rulesDownloaded()
     if (response.isEmpty())
         return;
 
-    QString fileName = mApp->getActiveProfilPath()+"adblocklist.txt";
+    QString fileName = mApp->getActiveProfilPath() + "adblocklist.txt";
     QFile file(fileName);
     if (!file.open(QFile::WriteOnly)) {
         qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << fileName;
