@@ -80,7 +80,7 @@ void BookmarksToolbar::loadClickedBookmark()
 void BookmarksToolbar::showMostVisited()
 {
     m_bookmarksModel->setShowingMostVisited(!m_bookmarksModel->isShowingMostVisited());
-    refreshBookmarks();
+    m_mostVis->setVisible(!m_mostVis->isVisible());
 }
 
 void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
@@ -174,11 +174,7 @@ void BookmarksToolbar::refreshBookmarks()
 
         connect(button, SIGNAL(clicked()), this, SLOT(loadClickedBookmark()));
         m_layout->addWidget(button);
-
     }
-
-    if (!m_bookmarksModel->isShowingMostVisited())
-        return;
 
     m_mostVis = new ToolButton(this);
     m_mostVis->setPopupMode(QToolButton::InstantPopup);
@@ -193,6 +189,8 @@ void BookmarksToolbar::refreshBookmarks()
 
     m_layout->addWidget(m_mostVis);
     m_layout->addStretch();
+
+    m_mostVis->setVisible(m_bookmarksModel->isShowingMostVisited());
 }
 
 void BookmarksToolbar::refreshMostVisited()
