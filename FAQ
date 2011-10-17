@@ -1,24 +1,22 @@
-#######################
-##      F.A.Q.       ##
-#######################
+FAQ
 
 Q: Where are all my profile data stored?
-
+----------------------------------------------------------------------------------
 A: Go to Menu Help -> Informations about application and then scroll to 
    Paths section.
 
-_____________________________________________________________________________
+
 Q: I have bookmarked a page, the star icon is shining, but I cannot see
    the bookmark in Menu nor Bookmark Panel. Where is it?
-      
+----------------------------------------------------------------------------------      
 A: When you add a bookmark from the star icon, it is automatically added
    to unsorted bookmarks folder. You will see it only in Library (Ctrl+Shift+O).
    You can move the bookmark to other folder in star icon or in Library.
    
-_____________________________________________________________________________
+
 Q: I am getting a lot of SSL errors when visiting secured (https) pages.
    Why is that?
-   
+----------------------------------------------------------------------------------
 A: Your system CA Certificates list is probably too small or even missing.
    You can check it in SSL Manager (Preferences -> Privacy -> SSL Manager).
    If this is your case, you have to download ca-bundle.crt file from
@@ -30,9 +28,9 @@ A: Your system CA Certificates list is probably too small or even missing.
    directory or in some other place, but then you have to add new certificate
    path in SSL Manager (last tab - settings).
    
-_____________________________________________________________________________
-Q: I cannot save any bookmark and my history is empty. What to do?
 
+Q: I cannot save any bookmark and my history is empty. What to do?
+----------------------------------------------------------------------------------
 A: At first, please check that you have installed Qt SQLite plugin.
    On Debian, this package is called libqt4-sql-sqlite.
    If you have it installed and you are still experiencing this issue,

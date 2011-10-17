@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  nowrep
+* Copyright (C) 2010-2011  David Rosca
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -34,6 +34,8 @@ public:
     explicit NavigationBar(QupZilla* mainClass, QWidget *parent = 0);
     ~NavigationBar();
 
+    void setSplitterSizes(int locationBar, int websearchBar);
+
     void showReloadButton();
     void showStopButton();
 
@@ -44,6 +46,7 @@ public:
     inline ToolButton* buttonSuperMenu() { return m_supMenu; }
     inline ToolButton* buttonExitFullscreen() { return m_exitFullscreen; }
     inline WebSearchBar* searchLine() { return m_searchLine; }
+    inline QSplitter* splitter() { return m_navigationSplitter; }
 
 signals:
 

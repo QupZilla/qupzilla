@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  nowrep
+* Copyright (C) 2010-2011  David Rosca
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -80,7 +80,7 @@ QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
             slashCount--;
 
         rUrlPath.remove(samePart);
-        rUrlPath.prepend(QString("../").repeated(slashCount));
+        rUrlPath.prepend(QString("..""/").repeated(slashCount));
         returnUrl = QUrl(rUrlPath);
     }
 

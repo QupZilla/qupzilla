@@ -1,15 +1,14 @@
-#######################
-##     TODO List     ##
-#######################
+TODO List
+----------------------------------------------------------------------------------
 
 There are some features, which I plan to implement in future.
-Note: They are not sorted by priority.
+The list is not sorted by priority.
 
-1. OpenSearch support
-2. Import / Export Bookmarks
-3. Speed Dial
-4. FTP Protocol support
-5. Zoom Widget in statusbar
-6. Save more than one account for site + input completer
-7. Better SSL Manager
-8. Accept-Language dialog + send this header
+* OpenSearch support
+* Import / Export Bookmarks
+* Speed Dial
+* FTP Protocol support
+* Zoom Widget in statusbar
+* Save more than one account for site + input completer
+* Accept-Language dialog + send this header
+* New LocationBar completer
