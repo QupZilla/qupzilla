@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  nowrep
+* Copyright (C) 2010-2011  David Rosca
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 #include <QVBoxLayout>
 
 class DockTitleBarWidget;
+class QupZilla;
 class SideBar : public QWidget
 {
     Q_OBJECT
@@ -44,6 +45,7 @@ public slots:
 private:
     void setWidget(QWidget* widget);
 
+    QupZilla* p_QupZilla;
     QVBoxLayout* m_layout;
     DockTitleBarWidget* m_titleBar;
     SideWidget m_activeWidget;

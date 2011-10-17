@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  nowrep
+* Copyright (C) 2010-2011  David Rosca
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -59,7 +59,7 @@ void DownloadManager::loadSettings()
     QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
     m_downloadPath = settings.value("defaultDownloadPath", "").toString();
-    m_lastDownloadPath = settings.value("lastDownloadPath",QDir::homePath()+"/").toString();
+    m_lastDownloadPath = settings.value("lastDownloadPath", QDir::homePath() + "/").toString();
     m_useNativeDialog = settings.value("useNativeDialog",
                                    #ifdef Q_WS_WIN
                                        false
