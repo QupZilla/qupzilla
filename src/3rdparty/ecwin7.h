@@ -32,6 +32,7 @@
 
 #include <ShlObj.h>
 #include <shlwapi.h>
+#include "msvc2008.h"
 
 // ********************************************************************
 // EcWin7 class - Windows 7 taskbar handling for Qt and MinGW

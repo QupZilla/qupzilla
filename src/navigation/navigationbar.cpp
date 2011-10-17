@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  nowrep
+* Copyright (C) 2010-2011  David Rosca
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -86,11 +86,6 @@ NavigationBar::NavigationBar(QupZilla *mainClass, QWidget *parent)
     m_navigationSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
     m_navigationSplitter->setCollapsible(0, false);
 
-    int splitterWidth = m_navigationSplitter->width();
-    QList<int> sizes;
-    sizes << (int)((double)splitterWidth * .85) << (int)((double)splitterWidth * .15);
-    m_navigationSplitter->setSizes(sizes);
-
     m_exitFullscreen = new ToolButton();
     m_exitFullscreen->setText(tr("Exit Fullscreen"));
     m_exitFullscreen->setToolTip(tr("Exit Fullscreen"));
@@ -114,6 +109,20 @@ NavigationBar::NavigationBar(QupZilla *mainClass, QWidget *parent)
     connect(m_buttonHome, SIGNAL(clicked()), p_QupZilla, SLOT(goHome()));
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     connect(m_exitFullscreen, SIGNAL(clicked(bool)), p_QupZilla, SLOT(fullScreen(bool)));
+}
+
+void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
+{
+    QList<int> sizes;
+
+    if (locationBar == 0) {
+        int splitterWidth = m_navigationSplitter->width();
+        sizes << (int)((double)splitterWidth * .80) << (int)((double)splitterWidth * .20);
+    } else {
+        sizes << locationBar << websearchBar;
+    }
+
+    m_navigationSplitter->setSizes(sizes);
 }
 
 void NavigationBar::showReloadButton()

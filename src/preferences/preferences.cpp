@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  nowrep
+* Copyright (C) 2010-2011  David Rosca
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -364,6 +364,11 @@ void Preferences::chooseDownPath()
     QString userFileName = QFileDialog::getExistingDirectory(p_QupZilla, tr("Choose download location..."), QDir::homePath());
     if (userFileName.isEmpty())
         return;
+#ifdef Q_WS_WIN   //QFileDialog::getExistingDirectory returns path with \ instead of / (??)
+    userFileName.replace("\\", "/");
+#endif
+    userFileName += "/";
+
     ui->downLoc->setText(userFileName);
 }
 
@@ -570,17 +575,8 @@ void Preferences::saveSettings()
     settings.beginGroup("DownloadManager");
     if (ui->askEverytime->isChecked())
         settings.setValue("defaultDownloadPath","");
-    else{
-        QString text = ui->downLoc->text();
-#ifdef Q_WS_WIN
-        if (!text.endsWith("\\"))
-            text+="\\";
-#else
-        if (!text.endsWith("/"))
-            text+="/";
-#endif
-        settings.setValue("defaultDownloadPath",text);
-    }
+    else
+        settings.setValue("defaultDownloadPath", ui->downLoc->text());
     settings.setValue("useNativeDialog", ui->downlaodNativeSystemDialog->isChecked());
     settings.endGroup();
 
