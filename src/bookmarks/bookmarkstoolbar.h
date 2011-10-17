@@ -56,7 +56,6 @@ private:
     QMenu* m_menuMostVisited;
     ToolButton* m_mostVis;
     QHBoxLayout* m_layout;
-
 };
 
 #endif // BOOKMARKSTOOLBAR_H
