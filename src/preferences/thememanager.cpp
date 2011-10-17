@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  nowrep
+* Copyright (C) 2010-2011  David Rosca
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,13 @@ ThemeManager::ThemeManager(QWidget* parent)
     ui->license->hide();
     QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Themes");
-    m_activeTheme = settings.value("activeTheme", "default").toString();
+    m_activeTheme = settings.value("activeTheme",
+#ifdef Q_WS_X11
+                                   "linux"
+#else
+                                   "windows"
+#endif
+                                   ).toString();
     settings.endGroup();
 
     QDir themeDir(mApp->THEMESDIR);

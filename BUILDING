@@ -1,36 +1,36 @@
-#######################
-## Building QupZilla ##
-#######################
-
->>      General      <<
->>                   <<
+General 
+----------------------------------------------------------------------------------
 
   If you can, you should use precompiled packages for your distribution.
   But if you cannot use them, or they are not available, please read
   this informations before compiling.
   After your binary is successfuly compiled, you need to copy bin/ folder
   from git to specific directory by your system you compiled for.
+  On Linux, you can easily do it by running make install.
   If you are unsure where is the right place, you can check it directly from
   QupZilla by clicking from Help Menu to Informations about program, then in 
   Path section.                     
 
->> Microsoft Windows <<
->>                   <<
+Microsoft Windows
+----------------------------------------------------------------------------------
 
-  You need Microsoft Visual C++ Compiler 2008
-  or higher in order to build QupZilla. If You want
-  use JumpLists in Windows TaskBar, then You need
-  Microsoft Visual C++ Compiler 2010 and define W7API (more info at the bottom)
-  If you don't meet this, please use precompiled versions,
-  which are also in smart windows installer.
+  You need Microsoft Visual C++ Compiler 2008 or higher and Qt Libraries 4.7.0
+  or higher in order to build QupZilla.
+  Building with Microsoft Visual C++ Compiler 2010 is also possible, but as this
+  version is not yet suported by Qt, created binary can be executed, but is very 
+  likely to unreasonable crash randomly.
+  Building with MingW is perhaps possible too, but MingW QtWebKit crashes with 
+  every Flash, so MingW is not officially supported.
+  If you don't meet this, please use precompiled version, which is also in smart 
+  windows installer.
  
->>   Linux / Unix    <<
->>                   <<
+Linux / Unix
+----------------------------------------------------------------------------------
 
   There is no extra dependency, you only need Qt tools.
  
->>        OS/2       <<
->>                   <<
+OS/2
+----------------------------------------------------------------------------------
 
   I cannot provide support for QupZilla on OS/2 as I don't have access to 
   machine with OS/2, but it is possible to get QupZilla working there.
@@ -42,11 +42,13 @@
                
   to QupZilla.pro file.
 
-#######################
-## Available Defines ##
-#######################
+
+Available Defines
+----------------------------------------------------------------------------------
+
   You can set define directly in project file (QupZilla.pro)
   or set environment variable by
+  
     $ export NAME="true"
 
  General:
@@ -61,7 +63,8 @@
                        
  Windows specific defines
      W7API                Enable Windows 7 API support
-                          Requires Microsoft Visual C++ Compiler 2010
+                          Requires linking against libraries from Microsoft Visual C++
+                          Compiler 2010
                           (disabled by default)
  
  Linux / Unix specific defines:

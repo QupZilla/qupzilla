@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  nowrep
+* Copyright (C) 2010-2011  David Rosca
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -210,6 +210,9 @@ void WebView::setIp(const QHostInfo &info)
 void WebView::loadFinished(bool state)
 {
     Q_UNUSED(state);
+
+    if (mApp->isClosing())
+        return;
 
     if (animationLoading(tabIndex(), false)->movie())
         animationLoading(tabIndex(), false)->movie()->stop();
