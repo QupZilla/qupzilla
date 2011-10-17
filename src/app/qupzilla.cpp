@@ -634,6 +634,7 @@ void QupZilla::aboutToShowToolsMenu()
     m_menuTools->addAction(QIcon(":/icons/menu/rss.png"), tr("RSS &Reader"), this,  SLOT(showRSSManager()));
     m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), this, SLOT(showClearPrivateData()));
     m_actionPrivateBrowsing = new QAction(tr("&Private Browsing"), this);
+    m_actionPrivateBrowsing->setShortcut(QKeySequence("Ctrl+Shift+P"));
     m_actionPrivateBrowsing->setCheckable(true);
     m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), this, SLOT(startPrivate(bool)));
