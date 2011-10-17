@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  nowrep
+* Copyright (C) 2010-2011  David Rosca
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -60,7 +60,7 @@
 
 const QString QupZilla::VERSION = "1.0.0-rc1";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
-const QString QupZilla::AUTHOR = "nowrep";
+const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2011";
 const QString QupZilla::WWWADDRESS = "http://qupzilla.co.cc";
 const QString QupZilla::WIKIADDRESS = "https://github.com/nowrep/QupZilla/wiki";
@@ -88,6 +88,7 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl)
     , m_webInspectorDock(0)
     , m_sideBar(0)
     , m_statusBarMessage(new StatusBarMessage(this))
+    , m_sideBarWidth(0)
 {
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
@@ -164,6 +165,9 @@ void QupZilla::postLaunch()
 
 void QupZilla::setupUi()
 {
+    int locationBarWidth;
+    int websearchBarWidth;
+
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Browser-View-Settings");
     if (settings.value("WindowMaximised", false).toBool()) {
@@ -172,6 +176,9 @@ void QupZilla::setupUi()
     } else {
         setGeometry(settings.value("WindowGeometry", QRect(20, 20, 800, 550)).toRect());
     }
+
+    locationBarWidth = settings.value("LocationBarWidth", 0).toInt();
+    websearchBarWidth = settings.value("WebSearchBarWidth", 0).toInt();
 
     QWidget* widget = new QWidget(this);
     setCentralWidget(widget);
@@ -184,6 +191,7 @@ void QupZilla::setupUi()
     m_tabWidget = new TabWidget(this);
     m_superMenu = new QMenu(this);
     m_navigationBar = new NavigationBar(this);
+    m_navigationBar->setSplitterSizes(locationBarWidth, websearchBarWidth);
     m_bookmarksToolbar = new BookmarksToolbar(this);
     m_mainSplitter->addWidget(m_tabWidget);
     m_mainLayout->addWidget(m_navigationBar);
@@ -380,6 +388,7 @@ void QupZilla::loadSettings()
     bool showMenuBar = settings.value("showMenubar",true).toBool();
     bool showAddTab = settings.value("showAddTabButton", true).toBool();
     bool makeTransparent = settings.value("useTransparentBackground",false).toBool();
+    m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
     QString activeSideBar = settings.value("SideBar", "None").toString();
     settings.endGroup();
     bool adBlockEnabled = settings.value("AdBlock/enabled", true).toBool();
@@ -829,8 +838,9 @@ void QupZilla::showBookmarksSideBar()
 
     if (m_sideBar->activeWidget() != SideBar::Bookmarks)
         m_sideBar->showBookmarks();
-    else
+    else {
         m_sideBar->close();
+    }
 }
 
 void QupZilla::showHistorySideBar()
@@ -839,8 +849,9 @@ void QupZilla::showHistorySideBar()
 
     if (m_sideBar->activeWidget() != SideBar::History)
         m_sideBar->showHistory();
-    else
+    else {
         m_sideBar->close();
+    }
 }
 
 void QupZilla::addSideBar()
@@ -852,6 +863,17 @@ void QupZilla::addSideBar()
 
     m_mainSplitter->insertWidget(0, m_sideBar);
     m_mainSplitter->setCollapsible(0, false);
+
+    QList<int> sizes;
+    sizes << m_sideBarWidth << width() - m_sideBarWidth;
+    m_mainSplitter->setSizes(sizes);
+}
+
+void QupZilla::saveSideBarWidth()
+{
+    // That +1 is important here, without it, the sidebar width would
+    // decrease by 1 pixel every close
+    m_sideBarWidth = m_mainSplitter->sizes().at(0) + 1;
 }
 
 void QupZilla::showNavigationToolbar()
@@ -1047,12 +1069,19 @@ void QupZilla::closeEvent(QCloseEvent* event)
 
 bool QupZilla::quitApp()
 {
+    if (m_sideBar)
+        saveSideBarWidth();
+
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
     int afterLaunch = settings.value("Web-URL-Settings/afterLaunch",0).toInt();
     bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", false).toBool();
 
-    settings.setValue("Browser-View-Settings/WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
-    settings.setValue("Browser-View-Settings/WindowGeometry", geometry());
+    settings.beginGroup("Browser-View-Settings");
+    settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
+    settings.setValue("WindowGeometry", geometry());
+    settings.setValue("LocationBarWidth", m_navigationBar->splitter()->sizes().at(0));
+    settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
+    settings.setValue("SideBarWidth", m_sideBar ? m_mainSplitter->sizes().at(0) : m_sideBarWidth);
 
     if (askOnClose && afterLaunch != 2 && m_tabWidget->count() > 1) {
         QDialog* dialog = new QDialog(this);

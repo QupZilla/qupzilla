@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  nowrep
+* Copyright (C) 2010-2011  David Rosca
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,13 +21,13 @@
 #include "historysidebar.h"
 #include "qupzilla.h"
 
-SideBar::SideBar(QWidget* parent) :
-    QWidget(parent)
-   ,m_activeWidget(None)
+SideBar::SideBar(QWidget* parent)
+    : QWidget(parent)
+    , p_QupZilla((QupZilla*)parentWidget())
+    , m_activeWidget(None)
 {
     setObjectName("sidebar");
     setAttribute(Qt::WA_DeleteOnClose);
-    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
 
     m_layout = new QVBoxLayout();
     m_layout->setContentsMargins(0, 0, 0, 0);
@@ -77,6 +77,8 @@ void SideBar::close()
 {
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.setValue("Browser-View-Settings/SideBar", "None");
+
+    p_QupZilla->saveSideBarWidth();
 
     QWidget::close();
 }
