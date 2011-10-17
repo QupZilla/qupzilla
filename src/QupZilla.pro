@@ -247,7 +247,8 @@ HEADERS  += \
     other/pagescreen.h \
     downloads/downloadfilehelper.h \
     tools/certificateinfowidget.h \
-    webview/webinspectordockwidget.h
+    webview/webinspectordockwidget.h \
+    3rdparty/msvc2008.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -324,4 +325,5 @@ equals(d_w7api, "true") { DEFINES += W7API }
 
 message(Using following defines)
 message($$DEFINES)
+
 
