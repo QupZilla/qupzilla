@@ -233,13 +233,13 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 
 void TabBar::mousePressEvent(QMouseEvent* event)
 {
-    TabWidget* tabWidget = qobject_cast<TabWidget*>(parentWidget());
-    if (!tabWidget)
-        return;
-
     int id = tabAt(event->pos());
     if (id != -1 && event->buttons() == Qt::MiddleButton) {
-        tabWidget->closeTab(id);
+        m_tabWidget->closeTab(id);
+        return;
+    }
+    if (id == -1 && event->buttons() == Qt::MiddleButton) {
+        m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewSelectedTab, true);
         return;
     }
     QTabBar::mousePressEvent(event);
