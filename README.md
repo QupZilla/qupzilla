@@ -39,10 +39,10 @@ To install QupZilla, run this command: (it may be neccessary to run as root)
 
     $ make install
     
-Actual version
+Current version
 ----------------------------------------------------------------------------------------
 
-Actual released version of QupZilla is 1.0.0-b4, you can download precompiled packages
+Current released version of QupZilla is 1.0.0-b4, you can download precompiled packages
 and source from download section.
 However, if you want latest revision, just take the latest code snapshot either by
 downloading a tarball or running:
