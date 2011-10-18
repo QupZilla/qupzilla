@@ -53,6 +53,7 @@ private slots:
     void useActualHomepage();
     void useActualNewTab();
     void openSslManager();
+    void showAcceptLanguage();
     void chooseUserStyleClicked();
 
     void allowJavaScriptChanged(bool stat);
