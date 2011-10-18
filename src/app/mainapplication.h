@@ -75,7 +75,6 @@ public:
     inline int windowCount() { return m_mainWindows.count(); }
 
     bool checkSettingsDir();
-    void checkProfile(QString path);
 
     QupZilla* getWindow();
     CookieManager* cookieManager();

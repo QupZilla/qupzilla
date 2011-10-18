@@ -154,10 +154,11 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
     if (!m_path.contains(QDir::tempPath()))
         m_lastDownloadPath = m_path;
 
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
     settings.setValue("lastDownloadPath", m_lastDownloadPath);
     settings.endGroup();
+    m_manager->setLastDownloadPath(m_lastDownloadPath);
 
     QListWidgetItem* item = new QListWidgetItem(m_listWidget);
     DownloadItem* downItem = new DownloadItem(item, m_reply, m_path, m_fileName, m_fileIcon, m_timer, m_openFileChoosed, m_downloadPage, m_manager);

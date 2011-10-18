@@ -49,27 +49,45 @@ Available Defines
   You can set define directly in project file (QupZilla.pro)
   or set environment variable by
   
-    $ export NAME="true"
+    $ export NAME="value"
 
  General:
      UNRELEASED_BUILD     QupZilla won't check profile version,
                           thus, it won't reset your profile is lower version
                           (disabled by default)
                           
+                          example:
+                          $ export UNRELEASED_BUILD="true"
+                          
      USE_WEBGL            Enable WebGL. You need to build QupZilla with WebKit built
                           with WebGL support, otherwise you won't be able to compile
                           without errors.
                           (disabled by default)
+                          
+                          example:
+                          $ export USE_WEBGL="true"      
                        
  Windows specific defines
      W7API                Enable Windows 7 API support
                           Requires linking against libraries from Microsoft Visual C++
                           Compiler 2010
                           (disabled by default)
+
  
  Linux / Unix specific defines:
      NO_SYSTEM_DATAPATH   By default, QupZilla is using /usr/share/qupzilla/ path
                           for storing themes, translations and plugins.
                           By setting this define, QupZilla will use path of execution.
                           (disabled by default)
-                        
+                          
+                          example:
+                          $ export NO_SYSTEM_DATAPATH="true"
+                          
+     QUPZILLA_PREFIX      You can define different prefix. Prefix must contain ending slash.
+                          (default prefix is "/usr/")
+                          value: 
+                          
+                          example:
+                          $ export NO_SYSTEM_DATAPATH="/usr/"
+                          
+                          
