@@ -77,6 +77,15 @@ void BookmarksToolbar::loadClickedBookmark()
     p_QupZilla->loadAddress(button->data().toUrl());
 }
 
+void BookmarksToolbar::loadClickedBookmarkInNewTab()
+{
+    ToolButton* button = qobject_cast<ToolButton*>(sender());
+    if (!button)
+        return;
+
+    p_QupZilla->tabWidget()->addView(button->data().toUrl());
+}
+
 void BookmarksToolbar::showMostVisited()
 {
     m_bookmarksModel->setShowingMostVisited(!m_bookmarksModel->isShowingMostVisited());
@@ -103,6 +112,7 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     button->setWhatsThis(bookmark.title);
 
     connect(button, SIGNAL(clicked()), this, SLOT(loadClickedBookmark()));
+    connect(button, SIGNAL(middleMouseClicked()), this, SLOT(loadClickedBookmarkInNewTab()));
     m_layout->insertWidget(m_layout->count() - 2, button);
 }
 
@@ -173,6 +183,7 @@ void BookmarksToolbar::refreshBookmarks()
         button->setAutoRaise(true);
 
         connect(button, SIGNAL(clicked()), this, SLOT(loadClickedBookmark()));
+        connect(button, SIGNAL(middleMouseClicked()), this, SLOT(loadClickedBookmarkInNewTab()));
         m_layout->addWidget(button);
     }
 

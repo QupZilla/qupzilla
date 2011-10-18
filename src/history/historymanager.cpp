@@ -35,6 +35,8 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
     qz_centerWidgetOnScreen(this);
 
     connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
+    connect(ui->historyTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
+
     connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));
     connect(ui->clearAll, SIGNAL(clicked()), this, SLOT(clearHistory()));
     connect(ui->historyTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
@@ -270,7 +272,7 @@ void HistoryManager::search(const QString &searchText)
 
 void HistoryManager::optimizeDb()
 {
-    BrowsingLibrary* b = (BrowsingLibrary*) parentWidget();
+    BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget());
     if (!b)
         return;
     b->optimizeDatabase();

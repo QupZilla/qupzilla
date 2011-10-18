@@ -64,6 +64,15 @@ void ToolButton::setMultiIcon(const QPixmap &icon)
     setFixedSize(m_normalIcon.size());
 }
 
+void ToolButton::mousePressEvent(QMouseEvent *e)
+{
+    if (e->buttons() == Qt::MiddleButton) {
+        emit middleMouseClicked();
+    }
+
+    QToolButton::mousePressEvent(e);
+}
+
 void ToolButton::paintEvent(QPaintEvent *e)
 {
     if (!m_usingMultiIcon) {

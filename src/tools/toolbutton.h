@@ -22,6 +22,7 @@
 #include <QPaintEvent>
 #include <QPainter>
 #include <QStyleOptionToolButton>
+#include <QMouseEvent>
 
 class ToolButton : public QToolButton
 {
@@ -48,10 +49,12 @@ public:
     void setIcon(const QIcon &icon);
 
 signals:
+    void middleMouseClicked();
 
 public slots:
 
 private:
+    void mousePressEvent(QMouseEvent *e);
     void paintEvent(QPaintEvent *e);
 
     bool m_usingMultiIcon;

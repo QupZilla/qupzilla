@@ -29,8 +29,10 @@ HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent) :
 {
     ui->setupUi(this);
     connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
-    connect(ui->historyTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(ui->historyTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
+    connect(ui->historyTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
+
+    connect(ui->historyTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(ui->search, SIGNAL(textEdited(QString)), ui->historyTree, SLOT(filterString(QString)));
 //    connect(ui->search, SIGNAL(textEdited(QString)), this, SLOT(search()));
 

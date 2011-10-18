@@ -44,6 +44,7 @@ public:
 
 signals:
     void itemControlClicked(QTreeWidgetItem* item);
+    void itemMiddleButtonClicked(QTreeWidgetItem* item);
 
 public slots:
     void filterString(QString string);
