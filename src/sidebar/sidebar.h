@@ -29,7 +29,7 @@ class SideBar : public QWidget
 public:
     enum SideWidget { None = 0, Bookmarks, History, RSS };
 
-    explicit SideBar(QWidget* parent = 0);
+    explicit SideBar(QupZilla* mainClass, QWidget* parent = 0);
     ~SideBar();
 
     void showBookmarks();

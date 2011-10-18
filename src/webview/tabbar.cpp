@@ -30,10 +30,10 @@
 #define PINNED_TAB_WIDTH 31
 #endif
 
-TabBar::TabBar(QupZilla* mainClass, QWidget* parent)
-    : QTabBar(parent)
+TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
+    : QTabBar()
     , p_QupZilla(mainClass)
-    , m_tabWidget((TabWidget*)parentWidget())
+    , m_tabWidget(tabWidget)
     , m_clickedTab(0)
     , m_pinnedTabsCount(0)
 {
@@ -173,7 +173,7 @@ void TabBar::hideCloseButton(int index)
 
 void TabBar::updateCloseButton(int index)
 {
-    QAbstractButton* button = (QAbstractButton*)tabButton(index, QTabBar::RightSide);
+    QAbstractButton* button = qobject_cast<QAbstractButton*>(tabButton(index, QTabBar::RightSide));
     if (!button)
         return;
 

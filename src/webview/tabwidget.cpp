@@ -216,7 +216,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
 
     LocationBar* locBar = new LocationBar(p_QupZilla);
     m_locationBars->addWidget(locBar);
-    int index = addTab(new WebTab(p_QupZilla, locBar),"");
+    int index = addTab(new WebTab(p_QupZilla, locBar), "");
     WebView* webView = weView(index);
     locBar->setWebView(webView);
 
@@ -495,7 +495,7 @@ void TabWidget::restorePinnedTabs()
         } else {
             addedIndex = addView(url);
         }
-        WebTab* webTab = (WebTab*)widget(addedIndex);
+        WebTab* webTab = qobject_cast<WebTab*>(widget(addedIndex));
         if (webTab) {
             webTab->setPinned(true);
             emit pinnedTabAdded();
