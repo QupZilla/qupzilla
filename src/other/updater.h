@@ -48,7 +48,6 @@ public:
                 return true;
             if (this->revisionNumber < other.revisionNumber)
                 return true;
-
             if (this->revisionNumber == other.revisionNumber)
                 return !isBiggerThan_SpecialSymbol(this->specialSymbol, other.specialSymbol);
 

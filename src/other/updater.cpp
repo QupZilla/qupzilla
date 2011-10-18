@@ -57,6 +57,12 @@ bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
     if (one.contains("b") && two.contains("rc"))
         return false;
 
+    if (one.isEmpty())
+        return true;
+
+    if (two.isEmpty())
+        return false;
+
     if (one.contains("b")) {
         int o = one.remove("b").toInt();
         int t = two.remove("b").toInt();
