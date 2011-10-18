@@ -70,6 +70,13 @@ void DownloadManager::loadSettings()
     settings.endGroup();
 }
 
+void DownloadManager::show()
+{
+    m_timer.start(1000*2, this);
+
+    QWidget::show();
+}
+
 void DownloadManager::resizeEvent(QResizeEvent *e)
 {
     QWidget::resizeEvent(e);

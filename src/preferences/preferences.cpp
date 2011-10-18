@@ -495,7 +495,6 @@ void Preferences::createProfile()
     }
     dir.cd(name);
     QFile(mApp->DATADIR+"data/default/profiles/default/browsedata.db").copy(dir.absolutePath()+"/browsedata.db");
-    QFile(mApp->DATADIR+"data/default/profiles/default/background.png").copy(dir.absolutePath()+"/background.png");
 
     ui->startProfile->insertItem(0, name);
     ui->startProfile->setCurrentIndex(0);

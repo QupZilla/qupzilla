@@ -55,8 +55,10 @@ public:
     void download(const QNetworkRequest &request, bool askWhatToDo = true);
     void handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo = true);
     bool canClose();
+    void setLastDownloadPath(const QString &lastPath) { m_lastDownloadPath = lastPath; }
 
-    void show() { m_timer.start(1000*2, this); QWidget::show(); }
+public slots:
+    void show();
 
 #ifdef W7API
 protected:

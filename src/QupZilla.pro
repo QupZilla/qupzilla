@@ -149,7 +149,8 @@ SOURCES += main.cpp\
     other/pagescreen.cpp \
     downloads/downloadfilehelper.cpp \
     tools/certificateinfowidget.cpp \
-    webview/webinspectordockwidget.cpp
+    webview/webinspectordockwidget.cpp \
+    app/profileupdater.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -248,7 +249,8 @@ HEADERS  += \
     downloads/downloadfilehelper.h \
     tools/certificateinfowidget.h \
     webview/webinspectordockwidget.h \
-    3rdparty/msvc2008.h
+    3rdparty/msvc2008.h \
+    app/profileupdater.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -296,19 +298,34 @@ OTHER_FILES += \
 include(3rdparty/qtsingleapplication.pri)
 
 unix {
-    target.path = /usr/bin
+    d_prefix = $$(QUPZILLA_PREFIX)
+    binary_folder = /usr/bin
+    data_folder = /usr/share/qupzilla
+    launcher_folder = /usr/share/applications
+    icon_folder = /usr/share/pixmaps
+
+    !equals(d_prefix, "") {
+        binary_folder = "$$d_prefix"bin
+        data_folder = "$$d_prefix"share/qupzilla
+        launcher_folder = "$$d_prefix"share/applications
+        icon_folder = "$$d_prefix"share/pixmaps
+    }
+
+    DEFINES += USE_DATADIR=\""$$data_folder"/\"
+
+    target.path = $$binary_folder
 
     target1.files = ../bin/data
     target1.files += ../bin/locale
     target1.files += ../bin/plugins
     target1.files += ../bin/themes
-    target1.path = /usr/share/qupzilla
+    target1.path = $$data_folder
 
     target2.files = ../linux/applications/qupzilla.desktop
-    target2.path = /usr/share/applications
+    target2.path = $$launcher_folder
 
     target3.files = ../linux/pixmaps/qupzilla.png
-    target3.path = /usr/share/pixmaps
+    target3.path = $$icon_folder
 
     INSTALLS += target target1 target2 target3
 }
@@ -325,5 +342,7 @@ equals(d_w7api, "true") { DEFINES += W7API }
 
 message(Using following defines)
 message($$DEFINES)
+
+
 
 

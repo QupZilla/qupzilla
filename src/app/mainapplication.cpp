@@ -38,6 +38,7 @@
 #include "mainapplication.h"
 #include "webhistoryinterface.h"
 #include "globalfunctions.h"
+#include "profileupdater.h"
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -63,7 +64,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
 {
     setOverrideCursor(Qt::WaitCursor);
 #if defined(Q_WS_X11) & !defined(NO_SYSTEM_DATAPATH)
-    DATADIR = "/usr/share/qupzilla/";
+    DATADIR = USE_DATADIR;
 #else
     DATADIR = qApp->applicationDirPath() + "/";
 #endif
@@ -133,8 +134,11 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     } else
         m_activeProfil = homePath+"profiles/"+startProfile+"/";
 
-    if (!QDir(m_activeProfil).exists())
-        m_activeProfil=homePath+"profiles/default/";
+    ProfileUpdater u(m_activeProfil, DATADIR);
+    u.checkProfile();
+
+//    if (!QDir(m_activeProfil).exists())
+//        m_activeProfil=homePath+"profiles/default/";
 
     QSettings settings2(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings2.beginGroup("SessionRestore");
@@ -617,23 +621,6 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
     return true;
 }
 
-void MainApplication::checkProfile(QString path)
-{
-    QByteArray rData;
-    QFile versionFile(path+"version");
-    versionFile.open(QFile::ReadOnly);
-    rData = versionFile.readAll();
-    if (rData.contains(QupZilla::VERSION.toAscii())) {
-        versionFile.close();
-        return;
-    }
-    versionFile.close();
-#ifdef UNRELEASED_BUILD
-    return;
-#endif
-    //Starting profile migration manager
-}
-
 bool MainApplication::checkSettingsDir()
 {
     /*
@@ -644,39 +631,19 @@ bool MainApplication::checkSettingsDir()
     profiles/-----------
         |              |
     default/      profiles.ini
-        | ---------------
-        |               |
-    browsedata.db    background.png
+        |
+    browsedata.db
     */
-    QString homePath = QDir::homePath();
-    homePath+="/.qupzilla/";
+    QString homePath = QDir::homePath() + "/.qupzilla/";
 
-    QString profileVersion;
-    if (QDir(homePath).exists()) {
-        profileVersion = qz_readAllFileContents(homePath + "version");
-
-        if (profileVersion == QupZilla::VERSION)
+    if (QDir(homePath).exists() && QFile(homePath + "profiles/profiles.ini").exists())
             return true;
-#ifdef UNRELEASED_BUILD
-        return true;
-#endif
-    }
 
     std::cout << "Creating new profile directory" << std::endl;
 
     QDir dir = QDir::home();
     dir.mkdir(".qupzilla");
     dir.cd(".qupzilla");
-
-    //.qupzilla
-    QFile(homePath + "version").remove();
-    QFile versionFile(homePath + "version");
-    versionFile.open(QFile::WriteOnly);
-    versionFile.write(QupZilla::VERSION.toAscii());
-    versionFile.close();
-
-    if (Updater::parseVersionFromString(QupZilla::VERSION) >= Updater::parseVersionFromString("1.0.0-b3") ) // Data not changed from this version
-        return true;
 
     dir.mkdir("profiles");
     dir.cd("profiles");
@@ -691,8 +658,6 @@ bool MainApplication::checkSettingsDir()
     //.qupzilla/profiles/default
     QFile(homePath + "profiles/default/browsedata.db").remove();
     QFile(DATADIR + "data/default/profiles/default/browsedata.db").copy(homePath + "profiles/default/browsedata.db");
-    QFile(homePath + "profiles/default/background.png").remove();
-    QFile(DATADIR + "data/default/profiles/default/background.png").copy(homePath + "profiles/default/background.png");
 
     return dir.isReadable();
 }
