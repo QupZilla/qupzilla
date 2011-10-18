@@ -41,7 +41,7 @@
 
 QStringList AcceptLanguage::defaultLanguage()
 {
-    return QStringList(QLocale::system().name().split(QLatin1Char('_')));
+    return QStringList(QLocale::system().name().replace("_", "-"));
 }
 
 QByteArray AcceptLanguage::generateHeader(const QStringList &langs)
