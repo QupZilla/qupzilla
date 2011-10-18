@@ -43,6 +43,8 @@ public slots:
 
 private slots:
     void loadClickedBookmark();
+    void loadClickedBookmarkInNewTab();
+
     void hidePanel();
     void addBookmark(const BookmarksModel::Bookmark &bookmark);
     void removeBookmark(const BookmarksModel::Bookmark &bookmark);

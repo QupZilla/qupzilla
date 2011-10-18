@@ -21,7 +21,6 @@
 #include <QWidget>
 #include <QTreeWidgetItem>
 #include <QInputDialog>
-#include <QPointer>
 
 #include "bookmarksmodel.h"
 
@@ -63,7 +62,7 @@ private:
 
     bool m_isRefreshing;
     Ui::BookmarksSideBar* ui;
-    QPointer<QupZilla> p_QupZilla;
+    QupZilla* p_QupZilla;
     BookmarksModel* m_bookmarksModel;
 };
 

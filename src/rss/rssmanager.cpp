@@ -325,7 +325,7 @@ bool RSSManager::addRssFeed(const QString &address, const QString &title, const 
 
 void RSSManager::optimizeDb()
 {
-    BrowsingLibrary* b = (BrowsingLibrary*) parentWidget();
+    BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget());
     if (!b)
         return;
     b->optimizeDatabase();

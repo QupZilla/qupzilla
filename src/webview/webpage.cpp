@@ -313,7 +313,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
 bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, const QString &defaultValue, QString* result)
 {
-    WebView* _view = (WebView*)originatingFrame->page()->view();
+    WebView* _view = qobject_cast<WebView*>(originatingFrame->page()->view());
 
     Widget* widget = new Widget(_view->webTab());
     Ui_jsPrompt* ui = new Ui_jsPrompt();
@@ -355,7 +355,7 @@ bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, 
 
 bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
 {
-    WebView* _view = (WebView*)originatingFrame->page()->view();
+    WebView* _view = qobject_cast<WebView*>(originatingFrame->page()->view());
 
     Widget* widget = new Widget(_view->webTab());
     Ui_jsConfirm* ui = new Ui_jsConfirm();
@@ -396,7 +396,7 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     if (m_blockAlerts)
         return;
 
-    WebView* _view = (WebView*)originatingFrame->page()->view();
+    WebView* _view = qobject_cast<WebView*>(originatingFrame->page()->view());
 
     Widget* widget = new Widget(_view->webTab());
     Ui_jsAlert* ui = new Ui_jsAlert();

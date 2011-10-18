@@ -46,6 +46,7 @@ public slots:
 private slots:
     void optimizeDb();
     void itemDoubleClicked(QTreeWidgetItem* item);
+
     void deleteItem();
     void clearHistory();
     void contextMenuRequested(const QPoint &position);

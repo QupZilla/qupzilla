@@ -65,6 +65,9 @@ void TreeWidget::mousePressEvent(QMouseEvent* event)
     if (event->modifiers() == Qt::ControlModifier)
         emit itemControlClicked(itemAt(event->pos()));
 
+    if (event->buttons() == Qt::MiddleButton)
+        emit itemMiddleButtonClicked(itemAt(event->pos()));
+
     QTreeWidget::mousePressEvent(event);
 }
 

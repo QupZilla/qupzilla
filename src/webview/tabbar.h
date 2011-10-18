@@ -32,7 +32,7 @@ class TabBar : public QTabBar
 {
     Q_OBJECT
 public:
-    explicit TabBar(QupZilla* mainClass, QWidget* parent = 0);
+    explicit TabBar(QupZilla* mainClass, TabWidget* tabWidget);
 //    void hideCloseButton(int index);
 //    void showCloseButton(int index);
     void updateCloseButton(int index);

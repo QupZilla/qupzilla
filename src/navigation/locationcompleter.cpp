@@ -89,8 +89,8 @@ void LocationCompleter::refreshCompleter(QString string)
     QSqlQuery query;
     query.exec("SELECT title, url FROM history WHERE title LIKE '%"+string+"%' OR url LIKE '%"+string+"%' ORDER BY count DESC LIMIT "+QString::number(limit));
     int i = 0;
-    QStandardItemModel* cModel = (QStandardItemModel*)model();
-    QTreeView* treeView = (QTreeView*)popup();
+    QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
+    QTreeView* treeView = qobject_cast<QTreeView*>(popup());
 
     cModel->clear();
     while(query.next()) {

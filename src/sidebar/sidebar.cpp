@@ -21,9 +21,9 @@
 #include "historysidebar.h"
 #include "qupzilla.h"
 
-SideBar::SideBar(QWidget* parent)
+SideBar::SideBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
-    , p_QupZilla((QupZilla*)parentWidget())
+    , p_QupZilla(mainClass)
     , m_activeWidget(None)
 {
     setObjectName("sidebar");
@@ -41,7 +41,7 @@ SideBar::SideBar(QWidget* parent)
 void SideBar::showBookmarks()
 {
     m_titleBar->setTitle(tr("Bookmarks"));
-    BookmarksSideBar* bar = new BookmarksSideBar((QupZilla*)parentWidget());
+    BookmarksSideBar* bar = new BookmarksSideBar(p_QupZilla);
     setWidget(bar);
     m_activeWidget = Bookmarks;
 
@@ -52,7 +52,7 @@ void SideBar::showBookmarks()
 void SideBar::showHistory()
 {
     m_titleBar->setTitle(tr("History"));
-    HistorySideBar* bar = new HistorySideBar((QupZilla*)parentWidget());
+    HistorySideBar* bar = new HistorySideBar(p_QupZilla);
     setWidget(bar);
     m_activeWidget = History;
 

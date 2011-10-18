@@ -42,6 +42,7 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent) :
     connect(ui->addFolder, SIGNAL(clicked()), this, SLOT(addFolder()));
     connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(ui->bookmarksTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
+    connect(ui->bookmarksTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
 
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
@@ -404,7 +405,7 @@ void BookmarksManager::insertAllTabs()
 
 void BookmarksManager::optimizeDb()
 {
-    BrowsingLibrary* b = (BrowsingLibrary*) parentWidget();
+    BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget());
     if (!b)
         return;
     b->optimizeDatabase();

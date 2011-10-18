@@ -25,18 +25,19 @@
 #include "tabwidget.h"
 #include "bookmarksmodel.h"
 
-BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent) :
-    QWidget(parent)
-    ,m_isRefreshing(false)
-    ,ui(new Ui::BookmarksSideBar)
-    ,p_QupZilla(mainClass)
-    ,m_bookmarksModel(mApp->bookmarksModel())
+BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent)
+    : QWidget(parent)
+    , m_isRefreshing(false)
+    , ui(new Ui::BookmarksSideBar)
+    , p_QupZilla(mainClass)
+    , m_bookmarksModel(mApp->bookmarksModel())
 {
     ui->setupUi(this);
 
     ui->bookmarksTree->setDefaultItemShowMode(TreeWidget::ItemsExpanded);
     connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(ui->bookmarksTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
+    connect(ui->bookmarksTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
     connect(ui->bookmarksTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
     connect(ui->search, SIGNAL(textChanged(QString)), ui->bookmarksTree, SLOT(filterString(QString)));
 
