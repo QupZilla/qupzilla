@@ -15,31 +15,41 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef PROFILEUPDATER_H
-#define PROFILEUPDATER_H
+#ifndef ACCEPTLANGUAGE_H
+#define ACCEPTLANGUAGE_H
 
-#include <QObject>
-#include <QDir>
-#include <iostream>
+#include <QDialog>
+#include <QLocale>
+#include <QSettings>
 
-class ProfileUpdater : public QObject
+namespace Ui {
+    class AcceptLanguage;
+}
+
+class AcceptLanguage : public QDialog
 {
     Q_OBJECT
-public:
-    explicit ProfileUpdater(const QString &profilePath, const QString &dataPath);
-    void checkProfile();
 
-signals:
+public:
+    explicit AcceptLanguage(QWidget* parent = 0);
+    ~AcceptLanguage();
+
+    static QStringList defaultLanguage();
+    static QByteArray generateHeader(const QStringList &langs);
 
 public slots:
+    void accept();
+
+private slots:
+    void addLanguage();
+    void removeLanguage();
+    void upLanguage();
+    void downLanguage();
 
 private:
-    void updateProfile(const QString &current, const QString &profile);
-    void copyDataToProfile();
+    QStringList expand(const QLocale::Language &language);
 
-    QString m_profilePath;
-    QString m_dataPath;
-
+    Ui::AcceptLanguage* ui;
 };
 
-#endif // PROFILEUPDATER_H
+#endif // ACCEPTLANGUAGE_H

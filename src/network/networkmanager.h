@@ -83,6 +83,8 @@ private:
     QList<QSslCertificate> m_caCerts;
     QList<QSslCertificate> m_localCerts;
 
+    QByteArray m_acceptLanguage;
+
     bool m_ignoreAllWarnings;
     bool m_doNotTrack;
 };

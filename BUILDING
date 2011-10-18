@@ -88,6 +88,6 @@ Available Defines
                           value: 
                           
                           example:
-                          $ export NO_SYSTEM_DATAPATH="/usr/"
+                          $ export QUPZILLA_PREFIX="/usr/"
                           
                           
