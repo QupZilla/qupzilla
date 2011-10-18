@@ -150,7 +150,8 @@ SOURCES += main.cpp\
     downloads/downloadfilehelper.cpp \
     tools/certificateinfowidget.cpp \
     webview/webinspectordockwidget.cpp \
-    app/profileupdater.cpp
+    app/profileupdater.cpp \
+    preferences/acceptlanguage.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -250,7 +251,8 @@ HEADERS  += \
     tools/certificateinfowidget.h \
     webview/webinspectordockwidget.h \
     3rdparty/msvc2008.h \
-    app/profileupdater.h
+    app/profileupdater.h \
+    preferences/acceptlanguage.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -286,7 +288,9 @@ FORMS    += \
     webview/searchtoolbar.ui \
     preferences/thememanager.ui \
     other/pagescreen.ui \
-    tools/certificateinfowidget.ui
+    tools/certificateinfowidget.ui \
+    preferences/acceptlanguage.ui \
+    preferences/addacceptlanguage.ui
 
 RESOURCES += \
     data/icons.qrc \
@@ -342,6 +346,12 @@ equals(d_w7api, "true") { DEFINES += W7API }
 
 message(Using following defines)
 message($$DEFINES)
+
+
+
+
+
+
 
 
 

@@ -36,6 +36,7 @@
 #include "desktopnotification.h"
 #include "navigationbar.h"
 #include "thememanager.h"
+#include "acceptlanguage.h"
 
 bool removeFile(const QString &fullFileName)
 {
@@ -317,6 +318,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
     connect(ui->cookieManagerBut, SIGNAL(clicked()), this, SLOT(showCookieManager()));
     connect(ui->sslManagerButton, SIGNAL(clicked()), this, SLOT(openSslManager()));
+    connect(ui->preferredLanguages, SIGNAL(clicked()), this, SLOT(showAcceptLanguage()));
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5,5), true);
@@ -433,6 +435,12 @@ void Preferences::openSslManager()
     SSLManager* m = new SSLManager();
     m->setWindowModality(Qt::WindowModal);
     m->show();
+}
+
+void Preferences::showAcceptLanguage()
+{
+    AcceptLanguage a(this);
+    a.exec();
 }
 
 void Preferences::cacheValueChanged(int value)
@@ -641,7 +649,7 @@ void Preferences::saveSettings()
     settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked() );
     settings.endGroup();
     //Languages
-    settings.beginGroup("Browser-View-Settings");
+    settings.beginGroup("Language");
     settings.setValue("language",ui->languages->itemData(ui->languages->currentIndex()).toString());
     settings.endGroup();
     //Proxy Configuration

@@ -28,6 +28,7 @@
 #include "qupzillaschemehandler.h"
 #include "certificateinfowidget.h"
 #include "globalfunctions.h"
+#include "acceptlanguage.h"
 
 NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
     : NetworkManagerProxy(mainClass, parent)
@@ -59,6 +60,7 @@ void NetworkManager::loadSettings()
     }
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
     settings.endGroup();
+    m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
 
 #ifdef Q_WS_WIN
     // From doc:
@@ -247,6 +249,8 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
     if (m_doNotTrack)
         req.setRawHeader("DNT", "1");
+
+    req.setRawHeader("Accept-Language", m_acceptLanguage);
 
     //SchemeHandlers
     if (req.url().scheme() == "qupzilla")

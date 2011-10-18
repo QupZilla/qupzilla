@@ -366,7 +366,7 @@ void MainApplication::translateApp()
 {
     QLocale locale;
     QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
-    settings.beginGroup("Browser-View-Settings");
+    settings.beginGroup("Language");
     QString file = settings.value("language",locale.name()+".qm").toString();
     QString shortLoc = file.left(2);
 
@@ -402,8 +402,8 @@ void MainApplication::quitApplication()
     settings.setValue("isCrashed", false);
     settings.endGroup();
 
-    bool deleteCookies = settings.value("Web-Browser-Settings/deleteCookiesOnClose",false).toBool();
-    bool deleteHistory = settings.value("Web-Browser-Settings/deleteHistoryOnClose",false).toBool();
+    bool deleteCookies = settings.value("Web-Browser-Settings/deleteCookiesOnClose", false).toBool();
+    bool deleteHistory = settings.value("Web-Browser-Settings/deleteHistoryOnClose", false).toBool();
 
     if (deleteCookies)
         QFile::remove(m_activeProfil+"cookies.dat");
