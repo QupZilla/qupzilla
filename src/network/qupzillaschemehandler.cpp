@@ -175,7 +175,8 @@ QString QupZillaSchemeReply::aboutPage()
     page.replace("%CONTRIBUTORS-TEXT%", "Daniele Cocca &lt;<a href=mailto:jmc@chakra-project.org>jmc@chakra-project.org</a>&gt;");
     page.replace("%TRANSLATORS%", tr("Translators"));
     page.replace("%TRANSLATORS-TEXT%", "Heimen Stoffels &lt;<a href=mailto:vistausss@gmail.com>vistausss@gmail.com</a>&gt; (Dutch)<br/>"
-                                        "Peter Vacula &lt;<a href=mailto:pvacula1989@gmail.com>pvacula1989@gmail.com</a>&gt; (Slovak)");
+                                       "Peter Vacula &lt;<a href=mailto:pvacula1989@gmail.com>pvacula1989@gmail.com</a>&gt; (Slovak)<br/>"
+                                       "Jonathan Hooverman &lt;<a href=mailto:jonathan.hooverman@gmail.com>jonathan.hooverman@gmail.com</a>&gt; (German)<br/>");
 
     return page;
 }

@@ -72,8 +72,8 @@ void AboutDialog::showAuthors()
         m_authorsHtml.append(tr("<p><b>Main developers:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>"));
         m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg("Daniele Cocca"));
         m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg("Heimen Stoffels (Dutch)<br/>"
-                                                                                "Peter Vacula (Slovakia)"));
-        m_authorsHtml.append(tr("<p><b>Thanks to:</b><br/>%1</p>").arg("Patrick for support in the beginning"));
+                                                                         "Peter Vacula (Slovakia)<br/>"
+                                                                         "Jonathan Hooverman (German)"));
         m_authorsHtml.append("</div>");
     }
     ui->textBrowser->setHtml(m_authorsHtml);
