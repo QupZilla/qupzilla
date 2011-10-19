@@ -315,7 +315,7 @@ unix {
         icon_folder = "$$d_prefix"share/pixmaps
     }
 
-    DEFINES += USE_DATADIR=\""$$data_folder"/\"
+    DEFINES += USE_DATADIR=\\\"""$$data_folder/"\\\""
 
     target.path = $$binary_folder
 
@@ -346,7 +346,6 @@ equals(d_w7api, "true") { DEFINES += W7API }
 
 message(Using following defines)
 message($$DEFINES)
-
 
 
 

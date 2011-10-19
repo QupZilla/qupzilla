@@ -21,6 +21,11 @@
 #include "mainapplication.h"
 #include "webpage.h"
 
+QString authorString(const QString &name, const QString &mail)
+{
+    return QString("%1 &lt;<a href=mailto:%2>%2</a>&gt;").arg(name, mail);
+}
+
 QupZillaSchemeHandler::QupZillaSchemeHandler(QObject* parent) :
     QObject(parent)
 {
@@ -170,13 +175,15 @@ QString QupZillaSchemeReply::aboutPage()
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Plugins"), mApp->PLUGINSDIR) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
     page.replace("%MAIN-DEVELOPER%", tr("Main developer"));
-    page.replace("%MAIN-DEVELOPER-TEXT%", QupZilla::AUTHOR + " &lt;<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>&gt;");
+    page.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR, "nowrep@gmail.com"));
     page.replace("%CONTRIBUTORS%", tr("Contributors"));
-    page.replace("%CONTRIBUTORS-TEXT%", "Daniele Cocca &lt;<a href=mailto:jmc@chakra-project.org>jmc@chakra-project.org</a>&gt;");
+    page.replace("%CONTRIBUTORS-TEXT%", authorString("Daniele Cocca", "jmc@chakra-project.org") + "<br/>" +
+                                        authorString("Jan Rajnoha", "honza.rajny@hotmail.com")
+                 );
     page.replace("%TRANSLATORS%", tr("Translators"));
-    page.replace("%TRANSLATORS-TEXT%", "Heimen Stoffels &lt;<a href=mailto:vistausss@gmail.com>vistausss@gmail.com</a>&gt; (Dutch)<br/>"
-                                       "Peter Vacula &lt;<a href=mailto:pvacula1989@gmail.com>pvacula1989@gmail.com</a>&gt; (Slovak)<br/>"
-                                       "Jonathan Hooverman &lt;<a href=mailto:jonathan.hooverman@gmail.com>jonathan.hooverman@gmail.com</a>&gt; (German)<br/>");
+    page.replace("%TRANSLATORS-TEXT%", authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
+                                       authorString("Peter Vacula", "pvacula1989@gmail.com") + " (Slovak)<br/>" +
+                                       authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>");
 
     return page;
 }
