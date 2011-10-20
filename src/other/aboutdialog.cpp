@@ -73,7 +73,8 @@ void AboutDialog::showAuthors()
         m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg("Daniele Cocca<br/>Jan Rajnoha"));
         m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg("Heimen Stoffels (Dutch)<br/>"
                                                                          "Peter Vacula (Slovakia)<br/>"
-                                                                         "Jonathan Hooverman (German)"));
+                                                                         "Jonathan Hooverman (German)<br/>"
+                                                                         "Unink-Lio (Chinese)"));
         m_authorsHtml.append("</div>");
     }
     ui->textBrowser->setHtml(m_authorsHtml);

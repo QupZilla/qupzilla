@@ -23,11 +23,11 @@
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
 
-HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent) :
-    QWidget(parent)
-    ,ui(new Ui::HistoryManager)
-    ,p_QupZilla(mainClass)
-    ,m_historyModel(mApp->history())
+HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::HistoryManager)
+    , p_QupZilla(mainClass)
+    , m_historyModel(mApp->history())
 {
     ui->setupUi(this);
     ui->historyTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
@@ -272,7 +272,7 @@ void HistoryManager::search(const QString &searchText)
 
 void HistoryManager::optimizeDb()
 {
-    BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget());
+    BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget()->parentWidget());
     if (!b)
         return;
     b->optimizeDatabase();

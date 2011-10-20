@@ -183,7 +183,8 @@ QString QupZillaSchemeReply::aboutPage()
     page.replace("%TRANSLATORS%", tr("Translators"));
     page.replace("%TRANSLATORS-TEXT%", authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
                                        authorString("Peter Vacula", "pvacula1989@gmail.com") + " (Slovak)<br/>" +
-                                       authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>");
+                                       authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>" +
+                                       authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)");
 
     return page;
 }
