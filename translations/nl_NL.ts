@@ -74,9 +74,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&lt;p&gt;&lt;b&gt;Andere bijdragers:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="76"/>
         <source>&lt;p&gt;&lt;b&gt;Thanks to:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;b&gt;Bedankt aan:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
+        <translation type="obsolete">&lt;p&gt;&lt;b&gt;Bedankt aan:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -377,82 +376,82 @@ p, li { white-space: pre-wrap; }
         <translation>Optimaliseer database</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="79"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="80"/>
         <source>Add new folder</source>
         <translation>Voeg nieuwe map toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="79"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="80"/>
         <source>Choose name for new bookmark folder: </source>
         <translation>Kies naam voor nieuwe bladwijzermap: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="109"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="110"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="159"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="181"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="207"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="335"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="377"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="160"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="182"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="208"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="336"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="378"/>
         <source>Bookmarks In Menu</source>
         <translation>Bladwijzers in menu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="160"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="186"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="209"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="336"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="378"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="161"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="187"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="210"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="337"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="379"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Bladwijzers op werkbalk</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="152"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="153"/>
         <source>Open link in actual &amp;tab</source>
         <translation>Open link in actueel &amp;tabblad</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="153"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="154"/>
         <source>Open link in &amp;new tab</source>
         <translation>Open link in &amp;nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="157"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="158"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>Verplaats bladwijzer naar &amp;map</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="158"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="334"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="376"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="159"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="335"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="377"/>
         <source>Unsorted Bookmarks</source>
         <translation>Ongesorteerde bladwijzers</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="331"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="332"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
         <translation>&lt;b&gt;Waarschuwing: &lt;/b&gt;U heeft deze pagina al gebladwijzerd!</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="342"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="343"/>
         <source>Choose name and location of bookmark.</source>
         <translation>Kies naam en locatie van deze bladwijzer.</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="346"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="347"/>
         <source>Add New Bookmark</source>
         <translation>Voeg nieuwe bladwijzer toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="384"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="385"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Kies map voor bladwijzers:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="385"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="386"/>
         <source>Bookmark All Tabs</source>
         <translation>Bladwijzer alle tabbladen</translation>
     </message>
@@ -488,46 +487,46 @@ p, li { white-space: pre-wrap; }
         <translation>Zoeken...</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="69"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="70"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="101"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="102"/>
         <source>Open link in actual &amp;tab</source>
         <translation>Open link in actuele &amp;tab</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="102"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="103"/>
         <source>Open link in &amp;new tab</source>
         <translation>Open link in &amp;nieuwe tabblad</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="106"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="107"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>Verplaats bladwijzer naar &amp;map</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="107"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="108"/>
         <source>Unsorted Bookmarks</source>
         <translation>Ongesorteerde bladwijzers</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="108"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="197"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="223"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="109"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="198"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="224"/>
         <source>Bookmarks In Menu</source>
         <translation>Bladwijzers in menu</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="109"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="202"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="225"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="203"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="226"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Bladwijzers op werkbalk</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="115"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="116"/>
         <source>&amp;Delete</source>
         <translation>&amp;Verwijder</translation>
     </message>
@@ -565,12 +564,12 @@ p, li { white-space: pre-wrap; }
         <translation>&amp;Verberg werkbalk</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="183"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="194"/>
         <source>Most visited</source>
         <translation>Meest bezocht</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="184"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="195"/>
         <source>Sites You visited the most</source>
         <translation>Websites die u het meest bezocht heeft</translation>
     </message>
@@ -1246,45 +1245,45 @@ werd niet gevonden!</translation>
         <translation>Optimaliseer database</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="77"/>
+        <location filename="../src/history/historymanager.cpp" line="79"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="89"/>
+        <location filename="../src/history/historymanager.cpp" line="91"/>
         <source>Open link in actual tab</source>
         <translation>Open link in huidig tabblad</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="90"/>
+        <location filename="../src/history/historymanager.cpp" line="92"/>
         <source>Open link in new tab</source>
         <translation>Open link in nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="130"/>
-        <location filename="../src/history/historymanager.cpp" line="208"/>
+        <location filename="../src/history/historymanager.cpp" line="132"/>
+        <location filename="../src/history/historymanager.cpp" line="210"/>
         <source>Today</source>
         <translation>Vandaag</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="132"/>
-        <location filename="../src/history/historymanager.cpp" line="210"/>
+        <location filename="../src/history/historymanager.cpp" line="134"/>
+        <location filename="../src/history/historymanager.cpp" line="212"/>
         <source>This Week</source>
         <translation>Deze week</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="134"/>
-        <location filename="../src/history/historymanager.cpp" line="212"/>
+        <location filename="../src/history/historymanager.cpp" line="136"/>
+        <location filename="../src/history/historymanager.cpp" line="214"/>
         <source>This Month</source>
         <translation>Deze maand</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="181"/>
+        <location filename="../src/history/historymanager.cpp" line="183"/>
         <source>Confirmation</source>
         <translation>Bevestiging</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="182"/>
+        <location filename="../src/history/historymanager.cpp" line="184"/>
         <source>Are you sure to delete all history?</source>
         <translation>Weet u zeker dat u alle geschiedenis wilt verwijderen?</translation>
     </message>
@@ -1375,35 +1374,35 @@ werd niet gevonden!</translation>
         <translation>Titel</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="62"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="64"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="74"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="76"/>
         <source>Open link in actual tab</source>
         <translation>Open link in huidig tabblad</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="75"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="77"/>
         <source>Open link in new tab</source>
         <translation>Open link in nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="92"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="186"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="94"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="188"/>
         <source>Today</source>
         <translation>Vandaag</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="94"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="188"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="190"/>
         <source>This Week</source>
         <translation>Deze week</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="190"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="98"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="192"/>
         <source>This Month</source>
         <translation>Deze maand</translation>
     </message>
@@ -1446,12 +1445,12 @@ werd niet gevonden!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="565"/>
+        <location filename="../src/app/mainapplication.cpp" line="574"/>
         <source>Last session crashed</source>
         <translation>Laatste sessie gecrashed</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="566"/>
+        <location filename="../src/app/mainapplication.cpp" line="575"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla crashte :-(&lt;/b&gt;&lt;br/&gt;Oeps, de laatste sessie van QupZilla eindigde met een crash. We verontschuldigen ons. Wilt u proberen om de opgeslagen status te herstellen?</translation>
     </message>
@@ -2343,6 +2342,14 @@ werd niet gevonden!</translation>
     </message>
 </context>
 <context>
+    <name>QObject</name>
+    <message>
+        <location filename="../src/opensearch/opensearchreader.cpp" line="89"/>
+        <source>The file is not an OpenSearch 1.1 file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QtWin</name>
     <message>
         <location filename="../src/3rdparty/qtwin.cpp" line="337"/>
@@ -2796,190 +2803,190 @@ werd niet gevonden!</translation>
 <context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="50"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="55"/>
         <source>No Error</source>
         <translation>Geen fout</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="55"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="60"/>
         <source>Not Found</source>
         <translation>Niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="107"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="108"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="112"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="113"/>
         <source>Report issue</source>
         <translation>Rapporteer probleem</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="109"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
         <source>If You are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
         <translation>Indien u problemen ervaart met QupZilla, probeer dan eerst om alle plugins uit te schakelen. &lt;br/&gt;Mocht dat niet helpen, vul dan dit formulier in: </translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="111"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="116"/>
         <source>Your E-mail</source>
         <translation>Uw e-mailadres</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="112"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="117"/>
         <source>Issue type</source>
         <translation>Probleemtype</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="113"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="118"/>
         <source>Priority</source>
         <translation>Prioriteit</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="119"/>
         <source>Low</source>
         <translation>Laag</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="115"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="120"/>
         <source>Normal</source>
         <translation>Normaal</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="116"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="121"/>
         <source>High</source>
         <translation>Hoog</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="117"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="122"/>
         <source>Issue description</source>
         <translation>Probleembeschrijving</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="118"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="123"/>
         <source>Send</source>
         <translation>Verzenden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="119"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="124"/>
         <source>E-mail is optional</source>
         <translation>E-mailadres is optioneel</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="120"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="125"/>
         <source>Please fill all required fields!</source>
         <translation>Vul alstublieft alle benodigde velden in!</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="132"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Start Page</source>
         <translation>Startpagina</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="133"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="138"/>
         <source>Google Search</source>
         <translation>Google Zoeken</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="134"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="139"/>
         <source>Search results provided by Google</source>
         <translation>Zoekresultaten gebracht door Google</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="150"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="151"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="141"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="155"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="156"/>
         <source>About QupZilla</source>
         <translation>Over QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="152"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="157"/>
         <source>Informations about version</source>
         <translation>Informatie over versie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="153"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="158"/>
         <source>Browser Identification</source>
         <translation>Browser-identificatie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="154"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="159"/>
         <source>Paths</source>
         <translation>Paden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="155"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="160"/>
         <source>Copyright</source>
         <translation>Copyright</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="158"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="163"/>
         <source>Version</source>
         <translation>Versie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="159"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="164"/>
         <source>WebKit version</source>
         <translation>WebKit-versie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="160"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="165"/>
         <source>Build time</source>
         <translation>Bouwtijd</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="161"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="166"/>
         <source>Platform</source>
         <translation>Platform</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="164"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="169"/>
         <source>Profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="165"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="170"/>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="166"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="171"/>
         <source>Saved session</source>
         <translation>Opgeslagen sessie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="167"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="172"/>
         <source>Pinned tabs</source>
         <translation>Vastgepinde tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="168"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="173"/>
         <source>Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="169"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="174"/>
         <source>Themes</source>
         <translation>Thema&apos;s</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="170"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="175"/>
         <source>Plugins</source>
         <translation>Plugins</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="171"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="176"/>
         <source>Translations</source>
         <translation>Vertalingen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="172"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="177"/>
         <source>Main developer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="174"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="179"/>
         <source>Contributors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="176"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="183"/>
         <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3204,6 +3211,24 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="129"/>
         <source>Certificate Informations</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchEnginesManager</name>
+    <message>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="177"/>
+        <source>Search Engine is not valid!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="178"/>
+        <source>Error</source>
+        <translation type="unfinished">Fout</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="178"/>
+        <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3849,6 +3874,14 @@ After adding or removing certificate paths, it is neccessary to restart browser 
         <location filename="../src/webview/webpage.cpp" line="441"/>
         <source>Choose file...</source>
         <translation>Kies bestand...</translation>
+    </message>
+</context>
+<context>
+    <name>WebSearchBar</name>
+    <message>
+        <location filename="../src/navigation/websearchbar.cpp" line="53"/>
+        <source>Manage Search Engines</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
