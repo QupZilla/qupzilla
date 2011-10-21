@@ -136,6 +136,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     } else
         m_activeProfil = homePath+"profiles/"+startProfile+"/";
 
+    connectDatabase();
     ProfileUpdater u(m_activeProfil, DATADIR);
     u.checkProfile();
 
@@ -152,7 +153,6 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, m_activeProfil);
 
     translateApp();
-    connectDatabase();
     QWebHistoryInterface::setDefaultInterface(new WebHistoryInterface(this));
 
     QupZilla* qupzilla = new QupZilla(true, startUrl);

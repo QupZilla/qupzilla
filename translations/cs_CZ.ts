@@ -3338,7 +3338,7 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
         <source>Search Engine &quot;%1&quot; has been successfuly added.</source>
-        <translation>Vyhledávač &quot;%1% byl úspěšně přidán.</translation>
+        <translation>Vyhledávač &quot;%1&quot; byl úspěšně přidán.</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="240"/>

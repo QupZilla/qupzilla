@@ -37,6 +37,8 @@ private:
     void updateProfile(const QString &current, const QString &profile);
     void copyDataToProfile();
 
+    void update100b4();
+
     QString m_profilePath;
     QString m_dataPath;
 
