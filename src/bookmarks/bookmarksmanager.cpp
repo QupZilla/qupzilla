@@ -405,7 +405,7 @@ void BookmarksManager::insertAllTabs()
 
 void BookmarksManager::optimizeDb()
 {
-    BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget());
+    BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget()->parentWidget());
     if (!b)
         return;
     b->optimizeDatabase();

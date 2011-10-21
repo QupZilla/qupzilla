@@ -64,6 +64,21 @@ QIcon IconProvider::iconForUrl(const QUrl &url)
     return QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic);
 }
 
+QIcon IconProvider::iconForDomain(const QUrl &url)
+{
+    foreach (Icon ic, m_iconBuffer) {
+        if (ic.url.host() == url.host())
+            return ic.icon;
+    }
+
+    QSqlQuery query;
+    query.exec("SELECT icon FROM icons WHERE url LIKE '%" + url.host() + "%'");
+    if (query.next())
+        return iconFromBase64(query.value(0).toByteArray());
+
+    return QIcon();
+}
+
 void IconProvider::saveIconsToDatabase()
 {
     foreach (Icon ic, m_iconBuffer) {

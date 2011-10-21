@@ -183,6 +183,7 @@ void DownloadManager::itemCreated(QListWidgetItem *item, DownloadItem *downItem)
     item->setSizeHint(downItem->sizeHint());
 
     show();
+    raise();
     activateWindow();
 }
 

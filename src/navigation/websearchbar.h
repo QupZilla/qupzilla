@@ -22,12 +22,22 @@
 #include <QPushButton>
 #include <QToolButton>
 #include <QMenu>
+#include <QPointer>
+#include <QCompleter>
+#include <QStringListModel>
+//#include <QWebFrame>
+//#include <QWebElement>
+
 #include "lineedit.h"
 #include "buttonwithmenu.h"
+#include "searchenginesmanager.h"
 
 class QupZilla;
 class LineEdit;
 class ClickableLabel;
+class SearchEnginesManager;
+class SearchEnginesDialog;
+class OpenSearchEngine;
 class WebSearchBar : public LineEdit
 {
     Q_OBJECT
@@ -41,17 +51,34 @@ public:
 private slots:
     void searchChanged(const ButtonWithMenu::Item &item);
     void search();
+    void setupEngines();
+
+    void aboutToShowMenu();
+    void openSearchEnginesDialog();
+
+    void addSuggestions(const QStringList &list);
+
+    void addEngineFromAction();
 
 private:
-    ClickableLabel* m_buttonSearch;
-    ButtonWithMenu* m_boxSearchType;
-
-    void setupSearchTypes();
     void focusInEvent(QFocusEvent* e);
     void focusOutEvent(QFocusEvent* e);
     void dropEvent(QDropEvent* event);
 
+    void completeMenuWithAvailableEngines(QMenu* menu);
+
+    QCompleter* m_completer;
+    QStringListModel* m_completerModel;
+
+    OpenSearchEngine* m_openSearchEngine;
+    SearchEngine m_activeEngine;
+
     QupZilla* p_QupZilla;
+
+    ClickableLabel* m_buttonSearch;
+    ButtonWithMenu* m_boxSearchType;
+    SearchEnginesManager* m_searchManager;
+    QPointer<SearchEnginesDialog> m_searchDialog;
 };
 
 #endif // WEBSEARCHBAR_H

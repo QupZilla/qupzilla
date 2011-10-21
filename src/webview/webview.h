@@ -85,7 +85,7 @@ private slots:
     void showImage();
     void copyImageToClipboard();
     void downloadImageToDisk();
-    void searchOnGoogle();
+    void searchSelectedText();
     void copyLinkToClipboard();
     void loadStarted();
     void downloadRequested(const QNetworkRequest &request);

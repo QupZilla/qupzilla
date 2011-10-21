@@ -109,19 +109,19 @@ void LocationCompleter::refreshCompleter(QString string)
         i++;
     }
 
-    if (i == 0) {
-        QStandardItem* iconText = new QStandardItem();
-        QStandardItem* findUrl = new QStandardItem();
-        QString url("http://www.google.com/search?client=qupzilla&q="+string);
+//    if (i == 0) {
+//        QStandardItem* iconText = new QStandardItem();
+//        QStandardItem* findUrl = new QStandardItem();
+//        QString url("http://www.google.com/search?client=qupzilla&q="+string);
 
-        iconText->setIcon(QIcon(":/icons/menu/google.png"));
-        iconText->setText(tr("Search %1 on Google.com\n..........").arg(string));
-        findUrl->setText(url);
-        QList<QStandardItem*> items;
-        items.append(iconText);
-        items.append(findUrl);
-        cModel->insertRow(i, items);
-    }
+//        iconText->setIcon(QIcon(":/icons/menu/google.png"));
+//        iconText->setText(tr("Search %1 on Google.com\n..........").arg(string));
+//        findUrl->setText(url);
+//        QList<QStandardItem*> items;
+//        items.append(iconText);
+//        items.append(findUrl);
+//        cModel->insertRow(i, items);
+//    }
 
     treeView->header()->setResizeMode(0, QHeaderView::Stretch);
     treeView->header()->resizeSection(1,0);
