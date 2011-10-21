@@ -39,6 +39,7 @@
 #include "webhistoryinterface.h"
 #include "globalfunctions.h"
 #include "profileupdater.h"
+#include "searchenginesmanager.h"
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -57,6 +58,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     , m_networkCache(new QNetworkDiskCache)
     , m_desktopNotifications(0)
     , m_iconProvider(new IconProvider)
+    , m_searchEnginesManager(0)
     , m_isClosing(false)
     , m_isStateChanged(false)
     , m_isExited(false)
@@ -410,6 +412,7 @@ void MainApplication::quitApplication()
     if (deleteHistory)
         m_historymodel->clearHistory();
 
+    m_searchEnginesManager->saveSettings();
     cookieJar()->saveCookies();
     m_networkmanager->saveCertificates();
     m_plugins->c2f_saveSettings();
@@ -497,6 +500,13 @@ AutoFillModel* MainApplication::autoFill()
     if (!m_autofill)
         m_autofill = new AutoFillModel(getWindow());
     return m_autofill;
+}
+
+SearchEnginesManager* MainApplication::searchEnginesManager()
+{
+    if (!m_searchEnginesManager)
+        m_searchEnginesManager = new SearchEnginesManager();
+    return m_searchEnginesManager;
 }
 
 DesktopNotificationsFactory* MainApplication::desktopNotifications()

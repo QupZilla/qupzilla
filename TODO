@@ -4,7 +4,6 @@ TODO List
 There are some features, which I plan to implement in future.
 The list is not sorted by priority.
 
-* OpenSearch support
 * Import / Export Bookmarks
 * Import Bookmarks from other browsers
 * Speed Dial
@@ -12,3 +11,5 @@ The list is not sorted by priority.
 * Zoom Widget in statusbar
 * Save more than one account for site + input completer
 * New LocationBar completer
+* QFileSystemWatcher reloading local files
+* (KDE) Nepomuk integration

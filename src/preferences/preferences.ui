@@ -254,7 +254,7 @@
        <item row="1" column="1">
         <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>After launch:  </string>
+          <string>After launch: </string>
          </property>
         </widget>
        </item>
@@ -781,7 +781,7 @@
              <item row="2" column="0" colspan="2">
               <widget class="QCheckBox" name="allowJavaScript">
                <property name="text">
-                <string>Allow  JavaScript</string>
+                <string>Allow JavaScript</string>
                </property>
               </widget>
              </item>

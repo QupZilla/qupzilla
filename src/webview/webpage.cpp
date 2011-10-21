@@ -128,7 +128,7 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 
     if (type == QWebPage::NavigationTypeFormResubmitted) {
         bool result = javaScriptConfirm(frame, tr("To show this page, QupZilla must resend request which do it again \n"
-                                          "(like searching on making an shoping, witch has been already done.)"));
+                                          "(like searching on making an shoping, which has been already done.)"));
         if (!result)
             return false;
     }

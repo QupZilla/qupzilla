@@ -34,8 +34,10 @@ class IconProvider : public QObject
     Q_OBJECT
 public:
     explicit IconProvider(QObject* parent = 0);
+
     void saveIcon(WebView* view);
     QIcon iconForUrl(const QUrl &url);
+    QIcon iconForDomain(const QUrl &url);
 
     void clearIconDatabase();
 

@@ -337,7 +337,7 @@ void Preferences::showStackedPage(QListWidgetItem* item)
        m_notification = new DesktopNotification(true);
        m_notification->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
        m_notification->setHeading(tr("OSD Notification"));
-       m_notification->setText(tr("Drag it on the screen to place it where You want."));
+       m_notification->setText(tr("Drag it on the screen to place it where you want."));
        m_notification->move(m_notifPosition);
        m_notification->show();
    } else if (m_notification) {

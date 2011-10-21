@@ -30,6 +30,7 @@
 #include "statusbarmessage.h"
 #include "locationbarsettings.h"
 #include "toolbutton.h"
+#include "searchenginesmanager.h"
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit()
@@ -91,13 +92,31 @@ LocationBar::LocationBar(QupZilla* mainClass)
 
 void LocationBar::urlEnter()
 {
+    QUrl urlToLoad;
+
+    //Check for Search Engine shortcut
+    int firstSpacePos = text().indexOf(" ");
+    if (firstSpacePos != -1) {
+        QString shortcut = text().mid(0, firstSpacePos);
+        QString searchedString = text().mid(firstSpacePos).trimmed();
+
+        SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);
+        if (!en.name.isEmpty()) {
+            urlToLoad = en.url.replace("%s", searchedString);
+        }
+    }
+
+    if (urlToLoad.isEmpty()) {
+        QUrl guessedUrl = WebView::guessUrlFromString(text());
+        if (!guessedUrl.isEmpty())
+            urlToLoad = guessedUrl;
+        else
+            urlToLoad = text();
+    }
+
+    m_webView->load(urlToLoad);
+    setText(urlToLoad.toEncoded());
     m_webView->setFocus();
-    QUrl guessedUrl = WebView::guessUrlFromString(text());
-    if (guessedUrl.isEmpty())
-        m_webView->load(QUrl(text()));
-    else
-        m_webView->load(guessedUrl);
-    setText(guessedUrl.toString());
 }
 
 void LocationBar::textEdit()

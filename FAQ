@@ -1,6 +1,7 @@
 FAQ
 
-Q: Where are all my profile data stored?
+Q: I have been told to look for a file in my profile directory. So where are
+   all my profile data stored?
 ----------------------------------------------------------------------------------
 A: Go to Menu Help -> Informations about application and then scroll to 
    Paths section.
@@ -47,3 +48,21 @@ A: At first, please check that you have installed Qt SQLite plugin.
        Unix: /usr/share/qupzilla/data/profiles/default/browsedata.db
    into your profile directory.
    If it doesn't help, please open an issue.
+   
+   
+Q: QupZilla is using a lot % of my CPU. What can I do to cool it down?
+----------------------------------------------------------------------------------
+A: Well, the problem with using excessive amount of processor time is very likely
+   to be some Flash running in browser (most likely bad coded adverts).
+   You have 3 options to do:
+    1) Completely disable Flash in Preferences (Browsing -> Web Configuration ->
+       Enable Plugins (Flash plugin)
+    2) Use Click2Flash plugin (Preferences -> Plugins -> WebKit plugins ->
+       Enable Click2Flash). You will now have to manually start every Flash content
+       on site.
+    3) Use AdBlock to filter adverts. Menu Tools -> AdBlock -> Enable AdBlock.
+       Before using AdBlock, you need to update filters by clicking Update Filters
+       button.  
+   
+   
+   
