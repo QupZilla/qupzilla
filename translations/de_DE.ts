@@ -66,12 +66,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="73"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;Mitwirkende:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="74"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;Übersetzer:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Other contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
@@ -87,33 +87,33 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="14"/>
         <source>Preferred Languages</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevorzugte Sprache</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="25"/>
         <source>Add...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinzufügen...</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="32"/>
         <source>Remove</source>
-        <translation type="unfinished">Entfernen</translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="39"/>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach oben</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="46"/>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach unten</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.cpp" line="85"/>
         <location filename="../src/preferences/acceptlanguage.cpp" line="139"/>
         <source>Personal [%1]</source>
-        <translation type="unfinished"></translation>
+        <translation>Eigene [%1]</translation>
     </message>
 </context>
 <context>
@@ -228,17 +228,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/addacceptlanguage.ui" line="14"/>
         <source>Add Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprache hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/preferences/addacceptlanguage.ui" line="20"/>
         <source>Choose preferred language for web sites</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevorzugte Sprache für Webseiten festlegen</translation>
     </message>
     <message>
         <location filename="../src/preferences/addacceptlanguage.ui" line="32"/>
         <source>Personal definition:</source>
-        <translation type="unfinished"></translation>
+        <translation>Eigene Definition:</translation>
     </message>
 </context>
 <context>
@@ -669,55 +669,55 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="17"/>
         <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Ausgestellt für&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Ausgestellt für&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="24"/>
         <location filename="../src/tools/certificateinfowidget.ui" line="87"/>
         <source>Common Name (CN):</source>
-        <translation type="unfinished">Allgemeiner Name (CN):</translation>
+        <translation>Allgemeiner Name (CN):</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="38"/>
         <location filename="../src/tools/certificateinfowidget.ui" line="101"/>
         <source>Organization (O):</source>
-        <translation type="unfinished">Organisation (O):</translation>
+        <translation>Organisation (O):</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="52"/>
         <location filename="../src/tools/certificateinfowidget.ui" line="115"/>
         <source>Organizational Unit (OU):</source>
-        <translation type="unfinished">Organisationseinheit (OU):</translation>
+        <translation>Organisationseinheit (OU):</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="66"/>
         <source>Serial Number:</source>
-        <translation type="unfinished">Seriennummer:</translation>
+        <translation>Seriennummer:</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="80"/>
         <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Ausgestellt von&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Ausgestellt von&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="129"/>
         <source>&lt;b&gt;Validity&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Gültigkeit&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Gültigkeit&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="136"/>
         <source>Issued On:</source>
-        <translation type="unfinished">Ausgestellt für:</translation>
+        <translation>Ausgestellt für:</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="150"/>
         <source>Expires On:</source>
-        <translation type="unfinished">Verfällt am:</translation>
+        <translation>Verfällt am:</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.cpp" line="122"/>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished">&lt;Im Zertifkat nicht vorhanden&gt;</translation>
+        <translation>&lt;Im Zertifkat nicht vorhanden&gt;</translation>
     </message>
 </context>
 <context>
@@ -798,7 +798,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="98"/>
         <source>Delete object</source>
-        <translation type="unfinished"></translation>
+        <translation>Objekt löschen</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="99"/>
@@ -849,7 +849,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="20"/>
         <source>Find: </source>
-        <translation>Suche:</translation>
+        <translation>Suche: </translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="30"/>
@@ -1594,7 +1594,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="30"/>
         <source>Allow Application Extensions to be loaded</source>
-        <translation>Das Laden vonQupZilla add-ons erlauben</translation>
+        <translation>Das Laden von QupZilla add-ons erlauben</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="61"/>
@@ -1819,7 +1819,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences/preferences.ui" line="295"/>
         <location filename="../src/preferences/preferences.ui" line="438"/>
         <source>Use actual</source>
-        <translation>Aktuellen verwenden</translation>
+        <translation>Aktuelle verwenden</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="594"/>
@@ -2103,7 +2103,7 @@ p, li { white-space: pre-wrap; }
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Nativen System-Dialog verwenden
-(kann Probleme beim Herunterladen von per SSL geschützten Inhalten verursachen)</translation>
+(kann Probleme beim Herunterladen von mittels SSL geschützten Inhalten verursachen)</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1575"/>
@@ -2128,7 +2128,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="1645"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;Warnung:&lt;/b&gt; Das Einschalten der Optionen &quot;Genaue Übereinstimmung&quot; und &quot;Seitenfremde Inhalte&quot; kann dazu führen, dass Cookies von Webseiten zurückgewiesen werden. Tritt dieses Problem auf, deaktiven Sie bitte zunächst diese Optionen!</translation>
+        <translation>&lt;b&gt;Warnung:&lt;/b&gt; Das Einschalten der Optionen &quot;Genaue Übereinstimmung&quot; und &quot;Seitenfremde Inhalte&quot; kann dazu führen, dass Cookies von Webseiten zurückgewiesen werden. Tritt dieses Problem auf, deaktivieren Sie bitte zunächst diese Optionen!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1661"/>
@@ -2178,17 +2178,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="1906"/>
         <source>StyleSheet automatically loaded with all websites: </source>
-        <translation>StyleSheet automatisch mit allen Webseiten geladen:</translation>
+        <translation>StyleSheet automatisch mit allen Webseiten laden: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1925"/>
         <source>Languages</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprachen</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1947"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Bevorzugte Sprache für Webseiten&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1188"/>
@@ -2348,7 +2348,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/opensearch/opensearchreader.cpp" line="89"/>
         <source>The file is not an OpenSearch 1.1 file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Datei besitzt kein gültiges OpenSearch 1.1 Format.</translation>
     </message>
 </context>
 <context>
@@ -2867,7 +2867,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="124"/>
         <source>E-mail is optional</source>
-        <translation>Angabe der E-Mail Adresse optional</translation>
+        <translation>Pflichtangabe</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="125"/>
@@ -2919,17 +2919,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="177"/>
         <source>Main developer</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptentwickler</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="179"/>
         <source>Contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>Mitwirkende</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="183"/>
         <source>Translators</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzer</translation>
     </message>
     <message>
         <source>Linux</source>
@@ -2962,7 +2962,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="169"/>
         <source>Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Profile</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="170"/>
@@ -2982,7 +2982,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="173"/>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Daten</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="174"/>
@@ -3152,7 +3152,7 @@ Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</tra
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="24"/>
         <source>CA Authorities Certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Zertifizierungsstellen</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="48"/>
@@ -3163,54 +3163,55 @@ Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</tra
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="57"/>
         <source>This is list of CA Authorities Certificates stored in standard system path and in user specified paths.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dies ist eine Liste von Zertifizierungsstellen, die im Standard-Systempfad und in benutzerdefinierten Pfaden gespeichert sind.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="68"/>
         <source>Local Certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokale Zertifikate</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="99"/>
         <location filename="../src/preferences/sslmanager.ui" line="150"/>
         <source>Remove</source>
-        <translation type="unfinished">Entfernen</translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="108"/>
         <source>This is list of Local Certificates stored in user profile. This list also contains all certificates, that have received an exception.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dies ist eine Liste mit lokal gespeicherten Zertifikaten. Sie enthält auch alle Zertifikate, für die eine Ausnahme gemacht wurde.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="119"/>
         <source>Settings</source>
-        <translation type="unfinished">Einstellungen</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="143"/>
         <source>Add</source>
-        <translation type="unfinished">Hinzufügen</translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="159"/>
         <source>If CA Authorities Certificates were not automatically loaded from system, you can specify manual paths where certificates are stored.</source>
-        <translation type="unfinished"></translation>
+        <translation>Falls Zertifikatsstellen nicht automatisch vom System geladen werden, können Sie den Pfad, in dem die Zertifikate gespeichert sind, auch manuell angeben.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="171"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is big security risk!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;WARNUNG:&lt;/b&gt; Das Einschalten dieser Option birgt ein sehr hohes Sicherheitsrisiko!</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="210"/>
         <source>Ignore all SSL Warnings</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle SSL Warnungen ignorieren</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="232"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart browser in order to changes take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Zertifikate müssen einen .crt suffix besitzen.
+Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gestarten werden, um die Änderung wirksam zu machen.</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -3251,12 +3252,12 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="53"/>
         <source>Choose path...</source>
-        <translation type="unfinished"></translation>
+        <translation>Pfad auswählen...</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="129"/>
         <source>Certificate Informations</source>
-        <translation type="unfinished"></translation>
+        <translation>Informationen zum Zertifikat</translation>
     </message>
 </context>
 <context>
@@ -3264,17 +3265,17 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="177"/>
         <source>Search Engine is not valid!</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchmaschine ist ungültig!</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="178"/>
         <source>Error</source>
-        <translation type="unfinished">Fehler</translation>
+        <translation>Fehler</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="178"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim Hinzufügen der Suchmaschine ist ein Fehler aufgetreten &lt;br&gt;&lt;b&gt;Fehlermeldung: &lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
@@ -3862,7 +3863,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
         <location filename="../src/webview/webinspectordockwidget.cpp" line="13"/>
         <location filename="../src/webview/webinspectordockwidget.cpp" line="16"/>
         <source>Web Inspector</source>
-        <translation type="unfinished">Web Inspector</translation>
+        <translation>Web Inspector</translation>
     </message>
 </context>
 <context>
@@ -3960,7 +3961,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="53"/>
         <source>Manage Search Engines</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchmaschinen verwalten</translation>
     </message>
 </context>
 <context>
