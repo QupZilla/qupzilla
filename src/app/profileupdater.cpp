@@ -42,7 +42,7 @@ void ProfileUpdater::checkProfile()
         versionFile.close();
         versionFile.remove();
 
-        updateProfile(QupZilla::VERSION, profileVersion);
+        updateProfile(QupZilla::VERSION, profileVersion.trimmed());
     } else
         copyDataToProfile();
 
@@ -59,10 +59,10 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
 //    Updater::Version currentVersion = Updater::parseVersionFromString(current);
     Updater::Version profileVersion = Updater::parseVersionFromString(profile);
 
-    if (profileVersion >= Updater::parseVersionFromString("1.0.0-b3"))
-        //Data not changed from 1.0.0-b3
+    if (profileVersion == Updater::parseVersionFromString("1.0.0-b4")) {
+        update100b4();
         return;
-    //CREATE TABLE search_engines (id INTEGER PRIMARY KEY, name TEXT, icon TEXT, url TEXT, shortcut TEXT, suggestionsUrl TEXT, suggestionsParameters TEXT);
+    }
 
     std::cout << "incompatible profile version detected, updating profile data..." << std::endl;
 
@@ -76,4 +76,13 @@ void ProfileUpdater::copyDataToProfile()
 
     QFile(m_profilePath + "browsedata.db").remove();
     QFile(m_dataPath + "data/default/profiles/default/browsedata.db").copy(m_profilePath + "browsedata.db");
+}
+
+void ProfileUpdater::update100b4()
+{
+    std::cout << "upgrading profile version from 1.0.0-b4..." << std::endl;
+
+    QSqlQuery query;
+    query.exec("CREATE TABLE search_engines (id INTEGER PRIMARY KEY, name TEXT, icon TEXT,"
+               "url TEXT, shortcut TEXT, suggestionsUrl TEXT, suggestionsParameters TEXT);");
 }
