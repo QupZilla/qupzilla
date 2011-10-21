@@ -192,7 +192,7 @@ void BookmarksToolbar::refreshBookmarks()
     m_mostVis->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     m_mostVis->setIcon(style()->standardIcon(QStyle::SP_DirIcon));
     m_mostVis->setText(tr("Most visited"));
-    m_mostVis->setToolTip(tr("Sites You visited the most"));
+    m_mostVis->setToolTip(tr("Sites you visited the most"));
 
     m_menuMostVisited = new QMenu();
     m_mostVis->setMenu(m_menuMostVisited);

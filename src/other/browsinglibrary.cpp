@@ -105,7 +105,9 @@ void BrowsingLibrary::showHistory(QupZilla* mainClass)
         m_historyManager->refreshTable();
         m_historyLoaded = true;
     }
+
     raise();
+    activateWindow();
 }
 
 void BrowsingLibrary::showBookmarks(QupZilla* mainClass)
@@ -118,7 +120,9 @@ void BrowsingLibrary::showBookmarks(QupZilla* mainClass)
         m_bookmarksManager->refreshTable();
         m_bookmarksLoaded = true;
     }
+
     raise();
+    activateWindow();
 }
 
 void BrowsingLibrary::showRSS(QupZilla* mainClass)
@@ -128,16 +132,18 @@ void BrowsingLibrary::showRSS(QupZilla* mainClass)
     m_rssManager->setMainWindow(mainClass);
     m_rssManager->refreshTable();
     m_rssLoaded = true;
+
     raise();
+    activateWindow();
 }
 
 void BrowsingLibrary::optimizeDatabase()
 {
     mApp->setOverrideCursor(Qt::WaitCursor);
     QString profilePath = mApp->getActiveProfilPath();
-    QString sizeBefore = DownloadItem::fileSizeToString(QFileInfo(profilePath+"/browsedata.db").size());
+    QString sizeBefore = DownloadItem::fileSizeToString(QFileInfo(profilePath+"browsedata.db").size());
     mApp->history()->optimizeHistory();
-    QString sizeAfter = DownloadItem::fileSizeToString(QFileInfo(profilePath+"/browsedata.db").size());
+    QString sizeAfter = DownloadItem::fileSizeToString(QFileInfo(profilePath+"browsedata.db").size());
     mApp->restoreOverrideCursor();
     QMessageBox::information(this, tr("Database Optimized"), tr("Database successfuly optimized.<br/><br/><b>Database Size Before: </b>%1<br/><b>Databse Size After: </b>%2").arg(sizeBefore, sizeAfter));
 }

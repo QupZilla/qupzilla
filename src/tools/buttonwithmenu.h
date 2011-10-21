@@ -52,9 +52,11 @@ public:
     void addItem(const Item &item);
     void addItems(const QList<Item> &items);
     void removeItem(const Item &item);
-    void setActiveItem(const Item &item);
+    void setCurrentItem(const Item &item);
 
-    Item* activeItem();
+    Item* currentItem();
+    QList<Item> allItems() { return m_items; }
+    QMenu* menu() const;
 
 signals:
     void activeItemChanged(const ButtonWithMenu::Item &item);
@@ -62,13 +64,14 @@ signals:
     void itemRemoved(const ButtonWithMenu::Item &item);
 
 public slots:
+    void clearItems();
 
 private slots:
     void setCurrentItem();
+    void generateMenu();
 
 private:
     void wheelEvent(QWheelEvent *event);
-    void generateMenu();
 
     QMenu* m_menu;
     QList<Item> m_items;

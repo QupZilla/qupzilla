@@ -45,6 +45,7 @@ class AutoFillModel;
 class DesktopNotificationsFactory;
 class IconProvider;
 class Style;
+class SearchEnginesManager;
 
 class MainApplication : public QtSingleApplication
 {
@@ -88,6 +89,7 @@ public:
     BookmarksModel* bookmarksModel();
     DownloadManager* downManager();
     AutoFillModel* autoFill();
+    SearchEnginesManager* searchEnginesManager();
     QNetworkDiskCache* networkCache() { return m_networkCache; }
     DesktopNotificationsFactory* desktopNotifications();
     IconProvider* iconProvider() { return m_iconProvider; }
@@ -128,6 +130,7 @@ private:
     QNetworkDiskCache* m_networkCache;
     DesktopNotificationsFactory* m_desktopNotifications;
     IconProvider* m_iconProvider;
+    SearchEnginesManager* m_searchEnginesManager;
 
     QList<QPointer<QupZilla> > m_mainWindows;
 

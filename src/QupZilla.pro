@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkit sql network
+QT       += core gui webkit sql network script
 TARGET = qupzilla
 TEMPLATE = app
 VERSION = 1.00.rc1
@@ -28,10 +28,11 @@ win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.li
 ##It won't compile on windows with this define. Some bug in qtsingleapp / qvector template
 !win32: !CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT
 
-TRANSLATIONS +=cs_CZ.ts\
-               sk_SK.ts\
-               nl_NL.ts\
-               es.ts
+TRANSLATIONS +=../translations/cs_CZ.ts\
+               ../translations/sk_SK.ts\
+               ../translations/nl_NL.ts\
+               ../translations/zh_CN.ts\
+
 
 INCLUDEPATH += 3rdparty\
                app\
@@ -53,6 +54,7 @@ INCLUDEPATH += 3rdparty\
                data\
                adblock\
                desktopnotifications\
+               opensearch\
 
 SOURCES += main.cpp\
     3rdparty/qtwin.cpp \
@@ -151,7 +153,13 @@ SOURCES += main.cpp\
     tools/certificateinfowidget.cpp \
     webview/webinspectordockwidget.cpp \
     app/profileupdater.cpp \
-    preferences/acceptlanguage.cpp
+    preferences/acceptlanguage.cpp \
+    opensearch/opensearchreader.cpp \
+    opensearch/opensearchengine.cpp \
+    opensearch/opensearchenginedelegate.cpp \
+    opensearch/searchenginesmanager.cpp \
+    opensearch/searchenginesdialog.cpp \
+    opensearch/editsearchengine.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -252,7 +260,13 @@ HEADERS  += \
     webview/webinspectordockwidget.h \
     3rdparty/msvc2008.h \
     app/profileupdater.h \
-    preferences/acceptlanguage.h
+    preferences/acceptlanguage.h \
+    opensearch/opensearchreader.h \
+    opensearch/opensearchengine.h \
+    opensearch/opensearchenginedelegate.h \
+    opensearch/searchenginesmanager.h \
+    opensearch/searchenginesdialog.h \
+    opensearch/editsearchengine.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -290,7 +304,9 @@ FORMS    += \
     other/pagescreen.ui \
     tools/certificateinfowidget.ui \
     preferences/acceptlanguage.ui \
-    preferences/addacceptlanguage.ui
+    preferences/addacceptlanguage.ui \
+    opensearch/searchenginesdialog.ui \
+    opensearch/editsearchengine.ui
 
 RESOURCES += \
     data/icons.qrc \
@@ -346,6 +362,23 @@ equals(d_w7api, "true") { DEFINES += W7API }
 
 message(Using following defines)
 message($$DEFINES)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

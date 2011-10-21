@@ -34,6 +34,7 @@
 #include "statusbarmessage.h"
 #include "progressbar.h"
 #include "navigationbar.h"
+#include "searchenginesmanager.h"
 
 WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     : QWebView(webTab)
@@ -529,7 +530,9 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addSeparator();
         QString selectedText = page()->selectedText();
         selectedText.truncate(20);
-        menu->addAction(QIcon(":icons/menu/google.png"), tr("Search \"%1 ..\" on &Google").arg(selectedText), this, SLOT(searchOnGoogle()))->setData(page()->selectedText());
+
+        SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+        menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
     }
 
 #if QT_VERSION == 0x040800
@@ -594,11 +597,10 @@ void WebView::copyLinkToClipboard()
     }
 }
 
-void WebView::searchOnGoogle()
+void WebView::searchSelectedText()
 {
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        load(QUrl("http://www.google.com/search?client=qupzilla&q="+action->data().toString()));
-    }
+    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    load(engine.url.replace("%s", selectedText()));
 }
 
 void WebView::selectAll()
@@ -755,7 +757,8 @@ void WebView::load(const QUrl &url)
 #endif
         QWebView::load(url);
     else {
-        QString urlString = "http://www.google.com/search?client=qupzilla&q=" + url.toString();
+        SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+        QString urlString = engine.url.replace("%s", url.toString());
         QWebView::load(QUrl(urlString));
         m_locationBar->setText(urlString);
     }

@@ -574,8 +574,12 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="195"/>
-        <source>Sites You visited the most</source>
+        <source>Sites you visited the most</source>
         <translation>Meistbesuchte Seiten</translation>
+    </message>
+    <message>
+        <source>Sites You visited the most</source>
+        <translation type="obsolete">Meistbesuchte Seiten</translation>
     </message>
 </context>
 <context>
@@ -654,12 +658,12 @@ p, li { white-space: pre-wrap; }
         <translation>RSS</translation>
     </message>
     <message>
-        <location filename="../src/other/browsinglibrary.cpp" line="142"/>
+        <location filename="../src/other/browsinglibrary.cpp" line="148"/>
         <source>Database Optimized</source>
         <translation>Datenbank optimiert</translation>
     </message>
     <message>
-        <location filename="../src/other/browsinglibrary.cpp" line="142"/>
+        <location filename="../src/other/browsinglibrary.cpp" line="148"/>
         <source>Database successfuly optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Databse Size After: &lt;/b&gt;%2</source>
         <translation>Datenbank erfolgreich optimiert.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Datenbankgröße vorher: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Datenbankgröße nachher: &lt;/b&gt;%2</translation>
     </message>
@@ -1135,29 +1139,29 @@ p, li { white-space: pre-wrap; }
         <translation>% - Download Manager</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="201"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="202"/>
         <source>Download Finished</source>
         <translation>Download beendet</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="201"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="202"/>
         <source>All files have been successfuly downloaded.</source>
         <translation>Alle Dateien wurden erfolgreich heruntergeladen.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="245"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="246"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="246"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="247"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Möchten Sie QupZilla wirklich beenden?Alle nicht beendeten Downloads werden abgebrochen!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="20"/>
         <location filename="../src/downloads/downloadmanager.cpp" line="102"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="206"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="207"/>
         <source>Download Manager</source>
         <translation>Download Manager</translation>
     </message>
@@ -1208,6 +1212,44 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/downloads/downloadoptionsdialog.cpp" line="30"/>
         <source>Opening %1</source>
         <translation>Öffnen von %1</translation>
+    </message>
+</context>
+<context>
+    <name>EditSearchEngine</name>
+    <message>
+        <location filename="../src/opensearch/editsearchengine.ui" line="17"/>
+        <source>Name:</source>
+        <translation>Name:</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/editsearchengine.ui" line="27"/>
+        <source>Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/editsearchengine.ui" line="41"/>
+        <source>Shortcut:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/editsearchengine.ui" line="51"/>
+        <source>Icon:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/editsearchengine.ui" line="58"/>
+        <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/editsearchengine.ui" line="97"/>
+        <source>Add from file ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/editsearchengine.cpp" line="67"/>
+        <source>Choose icon...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1413,22 +1455,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="45"/>
+        <location filename="../src/navigation/locationbar.cpp" line="46"/>
         <source>Show informations about this page</source>
         <translation>Seiteninformationen anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="51"/>
+        <location filename="../src/navigation/locationbar.cpp" line="52"/>
         <source>Add RSS from this page...</source>
         <translation>RSS Feed von dieser Seite hinzufügen...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="71"/>
+        <location filename="../src/navigation/locationbar.cpp" line="72"/>
         <source>Enter URL address or search on Google.com</source>
         <translation>URL eingeben oder auf Google.com suchen</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="246"/>
+        <location filename="../src/navigation/locationbar.cpp" line="265"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT key = Should be different for every country</comment>
         <translation>.de</translation>
@@ -1437,22 +1479,21 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LocationCompleter</name>
     <message>
-        <location filename="../src/navigation/locationcompleter.cpp" line="118"/>
         <source>Search %1 on Google.com
 ..........</source>
-        <translation>%1 auf Google.com suchen
+        <translation type="obsolete">%1 auf Google.com suchen
 ..........</translation>
     </message>
 </context>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="574"/>
+        <location filename="../src/app/mainapplication.cpp" line="575"/>
         <source>Last session crashed</source>
         <translation>Die letzte Sitzung wurde unerwartet beendet</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="575"/>
+        <location filename="../src/app/mainapplication.cpp" line="576"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla ist abgestürzt :-(&lt;/b&gt;&lt;br/&gt;Hoppla,die letzte Sitzung wurde unerwartet beendet. Verzeihung. Möchten Sie den letzten Status wiederherstellen?</translation>
     </message>
@@ -1680,9 +1721,8 @@ p, li { white-space: pre-wrap; }
         <translation>Plugins</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="257"/>
         <source>After launch:  </source>
-        <translation>Nach dem Start:  </translation>
+        <translation type="obsolete">Nach dem Start:  </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="265"/>
@@ -1898,9 +1938,8 @@ p, li { white-space: pre-wrap; }
         <translation>Java zulassen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="784"/>
         <source>Allow  JavaScript</source>
-        <translation>JavaScript erlauben</translation>
+        <translation type="obsolete">JavaScript erlauben</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="791"/>
@@ -1999,6 +2038,11 @@ p, li { white-space: pre-wrap; }
         <translation>Erscheinungsbild</translation>
     </message>
     <message>
+        <location filename="../src/preferences/preferences.ui" line="257"/>
+        <source>After launch: </source>
+        <translation>Nach dem Start:  </translation>
+    </message>
+    <message>
         <location filename="../src/preferences/preferences.ui" line="471"/>
         <source>Check for updates on start</source>
         <translation>Beim Start auf Aktualisierungen überprüfen</translation>
@@ -2017,6 +2061,11 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences/preferences.ui" line="747"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Fragen, wenn mehrere Tabs geschlossen werden</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="784"/>
+        <source>Allow JavaScript</source>
+        <translation>JavaScript erlauben</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="874"/>
@@ -2292,8 +2341,12 @@ p, li { white-space: pre-wrap; }
         <translation>OSD Benachrichtigung</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="340"/>
         <source>Drag it on the screen to place it where You want.</source>
+        <translation type="obsolete">Veschieben Sie es auf dem Bildschirm nach Belieben.</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.cpp" line="340"/>
+        <source>Drag it on the screen to place it where you want.</source>
         <translation>Veschieben Sie es auf dem Bildschirm nach Belieben.</translation>
     </message>
     <message>
@@ -2599,17 +2652,17 @@ p, li { white-space: pre-wrap; }
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1036"/>
+        <location filename="../src/app/qupzilla.cpp" line="1037"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Auf aktuelle Cookies kann nicht zugegriffen werden.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1037"/>
+        <location filename="../src/app/qupzilla.cpp" line="1038"/>
         <source>Your session is not stored.</source>
         <translation>Ihre Sitzung wird nicht gespeichert.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1044"/>
+        <location filename="../src/app/qupzilla.cpp" line="1045"/>
         <source>Start Private Browsing</source>
         <translation>Privaten Modus starten</translation>
     </message>
@@ -2771,32 +2824,32 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Web Inspector</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="961"/>
+        <location filename="../src/app/qupzilla.cpp" line="962"/>
         <source>Open file...</source>
         <translation>Datei öffnen...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1031"/>
+        <location filename="../src/app/qupzilla.cpp" line="1032"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Möchten Sie wirklich den privaten Modus starten?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1032"/>
+        <location filename="../src/app/qupzilla.cpp" line="1033"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Wenn der private Modus aktiv ist, stehen einige Aktionen nicht zur Verfügung:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1035"/>
+        <location filename="../src/app/qupzilla.cpp" line="1036"/>
         <source>Webpages are not added to the history.</source>
         <translation>Webseiten werden nicht zum Verlauf hinzugefügt.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1039"/>
+        <location filename="../src/app/qupzilla.cpp" line="1040"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Solange dieses Fenster geöffnet ist, können Sie über die Symbole &quot;Zurück&quot; und &quot;Vor&quot; zu den Webseiten zurückkehren, die Sie geöffnet haben.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1091"/>
+        <location filename="../src/app/qupzilla.cpp" line="1092"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
         <translation>Es sind noch %1 Tabs geöffnet und Ihre Sitzung wird nicht gespeichert. Möchten Sie QupZilla wirklich beenden?</translation>
     </message>
@@ -2820,8 +2873,12 @@ p, li { white-space: pre-wrap; }
         <translation>Fehlerbericht senden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
         <source>If You are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
+        <translation type="obsolete">Wenn Sie bei der Nutzung von QupZilla auf Probleme stoßen, deaktivieren Sie bitte zuerst alle Plugins. &lt;br/&gt; Sollte dies das Problem nicht lösen, füllen Sie bitte dieses Formular aus: </translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
+        <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
         <translation>Wenn Sie bei der Nutzung von QupZilla auf Probleme stoßen, deaktivieren Sie bitte zuerst alle Plugins. &lt;br/&gt; Sollte dies das Problem nicht lösen, füllen Sie bitte dieses Formular aus: </translation>
     </message>
     <message>
@@ -3250,30 +3307,88 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation type="obsolete">SSL Zertifkatsinformationen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="53"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="55"/>
         <source>Choose path...</source>
         <translation>Pfad auswählen...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="129"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="131"/>
         <source>Certificate Informations</source>
         <translation>Informationen zum Zertifikat</translation>
     </message>
 </context>
 <context>
+    <name>SearchEnginesDialog</name>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="14"/>
+        <source>Manage Search Engines</source>
+        <translation>Suchmaschinen verwalten</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="22"/>
+        <source>Add...</source>
+        <translation>Hinzufügen...</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="29"/>
+        <source>Remove</source>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="36"/>
+        <source>Edit</source>
+        <translation>Bearbeiten</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="56"/>
+        <source>Defaults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="79"/>
+        <source>Search Engine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="84"/>
+        <source>Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.cpp" line="27"/>
+        <source>Add Search Engine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.cpp" line="71"/>
+        <source>Edit Search Engine</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="177"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
+        <source>Search Engine Added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
+        <source>Search Engine &quot;%1&quot; has been successfuly added.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="240"/>
         <source>Search Engine is not valid!</source>
         <translation>Suchmaschine ist ungültig!</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="178"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="241"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="178"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="241"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Beim Hinzufügen der Suchmaschine ist ein Fehler aufgetreten &lt;br&gt;&lt;b&gt;Fehlermeldung: &lt;/b&gt; %1</translation>
     </message>
@@ -3520,8 +3635,13 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation>Diese Verbindung ist &lt;b&gt;unverschlüsselt&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="56"/>
         <source>This is Your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
+        <translation type="obsolete">Dies ist Ihr &lt;b&gt;%1.&lt;/b&gt; Besuch dieser Seite.</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfowidget.cpp" line="56"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
+        <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
         <translation>Dies ist Ihr &lt;b&gt;%1.&lt;/b&gt; Besuch dieser Seite.</translation>
     </message>
     <message>
@@ -3540,9 +3660,8 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation>dritter</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is Your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation>Dies ist Ihr &lt;b&gt;%1&lt;/b&gt; Besuch dieser Seite.</translation>
+        <translation type="obsolete">Dies ist Ihr &lt;b&gt;%1&lt;/b&gt; Besuch dieser Seite.</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="59"/>
@@ -3801,8 +3920,12 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="200"/>
-        <source>Actually You have %1 opened tabs</source>
+        <source>Actually you have %1 opened tabs</source>
         <translation>Aktuell sind %1 Tabs geöffnet</translation>
+    </message>
+    <message>
+        <source>Actually You have %1 opened tabs</source>
+        <translation type="obsolete">Aktuell sind %1 Tabs geöffnet</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="372"/>
@@ -3869,9 +3992,15 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="130"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, witch has been already done.)</source>
+        <translation type="obsolete">Um diese Seite anzeigen zu können, muss QupZilla eine erneute Abfrage an den Server versenden 
+</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webpage.cpp" line="130"/>
+        <source>To show this page, QupZilla must resend request which do it again 
+(like searching on making an shoping, which has been already done.)</source>
         <translation>Um diese Seite anzeigen zu können, muss QupZilla eine erneute Abfrage an den Server versenden 
 </translation>
     </message>
@@ -3959,147 +4088,156 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
 <context>
     <name>WebSearchBar</name>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="53"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="75"/>
         <source>Manage Search Engines</source>
         <translation>Suchmaschinen verwalten</translation>
+    </message>
+    <message>
+        <location filename="../src/navigation/websearchbar.cpp" line="160"/>
+        <source>Add %1 ...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/webview/webview.cpp" line="155"/>
+        <location filename="../src/webview/webview.cpp" line="156"/>
         <source>Loading...</source>
         <translation>Laden...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="462"/>
+        <location filename="../src/webview/webview.cpp" line="463"/>
         <source>Open link in new &amp;tab</source>
         <translation>Link in neuem &amp;Tab öffnen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="463"/>
+        <location filename="../src/webview/webview.cpp" line="464"/>
         <source>Open link in new &amp;window</source>
         <translation>Link in neuem &amp;Fenster öffnen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="465"/>
+        <location filename="../src/webview/webview.cpp" line="466"/>
         <source>B&amp;ookmark link</source>
         <translation>&amp;Lesezeichen für diesen Link hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="466"/>
+        <location filename="../src/webview/webview.cpp" line="467"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Ziel speichern unter...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="468"/>
+        <location filename="../src/webview/webview.cpp" line="469"/>
         <source>&amp;Copy link address</source>
         <translation>Lin&amp;k-Adresse kopieren</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="477"/>
+        <location filename="../src/webview/webview.cpp" line="478"/>
         <source>Show i&amp;mage</source>
         <translation>G&amp;rafik anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="478"/>
+        <location filename="../src/webview/webview.cpp" line="479"/>
         <source>Copy im&amp;age</source>
         <translation>Grafik k&amp;opieren</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="479"/>
+        <location filename="../src/webview/webview.cpp" line="480"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Grafika&amp;dresse kopieren</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="508"/>
+        <location filename="../src/webview/webview.cpp" line="509"/>
         <source>S&amp;top</source>
         <translation>S&amp;topp</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="522"/>
+        <location filename="../src/webview/webview.cpp" line="523"/>
         <source>Show info ab&amp;out site</source>
         <translation>S&amp;eiteninformationen anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="523"/>
+        <location filename="../src/webview/webview.cpp" line="524"/>
         <source>Show Web &amp;Inspector</source>
         <translation>Web &amp;Inspector anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="532"/>
         <source>Search &quot;%1 ..&quot; on &amp;Google</source>
-        <translation>Suche &quot;%1 ..&quot; auf &amp;Google</translation>
+        <translation type="obsolete">Suche &quot;%1 ..&quot; auf &amp;Google</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="481"/>
+        <location filename="../src/webview/webview.cpp" line="482"/>
         <source>&amp;Save image as...</source>
         <translation>Grafik speichern &amp;unter...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="91"/>
+        <location filename="../src/webview/webview.cpp" line="92"/>
         <source>Failed loading page</source>
         <translation>Seite konnte nicht geladen werden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="498"/>
+        <location filename="../src/webview/webview.cpp" line="499"/>
         <source>&amp;Back</source>
         <translation>&amp;Zurück</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="502"/>
+        <location filename="../src/webview/webview.cpp" line="503"/>
         <source>&amp;Forward</source>
         <translation>&amp;Vor</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="507"/>
+        <location filename="../src/webview/webview.cpp" line="508"/>
         <source>&amp;Reload</source>
         <translation>&amp;Neu laden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="512"/>
+        <location filename="../src/webview/webview.cpp" line="513"/>
         <source>Book&amp;mark page</source>
         <translation>&amp;Lesezeichen für diese Seite hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="513"/>
+        <location filename="../src/webview/webview.cpp" line="514"/>
         <source>&amp;Save page as...</source>
         <translation>Seite speichern &amp;unter...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="516"/>
+        <location filename="../src/webview/webview.cpp" line="517"/>
         <source>Select &amp;all</source>
         <translation>Alles au&amp;swählen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="521"/>
+        <location filename="../src/webview/webview.cpp" line="522"/>
         <source>Show so&amp;urce code</source>
         <translation>Seitenquelltext &amp;anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="778"/>
+        <location filename="../src/webview/webview.cpp" line="535"/>
+        <source>Search &quot;%1 ..&quot; with %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="781"/>
         <source>No Named Page</source>
         <translation>Unbekannte Seite</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="388"/>
-        <location filename="../src/webview/webview.cpp" line="392"/>
-        <location filename="../src/webview/webview.cpp" line="572"/>
+        <location filename="../src/webview/webview.cpp" line="389"/>
+        <location filename="../src/webview/webview.cpp" line="393"/>
+        <location filename="../src/webview/webview.cpp" line="575"/>
         <source>New tab</source>
         <translation>Neuer Tab</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="467"/>
+        <location filename="../src/webview/webview.cpp" line="468"/>
         <source>Send link...</source>
         <translation>Link senden...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="482"/>
+        <location filename="../src/webview/webview.cpp" line="483"/>
         <source>Send image...</source>
         <translation>Grafik senden...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="514"/>
+        <location filename="../src/webview/webview.cpp" line="515"/>
         <source>Send page...</source>
         <translation>Seite senden...</translation>
     </message>

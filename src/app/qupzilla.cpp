@@ -937,6 +937,7 @@ void QupZilla::aboutQupZilla()
 void QupZilla::webSearch()
 {
     m_navigationBar->searchLine()->setFocus();
+    m_navigationBar->searchLine()->selectAll();
 }
 
 void QupZilla::searchOnPage()

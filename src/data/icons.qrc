@@ -23,16 +23,9 @@
         <file>qupzilla.png</file>
         <file>icons/locationbar/privatebrowsing.png</file>
         <file>icons/locationbar/unknownpage.png</file>
-        <file>icons/menu/bookmark_add.png</file>
-        <file>icons/menu/book_open_mark.png</file>
-        <file>icons/menu/bug_magnify.png</file>
-        <file>icons/menu/csfd.png</file>
-        <file>icons/menu/cz_seznam.png</file>
-        <file>icons/menu/flash.png</file>
         <file>icons/menu/google.png</file>
         <file>icons/menu/history.png</file>
         <file>icons/menu/history_entry.png</file>
-        <file>icons/menu/icon-wikipedia.png</file>
         <file>icons/menu/popup.png</file>
         <file>icons/menu/qt.png</file>
         <file>icons/menu/rss.png</file>
@@ -66,5 +59,9 @@
         <file>icons/menu/informations.png</file>
         <file>icons/faenza/user-bookmarks.png</file>
         <file>icons/other/adblock-disabled.png</file>
+        <file>icons/menu/search-icon.png</file>
+        <file>icons/menu/gear.png</file>
+        <file>icons/menu/wikipedia.png</file>
+        <file>icons/menu/yahoo.png</file>
     </qresource>
 </RCC>

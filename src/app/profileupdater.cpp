@@ -62,6 +62,7 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
     if (profileVersion >= Updater::parseVersionFromString("1.0.0-b3"))
         //Data not changed from 1.0.0-b3
         return;
+    //CREATE TABLE search_engines (id INTEGER PRIMARY KEY, name TEXT, icon TEXT, url TEXT, shortcut TEXT, suggestionsUrl TEXT, suggestionsParameters TEXT);
 
     std::cout << "incompatible profile version detected, updating profile data..." << std::endl;
 
