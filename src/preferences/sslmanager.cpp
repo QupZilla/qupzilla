@@ -45,6 +45,8 @@ SSLManager::SSLManager(QWidget* parent)
     connect(ui->deletePath, SIGNAL(clicked()), this, SLOT(deletePath()));
     connect(ui->ignoreAll, SIGNAL(clicked(bool)), this, SLOT(ignoreAll(bool)));
 
+    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
+
     ui->ignoreAll->setChecked(mApp->networkManager()->isIgnoringAllWarnings());
 }
 
