@@ -28,9 +28,19 @@
     qproperty-themeIcon: "go-previous";
 }
 
+#navigation-button-back::menu-indicator
+{
+    background: url(images/transp.png);
+}
+
 #navigation-button-next
 {
     qproperty-themeIcon: "go-next";
+}
+
+#navigation-button-next::menu-indicator
+{
+    background: url(images/transp.png);
 }
 
 #navigation-button-stop
@@ -164,9 +174,14 @@
 
 #websearchbar-searchprovider-comobobox
 {
-    border-image: url(images/transp.png);
+    border-image: url(images/websearch-bg.png);
     padding-left:-8px;
     qproperty-fixedsize: 37px 27px;
+}
+
+#websearchbar-searchprovider-comobobox::menu-indicator
+{
+    background: url(images/transp.png);
 }
 
 /*SourceViewer*/
