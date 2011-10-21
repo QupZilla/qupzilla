@@ -62,12 +62,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="73"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;Bijdragers&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="74"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;Vertalers:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Other contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
@@ -83,33 +83,33 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="14"/>
         <source>Preferred Languages</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeurstalen</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="25"/>
         <source>Add...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg toe...</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="32"/>
         <source>Remove</source>
-        <translation type="unfinished">Verwijder</translation>
+        <translation>Verwijder</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="39"/>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Omhoog</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="46"/>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Omlaag</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.cpp" line="85"/>
         <location filename="../src/preferences/acceptlanguage.cpp" line="139"/>
         <source>Personal [%1]</source>
-        <translation type="unfinished"></translation>
+        <translation>Persoonlijk [%1]</translation>
     </message>
 </context>
 <context>
@@ -224,17 +224,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/addacceptlanguage.ui" line="14"/>
         <source>Add Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg taal toe</translation>
     </message>
     <message>
         <location filename="../src/preferences/addacceptlanguage.ui" line="20"/>
         <source>Choose preferred language for web sites</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies uw voorkeurstaal voor websites</translation>
     </message>
     <message>
         <location filename="../src/preferences/addacceptlanguage.ui" line="32"/>
         <source>Personal definition:</source>
-        <translation type="unfinished"></translation>
+        <translation>Persoonlijke omschrijving:</translation>
     </message>
 </context>
 <context>
@@ -2096,12 +2096,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1925"/>
         <source>Languages</source>
-        <translation type="unfinished"></translation>
+        <translation>Talen</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1947"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Voorkeurstalen voor websites&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1188"/>
@@ -2346,7 +2346,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/opensearch/opensearchreader.cpp" line="89"/>
         <source>The file is not an OpenSearch 1.1 file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dit bestand is geen OpenSearch 1.1-bestand.</translation>
     </message>
 </context>
 <context>
@@ -2938,7 +2938,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="169"/>
         <source>Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Profiel</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="170"/>
@@ -2958,7 +2958,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="173"/>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Data</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="174"/>
@@ -2978,17 +2978,17 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="177"/>
         <source>Main developer</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoofdontwikkelaar</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="179"/>
         <source>Contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>Bijdragers</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="183"/>
         <source>Translators</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertalers</translation>
     </message>
 </context>
 <context>
@@ -3143,7 +3143,7 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="24"/>
         <source>CA Authorities Certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>CA-instellingen-certificaten</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="48"/>
@@ -3154,64 +3154,65 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="57"/>
         <source>This is list of CA Authorities Certificates stored in standard system path and in user specified paths.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dit is een lijst van CA-instellingen-certificaten die opgeslagen zijn in systeempaden en gebruikers-gespecificeerde paden.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="68"/>
         <source>Local Certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokale certificaten</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="99"/>
         <location filename="../src/preferences/sslmanager.ui" line="150"/>
         <source>Remove</source>
-        <translation type="unfinished">Verwijder</translation>
+        <translation>Verwijder</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="108"/>
         <source>This is list of Local Certificates stored in user profile. This list also contains all certificates, that have received an exception.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dit is een lijst van lokale certificaten opgeslagen in het gebruikersprofiel. Deze lijst bevat tevens alle certificaten die een uitzondering hebben ontvangen.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="119"/>
         <source>Settings</source>
-        <translation type="unfinished">Instellingen</translation>
+        <translation>Instellingen</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="143"/>
         <source>Add</source>
-        <translation type="unfinished">Voeg toe</translation>
+        <translation>Voeg toe</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="159"/>
         <source>If CA Authorities Certificates were not automatically loaded from system, you can specify manual paths where certificates are stored.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wanneer CA-instellingen-certificaten niet automatisch geladen werden van uw systeem, kunt u bij deze handmatig paden opgeven die certificaten bevatten.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="232"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart browser in order to changes take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle certificaten moeten een .crt-extensie hebben.
+Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te herstarten zodat de wijzigingen worden toegepast.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="171"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is big security risk!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;NOOT:&lt;/b&gt; deze instelling instellen is een groot veiligheidsrisico!</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="210"/>
         <source>Ignore all SSL Warnings</source>
-        <translation type="unfinished"></translation>
+        <translation>Negeer alle SSL-waarschuwingen</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="53"/>
         <source>Choose path...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies pad...</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="129"/>
         <source>Certificate Informations</source>
-        <translation type="unfinished"></translation>
+        <translation>Certificaat-informatie</translation>
     </message>
 </context>
 <context>
@@ -3219,17 +3220,17 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="177"/>
         <source>Search Engine is not valid!</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekmachine is ongeldig!</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="178"/>
         <source>Error</source>
-        <translation type="unfinished">Fout</translation>
+        <translation>Fout</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="178"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fout tijdens het toevoegen van de zoekmachine. &lt;br&gt;&lt;b&gt;Foutmelding:&lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
@@ -3782,7 +3783,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
         <location filename="../src/webview/webinspectordockwidget.cpp" line="13"/>
         <location filename="../src/webview/webinspectordockwidget.cpp" line="16"/>
         <source>Web Inspector</source>
-        <translation type="unfinished">Web-inspecteur</translation>
+        <translation>Web-inspecteur</translation>
     </message>
 </context>
 <context>
@@ -3881,7 +3882,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="53"/>
         <source>Manage Search Engines</source>
-        <translation type="unfinished"></translation>
+        <translation>Beheer zoekmachines</translation>
     </message>
 </context>
 <context>
