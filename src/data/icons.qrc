@@ -63,5 +63,8 @@
         <file>icons/menu/gear.png</file>
         <file>icons/menu/wikipedia.png</file>
         <file>icons/menu/yahoo.png</file>
+        <file>icons/browsers/firefox.png</file>
+        <file>icons/browsers/chrome.png</file>
+        <file>icons/browsers/opera.png</file>
     </qresource>
 </RCC>

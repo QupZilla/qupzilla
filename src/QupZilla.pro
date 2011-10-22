@@ -55,6 +55,7 @@ INCLUDEPATH += 3rdparty\
                adblock\
                desktopnotifications\
                opensearch\
+               bookmarksimport\
 
 SOURCES += main.cpp\
     3rdparty/qtwin.cpp \
@@ -159,7 +160,11 @@ SOURCES += main.cpp\
     opensearch/opensearchenginedelegate.cpp \
     opensearch/searchenginesmanager.cpp \
     opensearch/searchenginesdialog.cpp \
-    opensearch/editsearchengine.cpp
+    opensearch/editsearchengine.cpp \
+    bookmarksimport/firefoximporter.cpp \
+    bookmarksimport/chromeimporter.cpp \
+    bookmarksimport/operaimporter.cpp \
+    bookmarksimport/bookmarksimportdialog.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -266,7 +271,11 @@ HEADERS  += \
     opensearch/opensearchenginedelegate.h \
     opensearch/searchenginesmanager.h \
     opensearch/searchenginesdialog.h \
-    opensearch/editsearchengine.h
+    opensearch/editsearchengine.h \
+    bookmarksimport/firefoximporter.h \
+    bookmarksimport/chromeimporter.h \
+    bookmarksimport/operaimporter.h \
+    bookmarksimport/bookmarksimportdialog.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -306,7 +315,8 @@ FORMS    += \
     preferences/acceptlanguage.ui \
     preferences/addacceptlanguage.ui \
     opensearch/searchenginesdialog.ui \
-    opensearch/editsearchengine.ui
+    opensearch/editsearchengine.ui \
+    bookmarksimport/bookmarksimportdialog.ui
 
 RESOURCES += \
     data/icons.qrc \
@@ -362,6 +372,15 @@ equals(d_w7api, "true") { DEFINES += W7API }
 
 message(Using following defines)
 message($$DEFINES)
+
+
+
+
+
+
+
+
+
 
 
 
