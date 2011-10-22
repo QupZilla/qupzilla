@@ -108,7 +108,7 @@ signals:
 
 private slots:
     void setupJumpList();
-    void restoreCursor() { QApplication::restoreOverrideCursor(); }
+    void restoreCursor();
 
 private:
     void connectDatabase();

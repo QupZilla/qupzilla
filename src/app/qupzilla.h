@@ -160,6 +160,7 @@ private slots:
     void showStatusbar();
     void showClearPrivateData();
     void showPreferences();
+    void showBookmarkImport();
 
     void refreshHistory();
     void bookmarkAllTabs();

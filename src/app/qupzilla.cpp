@@ -57,6 +57,7 @@
 #include "navigationbar.h"
 #include "pagescreen.h"
 #include "webinspectordockwidget.h"
+#include "bookmarksimportdialog.h"
 
 const QString QupZilla::VERSION = "1.0.0-rc1";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
@@ -240,6 +241,8 @@ void QupZilla::setupMenu()
     m_menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()));
     m_menuFile->addAction(tr("Send Link..."), this, SLOT(sendLink()));
     m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print"), this, SLOT(printPage()));    m_menuFile->addSeparator();
+    m_menuFile->addSeparator();
+    m_menuFile->addAction(tr("Import bookmarks..."), this, SLOT(showBookmarkImport()));
     m_menuFile->addAction(QIcon::fromTheme("application-exit"), tr("Quit"), this, SLOT(quitApp()))->setShortcut(QKeySequence("Ctrl+Q"));
     menuBar()->addMenu(m_menuFile);
 
@@ -525,15 +528,16 @@ void QupZilla::aboutToShowBookmarksMenu()
 
     query.exec("SELECT name FROM folders");
     while(query.next()) {
-        QMenu* tempFolder = new QMenu(query.value(0).toString(), m_menuBookmarks);
+        QString folderName = query.value(0).toString();
+        QMenu* tempFolder = new QMenu(folderName, m_menuBookmarks);
         tempFolder->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
 
         QSqlQuery query2;
-        query2.exec("SELECT title, url, icon FROM bookmarks WHERE folder='"+query.value(0).toString()+"'");
+        query2.exec("SELECT title, url, icon FROM bookmarks WHERE folder='" + folderName + "'");
         while(query2.next()) {
-            QString title = query.value(0).toString();
-            QUrl url = query.value(1).toUrl();
-            QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
+            QString title = query2.value(0).toString();
+            QUrl url = query2.value(1).toUrl();
+            QIcon icon = IconProvider::iconFromBase64(query2.value(2).toByteArray());
             if (title.length()>40) {
                 title.truncate(40);
                 title+="..";
@@ -921,6 +925,12 @@ void QupZilla::showWebInspector()
     m_webInspectorDock = new WebInspectorDockWidget(this);
     connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock, SLOT(tabChanged()));
     addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock);
+}
+
+void QupZilla::showBookmarkImport()
+{
+    BookmarksImportDialog* b = new BookmarksImportDialog(this);
+    b->show();
 }
 
 void QupZilla::refreshHistory()
