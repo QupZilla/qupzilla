@@ -240,6 +240,12 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
 bool BookmarksModel::createFolder(const QString &name)
 {
     QSqlQuery query;
+    query.prepare("SELECT name FROM folders WHERE name = ?");
+    query.bindValue(0, name);
+    query.exec();
+    if (query.next())
+        return false;
+
     query.prepare("INSERT INTO folders (name) VALUES (?)");
     query.bindValue(0, name);
     if (!query.exec())

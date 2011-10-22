@@ -37,6 +37,13 @@ public:
         QString folder;
         QUrl url;
         QIcon icon;
+
+        bool operator==(const Bookmark &other)
+        {
+            return (this->title == other.title &&
+                    this->folder == other.folder &&
+                    this->url == other.url);
+        }
     };
 
     void loadSettings();

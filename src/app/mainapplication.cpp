@@ -40,6 +40,7 @@
 #include "globalfunctions.h"
 #include "profileupdater.h"
 #include "searchenginesmanager.h"
+#include "operaimporter.h"
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -273,6 +274,11 @@ void MainApplication::loadSettings()
 
     if (m_downloadManager)
         m_downloadManager->loadSettings();
+}
+
+void MainApplication::restoreCursor()
+{
+     QApplication::restoreOverrideCursor();
 }
 
 void MainApplication::setupJumpList()
