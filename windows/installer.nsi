@@ -3,7 +3,7 @@ RequestExecutionLevel admin
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.0.0-b4"
+!define /date PRODUCT_VERSION "1.0.0-rc1"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -64,12 +64,13 @@ Section !$(TITLE_SecMain) SecMain
   File "qupzilla.exe"
   File "libeay32.dll"
   File "ssleay32.dll"
-  File "msvcp100.dll"
-  File "msvcr100.dll"
+  File "msvcp90.dll"
+  File "msvcr90.dll"
   File "phonon4.dll"
   File "QtCore4.dll"
   File "QtGui4.dll"
   File "QtNetwork4.dll"
+  File "QtScript4.dll"
   File "QtSql4.dll"
   File "QtWebKit4.dll"
 
@@ -77,7 +78,6 @@ Section !$(TITLE_SecMain) SecMain
   File "data\default\profiles\profiles.ini"
   
   SetOutPath "$INSTDIR\data\default\profiles\default"
-  File "data\default\profiles\default\background.png"
   File "data\default\profiles\default\browsedata.db"
 
   SetOutPath "$INSTDIR\imageformats"
@@ -90,7 +90,6 @@ Section !$(TITLE_SecMain) SecMain
 
   SetOutPath "$INSTDIR\sqldrivers"
   File "sqldrivers\qsqlite4.dll"
-  File "sqldrivers\qsqlodbc4.dll"
 
 SectionEnd
 
@@ -127,20 +126,38 @@ SectionGroup $(TITLE_SecThemes) SecThemes
 SectionGroupEnd
 
 SectionGroup $(TITLE_SecTranslations) SecTranslations
-  Section $(TITLE_SecEnglish) SecEnglish
+  Section "English"
   SectionIn RO  
   SectionEnd
 
-  Section $(TITLE_SecCzech) SecCzech
+  Section "Czech"
   SetOutPath "$INSTDIR\locale"
   File "locale\cs_CZ.qm"
   File "locale\qt_cs.qm"
   SectionEnd
   
-  Section $(TITLE_SecSlovak) SecSlovak
+  Section "Slovak"
   SetOutPath "$INSTDIR\locale"
   File "locale\sk_SK.qm"
   File "locale\qt_sk.qm"
+  SectionEnd
+
+  Section "German"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\de_DE.qm"
+  File "locale\qt_de.qm"
+  SectionEnd
+
+  Section "Dutch"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\nl_NL.qm"
+  File "locale\qt_nl.qm"
+  SectionEnd
+
+  Section "Chinese"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\zh_CN.qm"
+  File "locale\qt_zh.qm"
   SectionEnd
 
 SectionGroupEnd
@@ -176,9 +193,6 @@ SectionEnd
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${SecMain} $(DESC_SecMain)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecTranslations} $(DESC_SecTranslations)
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecEnglish} $(DESC_SecEnglish)
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecCzech} $(DESC_SecCzech)
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecSlovak} $(DESC_SecSlovak)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecPlugins} $(DESC_SecPlugins)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecExamplePlugin} $(DESC_SecExamplePlugin)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} $(DESC_SecDesktop)
