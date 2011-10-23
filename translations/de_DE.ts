@@ -347,106 +347,106 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="14"/>
         <source>Import Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen importieren</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="20"/>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Lesezeichen importieren&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="84"/>
         <source>Choose browser from which you want to import bookmarks:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte Browser auswählen, von dem Lesezeichen importiert werden sollen:</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="123"/>
         <source>Choose...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="208"/>
         <source>Fetching icons, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hole Symbole, bitte warten Sie...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="296"/>
         <source>Title</source>
-        <translation type="unfinished">Titel</translation>
+        <translation>Titel</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="301"/>
         <source>Url</source>
-        <translation type="unfinished">Url</translation>
+        <translation>Url</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="328"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="335"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="34"/>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Importiere von %1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="67"/>
         <source>Finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Ende</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="154"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="165"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="176"/>
         <source>Error!</source>
-        <translation type="unfinished">Fehler!</translation>
+        <translation>Fehler!</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="189"/>
         <source>Choose directory...</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzeichnis wählen...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="195"/>
         <source>Choose file...</source>
-        <translation type="unfinished">Datei wählen...</translation>
+        <translation>Datei wählen...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="225"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Mozilla Firefox speichert die Lesezeichen in einer&lt;b&gt;places.sqlite&lt;/b&gt; SQLite Datenbank. Diese Datei ist gewöhnlich gespeichert unter</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="240"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Google Chrome speichert die Lesezeichen in einer&lt;b&gt;Bookmarks&lt;/b&gt; Textdatei. Diese Datei ist gewöhnlich gespeichert unter</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="256"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Opera speichert die Lesezeichen in einer &lt;b&gt;bookmarks.adr&lt;/b&gt; Textdatei. Diese Datei ist gewöhnlich gespeichert unter</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="270"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Internet Explorer speichert die Lesezeichen im &lt;b&gt;Favorites&lt;/b&gt; Ordner. Dieser Ordner ist gewöhnlich zu finden unter</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="227"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="242"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="258"/>
         <source>Please choose this file to begin importing bookmarks.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte wählen Sie diese Datei, um mit dem Import zu beginnen.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="272"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte wählen Sie diesen Ordner, um mit dem Import zu beginnen.</translation>
     </message>
 </context>
 <context>
@@ -836,17 +836,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="9"/>
         <source>No Error</source>
-        <translation type="unfinished">Kein Fehler</translation>
+        <translation>Kein Fehler</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="24"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei kann nicht geöffnet werden.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="67"/>
         <source>Cannot evaluate JSON code.</source>
-        <translation type="unfinished"></translation>
+        <translation>JSON Format kann nicht ausgewertet werden.</translation>
     </message>
 </context>
 <context>
@@ -1349,32 +1349,32 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="27"/>
         <source>Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Url:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="41"/>
         <source>Shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>Verknüpfung:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="51"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="58"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Hinweis: &lt;/b&gt;%s in der URL entspricht der gesuchten Zeichenkette</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="97"/>
         <source>Add from file ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Von Datei hinzufügen ...</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.cpp" line="67"/>
         <source>Choose icon...</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol auswählen...</translation>
     </message>
 </context>
 <context>
@@ -1382,17 +1382,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="9"/>
         <source>No Error</source>
-        <translation type="unfinished">Kein Fehler</translation>
+        <translation>Kein Fehler</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="24"/>
         <source>File does not exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei existiert nicht.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="32"/>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation type="unfinished"></translation>
+        <translation>Datenbank kann nicht geöffnet werden. Ist Firefox aktiv?</translation>
     </message>
 </context>
 <context>
@@ -1755,12 +1755,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="8"/>
         <source>No Error</source>
-        <translation type="unfinished">Kein Fehler</translation>
+        <translation>Kein Fehler</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="23"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei kann nicht geöffnet werden.</translation>
     </message>
 </context>
 <context>
@@ -2675,7 +2675,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="245"/>
         <source>Import bookmarks...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen importieren...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="250"/>
@@ -3503,27 +3503,27 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="56"/>
         <source>Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="79"/>
         <source>Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchmaschine</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="84"/>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Verknüpfung</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.cpp" line="27"/>
         <source>Add Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchmaschine hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.cpp" line="71"/>
         <source>Edit Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchmaschine bearbeiten</translation>
     </message>
 </context>
 <context>
@@ -3531,12 +3531,12 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
         <source>Search Engine Added</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchmaschine hinzugefügt</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
         <source>Search Engine &quot;%1&quot; has been successfuly added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchmaschine &quot;%1&quot; wurde erfolgreich hinzugefügt.</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="240"/>
@@ -4261,7 +4261,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="160"/>
         <source>Add %1 ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinzufügen von %1 ...</translation>
     </message>
 </context>
 <context>
@@ -4378,7 +4378,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webview.cpp" line="539"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Suche &quot;%1 ..&quot; mit %2</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="785"/>
