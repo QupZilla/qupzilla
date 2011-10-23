@@ -107,6 +107,12 @@
     qproperty-fixedsize: 20px 27px;
 }
 
+#tabwidget-button-addtab
+{
+    qproperty-icon: url(images/navigation-addtab.png);
+    qproperty-fixedsize: 25px 27px;
+}
+
 #tabbar::scroller
 {
     width: 0px;

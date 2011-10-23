@@ -2811,17 +2811,17 @@ werd niet gevonden!</translation>
         <translation>Standaard</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1047"/>
+        <location filename="../src/app/qupzilla.cpp" line="1051"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Huidige cookies kunnen niet worden benaderd.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1048"/>
+        <location filename="../src/app/qupzilla.cpp" line="1052"/>
         <source>Your session is not stored.</source>
         <translation>Uw sessie is niet bewaard.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1055"/>
+        <location filename="../src/app/qupzilla.cpp" line="1059"/>
         <source>Start Private Browsing</source>
         <translation>Start incognito browsen</translation>
     </message>
@@ -2984,32 +2984,32 @@ werd niet gevonden!</translation>
         <translation type="obsolete">Web-inspecteur</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="972"/>
+        <location filename="../src/app/qupzilla.cpp" line="976"/>
         <source>Open file...</source>
         <translation>Open bestand...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1042"/>
+        <location filename="../src/app/qupzilla.cpp" line="1046"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Weet u zeker dat u incognito browsen wilt inschakelen?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1043"/>
+        <location filename="../src/app/qupzilla.cpp" line="1047"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Wanneer incognito browsen is ingeschakeld, zullen sommige acties aangaande uw privacy uitgeschakeld worden:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1046"/>
+        <location filename="../src/app/qupzilla.cpp" line="1050"/>
         <source>Webpages are not added to the history.</source>
         <translation>Webpagina&apos;s worden niet toegevoegd aan uw geschiedenis.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1050"/>
+        <location filename="../src/app/qupzilla.cpp" line="1054"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Totdat u dit venster afsluit, kunt nog steeds op de Terug en Vooruit-knoppen klikken om terug naar de webpagina&apos;s te gaan die u hebt geopend.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1102"/>
+        <location filename="../src/app/qupzilla.cpp" line="1106"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
         <translation>U heeft nog steeds %1 geopende tabs en uw sessie zal niet worden opgeslagen. Weet u zeker dat u wilt afsluiten?</translation>
     </message>
@@ -3905,78 +3905,78 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="228"/>
-        <location filename="../src/webview/tabbar.cpp" line="242"/>
+        <location filename="../src/webview/tabbar.cpp" line="259"/>
+        <location filename="../src/webview/tabbar.cpp" line="273"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="70"/>
+        <location filename="../src/webview/tabbar.cpp" line="73"/>
         <source>&amp;New tab</source>
         <translation>&amp;Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="77"/>
+        <location filename="../src/webview/tabbar.cpp" line="80"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Stop tabblad</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="79"/>
+        <location filename="../src/webview/tabbar.cpp" line="82"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Herlaad tabblad</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="81"/>
+        <location filename="../src/webview/tabbar.cpp" line="84"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Dupliceer tabblad</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="96"/>
+        <location filename="../src/webview/tabbar.cpp" line="99"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>&amp;Herlaad alle tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="85"/>
+        <location filename="../src/webview/tabbar.cpp" line="88"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>&amp;Bladwijzer dit tabblad</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="82"/>
+        <location filename="../src/webview/tabbar.cpp" line="85"/>
         <source>Un&amp;pin Tab</source>
         <translation>&amp;Maak tabblad los</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="82"/>
+        <location filename="../src/webview/tabbar.cpp" line="85"/>
         <source>&amp;Pin Tab</source>
         <translation>&amp;Zet tabblad vast</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="84"/>
+        <location filename="../src/webview/tabbar.cpp" line="87"/>
         <source>Re&amp;load All Tabs</source>
         <translation>&amp;Herlaad alle tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="86"/>
+        <location filename="../src/webview/tabbar.cpp" line="89"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>&amp;Bladwijzer alle tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="99"/>
+        <location filename="../src/webview/tabbar.cpp" line="102"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Herstel &amp;gesloten tabblad</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="92"/>
+        <location filename="../src/webview/tabbar.cpp" line="95"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Sluit &amp;andere tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="93"/>
+        <location filename="../src/webview/tabbar.cpp" line="96"/>
         <source>Cl&amp;ose</source>
         <translation>&amp;Sluit</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="97"/>
+        <location filename="../src/webview/tabbar.cpp" line="100"/>
         <source>Bookmark &amp;All Ta&amp;bs</source>
         <translation>&amp;Bladwijzer alle &amp;tabbladen</translation>
     </message>
@@ -3989,18 +3989,23 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Toon lijst van geopende tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="181"/>
+        <location filename="../src/webview/tabwidget.cpp" line="137"/>
+        <source>New Tab</source>
+        <translation>Nieuw tabblad</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/tabwidget.cpp" line="193"/>
         <source>Loading...</source>
         <translation>Bezig met laden...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="184"/>
-        <location filename="../src/webview/tabwidget.cpp" line="322"/>
+        <location filename="../src/webview/tabwidget.cpp" line="196"/>
+        <location filename="../src/webview/tabwidget.cpp" line="334"/>
         <source>No Named Page</source>
         <translation>Niet-benoemde pagina</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="200"/>
+        <location filename="../src/webview/tabwidget.cpp" line="212"/>
         <source>Actually you have %1 opened tabs</source>
         <translation>Eigenlijk heeft U %1 geopende tabbladen</translation>
     </message>
@@ -4009,8 +4014,8 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation type="obsolete">Eigenlijk heeft U %1 geopende tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="372"/>
-        <location filename="../src/webview/tabwidget.h" line="68"/>
+        <location filename="../src/webview/tabwidget.cpp" line="384"/>
+        <location filename="../src/webview/tabwidget.h" line="69"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
@@ -4188,57 +4193,57 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Bezig met laden...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="463"/>
+        <location filename="../src/webview/webview.cpp" line="467"/>
         <source>Open link in new &amp;tab</source>
         <translation>Open link in nieuw &amp;tabblad</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="464"/>
+        <location filename="../src/webview/webview.cpp" line="468"/>
         <source>Open link in new &amp;window</source>
         <translation>Open link in nieuw &amp;venster</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="466"/>
+        <location filename="../src/webview/webview.cpp" line="470"/>
         <source>B&amp;ookmark link</source>
         <translation>B&amp;ladwijzer link</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="467"/>
+        <location filename="../src/webview/webview.cpp" line="471"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Sla link op als...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="469"/>
+        <location filename="../src/webview/webview.cpp" line="473"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Kopieer linkadres</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="478"/>
+        <location filename="../src/webview/webview.cpp" line="482"/>
         <source>Show i&amp;mage</source>
         <translation>Toon af&amp;beelding</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="479"/>
+        <location filename="../src/webview/webview.cpp" line="483"/>
         <source>Copy im&amp;age</source>
         <translation>&amp;Kopieer afbeelding</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="480"/>
+        <location filename="../src/webview/webview.cpp" line="484"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Kopieer af&amp;beeldingsadres</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="509"/>
+        <location filename="../src/webview/webview.cpp" line="513"/>
         <source>S&amp;top</source>
         <translation>&amp;Stop</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="523"/>
+        <location filename="../src/webview/webview.cpp" line="527"/>
         <source>Show info ab&amp;out site</source>
         <translation>Toon info &amp;over site</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="524"/>
+        <location filename="../src/webview/webview.cpp" line="528"/>
         <source>Show Web &amp;Inspector</source>
         <translation>Toon Web-&amp;inspecteur</translation>
     </message>
@@ -4247,7 +4252,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation type="obsolete">Zoek &quot;%1 ..&quot; op &amp;Google</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="482"/>
+        <location filename="../src/webview/webview.cpp" line="486"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Sla afbeelding op als...</translation>
     </message>
@@ -4257,69 +4262,69 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Mislukt om pagina te laden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="499"/>
+        <location filename="../src/webview/webview.cpp" line="503"/>
         <source>&amp;Back</source>
         <translation>&amp;Terug</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="503"/>
+        <location filename="../src/webview/webview.cpp" line="507"/>
         <source>&amp;Forward</source>
         <translation>&amp;Vooruit</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="508"/>
+        <location filename="../src/webview/webview.cpp" line="512"/>
         <source>&amp;Reload</source>
         <translation>&amp;Herlaad</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="513"/>
+        <location filename="../src/webview/webview.cpp" line="517"/>
         <source>Book&amp;mark page</source>
         <translation>&amp;Bladwijzer pagina</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="514"/>
+        <location filename="../src/webview/webview.cpp" line="518"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Sla pagina op als...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="517"/>
+        <location filename="../src/webview/webview.cpp" line="521"/>
         <source>Select &amp;all</source>
         <translation>&amp;Selecteer alles</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="522"/>
+        <location filename="../src/webview/webview.cpp" line="526"/>
         <source>Show so&amp;urce code</source>
         <translation>&amp;Toon broncode</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="535"/>
+        <location filename="../src/webview/webview.cpp" line="539"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="781"/>
+        <location filename="../src/webview/webview.cpp" line="785"/>
         <source>No Named Page</source>
         <translation>Niet benoemde pagina</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="389"/>
-        <location filename="../src/webview/webview.cpp" line="393"/>
-        <location filename="../src/webview/webview.cpp" line="575"/>
+        <location filename="../src/webview/webview.cpp" line="397"/>
+        <location filename="../src/webview/webview.cpp" line="579"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="468"/>
+        <location filename="../src/webview/webview.cpp" line="472"/>
         <source>Send link...</source>
         <translation>Verstuur link...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="483"/>
+        <location filename="../src/webview/webview.cpp" line="487"/>
         <source>Send image...</source>
         <translation>Verstuur afbeelding...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="515"/>
+        <location filename="../src/webview/webview.cpp" line="519"/>
         <source>Send page...</source>
         <translation>Odeslat stránku...</translation>
     </message>

@@ -137,9 +137,9 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     } else
         m_activeProfil = homePath+"profiles/"+startProfile+"/";
 
-    connectDatabase();
     ProfileUpdater u(m_activeProfil, DATADIR);
     u.checkProfile();
+    connectDatabase();
 
 //    if (!QDir(m_activeProfil).exists())
 //        m_activeProfil=homePath+"profiles/default/";

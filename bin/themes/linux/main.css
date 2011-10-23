@@ -85,6 +85,12 @@
     qproperty-fixedsize: 20px 27px;
 }
 
+#tabwidget-button-addtab
+{
+    qproperty-themeIcon: "list-add";
+    qproperty-fixedsize: 25px 27px;
+}
+
 #tabwidget-button-opentabs::menu-indicator
 {
     background: url(images/transp.png);

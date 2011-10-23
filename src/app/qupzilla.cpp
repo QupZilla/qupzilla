@@ -389,7 +389,7 @@ void QupZilla::loadSettings()
     bool showBookmarksToolbar = settings.value("showBookmarksToolbar",true).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar",true).toBool();
     bool showMenuBar = settings.value("showMenubar",true).toBool();
-    bool showAddTab = settings.value("showAddTabButton", true).toBool();
+    bool showAddTab = settings.value("showAddTabButton", false).toBool();
     bool makeTransparent = settings.value("useTransparentBackground",false).toBool();
     m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
     QString activeSideBar = settings.value("SideBar", "None").toString();

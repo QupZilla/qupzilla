@@ -387,6 +387,10 @@ void WebView::mousePressEvent(QMouseEvent* event)
     case Qt::MiddleButton:
         if (isUrlValid(QUrl(m_hoveredLink)))
             tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toAscii()),tr("New tab"), TabWidget::NewNotSelectedTab);
+#ifdef Q_WS_WIN
+        else
+            QWebView::mouseDoubleClickEvent(event);
+#endif
         break;
     case Qt::LeftButton:
         if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
