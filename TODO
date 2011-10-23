@@ -5,11 +5,10 @@ There are some features, which I plan to implement in future.
 The list is not sorted by priority.
 
 * Import / Export Bookmarks
-* Import Bookmarks from other browsers
 * Speed Dial
 * FTP Protocol support
 * Zoom Widget in statusbar
-* Save more than one account for site + input completer
+* Password Manager: save more than one account for site + input completer
 * New LocationBar completer
 * QFileSystemWatcher reloading local files
 * (KDE) Nepomuk integration
