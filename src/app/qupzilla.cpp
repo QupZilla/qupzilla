@@ -916,6 +916,9 @@ void QupZilla::showStatusbar()
 
 void QupZilla::showWebInspector()
 {
+#ifdef Q_WS_WIN
+    weView()->triggerPageAction(QWebPage::InspectElement);
+#else
     if (m_webInspectorDock) {
         m_webInspectorDock->setPage(weView()->webPage());
         m_webInspectorDock->show();
@@ -925,6 +928,7 @@ void QupZilla::showWebInspector()
     m_webInspectorDock = new WebInspectorDockWidget(this);
     connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock, SLOT(tabChanged()));
     addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock);
+#endif
 }
 
 void QupZilla::showBookmarkImport()
