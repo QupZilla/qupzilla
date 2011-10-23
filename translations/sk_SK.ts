@@ -2817,17 +2817,17 @@ p, li { white-space: pre-wrap; }
         <translation>Štandardné</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1047"/>
+        <location filename="../src/app/qupzilla.cpp" line="1051"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Aktuálne cookies nie sú dostupné.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1048"/>
+        <location filename="../src/app/qupzilla.cpp" line="1052"/>
         <source>Your session is not stored.</source>
         <translation>Vaša relácia nie je uložená.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1055"/>
+        <location filename="../src/app/qupzilla.cpp" line="1059"/>
         <source>Start Private Browsing</source>
         <translation>Spustiť súkromné prehliadanie</translation>
     </message>
@@ -2989,32 +2989,32 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Web inšpektor</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="972"/>
+        <location filename="../src/app/qupzilla.cpp" line="976"/>
         <source>Open file...</source>
         <translation>Otvoriť súbor...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1042"/>
+        <location filename="../src/app/qupzilla.cpp" line="1046"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Ste si istý, že chcete zapnúť súkromné prehliadanie?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1043"/>
+        <location filename="../src/app/qupzilla.cpp" line="1047"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Keď je zapnuté súkromné prehliadanie, niektoré akcie týkajúce sa vášho súkromia sú vypnuté:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1046"/>
+        <location filename="../src/app/qupzilla.cpp" line="1050"/>
         <source>Webpages are not added to the history.</source>
         <translation>Stránky nie sú pridávané do histórie.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1050"/>
+        <location filename="../src/app/qupzilla.cpp" line="1054"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Kým nezatvoríte okno, stále môžte používať tlačidlá Späť a Dopredu k vráteniu sa na stránky, ktoré ste mali otvorené.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1102"/>
+        <location filename="../src/app/qupzilla.cpp" line="1106"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
         <translation>Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
     </message>
@@ -3917,78 +3917,78 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="228"/>
-        <location filename="../src/webview/tabbar.cpp" line="242"/>
+        <location filename="../src/webview/tabbar.cpp" line="259"/>
+        <location filename="../src/webview/tabbar.cpp" line="273"/>
         <source>New tab</source>
         <translation>Nová karta</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="70"/>
+        <location filename="../src/webview/tabbar.cpp" line="73"/>
         <source>&amp;New tab</source>
         <translation>&amp;Nová karta</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="77"/>
+        <location filename="../src/webview/tabbar.cpp" line="80"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Zastaviť kartu</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="79"/>
+        <location filename="../src/webview/tabbar.cpp" line="82"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Obnoviť kartu</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="81"/>
+        <location filename="../src/webview/tabbar.cpp" line="84"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Duplikovať kartu</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="96"/>
+        <location filename="../src/webview/tabbar.cpp" line="99"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Obnoviť všet&amp;ky karty</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="85"/>
+        <location filename="../src/webview/tabbar.cpp" line="88"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>Pridať do záložiek &amp;túto kartu</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="82"/>
+        <location filename="../src/webview/tabbar.cpp" line="85"/>
         <source>Un&amp;pin Tab</source>
         <translation>Odo&amp;pnúť kartu</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="82"/>
+        <location filename="../src/webview/tabbar.cpp" line="85"/>
         <source>&amp;Pin Tab</source>
         <translation>Pri&amp;pnúť kartu</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="84"/>
+        <location filename="../src/webview/tabbar.cpp" line="87"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Obnoviť všet&amp;ky karty</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="86"/>
+        <location filename="../src/webview/tabbar.cpp" line="89"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Pridať do záložiek &amp;všetky karty</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="99"/>
+        <location filename="../src/webview/tabbar.cpp" line="102"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Obnoviť zatvorenú &amp;kartu</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="92"/>
+        <location filename="../src/webview/tabbar.cpp" line="95"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Zatvo&amp;riť ostatné karty</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="93"/>
+        <location filename="../src/webview/tabbar.cpp" line="96"/>
         <source>Cl&amp;ose</source>
         <translation>Zatvor&amp;iť</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="97"/>
+        <location filename="../src/webview/tabbar.cpp" line="100"/>
         <source>Bookmark &amp;All Ta&amp;bs</source>
         <translation>Pridať do záložiek &amp;všetky karty</translation>
     </message>
@@ -4001,18 +4001,23 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>Zobraziť zoznam otvorených kariet</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="181"/>
+        <location filename="../src/webview/tabwidget.cpp" line="137"/>
+        <source>New Tab</source>
+        <translation>Nová karta</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/tabwidget.cpp" line="193"/>
         <source>Loading...</source>
         <translation>Načítaba sa...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="184"/>
-        <location filename="../src/webview/tabwidget.cpp" line="322"/>
+        <location filename="../src/webview/tabwidget.cpp" line="196"/>
+        <location filename="../src/webview/tabwidget.cpp" line="334"/>
         <source>No Named Page</source>
         <translation>Nepomenovaná tránka</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="200"/>
+        <location filename="../src/webview/tabwidget.cpp" line="212"/>
         <source>Actually you have %1 opened tabs</source>
         <translation>Momentálne máte otvorených %1 kariet</translation>
     </message>
@@ -4021,8 +4026,8 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation type="obsolete">Momentálne máte otvorených %1 kariet</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="372"/>
-        <location filename="../src/webview/tabwidget.h" line="68"/>
+        <location filename="../src/webview/tabwidget.cpp" line="384"/>
+        <location filename="../src/webview/tabwidget.h" line="69"/>
         <source>New tab</source>
         <translation>Nová karta</translation>
     </message>
@@ -4205,57 +4210,57 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>Načítava sa...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="463"/>
+        <location filename="../src/webview/webview.cpp" line="467"/>
         <source>Open link in new &amp;tab</source>
         <translation>Otvoriť odkaz na &amp;novej karte</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="464"/>
+        <location filename="../src/webview/webview.cpp" line="468"/>
         <source>Open link in new &amp;window</source>
         <translation>Otvoriť odkaz v novom &amp;okne</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="466"/>
+        <location filename="../src/webview/webview.cpp" line="470"/>
         <source>B&amp;ookmark link</source>
         <translation>Pridať &amp;odkaz do záložiek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="467"/>
+        <location filename="../src/webview/webview.cpp" line="471"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Uložiť odkaz ako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="469"/>
+        <location filename="../src/webview/webview.cpp" line="473"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Kopírovať adresu odkazu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="478"/>
+        <location filename="../src/webview/webview.cpp" line="482"/>
         <source>Show i&amp;mage</source>
         <translation>Zobraziť o&amp;brázok</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="479"/>
+        <location filename="../src/webview/webview.cpp" line="483"/>
         <source>Copy im&amp;age</source>
         <translation>Kopírov&amp;ať obrázok</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="480"/>
+        <location filename="../src/webview/webview.cpp" line="484"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Kopírovať a&amp;dresu obrázku</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="509"/>
+        <location filename="../src/webview/webview.cpp" line="513"/>
         <source>S&amp;top</source>
         <translation>Zas&amp;taviť</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="523"/>
+        <location filename="../src/webview/webview.cpp" line="527"/>
         <source>Show info ab&amp;out site</source>
         <translation>Z&amp;obraziť informácie o stránke</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="524"/>
+        <location filename="../src/webview/webview.cpp" line="528"/>
         <source>Show Web &amp;Inspector</source>
         <translation>Zobraziť Web &amp;inšpektora</translation>
     </message>
@@ -4264,7 +4269,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation type="obsolete">Hľadať &quot;%1 ..&quot; na &amp;Googli</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="482"/>
+        <location filename="../src/webview/webview.cpp" line="486"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Uložiť obrázok ako...</translation>
     </message>
@@ -4274,69 +4279,69 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>Zlyhalo načítanie stránky</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="499"/>
+        <location filename="../src/webview/webview.cpp" line="503"/>
         <source>&amp;Back</source>
         <translation>&amp;Späť</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="503"/>
+        <location filename="../src/webview/webview.cpp" line="507"/>
         <source>&amp;Forward</source>
         <translation>&amp;Dopredu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="508"/>
+        <location filename="../src/webview/webview.cpp" line="512"/>
         <source>&amp;Reload</source>
         <translation>&amp;Obnoviť</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="513"/>
+        <location filename="../src/webview/webview.cpp" line="517"/>
         <source>Book&amp;mark page</source>
         <translation>Pridať s&amp;tránku do záložiek</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="514"/>
+        <location filename="../src/webview/webview.cpp" line="518"/>
         <source>&amp;Save page as...</source>
         <translation>Uložiť &amp;stránku ako...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="517"/>
+        <location filename="../src/webview/webview.cpp" line="521"/>
         <source>Select &amp;all</source>
         <translation>Vybr&amp;ať všetko</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="522"/>
+        <location filename="../src/webview/webview.cpp" line="526"/>
         <source>Show so&amp;urce code</source>
         <translation>Zobraziť zdro&amp;jový kód</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="535"/>
+        <location filename="../src/webview/webview.cpp" line="539"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Hľadať &quot;%1 ..&quot; s %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="781"/>
+        <location filename="../src/webview/webview.cpp" line="785"/>
         <source>No Named Page</source>
         <translation>Nepomenovaná stránka</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="389"/>
-        <location filename="../src/webview/webview.cpp" line="393"/>
-        <location filename="../src/webview/webview.cpp" line="575"/>
+        <location filename="../src/webview/webview.cpp" line="397"/>
+        <location filename="../src/webview/webview.cpp" line="579"/>
         <source>New tab</source>
         <translation>Nová karta</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="468"/>
+        <location filename="../src/webview/webview.cpp" line="472"/>
         <source>Send link...</source>
         <translation>Odoslať odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="483"/>
+        <location filename="../src/webview/webview.cpp" line="487"/>
         <source>Send image...</source>
         <translation>Odoslať obrázok...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="515"/>
+        <location filename="../src/webview/webview.cpp" line="519"/>
         <source>Send page...</source>
         <translation>Odoslať stránku...</translation>
     </message>

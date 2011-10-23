@@ -58,6 +58,7 @@ public:
     QList<WebTab*> allTabs(bool withPinned = true);
     QStackedWidget* locationBars() { return m_locationBars; }
     ToolButton* buttonListTabs() { return m_buttonListTabs; }
+    ToolButton* buttonAddTab() { return m_buttonAddTab; }
 
 signals:
     void pinnedTabClosed();
@@ -76,6 +77,8 @@ public slots:
     void restoreClosedTab();
     void restoreAllClosedTabs();
     void clearClosedTabsList();
+
+    void moveAddTabButton(int posX);
 
 private slots:
     void aboutToShowTabsMenu();
@@ -100,6 +103,7 @@ private:
 
     QMenu* m_menuTabs;
     ToolButton* m_buttonListTabs;
+    ToolButton* m_buttonAddTab;
     ClosedTabsManager* m_closedTabsManager;
 
     QStackedWidget* m_locationBars;

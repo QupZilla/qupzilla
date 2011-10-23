@@ -127,7 +127,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     ui->showNavigationToolbar->setChecked( p_QupZilla->navigationBar()->isVisible() );
     ui->showHome->setChecked( settings.value("showHomeButton",true).toBool() );
     ui->showBackForward->setChecked( settings.value("showBackForwardButtons",true).toBool() );
-    ui->showAddTabButton->setChecked( settings.value("showAddTabButton", true).toBool() );
+    ui->showAddTabButton->setChecked( settings.value("showAddTabButton", false).toBool() );
     ui->useTransparentBg->setChecked( settings.value("useTransparentBackground",false).toBool() );
     settings.endGroup();
 #ifdef Q_WS_WIN

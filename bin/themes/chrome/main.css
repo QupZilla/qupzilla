@@ -108,6 +108,11 @@
     qproperty-multiIcon: url(images/tabs-list-button.png);
 }
 
+#tabwidget-button-addtab
+{
+    qproperty-multiIcon: url(images/tabbar-addtab.png);
+}
+
 /*LocationBar*/
 #locationbar
 {

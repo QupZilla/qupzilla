@@ -50,6 +50,8 @@ signals:
     void closeTab(int index);
     void duplicateTab(int index);
 
+    void moveAddTabButton(int posX);
+
 public slots:
 
 private slots:
@@ -74,6 +76,8 @@ private:
     QSize tabSizeHint(int index) const;
 //    void tabInserted(int index);
 
+//    void emitMoveAddTabButton(int pox);
+
     QupZilla* p_QupZilla;
     TabWidget* m_tabWidget;
 
@@ -83,6 +87,9 @@ private:
     int m_clickedTab;
     int m_pinnedTabsCount;
 
+    int m_normalTabWidth;
+    int m_lastTabWidth;
+    bool m_adjustingLastTab;
 };
 
 #endif // TABBAR_H

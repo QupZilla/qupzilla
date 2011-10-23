@@ -111,7 +111,6 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla, SLOT(refreshHistory()));
-//    connect(this, SIGNAL(currentChanged(int)), p_QupZilla->locationBar(), SLOT(siteIconChanged()));
 
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(backTab(int)), this, SLOT(backTab(int)));
@@ -122,6 +121,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
     connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
+    connect(m_tabBar, SIGNAL(moveAddTabButton(int)), this, SLOT(moveAddTabButton(int)));
 
     m_buttonListTabs = new ToolButton(this);
     m_buttonListTabs->setObjectName("tabwidget-button-opentabs");
@@ -131,6 +131,12 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     m_buttonListTabs->setToolTip(tr("Show list of opened tabs"));
     m_buttonListTabs->setAutoRaise(true);
 
+    m_buttonAddTab = new ToolButton(this);
+    m_buttonAddTab->setObjectName("tabwidget-button-addtab");
+    m_buttonAddTab->setAutoRaise(true);
+    m_buttonAddTab->setToolTip(tr("New Tab"));
+
+    connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowTabsMenu()));
 
     loadSettings();
@@ -159,6 +165,12 @@ void TabWidget::resizeEvent(QResizeEvent *e)
     m_buttonListTabs->setVisible(getTabBar()->isVisible());
 
     QTabWidget::resizeEvent(e);
+}
+
+void TabWidget::moveAddTabButton(int posX)
+{
+    int posY = ( m_tabBar->height() - m_buttonAddTab->height() ) / 2;
+    m_buttonAddTab->move(posX, posY);
 }
 
 void TabWidget::aboutToShowTabsMenu()

@@ -71,7 +71,7 @@ Available Defines
      W7API                Enable Windows 7 API support
                           Requires linking against libraries from Microsoft Visual C++
                           Compiler 2010
-                          (disabled by default)
+                          (enabled by default)
 
  
  Linux / Unix specific defines:
