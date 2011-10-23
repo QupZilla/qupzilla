@@ -12,3 +12,5 @@ The list is not sorted by priority.
 * New LocationBar completer
 * QFileSystemWatcher reloading local files
 * (KDE) Nepomuk integration
+* Own FileType detect for downloads (based on suffix)
+* Page previews as tooltip on tabs (like Opera)

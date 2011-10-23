@@ -13,6 +13,8 @@ lupdate ../src/QupZilla.pro -ts ../translations/de_DE.ts
 
 lupdate ../src/QupZilla.pro -ts ../translations/es.ts
 
+lupdate ../src/QupZilla.pro -ts ../translations/it_IT.ts
+
 ## uncomment it now
 sed -i 's/##temp/include(3rdparty/g' ../src/QupZilla.pro
 
