@@ -18,6 +18,7 @@
 #include "profileupdater.h"
 #include "qupzilla.h"
 #include "updater.h"
+#include "mainapplication.h"
 
 ProfileUpdater::ProfileUpdater(const QString &profilePath, const QString &dataPath)
     : QObject()
@@ -81,6 +82,7 @@ void ProfileUpdater::copyDataToProfile()
 void ProfileUpdater::update100b4()
 {
     std::cout << "upgrading profile version from 1.0.0-b4..." << std::endl;
+    mApp->connectDatabase();
 
     QSqlQuery query;
     query.exec("CREATE TABLE search_engines (id INTEGER PRIMARY KEY, name TEXT, icon TEXT,"

@@ -4,32 +4,34 @@
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="src/testplugin.h" line="23"/>
+        <location filename="testplugin.h" line="24"/>
         <source>Example Plugin</source>
         <translation>Ukázkovy doplnek</translation>
     </message>
     <message>
-        <location filename="src/testplugin.h" line="24"/>
+        <location filename="testplugin.h" line="25"/>
         <source>Example minimal plugin</source>
         <translation>Ukázkovy minimálny doplnek</translation>
     </message>
     <message>
-        <location filename="src/testplugin.h" line="25"/>
+        <location filename="testplugin.h" line="26"/>
         <source>Very simple minimal plugin example</source>
         <translation>Vel&apos;mi jednoduchy minimálny doplnek</translation>
     </message>
     <message>
-        <location filename="src/testplugin.cpp" line="40"/>
+        <location filename="testplugin.cpp" line="49"/>
+        <location filename="testplugin.cpp" line="54"/>
+        <location filename="testplugin.cpp" line="59"/>
         <source>My first plugin action</source>
         <translation>Moje první akce z doplnku</translation>
     </message>
     <message>
-        <location filename="src/testplugin.cpp" line="45"/>
+        <location filename="testplugin.cpp" line="64"/>
         <source>Hello</source>
         <translation>Ahoj</translation>
     </message>
     <message>
-        <location filename="src/testplugin.cpp" line="45"/>
+        <location filename="testplugin.cpp" line="64"/>
         <source>First plugin action works :-)</source>
         <translation>První doplnek funguje :-)</translation>
     </message>

@@ -15,9 +15,9 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see http://www.gnu.org/licenses/.
 * ============================================================ */
------------------------------------------------------------
+------------------------------------------------------------------------
  AdBlock, LineEdit class and SqueezeLabel class:
------------------------------------------------------------
+------------------------------------------------------------------------
 * Copyright (c) 2008 - 2009, Benjamin C. Meyer <ben@meyerhome.net>
 *
 * Redistribution and use in source and binary forms, with or without
@@ -118,7 +118,7 @@
 
 -----------------------------------------------------------------------------
  EcWin7 class:
----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 /* EcWin7 - Support library for integrating Windows 7 taskbar features
  * into any Qt application
  * Copyright (C) 2010 Emanuele Colombo
@@ -136,6 +136,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+ 
+-----------------------------------------------------------------------------
+ OpenSearchReader + OpenSearchEngine class:
+-----------------------------------------------------------------------------
+/*
+ * Copyright 2009 Jakub Wieczorek <faw217@gmail.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301  USA
  */
 
 -----------------------------------------------------------------------------

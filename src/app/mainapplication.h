@@ -60,6 +60,7 @@ public:
 
     enum MessageType{ SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,  HistoryStateChanged, BookmarksChanged };
 
+    void connectDatabase();
     void loadSettings();
     void reloadSettings() { loadSettings(); emit message(ReloadSettings, true); }
     bool restoreStateSlot(QupZilla* window);
@@ -111,7 +112,6 @@ private slots:
     void restoreCursor();
 
 private:
-    void connectDatabase();
     void translateApp();
     void restoreOtherWindows();
 

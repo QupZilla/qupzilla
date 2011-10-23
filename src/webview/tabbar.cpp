@@ -36,6 +36,9 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     , m_tabWidget(tabWidget)
     , m_clickedTab(0)
     , m_pinnedTabsCount(0)
+    , m_normalTabWidth(0)
+    , m_lastTabWidth(0)
+    , m_adjustingLastTab(false)
 {
     setObjectName("tabbar");
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -111,27 +114,52 @@ QSize TabBar::tabSizeHint(int index) const
 {
     QSize size = QTabBar::tabSizeHint(index);
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
+    TabBar* tabBar = const_cast <TabBar*>(this);
+    tabBar->m_adjustingLastTab = false;
 
     if (webTab && webTab->isPinned()) {
         size.setWidth(PINNED_TAB_WIDTH);
     } else {
-        int availableWidth = width() - (PINNED_TAB_WIDTH * m_pinnedTabsCount) - m_tabWidget->buttonListTabs()->width();
+        int availableWidth = width() - (PINNED_TAB_WIDTH * m_pinnedTabsCount) - m_tabWidget->buttonListTabs()->width() - m_tabWidget->buttonAddTab()->width();
         int normalTabsCount = count() - m_pinnedTabsCount;
-        if (availableWidth >= MAXIMUM_TAB_WIDTH * normalTabsCount)
-            size.setWidth(MAXIMUM_TAB_WIDTH);
-        else if (availableWidth < MINIMUM_TAB_WIDTH * normalTabsCount)
-            size.setWidth(MINIMUM_TAB_WIDTH);
+        if (availableWidth >= MAXIMUM_TAB_WIDTH * normalTabsCount) {
+            tabBar->m_normalTabWidth = MAXIMUM_TAB_WIDTH;
+            size.setWidth(m_normalTabWidth);
+        }
+        else if (availableWidth < MINIMUM_TAB_WIDTH * normalTabsCount) {
+            tabBar->m_normalTabWidth = MINIMUM_TAB_WIDTH;
+            size.setWidth(m_normalTabWidth);
+        }
         else {
             int maxWidthForTab = availableWidth / normalTabsCount;
+            tabBar->m_normalTabWidth = maxWidthForTab;
             //Fill any empty space (gotten from rounding) with last tab
-            if (index == count() - 1)
-                size.setWidth( (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab);
-            else
-                size.setWidth(maxWidthForTab);
+            if (index == count() - 1) {
+                tabBar->m_lastTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
+                tabBar->m_adjustingLastTab = true;
+                size.setWidth(m_lastTabWidth);
+            }
+            else {
+                tabBar->m_lastTabWidth = maxWidthForTab;
+                size.setWidth(m_lastTabWidth);
+            }
         }
     }
+
+    if (index == count() - 1) {
+        int xForAddTabButton = (PINNED_TAB_WIDTH * m_pinnedTabsCount) + (count() - m_pinnedTabsCount) * (m_normalTabWidth);
+        if (m_adjustingLastTab)
+        xForAddTabButton += m_lastTabWidth - m_normalTabWidth;
+        emit tabBar->moveAddTabButton(xForAddTabButton);
+    }
+
     return size;
 }
+
+//void TabBar::emitMoveAddTabButton(int pox)
+//{
+//    emit moveAddTabButton(pox);
+//}
 
 #if 0
 void TabBar::tabInserted(int index)
@@ -210,6 +238,9 @@ void TabBar::pinTab()
         m_pinnedTabsCount++;
     else
         m_pinnedTabsCount--;
+
+    // Adjust add tab button in proper position
+    tabSizeHint(count() - 1);
 }
 
 void TabBar::pinnedTabClosed()

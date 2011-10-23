@@ -25,7 +25,7 @@ public:
     QString pluginInfo() { return tr("Example minimal plugin"); }
     QString pluginDescription() { return tr("Very simple minimal plugin example"); }
     QString pluginVersion() { return "0.0.1"; }
-    QString pluginAuthor() { return "nowrep <nowrep@gmail.com>"; }
+    QString pluginAuthor() { return "David Rosca <nowrep@gmail.com>"; }
     void init(QString sPath);
     bool testPlugin();
 
