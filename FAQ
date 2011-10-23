@@ -64,5 +64,14 @@ A: Well, the problem with using excessive amount of processor time is very likel
        Before using AdBlock, you need to update filters by clicking Update Filters
        button.  
    
+Q: When I add or edit my Search Engines and restart browser, the changes won't stay.
+   What's wrong?
+----------------------------------------------------------------------------------
+A: If you were using own builds from git, you have probably old version of profile
+   database file. The easiest way to upgrade your database is to edit version file
+   in your profile. Open it with some text editor and change 1.0.0-rc1 (or whatever
+   you have in it) to 1.0.0-b4 and then restart browser.
+   Your database should now be updated and changes won't be discarded on every
+   restart anymore.
    
    
