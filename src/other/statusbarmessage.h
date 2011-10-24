@@ -31,10 +31,14 @@ class TipLabel : public SqueezeLabelV1 {
 
 public:
     TipLabel(QupZilla* parent);
-    void paintEvent(QPaintEvent *ev);
+
+    void show();
 
 private:
+    void paintEvent(QPaintEvent* ev);
+
     QupZilla* p_QupZilla;
+    bool m_connected;
 };
 
 class StatusBarMessage : public QObject

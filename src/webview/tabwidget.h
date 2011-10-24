@@ -79,6 +79,8 @@ public slots:
     void clearClosedTabsList();
 
     void moveAddTabButton(int posX);
+    void showButtons();
+    void hideButtons();
 
 private slots:
     void aboutToShowTabsMenu();

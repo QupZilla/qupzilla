@@ -19,7 +19,10 @@
 #include "qupzilla.h"
 #include "squeezelabelv1.h"
 
-TipLabel::TipLabel(QupZilla* parent) : SqueezeLabelV1(parent) , p_QupZilla(parent)
+TipLabel::TipLabel(QupZilla* parent)
+    : SqueezeLabelV1(parent)
+    , p_QupZilla(parent)
+    , m_connected(false)
 {
     setWindowFlags(Qt::ToolTip);
     setForegroundRole(QPalette::ToolTipText);
@@ -30,7 +33,17 @@ TipLabel::TipLabel(QupZilla* parent) : SqueezeLabelV1(parent) , p_QupZilla(paren
     setMargin(2);
 }
 
-void TipLabel::paintEvent(QPaintEvent *ev)
+void TipLabel::show()
+{
+    if (!m_connected) {
+        connect(p_QupZilla->tabWidget(), SIGNAL(currentChanged(int)), this, SLOT(hide()));
+        m_connected = true;
+    }
+
+    SqueezeLabelV1::show();
+}
+
+void TipLabel::paintEvent(QPaintEvent* ev)
 {
     QStylePainter p(this);
     QStyleOptionFrame opt;
@@ -55,6 +68,7 @@ void StatusBarMessage::showMessage(const QString &message)
     else {
         WebView* view = p_QupZilla->weView();
         QWebFrame* mainFrame = view->page()->mainFrame();
+        m_statusBarText->setParent(view);
 
         int horizontalScrollSize = 0;
         int verticalScrollSize = 0;
@@ -77,7 +91,7 @@ void StatusBarMessage::showMessage(const QString &message)
         if (statusRect.contains(QCursor::pos()))
             position.setY(position.y() - m_statusBarText->height());
 
-        m_statusBarText->move(view->mapToGlobal(position));
+        m_statusBarText->move(/*view->mapToGlobal(*/position/*)*/);
         m_statusBarText->show();
     }
 }

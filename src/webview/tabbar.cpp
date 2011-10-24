@@ -45,6 +45,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setElideMode(Qt::ElideRight);
     setTabsClosable(true);
     setDocumentMode(true);
+    setFocusPolicy(Qt::NoFocus);
     loadSettings();
 
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
@@ -62,6 +63,31 @@ void TabBar::loadSettings()
         setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
 
     settings.endGroup();
+}
+
+void TabBar::updateVisibilityWithFullscreen(bool visible)
+{
+    if (visible)
+        emit showButtons();
+    else
+        emit hideButtons();
+
+    QTabBar::setVisible(visible);
+}
+
+void TabBar::setVisible(bool visible)
+{
+    if (visible) {
+        if (p_QupZilla->isFullScreen())
+            return;
+
+        emit showButtons();
+    }
+    else {
+        emit hideButtons();
+    }
+
+    QTabBar::setVisible(visible);
 }
 
 void TabBar::contextMenuRequested(const QPoint &position)
