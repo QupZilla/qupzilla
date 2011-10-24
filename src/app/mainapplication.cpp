@@ -64,6 +64,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     , m_isStateChanged(false)
     , m_isExited(false)
     , m_isRestoring(false)
+    , m_databaseConnected(false)
 {
     setOverrideCursor(Qt::WaitCursor);
 #if defined(Q_WS_X11) & !defined(NO_SYSTEM_DATAPATH)
@@ -140,9 +141,6 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     ProfileUpdater u(m_activeProfil, DATADIR);
     u.checkProfile();
     connectDatabase();
-
-//    if (!QDir(m_activeProfil).exists())
-//        m_activeProfil=homePath+"profiles/default/";
 
     QSettings settings2(m_activeProfil+"settings.ini", QSettings::IniFormat);
     settings2.beginGroup("SessionRestore");
@@ -359,15 +357,20 @@ void MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
 
 void MainApplication::connectDatabase()
 {
+    if (m_databaseConnected)
+        return;
+
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(m_activeProfil+"browsedata.db");
-    if (!QFile::exists(m_activeProfil+"browsedata.db")) {
-        QFile(DATADIR+"data/default/profiles/default/browsedata.db").copy(m_activeProfil+"browsedata.db");
+    db.setDatabaseName(m_activeProfil + "browsedata.db");
+    if (!QFile::exists(m_activeProfil + "browsedata.db")) {
+        QFile(DATADIR + "data/default/profiles/default/browsedata.db").copy(m_activeProfil + "browsedata.db");
+        db.setDatabaseName(m_activeProfil + "browsedata.db");
         qWarning("Cannot find SQLite database file! Copying and using the defaults!");
     }
     if (!db.open())
         qWarning("Cannot open SQLite database! Continuing without database....");
 
+    m_databaseConnected = true;
 }
 
 void MainApplication::translateApp()
