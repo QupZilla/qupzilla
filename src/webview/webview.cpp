@@ -81,6 +81,9 @@ WebView::WebView(QupZilla* mainClass, WebTab* webTab)
 
     connect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
 
+    //Tracking mouse also on tabs created in fullscreen
+    trackMouse(p_QupZilla->isFullScreen());
+
     //Zoom levels same as in firefox
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
 }
@@ -263,7 +266,7 @@ void WebView::iconChanged()
     if (mApp->isClosing())
         return;
 
-    if (isCurrent())
+//    if (isCurrent())
         emit siteIconChanged();
 
     if (m_isLoading)

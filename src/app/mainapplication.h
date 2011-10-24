@@ -142,6 +142,8 @@ private:
     bool m_isStateChanged;
     bool m_isExited;
     bool m_isRestoring;
+
+    bool m_databaseConnected;
 };
 
 #endif // MAINAPPLICATION_H

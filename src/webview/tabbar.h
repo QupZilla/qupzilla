@@ -41,6 +41,9 @@ public:
     void loadSettings();
     QSize getTabSizeHint(int index) const { return QTabBar::tabSizeHint(index); }
 
+    void setVisible(bool visible);
+    void updateVisibilityWithFullscreen(bool visible);
+
 signals:
     void reloadTab(int index);
     void stopTab(int index);
@@ -51,6 +54,9 @@ signals:
     void duplicateTab(int index);
 
     void moveAddTabButton(int posX);
+
+    void showButtons();
+    void hideButtons();
 
 public slots:
 

@@ -985,12 +985,14 @@ void QupZilla::showNavigationWithFullscreen()
         state = !m_navigationBar->isVisible();
     else
         state = !m_tabWidget->getTabBar()->isVisible();
+
     if (m_navigationVisible)
         m_navigationBar->setVisible(state);
-    m_tabWidget->getTabBar()->setVisible(state);
+
+    m_tabWidget->getTabBar()->updateVisibilityWithFullscreen(state);
+
     if (m_bookmarksToolBarVisible)
         m_bookmarksToolbar->setVisible(state);
-    m_tabWidget->buttonListTabs()->setVisible(state);
 }
 
 void QupZilla::fullScreen(bool make)
@@ -1000,21 +1002,27 @@ void QupZilla::fullScreen(bool make)
         m_statusBarVisible = statusBar()->isVisible();
         m_navigationVisible = m_navigationBar->isVisible();
         m_bookmarksToolBarVisible = m_bookmarksToolbar->isVisible();
+
         setWindowState(windowState() | Qt::WindowFullScreen);
+
         menuBar()->hide();
         statusBar()->hide();
         bookmarksToolbar()->hide();
         m_navigationBar->hide();
-    } else {
+    }
+    else {
         setWindowState(windowState() & ~Qt::WindowFullScreen);
+
         menuBar()->setVisible(m_menuBarVisible);
         statusBar()->setVisible(m_statusBarVisible);
         m_bookmarksToolbar->setVisible(m_bookmarksToolBarVisible);
         m_navigationBar->setVisible(m_navigationVisible);
     }
+
     m_actionShowFullScreen->setChecked(make);
     m_navigationBar->buttonExitFullscreen()->setVisible(make);
     m_tabWidget->getTabBar()->setVisible(!make);
+
     emit setWebViewMouseTracking(make);
 }
 

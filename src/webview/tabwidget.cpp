@@ -121,7 +121,10 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
     connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
+
     connect(m_tabBar, SIGNAL(moveAddTabButton(int)), this, SLOT(moveAddTabButton(int)));
+    connect(m_tabBar, SIGNAL(showButtons()), this, SLOT(showButtons()));
+    connect(m_tabBar, SIGNAL(hideButtons()), this, SLOT(hideButtons()));
 
     m_buttonListTabs = new ToolButton(this);
     m_buttonListTabs->setObjectName("tabwidget-button-opentabs");
@@ -162,9 +165,20 @@ void TabWidget::resizeEvent(QResizeEvent *e)
     posit.setY(0);
     posit.setX(width() - m_buttonListTabs->width());
     m_buttonListTabs->move(posit);
-    m_buttonListTabs->setVisible(getTabBar()->isVisible());
 
     QTabWidget::resizeEvent(e);
+}
+
+void TabWidget::showButtons()
+{
+    m_buttonListTabs->show();
+    m_buttonAddTab->show();
+}
+
+void TabWidget::hideButtons()
+{
+    m_buttonListTabs->hide();
+    m_buttonAddTab->hide();
 }
 
 void TabWidget::moveAddTabButton(int posX)
