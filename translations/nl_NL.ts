@@ -343,106 +343,106 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="14"/>
         <source>Import Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Importeer bladwijzers</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="20"/>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Importeer bladwijzers&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="84"/>
         <source>Choose browser from which you want to import bookmarks:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies de browser waaruit u bladwzijers wilt importeren:</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="123"/>
         <source>Choose...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="208"/>
         <source>Fetching icons, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>Verkrijgen van pictogrammen, wacht alstublieft...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="296"/>
         <source>Title</source>
-        <translation type="unfinished">Titel</translation>
+        <translation>Titel</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="301"/>
         <source>Url</source>
-        <translation type="unfinished">URL</translation>
+        <translation>URL</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="328"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Volgende</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="335"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="34"/>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Bezig met importeren uit %1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="67"/>
         <source>Finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Afronden</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="154"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="165"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="176"/>
         <source>Error!</source>
-        <translation type="unfinished">Fout!</translation>
+        <translation>Fout!</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="189"/>
         <source>Choose directory...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies map...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="195"/>
         <source>Choose file...</source>
-        <translation type="unfinished">Kies bestand...</translation>
+        <translation>Kies bestand...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="225"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Mozilla Firefox bewaart haar bladwijzers in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite-datebase. Dit bestand is normaal gezien te vinden in </translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="240"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Google Chrome bewaart haar bladwijzers in &lt;b&gt;Bookmarks&lt;/b&gt;-tekstbestand. Dit bestand is normaal gezien te vinden in </translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="256"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Opera bewaart haar bladwijzers in &lt;b&gt;bookmarks.adr&lt;/b&gt;-tekstbestand. Dit bestand is normaal gezien te vinden in </translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="270"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Internet Explorer bewaart haar bladwijzers in &lt;b&gt;Favorieten&lt;/b&gt;-map. Dit bestand is normaal gezien te vinden in </translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="227"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="242"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="258"/>
         <source>Please choose this file to begin importing bookmarks.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies alstublieft dit bestand om het importeren te starten.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="272"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies alstublieft deze map om het importeren te starten.</translation>
     </message>
 </context>
 <context>
@@ -832,17 +832,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="9"/>
         <source>No Error</source>
-        <translation type="unfinished">Geen fout</translation>
+        <translation>Geen fout</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="24"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Niet in staat om bestand te openen.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="67"/>
         <source>Cannot evaluate JSON code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan JSON-code niet evalueren.</translation>
     </message>
 </context>
 <context>
@@ -1346,32 +1346,32 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="27"/>
         <source>Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="41"/>
         <source>Shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>Snelkoppeling:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="51"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pictogram:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="58"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Noot:&lt;/b&gt;%s in URL staat voor zoekparameter</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="97"/>
         <source>Add from file ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies bestand...</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.cpp" line="67"/>
         <source>Choose icon...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies pictogram...</translation>
     </message>
 </context>
 <context>
@@ -1379,17 +1379,17 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="9"/>
         <source>No Error</source>
-        <translation type="unfinished">Geen fout</translation>
+        <translation>Geen fout</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="24"/>
         <source>File does not exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestand bestaat niet.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="32"/>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation type="unfinished"></translation>
+        <translation>Database kan niet worden geopend. Is Firefox actief?</translation>
     </message>
 </context>
 <context>
@@ -1753,12 +1753,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="8"/>
         <source>No Error</source>
-        <translation type="unfinished">Geen fout</translation>
+        <translation>Geen fout</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="23"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan bestand niet openen.</translation>
     </message>
 </context>
 <context>
@@ -2673,7 +2673,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="245"/>
         <source>Import bookmarks...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importeer bladwijzers...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="250"/>
@@ -3453,32 +3453,32 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="36"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerk</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="56"/>
         <source>Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Standaardwaarden</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="79"/>
         <source>Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekmachine</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="84"/>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Snelkoppeling</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.cpp" line="27"/>
         <source>Add Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg zoekmachine toe</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.cpp" line="71"/>
         <source>Edit Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerk zoekmachine</translation>
     </message>
 </context>
 <context>
@@ -3486,12 +3486,12 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
         <source>Search Engine Added</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekmachine toegevoegd</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
         <source>Search Engine &quot;%1&quot; has been successfuly added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekmachine &quot;%1&quot; is met succes toegevoegd.</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="240"/>
@@ -4182,7 +4182,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="160"/>
         <source>Add %1 ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg %1 toe...</translation>
     </message>
 </context>
 <context>
@@ -4299,7 +4299,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webview.cpp" line="539"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoek &quot;%1 ..&quot; met %2</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="785"/>

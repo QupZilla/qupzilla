@@ -19,7 +19,7 @@ BEGIN
             VALUE "CompanyName", "QupZilla Association"
             VALUE "FileDescription", "QupZilla Web Browser"
             VALUE "FileVersion", "1.0.0.rc1"
-            VALUE "LegalCopyright", "Copyright (C) 2010-2011 nowrep"
+            VALUE "LegalCopyright", "Copyright (C) 2010-2011 David Rosca"
             VALUE "InternalName", "qupzilla"
             VALUE "OriginalFilename", "qupzilla.exe"
             VALUE "ProductName", "QupZilla"
