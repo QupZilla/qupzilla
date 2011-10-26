@@ -31,6 +31,8 @@ QByteArray qz_pixmapToByteArray(const QPixmap &pix);
 QByteArray qz_readAllFileContents(const QString &filename);
 
 void qz_centerWidgetOnScreen(QWidget* w);
+void qz_centerWidgetToParent(QWidget* w, QWidget* parent);
+
 QString qz_samePartOfStrings(const QString &one, const QString &other);
 QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
 

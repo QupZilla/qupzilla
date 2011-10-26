@@ -37,6 +37,7 @@
 #include "navigationbar.h"
 #include "thememanager.h"
 #include "acceptlanguage.h"
+#include "globalfunctions.h"
 
 bool removeFile(const QString &fullFileName)
 {
@@ -425,15 +426,13 @@ void Preferences::showCookieManager()
 {
     CookieManager* m = new CookieManager();
     m->refreshTable();
-    m->setAttribute(Qt::WA_DeleteOnClose);
-    m->setWindowModality(Qt::WindowModal);
     m->show();
 }
 
 void Preferences::openSslManager()
 {
-    SSLManager* m = new SSLManager();
-    m->setWindowModality(Qt::WindowModal);
+    SSLManager* m = new SSLManager(this);
+//    qz_centerWidgetToParent(m, this);
     m->show();
 }
 

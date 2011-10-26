@@ -25,10 +25,10 @@
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
 
-RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent) :
-    QWidget(parent)
-    ,ui(new Ui::RSSManager)
-    ,p_QupZilla(mainClass)
+RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::RSSManager)
+    , p_QupZilla(mainClass)
 {
     ui->setupUi(this);
     qz_centerWidgetOnScreen(this);
@@ -73,6 +73,7 @@ void RSSManager::refreshTable()
         ui->tabWidget->addTab(tree, title);
         ui->tabWidget->setTabToolTip(i, address.toString());
         connect(tree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(loadFeed(QTreeWidgetItem*)));
+        connect(tree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(controlLoadFeed(QTreeWidgetItem*)));
         connect(tree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(controlLoadFeed(QTreeWidgetItem*)));
         QTreeWidgetItem* item = new QTreeWidgetItem();
         item->setText(0, tr("Loading..."));

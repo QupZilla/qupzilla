@@ -201,7 +201,6 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     if (!outgoingData.contains((QUrl(passwordName).toEncoded() + "=")) || passwordValue.isEmpty())
         return;
 
-    AutoFillNotification* aWidget = new AutoFillNotification(request.url(), outgoingData, passwordValue);
+    AutoFillNotification* aWidget = new AutoFillNotification(webView->url(), outgoingData, passwordValue);
     webView->addNotification(aWidget);
-
 }

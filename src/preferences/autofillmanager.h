@@ -19,8 +19,8 @@
 #define AUTOFILLMANAGER_H
 
 #include <QWidget>
-#include <QDialog>
 #include <QTimer>
+#include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
 #include <QTreeWidgetItem>
 #include <QDebug>
@@ -31,7 +31,7 @@ namespace Ui {
     class AutoFillManager;
 }
 
-class AutoFillManager : public QDialog
+class AutoFillManager : public QWidget
 {
     Q_OBJECT
 
@@ -47,12 +47,15 @@ private slots:
     void removePass();
     void removeAllPass();
     void editPass();
+    void showPasswords();
 
     void removeExcept();
     void removeAllExcept();
 
 private:
     Ui::AutoFillManager* ui;
+
+    bool m_passwordsShown;
 };
 
 #endif // AUTOFILLMANAGER_H

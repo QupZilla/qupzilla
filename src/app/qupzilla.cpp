@@ -58,6 +58,8 @@
 #include "pagescreen.h"
 #include "webinspectordockwidget.h"
 #include "bookmarksimportdialog.h"
+#include "globalfunctions.h"
+
 
 const QString QupZilla::VERSION = "1.0.0-rc1";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
@@ -748,6 +750,16 @@ void QupZilla::bookmarkAllTabs()
     mApp->browsingLibrary()->bookmarksManager()->insertAllTabs();
 }
 
+void QupZilla::goHome()
+{
+    loadAddress(m_homepage);
+}
+
+void QupZilla::goHomeInNewTab()
+{
+    m_tabWidget->addView(m_homepage, tr("New tab"), TabWidget::NewSelectedTab);
+}
+
 void QupZilla::loadActionUrl()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
@@ -818,6 +830,7 @@ void QupZilla::showPreferences()
 void QupZilla::showSource(const QString &selectedHtml)
 {
     SourceViewer* source = new SourceViewer(weView()->page(), selectedHtml);
+    qz_centerWidgetToParent(source, this);
     source->show();
 }
 
@@ -1044,7 +1057,7 @@ void QupZilla::printPage()
 
 void QupZilla::savePageScreen()
 {
-    PageScreen* p = new PageScreen(weView());
+    PageScreen* p = new PageScreen(weView(), this);
     p->show();
 }
 

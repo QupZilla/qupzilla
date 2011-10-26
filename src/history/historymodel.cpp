@@ -22,8 +22,8 @@
 
 HistoryModel::HistoryModel(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
-    ,m_isSaving(true)
-    ,p_QupZilla(mainClass)
+    , m_isSaving(true)
+    , p_QupZilla(mainClass)
 {
     loadSettings();
 }
