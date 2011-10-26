@@ -84,6 +84,7 @@ private:
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
 
     QString chooseFile(QWebFrame *originatingFrame, const QString &oldFile);
+    static QString m_lastUploadLocation;
 
     QupZilla* p_QupZilla;
     QNetworkRequest m_lastRequest;
@@ -92,9 +93,8 @@ private:
     QSslCertificate m_SslCert;
     QList<QSslCertificate> m_SslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
-    bool m_blockAlerts;
-    QString m_lastUploadLocation;
 
+    bool m_blockAlerts;
     bool m_secureStatus;
 //    bool m_isOpeningNextWindowAsNewTab;
 };

@@ -20,14 +20,13 @@
 #include "webview.h"
 #include "globalfunctions.h"
 
-PageScreen::PageScreen(WebView *view)
-    : QWidget()
+PageScreen::PageScreen(WebView* view, QWidget* parent)
+    : QDialog(parent)
     , ui(new Ui::PageScreen)
     , m_view(view)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
-    qz_centerWidgetOnScreen(this);
 
     createPixmap();
     ui->label->setPixmap(m_pagePixmap);

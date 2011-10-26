@@ -45,6 +45,21 @@ void qz_centerWidgetOnScreen(QWidget *w)
     w->move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
 }
 
+// Very, very, very simplified QDialog::adjustPosition from qdialog.cpp
+void qz_centerWidgetToParent(QWidget* w, QWidget* parent)
+{
+    if (!parent || !w)
+        return;
+
+    QPoint p;
+    parent = parent->window();
+    QPoint pp = parent->mapToGlobal(QPoint(0,0));
+    p = QPoint(pp.x() + parent->width()/2, pp.y() + parent->height()/ 2);
+    p = QPoint(p.x()-w->width()/2, p.y()-w->height()/2 - 20);
+
+    w->move(p);
+}
+
 QString qz_samePartOfStrings(const QString &one, const QString &other)
 {
     int i = 0;

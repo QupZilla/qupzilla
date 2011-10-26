@@ -23,12 +23,12 @@
 #include "certificateinfowidget.h"
 
 SSLManager::SSLManager(QWidget* parent)
-    : QWidget(parent)
+    : QDialog(parent)
     , ui(new Ui::SSLManager)
 {
+//    setWindowModality(Qt::WindowModal);
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
-    qz_centerWidgetOnScreen(this);
 
     refreshLocalList();
     refreshCAList();
@@ -126,7 +126,7 @@ void SSLManager::showLocalCertInfo()
 
 void SSLManager::showCertificateInfo(const QSslCertificate &cert)
 {
-    QWidget* w = new QWidget();
+    QDialog* w = new QDialog(this);
     w->setAttribute(Qt::WA_DeleteOnClose);
     w->setWindowTitle(tr("Certificate Informations"));
     w->setLayout(new QVBoxLayout);
@@ -137,7 +137,7 @@ void SSLManager::showCertificateInfo(const QSslCertificate &cert)
     connect(b, SIGNAL(clicked(QAbstractButton*)), w, SLOT(close()));
     w->layout()->addWidget(b);
     w->resize(w->sizeHint());
-    qz_centerWidgetOnScreen(w);
+    qz_centerWidgetToParent(w, this);
     w->show();
 }
 
