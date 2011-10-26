@@ -18,7 +18,7 @@
 #ifndef PAGESCREEN_H
 #define PAGESCREEN_H
 
-#include <QWidget>
+#include <QDialog>
 #include <QWebFrame>
 #include <QDialogButtonBox>
 #include <QAbstractButton>
@@ -29,12 +29,12 @@ namespace Ui {
 }
 
 class WebView;
-class PageScreen : public QWidget
+class PageScreen : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit PageScreen(WebView* view);
+    explicit PageScreen(WebView* view, QWidget* parent);
     ~PageScreen();
 
 private slots:

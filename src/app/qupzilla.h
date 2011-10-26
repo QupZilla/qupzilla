@@ -129,7 +129,8 @@ private slots:
     void postLaunch();
     void goNext() { weView()->forward(); }
     void goBack() { weView()->back(); }
-    void goHome() { loadAddress(m_homepage); }
+    void goHome();
+    void goHomeInNewTab();
     void stop() { weView()->stop(); }
     void reload() { weView()->reload(); }
     void reloadByPassCache() { weView()->page()->triggerAction(QWebPage::ReloadAndBypassCache); }

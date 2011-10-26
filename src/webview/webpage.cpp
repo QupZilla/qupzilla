@@ -28,13 +28,14 @@
 #include "widget.h"
 #include "globalfunctions.h"
 
+QString WebPage::m_lastUploadLocation = QDir::homePath();
+
 WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     : QWebPage(parent)
-    ,p_QupZilla(mainClass)
-    ,m_view(parent)
-    ,m_blockAlerts(false)
-    ,m_lastUploadLocation(QDir::homePath())
-    ,m_secureStatus(false)
+    , p_QupZilla(mainClass)
+    , m_view(parent)
+    , m_blockAlerts(false)
+    , m_secureStatus(false)
 //    ,m_isOpeningNextWindowAsNewTab(false)
 {
     setForwardUnsupportedContent(true);

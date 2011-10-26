@@ -18,15 +18,17 @@
 #include "autofillmanager.h"
 #include "ui_autofillmanager.h"
 
-AutoFillManager::AutoFillManager(QWidget* parent) :
-    QDialog(parent),
-    ui(new Ui::AutoFillManager)
+AutoFillManager::AutoFillManager(QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::AutoFillManager)
+    , m_passwordsShown(false)
 {
     ui->setupUi(this);
 
     connect(ui->removePass, SIGNAL(clicked()), this, SLOT(removePass()));
     connect(ui->removeAllPass, SIGNAL(clicked()), this, SLOT(removeAllPass()));
     connect(ui->editPass, SIGNAL(clicked()), this, SLOT(editPass()));
+    connect(ui->showPasswords, SIGNAL(clicked()), this, SLOT(showPasswords()));
 
     connect(ui->removeExcept, SIGNAL(clicked()), this, SLOT(removeExcept()));
     connect(ui->removeAllExcept, SIGNAL(clicked()), this, SLOT(removeAllExcept()));
@@ -42,8 +44,10 @@ void AutoFillManager::loadPasswords()
     while(query.next()) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->treePass);
         item->setText(0, query.value(0).toString());
-        item->setText(1, query.value(1).toString());
-        item->setWhatsThis(1, query.value(2).toString());
+//        item->setText(1, query.value(1).toString());
+        item->setText(1, "*****");
+        item->setWhatsThis(0, query.value(2).toString());
+        item->setWhatsThis(1, query.value(1).toString());
         ui->treePass->addTopLevelItem(item);
     }
 
@@ -57,15 +61,38 @@ void AutoFillManager::loadPasswords()
     }
 }
 
+void AutoFillManager::showPasswords()
+{
+    if (m_passwordsShown)
+        return;
+    m_passwordsShown = true;
+
+    int result = QMessageBox::question(this, tr("Show Passwords"), tr("Are you sure that you want to show all passwords?"),
+                                        QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    if (result != QMessageBox::Yes)
+        return;
+
+    for (int i = 0; i < ui->treePass->topLevelItemCount(); i++) {
+        QTreeWidgetItem* item = ui->treePass->topLevelItem(i);
+        if (!item)
+            continue;
+        item->setText(1, item->whatsThis(1));
+    }
+
+    ui->showPasswords->hide();
+    delete ui->showPasswordsLayout;
+}
+
 void AutoFillManager::removePass()
 {
     QTreeWidgetItem* curItem = ui->treePass->currentItem();
     if (!curItem)
         return;
-    QString id = curItem->whatsThis(1);
+    QString id = curItem->whatsThis(0);
     QSqlQuery query;
     query.exec("DELETE FROM autofill WHERE id="+id);
-    loadPasswords();
+
+    delete curItem;
 }
 
 void AutoFillManager::removeAllPass()
@@ -77,7 +104,8 @@ void AutoFillManager::removeAllPass()
 
     QSqlQuery query;
     query.exec("DELETE FROM autofill");
-    loadPasswords();
+
+    ui->treePass->clear();
 }
 
 void AutoFillManager::editPass()
@@ -86,12 +114,28 @@ void AutoFillManager::editPass()
     if (!curItem)
         return;
     bool ok;
-    QString text = QInputDialog::getText(this, tr("Edit password"), tr("Change password:"), QLineEdit::Normal, curItem->text(1), &ok);
+    QString text = QInputDialog::getText(this, tr("Edit password"), tr("Change password:"), QLineEdit::Normal, curItem->whatsThis(1), &ok);
 
     if (ok && !text.isEmpty()) {
         QSqlQuery query;
-        query.exec("UPDATE autofill SET password='"+text+"' WHERE id="+curItem->whatsThis(1));
-        loadPasswords();
+        query.prepare("SELECT data, password FROM autofill WHERE id=?");
+        query.addBindValue(curItem->whatsThis(0));
+        query.exec();
+        query.next();
+
+        QString data = query.value(0).toString();
+        QString oldPass = "=" + query.value(1).toString();
+        data.replace(oldPass, "=" + text);
+
+        query.prepare("UPDATE autofill SET data=?, password=? WHERE id=?");
+        query.bindValue(0, data);
+        query.bindValue(1, text);
+        query.bindValue(2, curItem->whatsThis(0));
+        query.exec();
+
+        if (m_passwordsShown)
+            curItem->setText(1, text);
+        curItem->setWhatsThis(1, text);
     }
 }
 
@@ -103,14 +147,16 @@ void AutoFillManager::removeExcept()
     QString id = curItem->whatsThis(0);
     QSqlQuery query;
     query.exec("DELETE FROM autofill_exceptions WHERE id="+id);
-    loadPasswords();
+
+    delete curItem;
 }
 
 void AutoFillManager::removeAllExcept()
 {
     QSqlQuery query;
     query.exec("DELETE FROM autofill_exceptions");
-    loadPasswords();
+
+    ui->treeExcept->clear();
 }
 
 void AutoFillManager::showExceptions()

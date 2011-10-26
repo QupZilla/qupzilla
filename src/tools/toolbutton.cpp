@@ -68,6 +68,13 @@ void ToolButton::mousePressEvent(QMouseEvent *e)
 {
     if (e->buttons() == Qt::MiddleButton) {
         emit middleMouseClicked();
+        return;
+    }
+
+    if (e->button() == Qt::RightButton && menu()) {
+        setDown(true);
+        showMenu();
+        return;
     }
 
     QToolButton::mousePressEvent(e);

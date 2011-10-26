@@ -24,17 +24,19 @@
 #include "ui_clearprivatedata.h"
 #include "iconprovider.h"
 
-ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent) :
-    QDialog(parent)
-    ,p_QupZilla(mainClass)
-    ,ui(new Ui::ClearPrivateData)
+ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent)
+    : QDialog(parent)
+    , p_QupZilla(mainClass)
+    , ui(new Ui::ClearPrivateData)
 {
     ui->setupUi(this);
     ui->buttonBox->setFocus();
     connect(ui->clearAdobeCookies, SIGNAL(clicked(QPoint)), this, SLOT(clearFlash()));
     connect(ui->history, SIGNAL(clicked(bool)), this, SLOT(historyClicked(bool)));
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(dialogAccepted()));
-    resize(sizeHint());
+
+    //Resizing +2 of sizeHint to get visible underlined link
+    resize(sizeHint().width(), sizeHint().height() + 2);
 }
 
 void ClearPrivateData::historyClicked(bool state)

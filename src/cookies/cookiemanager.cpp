@@ -22,10 +22,13 @@
 #include "mainapplication.h"
 #include "globalfunctions.h"
 
-CookieManager::CookieManager(QWidget* parent) :
-    QWidget(parent)
-    ,ui(new Ui::CookieManager)
+CookieManager::CookieManager(QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::CookieManager)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+    setWindowModality(Qt::WindowModal);
+
     ui->setupUi(this);
     qz_centerWidgetOnScreen(this);
 

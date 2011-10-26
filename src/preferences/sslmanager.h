@@ -18,7 +18,7 @@
 #ifndef SSLMANAGER_H
 #define SSLMANAGER_H
 
-#include <QWidget>
+#include <QDialog>
 #include <QDebug>
 #include <QMessageBox>
 #include <QSslCertificate>
@@ -31,7 +31,7 @@ namespace Ui {
     class SSLManager;
 }
 
-class SSLManager : public QWidget
+class SSLManager : public QDialog
 {
     Q_OBJECT
 
