@@ -59,6 +59,7 @@ StatusBarMessage::StatusBarMessage(QupZilla* mainClass)
     , p_QupZilla(mainClass)
     , m_statusBarText(new TipLabel(mainClass))
 {
+    m_statusBarText->setParent(p_QupZilla);
 }
 
 void StatusBarMessage::showMessage(const QString &message)
@@ -68,7 +69,6 @@ void StatusBarMessage::showMessage(const QString &message)
     else {
         WebView* view = p_QupZilla->weView();
         QWebFrame* mainFrame = view->page()->mainFrame();
-        m_statusBarText->setParent(view);
 
         int horizontalScrollSize = 0;
         int verticalScrollSize = 0;
@@ -91,7 +91,7 @@ void StatusBarMessage::showMessage(const QString &message)
         if (statusRect.contains(QCursor::pos()))
             position.setY(position.y() - m_statusBarText->height());
 
-        m_statusBarText->move(/*view->mapToGlobal(*/position/*)*/);
+        m_statusBarText->move(view->mapToGlobal(position));
         m_statusBarText->show();
     }
 }

@@ -57,12 +57,13 @@
 #include <QFormLayout>
 
 class QWebElement;
+class WebPage;
 class ClickToFlash : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, QWidget* parent = 0);
+    explicit ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, WebPage* parentPage);
     ~ClickToFlash();
 
 private slots:
@@ -73,6 +74,8 @@ private slots:
 
     void hideAdBlocked();
     void showInfo();
+
+    void ensurePluginVisible();
 
 private:
     bool checkElement(QWebElement el);
@@ -90,6 +93,8 @@ private:
     used to find the right QWebElement between the ones of the different plugins
     */
     const QUrl m_url;
+
+    WebPage* m_page;
 };
 
 #endif // CLICKTOFLASH_H

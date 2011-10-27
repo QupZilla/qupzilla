@@ -45,9 +45,12 @@
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
 #include "squeezelabelv2.h"
+#include "webpage.h"
+#include "globalfunctions.h"
+#include "qupzilla.h"
 
-ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, QWidget* parent)
-        : QWidget(parent)
+ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, WebPage* parentPage)
+        : QWidget()
         , m_argumentNames(argumentNames)
         , m_argumentValues(argumentValues)
         , m_toolButton(0)
@@ -55,6 +58,7 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
         , m_layout2(0)
         , m_frame(0)
         , m_url(pluginUrl)
+        , m_page(parentPage)
 {
     //AdBlock
     AdBlockManager* manager = AdBlockManager::instance();
@@ -87,8 +91,19 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
 
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
+
+    QTimer::singleShot(0, this, SLOT(ensurePluginVisible()));
 }
 
+void ClickToFlash::ensurePluginVisible()
+{
+    // Well, kind of a dirty workaround, but it works.
+    // I don't know any other method how to show our plugin
+    // and adjust it on the proper position in page
+
+    m_page->mainFrame()->setZoomFactor(m_page->mainFrame()->zoomFactor() + 1);
+    m_page->mainFrame()->setZoomFactor(m_page->mainFrame()->zoomFactor() - 1);
+}
 void ClickToFlash::customContextMenuRequested(const QPoint &pos)
 {
     QMenu menu;
@@ -175,15 +190,15 @@ void ClickToFlash::load()
 
 bool ClickToFlash::checkUrlOnElement(QWebElement el)
 {
-    QString checkString = QUrl(el.attribute("src")).toString(QUrl::RemoveQuery);
+    QString checkString = el.attribute("src");
     if (checkString.isEmpty())
-        checkString = QUrl(el.attribute("data")).toString(QUrl::RemoveQuery);
+        checkString = el.attribute("data");
     if (checkString.isEmpty())
-        checkString = QUrl(el.attribute("value")).toString(QUrl::RemoveQuery);
+        checkString = el.attribute("value");
 
-    if (m_url.toEncoded().contains(checkString.toAscii()))
-        return true;
-    return false;
+    checkString = m_page->getView()->url().resolved(QUrl(checkString)).toString(QUrl::RemoveQuery);
+
+    return m_url.toEncoded().contains(checkString.toAscii());
 }
 
 bool ClickToFlash::checkElement(QWebElement el)
@@ -219,6 +234,7 @@ void ClickToFlash::showInfo()
         lay->addRow(new QLabel(tr("No more informations available.")));
 
     widg->setMaximumHeight(500);
+    qz_centerWidgetToParent(widg, m_page->qupzilla());
     widg->show();
 }
 
