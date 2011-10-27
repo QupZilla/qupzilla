@@ -9,7 +9,13 @@ General
   On Linux, you can easily do it by running make install.
   If you are unsure where is the right place, you can check it directly from
   QupZilla by clicking from Help Menu to Informations about program, then in 
-  Path section.                     
+  Path section.
+  
+  You may want to build QupZilla with debugging symbols (for generating
+  backtrace of crash) as easily as adding one line to QupZilla.pro:
+               
+               CONFIG += debug
+               
 
 Microsoft Windows
 ----------------------------------------------------------------------------------
@@ -36,11 +42,9 @@ OS/2
   machine with OS/2, but it is possible to get QupZilla working there.
   There may be some more things to do, but as far as I know, you need to
   add Q_WS_WIN define to qmake.
-  You will do this by adding one line
+  You will do this by adding one line to QupZilla.pro:
                
                DEFINES += Q_WS_WIN
-               
-  to QupZilla.pro file.
 
 
 Available Defines
@@ -67,7 +71,8 @@ Available Defines
                           example:
                           $ export USE_WEBGL="true"      
                        
- Windows specific defines
+ Windows specific defines:
+ 
      W7API                Enable Windows 7 API support
                           Requires linking against libraries from Microsoft Visual C++
                           Compiler 2010
@@ -75,6 +80,7 @@ Available Defines
 
  
  Linux / Unix specific defines:
+ 
      NO_SYSTEM_DATAPATH   By default, QupZilla is using /usr/share/qupzilla/ path
                           for storing themes, translations and plugins.
                           By setting this define, QupZilla will use path of execution.
@@ -85,7 +91,9 @@ Available Defines
                           
      QUPZILLA_PREFIX      You can define different prefix. Prefix must contain ending slash.
                           (default prefix is "/usr/")
-                          value: 
+                          QupZilla binary will then be moved to PREFIX/bin/, use
+                          PREFIX/share/qupzilla/ as datadir, PREFIX/share/applications for
+                          desktop launcher and PREFIX/share/pixmaps for icon.
                           
                           example:
                           $ export QUPZILLA_PREFIX="/usr/"

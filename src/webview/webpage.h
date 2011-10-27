@@ -64,6 +64,8 @@ public:
     void addAdBlockRule(const QString &filter, const QUrl &url);
     QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
 
+    QupZilla* qupzilla() { return p_QupZilla; }
+
 signals:
     void privacyChanged(bool status);
 
