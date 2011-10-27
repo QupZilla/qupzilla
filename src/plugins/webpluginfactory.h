@@ -21,6 +21,7 @@
 #include <QWebPluginFactory>
 #include <QDebug>
 
+class WebPage;
 class WebPluginFactory : public QWebPluginFactory
 {
     Q_OBJECT
@@ -31,6 +32,9 @@ public:
     QList<QWebPluginFactory::Plugin> plugins() const;
 
 private:
+    WebPage* parentPage();
+
+    WebPage* m_page;
 
 };
 #endif // WEB_PLUGIN_FACTORY_H
