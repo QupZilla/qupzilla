@@ -252,7 +252,7 @@ bool BookmarksModel::createFolder(const QString &name)
     if (query.next())
         return false;
 
-    query.prepare("INSERT INTO folders (name) VALUES (?)");
+    query.prepare("INSERT INTO folders (name, subfolder) VALUES (?, 'no')");
     query.bindValue(0, name);
     if (!query.exec())
         return false;

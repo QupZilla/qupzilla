@@ -190,6 +190,7 @@ void QupZilla::setupUi()
     m_mainLayout->setContentsMargins(0,0,0,0);
     m_mainLayout->setSpacing(0);
     m_mainSplitter = new QSplitter(this);
+    m_mainSplitter->setObjectName("sidebar-splitter");
     m_mainSplitter->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     m_tabWidget = new TabWidget(this);
     m_superMenu = new QMenu(this);
