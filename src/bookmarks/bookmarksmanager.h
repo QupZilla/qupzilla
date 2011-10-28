@@ -54,7 +54,9 @@ private slots:
     void optimizeDb();
     void deleteItem();
     void itemChanged(QTreeWidgetItem* item);
+    void addSubfolder();
     void addFolder();
+    void renameFolder();
     void contextMenuRequested(const QPoint &position);
     void loadInNewTab();
     void itemControlClicked(QTreeWidgetItem* item);
@@ -64,7 +66,9 @@ private slots:
     void removeBookmark(const BookmarksModel::Bookmark &bookmark);
     void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
     void addFolder(const QString &name);
+    void addSubfolder(const QString &name);
     void removeFolder(const QString &name);
+    void renameFolder(const QString &before, const QString &after);
 
 private:
     QupZilla* getQupZilla();

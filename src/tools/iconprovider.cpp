@@ -19,12 +19,13 @@
 #include "webview.h"
 #include "mainapplication.h"
 
-IconProvider::IconProvider(QObject* parent) :
-    QObject(parent)
+IconProvider::IconProvider(QObject* parent)
+    : QObject(parent)
 {
     m_timer = new QTimer(this);
     m_timer->setInterval(10*1000);
     m_timer->start();
+
     connect(m_timer, SIGNAL(timeout()), this, SLOT(saveIconsToDatabase()));
 }
 
@@ -176,6 +177,12 @@ QIcon IconProvider::fromTheme(const QString &icon)
         return QIcon(":icons/locationbar/unknownpage.png");
     else if (icon == "user-bookmarks")
         return QIcon(":icons/faenza/user-bookmarks.png");
+    else if (icon == "list-remove")
+        return QIcon(":icons/faenza/list-remove.png");
+    else if (icon == "go-next")
+        return QIcon(":icons/faenza/go-next.png");
+    else if (icon == "go-previous")
+        return QIcon(":icons/faenza/go-previous.png");
     else
         return QIcon();
 #endif
@@ -205,4 +212,10 @@ QByteArray IconProvider::iconToBase64(const QIcon &icon)
     out << icon;
     buffer.close();
     return bArray.toBase64();
+}
+
+IconProvider::~IconProvider()
+{
+    delete m_timer;
+    saveIconsToDatabase();
 }

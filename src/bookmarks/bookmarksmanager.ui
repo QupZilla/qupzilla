@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>735</width>
-    <height>547</height>
+    <width>689</width>
+    <height>467</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Bookmarks</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="6">
+   <item row="0" column="0" colspan="9">
     <widget class="TreeWidget" name="bookmarksTree">
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
@@ -37,24 +37,14 @@
      </column>
     </widget>
    </item>
-   <item row="1" column="0" colspan="3">
-    <widget class="QPushButton" name="deleteB">
-     <property name="text">
-      <string>Delete</string>
-     </property>
-     <property name="shortcut">
-      <string>Del</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="3">
+   <item row="1" column="0" colspan="4">
     <widget class="QPushButton" name="addFolder">
      <property name="text">
       <string>Add Folder</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="4">
+   <item row="1" column="7">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -67,7 +57,7 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="5">
+   <item row="1" column="8">
     <widget class="ClickableLabel" name="optimizeDb">
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
@@ -77,6 +67,30 @@
      </property>
      <property name="html-link-look" stdset="0">
       <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4">
+    <widget class="QPushButton" name="addSubfolder">
+     <property name="text">
+      <string>Add Subfolder</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="5">
+    <widget class="QPushButton" name="renameFolder">
+     <property name="text">
+      <string>Rename Folder</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="6">
+    <widget class="QPushButton" name="deleteB">
+     <property name="text">
+      <string>Delete</string>
+     </property>
+     <property name="shortcut">
+      <string>Del</string>
      </property>
     </widget>
    </item>

@@ -27,28 +27,32 @@
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
 
-BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent) :
-    QWidget(parent)
-    ,m_isRefreshing(false)
-    ,ui(new Ui::BookmarksManager)
-    ,p_QupZilla(mainClass)
-    ,m_bookmarksModel(mApp->bookmarksModel())
+BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
+    : QWidget(parent)
+    , m_isRefreshing(false)
+    , ui(new Ui::BookmarksManager)
+    , p_QupZilla(mainClass)
+    , m_bookmarksModel(mApp->bookmarksModel())
 {
     ui->setupUi(this);
     qz_centerWidgetOnScreen(this);
 
     connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));
     connect(ui->bookmarksTree, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
+    connect(ui->addSubfolder, SIGNAL(clicked()), this, SLOT(addSubfolder()));
     connect(ui->addFolder, SIGNAL(clicked()), this, SLOT(addFolder()));
+    connect(ui->renameFolder, SIGNAL(clicked()), this, SLOT(renameFolder()));
     connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(ui->bookmarksTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
     connect(ui->bookmarksTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
 
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(subfolderAdded(QString)), this, SLOT(addSubfolder(QString)));
     connect(m_bookmarksModel, SIGNAL(folderAdded(QString)), this, SLOT(addFolder(QString)));
     connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(removeFolder(QString)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(folderRenamed(QString,QString)), this, SLOT(renameFolder(QString,QString)));
 
     connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
 
@@ -84,9 +88,39 @@ void BookmarksManager::addFolder()
     m_bookmarksModel->createFolder(text);
 }
 
+void BookmarksManager::addSubfolder()
+{
+    QString text = QInputDialog::getText(this, tr("Add new subfolder"), tr("Choose name for new subfolder in bookmarks toolbar: "));
+    if (text.isEmpty())
+        return;
+
+    m_bookmarksModel->createSubfolder(text);
+}
+
+void BookmarksManager::renameFolder()
+{
+    QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
+    if (!item)
+        return;
+
+    if (!item->text(1).isEmpty())
+        return;
+
+    QString folder = item->text(0);
+
+    if (folder == tr("Bookmarks In Menu") || folder == tr("Bookmarks In ToolBar"))
+        return;
+
+    QString text = QInputDialog::getText(this, tr("Rename Folder"), tr("Choose name for folder: "), QLineEdit::Normal, folder);
+    if (text.isEmpty())
+        return;
+
+    m_bookmarksModel->renameFolder(folder, text);
+}
+
 void BookmarksManager::itemChanged(QTreeWidgetItem* item)
 {
-    if (!item || m_isRefreshing)
+    if (!item || m_isRefreshing || item->text(1).isEmpty())
         return;
 
     QString name = item->text(0);
@@ -183,12 +217,12 @@ void BookmarksManager::refreshTable()
     newItem->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
     ui->bookmarksTree->addTopLevelItem(newItem);
 
-    newItem = new QTreeWidgetItem(ui->bookmarksTree);
-    newItem->setText(0, tr("Bookmarks In ToolBar"));
-    newItem->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
-    ui->bookmarksTree->addTopLevelItem(newItem);
+    QTreeWidgetItem* bookmarksToolbar = new QTreeWidgetItem(ui->bookmarksTree);
+    bookmarksToolbar->setText(0, tr("Bookmarks In ToolBar"));
+    bookmarksToolbar->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
+    ui->bookmarksTree->addTopLevelItem(bookmarksToolbar);
 
-    query.exec("SELECT name FROM folders");
+    query.exec("SELECT name FROM folders WHERE subfolder!='yes'");
     while(query.next()) {
         newItem = new QTreeWidgetItem(ui->bookmarksTree);
         newItem->setText(0, query.value(0).toString());
@@ -211,17 +245,10 @@ void BookmarksManager::refreshTable()
 
         if (folder != "unsorted") {
             QList<QTreeWidgetItem*> findParent = ui->bookmarksTree->findItems(folder, 0);
-            if (findParent.count() == 1) {
-                item = new QTreeWidgetItem(findParent.at(0));
-            }else{
-                QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->bookmarksTree);
-                newParent->setText(0, folder);
-                newParent->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
-                ui->bookmarksTree->addTopLevelItem(newParent);
-                item = new QTreeWidgetItem(newParent);
-            }
-        } else
-            item = new QTreeWidgetItem(ui->bookmarksTree);
+            if (findParent.count() != 1)
+                continue;
+            item = new QTreeWidgetItem(findParent.at(0));
+        }
 
         item->setText(0, title);
         item->setText(1, url.toEncoded());
@@ -233,8 +260,37 @@ void BookmarksManager::refreshTable()
         item->setFlags(item->flags() | Qt::ItemIsEditable);
         ui->bookmarksTree->addTopLevelItem(item);
     }
-    ui->bookmarksTree->expandAll();
 
+    query.exec("SELECT name FROM folders WHERE subfolder='yes'");
+    while(query.next()) {
+        newItem = new QTreeWidgetItem(bookmarksToolbar);
+        newItem->setText(0, query.value(0).toString());
+        newItem->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
+
+        QSqlQuery query2;
+        query2.prepare("SELECT title, url, id, icon FROM bookmarks WHERE folder=?");
+        query2.addBindValue(query.value(0).toString());
+        query2.exec();
+        while(query2.next()) {
+            QString title = query2.value(0).toString();
+            QUrl url = query2.value(1).toUrl();
+            int id = query2.value(2).toInt();
+            QIcon icon = IconProvider::iconFromBase64(query2.value(3).toByteArray());
+            QTreeWidgetItem* item = new QTreeWidgetItem(newItem);
+
+            item->setText(0, title);
+            item->setText(1, url.toEncoded());
+            item->setToolTip(0, title);
+            item->setToolTip(1, url.toEncoded());
+
+            item->setWhatsThis(1, QString::number(id));
+            item->setIcon(0, icon);
+            item->setFlags(item->flags() | Qt::ItemIsEditable);
+        }
+    }
+
+
+    ui->bookmarksTree->expandAll();
     ui->bookmarksTree->setUpdatesEnabled(true);
     m_isRefreshing = false;
 }
@@ -252,7 +308,18 @@ void BookmarksManager::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setToolTip(1, bookmark.url.toEncoded());
     item->setFlags(item->flags() | Qt::ItemIsEditable);
 
-    if (bookmark.folder != "unsorted")
+    if (bookmark.inSubfolder) {
+        QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(bookmark.folder, Qt::MatchExactly | Qt::MatchRecursive);
+        if (list.count() != 0) {
+            foreach (QTreeWidgetItem* it, list) {
+                if (it->text(1).isEmpty()) {
+                    it->addChild(item);
+                    break;
+                }
+            }
+        }
+    }
+    else if (bookmark.folder != "unsorted")
         ui->bookmarksTree->appendToParentItem(translatedFolder, item);
     else
         ui->bookmarksTree->addTopLevelItem(item);
@@ -262,14 +329,40 @@ void BookmarksManager::addBookmark(const BookmarksModel::Bookmark &bookmark)
 void BookmarksManager::removeBookmark(const BookmarksModel::Bookmark &bookmark)
 {
     m_isRefreshing = true;
-    if (bookmark.folder == "unsorted") {
+
+    if (bookmark.inSubfolder) {
+        QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(bookmark.folder, Qt::MatchExactly | Qt::MatchRecursive);
+        QTreeWidgetItem* subfolderItem = 0;
+        if (list.count() != 0) {
+            foreach (QTreeWidgetItem* it, list) {
+                if (it->text(1).isEmpty()) {
+                    subfolderItem = it;
+                    break;
+                }
+            }
+        }
+        if (!subfolderItem)
+            return;
+
+        for (int i = 0; i < subfolderItem->childCount(); i++) {
+            QTreeWidgetItem* item = subfolderItem->child(i);
+            if (!item)
+                continue;
+            if (item->text(0) == bookmark.title  && item->whatsThis(1) == QString::number(bookmark.id)) {
+                ui->bookmarksTree->deleteItem(item);
+                return;
+            }
+        }
+    }
+    else if (bookmark.folder == "unsorted") {
         QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(bookmark.title, Qt::MatchExactly);
         if (list.count() == 0)
             return;
         QTreeWidgetItem* item = list.at(0);
         if (item && item->whatsThis(1) == QString::number(bookmark.id))
             ui->bookmarksTree->deleteItem(item);
-    } else {
+    }
+    else {
         QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(BookmarksModel::toTranslatedFolder(bookmark.folder), Qt::MatchExactly);
         if (list.count() == 0)
             return;
@@ -298,17 +391,68 @@ void BookmarksManager::bookmarkEdited(const BookmarksModel::Bookmark &before, co
 void BookmarksManager::addFolder(const QString &name)
 {
     m_isRefreshing = true;
+
     QTreeWidgetItem* item = new QTreeWidgetItem(ui->bookmarksTree);
     item->setText(0, name);
     item->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
+
+    m_isRefreshing = false;
+}
+
+void BookmarksManager::addSubfolder(const QString &name)
+{
+    m_isRefreshing = true;
+
+    QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(tr("Bookmarks In ToolBar"), Qt::MatchExactly);
+    if (list.count() != 0) {
+        QTreeWidgetItem* item = new QTreeWidgetItem(list.at(0));
+        item->setText(0, name);
+        item->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
+    }
+
     m_isRefreshing = false;
 }
 
 void BookmarksManager::removeFolder(const QString &name)
 {
-    QTreeWidgetItem* item = ui->bookmarksTree->findItems(name, Qt::MatchExactly).at(0);
-    if (item)
-        ui->bookmarksTree->deleteItem(item);
+    QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(name, Qt::MatchExactly | Qt::MatchRecursive);
+    if (list.count() == 0)
+        return;
+
+    QTreeWidgetItem* folderItem = 0;
+    if (list.count() != 0) {
+        foreach (QTreeWidgetItem* it, list) {
+            if (it->text(1).isEmpty()) {
+                folderItem = it;
+                break;
+            }
+        }
+    }
+    if (!folderItem)
+        return;
+
+    ui->bookmarksTree->deleteItem(folderItem);
+}
+
+void BookmarksManager::renameFolder(const QString &before, const QString &after)
+{
+    QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(before, Qt::MatchExactly | Qt::MatchRecursive);
+    if (list.count() == 0)
+        return;
+
+    QTreeWidgetItem* folderItem = 0;
+    if (list.count() != 0) {
+        foreach (QTreeWidgetItem* it, list) {
+            if (it->text(0) == before && it->text(1).isEmpty()) {
+                folderItem = it;
+                break;
+            }
+        }
+    }
+    if (!folderItem)
+        return;
+
+    folderItem->setText(0, after);
 }
 
 void BookmarksManager::insertBookmark(const QUrl &url, const QString &title, const QIcon &icon)

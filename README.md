@@ -1,4 +1,4 @@
-QupZilla Web Browser - http://www.qupzilla.co.cc
+QupZilla Web Browser - http://www.qupzilla.co.cc (http://qupzilla.blogspot.com/)
 
 About QupZilla
 ----------------------------------------------------------------------------------------
@@ -11,6 +11,12 @@ QupZilla has all standard functions you expect from web browser. It includes boo
 history (both also in sidebar) and tabs. Above that, you can read RSS feeds with included
 RSS reader, block ads with builtin AdBlock plugin, block Flash content with Click2Flash
 or edit CA Certificates database with SSL Manager.
+
+QupZilla's main aim is to be very fast and very stable QtWebKit browser available to everyone.
+There is already a lot of QtWebKit browsers available, but they are either bound to KDE
+environment (rekonq), not actively developped (Arora) or very unstable and missing important
+features, but there is missing multiplatform, modern and actively developped browser. QupZilla 
+is trying to fill this gap by providing very stable browsing experience.
 
 History
 ----------------------------------------------------------------------------------------

@@ -474,102 +474,131 @@ p, li { white-space: pre-wrap; }
         <translation>URL</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="43"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="83"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
+        <source>Rename Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="90"/>
         <source>Delete</source>
         <translation>Verwijder</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="46"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="93"/>
         <source>Del</source>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="53"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="43"/>
         <source>Add Folder</source>
         <translation>Voeg map toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="76"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="66"/>
         <source>Optimize Database</source>
         <translation>Optimaliseer database</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="80"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="76"/>
+        <source>Add Subfolder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="84"/>
         <source>Add new folder</source>
         <translation>Voeg nieuwe map toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="80"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="84"/>
         <source>Choose name for new bookmark folder: </source>
         <translation>Kies naam voor nieuwe bladwijzermap: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="110"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="144"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="160"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="182"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="208"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="336"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="378"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="111"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="194"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="216"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="242"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="480"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="522"/>
         <source>Bookmarks In Menu</source>
         <translation>Bladwijzers in menu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="161"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="187"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="210"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="337"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="379"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="111"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="195"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="221"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="244"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="406"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="481"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="523"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Bladwijzers op werkbalk</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="153"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="187"/>
         <source>Open link in actual &amp;tab</source>
         <translation>Open link in actueel &amp;tabblad</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="154"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
+        <source>Add new subfolder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
+        <source>Choose name for new subfolder in bookmarks toolbar: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
+        <source>Choose name for folder: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="188"/>
         <source>Open link in &amp;new tab</source>
         <translation>Open link in &amp;nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="158"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="192"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>Verplaats bladwijzer naar &amp;map</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="159"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="335"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="377"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="193"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="479"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="521"/>
         <source>Unsorted Bookmarks</source>
         <translation>Ongesorteerde bladwijzers</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="332"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="476"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
         <translation>&lt;b&gt;Waarschuwing: &lt;/b&gt;U heeft deze pagina al gebladwijzerd!</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="343"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="487"/>
         <source>Choose name and location of bookmark.</source>
         <translation>Kies naam en locatie van deze bladwijzer.</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="347"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="491"/>
         <source>Add New Bookmark</source>
         <translation>Voeg nieuwe bladwijzer toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="385"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="529"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Kies map voor bladwijzers:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="386"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="530"/>
         <source>Bookmark All Tabs</source>
         <translation>Bladwijzer alle tabbladen</translation>
     </message>
@@ -577,22 +606,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="261"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="304"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="317"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="267"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="366"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="379"/>
         <source>Bookmarks In Menu</source>
         <translation>Bladwijzers in menu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="261"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="306"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="319"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="267"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="368"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="381"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Bladwijzers op werkbalk</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="308"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="321"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="370"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="383"/>
         <source>Unsorted Bookmarks</source>
         <translation>Ongesorteerde bladwijzers</translation>
     </message>
@@ -605,46 +634,45 @@ p, li { white-space: pre-wrap; }
         <translation>Zoeken...</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="70"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="71"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="102"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="99"/>
         <source>Open link in actual &amp;tab</source>
         <translation>Open link in actuele &amp;tab</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="103"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="100"/>
         <source>Open link in &amp;new tab</source>
         <translation>Open link in &amp;nieuwe tabblad</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="107"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="101"/>
+        <source>Copy address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Move bookmark to &amp;folder</source>
-        <translation>Verplaats bladwijzer naar &amp;map</translation>
+        <translation type="obsolete">Verplaats bladwijzer naar &amp;map</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="108"/>
         <source>Unsorted Bookmarks</source>
-        <translation>Ongesorteerde bladwijzers</translation>
+        <translation type="obsolete">Ongesorteerde bladwijzers</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="109"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="198"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="224"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="201"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="222"/>
         <source>Bookmarks In Menu</source>
         <translation>Bladwijzers in menu</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="203"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="226"/>
         <source>Bookmarks In ToolBar</source>
-        <translation>Bladwijzers op werkbalk</translation>
+        <translation type="obsolete">Bladwijzers op werkbalk</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="116"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="103"/>
         <source>&amp;Delete</source>
         <translation>&amp;Verwijder</translation>
     </message>
@@ -652,44 +680,65 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BookmarksToolbar</name>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="53"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="56"/>
         <source>&amp;Bookmark Current Page</source>
         <translation>&amp;Bladwijzer huidige pagina</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="54"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="57"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Bladwijzer &amp;alle tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="55"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="58"/>
         <source>&amp;Organize Bookmarks</source>
         <translation>&amp;Sorteer bladwijzers</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="57"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="60"/>
         <source>Hide Most &amp;Visited</source>
         <translation>Verberg meest &amp;bezocht</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="57"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="60"/>
         <source>Show Most &amp;Visited</source>
         <translation>Toon meest &amp;bezocht</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="58"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="61"/>
         <source>&amp;Hide Toolbar</source>
         <translation>&amp;Verberg werkbalk</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="194"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="80"/>
+        <source>Move right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="81"/>
+        <source>Move left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="83"/>
+        <source>Remove bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="411"/>
         <source>Most visited</source>
         <translation>Meest bezocht</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="195"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="412"/>
         <source>Sites you visited the most</source>
         <translation>Websites die u het meest bezocht heeft</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="449"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="466"/>
+        <source>Empty</source>
+        <translation type="unfinished">Leeg</translation>
     </message>
     <message>
         <source>Sites You visited the most</source>
@@ -922,42 +971,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ClickToFlash</name>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="95"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="110"/>
         <source>Object blocked by ClickToFlash</source>
         <translation>Object geblokkeerd door KlikVoorFlash</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="96"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="111"/>
         <source>Show more informations about object</source>
         <translation>Toon meer informatie over object</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="98"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="113"/>
         <source>Delete object</source>
         <translation>Verwijder object</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="99"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="114"/>
         <source>Add %1 to whitelist</source>
         <translation>Voeg %1 toe aan witte lijst</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="205"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="220"/>
         <source>Flash Object</source>
         <translation>Flash-object</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="208"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="223"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Naam van attribuut&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="208"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="223"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Waarde&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="219"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="234"/>
         <source>No more informations available.</source>
         <translation>Geen verdere informatie beschikbaar.</translation>
     </message>
@@ -1575,30 +1624,35 @@ werd niet gevonden!</translation>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="76"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="82"/>
         <source>Open link in actual tab</source>
         <translation>Open link in huidig tabblad</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="77"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="83"/>
         <source>Open link in new tab</source>
         <translation>Open link in nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="94"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="188"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="84"/>
+        <source>Copy address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/sidebar/historysidebar.cpp" line="101"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="195"/>
         <source>Today</source>
         <translation>Vandaag</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="190"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="103"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="197"/>
         <source>This Week</source>
         <translation>Deze week</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="98"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="192"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="105"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="199"/>
         <source>This Month</source>
         <translation>Deze maand</translation>
     </message>
@@ -1640,12 +1694,12 @@ werd niet gevonden!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="584"/>
+        <location filename="../src/app/mainapplication.cpp" line="585"/>
         <source>Last session crashed</source>
         <translation>Laatste sessie gecrashed</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="585"/>
+        <location filename="../src/app/mainapplication.cpp" line="586"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla crashte :-(&lt;/b&gt;&lt;br/&gt;Oeps, de laatste sessie van QupZilla eindigde met een crash. We verontschuldigen ons. Wilt u proberen om de opgeslagen status te herstellen?</translation>
     </message>
