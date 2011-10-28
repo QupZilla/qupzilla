@@ -182,6 +182,11 @@
     background: transparent;
 }
 
+#sidebar-splitter::handle
+{
+    background-color:transparent;
+}
+
 /*WebSearchBar*/
 #websearchbar
 {

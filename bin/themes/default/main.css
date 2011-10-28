@@ -225,6 +225,11 @@
     background: transparent;
 }
 
+#sidebar-splitter::handle
+{
+    background-color:transparent;
+}
+
 /*SourceViewer*/
 #sourceviewer-textedit
 {

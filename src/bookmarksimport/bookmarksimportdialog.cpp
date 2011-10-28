@@ -4,6 +4,8 @@
 #include "chromeimporter.h"
 #include "operaimporter.h"
 #include "mainapplication.h"
+#include "iconfetcher.h"
+#include "networkmanager.h"
 
 BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     : QDialog(parent)
@@ -80,21 +82,23 @@ void BookmarksImportDialog::startFetchingIcons()
         ui->treeWidget->addTopLevelItem(item);
         i++;
 
-        QWebPage* page = new QWebPage();
-        QWebFrame* frame = page->mainFrame();
-        frame->load(b.url);
-        connect(frame, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
-        connect(frame, SIGNAL(iconChanged()), this, SLOT(iconChanged()));
-        QPair<QWebFrame*, QUrl> pair;
-        pair.first = frame;
+        IconFetcher* fetcher = new IconFetcher(this);
+        fetcher->setNetworkAccessManager(mApp->networkManager());
+        connect(fetcher, SIGNAL(finished()), this, SLOT(loadFinished()));
+        connect(fetcher, SIGNAL(iconFetched(QIcon)), this, SLOT(iconFetched(QIcon)));
+        fetcher->fetchIcon(b.url);
+
+        QPair<IconFetcher*, QUrl> pair;
+        pair.first = fetcher;
         pair.second = b.url;
-        m_webViews.append(pair);
+        m_fetchers.append(pair);
     }
 }
 
 void BookmarksImportDialog::stopDownloading()
 {
     ui->nextButton->setEnabled(true);
+    ui->stopButton->hide();
     ui->progressBar->setValue(ui->progressBar->maximum());
 }
 
@@ -102,20 +106,22 @@ void BookmarksImportDialog::loadFinished()
 {
     ui->progressBar->setValue(ui->progressBar->value() + 1);
 
-    if (ui->progressBar->value() == ui->progressBar->maximum())
+    if (ui->progressBar->value() == ui->progressBar->maximum()) {
+        ui->stopButton->hide();
         ui->nextButton->setEnabled(true);
+    }
 }
 
-void BookmarksImportDialog::iconChanged()
+void BookmarksImportDialog::iconFetched(const QIcon &icon)
 {
-    QWebFrame* view = qobject_cast<QWebFrame*>(sender());
-    if (!view)
+    IconFetcher* fetcher = qobject_cast<IconFetcher*>(sender());
+    if (!fetcher)
         return;
 
     QUrl url;
-    for (int i = 0; i < m_webViews.count(); i++) {
-        QPair<QWebFrame*, QUrl> pair = m_webViews.at(i);
-        if (pair.first == view) {
+    for (int i = 0; i < m_fetchers.count(); i++) {
+        QPair<IconFetcher*, QUrl> pair = m_fetchers.at(i);
+        if (pair.first == fetcher) {
             url = pair.second;
             break;
         }
@@ -128,16 +134,16 @@ void BookmarksImportDialog::iconChanged()
     if (items.count() == 0)
         return;
 
-    QTreeWidgetItem* item = items.at(0);
+    foreach (QTreeWidgetItem* item, items) {
+        item->setIcon(0, icon);
 
-    item->setIcon(0, view->icon());
-
-    foreach (BookmarksModel::Bookmark b, m_exportedBookmarks) {
-        if (b.url == url) {
-            m_exportedBookmarks.removeOne(b);
-            b.icon = view->icon();
-            m_exportedBookmarks.append(b);
-            break;
+        foreach (BookmarksModel::Bookmark b, m_exportedBookmarks) {
+            if (b.url == url) {
+                m_exportedBookmarks.removeOne(b);
+                b.icon = icon;
+                m_exportedBookmarks.append(b);
+                break;
+            }
         }
     }
 }
@@ -280,10 +286,10 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
 
 BookmarksImportDialog::~BookmarksImportDialog()
 {
-    if (m_webViews.count() > 0) {
-        for (int i = 0; i < m_webViews.count(); i++) {tr("");
-            QWebFrame* frame= m_webViews.at(i).first;
-            delete frame->page();
+    if (m_fetchers.count() > 0) {
+        for (int i = 0; i < m_fetchers.count(); i++) {tr("");
+            IconFetcher* fetcher = m_fetchers.at(i).first;
+            delete fetcher;
         }
     }
 

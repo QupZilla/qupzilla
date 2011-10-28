@@ -15,6 +15,7 @@ namespace Ui {
     class BookmarksImportDialog;
 }
 
+class IconFetcher;
 class BookmarksImportDialog : public QDialog
 {
     Q_OBJECT
@@ -27,9 +28,8 @@ private slots:
     void nextPage();
     void setFile();
 
-
     void stopDownloading();
-    void iconChanged();
+    void iconFetched(const QIcon &icon);
     void loadFinished();
 
 private:
@@ -54,7 +54,7 @@ private:
 
     QList<BookmarksModel::Bookmark> m_exportedBookmarks;
 
-    QList<QPair<QWebFrame*, QUrl> > m_webViews;
+    QList<QPair<IconFetcher*, QUrl> > m_fetchers;
 };
 
 #endif // BOOKMARKSIMPORTDIALOG_H
