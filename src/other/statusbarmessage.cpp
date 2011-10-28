@@ -30,7 +30,7 @@ TipLabel::TipLabel(QupZilla* parent)
     setPalette(QToolTip::palette());
     ensurePolished();
     setFrameStyle(QFrame::NoFrame);
-    setMargin(2);
+    setMargin(3);
 }
 
 void TipLabel::show()

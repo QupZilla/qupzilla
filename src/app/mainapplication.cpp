@@ -58,7 +58,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     , m_autofill(0)
     , m_networkCache(new QNetworkDiskCache)
     , m_desktopNotifications(0)
-    , m_iconProvider(new IconProvider)
+    , m_iconProvider(new IconProvider(this))
     , m_searchEnginesManager(0)
     , m_isClosing(false)
     , m_isStateChanged(false)
@@ -427,6 +427,7 @@ void MainApplication::quitApplication()
     m_plugins->c2f_saveSettings();
     AdBlockManager::instance()->save();
     QFile::remove(getActiveProfilPath() + "WebpageIcons.db");
+    delete m_iconProvider;
 
 //    qDebug() << "Quitting application...";
     quit();

@@ -30,7 +30,7 @@
        <item row="0" column="0">
         <widget class="QTreeWidget" name="treePass">
          <attribute name="headerMinimumSectionSize">
-          <number>180</number>
+          <number>170</number>
          </attribute>
          <column>
           <property name="text">

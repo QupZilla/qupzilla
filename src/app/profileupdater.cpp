@@ -62,8 +62,15 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
 
     if (profileVersion == Updater::parseVersionFromString("1.0.0-b4")) {
         update100b4();
+        update100rc1();
         return;
     }
+
+    if (profileVersion == Updater::parseVersionFromString("1.0.0-rc1")) {
+        update100rc1();
+        return;
+    }
+
 
     std::cout << "incompatible profile version detected, updating profile data..." << std::endl;
 
@@ -85,6 +92,20 @@ void ProfileUpdater::update100b4()
     mApp->connectDatabase();
 
     QSqlQuery query;
-    query.exec("CREATE TABLE search_engines (id INTEGER PRIMARY KEY, name TEXT, icon TEXT,"
+    query.exec("CREATE TABLE IF NOT EXISTS search_engines (id INTEGER PRIMARY KEY, name TEXT, icon TEXT,"
                "url TEXT, shortcut TEXT, suggestionsUrl TEXT, suggestionsParameters TEXT);");
+}
+
+void ProfileUpdater::update100rc1()
+{
+    std::cout << "upgrading profile version from 1.0.0-rc1..." << std::endl;
+    mApp->connectDatabase();
+
+    QSqlQuery query;
+    query.exec("ALTER TABLE folders ADD COLUMN subfolder TEXT");
+    query.exec("UPDATE folders SET subfolder='no'");
+
+    query.exec("ALTER TABLE bookmarks ADD COLUMN toolbar_position NUMERIC");
+    query.exec("UPDATE bookmarks SET toolbar_position=0");
+
 }

@@ -280,7 +280,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences/autofillmanager.ui" line="103"/>
         <location filename="../src/preferences/autofillmanager.cpp" line="70"/>
         <source>Show Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť heslo</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="113"/>
@@ -290,7 +290,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="70"/>
         <source>Are you sure that you want to show all passwords?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ste si istý, že chcete zobraziť všetky heslá?</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="100"/>
@@ -478,102 +478,131 @@ p, li { white-space: pre-wrap; }
         <translation>Adresa</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="43"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="83"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
+        <source>Rename Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="90"/>
         <source>Delete</source>
         <translation>Odstrániť</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="46"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="93"/>
         <source>Del</source>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="53"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="43"/>
         <source>Add Folder</source>
         <translation>Pridať priečinok</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="76"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="66"/>
         <source>Optimize Database</source>
         <translation>Optimalizovať databázu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="80"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="76"/>
+        <source>Add Subfolder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="84"/>
         <source>Add new folder</source>
         <translation>Pridať nový priečinok</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="80"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="84"/>
         <source>Choose name for new bookmark folder: </source>
         <translation>Zvoľte názov nového priečinka:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="110"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="144"/>
         <source>New Tab</source>
         <translation>Nová karta</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="160"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="182"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="208"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="336"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="378"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="111"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="194"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="216"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="242"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="480"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="522"/>
         <source>Bookmarks In Menu</source>
         <translation>Záložky v menu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="161"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="187"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="210"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="337"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="379"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="111"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="195"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="221"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="244"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="406"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="481"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="523"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Panel záložiek</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="153"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="187"/>
         <source>Open link in actual &amp;tab</source>
         <translation>Otvoriť odkaz na ak&amp;tuálnej karte</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="154"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
+        <source>Add new subfolder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
+        <source>Choose name for new subfolder in bookmarks toolbar: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
+        <source>Choose name for folder: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="188"/>
         <source>Open link in &amp;new tab</source>
         <translation>Otvoriť odkaz na &amp;novej karte</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="158"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="192"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>Presunúť záložku do &amp;priečinka</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="159"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="335"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="377"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="193"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="479"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="521"/>
         <source>Unsorted Bookmarks</source>
         <translation>Neroztriedené záložky</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="332"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="476"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
         <translation>&lt;b&gt;Upozornenie: &lt;/b&gt;Túto stránku už máte v záložkách!</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="343"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="487"/>
         <source>Choose name and location of bookmark.</source>
         <translation>Zvoľte názov a umiestnenie záložky.</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="347"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="491"/>
         <source>Add New Bookmark</source>
         <translation>Pridať novú záložku</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="385"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="529"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Zvoľte priečinok pre záložky:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="386"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="530"/>
         <source>Bookmark All Tabs</source>
         <translation>Pridať všetky karty do záložiek</translation>
     </message>
@@ -581,22 +610,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="261"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="304"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="317"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="267"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="366"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="379"/>
         <source>Bookmarks In Menu</source>
         <translation>Záložky v menu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="261"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="306"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="319"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="267"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="368"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="381"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Panel záložiek</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="308"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="321"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="370"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="383"/>
         <source>Unsorted Bookmarks</source>
         <translation>Neroztriedené záložky</translation>
     </message>
@@ -609,46 +638,45 @@ p, li { white-space: pre-wrap; }
         <translation>Hľadať...</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="70"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="71"/>
         <source>New Tab</source>
         <translation>Nová karta</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="102"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="99"/>
         <source>Open link in actual &amp;tab</source>
         <translation>Otvoriť odkaz na &amp;aktuálnej karte</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="103"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="100"/>
         <source>Open link in &amp;new tab</source>
         <translation>Otvoriť odkaz na &amp;novej karte</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="107"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="101"/>
+        <source>Copy address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Move bookmark to &amp;folder</source>
-        <translation>Presunúť záložku do &amp;priečinka</translation>
+        <translation type="obsolete">Presunúť záložku do &amp;priečinka</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="108"/>
         <source>Unsorted Bookmarks</source>
-        <translation>Neroztriedené záložky</translation>
+        <translation type="obsolete">Neroztriedené záložky</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="109"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="198"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="224"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="201"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="222"/>
         <source>Bookmarks In Menu</source>
         <translation>Záložky v menu</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="203"/>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="226"/>
         <source>Bookmarks In ToolBar</source>
-        <translation>Panel záložiek</translation>
+        <translation type="obsolete">Panel záložiek</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="116"/>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="103"/>
         <source>&amp;Delete</source>
         <translation>O&amp;dstrániť</translation>
     </message>
@@ -656,44 +684,65 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BookmarksToolbar</name>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="53"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="56"/>
         <source>&amp;Bookmark Current Page</source>
         <translation>Pridať &amp;stránku do záložiek</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="54"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="57"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Pridať všetky k&amp;arty do záložiek</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="55"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="58"/>
         <source>&amp;Organize Bookmarks</source>
         <translation>&amp;Organizovať záložky</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="57"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="60"/>
         <source>Hide Most &amp;Visited</source>
         <translation>Skryť najna&amp;vštevovanejšie</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="57"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="60"/>
         <source>Show Most &amp;Visited</source>
         <translation>Zobraziť najna&amp;vštevovanejšie</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="58"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="61"/>
         <source>&amp;Hide Toolbar</source>
         <translation>Skr&amp;yť panel</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="194"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="80"/>
+        <source>Move right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="81"/>
+        <source>Move left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="83"/>
+        <source>Remove bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="411"/>
         <source>Most visited</source>
         <translation>Najnavštevovanejšie</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="195"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="412"/>
         <source>Sites you visited the most</source>
         <translation>Najnavštevovanejšie stránky</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="449"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="466"/>
+        <source>Empty</source>
+        <translation type="unfinished">Prázdne</translation>
     </message>
     <message>
         <source>Sites You visited the most</source>
@@ -926,42 +975,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ClickToFlash</name>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="95"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="110"/>
         <source>Object blocked by ClickToFlash</source>
         <translation>Objekt blokovaný ClickToFlash pluginom</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="96"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="111"/>
         <source>Show more informations about object</source>
         <translation>Zobraziť viac informácií o objekte</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="98"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="113"/>
         <source>Delete object</source>
         <translation>Vymazať objekt</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="99"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="114"/>
         <source>Add %1 to whitelist</source>
         <translation>Pridať %1 na zoznam výnimiek</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="205"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="220"/>
         <source>Flash Object</source>
         <translation>Flash objekt</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="208"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="223"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Názov atribútu&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="208"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="223"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Hodnota&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="219"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="234"/>
         <source>No more informations available.</source>
         <translation>Žiadne ďalšie dostupné informácie.</translation>
     </message>
@@ -1586,30 +1635,35 @@ p, li { white-space: pre-wrap; }
         <translation>Nová karta</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="76"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="82"/>
         <source>Open link in actual tab</source>
         <translation>Otvoriť odkaz v aktuálnej karte</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="77"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="83"/>
         <source>Open link in new tab</source>
         <translation>Otvoriť odkaz na novej karte</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="94"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="188"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="84"/>
+        <source>Copy address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/sidebar/historysidebar.cpp" line="101"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="195"/>
         <source>Today</source>
         <translation>Dnes</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="190"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="103"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="197"/>
         <source>This Week</source>
         <translation>Tento týždeň</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="98"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="192"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="105"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="199"/>
         <source>This Month</source>
         <translation>Tento mesiac</translation>
     </message>
@@ -1650,12 +1704,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="584"/>
+        <location filename="../src/app/mainapplication.cpp" line="585"/>
         <source>Last session crashed</source>
         <translation>Minulá relácia spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="585"/>
+        <location filename="../src/app/mainapplication.cpp" line="586"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
     </message>

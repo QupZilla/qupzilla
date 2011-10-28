@@ -49,13 +49,15 @@ private slots:
     void loadInNewTab();
     void itemControlClicked(QTreeWidgetItem* item);
     void itemDoubleClicked(QTreeWidgetItem* item);
-    void moveBookmark();
+
+    void copyAddress();
 
     void addBookmark(const BookmarksModel::Bookmark &bookmark);
     void removeBookmark(const BookmarksModel::Bookmark &bookmark);
     void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
     void addFolder(const QString &name);
     void removeFolder(const QString &name);
+    void renameFolder(const QString &before, const QString &after);
 
 private:
     QupZilla* getQupZilla();

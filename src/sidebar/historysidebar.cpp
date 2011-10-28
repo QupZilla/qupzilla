@@ -64,6 +64,12 @@ void HistorySideBar::loadInNewTab()
         p_QupZilla->tabWidget()->addView(action->data().toUrl(), tr("New Tab"), TabWidget::NewNotSelectedTab);
 }
 
+void HistorySideBar::copyAddress()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender()))
+        QApplication::clipboard()->setText(action->data().toString());
+}
+
 void HistorySideBar::contextMenuRequested(const QPoint &position)
 {
     if (!ui->historyTree->itemAt(position))
@@ -75,6 +81,7 @@ void HistorySideBar::contextMenuRequested(const QPoint &position)
     QMenu menu;
     menu.addAction(tr("Open link in actual tab"), p_QupZilla, SLOT(loadActionUrl()))->setData(link);
     menu.addAction(tr("Open link in new tab"), this, SLOT(loadInNewTab()))->setData(link);
+    menu.addAction(tr("Copy address"), this, SLOT(copyAddress()))->setData(link);
 
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();

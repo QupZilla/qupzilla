@@ -110,6 +110,7 @@ BookmarksModel::Bookmark BookmarksModel::getBookmark(int id)
         bookmark.title = query.value(1).toString();
         bookmark.folder = query.value(2).toString();
         bookmark.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
+        bookmark.inSubfolder = isSubfolder(bookmark.folder);
     }
     return bookmark;
 }
@@ -135,6 +136,8 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     bookmark.title = title;
     bookmark.folder = folder;
     bookmark.icon = icon;
+    bookmark.inSubfolder = isSubfolder(bookmark.folder);
+
     emit bookmarkAdded(bookmark);
     mApp->sendMessages(MainApplication::BookmarksChanged, true);
     return true;
@@ -160,6 +163,7 @@ bool BookmarksModel::removeBookmark(int id)
     bookmark.title = query.value(1).toString();
     bookmark.folder = query.value(2).toString();
     bookmark.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
+    bookmark.inSubfolder = isSubfolder(bookmark.folder);
 
     if (!query.exec("DELETE FROM bookmarks WHERE id = " + QString::number(id)))
         return false;
@@ -215,6 +219,7 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     before.url = query.value(1).toUrl();
     before.folder = query.value(2).toString();
     before.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
+    before.inSubfolder = isSubfolder(before.folder);
 
     Bookmark after;
     after.id = id;
@@ -222,6 +227,7 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     after.url = url.isEmpty() ? before.url : url;
     after.folder = folder.isEmpty() ? before.folder : folder;
     after.icon = before.icon;
+    after.inSubfolder = isSubfolder(after.folder);
 
     query.prepare("UPDATE bookmarks SET title=?, url=?, folder=? WHERE id = ?");
     query.bindValue(0, after.title);
@@ -282,6 +288,62 @@ bool BookmarksModel::removeFolder(const QString &name)
     emit folderDeleted(name);
     mApp->sendMessages(MainApplication::BookmarksChanged, true);
     return true;
+}
+
+bool BookmarksModel::renameFolder(const QString &before, const QString &after)
+{
+    QSqlQuery query;
+    query.prepare("SELECT name FROM folders WHERE name = ?");
+    query.bindValue(0, after);
+    query.exec();
+    if (query.next())
+        return false;
+
+    query.prepare("UPDATE folders SET name=? WHERE name=?");
+    query.bindValue(0, after);
+    query.bindValue(1, before);
+    if (!query.exec())
+            return false;
+
+    query.prepare("UPDATE bookmarks SET folder=? WHERE folder=?");
+    query.bindValue(0, after);
+    query.bindValue(1, before);
+    if (!query.exec())
+            return false;
+
+    emit folderRenamed(before, after);
+    return true;
+}
+
+bool BookmarksModel::createSubfolder(const QString &name)
+{
+    QSqlQuery query;
+    query.prepare("SELECT name FROM folders WHERE name = ?");
+    query.bindValue(0, name);
+    query.exec();
+    if (query.next())
+        return false;
+
+    query.prepare("INSERT INTO folders (name, subfolder) VALUES (?, 'yes')");
+    query.bindValue(0, name);
+    if (!query.exec())
+        return false;
+
+    emit subfolderAdded(name);
+    mApp->sendMessages(MainApplication::BookmarksChanged, true);
+    return true;
+}
+
+bool BookmarksModel::isSubfolder(const QString &name)
+{
+    QSqlQuery query;
+    query.prepare("SELECT subfolder FROM folders WHERE name = ?");
+    query.bindValue(0, name);
+    query.exec();
+    if (!query.next())
+        return false;
+
+    return query.value(0).toString() == "yes";
 }
 
 bool BookmarksModel::bookmarksEqual(const Bookmark &one, const Bookmark &two)
