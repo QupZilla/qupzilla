@@ -43,9 +43,10 @@ BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent)
 
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(folderAdded(QString)), this, SLOT(addFolder(QString)));
     connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(removeFolder(QString)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(folderRenamed(QString,QString)), this, SLOT(renameFolder(QString,QString)));
 
     QTimer::singleShot(0, this, SLOT(refreshTable()));
 }
@@ -70,6 +71,12 @@ void BookmarksSideBar::loadInNewTab()
         p_QupZilla->tabWidget()->addView(action->data().toUrl(), tr("New Tab"), TabWidget::NewNotSelectedTab);
 }
 
+void BookmarksSideBar::copyAddress()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender()))
+        QApplication::clipboard()->setText(action->data().toString());
+}
+
 void BookmarksSideBar::deleteItem()
 {
     QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
@@ -78,16 +85,6 @@ void BookmarksSideBar::deleteItem()
 
     int id = item->whatsThis(0).toInt();
     m_bookmarksModel->removeBookmark(id);
-}
-
-void BookmarksSideBar::moveBookmark()
-{
-    QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
-    if (!item)
-        return;
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        m_bookmarksModel->editBookmark(item->whatsThis(0).toInt(), item->text(0), QUrl(), action->data().toString());
-    }
 }
 
 void BookmarksSideBar::contextMenuRequested(const QPoint &position)
@@ -101,19 +98,10 @@ void BookmarksSideBar::contextMenuRequested(const QPoint &position)
     QMenu menu;
     menu.addAction(tr("Open link in actual &tab"), p_QupZilla, SLOT(loadActionUrl()))->setData(link);
     menu.addAction(tr("Open link in &new tab"), this, SLOT(loadInNewTab()))->setData(link);
+    menu.addAction(tr("Copy address"), this, SLOT(copyAddress()))->setData(link);
     menu.addSeparator();
-
-    QMenu moveMenu;
-    moveMenu.setTitle(tr("Move bookmark to &folder"));
-    moveMenu.addAction(QIcon(":icons/other/unsortedbookmarks.png"), tr("Unsorted Bookmarks"), this, SLOT(moveBookmark()))->setData("unsorted");
-    moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In Menu"), this, SLOT(moveBookmark()))->setData("bookmarksMenu");
-    moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In ToolBar"), this, SLOT(moveBookmark()))->setData("bookmarksToolbar");
-    QSqlQuery query;
-    query.exec("SELECT name FROM folders");
-    while(query.next())
-        moveMenu.addAction(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString(), this, SLOT(moveBookmark()))->setData(query.value(0).toString());
-    menu.addMenu(&moveMenu);
     menu.addAction(tr("&Delete"), this, SLOT(deleteItem()));
+
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();
     QPoint p(pos.x(), pos.y()+1);
@@ -182,9 +170,24 @@ void BookmarksSideBar::addFolder(const QString &name)
 
 void BookmarksSideBar::removeFolder(const QString &name)
 {
-    QTreeWidgetItem* item = ui->bookmarksTree->findItems(name, Qt::MatchExactly).at(0);
+    QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(name, Qt::MatchExactly);
+    if (list.count() == 0)
+        return;
+    QTreeWidgetItem* item = list.at(0);
     if (item)
         ui->bookmarksTree->deleteItem(item);
+}
+
+void BookmarksSideBar::renameFolder(const QString &before, const QString &after)
+{
+    QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(before, Qt::MatchExactly);
+    if (list.count() == 0)
+        return;
+    QTreeWidgetItem* item = list.at(0);
+    if (!item)
+        return;
+
+    item->setText(0, after);
 }
 
 void BookmarksSideBar::refreshTable()
@@ -199,12 +202,7 @@ void BookmarksSideBar::refreshTable()
     newItem->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
     ui->bookmarksTree->addTopLevelItem(newItem);
 
-    newItem = new QTreeWidgetItem(ui->bookmarksTree);
-    newItem->setText(0, tr("Bookmarks In ToolBar"));
-    newItem->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
-    ui->bookmarksTree->addTopLevelItem(newItem);
-
-    query.exec("SELECT name FROM folders");
+    query.exec("SELECT name FROM folders WHERE subfolder!='yes'");
     while(query.next()) {
         newItem = new QTreeWidgetItem(ui->bookmarksTree);
         newItem->setText(0, query.value(0).toString());
@@ -223,19 +221,15 @@ void BookmarksSideBar::refreshTable()
         if (folder == "bookmarksMenu")
             folder = tr("Bookmarks In Menu");
         if (folder == "bookmarksToolbar")
-            folder = tr("Bookmarks In ToolBar");
+            continue;
 
         if (folder != "unsorted") {
             QList<QTreeWidgetItem*> findParent = ui->bookmarksTree->findItems(folder, 0);
-            if (findParent.count() == 1) {
-                item = new QTreeWidgetItem(findParent.at(0));
-            }else{
-                QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->bookmarksTree);
-                newParent->setText(0, folder);
-                newParent->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
-                ui->bookmarksTree->addTopLevelItem(newParent);
-                item = new QTreeWidgetItem(newParent);
-            }
+            if (findParent.count() != 1)
+                continue;
+
+            item = new QTreeWidgetItem(findParent.at(0));
+
         } else
             item = new QTreeWidgetItem(ui->bookmarksTree);
 

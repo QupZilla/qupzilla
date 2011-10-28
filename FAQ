@@ -64,6 +64,7 @@ A: Well, the problem with using excessive amount of processor time is very likel
        Before using AdBlock, you need to update filters by clicking Update Filters
        button.  
    
+   
 Q: When I add or edit my Search Engines and restart browser, the changes won't stay.
    What's wrong?
 ----------------------------------------------------------------------------------
@@ -74,4 +75,14 @@ A: If you were using own builds from git, you have probably old version of profi
    Your database should now be updated and changes won't be discarded on every
    restart anymore.
    
-   
+
+Q: I have heard that QupZilla supports importing bookmarks from other browsers, but
+   I can't find this feature anywhere.
+----------------------------------------------------------------------------------
+A: This feature has been added in version 1.0.0-rc1. If you are using older version,
+   please upgrade it either by downloading installable packages from github or from
+   your distributions repository.
+   Then you can find Import Bookmarks option in Menu File -> Import Bookmarks...
+   Importing wizzard will then guide you with importing process.
+
+

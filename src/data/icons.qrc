@@ -66,5 +66,8 @@
         <file>icons/browsers/firefox.png</file>
         <file>icons/browsers/chrome.png</file>
         <file>icons/browsers/opera.png</file>
+        <file>icons/faenza/go-next.png</file>
+        <file>icons/faenza/go-previous.png</file>
+        <file>icons/faenza/list-remove.png</file>
     </qresource>
 </RCC>

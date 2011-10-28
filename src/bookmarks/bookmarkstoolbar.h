@@ -45,13 +45,26 @@ private slots:
     void loadClickedBookmark();
     void loadClickedBookmarkInNewTab();
 
+    void aboutToShowFolderMenu();
+    void showBookmarkContextMenu(const QPoint &pos);
+    void customContextMenuRequested(const QPoint &pos);
+
+    void moveRight();
+    void moveLeft();
+    void removeButton();
+
     void hidePanel();
+
     void addBookmark(const BookmarksModel::Bookmark &bookmark);
     void removeBookmark(const BookmarksModel::Bookmark &bookmark);
     void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
-    void customContextMenuRequested(const QPoint &pos);
+    void subfolderAdded(const QString &name);
+    void folderDeleted(const QString &name);
+    void folderRenamed(const QString &before, const QString &after);
 
 private:
+    int indexOfLastBookmark();
+
     QupZilla* p_QupZilla;
     BookmarksModel* m_bookmarksModel;
     HistoryModel* m_historyModel;

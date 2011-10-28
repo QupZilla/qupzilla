@@ -34,6 +34,7 @@ class IconProvider : public QObject
     Q_OBJECT
 public:
     explicit IconProvider(QObject* parent = 0);
+    ~IconProvider();
 
     void saveIcon(WebView* view);
     QIcon iconForUrl(const QUrl &url);
@@ -55,6 +56,7 @@ public slots:
 
 private:
     QTimer* m_timer;
+
     struct Icon {
         QUrl url;
         QIcon icon;

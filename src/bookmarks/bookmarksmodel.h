@@ -37,12 +37,19 @@ public:
         QString folder;
         QUrl url;
         QIcon icon;
+        bool inSubfolder;
+
+        Bookmark()
+        {
+            inSubfolder = false;
+        }
 
         bool operator==(const Bookmark &other)
         {
             return (this->title == other.title &&
                     this->folder == other.folder &&
-                    this->url == other.url);
+                    this->url == other.url &&
+                    this->inSubfolder == other.inSubfolder);
         }
     };
 
@@ -69,6 +76,11 @@ public:
     bool createFolder(const QString &name);
     bool removeFolder(const QString &name);
 
+    bool createSubfolder(const QString &name);
+    bool isSubfolder(const QString &name);
+
+    bool renameFolder(const QString &before, const QString &after);
+
     static bool bookmarksEqual(const Bookmark &one, const Bookmark &two);
     static QString toTranslatedFolder(const QString &name);
     static QString fromTranslatedFolder(const QString &name);
@@ -81,11 +93,17 @@ signals:
     void folderAdded(const QString &title);
     void folderDeleted(const QString &title);
 
+    void subfolderAdded(const QString &title);
+    void folderRenamed(const QString &before, const QString &after);
+
 public slots:
 
 private:
     bool m_showMostVisited;
 
 };
+
+typedef BookmarksModel::Bookmark Bookmark;
+Q_DECLARE_METATYPE(BookmarksModel::Bookmark)
 
 #endif // BOOKMARKSMODEL_H
