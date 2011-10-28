@@ -481,7 +481,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="83"/>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
         <source>Rename Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Premenovať priečinok</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="90"/>
@@ -506,7 +506,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="76"/>
         <source>Add Subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať podpriečinok</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="84"/>
@@ -552,17 +552,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Add new subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať nový podpriečinok</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľte meno pre nový podpriečinok v panely záložiek: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
         <source>Choose name for folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľte meno pre priečinok: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="188"/>
@@ -655,7 +655,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="101"/>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovať adresu</translation>
     </message>
     <message>
         <source>Move bookmark to &amp;folder</source>
@@ -716,17 +716,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="80"/>
         <source>Move right</source>
-        <translation type="unfinished"></translation>
+        <translation>Posunúť doprava</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="81"/>
         <source>Move left</source>
-        <translation type="unfinished"></translation>
+        <translation>Posunúť doľava</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="83"/>
         <source>Remove bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť záložku</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="411"/>
@@ -742,7 +742,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="449"/>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="466"/>
         <source>Empty</source>
-        <translation type="unfinished">Prázdne</translation>
+        <translation>Prázdny</translation>
     </message>
     <message>
         <source>Sites You visited the most</source>
@@ -1647,7 +1647,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="84"/>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovať adresu</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="101"/>
