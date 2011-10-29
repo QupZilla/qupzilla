@@ -24,6 +24,7 @@
 #include "iconprovider.h"
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
+#include "followredirectreply.h"
 
 RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -231,25 +232,43 @@ void RSSManager::loadFeedInNewTab()
 
 void RSSManager::beginToLoadSlot(const QUrl &url)
 {
-    m_networkManager->get(QNetworkRequest(QUrl(url)));
+    FollowRedirectReply* reply = new FollowRedirectReply(url, m_networkManager);
+    connect(reply, SIGNAL(finished()), this, SLOT(finished()));
 
-    connect(m_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finished(QNetworkReply*)));
+    QPair<FollowRedirectReply*, QUrl> pair;
+    pair.first = reply;
+    pair.second = url;
+    m_replies.append(pair);
 }
 
-void RSSManager::finished(QNetworkReply* reply)
+void RSSManager::finished()
 {
-    if (m_networkReplies.contains(reply))
+    FollowRedirectReply* reply = qobject_cast<FollowRedirectReply*> (sender());
+    if (!reply)
+        return;
+
+    QString replyUrl;
+    for (int i = 0; i < m_replies.count(); i++) {
+        QPair<FollowRedirectReply*, QUrl> pair = m_replies.at(i);
+        if (pair.first == reply) {
+            replyUrl = pair.second.toString();
+            break;
+        }
+    }
+
+    if (replyUrl.isEmpty())
         return;
 
     QString currentTag;
     QString linkString;
     QString titleString;
+
     QXmlStreamReader xml;
-    xml.addData(reply->readAll());
+    xml.addData(reply->reply()->readAll());
+    delete reply;
 
     int tabIndex = -1;
     for (int i=0; i<ui->tabWidget->count(); i++) {
-        QString replyUrl = reply->url().toString();
         if (replyUrl == ui->tabWidget->tabToolTip(i)) {
             tabIndex = i;
             break;
@@ -295,8 +314,6 @@ void RSSManager::finished(QNetworkReply* reply)
         item->setText(0, tr("Error in fetching feed"));
         treeWidget->addTopLevelItem(item);
     }
-
-    m_networkReplies.append(reply);
 }
 
 bool RSSManager::addRssFeed(const QString &address, const QString &title, const QIcon &icon)
