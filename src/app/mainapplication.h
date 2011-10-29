@@ -78,6 +78,8 @@ public:
 
     bool checkSettingsDir();
 
+    int defaultZoom() { return m_defaultZoom; }
+
     QupZilla* getWindow();
     CookieManager* cookieManager();
     BrowsingLibrary* browsingLibrary();
@@ -137,6 +139,7 @@ private:
     QString m_activeProfil;
     QString m_activeLanguage;
     QString m_activeThemePath;
+    int m_defaultZoom;
 
     bool m_isClosing;
     bool m_isStateChanged;

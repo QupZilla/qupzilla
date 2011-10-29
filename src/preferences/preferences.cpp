@@ -164,6 +164,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     ui->printEBackground->setChecked( settings.value("PrintElementBackground", true).toBool() );
     ui->wheelScroll->setValue( settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt() );
     ui->doNotTrack->setChecked( settings.value("DoNotTrack", false).toBool() );
+    ui->defaultZoom->setValue( settings.value("DefaultZoom", 100).toInt() );
 
     if (!ui->allowJavaScript->isChecked())
         ui->blockPopup->setEnabled(false);
@@ -613,6 +614,7 @@ void Preferences::saveSettings()
     settings.setValue("wheelScrollLines", ui->wheelScroll->value());
     settings.setValue("DoNotTrack", ui->doNotTrack->isChecked());
     settings.setValue("CheckUpdates", ui->checkUpdates->isChecked());
+    settings.setValue("DefaultZoom", ui->defaultZoom->value());
     //Cache
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
     settings.setValue("LocalCacheSize", ui->cacheMB->value());

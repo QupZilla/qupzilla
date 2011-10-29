@@ -38,20 +38,20 @@
 
 WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     : QWebView(webTab)
-    ,p_QupZilla(mainClass)
-    ,m_progress(0)
-    ,m_isLoading(false)
-    ,m_currentZoom(100)
-    ,m_aboutToLoadUrl(QUrl())
-    ,m_lastUrl(QUrl())
-    ,m_wantsClose(false)
-    ,m_page(new WebPage(this, p_QupZilla))
-    ,m_webTab(webTab)
-    ,m_locationBar(0)
-    ,m_mouseTrack(false)
-    ,m_navigationVisible(false)
-    ,m_mouseWheelEnabled(true)
-    //,m_loadingTimer(0)
+    , p_QupZilla(mainClass)
+    , m_progress(0)
+    , m_isLoading(false)
+    , m_currentZoom(100)
+    , m_aboutToLoadUrl(QUrl())
+    , m_lastUrl(QUrl())
+    , m_wantsClose(false)
+    , m_page(new WebPage(this, p_QupZilla))
+    , m_webTab(webTab)
+    , m_locationBar(0)
+    , m_mouseTrack(false)
+    , m_navigationVisible(false)
+    , m_mouseWheelEnabled(true)
+//    , m_loadingTimer(0)
 {
     m_networkProxy = new NetworkManagerProxy(p_QupZilla);
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
@@ -81,11 +81,14 @@ WebView::WebView(QupZilla* mainClass, WebTab* webTab)
 
     connect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
 
-    //Tracking mouse also on tabs created in fullscreen
+    // Tracking mouse also on tabs created in fullscreen
     trackMouse(p_QupZilla->isFullScreen());
 
-    //Zoom levels same as in firefox
+    // Zoom levels same as in firefox
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
+    // Set default zoom
+    m_currentZoom = mApp->defaultZoom();
+    applyZoom();
 }
 
 void WebView::slotIconChanged()
