@@ -108,7 +108,7 @@ void AdBlockDialog::firstRefresh()
 
 void AdBlockDialog::refreshAfterUpdate()
 {
-    QMessageBox::information(this, tr("Update completed"), tr("EasyList has been successfuly updated."));
+    QMessageBox::information(this, tr("Update completed"), tr("EasyList has been successfully updated."));
     refresh();
 }
 
