@@ -16,7 +16,23 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA
  */
-
+/* ============================================================
+* QupZilla - WebKit based browser
+* Copyright (C) 2010-2011  David Rosca
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* ============================================================ */
 #include "opensearchreader.h"
 
 #include "opensearchengine.h"
@@ -80,15 +96,15 @@ OpenSearchEngine *OpenSearchReader::read(QIODevice *device)
 OpenSearchEngine *OpenSearchReader::read()
 {
     OpenSearchEngine *engine = new OpenSearchEngine();
+    m_searchXml = device()->peek(1024*5);
 
     while (!isStartElement() && !atEnd())
         readNext();
 
-    if (name() != QLatin1String("OpenSearchDescription")
-        || namespaceUri() != QLatin1String("http://a9.com/-/spec/opensearch/1.1/")) {
-        raiseError(QObject::tr("The file is not an OpenSearch 1.1 file."));
-        return engine;
-    }
+    if (!m_searchXml.contains(QLatin1String("http://a9.com/-/spec/opensearch/1.1/"))) {
+            raiseError(QObject::tr("The file is not an OpenSearch 1.1 file."));
+            return engine;
+        }
 
     while (!atEnd()) {
         readNext();
@@ -96,12 +112,11 @@ OpenSearchEngine *OpenSearchReader::read()
         if (!isStartElement())
             continue;
 
-        if (name() == QLatin1String("ShortName")) {
+        if (name() == QLatin1String("ShortName") || name() == QLatin1String("os:ShortName")) {
             engine->setName(readElementText());
-        } else if (name() == QLatin1String("Description")) {
+        } else if (name() == QLatin1String("Description") || name() == QLatin1String("os:Description")) {
             engine->setDescription(readElementText());
-        } else if (name() == QLatin1String("Url")) {
-
+        } else if (name() == QLatin1String("Url") || name() == QLatin1String("os:Url")) {
             QString type = attributes().value(QLatin1String("type")).toString();
             QString url = attributes().value(QLatin1String("template")).toString();
             QString method = attributes().value(QLatin1String("method")).toString();
@@ -123,8 +138,9 @@ OpenSearchEngine *OpenSearchReader::read()
 
             readNext();
 
-            while (!(isEndElement() && name() == QLatin1String("Url"))) {
-                if (!isStartElement() || (name() != QLatin1String("Param") && name() != QLatin1String("Parameter"))) {
+            while (!isEndElement() || (name() != QLatin1String("Url") && name() != QLatin1String("os:Url"))) {
+                  if (!isStartElement() || (name() != QLatin1String("Param") && name() != QLatin1String("Parameter")
+                                            && name() != QLatin1String("os:Param") && name() != QLatin1String("os:Parameter") )) {
                     readNext();
                     continue;
                 }
@@ -149,7 +165,7 @@ OpenSearchEngine *OpenSearchReader::read()
                 engine->setSearchMethod(method);
             }
 
-        } else if (name() == QLatin1String("Image")) {
+        } else if (name() == QLatin1String("Image") || name() == QLatin1String("os:Image")) {
              engine->setImageUrl(readElementText());
         }
 
