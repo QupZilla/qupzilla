@@ -30,6 +30,7 @@ namespace Ui {
     class RSSManager;
 }
 
+class FollowRedirectReply;
 class QupZilla;
 class RSSManager : public QWidget
 {
@@ -48,7 +49,7 @@ public slots:
 private slots:
     void optimizeDb();
     void beginToLoadSlot(const QUrl &url);
-    void finished(QNetworkReply* reply);
+    void finished();
     void loadFeed(QTreeWidgetItem* item);
     void controlLoadFeed(QTreeWidgetItem* item);
     void reloadFeed();
@@ -59,7 +60,7 @@ private slots:
 
 private:
     QupZilla* getQupZilla();
-    QList<QNetworkReply*> m_networkReplies;
+    QList<QPair<FollowRedirectReply*, QUrl> > m_replies;
     QNetworkAccessManager* m_networkManager;
     Ui::RSSManager* ui;
     QPointer<QupZilla> p_QupZilla;
