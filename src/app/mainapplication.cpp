@@ -234,6 +234,7 @@ void MainApplication::loadSettings()
     int maxCachedPages = settings.value("maximumCachedPages",3).toInt();
     int scrollingLines = settings.value("wheelScrollLines", wheelScrollLines()).toInt();
     QUrl userStyleSheet = settings.value("userStyleSheet", QUrl()).toUrl();
+    m_defaultZoom = settings.value("DefaultZoom", 100).toInt();
     settings.endGroup();
 
     m_websettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
