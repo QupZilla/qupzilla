@@ -106,6 +106,29 @@ WebPage* WebView::webPage() const
     return m_page;
 }
 
+void WebView::back()
+{
+    if (page())  {
+        emit ipChanged(m_currentIp);
+        p_QupZilla->navigationBar()->goBack();
+    }
+}
+
+void WebView::forward()
+{
+    if (page()) {
+        emit ipChanged(m_currentIp);
+        p_QupZilla->navigationBar()->goForward();
+    }
+}
+
+void WebView::slotReload()
+{
+    if (page()) {
+        emit ipChanged(m_currentIp);
+        page()->triggerAction(QWebPage::Reload);
+    }
+}
 
 WebTab* WebView::webTab() const
 {

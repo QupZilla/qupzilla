@@ -166,7 +166,8 @@ SOURCES += main.cpp\
     bookmarksimport/operaimporter.cpp \
     bookmarksimport/bookmarksimportdialog.cpp \
     tools/iconfetcher.cpp \
-    tools/followredirectreply.cpp
+    tools/followredirectreply.cpp \
+    webview/webhistorywrapper.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -279,7 +280,8 @@ HEADERS  += \
     bookmarksimport/operaimporter.h \
     bookmarksimport/bookmarksimportdialog.h \
     tools/iconfetcher.h \
-    tools/followredirectreply.h
+    tools/followredirectreply.h \
+    webview/webhistorywrapper.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -376,6 +378,8 @@ equals(d_w7api, "true") { DEFINES += W7API }
 
 message(Using following defines)
 message($$DEFINES)
+
+
 
 
 

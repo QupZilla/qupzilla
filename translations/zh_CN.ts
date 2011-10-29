@@ -1685,12 +1685,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="585"/>
+        <location filename="../src/app/mainapplication.cpp" line="586"/>
         <source>Last session crashed</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="586"/>
+        <location filename="../src/app/mainapplication.cpp" line="587"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation></translation>
     </message>
@@ -1698,35 +1698,41 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="36"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="37"/>
         <source>Back</source>
         <translation>后退</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="43"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="44"/>
         <source>Forward</source>
         <translation>前进</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="57"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="58"/>
         <source>Home</source>
         <translation>主页</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="63"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="64"/>
         <source>New Tab</source>
         <translation>新标签</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="75"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="76"/>
         <source>Main Menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="90"/>
         <location filename="../src/navigation/navigationbar.cpp" line="91"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="92"/>
         <source>Exit Fullscreen</source>
         <translation>退出全屏</translation>
+    </message>
+    <message>
+        <location filename="../src/navigation/navigationbar.cpp" line="170"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="203"/>
+        <source>Clear history</source>
+        <translation type="unfinished">清除历史</translation>
     </message>
 </context>
 <context>
@@ -4231,134 +4237,134 @@ After adding or removing certificate paths, it is neccessary to restart browser 
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/webview/webview.cpp" line="95"/>
+        <location filename="../src/webview/webview.cpp" line="98"/>
         <source>Failed loading page</source>
         <translation>载入页面失败</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="159"/>
+        <location filename="../src/webview/webview.cpp" line="185"/>
         <source>Loading...</source>
         <translation>载入中...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="393"/>
-        <location filename="../src/webview/webview.cpp" line="401"/>
-        <location filename="../src/webview/webview.cpp" line="583"/>
+        <location filename="../src/webview/webview.cpp" line="419"/>
+        <location filename="../src/webview/webview.cpp" line="427"/>
+        <location filename="../src/webview/webview.cpp" line="609"/>
         <source>New tab</source>
         <translation>新标签</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="471"/>
+        <location filename="../src/webview/webview.cpp" line="497"/>
         <source>Open link in new &amp;tab</source>
         <translation>在新标签中打开链接</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="472"/>
+        <location filename="../src/webview/webview.cpp" line="498"/>
         <source>Open link in new &amp;window</source>
         <translation>在新窗口中打开链接</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="474"/>
+        <location filename="../src/webview/webview.cpp" line="500"/>
         <source>B&amp;ookmark link</source>
         <translation>书签链接</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="475"/>
+        <location filename="../src/webview/webview.cpp" line="501"/>
         <source>&amp;Save link as...</source>
         <translation>链接另存为...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="476"/>
+        <location filename="../src/webview/webview.cpp" line="502"/>
         <source>Send link...</source>
         <translation>发送链接...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="477"/>
+        <location filename="../src/webview/webview.cpp" line="503"/>
         <source>&amp;Copy link address</source>
         <translation>复制链接地址&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="486"/>
+        <location filename="../src/webview/webview.cpp" line="512"/>
         <source>Show i&amp;mage</source>
         <translation>显示图像&amp;m</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="487"/>
+        <location filename="../src/webview/webview.cpp" line="513"/>
         <source>Copy im&amp;age</source>
         <translation>复制图像&amp;a</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="488"/>
+        <location filename="../src/webview/webview.cpp" line="514"/>
         <source>Copy image ad&amp;dress</source>
         <translation>复制图像地址&amp;d</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="490"/>
+        <location filename="../src/webview/webview.cpp" line="516"/>
         <source>&amp;Save image as...</source>
         <translation>图像另存为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="491"/>
+        <location filename="../src/webview/webview.cpp" line="517"/>
         <source>Send image...</source>
         <translation>发送图像...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="507"/>
+        <location filename="../src/webview/webview.cpp" line="533"/>
         <source>&amp;Back</source>
         <translation>后退&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="511"/>
+        <location filename="../src/webview/webview.cpp" line="537"/>
         <source>&amp;Forward</source>
         <translation>前进&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="516"/>
+        <location filename="../src/webview/webview.cpp" line="542"/>
         <source>&amp;Reload</source>
         <translation>刷新&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="517"/>
+        <location filename="../src/webview/webview.cpp" line="543"/>
         <source>S&amp;top</source>
         <translation>停止</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="521"/>
+        <location filename="../src/webview/webview.cpp" line="547"/>
         <source>Book&amp;mark page</source>
         <translation>加入书签</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="522"/>
+        <location filename="../src/webview/webview.cpp" line="548"/>
         <source>&amp;Save page as...</source>
         <translation>保存网页为...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="523"/>
+        <location filename="../src/webview/webview.cpp" line="549"/>
         <source>Send page...</source>
         <translation>发送网页...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="525"/>
+        <location filename="../src/webview/webview.cpp" line="551"/>
         <source>Select &amp;all</source>
         <translation>选取所有</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="530"/>
+        <location filename="../src/webview/webview.cpp" line="556"/>
         <source>Show so&amp;urce code</source>
         <translation>显示源代码</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="531"/>
+        <location filename="../src/webview/webview.cpp" line="557"/>
         <source>Show info ab&amp;out site</source>
         <translation>显示有关网站的信息</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="532"/>
+        <location filename="../src/webview/webview.cpp" line="558"/>
         <source>Show Web &amp;Inspector</source>
         <translation>显示Web及督察</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="543"/>
+        <location filename="../src/webview/webview.cpp" line="569"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4367,7 +4373,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
         <translation type="obsolete">使用Google搜索</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="789"/>
+        <location filename="../src/webview/webview.cpp" line="815"/>
         <source>No Named Page</source>
         <translation>无命名页面</translation>
     </message>
