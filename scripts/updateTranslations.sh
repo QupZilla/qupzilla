@@ -15,6 +15,8 @@ lupdate ../src/QupZilla.pro -no-obsolete -ts ../translations/es.ts
 
 lupdate ../src/QupZilla.pro -no-obsolete -ts ../translations/it_IT.ts
 
+lupdate ../src/QupZilla.pro -no-obsolete -ts ../translations/zh_CN.ts
+
 ## uncomment it now
 sed -i 's/##temp/include(3rdparty/g' ../src/QupZilla.pro
 
