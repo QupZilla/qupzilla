@@ -365,8 +365,9 @@ void WebView::checkRss()
 
     for (int i = 0; i<links.count(); i++) {
         QWebElement element = links.at(i);
-        //We will show only atom+xml and rss+xml
-        if (element.attribute("rel")!="alternate" || (element.attribute("type")!="application/rss+xml" && element.attribute("type")!="application/atom+xml") )
+        // Dropping support for atom
+//        if (element.attribute("rel")!="alternate" || (element.attribute("type")!="application/rss+xml" && element.attribute("type")!="application/atom+xml") )
+        if (element.attribute("rel")!="alternate" || element.attribute("type")!="application/rss+xml")
             continue;
         QString title = element.attribute("title");
         QString href = element.attribute("href");
