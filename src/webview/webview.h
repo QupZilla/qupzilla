@@ -70,9 +70,9 @@ public:
 
 public slots:
     void stop();
-    void back(){ if (page()) {emit ipChanged(m_currentIp); page()->triggerAction(QWebPage::Back);} }
-    void forward(){ if (page()) {emit ipChanged(m_currentIp); page()->triggerAction(QWebPage::Forward);} }
-    void slotReload(){ if (page()) {emit ipChanged(m_currentIp); page()->triggerAction(QWebPage::Reload);} }
+    void back();
+    void forward();
+    void slotReload();
     void iconChanged();
     void selectAll();
     void closeTab();

@@ -21,6 +21,7 @@
 #include "iconprovider.h"
 #include "websearchbar.h"
 #include "reloadstopbutton.h"
+#include "webhistorywrapper.h"
 
 NavigationBar::NavigationBar(QupZilla *mainClass, QWidget *parent)
     : QWidget(parent)
@@ -102,8 +103,8 @@ NavigationBar::NavigationBar(QupZilla *mainClass, QWidget *parent)
 
     connect(m_menuBack, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryBackMenu()));
     connect(m_menuForward, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryNextMenu()));
-    connect(m_buttonBack, SIGNAL(clicked()), p_QupZilla, SLOT(goBack()));
-    connect(m_buttonNext, SIGNAL(clicked()), p_QupZilla, SLOT(goNext()));
+    connect(m_buttonBack, SIGNAL(clicked()), this, SLOT(goBack()));
+    connect(m_buttonNext, SIGNAL(clicked()), this, SLOT(goForward()));
     connect(m_reloadStop->buttonStop(), SIGNAL(clicked()), p_QupZilla, SLOT(stop()));
     connect(m_reloadStop->buttonReload(), SIGNAL(clicked()), p_QupZilla, SLOT(reload()));
     connect(m_buttonHome, SIGNAL(clicked()), p_QupZilla, SLOT(goHome()));
@@ -142,12 +143,14 @@ void NavigationBar::aboutToShowHistoryBackMenu()
         return;
     m_menuBack->clear();
     QWebHistory* history = p_QupZilla->weView()->history();
+
     int curindex = history->currentItemIndex();
     int count = 0;
+    QUrl lastUrl = history->currentItem().url();
 
     for (int i = curindex-1; i >= 0; i--) {
         QWebHistoryItem item = history->itemAt(i);
-        if (item.isValid()) {
+        if (item.isValid() && lastUrl != item.url()) {
             QString title = item.title();
             if (title.length() > 40) {
                 title.truncate(40);
@@ -155,11 +158,16 @@ void NavigationBar::aboutToShowHistoryBackMenu()
             }
             QAction* action = m_menuBack->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
             action->setData(i);
-            count++;
+            lastUrl = item.url();
         }
+
+        count++;
         if (count == 20)
             break;
     }
+
+    m_menuBack->addSeparator();
+    m_menuBack->addAction(tr("Clear history"), this, SLOT(clearHistory()));
 }
 
 void NavigationBar::aboutToShowHistoryNextMenu()
@@ -167,13 +175,15 @@ void NavigationBar::aboutToShowHistoryNextMenu()
     if (!m_menuForward || !p_QupZilla->weView())
         return;
     m_menuForward->clear();
+
     QWebHistory* history = p_QupZilla->weView()->history();
     int curindex = history->currentItemIndex();
     int count = 0;
+    QUrl lastUrl = history->currentItem().url();
 
     for (int i = curindex+1; i < history->count(); i++) {
         QWebHistoryItem item = history->itemAt(i);
-        if (item.isValid()) {
+        if (item.isValid() && lastUrl != item.url()) {
             QString title = item.title();
             if (title.length() > 40) {
                 title.truncate(40);
@@ -181,11 +191,23 @@ void NavigationBar::aboutToShowHistoryNextMenu()
             }
             QAction* action = m_menuForward->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
             action->setData(i);
-            count++;
+            lastUrl = item.url();
         }
+
+        count++;
         if (count == 20)
             break;
     }
+
+    m_menuForward->addSeparator();
+    m_menuForward->addAction(tr("Clear history"), this, SLOT(clearHistory()));
+}
+
+void NavigationBar::clearHistory()
+{
+    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    history->clear();
+    refreshHistory();
 }
 
 void NavigationBar::goAtHistoryIndex()
@@ -193,6 +215,7 @@ void NavigationBar::goAtHistoryIndex()
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         p_QupZilla->weView()->page()->history()->goToItem(p_QupZilla->weView()->page()->history()->itemAt(action->data().toInt()));
     }
+
     refreshHistory();
 }
 
@@ -202,8 +225,18 @@ void NavigationBar::refreshHistory()
         return;
 
     QWebHistory* history = p_QupZilla->weView()->page()->history();
-    m_buttonBack->setEnabled(history->canGoBack());
-    m_buttonNext->setEnabled(history->canGoForward());
+    m_buttonBack->setEnabled(WebHistoryWrapper::canGoBack(history));
+    m_buttonNext->setEnabled(WebHistoryWrapper::canGoForward(history));
+}
+
+void NavigationBar::goBack()
+{
+    WebHistoryWrapper::goBack(p_QupZilla->weView()->page()->history());
+}
+
+void NavigationBar::goForward()
+{
+    WebHistoryWrapper::goForward(p_QupZilla->weView()->page()->history());
 }
 
 NavigationBar::~NavigationBar()
