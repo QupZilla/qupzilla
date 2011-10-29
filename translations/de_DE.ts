@@ -280,7 +280,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences/autofillmanager.ui" line="103"/>
         <location filename="../src/preferences/autofillmanager.cpp" line="70"/>
         <source>Show Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>Passwörter im Klartext anzeigen</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="113"/>
@@ -290,7 +290,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="70"/>
         <source>Are you sure that you want to show all passwords?</source>
-        <translation type="unfinished"></translation>
+        <translation>Sind Sie sicher, dass Sie alle Passwörter im Klartext anzeigen wollen?</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="100"/>
@@ -430,7 +430,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="248"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation>Mozilla Firefox speichert die Lesezeichen in der Datei &lt;b&gt;places.sqlite&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter</translation>
+        <translation>Mozilla Firefox speichert die Lesezeichen in der Datei &lt;b&gt;places.sqlite&lt;/b&gt;. Diese Datei ist gewöhnlich gespeichert unter</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="263"/>
@@ -440,7 +440,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="279"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Opera speichert die Lesezeichen in der Datei &lt;b&gt;bookmarks.adr&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter</translation>
+        <translation>Opera speichert die Lesezeichen in der Datei &lt;b&gt;bookmarks.adr&lt;/b&gt;. Diese Datei ist gewöhnlich gespeichert unter</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="293"/>
@@ -481,7 +481,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="83"/>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
         <source>Rename Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordner umbenennen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="90"/>
@@ -506,7 +506,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="76"/>
         <source>Add Subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>Unterordner hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="84"/>
@@ -552,17 +552,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Add new subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>Neuen Unterordner hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation type="unfinished"></translation>
+        <translation>Namen für neuen Unterordner in Lesezeichen-Leiste auswählen: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
         <source>Choose name for folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>Namen für Ordner auswählen: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="188"/>
@@ -655,7 +655,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="101"/>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Link-Adresse kopieren</translation>
     </message>
     <message>
         <source>Move bookmark to &amp;folder</source>
@@ -716,17 +716,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="80"/>
         <source>Move right</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach rechts</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="81"/>
         <source>Move left</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach links</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="83"/>
         <source>Remove bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen entfernen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="411"/>
@@ -742,7 +742,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="449"/>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="466"/>
         <source>Empty</source>
-        <translation type="unfinished">Leer</translation>
+        <translation>Leer</translation>
     </message>
     <message>
         <source>Sites You visited the most</source>
@@ -1639,7 +1639,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="84"/>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Link-Adresse kopieren</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="101"/>
