@@ -53,10 +53,15 @@ signals:
 public slots:
     void refreshHistory();
 
+    void goBack();
+    void goForward();
+
 private slots:
     void aboutToShowHistoryNextMenu();
     void aboutToShowHistoryBackMenu();
+
     void goAtHistoryIndex();
+    void clearHistory();
 
 private:
     QupZilla* p_QupZilla;
@@ -75,7 +80,6 @@ private:
     QMenu* m_menuForward;
 
     WebSearchBar* m_searchLine;
-
 };
 
 #endif // NAVIGATIONBAR_H

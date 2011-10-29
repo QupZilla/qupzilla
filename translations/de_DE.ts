@@ -1700,12 +1700,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="585"/>
+        <location filename="../src/app/mainapplication.cpp" line="586"/>
         <source>Last session crashed</source>
         <translation>Die letzte Sitzung wurde unerwartet beendet</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="586"/>
+        <location filename="../src/app/mainapplication.cpp" line="587"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla ist abgestürzt :-(&lt;/b&gt;&lt;br/&gt;Hoppla,die letzte Sitzung wurde unerwartet beendet. Verzeihung. Möchten Sie den letzten Status wiederherstellen?</translation>
     </message>
@@ -1713,35 +1713,41 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="36"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="37"/>
         <source>Back</source>
         <translation>Zurück</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="43"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="44"/>
         <source>Forward</source>
         <translation>Vorwärts</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="57"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="58"/>
         <source>Home</source>
         <translation>Startseite</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="63"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="64"/>
         <source>New Tab</source>
         <translation>Neuer Tab</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="75"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="76"/>
         <source>Main Menu</source>
         <translation>Hauptmenü</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="90"/>
         <location filename="../src/navigation/navigationbar.cpp" line="91"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="92"/>
         <source>Exit Fullscreen</source>
         <translation>Vollbildmodus beenden</translation>
+    </message>
+    <message>
+        <location filename="../src/navigation/navigationbar.cpp" line="170"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="203"/>
+        <source>Clear history</source>
+        <translation type="unfinished">Verlauf löschen</translation>
     </message>
 </context>
 <context>
@@ -4342,62 +4348,62 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/webview/webview.cpp" line="159"/>
+        <location filename="../src/webview/webview.cpp" line="185"/>
         <source>Loading...</source>
         <translation>Laden...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="471"/>
+        <location filename="../src/webview/webview.cpp" line="497"/>
         <source>Open link in new &amp;tab</source>
         <translation>Link in neuem &amp;Tab öffnen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="472"/>
+        <location filename="../src/webview/webview.cpp" line="498"/>
         <source>Open link in new &amp;window</source>
         <translation>Link in neuem &amp;Fenster öffnen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="474"/>
+        <location filename="../src/webview/webview.cpp" line="500"/>
         <source>B&amp;ookmark link</source>
         <translation>&amp;Lesezeichen für diesen Link hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="475"/>
+        <location filename="../src/webview/webview.cpp" line="501"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Ziel speichern unter...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="477"/>
+        <location filename="../src/webview/webview.cpp" line="503"/>
         <source>&amp;Copy link address</source>
         <translation>Lin&amp;k-Adresse kopieren</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="486"/>
+        <location filename="../src/webview/webview.cpp" line="512"/>
         <source>Show i&amp;mage</source>
         <translation>G&amp;rafik anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="487"/>
+        <location filename="../src/webview/webview.cpp" line="513"/>
         <source>Copy im&amp;age</source>
         <translation>Grafik k&amp;opieren</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="488"/>
+        <location filename="../src/webview/webview.cpp" line="514"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Grafika&amp;dresse kopieren</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="517"/>
+        <location filename="../src/webview/webview.cpp" line="543"/>
         <source>S&amp;top</source>
         <translation>S&amp;topp</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="531"/>
+        <location filename="../src/webview/webview.cpp" line="557"/>
         <source>Show info ab&amp;out site</source>
         <translation>S&amp;eiteninformationen anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="532"/>
+        <location filename="../src/webview/webview.cpp" line="558"/>
         <source>Show Web &amp;Inspector</source>
         <translation>Web &amp;Inspector anzeigen</translation>
     </message>
@@ -4406,79 +4412,79 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation type="obsolete">Suche &quot;%1 ..&quot; auf &amp;Google</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="490"/>
+        <location filename="../src/webview/webview.cpp" line="516"/>
         <source>&amp;Save image as...</source>
         <translation>Grafik speichern &amp;unter...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="95"/>
+        <location filename="../src/webview/webview.cpp" line="98"/>
         <source>Failed loading page</source>
         <translation>Seite konnte nicht geladen werden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="507"/>
+        <location filename="../src/webview/webview.cpp" line="533"/>
         <source>&amp;Back</source>
         <translation>&amp;Zurück</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="511"/>
+        <location filename="../src/webview/webview.cpp" line="537"/>
         <source>&amp;Forward</source>
         <translation>&amp;Vor</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="516"/>
+        <location filename="../src/webview/webview.cpp" line="542"/>
         <source>&amp;Reload</source>
         <translation>&amp;Neu laden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="521"/>
+        <location filename="../src/webview/webview.cpp" line="547"/>
         <source>Book&amp;mark page</source>
         <translation>&amp;Lesezeichen für diese Seite hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="522"/>
+        <location filename="../src/webview/webview.cpp" line="548"/>
         <source>&amp;Save page as...</source>
         <translation>Seite speichern &amp;unter...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="525"/>
+        <location filename="../src/webview/webview.cpp" line="551"/>
         <source>Select &amp;all</source>
         <translation>Alles au&amp;swählen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="530"/>
+        <location filename="../src/webview/webview.cpp" line="556"/>
         <source>Show so&amp;urce code</source>
         <translation>Seitenquelltext &amp;anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="543"/>
+        <location filename="../src/webview/webview.cpp" line="569"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Suche &quot;%1 ..&quot; mit %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="789"/>
+        <location filename="../src/webview/webview.cpp" line="815"/>
         <source>No Named Page</source>
         <translation>Unbekannte Seite</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="393"/>
-        <location filename="../src/webview/webview.cpp" line="401"/>
-        <location filename="../src/webview/webview.cpp" line="583"/>
+        <location filename="../src/webview/webview.cpp" line="419"/>
+        <location filename="../src/webview/webview.cpp" line="427"/>
+        <location filename="../src/webview/webview.cpp" line="609"/>
         <source>New tab</source>
         <translation>Neuer Tab</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="476"/>
+        <location filename="../src/webview/webview.cpp" line="502"/>
         <source>Send link...</source>
         <translation>Link senden...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="491"/>
+        <location filename="../src/webview/webview.cpp" line="517"/>
         <source>Send image...</source>
         <translation>Grafik senden...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="523"/>
+        <location filename="../src/webview/webview.cpp" line="549"/>
         <source>Send page...</source>
         <translation>Seite senden...</translation>
     </message>
