@@ -101,9 +101,13 @@ void ClickToFlash::ensurePluginVisible()
     // I don't know any other method how to show our plugin
     // and adjust it on the proper position in page
 
-    m_page->mainFrame()->setZoomFactor(m_page->mainFrame()->zoomFactor() + 1);
-    m_page->mainFrame()->setZoomFactor(m_page->mainFrame()->zoomFactor() - 1);
+    // Scheduling adjustingPage rather than actually changing zoomFactor
+    // right now, as it is CPU intensive when there is lot of click2flash
+    // objects on page
+
+    m_page->scheduleAdjustPage();
 }
+
 void ClickToFlash::customContextMenuRequested(const QPoint &pos)
 {
     QMenu menu;

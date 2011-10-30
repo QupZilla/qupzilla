@@ -213,6 +213,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     //DOWNLOADS
     settings.beginGroup("DownloadManager");
     ui->downLoc->setText( settings.value("defaultDownloadPath","").toString() );
+    ui->closeDownManOnFinish->setChecked( settings.value("CloseManagerOnFinish", false).toBool() );
     ui->downlaodNativeSystemDialog->setChecked( settings.value("useNativeDialog",
 #ifdef Q_WS_WIN
     false
@@ -584,6 +585,7 @@ void Preferences::saveSettings()
         settings.setValue("defaultDownloadPath","");
     else
         settings.setValue("defaultDownloadPath", ui->downLoc->text());
+    settings.setValue("CloseManagerOnFinish", ui->closeDownManOnFinish->isChecked());
     settings.setValue("useNativeDialog", ui->downlaodNativeSystemDialog->isChecked());
     settings.endGroup();
 

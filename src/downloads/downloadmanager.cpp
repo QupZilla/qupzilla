@@ -28,10 +28,10 @@
 #include "webpage.h"
 #include "downloadfilehelper.h"
 
-DownloadManager::DownloadManager(QWidget* parent) :
-    QWidget(parent)
-    ,ui(new Ui::DownloadManager)
-    ,m_isClosing(false)
+DownloadManager::DownloadManager(QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::DownloadManager)
+    , m_isClosing(false)
 {
     setWindowFlags(windowFlags() ^ Qt::WindowMaximizeButtonHint);
     ui->setupUi(this);
@@ -60,6 +60,7 @@ void DownloadManager::loadSettings()
     settings.beginGroup("DownloadManager");
     m_downloadPath = settings.value("defaultDownloadPath", "").toString();
     m_lastDownloadPath = settings.value("lastDownloadPath", QDir::homePath() + "/").toString();
+    m_closeOnFinish = settings.value("CloseManagerOnFinish", false).toBool();
     m_useNativeDialog = settings.value("useNativeDialog",
                                    #ifdef Q_WS_WIN
                                        false
@@ -200,8 +201,10 @@ void DownloadManager::downloadFinished(bool success)
     if (downloadingAllFilesFinished) {
         if (success && qApp->activeWindow() != this) {
             mApp->desktopNotifications()->notify(QPixmap(":icons/notifications/download.png"), tr("Download Finished"), tr("All files have been successfuly downloaded."));
-            raise();
-            activateWindow();
+            if (!m_closeOnFinish) {
+                raise();
+                activateWindow();
+            }
         }
         ui->speedLabel->clear();
         setWindowTitle(tr("Download Manager"));
@@ -211,6 +214,8 @@ void DownloadManager::downloadFinished(bool success)
             win7.setProgressState(win7.NoProgress);
         }
 #endif
+        if (m_closeOnFinish)
+            close();
     }
 }
 
