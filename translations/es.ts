@@ -947,42 +947,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ClickToFlash</name>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="110"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="114"/>
         <source>Object blocked by ClickToFlash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="111"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="115"/>
         <source>Show more informations about object</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="113"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="117"/>
         <source>Delete object</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="114"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="118"/>
         <source>Add %1 to whitelist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="220"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="224"/>
         <source>Flash Object</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="223"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="227"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="223"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="227"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="234"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="238"/>
         <source>No more informations available.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1285,8 +1285,8 @@ p, li { white-space: pre-wrap; }
     <name>DownloadManager</name>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="102"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="207"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="210"/>
         <source>Download Manager</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1296,32 +1296,32 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="131"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="132"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="134"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="135"/>
         <source>% - Download Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="202"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="203"/>
         <source>Download Finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="202"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="203"/>
         <source>All files have been successfuly downloaded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="246"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="251"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="247"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="252"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2022,7 +2022,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="461"/>
-        <location filename="../src/preferences/preferences.cpp" line="528"/>
+        <location filename="../src/preferences/preferences.cpp" line="529"/>
         <source>Note: You cannot delete active profile.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2383,7 +2383,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1461"/>
-        <location filename="../src/preferences/preferences.ui" line="1956"/>
+        <location filename="../src/preferences/preferences.ui" line="1963"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2399,178 +2399,183 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1531"/>
-        <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
+        <location filename="../src/preferences/preferences.ui" line="1527"/>
+        <source>Close download manager when downloading finishes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1538"/>
+        <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1545"/>
         <source>Allow saving passwords from sites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1608"/>
+        <location filename="../src/preferences/preferences.ui" line="1615"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1615"/>
+        <location filename="../src/preferences/preferences.ui" line="1622"/>
         <source>Filter Tracking Cookies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1622"/>
+        <location filename="../src/preferences/preferences.ui" line="1629"/>
         <source>Allow storing of cookies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1629"/>
+        <location filename="../src/preferences/preferences.ui" line="1636"/>
         <source>Delete cookies on close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1649"/>
+        <location filename="../src/preferences/preferences.ui" line="1656"/>
         <source>Match domain exactly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1685"/>
+        <location filename="../src/preferences/preferences.ui" line="1692"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1701"/>
+        <location filename="../src/preferences/preferences.ui" line="1708"/>
         <source>Cookies Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1714"/>
+        <location filename="../src/preferences/preferences.ui" line="1721"/>
         <source>SSL Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1727"/>
+        <location filename="../src/preferences/preferences.ui" line="1734"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1734"/>
+        <location filename="../src/preferences/preferences.ui" line="1741"/>
         <source>Use OSD Notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1744"/>
+        <location filename="../src/preferences/preferences.ui" line="1751"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1751"/>
+        <location filename="../src/preferences/preferences.ui" line="1758"/>
         <source>Do not use Notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1802"/>
+        <location filename="../src/preferences/preferences.ui" line="1809"/>
         <source>Expiration timeout:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1815"/>
+        <location filename="../src/preferences/preferences.ui" line="1822"/>
         <source> seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1824"/>
+        <location filename="../src/preferences/preferences.ui" line="1831"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1873"/>
+        <location filename="../src/preferences/preferences.ui" line="1880"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1880"/>
+        <location filename="../src/preferences/preferences.ui" line="1887"/>
         <source>Available translations: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1919"/>
+        <location filename="../src/preferences/preferences.ui" line="1926"/>
         <source>In order to change language, you must restart browser.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1939"/>
+        <location filename="../src/preferences/preferences.ui" line="1946"/>
         <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1946"/>
+        <location filename="../src/preferences/preferences.ui" line="1953"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1965"/>
+        <location filename="../src/preferences/preferences.ui" line="1972"/>
         <source>Languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1987"/>
+        <location filename="../src/preferences/preferences.ui" line="1994"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="341"/>
+        <location filename="../src/preferences/preferences.cpp" line="342"/>
         <source>OSD Notification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="342"/>
+        <location filename="../src/preferences/preferences.cpp" line="343"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="368"/>
+        <location filename="../src/preferences/preferences.cpp" line="369"/>
         <source>Choose download location...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="381"/>
+        <location filename="../src/preferences/preferences.cpp" line="382"/>
         <source>Choose stylesheet location...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="492"/>
+        <location filename="../src/preferences/preferences.cpp" line="493"/>
         <source>New Profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="492"/>
+        <location filename="../src/preferences/preferences.cpp" line="493"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="497"/>
-        <location filename="../src/preferences/preferences.cpp" line="501"/>
+        <location filename="../src/preferences/preferences.cpp" line="498"/>
+        <location filename="../src/preferences/preferences.cpp" line="502"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="497"/>
+        <location filename="../src/preferences/preferences.cpp" line="498"/>
         <source>This profile already exists!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="501"/>
+        <location filename="../src/preferences/preferences.cpp" line="502"/>
         <source>Cannot create profile directory!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="514"/>
+        <location filename="../src/preferences/preferences.cpp" line="515"/>
         <source>Confirmation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="515"/>
+        <location filename="../src/preferences/preferences.cpp" line="516"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4080,88 +4085,88 @@ After adding or removing certificate paths, it is neccessary to restart browser 
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="131"/>
+        <location filename="../src/webview/webpage.cpp" line="139"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="225"/>
+        <location filename="../src/webview/webpage.cpp" line="233"/>
         <source>Server refused the connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="228"/>
+        <location filename="../src/webview/webpage.cpp" line="236"/>
         <source>Server closed the connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="231"/>
+        <location filename="../src/webview/webpage.cpp" line="239"/>
         <source>Server not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="234"/>
+        <location filename="../src/webview/webpage.cpp" line="242"/>
         <source>Connection timed out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="237"/>
+        <location filename="../src/webview/webpage.cpp" line="245"/>
         <source>Untrusted connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="259"/>
+        <location filename="../src/webview/webpage.cpp" line="267"/>
         <source>AdBlocked Content</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="270"/>
+        <location filename="../src/webview/webpage.cpp" line="278"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="277"/>
+        <location filename="../src/webview/webpage.cpp" line="285"/>
         <source>Content Access Denied</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="287"/>
+        <location filename="../src/webview/webpage.cpp" line="295"/>
         <source>Error code %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="298"/>
+        <location filename="../src/webview/webpage.cpp" line="306"/>
         <source>Failed loading page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="305"/>
+        <location filename="../src/webview/webpage.cpp" line="313"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="306"/>
+        <location filename="../src/webview/webpage.cpp" line="314"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="307"/>
+        <location filename="../src/webview/webpage.cpp" line="315"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="308"/>
+        <location filename="../src/webview/webpage.cpp" line="316"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="309"/>
+        <location filename="../src/webview/webpage.cpp" line="317"/>
         <source>Try Again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="442"/>
+        <location filename="../src/webview/webpage.cpp" line="450"/>
         <source>Choose file...</source>
         <translation type="unfinished"></translation>
     </message>

@@ -22,6 +22,7 @@
 #include <QMenu>
 #include <QPushButton>
 #include <QDebug>
+#include <QWebFrame>
 
 namespace Ui {
     class RSSWidget;
@@ -33,7 +34,7 @@ class RSSWidget : public QMenu
     Q_OBJECT
 
 public:
-    explicit RSSWidget(WebView* view, QList<QPair<QString,QString> > availableRss, QWidget* parent = 0);
+    explicit RSSWidget(WebView* view, QWidget* parent = 0);
     ~RSSWidget();
 
     void showAt(QWidget* _parent);
@@ -43,7 +44,6 @@ private slots:
 
 private:
     Ui::RSSWidget* ui;
-    QList<QPair<QString,QString> > m_avRss;
     WebView* m_view;
 };
 
