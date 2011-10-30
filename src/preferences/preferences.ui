@@ -1464,7 +1464,7 @@
          </item>
         </layout>
        </item>
-       <item row="8" column="2">
+       <item row="9" column="2">
         <spacer name="verticalSpacer_10">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -1513,11 +1513,18 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="1" colspan="3">
+       <item row="8" column="1" colspan="3">
         <widget class="QCheckBox" name="downlaodNativeSystemDialog">
          <property name="text">
           <string>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1" colspan="3">
+        <widget class="QCheckBox" name="closeDownManOnFinish">
+         <property name="text">
+          <string>Close download manager when downloading finishes</string>
          </property>
         </widget>
        </item>

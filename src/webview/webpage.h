@@ -66,13 +66,15 @@ public:
 
     QupZilla* qupzilla() { return p_QupZilla; }
 
+    void scheduleAdjustPage() { m_adjustingScheduled = true; }
+
 signals:
     void privacyChanged(bool status);
 
 protected slots:
     QWebPage* createWindow(QWebPage::WebWindowType type);
     void handleUnsupportedContent(QNetworkReply* url);
-    void loadingStarted();
+//    void loadingStarted();
     void progress(int prog);
     void finished();
 
@@ -98,6 +100,7 @@ private:
 
     bool m_blockAlerts;
     bool m_secureStatus;
+    bool m_adjustingScheduled;
 //    bool m_isOpeningNextWindowAsNewTab;
 };
 
