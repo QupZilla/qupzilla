@@ -163,9 +163,7 @@ void LocationBar::showSiteInfo()
 
 void LocationBar::rssIconClicked()
 {
-    QList<QPair<QString,QString> > _rss = m_webView->getRss();
-
-    RSSWidget* rss = new RSSWidget(m_webView, _rss, this);
+    RSSWidget* rss = new RSSWidget(m_webView, this);
     rss->showAt(this);
 }
 

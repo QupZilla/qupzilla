@@ -22,21 +22,29 @@
 #include "rssmanager.h"
 #include "rssnotification.h"
 
-RSSWidget::RSSWidget(WebView* view, QList<QPair<QString, QString> > availableRss, QWidget* parent)
-    :QMenu(parent)
-    ,ui(new Ui::RSSWidget)
-    ,m_avRss(availableRss)
-    ,m_view(view)
+RSSWidget::RSSWidget(WebView* view, QWidget* parent)
+    : QMenu(parent)
+    , ui(new Ui::RSSWidget)
+    , m_view(view)
 {
     ui->setupUi(this);
-    for (int i = 0; i < m_avRss.count(); i++) {
-        QPair<QString, QString> rss = m_avRss.at(i);
+
+    QWebFrame* frame = m_view->page()->mainFrame();
+    QWebElementCollection links = frame->findAllElements("link[type=\"application/rss+xml\"]");
+
+    for (int i = 0; i < links.count(); i++) {
+        QWebElement element = links.at(i);
+        QString title = element.attribute("title");
+        QString href = element.attribute("href");
+        if (href.isEmpty() || title.isEmpty())
+            continue;
+
         QPushButton* button = new QPushButton(this);
         button->setText(tr("Add"));
-        button->setWhatsThis(rss.second);
-        button->setToolTip(rss.first);
+        button->setWhatsThis(href);
+        button->setToolTip(title);
         QLabel* label = new QLabel(this);
-        label->setText(rss.first);
+        label->setText(title);
         ui->gridLayout->addWidget(label, i, 0);
         ui->gridLayout->addWidget(button, i, 1);
         connect(button, SIGNAL(clicked()), this, SLOT(addRss()));

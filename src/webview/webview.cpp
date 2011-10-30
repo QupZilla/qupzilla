@@ -39,18 +39,20 @@
 WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     : QWebView(webTab)
     , p_QupZilla(mainClass)
-    , m_progress(0)
-    , m_isLoading(false)
-    , m_currentZoom(100)
     , m_aboutToLoadUrl(QUrl())
     , m_lastUrl(QUrl())
-    , m_wantsClose(false)
+    , m_progress(0)
+    , m_currentZoom(100)
     , m_page(new WebPage(this, p_QupZilla))
     , m_webTab(webTab)
     , m_locationBar(0)
     , m_mouseTrack(false)
     , m_navigationVisible(false)
     , m_mouseWheelEnabled(true)
+    , m_wantsClose(false)
+    , m_isLoading(false)
+    , m_hasRss(false)
+    , m_rssChecked(false)
 //    , m_loadingTimer(0)
 {
     m_networkProxy = new NetworkManagerProxy(p_QupZilla);
@@ -165,7 +167,9 @@ void WebView::linkClicked(const QUrl &url)
 void WebView::setProgress(int prog)
 {
     m_progress = prog;
-    checkRss();
+
+    if (prog > 60)
+        checkRss();
 
     if (isCurrent()) {
         p_QupZilla->ipLabel()->hide();
@@ -179,8 +183,11 @@ void WebView::loadStarted()
 {
     m_progress = 0;
     m_isLoading = true;
+    m_rssChecked = false;
+    emit rssChanged(false);
 
     animationLoading(tabIndex(),true);
+
     if (title().isNull())
         tabWidget()->setTabText(tabIndex(),tr("Loading..."));
 
@@ -385,24 +392,15 @@ QUrl WebView::guessUrlFromString(const QString &string)
 
 void WebView::checkRss()
 {
+    if (m_rssChecked)
+        return;
+
+    m_rssChecked = true;
     QWebFrame* frame = page()->mainFrame();
-    QWebElementCollection links = frame->findAllElements("link");
-    m_rss.clear();
+    QWebElementCollection links = frame->findAllElements("link[type=\"application/rss+xml\"]");
 
-    for (int i = 0; i<links.count(); i++) {
-        QWebElement element = links.at(i);
-        // Dropping support for atom
-//        if (element.attribute("rel")!="alternate" || (element.attribute("type")!="application/rss+xml" && element.attribute("type")!="application/atom+xml") )
-        if (element.attribute("rel")!="alternate" || element.attribute("type")!="application/rss+xml")
-            continue;
-        QString title = element.attribute("title");
-        QString href = element.attribute("href");
-        if (href.isEmpty() || title.isEmpty())
-            continue;
-        m_rss.append(QPair<QString,QString>(title, href));
-    }
-
-    emit rssChanged(!m_rss.isEmpty());
+    m_hasRss = links.count() != 0;
+    emit rssChanged(m_hasRss);
 }
 
 void WebView::mousePressEvent(QMouseEvent* event)

@@ -57,8 +57,7 @@ public:
     QLabel* animationLoading(int index, bool addMovie);
     QIcon siteIcon();
     void addNotification(QWidget* notif);
-    bool hasRss() { return !m_rss.isEmpty(); }
-    QList<QPair<QString,QString> > getRss() { return m_rss; } //FIXME: Make RSS as struct
+    bool hasRss() { return m_hasRss; }
     void setMouseWheelEnabled(bool state) { m_mouseWheelEnabled = state; }
 
     void setLocationBar(LocationBar* bar) { m_locationBar = bar; }
@@ -125,17 +124,15 @@ private:
     void applyZoom();
 
     QupZilla* p_QupZilla;
-    int m_progress;
-    bool m_isLoading;
+
     QString m_hoveredLink;
     QList<int> m_zoomLevels;
-    int m_currentZoom;
     QUrl m_aboutToLoadUrl;
     QUrl m_lastUrl;
-    bool m_wantsClose;
     QString m_currentIp;
-    QList<QPair<QString,QString> > m_rss;
     QIcon m_siteIcon;
+    int m_progress;
+    int m_currentZoom;
 
     WebPage* m_page;
     WebTab* m_webTab;
@@ -145,7 +142,12 @@ private:
     bool m_mouseTrack;
     bool m_navigationVisible;
     bool m_mouseWheelEnabled;
-    //QTimer* m_loadingTimer; //Too confusing
+    bool m_wantsClose;
+    bool m_isLoading;
+
+    bool m_hasRss;
+    bool m_rssChecked;
+    //QTimer* m_loadingTimer;
 
 signals:
     void showUrl(QUrl url);

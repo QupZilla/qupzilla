@@ -987,42 +987,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ClickToFlash</name>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="110"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="114"/>
         <source>Object blocked by ClickToFlash</source>
         <translation>Objekt zablokován ClickToFlash pluginem</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="111"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="115"/>
         <source>Show more informations about object</source>
         <translation>Zobrazit více informací o objektu</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="113"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="117"/>
         <source>Delete object</source>
         <translation>Odstranit objekt</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="114"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="118"/>
         <source>Add %1 to whitelist</source>
         <translation>Přidat %1 na bílou listinu</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="220"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="224"/>
         <source>Flash Object</source>
         <translation>Flash objekt</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="223"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="227"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jméno atributu&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="223"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="227"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Hodnota&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="234"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="238"/>
         <source>No more informations available.</source>
         <translation>Žádné další informace.</translation>
     </message>
@@ -1327,39 +1327,39 @@ nebyl nalezen!</translation>
 <context>
     <name>DownloadManager</name>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="131"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="132"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% z %2 souborů (%3) %4 zbyvá</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="134"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="135"/>
         <source>% - Download Manager</source>
         <translation>% - Správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="202"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="203"/>
         <source>Download Finished</source>
         <translation>Stahování dokončeno</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="202"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="203"/>
         <source>All files have been successfuly downloaded.</source>
         <translation>Všechna stahování byla úspěšně dokončena.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="246"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="251"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="247"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="252"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Jste si jistý že chcete skončit? Všechna nedokončená stahování budou zrušena!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="102"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="207"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="210"/>
         <source>Download Manager</source>
         <translation>Správce stahování</translation>
     </message>
@@ -2043,7 +2043,7 @@ nebyl nalezen!</translation>
         <translation>Povolit ukládání cache na disk</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1608"/>
+        <location filename="../src/preferences/preferences.ui" line="1615"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
@@ -2053,7 +2053,7 @@ nebyl nalezen!</translation>
         <translation>&lt;b&gt;Chování adresního řádku&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1873"/>
+        <location filename="../src/preferences/preferences.ui" line="1880"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jazyk&lt;/b&gt;</translation>
     </message>
@@ -2129,7 +2129,7 @@ nebyl nalezen!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="461"/>
-        <location filename="../src/preferences/preferences.cpp" line="528"/>
+        <location filename="../src/preferences/preferences.cpp" line="529"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Poznámka: Nemůžete smazat aktivní profil.</translation>
     </message>
@@ -2330,7 +2330,7 @@ nebyl nalezen!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1461"/>
-        <location filename="../src/preferences/preferences.ui" line="1956"/>
+        <location filename="../src/preferences/preferences.ui" line="1963"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -2347,57 +2347,62 @@ nebyl nalezen!</translation>
 (může ale také nemusí dělat problémy při stahování SSL zabezpečeného obsahu)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1727"/>
+        <location filename="../src/preferences/preferences.ui" line="1527"/>
+        <source>Close download manager when downloading finishes</source>
+        <translation>Zavřít správce stahování po skončení stahování</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1734"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Oznámení&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1734"/>
+        <location filename="../src/preferences/preferences.ui" line="1741"/>
         <source>Use OSD Notifications</source>
         <translation>Používat OSD oznámení</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1744"/>
+        <location filename="../src/preferences/preferences.ui" line="1751"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Používat nativní systémové oznámení (pouze Linux)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1751"/>
+        <location filename="../src/preferences/preferences.ui" line="1758"/>
         <source>Do not use Notifications</source>
         <translation>Nepoužívat oznámení</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1802"/>
+        <location filename="../src/preferences/preferences.ui" line="1809"/>
         <source>Expiration timeout:</source>
         <translation>Doba:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1815"/>
+        <location filename="../src/preferences/preferences.ui" line="1822"/>
         <source> seconds</source>
         <translation> sekund</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1824"/>
+        <location filename="../src/preferences/preferences.ui" line="1831"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Poznámka: &lt;/b&gt; Můžete změnit pozici OSD oznámení na obrazovce jejím přetažením.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1939"/>
+        <location filename="../src/preferences/preferences.ui" line="1946"/>
         <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;Uživatelský CSS styl&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1946"/>
+        <location filename="../src/preferences/preferences.ui" line="1953"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>Styl, automaticky načítán ke všem stránkám:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1965"/>
+        <location filename="../src/preferences/preferences.ui" line="1972"/>
         <source>Languages</source>
         <translation>Jazyky</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1987"/>
+        <location filename="../src/preferences/preferences.ui" line="1994"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Preferované jazyky pro webové stránky&lt;/b&gt;</translation>
     </message>
@@ -2486,12 +2491,12 @@ nebyl nalezen!</translation>
         <translation>Správce hesel</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1531"/>
+        <location filename="../src/preferences/preferences.ui" line="1538"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Možnosti doplňování&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1538"/>
+        <location filename="../src/preferences/preferences.ui" line="1545"/>
         <source>Allow saving passwords from sites</source>
         <translation>Povolit ukládání hesel ze stránek</translation>
     </message>
@@ -2501,32 +2506,32 @@ nebyl nalezen!</translation>
         <translation>Soukromí</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1615"/>
+        <location filename="../src/preferences/preferences.ui" line="1622"/>
         <source>Filter Tracking Cookies</source>
         <translation>Filtrovat sledovací cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1622"/>
+        <location filename="../src/preferences/preferences.ui" line="1629"/>
         <source>Allow storing of cookies</source>
         <translation>Povolit přijímání cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1629"/>
+        <location filename="../src/preferences/preferences.ui" line="1636"/>
         <source>Delete cookies on close</source>
         <translation>Vymazat cookies při zavření prohlížeče</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1649"/>
+        <location filename="../src/preferences/preferences.ui" line="1656"/>
         <source>Match domain exactly</source>
         <translation>Vyžadovat přesnou shodu domény</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1685"/>
+        <location filename="../src/preferences/preferences.ui" line="1692"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Upozornění:&lt;/b&gt; Možnosti vyžadovat přesnou shodu domény a filtrovat sledovací cookies mohou vést k odmítnutí některých cookies. Pokud máte problémy s cookies, zkuste nejdříve tyto možnosti zakázat!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1701"/>
+        <location filename="../src/preferences/preferences.ui" line="1708"/>
         <source>Cookies Manager</source>
         <translation>Správce cookies</translation>
     </message>
@@ -2567,22 +2572,22 @@ nebyl nalezen!</translation>
         <translation>Přidat .cz doménu stísknutím ALT klávesy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1714"/>
+        <location filename="../src/preferences/preferences.ui" line="1721"/>
         <source>SSL Manager</source>
         <translation>Správce certifikátů</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1880"/>
+        <location filename="../src/preferences/preferences.ui" line="1887"/>
         <source>Available translations: </source>
         <translation>Dostupné překlady:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1919"/>
+        <location filename="../src/preferences/preferences.ui" line="1926"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>Ke změně jazyka je nutný restart prohlížeče.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="341"/>
+        <location filename="../src/preferences/preferences.cpp" line="342"/>
         <source>OSD Notification</source>
         <translation>OSD Oznámení</translation>
     </message>
@@ -2591,53 +2596,53 @@ nebyl nalezen!</translation>
         <translation type="obsolete">Přetáhněte ho na obrazovce na místo, na kterém jej chcete mít.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="342"/>
+        <location filename="../src/preferences/preferences.cpp" line="343"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Přetáhněte jej na obrazovce na místo, na kterém jej chcete mít.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="368"/>
+        <location filename="../src/preferences/preferences.cpp" line="369"/>
         <source>Choose download location...</source>
         <translation>Vyberte složku pro stahování...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="381"/>
+        <location filename="../src/preferences/preferences.cpp" line="382"/>
         <source>Choose stylesheet location...</source>
         <translation>Vyberte umístění stylu...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="492"/>
+        <location filename="../src/preferences/preferences.cpp" line="493"/>
         <source>New Profile</source>
         <translation>Nový profil</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="492"/>
+        <location filename="../src/preferences/preferences.cpp" line="493"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Zvolte jméno nového profilu:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="497"/>
-        <location filename="../src/preferences/preferences.cpp" line="501"/>
+        <location filename="../src/preferences/preferences.cpp" line="498"/>
+        <location filename="../src/preferences/preferences.cpp" line="502"/>
         <source>Error!</source>
         <translation>Chyba!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="497"/>
+        <location filename="../src/preferences/preferences.cpp" line="498"/>
         <source>This profile already exists!</source>
         <translation>Tento profil již existuje!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="501"/>
+        <location filename="../src/preferences/preferences.cpp" line="502"/>
         <source>Cannot create profile directory!</source>
         <translation>Nemohu vytvořit složku profilu!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="514"/>
+        <location filename="../src/preferences/preferences.cpp" line="515"/>
         <source>Confirmation</source>
         <translation>Potvrzení</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="515"/>
+        <location filename="../src/preferences/preferences.cpp" line="516"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Jste si jisti že chcete permanentně smazat profil &quot;%1&quot;? Tato akce nelze vrátit zpět!</translation>
     </message>
@@ -4185,89 +4190,89 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
 (jako např. hledaní při nakupování, které již bylo provedeno.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="131"/>
+        <location filename="../src/webview/webpage.cpp" line="139"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Pro zobrazení této stránky musí QupZilla znovu odeslat požadavek na server 
 (jako např. hledaní při nakupování, které již bylo provedeno.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="225"/>
+        <location filename="../src/webview/webpage.cpp" line="233"/>
         <source>Server refused the connection</source>
         <translation>Server odmítl spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="228"/>
+        <location filename="../src/webview/webpage.cpp" line="236"/>
         <source>Server closed the connection</source>
         <translation>Server ukončil spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="231"/>
+        <location filename="../src/webview/webpage.cpp" line="239"/>
         <source>Server not found</source>
         <translation>Server nenalezen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="234"/>
+        <location filename="../src/webview/webpage.cpp" line="242"/>
         <source>Connection timed out</source>
         <translation>Spojení vypršelo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="237"/>
+        <location filename="../src/webview/webpage.cpp" line="245"/>
         <source>Untrusted connection</source>
         <translation>Nedůvěryhodné spojení</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="259"/>
+        <location filename="../src/webview/webpage.cpp" line="267"/>
         <source>AdBlocked Content</source>
         <translation>AdBlock obsah</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="270"/>
+        <location filename="../src/webview/webpage.cpp" line="278"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Blokováno pravidlem &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="277"/>
+        <location filename="../src/webview/webpage.cpp" line="285"/>
         <source>Content Access Denied</source>
         <translation>Odmítnut přístup k obsahu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="287"/>
+        <location filename="../src/webview/webpage.cpp" line="295"/>
         <source>Error code %1</source>
         <translation>Chybový kód %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="298"/>
+        <location filename="../src/webview/webpage.cpp" line="306"/>
         <source>Failed loading page</source>
         <translation>Chyba při načítání stránky</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="305"/>
+        <location filename="../src/webview/webpage.cpp" line="313"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla nemůže načíst stránku ze serveru %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="306"/>
+        <location filename="../src/webview/webpage.cpp" line="314"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Zkontrolujte, zda je adresa napsána správně a neobsahuje chyby jako &lt;b&gt;ww.&lt;/b&gt;server.cz místo &lt;b&gt;www&lt;/b&gt;.server.cz</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="307"/>
+        <location filename="../src/webview/webpage.cpp" line="315"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Pokud se vám nezobrazují ani ostatní stránky, zkontrolujte síťové připojení svého počítače.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="308"/>
+        <location filename="../src/webview/webpage.cpp" line="316"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Pokud je váš počítač chráněn firewallem a nebo proxy serverem, zkontrolujte, zda má QupZilla přístup na Internet.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="309"/>
+        <location filename="../src/webview/webpage.cpp" line="317"/>
         <source>Try Again</source>
         <translation>Zkusit znovu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="442"/>
+        <location filename="../src/webview/webpage.cpp" line="450"/>
         <source>Choose file...</source>
         <translation>Vyberte soubor...</translation>
     </message>
