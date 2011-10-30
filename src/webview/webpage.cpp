@@ -36,13 +36,13 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     , m_view(parent)
     , m_blockAlerts(false)
     , m_secureStatus(false)
-//    ,m_isOpeningNextWindowAsNewTab(false)
+//    , m_isOpeningNextWindowAsNewTab(false)
 {
     setForwardUnsupportedContent(true);
     setPluginFactory(new WebPluginFactory(this));
     history()->setMaximumItemCount(20);
     connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), SLOT(handleUnsupportedContent(QNetworkReply*)));
-    connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
+//    connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(progress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(finished()));
     connect(m_view, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
@@ -52,6 +52,7 @@ void WebPage::urlChanged(const QUrl &url)
 {
     Q_UNUSED(url)
     m_adBlockedEntries.clear();
+    m_blockAlerts = false;
 }
 
 void WebPage::progress(int prog)
@@ -68,15 +69,22 @@ void WebPage::progress(int prog)
 void WebPage::finished()
 {
     progress(100);
+
+    if (m_adjustingScheduled) {
+        m_adjustingScheduled = false;
+        mainFrame()->setZoomFactor(mainFrame()->zoomFactor() + 1);
+        mainFrame()->setZoomFactor(mainFrame()->zoomFactor() - 1);
+    }
+
     QTimer::singleShot(100, this, SLOT(cleanBlockedObjects()));
 }
 
-void WebPage::loadingStarted()
-{
+//void WebPage::loadingStarted()
+//{
 //    m_adBlockedEntries.clear();
-    m_blockAlerts = false;
-    //m_SslCert.clear();
-}
+//    m_blockAlerts = false;
+//    m_SslCert.clear();
+//}
 
 void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 {

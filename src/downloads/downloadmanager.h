@@ -91,6 +91,7 @@ private:
     QString m_downloadPath;
     bool m_useNativeDialog;
     bool m_isClosing;
+    bool m_closeOnFinish;
 };
 
 #endif // DOWNLOADMANAGER_H
