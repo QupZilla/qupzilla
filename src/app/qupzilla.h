@@ -106,6 +106,8 @@ public:
     inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
     inline QMenu* superMenu() { return m_superMenu; }
 
+    inline bool isClosing() { return m_isClosing; }
+
 signals:
     void loadHistory();
     void startingCompleted();
@@ -196,6 +198,7 @@ private:
     bool m_tryRestore;
     bool m_historyMenuChanged;
     bool m_bookmarksMenuChanged;
+    bool m_isClosing;
     QUrl m_startingUrl;
     QUrl m_newtab;
     QUrl m_homepage;
