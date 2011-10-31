@@ -176,6 +176,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
 
     QString passwordName = "";
     QString passwordValue = "";
+    QUrl siteUrl = webView->url();
 
     QWebElementCollection inputs;
     QList<QWebFrame*> frames;
@@ -194,13 +195,13 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     }
 
     //Return if storing is not enabled, data for this page is already stored, no password element found in sent data
-    if (passwordName.isEmpty() || !isStoringEnabled(request.url()) || isStored(request.url()))
+    if (passwordName.isEmpty() || !isStoringEnabled(siteUrl) || isStored(siteUrl))
         return;
 
     //Return if no password form has been sent
     if (!outgoingData.contains((QUrl(passwordName).toEncoded() + "=")) || passwordValue.isEmpty())
         return;
 
-    AutoFillNotification* aWidget = new AutoFillNotification(webView->url(), outgoingData, passwordValue);
+    AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, outgoingData, passwordValue);
     webView->addNotification(aWidget);
 }

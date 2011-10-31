@@ -221,7 +221,7 @@ void NavigationBar::goAtHistoryIndex()
 
 void NavigationBar::refreshHistory()
 {
-    if (mApp->isClosing())
+    if (mApp->isClosing() || p_QupZilla->isClosing())
         return;
 
     QWebHistory* history = p_QupZilla->weView()->page()->history();
