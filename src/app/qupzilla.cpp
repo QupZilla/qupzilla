@@ -86,6 +86,7 @@ QupZilla::QupZilla(bool tryRestore, QUrl startUrl)
     , m_tryRestore(tryRestore)
     , m_historyMenuChanged(true)
     , m_bookmarksMenuChanged(true)
+    , m_isClosing(false)
     , m_startingUrl(startUrl)
     , m_actionPrivateBrowsing(0)
     , m_webInspectorDock(0)
@@ -1094,6 +1095,7 @@ void QupZilla::closeEvent(QCloseEvent* event)
     if (mApp->isClosing())
         return;
 
+    m_isClosing = true;
     mApp->saveStateSlot();
     mApp->aboutToCloseWindow(this);
 
