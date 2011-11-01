@@ -28,7 +28,7 @@ RSSNotification::RSSNotification(QString host, QWidget* parent) :
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
     ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
-    ui->label->setText(tr("You have successfuly added RSS feed \"%1\".").arg(host));
+    ui->label->setText(tr("You have successfully added RSS feed \"%1\".").arg(host));
 
     connect(ui->pushButton, SIGNAL(clicked()), mApp->getWindow(), SLOT(showRSSManager()));
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(hide()));
