@@ -35,7 +35,7 @@ Q: I cannot save any bookmark and my history is empty. What to do?
 A: At first, please check that you have installed Qt SQLite plugin.
    On Debian, this package is called libqt4-sql-sqlite.
    If you have it installed and you are still experiencing this issue,
-   please run QupZilla from terminal and read the output.
+   please run QupZilla from terminal and have a look at the output.
    If it contains something like
    
          QSqlQuery::value: not positioned on a valid record
@@ -82,7 +82,7 @@ Q: I have heard that QupZilla supports importing bookmarks from other browsers, 
 A: This feature has been added in version 1.0.0-rc1. If you are using older version,
    please upgrade it either by downloading installable packages from github or from
    your distributions repository.
-   Then you can find Import Bookmarks option in Menu File -> Import Bookmarks...
-   Importing wizzard will then guide you with importing process.
+   Then you will find the Import Bookmarks option in Menu File -> Import Bookmarks...
+   The importing wizard will then guide you through the importing process.
 
 
