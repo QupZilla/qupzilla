@@ -280,7 +280,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences/autofillmanager.ui" line="103"/>
         <location filename="../src/preferences/autofillmanager.cpp" line="70"/>
         <source>Show Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon wachtwoorden</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="113"/>
@@ -290,7 +290,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="70"/>
         <source>Are you sure that you want to show all passwords?</source>
-        <translation type="unfinished"></translation>
+        <translation>Weet u zeker dat u alle wachtwoorden wilt tonen?</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="100"/>
@@ -481,7 +481,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="83"/>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
         <source>Rename Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Hernoem map</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="90"/>
@@ -506,7 +506,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="76"/>
         <source>Add Subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg submap toe</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="84"/>
@@ -552,17 +552,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Add new subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg nieuwe submap toe</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation type="unfinished"></translation>
+        <translation>Kies naam voor nieuwe submap op bladwijzerwerkbalk: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
         <source>Choose name for folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>Kies naam voor map: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="188"/>
@@ -655,7 +655,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="101"/>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieer adres</translation>
     </message>
     <message>
         <source>Move bookmark to &amp;folder</source>
@@ -716,17 +716,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="80"/>
         <source>Move right</source>
-        <translation type="unfinished"></translation>
+        <translation>Verplaats naar rechts</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="81"/>
         <source>Move left</source>
-        <translation type="unfinished"></translation>
+        <translation>Verplaats naar links</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="83"/>
         <source>Remove bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijder bladwijzer</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="411"/>
@@ -742,7 +742,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="449"/>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="466"/>
         <source>Empty</source>
-        <translation type="unfinished">Leeg</translation>
+        <translation>Leeg</translation>
     </message>
     <message>
         <source>Sites You visited the most</source>
@@ -832,7 +832,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/browsinglibrary.cpp" line="148"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Databse Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Database succesvol geoptimaliseerd.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database-grootte vooraf: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database-grootte nadien: &lt;/b&gt;%2</translation>
     </message>
     <message>
         <source>Database successfuly optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Databse Size After: &lt;/b&gt;%2</source>
@@ -1336,7 +1336,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="203"/>
         <source>All files have been successfully downloaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle bestanden zijn met succes gedownload.</translation>
     </message>
     <message>
         <source>All files have been successfuly downloaded.</source>
@@ -1648,7 +1648,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="84"/>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieer adres</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="101"/>
@@ -1753,7 +1753,7 @@ werd niet gevonden!</translation>
         <location filename="../src/navigation/navigationbar.cpp" line="170"/>
         <location filename="../src/navigation/navigationbar.cpp" line="203"/>
         <source>Clear history</source>
-        <translation type="unfinished">Verwijder geschiedenis</translation>
+        <translation>Verwijder geschiedenis</translation>
     </message>
 </context>
 <context>
@@ -2247,7 +2247,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="905"/>
         <source>Default zoom on pages: </source>
-        <translation type="unfinished"></translation>
+        <translation>Standaardzoom op pagina&apos;s: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="957"/>
@@ -2345,7 +2345,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1527"/>
         <source>Close download manager when downloading finishes</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluit downloadbeheerder wanneer downloaden voltooid is</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1734"/>
@@ -2739,27 +2739,27 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="227"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>Hulp&amp;middelen</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="228"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Help</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="229"/>
         <source>&amp;Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bladwijzers</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="230"/>
         <source>Hi&amp;story</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Geschiedenis</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="236"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bestand</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="237"/>
@@ -2789,7 +2789,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="253"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Be&amp;werken</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="254"/>
@@ -2834,7 +2834,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="267"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Toon</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="268"/>
@@ -3448,7 +3448,7 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
     <message>
         <location filename="../src/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>U heeft succesvol RSS-feed &quot;%1&quot; toegevoegd.</translation>
     </message>
 </context>
 <context>
@@ -3621,7 +3621,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekmachine &quot;%1&quot; is succesvol toegevoegd.</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="240"/>
@@ -3996,7 +3996,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="111"/>
         <source>Source successfully saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Bron succesvol opgeslagen</translation>
     </message>
     <message>
         <source>Source successfuly saved</source>

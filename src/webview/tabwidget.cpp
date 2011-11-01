@@ -313,7 +313,7 @@ void TabWidget::closeTab(int index)
     //Save last tab url and history
     m_closedTabsManager->saveView(webView);
 
-    if (m_isClosingToLastTabIndex && m_lastTabIndex < count())
+    if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex())
         setCurrentIndex(m_lastTabIndex);
 
     delete widget(index);
