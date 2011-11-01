@@ -224,16 +224,16 @@ void QupZilla::setupUi()
 void QupZilla::setupMenu()
 {
     menuBar()->setObjectName("mainwindow-menubar");
-    m_menuTools = new QMenu(tr("Tools"));
-    m_menuHelp = new QMenu(tr("Help"));
-    m_menuBookmarks = new QMenu(tr("Bookmarks"));
-    m_menuHistory = new QMenu(tr("History"));
+    m_menuTools = new QMenu(tr("&Tools"));
+    m_menuHelp = new QMenu(tr("&Help"));
+    m_menuBookmarks = new QMenu(tr("&Bookmarks"));
+    m_menuHistory = new QMenu(tr("Hi&story"));
     connect(m_menuHistory, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMenu()));
     connect(m_menuBookmarks, SIGNAL(aboutToShow()), this, SLOT(aboutToShowBookmarksMenu()));
     connect(m_menuHelp, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHelpMenu()));
     connect(m_menuTools, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolsMenu()));
 
-    m_menuFile = new QMenu(tr("File"));
+    m_menuFile = new QMenu(tr("&File"));
     m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), this, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
     m_menuFile->addAction(QIcon(":/icons/menu/popup.png"), tr("New Tab"), this, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
     m_menuFile->addAction(tr("Open Location"), this, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
@@ -250,7 +250,7 @@ void QupZilla::setupMenu()
     m_menuFile->addAction(QIcon::fromTheme("application-exit"), tr("Quit"), this, SLOT(quitApp()))->setShortcut(QKeySequence("Ctrl+Q"));
     menuBar()->addMenu(m_menuFile);
 
-    m_menuEdit = new QMenu(tr("Edit"));
+    m_menuEdit = new QMenu(tr("&Edit"));
     m_menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("&Undo"))->setShortcut(QKeySequence("Ctrl+Z"));
     m_menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("&Redo"))->setShortcut(QKeySequence("Ctrl+Shift+Z"));
     m_menuEdit->addSeparator();
@@ -264,7 +264,7 @@ void QupZilla::setupMenu()
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     menuBar()->addMenu(m_menuEdit);
 
-    m_menuView = new QMenu(tr("View"));
+    m_menuView = new QMenu(tr("&View"));
     m_actionShowToolbar = new QAction(tr("&Navigation Toolbar"), this);
     m_actionShowToolbar->setCheckable(true);
     connect(m_actionShowToolbar, SIGNAL(triggered(bool)), this, SLOT(showNavigationToolbar()));
