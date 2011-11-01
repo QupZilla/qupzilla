@@ -108,7 +108,7 @@ void SourceViewer::save()
     file.write(m_sourceEdit->toPlainText().toAscii());
     file.close();
 
-    m_statusBar->showMessage(tr("Source successfuly saved"));
+    m_statusBar->showMessage(tr("Source successfully saved"));
 }
 
 void SourceViewer::findText()

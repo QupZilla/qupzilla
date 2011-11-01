@@ -434,7 +434,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="248"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation>Mozilla Firefox speichert die Lesezeichen in der Datei &lt;b&gt;places.sqlite&lt;/b&gt;. Diese Datei ist gewöhnlich gespeichert unter</translation>
+        <translation>Mozilla Firefox speichert die Lesezeichen in der Datei &lt;b&gt;places.sqlite&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="263"/>
@@ -444,7 +444,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="279"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Opera speichert die Lesezeichen in der Datei &lt;b&gt;bookmarks.adr&lt;/b&gt;. Diese Datei ist gewöhnlich gespeichert unter</translation>
+        <translation>Opera speichert die Lesezeichen in der Datei &lt;b&gt;bookmarks.adr&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="293"/>
@@ -1747,7 +1747,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/navigation/navigationbar.cpp" line="170"/>
         <location filename="../src/navigation/navigationbar.cpp" line="203"/>
         <source>Clear history</source>
-        <translation type="unfinished">Verlauf löschen</translation>
+        <translation>Verlauf löschen</translation>
     </message>
 </context>
 <context>
@@ -2311,7 +2311,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="905"/>
         <source>Default zoom on pages: </source>
-        <translation type="unfinished"></translation>
+        <translation>Standardvergrößerung: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="957"/>
@@ -2393,7 +2393,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="1527"/>
         <source>Close download manager when downloading finishes</source>
-        <translation type="unfinished"></translation>
+        <translation>Download-Manager schließen, wenn das Herunterladen beendet ist</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1622"/>
@@ -2574,7 +2574,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="1926"/>
         <source>In order to change language, you must restart browser.</source>
-        <translation>Um die Sprache zu ändern , starten Sie bitte QupZilla neu.</translation>
+        <translation>Um die Sprache zu ändern, starten Sie bitte QupZilla neu.</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="342"/>
@@ -3171,7 +3171,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="124"/>
         <source>E-mail is optional</source>
-        <translation>Pflichtangabe</translation>
+        <translation>Angabe optional</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="125"/>

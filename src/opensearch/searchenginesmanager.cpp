@@ -230,7 +230,7 @@ void SearchEnginesManager::replyFinished()
 
     if (checkEngine(engine)) {
         addEngine(engine);
-        QMessageBox::information(0, tr("Search Engine Added"), tr("Search Engine \"%1\" has been successfuly added.").arg(engine->name()));
+        QMessageBox::information(0, tr("Search Engine Added"), tr("Search Engine \"%1\" has been successfully added.").arg(engine->name()));
     }
 }
 

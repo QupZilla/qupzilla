@@ -200,7 +200,7 @@ void DownloadManager::downloadFinished(bool success)
 
     if (downloadingAllFilesFinished) {
         if (success && qApp->activeWindow() != this) {
-            mApp->desktopNotifications()->notify(QPixmap(":icons/notifications/download.png"), tr("Download Finished"), tr("All files have been successfuly downloaded."));
+            mApp->desktopNotifications()->notify(QPixmap(":icons/notifications/download.png"), tr("Download Finished"), tr("All files have been successfully downloaded."));
             if (!m_closeOnFinish) {
                 raise();
                 activateWindow();
