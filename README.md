@@ -14,8 +14,8 @@ or edit CA Certificates database with SSL Manager.
 
 QupZilla's main aim is to be very fast and very stable QtWebKit browser available to everyone.
 There is already a lot of QtWebKit browsers available, but they are either bound to KDE
-environment (rekonq), not actively developped (Arora) or very unstable and missing important
-features, but there is missing multiplatform, modern and actively developped browser. QupZilla 
+environment (rekonq), not actively developed or very unstable and missing important
+features. But there is missing multiplatform, modern and actively developped browser. QupZilla 
 is trying to fill this gap by providing very stable browsing experience.
 
 History
