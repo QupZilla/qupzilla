@@ -38,6 +38,7 @@
 #include "thememanager.h"
 #include "acceptlanguage.h"
 #include "globalfunctions.h"
+#include "autofillmodel.h"
 
 bool removeFile(const QString &fullFileName)
 {
@@ -67,15 +68,14 @@ void removeDir(const QString &d)
     }
 }
 
-Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
-    QDialog(parent)
-    ,ui(new Ui::Preferences)
-    ,p_QupZilla(mainClass)
-    ,m_pluginsList(0)
+Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
+    : QDialog(parent)
+    , ui(new Ui::Preferences)
+    , p_QupZilla(mainClass)
+    , m_pluginsList(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
-    m_bgLabelSize = this->sizeHint();
 
     QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     //GENERAL URLs
@@ -145,18 +145,18 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     settings.endGroup();
     //AddressBar
     settings.beginGroup("AddressBar");
-    ui->selectAllOnFocus->setChecked( settings.value("SelectAllTextOnDoubleClick",true).toBool() );
-    ui->addComWithCtrl->setChecked( settings.value("AddComDomainWithCtrlKey",false).toBool() );
-    ui->addCountryWithAlt->setChecked( settings.value("AddCountryDomainWithAltKey",true).toBool() );
+    ui->selectAllOnFocus->setChecked( settings.value("SelectAllTextOnDoubleClick", true).toBool() );
+    ui->addComWithCtrl->setChecked( settings.value("AddComDomainWithCtrlKey", false).toBool() );
+    ui->addCountryWithAlt->setChecked( settings.value("AddCountryDomainWithAltKey", true).toBool() );
     settings.endGroup();
 
     //BROWSING
     settings.beginGroup("Web-Browser-Settings");
-    ui->allowPlugins->setChecked( settings.value("allowFlash",true).toBool() );
-    ui->allowJavaScript->setChecked( settings.value("allowJavaScript",true).toBool() );
+    ui->allowPlugins->setChecked( settings.value("allowFlash", true).toBool() );
+    ui->allowJavaScript->setChecked( settings.value("allowJavaScript", true).toBool() );
     ui->blockPopup->setChecked( !settings.value("allowJavaScriptOpenWindow", false).toBool() );
-    ui->allowJava->setChecked( settings.value("allowJava",true).toBool() );
-    ui->loadImages->setChecked( settings.value("autoLoadImages",true).toBool() );
+    ui->allowJava->setChecked( settings.value("allowJava", true).toBool() );
+    ui->loadImages->setChecked( settings.value("autoLoadImages", true).toBool() );
     ui->allowDNSPrefetch->setChecked( settings.value("DNS-Prefetch", false).toBool() );
     ui->jscanAccessClipboard->setChecked( settings.value("JavaScriptCanAccessClipboard", true).toBool() );
     ui->linksInFocusChain->setChecked( settings.value("IncludeLinkInFocusChain", false).toBool() );
@@ -174,7 +174,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     connect(ui->pagesInCache, SIGNAL(valueChanged(int)), this, SLOT(pageCacheValueChanged(int)));
     ui->pageCacheLabel->setText(QString::number(ui->pagesInCache->value()));
 
-    ui->allowCache->setChecked( settings.value("AllowLocalCache",true).toBool() );
+    ui->allowCache->setChecked( settings.value("AllowLocalCache", true).toBool() );
     ui->cacheMB->setValue( settings.value("LocalCacheSize", 50).toInt() );
     ui->MBlabel->setText( settings.value("LocalCacheSize", 50).toString() + " MB");
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
@@ -182,28 +182,29 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent) :
     allowCacheChanged(ui->allowCache->isChecked());
 
     //PASSWORD MANAGER
-    ui->allowPassManager->setChecked(settings.value("AutoFillForms",true).toBool());
+    ui->allowPassManager->setChecked(settings.value("SavePasswordsOnSites", true).toBool());
     connect(ui->allowPassManager, SIGNAL(toggled(bool)), this, SLOT(showPassManager(bool)));
 
     m_autoFillManager = new AutoFillManager(this);
     ui->autoFillFrame->addWidget(m_autoFillManager);
+    showPassManager(ui->allowPassManager->isChecked());
 
     //PRIVACY
     //Web storage
-    ui->storeIcons->setChecked( settings.value("allowPersistentStorage",true).toBool() );
+    ui->storeIcons->setChecked( settings.value("allowPersistentStorage", true).toBool() );
     ui->saveHistory->setChecked( mApp->history()->isSaving() );
-    ui->deleteHistoryOnClose->setChecked( settings.value("deleteHistoryOnClose",false).toBool() );
+    ui->deleteHistoryOnClose->setChecked( settings.value("deleteHistoryOnClose", false).toBool() );
     if (!ui->saveHistory->isChecked())
         ui->deleteHistoryOnClose->setEnabled(false);
     connect(ui->saveHistory, SIGNAL(toggled(bool)), this, SLOT(saveHistoryChanged(bool)));
     //Cookies
-    ui->saveCookies->setChecked( settings.value("allowCookies",true).toBool() );
+    ui->saveCookies->setChecked( settings.value("allowCookies", true).toBool() );
     if (!ui->saveCookies->isChecked())
         ui->deleteCookiesOnClose->setEnabled(false);
     connect(ui->saveCookies, SIGNAL(toggled(bool)), this, SLOT(saveCookiesChanged(bool)));
     ui->deleteCookiesOnClose->setChecked( settings.value("deleteCookiesOnClose", false).toBool() );
-    ui->matchExactly->setChecked( settings.value("allowCookiesFromVisitedDomainOnly",false).toBool() );
-    ui->filterTracking->setChecked( settings.value("filterTrackingCookie",false).toBool() );
+    ui->matchExactly->setChecked( settings.value("allowCookiesFromVisitedDomainOnly", false).toBool() );
+    ui->filterTracking->setChecked( settings.value("filterTrackingCookie", false).toBool() );
 
     //CSS Style
     ui->userStyleSheet->setText( settings.value("userStyleSheet", "").toString() );
@@ -566,7 +567,6 @@ void Preferences::saveSettings()
     settings.setValue("showHomeButton", ui->showHome->isChecked());
     settings.setValue("showBackForwardButtons",ui->showBackForward->isChecked());
     settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
-    settings.setValue("menuTextColor", m_menuTextColor);
     settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
     settings.endGroup();
 
@@ -596,18 +596,18 @@ void Preferences::saveSettings()
     settings.setValue("FixedFont", ui->fontFixed->currentFont().family());
     settings.setValue("SansSerifFont", ui->fontSansSerif->currentFont().family());
     settings.setValue("SerifFont", ui->fontSerif->currentFont().family());
+
     settings.setValue("DefaultFontSize", ui->sizeDefault->value());
     settings.setValue("FixedFontSize", ui->sizeFixed->value());
     settings.endGroup();
 
     //BROWSING
     settings.beginGroup("Web-Browser-Settings");
-    settings.setValue("allowFlash",ui->allowPlugins->isChecked());
-    settings.setValue("allowJavaScript",ui->allowJavaScript->isChecked());
+    settings.setValue("allowFlash", ui->allowPlugins->isChecked());
+    settings.setValue("allowJavaScript", ui->allowJavaScript->isChecked());
     settings.setValue("allowJavaScriptOpenWindow", !ui->blockPopup->isChecked());
-    settings.setValue("allowJava",ui->allowJava->isChecked());
-    settings.setValue("autoLoadImages",ui->loadImages->isChecked());
-    settings.setValue("maximumCachedPages",ui->pagesInCache->value());
+    settings.setValue("allowJava", ui->allowJava->isChecked());
+    settings.setValue("autoLoadImages", ui->loadImages->isChecked());
     settings.setValue("DNS-Prefetch", ui->allowDNSPrefetch->isChecked());
     settings.setValue("JavaScriptCanAccessClipboard", ui->jscanAccessClipboard->isChecked());
     settings.setValue("IncludeLinkInFocusChain", ui->linksInFocusChain->isChecked());
@@ -618,22 +618,25 @@ void Preferences::saveSettings()
     settings.setValue("CheckUpdates", ui->checkUpdates->isChecked());
     settings.setValue("DefaultZoom", ui->defaultZoom->value());
     //Cache
+    settings.setValue("maximumCachedPages", ui->pagesInCache->value());
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
     settings.setValue("LocalCacheSize", ui->cacheMB->value());
     //CSS Style
     settings.setValue("userStyleSheet", ui->userStyleSheet->text());
 
+    //PASSWORD MANAGER
+    settings.setValue("SavePasswordsOnSites", ui->allowPassManager->isChecked());
+
     //PRIVACY
     //Web storage
     settings.setValue("allowPersistentStorage", ui->storeIcons->isChecked());
-    //ui->saveHistory->setChecked( p_QupZilla->history->isSaving() );
     settings.setValue("deleteHistoryOnClose",ui->deleteHistoryOnClose->isChecked());
 
     //Cookies
-    settings.setValue("allowCookies",ui->saveCookies->isChecked());
+    settings.setValue("allowCookies", ui->saveCookies->isChecked());
     settings.setValue("deleteCookiesOnClose", ui->deleteCookiesOnClose->isChecked());
-    settings.setValue("allowCookiesFromVisitedDomainOnly",ui->matchExactly->isChecked() );
-    settings.setValue("filterTrackingCookie",ui->filterTracking->isChecked() );
+    settings.setValue("allowCookiesFromVisitedDomainOnly", ui->matchExactly->isChecked() );
+    settings.setValue("filterTrackingCookie", ui->filterTracking->isChecked() );
     settings.endGroup();
 
     //NOTIFICATIONS
@@ -651,10 +654,12 @@ void Preferences::saveSettings()
     settings.setValue("AddComDomainWithCtrlKey",ui->addComWithCtrl->isChecked() );
     settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked() );
     settings.endGroup();
+
     //Languages
     settings.beginGroup("Language");
     settings.setValue("language",ui->languages->itemData(ui->languages->currentIndex()).toString());
     settings.endGroup();
+
     //Proxy Configuration
     NetworkProxyFactory::ProxyPreference proxyPreference;
     if (ui->systemProxy->isChecked())
@@ -694,6 +699,7 @@ void Preferences::saveSettings()
     mApp->plugins()->c2f_saveSettings();
     mApp->networkManager()->loadSettings();
     mApp->desktopNotifications()->loadSettings();
+    mApp->autoFill()->loadSettings();
 }
 
 Preferences::~Preferences()

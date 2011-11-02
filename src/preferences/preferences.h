@@ -78,13 +78,11 @@ private:
     ThemeManager* m_themesManager;
     QPointer<DesktopNotification> m_notification;
 
-    QColor m_menuTextColor;
     QString m_homepage;
     QString m_newTabUrl;
     QString m_actProfileName;
     int m_afterLaunch;
     int m_onNewTab;
-    QSize m_bgLabelSize;
     QPoint m_notifPosition;
 };
 
