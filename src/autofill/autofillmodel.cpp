@@ -33,12 +33,15 @@ void AutoFillModel::loadSettings()
 {
     QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
-    m_isStoring = settings.value("AutoFillForms",true).toBool();
+    m_isStoring = settings.value("SavePasswordsOnSites", true).toBool();
     settings.endGroup();
 }
 
 bool AutoFillModel::isStored(const QUrl &url)
 {
+    if (!isStoringEnabled(url))
+        return false;
+
     QString server = url.host();
     QSqlQuery query;
     query.exec("SELECT count(id) FROM autofill WHERE server='"+server+"'");
@@ -52,6 +55,7 @@ bool AutoFillModel::isStoringEnabled(const QUrl &url)
 {
     if (!m_isStoring)
         return false;
+
     QString server = url.host();
     QSqlQuery query;
     query.exec("SELECT count(id) FROM autofill_exceptions WHERE server='"+server+"'");
