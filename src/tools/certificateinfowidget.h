@@ -21,6 +21,7 @@
 #include <QWidget>
 #include <QSslCertificate>
 #include <QDateTime>
+#include <QTextDocument>
 
 namespace Ui {
     class CertificateInfoWidget;

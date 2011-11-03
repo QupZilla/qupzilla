@@ -17,7 +17,6 @@
 * ============================================================ */
 #include "certificateinfowidget.h"
 #include "ui_certificateinfowidget.h"
-#include <QDebug>
 
 QString CertificateInfoWidget::certificateItemText(const QSslCertificate &cert)
 {
@@ -32,10 +31,11 @@ QString CertificateInfoWidget::certificateItemText(const QSslCertificate &cert)
 
 QString CertificateInfoWidget::clearCertSpecialSymbols(const QString &string)
 {
-    if (!string.contains("\\"))
-        return string;
+    QString n = Qt::escape(string);
 
-    QString n = string;
+    if (!n.contains("\\"))
+        return n;
+
     //Credits to http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/176679?help-en
     n.replace("\\xC3\\x80", "A"); n.replace("\\xC3\\x81", "A"); n.replace("\\xC3\\x82", "A");  n.replace("\\xC3\\x83", "A");
     n.replace("\\xC3\\x84", "A"); n.replace("\\xC3\\x85", "A"); n.replace("\\xC3\\x86", "AE"); n.replace("\\xC3\\x87", "C");
