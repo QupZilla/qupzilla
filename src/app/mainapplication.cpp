@@ -154,7 +154,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     translateApp();
     QWebHistoryInterface::setDefaultInterface(new WebHistoryInterface(this));
 
-    QupZilla* qupzilla = new QupZilla(true, startUrl);
+    QupZilla* qupzilla = new QupZilla(QupZilla::FirstAppWindow, startUrl);
     m_mainWindows.append(qupzilla);
     connect(qupzilla, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(sendMessages(MainApplication::MessageType,bool)));
     qupzilla->show();
@@ -350,7 +350,13 @@ void MainApplication::addNewTab(const QUrl &url)
 
 void MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
 {
-    QupZilla* newWindow = new QupZilla(tryRestore, startUrl);
+    QupZilla::StartBehaviour behaviour;
+    if (tryRestore)
+        behaviour = QupZilla::OtherRestoredWindow;
+    else
+        behaviour = QupZilla::NewWindow;
+
+    QupZilla* newWindow = new QupZilla(behaviour, startUrl);
     connect(newWindow, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(sendMessages(MainApplication::MessageType,bool)));
     m_mainWindows.append(newWindow);
     newWindow->show();
@@ -623,7 +629,7 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
             stream >> tabState;
             stream >> qMainWindowState;
 
-            QupZilla* window = new QupZilla(false);
+            QupZilla* window = new QupZilla(QupZilla::OtherRestoredWindow);
             m_mainWindows.append(window);
             connect(window, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(sendMessages(MainApplication::MessageType,bool)));
             QEventLoop eLoop;
