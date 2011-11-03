@@ -79,7 +79,8 @@ public:
 
     static const QIcon qupzillaIcon();
 
-    explicit QupZilla(bool m_tryRestore=true, QUrl startUrl=QUrl());
+    enum StartBehaviour { FirstAppWindow, OtherRestoredWindow, NewWindow };
+    explicit QupZilla(StartBehaviour behaviour = FirstAppWindow, QUrl startUrl = QUrl());
     ~QupZilla();
 
     void refreshAddressBar();
@@ -195,13 +196,13 @@ private:
 
     void addSideBar();
 
-    bool m_tryRestore;
     bool m_historyMenuChanged;
     bool m_bookmarksMenuChanged;
     bool m_isClosing;
     QUrl m_startingUrl;
     QUrl m_newtab;
     QUrl m_homepage;
+    StartBehaviour m_startBehaviour;
 
     QVBoxLayout* m_mainLayout;
     QSplitter* m_mainSplitter;

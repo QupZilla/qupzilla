@@ -81,13 +81,13 @@ const QIcon QupZilla::qupzillaIcon()
     return i;
 }
 
-QupZilla::QupZilla(bool tryRestore, QUrl startUrl)
+QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
     : QMainWindow(0)
-    , m_tryRestore(tryRestore)
     , m_historyMenuChanged(true)
     , m_bookmarksMenuChanged(true)
     , m_isClosing(false)
     , m_startingUrl(startUrl)
+    , m_startBehaviour(behaviour)
     , m_actionPrivateBrowsing(0)
     , m_webInspectorDock(0)
     , m_sideBar(0)
@@ -136,7 +136,8 @@ void QupZilla::postLaunch()
     settings.endGroup();
 
     QUrl startUrl;
-    if (m_tryRestore) {
+    switch (m_startBehaviour) {
+    case FirstAppWindow:
         if (afterLaunch == 0)
             startUrl = QUrl("");
         else if (afterLaunch == 1)
@@ -146,8 +147,23 @@ void QupZilla::postLaunch()
 
         if ( startingAfterCrash || (addTab && afterLaunch == 2) )
             addTab = !mApp->restoreStateSlot(this);
-    } else
-        startUrl = m_homepage;
+        break;
+
+    case NewWindow:
+        if (afterLaunch == 0)
+            startUrl = QUrl("");
+        else if (afterLaunch == 1)
+            startUrl = m_homepage;
+        else
+            startUrl = m_homepage;
+
+        addTab = true;
+        break;
+
+    case OtherRestoredWindow:
+        addTab = false;
+        break;
+    }
 
     if (!m_startingUrl.isEmpty()) {
         startUrl = WebView::guessUrlFromString(m_startingUrl.toString());
