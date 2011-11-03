@@ -18,14 +18,16 @@
 #ifndef TABWIDGET_H
 #define TABWIDGET_H
 
-#include "webview.h"
-#include "webtab.h"
 #include <QTabWidget>
 #include <QTabBar>
 #include <QDateTime>
 #include <QToolButton>
 #include <QStylePainter>
 #include <QStackedWidget>
+#include <QTextDocument>
+
+#include "webview.h"
+#include "webtab.h"
 
 class QupZilla;
 class WebView;

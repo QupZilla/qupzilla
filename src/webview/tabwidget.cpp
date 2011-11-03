@@ -284,11 +284,13 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
 void TabWidget::setTabText(int index, const QString& text)
 {
     QString newtext = text;
+    newtext.remove("&"); // Avoid Alt+? shortcuts
 
     if (WebTab* webTab = qobject_cast<WebTab*>(p_QupZilla->tabWidget()->widget(index)) ) {
         if (webTab->isPinned())
             newtext = "";
     }
+
     QTabWidget::setTabText(index, newtext);
 }
 
