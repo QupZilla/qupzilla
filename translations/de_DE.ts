@@ -836,7 +836,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/browsinglibrary.cpp" line="148"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Databse Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Datenbank erfolgreich optimiert.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Datenbankgröße vorher: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Datenbankgröße nachher: &lt;/b&gt;%2</translation>
     </message>
     <message>
         <source>Database successfuly optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Databse Size After: &lt;/b&gt;%2</source>
@@ -1339,7 +1339,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="203"/>
         <source>All files have been successfully downloaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Dateien wurden erfolgreich heruntergeladen.</translation>
     </message>
     <message>
         <source>All files have been successfuly downloaded.</source>
@@ -2741,27 +2741,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="227"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Werkzeuge</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="228"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hilfe</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="229"/>
         <source>&amp;Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lesezeichen</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="230"/>
         <source>Hi&amp;story</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verlauf</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="236"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Datei</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="237"/>
@@ -2791,7 +2791,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="253"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="254"/>
@@ -2836,7 +2836,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="267"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ansicht</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="268"/>
@@ -3457,7 +3457,7 @@ Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</tra
     <message>
         <location filename="../src/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>RSS Feed &quot;%1&quot; erfolgreich hinzugefügt.</translation>
     </message>
 </context>
 <context>
@@ -3666,7 +3666,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchmaschine &quot;%1&quot; wurde erfolgreich hinzugefügt.</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="240"/>
@@ -4076,7 +4076,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="111"/>
         <source>Source successfully saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Quelltext erfolgreich gespeichert</translation>
     </message>
     <message>
         <source>Source successfuly saved</source>
