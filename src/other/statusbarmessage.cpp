@@ -31,6 +31,8 @@ TipLabel::TipLabel(QupZilla* parent)
     ensurePolished();
     setFrameStyle(QFrame::NoFrame);
     setMargin(3);
+
+    qApp->installEventFilter(this);
 }
 
 void TipLabel::show()
@@ -54,12 +56,35 @@ void TipLabel::paintEvent(QPaintEvent* ev)
     SqueezeLabelV1::paintEvent(ev);
 }
 
+bool TipLabel::eventFilter(QObject* o, QEvent* e)
+{
+    Q_UNUSED(o);
+
+    switch (e->type()) {
+    case QEvent::Leave:
+    case QEvent::WindowActivate:
+    case QEvent::WindowDeactivate:
+    case QEvent::MouseButtonPress:
+    case QEvent::MouseButtonRelease:
+    case QEvent::MouseButtonDblClick:
+    case QEvent::FocusIn:
+    case QEvent::FocusOut:
+    case QEvent::Wheel:
+        hide();
+        break;
+
+    default:
+        break;
+    }
+    return false;
+}
+
 StatusBarMessage::StatusBarMessage(QupZilla* mainClass)
     : QObject(mainClass)
     , p_QupZilla(mainClass)
     , m_statusBarText(new TipLabel(mainClass))
 {
-    m_statusBarText->setParent(p_QupZilla);
+    m_statusBarText->setParent(p_QupZilla->window());
 }
 
 void StatusBarMessage::showMessage(const QString &message)

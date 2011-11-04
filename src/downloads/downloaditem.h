@@ -95,6 +95,7 @@ private:
 
     bool m_downloading;
     bool m_openAfterFinish;
+    bool m_downloadStopped;
     double m_currSpeed;
     qint64 m_received;
     qint64 m_total;

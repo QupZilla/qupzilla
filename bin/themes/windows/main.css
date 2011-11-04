@@ -1,8 +1,8 @@
 /*************************************
- * Windows Theme v0.1                *
+ * Windows Theme v0.4                *
  * Author: nowrep                    *
  * Based on: Firefox Strata Aero     *
- * Last updated: 07.09 2011          *
+ * Last updated: 04.11.2011          *
  *************************************/
 
 *[html-link-look="true"]
@@ -282,6 +282,7 @@ AboutDialog #label
 AboutDialog #textBrowser
 {
     border:none;
+    margin-top: -2px; /* Workarounding rounded border on KDE */
 }
 
 /*DesktopNotification*/

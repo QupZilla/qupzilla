@@ -1,7 +1,7 @@
 /****************************
- * Default Theme v0.1       *
+ * Default Theme v0.4       *
  * Author: nowrep           *
- * Last updated: 31.08 2011 *
+ * Last updated: 04.11.2011 *
  ****************************/
 
 *[html-link-look="true"]
@@ -288,6 +288,7 @@ AboutDialog #label
 AboutDialog #textBrowser
 {
     border:none;
+    margin-top: -2px; /* Workarounding rounded border on KDE */
 }
 
 /*DesktopNotification*/
