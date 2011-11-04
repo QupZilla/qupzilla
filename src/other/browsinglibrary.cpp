@@ -145,7 +145,7 @@ void BrowsingLibrary::optimizeDatabase()
     mApp->history()->optimizeHistory();
     QString sizeAfter = DownloadItem::fileSizeToString(QFileInfo(profilePath+"browsedata.db").size());
     mApp->restoreOverrideCursor();
-    QMessageBox::information(this, tr("Database Optimized"), tr("Database successfully optimized.<br/><br/><b>Database Size Before: </b>%1<br/><b>Databse Size After: </b>%2").arg(sizeBefore, sizeAfter));
+    QMessageBox::information(this, tr("Database Optimized"), tr("Database successfully optimized.<br/><br/><b>Database Size Before: </b>%1<br/><b>Database Size After: </b>%2").arg(sizeBefore, sizeAfter));
 }
 
 void BrowsingLibrary::closeEvent(QCloseEvent *e)
