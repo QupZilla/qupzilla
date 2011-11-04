@@ -47,7 +47,7 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>300</width>
+       <width>200</width>
        <height>16777215</height>
       </size>
      </property>
@@ -114,9 +114,12 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::MinimumExpanding</enum>
+     </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>333</width>
+       <width>40</width>
        <height>20</height>
       </size>
      </property>

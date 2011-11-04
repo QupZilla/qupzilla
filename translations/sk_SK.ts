@@ -2323,7 +2323,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="905"/>
         <source>Default zoom on pages: </source>
-        <translation type="unfinished"></translation>
+        <translation>Základné priblíženie stránok: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="957"/>
@@ -2405,7 +2405,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="1527"/>
         <source>Close download manager when downloading finishes</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavrieť správcu sťahovania po ukončení sťahovania</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1622"/>
@@ -2745,12 +2745,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="227"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nástroje</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="228"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Nápo&amp;veda</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="229"/>
@@ -2760,12 +2760,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="230"/>
         <source>Hi&amp;story</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;História</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="236"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Súbor</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="237"/>
@@ -2795,7 +2795,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="253"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Úpr&amp;avy</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="254"/>
@@ -2840,7 +2840,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="267"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zobrazenie</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="268"/>

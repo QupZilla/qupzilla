@@ -30,6 +30,7 @@ win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.li
 
 TRANSLATIONS +=../translations/cs_CZ.ts\
                ../translations/sk_SK.ts\
+               ../translations/de_DE.ts\
                ../translations/nl_NL.ts\
                ../translations/zh_CN.ts\
 
