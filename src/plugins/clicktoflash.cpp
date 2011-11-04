@@ -60,6 +60,11 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
         , m_url(pluginUrl)
         , m_page(parentPage)
 {
+    if (m_url.isEmpty()) {
+        QTimer::singleShot(200, this, SLOT(hideAdBlocked()));
+        return;
+    }
+
     //AdBlock
     AdBlockManager* manager = AdBlockManager::instance();
     if (manager->isEnabled()) {
@@ -131,8 +136,9 @@ void ClickToFlash::hideAdBlocked()
     findElement();
     if (!m_element.isNull())
         m_element.setAttribute("style", "display:none;");
-    else
+    else {
         hide();
+    }
 
     //deleteLater(); //Well, it should be there, but therefore it sometimes crashes
 }

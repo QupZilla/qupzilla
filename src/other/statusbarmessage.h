@@ -32,6 +32,7 @@ class TipLabel : public SqueezeLabelV1 {
 public:
     TipLabel(QupZilla* parent);
 
+    bool eventFilter(QObject* o, QEvent* e);
     void show();
 
 private:

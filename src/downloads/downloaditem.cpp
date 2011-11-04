@@ -38,6 +38,7 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     , m_downloadPage(downloadPage)
     , m_downloading(false)
     , m_openAfterFinish(openAfterFinishedDownload)
+    , m_downloadStopped(false)
 {
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__ << item << reply << path << fileName;
@@ -71,10 +72,10 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     m_downloading = true;
     m_timer.start(1000, this);
     readyRead();
-    QTimer::singleShot(500, this, SLOT(updateDownload()));
+    QTimer::singleShot(200, this, SLOT(updateDownload()));
 
     if (m_reply->error() != QNetworkReply::NoError) {
-        stop();
+        stop(false);
         error(m_reply->error());
     }
 }
@@ -238,6 +239,11 @@ void DownloadItem::stop(bool askForDeleteFile)
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__;
 #endif
+
+    if (m_downloadStopped)
+        return;
+    m_downloadStopped = true;
+
     m_openAfterFinish = false;
     m_timer.stop();
     m_reply->abort();
@@ -258,10 +264,9 @@ void DownloadItem::stop(bool askForDeleteFile)
 
     if (askForDeleteFile) {
         QMessageBox::StandardButton button = QMessageBox::question(m_item->listWidget()->parentWidget(), tr("Delete file"), tr("Do you want to also delete dowloaded file?"), QMessageBox::Yes | QMessageBox::No);
-        if (button != QMessageBox::Yes)
-            return;
+        if (button == QMessageBox::Yes)
+            QFile::remove(outputfile);
     }
-    QFile::remove(outputfile);
 }
 
 void DownloadItem::mouseDoubleClickEvent(QMouseEvent* e)
@@ -325,7 +330,7 @@ void DownloadItem::readyRead()
     qDebug() << __FUNCTION__ ;
 #endif
     if (!m_outputFile.isOpen() && !m_outputFile.open(QIODevice::WriteOnly)) {
-        stop();
+        stop(false);
         ui->downloadInfo->setText(tr("Error: Cannot write to file!"));
         return;
     }
@@ -338,7 +343,7 @@ void DownloadItem::error(QNetworkReply::NetworkError error)
     qDebug() << __FUNCTION__ << error;
 #endif
     if (error != QNetworkReply::NoError)
-        ui->downloadInfo->setText(tr("Error: ")+m_reply->errorString());
+        ui->downloadInfo->setText(tr("Error: ") + m_reply->errorString());
 }
 
 void DownloadItem::updateDownload()
