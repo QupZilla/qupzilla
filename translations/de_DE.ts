@@ -971,22 +971,22 @@ p, li { white-space: pre-wrap; }
         <translation>%1 zur Whitelist hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="224"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="225"/>
         <source>Flash Object</source>
         <translation>Flash Objekt</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="227"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="228"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Attribut Name&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="227"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="228"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Wert&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="238"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="239"/>
         <source>No more informations available.</source>
         <translation>Keine weiteren Informationen verfügbar.</translation>
     </message>
@@ -1151,124 +1151,124 @@ p, li { white-space: pre-wrap; }
         <translation>Verbleibende Zeit 26 Minuten - 339MB von 693 MB (350kB/s)</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="56"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="57"/>
         <source>Remaining time unavailable</source>
         <translation>Verbleibende Zeit unbekannt</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="107"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="108"/>
         <source>Done - %1</source>
         <translation>Erledigt - %1</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="159"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="286"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="160"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="291"/>
         <source>Cancelled</source>
         <translation>Abgebrochen</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="165"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="166"/>
         <source>few seconds</source>
         <translation>Wenige Sekunden</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="167"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="168"/>
         <source>seconds</source>
         <translation>Sekunden</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="169"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="170"/>
         <source>minutes</source>
         <translation>Minuten</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="171"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="172"/>
         <source>hours</source>
         <translation>Stunden</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="177"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="178"/>
         <source>Unknown speed</source>
         <translation>Downloadgeschwindigkeit unbekannt</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="194"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="230"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="195"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="231"/>
         <source>Unknown size</source>
         <translation>Dateigröße unbekannt</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="231"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="232"/>
         <source>%2 - unknown size (%3)</source>
         <translation>%2 - unbekannte Dateigröße (%3)</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="233"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="234"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
         <translation>Verbleibend %1 - %2 von %3 (%4)</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="246"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="252"/>
         <source>Cancelled - %1</source>
         <translation>Abgebrochen - %1</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="260"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="266"/>
         <source>Delete file</source>
         <translation>Datei löschen</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="260"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="266"/>
         <source>Do you want to also delete dowloaded file?</source>
         <translation>Möchten Sie auch die heruntergeladene Datei löschen?</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="276"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="281"/>
         <source>Open File</source>
         <translation>Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="278"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="283"/>
         <source>Open Folder</source>
         <translation>Ordner öffnen</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="280"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="285"/>
         <source>Go to Download Page</source>
         <translation>Gehe zu Link-Adresse</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="281"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="286"/>
         <source>Copy Download Link</source>
         <translation>Link-Adresse kopieren</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="283"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="288"/>
         <source>Cancel downloading</source>
         <translation>Download abbrechen</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="284"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="289"/>
         <source>Clear</source>
         <translation>Leeren</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="286"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="291"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="293"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="298"/>
         <source>New tab</source>
         <translation>Neuer Tab</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="314"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="319"/>
         <source>Not found</source>
         <translation>Nicht gefunden</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="314"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="319"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
@@ -1277,12 +1277,12 @@ p, li { white-space: pre-wrap; }
  konnte nicht gefunden werden!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="329"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="334"/>
         <source>Error: Cannot write to file!</source>
         <translation>Fehler: Datei kann nicht gespeichert werden!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="341"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="346"/>
         <source>Error: </source>
         <translation>Fehler:</translation>
     </message>

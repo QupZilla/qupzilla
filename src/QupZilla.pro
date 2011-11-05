@@ -33,6 +33,7 @@ TRANSLATIONS +=../translations/cs_CZ.ts\
                ../translations/de_DE.ts\
                ../translations/nl_NL.ts\
                ../translations/zh_CN.ts\
+               ../translations/it_IT.ts\
 
 
 INCLUDEPATH += 3rdparty\

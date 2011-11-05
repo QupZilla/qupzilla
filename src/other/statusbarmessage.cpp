@@ -84,7 +84,7 @@ StatusBarMessage::StatusBarMessage(QupZilla* mainClass)
     , p_QupZilla(mainClass)
     , m_statusBarText(new TipLabel(mainClass))
 {
-    m_statusBarText->setParent(p_QupZilla->window());
+    m_statusBarText->setParent(p_QupZilla);
 }
 
 void StatusBarMessage::showMessage(const QString &message)

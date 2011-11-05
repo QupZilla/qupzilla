@@ -153,13 +153,9 @@ p, li { white-space: pre-wrap; }
         <translation>更新完成</translation>
     </message>
     <message>
-        <source>EasyList has been successfuly updated.</source>
-        <translation type="obsolete">EasyList已成功更新.</translation>
-    </message>
-    <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="111"/>
         <source>EasyList has been successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyList已成功更新.</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="127"/>
@@ -272,7 +268,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences/autofillmanager.ui" line="103"/>
         <location filename="../src/preferences/autofillmanager.cpp" line="70"/>
         <source>Show Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>显示密码</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="113"/>
@@ -282,7 +278,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="70"/>
         <source>Are you sure that you want to show all passwords?</source>
-        <translation type="unfinished"></translation>
+        <translation>确定要显示所有密码？</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="100"/>
@@ -350,74 +346,74 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="14"/>
         <source>Import Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>导入书签</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="20"/>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;导入书签&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="84"/>
         <source>Choose browser from which you want to import bookmarks:</source>
-        <translation type="unfinished"></translation>
+        <translation>选择您要导入书签的浏览器：</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="123"/>
         <source>Choose...</source>
-        <translation type="unfinished"></translation>
+        <translation>选择...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="208"/>
         <source>Fetching icons, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>正在获取图标，请稍候...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="296"/>
         <source>Title</source>
-        <translation type="unfinished">标题</translation>
+        <translation>标题</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="301"/>
         <source>Url</source>
-        <translation type="unfinished">地址</translation>
+        <translation>地址</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="328"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>下一步</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="335"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="53"/>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;从%1导入&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="86"/>
         <source>Finish</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="177"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="188"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="199"/>
         <source>Error!</source>
-        <translation type="unfinished">错误！</translation>
+        <translation>错误！</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="212"/>
         <source>Choose directory...</source>
-        <translation type="unfinished"></translation>
+        <translation>选择目录...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="218"/>
         <source>Choose file...</source>
-        <translation type="unfinished">选择文件...</translation>
+        <translation>选择文件...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="248"/>
@@ -429,7 +425,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="265"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="281"/>
         <source>Please choose this file to begin importing bookmarks.</source>
-        <translation type="unfinished"></translation>
+        <translation>请选择文件开始导入书签。</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="263"/>
@@ -449,7 +445,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="295"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation type="unfinished"></translation>
+        <translation>选择此文件夹，开始导入书签。</translation>
     </message>
 </context>
 <context>
@@ -472,13 +468,13 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="76"/>
         <source>Add Subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>添加子文件夹</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="83"/>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
         <source>Rename Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名文件夹</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="90"/>
@@ -513,17 +509,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Add new subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>添加新的子文件夹</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation type="unfinished"></translation>
+        <translation>选择新的子文件夹在书签工具栏的名称：</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="114"/>
         <source>Choose name for folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>选择文件夹的名称：</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="144"/>
@@ -647,25 +643,13 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="101"/>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Move bookmark to &amp;folder</source>
-        <translation type="obsolete">移动书签和文件夹 &amp;f</translation>
-    </message>
-    <message>
-        <source>Unsorted Bookmarks</source>
-        <translation type="obsolete">未分类的书签</translation>
+        <translation>复制地址</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="201"/>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="222"/>
         <source>Bookmarks In Menu</source>
         <translation>在菜单栏中创建书签</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">在工具栏中创建书签</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="103"/>
@@ -708,17 +692,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="80"/>
         <source>Move right</source>
-        <translation type="unfinished"></translation>
+        <translation>向右移动</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="81"/>
         <source>Move left</source>
-        <translation type="unfinished"></translation>
+        <translation>向左移动</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="83"/>
         <source>Remove bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>删除书签</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="411"/>
@@ -728,17 +712,13 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="412"/>
         <source>Sites you visited the most</source>
-        <translation type="unfinished"></translation>
+        <translation>您最常访问的网站</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="449"/>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="466"/>
         <source>Empty</source>
-        <translation type="unfinished">空页面</translation>
-    </message>
-    <message>
-        <source>Sites You visited the most</source>
-        <translation type="obsolete">访问最多的网站</translation>
+        <translation>空页面</translation>
     </message>
 </context>
 <context>
@@ -888,17 +868,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="24"/>
         <source>No Error</source>
-        <translation type="unfinished">没有错误</translation>
+        <translation>没有错误</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="39"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>无法打开文件。</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="82"/>
         <source>Cannot evaluate JSON code.</source>
-        <translation type="unfinished"></translation>
+        <translation>无法评估JSON代码。</translation>
     </message>
 </context>
 <context>
@@ -987,22 +967,22 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="224"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="225"/>
         <source>Flash Object</source>
         <translation>Flash对象</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="227"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="228"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="227"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="228"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="238"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="239"/>
         <source>No more informations available.</source>
         <translation>没有提供更多信息。</translation>
     </message>
@@ -1167,136 +1147,136 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="56"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="57"/>
         <source>Remaining time unavailable</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="107"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="108"/>
         <source>Done - %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="159"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="286"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="160"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="291"/>
         <source>Cancelled</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="165"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="166"/>
         <source>few seconds</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="167"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="168"/>
         <source>seconds</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="169"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="170"/>
         <source>minutes</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="171"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="172"/>
         <source>hours</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="177"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="178"/>
         <source>Unknown speed</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="194"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="230"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="195"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="231"/>
         <source>Unknown size</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="231"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="232"/>
         <source>%2 - unknown size (%3)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="233"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="234"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="246"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="252"/>
         <source>Cancelled - %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="260"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="266"/>
         <source>Delete file</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="260"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="266"/>
         <source>Do you want to also delete dowloaded file?</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="276"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="281"/>
         <source>Open File</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="278"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="283"/>
         <source>Open Folder</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="280"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="285"/>
         <source>Go to Download Page</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="281"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="286"/>
         <source>Copy Download Link</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="283"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="288"/>
         <source>Cancel downloading</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="284"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="289"/>
         <source>Clear</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="286"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="291"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="293"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="298"/>
         <source>New tab</source>
         <translation>新标签</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="314"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="319"/>
         <source>Not found</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="314"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="319"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="329"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="334"/>
         <source>Error: Cannot write to file!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="341"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="346"/>
         <source>Error: </source>
         <translation></translation>
     </message>
@@ -1318,12 +1298,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="132"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="135"/>
         <source>% - Download Manager</source>
-        <translation></translation>
+        <translation>% - 下载管理</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="203"/>
@@ -1333,11 +1313,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="203"/>
         <source>All files have been successfully downloaded.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>All files have been successfuly downloaded.</source>
-        <translation type="obsolete">所有文件已成功下载.</translation>
+        <translation>所有文件已成功下载.</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="251"/>
@@ -1390,7 +1366,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.cpp" line="30"/>
         <source>Opening %1</source>
-        <translation></translation>
+        <translation>打开%1</translation>
     </message>
 </context>
 <context>
@@ -1398,37 +1374,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="17"/>
         <source>Name:</source>
-        <translation type="unfinished">名称:</translation>
+        <translation>名称:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="27"/>
         <source>Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>地址：</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="41"/>
         <source>Shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>捷径：</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="51"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>图标：</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="58"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;注意：&lt;/b&gt;%URL中搜索的字符串</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="97"/>
         <source>Add from file ...</source>
-        <translation type="unfinished"></translation>
+        <translation>从文件添加...</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.cpp" line="84"/>
         <source>Choose icon...</source>
-        <translation type="unfinished"></translation>
+        <translation>选择图标...</translation>
     </message>
 </context>
 <context>
@@ -1436,17 +1412,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="23"/>
         <source>No Error</source>
-        <translation type="unfinished">没有错误</translation>
+        <translation>没有错误</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="38"/>
         <source>File does not exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>文件不存在。</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="46"/>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation type="unfinished"></translation>
+        <translation>无法打开数据库。是否Firefox正在运行？</translation>
     </message>
 </context>
 <context>
@@ -1633,7 +1609,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="84"/>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>复制地址</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="101"/>
@@ -1669,7 +1645,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="72"/>
         <source>Enter URL address or search on Google.com</source>
-        <translation></translation>
+        <translation>输入URL地址或在Google.com上搜索</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="263"/>
@@ -1679,19 +1655,11 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>LocationCompleter</name>
-    <message>
-        <source>Search %1 on Google.com
-..........</source>
-        <translation type="obsolete">使用Google搜索</translation>
-    </message>
-</context>
-<context>
     <name>MainApplication</name>
     <message>
         <location filename="../src/app/mainapplication.cpp" line="592"/>
         <source>Last session crashed</source>
-        <translation></translation>
+        <translation>会话崩溃</translation>
     </message>
     <message>
         <location filename="../src/app/mainapplication.cpp" line="593"/>
@@ -1736,7 +1704,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/navigation/navigationbar.cpp" line="170"/>
         <location filename="../src/navigation/navigationbar.cpp" line="203"/>
         <source>Clear history</source>
-        <translation type="unfinished">清除历史</translation>
+        <translation>清除历史</translation>
     </message>
 </context>
 <context>
@@ -1769,7 +1737,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/network/networkmanager.cpp" line="126"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
-        <translation></translation>
+        <translation>&lt;b&gt;错误：&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="129"/>
@@ -1796,7 +1764,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/network/networkmanager.cpp" line="166"/>
         <source>Save username and password on this site</source>
-        <translation></translation>
+        <translation>保存用户名和密码</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="175"/>
@@ -1819,12 +1787,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="23"/>
         <source>No Error</source>
-        <translation type="unfinished">没有错误</translation>
+        <translation>没有错误</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="38"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>无法打开文件。</translation>
     </message>
 </context>
 <context>
@@ -1875,7 +1843,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="114"/>
         <source>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</source>
-        <translation></translation>
+        <translation>&lt;b&gt;点击Flash插件&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="121"/>
@@ -2189,18 +2157,14 @@ p, li { white-space: pre-wrap; }
         <translation>允许Java</translation>
     </message>
     <message>
-        <source>Allow  JavaScript</source>
-        <translation type="obsolete">允许JavaScript</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="257"/>
         <source>After launch: </source>
-        <translation type="unfinished"></translation>
+        <translation>启动后：</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="784"/>
         <source>Allow JavaScript</source>
-        <translation type="unfinished"></translation>
+        <translation>允许JavaScript</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="791"/>
@@ -2255,7 +2219,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="905"/>
         <source>Default zoom on pages: </source>
-        <translation type="unfinished"></translation>
+        <translation>默认网页缩放：</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="957"/>
@@ -2421,7 +2385,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences/preferences.ui" line="1461"/>
         <location filename="../src/preferences/preferences.ui" line="1963"/>
         <source>...</source>
-        <translation></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1512"/>
@@ -2438,7 +2402,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="1527"/>
         <source>Close download manager when downloading finishes</source>
-        <translation type="unfinished"></translation>
+        <translation>下载完成后关闭下载管理器</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1538"/>
@@ -2453,7 +2417,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="1615"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
-        <translation></translation>
+        <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1622"/>
@@ -2468,7 +2432,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/preferences.ui" line="1636"/>
         <source>Delete cookies on close</source>
-        <translation></translation>
+        <translation>关闭后删除cookies</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1656"/>
@@ -2566,13 +2530,9 @@ p, li { white-space: pre-wrap; }
         <translation>OSD的通知</translation>
     </message>
     <message>
-        <source>Drag it on the screen to place it where You want.</source>
-        <translation type="obsolete">在屏幕上拖动它到你想要的地方。</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.cpp" line="344"/>
         <source>Drag it on the screen to place it where you want.</source>
-        <translation type="unfinished"></translation>
+        <translation>在屏幕上拖动它到你想要的地方。</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="370"/>
@@ -2626,7 +2586,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/opensearch/opensearchreader.cpp" line="105"/>
         <source>The file is not an OpenSearch 1.1 file.</source>
-        <translation type="unfinished"></translation>
+        <translation>该文件不是一个OpenSearch的1.1文件。</translation>
     </message>
 </context>
 <context>
@@ -2675,14 +2635,6 @@ p, li { white-space: pre-wrap; }
         <translation>当前页面的IP地址</translation>
     </message>
     <message>
-        <source>Tools</source>
-        <translation type="obsolete">工具</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation type="obsolete">帮助</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="311"/>
         <source>Bookmarks</source>
         <translation>书签</translation>
@@ -2691,10 +2643,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/app/qupzilla.cpp" line="315"/>
         <source>History</source>
         <translation>历史</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation type="obsolete">文件</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="253"/>
@@ -2749,16 +2697,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="265"/>
         <source>Import bookmarks...</source>
-        <translation type="unfinished"></translation>
+        <translation>导入书签...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="266"/>
         <source>Quit</source>
         <translation>退出</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="obsolete">编辑</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="270"/>
@@ -2801,43 +2745,39 @@ p, li { white-space: pre-wrap; }
         <translation>查找&amp;F</translation>
     </message>
     <message>
-        <source>View</source>
-        <translation type="obsolete">查看</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="243"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>工具&amp;T</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="244"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>帮助&amp;H</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="245"/>
         <source>&amp;Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>书签&amp;B</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="246"/>
         <source>Hi&amp;story</source>
-        <translation type="unfinished"></translation>
+        <translation>历史&amp;s</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="252"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>文件&amp;F</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="269"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑&amp;E</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="283"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>查看&amp;V</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="284"/>
@@ -2852,7 +2792,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="290"/>
         <source>Sta&amp;tus Bar</source>
-        <translation></translation>
+        <translation>状态栏&amp;t</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="293"/>
@@ -3025,7 +2965,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="657"/>
         <source>&amp;AdBlock</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="658"/>
@@ -3128,13 +3068,9 @@ p, li { white-space: pre-wrap; }
         <translation>报告问题</translation>
     </message>
     <message>
-        <source>If You are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
-        <translation type="obsolete">如果您的QupZilla遇到问题，请首先尝试禁用所有插件。 &lt;br/&gt;如果没有帮助，那么请填写此表格：</translation>
-    </message>
-    <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
         <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>如果您的QupZilla遇到问题，请首先尝试禁用所有插件。 &lt;br/&gt;如果没有帮助，那么请填写此表格：</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="116"/>
@@ -3352,7 +3288,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/rss/rssmanager.cpp" line="105"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
-        <translation></translation>
+        <translation>你没有任何RSS源。</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="154"/>
@@ -3414,13 +3350,9 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation>打开RSS管理</translation>
     </message>
     <message>
-        <source>You have successfuly added RSS feed &quot;%1&quot;.</source>
-        <translation type="obsolete">您已成功添加RSS提要“%1”。</translation>
-    </message>
-    <message>
         <location filename="../src/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>您已成功添加RSS提要“%1”。</translation>
     </message>
 </context>
 <context>
@@ -3536,47 +3468,47 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="14"/>
         <source>Manage Search Engines</source>
-        <translation type="unfinished"></translation>
+        <translation>管理搜索引擎</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="22"/>
         <source>Add...</source>
-        <translation type="unfinished">添加...</translation>
+        <translation>添加...</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="29"/>
         <source>Remove</source>
-        <translation type="unfinished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="36"/>
         <source>Edit</source>
-        <translation type="unfinished">编辑</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="56"/>
         <source>Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>默认</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="79"/>
         <source>Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索引擎</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="84"/>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>捷径</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.cpp" line="44"/>
         <source>Add Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>添加搜索引擎</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.cpp" line="88"/>
         <source>Edit Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑搜索引擎</translation>
     </message>
 </context>
 <context>
@@ -3584,27 +3516,27 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
         <source>Search Engine Added</source>
-        <translation type="unfinished"></translation>
+        <translation>新增搜索引擎</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索引擎“%1”已成功添加。</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="240"/>
         <source>Search Engine is not valid!</source>
-        <translation type="unfinished"></translation>
+        <translation>无效的搜索引擎！</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="241"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="241"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>添加搜索引擎时错误&lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
@@ -3813,14 +3745,10 @@ After adding or removing certificate paths, it is neccessary to restart browser 
         <translation>您连接到这个网站是&lt;b&gt;无担保&lt;/ B&gt;。</translation>
     </message>
     <message>
-        <source>This is Your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">这是您的&lt;b&gt;%1&lt;/ B&gt;此网站的访问。</translation>
-    </message>
-    <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="56"/>
         <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation type="unfinished"></translation>
+        <translation>这是您的&lt;b&gt;%1&lt;/ B&gt;此网站的访问。</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="59"/>
@@ -3841,10 +3769,6 @@ After adding or removing certificate paths, it is neccessary to restart browser 
         <location filename="../src/webview/siteinfowidget.cpp" line="69"/>
         <source>third</source>
         <translation>第三</translation>
-    </message>
-    <message>
-        <source>This is Your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">这是你的&lt;B&gt;%1&lt;/ B&gt;此网站的访问。</translation>
     </message>
 </context>
 <context>
@@ -3963,11 +3887,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="111"/>
         <source>Source successfully saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Source successfuly saved</source>
-        <translation type="obsolete">来源成功保存</translation>
+        <translation>源代码保存成功</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="132"/>
@@ -4068,12 +3988,12 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/webview/tabbar.cpp" line="126"/>
         <source>Bookmark &amp;All Ta&amp;bs</source>
-        <translation></translation>
+        <translation>收藏全部标签页&amp;A</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="128"/>
         <source>Restore &amp;Closed Tab</source>
-        <translation></translation>
+        <translation>还原关闭的标签&amp;C</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="285"/>
@@ -4092,7 +4012,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="140"/>
         <source>New Tab</source>
-        <translation type="unfinished">新标签</translation>
+        <translation>新标签</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="207"/>
@@ -4108,7 +4028,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="226"/>
         <source>Actually you have %1 opened tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>你已有%1打开的标签</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="400"/>
@@ -4175,15 +4095,10 @@ After adding or removing certificate paths, it is neccessary to restart browser 
 <context>
     <name>WebPage</name>
     <message>
-        <source>To show this page, QupZilla must resend request which do it again 
-(like searching on making an shoping, witch has been already done.)</source>
-        <translation type="obsolete">为了显示此页，QupZilla须重发一遍</translation>
-    </message>
-    <message>
         <location filename="../src/webview/webpage.cpp" line="139"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>为显示此页QupZilla须重新发送请求</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="233"/>
@@ -4218,7 +4133,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/webview/webpage.cpp" line="278"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation></translation>
+        <translation>阻止规则 &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="285"/>
@@ -4243,7 +4158,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/webview/webpage.cpp" line="314"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
-        <translation></translation>
+        <translation>检查输入错误的地址，如&lt;b&gt; WW&lt;/b&gt; example.com，而不是&lt;B&gt; WWW。&lt;/b&gt; example.com</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="315"/>
@@ -4271,12 +4186,12 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="75"/>
         <source>Manage Search Engines</source>
-        <translation type="unfinished"></translation>
+        <translation>管理搜索引擎</translation>
     </message>
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="160"/>
         <source>Add %1 ...</source>
-        <translation type="unfinished"></translation>
+        <translation>新增%1 ...</translation>
     </message>
 </context>
 <context>
@@ -4301,22 +4216,22 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/webview/webview.cpp" line="495"/>
         <source>Open link in new &amp;tab</source>
-        <translation>在新标签中打开链接</translation>
+        <translation>在新标签中打开链接&amp;t</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="496"/>
         <source>Open link in new &amp;window</source>
-        <translation>在新窗口中打开链接</translation>
+        <translation>在新窗口中打开链接&amp;w</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="498"/>
         <source>B&amp;ookmark link</source>
-        <translation>书签链接</translation>
+        <translation>书签链接&amp;o</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="499"/>
         <source>&amp;Save link as...</source>
-        <translation>链接另存为...</translation>
+        <translation>链接另存为&amp;S...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="500"/>
@@ -4371,17 +4286,17 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/webview/webview.cpp" line="541"/>
         <source>S&amp;top</source>
-        <translation>停止</translation>
+        <translation>停止&amp;t</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="545"/>
         <source>Book&amp;mark page</source>
-        <translation>加入书签</translation>
+        <translation>加入书签&amp;m</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="546"/>
         <source>&amp;Save page as...</source>
-        <translation>保存网页为...</translation>
+        <translation>保存网页为&amp;S...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="547"/>
@@ -4391,31 +4306,27 @@ After adding or removing certificate paths, it is neccessary to restart browser 
     <message>
         <location filename="../src/webview/webview.cpp" line="549"/>
         <source>Select &amp;all</source>
-        <translation>选取所有</translation>
+        <translation>选取所有&amp;a</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="554"/>
         <source>Show so&amp;urce code</source>
-        <translation>显示源代码</translation>
+        <translation>显示源代码&amp;u</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="555"/>
         <source>Show info ab&amp;out site</source>
-        <translation>显示有关网站的信息</translation>
+        <translation>显示有关网站的信息&amp;o</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="556"/>
         <source>Show Web &amp;Inspector</source>
-        <translation>显示Web及督察</translation>
+        <translation>显示Web及督察&amp;I</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="567"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search &quot;%1 ..&quot; on &amp;Google</source>
-        <translation type="obsolete">使用Google搜索</translation>
+        <translation>使用 %2搜索&quot;%1 ..&quot; </translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="813"/>
