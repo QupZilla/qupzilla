@@ -97,13 +97,13 @@ private:
     }
 };
 
-TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent) :
-    QTabWidget(parent)
-  , p_QupZilla(mainClass)
-  , m_lastTabIndex(0)
-  , m_isClosingToLastTabIndex(false)
-  , m_closedTabsManager(new ClosedTabsManager(this))
-  , m_locationBars(new QStackedWidget())
+TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
+   : QTabWidget(parent)
+   , p_QupZilla(mainClass)
+   , m_lastTabIndex(0)
+   , m_isClosingToLastTabIndex(false)
+   , m_closedTabsManager(new ClosedTabsManager(this))
+   , m_locationBars(new QStackedWidget())
 {
     setObjectName("tabwidget");
     m_tabBar = new TabBar(p_QupZilla, this);
@@ -250,11 +250,9 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
     webView->animationLoading(index, true)->movie()->stop();
     webView->animationLoading(index, false)->setPixmap(_iconForUrl(url).pixmap(16,16));
 
-    if (openIn == TabWidget::NewSelectedTab) {
+    if (openIn == TabWidget::NewSelectedTab)
         setCurrentIndex(index);
-        p_QupZilla->locationBar()->setText(url.toEncoded());
-        p_QupZilla->locationBar()->setCursorPosition(0);
-    }
+
     if (count() == 1 && m_hideTabBarWithOneTab)
         tabBar()->setVisible(false);
     else tabBar()->setVisible(true);
@@ -284,7 +282,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
 void TabWidget::setTabText(int index, const QString& text)
 {
     QString newtext = text;
-    newtext.remove("&"); // Avoid Alt+? shortcuts
+    newtext.remove("&"); // Avoid Alt+letter shortcuts
 
     if (WebTab* webTab = qobject_cast<WebTab*>(p_QupZilla->tabWidget()->widget(index)) ) {
         if (webTab->isPinned())

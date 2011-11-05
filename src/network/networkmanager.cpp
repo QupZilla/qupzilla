@@ -173,7 +173,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
 
     label->setText(tr("A username and password are being requested by %1. "
-                      "The site says: \"%2\"").arg(reply->url().toEncoded(), auth->realm()));
+                      "The site says: \"%2\"").arg(reply->url().toEncoded(), Qt::escape(auth->realm())));
     formLa->addRow(label);
 
     formLa->addRow(userLab, user);

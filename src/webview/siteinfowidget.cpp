@@ -45,9 +45,6 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent) :
     QString scheme = url.scheme();
     QSqlQuery query;
     QString host = url.host();
-    QString host2 = host;
-    if (host.startsWith("www."))
-        host2 = url.host().remove("www.");
 
     query.exec("SELECT sum(count) FROM history WHERE url LIKE '"+scheme+"://"+host+"%' ");
     if (query.next()) {

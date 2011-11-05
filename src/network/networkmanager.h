@@ -30,6 +30,7 @@
 #include <QNetworkDiskCache>
 #include <QSslSocket>
 #include <QSslConfiguration>
+#include <QTextDocument>
 
 #include "networkmanagerproxy.h"
 

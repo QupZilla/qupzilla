@@ -19,6 +19,7 @@
 #define WEBHISTORYINTERFACE_H
 
 #include <QWebHistoryInterface>
+#include <QStringList>
 
 class WebHistoryInterface : public QWebHistoryInterface
 {
@@ -34,7 +35,7 @@ signals:
 public slots:
 
 private:
-    QList<QString> m_clickedLinks;
+    QStringList m_clickedLinks;
 
 };
 
