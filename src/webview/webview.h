@@ -60,6 +60,8 @@ public:
     bool hasRss() { return m_hasRss; }
     void setMouseWheelEnabled(bool state) { m_mouseWheelEnabled = state; }
 
+    bool eventFilter(QObject* obj, QEvent* event);
+
     void setLocationBar(LocationBar* bar) { m_locationBar = bar; }
     LocationBar* locationBar() { return m_locationBar; }
 
@@ -147,6 +149,8 @@ private:
 
     bool m_hasRss;
     bool m_rssChecked;
+
+    QList<QTouchEvent::TouchPoint> m_touchPoints;
     //QTimer* m_loadingTimer;
 
 signals:

@@ -91,6 +91,8 @@ WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     // Set default zoom
     m_currentZoom = mApp->defaultZoom();
     applyZoom();
+
+    qApp->installEventFilter(this);
 }
 
 void WebView::slotIconChanged()
@@ -839,6 +841,69 @@ bool WebView::isUrlValid(const QUrl &url)
     if (url.isValid() && !url.host().isEmpty() && !url.scheme().isEmpty())
         return true;
     return false;
+}
+
+///
+// This function was taken and modified from QTestBrowser to fix bug #33 with flighradar24.com
+// You can find original source and copyright here:
+// http://gitorious.org/+qtwebkit-developers/webkit/qtwebkit/blobs/qtwebkit-2.2/Tools/QtTestBrowser/launcherwindow.cpp
+///
+bool WebView::eventFilter(QObject* obj, QEvent* event)
+{
+    if (event->type() == QEvent::MouseButtonPress ||
+        event->type() == QEvent::MouseButtonRelease ||
+        event->type() == QEvent::MouseButtonDblClick ||
+        event->type() == QEvent::MouseMove) {
+
+        QMouseEvent* ev = static_cast<QMouseEvent*>(event);
+        if (ev->type() == QEvent::MouseMove
+                && !(ev->buttons() & Qt::LeftButton))
+            return false;
+
+        QTouchEvent::TouchPoint touchPoint;
+        touchPoint.setState(Qt::TouchPointMoved);
+        if ((ev->type() == QEvent::MouseButtonPress
+             || ev->type() == QEvent::MouseButtonDblClick))
+            touchPoint.setState(Qt::TouchPointPressed);
+        else if (ev->type() == QEvent::MouseButtonRelease)
+            touchPoint.setState(Qt::TouchPointReleased);
+
+        touchPoint.setId(0);
+        touchPoint.setScreenPos(ev->globalPos());
+        touchPoint.setPos(ev->pos());
+        touchPoint.setPressure(1);
+
+        // If the point already exists, update it. Otherwise create it.
+        if (m_touchPoints.size() > 0 && !m_touchPoints[0].id())
+            m_touchPoints[0] = touchPoint;
+        else if (m_touchPoints.size() > 1 && !m_touchPoints[1].id())
+            m_touchPoints[1] = touchPoint;
+        else
+            m_touchPoints.append(touchPoint);
+
+        if (!m_touchPoints.isEmpty()) {
+            QEvent::Type type = QEvent::TouchUpdate;
+            if (m_touchPoints.size() == 1) {
+                if (m_touchPoints[0].state() == Qt::TouchPointReleased)
+                    type = QEvent::TouchEnd;
+                else if (m_touchPoints[0].state() == Qt::TouchPointPressed)
+                    type = QEvent::TouchBegin;
+            }
+
+            QTouchEvent touchEv(type);
+            touchEv.setTouchPoints(m_touchPoints);
+            QCoreApplication::sendEvent(page(), &touchEv);
+
+            // After sending the event, remove all touchpoints that were released
+            if (m_touchPoints[0].state() == Qt::TouchPointReleased)
+                m_touchPoints.removeAt(0);
+            if (m_touchPoints.size() > 1 && m_touchPoints[1].state() == Qt::TouchPointReleased)
+                m_touchPoints.removeAt(1);
+        }
+
+        return false;
+    }
+    return QObject::eventFilter(obj, event);
 }
 
 WebView::~WebView()
