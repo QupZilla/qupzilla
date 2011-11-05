@@ -52,6 +52,8 @@ private:
     Ui::SiteInfo* ui;
     QupZilla* p_QupZilla;
     CertificateInfoWidget* m_certWidget;
+
+    QPixmap m_activePixmap;
 };
 
 #endif // SITEINFO_H

@@ -26,8 +26,11 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QUrl>
+#include <QIcon>
 
 QByteArray qz_pixmapToByteArray(const QPixmap &pix);
+QPixmap qz_pixmapFromByteArray(const QByteArray &data);
+
 QByteArray qz_readAllFileContents(const QString &filename);
 
 void qz_centerWidgetOnScreen(QWidget* w);
@@ -37,6 +40,7 @@ QString qz_samePartOfStrings(const QString &one, const QString &other);
 QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
 
 QString qz_ensureUniqueFilename(const QString &name);
+QString qz_getFileNameFromUrl(const QUrl &url);
 
 QString qz_buildSystem();
 
