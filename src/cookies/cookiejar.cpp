@@ -17,24 +17,24 @@
 * ============================================================ */
 #include "cookiejar.h"
 #include "qupzilla.h"
-#define COOKIE_DEBUG
+//#define COOKIE_DEBUG
 
 //TODO: black/white listing
-CookieJar::CookieJar(QupZilla* mainClass, QObject* parent) :
-    QNetworkCookieJar(parent)
-    ,p_QupZilla(mainClass)
+CookieJar::CookieJar(QupZilla* mainClass, QObject* parent)
+    : QNetworkCookieJar(parent)
+    , p_QupZilla(mainClass)
 {
-    loadSettings();
     m_activeProfil = mApp->getActiveProfilPath();
+    loadSettings();
 }
 
 void CookieJar::loadSettings()
 {
-    QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
+    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
-    m_allowCookies = settings.value("allowCookies",true).toBool();
-    m_allowCookiesFromDomain = settings.value("allowCookiesFromVisitedDomainOnly",false).toBool();
-    m_filterTrackingCookie = settings.value("filterTrackingCookie",false).toBool();
+    m_allowCookies = settings.value("allowCookies", true).toBool();
+    m_allowCookiesFromDomain = settings.value("allowCookiesFromVisitedDomainOnly", false).toBool();
+    m_filterTrackingCookie = settings.value("filterTrackingCookie", false).toBool();
     m_deleteOnClose = settings.value("deleteCookiesOnClose", false).toBool();
 }
 
@@ -52,14 +52,15 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
     QDateTime now = QDateTime::currentDateTime();
 
     foreach (QNetworkCookie cok, newList) {
-        if (m_allowCookiesFromDomain && !url.toString().contains(cok.domain())) {
+        if (m_allowCookiesFromDomain && !QString("." + url.host()).contains(cok.domain().remove("www."))) {
 #ifdef COOKIE_DEBUG
             qDebug() << "purged for domain mismatch" << cok;
 #endif
             newList.removeOne(cok);
             continue;
         }
-        if (m_filterTrackingCookie && cok.expirationDate() > now.addYears(2)) {
+
+        if (m_filterTrackingCookie && (cok.name().startsWith("__utm") || cok.expirationDate() > now.addYears(1).addMonths(6)) ) {
 #ifdef COOKIE_DEBUG
             qDebug() << "purged as tracking " << cok;
 #endif

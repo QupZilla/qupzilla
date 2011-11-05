@@ -163,6 +163,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     //Dont save in private browsing
     if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled))
         return;
+
     m_lastOutgoingData = outgoingData;
 
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));

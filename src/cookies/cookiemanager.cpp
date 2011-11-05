@@ -26,7 +26,6 @@ CookieManager::CookieManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::CookieManager)
 {
-    setAttribute(Qt::WA_DeleteOnClose);
     setWindowModality(Qt::WindowModal);
 
     ui->setupUi(this);
