@@ -176,7 +176,7 @@ void QupZilla::postLaunch()
     aboutToShowHistoryMenu(false);
     aboutToShowBookmarksMenu();
 
-    if (m_tabWidget->count() == 0) //Something went really wrong .. add one tab
+    if (m_tabWidget->getTabBar()->normalTabsCount() <= 0) //Something went really wrong .. add one tab
         m_tabWidget->addView(m_homepage);
 
     setUpdatesEnabled(true);

@@ -44,6 +44,9 @@ public:
     void setVisible(bool visible);
     void updateVisibilityWithFullscreen(bool visible);
 
+    int pinnedTabsCount();
+    int normalTabsCount();
+
 signals:
     void reloadTab(int index);
     void stopTab(int index);
