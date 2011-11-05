@@ -67,7 +67,8 @@ void Plugins::loadPlugins()
             m_loadedPluginFileNames.append(fileName);
         }
     }
-    qDebug() << loadedPlugins.count() << "plugins loaded";
+
+    std::cout << loadedPlugins.count() << "plugins loaded" << std::endl;
 }
 
 PluginInterface* Plugins::getPlugin(QString pluginFileName)

@@ -61,7 +61,8 @@ void IconFetcher::pageDownloaded()
     FollowRedirectReply* newReply;
     if (shortcutIconTag.isEmpty()) {
 //        QUrl faviconUrl = replyUrl.resolved(QUrl("favicon.ico"));
-        // Rather getting favicon.ico from base directory than from subfolders
+//
+//        Rather getting favicon.ico from base directory than from subfolders
         QUrl faviconUrl = QUrl(replyUrl.toString(QUrl::RemovePath | QUrl::RemoveQuery) + "/favicon.ico");
         newReply = new FollowRedirectReply(faviconUrl, m_manager);
     }
