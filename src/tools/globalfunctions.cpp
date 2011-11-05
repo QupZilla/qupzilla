@@ -28,6 +28,15 @@ QByteArray qz_pixmapToByteArray(const QPixmap &pix)
     return QByteArray();
 }
 
+QPixmap qz_pixmapFromByteArray(const QByteArray &data)
+{
+    QPixmap image;
+    QByteArray bArray = QByteArray::fromBase64(data);
+    image.loadFromData(bArray);
+
+    return image;
+}
+
 QByteArray qz_readAllFileContents(const QString &filename)
 {
     QFile file(filename);
@@ -115,12 +124,24 @@ QString qz_ensureUniqueFilename(const QString &pathToFile)
 
         if (index == -1) {
             tmpFileName.append("("+QString::number(i)+")");
-        } else {
+        }
+        else {
             tmpFileName = tmpFileName.mid(0, index) + "("+QString::number(i)+")" + tmpFileName.mid(index);
         }
         i++;
     }
     return tmpFileName;
+}
+
+QString qz_getFileNameFromUrl(const QUrl &url)
+{
+    QString fileName = url.toString(QUrl::RemoveFragment | QUrl::RemoveQuery | QUrl::RemoveScheme | QUrl::RemovePort);
+    if (fileName.indexOf("/") != -1) {
+        int pos = fileName.lastIndexOf("/");
+        fileName = fileName.mid(pos);
+        fileName.remove("/");
+    }
+    return fileName;
 }
 
 QString qz_buildSystem()

@@ -775,6 +775,13 @@ void WebView::load(const QUrl &url)
         page()->mainFrame()->evaluateJavaScript(url.toString());
         return;
     }
+
+    if (url.scheme() == "data") {
+        QWebView::load(url);
+        m_aboutToLoadUrl = url;
+        return;
+    }
+
     if (isUrlValid(url)) {
         QWebView::load(url);
         m_aboutToLoadUrl = url;
