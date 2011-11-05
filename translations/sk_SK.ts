@@ -808,7 +808,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/browsinglibrary.cpp" line="148"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Databáza úspešne zoptimalizovaná.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Veľkosť databázy pred: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Veľkosť databázy po: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -2674,7 +2674,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="245"/>
         <source>&amp;Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Záložky</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="246"/>
