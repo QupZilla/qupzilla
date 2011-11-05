@@ -279,6 +279,16 @@ void TabBar::pinnedTabAdded()
     m_pinnedTabsCount++;
 }
 
+int TabBar::pinnedTabsCount()
+{
+    return m_pinnedTabsCount;
+}
+
+int TabBar::normalTabsCount()
+{
+    return count() - m_pinnedTabsCount;
+}
+
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton && tabAt(event->pos()) == -1) {
