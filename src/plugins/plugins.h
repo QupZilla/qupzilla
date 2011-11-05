@@ -24,7 +24,7 @@
 #include <QDir>
 #include <QTimer>
 #include <QSettings>
-#include <QDebug>
+#include <iostream>
 
 class PluginInterface;
 class Plugins : public QObject

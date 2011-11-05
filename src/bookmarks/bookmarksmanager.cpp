@@ -237,7 +237,7 @@ void BookmarksManager::refreshTable()
         int id = query.value(2).toInt();
         QString folder = query.value(3).toString();
         QIcon icon = IconProvider::iconFromBase64(query.value(4).toByteArray());
-        QTreeWidgetItem* item;
+        QTreeWidgetItem* item = new QTreeWidgetItem();
         if (folder == "bookmarksMenu")
             folder = tr("Bookmarks In Menu");
         if (folder == "bookmarksToolbar")
@@ -247,7 +247,7 @@ void BookmarksManager::refreshTable()
             QList<QTreeWidgetItem*> findParent = ui->bookmarksTree->findItems(folder, 0);
             if (findParent.count() != 1)
                 continue;
-            item = new QTreeWidgetItem(findParent.at(0));
+            findParent.at(0)->addChild(item);
         }
 
         item->setText(0, title);
