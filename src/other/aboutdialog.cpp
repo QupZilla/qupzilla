@@ -74,7 +74,10 @@ void AboutDialog::showAuthors()
         m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg("Heimen Stoffels (Dutch)<br/>"
                                                                          "Peter Vacula (Slovakia)<br/>"
                                                                          "Jonathan Hooverman (German)<br/>"
-                                                                         "Unink-Lio (Chinese)"));
+                                                                         "Unink-Lio (Chinese)<br/>"
+                                                                         "Federico Fabiani (Italy)<br/>"
+                                                                         "Francesco Marinucci (Italy)"
+                                                                         ));
         m_authorsHtml.append("</div>");
     }
     ui->textBrowser->setHtml(m_authorsHtml);

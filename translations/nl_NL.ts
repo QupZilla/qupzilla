@@ -69,14 +69,6 @@ p, li { white-space: pre-wrap; }
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Vertalers:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
-    <message>
-        <source>&lt;p&gt;&lt;b&gt;Other contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;&lt;b&gt;Andere bijdragers:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;&lt;b&gt;Thanks to:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;&lt;b&gt;Bedankt aan:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
-    </message>
 </context>
 <context>
     <name>AcceptLanguage</name>
@@ -159,10 +151,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/adblock/adblockdialog.cpp" line="111"/>
         <source>Update completed</source>
         <translation>Bijwerken voltooid</translation>
-    </message>
-    <message>
-        <source>EasyList has been successfuly updated.</source>
-        <translation type="obsolete">EasyList is met succes bijgewerkt.</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="111"/>
@@ -658,22 +646,10 @@ p, li { white-space: pre-wrap; }
         <translation>Kopieer adres</translation>
     </message>
     <message>
-        <source>Move bookmark to &amp;folder</source>
-        <translation type="obsolete">Verplaats bladwijzer naar &amp;map</translation>
-    </message>
-    <message>
-        <source>Unsorted Bookmarks</source>
-        <translation type="obsolete">Ongesorteerde bladwijzers</translation>
-    </message>
-    <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="201"/>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="222"/>
         <source>Bookmarks In Menu</source>
         <translation>Bladwijzers in menu</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Bladwijzers op werkbalk</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="103"/>
@@ -743,10 +719,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="466"/>
         <source>Empty</source>
         <translation>Leeg</translation>
-    </message>
-    <message>
-        <source>Sites You visited the most</source>
-        <translation type="obsolete">Websites die u het meest bezocht heeft</translation>
     </message>
 </context>
 <context>
@@ -833,14 +805,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/other/browsinglibrary.cpp" line="148"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Databse Size After: &lt;/b&gt;%2</source>
-        <translation type="obsolete">Database succesvol geoptimaliseerd.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database-grootte vooraf: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database-grootte nadien: &lt;/b&gt;%2</translation>
-    </message>
-    <message>
-        <source>Database successfuly optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Databse Size After: &lt;/b&gt;%2</source>
-        <translation type="obsolete">Database succesvol geoptimaliseerd.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database-grootte op voorhand: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database-grootte naderhand: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -1003,22 +967,22 @@ p, li { white-space: pre-wrap; }
         <translation>Voeg %1 toe aan witte lijst</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="224"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="225"/>
         <source>Flash Object</source>
         <translation>Flash-object</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="227"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="228"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Naam van attribuut&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="227"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="228"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Waarde&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="238"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="239"/>
         <source>No more informations available.</source>
         <translation>Geen verdere informatie beschikbaar.</translation>
     </message>
@@ -1184,124 +1148,124 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="56"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="57"/>
         <source>Remaining time unavailable</source>
         <translation>Resterende tijd niet beschikbaar</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="107"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="108"/>
         <source>Done - %1</source>
         <translation>Voltooid - %1</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="159"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="286"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="160"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="291"/>
         <source>Cancelled</source>
         <translation>Geannuleerd</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="165"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="166"/>
         <source>few seconds</source>
         <translation>enkele seconden</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="167"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="168"/>
         <source>seconds</source>
         <translation>seconden</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="169"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="170"/>
         <source>minutes</source>
         <translation>minuten</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="171"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="172"/>
         <source>hours</source>
         <translation>urin</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="177"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="178"/>
         <source>Unknown speed</source>
         <translation>Onbekende snelheid</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="194"/>
-        <location filename="../src/downloads/downloaditem.cpp" line="230"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="195"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="231"/>
         <source>Unknown size</source>
         <translation>Onbekende grootte</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="231"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="232"/>
         <source>%2 - unknown size (%3)</source>
         <translation>%2 - onbekende grootte (%3)</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="233"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="234"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
         <translation>Resterend: %1 - %2 van %3 (%4)</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="246"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="252"/>
         <source>Cancelled - %1</source>
         <translation>Geannuleerd - %1</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="260"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="266"/>
         <source>Delete file</source>
         <translation>Verwijder bestand</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="260"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="266"/>
         <source>Do you want to also delete dowloaded file?</source>
         <translation>Wilt u tevens het gedownloade bestand verwijderen?</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="276"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="281"/>
         <source>Open File</source>
         <translation>Open bestand</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="278"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="283"/>
         <source>Open Folder</source>
         <translation>Open map</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="280"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="285"/>
         <source>Go to Download Page</source>
         <translation>Ga naar Download-pagina</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="281"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="286"/>
         <source>Copy Download Link</source>
         <translation>Kopieer downloadlink</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="283"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="288"/>
         <source>Cancel downloading</source>
         <translation>Zrušit stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="284"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="289"/>
         <source>Clear</source>
         <translation>Wis</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="286"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="291"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="293"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="298"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="314"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="319"/>
         <source>Not found</source>
         <translation>Niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="314"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="319"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
@@ -1310,12 +1274,12 @@ p, li { white-space: pre-wrap; }
 werd niet gevonden!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="329"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="334"/>
         <source>Error: Cannot write to file!</source>
         <translation>Fout: Kan niet schrijven naar bestand!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="341"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="346"/>
         <source>Error: </source>
         <translation>Fout:</translation>
     </message>
@@ -1341,10 +1305,6 @@ werd niet gevonden!</translation>
         <location filename="../src/downloads/downloadmanager.cpp" line="203"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Alle bestanden zijn met succes gedownload.</translation>
-    </message>
-    <message>
-        <source>All files have been successfuly downloaded.</source>
-        <translation type="obsolete">Alle bestanden zijn succesvol gedownload.</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="251"/>
@@ -1699,15 +1659,6 @@ werd niet gevonden!</translation>
     </message>
 </context>
 <context>
-    <name>LocationCompleter</name>
-    <message>
-        <source>Search %1 on Google.com
-..........</source>
-        <translation type="obsolete">Zoek %1 op Google.com
-..........</translation>
-    </message>
-</context>
-<context>
     <name>MainApplication</name>
     <message>
         <location filename="../src/app/mainapplication.cpp" line="592"/>
@@ -1960,10 +1911,6 @@ werd niet gevonden!</translation>
         <location filename="../src/preferences/preferences.ui" line="162"/>
         <source>Plugins</source>
         <translation>Plugins</translation>
-    </message>
-    <message>
-        <source>After launch:  </source>
-        <translation type="obsolete">Na opstarten:  </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="265"/>
@@ -2472,10 +2419,6 @@ werd niet gevonden!</translation>
         <translation>Sta JAVA toe</translation>
     </message>
     <message>
-        <source>Allow  JavaScript</source>
-        <translation type="obsolete">Sta JavaScript toe</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="791"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>Sta plugins toe (Flash-plugin)</translation>
@@ -2592,10 +2535,6 @@ werd niet gevonden!</translation>
         <translation>OSD-melding</translation>
     </message>
     <message>
-        <source>Drag it on the screen to place it where You want.</source>
-        <translation type="obsolete">Versleep het op het scherm en plaats het waar U wilt.</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.cpp" line="344"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Versleep het op het scherm en plaats het waar U wilt.</translation>
@@ -2690,26 +2629,6 @@ werd niet gevonden!</translation>
 </context>
 <context>
     <name>QupZilla</name>
-    <message>
-        <source>File</source>
-        <translation type="obsolete">Bestand</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="obsolete">Bewerken</translation>
-    </message>
-    <message>
-        <source>Tools</source>
-        <translation type="obsolete">Hulpmiddelen</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation type="obsolete">Help</translation>
-    </message>
-    <message>
-        <source>View</source>
-        <translation type="obsolete">Beeld</translation>
-    </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="311"/>
         <source>Bookmarks</source>
@@ -3106,10 +3025,6 @@ werd niet gevonden!</translation>
         <translation>&amp;Instellingen</translation>
     </message>
     <message>
-        <source>Web Inspector</source>
-        <translation type="obsolete">Web-inspecteur</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="1007"/>
         <source>Open file...</source>
         <translation>Open bestand...</translation>
@@ -3157,10 +3072,6 @@ werd niet gevonden!</translation>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="113"/>
         <source>Report issue</source>
         <translation>Rapporteer probleem</translation>
-    </message>
-    <message>
-        <source>If You are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
-        <translation type="obsolete">Indien u problemen ervaart met QupZilla, probeer dan eerst om alle plugins uit te schakelen. &lt;br/&gt;Mocht dat niet helpen, vul dan dit formulier in: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="114"/>
@@ -3446,10 +3357,6 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
         <translation>Open RSS-lezer</translation>
     </message>
     <message>
-        <source>You have successfuly added RSS feed &quot;%1&quot;.</source>
-        <translation type="obsolete">U heeft succesvol RSS-feed &quot;%1&quot; toegevoegd.</translation>
-    </message>
-    <message>
         <location filename="../src/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
         <translation>U heeft succesvol RSS-feed &quot;%1&quot; toegevoegd.</translation>
@@ -3617,10 +3524,6 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
         <source>Search Engine Added</source>
         <translation>Zoekmachine toegevoegd</translation>
-    </message>
-    <message>
-        <source>Search Engine &quot;%1&quot; has been successfuly added.</source>
-        <translation type="obsolete">Zoekmachine &quot;%1&quot; is met succes toegevoegd.</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="233"/>
@@ -3850,10 +3753,6 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Uw verbinding met deze site is &lt;b&gt;onbeveiligd&lt;/b&gt;.</translation>
     </message>
     <message>
-        <source>This is Your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">Dit is uw &lt;b&gt;%1.&lt;/b&gt; bezoek aan deze site.</translation>
-    </message>
-    <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="56"/>
         <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
@@ -3873,10 +3772,6 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <location filename="../src/webview/siteinfowidget.cpp" line="69"/>
         <source>third</source>
         <translation>derde</translation>
-    </message>
-    <message>
-        <source>This is Your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">Dit is uw &lt;b&gt;%1&lt;/b&gt; bezoek aan deze site.</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="59"/>
@@ -4001,10 +3896,6 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <location filename="../src/other/sourceviewer.cpp" line="111"/>
         <source>Source successfully saved</source>
         <translation>Bron succesvol opgeslagen</translation>
-    </message>
-    <message>
-        <source>Source successfuly saved</source>
-        <translation type="obsolete">Bron succesvol opgeslagen</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="132"/>
@@ -4148,10 +4039,6 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Eigenlijk heeft U %1 geopende tabbladen</translation>
     </message>
     <message>
-        <source>Actually You have %1 opened tabs</source>
-        <translation type="obsolete">Eigenlijk heeft U %1 geopende tabbladen</translation>
-    </message>
-    <message>
         <location filename="../src/webview/tabwidget.cpp" line="400"/>
         <location filename="../src/webview/tabwidget.h" line="71"/>
         <source>New tab</source>
@@ -4215,13 +4102,6 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 </context>
 <context>
     <name>WebPage</name>
-    <message>
-        <source>To show this page, QupZilla must resend request which do it again 
-(like searching on making an shoping, witch has been already done.)</source>
-        <translatorcomment>What is a shoping? o_o</translatorcomment>
-        <translation type="obsolete">Om deze pagina te tonen, moet QupZulla het verzoek opnieuw versturen
-(zoals zoeken op het maken van een shoping, welke al gedaan is.)</translation>
-    </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="139"/>
         <source>To show this page, QupZilla must resend request which do it again 
@@ -4384,10 +4264,6 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <location filename="../src/webview/webview.cpp" line="556"/>
         <source>Show Web &amp;Inspector</source>
         <translation>Toon Web-&amp;inspecteur</translation>
-    </message>
-    <message>
-        <source>Search &quot;%1 ..&quot; on &amp;Google</source>
-        <translation type="obsolete">Zoek &quot;%1 ..&quot; op &amp;Google</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="514"/>

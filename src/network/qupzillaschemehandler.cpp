@@ -185,7 +185,10 @@ QString QupZillaSchemeReply::aboutPage()
                                        authorString("Peter Vacula", "pvacula1989@gmail.com") + " (Slovak)<br/>" +
                                        authorString("Ján Ďanovský", "dagsoftware@yahoo.com") + " (Slovak)<br/>" +
                                        authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>" +
-                                       authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)");
+                                       authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
+                                       authorString("Federico Fabiani", "federico.fabiani85@gmail.com") + " (Italy)<br/>" +
+                                       authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italy)"
+                 );
 
     return page;
 }
