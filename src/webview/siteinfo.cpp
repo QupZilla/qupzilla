@@ -22,6 +22,8 @@
 #include "webpage.h"
 #include "downloaditem.h"
 #include "certificateinfowidget.h"
+#include "globalfunctions.h"
+#include "iconprovider.h"
 
 QString SiteInfo::showCertInfo(const QString &string)
 {
@@ -144,28 +146,21 @@ void SiteInfo::downloadImage()
         if (!item)
             return;
 
-        QUrl imageUrl = item->text(1);
-        if (imageUrl.host().isEmpty()) {
-            imageUrl.setHost(QUrl(ui->siteAddress->text()).host());
-            imageUrl.setScheme(QUrl(ui->siteAddress->text()).scheme());
-        }
-        QIODevice* cacheData = mApp->networkCache()->data(imageUrl);
-        if (!cacheData) {
+        if (m_activePixmap.isNull()) {
             QMessageBox::warning(this, tr("Error!"), tr("This preview is not available!"));
             return;
         }
 
-        QString filePath = QFileDialog::getSaveFileName(this, tr("Save image..."), QDir::homePath()+"/"+item->text(0));
+        QString imageFileName = qz_getFileNameFromUrl(QUrl(item->text(1)));
+
+        QString filePath = QFileDialog::getSaveFileName(this, tr("Save image..."), QDir::homePath() + "/" + imageFileName);
         if (filePath.isEmpty())
             return;
 
-        QFile file(filePath);
-        if (!file.open(QFile::WriteOnly)) {
+        if (!m_activePixmap.save(filePath)) {
             QMessageBox::critical(this, tr("Error!"), tr("Cannot write to file!"));
             return;
         }
-        file.write(cacheData->readAll());
-        file.close();
     }
 }
 
@@ -174,26 +169,30 @@ void SiteInfo::showImagePreview(QTreeWidgetItem *item)
     if (!item)
         return;
     QUrl imageUrl = item->text(1);
-    if (imageUrl.host().isEmpty()) {
-        imageUrl.setHost(QUrl(ui->siteAddress->text()).host());
-        imageUrl.setScheme(QUrl(ui->siteAddress->text()).scheme());
-    }
-    QIODevice* cacheData = mApp->networkCache()->data(imageUrl);
-    QPixmap pixmap;
-    bool invalidPixmap = false;
     QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
 
-    if (!cacheData)
-        invalidPixmap = true;
-    else {
-        pixmap.loadFromData(cacheData->readAll());
-        if (pixmap.isNull())
-            invalidPixmap = true;
+    if (imageUrl.scheme() == "data") {
+        QByteArray encodedUrl = item->text(1).toAscii();
+        QByteArray imageData = encodedUrl.mid(encodedUrl.indexOf(",") + 1);
+        m_activePixmap = qz_pixmapFromByteArray(imageData);
     }
-    if (invalidPixmap)
+    else {
+        if (imageUrl.host().isEmpty()) {
+            imageUrl.setHost(QUrl(ui->siteAddress->text()).host());
+            imageUrl.setScheme(QUrl(ui->siteAddress->text()).scheme());
+        }
+
+        QIODevice* cacheData = mApp->networkCache()->data(imageUrl);
+        if (!cacheData)
+            m_activePixmap = QPixmap();
+        else
+            m_activePixmap.loadFromData(cacheData->readAll());
+    }
+
+    if (m_activePixmap.isNull())
         scene->addText(tr("Preview not available"));
     else
-        scene->addPixmap(pixmap);
+        scene->addPixmap(m_activePixmap);
 
     ui->mediaPreview->setScene(scene);
 }
