@@ -249,8 +249,13 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::ZoomTextOnly, zoomTextOnly);
     m_websettings->setAttribute(QWebSettings::PrintElementBackgrounds, printElBg);
 #ifdef USE_WEBGL
-    m_websettings->setAttribute(QWebSettings::WebGLEnabled , true);
+    m_websettings->setAttribute(QWebSettings::WebGLEnabled, true);
     m_websettings->setAttribute(QWebSettings::AcceleratedCompositingEnabled, true);
+#endif
+
+#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+    m_websettings->setAttribute(QWebSettings::HyperlinkAuditingEnabled, true);
+    m_websettings->setAttribute(QWebSettings::JavascriptCanCloseWindows, true);
 #endif
 
     m_websettings->setFontFamily(QWebSettings::StandardFont, settings.value("StandardFont", m_websettings->fontFamily(QWebSettings::StandardFont)).toString());
