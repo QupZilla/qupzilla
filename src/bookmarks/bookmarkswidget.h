@@ -29,8 +29,9 @@
 #include <QSqlQuery>
 #include <QSqlError>
 
-namespace Ui {
-    class BookmarksWidget;
+namespace Ui
+{
+class BookmarksWidget;
 }
 
 class BookmarksModel;

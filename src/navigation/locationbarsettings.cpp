@@ -30,16 +30,17 @@ LocationBarSettings::LocationBarSettings()
 
 LocationBarSettings* LocationBarSettings::instance()
 {
-    if (!s_instance)
+    if (!s_instance) {
         s_instance = new LocationBarSettings();
+    }
     return s_instance;
 }
 
 void LocationBarSettings::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("AddressBar");
-    selectAllOnDoubleClick = settings.value("SelectAllTextOnDoubleClick",true).toBool();
-    addComWithCtrl = settings.value("AddComDomainWithCtrlKey",false).toBool();
-    addCountryWithAlt = settings.value("AddCountryDomainWithAltKey",true).toBool();
+    selectAllOnDoubleClick = settings.value("SelectAllTextOnDoubleClick", true).toBool();
+    addComWithCtrl = settings.value("AddComDomainWithCtrlKey", false).toBool();
+    addCountryWithAlt = settings.value("AddCountryDomainWithAltKey", true).toBool();
 }

@@ -42,28 +42,27 @@
 #define DWM_BB_TRANSITIONONMAXIMIZED  0x00000004  // fTransitionOnMaximized has been specified
 #define WM_DWMCOMPOSITIONCHANGED        0x031E    // Composition changed window message
 
-typedef struct _DWM_BLURBEHIND
-{
+typedef struct _DWM_BLURBEHIND {
     DWORD dwFlags;
     BOOL fEnable;
     HRGN hRgnBlur;
     BOOL fTransitionOnMaximized;
 } DWM_BLURBEHIND, *PDWM_BLURBEHIND;
 
-typedef struct _MARGINS
-{
-    int cxLeftWidth;
-    int cxRightWidth;
-    int cyTopHeight;
-    int cyBottomHeight;
-} MARGINS, *PMARGINS;
+//typedef struct _MARGINS
+//{
+//    int cxLeftWidth;
+//    int cxRightWidth;
+//    int cyTopHeight;
+//    int cyBottomHeight;
+//} MARGINS, *PMARGINS;
 
-typedef HRESULT (WINAPI *PtrDwmIsCompositionEnabled)(BOOL* pfEnabled);
-typedef HRESULT (WINAPI *PtrDwmExtendFrameIntoClientArea)(HWND hWnd, const MARGINS* pMarInset);
-typedef HRESULT (WINAPI *PtrDwmEnableBlurBehindWindow)(HWND hWnd, const DWM_BLURBEHIND* pBlurBehind);
-typedef HRESULT (WINAPI *PtrDwmGetColorizationColor)(DWORD *pcrColorization, BOOL *pfOpaqueBlend);
+typedef HRESULT(WINAPI* PtrDwmIsCompositionEnabled)(BOOL* pfEnabled);
+typedef HRESULT(WINAPI* PtrDwmExtendFrameIntoClientArea)(HWND hWnd, const MARGINS* pMarInset);
+typedef HRESULT(WINAPI* PtrDwmEnableBlurBehindWindow)(HWND hWnd, const DWM_BLURBEHIND* pBlurBehind);
+typedef HRESULT(WINAPI* PtrDwmGetColorizationColor)(DWORD* pcrColorization, BOOL* pfOpaqueBlend);
 
-static PtrDwmIsCompositionEnabled pDwmIsCompositionEnabled= 0;
+static PtrDwmIsCompositionEnabled pDwmIsCompositionEnabled = 0;
 static PtrDwmEnableBlurBehindWindow pDwmEnableBlurBehindWindow = 0;
 static PtrDwmExtendFrameIntoClientArea pDwmExtendFrameIntoClientArea = 0;
 static PtrDwmGetColorizationColor pDwmGetColorizationColor = 0;
@@ -77,10 +76,16 @@ static PtrDwmGetColorizationColor pDwmGetColorizationColor = 0;
 class WindowNotifier : public QWidget
 {
 public:
-    WindowNotifier() { winId(); }
-    void addWidget(QWidget *widget) { widgets.append(widget); }
-    void removeWidget(QWidget *widget) { widgets.removeAll(widget); }
-    bool winEvent(MSG *message, long *result);
+    WindowNotifier() {
+        winId();
+    }
+    void addWidget(QWidget* widget) {
+        widgets.append(widget);
+    }
+    void removeWidget(QWidget* widget) {
+        widgets.removeAll(widget);
+    }
+    bool winEvent(MSG* message, long* result);
 
 private:
     QWidgetList widgets;
@@ -90,7 +95,7 @@ static bool resolveLibs()
 {
     if (!pDwmIsCompositionEnabled) {
         QLibrary dwmLib(QString::fromAscii("dwmapi"));
-        pDwmIsCompositionEnabled =(PtrDwmIsCompositionEnabled)dwmLib.resolve("DwmIsCompositionEnabled");
+        pDwmIsCompositionEnabled = (PtrDwmIsCompositionEnabled)dwmLib.resolve("DwmIsCompositionEnabled");
         pDwmExtendFrameIntoClientArea = (PtrDwmExtendFrameIntoClientArea)dwmLib.resolve("DwmExtendFrameIntoClientArea");
         pDwmEnableBlurBehindWindow = (PtrDwmEnableBlurBehindWindow)dwmLib.resolve("DwmEnableBlurBehindWindow");
         pDwmGetColorizationColor = (PtrDwmGetColorizationColor)dwmLib.resolve("DwmGetColorizationColor");
@@ -133,8 +138,9 @@ bool QtWin::isCompositionEnabled()
         HRESULT hr = S_OK;
         BOOL isEnabled = false;
         hr = pDwmIsCompositionEnabled(&isEnabled);
-        if (SUCCEEDED(hr))
+        if (SUCCEEDED(hr)) {
             return isEnabled;
+        }
     }
 #endif
     return false;
@@ -145,7 +151,7 @@ bool QtWin::isCompositionEnabled()
   *
   * \a enable tells if the blur should be enabled or not
   */
-bool QtWin::enableBlurBehindWindow(QWidget *widget, bool enable)
+bool QtWin::enableBlurBehindWindow(QWidget* widget, bool enable)
 {
     Q_UNUSED(enable);
     Q_UNUSED(widget);
@@ -182,7 +188,7 @@ bool QtWin::enableBlurBehindWindow(QWidget *widget, bool enable)
   *
   * \a enable tells if the blur should be enabled or not
   */
-bool QtWin::extendFrameIntoClientArea(QWidget *widget, int left, int top, int right, int bottom)
+bool QtWin::extendFrameIntoClientArea(QWidget* widget, int left, int top, int right, int bottom)
 {
 
     Q_ASSERT(widget);
@@ -225,25 +231,27 @@ QColor QtWin::colorizationColor()
         QLibrary dwmLib(QString::fromAscii("dwmapi"));
         HRESULT hr = S_OK;
         hr = pDwmGetColorizationColor(&color, &opaque);
-        if (SUCCEEDED(hr))
+        if (SUCCEEDED(hr)) {
             resultColor = QColor(color);
+        }
     }
 #endif
     return resultColor;
 }
 
 #ifdef Q_WS_WIN
-WindowNotifier *QtWin::windowNotifier()
+WindowNotifier* QtWin::windowNotifier()
 {
-    static WindowNotifier *windowNotifierInstance = 0;
-    if (!windowNotifierInstance)
+    static WindowNotifier* windowNotifierInstance = 0;
+    if (!windowNotifierInstance) {
         windowNotifierInstance = new WindowNotifier;
+    }
     return windowNotifierInstance;
 }
 
 
 /* Notify all enabled windows that the DWM state changed */
-bool WindowNotifier::winEvent(MSG *message, long *result)
+bool WindowNotifier::winEvent(MSG* message, long* result)
 {
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
         bool compositionEnabled = QtWin::isCompositionEnabled();
@@ -259,8 +267,9 @@ bool WindowNotifier::winEvent(MSG *message, long *result)
 
 #ifdef W7API
 IShellLink* QtWin::CreateShellLink(const QString &title, const QString &description,
-                             const QString &app_path, const QString &app_args,
-                             const QString &icon_path, int app_index)  {
+                                   const QString &app_path, const QString &app_args,
+                                   const QString &icon_path, int app_index)
+{
 
     const wchar_t* _title = reinterpret_cast<const wchar_t*>(title.utf16());
     const wchar_t* _description = reinterpret_cast<const wchar_t*>(description.utf16());
@@ -273,8 +282,8 @@ IShellLink* QtWin::CreateShellLink(const QString &title, const QString &descript
     bool is_not_separator = (app_path.length() > 0);
 
     HRESULT hr = CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_IShellLink,
-                                  reinterpret_cast<void**> (&(shell_link)));
-    if(SUCCEEDED(hr)) {
+                                  reinterpret_cast<void**>(&(shell_link)));
+    if (SUCCEEDED(hr)) {
         if (is_not_separator) {
             shell_link->SetPath(_app_path);
             shell_link->SetArguments(_app_args);
@@ -282,7 +291,7 @@ IShellLink* QtWin::CreateShellLink(const QString &title, const QString &descript
             shell_link->SetDescription(_description);
         }
 
-        hr = shell_link->QueryInterface(IID_IPropertyStore, reinterpret_cast<void**> (&(prop_store)));
+        hr = shell_link->QueryInterface(IID_IPropertyStore, reinterpret_cast<void**>(&(prop_store)));
 
         if (SUCCEEDED(hr)) {
             PROPVARIANT pv;
@@ -292,7 +301,8 @@ IShellLink* QtWin::CreateShellLink(const QString &title, const QString &descript
                 if (SUCCEEDED(hr)) {
                     hr = prop_store->SetValue(PKEY_Title, pv);
                 }
-            } else {
+            }
+            else {
                 hr = InitPropVariantFromBoolean(TRUE, &pv);
 
                 if (SUCCEEDED(hr)) {
@@ -314,20 +324,21 @@ void QtWin::populateFrequentSites(IObjectCollection* collection, const QString &
 {
     HistoryModel* historyModel = mApp->history();
     QList<HistoryModel::HistoryEntry> mostList = historyModel->mostVisited(6);
-    foreach (HistoryModel::HistoryEntry entry, mostList)
-        collection->AddObject(CreateShellLink(entry.title, entry.url.toString(), appPath, " "+entry.url.toEncoded(), appPath, 1));
+    foreach(HistoryModel::HistoryEntry entry, mostList)
+    collection->AddObject(CreateShellLink(entry.title, entry.url.toString(), appPath, " " + entry.url.toEncoded(), appPath, 1));
 
     collection->AddObject(CreateShellLink("", "", "", "", "", 0)); //Spacer
 }
 
-void QtWin::AddTasksToList(ICustomDestinationList* destinationList) {
+void QtWin::AddTasksToList(ICustomDestinationList* destinationList)
+{
     IObjectArray* object_array;
     IObjectCollection* obj_collection;
 
     CoCreateInstance(CLSID_EnumerableObjectCollection, NULL,
-                                  CLSCTX_INPROC, IID_IObjectCollection, reinterpret_cast<void**> (&(obj_collection)));
+                     CLSCTX_INPROC, IID_IObjectCollection, reinterpret_cast<void**>(&(obj_collection)));
 
-    obj_collection->QueryInterface(IID_IObjectArray, reinterpret_cast<void**> (&(object_array)));
+    obj_collection->QueryInterface(IID_IObjectArray, reinterpret_cast<void**>(&(object_array)));
 
     QString icons_source = qApp->applicationFilePath();
     QString app_path = qApp->applicationFilePath();
@@ -335,16 +346,16 @@ void QtWin::AddTasksToList(ICustomDestinationList* destinationList) {
     populateFrequentSites(obj_collection, icons_source);
 
     obj_collection->AddObject(CreateShellLink(tr("Open new tab"), tr("Opens a new tab if browser is running"),
-                                               app_path, "--new-tab",
-                                               icons_source, 0));
+                              app_path, "--new-tab",
+                              icons_source, 0));
 
     obj_collection->AddObject(CreateShellLink(tr("Open new window"), tr("Opens a new window if browser is running"),
-                                               app_path, "--new-window",
-                                               icons_source, 0));
+                              app_path, "--new-window",
+                              icons_source, 0));
 
     obj_collection->AddObject(CreateShellLink(tr("Open download manager"), tr("Opens a download manager if browser is running"),
-                                               app_path, "--download-manager",
-                                               icons_source, 0));
+                              app_path, "--download-manager",
+                              icons_source, 0));
 
     destinationList->AddUserTasks(object_array);
 
@@ -354,10 +365,12 @@ void QtWin::AddTasksToList(ICustomDestinationList* destinationList) {
 #endif //W7API
 #endif //Q_WS_WIN
 
-void QtWin::setupJumpList() {
+void QtWin::setupJumpList()
+{
 #ifdef W7API
-    if (!isRunningWindows7())
+    if (!isRunningWindows7()) {
         return;
+    }
 
     UINT max_count = 0;
     IObjectArray* objectArray;
@@ -365,10 +378,10 @@ void QtWin::setupJumpList() {
 
     //create the custom jump list object
     CoCreateInstance(CLSID_DestinationList, NULL, CLSCTX_INPROC_SERVER, IID_ICustomDestinationList,
-                                              reinterpret_cast<void**> (&(destinationList)));
+                     reinterpret_cast<void**>(&(destinationList)));
 
     //initialize list
-    destinationList->BeginList(&max_count, IID_IObjectArray, reinterpret_cast<void**> (&(objectArray)));
+    destinationList->BeginList(&max_count, IID_IObjectArray, reinterpret_cast<void**>(&(objectArray)));
     AddTasksToList(destinationList);
 
     //commit list

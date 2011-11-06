@@ -71,9 +71,9 @@ public:
     Q_PROPERTY(bool providesSuggestions READ providesSuggestions)
     Q_PROPERTY(QString imageUrl READ imageUrl WRITE setImageUrl)
     Q_PROPERTY(bool valid READ isValid)
-    Q_PROPERTY(QNetworkAccessManager *networkAccessManager READ networkAccessManager WRITE setNetworkAccessManager)
+    Q_PROPERTY(QNetworkAccessManager* networkAccessManager READ networkAccessManager WRITE setNetworkAccessManager)
 
-    OpenSearchEngine(QObject *parent = 0);
+    OpenSearchEngine(QObject* parent = 0);
     ~OpenSearchEngine();
 
     QString name() const;
@@ -117,11 +117,11 @@ public:
     QString getSuggestionsUrl();
     QByteArray getSuggestionsParameters();
 
-    QNetworkAccessManager *networkAccessManager() const;
-    void setNetworkAccessManager(QNetworkAccessManager *networkAccessManager);
+    QNetworkAccessManager* networkAccessManager() const;
+    void setNetworkAccessManager(QNetworkAccessManager* networkAccessManager);
 
-    OpenSearchEngineDelegate *delegate() const;
-    void setDelegate(OpenSearchEngineDelegate *delegate);
+    OpenSearchEngineDelegate* delegate() const;
+    void setDelegate(OpenSearchEngineDelegate* delegate);
 
     bool operator==(const OpenSearchEngine &other) const;
     bool operator<(const OpenSearchEngine &other) const;
@@ -157,12 +157,12 @@ private:
 
     QMap<QString, QNetworkAccessManager::Operation> m_requestMethods;
 
-    QNetworkAccessManager *m_networkAccessManager;
-    QNetworkReply *m_suggestionsReply;
+    QNetworkAccessManager* m_networkAccessManager;
+    QNetworkReply* m_suggestionsReply;
 
-    QScriptEngine *m_scriptEngine;
+    QScriptEngine* m_scriptEngine;
 
-    OpenSearchEngineDelegate *m_delegate;
+    OpenSearchEngineDelegate* m_delegate;
 };
 
 #endif // OPENSEARCHENGINE_H

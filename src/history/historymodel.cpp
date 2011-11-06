@@ -30,20 +30,23 @@ HistoryModel::HistoryModel(QupZilla* mainClass, QObject* parent)
 
 void HistoryModel::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
-    m_isSaving = settings.value("allowHistory",true).toBool();
+    m_isSaving = settings.value("allowHistory", true).toBool();
     settings.endGroup();
 }
 
 int HistoryModel::addHistoryEntry(const QString &url, QString &title)
 {
-    if (!m_isSaving)
+    if (!m_isSaving) {
         return -2;
-    if (url.startsWith("file://") || url.startsWith("qupzilla:") || title.contains(tr("Failed loading page")) || url.isEmpty() || url.contains("about:blank") )
+    }
+    if (url.startsWith("file://") || url.startsWith("qupzilla:") || title.contains(tr("Failed loading page")) || url.isEmpty() || url.contains("about:blank")) {
         return -1;
-    if (title == "")
-        title=tr("No Named Page");
+    }
+    if (title == "") {
+        title = tr("No Named Page");
+    }
 
     QSqlQuery query;
     query.prepare("SELECT id FROM history WHERE url=?");
@@ -64,7 +67,8 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
         entry.url = url;
         entry.title = title;
         emit historyEntryAdded(entry);
-    } else {
+    }
+    else {
         int id = query.value(0).toInt();
         query.prepare("UPDATE history SET count = count + 1, date=?, title=? WHERE url=?");
         query.bindValue(0, QDateTime::currentMSecsSinceEpoch());
@@ -87,8 +91,9 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
 
 int HistoryModel::addHistoryEntry(WebView* view)
 {
-    if (!m_isSaving)
+    if (!m_isSaving) {
         return -2;
+    }
 
     QString url = view->url().toEncoded();
     QString title = view->title();
@@ -101,8 +106,9 @@ bool HistoryModel::deleteHistoryEntry(int index)
     query.prepare("SELECT id, count, date, url, title FROM history WHERE id=?");
     query.bindValue(0, index);
     query.exec();
-    if (!query.next())
+    if (!query.next()) {
         return false;
+    }
     HistoryEntry entry;
     entry.id = query.value(0).toInt();
     entry.count = query.value(1).toInt();
@@ -151,7 +157,7 @@ QList<HistoryModel::HistoryEntry> HistoryModel::mostVisited(int count)
     QList<HistoryEntry> list;
     QSqlQuery query;
     query.exec(QString("SELECT count, date, id, title, url FROM history ORDER BY count DESC LIMIT %1").arg(count));
-    while(query.next()) {
+    while (query.next()) {
         HistoryEntry entry;
         entry.count = query.value(0).toInt();
         entry.date = query.value(1).toDateTime();

@@ -26,7 +26,7 @@ class ReloadStopButton : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ReloadStopButton(QWidget *parent = 0);
+    explicit ReloadStopButton(QWidget* parent = 0);
     ~ReloadStopButton();
 
     void showStopButton();

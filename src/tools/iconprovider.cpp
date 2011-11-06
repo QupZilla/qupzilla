@@ -23,7 +23,7 @@ IconProvider::IconProvider(QObject* parent)
     : QObject(parent)
 {
     m_timer = new QTimer(this);
-    m_timer->setInterval(10*1000);
+    m_timer->setInterval(10 * 1000);
     m_timer->start();
 
     connect(m_timer, SIGNAL(timeout()), this, SLOT(saveIconsToDatabase()));
@@ -35,13 +35,15 @@ void IconProvider::saveIcon(WebView* view)
     item.icon = view->icon();
     item.url = view->url();
 
-    if (item.icon.isNull())
+    if (item.icon.isNull()) {
         return;
+    }
 
-    QPixmap iconPixmap = item.icon.pixmap(16,16);
-    foreach (Icon ic, m_iconBuffer) {
-        if (ic.url == item.url && ic.icon.pixmap(16,16).toImage() == iconPixmap.toImage())
+    QPixmap iconPixmap = item.icon.pixmap(16, 16);
+    foreach(Icon ic, m_iconBuffer) {
+        if (ic.url == item.url && ic.icon.pixmap(16, 16).toImage() == iconPixmap.toImage()) {
             return;
+        }
     }
 
     item.icon = QIcon(iconPixmap);
@@ -50,48 +52,54 @@ void IconProvider::saveIcon(WebView* view)
 
 QIcon IconProvider::iconForUrl(const QUrl &url)
 {
-    foreach (Icon ic, m_iconBuffer) {
-        if (ic.url == url)
+    foreach(Icon ic, m_iconBuffer) {
+        if (ic.url == url) {
             return ic.icon;
+        }
     }
 
     QSqlQuery query;
     query.prepare("SELECT icon FROM icons WHERE url=?");
     query.bindValue(0, url.toEncoded(QUrl::RemoveFragment));
     query.exec();
-    if (query.next())
+    if (query.next()) {
         return iconFromBase64(query.value(0).toByteArray());
+    }
 
     return QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic);
 }
 
 QIcon IconProvider::iconForDomain(const QUrl &url)
 {
-    foreach (Icon ic, m_iconBuffer) {
-        if (ic.url.host() == url.host())
+    foreach(Icon ic, m_iconBuffer) {
+        if (ic.url.host() == url.host()) {
             return ic.icon;
+        }
     }
 
     QSqlQuery query;
     query.exec("SELECT icon FROM icons WHERE url LIKE '%" + url.host() + "%'");
-    if (query.next())
+    if (query.next()) {
         return iconFromBase64(query.value(0).toByteArray());
+    }
 
     return QIcon();
 }
 
 void IconProvider::saveIconsToDatabase()
 {
-    foreach (Icon ic, m_iconBuffer) {
+    foreach(Icon ic, m_iconBuffer) {
         QSqlQuery query;
         query.prepare("SELECT id FROM icons WHERE url = ?");
         query.bindValue(0, ic.url.toEncoded(QUrl::RemoveFragment));
         query.exec();
 
-        if (query.next())
+        if (query.next()) {
             query.prepare("UPDATE icons SET icon = ? WHERE url = ?");
-        else
+        }
+        else {
             query.prepare("INSERT INTO icons (icon, url) VALUES (?,?)");
+        }
 
         query.bindValue(0, iconToBase64(ic.icon));
         query.bindValue(1, ic.url.toEncoded(QUrl::RemoveFragment));
@@ -171,20 +179,27 @@ QIcon IconProvider::fromTheme(const QString &icon)
 #ifdef Q_WS_X11
     return QIcon::fromTheme(icon);
 #else
-    if (icon == "go-home")
+    if (icon == "go-home") {
         return QIcon(":/icons/faenza/home.png");
-    else if (icon == "text-plain")
+    }
+    else if (icon == "text-plain") {
         return QIcon(":icons/locationbar/unknownpage.png");
-    else if (icon == "user-bookmarks")
+    }
+    else if (icon == "user-bookmarks") {
         return QIcon(":icons/faenza/user-bookmarks.png");
-    else if (icon == "list-remove")
+    }
+    else if (icon == "list-remove") {
         return QIcon(":icons/faenza/list-remove.png");
-    else if (icon == "go-next")
+    }
+    else if (icon == "go-next") {
         return QIcon(":icons/faenza/go-next.png");
-    else if (icon == "go-previous")
+    }
+    else if (icon == "go-previous") {
         return QIcon(":icons/faenza/go-previous.png");
-    else
+    }
+    else {
         return QIcon();
+    }
 #endif
 }
 
@@ -198,8 +213,9 @@ QIcon IconProvider::iconFromBase64(const QByteArray &data)
     in >> image;
     buffer.close();
 
-    if (!image.isNull())
+    if (!image.isNull()) {
         return image;
+    }
     return QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic);
 }
 

@@ -34,7 +34,7 @@ public:
     explicit Plugins(QObject* parent = 0);
 
     QStringList getAvailablePlugins() { return m_availablePluginFileNames; }
-    QStringList getAllowedPlugins () { return m_allowedPluginFileNames; }
+    QStringList getAllowedPlugins() { return m_allowedPluginFileNames; }
     PluginInterface* getPlugin(QString pluginFileName);
     //void setPluginsAllowed(bool state) { pluginsEnabled = state; qDebug() << state;}
 

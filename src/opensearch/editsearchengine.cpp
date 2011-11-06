@@ -82,8 +82,9 @@ void EditSearchEngine::hideIconLabels()
 void EditSearchEngine::chooseIcon()
 {
     QString path = QFileDialog::getOpenFileName(this, tr("Choose icon..."));
-    if (path.isEmpty())
+    if (path.isEmpty()) {
         return;
+    }
 
     setIcon(QIcon(path));
 }

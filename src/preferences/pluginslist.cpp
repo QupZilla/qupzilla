@@ -30,13 +30,13 @@ PluginsList::PluginsList(QWidget* parent) :
     //Application Extensions
     refresh();
     connect(ui->butSettings, SIGNAL(clicked()), this, SLOT(settingsClicked()));
-    connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
+    connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
     connect(ui->butLoad, SIGNAL(clicked()), this, SLOT(reloadPlugins()));
     connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
-    ui->allowAppPlugins->setChecked( settings.value("EnablePlugins",true).toBool() );
+    ui->allowAppPlugins->setChecked(settings.value("EnablePlugins", true).toBool());
     settings.endGroup();
     allowAppPluginsChanged(ui->allowAppPlugins->isChecked());
 
@@ -47,9 +47,9 @@ PluginsList::PluginsList(QWidget* parent) :
 
     settings.beginGroup("ClickToFlash");
     QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
-    ui->allowClick2Flash->setChecked( settings.value("Enable",true).toBool() );
+    ui->allowClick2Flash->setChecked(settings.value("Enable", true).toBool());
     settings.endGroup();
-    foreach (QString site, whitelist) {
+    foreach(QString site, whitelist) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->whitelist);
         item->setText(0, site);
     }
@@ -59,8 +59,9 @@ PluginsList::PluginsList(QWidget* parent) :
 void PluginsList::addWhitelist()
 {
     QString site = QInputDialog::getText(this, tr("Add site to whitelist"), tr("Server without http:// (ex. youtube.com)"));
-    if (site.isEmpty())
+    if (site.isEmpty()) {
         return;
+    }
 
     mApp->plugins()->c2f_addWhitelist(site);
     ui->whitelist->insertTopLevelItem(0, new QTreeWidgetItem(QStringList(site)));
@@ -69,8 +70,9 @@ void PluginsList::addWhitelist()
 void PluginsList::removeWhitelist()
 {
     QTreeWidgetItem* item = ui->whitelist->currentItem();
-    if (!item)
+    if (!item) {
         return;
+    }
 
     mApp->plugins()->c2f_removeWhitelist(item->text(0));
     delete item;
@@ -78,9 +80,9 @@ void PluginsList::removeWhitelist()
 
 void PluginsList::save()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
-    settings.setValue("EnablePlugins",ui->allowAppPlugins->isChecked());
+    settings.setValue("EnablePlugins", ui->allowAppPlugins->isChecked());
     settings.endGroup();
 
     reloadPlugins();
@@ -88,7 +90,7 @@ void PluginsList::save()
 
 void PluginsList::allowAppPluginsChanged(bool state)
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
     settings.setValue("EnablePlugins", state);
     settings.endGroup();
@@ -98,7 +100,7 @@ void PluginsList::allowAppPluginsChanged(bool state)
 
 void PluginsList::allowC2FChanged(bool state)
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("ClickToFlash");
     settings.setValue("Enable", state);
     settings.endGroup();
@@ -117,22 +119,24 @@ void PluginsList::refresh()
 
     QStringList availablePlugins = mApp->plugins()->getAvailablePlugins();
     QStringList allowedPlugins = mApp->plugins()->getAllowedPlugins();
-    foreach (QString fileName, availablePlugins) {
+    foreach(QString fileName, availablePlugins) {
         PluginInterface* plugin = mApp->plugins()->getPlugin(fileName);
-        if (!plugin)
+        if (!plugin) {
             continue;
+        }
 
         QListWidgetItem* item = new QListWidgetItem(ui->list);
-        item->setText(""+plugin->pluginName()+" ("+plugin->pluginVersion()+") by "+plugin->pluginAuthor()+"\n"
-                      +plugin->pluginInfo()+"\n"+plugin->pluginDescription() );
+        item->setText("" + plugin->pluginName() + " (" + plugin->pluginVersion() + ") by " + plugin->pluginAuthor() + "\n"
+                      + plugin->pluginInfo() + "\n" + plugin->pluginDescription());
 
         QIcon icon = plugin->pluginIcon();
-        if (icon.isNull())
+        if (icon.isNull()) {
             icon = QIcon(":/icons/preferences/extension.png");
+        }
         item->setIcon(icon);
 
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-        item->setCheckState( (allowedPlugins.contains(fileName) ) ? Qt::Checked : Qt::Unchecked);
+        item->setCheckState((allowedPlugins.contains(fileName)) ? Qt::Checked : Qt::Unchecked);
         item->setWhatsThis(plugin->hasSettings() ? "1" : "0");
         item->setToolTip(fileName);
 
@@ -142,26 +146,31 @@ void PluginsList::refresh()
 
 void PluginsList::currentChanged(QListWidgetItem* item)
 {
-    if (!item)
+    if (!item) {
         return;
+    }
 
     QString has = item->whatsThis();
     bool show;
-    if (has == "1")
+    if (has == "1") {
         show = true;
-    else
+    }
+    else {
         show = false;
+    }
 
-    if(item->checkState() == Qt::Unchecked)
+    if (item->checkState() == Qt::Unchecked) {
         show = false;
+    }
 
     ui->butSettings->setEnabled(show);
 }
 
 void PluginsList::settingsClicked()
 {
-    if (!ui->list->currentItem())
+    if (!ui->list->currentItem()) {
         return;
+    }
 
     QString name = ui->list->currentItem()->toolTip();
     PluginInterface* plugin = mApp->plugins()->getPlugin(name);
@@ -172,12 +181,13 @@ void PluginsList::reloadPlugins()
 {
     QStringList allowedPlugins;
     for (int i = 0; i < ui->list->count(); i++) {
-        if (ui->list->item(i)->checkState() == Qt::Checked)
+        if (ui->list->item(i)->checkState() == Qt::Checked) {
             allowedPlugins.append(ui->list->item(i)->toolTip());
+        }
     }
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
-    settings.setValue("AllowedPlugins",allowedPlugins);
+    settings.setValue("AllowedPlugins", allowedPlugins);
     settings.endGroup();
 
     mApp->plugins()->loadSettings();

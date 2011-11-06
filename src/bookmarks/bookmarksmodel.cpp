@@ -25,7 +25,7 @@
 // However from bookmark icon, it is not possible to add more than one bookmark
 // Only from Ctrl+D dialog it is possible
 
-BookmarksModel::BookmarksModel(QObject *parent)
+BookmarksModel::BookmarksModel(QObject* parent)
     : QObject(parent)
 {
     loadSettings();
@@ -33,17 +33,17 @@ BookmarksModel::BookmarksModel(QObject *parent)
 
 void BookmarksModel::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
-    m_showMostVisited = settings.value("showMostVisited",true).toBool();
+    m_showMostVisited = settings.value("showMostVisited", true).toBool();
     settings.endGroup();
 }
 
 void BookmarksModel::setShowingMostVisited(bool state)
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Browser-Settings");
-    settings.setValue("showMostVisited",state);
+    settings.setValue("showMostVisited", state);
     settings.endGroup();
     m_showMostVisited = state;
 }
@@ -55,7 +55,7 @@ bool BookmarksModel::isBookmarked(const QUrl &url)
     query.bindValue(0, url.toString());
     query.exec();
     query.next();
-    return query.value(0).toInt()>0;
+    return query.value(0).toInt() > 0;
 }
 
 // Bookmark search priority:
@@ -66,20 +66,23 @@ int BookmarksModel::bookmarkId(const QUrl &url)
     query.prepare("SELECT id FROM bookmarks WHERE url=? AND folder='bookmarksMenu' ");
     query.bindValue(0, url.toString());
     query.exec();
-    if (query.next())
+    if (query.next()) {
         return query.value(0).toInt();
+    }
 
     query.prepare("SELECT id FROM bookmarks WHERE url=? AND folder='bookmarksToolbar' ");
     query.bindValue(0, url.toString());
     query.exec();
-    if (query.next())
+    if (query.next()) {
         return query.value(0).toInt();
+    }
 
     query.prepare("SELECT id FROM bookmarks WHERE url=? ");
     query.bindValue(0, url.toString());
     query.exec();
-    if (query.next())
+    if (query.next()) {
         return query.value(0).toInt();
+    }
 
     return -1;
 }
@@ -92,8 +95,9 @@ int BookmarksModel::bookmarkId(const QUrl &url, const QString &title, const QStr
     query.bindValue(1, title);
     query.bindValue(2, folder);
     query.exec();
-    if (query.next())
+    if (query.next()) {
         return query.value(0).toInt();
+    }
     return -1;
 }
 
@@ -117,8 +121,9 @@ BookmarksModel::Bookmark BookmarksModel::getBookmark(int id)
 
 bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder)
 {
-    if (url.isEmpty() || title.isEmpty() || folder.isEmpty())
+    if (url.isEmpty() || title.isEmpty() || folder.isEmpty()) {
         return false;
+    }
 
     QSqlQuery query;
     query.prepare("INSERT INTO bookmarks (url, title, folder, icon) VALUES (?,?,?,?)");
@@ -127,8 +132,9 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     query.bindValue(2, folder);
     query.bindValue(3, IconProvider::iconToBase64(icon));
 
-    if (!query.exec())
+    if (!query.exec()) {
         return false;
+    }
 
     Bookmark bookmark;
     bookmark.id = query.lastInsertId().toInt();
@@ -143,7 +149,7 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     return true;
 }
 
-bool BookmarksModel::saveBookmark(WebView *view, const QString &folder)
+bool BookmarksModel::saveBookmark(WebView* view, const QString &folder)
 {
     return saveBookmark(view->url(), view->title(), view->siteIcon(), folder);
 }
@@ -154,8 +160,9 @@ bool BookmarksModel::removeBookmark(int id)
     query.prepare("SELECT url, title, folder FROM bookmarks WHERE id = ?");
     query.bindValue(0, id);
     query.exec();
-    if (!query.next())
+    if (!query.next()) {
         return false;
+    }
 
     Bookmark bookmark;
     bookmark.id = id;
@@ -165,8 +172,9 @@ bool BookmarksModel::removeBookmark(int id)
     bookmark.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
     bookmark.inSubfolder = isSubfolder(bookmark.folder);
 
-    if (!query.exec("DELETE FROM bookmarks WHERE id = " + QString::number(id)))
+    if (!query.exec("DELETE FROM bookmarks WHERE id = " + QString::number(id))) {
         return false;
+    }
 
     emit bookmarkDeleted(bookmark);
     mApp->sendMessages(MainApplication::BookmarksChanged, true);
@@ -205,11 +213,13 @@ bool BookmarksModel::removeBookmark(WebView* view)
 
 bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url, const QString &folder)
 {
-    if (title.isEmpty() && url.isEmpty() && folder.isEmpty())
+    if (title.isEmpty() && url.isEmpty() && folder.isEmpty()) {
         return false;
+    }
     QSqlQuery query;
-    if (!query.exec("SELECT title, url, folder, icon FROM bookmarks WHERE id = "+QString::number(id)))
+    if (!query.exec("SELECT title, url, folder, icon FROM bookmarks WHERE id = " + QString::number(id))) {
         return false;
+    }
 
     query.next();
 
@@ -235,8 +245,9 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     query.bindValue(2, after.folder);
     query.bindValue(3, id);
 
-    if (!query.exec())
+    if (!query.exec()) {
         return false;
+    }
 
     emit bookmarkEdited(before, after);
     mApp->sendMessages(MainApplication::BookmarksChanged, true);
@@ -249,13 +260,15 @@ bool BookmarksModel::createFolder(const QString &name)
     query.prepare("SELECT name FROM folders WHERE name = ?");
     query.bindValue(0, name);
     query.exec();
-    if (query.next())
+    if (query.next()) {
         return false;
+    }
 
     query.prepare("INSERT INTO folders (name, subfolder) VALUES (?, 'no')");
     query.bindValue(0, name);
-    if (!query.exec())
+    if (!query.exec()) {
         return false;
+    }
 
     emit folderAdded(name);
     mApp->sendMessages(MainApplication::BookmarksChanged, true);
@@ -264,26 +277,31 @@ bool BookmarksModel::createFolder(const QString &name)
 
 bool BookmarksModel::removeFolder(const QString &name)
 {
-    if (name == tr("Bookmarks In Menu") || name == tr("Bookmarks In ToolBar"))
+    if (name == tr("Bookmarks In Menu") || name == tr("Bookmarks In ToolBar")) {
         return false;
+    }
 
     QSqlQuery query;
     query.prepare("SELECT id FROM bookmarks WHERE folder = ? ");
     query.bindValue(0, name);
-    if (!query.exec())
+    if (!query.exec()) {
         return false;
-    while (query.next())
+    }
+    while (query.next()) {
         removeBookmark(query.value(0).toInt());
+    }
 
     query.prepare("DELETE FROM folders WHERE name=?");
     query.bindValue(0, name);
-    if (!query.exec())
+    if (!query.exec()) {
         return false;
+    }
 
     query.prepare("DELETE FROM bookmarks WHERE folder=?");
     query.bindValue(0, name);
-    if (!query.exec())
+    if (!query.exec()) {
         return false;
+    }
 
     emit folderDeleted(name);
     mApp->sendMessages(MainApplication::BookmarksChanged, true);
@@ -296,20 +314,23 @@ bool BookmarksModel::renameFolder(const QString &before, const QString &after)
     query.prepare("SELECT name FROM folders WHERE name = ?");
     query.bindValue(0, after);
     query.exec();
-    if (query.next())
+    if (query.next()) {
         return false;
+    }
 
     query.prepare("UPDATE folders SET name=? WHERE name=?");
     query.bindValue(0, after);
     query.bindValue(1, before);
-    if (!query.exec())
-            return false;
+    if (!query.exec()) {
+        return false;
+    }
 
     query.prepare("UPDATE bookmarks SET folder=? WHERE folder=?");
     query.bindValue(0, after);
     query.bindValue(1, before);
-    if (!query.exec())
-            return false;
+    if (!query.exec()) {
+        return false;
+    }
 
     emit folderRenamed(before, after);
     return true;
@@ -321,13 +342,15 @@ bool BookmarksModel::createSubfolder(const QString &name)
     query.prepare("SELECT name FROM folders WHERE name = ?");
     query.bindValue(0, name);
     query.exec();
-    if (query.next())
+    if (query.next()) {
         return false;
+    }
 
     query.prepare("INSERT INTO folders (name, subfolder) VALUES (?, 'yes')");
     query.bindValue(0, name);
-    if (!query.exec())
+    if (!query.exec()) {
         return false;
+    }
 
     emit subfolderAdded(name);
     mApp->sendMessages(MainApplication::BookmarksChanged, true);
@@ -340,49 +363,62 @@ bool BookmarksModel::isSubfolder(const QString &name)
     query.prepare("SELECT subfolder FROM folders WHERE name = ?");
     query.bindValue(0, name);
     query.exec();
-    if (!query.next())
+    if (!query.next()) {
         return false;
+    }
 
     return query.value(0).toString() == "yes";
 }
 
 bool BookmarksModel::bookmarksEqual(const Bookmark &one, const Bookmark &two)
 {
-    if (one.id != two.id)
+    if (one.id != two.id) {
         return false;
-    if (one.title != two.title)
+    }
+    if (one.title != two.title) {
         return false;
-    if (one.folder != two.folder)
+    }
+    if (one.folder != two.folder) {
         return false;
-    if (one.url != two.url)
+    }
+    if (one.url != two.url) {
         return false;
+    }
     return true;
 }
 
 QString BookmarksModel::toTranslatedFolder(const QString &name)
 {
     QString trFolder;
-    if (name == "bookmarksMenu")
+    if (name == "bookmarksMenu") {
         trFolder = tr("Bookmarks In Menu");
-    else if (name == "bookmarksToolbar")
+    }
+    else if (name == "bookmarksToolbar") {
         trFolder = tr("Bookmarks In ToolBar");
-    else if (name == "unsorted")
+    }
+    else if (name == "unsorted") {
         trFolder = tr("Unsorted Bookmarks");
-    else
+    }
+    else {
         trFolder = name;
+    }
     return trFolder;
 }
 
 QString BookmarksModel::fromTranslatedFolder(const QString &name)
 {
     QString folder;
-    if (name == tr("Bookmarks In Menu"))
+    if (name == tr("Bookmarks In Menu")) {
         folder = "bookmarksMenu";
-    else if (name == tr("Bookmarks In ToolBar"))
+    }
+    else if (name == tr("Bookmarks In ToolBar")) {
         folder = "bookmarksToolbar";
-    else if (name == tr("Unsorted Bookmarks"))
+    }
+    else if (name == tr("Unsorted Bookmarks")) {
         folder = "unsorted";
-    else
+    }
+    else {
         folder = name;
+    }
     return folder;
 }

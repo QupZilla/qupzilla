@@ -24,10 +24,10 @@
 
 SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     QWidget(0)
-    ,m_page(page)
+    , m_page(page)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setWindowTitle(tr("Source of ")+page->mainFrame()->url().toString());
+    setWindowTitle(tr("Source of ") + page->mainFrame()->url().toString());
     m_layout = new QBoxLayout(QBoxLayout::TopToBottom, this);
     m_sourceEdit = new QTextEdit(this);
     m_sourceEdit->setObjectName("sourceviewer-textedit");
@@ -89,15 +89,17 @@ SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     qz_centerWidgetOnScreen(this);
 
     //Highlight selectedHtml
-    if (!selectedHtml.isEmpty())
+    if (!selectedHtml.isEmpty()) {
         m_sourceEdit->find(selectedHtml, QTextDocument::FindWholeWords);
+    }
 }
 
 void SourceViewer::save()
 {
-    QString filePath = QFileDialog::getSaveFileName(this, tr("Save file..."), QDir::homePath()+"/source_code.html");
-    if (filePath.isEmpty())
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Save file..."), QDir::homePath() + "/source_code.html");
+    if (filePath.isEmpty()) {
         return;
+    }
 
     QFile file(filePath);
     if (!file.open(QFile::WriteOnly)) {
@@ -114,7 +116,7 @@ void SourceViewer::save()
 void SourceViewer::findText()
 {
     if (m_layout->count() > 2) {
-        SourceViewerSearch* search = qobject_cast<SourceViewerSearch*>( m_layout->itemAt(1)->widget() );
+        SourceViewerSearch* search = qobject_cast<SourceViewerSearch*>(m_layout->itemAt(1)->widget());
         search->activateLineEdit();
         return;
     }
@@ -141,7 +143,7 @@ void SourceViewer::setTextEditable()
 
 void SourceViewer::setTextWordWrap()
 {
-    m_sourceEdit->setWordWrapMode( (m_sourceEdit->wordWrapMode()==QTextOption::NoWrap) ? QTextOption::WordWrap : QTextOption::NoWrap );
+    m_sourceEdit->setWordWrapMode((m_sourceEdit->wordWrapMode() == QTextOption::NoWrap) ? QTextOption::WordWrap : QTextOption::NoWrap);
 
     m_statusBar->showMessage(tr("Word Wrap changed"));
 }
@@ -149,12 +151,14 @@ void SourceViewer::setTextWordWrap()
 void SourceViewer::goToLine()
 {
     int line = QInputDialog::getInt(this, tr("Go to Line..."), tr("Enter line number"), 0, 1, 5000);
-    if (line == 0)
+    if (line == 0) {
         return;
+    }
 
     m_sourceEdit->setUpdatesEnabled(false);
     m_sourceEdit->moveCursor(QTextCursor::Start);
-    for (int i = 0; i < line; i++)
+    for (int i = 0; i < line; i++) {
         m_sourceEdit->moveCursor(QTextCursor::Down);
+    }
     m_sourceEdit->setUpdatesEnabled(true);
 }

@@ -42,7 +42,7 @@
 #include "searchenginesmanager.h"
 #include "operaimporter.h"
 
-MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char **argv)
+MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
     , m_cookiemanager(0)
     , m_browsingLibrary(0)
@@ -83,7 +83,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     QString startProfile;
 
     if (argc > 1) {
-        foreach (CommandLineOptions::ActionPair pair, cmdActions) {
+        foreach(CommandLineOptions::ActionPair pair, cmdActions) {
             switch (pair.action) {
             case CommandLineOptions::StartWithoutAddons:
                 noAddons = true;
@@ -124,28 +124,33 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     setOrganizationDomain("qupzilla");
 
     QString homePath = QDir::homePath();
-    homePath+="/.qupzilla/";
+    homePath += "/.qupzilla/";
 
     checkSettingsDir();
 
     QSettings::setDefaultFormat(QSettings::IniFormat);
     if (startProfile.isEmpty()) {
-        QSettings settings(homePath+"profiles/profiles.ini", QSettings::IniFormat);
-        if (settings.value("Profiles/startProfile","default").toString().contains("/"))
-            m_activeProfil=homePath+"profiles/default/";
-        else
-            m_activeProfil=homePath+"profiles/"+settings.value("Profiles/startProfile","default").toString()+"/";
-    } else
-        m_activeProfil = homePath+"profiles/"+startProfile+"/";
+        QSettings settings(homePath + "profiles/profiles.ini", QSettings::IniFormat);
+        if (settings.value("Profiles/startProfile", "default").toString().contains("/")) {
+            m_activeProfil = homePath + "profiles/default/";
+        }
+        else {
+            m_activeProfil = homePath + "profiles/" + settings.value("Profiles/startProfile", "default").toString() + "/";
+        }
+    }
+    else {
+        m_activeProfil = homePath + "profiles/" + startProfile + "/";
+    }
 
     ProfileUpdater u(m_activeProfil, DATADIR);
     u.checkProfile();
     connectDatabase();
 
-    QSettings settings2(m_activeProfil+"settings.ini", QSettings::IniFormat);
+    QSettings settings2(m_activeProfil + "settings.ini", QSettings::IniFormat);
     settings2.beginGroup("SessionRestore");
-    if (settings2.value("isRunning",false).toBool() )
+    if (settings2.value("isRunning", false).toBool()) {
         settings2.setValue("isCrashed", true);
+    }
     settings2.setValue("isRunning", true);
     settings2.endGroup();
 
@@ -156,14 +161,15 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
 
     QupZilla* qupzilla = new QupZilla(QupZilla::FirstAppWindow, startUrl);
     m_mainWindows.append(qupzilla);
-    connect(qupzilla, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(sendMessages(MainApplication::MessageType,bool)));
+    connect(qupzilla, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(sendMessages(MainApplication::MessageType, bool)));
     qupzilla->show();
 
     AutoSaver* saver = new AutoSaver();
     connect(saver, SIGNAL(saveApp()), this, SLOT(saveStateSlot()));
 
-    if (settings2.value("Web-Browser-Settings/CheckUpdates", true).toBool())
+    if (settings2.value("Web-Browser-Settings/CheckUpdates", true).toBool()) {
         m_updater = new Updater(qupzilla);
+    }
 
     if (noAddons) {
         settings2.setValue("Plugin-Settings/AllowedPlugins", QStringList());
@@ -175,12 +181,12 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     loadSettings();
 
     QTimer::singleShot(2000, this, SLOT(restoreCursor()));
-    QTimer::singleShot(10*1000, this, SLOT(setupJumpList()));
+    QTimer::singleShot(10 * 1000, this, SLOT(setupJumpList()));
 }
 
 void MainApplication::loadSettings()
 {
-    QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
+    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Themes");
     QString activeTheme = settings.value("activeTheme",
 #ifdef Q_WS_X11
@@ -188,7 +194,7 @@ void MainApplication::loadSettings()
 #else
                                          "windows"
 #endif
-                                         ).toString();
+                                        ).toString();
     settings.endGroup();
     m_activeThemePath = THEMESDIR + activeTheme + "/";
     QFile cssFile(m_activeThemePath + "main.css");
@@ -220,18 +226,18 @@ void MainApplication::loadSettings()
     webSettings();
     //Web browsing settings
     settings.beginGroup("Web-Browser-Settings");
-    bool allowFlash = settings.value("allowFlash",true).toBool();
-    bool allowJavaScript = settings.value("allowJavaScript",true).toBool();
-    bool allowJavaScriptOpenWindow = settings.value("allowJavaScriptOpenWindow",false).toBool();
-    bool allowJava = settings.value("allowJava",true).toBool();
-    bool allowPersistentStorage = settings.value("allowPersistentStorage",true).toBool();
-    bool allowImages = settings.value("autoLoadImages",true).toBool();
+    bool allowFlash = settings.value("allowFlash", true).toBool();
+    bool allowJavaScript = settings.value("allowJavaScript", true).toBool();
+    bool allowJavaScriptOpenWindow = settings.value("allowJavaScriptOpenWindow", false).toBool();
+    bool allowJava = settings.value("allowJava", true).toBool();
+    bool allowPersistentStorage = settings.value("allowPersistentStorage", true).toBool();
+    bool allowImages = settings.value("autoLoadImages", true).toBool();
     bool dnsPrefetch = settings.value("DNS-Prefetch", false).toBool();
     bool jsClipboard = settings.value("JavaScriptCanAccessClipboard", true).toBool();
     bool linkInFocuschain = settings.value("IncludeLinkInFocusChain", false).toBool();
     bool zoomTextOnly = settings.value("zoomTextOnly", false).toBool();
     bool printElBg = settings.value("PrintElementBackground", true).toBool();
-    int maxCachedPages = settings.value("maximumCachedPages",3).toInt();
+    int maxCachedPages = settings.value("maximumCachedPages", 3).toInt();
     int scrollingLines = settings.value("wheelScrollLines", wheelScrollLines()).toInt();
     QUrl userStyleSheet = settings.value("userStyleSheet", QUrl()).toUrl();
     m_defaultZoom = settings.value("DefaultZoom", 100).toInt();
@@ -264,25 +270,28 @@ void MainApplication::loadSettings()
     m_websettings->setFontFamily(QWebSettings::FixedFont, settings.value("FixedFont", m_websettings->fontFamily(QWebSettings::FixedFont)).toString());
     m_websettings->setFontFamily(QWebSettings::SansSerifFont, settings.value("SansSerifFont", m_websettings->fontFamily(QWebSettings::SansSerifFont)).toString());
     m_websettings->setFontFamily(QWebSettings::SerifFont, settings.value("SerifFont", m_websettings->fontFamily(QWebSettings::SerifFont)).toString());
-    m_websettings->setFontSize(QWebSettings::DefaultFontSize, settings.value("DefaultFontSize", m_websettings->fontSize(QWebSettings::DefaultFontSize)).toInt() );
-    m_websettings->setFontSize(QWebSettings::DefaultFixedFontSize, settings.value("FixedFontSize", m_websettings->fontSize(QWebSettings::DefaultFixedFontSize)).toInt() );
+    m_websettings->setFontSize(QWebSettings::DefaultFontSize, settings.value("DefaultFontSize", m_websettings->fontSize(QWebSettings::DefaultFontSize)).toInt());
+    m_websettings->setFontSize(QWebSettings::DefaultFixedFontSize, settings.value("FixedFontSize", m_websettings->fontSize(QWebSettings::DefaultFixedFontSize)).toInt());
 
     m_websettings->setUserStyleSheetUrl(userStyleSheet);
     m_websettings->setDefaultTextEncoding("System");
-    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::fromTheme("text-plain").pixmap(16,16));
+    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::fromTheme("text-plain").pixmap(16, 16));
 
-    if (allowPersistentStorage) m_websettings->enablePersistentStorage(m_activeProfil);
+    if (allowPersistentStorage) {
+        m_websettings->enablePersistentStorage(m_activeProfil);
+    }
     m_websettings->setMaximumPagesInCache(maxCachedPages);
 
     setWheelScrollLines(scrollingLines);
 
-    if (m_downloadManager)
+    if (m_downloadManager) {
         m_downloadManager->loadSettings();
+    }
 }
 
 void MainApplication::restoreCursor()
 {
-     QApplication::restoreOverrideCursor();
+    QApplication::restoreOverrideCursor();
 }
 
 void MainApplication::setupJumpList()
@@ -292,9 +301,10 @@ void MainApplication::setupJumpList()
 
 QupZilla* MainApplication::getWindow()
 {
-    for(int i=0; i<m_mainWindows.count(); i++) {
-        if (!m_mainWindows.at(i))
+    for (int i = 0; i < m_mainWindows.count(); i++) {
+        if (!m_mainWindows.at(i)) {
             continue;
+        }
         return m_mainWindows.at(i);
     }
     return 0;
@@ -325,14 +335,18 @@ void MainApplication::receiveAppMessage(QString message)
     if (message.startsWith("URL:")) {
         QString url(message.remove("URL:"));
         addNewTab(WebView::guessUrlFromString(url));
-    } else if (message.startsWith("ACTION:")) {
+    }
+    else if (message.startsWith("ACTION:")) {
         QString text = message.mid(7);
-        if (text == "NewTab")
+        if (text == "NewTab") {
             addNewTab();
-        else if (text == "NewWindow")
+        }
+        else if (text == "NewWindow") {
             makeNewWindow(false);
-        else if (text == "ShowDownloadManager")
+        }
+        else if (text == "ShowDownloadManager") {
             downManager()->show();
+        }
     }
 
     QupZilla* actWin = getWindow();
@@ -348,29 +362,33 @@ void MainApplication::receiveAppMessage(QString message)
 
 void MainApplication::addNewTab(const QUrl &url)
 {
-    if (!getWindow())
+    if (!getWindow()) {
         return;
+    }
     getWindow()->tabWidget()->addView(url);
 }
 
 void MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
 {
     QupZilla::StartBehaviour behaviour;
-    if (tryRestore)
+    if (tryRestore) {
         behaviour = QupZilla::OtherRestoredWindow;
-    else
+    }
+    else {
         behaviour = QupZilla::NewWindow;
+    }
 
     QupZilla* newWindow = new QupZilla(behaviour, startUrl);
-    connect(newWindow, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(sendMessages(MainApplication::MessageType,bool)));
+    connect(newWindow, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(sendMessages(MainApplication::MessageType, bool)));
     m_mainWindows.append(newWindow);
     newWindow->show();
 }
 
 void MainApplication::connectDatabase()
 {
-    if (m_databaseConnected)
+    if (m_databaseConnected) {
         return;
+    }
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(m_activeProfil + "browsedata.db");
@@ -379,8 +397,9 @@ void MainApplication::connectDatabase()
         db.setDatabaseName(m_activeProfil + "browsedata.db");
         qWarning("Cannot find SQLite database file! Copying and using the defaults!");
     }
-    if (!db.open())
+    if (!db.open()) {
         qWarning("Cannot open SQLite database! Continuing without database....");
+    }
 
     m_databaseConnected = true;
 }
@@ -388,20 +407,22 @@ void MainApplication::connectDatabase()
 void MainApplication::translateApp()
 {
     QLocale locale;
-    QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
+    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Language");
-    QString file = settings.value("language",locale.name()+".qm").toString();
+    QString file = settings.value("language", locale.name() + ".qm").toString();
     QString shortLoc = file.left(2);
 
-    if (file == "" || !QFile::exists(TRANSLATIONSDIR + file) )
+    if (file == "" || !QFile::exists(TRANSLATIONSDIR + file)) {
         return;
+    }
 
     QTranslator* app = new QTranslator();
-    app->load(DATADIR+"locale/"+file);
+    app->load(DATADIR + "locale/" + file);
     QTranslator* sys = new QTranslator();
 
-    if (QFile::exists(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm"))
+    if (QFile::exists(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm")) {
         sys->load(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm");
+    }
 
     m_activeLanguage = file;
 
@@ -416,22 +437,25 @@ void MainApplication::quitApplication()
         return;
     }
     m_isClosing = true;
-    if (m_mainWindows.count() > 0)
+    if (m_mainWindows.count() > 0) {
         saveStateSlot();
+    }
 
-    QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
+    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("SessionRestore");
-    settings.setValue("isRunning",false);
+    settings.setValue("isRunning", false);
     settings.setValue("isCrashed", false);
     settings.endGroup();
 
     bool deleteCookies = settings.value("Web-Browser-Settings/deleteCookiesOnClose", false).toBool();
     bool deleteHistory = settings.value("Web-Browser-Settings/deleteHistoryOnClose", false).toBool();
 
-    if (deleteCookies)
-        QFile::remove(m_activeProfil+"cookies.dat");
-    if (deleteHistory)
+    if (deleteCookies) {
+        QFile::remove(m_activeProfil + "cookies.dat");
+    }
+    if (deleteHistory) {
         m_historymodel->clearHistory();
+    }
 
     m_searchEnginesManager->saveSettings();
     cookieJar()->saveCookies();
@@ -447,43 +471,49 @@ void MainApplication::quitApplication()
 
 BrowsingLibrary* MainApplication::browsingLibrary()
 {
-    if (!m_browsingLibrary)
+    if (!m_browsingLibrary) {
         m_browsingLibrary = new BrowsingLibrary(getWindow());
+    }
     return m_browsingLibrary;
 }
 
 PluginProxy* MainApplication::plugins()
 {
-    if (!m_plugins)
+    if (!m_plugins) {
         m_plugins = new PluginProxy();
+    }
     return m_plugins;
 }
 
 CookieManager* MainApplication::cookieManager()
 {
-    if (!m_cookiemanager)
+    if (!m_cookiemanager) {
         m_cookiemanager = new CookieManager();
+    }
     return m_cookiemanager;
 }
 
 HistoryModel* MainApplication::history()
 {
-    if (!m_historymodel)
+    if (!m_historymodel) {
         m_historymodel = new HistoryModel(getWindow());
+    }
     return m_historymodel;
 }
 
 QWebSettings* MainApplication::webSettings()
 {
-    if (!m_websettings)
+    if (!m_websettings) {
         m_websettings = QWebSettings::globalSettings();
+    }
     return m_websettings;
 }
 
 NetworkManager* MainApplication::networkManager()
 {
-    if (!m_networkmanager)
+    if (!m_networkmanager) {
         m_networkmanager = new NetworkManager(getWindow());
+    }
     return m_networkmanager;
 }
 
@@ -498,50 +528,57 @@ CookieJar* MainApplication::cookieJar()
 
 RSSManager* MainApplication::rssManager()
 {
-    if (!m_rssmanager)
+    if (!m_rssmanager) {
         m_rssmanager = new RSSManager(getWindow());
+    }
     return m_rssmanager;
 }
 
 BookmarksModel* MainApplication::bookmarksModel()
 {
-    if (!m_bookmarksModel)
+    if (!m_bookmarksModel) {
         m_bookmarksModel = new BookmarksModel(this);
+    }
     return m_bookmarksModel;
 }
 
 DownloadManager* MainApplication::downManager()
 {
-    if (!m_downloadManager)
+    if (!m_downloadManager) {
         m_downloadManager = new DownloadManager();
+    }
     return m_downloadManager;
 }
 
 AutoFillModel* MainApplication::autoFill()
 {
-    if (!m_autofill)
+    if (!m_autofill) {
         m_autofill = new AutoFillModel(getWindow());
+    }
     return m_autofill;
 }
 
 SearchEnginesManager* MainApplication::searchEnginesManager()
 {
-    if (!m_searchEnginesManager)
+    if (!m_searchEnginesManager) {
         m_searchEnginesManager = new SearchEnginesManager();
+    }
     return m_searchEnginesManager;
 }
 
 DesktopNotificationsFactory* MainApplication::desktopNotifications()
 {
-    if (!m_desktopNotifications)
+    if (!m_desktopNotifications) {
         m_desktopNotifications = new DesktopNotificationsFactory(this);
+    }
     return m_desktopNotifications;
 }
 
 void MainApplication::aboutToCloseWindow(QupZilla* window)
 {
-    if (!window)
+    if (!window) {
         return;
+    }
 
     m_mainWindows.removeOne(window);
 }
@@ -551,14 +588,15 @@ static const int sessionVersion = 0x0002;
 
 bool MainApplication::saveStateSlot()
 {
-    if (m_websettings->testAttribute(QWebSettings::PrivateBrowsingEnabled) || m_isRestoring)
+    if (m_websettings->testAttribute(QWebSettings::PrivateBrowsingEnabled) || m_isRestoring) {
         return false;
+    }
 
-    QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
+    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("SessionRestore");
-    settings.setValue("restoreSession",false);
+    settings.setValue("restoreSession", false);
 
-    QFile file(m_activeProfil+"session.dat");
+    QFile file(m_activeProfil + "session.dat");
     file.open(QIODevice::WriteOnly);
     QDataStream stream(&file);
 
@@ -566,19 +604,22 @@ bool MainApplication::saveStateSlot()
     stream << m_mainWindows.count();
     for (int i = 0; i < m_mainWindows.count(); i++) {
         stream << m_mainWindows.at(i)->tabWidget()->saveState();
-        if (m_mainWindows.at(i)->isFullScreen())
+        if (m_mainWindows.at(i)->isFullScreen()) {
             stream << QByteArray();
-        else
+        }
+        else {
             stream << m_mainWindows.at(i)->saveState();
+        }
     }
     file.close();
 
-    settings.setValue("restoreSession",true);
+    settings.setValue("restoreSession", true);
     settings.endGroup();
 
     QupZilla* qupzilla_ = getWindow();
-    if (qupzilla_)
+    if (qupzilla_) {
         qupzilla_->tabWidget()->savePinnedTabs();
+    }
 
     return true;
 }
@@ -586,29 +627,29 @@ bool MainApplication::saveStateSlot()
 bool MainApplication::restoreStateSlot(QupZilla* window)
 {
     m_isRestoring = true;
-    QSettings settings(m_activeProfil+"settings.ini", QSettings::IniFormat);
+    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
     int afterStart = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
     settings.beginGroup("SessionRestore");
-    if (!settings.value("restoreSession",false).toBool()) {
+    if (!settings.value("restoreSession", false).toBool()) {
         m_isRestoring = false;
         return false;
     }
-    if (settings.value("isCrashed",false).toBool() && afterStart != 2) {
+    if (settings.value("isCrashed", false).toBool() && afterStart != 2) {
         QMessageBox::StandardButton button = QMessageBox::warning(window, tr("Last session crashed"),
-                                                                  tr("<b>QupZilla crashed :-(</b><br/>Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?"),
-                                                                  QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+                                             tr("<b>QupZilla crashed :-(</b><br/>Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?"),
+                                             QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
         if (button != QMessageBox::Yes) {
             m_isRestoring = false;
             return false;
         }
     }
-    if (!QFile::exists(m_activeProfil+"session.dat")) {
+    if (!QFile::exists(m_activeProfil + "session.dat")) {
         m_isRestoring = false;
         return false;
     }
 
-    settings.setValue("isCrashed",false);
-    QFile file(m_activeProfil+"session.dat");
+    settings.setValue("isCrashed", false);
+    QFile file(m_activeProfil + "session.dat");
     file.open(QIODevice::ReadOnly);
     QDataStream stream(&file);
 
@@ -636,7 +677,7 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
 
             QupZilla* window = new QupZilla(QupZilla::OtherRestoredWindow);
             m_mainWindows.append(window);
-            connect(window, SIGNAL(message(MainApplication::MessageType,bool)), this, SLOT(sendMessages(MainApplication::MessageType,bool)));
+            connect(window, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(sendMessages(MainApplication::MessageType, bool)));
             QEventLoop eLoop;
             connect(window, SIGNAL(startingCompleted()), &eLoop, SLOT(quit()));
             eLoop.exec();
@@ -668,8 +709,9 @@ bool MainApplication::checkSettingsDir()
     */
     QString homePath = QDir::homePath() + "/.qupzilla/";
 
-    if (QDir(homePath).exists() && QFile(homePath + "profiles/profiles.ini").exists())
-            return true;
+    if (QDir(homePath).exists() && QFile(homePath + "profiles/profiles.ini").exists()) {
+        return true;
+    }
 
     std::cout << "Creating new profile directory" << std::endl;
 

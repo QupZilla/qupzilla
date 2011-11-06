@@ -21,8 +21,8 @@
 #include "webpage.h"
 
 AdBlockIcon::AdBlockIcon(QupZilla* mainClass, QWidget* parent)
-   : ClickableLabel(parent)
-   , p_QupZilla(mainClass)
+    : ClickableLabel(parent)
+    , p_QupZilla(mainClass)
 {
     setMaximumHeight(16);
     setCursor(Qt::PointingHandCursor);
@@ -39,11 +39,12 @@ void AdBlockIcon::showMenu(const QPoint &pos)
     menu.addAction(tr("Show AdBlock &Settings"), manager, SLOT(showDialog()));
     menu.addSeparator();
     QList<WebPage::AdBlockedEntry> entries = p_QupZilla->weView()->webPage()->adBlockedEntries();
-    if (entries.isEmpty())
+    if (entries.isEmpty()) {
         menu.addAction(tr("No content blocked"))->setEnabled(false);
+    }
     else {
         menu.addAction(tr("Blocked URL (AdBlock Rule) - click to edit rule"))->setEnabled(false);
-        foreach (WebPage::AdBlockedEntry entry, entries) {
+        foreach(WebPage::AdBlockedEntry entry, entries) {
             QString address = entry.url.toString().right(55);
             menu.addAction(tr("%1 with (%2)").arg(address, entry.rule), manager, SLOT(showRule()))->setData(entry.rule);
         }
@@ -61,10 +62,12 @@ void AdBlockIcon::learnAboutRules()
 
 void AdBlockIcon::setEnabled(bool enabled)
 {
-    if (enabled)
+    if (enabled) {
         setPixmap(QPixmap(":icons/other/adblock.png"));
-    else
+    }
+    else {
         setPixmap(QPixmap(":icons/other/adblock-disabled.png"));
+    }
 }
 
 AdBlockIcon::~AdBlockIcon()

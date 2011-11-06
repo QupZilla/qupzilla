@@ -66,8 +66,9 @@ QList<BookmarksModel::Bookmark> OperaImporter::exportBookmarks()
         rx2.indexIn(string);
         QString url = rx2.cap(1);
 
-        if (name.isEmpty() || url.isEmpty())
+        if (name.isEmpty() || url.isEmpty()) {
             continue;
+        }
 
         BookmarksModel::Bookmark b;
         b.folder = "Opera Import";

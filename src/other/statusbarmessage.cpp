@@ -89,8 +89,9 @@ StatusBarMessage::StatusBarMessage(QupZilla* mainClass)
 
 void StatusBarMessage::showMessage(const QString &message)
 {
-    if (p_QupZilla->statusBar()->isVisible())
+    if (p_QupZilla->statusBar()->isVisible()) {
         p_QupZilla->statusBar()->showMessage(message);
+    }
     else {
         WebView* view = p_QupZilla->weView();
         QWebFrame* mainFrame = view->page()->mainFrame();
@@ -99,10 +100,12 @@ void StatusBarMessage::showMessage(const QString &message)
         int verticalScrollSize = 0;
         const int scrollbarSize = p_QupZilla->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
 
-        if (mainFrame->scrollBarMaximum(Qt::Horizontal))
+        if (mainFrame->scrollBarMaximum(Qt::Horizontal)) {
             horizontalScrollSize = scrollbarSize;
-        if (mainFrame->scrollBarMaximum(Qt::Vertical))
+        }
+        if (mainFrame->scrollBarMaximum(Qt::Vertical)) {
             verticalScrollSize = scrollbarSize;
+        }
 
         m_statusBarText->setText(message);
         m_statusBarText->resize(m_statusBarText->sizeHint());
@@ -113,8 +116,9 @@ void StatusBarMessage::showMessage(const QString &message)
 
         QRect statusRect = QRect(view->mapToGlobal(QPoint(0, position.y())), m_statusBarText->size());
 
-        if (statusRect.contains(QCursor::pos()))
+        if (statusRect.contains(QCursor::pos())) {
             position.setY(position.y() - m_statusBarText->height());
+        }
 
         m_statusBarText->move(view->mapToGlobal(position));
         m_statusBarText->show();
@@ -123,8 +127,10 @@ void StatusBarMessage::showMessage(const QString &message)
 
 void StatusBarMessage::clearMessage()
 {
-    if (p_QupZilla->statusBar()->isVisible())
+    if (p_QupZilla->statusBar()->isVisible()) {
         p_QupZilla->statusBar()->showMessage("");
-    else
+    }
+    else {
         m_statusBarText->hide();
+    }
 }

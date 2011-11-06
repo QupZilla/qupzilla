@@ -27,8 +27,9 @@
 #include <QMessageBox>
 #include <QInputDialog>
 
-namespace Ui {
-    class AutoFillManager;
+namespace Ui
+{
+class AutoFillManager;
 }
 
 class AutoFillManager : public QWidget

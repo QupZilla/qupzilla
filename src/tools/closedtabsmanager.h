@@ -32,8 +32,7 @@ public:
         QByteArray history;
         QString title;
 
-        bool operator==(const Tab &a)
-        {
+        bool operator==(const Tab &a) const {
             return (a.url == url) && (a.history == history);
         }
     };

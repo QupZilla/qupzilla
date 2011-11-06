@@ -61,15 +61,16 @@ QList<BookmarksModel::Bookmark> ChromeImporter::exportBookmarks()
     }
 
     QScriptEngine* scriptEngine = new QScriptEngine();
-    foreach (QString parsedString, parsedBookmarks) {
+    foreach(QString parsedString, parsedBookmarks) {
         parsedString = "(" + parsedString + ")";
         if (scriptEngine->canEvaluate(parsedString)) {
             QScriptValue object = scriptEngine->evaluate(parsedString);
             QString name = object.property("name").toString();
             QString url = object.property("url").toString();
 
-            if (name.isEmpty() || url.isEmpty())
+            if (name.isEmpty() || url.isEmpty()) {
                 continue;
+            }
 
             BookmarksModel::Bookmark b;
             b.folder = "Chrome Import";
@@ -77,7 +78,8 @@ QList<BookmarksModel::Bookmark> ChromeImporter::exportBookmarks()
             b.url = url;
 
             list.append(b);
-        } else {
+        }
+        else {
             m_error = true;
             m_errorString = tr("Cannot evaluate JSON code.");
         }

@@ -44,8 +44,10 @@ void ProfileUpdater::checkProfile()
         versionFile.remove();
 
         updateProfile(QupZilla::VERSION, profileVersion.trimmed());
-    } else
+    }
+    else {
         copyDataToProfile();
+    }
 
     versionFile.open(QFile::WriteOnly);
     versionFile.write(QupZilla::VERSION.toAscii());
@@ -54,8 +56,9 @@ void ProfileUpdater::checkProfile()
 
 void ProfileUpdater::updateProfile(const QString &current, const QString &profile)
 {
-    if (current == profile)
+    if (current == profile) {
         return;
+    }
 
 //    Updater::Version currentVersion = Updater::parseVersionFromString(current);
     Updater::Version profileVersion = Updater::parseVersionFromString(profile);

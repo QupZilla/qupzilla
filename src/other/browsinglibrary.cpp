@@ -24,7 +24,7 @@
 #include "downloaditem.h"
 #include "globalfunctions.h"
 
-BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget *parent)
+BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::BrowsingLibrary)
     , m_historyManager(new HistoryManager(mainClass))
@@ -35,7 +35,7 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget *parent)
     , m_rssLoaded(false)
 {
     ui->setupUi(this);
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("BrowsingLibrary");
     resize(settings.value("size", QSize(760, 470)).toSize());
     settings.endGroup();
@@ -89,10 +89,12 @@ void BrowsingLibrary::currentIndexChanged(int index)
 
 void BrowsingLibrary::search()
 {
-    if (ui->tabs->current_index() == 0)
+    if (ui->tabs->current_index() == 0) {
         m_historyManager->search(ui->searchLine->text());
-    else
+    }
+    else {
         m_bookmarksManager->search(ui->searchLine->text());
+    }
 }
 
 void BrowsingLibrary::showHistory(QupZilla* mainClass)
@@ -141,16 +143,16 @@ void BrowsingLibrary::optimizeDatabase()
 {
     mApp->setOverrideCursor(Qt::WaitCursor);
     QString profilePath = mApp->getActiveProfilPath();
-    QString sizeBefore = DownloadItem::fileSizeToString(QFileInfo(profilePath+"browsedata.db").size());
+    QString sizeBefore = DownloadItem::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
     mApp->history()->optimizeHistory();
-    QString sizeAfter = DownloadItem::fileSizeToString(QFileInfo(profilePath+"browsedata.db").size());
+    QString sizeAfter = DownloadItem::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
     mApp->restoreOverrideCursor();
     QMessageBox::information(this, tr("Database Optimized"), tr("Database successfully optimized.<br/><br/><b>Database Size Before: </b>%1<br/><b>Database Size After: </b>%2").arg(sizeBefore, sizeAfter));
 }
 
-void BrowsingLibrary::closeEvent(QCloseEvent *e)
+void BrowsingLibrary::closeEvent(QCloseEvent* e)
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("BrowsingLibrary");
     settings.setValue("size", size());
     settings.endGroup();

@@ -18,10 +18,10 @@
 #include "commandlineoptions.h"
 #include "qupzilla.h"
 
-CommandLineOptions::CommandLineOptions(int &argc, char **argv) :
-  QObject(0)
-  ,m_argc(argc)
-  ,m_argv(argv)
+CommandLineOptions::CommandLineOptions(int &argc, char** argv) :
+    QObject(0)
+    , m_argc(argc)
+    , m_argv(argv)
 {
     parseActions();
 }
@@ -133,7 +133,7 @@ void CommandLineOptions::parseActions()
         }
     }
 
-    QString url(m_argv[m_argc-1]);
+    QString url(m_argv[m_argc - 1]);
     if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-")) {
         found = true;
         cout << "starting with url " << url.toAscii().data() << endl;

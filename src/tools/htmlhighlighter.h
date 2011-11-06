@@ -75,8 +75,7 @@ protected:
     void highlightBlock(const QString &text);
 
 private:
-    struct HighlightingRule
-    {
+    struct HighlightingRule {
         QRegExp pattern;
         QTextCharFormat format;
     };
@@ -85,12 +84,10 @@ private:
     QRegExp commentStartExpression;
     QRegExp commentEndExpression;
 
-    QTextCharFormat keywordFormat;
+    QTextCharFormat tagFormat;
     QTextCharFormat tagOptionsFormat;
-    QTextCharFormat singleLineCommentFormat;
     QTextCharFormat multiLineCommentFormat;
     QTextCharFormat quotationFormat;
-    QTextCharFormat functionFormat;
 };
 
 #endif

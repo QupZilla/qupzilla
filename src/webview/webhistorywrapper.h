@@ -9,7 +9,7 @@ class WebHistoryWrapper : public QObject
 {
     Q_OBJECT
 public:
-    explicit WebHistoryWrapper(QObject *parent = 0);
+    explicit WebHistoryWrapper(QObject* parent = 0);
 
     static QList<QWebHistoryItem> forwardItems(int maxItems, QWebHistory* history);
     static QList<QWebHistoryItem> backItems(int maxItems, QWebHistory* history);

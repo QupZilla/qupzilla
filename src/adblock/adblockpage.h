@@ -38,12 +38,12 @@ class AdBlockPage : public QObject
     Q_OBJECT
 
 public:
-    AdBlockPage(QObject *parent = 0);
+    AdBlockPage(QObject* parent = 0);
 
-    void applyRulesToPage(QWebPage *page);
+    void applyRulesToPage(QWebPage* page);
 
 private:
-    void checkRule(const AdBlockRule *rule, QWebPage *page, const QString &host);
+    void checkRule(const AdBlockRule* rule, QWebPage* page, const QString &host);
 };
 
 #endif // ADBLOCKPAGE_H

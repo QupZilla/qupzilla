@@ -56,130 +56,75 @@
  ****************************************************************************/
 #include "htmlhighlighter.h"
 
- HtmlHighlighter::HtmlHighlighter(QTextDocument* parent)
-     : QSyntaxHighlighter(parent)
- {
-     HighlightingRule rule;
+HtmlHighlighter::HtmlHighlighter(QTextDocument* parent)
+    : QSyntaxHighlighter(parent)
+{
+    HighlightingRule rule;
 
-     keywordFormat.setForeground(Qt::darkBlue);
-     keywordFormat.setFontWeight(QFont::Bold);
-     QStringList keywordPatterns;
-     keywordPatterns << "(<body|</body)"
-                     << "(<html|</html>|<!DOCTYPE html>|<!DOCTYPE html PUBLIC)" << "(<div|</div)" << "(<p|</p)"
-                     << "(<head|</head)" << "(<meta|</meta)" << "(<title|</title)"
-                     << "(<table|</table)" << "(<td|</td)" << "(<tr|</tr)"
-                     << "(<span|</span)" << "(<link|</link)" << "(<script|</script)"
-                     << "(<style|</style)" << "(<h1|</h1)" << "(<h2|</h2)"
-                     << "(<h3|</h3)" << "(<h4|</h4" << "(<h5|</h5)"
-                     << "(<ul|</ul)" << "(<li|</li)" << "(<a|</a)"
-                     << "(<code|</code)" << "(<pre|</pre)" << "(<ol|</ol)"
-                     << "(<b|</b)" << "(<i|</i)" << "(<col|</col)"
-                     << "(<u|</u)" << "(<br)" << "(<form|</form)"
-                     << "(<label|</label)" << "(<input|</input)" << "(<img|</img)"
-                     << "(<center|</center)" << "(<option|</option)" << "(<select|</select)"
-                     << "(<hr|</hr)" << "(<object|</object)" << "(<param|</param)"
-                     << "(<tbody|</tbody)" << "(<thead|</thead)" << "(<tfoot|</tfoot)"
-                     << "(<h6|</h6)" << "(<font|</font)" << "(<noscript|</noscript)"
-                     << "(<embed|</embed)" << "(<base|</base)" << "(<canvas|</canvas)"
-                     << "(<cufon|</cufon)" << "(<cufontext|</cufontext)" << "(<button|</button)"
-                     << "(<dl|</dl)" << "(<dt|</dt)" << "(<dd|</dd)"
-                     << "(<strong|</strong)" << "(<dt|</dt)" << "(<dd|</dd)"
-                     << "(<em|</em)" << "(<iframe|</iframe)" << "(<th|</th)"
-                     << "(<textarea|</textarea)" << "(<nav|</nav)" <<"(<section|</section)"
-                     << "(<fieldset|</fieldset)" << "(<footer|</footer)" << "(<address|</address)"
-                     << "(<video|</video)"
-                     << "(<ol|</ol)" << "(<small|</small)" << ">";
-     foreach (const QString &pattern, keywordPatterns) {
-         rule.pattern = QRegExp(pattern);
-         rule.format = keywordFormat;
-         highlightingRules.append(rule);
-     }
+    // tags: <tag1> </tag1>
+    tagFormat.setForeground(Qt::darkBlue);
+    tagFormat.setFontWeight(QFont::Bold);
+    QStringList keywordPatterns;
+    keywordPatterns << "</?(\\w{1,20})/?(>| )?" << ">" << "(<!DOCTYPE html>|<!DOCTYPE html PUBLIC)";
+    foreach(const QString & pattern, keywordPatterns) {
+        rule.pattern = QRegExp(pattern);
+        rule.format = tagFormat;
+        highlightingRules.append(rule);
+    }
 
-     tagOptionsFormat.setForeground(Qt::black);
-     tagOptionsFormat.setFontWeight(QFont::Bold);
-     QStringList optionsPatterns;
-     optionsPatterns << "type=\"" << "value=\"" << "name=\""
-                     << "on(\\S{0,15})=\"" << "id=\"" << "style=\""
-                     << "action=\"" << "method=\"" << "src=\""
-                     << "rel=\"" << "content=\"" << "width=\""
-                     << "height=\"" << "alt=\"" << "class=\""
-                     << "for=\"" << "tabindex=\"" << "selected=\""
-                     << "http-equiv=\"" << "media=\"" << "lang=\""
-                     << "xml:lang=\"" << "dir=\"" << "accesskey=\""
-                     << "target=\"" << "align=\"" << "checked=\""
-                     << "language=\"" << "charset=\"" << "allowfullscreen=\""
-                     << "text=\"" << "loop=\"" << "menu=\""
-                     << "wmode=\"" << "classid=\"" << "border=\""
-                     << "cellspacing=\"" << "cellpadding=\"" << "clear=\""
-                     << "for=\"" << "tabindex=\"" << "selected=\""
-                     << "frameborder=\"" << "marginwidth=\"" << "marginheight=\""
-                     << "scrolling=\"" << "quality=\"" << "bgcolor=\""
-                     << "allowscriptaccess=\"" << "cols=\"" << "rows=\""
-                     << "profile=\"" << "colspan=\"" << "scope=\""
-                     << "data=\"" << "autoplay=\"" << "hspace=\""
-                     << "valign=\"" << "vspace=\"" << "controls=\""
-                     << "href=\"" << "title=\"" << "xmlns=\"";
-     foreach (const QString &pattern, optionsPatterns) {
-         rule.pattern = QRegExp(pattern);
-         rule.format = tagOptionsFormat;
-         highlightingRules.append(rule);
-     }
+    // options: <tag option1="" option2="">
+    tagOptionsFormat.setForeground(Qt::black);
+    tagOptionsFormat.setFontWeight(QFont::Bold);
+    rule.pattern = QRegExp("(\\S{2,20})=\"");
+    rule.format = tagOptionsFormat;
+    highlightingRules.append(rule);
 
-     singleLineCommentFormat.setForeground(Qt::red);
-     rule.pattern = QRegExp("//[^\n]*");
-     rule.format = singleLineCommentFormat;
-//     highlightingRules.append(rule);
+    // " " strings
+    quotationFormat.setForeground(Qt::darkGreen);
+    QRegExp rx("\".*\"");
+    rx.setMinimal(true);
+    rule.pattern = rx;
+    rule.format = quotationFormat;
+    highlightingRules.append(rule);
 
-     multiLineCommentFormat.setForeground(Qt::gray);
+    // <!-- --> comments
+    multiLineCommentFormat.setForeground(Qt::gray);
+    commentStartExpression = QRegExp("<!--");
+    commentEndExpression = QRegExp("-->");
+}
 
-     quotationFormat.setForeground(Qt::darkGreen);
-     QRegExp rx("\".*\"");
-     rx.setMinimal(true);
-     rule.pattern = rx;
-     rule.format = quotationFormat;
-     highlightingRules.append(rule);
+void HtmlHighlighter::highlightBlock(const QString &text)
+{
+    foreach(const HighlightingRule & rule, highlightingRules) {
+        QRegExp expression(rule.pattern);
+        int index = expression.indexIn(text);
+        while (index >= 0) {
+            int length = expression.matchedLength();
+            setFormat(index, length, rule.format);
+            index = expression.indexIn(text, index + length);
+        }
+    }
 
-     functionFormat.setFontWeight(QFont::Normal);
-     functionFormat.setForeground(Qt::red);
-//     rule.pattern = QRegExp("(<script(.*)</script>|<style(.*)</style>)");
-     rx.setPattern("<script(.*)</script>");
-     rx.setMinimal(true);
-     rule.pattern = rx;
-     rule.format = functionFormat;
-//     highlightingRules.append(rule);
+    // Highlighting multi-line comments
+    setCurrentBlockState(0);
 
-     commentStartExpression = QRegExp("<!--");
-     commentEndExpression = QRegExp("-->");
- }
+    int startIndex = 0;
+    if (previousBlockState() != 1) {
+        startIndex = commentStartExpression.indexIn(text);
+    }
 
- void HtmlHighlighter::highlightBlock(const QString &text)
- {
-     foreach (const HighlightingRule &rule, highlightingRules) {
-         QRegExp expression(rule.pattern);
-         int index = expression.indexIn(text);
-         while (index >= 0) {
-             int length = expression.matchedLength();
-             setFormat(index, length, rule.format);
-             index = expression.indexIn(text, index + length);
-         }
-     }
-     setCurrentBlockState(0);
-
-     int startIndex = 0;
-     if (previousBlockState() != 1)
-         startIndex = commentStartExpression.indexIn(text);
-
-     while (startIndex >= 0) {
-         int endIndex = commentEndExpression.indexIn(text, startIndex);
-         int commentLength;
-         if (endIndex == -1) {
-             setCurrentBlockState(1);
-             commentLength = text.length() - startIndex;
-         } else {
-             commentLength = endIndex - startIndex
-                             + commentEndExpression.matchedLength();
-         }
-         setFormat(startIndex, commentLength, multiLineCommentFormat);
-         startIndex = commentStartExpression.indexIn(text, startIndex + commentLength);
-     }
- }
+    while (startIndex >= 0) {
+        int endIndex = commentEndExpression.indexIn(text, startIndex);
+        int commentLength;
+        if (endIndex == -1) {
+            setCurrentBlockState(1);
+            commentLength = text.length() - startIndex;
+        }
+        else {
+            commentLength = endIndex - startIndex
+                            + commentEndExpression.matchedLength();
+        }
+        setFormat(startIndex, commentLength, multiLineCommentFormat);
+        startIndex = commentStartExpression.indexIn(text, startIndex + commentLength);
+    }
+}

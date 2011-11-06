@@ -22,8 +22,9 @@
 #include <QFileInfo>
 #include <QCloseEvent>
 
-namespace Ui {
-    class BrowsingLibrary;
+namespace Ui
+{
+class BrowsingLibrary;
 }
 
 class HistoryManager;
@@ -35,7 +36,7 @@ class BrowsingLibrary : public QWidget
     Q_OBJECT
 
 public:
-    explicit BrowsingLibrary(QupZilla* mainClass, QWidget *parent = 0);
+    explicit BrowsingLibrary(QupZilla* mainClass, QWidget* parent = 0);
     ~BrowsingLibrary();
 
     void showHistory(QupZilla* mainClass);
@@ -53,8 +54,8 @@ private slots:
     void search();
 
 private:
-    void closeEvent(QCloseEvent *e);
-    Ui::BrowsingLibrary *ui;
+    void closeEvent(QCloseEvent* e);
+    Ui::BrowsingLibrary* ui;
     HistoryManager* m_historyManager;
     BookmarksManager* m_bookmarksManager;
     RSSManager* m_rssManager;

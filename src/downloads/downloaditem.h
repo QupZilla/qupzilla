@@ -33,8 +33,9 @@
 #include <QMenu>
 #include <QMessageBox>
 
-namespace Ui {
-    class DownloadItem;
+namespace Ui
+{
+class DownloadItem;
 }
 
 class DownloadManager;

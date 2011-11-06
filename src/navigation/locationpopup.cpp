@@ -17,8 +17,8 @@
 * ============================================================ */
 #include "locationpopup.h"
 LocationPopup::LocationPopup(QWidget* parent)
-   :QAbstractItemView()
-   ,m_parent(parent)
+    : QAbstractItemView()
+    , m_parent(parent)
 {
     setWindowFlags(Qt::Popup);
 }
@@ -26,7 +26,7 @@ LocationPopup::LocationPopup(QWidget* parent)
 void LocationPopup::show()
 {
     QPoint p = m_parent->mapToGlobal(QPoint(0, 0));
-    move( (p.x() ), (p.y() + m_parent->height()));
+    move((p.x()), (p.y() + m_parent->height()));
     resize(m_parent->width(), 100);
     QAbstractItemView::show();
 }

@@ -31,7 +31,7 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     , m_inspectorVisible(false)
 {
     m_layout = new QVBoxLayout(this);
-    m_layout->setContentsMargins(0,0,0,0);
+    m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
 
     m_view = new WebView(p_QupZilla, this);
@@ -52,8 +52,9 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
 
 void WebTab::showNotification(QWidget* notif)
 {
-    if (m_layout->count() > 1)
+    if (m_layout->count() > 1) {
         delete m_layout->itemAt(0)->widget();
+    }
 
     m_layout->insertWidget(0, notif);
     notif->show();
@@ -67,14 +68,16 @@ int WebTab::tabIndex()
 void WebTab::pinTab(int index)
 {
     TabWidget* tabWidget = p_QupZilla->tabWidget();
-    if (!tabWidget)
+    if (!tabWidget) {
         return;
+    }
 
     if (m_pinned) { //Unpin tab
         m_pinned = false;
         tabWidget->setTabText(index, m_view->title());
         tabWidget->getTabBar()->updateCloseButton(index);
-    } else { // Pin tab
+    }
+    else {   // Pin tab
         m_pinned = true;
         tabWidget->setCurrentIndex(0); //             <<-- those 2 lines fixes
         tabWidget->getTabBar()->moveTab(index, 0);    // | weird behavior with bad

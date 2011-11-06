@@ -26,7 +26,8 @@
 class QupZilla;
 class TipLabel;
 
-class TipLabel : public SqueezeLabelV1 {
+class TipLabel : public SqueezeLabelV1
+{
     Q_OBJECT
 
 public:

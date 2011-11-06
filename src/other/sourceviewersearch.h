@@ -23,8 +23,9 @@
 
 #include "animatedwidget.h"
 
-namespace Ui {
-    class SourceViewerSearch;
+namespace Ui
+{
+class SourceViewerSearch;
 }
 
 class SourceViewer;

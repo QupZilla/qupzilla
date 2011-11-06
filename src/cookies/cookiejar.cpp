@@ -45,12 +45,13 @@ void CookieJar::setAllowCookies(bool allow)
 
 bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url)
 {
-    if (!m_allowCookies)
+    if (!m_allowCookies) {
         return QNetworkCookieJar::setCookiesFromUrl(QList<QNetworkCookie>(), url);
+    }
 
     QList<QNetworkCookie> newList = cookieList;
 
-    foreach (QNetworkCookie cok, newList) {
+    foreach(QNetworkCookie cok, newList) {
         if (m_allowCookiesFromDomain && !QString("." + url.host()).contains(cok.domain().remove("www."))) {
 #ifdef COOKIE_DEBUG
             qDebug() << "purged for domain mismatch" << cok;
@@ -72,17 +73,18 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
 
 void CookieJar::saveCookies()
 {
-    if (m_deleteOnClose)
+    if (m_deleteOnClose) {
         return;
+    }
 
     QList<QNetworkCookie> allCookies = getAllCookies();
-    QFile file(m_activeProfil+"cookies.dat");
+    QFile file(m_activeProfil + "cookies.dat");
     file.open(QIODevice::WriteOnly);
     QDataStream stream(&file);
     int count = allCookies.count();
 
     stream << count;
-    for (int i = 0; i<count; i++) {
+    for (int i = 0; i < count; i++) {
         stream << allCookies.at(i).toRawForm();
     }
 
@@ -91,25 +93,28 @@ void CookieJar::saveCookies()
 
 void CookieJar::restoreCookies()
 {
-    if (!QFile::exists(m_activeProfil+"cookies.dat"))
+    if (!QFile::exists(m_activeProfil + "cookies.dat")) {
         return;
+    }
     QDateTime now = QDateTime::currentDateTime();
 
     QList<QNetworkCookie> restoredCookies;
-    QFile file(m_activeProfil+"cookies.dat");
+    QFile file(m_activeProfil + "cookies.dat");
     file.open(QIODevice::ReadOnly);
     QDataStream stream(&file);
     int count;
 
     stream >> count;
-    for (int i = 0; i<count; i++) {
+    for (int i = 0; i < count; i++) {
         QByteArray rawForm;
         stream >> rawForm;
         QNetworkCookie cok = QNetworkCookie::parseCookies(rawForm).at(0);
-        if (cok.expirationDate() < now)
+        if (cok.expirationDate() < now) {
             continue;
-        if (cok.isSessionCookie())
+        }
+        if (cok.isSessionCookie()) {
             continue;
+        }
         restoredCookies.append(cok);
     }
 
@@ -132,7 +137,8 @@ void CookieJar::turnPrivateJar(bool state)
     if (state) {
         m_tempList = QNetworkCookieJar::allCookies();
         QNetworkCookieJar::setAllCookies(QList<QNetworkCookie>());
-    } else {
+    }
+    else {
         QNetworkCookieJar::setAllCookies(m_tempList);
         m_tempList.clear();
     }

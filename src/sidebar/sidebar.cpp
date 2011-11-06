@@ -67,8 +67,9 @@ void SideBar::showRSS()
 
 void SideBar::setWidget(QWidget* widget)
 {
-    if (m_layout->count() == 2)
+    if (m_layout->count() == 2) {
         delete m_layout->itemAt(1)->widget();
+    }
 
     m_layout->addWidget(widget);
 }

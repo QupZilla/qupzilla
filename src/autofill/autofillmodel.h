@@ -33,7 +33,7 @@ public:
 
     bool isStored(const QUrl &url);
     bool isStoringEnabled(const QUrl &url);
-    void blockStoringfor (const QUrl &url);
+    void blockStoringfor(const QUrl &url);
 
     QString getUsername(const QUrl &url);
     QString getPassword(const QUrl &url);

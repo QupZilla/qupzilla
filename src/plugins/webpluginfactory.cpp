@@ -30,30 +30,36 @@ WebPluginFactory::WebPluginFactory(QObject* parent)
 QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const
 {
     QString mime = mimeType.trimmed(); //Fixing bad behaviour when mimeType contains spaces
-    if (mime.isEmpty())
-        return 0;
-
-    if (mime != "application/x-shockwave-flash") {
-        if (mime != "application/futuresplash")
-            qDebug()  << "missing mimeType handler for: " << mime;
+    if (mime.isEmpty()) {
         return 0;
     }
 
-    if (!mApp->plugins()->c2f_isEnabled())
+    if (mime != "application/x-shockwave-flash") {
+        if (mime != "application/futuresplash") {
+            qDebug()  << "missing mimeType handler for: " << mime;
+        }
         return 0;
+    }
+
+    if (!mApp->plugins()->c2f_isEnabled()) {
+        return 0;
+    }
 
     //Click2Flash whitelist
     QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
-    if (whitelist.contains(url.host()) || whitelist.contains("www."+url.host()) || whitelist.contains(url.host().remove("www.")))
+    if (whitelist.contains(url.host()) || whitelist.contains("www." + url.host()) || whitelist.contains(url.host().remove("www."))) {
         return 0;
+    }
 
     WebPluginFactory* factory = const_cast<WebPluginFactory*>(this);
-    if (!factory)
+    if (!factory) {
         return 0;
+    }
 
     WebPage* page = factory->parentPage();
-    if (!page)
+    if (!page) {
         return 0;
+    }
 
 
     ClickToFlash* ctf = new ClickToFlash(url, argumentNames, argumentValues, page);
@@ -62,8 +68,9 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
 
 WebPage* WebPluginFactory::parentPage()
 {
-    if (m_page)
+    if (m_page) {
         return m_page;
+    }
 
     WebPage* page = qobject_cast<WebPage*> (parent());
     return page;

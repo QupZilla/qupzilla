@@ -44,33 +44,40 @@ void BookmarkIcon::iconClicked()
     if (m_bookmarksModel->isBookmarked(url)) {
         BookmarksWidget* menu = new BookmarksWidget(m_bookmarksModel->bookmarkId(url), p_QupZilla->locationBar());
         menu->showAt(this);
-    } else
+    }
+    else {
         m_bookmarksModel->saveBookmark(p_QupZilla->weView());
+    }
 }
 
 void BookmarkIcon::checkBookmark(const QUrl &url)
 {
-    if (m_lastUrl == url)
+    if (m_lastUrl == url) {
         return;
+    }
 
-    if (m_bookmarksModel->isBookmarked(url))
+    if (m_bookmarksModel->isBookmarked(url)) {
         setBookmarkSaved();
-     else
+    }
+    else {
         setBookmarkDisabled();
+    }
 
     m_lastUrl = url;
 }
 
 void BookmarkIcon::bookmarkDeleted(const BookmarksModel::Bookmark &bookmark)
 {
-    if (bookmark.url == m_lastUrl)
+    if (bookmark.url == m_lastUrl) {
         setBookmarkDisabled();
+    }
 }
 
 void BookmarkIcon::bookmarkAdded(const BookmarksModel::Bookmark &bookmark)
 {
-    if (bookmark.url == m_lastUrl)
+    if (bookmark.url == m_lastUrl) {
         setBookmarkSaved();
+    }
 }
 
 void BookmarkIcon::setBookmarkSaved()

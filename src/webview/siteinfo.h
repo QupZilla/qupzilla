@@ -23,8 +23,9 @@
 #include <QTreeWidgetItem>
 #include <QGraphicsItem>
 
-namespace Ui {
-    class SiteInfo;
+namespace Ui
+{
+class SiteInfo;
 }
 
 class QupZilla;
@@ -44,7 +45,7 @@ private slots:
     void showImagePreview(QTreeWidgetItem* item);
     void securityDetailsClicked();
 
-    void imagesCustomContextMenuRequested(const QPoint& p);
+    void imagesCustomContextMenuRequested(const QPoint &p);
     void copyActionData();
     void downloadImage();
 

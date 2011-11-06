@@ -34,7 +34,7 @@ LocationCompleter::LocationCompleter(QObject* parent) :
     treeView->header()->hide();
     treeView->header()->setStretchLastSection(false);
     treeView->header()->setResizeMode(0, QHeaderView::Stretch);
-    treeView->header()->resizeSection(1,0);
+    treeView->header()->resizeSection(1, 0);
 
     setCompletionMode(QCompleter::PopupCompletion);
     setCaseSensitivity(Qt::CaseInsensitive);
@@ -56,50 +56,56 @@ QStringList LocationCompleter::splitPath(const QString &path) const
     QStringList returned = QCompleter::splitPath(path);
     QStringList returned2;
     QSqlQuery query;
-    query.exec("SELECT url FROM history WHERE title LIKE '%"+path+"%' OR url LIKE '%"+path+"%' ORDER BY count DESC LIMIT 1");
+    query.exec("SELECT url FROM history WHERE title LIKE '%" + path + "%' OR url LIKE '%" + path + "%' ORDER BY count DESC LIMIT 1");
     if (query.next()) {
         QString url = query.value(0).toString();
         bool titleSearching = false;
-        if (!url.contains(path))
+        if (!url.contains(path)) {
             titleSearching = true;
-        QString prefix = url.mid(0,url.indexOf(path));
-        foreach (QString string, returned) {
-            if (titleSearching)
+        }
+        QString prefix = url.mid(0, url.indexOf(path));
+        foreach(QString string, returned) {
+            if (titleSearching) {
                 returned2.append(url);
-            else
-                returned2.append(prefix+string);
+            }
+            else {
+                returned2.append(prefix + string);
+            }
         }
         return returned2;
-    } else {
-        foreach (QString string, returned)
-            returned2.append("http://www.google.com/search?client=qupzilla&q=" + string);
+    }
+    else {
+        foreach(QString string, returned)
+        returned2.append("http://www.google.com/search?client=qupzilla&q=" + string);
         return returned2;
     }
 #endif
 }
 
-void LocationCompleter::refreshCompleter(QString string)
+void LocationCompleter::refreshCompleter(const QString &string)
 {
     int limit;
-    if (string.size() < 3)
+    if (string.size() < 3) {
         limit = 25;
-    else
+    }
+    else {
         limit = 15;
+    }
 
     QSqlQuery query;
-    query.exec("SELECT title, url FROM history WHERE title LIKE '%"+string+"%' OR url LIKE '%"+string+"%' ORDER BY count DESC LIMIT "+QString::number(limit));
+    query.exec("SELECT title, url FROM history WHERE title LIKE '%" + string + "%' OR url LIKE '%" + string + "%' ORDER BY count DESC LIMIT " + QString::number(limit));
     int i = 0;
     QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
     QTreeView* treeView = qobject_cast<QTreeView*>(popup());
 
     cModel->clear();
-    while(query.next()) {
+    while (query.next()) {
         QStandardItem* iconText = new QStandardItem();
         QStandardItem* findUrl = new QStandardItem();
         QString url = query.value(1).toUrl().toEncoded();
 
-        iconText->setIcon(_iconForUrl(query.value(1).toUrl()).pixmap(16,16));
-        iconText->setText(query.value(0).toString().replace("\n","").append("\n"+url));
+        iconText->setIcon(_iconForUrl(query.value(1).toUrl()).pixmap(16, 16));
+        iconText->setText(query.value(0).toString().replace("\n", "").append("\n" + url));
 
         findUrl->setText(url);
         QList<QStandardItem*> items;
@@ -124,12 +130,14 @@ void LocationCompleter::refreshCompleter(QString string)
 //    }
 
     treeView->header()->setResizeMode(0, QHeaderView::Stretch);
-    treeView->header()->resizeSection(1,0);
+    treeView->header()->resizeSection(1, 0);
 
-    if (i>6)
+    if (i > 6) {
         popup()->setMinimumHeight(190);
-    else
+    }
+    else {
         popup()->setMinimumHeight(0);
+    }
 
     popup()->setUpdatesEnabled(true);
 }

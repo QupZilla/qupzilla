@@ -51,8 +51,9 @@ void WebInspectorDockWidget::show()
         setWidget(m_inspector);
     }
 
-    if (m_inspector->page() != p_QupZilla->weView()->page())
+    if (m_inspector->page() != p_QupZilla->weView()->page()) {
         m_inspector->setPage(p_QupZilla->weView()->page());
+    }
 
     p_QupZilla->weView()->webTab()->setInspectorVisible(true);
 
@@ -61,14 +62,17 @@ void WebInspectorDockWidget::show()
 
 void WebInspectorDockWidget::tabChanged()
 {
-    if (p_QupZilla->weView()->webTab()->inspectorVisible())
+    if (p_QupZilla->weView()->webTab()->inspectorVisible()) {
         show();
-    else
+    }
+    else {
         close();
+    }
 }
 
 WebInspectorDockWidget::~WebInspectorDockWidget()
 {
-    if (m_inspector)
+    if (m_inspector) {
         delete m_inspector;
+    }
 }

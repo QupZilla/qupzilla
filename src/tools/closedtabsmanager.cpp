@@ -19,15 +19,16 @@
 #include "webview.h"
 #include "qwebhistory.h"
 
-ClosedTabsManager::ClosedTabsManager(QObject *parent) :
+ClosedTabsManager::ClosedTabsManager(QObject* parent) :
     QObject(parent)
 {
 }
 
 void ClosedTabsManager::saveView(WebView* view)
 {
-    if (view->url().isEmpty() && view->history()->items().count() == 0)
+    if (view->url().isEmpty() && view->history()->items().count() == 0) {
         return;
+    }
 
     Tab tab;
     tab.url = view->url();
@@ -41,8 +42,9 @@ void ClosedTabsManager::saveView(WebView* view)
 ClosedTabsManager::Tab ClosedTabsManager::getFirstClosedTab()
 {
     Tab tab;
-    if (m_closedTabs.count() > 0)
+    if (m_closedTabs.count() > 0) {
         tab = m_closedTabs.takeFirst();
+    }
 
     return tab;
 }

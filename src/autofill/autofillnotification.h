@@ -25,8 +25,9 @@
 
 #include "animatedwidget.h"
 
-namespace Ui {
-    class AutoFillWidget;
+namespace Ui
+{
+class AutoFillWidget;
 }
 class AnimatedWidget;
 class AutoFillNotification : public AnimatedWidget

@@ -21,6 +21,8 @@
 AnimatedWidget::AnimatedWidget(const Direction &direction, int duration, QWidget* parent)
     : QWidget(parent)
     , m_widget(new QWidget(this))
+    , Y_SHOWN(0)
+    , Y_HIDDEN(0)
     , m_direction(direction)
 {
     m_positionAni = new QPropertyAnimation(m_widget, "pos");
@@ -41,7 +43,8 @@ void AnimatedWidget::startAnimation()
     if (m_direction == Down) {
         Y_SHOWN = 0;
         Y_HIDDEN = -m_widget->height();
-    } else if (m_direction == Up) {
+    }
+    else if (m_direction == Up) {
         Y_SHOWN = 0;
         Y_HIDDEN = 0;
     }
@@ -63,10 +66,11 @@ void AnimatedWidget::hide()
     connect(m_aniGroup, SIGNAL(finished()), this, SLOT(close()));
 }
 
-void AnimatedWidget::resizeEvent(QResizeEvent *event)
+void AnimatedWidget::resizeEvent(QResizeEvent* event)
 {
-    if (event->size().width() != m_widget->width())
+    if (event->size().width() != m_widget->width()) {
         m_widget->resize(event->size().width(), m_widget->height());
+    }
 
     QWidget::resizeEvent(event);
 }

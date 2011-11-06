@@ -42,8 +42,7 @@ public:
         QString rule;
         QUrl url;
 
-        bool operator==(const AdBlockedEntry &other)
-        {
+        bool operator==(const AdBlockedEntry &other) const {
             return (this->rule == other.rule && this->url == other.url);
         }
     };
@@ -87,7 +86,7 @@ private:
     virtual bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
 
-    QString chooseFile(QWebFrame *originatingFrame, const QString &oldFile);
+    QString chooseFile(QWebFrame* originatingFrame, const QString &oldFile);
     static QString m_lastUploadLocation;
 
     QupZilla* p_QupZilla;
