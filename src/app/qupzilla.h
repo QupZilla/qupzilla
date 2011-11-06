@@ -105,6 +105,8 @@ public:
     inline QColor menuTextColor() { return m_menuTextColor; }
     inline QMenu* menuHelp() { return m_menuHelp; }
     inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
+    inline QAction* actionReload() { return m_actionReload; }
+    inline QAction* actionStop() { return m_actionStop; }
     inline QMenu* superMenu() { return m_superMenu; }
 
     inline bool isClosing() { return m_isClosing; }
@@ -144,11 +146,13 @@ private slots:
     void savePageScreen();
 
     void aboutToShowHistoryMenu(bool loadHistory = true);
+    void aboutToHideHistoryMenu();
     void aboutToShowClosedTabsMenu();
     void aboutToShowBookmarksMenu();
     void aboutToShowToolsMenu();
     void aboutToShowHelpMenu();
     void aboutToShowViewMenu();
+    void aboutToHideViewMenu();
     void aboutToShowEncodingMenu();
 
     void searchOnPage();
@@ -189,6 +193,8 @@ private slots:
     bool quitApp();
 
 private:
+    void keyPressEvent(QKeyEvent *event);
+    void mousePressEvent(QMouseEvent* event);
     void closeEvent(QCloseEvent* event);
 
     void setupUi();

@@ -49,7 +49,6 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
         return QNetworkCookieJar::setCookiesFromUrl(QList<QNetworkCookie>(), url);
 
     QList<QNetworkCookie> newList = cookieList;
-    QDateTime now = QDateTime::currentDateTime();
 
     foreach (QNetworkCookie cok, newList) {
         if (m_allowCookiesFromDomain && !QString("." + url.host()).contains(cok.domain().remove("www."))) {
@@ -60,7 +59,7 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
             continue;
         }
 
-        if (m_filterTrackingCookie && (cok.name().startsWith("__utm") || cok.expirationDate() > now.addYears(1).addMonths(6)) ) {
+        if (m_filterTrackingCookie && cok.name().startsWith("__utm")) {
 #ifdef COOKIE_DEBUG
             qDebug() << "purged as tracking " << cok;
 #endif

@@ -254,6 +254,7 @@ void SearchEnginesManager::setActiveEngine(const Engine &engine)
         return;
 
     m_activeEngine = engine;
+    emit activeEngineChanged();
 }
 
 void SearchEnginesManager::removeEngine(const Engine &engine)

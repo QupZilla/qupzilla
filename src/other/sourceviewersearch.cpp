@@ -20,10 +20,10 @@
 #include "sourceviewer.h"
 #include "iconprovider.h"
 
-SourceViewerSearch::SourceViewerSearch(SourceViewer* parent) :
-    AnimatedWidget(AnimatedWidget::Up)
-   ,m_sourceViewer(parent)
-   ,ui(new Ui::SourceViewerSearch)
+SourceViewerSearch::SourceViewerSearch(SourceViewer* parent)
+    : AnimatedWidget(AnimatedWidget::Up)
+    , m_sourceViewer(parent)
+    , ui(new Ui::SourceViewerSearch)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
@@ -40,6 +40,7 @@ SourceViewerSearch::SourceViewerSearch(SourceViewer* parent) :
     connect(ui->previous, SIGNAL(clicked()), this, SLOT(previous()));
 
     startAnimation();
+    qApp->installEventFilter(this);
 }
 
 void SourceViewerSearch::activateLineEdit()
@@ -96,4 +97,12 @@ bool SourceViewerSearch::find(QTextDocument::FindFlags flags)
     return true;
 }
 
+bool SourceViewerSearch::eventFilter(QObject* obj, QEvent* event)
+{
+    if (event->type() == QEvent::KeyPress && static_cast<QKeyEvent*>(event)->key() == Qt::Key_Escape) {
+        hide();
+        return false;
+    }
 
+    return AnimatedWidget::eventFilter(obj, event);
+}

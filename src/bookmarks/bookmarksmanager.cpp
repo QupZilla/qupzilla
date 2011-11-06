@@ -37,6 +37,8 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     ui->setupUi(this);
     qz_centerWidgetOnScreen(this);
 
+    ui->deleteB->setShortcut(QKeySequence("Del"));
+
     connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));
     connect(ui->bookmarksTree, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
     connect(ui->addSubfolder, SIGNAL(clicked()), this, SLOT(addSubfolder()));

@@ -34,9 +34,9 @@
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit()
-    ,p_QupZilla(mainClass)
-    ,m_webView(0)
-    ,m_locationBarSettings(LocationBarSettings::instance())
+    , p_QupZilla(mainClass)
+    , m_webView(0)
+    , m_locationBarSettings(LocationBarSettings::instance())
 {
     setObjectName("locationbar");
     m_siteIcon = new ToolButton(this);
@@ -69,8 +69,6 @@ LocationBar::LocationBar(QupZilla* mainClass)
     addWidget(m_goButton, LineEdit::RightSide);
     addWidget(m_rssIcon, LineEdit::RightSide);
 
-    setPlaceholderText(tr("Enter URL address or search on Google.com"));
-
     setWidgetSpacing(0);
 
     m_locationCompleter = new LocationCompleter();
@@ -86,8 +84,15 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
     connect(m_goButton, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
+    connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
 
     clearIcon();
+    updatePlaceHolderText();
+}
+
+void LocationBar::updatePlaceHolderText()
+{
+    setPlaceholderText(tr("Enter URL address or search on %1").arg(mApp->searchEnginesManager()->activeEngine().name));
 }
 
 void LocationBar::urlEnter()

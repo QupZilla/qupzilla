@@ -80,6 +80,7 @@ public:
 
 signals:
     void enginesChanged();
+    void activeEngineChanged();
 
 public slots:
 

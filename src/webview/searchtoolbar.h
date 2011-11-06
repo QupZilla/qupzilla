@@ -40,6 +40,7 @@ public:
     ~SearchToolBar();
 
     QLineEdit* searchLine();
+    bool eventFilter(QObject* obj, QEvent* event);
 
 signals:
 
