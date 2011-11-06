@@ -114,7 +114,7 @@ void ButtonWithMenu::wheelEvent(QWheelEvent* event)
         }
     }
     else if (currItemIndex < itemsCount - 1) {
-            setCurrentItem(m_items.at(currItemIndex + 1));
+        setCurrentItem(m_items.at(currItemIndex + 1));
     }
 
     event->accept();
