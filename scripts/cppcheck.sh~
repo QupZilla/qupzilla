@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# cppcheck
+#
+
+echo "cppcheck..."
+echo ""
+echo ""
+
+cd ../src
+cppcheck \
+--enable=all \
+--force \
+--verbose \
+. > /dev/null
+
+read -p "Press [ENTER] to close terminal"
+exit
