@@ -22,9 +22,9 @@
 
 BookmarksWidget::BookmarksWidget(int bookmarkId, QWidget* parent) :
     QMenu(parent)
-    ,ui(new Ui::BookmarksWidget)
-    ,m_bookmarkId(bookmarkId)
-    ,m_bookmarksModel(0)
+    , ui(new Ui::BookmarksWidget)
+    , m_bookmarkId(bookmarkId)
+    , m_bookmarksModel(0)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -39,7 +39,7 @@ BookmarksWidget::BookmarksWidget(int bookmarkId, QWidget* parent) :
 void BookmarksWidget::loadBookmark()
 {
     BookmarksModel::Bookmark bookmark = m_bookmarksModel->getBookmark(m_bookmarkId);
-    ui->name->setText( bookmark.title );
+    ui->name->setText(bookmark.title);
 
     // Bookmark folders
     ui->folder->addItem(QIcon(":icons/other/unsortedbookmarks.png"), tr("Unsorted Bookmarks"), "unsorted");
@@ -47,10 +47,11 @@ void BookmarksWidget::loadBookmark()
     ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In ToolBar"), "bookmarksToolbar");
     QSqlQuery query;
     query.exec("SELECT name FROM folders");
-    while(query.next())
+    while (query.next()) {
         ui->folder->addItem(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString(), query.value(0).toString());
+    }
 
-    ui->folder->setCurrentIndex( ui->folder->findData(bookmark.folder) );
+    ui->folder->setCurrentIndex(ui->folder->findData(bookmark.folder));
     ui->name->setCursorPosition(0);
 }
 
@@ -63,14 +64,14 @@ void BookmarksWidget::removeBookmark()
 
 void BookmarksWidget::saveBookmark()
 {
-    m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), QUrl(), ui->folder->itemData(ui->folder->currentIndex()).toString() );
+    m_bookmarksModel->editBookmark(m_bookmarkId, ui->name->text(), QUrl(), ui->folder->itemData(ui->folder->currentIndex()).toString());
     close();
 }
 
 void BookmarksWidget::showAt(QWidget* _parent)
 {
     QPoint p = _parent->mapToGlobal(QPoint(0, 0));
-    move( (p.x()+_parent->width() ) - width(), p.y() + _parent->height());
+    move((p.x() + _parent->width()) - width(), p.y() + _parent->height());
     show();
 }
 

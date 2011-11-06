@@ -54,11 +54,11 @@ class AdBlockBlockedNetworkReply : public QNetworkReply
     Q_OBJECT
 
 public:
-    AdBlockBlockedNetworkReply(const QNetworkRequest &request, const AdBlockRule *rule, QObject *parent = 0);
-    void abort() {};
+    AdBlockBlockedNetworkReply(const QNetworkRequest &request, const AdBlockRule* rule, QObject* parent = 0);
+    void abort() {}
 
 protected:
-    qint64 readData(char *data, qint64 maxSize);
+    qint64 readData(char* data, qint64 maxSize);
 
 private slots:
     void delayedFinished();

@@ -68,7 +68,7 @@ class AdBlockDialog : public QDialog, public Ui_AdBlockDialog
     Q_OBJECT
 
 public:
-    AdBlockDialog(QWidget *parent = 0);
+    AdBlockDialog(QWidget* parent = 0);
 
 private slots:
     void itemChanged(QTreeWidgetItem* item);

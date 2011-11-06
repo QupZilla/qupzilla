@@ -50,7 +50,7 @@
 #include "mainapplication.h"
 #include "webpage.h"
 
-AdBlockNetwork::AdBlockNetwork(QObject *parent)
+AdBlockNetwork::AdBlockNetwork(QObject* parent)
     : QObject(parent)
 {
 }
@@ -58,31 +58,36 @@ AdBlockNetwork::AdBlockNetwork(QObject *parent)
 QNetworkReply* AdBlockNetwork::block(const QNetworkRequest &request)
 {
     QUrl url = request.url();
-    if (url.scheme() == "data")
+    if (url.scheme() == "data") {
         return 0;
+    }
 
     AdBlockManager* manager = AdBlockManager::instance();
-    if (!manager->isEnabled())
+    if (!manager->isEnabled()) {
         return 0;
+    }
 
     QString urlString = url.toEncoded();
     const AdBlockRule* blockedRule = 0;
     AdBlockSubscription* subscription = manager->subscription();
 
-    if (subscription->allow(urlString))
+    if (subscription->allow(urlString)) {
         return 0;
+    }
 
-    if (const AdBlockRule* rule = subscription->block(urlString))
+    if (const AdBlockRule* rule = subscription->block(urlString)) {
         blockedRule = rule;
+    }
 
     if (blockedRule) {
-       QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-       WebPage* webPage = (WebPage*)(v.value<void*>());
-       if (webPage)
-           webPage->addAdBlockRule(blockedRule->filter(), request.url());
+        QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
+        WebPage* webPage = (WebPage*)(v.value<void*>());
+        if (webPage) {
+            webPage->addAdBlockRule(blockedRule->filter(), request.url());
+        }
 
-       AdBlockBlockedNetworkReply* reply = new AdBlockBlockedNetworkReply(request, blockedRule, this);
-       return reply;
+        AdBlockBlockedNetworkReply* reply = new AdBlockBlockedNetworkReply(request, blockedRule, this);
+        return reply;
     }
     return 0;
 }

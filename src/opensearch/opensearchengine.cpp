@@ -98,7 +98,7 @@
 /*!
     Constructs an engine with a given \a parent.
 */
-OpenSearchEngine::OpenSearchEngine(QObject *parent)
+OpenSearchEngine::OpenSearchEngine(QObject* parent)
     : QObject(parent)
     , m_searchMethod(QLatin1String("get"))
     , m_suggestionsMethod(QLatin1String("get"))
@@ -116,8 +116,9 @@ OpenSearchEngine::OpenSearchEngine(QObject *parent)
 */
 OpenSearchEngine::~OpenSearchEngine()
 {
-    if (m_scriptEngine)
+    if (m_scriptEngine) {
         m_scriptEngine->deleteLater();
+    }
 }
 
 QString OpenSearchEngine::parseTemplate(const QString &searchTerm, const QString &searchTemplate)
@@ -219,16 +220,18 @@ void OpenSearchEngine::setSearchUrlTemplate(const QString &searchUrlTemplate)
 */
 QUrl OpenSearchEngine::searchUrl(const QString &searchTerm) const
 {
-    if (m_searchUrlTemplate.isEmpty())
+    if (m_searchUrlTemplate.isEmpty()) {
         return QUrl();
+    }
 
     QUrl retVal = QUrl::fromEncoded(parseTemplate(searchTerm, m_searchUrlTemplate).toUtf8());
 
     if (m_searchMethod != QLatin1String("post")) {
         Parameters::const_iterator end = m_searchParameters.constEnd();
         Parameters::const_iterator i = m_searchParameters.constBegin();
-        for (; i != end; ++i)
+        for (; i != end; ++i) {
             retVal.addQueryItem(i->first, parseTemplate(searchTerm, i->second));
+        }
     }
 
     return retVal;
@@ -277,16 +280,18 @@ QUrl OpenSearchEngine::suggestionsUrl(const QString &searchTerm) const
         return QUrl(s);
     }
 
-    if (m_suggestionsUrlTemplate.isEmpty())
+    if (m_suggestionsUrlTemplate.isEmpty()) {
         return QUrl();
+    }
 
     QUrl retVal = QUrl::fromEncoded(parseTemplate(searchTerm, m_suggestionsUrlTemplate).toUtf8());
 
     if (m_suggestionsMethod != QLatin1String("post")) {
         Parameters::const_iterator end = m_suggestionsParameters.constEnd();
         Parameters::const_iterator i = m_suggestionsParameters.constBegin();
-        for (; i != end; ++i)
+        for (; i != end; ++i) {
             retVal.addQueryItem(i->first, parseTemplate(searchTerm, i->second));
+        }
     }
 
     return retVal;
@@ -338,8 +343,9 @@ QString OpenSearchEngine::searchMethod() const
 void OpenSearchEngine::setSearchMethod(const QString &method)
 {
     QString requestMethod = method.toLower();
-    if (!m_requestMethods.contains(requestMethod))
+    if (!m_requestMethods.contains(requestMethod)) {
         return;
+    }
 
     m_searchMethod = requestMethod;
 }
@@ -356,8 +362,9 @@ QString OpenSearchEngine::suggestionsMethod() const
 void OpenSearchEngine::setSuggestionsMethod(const QString &method)
 {
     QString requestMethod = method.toLower();
-    if (!m_requestMethods.contains(requestMethod))
+    if (!m_requestMethods.contains(requestMethod)) {
         return;
+    }
 
     m_suggestionsMethod = requestMethod;
 }
@@ -386,27 +393,30 @@ void OpenSearchEngine::setImageUrl(const QString &imageUrl)
 
 void OpenSearchEngine::loadImage() const
 {
-    if (!m_networkAccessManager || m_imageUrl.isEmpty())
+    if (!m_networkAccessManager || m_imageUrl.isEmpty()) {
         return;
+    }
 
-    QNetworkReply *reply = m_networkAccessManager->get(QNetworkRequest(QUrl::fromEncoded(m_imageUrl.toUtf8())));
+    QNetworkReply* reply = m_networkAccessManager->get(QNetworkRequest(QUrl::fromEncoded(m_imageUrl.toUtf8())));
     connect(reply, SIGNAL(finished()), this, SLOT(imageObtained()));
 }
 
 void OpenSearchEngine::imageObtained()
 {
-    QNetworkReply *reply = qobject_cast<QNetworkReply*>(sender());
+    QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
 
-    if (!reply)
+    if (!reply) {
         return;
+    }
 
     QByteArray response = reply->readAll();
 
     reply->close();
     reply->deleteLater();
 
-    if (response.isEmpty())
+    if (response.isEmpty()) {
         return;
+    }
 
     m_image.loadFromData(response);
     emit imageChanged();
@@ -423,8 +433,9 @@ void OpenSearchEngine::imageObtained()
 */
 QImage OpenSearchEngine::image() const
 {
-    if (m_image.isNull())
+    if (m_image.isNull()) {
         loadImage();
+    }
     return m_image;
 }
 
@@ -499,8 +510,9 @@ QByteArray OpenSearchEngine::getSuggestionsParameters()
     QStringList parameters;
     Parameters::const_iterator end = m_suggestionsParameters.constEnd();
     Parameters::const_iterator i = m_suggestionsParameters.constBegin();
-    for (; i != end; ++i)
+    for (; i != end; ++i) {
         parameters.append(i->first + QLatin1String("=") + i->second);
+    }
 
     QByteArray data = parameters.join(QLatin1String("&")).toUtf8();
 
@@ -509,13 +521,15 @@ QByteArray OpenSearchEngine::getSuggestionsParameters()
 
 void OpenSearchEngine::requestSuggestions(const QString &searchTerm)
 {
-    if (searchTerm.isEmpty() || !providesSuggestions())
+    if (searchTerm.isEmpty() || !providesSuggestions()) {
         return;
+    }
 
     Q_ASSERT(m_networkAccessManager);
 
-    if (!m_networkAccessManager)
+    if (!m_networkAccessManager) {
         return;
+    }
 
     if (m_suggestionsReply) {
         m_suggestionsReply->disconnect(this);
@@ -527,12 +541,14 @@ void OpenSearchEngine::requestSuggestions(const QString &searchTerm)
     Q_ASSERT(m_requestMethods.contains(m_suggestionsMethod));
     if (m_suggestionsMethod == QLatin1String("get")) {
         m_suggestionsReply = m_networkAccessManager->get(QNetworkRequest(suggestionsUrl(searchTerm)));
-    } else {
+    }
+    else {
         QStringList parameters;
         Parameters::const_iterator end = m_suggestionsParameters.constEnd();
         Parameters::const_iterator i = m_suggestionsParameters.constBegin();
-        for (; i != end; ++i)
+        for (; i != end; ++i) {
             parameters.append(i->first + QLatin1String("=") + i->second);
+        }
 
         QByteArray data = parameters.join(QLatin1String("&")).toUtf8();
         m_suggestionsReply = m_networkAccessManager->post(QNetworkRequest(suggestionsUrl(searchTerm)), data);
@@ -553,8 +569,9 @@ void OpenSearchEngine::requestSuggestions(const QString &searchTerm)
 */
 void OpenSearchEngine::requestSearchResults(const QString &searchTerm)
 {
-    if (!m_delegate || searchTerm.isEmpty())
+    if (!m_delegate || searchTerm.isEmpty()) {
         return;
+    }
 
     Q_ASSERT(m_requestMethods.contains(m_searchMethod));
 
@@ -566,8 +583,9 @@ void OpenSearchEngine::requestSearchResults(const QString &searchTerm)
         QStringList parameters;
         Parameters::const_iterator end = m_searchParameters.constEnd();
         Parameters::const_iterator i = m_searchParameters.constBegin();
-        for (; i != end; ++i)
+        for (; i != end; ++i) {
             parameters.append(i->first + QLatin1String("=") + i->second);
+        }
 
         data = parameters.join(QLatin1String("&")).toUtf8();
     }
@@ -584,23 +602,28 @@ void OpenSearchEngine::suggestionsObtained()
     m_suggestionsReply->deleteLater();
     m_suggestionsReply = 0;
 
-    if (response.isEmpty())
+    if (response.isEmpty()) {
         return;
+    }
 
-    if (!response.startsWith(QLatin1Char('[')) || !response.endsWith(QLatin1Char(']')))
+    if (!response.startsWith(QLatin1Char('[')) || !response.endsWith(QLatin1Char(']'))) {
         return;
+    }
 
-    if (!m_scriptEngine)
+    if (!m_scriptEngine) {
         m_scriptEngine = new QScriptEngine();
+    }
 
     // Evaluate the JSON response using QtScript.
-    if (!m_scriptEngine->canEvaluate(response))
+    if (!m_scriptEngine->canEvaluate(response)) {
         return;
+    }
 
     QScriptValue responseParts = m_scriptEngine->evaluate(response);
 
-    if (!responseParts.property(1).isArray())
+    if (!responseParts.property(1).isArray()) {
         return;
+    }
 
     QStringList suggestionsList;
     qScriptValueToSequence(responseParts.property(1), suggestionsList);
@@ -615,12 +638,12 @@ void OpenSearchEngine::suggestionsObtained()
     It is required for network operations: loading external images and requesting
     contextual suggestions.
 */
-QNetworkAccessManager *OpenSearchEngine::networkAccessManager() const
+QNetworkAccessManager* OpenSearchEngine::networkAccessManager() const
 {
     return m_networkAccessManager;
 }
 
-void OpenSearchEngine::setNetworkAccessManager(QNetworkAccessManager *networkAccessManager)
+void OpenSearchEngine::setNetworkAccessManager(QNetworkAccessManager* networkAccessManager)
 {
     m_networkAccessManager = networkAccessManager;
 }
@@ -632,12 +655,12 @@ void OpenSearchEngine::setNetworkAccessManager(QNetworkAccessManager *networkAcc
     It can be currently supplied to provide a custom behaviour ofthe requetSearchResults() method.
     The default implementation does nothing.
 */
-OpenSearchEngineDelegate *OpenSearchEngine::delegate() const
+OpenSearchEngineDelegate* OpenSearchEngine::delegate() const
 {
     return m_delegate;
 }
 
-void OpenSearchEngine::setDelegate(OpenSearchEngineDelegate *delegate)
+void OpenSearchEngine::setDelegate(OpenSearchEngineDelegate* delegate)
 {
     m_delegate = delegate;
 }

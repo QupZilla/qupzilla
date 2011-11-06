@@ -67,7 +67,7 @@ signals:
     void rulesChanged();
 
 public:
-    AdBlockSubscription(QObject *parent = 0);
+    AdBlockSubscription(QObject* parent = 0);
 
     QString title() const { return m_title; }
     void setTitle(const QString &title) { m_title = title; }

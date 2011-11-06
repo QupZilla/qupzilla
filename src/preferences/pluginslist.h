@@ -22,8 +22,9 @@
 #include <QListWidgetItem>
 #include <QInputDialog>
 
-namespace Ui {
-    class PluginsList;
+namespace Ui
+{
+class PluginsList;
 }
 
 class PluginsList : public QWidget

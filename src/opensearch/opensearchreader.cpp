@@ -82,65 +82,73 @@ OpenSearchReader::OpenSearchReader()
     \note The lifetime of the returned OpenSearchEngine object is up to the user.
           The object should be deleted once it is not used anymore to avoid memory leaks.
 */
-OpenSearchEngine *OpenSearchReader::read(QIODevice *device)
+OpenSearchEngine* OpenSearchReader::read(QIODevice* device)
 {
     clear();
 
-    if (!device->isOpen())
+    if (!device->isOpen()) {
         device->open(QIODevice::ReadOnly);
+    }
 
     setDevice(device);
     return read();
 }
 
-OpenSearchEngine *OpenSearchReader::read()
+OpenSearchEngine* OpenSearchReader::read()
 {
-    OpenSearchEngine *engine = new OpenSearchEngine();
-    m_searchXml = device()->peek(1024*5);
+    OpenSearchEngine* engine = new OpenSearchEngine();
+    m_searchXml = device()->peek(1024 * 5);
 
-    while (!isStartElement() && !atEnd())
+    while (!isStartElement() && !atEnd()) {
         readNext();
+    }
 
     if (!m_searchXml.contains(QLatin1String("http://a9.com/-/spec/opensearch/1.1/"))) {
-            raiseError(QObject::tr("The file is not an OpenSearch 1.1 file."));
-            return engine;
-        }
+        raiseError(QObject::tr("The file is not an OpenSearch 1.1 file."));
+        return engine;
+    }
 
     while (!atEnd()) {
         readNext();
 
-        if (!isStartElement())
+        if (!isStartElement()) {
             continue;
+        }
 
         if (name() == QLatin1String("ShortName") || name() == QLatin1String("os:ShortName")) {
             engine->setName(readElementText());
-        } else if (name() == QLatin1String("Description") || name() == QLatin1String("os:Description")) {
+        }
+        else if (name() == QLatin1String("Description") || name() == QLatin1String("os:Description")) {
             engine->setDescription(readElementText());
-        } else if (name() == QLatin1String("Url") || name() == QLatin1String("os:Url")) {
+        }
+        else if (name() == QLatin1String("Url") || name() == QLatin1String("os:Url")) {
             QString type = attributes().value(QLatin1String("type")).toString();
             QString url = attributes().value(QLatin1String("template")).toString();
             QString method = attributes().value(QLatin1String("method")).toString();
 
             if (type == QLatin1String("application/x-suggestions+json")
-                && !engine->suggestionsUrlTemplate().isEmpty())
+                    && !engine->suggestionsUrlTemplate().isEmpty()) {
                 continue;
+            }
 
             if ((type.isEmpty()
-                || type == QLatin1String("text/html")
-                || type == QLatin1String("application/xhtml+xml"))
-                && !engine->searchUrlTemplate().isEmpty())
+                    || type == QLatin1String("text/html")
+                    || type == QLatin1String("application/xhtml+xml"))
+                    && !engine->searchUrlTemplate().isEmpty()) {
                 continue;
+            }
 
-            if (url.isEmpty())
+            if (url.isEmpty()) {
                 continue;
+            }
 
             QList<OpenSearchEngine::Parameter> parameters;
 
             readNext();
 
             while (!isEndElement() || (name() != QLatin1String("Url") && name() != QLatin1String("os:Url"))) {
-                  if (!isStartElement() || (name() != QLatin1String("Param") && name() != QLatin1String("Parameter")
-                                            && name() != QLatin1String("os:Param") && name() != QLatin1String("os:Parameter") )) {
+                if (!isStartElement() || (name() != QLatin1String("Param") && name() != QLatin1String("Parameter")
+                                          && name() != QLatin1String("os:Param") && name() != QLatin1String("os:Parameter"))) {
                     readNext();
                     continue;
                 }
@@ -148,33 +156,38 @@ OpenSearchEngine *OpenSearchReader::read()
                 QString key = attributes().value(QLatin1String("name")).toString();
                 QString value = attributes().value(QLatin1String("value")).toString();
 
-                if (!key.isEmpty() && !value.isEmpty())
+                if (!key.isEmpty() && !value.isEmpty()) {
                     parameters.append(OpenSearchEngine::Parameter(key, value));
+                }
 
-                while (!isEndElement())
+                while (!isEndElement()) {
                     readNext();
+                }
             }
 
             if (type == QLatin1String("application/x-suggestions+json")) {
                 engine->setSuggestionsUrlTemplate(url);
                 engine->setSuggestionsParameters(parameters);
                 engine->setSuggestionsMethod(method);
-            } else if (type.isEmpty() || type == QLatin1String("text/html") || type == QLatin1String("application/xhtml+xml")) {
+            }
+            else if (type.isEmpty() || type == QLatin1String("text/html") || type == QLatin1String("application/xhtml+xml")) {
                 engine->setSearchUrlTemplate(url);
                 engine->setSearchParameters(parameters);
                 engine->setSearchMethod(method);
             }
 
-        } else if (name() == QLatin1String("Image") || name() == QLatin1String("os:Image")) {
-             engine->setImageUrl(readElementText());
+        }
+        else if (name() == QLatin1String("Image") || name() == QLatin1String("os:Image")) {
+            engine->setImageUrl(readElementText());
         }
 
         if (!engine->name().isEmpty()
-            && !engine->description().isEmpty()
-            && !engine->suggestionsUrlTemplate().isEmpty()
-            && !engine->searchUrlTemplate().isEmpty()
-            && !engine->imageUrl().isEmpty())
+                && !engine->description().isEmpty()
+                && !engine->suggestionsUrlTemplate().isEmpty()
+                && !engine->searchUrlTemplate().isEmpty()
+                && !engine->imageUrl().isEmpty()) {
             break;
+        }
     }
 
     return engine;

@@ -23,8 +23,9 @@
 #include <QNetworkCookie>
 #include <QTreeWidgetItem>
 
-namespace Ui {
-    class CookieManager;
+namespace Ui
+{
+class CookieManager;
 }
 
 class QupZilla;

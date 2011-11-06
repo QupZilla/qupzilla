@@ -40,7 +40,7 @@ public slots:
     void startAnimation();
 
 private:
-    void resizeEvent(QResizeEvent *e);
+    void resizeEvent(QResizeEvent* e);
 
     QPropertyAnimation* m_positionAni;
     QPropertyAnimation* m_heightAni;

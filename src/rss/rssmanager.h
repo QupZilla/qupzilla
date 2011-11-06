@@ -26,8 +26,9 @@
 #include <QPointer>
 #include <QDialogButtonBox>
 
-namespace Ui {
-    class RSSManager;
+namespace Ui
+{
+class RSSManager;
 }
 
 class FollowRedirectReply;

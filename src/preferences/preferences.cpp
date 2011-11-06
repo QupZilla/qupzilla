@@ -43,25 +43,28 @@
 bool removeFile(const QString &fullFileName)
 {
     QFile f(fullFileName);
-    if (f.exists())
+    if (f.exists()) {
         return f.remove();
-    else return false;
+    }
+    else {
+        return false;
+    }
 }
 
 void removeDir(const QString &d)
 {
     QDir dir(d);
-    if (dir.exists())
-    {
+    if (dir.exists()) {
         const QFileInfoList list = dir.entryInfoList();
         QFileInfo fi;
-        for (int l = 0; l < list.size(); l++)
-        {
+        for (int l = 0; l < list.size(); l++) {
             fi = list.at(l);
-            if (fi.isDir() && fi.fileName() != "." && fi.fileName() != "..")
+            if (fi.isDir() && fi.fileName() != "." && fi.fileName() != "..") {
                 removeDir(fi.absoluteFilePath());
-            else if (fi.isFile())
+            }
+            else if (fi.isFile()) {
                 removeFile(fi.absoluteFilePath());
+            }
 
         }
         dir.rmdir(d);
@@ -77,24 +80,26 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
-    m_homepage = settings.value("homepage","qupzilla:start").toString();
-    m_newTabUrl = settings.value("newTabUrl","").toString();
+    m_homepage = settings.value("homepage", "qupzilla:start").toString();
+    m_newTabUrl = settings.value("newTabUrl", "").toString();
     ui->homepage->setText(m_homepage);
     ui->newTabUrl->setText(m_newTabUrl);
-    int afterLaunch = settings.value("afterLaunch",1).toInt();
+    int afterLaunch = settings.value("afterLaunch", 1).toInt();
     settings.endGroup();
     ui->afterLaunch->setCurrentIndex(afterLaunch);
-    ui->checkUpdates->setChecked( settings.value("Web-Browser-Settings/CheckUpdates", true).toBool() );
+    ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates", true).toBool());
 
     ui->newTabFrame->setVisible(false);
-    if (m_newTabUrl.isEmpty())
+    if (m_newTabUrl.isEmpty()) {
         ui->newTab->setCurrentIndex(0);
-    else if (m_newTabUrl == m_homepage)
+    }
+    else if (m_newTabUrl == m_homepage) {
         ui->newTab->setCurrentIndex(1);
-    else{
+    }
+    else {
         ui->newTab->setCurrentIndex(2);
         ui->newTabFrame->setVisible(true);
     }
@@ -111,9 +116,10 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->startProfile->addItem(m_actProfileName);
     QDir profilesDir(QDir::homePath() + "/.qupzilla/profiles/");
     QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-    foreach (QString name, list_) {
-        if (m_actProfileName == name)
+    foreach(QString name, list_) {
+        if (m_actProfileName == name) {
             continue;
+        }
         ui->startProfile->addItem(name);
     }
     connect(ui->createProfile, SIGNAL(clicked()), this, SLOT(createProfile()));
@@ -123,13 +129,13 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //APPEREANCE
     m_themesManager = new ThemeManager(ui->themesWidget);
     settings.beginGroup("Browser-View-Settings");
-    ui->showStatusbar->setChecked( settings.value("showStatusBar",true).toBool() );
-    ui->showBookmarksToolbar->setChecked( p_QupZilla->bookmarksToolbar()->isVisible() );
-    ui->showNavigationToolbar->setChecked( p_QupZilla->navigationBar()->isVisible() );
-    ui->showHome->setChecked( settings.value("showHomeButton",true).toBool() );
-    ui->showBackForward->setChecked( settings.value("showBackForwardButtons",true).toBool() );
-    ui->showAddTabButton->setChecked( settings.value("showAddTabButton", false).toBool() );
-    ui->useTransparentBg->setChecked( settings.value("useTransparentBackground",false).toBool() );
+    ui->showStatusbar->setChecked(settings.value("showStatusBar", true).toBool());
+    ui->showBookmarksToolbar->setChecked(p_QupZilla->bookmarksToolbar()->isVisible());
+    ui->showNavigationToolbar->setChecked(p_QupZilla->navigationBar()->isVisible());
+    ui->showHome->setChecked(settings.value("showHomeButton", true).toBool());
+    ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
+    ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
+    ui->useTransparentBg->setChecked(settings.value("useTransparentBackground", false).toBool());
     settings.endGroup();
 #ifdef Q_WS_WIN
     ui->useTransparentBg->setEnabled(QtWin::isCompositionEnabled());
@@ -137,48 +143,49 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //TABS
     settings.beginGroup("Browser-Tabs-Settings");
-    ui->makeMovable->setChecked( settings.value("makeTabsMovable",true).toBool() );
-    ui->hideCloseOnTab->setChecked( settings.value("hideCloseButtonWithOneTab",false).toBool() );
-    ui->hideTabsOnTab->setChecked( settings.value("hideTabsWithOneTab",false).toBool() );
-    ui->activateLastTab->setChecked( settings.value("ActivateLastTabWhenClosingActual", false).toBool() );
-    ui->askWhenClosingMultipleTabs->setChecked( settings.value("AskOnClosing", false).toBool() );
+    ui->makeMovable->setChecked(settings.value("makeTabsMovable", true).toBool());
+    ui->hideCloseOnTab->setChecked(settings.value("hideCloseButtonWithOneTab", false).toBool());
+    ui->hideTabsOnTab->setChecked(settings.value("hideTabsWithOneTab", false).toBool());
+    ui->activateLastTab->setChecked(settings.value("ActivateLastTabWhenClosingActual", false).toBool());
+    ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     settings.endGroup();
     //AddressBar
     settings.beginGroup("AddressBar");
-    ui->selectAllOnFocus->setChecked( settings.value("SelectAllTextOnDoubleClick", true).toBool() );
-    ui->addComWithCtrl->setChecked( settings.value("AddComDomainWithCtrlKey", false).toBool() );
-    ui->addCountryWithAlt->setChecked( settings.value("AddCountryDomainWithAltKey", true).toBool() );
+    ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
+    ui->addComWithCtrl->setChecked(settings.value("AddComDomainWithCtrlKey", false).toBool());
+    ui->addCountryWithAlt->setChecked(settings.value("AddCountryDomainWithAltKey", true).toBool());
     settings.endGroup();
 
     //BROWSING
     settings.beginGroup("Web-Browser-Settings");
-    ui->allowPlugins->setChecked( settings.value("allowFlash", true).toBool() );
-    ui->allowJavaScript->setChecked( settings.value("allowJavaScript", true).toBool() );
-    ui->blockPopup->setChecked( !settings.value("allowJavaScriptOpenWindow", false).toBool() );
-    ui->allowJava->setChecked( settings.value("allowJava", true).toBool() );
-    ui->loadImages->setChecked( settings.value("autoLoadImages", true).toBool() );
-    ui->allowDNSPrefetch->setChecked( settings.value("DNS-Prefetch", false).toBool() );
-    ui->jscanAccessClipboard->setChecked( settings.value("JavaScriptCanAccessClipboard", true).toBool() );
-    ui->linksInFocusChain->setChecked( settings.value("IncludeLinkInFocusChain", false).toBool() );
-    ui->zoomTextOnly->setChecked( settings.value("zoomTextOnly", false).toBool() );
-    ui->printEBackground->setChecked( settings.value("PrintElementBackground", true).toBool() );
-    ui->wheelScroll->setValue( settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt() );
-    ui->doNotTrack->setChecked( settings.value("DoNotTrack", false).toBool() );
-    ui->defaultZoom->setValue( settings.value("DefaultZoom", 100).toInt() );
+    ui->allowPlugins->setChecked(settings.value("allowFlash", true).toBool());
+    ui->allowJavaScript->setChecked(settings.value("allowJavaScript", true).toBool());
+    ui->blockPopup->setChecked(!settings.value("allowJavaScriptOpenWindow", false).toBool());
+    ui->allowJava->setChecked(settings.value("allowJava", true).toBool());
+    ui->loadImages->setChecked(settings.value("autoLoadImages", true).toBool());
+    ui->allowDNSPrefetch->setChecked(settings.value("DNS-Prefetch", false).toBool());
+    ui->jscanAccessClipboard->setChecked(settings.value("JavaScriptCanAccessClipboard", true).toBool());
+    ui->linksInFocusChain->setChecked(settings.value("IncludeLinkInFocusChain", false).toBool());
+    ui->zoomTextOnly->setChecked(settings.value("zoomTextOnly", false).toBool());
+    ui->printEBackground->setChecked(settings.value("PrintElementBackground", true).toBool());
+    ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
+    ui->doNotTrack->setChecked(settings.value("DoNotTrack", false).toBool());
+    ui->defaultZoom->setValue(settings.value("DefaultZoom", 100).toInt());
 
-    if (!ui->allowJavaScript->isChecked())
+    if (!ui->allowJavaScript->isChecked()) {
         ui->blockPopup->setEnabled(false);
+    }
     connect(ui->allowJavaScript, SIGNAL(toggled(bool)), this, SLOT(allowJavaScriptChanged(bool)));
     //Cache
-    ui->pagesInCache->setValue( settings.value("maximumCachedPages",3).toInt() );
+    ui->pagesInCache->setValue(settings.value("maximumCachedPages", 3).toInt());
     connect(ui->pagesInCache, SIGNAL(valueChanged(int)), this, SLOT(pageCacheValueChanged(int)));
     ui->pageCacheLabel->setText(QString::number(ui->pagesInCache->value()));
 
-    ui->allowCache->setChecked( settings.value("AllowLocalCache", true).toBool() );
-    ui->cacheMB->setValue( settings.value("LocalCacheSize", 50).toInt() );
-    ui->MBlabel->setText( settings.value("LocalCacheSize", 50).toString() + " MB");
+    ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
+    ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
+    ui->MBlabel->setText(settings.value("LocalCacheSize", 50).toString() + " MB");
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
-    connect(ui->cacheMB, SIGNAL(valueChanged(int)), this, SLOT(cacheValueChanged(int)) );
+    connect(ui->cacheMB, SIGNAL(valueChanged(int)), this, SLOT(cacheValueChanged(int)));
     allowCacheChanged(ui->allowCache->isChecked());
 
     //PASSWORD MANAGER
@@ -191,41 +198,45 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //PRIVACY
     //Web storage
-    ui->storeIcons->setChecked( settings.value("allowPersistentStorage", true).toBool() );
-    ui->saveHistory->setChecked( mApp->history()->isSaving() );
-    ui->deleteHistoryOnClose->setChecked( settings.value("deleteHistoryOnClose", false).toBool() );
-    if (!ui->saveHistory->isChecked())
+    ui->storeIcons->setChecked(settings.value("allowPersistentStorage", true).toBool());
+    ui->saveHistory->setChecked(mApp->history()->isSaving());
+    ui->deleteHistoryOnClose->setChecked(settings.value("deleteHistoryOnClose", false).toBool());
+    if (!ui->saveHistory->isChecked()) {
         ui->deleteHistoryOnClose->setEnabled(false);
+    }
     connect(ui->saveHistory, SIGNAL(toggled(bool)), this, SLOT(saveHistoryChanged(bool)));
     //Cookies
-    ui->saveCookies->setChecked( settings.value("allowCookies", true).toBool() );
-    if (!ui->saveCookies->isChecked())
+    ui->saveCookies->setChecked(settings.value("allowCookies", true).toBool());
+    if (!ui->saveCookies->isChecked()) {
         ui->deleteCookiesOnClose->setEnabled(false);
+    }
     connect(ui->saveCookies, SIGNAL(toggled(bool)), this, SLOT(saveCookiesChanged(bool)));
-    ui->deleteCookiesOnClose->setChecked( settings.value("deleteCookiesOnClose", false).toBool() );
-    ui->matchExactly->setChecked( settings.value("allowCookiesFromVisitedDomainOnly", false).toBool() );
-    ui->filterTracking->setChecked( settings.value("filterTrackingCookie", false).toBool() );
+    ui->deleteCookiesOnClose->setChecked(settings.value("deleteCookiesOnClose", false).toBool());
+    ui->matchExactly->setChecked(settings.value("allowCookiesFromVisitedDomainOnly", false).toBool());
+    ui->filterTracking->setChecked(settings.value("filterTrackingCookie", false).toBool());
 
     //CSS Style
-    ui->userStyleSheet->setText( settings.value("userStyleSheet", "").toString() );
+    ui->userStyleSheet->setText(settings.value("userStyleSheet", "").toString());
     connect(ui->chooseUserStylesheet, SIGNAL(clicked()), this, SLOT(chooseUserStyleClicked()));
     settings.endGroup();
 
     //DOWNLOADS
     settings.beginGroup("DownloadManager");
-    ui->downLoc->setText( settings.value("defaultDownloadPath","").toString() );
-    ui->closeDownManOnFinish->setChecked( settings.value("CloseManagerOnFinish", false).toBool() );
-    ui->downlaodNativeSystemDialog->setChecked( settings.value("useNativeDialog",
+    ui->downLoc->setText(settings.value("defaultDownloadPath", "").toString());
+    ui->closeDownManOnFinish->setChecked(settings.value("CloseManagerOnFinish", false).toBool());
+    ui->downlaodNativeSystemDialog->setChecked(settings.value("useNativeDialog",
 #ifdef Q_WS_WIN
-    false
+            false
 #else
-    true
+            true
 #endif
-    ).toBool() );
-    if (ui->downLoc->text().isEmpty())
+                                                             ).toBool());
+    if (ui->downLoc->text().isEmpty()) {
         ui->askEverytime->setChecked(true);
-    else
+    }
+    else {
         ui->useDefined->setChecked(true);
+    }
     connect(ui->useDefined, SIGNAL(toggled(bool)), this, SLOT(downLocChanged(bool)));
     connect(ui->downButt, SIGNAL(clicked()), this, SLOT(chooseDownPath()));
     downLocChanged(ui->useDefined->isChecked());
@@ -233,15 +244,15 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //FONTS
     settings.beginGroup("Browser-Fonts");
-    ui->fontStandard->setCurrentFont(QFont( settings.value("StandardFont", mApp->webSettings()->fontFamily(QWebSettings::StandardFont)).toString() ));
-    ui->fontCursive->setCurrentFont(QFont( settings.value("CursiveFont", mApp->webSettings()->fontFamily(QWebSettings::CursiveFont)).toString() ));
-    ui->fontFantasy->setCurrentFont(QFont( settings.value("FantasyFont", mApp->webSettings()->fontFamily(QWebSettings::FantasyFont)).toString() ));
-    ui->fontFixed->setCurrentFont(QFont( settings.value("FixedFont", mApp->webSettings()->fontFamily(QWebSettings::FixedFont)).toString() ));
-    ui->fontSansSerif->setCurrentFont(QFont( settings.value("SansSerifFont", mApp->webSettings()->fontFamily(QWebSettings::SansSerifFont)).toString() ));
-    ui->fontSerif->setCurrentFont(QFont( settings.value("SerifFont", mApp->webSettings()->fontFamily(QWebSettings::SerifFont)).toString() ));
+    ui->fontStandard->setCurrentFont(QFont(settings.value("StandardFont", mApp->webSettings()->fontFamily(QWebSettings::StandardFont)).toString()));
+    ui->fontCursive->setCurrentFont(QFont(settings.value("CursiveFont", mApp->webSettings()->fontFamily(QWebSettings::CursiveFont)).toString()));
+    ui->fontFantasy->setCurrentFont(QFont(settings.value("FantasyFont", mApp->webSettings()->fontFamily(QWebSettings::FantasyFont)).toString()));
+    ui->fontFixed->setCurrentFont(QFont(settings.value("FixedFont", mApp->webSettings()->fontFamily(QWebSettings::FixedFont)).toString()));
+    ui->fontSansSerif->setCurrentFont(QFont(settings.value("SansSerifFont", mApp->webSettings()->fontFamily(QWebSettings::SansSerifFont)).toString()));
+    ui->fontSerif->setCurrentFont(QFont(settings.value("SerifFont", mApp->webSettings()->fontFamily(QWebSettings::SerifFont)).toString()));
 
-    ui->sizeDefault->setValue( settings.value("DefaultFontSize", mApp->webSettings()->fontSize(QWebSettings::DefaultFontSize)).toInt() );
-    ui->sizeFixed->setValue( settings.value("FixedFontSize", mApp->webSettings()->fontSize(QWebSettings::DefaultFixedFontSize)).toInt() );
+    ui->sizeDefault->setValue(settings.value("DefaultFontSize", mApp->webSettings()->fontSize(QWebSettings::DefaultFontSize)).toInt());
+    ui->sizeFixed->setValue(settings.value("FixedFontSize", mApp->webSettings()->fontSize(QWebSettings::DefaultFixedFontSize)).toInt());
     settings.endGroup();
 
     //PLUGINS
@@ -256,22 +267,24 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     settings.beginGroup("Notifications");
     ui->notificationTimeout->setValue(settings.value("Timeout", 6000).toInt() / 1000);
 #ifdef Q_WS_X11
-        notifyType = settings.value("UseNativeDesktop", true).toBool() ? DesktopNotificationsFactory::DesktopNative : DesktopNotificationsFactory::PopupWidget;
+    notifyType = settings.value("UseNativeDesktop", true).toBool() ? DesktopNotificationsFactory::DesktopNative : DesktopNotificationsFactory::PopupWidget;
 #else
-        notifyType = DesktopNotificationsFactory::PopupWidget;
+    notifyType = DesktopNotificationsFactory::PopupWidget;
 #endif
-    if (notifyType == DesktopNotificationsFactory::DesktopNative)
+    if (notifyType == DesktopNotificationsFactory::DesktopNative) {
         ui->useNativeSystemNotifications->setChecked(true);
-    else
+    }
+    else {
         ui->useOSDNotifications->setChecked(true);
+    }
 
     ui->doNotUseNotifications->setChecked(!settings.value("Enabled", true).toBool());
-    m_notifPosition = settings.value("Position", QPoint(10,10)).toPoint();
+    m_notifPosition = settings.value("Position", QPoint(10, 10)).toPoint();
     settings.endGroup();
 
     //OTHER
     //Languages
-    QString activeLanguage="";
+    QString activeLanguage = "";
     if (!p_QupZilla->activeLanguage().isEmpty()) {
         activeLanguage = p_QupZilla->activeLanguage();
         QString loc = activeLanguage;
@@ -279,22 +292,23 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         QLocale locale(loc);
         QString country = QLocale::countryToString(locale.country());
         QString language = QLocale::languageToString(locale.language());
-        ui->languages->addItem(language+", "+country+" ("+loc+")", activeLanguage);
+        ui->languages->addItem(language + ", " + country + " (" + loc + ")", activeLanguage);
     }
     ui->languages->addItem("English (en_US)");
 
     QDir lanDir(mApp->TRANSLATIONSDIR);
     QStringList list = lanDir.entryList(QStringList("*.qm"));
     foreach(QString name, list) {
-        if (name.startsWith("qt_") || name == activeLanguage)
+        if (name.startsWith("qt_") || name == activeLanguage) {
             continue;
+        }
 
         QString loc = name;
         loc.remove(".qm");
         QLocale locale(loc);
         QString country = QLocale::countryToString(locale.country());
         QString language = QLocale::languageToString(locale.language());
-        ui->languages->addItem(language+", "+country+" ("+loc+")", name);
+        ui->languages->addItem(language + ", " + country + " (" + loc + ")", name);
     }
     //Proxy Config
     settings.beginGroup("Web-Proxy");
@@ -306,10 +320,12 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->noProxy->setChecked(proxyPreference == NetworkProxyFactory::NoProxy);
     ui->manualProxy->setChecked(proxyPreference == NetworkProxyFactory::DefinedProxy);
     setManualProxyConfigurationEnabled(proxyPreference == NetworkProxyFactory::DefinedProxy);
-    if (proxyType == QNetworkProxy::HttpProxy)
+    if (proxyType == QNetworkProxy::HttpProxy) {
         ui->proxyType->setCurrentIndex(0);
-    else
+    }
+    else {
         ui->proxyType->setCurrentIndex(1);
+    }
 
     ui->proxyServer->setText(settings.value("HostName", "").toString());
     ui->proxyPort->setText(settings.value("Port", 8080).toString());
@@ -324,30 +340,32 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->sslManagerButton, SIGNAL(clicked()), this, SLOT(openSslManager()));
     connect(ui->preferredLanguages, SIGNAL(clicked()), this, SLOT(showAcceptLanguage()));
 
-    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
-    ui->listWidget->setItemSelected(ui->listWidget->itemAt(5,5), true);
+    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
+    ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
 
-    ui->version->setText(" QupZilla v"+QupZilla::VERSION);
+    ui->version->setText(" QupZilla v" + QupZilla::VERSION);
 }
 
 void Preferences::showStackedPage(QListWidgetItem* item)
 {
-    if (!item)
+    if (!item) {
         return;
-   ui->caption->setText("<b>"+item->text()+"</b>");
-   ui->stackedWidget->setCurrentIndex(item->whatsThis().toInt());
+    }
+    ui->caption->setText("<b>" + item->text() + "</b>");
+    ui->stackedWidget->setCurrentIndex(item->whatsThis().toInt());
 
-   if (ui->stackedWidget->currentIndex() == 8) {
-       m_notification = new DesktopNotification(true);
-       m_notification->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
-       m_notification->setHeading(tr("OSD Notification"));
-       m_notification->setText(tr("Drag it on the screen to place it where you want."));
-       m_notification->move(m_notifPosition);
-       m_notification->show();
-   } else if (m_notification) {
-       m_notifPosition = m_notification->pos();
-       delete m_notification;
-   }
+    if (ui->stackedWidget->currentIndex() == 8) {
+        m_notification = new DesktopNotification(true);
+        m_notification->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
+        m_notification->setHeading(tr("OSD Notification"));
+        m_notification->setText(tr("Drag it on the screen to place it where you want."));
+        m_notification->move(m_notifPosition);
+        m_notification->show();
+    }
+    else if (m_notification) {
+        m_notifPosition = m_notification->pos();
+        delete m_notification;
+    }
 }
 void Preferences::allowCacheChanged(bool state)
 {
@@ -368,8 +386,9 @@ void Preferences::useActualNewTab()
 void Preferences::chooseDownPath()
 {
     QString userFileName = QFileDialog::getExistingDirectory(p_QupZilla, tr("Choose download location..."), QDir::homePath());
-    if (userFileName.isEmpty())
+    if (userFileName.isEmpty()) {
         return;
+    }
 #ifdef Q_WS_WIN   //QFileDialog::getExistingDirectory returns path with \ instead of / (??)
     userFileName.replace("\\", "/");
 #endif
@@ -381,17 +400,20 @@ void Preferences::chooseDownPath()
 void Preferences::chooseUserStyleClicked()
 {
     QString file = QFileDialog::getOpenFileName(p_QupZilla, tr("Choose stylesheet location..."), QDir::homePath(), "*.css");
-    if (file.isEmpty())
+    if (file.isEmpty()) {
         return;
+    }
     ui->userStyleSheet->setText(file);
 }
 
 void Preferences::newTabChanged()
 {
-    if (ui->newTab->currentIndex() == 2)
+    if (ui->newTab->currentIndex() == 2) {
         ui->newTabFrame->setVisible(true);
-    else
+    }
+    else {
         ui->newTabFrame->setVisible(false);
+    }
 }
 
 void Preferences::downLocChanged(bool state)
@@ -492,9 +514,10 @@ void Preferences::buttonClicked(QAbstractButton* button)
 void Preferences::createProfile()
 {
     QString name = QInputDialog::getText(this, tr("New Profile"), tr("Enter the new profile's name:"));
-    if (name.isEmpty() || name.contains("/") || name.contains("\\"))
+    if (name.isEmpty() || name.contains("/") || name.contains("\\")) {
         return;
-    QDir dir(QDir::homePath()+"/.qupzilla/profiles/");
+    }
+    QDir dir(QDir::homePath() + "/.qupzilla/profiles/");
     if (QDir(dir.absolutePath() + "/" + name).exists()) {
         QMessageBox::warning(this, tr("Error!"), tr("This profile already exists!"));
         return;
@@ -504,7 +527,7 @@ void Preferences::createProfile()
         return;
     }
     dir.cd(name);
-    QFile(mApp->DATADIR+"data/default/profiles/default/browsedata.db").copy(dir.absolutePath()+"/browsedata.db");
+    QFile(mApp->DATADIR + "data/default/profiles/default/browsedata.db").copy(dir.absolutePath() + "/browsedata.db");
 
     ui->startProfile->insertItem(0, name);
     ui->startProfile->setCurrentIndex(0);
@@ -514,11 +537,12 @@ void Preferences::deleteProfile()
 {
     QString name = ui->startProfile->currentText();
     QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Confirmation"),
-                         tr("Are you sure to permanently delete \"%1\" profile? This action cannot be undone!").arg(name), QMessageBox::Yes | QMessageBox::No);
-    if (button != QMessageBox::Yes)
+                                         tr("Are you sure to permanently delete \"%1\" profile? This action cannot be undone!").arg(name), QMessageBox::Yes | QMessageBox::No);
+    if (button != QMessageBox::Yes) {
         return;
+    }
 
-    removeDir(QDir::homePath()+"/.qupzilla/profiles/"+name);
+    removeDir(QDir::homePath() + "/.qupzilla/profiles/" + name);
     ui->startProfile->removeItem(ui->startProfile->currentIndex());
 }
 
@@ -526,29 +550,34 @@ void Preferences::startProfileIndexChanged(QString index)
 {
     ui->deleteProfile->setEnabled(m_actProfileName != index);
 
-    if (m_actProfileName == index)
+    if (m_actProfileName == index) {
         ui->cannotDeleteActiveProfileLabel->setText(tr("Note: You cannot delete active profile."));
-    else
+    }
+    else {
         ui->cannotDeleteActiveProfileLabel->setText(" ");
+    }
 }
 
 void Preferences::saveSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
-    settings.setValue("homepage",ui->homepage->text());
+    settings.setValue("homepage", ui->homepage->text());
 
     QString homepage = ui->homepage->text();
-    settings.setValue("afterLaunch",ui->afterLaunch->currentIndex() );
+    settings.setValue("afterLaunch", ui->afterLaunch->currentIndex());
 
 
-    if (ui->newTab->currentIndex() == 0)
-        settings.setValue("newTabUrl","");
-    else if (ui->newTab->currentIndex() == 1)
-        settings.setValue("newTabUrl",homepage);
-    else
-        settings.setValue("newTabUrl",ui->newTabUrl->text());
+    if (ui->newTab->currentIndex() == 0) {
+        settings.setValue("newTabUrl", "");
+    }
+    else if (ui->newTab->currentIndex() == 1) {
+        settings.setValue("newTabUrl", homepage);
+    }
+    else {
+        settings.setValue("newTabUrl", ui->newTabUrl->text());
+    }
 
     settings.endGroup();
     //PROFILES
@@ -561,30 +590,32 @@ void Preferences::saveSettings()
     //WINDOW
     settings.beginGroup("Browser-View-Settings");
 
-    settings.setValue("showStatusbar",ui->showStatusbar->isChecked());
+    settings.setValue("showStatusbar", ui->showStatusbar->isChecked());
     settings.setValue("showBookmarksToolbar", ui->showBookmarksToolbar->isChecked());
     settings.setValue("showNavigationToolbar", ui->showNavigationToolbar->isChecked());
     settings.setValue("showHomeButton", ui->showHome->isChecked());
-    settings.setValue("showBackForwardButtons",ui->showBackForward->isChecked());
+    settings.setValue("showBackForwardButtons", ui->showBackForward->isChecked());
     settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
     settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
     settings.endGroup();
 
     //TABS
     settings.beginGroup("Browser-Tabs-Settings");
-    settings.setValue("makeTabsMovable",ui->makeMovable->isChecked() );
-    settings.setValue("hideCloseButtonWithOneTab",ui->hideCloseOnTab->isChecked());
-    settings.setValue("hideTabsWithOneTab",ui->hideTabsOnTab->isChecked() );
+    settings.setValue("makeTabsMovable", ui->makeMovable->isChecked());
+    settings.setValue("hideCloseButtonWithOneTab", ui->hideCloseOnTab->isChecked());
+    settings.setValue("hideTabsWithOneTab", ui->hideTabsOnTab->isChecked());
     settings.setValue("ActivateLastTabWhenClosingActual", ui->activateLastTab->isChecked());
     settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.endGroup();
 
     //DOWNLOADS
     settings.beginGroup("DownloadManager");
-    if (ui->askEverytime->isChecked())
-        settings.setValue("defaultDownloadPath","");
-    else
+    if (ui->askEverytime->isChecked()) {
+        settings.setValue("defaultDownloadPath", "");
+    }
+    else {
         settings.setValue("defaultDownloadPath", ui->downLoc->text());
+    }
     settings.setValue("CloseManagerOnFinish", ui->closeDownManOnFinish->isChecked());
     settings.setValue("useNativeDialog", ui->downlaodNativeSystemDialog->isChecked());
     settings.endGroup();
@@ -630,13 +661,13 @@ void Preferences::saveSettings()
     //PRIVACY
     //Web storage
     settings.setValue("allowPersistentStorage", ui->storeIcons->isChecked());
-    settings.setValue("deleteHistoryOnClose",ui->deleteHistoryOnClose->isChecked());
+    settings.setValue("deleteHistoryOnClose", ui->deleteHistoryOnClose->isChecked());
 
     //Cookies
     settings.setValue("allowCookies", ui->saveCookies->isChecked());
     settings.setValue("deleteCookiesOnClose", ui->deleteCookiesOnClose->isChecked());
-    settings.setValue("allowCookiesFromVisitedDomainOnly", ui->matchExactly->isChecked() );
-    settings.setValue("filterTrackingCookie", ui->filterTracking->isChecked() );
+    settings.setValue("allowCookiesFromVisitedDomainOnly", ui->matchExactly->isChecked());
+    settings.setValue("filterTrackingCookie", ui->filterTracking->isChecked());
     settings.endGroup();
 
     //NOTIFICATIONS
@@ -650,30 +681,35 @@ void Preferences::saveSettings()
     //OTHER
     //AddressBar
     settings.beginGroup("AddressBar");
-    settings.setValue("SelectAllTextOnDoubleClick",ui->selectAllOnFocus->isChecked() );
-    settings.setValue("AddComDomainWithCtrlKey",ui->addComWithCtrl->isChecked() );
-    settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked() );
+    settings.setValue("SelectAllTextOnDoubleClick", ui->selectAllOnFocus->isChecked());
+    settings.setValue("AddComDomainWithCtrlKey", ui->addComWithCtrl->isChecked());
+    settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked());
     settings.endGroup();
 
     //Languages
     settings.beginGroup("Language");
-    settings.setValue("language",ui->languages->itemData(ui->languages->currentIndex()).toString());
+    settings.setValue("language", ui->languages->itemData(ui->languages->currentIndex()).toString());
     settings.endGroup();
 
     //Proxy Configuration
     NetworkProxyFactory::ProxyPreference proxyPreference;
-    if (ui->systemProxy->isChecked())
+    if (ui->systemProxy->isChecked()) {
         proxyPreference = NetworkProxyFactory::SystemProxy;
-    else if (ui->noProxy->isChecked())
+    }
+    else if (ui->noProxy->isChecked()) {
         proxyPreference = NetworkProxyFactory::NoProxy;
-    else
+    }
+    else {
         proxyPreference = NetworkProxyFactory::DefinedProxy;
+    }
 
     QNetworkProxy::ProxyType proxyType;
-    if (ui->proxyType->currentIndex() == 0)
+    if (ui->proxyType->currentIndex() == 0) {
         proxyType = QNetworkProxy::HttpProxy;
-    else
+    }
+    else {
         proxyType = QNetworkProxy::Socks5Proxy;
+    }
 
     settings.beginGroup("Web-Proxy");
     settings.setValue("ProxyType", proxyType);
@@ -707,6 +743,7 @@ Preferences::~Preferences()
     delete ui;
     delete m_autoFillManager;
     delete m_pluginsList;
-    if (m_notification)
+    if (m_notification) {
         delete m_notification;
+    }
 }

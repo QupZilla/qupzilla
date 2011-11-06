@@ -23,9 +23,9 @@
 
 Updater::Updater(QupZilla* mainClass, QObject* parent) :
     QObject(parent)
-    ,p_QupZilla(mainClass)
+    , p_QupZilla(mainClass)
 {
-    QTimer::singleShot(60*1000, this, SLOT(start()) ); //Start checking after 1 minute
+    QTimer::singleShot(60 * 1000, this, SLOT(start())); //Start checking after 1 minute
 }
 
 Updater::Version Updater::parseVersionFromString(const QString &string)
@@ -34,16 +34,18 @@ Updater::Version Updater::parseVersionFromString(const QString &string)
     ver.isValid = false;
 
     QStringList v = string.split(".");
-    if (v.count() != 3)
+    if (v.count() != 3) {
         return ver;
+    }
 
     QStringList r = v.at(2).split("-");
 
     ver.majorVersion = v.at(0).toInt();
     ver.minorVersion = v.at(1).toInt();
     ver.revisionNumber = r.at(0).toInt();
-    if (r.count() == 2)
+    if (r.count() == 2) {
         ver.specialSymbol = r.at(1);
+    }
 
     ver.isValid = true;
     return ver;
@@ -51,17 +53,21 @@ Updater::Version Updater::parseVersionFromString(const QString &string)
 
 bool Updater::isBiggerThan_SpecialSymbol(QString one, QString two)
 {
-    if (one.contains("rc") && two.contains("b"))
+    if (one.contains("rc") && two.contains("b")) {
         return true;
+    }
 
-    if (one.contains("b") && two.contains("rc"))
+    if (one.contains("b") && two.contains("rc")) {
         return false;
+    }
 
-    if (one.isEmpty())
+    if (one.isEmpty()) {
         return true;
+    }
 
-    if (two.isEmpty())
+    if (two.isEmpty()) {
         return false;
+    }
 
     if (one.contains("b")) {
         int o = one.remove("b").toInt();
@@ -96,7 +102,7 @@ void Updater::startDownloadingUpdateInfo(const QUrl &url)
 void Updater::downCompleted(QNetworkReply* reply)
 {
     QString html = QString(reply->readAll());
-    if (html.startsWith("Version:")){
+    if (html.startsWith("Version:")) {
         html.remove("Version:");
         Version current = parseVersionFromString(QupZilla::VERSION);
         Version updated = parseVersionFromString(html);

@@ -25,8 +25,9 @@
 #include <QHash>
 #include <QTextBrowser>
 
-namespace Ui {
-    class ThemeManager;
+namespace Ui
+{
+class ThemeManager;
 }
 
 class ThemeManager : public QWidget
@@ -56,7 +57,7 @@ private:
 
     Theme parseTheme(const QString &name);
 
-    Ui::ThemeManager *ui;
+    Ui::ThemeManager* ui;
     QString m_activeTheme;
     QHash<QString, Theme> m_themeHash;
 };

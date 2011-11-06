@@ -23,11 +23,11 @@
 #include "iconprovider.h"
 
 AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget* parent)
-   :AnimatedWidget(AnimatedWidget::Down, 300, parent)
-   ,ui(new Ui::AutoFillWidget)
-   ,m_url(url)
-   ,m_data(data)
-   ,m_pass(pass)
+    : AnimatedWidget(AnimatedWidget::Down, 300, parent)
+    , ui(new Ui::AutoFillWidget)
+    , m_url(url)
+    , m_data(data)
+    , m_pass(pass)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());

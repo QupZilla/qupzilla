@@ -35,10 +35,10 @@ public:
     bool prependToParentItem(const QString &parentText, QTreeWidgetItem* item);
     bool prependToParentItem(QTreeWidgetItem* parent, QTreeWidgetItem* item);
 
-    void addTopLevelItem(QTreeWidgetItem *item);
-    void addTopLevelItems(const QList<QTreeWidgetItem *> &items);
-    void insertTopLevelItem(int index, QTreeWidgetItem *item);
-    void insertTopLevelItems(int index, const QList<QTreeWidgetItem *> &items);
+    void addTopLevelItem(QTreeWidgetItem* item);
+    void addTopLevelItems(const QList<QTreeWidgetItem*> &items);
+    void insertTopLevelItem(int index, QTreeWidgetItem* item);
+    void insertTopLevelItems(int index, const QList<QTreeWidgetItem*> &items);
 
     void deleteItem(QTreeWidgetItem* item);
 

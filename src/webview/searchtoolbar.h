@@ -26,8 +26,9 @@
 #include <QPropertyAnimation>
 #include "animatedwidget.h"
 
-namespace Ui {
-    class SearchToolbar;
+namespace Ui
+{
+class SearchToolbar;
 }
 
 class QupZilla;

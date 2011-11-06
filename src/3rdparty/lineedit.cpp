@@ -7,19 +7,20 @@
 #include <QFocusEvent>
 
 #include <qdebug.h>
-SideWidget::SideWidget(QWidget *parent)
+SideWidget::SideWidget(QWidget* parent)
     : QWidget(parent)
 {
 }
 
-bool SideWidget::event(QEvent *event)
+bool SideWidget::event(QEvent* event)
 {
-    if (event->type() == QEvent::LayoutRequest)
+    if (event->type() == QEvent::LayoutRequest) {
         emit sizeHintChanged();
+    }
     return QWidget::event(event);
 }
 
-LineEdit::LineEdit(QWidget *parent)
+LineEdit::LineEdit(QWidget* parent)
     : QLineEdit(parent)
     , m_leftLayout(0)
     , m_rightLayout(0)
@@ -28,7 +29,7 @@ LineEdit::LineEdit(QWidget *parent)
     init();
 }
 
-LineEdit::LineEdit(const QString &contents, QWidget *parent)
+LineEdit::LineEdit(const QString &contents, QWidget* parent)
     : QLineEdit(contents, parent)
     , m_leftWidget(0)
     , m_rightWidget(0)
@@ -51,22 +52,26 @@ void LineEdit::init()
     m_leftLayout = new QHBoxLayout(m_leftWidget);
     m_leftLayout->setContentsMargins(0, 0, 0, 0);
 
-    if (isRightToLeft())
+    if (isRightToLeft()) {
         m_leftLayout->setDirection(QBoxLayout::RightToLeft);
-    else
+    }
+    else {
         m_leftLayout->setDirection(QBoxLayout::LeftToRight);
+    }
     m_leftLayout->setSizeConstraint(QLayout::SetFixedSize);
 
     m_rightWidget = new SideWidget(this);
     m_rightWidget->resize(0, 0);
     m_rightLayout = new QHBoxLayout(m_rightWidget);
-    if (isRightToLeft())
+    if (isRightToLeft()) {
         m_rightLayout->setDirection(QBoxLayout::RightToLeft);
-    else
+    }
+    else {
         m_rightLayout->setDirection(QBoxLayout::LeftToRight);
+    }
     m_rightLayout->setContentsMargins(0, 0, 0, 0);
 
-    QSpacerItem *horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
+    QSpacerItem* horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
     m_rightLayout->addItem(horizontalSpacer);
 
     setWidgetSpacing(3);
@@ -76,13 +81,14 @@ void LineEdit::init()
             this, SLOT(updateTextMargins()));
 }
 
-bool LineEdit::event(QEvent *event)
+bool LineEdit::event(QEvent* event)
 {
     if (event->type() == QEvent::LayoutDirectionChange) {
         if (isRightToLeft()) {
             m_leftLayout->setDirection(QBoxLayout::RightToLeft);
             m_rightLayout->setDirection(QBoxLayout::RightToLeft);
-        } else {
+        }
+        else {
             m_leftLayout->setDirection(QBoxLayout::LeftToRight);
             m_rightLayout->setDirection(QBoxLayout::LeftToRight);
         }
@@ -90,25 +96,29 @@ bool LineEdit::event(QEvent *event)
     return QLineEdit::event(event);
 }
 
-void LineEdit::addWidget(QWidget *widget, WidgetPosition position)
+void LineEdit::addWidget(QWidget* widget, WidgetPosition position)
 {
-    if (!widget)
+    if (!widget) {
         return;
+    }
 
     bool rtl = isRightToLeft();
-    if (rtl)
+    if (rtl) {
         position = (position == LeftSide) ? RightSide : LeftSide;
+    }
     if (position == LeftSide) {
         m_leftLayout->addWidget(widget);
-    } else {
+    }
+    else {
         m_rightLayout->insertWidget(1, widget);
     }
 }
 
-void LineEdit::removeWidget(QWidget *widget)
+void LineEdit::removeWidget(QWidget* widget)
 {
-    if (!widget)
+    if (!widget) {
         return;
+    }
 
     m_leftLayout->removeWidget(widget);
     m_rightLayout->removeWidget(widget);
@@ -131,22 +141,27 @@ int LineEdit::textMargin(WidgetPosition position) const
 {
     int spacing = m_rightLayout->spacing();
     int w = 0;
-    if (position == LeftSide)
+    if (position == LeftSide) {
         w = m_leftWidget->sizeHint().width();
-    else
+    }
+    else {
         w = m_rightWidget->sizeHint().width();
-    if (w == 0)
+    }
+    if (w == 0) {
         return 0;
+    }
     return w + spacing * 2;
 }
 
 void LineEdit::updateTextMargins()
 {
     int left;
-    if (m_leftMargin == 0)
+    if (m_leftMargin == 0) {
         left = textMargin(LineEdit::LeftSide);
-    else
+    }
+    else {
         left = m_leftMargin;
+    }
     int right = textMargin(LineEdit::RightSide);
     int top = 0;
     int bottom = 0;
@@ -169,8 +184,9 @@ void LineEdit::updateSideWidgetLocations()
     if (m_leftLayout->count() > 0) {
         int leftHeight = midHeight - m_leftWidget->height() / 2;
         int leftWidth = m_leftWidget->width();
-        if (leftWidth == 0)
+        if (leftWidth == 0) {
             leftHeight = midHeight - m_leftWidget->sizeHint().height() / 2;
+        }
         m_leftWidget->move(textRect.x(), leftHeight);
     }
     textRect.setX(left);
@@ -179,7 +195,7 @@ void LineEdit::updateSideWidgetLocations()
     m_rightWidget->setGeometry(textRect);
 }
 
-void LineEdit::resizeEvent(QResizeEvent *event)
+void LineEdit::resizeEvent(QResizeEvent* event)
 {
     updateSideWidgetLocations();
     QLineEdit::resizeEvent(event);
@@ -195,7 +211,7 @@ void LineEdit::setInactiveText(const QString &text)
     m_inactiveText = text;
 }
 
-void LineEdit::paintEvent(QPaintEvent *event)
+void LineEdit::paintEvent(QPaintEvent* event)
 {
     QLineEdit::paintEvent(event);
     if (text().isEmpty() && !m_inactiveText.isEmpty() && !hasFocus()) {

@@ -21,8 +21,9 @@
 #include <QDialog>
 #include <QFileDialog>
 
-namespace Ui {
-    class EditSearchEngine;
+namespace Ui
+{
+class EditSearchEngine;
 }
 
 class EditSearchEngine : public QDialog

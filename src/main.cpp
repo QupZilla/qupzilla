@@ -23,7 +23,7 @@
 #include "commandlineoptions.h"
 #include "mainapplication.h"
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     Q_INIT_RESOURCE(icons);
     Q_INIT_RESOURCE(html);
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     if (argc > 1) {
         CommandLineOptions cmd(argc, argv);
         cmdActions = cmd.getActions();
-        foreach (CommandLineOptions::ActionPair pair, cmdActions) {
+        foreach(CommandLineOptions::ActionPair pair, cmdActions) {
             switch (pair.action) {
             case CommandLineOptions::ExitAction:
                 return 1;
@@ -51,8 +51,9 @@ int main(int argc, char *argv[])
 
     MainApplication app(cmdActions, argc, argv);
     if (app.isExited()) {
-        if (argc == 1)
+        if (argc == 1) {
             std::cout << "QupZilla already running - activating existing window" << std::endl;
+        }
         return 1;
     }
 

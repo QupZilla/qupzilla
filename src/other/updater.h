@@ -38,8 +38,7 @@ public:
         int revisionNumber;
         QString specialSymbol;
 
-        bool operator<(const Version &other) const
-        {
+        bool operator<(const Version &other) const {
             if (!this->isValid || !other.isValid)
                 return false;
             if (this->majorVersion < other.majorVersion)
@@ -54,13 +53,11 @@ public:
             return false;
         }
 
-        bool operator>(const Version &other) const
-        {
+        bool operator>(const Version &other) const {
             return !operator<(other);
         }
 
-        bool operator==(const Version &other) const
-        {
+        bool operator==(const Version &other) const {
             if (!this->isValid || !other.isValid)
                 return false;
 
@@ -70,15 +67,13 @@ public:
                     this->specialSymbol == other.specialSymbol);
         }
 
-        bool operator>=(const Version &other) const
-        {
+        bool operator>=(const Version &other) const {
             if (*this == other)
                 return true;
             return *this > other;
         }
 
-        bool operator<=(const Version &other) const
-        {
+        bool operator<=(const Version &other) const {
             if (*this == other)
                 return true;
             return *this < other;

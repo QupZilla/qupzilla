@@ -59,7 +59,7 @@ void ClearPrivateData::dialogAccepted()
 
         switch (ui->historyLength->currentIndex()) {
         case 0: //Later Today
-            dateTime.setTime(QTime(0,0));
+            dateTime.setTime(QTime(0, 0));
             date = dateTime.toMSecsSinceEpoch();
             break;
         case 1: //Week
@@ -74,7 +74,7 @@ void ClearPrivateData::dialogAccepted()
         }
 
         QSqlQuery query;
-        query.exec("DELETE FROM history WHERE date > "+QString::number(date));
+        query.exec("DELETE FROM history WHERE date > " + QString::number(date));
         query.exec("VACUUM");
     }
     if (ui->cookies->isChecked()) {

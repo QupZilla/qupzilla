@@ -23,7 +23,7 @@
 #include "reloadstopbutton.h"
 #include "webhistorywrapper.h"
 
-NavigationBar::NavigationBar(QupZilla *mainClass, QWidget *parent)
+NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , p_QupZilla(mainClass)
 {
@@ -120,7 +120,8 @@ void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
     if (locationBar == 0) {
         int splitterWidth = m_navigationSplitter->width();
         sizes << (int)((double)splitterWidth * .80) << (int)((double)splitterWidth * .20);
-    } else {
+    }
+    else {
         sizes << locationBar << websearchBar;
     }
 
@@ -139,8 +140,9 @@ void NavigationBar::showStopButton()
 
 void NavigationBar::aboutToShowHistoryBackMenu()
 {
-    if (!m_menuBack || !p_QupZilla->weView())
+    if (!m_menuBack || !p_QupZilla->weView()) {
         return;
+    }
     m_menuBack->clear();
     QWebHistory* history = p_QupZilla->weView()->history();
 
@@ -148,7 +150,7 @@ void NavigationBar::aboutToShowHistoryBackMenu()
     int count = 0;
     QUrl lastUrl = history->currentItem().url();
 
-    for (int i = curindex-1; i >= 0; i--) {
+    for (int i = curindex - 1; i >= 0; i--) {
         QWebHistoryItem item = history->itemAt(i);
         if (item.isValid() && lastUrl != item.url()) {
             QString title = item.title();
@@ -156,14 +158,15 @@ void NavigationBar::aboutToShowHistoryBackMenu()
                 title.truncate(40);
                 title += "..";
             }
-            QAction* action = m_menuBack->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
+            QAction* action = m_menuBack->addAction(_iconForUrl(item.url()), title, this, SLOT(goAtHistoryIndex()));
             action->setData(i);
             lastUrl = item.url();
         }
 
         count++;
-        if (count == 20)
+        if (count == 20) {
             break;
+        }
     }
 
     m_menuBack->addSeparator();
@@ -172,8 +175,9 @@ void NavigationBar::aboutToShowHistoryBackMenu()
 
 void NavigationBar::aboutToShowHistoryNextMenu()
 {
-    if (!m_menuForward || !p_QupZilla->weView())
+    if (!m_menuForward || !p_QupZilla->weView()) {
         return;
+    }
     m_menuForward->clear();
 
     QWebHistory* history = p_QupZilla->weView()->history();
@@ -181,7 +185,7 @@ void NavigationBar::aboutToShowHistoryNextMenu()
     int count = 0;
     QUrl lastUrl = history->currentItem().url();
 
-    for (int i = curindex+1; i < history->count(); i++) {
+    for (int i = curindex + 1; i < history->count(); i++) {
         QWebHistoryItem item = history->itemAt(i);
         if (item.isValid() && lastUrl != item.url()) {
             QString title = item.title();
@@ -189,14 +193,15 @@ void NavigationBar::aboutToShowHistoryNextMenu()
                 title.truncate(40);
                 title += "..";
             }
-            QAction* action = m_menuForward->addAction(_iconForUrl(item.url()),title, this, SLOT(goAtHistoryIndex()));
+            QAction* action = m_menuForward->addAction(_iconForUrl(item.url()), title, this, SLOT(goAtHistoryIndex()));
             action->setData(i);
             lastUrl = item.url();
         }
 
         count++;
-        if (count == 20)
+        if (count == 20) {
             break;
+        }
     }
 
     m_menuForward->addSeparator();
@@ -221,8 +226,9 @@ void NavigationBar::goAtHistoryIndex()
 
 void NavigationBar::refreshHistory()
 {
-    if (mApp->isClosing() || p_QupZilla->isClosing())
+    if (mApp->isClosing() || p_QupZilla->isClosing()) {
         return;
+    }
 
     QWebHistory* history = p_QupZilla->weView()->page()->history();
     m_buttonBack->setEnabled(WebHistoryWrapper::canGoBack(history));

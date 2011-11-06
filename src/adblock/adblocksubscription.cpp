@@ -56,20 +56,22 @@ AdBlockSubscription::AdBlockSubscription(QObject* parent)
 
 void AdBlockSubscription::loadRules()
 {
-    QString fileName = mApp->getActiveProfilPath()+"adblocklist.txt";
+    QString fileName = mApp->getActiveProfilPath() + "adblocklist.txt";
 
     QFile file(fileName);
     if (file.exists()) {
         if (!file.open(QFile::ReadOnly)) {
             qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for reading" << fileName;
-        } else {
+        }
+        else {
             QTextStream textStream(&file);
             QString header = textStream.readLine(1024);
             if (!header.startsWith("[Adblock")) {
                 qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "adblock file does not start with [Adblock" << fileName << "Header:" << header;
                 file.close();
                 file.remove();
-            } else {
+            }
+            else {
                 m_rules.clear();
                 while (!textStream.atEnd()) {
                     QString line = textStream.readLine();
@@ -84,8 +86,9 @@ void AdBlockSubscription::loadRules()
 
 void AdBlockSubscription::updateNow()
 {
-    if (m_downloading)
+    if (m_downloading) {
         return;
+    }
 
     QNetworkRequest request(QUrl("https://easylist-downloads.adblockplus.org/easylist.txt"));
     QNetworkReply* reply = mApp->networkManager()->get(request);
@@ -96,18 +99,21 @@ void AdBlockSubscription::updateNow()
 void AdBlockSubscription::rulesDownloaded()
 {
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
-    if (!reply)
+    if (!reply) {
         return;
+    }
 
     QByteArray response = reply->readAll();
     reply->close();
     reply->deleteLater();
 
-    if (reply->error() != QNetworkReply::NoError)
+    if (reply->error() != QNetworkReply::NoError) {
         return;
+    }
 
-    if (response.isEmpty())
+    if (response.isEmpty()) {
         return;
+    }
 
     QString fileName = mApp->getActiveProfilPath() + "adblocklist.txt";
     QFile file(fileName);
@@ -119,15 +125,16 @@ void AdBlockSubscription::rulesDownloaded()
     response = response.left(response.indexOf("!-----------------General element hiding rules-----------------!"));
 
     bool customRules = false;
-    foreach (const AdBlockRule rule, allRules()) {
+    foreach(const AdBlockRule & rule, allRules()) {
         if (rule.filter().contains("*******- user custom filters")) {
             customRules = true;
             response.append("! *******- user custom filters -*************\n");
             continue;
         }
-        if (!customRules)
+        if (!customRules) {
             continue;
-        response.append(rule.filter()+"\n");
+        }
+        response.append(rule.filter() + "\n");
     }
 
     file.write(response);
@@ -139,7 +146,7 @@ void AdBlockSubscription::rulesDownloaded()
 
 void AdBlockSubscription::saveRules()
 {
-    QString fileName = mApp->getActiveProfilPath()+"adblocklist.txt";
+    QString fileName = mApp->getActiveProfilPath() + "adblocklist.txt";
 
     QFile file(fileName);
     if (!file.open(QFile::ReadWrite | QIODevice::Truncate)) {
@@ -149,24 +156,26 @@ void AdBlockSubscription::saveRules()
 
     QTextStream textStream(&file);
     textStream << "[Adblock Plus 1.1.1]" << endl;
-    foreach (const AdBlockRule &rule, m_rules)
-        textStream << rule.filter() << endl;
+    foreach(const AdBlockRule & rule, m_rules)
+    textStream << rule.filter() << endl;
 }
 
 const AdBlockRule* AdBlockSubscription::allow(const QString &urlString) const
 {
-    foreach (const AdBlockRule* rule, m_networkExceptionRules) {
-        if (rule->networkMatch(urlString))
+    foreach(const AdBlockRule * rule, m_networkExceptionRules) {
+        if (rule->networkMatch(urlString)) {
             return rule;
+        }
     }
     return 0;
 }
 
 const AdBlockRule* AdBlockSubscription::block(const QString &urlString) const
 {
-    foreach (const AdBlockRule* rule, m_networkBlockRules) {
-        if (rule->networkMatch(urlString))
+    foreach(const AdBlockRule * rule, m_networkBlockRules) {
+        if (rule->networkMatch(urlString)) {
             return rule;
+        }
     }
     return 0;
 }
@@ -186,8 +195,9 @@ int AdBlockSubscription::addRule(const AdBlockRule &rule)
 
 void AdBlockSubscription::removeRule(int offset)
 {
-    if (offset < 0 || offset >= m_rules.count())
+    if (offset < 0 || offset >= m_rules.count()) {
         return;
+    }
     m_rules.removeAt(offset);
     populateCache();
     emit rulesChanged();
@@ -195,8 +205,9 @@ void AdBlockSubscription::removeRule(int offset)
 
 void AdBlockSubscription::replaceRule(const AdBlockRule &rule, int offset)
 {
-    if (offset < 0 || offset >= m_rules.count())
+    if (offset < 0 || offset >= m_rules.count()) {
         return;
+    }
     m_rules[offset] = rule;
     populateCache();
     emit rulesChanged();
@@ -210,8 +221,9 @@ void AdBlockSubscription::populateCache()
 
     for (int i = 0; i < m_rules.count(); ++i) {
         const AdBlockRule* rule = &m_rules.at(i);
-        if (!rule->isEnabled())
+        if (!rule->isEnabled()) {
             continue;
+        }
 
         if (rule->isCSSRule()) {
             m_pageRules.append(rule);
@@ -220,7 +232,8 @@ void AdBlockSubscription::populateCache()
 
         if (rule->isException()) {
             m_networkExceptionRules.append(rule);
-        } else {
+        }
+        else {
             m_networkBlockRules.append(rule);
         }
     }

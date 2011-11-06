@@ -36,8 +36,9 @@ DownloadManager::DownloadManager(QWidget* parent)
     setWindowFlags(windowFlags() ^ Qt::WindowMaximizeButtonHint);
     ui->setupUi(this);
 #ifdef Q_WS_WIN
-    if (QtWin::isCompositionEnabled())
+    if (QtWin::isCompositionEnabled()) {
         QtWin::extendFrameIntoClientArea(this);
+    }
 #endif
     ui->clearButton->setIcon(QIcon::fromTheme("edit-clear"));
     qz_centerWidgetOnScreen(this);
@@ -49,36 +50,37 @@ DownloadManager::DownloadManager(QWidget* parent)
     loadSettings();
 
 #ifdef W7API
-    if (QtWin::isRunningWindows7())
+    if (QtWin::isRunningWindows7()) {
         win7.init(this->winId());
+    }
 #endif
 }
 
 void DownloadManager::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("DownloadManager");
     m_downloadPath = settings.value("defaultDownloadPath", "").toString();
     m_lastDownloadPath = settings.value("lastDownloadPath", QDir::homePath() + "/").toString();
     m_closeOnFinish = settings.value("CloseManagerOnFinish", false).toBool();
     m_useNativeDialog = settings.value("useNativeDialog",
-                                   #ifdef Q_WS_WIN
+#ifdef Q_WS_WIN
                                        false
-                                   #else
+#else
                                        true
-                                   #endif
-                                       ).toBool();
+#endif
+                                      ).toBool();
     settings.endGroup();
 }
 
 void DownloadManager::show()
 {
-    m_timer.start(1000*2, this);
+    m_timer.start(1000 * 2, this);
 
     QWidget::show();
 }
 
-void DownloadManager::resizeEvent(QResizeEvent *e)
+void DownloadManager::resizeEvent(QResizeEvent* e)
 {
     QWidget::resizeEvent(e);
     emit resized(size());
@@ -105,33 +107,36 @@ void DownloadManager::timerEvent(QTimerEvent* event)
         }
         for (int i = 0; i < ui->list->count(); i++) {
             DownloadItem* downItem = qobject_cast<DownloadItem*>(ui->list->itemWidget(ui->list->item(i)));
-            if (!downItem || (downItem && downItem->isCancelled()) || !downItem->isDownloading())
+            if (!downItem || (downItem && downItem->isCancelled()) || !downItem->isDownloading()) {
                 continue;
+            }
             progresses.append(downItem->progress());
             remTimes.append(downItem->remainingTime());
             speeds.append(downItem->currentSpeed());
         }
-        if (remTimes.isEmpty())
+        if (remTimes.isEmpty()) {
             return;
+        }
 
         QTime remaining;
-        foreach (QTime time, remTimes) {
-            if (time > remaining)
+        foreach(QTime time, remTimes) {
+            if (time > remaining) {
                 remaining = time;
+            }
         }
 
         int progress = 0;
-        foreach (int prog, progresses)
-            progress+=prog;
+        foreach(int prog, progresses)
+        progress += prog;
         progress = progress / progresses.count();
 
         double speed = 0.00;
-        foreach (double spee, speeds)
-            speed+=spee;
+        foreach(double spee, speeds)
+        speed += spee;
 
-        ui->speedLabel->setText(tr("%1% of %2 files (%3) %4 remaining").arg(QString::number(progress),QString::number(progresses.count()),
-                                                                            DownloadItem::currentSpeedToString(speed),
-                                                                            DownloadItem::remaingTimeToString(remaining)));
+        ui->speedLabel->setText(tr("%1% of %2 files (%3) %4 remaining").arg(QString::number(progress), QString::number(progresses.count()),
+                                DownloadItem::currentSpeedToString(speed),
+                                DownloadItem::remaingTimeToString(remaining)));
         setWindowTitle(QString::number(progress) + tr("% - Download Manager"));
 #ifdef W7API
         if (QtWin::isRunningWindows7()) {
@@ -139,8 +144,10 @@ void DownloadManager::timerEvent(QTimerEvent* event)
             win7.setProgressState(win7.Normal);
         }
 #endif
-    } else
+    }
+    else {
         QWidget::timerEvent(event);
+    }
 }
 
 void DownloadManager::clearList()
@@ -148,10 +155,12 @@ void DownloadManager::clearList()
     QList<DownloadItem*> items;
     for (int i = 0; i < ui->list->count(); i++) {
         DownloadItem* downItem = qobject_cast<DownloadItem*>(ui->list->itemWidget(ui->list->item(i)));
-        if (!downItem)
+        if (!downItem) {
             continue;
-        if (downItem->isDownloading())
+        }
+        if (downItem->isDownloading()) {
             continue;
+        }
         items.append(downItem);
     }
     qDeleteAll(items);
@@ -164,18 +173,19 @@ void DownloadManager::download(const QNetworkRequest &request, bool askWhatToDo)
 
 void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo)
 {
-    if (reply->url().scheme() == "qupzilla")
+    if (reply->url().scheme() == "qupzilla") {
         return;
+    }
 
     DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog);
-    connect(h, SIGNAL(itemCreated(QListWidgetItem*,DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*,DownloadItem*)));
+    connect(h, SIGNAL(itemCreated(QListWidgetItem*, DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*, DownloadItem*)));
 
     h->setDownloadManager(this);
     h->setListWidget(ui->list);
     h->handleUnsupportedContent(reply, askWhatToDo);
 }
 
-void DownloadManager::itemCreated(QListWidgetItem *item, DownloadItem *downItem)
+void DownloadManager::itemCreated(QListWidgetItem* item, DownloadItem* downItem)
 {
     connect(downItem, SIGNAL(deleteItem(DownloadItem*)), this, SLOT(deleteItem(DownloadItem*)));
     connect(downItem, SIGNAL(downloadFinished(bool)), this, SLOT(downloadFinished(bool)));
@@ -193,8 +203,9 @@ void DownloadManager::downloadFinished(bool success)
     bool downloadingAllFilesFinished = true;
     for (int i = 0; i < ui->list->count(); i++) {
         DownloadItem* downItem = qobject_cast<DownloadItem*>(ui->list->itemWidget(ui->list->item(i)));
-        if (!downItem || (downItem && downItem->isCancelled()) || !downItem->isDownloading())
+        if (!downItem || (downItem && downItem->isCancelled()) || !downItem->isDownloading()) {
             continue;
+        }
         downloadingAllFilesFinished = false;
     }
 
@@ -214,27 +225,31 @@ void DownloadManager::downloadFinished(bool success)
             win7.setProgressState(win7.NoProgress);
         }
 #endif
-        if (m_closeOnFinish)
+        if (m_closeOnFinish) {
             close();
+        }
     }
 }
 
 void DownloadManager::deleteItem(DownloadItem* item)
 {
-    if (item && !item->isDownloading())
+    if (item && !item->isDownloading()) {
         delete item;
+    }
 }
 
 bool DownloadManager::canClose()
 {
-    if (m_isClosing)
+    if (m_isClosing) {
         return true;
+    }
 
     bool isDownloading = false;
     for (int i = 0; i < ui->list->count(); i++) {
         DownloadItem* downItem = qobject_cast<DownloadItem*>(ui->list->itemWidget(ui->list->item(i)));
-        if (!downItem)
+        if (!downItem) {
             continue;
+        }
         if (downItem->isDownloading()) {
             isDownloading = true;
             break;
@@ -247,9 +262,9 @@ bool DownloadManager::canClose()
 void DownloadManager::closeEvent(QCloseEvent* e)
 {
     if (mApp->windowCount() == 0) { // No main windows -> we are going to quit
-        if (!canClose()){
+        if (!canClose()) {
             QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Warning"),
-                             tr("Are you sure to quit? All uncompleted downloads will be cancelled!"), QMessageBox::Yes | QMessageBox::No);
+                                                 tr("Are you sure to quit? All uncompleted downloads will be cancelled!"), QMessageBox::Yes | QMessageBox::No);
             if (button != QMessageBox::Yes) {
                 e->ignore();
                 return;

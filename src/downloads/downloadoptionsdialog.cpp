@@ -23,7 +23,7 @@ DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPix
     , ui(new Ui::DownloadOptionsDialog)
 {
     ui->setupUi(this);
-    ui->fileName->setText("<b>"+fileName+"</b>");
+    ui->fileName->setText("<b>" + fileName + "</b>");
     ui->fileIcon->setPixmap(fileIcon);
     ui->fileType->setText(mimeType);
     ui->fromServer->setText(url.host());
@@ -37,10 +37,12 @@ DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPix
 void DownloadOptionsDialog::emitDialogFinished(int status)
 {
     if (status != 0) {
-        if (ui->radioOpen->isChecked())
+        if (ui->radioOpen->isChecked()) {
             status =  1;
-        else if (ui->radioSave->isChecked())
+        }
+        else if (ui->radioSave->isChecked()) {
             status =  2;
+        }
     }
     emit dialogFinished(status);
 }

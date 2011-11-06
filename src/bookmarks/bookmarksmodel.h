@@ -39,13 +39,12 @@ public:
         QIcon icon;
         bool inSubfolder;
 
-        Bookmark()
-        {
+        Bookmark() {
+            id = -1;
             inSubfolder = false;
         }
 
-        bool operator==(const Bookmark &other)
-        {
+        bool operator==(const Bookmark &other) const {
             return (this->title == other.title &&
                     this->folder == other.folder &&
                     this->url == other.url &&

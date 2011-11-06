@@ -1,6 +1,6 @@
 #include "squeezelabelv2.h"
 
-SqueezeLabelV2::SqueezeLabelV2(QWidget *parent)
+SqueezeLabelV2::SqueezeLabelV2(QWidget* parent)
     : QLabel(parent)
 {
 }
@@ -24,7 +24,7 @@ QString SqueezeLabelV2::originalText()
     return m_originalText;
 }
 
-void SqueezeLabelV2::resizeEvent(QResizeEvent *event)
+void SqueezeLabelV2::resizeEvent(QResizeEvent* event)
 {
     QLabel::resizeEvent(event);
     QFontMetrics fm = fontMetrics();

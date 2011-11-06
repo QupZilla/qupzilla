@@ -24,8 +24,9 @@
 #include <QCheckBox>
 #include <QLabel>
 
-namespace Ui {
-    class ClearPrivateData;
+namespace Ui
+{
+class ClearPrivateData;
 }
 
 class QupZilla;

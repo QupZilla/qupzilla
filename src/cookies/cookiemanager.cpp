@@ -33,7 +33,7 @@ CookieManager::CookieManager(QWidget* parent)
     ui->setupUi(this);
     qz_centerWidgetOnScreen(this);
 
-    connect(ui->cookieTree, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)),this, SLOT(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)));
+    connect(ui->cookieTree, SIGNAL(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)), this, SLOT(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)));
     connect(ui->removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));
     connect(ui->removeOne, SIGNAL(clicked()), this, SLOT(removeCookie()));
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(hide()));
@@ -50,9 +50,10 @@ CookieManager::CookieManager(QWidget* parent)
 void CookieManager::removeAll()
 {
     QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Confirmation"),
-                         tr("Are you sure to delete all cookies on your computer?"), QMessageBox::Yes | QMessageBox::No);
-    if (button != QMessageBox::Yes)
+                                         tr("Are you sure to delete all cookies on your computer?"), QMessageBox::Yes | QMessageBox::No);
+    if (button != QMessageBox::Yes) {
         return;
+    }
 
     m_cookies.clear();
     mApp->cookieJar()->setAllCookies(m_cookies);
@@ -62,16 +63,18 @@ void CookieManager::removeAll()
 void CookieManager::removeCookie()
 {
     QTreeWidgetItem* current = ui->cookieTree->currentItem();
-    if (!current)
+    if (!current) {
         return;
+    }
 
     int indexToNavigate = -1;
 
     if (current->text(1).isEmpty()) {     //Remove whole cookie group
         QString domain = current->whatsThis(0);
         foreach(QNetworkCookie cok, m_cookies) {
-            if (cok.domain() == domain || cok.domain()  ==  domain.mid(1))
+            if (cok.domain() == domain || cok.domain()  ==  domain.mid(1)) {
                 m_cookies.removeOne(cok);
+            }
         }
 
         indexToNavigate = ui->cookieTree->indexOfTopLevelItem(current) - 1;
@@ -91,15 +94,17 @@ void CookieManager::removeCookie()
         ui->cookieTree->scrollToItem(scrollItem);
     }
 
-    if (!ui->search->text().isEmpty())
+    if (!ui->search->text().isEmpty()) {
         search();
+    }
 }
 
 void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* parent)
 {
     Q_UNUSED(parent);
-    if (!current)
+    if (!current) {
         return;
+    }
 
     if (current->text(1).isEmpty()) {
         ui->name->setText(tr("<cookie not selected>"));
@@ -133,25 +138,28 @@ void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem
 
 void CookieManager::refreshTable(bool refreshCookieJar)
 {
-    if (refreshCookieJar)
+    if (refreshCookieJar) {
         m_cookies = mApp->cookieJar()->getAllCookies();
+    }
 
     ui->cookieTree->setUpdatesEnabled(false);
     ui->cookieTree->clear();
 
     QString cookServer;
-    for (int i = 0; i<m_cookies.count(); i++) {
+    for (int i = 0; i < m_cookies.count(); i++) {
         QNetworkCookie cok = m_cookies.at(i);
         QTreeWidgetItem* item;
 
         cookServer = cok.domain();
-        if (cookServer.startsWith("."))
+        if (cookServer.startsWith(".")) {
             cookServer = cookServer.mid(1);
+        }
 
         QList<QTreeWidgetItem*> findParent = ui->cookieTree->findItems(cookServer, 0);
         if (findParent.count() == 1) {
             item = new QTreeWidgetItem(findParent.at(0));
-        }else{
+        }
+        else {
             QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->cookieTree);
             newParent->setText(0, cookServer);
             newParent->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
@@ -160,7 +168,7 @@ void CookieManager::refreshTable(bool refreshCookieJar)
             item = new QTreeWidgetItem(newParent);
         }
 
-        item->setText(0,"."+cookServer);
+        item->setText(0, "." + cookServer);
         item->setText(1, cok.name());
         item->setWhatsThis(1, QString::number(i));
         ui->cookieTree->addTopLevelItem(item);

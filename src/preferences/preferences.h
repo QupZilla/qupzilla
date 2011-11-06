@@ -25,8 +25,9 @@
 #include <QAbstractButton>
 #include <QPointer>
 
-namespace Ui {
-    class Preferences;
+namespace Ui
+{
+class Preferences;
 }
 
 class AutoFillManager;

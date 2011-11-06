@@ -22,13 +22,14 @@
 
 SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent) :
     QMenu(parent)
-    ,ui(new Ui::SiteInfoWidget)
-    ,p_QupZilla(mainClass)
+    , ui(new Ui::SiteInfoWidget)
+    , p_QupZilla(mainClass)
 {
     WebView* view = p_QupZilla->weView();
     QUrl url = view->url();
-    if (url.isEmpty() || url.scheme() == "qupzilla")
+    if (url.isEmpty() || url.scheme() == "qupzilla") {
         return;
+    }
 
     this->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
@@ -46,24 +47,29 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent) :
     QSqlQuery query;
     QString host = url.host();
 
-    query.exec("SELECT sum(count) FROM history WHERE url LIKE '"+scheme+"://"+host+"%' ");
+    query.exec("SELECT sum(count) FROM history WHERE url LIKE '" + scheme + "://" + host + "%' ");
     if (query.next()) {
         int count = query.value(0).toInt();
         if (count > 3) {
             ui->historyLabel->setText(tr("This is your <b>%1.</b> visit of this site.").arg(count));
             ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/accept.png"));
-        } else if (count == 0) {
-                ui->historyLabel->setText(tr("You have <b>never</b> visited this site before."));
-                ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/warning.png"));
-        } else {
+        }
+        else if (count == 0) {
+            ui->historyLabel->setText(tr("You have <b>never</b> visited this site before."));
+            ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/warning.png"));
+        }
+        else {
             ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/warning.png"));
             QString text;
-            if (count == 1)
+            if (count == 1) {
                 text = tr("first");
-            else if (count == 2)
+            }
+            else if (count == 2) {
                 text = tr("second");
-            else if (count == 3)
+            }
+            else if (count == 3) {
                 text = tr("third");
+            }
             ui->historyLabel->setText(tr("This is your <b>%1.</b> visit of this site.").arg(text));
         }
     }

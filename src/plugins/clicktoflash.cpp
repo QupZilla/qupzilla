@@ -50,15 +50,15 @@
 #include "qupzilla.h"
 
 ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, WebPage* parentPage)
-        : QWidget()
-        , m_argumentNames(argumentNames)
-        , m_argumentValues(argumentValues)
-        , m_toolButton(0)
-        , m_layout1(0)
-        , m_layout2(0)
-        , m_frame(0)
-        , m_url(pluginUrl)
-        , m_page(parentPage)
+    : QWidget()
+    , m_argumentNames(argumentNames)
+    , m_argumentValues(argumentValues)
+    , m_toolButton(0)
+    , m_layout1(0)
+    , m_layout2(0)
+    , m_frame(0)
+    , m_url(pluginUrl)
+    , m_page(parentPage)
 {
     //AdBlock
     AdBlockManager* manager = AdBlockManager::instance();
@@ -74,7 +74,7 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     m_layout1 = new QHBoxLayout(this);
     m_frame = new QFrame(this);
     m_frame->setObjectName("click2flash-frame");
-    m_frame->setContentsMargins(0,0,0,0);
+    m_frame->setContentsMargins(0, 0, 0, 0);
     m_layout2 = new QHBoxLayout(m_frame);
     m_toolButton = new QToolButton(this);
     m_toolButton->setObjectName("click2flash-toolbutton");
@@ -83,11 +83,11 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     m_toolButton->setCursor(Qt::PointingHandCursor);
     m_layout2->addWidget(m_toolButton);
     m_layout1->addWidget(m_frame);
-    m_layout1->setContentsMargins(0,0,0,0);
-    m_layout2->setContentsMargins(0,0,0,0);
+    m_layout1->setContentsMargins(0, 0, 0, 0);
+    m_layout2->setContentsMargins(0, 0, 0, 0);
 
     connect(m_toolButton, SIGNAL(clicked()), this, SLOT(load()));
-    setMinimumSize(27,27);
+    setMinimumSize(27, 27);
 
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
@@ -129,8 +129,9 @@ void ClickToFlash::toWhitelist()
 void ClickToFlash::hideAdBlocked()
 {
     findElement();
-    if (!m_element.isNull())
+    if (!m_element.isNull()) {
         m_element.setAttribute("style", "display:none;");
+    }
     else {
         hide();
     }
@@ -140,8 +141,9 @@ void ClickToFlash::hideAdBlocked()
 
 void ClickToFlash::findElement()
 {
-    if (!m_toolButton)
+    if (!m_toolButton) {
         return;
+    }
 
     QWidget* parent = parentWidget();
     QWebView* view = 0;
@@ -152,8 +154,9 @@ void ClickToFlash::findElement()
         }
         parent = parent->parentWidget();
     }
-    if (!view)
+    if (!view) {
         return;
+    }
 
     QList<QWebFrame*> frames;
     frames.append(view->page()->frameAt(view->mapFromGlobal(m_toolButton->mapToGlobal(m_toolButton->pos()))));
@@ -162,8 +165,9 @@ void ClickToFlash::findElement()
 
     while (!frames.isEmpty()) {
         QWebFrame* frame = frames.takeFirst();
-        if (!frame)
+        if (!frame) {
             continue;
+        }
         QWebElement docElement = frame->documentElement();
 
         QWebElementCollection elements;
@@ -171,9 +175,10 @@ void ClickToFlash::findElement()
         elements.append(docElement.findAll(QLatin1String("object")));
 
         QWebElement element;
-        foreach (element, elements) {
-            if (!checkElement(element) && !checkUrlOnElement(element))
+        foreach(element, elements) {
+            if (!checkElement(element) && !checkUrlOnElement(element)) {
                 continue;
+            }
             m_element = element;
             return;
         }
@@ -186,7 +191,8 @@ void ClickToFlash::load()
     findElement();
     if (m_element.isNull()) {
         qWarning("Click2Flash: Cannot find Flash object.");
-    } else {
+    }
+    else {
         QWebElement substitute = m_element.clone();
         substitute.setAttribute(QLatin1String("type"), "application/futuresplash");
         m_element.replace(substitute);
@@ -196,10 +202,12 @@ void ClickToFlash::load()
 bool ClickToFlash::checkUrlOnElement(QWebElement el)
 {
     QString checkString = el.attribute("src");
-    if (checkString.isEmpty())
+    if (checkString.isEmpty()) {
         checkString = el.attribute("data");
-    if (checkString.isEmpty())
+    }
+    if (checkString.isEmpty()) {
         checkString = el.attribute("value");
+    }
 
     checkString = m_page->getView()->url().resolved(QUrl(checkString)).toString(QUrl::RemoveQuery);
 
@@ -209,9 +217,10 @@ bool ClickToFlash::checkUrlOnElement(QWebElement el)
 bool ClickToFlash::checkElement(QWebElement el)
 {
     if (m_argumentNames == el.attributeNames()) {
-        foreach (QString name, m_argumentNames) {
-            if (m_argumentValues.indexOf(el.attribute(name)) == -1)
+        foreach(QString name, m_argumentNames) {
+            if (m_argumentValues.indexOf(el.attribute(name)) == -1) {
                 return false;
+            }
         }
         return true;
     }
@@ -228,15 +237,16 @@ void ClickToFlash::showInfo()
     lay->addRow(new QLabel(tr("<b>Attribute Name</b>")), new QLabel(tr("<b>Value</b>")));
 
     int i = 0;
-    foreach (QString name, m_argumentNames) {
+    foreach(QString name, m_argumentNames) {
         QString value = m_argumentValues.at(i);
         lay->addRow(new SqueezeLabelV2(name), new SqueezeLabelV2(value));
 
         i++;
     }
 
-    if (i == 0)
+    if (i == 0) {
         lay->addRow(new QLabel(tr("No more informations available.")));
+    }
 
     widg->setMaximumHeight(500);
     qz_centerWidgetToParent(widg, m_page->qupzilla());
@@ -245,12 +255,16 @@ void ClickToFlash::showInfo()
 
 ClickToFlash::~ClickToFlash()
 {
-    if (m_toolButton)
+    if (m_toolButton) {
         delete m_toolButton;
-    if (m_layout1)
+    }
+    if (m_layout1) {
         delete m_layout1;
-    if (m_layout2)
+    }
+    if (m_layout2) {
         delete m_layout2;
-    if (m_frame)
+    }
+    if (m_frame) {
         delete m_frame;
+    }
 }

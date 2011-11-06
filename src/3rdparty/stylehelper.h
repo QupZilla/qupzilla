@@ -39,12 +39,13 @@ class QPainter;
 class QRect;
 // Note, this is exported but in a private header as qtopengl depends on it.
 // We should consider adding this as a public helper function.
-void qt_blurImage(QPainter *p, QImage &blurImage, qreal radius, bool quality, bool alphaOnly, int transposed = 0);
+void qt_blurImage(QPainter* p, QImage &blurImage, qreal radius, bool quality, bool alphaOnly, int transposed = 0);
 QT_END_NAMESPACE
 
 // Helper class holding all custom color values
 
-namespace Utils {
+namespace Utils
+{
 class StyleHelper
 {
 public:
@@ -68,10 +69,10 @@ public:
     static void setBaseColor(const QColor &color);
 
     // Gradients used for panels
-    static void verticalGradient(QPainter *painter, const QRect &spanRect, const QRect &clipRect, bool lightColored = false);
+    static void verticalGradient(QPainter* painter, const QRect &spanRect, const QRect &clipRect, bool lightColored = false);
     static bool usePixmapCache() { return true; }
 
-    static void drawIconWithShadow(const QIcon &icon, const QRect &rect, QPainter *p, QIcon::Mode iconMode,
+    static void drawIconWithShadow(const QIcon &icon, const QRect &rect, QPainter* p, QIcon::Mode iconMode,
                                    int radius = 3, const QColor &color = QColor(0, 0, 0, 130),
                                    const QPoint &offset = QPoint(1, -2));
 

@@ -22,21 +22,23 @@ ProgressBar::ProgressBar(QWidget* parent)
     , m_value(0)
     , m_lastPaintedValue(-1)
 {
-    setMinimumSize(QSize(130,16));
-    setMaximumSize(QSize(150,16));
+    setMinimumSize(QSize(130, 16));
+    setMaximumSize(QSize(150, 16));
 }
 
 void ProgressBar::setValue(int value)
 {
     m_value = value;
-    if (m_lastPaintedValue != m_value)
+    if (m_lastPaintedValue != m_value) {
         repaint();
+    }
 }
 
-void ProgressBar::initStyleOption(QStyleOptionProgressBar *option)
+void ProgressBar::initStyleOption(QStyleOptionProgressBar* option)
 {
-    if (!option)
+    if (!option) {
         return;
+    }
 
     option->initFrom(this);
     option->minimum = 0;

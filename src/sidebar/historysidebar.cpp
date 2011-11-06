@@ -23,12 +23,12 @@
 
 HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent) :
     QWidget(parent)
-    ,ui(new Ui::HistorySideBar)
-    ,p_QupZilla(mainClass)
-    ,m_historyModel(mApp->history())
+    , ui(new Ui::HistorySideBar)
+    , p_QupZilla(mainClass)
+    , m_historyModel(mApp->history())
 {
     ui->setupUi(this);
-    connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
+    connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*, int)), this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
     connect(ui->historyTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
     connect(ui->historyTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
 
@@ -38,7 +38,7 @@ HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent) :
 
     connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryModel::HistoryEntry)), this, SLOT(historyEntryAdded(HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryModel::HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryModel::HistoryEntry)));
-    connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryModel::HistoryEntry,HistoryModel::HistoryEntry)), this, SLOT(historyEntryEdited(HistoryModel::HistoryEntry,HistoryModel::HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryModel::HistoryEntry, HistoryModel::HistoryEntry)), this, SLOT(historyEntryEdited(HistoryModel::HistoryEntry, HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyClear()), ui->historyTree, SLOT(clear()));
 
     QTimer::singleShot(0, this, SLOT(refreshTable()));
@@ -46,37 +46,43 @@ HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent) :
 
 void HistorySideBar::itemDoubleClicked(QTreeWidgetItem* item)
 {
-    if (!item || item->text(1).isEmpty())
+    if (!item || item->text(1).isEmpty()) {
         return;
+    }
     p_QupZilla->loadAddress(QUrl(item->text(1)));
 }
 
 void HistorySideBar::itemControlClicked(QTreeWidgetItem* item)
 {
-    if (!item || item->text(1).isEmpty())
+    if (!item || item->text(1).isEmpty()) {
         return;
+    }
     p_QupZilla->tabWidget()->addView(QUrl(item->text(1)));
 }
 
 void HistorySideBar::loadInNewTab()
 {
-    if (QAction* action = qobject_cast<QAction*>(sender()))
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         p_QupZilla->tabWidget()->addView(action->data().toUrl(), tr("New Tab"), TabWidget::NewNotSelectedTab);
+    }
 }
 
 void HistorySideBar::copyAddress()
 {
-    if (QAction* action = qobject_cast<QAction*>(sender()))
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         QApplication::clipboard()->setText(action->data().toString());
+    }
 }
 
 void HistorySideBar::contextMenuRequested(const QPoint &position)
 {
-    if (!ui->historyTree->itemAt(position))
+    if (!ui->historyTree->itemAt(position)) {
         return;
+    }
     QString link = ui->historyTree->itemAt(position)->text(1);
-    if (link.isEmpty())
+    if (link.isEmpty()) {
         return;
+    }
 
     QMenu menu;
     menu.addAction(tr("Open link in actual tab"), p_QupZilla, SLOT(loadActionUrl()))->setData(link);
@@ -85,7 +91,7 @@ void HistorySideBar::contextMenuRequested(const QPoint &position)
 
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();
-    QPoint p(pos.x(), pos.y()+1);
+    QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 }
 
@@ -97,21 +103,26 @@ void HistorySideBar::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
     QDate date = entry.date.date();
     QString localDate;
 
-    if (date == todayDate)
+    if (date == todayDate) {
         localDate = tr("Today");
-    else if (date >= startOfWeekDate)
+    }
+    else if (date >= startOfWeekDate) {
         localDate = tr("This Week");
-    else if (date.month() == todayDate.month())
+    }
+    else if (date.month() == todayDate.month()) {
         localDate = tr("This Month");
-    else
+    }
+    else {
         localDate = QString("%1 %2").arg(HistoryModel::titleCaseLocalizedMonth(date.month()), QString::number(date.year()));
+    }
 
     QTreeWidgetItem* item = new QTreeWidgetItem();
     QTreeWidgetItem* parentItem;
     QList<QTreeWidgetItem*> findParent = ui->historyTree->findItems(localDate, 0);
     if (findParent.count() == 1) {
         parentItem = findParent.at(0);
-    } else {
+    }
+    else {
         parentItem = new QTreeWidgetItem();
         parentItem->setText(0, localDate);
         parentItem->setIcon(0, QIcon(":/icons/menu/history_entry.png"));
@@ -130,11 +141,13 @@ void HistorySideBar::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
 void HistorySideBar::historyEntryDeleted(const HistoryModel::HistoryEntry &entry)
 {
     QList<QTreeWidgetItem*> list = ui->historyTree->allItems();
-    foreach (QTreeWidgetItem* item, list) {
-        if (!item)
+    foreach(QTreeWidgetItem * item, list) {
+        if (!item) {
             continue;
-        if (item->whatsThis(1).toInt() != entry.id)
+        }
+        if (item->whatsThis(1).toInt() != entry.id) {
             continue;
+        }
         ui->historyTree->deleteItem(item);
         return;
     }
@@ -151,17 +164,19 @@ void HistorySideBar::search()
     QString searchText = ui->search->text();
     refreshTable();
 
-    if (searchText.isEmpty())
+    if (searchText.isEmpty()) {
         return;
+    }
 
     ui->historyTree->setUpdatesEnabled(false);
 
-    QList<QTreeWidgetItem*> items = ui->historyTree->findItems("*"+searchText+"*", Qt::MatchRecursive | Qt::MatchWildcard);
+    QList<QTreeWidgetItem*> items = ui->historyTree->findItems("*" + searchText + "*", Qt::MatchRecursive | Qt::MatchWildcard);
 
     QList<QTreeWidgetItem*> foundItems;
-    foreach(QTreeWidgetItem* fitem, items) {
-        if (fitem->text(1).isEmpty())
+    foreach(QTreeWidgetItem * fitem, items) {
+        if (fitem->text(1).isEmpty()) {
             continue;
+        }
         QTreeWidgetItem* item = new QTreeWidgetItem();
         item->setText(0, fitem->text(0));
         item->setText(1, fitem->text(1));
@@ -184,27 +199,32 @@ void HistorySideBar::refreshTable()
     QSqlQuery query;
     query.exec("SELECT title, url, id, date FROM history ORDER BY date DESC");
 
-    while(query.next()) {
+    while (query.next()) {
         QString title = query.value(0).toString();
         QUrl url = query.value(1).toUrl();
         int id = query.value(2).toInt();
         QDate date = QDateTime::fromMSecsSinceEpoch(query.value(3).toLongLong()).date();
         QString localDate;
 
-        if (date == todayDate)
+        if (date == todayDate) {
             localDate = tr("Today");
-        else if (date >= startOfWeekDate)
+        }
+        else if (date >= startOfWeekDate) {
             localDate = tr("This Week");
-        else if (date.month() == todayDate.month())
+        }
+        else if (date.month() == todayDate.month()) {
             localDate = tr("This Month");
-        else
+        }
+        else {
             localDate = QString("%1 %2").arg(HistoryModel::titleCaseLocalizedMonth(date.month()), QString::number(date.year()));
+        }
 
         QTreeWidgetItem* item;
         QList<QTreeWidgetItem*> findParent = ui->historyTree->findItems(localDate, 0);
         if (findParent.count() == 1) {
             item = new QTreeWidgetItem(findParent.at(0));
-        }else{
+        }
+        else {
             QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->historyTree);
             newParent->setText(0, localDate);
             newParent->setIcon(0, QIcon(":/icons/menu/history_entry.png"));

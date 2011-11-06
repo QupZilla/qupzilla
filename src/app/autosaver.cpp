@@ -19,15 +19,17 @@
 #include "mainapplication.h"
 
 AutoSaver::AutoSaver(QObject* parent) :
-     QObject(parent)
+    QObject(parent)
 {
-    m_timer.start(1000*5, this);
+    m_timer.start(1000 * 5, this);
 }
 
 void AutoSaver::timerEvent(QTimerEvent* event)
 {
-    if (event->timerId() == m_timer.timerId() && mApp->isStateChanged())
+    if (event->timerId() == m_timer.timerId() && mApp->isStateChanged()) {
         emit saveApp();
-    else
+    }
+    else {
         QObject::timerEvent(event);
+    }
 }

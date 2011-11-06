@@ -19,7 +19,7 @@
 #include "mainapplication.h"
 #include "historymodel.h"
 
-WebHistoryInterface::WebHistoryInterface(QObject *parent) :
+WebHistoryInterface::WebHistoryInterface(QObject* parent) :
     QWebHistoryInterface(parent)
 {
 }

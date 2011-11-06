@@ -37,7 +37,7 @@ class ToolButton : public QToolButton
 public:
     explicit ToolButton(QWidget* parent = 0);
 
-    void setData(const QVariant& data);
+    void setData(const QVariant &data);
     QVariant data();
 
     void setMultiIcon(const QPixmap &icon);
@@ -54,8 +54,8 @@ signals:
 public slots:
 
 private:
-    void mousePressEvent(QMouseEvent *e);
-    void paintEvent(QPaintEvent *e);
+    void mousePressEvent(QMouseEvent* e);
+    void paintEvent(QPaintEvent* e);
 
     bool m_usingMultiIcon;
 

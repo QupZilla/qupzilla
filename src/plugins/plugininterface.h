@@ -57,7 +57,7 @@ public:
     { Q_UNUSED(op) Q_UNUSED(request) Q_UNUSED(outgoingData) return 0; }
 };
 
- Q_DECLARE_INTERFACE(PluginInterface, "Qupzilla.Browser.PluginInterface/1.0")
+Q_DECLARE_INTERFACE(PluginInterface, "Qupzilla.Browser.PluginInterface/1.0")
 
 
 #endif // PLUGININTERFACE_H

@@ -45,10 +45,10 @@ class OpenSearchReader : public QXmlStreamReader
 public:
     OpenSearchReader();
 
-    OpenSearchEngine *read(QIODevice *device);
+    OpenSearchEngine* read(QIODevice* device);
 
 private:
-    OpenSearchEngine *read();
+    OpenSearchEngine* read();
     QString m_searchXml;
 
 };

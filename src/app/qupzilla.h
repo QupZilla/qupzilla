@@ -98,10 +98,10 @@ public:
     inline StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
     inline NavigationBar* navigationBar() { return m_navigationBar; }
 
-    inline ProgressBar* progressBar(){ return m_progressBar; }
-    inline QString activeProfil(){ return m_activeProfil; }
-    inline QString activeLanguage(){ return m_activeLanguage; }
-    inline QLabel* ipLabel(){ return m_ipLabel; }
+    inline ProgressBar* progressBar() { return m_progressBar; }
+    inline QString activeProfil() { return m_activeProfil; }
+    inline QString activeLanguage() { return m_activeLanguage; }
+    inline QLabel* ipLabel() { return m_ipLabel; }
     inline QColor menuTextColor() { return m_menuTextColor; }
     inline QMenu* menuHelp() { return m_menuHelp; }
     inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
@@ -126,7 +126,7 @@ public slots:
     void loadActionUrlInNewTab();
     void bookmarkPage();
     void loadAddress(const QUrl &url);
-    void showSource(const QString& selectedHtml = "");
+    void showSource(const QString &selectedHtml = "");
     void showPageInfo();
     void receiveMessage(MainApplication::MessageType mes, bool state);
 
@@ -177,7 +177,7 @@ private slots:
     void openLocation() { locationBar()->setFocus(); locationBar()->selectAll(); }
     void openFile();
     void savePage();
-    void sendLink() { QDesktopServices::openUrl(QUrl("mailto:?body="+weView()->url().toString())); }
+    void sendLink() { QDesktopServices::openUrl(QUrl("mailto:?body=" + weView()->url().toString())); }
     void webSearch();
 
     void copy() { QApplication::clipboard()->setText(weView()->selectedText()); }
@@ -193,7 +193,7 @@ private slots:
     bool quitApp();
 
 private:
-    void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void closeEvent(QCloseEvent* event);
 

@@ -54,24 +54,24 @@ public:
         RightSide
     };
 
-    LineEdit(QWidget *parent = 0);
-    LineEdit(const QString &contents, QWidget *parent = 0);
+    LineEdit(QWidget* parent = 0);
+    LineEdit(const QString &contents, QWidget* parent = 0);
 
-    void addWidget(QWidget *widget, WidgetPosition position);
-    void removeWidget(QWidget *widget);
+    void addWidget(QWidget* widget, WidgetPosition position);
+    void removeWidget(QWidget* widget);
     void setWidgetSpacing(int spacing);
     int widgetSpacing() const;
     int textMargin(WidgetPosition position) const;
     QString inactiveText() const;
     void setInactiveText(const QString &text);
 
-    void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent* event);
 
     void setLeftMargin(int margin);
 
 protected:
-    void resizeEvent(QResizeEvent *event);
-    bool event(QEvent *event);
+    void resizeEvent(QResizeEvent* event);
+    bool event(QEvent* event);
 
 protected slots:
     void updateTextMargins();
@@ -80,10 +80,10 @@ private:
     void init();
     void updateSideWidgetLocations();
 
-    SideWidget *m_leftWidget;
-    SideWidget *m_rightWidget;
-    QHBoxLayout *m_leftLayout;
-    QHBoxLayout *m_rightLayout;
+    SideWidget* m_leftWidget;
+    SideWidget* m_rightWidget;
+    QHBoxLayout* m_leftLayout;
+    QHBoxLayout* m_rightLayout;
     QString m_inactiveText;
     int m_leftMargin;
 };
@@ -97,10 +97,10 @@ signals:
     void sizeHintChanged();
 
 public:
-    SideWidget(QWidget *parent = 0);
+    SideWidget(QWidget* parent = 0);
 
 protected:
-    bool event(QEvent *event);
+    bool event(QEvent* event);
 
 };
 

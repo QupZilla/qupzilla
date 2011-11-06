@@ -28,7 +28,7 @@ DesktopNotificationsFactory::DesktopNotificationsFactory(QObject* parent)
 
 void DesktopNotificationsFactory::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Notifications");
     m_enabled = settings.value("Enabled", true).toBool();
     m_timeout = settings.value("Timeout", 6000).toInt();
@@ -43,13 +43,15 @@ void DesktopNotificationsFactory::loadSettings()
 
 void DesktopNotificationsFactory::notify(const QPixmap &icon, const QString &heading, const QString &text)
 {
-    if (!m_enabled)
+    if (!m_enabled) {
         return;
+    }
 
     switch (m_notifType) {
     case PopupWidget:
-        if (!m_desktopNotif)
+        if (!m_desktopNotif) {
             m_desktopNotif = new DesktopNotification();
+        }
         m_desktopNotif->setPixmap(icon);
         m_desktopNotif->setHeading(heading);
         m_desktopNotif->setText(text);
@@ -75,8 +77,9 @@ void DesktopNotificationsFactory::notify(const QPixmap &icon, const QString &hea
         args.append(m_timeout);
         QDBusMessage message = dbus.callWithArgumentList(QDBus::Block, "Notify", args);
         QVariantList list = message.arguments();
-        if (list.count() > 0)
+        if (list.count() > 0) {
             m_uint = list.at(0).toInt();
+        }
 #endif
         break;
     }

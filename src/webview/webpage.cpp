@@ -88,11 +88,12 @@ void WebPage::finished()
 
 void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 {
-    if (!reply)
+    if (!reply) {
         return;
+    }
     QUrl url = reply->url();
 
-    switch(reply->error()) {
+    switch (reply->error()) {
     case QNetworkReply::NoError:
         if (reply->header(QNetworkRequest::ContentTypeHeader).isValid()) {
             DownloadManager* dManager = mApp->downManager();
@@ -120,10 +121,12 @@ void WebPage::setSSLCertificate(const QSslCertificate &cert)
 QSslCertificate WebPage::sslCertificate()
 {
     if (mainFrame()->url().scheme() == "https" &&
-        m_SslCert.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(mainFrame()->url().host())))
+            m_SslCert.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(mainFrame()->url().host()))) {
         return m_SslCert;
-    else
+    }
+    else {
         return QSslCertificate();
+    }
 }
 
 bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type)
@@ -138,9 +141,10 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 
     if (type == QWebPage::NavigationTypeFormResubmitted) {
         bool result = javaScriptConfirm(frame, tr("To show this page, QupZilla must resend request which do it again \n"
-                                          "(like searching on making an shoping, which has been already done.)"));
-        if (!result)
+                                        "(like searching on making an shoping, which has been already done.)"));
+        if (!result) {
             return false;
+        }
     }
 
 //    TabWidget::OpenUrlIn openIn= frame ? TabWidget::CurrentTab: TabWidget::NewTab;
@@ -160,11 +164,11 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
 
 void WebPage::populateNetworkRequest(QNetworkRequest &request)
 {
-    QVariant variant = qVariantFromValue((void *) this);
+    QVariant variant = qVariantFromValue((void*) this);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), m_lastRequestType);
 
-    variant = qVariantFromValue((void *) m_view);
+    variant = qVariantFromValue((void*) m_view);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102), variant);
 }
 
@@ -188,17 +192,19 @@ void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
     entry.rule = filter;
     entry.url = url;
 
-    if (!m_adBlockedEntries.contains(entry))
+    if (!m_adBlockedEntries.contains(entry)) {
         m_adBlockedEntries.append(entry);
+    }
 }
 
 void WebPage::cleanBlockedObjects()
 {
     QStringList findingStrings;
 
-    foreach (AdBlockedEntry entry, m_adBlockedEntries) {
-        if (entry.url.toString().endsWith(".js"))
+    foreach(AdBlockedEntry entry, m_adBlockedEntries) {
+        if (entry.url.toString().endsWith(".js")) {
             continue;
+        }
 
         findingStrings.append(entry.url.toString());
         QUrl mainFrameUrl = mainFrame()->url();
@@ -206,23 +212,25 @@ void WebPage::cleanBlockedObjects()
             //May be relative url
             QString relativeUrl = qz_makeRelativeUrl(mainFrameUrl, entry.url).toString();
             findingStrings.append(relativeUrl);
-            if (relativeUrl.startsWith("/"))
+            if (relativeUrl.startsWith("/")) {
                 findingStrings.append(relativeUrl.right(relativeUrl.size() - 1));
+            }
         }
     }
 
     QWebElement docElement = mainFrame()->documentElement();
     QWebElementCollection elements;
-    foreach (QString s, findingStrings)
-        elements.append(docElement.findAll("*[src=\"" + s + "\"]"));
-    foreach (QWebElement element, elements)
-        element.setAttribute("style", "display:none;");
+    foreach(QString s, findingStrings)
+    elements.append(docElement.findAll("*[src=\"" + s + "\"]"));
+    foreach(QWebElement element, elements)
+    element.setAttribute("style", "display:none;");
 }
 
 bool WebPage::extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output)
 {
-    if (extension == ChooseMultipleFilesExtension)
+    if (extension == ChooseMultipleFilesExtension) {
         return QWebPage::extension(extension, option, output);
+    }
 
     const ErrorPageExtensionOption* exOption = static_cast<const QWebPage::ErrorPageExtensionOption*>(option);
     ErrorPageExtensionReturn* exReturn = static_cast<QWebPage::ErrorPageExtensionReturn*>(output);
@@ -252,13 +260,15 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
                     QWebElementCollection elements;
                     elements.append(docElement.findAll("iframe"));
-                    foreach (QWebElement element, elements) {
+                    foreach(QWebElement element, elements) {
                         QString src = element.attribute("src");
-                        if (exOption->url.toString().contains(src))
+                        if (exOption->url.toString().contains(src)) {
                             element.setAttribute("style", "display:none;");
+                        }
                     }
                     return false;
-                } else { //The whole page is blocked
+                }
+                else {   //The whole page is blocked
                     QString rule = exOption->errorString;
                     rule.remove("AdBlockRule:");
 
@@ -295,8 +305,9 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     else if (exOption->domain == QWebPage::Http) {
         errorString = tr("Error code %1").arg(exOption->error);
     }
-    else if (exOption->domain == QWebPage::WebKit)
-        return false; // Downloads
+    else if (exOption->domain == QWebPage::WebKit) {
+        return false;    // Downloads
+    }
 
     QString loadedUrl = exOption->url.toString();
     exReturn->baseUrl = loadedUrl;
@@ -306,8 +317,8 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     QString errString = file.readAll();
     errString.replace("%TITLE%", tr("Failed loading page"));
 
-    errString.replace("%IMAGE%", qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45,45)));
-    errString.replace("%FAVICON%", qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16,16)));
+    errString.replace("%IMAGE%", qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+    errString.replace("%FAVICON%", qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
     errString.replace("%BOX-BORDER%", qz_pixmapToByteArray(QPixmap(":html/box-border.png")));
 
     errString.replace("%HEADING%", errorString);
@@ -343,13 +354,14 @@ bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, 
         QString width = QString::number(originatingFrame->contentsSize().width());
         bodyElement.prependInside("<span id='qupzilla-background-content' style='display: block;background: #6b6b6b;"
                                   "position: absolute;opacity: .9;filter: alpha(opacity=90);top: 0px;"
-                                  "left: 0px;z-index: 998;overflow:  hidden;width:"+width+"px; height:"+height+"px;'> </span>");
-    } else {
+                                  "left: 0px;z-index: 998;overflow:  hidden;width:" + width + "px; height:" + height + "px;'> </span>");
+    }
+    else {
         widget->setAutoFillBackground(true);
     }
 
     QEventLoop eLoop;
-    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()) );
+    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
     eLoop.exec();
 
     QString x = ui->lineEdit->text();
@@ -383,13 +395,14 @@ bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
         QString width = QString::number(originatingFrame->contentsSize().width());
         bodyElement.prependInside("<span id='qupzilla-background-content' style='display: block;background: #6b6b6b;"
                                   "position: absolute;opacity: .9;filter: alpha(opacity=90);top: 0px;"
-                                  "left: 0px;z-index: 998;overflow:  hidden;width:"+width+"px; height:"+height+"px;'> </span>");
-    } else {
+                                  "left: 0px;z-index: 998;overflow:  hidden;width:" + width + "px; height:" + height + "px;'> </span>");
+    }
+    else {
         widget->setAutoFillBackground(true);
     }
 
     QEventLoop eLoop;
-    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()) );
+    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
     eLoop.exec();
 
     bool result = ui->buttonBox->clickedButtonRole() == QDialogButtonBox::AcceptRole;
@@ -403,8 +416,9 @@ bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
 
 void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
 {
-    if (m_blockAlerts)
+    if (m_blockAlerts) {
         return;
+    }
 
     WebView* _view = qobject_cast<WebView*>(originatingFrame->page()->view());
 
@@ -424,13 +438,14 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
         QString width = QString::number(originatingFrame->contentsSize().width());
         bodyElement.prependInside("<span id='qupzilla-background-content' style='display: block;background: #6b6b6b;"
                                   "position: absolute;opacity: .9;filter: alpha(opacity=90);top: 0px;"
-                                  "left: 0px;z-index: 998;overflow:  hidden;width:"+width+"px; height:"+height+"px;'> </span>");
-    } else {
+                                  "left: 0px;z-index: 998;overflow:  hidden;width:" + width + "px; height:" + height + "px;'> </span>");
+    }
+    else {
         widget->setAutoFillBackground(true);
     }
 
     QEventLoop eLoop;
-    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()) );
+    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
     eLoop.exec();
 
     m_blockAlerts = ui->preventAlerts->isChecked();
@@ -441,17 +456,20 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     _view->setFocus();
 }
 
-QString WebPage::chooseFile(QWebFrame *originatingFrame, const QString &oldFile)
+QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
 {
     QString suggFileName;
-    if (oldFile.isEmpty())
+    if (oldFile.isEmpty()) {
         suggFileName = m_lastUploadLocation;
-    else
+    }
+    else {
         suggFileName = oldFile;
+    }
     QString fileName = QFileDialog::getOpenFileName(originatingFrame->page()->view(), tr("Choose file..."), suggFileName);
 
-    if (!fileName.isEmpty())
+    if (!fileName.isEmpty()) {
         m_lastUploadLocation = fileName;
+    }
 
     return fileName;
 }

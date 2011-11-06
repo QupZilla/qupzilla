@@ -22,8 +22,9 @@ QByteArray qz_pixmapToByteArray(const QPixmap &pix)
     QByteArray bytes;
     QBuffer buffer(&bytes);
     buffer.open(QIODevice::WriteOnly);
-    if (pix.save(&buffer, "PNG"))
+    if (pix.save(&buffer, "PNG")) {
         return buffer.buffer().toBase64();
+    }
 
     return QByteArray();
 }
@@ -47,24 +48,25 @@ QByteArray qz_readAllFileContents(const QString &filename)
     return a;
 }
 
-void qz_centerWidgetOnScreen(QWidget *w)
+void qz_centerWidgetOnScreen(QWidget* w)
 {
     const QRect screen = QApplication::desktop()->screenGeometry();
     const QRect &size = w->geometry();
-    w->move( (screen.width()-size.width())/2, (screen.height()-size.height())/2 );
+    w->move((screen.width() - size.width()) / 2, (screen.height() - size.height()) / 2);
 }
 
 // Very, very, very simplified QDialog::adjustPosition from qdialog.cpp
 void qz_centerWidgetToParent(QWidget* w, QWidget* parent)
 {
-    if (!parent || !w)
+    if (!parent || !w) {
         return;
+    }
 
     QPoint p;
     parent = parent->window();
-    QPoint pp = parent->mapToGlobal(QPoint(0,0));
-    p = QPoint(pp.x() + parent->width()/2, pp.y() + parent->height()/ 2);
-    p = QPoint(p.x()-w->width()/2, p.y()-w->height()/2 - 20);
+    QPoint pp = parent->mapToGlobal(QPoint(0, 0));
+    p = QPoint(pp.x() + parent->width() / 2, pp.y() + parent->height() / 2);
+    p = QPoint(p.x() - w->width() / 2, p.y() - w->height() / 2 - 20);
 
     w->move(p);
 }
@@ -75,8 +77,9 @@ QString qz_samePartOfStrings(const QString &one, const QString &other)
     int maxSize = qMin(one.size(), other.size());
     while (one.at(i) == other.at(i)) {
         i++;
-        if (i == maxSize)
+        if (i == maxSize) {
             break;
+        }
     }
     return one.left(i);
 }
@@ -98,10 +101,12 @@ QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
     else {
         samePart = samePart.left(samePart.lastIndexOf("/") + 1);
         int slashCount = samePart.count("/") + 1;
-        if (samePart.startsWith("/"))
+        if (samePart.startsWith("/")) {
             slashCount--;
-        if (samePart.endsWith("/"))
+        }
+        if (samePart.endsWith("/")) {
             slashCount--;
+        }
 
         rUrlPath.remove(samePart);
         rUrlPath.prepend(QString("..""/").repeated(slashCount));
@@ -113,8 +118,9 @@ QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
 
 QString qz_ensureUniqueFilename(const QString &pathToFile)
 {
-    if (!QFile::exists(pathToFile))
+    if (!QFile::exists(pathToFile)) {
         return pathToFile;
+    }
 
     QString tmpFileName = pathToFile;
     int i = 1;
@@ -123,10 +129,10 @@ QString qz_ensureUniqueFilename(const QString &pathToFile)
         int index = tmpFileName.lastIndexOf(".");
 
         if (index == -1) {
-            tmpFileName.append("("+QString::number(i)+")");
+            tmpFileName.append("(" + QString::number(i) + ")");
         }
         else {
-            tmpFileName = tmpFileName.mid(0, index) + "("+QString::number(i)+")" + tmpFileName.mid(index);
+            tmpFileName = tmpFileName.mid(0, index) + "(" + QString::number(i) + ")" + tmpFileName.mid(index);
         }
         i++;
     }

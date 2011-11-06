@@ -50,7 +50,7 @@
 #include <qnetworkrequest.h>
 #include <qtimer.h>
 
-AdBlockBlockedNetworkReply::AdBlockBlockedNetworkReply(const QNetworkRequest &request, const AdBlockRule *rule, QObject *parent)
+AdBlockBlockedNetworkReply::AdBlockBlockedNetworkReply(const QNetworkRequest &request, const AdBlockRule* rule, QObject* parent)
     : QNetworkReply(parent)
 {
     setOperation(QNetworkAccessManager::GetOperation);
@@ -60,7 +60,7 @@ AdBlockBlockedNetworkReply::AdBlockBlockedNetworkReply(const QNetworkRequest &re
     QTimer::singleShot(0, this, SLOT(delayedFinished()));
 }
 
-qint64 AdBlockBlockedNetworkReply::readData(char *data, qint64 maxSize)
+qint64 AdBlockBlockedNetworkReply::readData(char* data, qint64 maxSize)
 {
     Q_UNUSED(data);
     Q_UNUSED(maxSize);

@@ -34,15 +34,13 @@ public:
         QIcon icon;
         QVariant userData;
 
-        Item(const QString &a = QString(), const QIcon &b = QIcon())
-        {
+        Item(const QString &a = QString(), const QIcon &b = QIcon()) {
             text = a;
             icon = b;
         }
 
-        bool operator==(const Item &a)
-        {
-            return (a.text == text) && (a.icon.pixmap(16,16).toImage() == icon.pixmap(16,16).toImage());
+        bool operator==(const Item &a) {
+            return (a.text == text) && (a.icon.pixmap(16, 16).toImage() == icon.pixmap(16, 16).toImage());
         }
     };
 
@@ -71,7 +69,7 @@ private slots:
     void generateMenu();
 
 private:
-    void wheelEvent(QWheelEvent *event);
+    void wheelEvent(QWheelEvent* event);
 
     QMenu* m_menu;
     QList<Item> m_items;

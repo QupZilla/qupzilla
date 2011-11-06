@@ -13,7 +13,7 @@ void FollowRedirectReply::replyFinished()
 {
     int replyStatus = m_reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
-    if ( (replyStatus != 301 && replyStatus != 302) || m_redirectCount == 5) {
+    if ((replyStatus != 301 && replyStatus != 302) || m_redirectCount == 5) {
         emit finished();
         return;
     }

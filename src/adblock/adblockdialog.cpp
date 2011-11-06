@@ -47,7 +47,7 @@
 #include "adblocksubscription.h"
 #include "mainapplication.h"
 
-AdBlockDialog::AdBlockDialog(QWidget *parent)
+AdBlockDialog::AdBlockDialog(QWidget* parent)
     : QDialog(parent)
     , m_itemChangingBlock(false)
     , m_manager(AdBlockManager::instance())
@@ -73,8 +73,9 @@ AdBlockDialog::AdBlockDialog(QWidget *parent)
 void AdBlockDialog::editRule()
 {
     QTreeWidgetItem* item = treeWidget->currentItem();
-    if (!item || !(item->flags() & Qt::ItemIsEditable))
+    if (!item || !(item->flags() & Qt::ItemIsEditable)) {
         return;
+    }
 
     item->setSelected(true);
 }
@@ -82,8 +83,9 @@ void AdBlockDialog::editRule()
 void AdBlockDialog::deleteRule()
 {
     QTreeWidgetItem* item = treeWidget->currentItem();
-    if (!item)
+    if (!item) {
         return;
+    }
 
     int offset = item->whatsThis(0).toInt();
     m_manager->subscription()->removeRule(offset);
@@ -103,7 +105,7 @@ void AdBlockDialog::customContextMenuRequested()
 void AdBlockDialog::firstRefresh()
 {
     refresh();
-    connect(treeWidget, SIGNAL(itemChanged(QTreeWidgetItem*,int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
+    connect(treeWidget, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
 }
 
 void AdBlockDialog::refreshAfterUpdate()
@@ -124,12 +126,12 @@ void AdBlockDialog::refresh()
     italicFont.setItalic(true);
 
     m_customRulesItem = new QTreeWidgetItem(treeWidget);
-    m_customRulesItem->setText(0,tr("Custom Rules"));
+    m_customRulesItem->setText(0, tr("Custom Rules"));
     m_customRulesItem->setFont(0, boldFont);
     treeWidget->addTopLevelItem(m_customRulesItem);
 
     m_easyListItem = new QTreeWidgetItem(treeWidget);
-    m_easyListItem->setText(0,"EasyList");
+    m_easyListItem->setText(0, "EasyList");
     m_easyListItem->setFont(0, boldFont);
     treeWidget->addTopLevelItem(m_easyListItem);
 
@@ -137,31 +139,34 @@ void AdBlockDialog::refresh()
     QList<AdBlockRule> allRules = m_manager->subscription()->allRules();
 
     int index = 0;
-    foreach (const AdBlockRule rule, allRules) {
+    foreach(const AdBlockRule & rule, allRules) {
         index++;
         if (rule.filter().contains("*******- user custom filters")) {
             customRulesStarted = true;
             continue;
         }
         QTreeWidgetItem* item = new QTreeWidgetItem(customRulesStarted ? m_customRulesItem : m_easyListItem);
-        if (item->parent() == m_customRulesItem)
+        if (item->parent() == m_customRulesItem) {
             item->setFlags(item->flags() | Qt::ItemIsEditable);
+        }
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-        item->setCheckState(0, (rule.filter().startsWith("!") ) ? Qt::Unchecked : Qt::Checked);
+        item->setCheckState(0, (rule.filter().startsWith("!")) ? Qt::Unchecked : Qt::Checked);
         item->setText(0, rule.filter());
-        item->setWhatsThis(0, QString::number(index-1));
-        if (rule.filter().startsWith("!"))
+        item->setWhatsThis(0, QString::number(index - 1));
+        if (rule.filter().startsWith("!")) {
             item->setFont(0, italicFont);
+        }
     }
     treeWidget->expandAll();
     treeWidget->setUpdatesEnabled(true);
     m_itemChangingBlock = false;
 }
 
-void AdBlockDialog::itemChanged(QTreeWidgetItem *item)
+void AdBlockDialog::itemChanged(QTreeWidgetItem* item)
 {
-    if (!item || m_itemChangingBlock)
+    if (!item || m_itemChangingBlock) {
         return;
+    }
 
     m_itemChangingBlock = true;
 
@@ -175,7 +180,8 @@ void AdBlockDialog::itemChanged(QTreeWidgetItem *item)
         AdBlockRule rul(item->text(0));
         m_manager->subscription()->replaceRule(rul, offset);
 
-    } else if (item->checkState(0) == Qt::Checked && item->text(0).startsWith("!")) { //Enable rule
+    }
+    else if (item->checkState(0) == Qt::Checked && item->text(0).startsWith("!")) {   //Enable rule
         int offset = item->whatsThis(0).toInt();
         item->setFont(0, QFont());
         QString newText = item->text(0).mid(1);
@@ -184,7 +190,8 @@ void AdBlockDialog::itemChanged(QTreeWidgetItem *item)
         AdBlockRule rul(newText);
         m_manager->subscription()->replaceRule(rul, offset);
 
-    } else { //Custom rule has been changed
+    }
+    else {   //Custom rule has been changed
         int offset = item->whatsThis(0).toInt();
 
         AdBlockRule rul(item->text(0));
@@ -199,8 +206,9 @@ void AdBlockDialog::itemChanged(QTreeWidgetItem *item)
 void AdBlockDialog::addCustomRule()
 {
     QString newRule = QInputDialog::getText(this, tr("Add Custom Rule"), tr("Please write your rule here:"));
-    if (newRule.isEmpty())
+    if (newRule.isEmpty()) {
         return;
+    }
 
     AdBlockSubscription* subscription = m_manager->subscription();
     int offset = subscription->addRule(AdBlockRule(newRule));

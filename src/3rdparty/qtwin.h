@@ -51,8 +51,8 @@ class QtWin : public QObject
     Q_OBJECT
 public:
     static bool isRunningWindows7();
-    static bool enableBlurBehindWindow(QWidget *widget, bool enable = true);
-    static bool extendFrameIntoClientArea(QWidget *widget,
+    static bool enableBlurBehindWindow(QWidget* widget, bool enable = true);
+    static bool extendFrameIntoClientArea(QWidget* widget,
                                           int left = -1, int top = -1,
                                           int right = -1, int bottom = -1);
     static bool isCompositionEnabled();
@@ -62,7 +62,7 @@ public slots:
     static void setupJumpList();
 
 private:
-    static WindowNotifier *windowNotifier();
+    static WindowNotifier* windowNotifier();
 #ifdef W7API
     static void populateFrequentSites(IObjectCollection* collection, const QString &appPath);
     static void AddTasksToList(ICustomDestinationList* destinationList);
