@@ -22,6 +22,8 @@
 #include "mainapplication.h"
 #include "globalfunctions.h"
 
+//TODO: Refactor whole cookie manager tree
+
 CookieManager::CookieManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::CookieManager)
@@ -31,18 +33,18 @@ CookieManager::CookieManager(QWidget* parent)
     ui->setupUi(this);
     qz_centerWidgetOnScreen(this);
 
-    //QTimer::singleShot(0, this, SLOT(refreshTable()));
-
     connect(ui->cookieTree, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)),this, SLOT(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)));
     connect(ui->removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));
-    connect(ui->removeCookie, SIGNAL(clicked()), this, SLOT(removeCookie()));
+    connect(ui->removeOne, SIGNAL(clicked()), this, SLOT(removeCookie()));
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(hide()));
     connect(ui->search, SIGNAL(returnPressed()), this, SLOT(search()));
-//    connect(ui->search, SIGNAL(cursorPositionChanged(int, int)), this, SLOT(search()));
     connect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
+//    connect(ui->search, SIGNAL(cursorPositionChanged(int, int)), this, SLOT(search()));
 
     ui->search->setInactiveText(tr("Search"));
     ui->cookieTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
+
+//    QTimer::singleShot(0, this, SLOT(refreshTable()));
 }
 
 void CookieManager::removeAll()
@@ -63,6 +65,8 @@ void CookieManager::removeCookie()
     if (!current)
         return;
 
+    int indexToNavigate = -1;
+
     if (current->text(1).isEmpty()) {     //Remove whole cookie group
         QString domain = current->whatsThis(0);
         foreach(QNetworkCookie cok, m_cookies) {
@@ -70,16 +74,22 @@ void CookieManager::removeCookie()
                 m_cookies.removeOne(cok);
         }
 
-        ui->cookieTree->deleteItem(current);
-        mApp->cookieJar()->setAllCookies(m_cookies);
-        refreshTable(false);
-        return;
+        indexToNavigate = ui->cookieTree->indexOfTopLevelItem(current) - 1;
+    }
+    else {
+        indexToNavigate = ui->cookieTree->indexOfTopLevelItem(current->parent());
+        int index = current->whatsThis(1).toInt();
+        m_cookies.removeAt(index);
     }
 
-    int index = current->whatsThis(1).toInt();
-    m_cookies.removeAt(index);
     mApp->cookieJar()->setAllCookies(m_cookies);
+
     refreshTable(false);
+    if (indexToNavigate > 0 && ui->cookieTree->topLevelItemCount() >= indexToNavigate) {
+        QTreeWidgetItem* scrollItem = ui->cookieTree->topLevelItem(indexToNavigate);
+        ui->cookieTree->setCurrentItem(scrollItem);
+        ui->cookieTree->scrollToItem(scrollItem);
+    }
 
     if (!ui->search->text().isEmpty())
         search();
@@ -91,8 +101,6 @@ void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem
     if (!current)
         return;
 
-    ui->removeCookie->setEnabled(true);
-
     if (current->text(1).isEmpty()) {
         ui->name->setText(tr("<cookie not selected>"));
         ui->value->setText(tr("<cookie not selected>"));
@@ -100,10 +108,16 @@ void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem
         ui->path->setText(tr("<cookie not selected>"));
         ui->secure->setText(tr("<cookie not selected>"));
         ui->expiration->setText(tr("<cookie not selected>"));
-        ui->removeCookie->setText(tr("Remove cookies"));
+
+        // Changing Text on QPushButton also removes shortcut?
+        ui->removeOne->setText(tr("Remove cookies"));
+        ui->removeOne->setShortcut(QKeySequence("Del"));
         return;
     }
-    ui->removeCookie->setText(tr("Remove cookie"));
+
+    // Changing Text on QPushButton also removes shortcut?
+    ui->removeOne->setText(tr("Remove cookie"));
+    ui->removeOne->setShortcut(QKeySequence("Del"));
 
     int index = current->whatsThis(1).toInt();
     QNetworkCookie cok = m_cookies.at(index);
@@ -157,30 +171,32 @@ void CookieManager::refreshTable(bool refreshCookieJar)
 
 void CookieManager::search()
 {
-    QString searchText = ui->search->text();
-    if (searchText.isEmpty()) {
-        refreshTable(false);
-        return;
-    }
+    ui->cookieTree->filterString(ui->search->text());
+//    QString searchText = ui->search->text();
+//    if (searchText.isEmpty()) {
+//        refreshTable(false);
+//        return;
+//    }
 
-    refreshTable(false);
-    ui->cookieTree->setUpdatesEnabled(false);
+//    refreshTable(false);
+//    ui->cookieTree->setUpdatesEnabled(false);
 
-    QList<QTreeWidgetItem*> items = ui->cookieTree->findItems(".*"+searchText+"*", Qt::MatchRecursive | Qt::MatchWildcard);
+//    QList<QTreeWidgetItem*> items = ui->cookieTree->findItems(".*"+searchText+"*", Qt::MatchRecursive | Qt::MatchWildcard);
 
-    QList<QTreeWidgetItem*> foundItems;
-    foreach(QTreeWidgetItem* fitem, items) {
-        if (!fitem->text(0).startsWith("."))
-            continue;
-        QTreeWidgetItem* item = new QTreeWidgetItem();
-        item->setText(0, fitem->text(0));
-        item->setText(1, fitem->text(1));
-        item->setWhatsThis(1, fitem->whatsThis(1));
-        foundItems.append(item);
-    }
-    ui->cookieTree->clear();
-    ui->cookieTree->addTopLevelItems(foundItems);
-    ui->cookieTree->setUpdatesEnabled(true);
+//    QList<QTreeWidgetItem*> foundItems;
+//    foreach(QTreeWidgetItem* fitem, items) {
+//        if (!fitem->text(0).startsWith("."))
+//            continue;
+//        QTreeWidgetItem* item = new QTreeWidgetItem();
+//        item->setText(0, fitem->text(0));
+//        item->setText(1, fitem->text(1));
+//        item->setWhatsThis(1, fitem->whatsThis(1));
+//        foundItems.append(item);
+//    }
+
+//    ui->cookieTree->clear();
+//    ui->cookieTree->addTopLevelItems(foundItems);
+//    ui->cookieTree->setUpdatesEnabled(true);
 }
 
 CookieManager::~CookieManager()

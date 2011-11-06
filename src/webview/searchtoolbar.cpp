@@ -43,6 +43,9 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
     connect(ui->highligh, SIGNAL(clicked()), this, SLOT(refreshFindFlags()));
     connect(ui->caseSensitive, SIGNAL(clicked()), this, SLOT(refreshFindFlags()));
     startAnimation();
+
+    p_QupZilla->actionStop()->setEnabled(false);
+    qApp->installEventFilter(this);
 }
 
 QLineEdit* SearchToolBar::searchLine()
@@ -100,7 +103,18 @@ void SearchToolBar::searchText(const QString &text)
     ui->lineEdit->style()->polish(ui->lineEdit);
 }
 
+bool SearchToolBar::eventFilter(QObject* obj, QEvent* event)
+{
+    if (event->type() == QEvent::KeyPress && static_cast<QKeyEvent*>(event)->key() == Qt::Key_Escape) {
+        hide();
+        return false;
+    }
+
+    return AnimatedWidget::eventFilter(obj, event);
+}
+
 SearchToolBar::~SearchToolBar()
 {
+    p_QupZilla->actionStop()->setEnabled(true);
     delete ui;
 }

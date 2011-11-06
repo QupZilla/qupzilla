@@ -31,9 +31,6 @@
      <property name="text">
       <string/>
      </property>
-     <property name="shortcut">
-      <string notr="true">Esc</string>
-     </property>
      <property name="autoRaise">
       <bool>true</bool>
      </property>

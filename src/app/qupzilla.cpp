@@ -59,7 +59,7 @@
 #include "webinspectordockwidget.h"
 #include "bookmarksimportdialog.h"
 #include "globalfunctions.h"
-
+#include "webhistorywrapper.h"
 
 const QString QupZilla::VERSION = "1.0.0-rc1";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
@@ -245,6 +245,7 @@ void QupZilla::setupMenu()
     m_menuBookmarks = new QMenu(tr("&Bookmarks"));
     m_menuHistory = new QMenu(tr("Hi&story"));
     connect(m_menuHistory, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMenu()));
+    connect(m_menuHistory, SIGNAL(aboutToHide()), this, SLOT(aboutToHideHistoryMenu()));
     connect(m_menuBookmarks, SIGNAL(aboutToShow()), this, SLOT(aboutToShowBookmarksMenu()));
     connect(m_menuHelp, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHelpMenu()));
     connect(m_menuTools, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolsMenu()));
@@ -346,6 +347,7 @@ void QupZilla::setupMenu()
     m_menuView->addAction(m_actionShowFullScreen);
     menuBar()->addMenu(m_menuView);
     connect(m_menuView, SIGNAL(aboutToShow()), this, SLOT(aboutToShowViewMenu()));
+    connect(m_menuView, SIGNAL(aboutToHide()), this, SLOT(aboutToHideViewMenu()));
 
     menuBar()->addMenu(m_menuHistory);
     menuBar()->addMenu(m_menuBookmarks);
@@ -370,7 +372,7 @@ void QupZilla::setupMenu()
     connect(reloadByPassCacheAction, SIGNAL(triggered()), this, SLOT(reloadByPassCache()));
     addAction(reloadByPassCacheAction);
 
-    //Make shortcuts available even in fullscreen (menu hidden)
+    // Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
     foreach (QAction* action, actions) {
         if (action->menu())
@@ -576,8 +578,14 @@ void QupZilla::aboutToShowHistoryMenu(bool loadHistory)
     if (!weView())
         return;
 
-    if (!m_historyMenuChanged)
+    if (!m_historyMenuChanged) {
+        if (!m_menuHistory || m_menuHistory->actions().count() < 3)
+            return;
+
+        m_menuHistory->actions().at(0)->setEnabled(WebHistoryWrapper::canGoBack(weView()->history()));
+        m_menuHistory->actions().at(1)->setEnabled(WebHistoryWrapper::canGoForward(weView()->history()));
         return;
+    }
     m_historyMenuChanged = false;
     if (!loadHistory)
         m_historyMenuChanged = true;
@@ -587,10 +595,8 @@ void QupZilla::aboutToShowHistoryMenu(bool loadHistory)
     m_menuHistory->addAction(IconProvider::standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
     m_menuHistory->addAction(IconProvider::fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
 
-    if (!weView()->history()->canGoBack())
-        m_menuHistory->actions().at(0)->setEnabled(false);
-    if (!weView()->history()->canGoForward())
-        m_menuHistory->actions().at(1)->setEnabled(false);
+    m_menuHistory->actions().at(0)->setEnabled(WebHistoryWrapper::canGoBack(weView()->history()));
+    m_menuHistory->actions().at(1)->setEnabled(WebHistoryWrapper::canGoForward(weView()->history()));
 
     m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), this, SLOT(showHistoryManager()));
     m_menuHistory->addSeparator();
@@ -610,6 +616,15 @@ void QupZilla::aboutToShowHistoryMenu(bool loadHistory)
         m_menuHistory->addSeparator();
     }
     m_menuHistory->addMenu(m_menuClosedTabs);
+}
+
+void QupZilla::aboutToHideHistoryMenu()
+{
+    if (!m_menuHistory || m_menuHistory->actions().count() < 3)
+        return;
+
+    m_menuHistory->actions().at(0)->setEnabled(true);
+    m_menuHistory->actions().at(1)->setEnabled(true);
 }
 
 void QupZilla::aboutToShowClosedTabsMenu()
@@ -673,10 +688,14 @@ void QupZilla::aboutToShowViewMenu()
     if (!weView())
         return;
 
-    if (weView()->isLoading())
+    if (weView()->isLoading()) {
         m_actionStop->setEnabled(true);
-    else
+        m_actionReload->setEnabled(false);
+    }
+    else {
         m_actionStop->setEnabled(false);
+        m_actionReload->setEnabled(true);
+    }
 
     m_actionShowToolbar->setChecked(m_navigationBar->isVisible());
     m_actionShowMenubar->setChecked(menuBar()->isVisible());
@@ -686,12 +705,25 @@ void QupZilla::aboutToShowViewMenu()
     if (!m_sideBar) {
         m_actionShowBookmarksSideBar->setChecked(false);
         m_actionShowHistorySideBar->setChecked(false);
-        //        m_actionShowRssSideBar->setChecked(false);
+//        m_actionShowRssSideBar->setChecked(false);
     } else {
         SideBar::SideWidget actWidget = m_sideBar->activeWidget();
         m_actionShowBookmarksSideBar->setChecked(actWidget == SideBar::Bookmarks);
         m_actionShowHistorySideBar->setChecked(actWidget == SideBar::History);
-        //        m_actionShowRssSideBar->setChecked(actWidget == SideBar::RSS);
+//        m_actionShowRssSideBar->setChecked(actWidget == SideBar::RSS);
+    }
+}
+
+void QupZilla::aboutToHideViewMenu()
+{
+    m_actionReload->setEnabled(true);
+    m_actionStop->setEnabled(true);
+
+    if (m_mainLayout->count() == 4) {
+        SearchToolBar* search = qobject_cast<SearchToolBar*>( m_mainLayout->itemAt(3)->widget() );
+        if (!search)
+            return;
+        m_actionStop->setEnabled(false);
     }
 }
 
@@ -987,7 +1019,6 @@ void QupZilla::webSearch()
 
 void QupZilla::searchOnPage()
 {
-
     if (m_mainLayout->count() == 4) {
         SearchToolBar* search = qobject_cast<SearchToolBar*>( m_mainLayout->itemAt(3)->widget() );
         if (!search)
@@ -1104,6 +1135,80 @@ void QupZilla::startPrivate(bool state)
     mApp->history()->setSaving(!state);
     mApp->cookieJar()->turnPrivateJar(state);
     emit message(MainApplication::CheckPrivateBrowsing, state);
+}
+
+void QupZilla::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key()) {
+    case Qt::Key_Back:
+        weView()->back();
+        event->accept();
+        break;
+    case Qt::Key_Forward:
+        weView()->forward();
+        event->accept();
+        break;
+    case Qt::Key_Stop:
+        weView()->stop();
+        event->accept();
+        break;
+    case Qt::Key_Refresh:
+        weView()->reload();
+        event->accept();
+        break;
+    case Qt::Key_HomePage:
+        goHome();
+        event->accept();
+        break;
+    case Qt::Key_Favorites:
+        showBookmarksManager();
+        event->accept();
+        break;
+    case Qt::Key_Search:
+        searchOnPage();
+        event->accept();
+        break;
+    case Qt::Key_OpenUrl:
+        openLocation();
+        event->accept();
+        break;
+    case Qt::Key_History:
+        showHistoryManager();
+        event->accept();
+        break;
+    case Qt::Key_AddFavorite:
+        bookmarkPage();
+        event->accept();
+        break;
+    case Qt::Key_News:
+        showRSSManager();
+        event->accept();
+        break;
+    case Qt::Key_Tools:
+        showPreferences();
+        event->accept();
+        break;
+
+    default:
+        QMainWindow::keyPressEvent(event);
+        return;
+    }
+}
+
+void QupZilla::mousePressEvent(QMouseEvent* event)
+{
+    switch (event->button()) {
+    case Qt::XButton1:
+        weView()->back();
+        break;
+    case Qt::XButton2:
+        weView()->forward();
+        break;
+
+    default:
+        QMainWindow::mousePressEvent(event);
+        break;
+    }
 }
 
 void QupZilla::closeEvent(QCloseEvent* event)

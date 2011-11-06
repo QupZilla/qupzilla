@@ -446,31 +446,6 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
         QWebView::mouseReleaseEvent(event);
 }
 
-void WebView::keyPressEvent(QKeyEvent* event)
-{
-    switch (event->key()) {
-    case Qt::Key_Back:
-        back();
-        event->accept();
-        break;
-    case Qt::Key_Forward:
-        forward();
-        event->accept();
-        break;
-    case Qt::Key_Stop:
-        stop();
-        event->accept();
-        break;
-    case Qt::Key_Refresh:
-        reload();
-        event->accept();
-        break;
-    default:
-        QWebView::keyPressEvent(event);
-        return;
-    }
-}
-
 void WebView::mouseMoveEvent(QMouseEvent *event)
 {
     if (m_mouseTrack) {
@@ -903,7 +878,8 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
 
         return false;
     }
-    return QObject::eventFilter(obj, event);
+
+    return QWebView::eventFilter(obj, event);
 }
 
 WebView::~WebView()

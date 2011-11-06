@@ -35,6 +35,7 @@ public:
     explicit SourceViewerSearch(SourceViewer* parent = 0);
 
     void activateLineEdit();
+    bool eventFilter(QObject* obj, QEvent* event);
 
 signals:
 

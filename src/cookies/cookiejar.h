@@ -21,7 +21,6 @@
 #include <QNetworkCookieJar>
 #include <QDebug>
 #include <QSettings>
-#include <QDateTime>
 #include <QFile>
 
 class QupZilla;

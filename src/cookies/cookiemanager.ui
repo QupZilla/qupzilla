@@ -197,15 +197,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="removeCookie">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
+       <widget class="QPushButton" name="removeOne">
         <property name="text">
          <string>Remove cookie</string>
-        </property>
-        <property name="shortcut">
-         <string notr="true">Del</string>
         </property>
        </widget>
       </item>
