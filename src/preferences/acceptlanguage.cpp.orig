@@ -1,0 +1,214 @@
+/*
+ * Copyright 2009 Benjamin C. Meyer <ben@meyerhome.net>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301  USA
+ */
+/* ============================================================
+* QupZilla - WebKit based browser
+* Copyright (C) 2010-2011  David Rosca
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* ============================================================ */
+#include "acceptlanguage.h"
+#include "ui_acceptlanguage.h"
+#include "ui_addacceptlanguage.h"
+#include "mainapplication.h"
+#include <QDebug>
+
+QStringList AcceptLanguage::defaultLanguage()
+{
+    return QStringList(QLocale::system().name().replace("_", "-"));
+}
+
+QByteArray AcceptLanguage::generateHeader(const QStringList &langs)
+{
+    if (langs.count() == 0) {
+        return QByteArray();
+    }
+
+    QByteArray header;
+    header.append(langs.at(0));
+
+    int counter = 8;
+    for (int i = 1; i < langs.count(); i++) {
+        QString s = ", " + langs.at(i) + ";q=0,";
+        s.append(QString::number(counter));
+        if (counter != 2) {
+            counter -= 2;
+        }
+
+        header.append(s);
+    }
+    header.append(", *");
+
+    return header;
+}
+
+AcceptLanguage::AcceptLanguage(QWidget* parent)
+    : QDialog(parent)
+    , ui(new Ui::AcceptLanguage)
+{
+    ui->setupUi(this);
+
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    settings.beginGroup("Language");
+    QStringList langs = settings.value("acceptLanguage", defaultLanguage()).toStringList();
+
+    foreach(QString code, langs) {
+        QString code_ = code;
+        QLocale loc = QLocale(code_.replace("-", "_"));
+        QString label;
+
+        if (loc.language() == QLocale::C) {
+            label = tr("Personal [%1]").arg(code);
+        } else {
+            label = QString("%1/%2 [%3]").arg(loc.languageToString(loc.language()), loc.countryToString(loc.country()), code);
+        }
+
+        ui->listWidget->addItem(label);
+    }
+
+    connect(ui->add, SIGNAL(clicked()), this, SLOT(addLanguage()));
+    connect(ui->remove, SIGNAL(clicked()), this, SLOT(removeLanguage()));
+    connect(ui->up, SIGNAL(clicked()), this, SLOT(upLanguage()));
+    connect(ui->down, SIGNAL(clicked()), this, SLOT(downLanguage()));
+}
+
+QStringList AcceptLanguage::expand(const QLocale::Language &language)
+{
+    QStringList allLanguages;
+    QList<QLocale::Country> countries = QLocale::countriesForLanguage(language);
+    for (int j = 0; j < countries.size(); ++j) {
+        QString languageString;
+        if (countries.count() == 1) {
+            languageString = QString(QLatin1String("%1 [%2]"))
+                             .arg(QLocale::languageToString(language))
+                             .arg(QLocale(language).name().split(QLatin1Char('_')).at(0));
+        } else {
+            languageString = QString(QLatin1String("%1/%2 [%3]"))
+                             .arg(QLocale::languageToString(language))
+                             .arg(QLocale::countryToString(countries.at(j)))
+                             .arg(QLocale(language, countries.at(j)).name().split(QLatin1Char('_')).join(QLatin1String("-")).toLower());
+
+        }
+        if (!allLanguages.contains(languageString)) {
+            allLanguages.append(languageString);
+        }
+    }
+    return allLanguages;
+}
+
+void AcceptLanguage::addLanguage()
+{
+    Ui_AddAcceptLanguage _ui = Ui_AddAcceptLanguage();
+    QDialog dialog(this);
+    _ui.setupUi(&dialog);
+
+    QStringList allLanguages;
+    for (int i = 1 + (int)QLocale::C; i <= (int)QLocale::LastLanguage; ++i) {
+        allLanguages += expand(QLocale::Language(i));
+    }
+
+    _ui.listWidget->addItems(allLanguages);
+
+    connect(_ui.listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), &dialog, SLOT(accept()));
+
+    if (dialog.exec() == QDialog::Rejected) {
+        return;
+    }
+
+    if (!_ui.ownDefinition->text().isEmpty()) {
+        QString title = tr("Personal [%1]").arg(_ui.ownDefinition->text());
+        ui->listWidget->addItem(title);
+    } else {
+        QListWidgetItem* c = _ui.listWidget->currentItem();
+        if (!c) {
+            return;
+        }
+
+        ui->listWidget->addItem(c->text());
+    }
+
+}
+
+void AcceptLanguage::removeLanguage()
+{
+    QListWidgetItem* currentItem = ui->listWidget->currentItem();
+    if (currentItem) {
+        delete currentItem;
+    }
+}
+
+void AcceptLanguage::upLanguage()
+{
+    int index = ui->listWidget->currentRow();
+    QListWidgetItem* currentItem = ui->listWidget->currentItem();
+
+    if (!currentItem || index == 0) {
+        return;
+    }
+
+    ui->listWidget->takeItem(index);
+    ui->listWidget->insertItem(index - 1, currentItem);
+    ui->listWidget->setCurrentItem(currentItem);
+}
+
+void AcceptLanguage::downLanguage()
+{
+    int index = ui->listWidget->currentRow();
+    QListWidgetItem* currentItem = ui->listWidget->currentItem();
+
+    if (!currentItem || index == ui->listWidget->count() - 1) {
+        return;
+    }
+
+    ui->listWidget->takeItem(index);
+    ui->listWidget->insertItem(index + 1, currentItem);
+    ui->listWidget->setCurrentItem(currentItem);
+}
+
+void AcceptLanguage::accept()
+{
+    QStringList langs;
+    for (int i = 0; i < ui->listWidget->count(); i++) {
+        QString t = ui->listWidget->item(i)->text();
+        QString code = t.mid(t.indexOf("[") + 1);
+        code.remove("]");
+        langs.append(code);
+    }
+
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    settings.beginGroup("Language");
+    settings.setValue("acceptLanguage", langs);
+
+    QDialog::close();
+}
+
+AcceptLanguage::~AcceptLanguage()
+{
+    delete ui;
+}
