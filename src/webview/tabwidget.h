@@ -44,7 +44,7 @@ class TabWidget : public QTabWidget
 public:
     explicit TabWidget(QupZilla* mainclass, QWidget* parent = 0);
     ~TabWidget();
-    enum OpenUrlIn{ CurrentTab, NewSelectedTab, NewNotSelectedTab, NewTab = NewSelectedTab };
+    enum OpenUrlIn { CurrentTab, NewSelectedTab, NewNotSelectedTab, NewTab = NewSelectedTab };
 
     QByteArray saveState();
     bool restoreState(const QByteArray &state);
@@ -67,7 +67,7 @@ signals:
     void pinnedTabAdded();
 
 public slots:
-    void closeTab(int index=-1);
+    void closeTab(int index = -1);
     int addView(QUrl url = QUrl(), const QString &title = tr("New tab"), OpenUrlIn openIn = NewTab, bool selectLine = false);
     void reloadTab(int index) { weView(index)->reload(); }
     void reloadAllTabs();
@@ -91,7 +91,7 @@ private slots:
     void tabMoved(int before, int after);
 
 private:
-    void resizeEvent(QResizeEvent *e);
+    void resizeEvent(QResizeEvent* e);
     inline WebView* weView() { WebTab* webTab = qobject_cast<WebTab*>(widget(currentIndex())); if (!webTab) return 0; return webTab->view(); }
     inline WebView* weView(int index) { WebTab* webTab = qobject_cast<WebTab*>(widget(index)); if (!webTab) return 0; return webTab->view(); }
 

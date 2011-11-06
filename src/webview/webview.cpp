@@ -99,8 +99,9 @@ void WebView::slotIconChanged()
 {
     m_siteIcon = icon();
 
-    if (url().toString().contains("file://") || title().contains(tr("Failed loading page")))
+    if (url().toString().contains("file://") || title().contains(tr("Failed loading page"))) {
         return;
+    }
 
     mApp->iconProvider()->saveIcon(this);
 }
@@ -141,22 +142,26 @@ WebTab* WebView::webTab() const
 
 bool WebView::isCurrent()
 {
-    if (!tabWidget())
+    if (!tabWidget()) {
         return false;
+    }
     WebTab* webTab = qobject_cast<WebTab*>(tabWidget()->widget(tabWidget()->currentIndex()));
-    if (!webTab)
+    if (!webTab) {
         return false;
+    }
 
     return (webTab->view() == this);
 }
 
 void WebView::urlChanged(const QUrl &url)
 {
-    if (isCurrent())
+    if (isCurrent()) {
         p_QupZilla->navigationBar()->refreshHistory();
+    }
 
-    if (m_lastUrl != url)
+    if (m_lastUrl != url) {
         emit changed();
+    }
 
     emit showUrl(url);
 }
@@ -170,8 +175,9 @@ void WebView::setProgress(int prog)
 {
     m_progress = prog;
 
-    if (prog > 60)
+    if (prog > 60) {
         checkRss();
+    }
 
     if (isCurrent()) {
         p_QupZilla->ipLabel()->hide();
@@ -188,10 +194,11 @@ void WebView::loadStarted()
     m_rssChecked = false;
     emit rssChanged(false);
 
-    animationLoading(tabIndex(),true);
+    animationLoading(tabIndex(), true);
 
-    if (title().isNull())
-        tabWidget()->setTabText(tabIndex(),tr("Loading..."));
+    if (title().isNull()) {
+        tabWidget()->setTabText(tabIndex(), tr("Loading..."));
+    }
 
     m_currentIp.clear();
 
@@ -204,8 +211,9 @@ void WebView::loadStarted()
 
 QLabel* WebView::animationLoading(int index, bool addMovie)
 {
-    if (-1 == index)
+    if (-1 == index) {
         return 0;
+    }
 
     QLabel* loadingAnimation = qobject_cast<QLabel*>(tabWidget()->getTabBar()->tabButton(index, QTabBar::LeftSide));
     if (!loadingAnimation) {
@@ -218,8 +226,9 @@ QLabel* WebView::animationLoading(int index, bool addMovie)
         loadingAnimation->setMovie(movie);
         movie->start();
     }
-    else if (loadingAnimation->movie())
+    else if (loadingAnimation->movie()) {
         loadingAnimation->movie()->stop();
+    }
 
     tabWidget()->getTabBar()->setTabButton(index, QTabBar::LeftSide, 0);
     tabWidget()->getTabBar()->setTabButton(index, QTabBar::LeftSide, loadingAnimation);
@@ -238,28 +247,33 @@ void WebView::stopAnimation()
 
 void WebView::setIp(const QHostInfo &info)
 {
-    if (info.addresses().isEmpty())
+    if (info.addresses().isEmpty()) {
         return;
-    m_currentIp = info.hostName() + " ("+info.addresses().at(0).toString()+")";
+    }
+    m_currentIp = info.hostName() + " (" + info.addresses().at(0).toString() + ")";
 
-    if (isCurrent())
+    if (isCurrent()) {
         emit ipChanged(m_currentIp);
+    }
 }
 
 void WebView::loadFinished(bool state)
 {
     Q_UNUSED(state);
 
-    if (mApp->isClosing() || p_QupZilla->isClosing())
+    if (mApp->isClosing() || p_QupZilla->isClosing()) {
         return;
+    }
 
-    if (animationLoading(tabIndex(), false)->movie())
+    if (animationLoading(tabIndex(), false)->movie()) {
         animationLoading(tabIndex(), false)->movie()->stop();
+    }
 
     m_isLoading = false;
 
-    if (m_lastUrl != url())
+    if (m_lastUrl != url()) {
         mApp->history()->addHistoryEntry(this);
+    }
 
     emit showUrl(url());
 
@@ -267,8 +281,9 @@ void WebView::loadFinished(bool state)
     m_lastUrl = url();
 
     //Icon is sometimes not available at the moment of finished loading
-    if (icon().isNull())
+    if (icon().isNull()) {
         QTimer::singleShot(1000, this, SLOT(iconChanged()));
+    }
 
     titleChanged();
     mApp->autoFill()->completePage(this);
@@ -287,39 +302,46 @@ void WebView::titleChanged()
 {
     QString title_ = title();
     QString title2 = title_;
-    tabWidget()->setTabToolTip(tabIndex(),title2);
+    tabWidget()->setTabToolTip(tabIndex(), title2);
 
     title2 += " - QupZilla";
-    if (isCurrent())
+    if (isCurrent()) {
         p_QupZilla->setWindowTitle(title2);
+    }
 
     tabWidget()->setTabText(tabIndex(), title_);
 }
 
 void WebView::iconChanged()
 {
-    if (mApp->isClosing() || p_QupZilla->isClosing())
+    if (mApp->isClosing() || p_QupZilla->isClosing()) {
         return;
+    }
 
 //    if (isCurrent())
-        emit siteIconChanged();
+    emit siteIconChanged();
 
-    if (m_isLoading)
+    if (m_isLoading) {
         return;
+    }
 
     QIcon icon_ = siteIcon();
-    if (!icon_.isNull())
-        animationLoading(tabIndex(), false)->setPixmap(icon_.pixmap(16,16));
-    else
-        animationLoading(tabIndex(), false)->setPixmap(IconProvider::fromTheme("text-plain").pixmap(16,16));
+    if (!icon_.isNull()) {
+        animationLoading(tabIndex(), false)->setPixmap(icon_.pixmap(16, 16));
+    }
+    else {
+        animationLoading(tabIndex(), false)->setPixmap(IconProvider::fromTheme("text-plain").pixmap(16, 16));
+    }
 }
 
 QIcon WebView::siteIcon()
 {
-    if (!icon().isNull())
+    if (!icon().isNull()) {
         return icon();
-    if (!m_siteIcon.isNull())
+    }
+    if (!m_siteIcon.isNull()) {
         return m_siteIcon;
+    }
     return _iconForUrl(url());
 }
 
@@ -328,10 +350,12 @@ void WebView::linkHovered(const QString &link, const QString &title, const QStri
     Q_UNUSED(title);
     Q_UNUSED(content);
     if (isCurrent()) {
-        if (link!="")
+        if (link != "") {
             p_QupZilla->statusBarMessage()->showMessage(link);
-        else
+        }
+        else {
             p_QupZilla->statusBarMessage()->clearMessage();
+        }
     }
     m_hoveredLink = link;
 }
@@ -340,8 +364,9 @@ TabWidget* WebView::tabWidget() const
 {
     QObject* widget = this->parent();
     while (widget) {
-        if (TabWidget* tw = qobject_cast<TabWidget*>(widget))
+        if (TabWidget* tw = qobject_cast<TabWidget*>(widget)) {
             return tw;
+        }
         widget = widget->parent();
     }
     return 0;
@@ -350,11 +375,12 @@ TabWidget* WebView::tabWidget() const
 int WebView::tabIndex() const
 {
     TabWidget* tabWid = tabWidget();
-    if (!tabWid)
+    if (!tabWid) {
         return -1;
+    }
 
     int i = 0;
-    while(qobject_cast<WebTab*>(tabWid->widget(i))->view()!=this) {
+    while (qobject_cast<WebTab*>(tabWid->widget(i))->view() != this) {
         i++;
     }
     return i;
@@ -366,12 +392,14 @@ QUrl WebView::guessUrlFromString(const QString &string)
 
     // Check the most common case of a valid url with scheme and host first
     QUrl url = QUrl::fromEncoded(trimmedString.toUtf8(), QUrl::TolerantMode);
-    if (url.isValid() && !url.scheme().isEmpty() && !url.host().isEmpty())
+    if (url.isValid() && !url.scheme().isEmpty() && !url.host().isEmpty()) {
         return url;
+    }
 
     // Absolute files that exists
-    if (QDir::isAbsolutePath(trimmedString) && QFile::exists(trimmedString))
+    if (QDir::isAbsolutePath(trimmedString) && QFile::exists(trimmedString)) {
         return QUrl::fromLocalFile(trimmedString);
+    }
 
     // If the string is missing the scheme or the scheme is not valid prepend a scheme
     QString scheme = url.scheme();
@@ -386,16 +414,18 @@ QUrl WebView::guessUrlFromString(const QString &string)
         url = QUrl::fromEncoded(trimmedString.toUtf8(), QUrl::TolerantMode);
     }
 
-    if (url.isValid())
+    if (url.isValid()) {
         return url;
+    }
 
     return QUrl();
 }
 
 void WebView::checkRss()
 {
-    if (m_rssChecked)
+    if (m_rssChecked) {
         return;
+    }
 
     m_rssChecked = true;
     QWebFrame* frame = page()->mainFrame();
@@ -415,16 +445,19 @@ void WebView::mousePressEvent(QMouseEvent* event)
         forward();
         break;
     case Qt::MiddleButton:
-        if (isUrlValid(QUrl(m_hoveredLink)))
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toAscii()),tr("New tab"), TabWidget::NewNotSelectedTab);
+        if (isUrlValid(QUrl(m_hoveredLink))) {
+            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toAscii()), tr("New tab"), TabWidget::NewNotSelectedTab);
+            event->accept();
+        }
 #ifdef Q_WS_WIN
-        else
+        else {
             QWebView::mouseDoubleClickEvent(event);
+        }
 #endif
         break;
     case Qt::LeftButton:
         if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toAscii()),tr("New tab"), TabWidget::NewNotSelectedTab);
+            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toAscii()), tr("New tab"), TabWidget::NewNotSelectedTab);
             return;
         }
     default:
@@ -433,7 +466,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
     }
 }
 
-void WebView::resizeEvent(QResizeEvent *event)
+void WebView::resizeEvent(QResizeEvent* event)
 {
     QWebView::resizeEvent(event);
     emit viewportResized(m_page->viewportSize());
@@ -442,17 +475,19 @@ void WebView::resizeEvent(QResizeEvent *event)
 void WebView::mouseReleaseEvent(QMouseEvent* event)
 {
     //Workaround for crash in mouseReleaseEvent when closing tab from javascript :/
-    if (!m_wantsClose)
+    if (!m_wantsClose) {
         QWebView::mouseReleaseEvent(event);
+    }
 }
 
-void WebView::mouseMoveEvent(QMouseEvent *event)
+void WebView::mouseMoveEvent(QMouseEvent* event)
 {
     if (m_mouseTrack) {
         if (m_navigationVisible) {
             m_navigationVisible = false;
             p_QupZilla->showNavigationWithFullscreen();
-        } else if (event->y() < 5) {
+        }
+        else if (event->y() < 5) {
             m_navigationVisible = true;
             p_QupZilla->showNavigationWithFullscreen();
         }
@@ -466,9 +501,10 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
 
     QWebHitTestResult r = page()->mainFrame()->hitTestContent(event->pos());
 
-    if (!r.linkUrl().isEmpty() && r.linkUrl().scheme()!="javascript") {
-        if (page()->selectedText() == r.linkText())
+    if (!r.linkUrl().isEmpty() && r.linkUrl().scheme() != "javascript") {
+        if (page()->selectedText() == r.linkText()) {
             findText("");
+        }
         menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInNewTab()))->setData(r.linkUrl());
         menu->addAction(tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(r.linkUrl());
         menu->addSeparator();
@@ -477,13 +513,15 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addAction(tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
         menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(r.linkUrl());
         menu->addSeparator();
-        if (!selectedText().isEmpty())
+        if (!selectedText().isEmpty()) {
             menu->addAction(pageAction(QWebPage::Copy));
+        }
     }
 
     if (!r.imageUrl().isEmpty()) {
-        if (!menu->isEmpty())
+        if (!menu->isEmpty()) {
             menu->addSeparator();
+        }
         menu->addAction(tr("Show i&mage"), this, SLOT(showImage()))->setData(r.imageUrl());
         menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(r.imageUrl());
         menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(r.imageUrl());
@@ -492,17 +530,18 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addAction(tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
         menu->addSeparator();
         //menu->addAction(tr("Block image"), this, SLOT(blockImage()))->setData(r.imageUrl().toString());
-        if (!selectedText().isEmpty())
+        if (!selectedText().isEmpty()) {
             menu->addAction(pageAction(QWebPage::Copy));
+        }
     }
 
     QWebElement element = r.element();
-       if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea")) {
-           if (menu->isEmpty()) {
-               delete menu;
-               menu = page()->createStandardContextMenu();
-           }
-       }
+    if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea")) {
+        if (menu->isEmpty()) {
+            delete menu;
+            menu = page()->createStandardContextMenu();
+        }
+    }
 
     if (menu->isEmpty()) {
         QAction* action = menu->addAction(tr("&Back"), this, SLOT(back()));
@@ -524,12 +563,13 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         menu->addAction(tr("Send page..."), this, SLOT(sendLinkByMail()))->setData(url());
         menu->addSeparator();
         menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
-        if (!selectedText().isEmpty())
+        if (!selectedText().isEmpty()) {
             menu->addAction(pageAction(QWebPage::Copy));
+        }
 
         menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("text-html"),tr("Show so&urce code"), this, SLOT(showSource()));
-        menu->addAction(QIcon::fromTheme("dialog-information"),tr("Show info ab&out site"), this, SLOT(showSiteInfo()))->setData(url());
+        menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
+        menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()))->setData(url());
         menu->addAction(tr("Show Web &Inspector"), this, SLOT(showInspector()));
     }
 
@@ -552,7 +592,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
     if (!menu->isEmpty()) {
         //Prevent choosing first option with double rightclick
         QPoint pos = QCursor::pos();
-        QPoint p(pos.x(), pos.y()+1);
+        QPoint p(pos.x(), pos.y() + 1);
         menu->exec(p);
         delete menu;
         return;
@@ -568,8 +608,9 @@ void WebView::stop()
         page()->triggerAction(QWebPage::Stop);
         loadFinished(true);
 
-        if (m_locationBar->text().isEmpty())
+        if (m_locationBar->text().isEmpty()) {
             m_locationBar->setText(url().toEncoded());
+        }
     }
 }
 
@@ -595,7 +636,7 @@ void WebView::openUrlInNewWindow()
 void WebView::sendLinkByMail()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        QDesktopServices::openUrl(QUrl("mailto:?body="+action->data().toString()));
+        QDesktopServices::openUrl(QUrl("mailto:?body=" + action->data().toString()));
     }
 }
 
@@ -668,10 +709,12 @@ void WebView::downloadRequested(const QNetworkRequest &request)
 void WebView::bookmarkLink()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        if (action->data().isNull())
+        if (action->data().isNull()) {
             p_QupZilla->bookmarkPage();
-        else
+        }
+        else {
             p_QupZilla->addBookmark(action->data().toUrl(), action->data().toString(), siteIcon());
+        }
     }
 }
 
@@ -694,8 +737,9 @@ void WebView::zoomIn()
 {
     int i = m_zoomLevels.indexOf(m_currentZoom);
 
-    if (i < m_zoomLevels.count() - 1)
+    if (i < m_zoomLevels.count() - 1) {
         m_currentZoom = m_zoomLevels[i + 1];
+    }
     applyZoom();
 }
 
@@ -703,8 +747,9 @@ void WebView::zoomOut()
 {
     int i = m_zoomLevels.indexOf(m_currentZoom);
 
-    if (i > 0)
+    if (i > 0) {
         m_currentZoom = m_zoomLevels[i - 1];
+    }
     applyZoom();
 }
 
@@ -719,27 +764,32 @@ void WebView::wheelEvent(QWheelEvent* event)
     if (event->modifiers() & Qt::ControlModifier) {
         int numDegrees = event->delta() / 8;
         int numSteps = numDegrees / 15;
-        if (numSteps == 1)
+        if (numSteps == 1) {
             zoomIn();
-        else
+        }
+        else {
             zoomOut();
+        }
         event->accept();
         return;
     }
-    if (m_mouseWheelEnabled)
+    if (m_mouseWheelEnabled) {
         QWebView::wheelEvent(event);
+    }
 }
 
 void WebView::getFocus(const QUrl &urla)
 {
-    if (urla == url())
+    if (urla == url()) {
         tabWidget()->setCurrentWidget(this);
+    }
 }
 
 void WebView::closeTab()
 {
-    if (m_wantsClose)
+    if (m_wantsClose) {
         emit wantsCloseTab(tabIndex());
+    }
     else {
         m_wantsClose = true;
         QTimer::singleShot(20, this, SLOT(closeTab()));
@@ -767,7 +817,7 @@ void WebView::load(const QUrl &url)
 
 #ifdef Q_WS_WIN
     if (QFile::exists(url.path().mid(1))) // From QUrl(file:///C:/Bla/ble/foo.html it returns
-                                          // /C:/Bla/ble/foo.html ... so we cut first char
+        // /C:/Bla/ble/foo.html ... so we cut first char
 #else
     if (QFile::exists(url.path()))
 #endif
@@ -783,18 +833,24 @@ void WebView::load(const QUrl &url)
 QUrl WebView::url() const
 {
     QUrl ur = QWebView::url();
-    if (ur.isEmpty() && !m_aboutToLoadUrl.isEmpty())
+    if (ur.isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
         return m_aboutToLoadUrl;
+    }
     return ur;
 }
 
 QString WebView::title() const
 {
     QString title = QWebView::title();
-    if (title.isEmpty()) title = url().host();
-    if (title.isEmpty()) title = url().path();
-    if (title.isEmpty())
+    if (title.isEmpty()) {
+        title = url().host();
+    }
+    if (title.isEmpty()) {
+        title = url().path();
+    }
+    if (title.isEmpty()) {
         return tr("No Named Page");
+    }
     return title;
 }
 
@@ -810,11 +866,13 @@ void WebView::reload()
 
 bool WebView::isUrlValid(const QUrl &url)
 {
-    if (url.scheme() == "qupzilla")
+    if (url.scheme() == "qupzilla") {
         return true;
+    }
 
-    if (url.isValid() && !url.host().isEmpty() && !url.scheme().isEmpty())
+    if (url.isValid() && !url.host().isEmpty() && !url.scheme().isEmpty()) {
         return true;
+    }
     return false;
 }
 
@@ -826,22 +884,25 @@ bool WebView::isUrlValid(const QUrl &url)
 bool WebView::eventFilter(QObject* obj, QEvent* event)
 {
     if (event->type() == QEvent::MouseButtonPress ||
-        event->type() == QEvent::MouseButtonRelease ||
-        event->type() == QEvent::MouseButtonDblClick ||
-        event->type() == QEvent::MouseMove) {
+            event->type() == QEvent::MouseButtonRelease ||
+            event->type() == QEvent::MouseButtonDblClick ||
+            event->type() == QEvent::MouseMove) {
 
         QMouseEvent* ev = static_cast<QMouseEvent*>(event);
         if (ev->type() == QEvent::MouseMove
-                && !(ev->buttons() & Qt::LeftButton))
+                && !(ev->buttons() & Qt::LeftButton)) {
             return false;
+        }
 
         QTouchEvent::TouchPoint touchPoint;
         touchPoint.setState(Qt::TouchPointMoved);
         if ((ev->type() == QEvent::MouseButtonPress
-             || ev->type() == QEvent::MouseButtonDblClick))
+                || ev->type() == QEvent::MouseButtonDblClick)) {
             touchPoint.setState(Qt::TouchPointPressed);
-        else if (ev->type() == QEvent::MouseButtonRelease)
+        }
+        else if (ev->type() == QEvent::MouseButtonRelease) {
             touchPoint.setState(Qt::TouchPointReleased);
+        }
 
         touchPoint.setId(0);
         touchPoint.setScreenPos(ev->globalPos());
@@ -849,20 +910,25 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
         touchPoint.setPressure(1);
 
         // If the point already exists, update it. Otherwise create it.
-        if (m_touchPoints.size() > 0 && !m_touchPoints[0].id())
+        if (m_touchPoints.size() > 0 && !m_touchPoints[0].id()) {
             m_touchPoints[0] = touchPoint;
-        else if (m_touchPoints.size() > 1 && !m_touchPoints[1].id())
+        }
+        else if (m_touchPoints.size() > 1 && !m_touchPoints[1].id()) {
             m_touchPoints[1] = touchPoint;
-        else
+        }
+        else {
             m_touchPoints.append(touchPoint);
+        }
 
         if (!m_touchPoints.isEmpty()) {
             QEvent::Type type = QEvent::TouchUpdate;
             if (m_touchPoints.size() == 1) {
-                if (m_touchPoints[0].state() == Qt::TouchPointReleased)
+                if (m_touchPoints[0].state() == Qt::TouchPointReleased) {
                     type = QEvent::TouchEnd;
-                else if (m_touchPoints[0].state() == Qt::TouchPointPressed)
+                }
+                else if (m_touchPoints[0].state() == Qt::TouchPointPressed) {
                     type = QEvent::TouchBegin;
+                }
             }
 
             QTouchEvent touchEv(type);
@@ -870,10 +936,12 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
             QCoreApplication::sendEvent(page(), &touchEv);
 
             // After sending the event, remove all touchpoints that were released
-            if (m_touchPoints[0].state() == Qt::TouchPointReleased)
+            if (m_touchPoints[0].state() == Qt::TouchPointReleased) {
                 m_touchPoints.removeAt(0);
-            if (m_touchPoints.size() > 1 && m_touchPoints[1].state() == Qt::TouchPointReleased)
+            }
+            if (m_touchPoints.size() > 1 && m_touchPoints[1].state() == Qt::TouchPointReleased) {
                 m_touchPoints.removeAt(1);
+            }
         }
 
         return false;

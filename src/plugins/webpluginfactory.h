@@ -28,7 +28,7 @@ class WebPluginFactory : public QWebPluginFactory
 
 public:
     WebPluginFactory(QObject* parent);
-    virtual QObject* create (const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const;
+    virtual QObject* create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const;
     QList<QWebPluginFactory::Plugin> plugins() const;
 
 private:

@@ -51,8 +51,9 @@ void SourceViewerSearch::activateLineEdit()
 void SourceViewerSearch::next()
 {
     bool found = find(0);
-    if (!found)
+    if (!found) {
         m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
+    }
 
     ui->lineEdit->setProperty("notfound", !found);
 
@@ -63,8 +64,9 @@ void SourceViewerSearch::next()
 void SourceViewerSearch::previous()
 {
     bool found = find(QTextDocument::FindBackward);
-    if (!found)
+    if (!found) {
         m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
+    }
 
     ui->lineEdit->setProperty("notfound", !found);
 
@@ -75,8 +77,9 @@ void SourceViewerSearch::previous()
 bool SourceViewerSearch::find(QTextDocument::FindFlags flags)
 {
     QString string = ui->lineEdit->text();
-    if (string.isEmpty())
+    if (string.isEmpty()) {
         return true;
+    }
     if (string != m_lastSearchedString) {
         QTextCursor cursor = m_sourceViewer->sourceEdit()->textCursor();
         cursor.setPosition(cursor.selectionStart());
@@ -87,8 +90,8 @@ bool SourceViewerSearch::find(QTextDocument::FindFlags flags)
 
     if (!m_sourceViewer->sourceEdit()->find(string, flags)) {
         QTextCursor cursor = m_sourceViewer->sourceEdit()->textCursor();
-        m_sourceViewer->sourceEdit()->moveCursor( (flags == QTextDocument::FindBackward ) ? QTextCursor::End : QTextCursor::Start );
-        if (!m_sourceViewer->sourceEdit()->find(string,flags)) {
+        m_sourceViewer->sourceEdit()->moveCursor((flags == QTextDocument::FindBackward) ? QTextCursor::End : QTextCursor::Start);
+        if (!m_sourceViewer->sourceEdit()->find(string, flags)) {
             cursor.clearSelection();
             m_sourceViewer->sourceEdit()->setTextCursor(cursor);
             return false;

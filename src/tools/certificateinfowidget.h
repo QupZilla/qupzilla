@@ -23,8 +23,9 @@
 #include <QDateTime>
 #include <QTextDocument>
 
-namespace Ui {
-    class CertificateInfoWidget;
+namespace Ui
+{
+class CertificateInfoWidget;
 }
 
 class CertificateInfoWidget : public QWidget
@@ -32,7 +33,7 @@ class CertificateInfoWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit CertificateInfoWidget(const QSslCertificate &cert, QWidget *parent = 0);
+    explicit CertificateInfoWidget(const QSslCertificate &cert, QWidget* parent = 0);
     ~CertificateInfoWidget();
 
     static QString showCertInfo(const QString &string);
@@ -40,7 +41,7 @@ public:
     static QString certificateItemText(const QSslCertificate &cert);
 
 private:
-    Ui::CertificateInfoWidget *ui;
+    Ui::CertificateInfoWidget* ui;
 };
 
 #endif // CERTIFICATEINFOWIDGET_H

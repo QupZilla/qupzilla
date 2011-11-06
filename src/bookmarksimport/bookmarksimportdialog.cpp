@@ -44,10 +44,11 @@ void BookmarksImportDialog::nextPage()
 {
     switch (m_currentPage) {
     case 0:
-        if (!ui->browserList->currentItem())
+        if (!ui->browserList->currentItem()) {
             return;
+        }
 
-        m_browser = (Browser) (ui->browserList->currentRow());
+        m_browser = (Browser)(ui->browserList->currentRow());
         setupBrowser(m_browser);
         ui->iconLabel->setPixmap(m_browserPixmap);
         ui->importingFromLabel->setText(tr("<b>Importing from %1</b>").arg(m_browserName));
@@ -61,8 +62,9 @@ void BookmarksImportDialog::nextPage()
         break;
 
     case 1:
-        if (ui->fileLine->text().isEmpty())
+        if (ui->fileLine->text().isEmpty()) {
             return;
+        }
 
         if (exportedOK()) {
             m_currentPage++;
@@ -89,7 +91,7 @@ void BookmarksImportDialog::startFetchingIcons()
     ui->progressBar->setMaximum(m_exportedBookmarks.count());
 
     int i = 0;
-    foreach (BookmarksModel::Bookmark b, m_exportedBookmarks) {
+    foreach(BookmarksModel::Bookmark b, m_exportedBookmarks) {
         QTreeWidgetItem* item = new QTreeWidgetItem();
         item->setText(0, b.title);
         item->setIcon(0, QWebSettings::globalSettings()->webGraphic(QWebSettings::DefaultFrameIconGraphic));
@@ -132,8 +134,9 @@ void BookmarksImportDialog::loadFinished()
 void BookmarksImportDialog::iconFetched(const QIcon &icon)
 {
     IconFetcher* fetcher = qobject_cast<IconFetcher*>(sender());
-    if (!fetcher)
+    if (!fetcher) {
         return;
+    }
 
     QUrl url;
     for (int i = 0; i < m_fetchers.count(); i++) {
@@ -144,17 +147,19 @@ void BookmarksImportDialog::iconFetched(const QIcon &icon)
         }
     }
 
-    if (url.isEmpty())
+    if (url.isEmpty()) {
         return;
+    }
 
     QList<QTreeWidgetItem*> items = ui->treeWidget->findItems(url.toString(), Qt::MatchExactly, 1);
-    if (items.count() == 0)
+    if (items.count() == 0) {
         return;
+    }
 
-    foreach (QTreeWidgetItem* item, items) {
+    foreach(QTreeWidgetItem * item, items) {
         item->setIcon(0, icon);
 
-        foreach (BookmarksModel::Bookmark b, m_exportedBookmarks) {
+        foreach(BookmarksModel::Bookmark b, m_exportedBookmarks) {
             if (b.url == url) {
                 m_exportedBookmarks.removeOne(b);
                 b.icon = icon;
@@ -170,30 +175,35 @@ bool BookmarksImportDialog::exportedOK()
     if (m_browser == Firefox) {
         FirefoxImporter firefox(this);
         firefox.setFile(ui->fileLine->text());
-        if (firefox.openDatabase())
+        if (firefox.openDatabase()) {
             m_exportedBookmarks = firefox.exportBookmarks();
+        }
 
         if (firefox.error()) {
             QMessageBox::critical(this, tr("Error!"), firefox.errorString());
             return false;
         }
         return true;
-    } else if (m_browser == Chrome) {
+    }
+    else if (m_browser == Chrome) {
         ChromeImporter chrome(this);
         chrome.setFile(ui->fileLine->text());
-        if (chrome.openFile())
+        if (chrome.openFile()) {
             m_exportedBookmarks = chrome.exportBookmarks();
+        }
 
         if (chrome.error()) {
             QMessageBox::critical(this, tr("Error!"), chrome.errorString());
             return false;
         }
         return true;
-    } else if (m_browser == Opera) {
+    }
+    else if (m_browser == Opera) {
         OperaImporter opera(this);
         opera.setFile(ui->fileLine->text());
-        if (opera.openFile())
+        if (opera.openFile()) {
             m_exportedBookmarks = opera.exportBookmarks();
+        }
 
         if (opera.error()) {
             QMessageBox::critical(this, tr("Error!"), opera.errorString());
@@ -210,14 +220,17 @@ void BookmarksImportDialog::setFile()
 #ifdef Q_WS_WIN
     if (m_browser == IE) {
         QString path = QFileDialog::getExistingDirectory(this, tr("Choose directory..."));
-        if (!path.isEmpty())
+        if (!path.isEmpty()) {
             ui->fileLine->setText(path);
-    } else
+        }
+    }
+    else
 #endif
     {
         QString path = QFileDialog::getOpenFileName(this, tr("Choose file..."), QDir::homePath(), m_browserBookmarkFile);
-        if (!path.isEmpty())
+        if (!path.isEmpty()) {
             ui->fileLine->setText(path);
+        }
     }
 
     ui->nextButton->setEnabled(!ui->fileLine->text().isEmpty());
@@ -229,11 +242,12 @@ void BookmarksImportDialog::addExportedBookmarks()
 
     BookmarksModel* model = mApp->bookmarksModel();
 
-    if (m_exportedBookmarks.count() > 0)
-       model->createFolder(m_exportedBookmarks.at(0).folder);
+    if (m_exportedBookmarks.count() > 0) {
+        model->createFolder(m_exportedBookmarks.at(0).folder);
+    }
 
-    foreach (BookmarksModel::Bookmark b, m_exportedBookmarks)
-        model->saveBookmark(b.url, b.title, b.icon, b.folder);
+    foreach(BookmarksModel::Bookmark b, m_exportedBookmarks)
+    model->saveBookmark(b.url, b.title, b.icon, b.folder);
 
     qApp->restoreOverrideCursor();
 }
@@ -250,9 +264,9 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
         m_browserFileText2 = tr("Please choose this file to begin importing bookmarks.");
         m_standardDir =
 #ifdef Q_WS_WIN
-                    "%APPDATA%/Mozilla/";
+            "%APPDATA%/Mozilla/";
 #else
-                    "/home/user/.mozilla/firefox/profilename/";
+            "/home/user/.mozilla/firefox/profilename/";
 #endif
         break;
 
@@ -281,9 +295,9 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
         m_browserFileText2 = tr("Please choose this file to begin importing bookmarks.");
         m_standardDir =
 #ifdef Q_WS_WIN
-                                "%APPDATA%/Chrome/Default/";
+            "%APPDATA%/Chrome/Default/";
 #else
-                                "/home/user/.opera/";
+            "/home/user/.opera/";
 #endif
         break;
 
@@ -304,7 +318,8 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
 BookmarksImportDialog::~BookmarksImportDialog()
 {
     if (m_fetchers.count() > 0) {
-        for (int i = 0; i < m_fetchers.count(); i++) {tr("");
+        for (int i = 0; i < m_fetchers.count(); i++) {
+            tr("");
             IconFetcher* fetcher = m_fetchers.at(i).first;
             delete fetcher;
         }

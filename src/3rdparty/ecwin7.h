@@ -41,16 +41,16 @@ class EcWin7
 {
 public:
 
-        // Initialization methods
+    // Initialization methods
     EcWin7();
     void init(WId wid);
-    bool winEvent(MSG * message, long * result);
+    bool winEvent(MSG* message, long* result);
 
-        // Overlay icon handling
-        void setOverlayIcon(QString iconName, QString description);
+    // Overlay icon handling
+    void setOverlayIcon(QString iconName, QString description);
 
-        // Progress indicator handling
-        enum ToolBarProgressState {
+    // Progress indicator handling
+    enum ToolBarProgressState {
         NoProgress = 0,
         Indeterminate = 1,
         Normal = 2,
@@ -63,7 +63,7 @@ public:
 private:
     WId mWindowId;
     UINT mTaskbarMessageId;
-    ITaskbarList3 *mTaskbar;
+    ITaskbarList3* mTaskbar;
     HICON mOverlayIcon;
 };
 // Windows only data definitions - END

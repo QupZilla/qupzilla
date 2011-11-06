@@ -60,21 +60,24 @@ AdBlockManager::AdBlockManager(QObject* parent)
     , m_adBlockDialog(0)
     , m_adBlockNetwork(0)
     , m_adBlockPage(0)
+    , m_subscription(0)
 {
 }
 
 AdBlockManager* AdBlockManager::instance()
 {
-    if (!s_adBlockManager)
+    if (!s_adBlockManager) {
         s_adBlockManager = new AdBlockManager(mApp->networkManager());
+    }
 
     return s_adBlockManager;
 }
 
 void AdBlockManager::setEnabled(bool enabled)
 {
-    if (isEnabled() == enabled)
+    if (isEnabled() == enabled) {
         return;
+    }
     m_enabled = enabled;
     emit rulesChanged();
     mApp->sendMessages(MainApplication::SetAdBlockIconEnabled, enabled);
@@ -82,25 +85,28 @@ void AdBlockManager::setEnabled(bool enabled)
 
 AdBlockNetwork* AdBlockManager::network()
 {
-    if (!m_adBlockNetwork)
+    if (!m_adBlockNetwork) {
         m_adBlockNetwork = new AdBlockNetwork(this);
+    }
     return m_adBlockNetwork;
 }
 
 AdBlockPage* AdBlockManager::page()
 {
-    if (!m_adBlockPage)
+    if (!m_adBlockPage) {
         m_adBlockPage = new AdBlockPage(this);
+    }
     return m_adBlockPage;
 }
 
 void AdBlockManager::load()
 {
-    if (m_loaded)
+    if (m_loaded) {
         return;
+    }
     m_loaded = true;
 
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("AdBlock");
     m_enabled = settings.value("enabled", m_enabled).toBool();
     settings.endGroup();
@@ -112,11 +118,12 @@ void AdBlockManager::load()
 
 void AdBlockManager::save()
 {
-    if (!m_loaded)
+    if (!m_loaded) {
         return;
+    }
     m_subscription->saveRules();
 
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup(QLatin1String("AdBlock"));
     settings.setValue(QLatin1String("enabled"), m_enabled);
     settings.endGroup();
@@ -124,8 +131,9 @@ void AdBlockManager::save()
 
 AdBlockDialog* AdBlockManager::showDialog()
 {
-    if (!m_adBlockDialog)
+    if (!m_adBlockDialog) {
         m_adBlockDialog = new AdBlockDialog(mApp->getWindow());
+    }
 
     m_adBlockDialog->show();
     return m_adBlockDialog;

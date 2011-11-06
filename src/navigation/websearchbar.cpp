@@ -99,12 +99,13 @@ void WebSearchBar::setupEngines()
 
     QString activeEngine = m_searchManager->startingEngineName();
 
-    if (m_boxSearchType->allItems().count() != 0)
+    if (m_boxSearchType->allItems().count() != 0) {
         activeEngine = m_activeEngine.name;
+    }
 
     m_boxSearchType->clearItems();
 
-    foreach (SearchEngine en, m_searchManager->allEngines()) {
+    foreach(SearchEngine en, m_searchManager->allEngines()) {
         ButtonWithMenu::Item item;
         item.icon = en.icon;
         item.text = en.name;
@@ -114,8 +115,9 @@ void WebSearchBar::setupEngines()
 
         m_boxSearchType->addItem(item);
 
-        if (item.text == activeEngine)
+        if (item.text == activeEngine) {
             m_boxSearchType->setCurrentItem(item);
+        }
     }
 
     connect(m_searchManager, SIGNAL(enginesChanged()), this, SLOT(setupEngines()));
@@ -140,22 +142,25 @@ void WebSearchBar::search()
     p_QupZilla->weView()->setFocus();
 }
 
-void WebSearchBar::completeMenuWithAvailableEngines(QMenu *menu)
+void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
 {
     WebView* view = p_QupZilla->weView();
     QWebFrame* frame = view->webPage()->mainFrame();
 
     QWebElementCollection elements = frame->documentElement().findAll(QLatin1String("link[rel=search]"));
-    foreach (QWebElement element, elements) {
-        if (element.attribute("type") != "application/opensearchdescription+xml")
+    foreach(QWebElement element, elements) {
+        if (element.attribute("type") != "application/opensearchdescription+xml") {
             continue;
+        }
         QString url = view->url().resolved(element.attribute("href")).toString();
         QString title = element.attribute("title");
 
-        if (url.isEmpty())
+        if (url.isEmpty()) {
             continue;
-        if (title.isEmpty())
+        }
+        if (title.isEmpty()) {
             title = view->title();
+        }
 
         menu->addAction(view->icon(), tr("Add %1 ...").arg(title), this, SLOT(addEngineFromAction()))->setData(url);
     }

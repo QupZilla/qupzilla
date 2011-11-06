@@ -22,8 +22,9 @@
 #include <QTimer>
 #include <QMouseEvent>
 
-namespace Ui {
-    class DesktopNotification;
+namespace Ui
+{
+class DesktopNotification;
 }
 
 class DesktopNotification : public QWidget

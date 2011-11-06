@@ -20,8 +20,9 @@
 
 #include <QDialog>
 
-namespace Ui {
-    class SearchEnginesDialog;
+namespace Ui
+{
+class SearchEnginesDialog;
 }
 
 class SearchEnginesManager;
@@ -30,7 +31,7 @@ class SearchEnginesDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit SearchEnginesDialog(QWidget *parent = 0);
+    explicit SearchEnginesDialog(QWidget* parent = 0);
     ~SearchEnginesDialog();
 
 public slots:
@@ -46,7 +47,7 @@ private slots:
 private:
     void reloadEngines();
 
-    Ui::SearchEnginesDialog *ui;
+    Ui::SearchEnginesDialog* ui;
 
     SearchEnginesManager* m_manager;
 };

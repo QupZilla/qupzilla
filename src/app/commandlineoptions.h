@@ -33,7 +33,7 @@ public:
         QString text;
     };
 
-    explicit CommandLineOptions(int &argc, char **argv);
+    explicit CommandLineOptions(int &argc, char** argv);
     QList<ActionPair> getActions() { return m_actions; }
 
 private:
@@ -41,7 +41,7 @@ private:
     void parseActions();
 
     int m_argc;
-    char **m_argv;
+    char** m_argv;
     QList<ActionPair> m_actions;
 };
 

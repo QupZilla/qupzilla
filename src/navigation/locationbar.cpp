@@ -113,10 +113,12 @@ void LocationBar::urlEnter()
 
     if (urlToLoad.isEmpty()) {
         QUrl guessedUrl = WebView::guessUrlFromString(text());
-        if (!guessedUrl.isEmpty())
+        if (!guessedUrl.isEmpty()) {
             urlToLoad = guessedUrl;
-        else
+        }
+        else {
             urlToLoad = text();
+        }
     }
 
     m_webView->load(urlToLoad);
@@ -132,8 +134,9 @@ void LocationBar::textEdit()
 
 void LocationBar::showGoButton()
 {
-    if (m_goButton->isVisible())
+    if (m_goButton->isVisible()) {
         return;
+    }
 
     m_rssIconVisible = m_rssIcon->isVisible();
 
@@ -144,8 +147,9 @@ void LocationBar::showGoButton()
 
 void LocationBar::hideGoButton()
 {
-    if (!m_goButton->isVisible())
+    if (!m_goButton->isVisible()) {
         return;
+    }
 
     m_rssIcon->setVisible(m_rssIconVisible);
     m_bookmarkIcon->show();
@@ -179,10 +183,11 @@ void LocationBar::showRSSIcon(bool state)
 
 void LocationBar::showUrl(const QUrl &url, bool empty)
 {
-    if (hasFocus() || (url.isEmpty() && empty))
+    if (hasFocus() || (url.isEmpty() && empty)) {
         return;
+    }
 
-    if (url.toEncoded()!=text()) {
+    if (url.toEncoded() != text()) {
         setText(url.toEncoded());
         setCursorPosition(0);
     }
@@ -199,8 +204,9 @@ void LocationBar::siteIconChanged()
 
     if (icon_.isNull()) {
         clearIcon();
-    } else {
-        m_siteIcon->setIcon(QIcon(icon_.pixmap(16,16)));
+    }
+    else {
+        m_siteIcon->setIcon(QIcon(icon_.pixmap(16, 16)));
     }
 }
 
@@ -219,8 +225,9 @@ void LocationBar::setPrivacy(bool state)
 void LocationBar::focusOutEvent(QFocusEvent* e)
 {
     QLineEdit::focusOutEvent(e);
-    if (!selectedText().isEmpty() && e->reason() != Qt::TabFocusReason)
+    if (!selectedText().isEmpty() && e->reason() != Qt::TabFocusReason) {
         return;
+    }
     setCursorPosition(0);
     hideGoButton();
 }
@@ -251,13 +258,15 @@ void LocationBar::dropEvent(QDropEvent* event)
 
 void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton && m_locationBarSettings->selectAllOnDoubleClick)
+    if (event->button() == Qt::LeftButton && m_locationBarSettings->selectAllOnDoubleClick) {
         selectAll();
-    else
+    }
+    else {
         QLineEdit::mouseDoubleClickEvent(event);
+    }
 }
 
-void LocationBar::keyPressEvent(QKeyEvent *event)
+void LocationBar::keyPressEvent(QKeyEvent* event)
 {
     if (event->key() == Qt::Key_Escape) {
         setText(m_webView->url().toEncoded());
@@ -265,11 +274,13 @@ void LocationBar::keyPressEvent(QKeyEvent *event)
         return;
     }
 
-    QString localDomain = tr(".co.uk","Append domain name on ALT key = Should be different for every country");
-    if (event->key() == Qt::Key_Control && m_locationBarSettings->addComWithCtrl && !text().endsWith(".com")) //Disabled for a while
+    QString localDomain = tr(".co.uk", "Append domain name on ALT key = Should be different for every country");
+    if (event->key() == Qt::Key_Control && m_locationBarSettings->addComWithCtrl && !text().endsWith(".com")) { //Disabled for a while
         setText(text().append(".com"));
-    if (event->key() == Qt::Key_Alt && m_locationBarSettings->addCountryWithAlt && !text().endsWith(localDomain) && !text().endsWith("/"))
+    }
+    if (event->key() == Qt::Key_Alt && m_locationBarSettings->addCountryWithAlt && !text().endsWith(localDomain) && !text().endsWith("/")) {
         setText(text().append(localDomain));
+    }
 
     QLineEdit::keyPressEvent(event);
 }

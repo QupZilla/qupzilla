@@ -22,8 +22,9 @@
 #include <QUrl>
 #include <QCloseEvent>
 
-namespace Ui {
-    class DownloadOptionsDialog;
+namespace Ui
+{
+class DownloadOptionsDialog;
 }
 
 class DownloadOptionsDialog : public QDialog

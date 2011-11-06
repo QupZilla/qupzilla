@@ -3452,7 +3452,7 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="171"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is big security risk!</source>
-        <translation>&lt;b&gt;Poznámka.&lt;/b&gt; Zaškrtnutím této možnosti se vystavujete velikému bezpečnostnímu riziku!</translation>
+        <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Zaškrtnutím této možnosti se vystavujete velikému bezpečnostnímu riziku!</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="210"/>

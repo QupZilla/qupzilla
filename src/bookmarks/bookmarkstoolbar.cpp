@@ -39,10 +39,10 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
 
     connect(m_bookmarksModel, SIGNAL(bookmarkAdded(BookmarksModel::Bookmark)), this, SLOT(addBookmark(BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(bookmarkDeleted(BookmarksModel::Bookmark)), this, SLOT(removeBookmark(BookmarksModel::Bookmark)));
-    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark,BookmarksModel::Bookmark)));
+    connect(m_bookmarksModel, SIGNAL(bookmarkEdited(BookmarksModel::Bookmark, BookmarksModel::Bookmark)), this, SLOT(bookmarkEdited(BookmarksModel::Bookmark, BookmarksModel::Bookmark)));
     connect(m_bookmarksModel, SIGNAL(subfolderAdded(QString)), this, SLOT(subfolderAdded(QString)));
     connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(folderDeleted(QString)));
-    connect(m_bookmarksModel, SIGNAL(folderRenamed(QString,QString)), this, SLOT(folderRenamed(QString,QString)));
+    connect(m_bookmarksModel, SIGNAL(folderRenamed(QString, QString)), this, SLOT(folderRenamed(QString, QString)));
 
 //    QTimer::singleShot(0, this, SLOT(refreshBookmarks()));
     refreshBookmarks();
@@ -62,7 +62,7 @@ void BookmarksToolbar::customContextMenuRequested(const QPoint &pos)
 
     //Prevent choosing first option with double rightclick
     QPoint position = QCursor::pos();
-    QPoint p(position.x(), position.y()+1);
+    QPoint p(position.x(), position.y() + 1);
     menu.exec(p);
 }
 
@@ -71,10 +71,11 @@ void BookmarksToolbar::showBookmarkContextMenu(const QPoint &pos)
     Q_UNUSED(pos)
 
     ToolButton* button = qobject_cast<ToolButton*>(sender());
-    if (!button)
+    if (!button) {
         return;
+    }
 
-    QVariant buttonPointer = qVariantFromValue((void *) button);
+    QVariant buttonPointer = qVariantFromValue((void*) button);
 
     QMenu menu;
     menu.addAction(IconProvider::fromTheme("go-next"), tr("Move right"), this, SLOT(moveRight()))->setData(buttonPointer);
@@ -84,25 +85,28 @@ void BookmarksToolbar::showBookmarkContextMenu(const QPoint &pos)
 
     //Prevent choosing first option with double rightclick
     QPoint position = QCursor::pos();
-    QPoint p(position.x(), position.y()+1);
+    QPoint p(position.x(), position.y() + 1);
     menu.exec(p);
 }
 
 void BookmarksToolbar::moveRight()
 {
     QAction* act = qobject_cast<QAction*> (sender());
-    if (!act)
+    if (!act) {
         return;
+    }
 
     ToolButton* button = (ToolButton*) act->data().value<void*>();
 
     int index = m_layout->indexOf(button);
-    if (index == m_layout->count() - 1)
+    if (index == m_layout->count() - 1) {
         return;
+    }
 
     ToolButton* buttonRight = qobject_cast<ToolButton*> (m_layout->itemAt(index + 1)->widget());
-    if (!buttonRight || buttonRight->menu())
+    if (!buttonRight || buttonRight->menu()) {
         return;
+    }
 
     Bookmark bookmark = button->data().value<Bookmark>();
     Bookmark bookmarkRight = buttonRight->data().value<Bookmark>();
@@ -125,18 +129,21 @@ void BookmarksToolbar::moveRight()
 void BookmarksToolbar::moveLeft()
 {
     QAction* act = qobject_cast<QAction*> (sender());
-    if (!act)
+    if (!act) {
         return;
+    }
 
     ToolButton* button = (ToolButton*) act->data().value<void*>();
 
     int index = m_layout->indexOf(button);
-    if (index == 0)
+    if (index == 0) {
         return;
+    }
 
     ToolButton* buttonLeft = qobject_cast<ToolButton*> (m_layout->itemAt(index - 1)->widget());
-    if (!buttonLeft)
+    if (!buttonLeft) {
         return;
+    }
 
     Bookmark bookmark = button->data().value<Bookmark>();
     Bookmark bookmarkLeft = buttonLeft->data().value<Bookmark>();
@@ -159,12 +166,14 @@ void BookmarksToolbar::moveLeft()
 void BookmarksToolbar::removeButton()
 {
     QAction* act = qobject_cast<QAction*> (sender());
-    if (!act)
+    if (!act) {
         return;
+    }
 
     ToolButton* button = (ToolButton*) act->data().value<void*>();
-    if (!button)
+    if (!button) {
         return;
+    }
 
     Bookmark bookmark = button->data().value<Bookmark>();
     m_bookmarksModel->removeBookmark(bookmark.id);
@@ -178,8 +187,9 @@ void BookmarksToolbar::hidePanel()
 void BookmarksToolbar::loadClickedBookmark()
 {
     ToolButton* button = qobject_cast<ToolButton*>(sender());
-    if (!button)
+    if (!button) {
         return;
+    }
 
     Bookmark bookmark = button->data().value<Bookmark>();
 
@@ -189,8 +199,9 @@ void BookmarksToolbar::loadClickedBookmark()
 void BookmarksToolbar::loadClickedBookmarkInNewTab()
 {
     ToolButton* button = qobject_cast<ToolButton*>(sender());
-    if (!button)
+    if (!button) {
         return;
+    }
 
     Bookmark bookmark = button->data().value<Bookmark>();
 
@@ -207,11 +218,13 @@ int BookmarksToolbar::indexOfLastBookmark()
 {
     for (int i = m_layout->count() - 1; i >= 0; i--) {
         ToolButton* button = qobject_cast<ToolButton*>(m_layout->itemAt(i)->widget());
-        if (!button)
+        if (!button) {
             continue;
+        }
 
-        if (!button->menu())
+        if (!button->menu()) {
             return i + 1;
+        }
     }
 
     return 0;
@@ -238,8 +251,9 @@ void BookmarksToolbar::folderDeleted(const QString &name)
 
     for (int i = index; i < m_layout->count(); i++) {
         ToolButton* button = qobject_cast<ToolButton*>(m_layout->itemAt(i)->widget());
-        if (!button)
+        if (!button) {
             continue;
+        }
 
         if (button->text() == name) {
             delete button;
@@ -254,8 +268,9 @@ void BookmarksToolbar::folderRenamed(const QString &before, const QString &after
 
     for (int i = index; i < m_layout->count(); i++) {
         ToolButton* button = qobject_cast<ToolButton*>(m_layout->itemAt(i)->widget());
-        if (!button)
+        if (!button) {
             continue;
+        }
 
         if (button->text() == before) {
             button->setText(after);
@@ -267,12 +282,13 @@ void BookmarksToolbar::folderRenamed(const QString &before, const QString &after
 
 void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
 {
-    if (bookmark.folder != "bookmarksToolbar")
+    if (bookmark.folder != "bookmarksToolbar") {
         return;
+    }
     QString title = bookmark.title;
-    if (title.length()>15) {
+    if (title.length() > 15) {
         title.truncate(13);
-        title+="..";
+        title += "..";
     }
 
     QVariant v;
@@ -306,8 +322,9 @@ void BookmarksToolbar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
 {
     for (int i = 0; i < m_layout->count(); i++) {
         ToolButton* button = qobject_cast<ToolButton*>(m_layout->itemAt(i)->widget());
-        if (!button)
+        if (!button) {
             continue;
+        }
 
         Bookmark book = button->data().value<Bookmark>();
 
@@ -320,23 +337,26 @@ void BookmarksToolbar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
 
 void BookmarksToolbar::bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after)
 {
-    if (before.folder == "bookmarksToolbar" && after.folder != "bookmarksToolbar") //Editing from toolbar folder to other folder -> Remove bookmark
+    if (before.folder == "bookmarksToolbar" && after.folder != "bookmarksToolbar") { //Editing from toolbar folder to other folder -> Remove bookmark
         removeBookmark(before);
-    else if (before.folder != "bookmarksToolbar" && after.folder == "bookmarksToolbar") //Editing from other folder to toolbar folder -> Add bookmark
+    }
+    else if (before.folder != "bookmarksToolbar" && after.folder == "bookmarksToolbar") {   //Editing from other folder to toolbar folder -> Add bookmark
         addBookmark(after);
-    else { //Editing bookmark already in toolbar
+    }
+    else {   //Editing bookmark already in toolbar
         for (int i = 0; i < m_layout->count(); i++) {
             ToolButton* button = qobject_cast<ToolButton*>(m_layout->itemAt(i)->widget());
-            if (!button)
+            if (!button) {
                 continue;
+            }
 
             Bookmark book = button->data().value<Bookmark>();
 
             if (book == before) {
                 QString title = after.title;
-                if (title.length()>15) {
+                if (title.length() > 15) {
                     title.truncate(13);
-                    title+="..";
+                    title += "..";
                 }
 
                 QVariant v;
@@ -357,7 +377,7 @@ void BookmarksToolbar::refreshBookmarks()
 {
     QSqlQuery query;
     query.exec("SELECT id, title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar' ORDER BY toolbar_position");
-    while(query.next()) {
+    while (query.next()) {
         Bookmark bookmark;
         bookmark.id = query.value(0).toInt();
         bookmark.title = query.value(1).toString();
@@ -365,9 +385,9 @@ void BookmarksToolbar::refreshBookmarks()
         bookmark.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
         bookmark.folder = "bookmarksToolbar";
         QString title = bookmark.title;
-        if (title.length()>15) {
+        if (title.length() > 15) {
             title.truncate(13);
-            title+="..";
+            title += "..";
         }
 
         QVariant v;
@@ -390,7 +410,7 @@ void BookmarksToolbar::refreshBookmarks()
     }
 
     query.exec("SELECT name FROM folders WHERE subfolder='yes'");
-    while(query.next()) {
+    while (query.next()) {
         ToolButton* b = new ToolButton(this);
         b->setPopupMode(QToolButton::InstantPopup);
         b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -424,8 +444,9 @@ void BookmarksToolbar::refreshBookmarks()
 void BookmarksToolbar::aboutToShowFolderMenu()
 {
     QMenu* menu = qobject_cast<QMenu*> (sender());
-    if (!menu)
+    if (!menu) {
         return;
+    }
 
     menu->clear();
     QString folder = menu->title();
@@ -434,7 +455,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     query.prepare("SELECT title, url, icon FROM bookmarks WHERE folder=?");
     query.addBindValue(folder);
     query.exec();
-    while(query.next()) {
+    while (query.next()) {
         QString title = query.value(0).toString();
         QUrl url = query.value(1).toUrl();
         QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
@@ -445,8 +466,9 @@ void BookmarksToolbar::aboutToShowFolderMenu()
         menu->addAction(icon, title, p_QupZilla, SLOT(loadActionUrl()))->setData(url);
     }
 
-    if (menu->isEmpty())
+    if (menu->isEmpty()) {
         menu->addAction(tr("Empty"));
+    }
 }
 
 void BookmarksToolbar::refreshMostVisited()
@@ -454,14 +476,15 @@ void BookmarksToolbar::refreshMostVisited()
     m_menuMostVisited->clear();
 
     QList<HistoryModel::HistoryEntry> mostList = m_historyModel->mostVisited(10);
-    foreach (HistoryModel::HistoryEntry entry, mostList) {
-        if (entry.title.length()>40) {
+    foreach(HistoryModel::HistoryEntry entry, mostList) {
+        if (entry.title.length() > 40) {
             entry.title.truncate(40);
-            entry.title+="..";
+            entry.title += "..";
         }
         m_menuMostVisited->addAction(_iconForUrl(entry.url), entry.title, p_QupZilla, SLOT(loadActionUrl()))->setData(entry.url);
     }
 
-    if (m_menuMostVisited->isEmpty())
+    if (m_menuMostVisited->isEmpty()) {
         m_menuMostVisited->addAction(tr("Empty"));
+    }
 }

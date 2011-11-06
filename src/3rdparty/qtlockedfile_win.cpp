@@ -1,17 +1,17 @@
 /****************************************************************************
-** 
+**
 ** Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
-** 
+**
 ** This file is part of a Qt Solutions component.
 **
-** Commercial Usage  
+** Commercial Usage
 ** Licensees holding valid Qt Commercial licenses may use this file in
 ** accordance with the Qt Solutions Commercial License Agreement provided
 ** with the Software or, alternatively, in accordance with the terms
 ** contained in a written agreement between you and Nokia.
-** 
+**
 ** GNU Lesser General Public License Usage
 ** Alternatively, this file may be used under the terms of the GNU Lesser
 ** General Public License version 2.1 as published by the Free Software
@@ -19,29 +19,29 @@
 ** packaging of this file.  Please review the following information to
 ** ensure the GNU Lesser General Public License version 2.1 requirements
 ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
-** 
+**
 ** In addition, as a special exception, Nokia gives you certain
 ** additional rights. These rights are described in the Nokia Qt LGPL
 ** Exception version 1.1, included in the file LGPL_EXCEPTION.txt in this
 ** package.
-** 
-** GNU General Public License Usage 
+**
+** GNU General Public License Usage
 ** Alternatively, this file may be used under the terms of the GNU
 ** General Public License version 3.0 as published by the Free Software
 ** Foundation and appearing in the file LICENSE.GPL included in the
 ** packaging of this file.  Please review the following information to
 ** ensure the GNU General Public License version 3.0 requirements will be
 ** met: http://www.gnu.org/copyleft/gpl.html.
-** 
+**
 ** Please note Third Party Software included with Qt Solutions may impose
 ** additional restrictions and it is the user's responsibility to ensure
 ** that they have met the licensing requirements of the GPL, LGPL, or Qt
 ** Solutions Commercial license and the relevant license of the Third
 ** Party Software they are using.
-** 
+**
 ** If you are unsure which license is appropriate for your use, please
 ** contact Nokia at qt-info@nokia.com.
-** 
+**
 ****************************************************************************/
 
 #include "qtlockedfile.h"
@@ -60,13 +60,14 @@ Qt::HANDLE QtLockedFile::getMutexHandle(int idx, bool doCreate)
                     + fi.absoluteFilePath().toLower();
     }
     QString mname(mutexname);
-    if (idx >= 0)
+    if (idx >= 0) {
         mname += QString::number(idx);
+    }
 
     Qt::HANDLE mutex;
     if (doCreate) {
         QT_WA( { mutex = CreateMutexW(NULL, FALSE, (TCHAR*)mname.utf16()); },
-               { mutex = CreateMutexA(NULL, FALSE, mname.toLocal8Bit().constData()); } );
+        { mutex = CreateMutexA(NULL, FALSE, mname.toLocal8Bit().constData()); });
         if (!mutex) {
             qErrnoWarning("QtLockedFile::lock(): CreateMutex failed");
             return 0;
@@ -74,10 +75,11 @@ Qt::HANDLE QtLockedFile::getMutexHandle(int idx, bool doCreate)
     }
     else {
         QT_WA( { mutex = OpenMutexW(SYNCHRONIZE | MUTEX_MODIFY_STATE, FALSE, (TCHAR*)mname.utf16()); },
-               { mutex = OpenMutexA(SYNCHRONIZE | MUTEX_MODIFY_STATE, FALSE, mname.toLocal8Bit().constData()); } );
+        { mutex = OpenMutexA(SYNCHRONIZE | MUTEX_MODIFY_STATE, FALSE, mname.toLocal8Bit().constData()); });
         if (!mutex) {
-            if (GetLastError() != ERROR_FILE_NOT_FOUND)
+            if (GetLastError() != ERROR_FILE_NOT_FOUND) {
                 qErrnoWarning("QtLockedFile::lock(): OpenMutex failed");
+            }
             return 0;
         }
     }
@@ -110,27 +112,33 @@ bool QtLockedFile::lock(LockMode mode, bool block)
         return false;
     }
 
-    if (mode == NoLock)
+    if (mode == NoLock) {
         return unlock();
+    }
 
-    if (mode == m_lock_mode)
+    if (mode == m_lock_mode) {
         return true;
+    }
 
-    if (m_lock_mode != NoLock)
+    if (m_lock_mode != NoLock) {
         unlock();
+    }
 
-    if (!wmutex && !(wmutex = getMutexHandle(-1, true)))
+    if (!wmutex && !(wmutex = getMutexHandle(-1, true))) {
         return false;
+    }
 
-    if (!waitMutex(wmutex, block))
+    if (!waitMutex(wmutex, block)) {
         return false;
+    }
 
     if (mode == ReadLock) {
         int idx = 0;
         for (; idx < MAX_READERS; idx++) {
             rmutex = getMutexHandle(idx, false);
-            if (!rmutex || waitMutex(rmutex, false))
+            if (!rmutex || waitMutex(rmutex, false)) {
                 break;
+            }
             CloseHandle(rmutex);
         }
         bool ok = true;
@@ -141,30 +149,34 @@ bool QtLockedFile::lock(LockMode mode, bool block)
         }
         else if (!rmutex) {
             rmutex = getMutexHandle(idx, true);
-            if (!rmutex || !waitMutex(rmutex, false))
+            if (!rmutex || !waitMutex(rmutex, false)) {
                 ok = false;
+            }
         }
         if (!ok && rmutex) {
             CloseHandle(rmutex);
             rmutex = 0;
         }
         ReleaseMutex(wmutex);
-        if (!ok)
+        if (!ok) {
             return false;
+        }
     }
     else {
         Q_ASSERT(rmutexes.isEmpty());
         for (int i = 0; i < MAX_READERS; i++) {
             Qt::HANDLE mutex = getMutexHandle(i, false);
-            if (mutex)
+            if (mutex) {
                 rmutexes.append(mutex);
+            }
         }
         if (rmutexes.size()) {
             DWORD res = WaitForMultipleObjects(rmutexes.size(), rmutexes.constData(),
                                                TRUE, block ? INFINITE : 0);
             if (res != WAIT_OBJECT_0 && res != WAIT_ABANDONED) {
-                if (res != WAIT_TIMEOUT)
+                if (res != WAIT_TIMEOUT) {
                     qErrnoWarning("QtLockedFile::lock(): WaitForMultipleObjects failed");
+                }
                 m_lock_mode = WriteLock;  // trick unlock() to clean up - semiyucky
                 unlock();
                 return false;
@@ -183,8 +195,9 @@ bool QtLockedFile::unlock()
         return false;
     }
 
-    if (!isLocked())
+    if (!isLocked()) {
         return true;
+    }
 
     if (m_lock_mode == ReadLock) {
         ReleaseMutex(rmutex);
@@ -206,8 +219,10 @@ bool QtLockedFile::unlock()
 
 QtLockedFile::~QtLockedFile()
 {
-    if (isOpen())
+    if (isOpen()) {
         unlock();
-    if (wmutex)
+    }
+    if (wmutex) {
         CloseHandle(wmutex);
+    }
 }

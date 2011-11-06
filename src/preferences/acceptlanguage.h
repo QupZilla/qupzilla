@@ -22,8 +22,9 @@
 #include <QLocale>
 #include <QSettings>
 
-namespace Ui {
-    class AcceptLanguage;
+namespace Ui
+{
+class AcceptLanguage;
 }
 
 class AcceptLanguage : public QDialog

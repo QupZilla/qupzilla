@@ -24,8 +24,9 @@
 #include <QDebug>
 #include <QWebFrame>
 
-namespace Ui {
-    class RSSWidget;
+namespace Ui
+{
+class RSSWidget;
 }
 
 class WebView;

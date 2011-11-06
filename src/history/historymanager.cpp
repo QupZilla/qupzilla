@@ -35,8 +35,8 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
     qz_centerWidgetOnScreen(this);
     ui->deleteB->setShortcut(QKeySequence("Del"));
 
-    connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
-    connect(ui->historyTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
+    connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*, int)), this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
+    connect(ui->historyTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
 
     connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));
     connect(ui->clearAll, SIGNAL(clicked()), this, SLOT(clearHistory()));
@@ -44,7 +44,7 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
 
     connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryModel::HistoryEntry)), this, SLOT(historyEntryAdded(HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryModel::HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryModel::HistoryEntry)));
-    connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryModel::HistoryEntry,HistoryModel::HistoryEntry)), this, SLOT(historyEntryEdited(HistoryModel::HistoryEntry,HistoryModel::HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryModel::HistoryEntry, HistoryModel::HistoryEntry)), this, SLOT(historyEntryEdited(HistoryModel::HistoryEntry, HistoryModel::HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyClear()), ui->historyTree, SLOT(clear()));
 
     connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
@@ -56,37 +56,43 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
 
 QupZilla* HistoryManager::getQupZilla()
 {
-    if (!p_QupZilla)
+    if (!p_QupZilla) {
         p_QupZilla = mApp->getWindow();
+    }
     return p_QupZilla;
 }
 
 void HistoryManager::setMainWindow(QupZilla* window)
 {
-    if (window)
+    if (window) {
         p_QupZilla = window;
+    }
 }
 
 void HistoryManager::itemDoubleClicked(QTreeWidgetItem* item)
 {
-    if (!item || item->text(1).isEmpty())
+    if (!item || item->text(1).isEmpty()) {
         return;
+    }
     getQupZilla()->tabWidget()->addView(QUrl(item->text(1)));
 }
 
 void HistoryManager::loadInNewTab()
 {
-    if (QAction* action = qobject_cast<QAction*>(sender()))
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         getQupZilla()->tabWidget()->addView(action->data().toUrl(), tr("New Tab"), TabWidget::NewNotSelectedTab);
+    }
 }
 
 void HistoryManager::contextMenuRequested(const QPoint &position)
 {
-    if (!ui->historyTree->itemAt(position))
+    if (!ui->historyTree->itemAt(position)) {
         return;
+    }
     QString link = ui->historyTree->itemAt(position)->text(1);
-    if (link.isEmpty())
+    if (link.isEmpty()) {
         return;
+    }
 
     QMenu menu;
     menu.addAction(tr("Open link in actual tab"), getQupZilla(), SLOT(loadActionUrl()))->setData(link);
@@ -95,16 +101,17 @@ void HistoryManager::contextMenuRequested(const QPoint &position)
 
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();
-    QPoint p(pos.x(), pos.y()+1);
+    QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 }
 
 void HistoryManager::deleteItem()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    foreach (QTreeWidgetItem* item, ui->historyTree->selectedItems()) {
-        if (!item)
+    foreach(QTreeWidgetItem * item, ui->historyTree->selectedItems()) {
+        if (!item) {
             return;
+        }
 
         if (!item->parent()) {
             for (int i = 0; i < item->childCount(); i++) {
@@ -113,7 +120,8 @@ void HistoryManager::deleteItem()
                 m_historyModel->deleteHistoryEntry(id);
             }
             ui->historyTree->deleteItem(item);
-        } else {
+        }
+        else {
             int id = item->whatsThis(1).toInt();
             m_historyModel->deleteHistoryEntry(id);
         }
@@ -129,21 +137,26 @@ void HistoryManager::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
     QDate date = entry.date.date();
     QString localDate;
 
-    if (date == todayDate)
+    if (date == todayDate) {
         localDate = tr("Today");
-    else if (date >= startOfWeekDate)
+    }
+    else if (date >= startOfWeekDate) {
         localDate = tr("This Week");
-    else if (date.month() == todayDate.month())
+    }
+    else if (date.month() == todayDate.month()) {
         localDate = tr("This Month");
-    else
+    }
+    else {
         localDate = QString("%1 %2").arg(HistoryModel::titleCaseLocalizedMonth(date.month()), QString::number(date.year()));
+    }
 
     QTreeWidgetItem* item = new QTreeWidgetItem();
     QTreeWidgetItem* parentItem;
     QList<QTreeWidgetItem*> findParent = ui->historyTree->findItems(localDate, 0);
     if (findParent.count() == 1) {
         parentItem = findParent.at(0);
-    } else {
+    }
+    else {
         parentItem = new QTreeWidgetItem();
         parentItem->setText(0, localDate);
         parentItem->setIcon(0, QIcon(":/icons/menu/history_entry.png"));
@@ -163,11 +176,13 @@ void HistoryManager::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
 void HistoryManager::historyEntryDeleted(const HistoryModel::HistoryEntry &entry)
 {
     QList<QTreeWidgetItem*> list = ui->historyTree->allItems();
-    foreach (QTreeWidgetItem* item, list) {
-        if (!item)
+    foreach(QTreeWidgetItem * item, list) {
+        if (!item) {
             continue;
-        if (item->whatsThis(1).toInt() != entry.id)
+        }
+        if (item->whatsThis(1).toInt() != entry.id) {
             continue;
+        }
         ui->historyTree->deleteItem(item);
         return;
     }
@@ -182,9 +197,10 @@ void HistoryManager::historyEntryEdited(const HistoryModel::HistoryEntry &before
 void HistoryManager::clearHistory()
 {
     QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Confirmation"),
-                         tr("Are you sure to delete all history?"), QMessageBox::Yes | QMessageBox::No);
-    if (button != QMessageBox::Yes)
+                                         tr("Are you sure to delete all history?"), QMessageBox::Yes | QMessageBox::No);
+    if (button != QMessageBox::Yes) {
         return;
+    }
 
     m_historyModel->clearHistory();
     m_historyModel->optimizeHistory();
@@ -200,27 +216,32 @@ void HistoryManager::refreshTable()
     QSqlQuery query;
     query.exec("SELECT title, url, id, date FROM history ORDER BY date DESC");
 
-    while(query.next()) {
+    while (query.next()) {
         QString title = query.value(0).toString();
         QUrl url = query.value(1).toUrl();
         int id = query.value(2).toInt();
         QDate date = QDateTime::fromMSecsSinceEpoch(query.value(3).toLongLong()).date();
         QString localDate;
 
-        if (date == todayDate)
+        if (date == todayDate) {
             localDate = tr("Today");
-        else if (date >= startOfWeekDate)
+        }
+        else if (date >= startOfWeekDate) {
             localDate = tr("This Week");
-        else if (date.month() == todayDate.month())
+        }
+        else if (date.month() == todayDate.month()) {
             localDate = tr("This Month");
-        else
+        }
+        else {
             localDate = QString("%1 %2").arg(HistoryModel::titleCaseLocalizedMonth(date.month()), QString::number(date.year()));
+        }
 
         QTreeWidgetItem* item = new QTreeWidgetItem();
         QList<QTreeWidgetItem*> findParent = ui->historyTree->findItems(localDate, 0);
         if (findParent.count() == 1) {
             item = new QTreeWidgetItem(findParent.at(0));
-        }else{
+        }
+        else {
             QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->historyTree);
             newParent->setText(0, localDate);
             newParent->setIcon(0, QIcon(":/icons/menu/history_entry.png"));
@@ -253,12 +274,13 @@ void HistoryManager::search(const QString &searchText)
     refreshTable();
     ui->historyTree->setUpdatesEnabled(false);
 
-    QList<QTreeWidgetItem*> items = ui->historyTree->findItems("*"+searchText+"*", Qt::MatchRecursive | Qt::MatchWildcard);
+    QList<QTreeWidgetItem*> items = ui->historyTree->findItems("*" + searchText + "*", Qt::MatchRecursive | Qt::MatchWildcard);
 
     QList<QTreeWidgetItem*> foundItems;
-    foreach(QTreeWidgetItem* fitem, items) {
-        if (fitem->text(1).isEmpty())
+    foreach(QTreeWidgetItem * fitem, items) {
+        if (fitem->text(1).isEmpty()) {
             continue;
+        }
         QTreeWidgetItem* item = new QTreeWidgetItem();
         item->setText(0, fitem->text(0));
         item->setText(1, fitem->text(1));
@@ -274,8 +296,9 @@ void HistoryManager::search(const QString &searchText)
 void HistoryManager::optimizeDb()
 {
     BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget()->parentWidget());
-    if (!b)
+    if (!b) {
         return;
+    }
     b->optimizeDatabase();
 }
 

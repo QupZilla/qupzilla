@@ -25,8 +25,9 @@
 
 #include "historymodel.h"
 
-namespace Ui {
-    class HistorySideBar;
+namespace Ui
+{
+class HistorySideBar;
 }
 
 class QupZilla;

@@ -26,7 +26,7 @@ ThemeManager::ThemeManager(QWidget* parent)
 {
     ui->setupUi(parent);
     ui->license->hide();
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Themes");
     m_activeTheme = settings.value("activeTheme",
 #ifdef Q_WS_X11
@@ -34,28 +34,30 @@ ThemeManager::ThemeManager(QWidget* parent)
 #else
                                    "windows"
 #endif
-                                   ).toString();
+                                  ).toString();
     settings.endGroup();
 
     QDir themeDir(mApp->THEMESDIR);
     QStringList list = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
     foreach(QString name, list) {
         Theme themeInfo = parseTheme(name);
-        if (!themeInfo.isValid)
+        if (!themeInfo.isValid) {
             continue;
+        }
 
         QListWidgetItem* item = new QListWidgetItem(ui->listWidget);
         item->setText(themeInfo.name + "\n" + themeInfo.shortDescription);
         item->setIcon(themeInfo.icon);
         item->setData(Qt::UserRole, name);
 
-        if (m_activeTheme == name)
+        if (m_activeTheme == name) {
             ui->listWidget->setCurrentItem(item);
+        }
 
         ui->listWidget->addItem(item);
     }
 
-    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentChanged()));
+    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged()));
     connect(ui->license, SIGNAL(clicked(QPoint)), this, SLOT(showLicense()));
 
     currentChanged();
@@ -64,8 +66,9 @@ ThemeManager::ThemeManager(QWidget* parent)
 void ThemeManager::showLicense()
 {
     QListWidgetItem* currentItem = ui->listWidget->currentItem();
-    if (!currentItem)
+    if (!currentItem) {
         return;
+    }
 
     Theme currentTheme = m_themeHash[currentItem->data(Qt::UserRole).toString()];
 
@@ -82,8 +85,9 @@ void ThemeManager::showLicense()
 void ThemeManager::currentChanged()
 {
     QListWidgetItem* currentItem = ui->listWidget->currentItem();
-    if (!currentItem)
+    if (!currentItem) {
         return;
+    }
 
     Theme currentTheme = m_themeHash[currentItem->data(Qt::UserRole).toString()];
 
@@ -104,36 +108,43 @@ ThemeManager::Theme ThemeManager::parseTheme(const QString &name)
         return info;
     }
 
-    if (QFile(path + "theme.png").exists())
+    if (QFile(path + "theme.png").exists()) {
         info.icon = QIcon(path + "theme.png");
-    else
+    }
+    else {
         info.icon = QIcon(":icons/preferences/style-default.png");
+    }
 
-    if (QFile(path + "theme.license").exists())
+    if (QFile(path + "theme.license").exists()) {
         info.license = qz_readAllFileContents(path + "theme.license");
+    }
 
     QString theme_info = qz_readAllFileContents(path + "theme.info");
 
     QRegExp rx("Name:(.*)\\n");
     rx.setMinimal(true);
     rx.indexIn(theme_info);
-    if (rx.captureCount() == 1)
+    if (rx.captureCount() == 1) {
         info.name = rx.cap(1).trimmed();
+    }
 
     rx.setPattern("Author:(.*)\\n");
     rx.indexIn(theme_info);
-    if (rx.captureCount() == 1)
+    if (rx.captureCount() == 1) {
         info.author = rx.cap(1).trimmed();
+    }
 
     rx.setPattern("Short Description:(.*)\\n");
     rx.indexIn(theme_info);
-    if (rx.captureCount() == 1)
+    if (rx.captureCount() == 1) {
         info.shortDescription = rx.cap(1).trimmed();
+    }
 
     rx.setPattern("Long Description:(.*)\\n");
     rx.indexIn(theme_info);
-    if (rx.captureCount() == 1)
+    if (rx.captureCount() == 1) {
         info.longDescription = rx.cap(1).trimmed();
+    }
 
     info.isValid = true;
     m_themeHash.insert(name, info);
@@ -142,7 +153,7 @@ ThemeManager::Theme ThemeManager::parseTheme(const QString &name)
 
 void ThemeManager::save()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Themes");
     settings.setValue("activeTheme", ui->listWidget->currentItem()->data(Qt::UserRole));
     settings.endGroup();

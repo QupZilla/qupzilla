@@ -18,14 +18,15 @@
 #include "networkproxyfactory.h"
 #include "mainapplication.h"
 
-NetworkProxyFactory::NetworkProxyFactory() :
-    QNetworkProxyFactory()
+NetworkProxyFactory::NetworkProxyFactory()
+    : QNetworkProxyFactory()
+    , m_proxyPreference(SystemProxy)
 {
 }
 
 void NetworkProxyFactory::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Web-Proxy");
     m_proxyPreference = ProxyPreference(settings.value("UseProxy", SystemProxy).toInt());
     m_proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::HttpProxy).toInt());
@@ -41,8 +42,9 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
 {
     QNetworkProxy proxy;
 
-    if (m_proxyExceptions.contains(query.url().host(), Qt::CaseInsensitive))
+    if (m_proxyExceptions.contains(query.url().host(), Qt::CaseInsensitive)) {
         proxy.setType(QNetworkProxy::NoProxy);
+    }
 
     switch (m_proxyPreference) {
     case SystemProxy:

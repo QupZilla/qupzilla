@@ -27,8 +27,9 @@
 QIcon SearchEnginesManager::iconForSearchEngine(const QUrl &url)
 {
     QIcon ic = mApp->iconProvider()->iconForDomain(url);
-    if (ic.isNull())
+    if (ic.isNull()) {
         ic = QIcon(":icons/menu/search-icon.png");
+    }
 
     return ic;
 }
@@ -38,7 +39,7 @@ SearchEnginesManager::SearchEnginesManager()
     , m_settingsLoaded(false)
     , m_saveScheduled(false)
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("SearchEngines");
     m_startingEngineName = settings.value("activeEngine", "Google").toString();
     settings.endGroup();
@@ -63,15 +64,17 @@ void SearchEnginesManager::loadSettings()
         m_allEngines.append(en);
     }
 
-    if (m_allEngines.isEmpty())
+    if (m_allEngines.isEmpty()) {
         restoreDefaults();
+    }
 }
 
 SearchEngine SearchEnginesManager::engineForShortcut(const QString &shortcut)
 {
-    foreach (Engine en, m_allEngines) {
-        if (en.shortcut == shortcut)
+    foreach(Engine en, m_allEngines) {
+        if (en.shortcut == shortcut) {
             return en;
+        }
     }
 
     return Engine();
@@ -136,10 +139,11 @@ void SearchEnginesManager::engineChangedImage()
 {
     OpenSearchEngine* engine = qobject_cast<OpenSearchEngine*>(sender());
 
-    if (!engine)
+    if (!engine) {
         return;
+    }
 
-    foreach (Engine e, m_allEngines) {
+    foreach(Engine e, m_allEngines) {
         if (e.name == engine->name() && e.url.contains(engine->searchUrl("%s").toString())
                 && !engine->image().isNull()) {
             e.icon = QIcon(QPixmap::fromImage(engine->image()));
@@ -165,13 +169,15 @@ void SearchEnginesManager::addEngine(const Engine &engine, bool emitSignal)
 {
     ENSURE_LOADED;
 
-    if (m_allEngines.contains(engine))
+    if (m_allEngines.contains(engine)) {
         return;
+    }
 
     m_allEngines.append(engine);
 
-    if (emitSignal)
+    if (emitSignal) {
         emit enginesChanged();
+    }
 }
 
 void SearchEnginesManager::addEngine(OpenSearchEngine* engine)
@@ -181,10 +187,12 @@ void SearchEnginesManager::addEngine(OpenSearchEngine* engine)
     Engine en;
     en.name = engine->name();
     en.url = engine->searchUrl("searchstring").toString().replace("searchstring", "%s");
-    if (engine->image().isNull())
+    if (engine->image().isNull()) {
         en.icon = iconForSearchEngine(engine->searchUrl(""));
-    else
+    }
+    else {
         en.icon = QIcon(QPixmap::fromImage(engine->image()));
+    }
     en.suggestionsUrl = engine->getSuggestionsUrl();
     en.suggestionsParameters = engine->getSuggestionsParameters();
 
@@ -197,8 +205,9 @@ void SearchEnginesManager::addEngine(const QUrl &url)
 {
     ENSURE_LOADED;
 
-    if (!url.isValid())
+    if (!url.isValid()) {
         return;
+    }
 
     qApp->setOverrideCursor(Qt::WaitCursor);
 
@@ -212,8 +221,9 @@ void SearchEnginesManager::replyFinished()
     qApp->restoreOverrideCursor();
 
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
-    if (!reply)
+    if (!reply) {
         return;
+    }
 
     if (reply->error() != QNetworkReply::NoError) {
         reply->close();
@@ -250,8 +260,9 @@ void SearchEnginesManager::setActiveEngine(const Engine &engine)
 {
     ENSURE_LOADED;
 
-    if (!m_allEngines.contains(engine))
+    if (!m_allEngines.contains(engine)) {
         return;
+    }
 
     m_activeEngine = engine;
     emit activeEngineChanged();
@@ -261,8 +272,9 @@ void SearchEnginesManager::removeEngine(const Engine &engine)
 {
     ENSURE_LOADED;
 
-    if (!m_allEngines.contains(engine))
+    if (!m_allEngines.contains(engine)) {
         return;
+    }
 
     QSqlQuery query;
     query.prepare("DELETE FROM search_engines WHERE name=? AND url=?");
@@ -291,13 +303,14 @@ QList<SearchEngine> SearchEnginesManager::allEngines()
 
 void SearchEnginesManager::saveSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("SearchEngines");
     settings.setValue("activeEngine", m_activeEngine.name);
     settings.endGroup();
 
-    if (!m_saveScheduled)
+    if (!m_saveScheduled) {
         return;
+    }
 
     // Well, this is not the best implementation to do as this is taking some time.
     // Actually, it is delaying the quit of app for about a 1 sec on my machine with only
@@ -309,7 +322,7 @@ void SearchEnginesManager::saveSettings()
     QSqlQuery query;
     query.exec("DELETE FROM search_engines");
 
-    foreach (Engine en, m_allEngines) {
+    foreach(Engine en, m_allEngines) {
         query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters) VALUES (?, ?, ?, ?, ?, ?)");
         query.bindValue(0, en.name);
         query.bindValue(1, IconProvider::iconToBase64(en.icon));

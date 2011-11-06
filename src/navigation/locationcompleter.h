@@ -40,7 +40,7 @@ public:
 signals:
 
 public slots:
-    void refreshCompleter(QString string);
+    void refreshCompleter(const QString &string);
 
 };
 

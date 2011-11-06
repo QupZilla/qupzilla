@@ -24,8 +24,9 @@
 
 #include "bookmarksmodel.h"
 
-namespace Ui {
-    class BookmarksSideBar;
+namespace Ui
+{
+class BookmarksSideBar;
 }
 
 class WebView;

@@ -64,7 +64,7 @@ signals:
     void rulesChanged();
 
 public:
-    AdBlockManager(QObject *parent = 0);
+    AdBlockManager(QObject* parent = 0);
     ~AdBlockManager();
 
     void load();
@@ -73,8 +73,8 @@ public:
     bool isEnabled() { if (!m_loaded) load(); return m_enabled; }
 
     AdBlockSubscription* subscription() { return m_subscription; }
-    AdBlockNetwork *network();
-    AdBlockPage *page();
+    AdBlockNetwork* network();
+    AdBlockPage* page();
 
 public slots:
     void setEnabled(bool enabled);

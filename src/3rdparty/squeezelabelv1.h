@@ -40,10 +40,10 @@ class SqueezeLabelV1 : public QLabel
     Q_OBJECT
 
 public:
-    SqueezeLabelV1(QWidget *parent = 0);
+    SqueezeLabelV1(QWidget* parent = 0);
 
 protected:
-    void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent* event);
 
 private:
     QString m_SqueezedTextCache;

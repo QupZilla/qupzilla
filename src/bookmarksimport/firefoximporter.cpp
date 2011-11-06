@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "firefoximporter.h"
 
-FirefoxImporter::FirefoxImporter(QObject *parent)
+FirefoxImporter::FirefoxImporter(QObject* parent)
     : QObject(parent)
     , m_error(false)
     , m_errorString(tr("No Error"))
@@ -56,20 +56,22 @@ QList<BookmarksModel::Bookmark> FirefoxImporter::exportBookmarks()
 
     QSqlQuery query(db);
     query.exec("SELECT title, fk FROM moz_bookmarks WHERE title != ''");
-    while(query.next()) {
+    while (query.next()) {
         QString title = query.value(0).toString();
         int placesId = query.value(1).toInt();
 
         QSqlQuery query2(db);
         query2.exec("SELECT url FROM moz_places WHERE id=" + QString::number(placesId));
 
-        if (!query2.next())
-                continue;
+        if (!query2.next()) {
+            continue;
+        }
 
         QString url = query2.value(0).toString();
 
-        if (title.isEmpty() || url.isEmpty() || url.startsWith("place:"))
+        if (title.isEmpty() || url.isEmpty() || url.startsWith("place:")) {
             continue;
+        }
 
         BookmarksModel::Bookmark b;
         b.folder = "Firefox Import";

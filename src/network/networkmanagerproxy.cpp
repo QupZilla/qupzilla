@@ -22,11 +22,12 @@
 #include "cookiejar.h"
 #include "mainapplication.h"
 
-NetworkManagerProxy::NetworkManagerProxy(QupZilla* mainClass, QObject* parent) :
-    QNetworkAccessManager(parent)
-    ,p_QupZilla(mainClass)
-    ,m_view(0)
-    ,m_page(0)
+NetworkManagerProxy::NetworkManagerProxy(QupZilla* mainClass, QObject* parent)
+    : QNetworkAccessManager(parent)
+    , p_QupZilla(mainClass)
+    , m_view(0)
+    , m_page(0)
+    , m_manager(0)
 {
     setCookieJar(mApp->cookieJar());
 }
@@ -34,7 +35,7 @@ NetworkManagerProxy::NetworkManagerProxy(QupZilla* mainClass, QObject* parent) :
 void NetworkManagerProxy::populateNetworkRequest(QNetworkRequest &request)
 {
     qDebug() << __FUNCTION__ << "called";
-    QVariant variant = qVariantFromValue((void *) m_page);
+    QVariant variant = qVariantFromValue((void*) m_page);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
 }
 
@@ -44,7 +45,7 @@ void NetworkManagerProxy::setPrimaryNetworkAccessManager(NetworkManager* manager
     m_manager = manager;
 
     connect(this, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)), manager, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)));
-    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)), manager, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)));
+    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)), manager, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)));
     connect(this, SIGNAL(finished(QNetworkReply*)), manager, SIGNAL(finished(QNetworkReply*)));
     connect(this, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)), manager, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)));
 }

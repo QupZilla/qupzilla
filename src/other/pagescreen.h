@@ -24,8 +24,9 @@
 #include <QAbstractButton>
 #include <QFileDialog>
 
-namespace Ui {
-    class PageScreen;
+namespace Ui
+{
+class PageScreen;
 }
 
 class WebView;
@@ -43,7 +44,7 @@ private slots:
 private:
     void createPixmap();
 
-    Ui::PageScreen *ui;
+    Ui::PageScreen* ui;
     WebView* m_view;
     QPixmap m_pagePixmap;
 };

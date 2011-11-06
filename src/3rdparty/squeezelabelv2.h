@@ -40,14 +40,14 @@ class SqueezeLabelV2 : public QLabel
     Q_OBJECT
 
 public:
-    SqueezeLabelV2(QWidget *parent = 0);
+    SqueezeLabelV2(QWidget* parent = 0);
     SqueezeLabelV2(const QString &string);
 
     QString originalText();
     void setText(const QString &txt);
 
 protected:
-    void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent* event);
 
 private:
     QString m_SqueezedTextCache;

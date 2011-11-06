@@ -46,8 +46,7 @@ public:
         QByteArray suggestionsParameters;
 
 
-        bool operator==(const Engine &other)
-        {
+        bool operator==(const Engine &other) const {
             return (this->name == other.name &&
                     this->url == other.url);
         }

@@ -35,14 +35,15 @@ QNetworkReply* QupZillaSchemeHandler::createRequest(QNetworkAccessManager::Opera
 {
     Q_UNUSED(outgoingData)
 
-    if (op != QNetworkAccessManager::GetOperation)
+    if (op != QNetworkAccessManager::GetOperation) {
         return 0;
+    }
 
     QupZillaSchemeReply* reply = new QupZillaSchemeReply(request);
     return reply;
 }
 
-QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject *parent)
+QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* parent)
     : QNetworkReply(parent)
 {
     setOperation(QNetworkAccessManager::GetOperation);
@@ -56,7 +57,8 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject *pa
 
         QTimer::singleShot(0, this, SLOT(loadPage()));
         open(QIODevice::ReadOnly);
-    } else {
+    }
+    else {
         setError(QNetworkReply::HostNotFoundError, tr("Not Found"));
         QTimer::singleShot(0, this, SLOT(delayedFinish()));
     }
@@ -65,12 +67,15 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject *pa
 void QupZillaSchemeReply::loadPage()
 {
     QTextStream stream(&m_buffer);
-    if (m_pageName == "about")
+    if (m_pageName == "about") {
         stream << aboutPage();
-    else if (m_pageName == "reportbug")
+    }
+    else if (m_pageName == "reportbug") {
         stream << reportbugPage();
-    else if (m_pageName == "start")
+    }
+    else if (m_pageName == "start") {
         stream << startPage();
+    }
 
     stream.flush();
     m_buffer.reset();
@@ -97,7 +102,7 @@ qint64 QupZillaSchemeReply::bytesAvailable() const
     return m_buffer.bytesAvailable() + QNetworkReply::bytesAvailable();
 }
 
-qint64 QupZillaSchemeReply::readData(char *data, qint64 maxSize)
+qint64 QupZillaSchemeReply::readData(char* data, qint64 maxSize)
 {
     return m_buffer.read(data, maxSize);
 }
@@ -178,17 +183,17 @@ QString QupZillaSchemeReply::aboutPage()
     page.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR, "nowrep@gmail.com"));
     page.replace("%CONTRIBUTORS%", tr("Contributors"));
     page.replace("%CONTRIBUTORS-TEXT%", authorString("Daniele Cocca", "jmc@chakra-project.org") + "<br/>" +
-                                        authorString("Jan Rajnoha", "honza.rajny@hotmail.com")
-                 );
+                 authorString("Jan Rajnoha", "honza.rajny@hotmail.com")
+                );
     page.replace("%TRANSLATORS%", tr("Translators"));
     page.replace("%TRANSLATORS-TEXT%", authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
-                                       authorString("Peter Vacula", "pvacula1989@gmail.com") + " (Slovak)<br/>" +
-                                       authorString("Ján Ďanovský", "dagsoftware@yahoo.com") + " (Slovak)<br/>" +
-                                       authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>" +
-                                       authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
-                                       authorString("Federico Fabiani", "federico.fabiani85@gmail.com") + " (Italy)<br/>" +
-                                       authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italy)"
-                 );
+                 authorString("Peter Vacula", "pvacula1989@gmail.com") + " (Slovak)<br/>" +
+                 authorString("Ján Ďanovský", "dagsoftware@yahoo.com") + " (Slovak)<br/>" +
+                 authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>" +
+                 authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
+                 authorString("Federico Fabiani", "federico.fabiani85@gmail.com") + " (Italy)<br/>" +
+                 authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italy)"
+                );
 
     return page;
 }

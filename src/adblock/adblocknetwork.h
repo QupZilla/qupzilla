@@ -55,8 +55,8 @@ class AdBlockNetwork : public QObject
     Q_OBJECT
 
 public:
-    AdBlockNetwork(QObject *parent = 0);
-    QNetworkReply *block(const QNetworkRequest &request);
+    AdBlockNetwork(QObject* parent = 0);
+    QNetworkReply* block(const QNetworkRequest &request);
 };
 
 #endif // ADBLOCKNETWORK_H

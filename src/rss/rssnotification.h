@@ -22,8 +22,9 @@
 
 #include "animatedwidget.h"
 
-namespace Ui {
-    class RSSNotification;
+namespace Ui
+{
+class RSSNotification;
 }
 
 class AnimatedWidget;

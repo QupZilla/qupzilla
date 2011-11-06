@@ -27,8 +27,9 @@
 #include <QFileDialog>
 #include <QCloseEvent>
 
-namespace Ui {
-    class SSLManager;
+namespace Ui
+{
+class SSLManager;
 }
 
 class SSLManager : public QDialog
@@ -50,7 +51,7 @@ private slots:
     void deletePath();
 
 private:
-    void closeEvent(QCloseEvent *e);
+    void closeEvent(QCloseEvent* e);
 
     void refreshLocalList();
     void refreshCAList();

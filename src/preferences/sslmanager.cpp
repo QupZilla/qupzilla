@@ -53,8 +53,9 @@ SSLManager::SSLManager(QWidget* parent)
 void SSLManager::addPath()
 {
     QString path = QFileDialog::getExistingDirectory(this, tr("Choose path..."));
-    if (path.isEmpty())
+    if (path.isEmpty()) {
         return;
+    }
 
     ui->pathList->addItem(path);
 }
@@ -62,8 +63,9 @@ void SSLManager::addPath()
 void SSLManager::deletePath()
 {
     QListWidgetItem* currentItem = ui->pathList->currentItem();
-    if (!currentItem)
+    if (!currentItem) {
         return;
+    }
 
     delete currentItem;
 }
@@ -73,9 +75,9 @@ void SSLManager::refreshCAList()
     ui->caList->setUpdatesEnabled(false);
     ui->caList->clear();
     m_caCerts = QSslSocket::defaultCaCertificates();
-    foreach (QSslCertificate cert, m_caCerts) {
+    foreach(QSslCertificate cert, m_caCerts) {
         QListWidgetItem* item = new QListWidgetItem(ui->caList);
-        item->setText( CertificateInfoWidget::certificateItemText(cert) );
+        item->setText(CertificateInfoWidget::certificateItemText(cert));
         item->setWhatsThis(QString::number(m_caCerts.indexOf(cert)));
         ui->caList->addItem(item);
     }
@@ -88,9 +90,9 @@ void SSLManager::refreshLocalList()
     ui->localList->setUpdatesEnabled(false);
     ui->localList->clear();
     m_localCerts = mApp->networkManager()->getLocalCertificates();
-    foreach (QSslCertificate cert, m_localCerts) {
+    foreach(QSslCertificate cert, m_localCerts) {
         QListWidgetItem* item = new QListWidgetItem(ui->localList);
-        item->setText( CertificateInfoWidget::certificateItemText(cert) );
+        item->setText(CertificateInfoWidget::certificateItemText(cert));
         item->setWhatsThis(QString::number(m_localCerts.indexOf(cert)));
         ui->localList->addItem(item);
     }
@@ -100,15 +102,16 @@ void SSLManager::refreshLocalList()
 
 void SSLManager::refreshPaths()
 {
-    foreach (QString path, mApp->networkManager()->certificatePaths())
-        ui->pathList->addItem(path);
+    foreach(QString path, mApp->networkManager()->certificatePaths())
+    ui->pathList->addItem(path);
 }
 
 void SSLManager::showCaCertInfo()
 {
     QListWidgetItem* item = ui->caList->currentItem();
-    if (!item)
+    if (!item) {
         return;
+    }
 
     QSslCertificate cert = m_caCerts.at(item->whatsThis().toInt());
     showCertificateInfo(cert);
@@ -117,8 +120,9 @@ void SSLManager::showCaCertInfo()
 void SSLManager::showLocalCertInfo()
 {
     QListWidgetItem* item = ui->localList->currentItem();
-    if (!item)
+    if (!item) {
         return;
+    }
 
     QSslCertificate cert = m_localCerts.at(item->whatsThis().toInt());
     showCertificateInfo(cert);
@@ -144,8 +148,9 @@ void SSLManager::showCertificateInfo(const QSslCertificate &cert)
 void SSLManager::deleteCertificate()
 {
     QListWidgetItem* item = ui->localList->currentItem();
-    if (!item)
+    if (!item) {
         return;
+    }
 
     QSslCertificate cert = m_localCerts.at(item->whatsThis().toInt());
     m_localCerts.removeOne(cert);
@@ -158,13 +163,14 @@ void SSLManager::ignoreAll(bool state)
     mApp->networkManager()->setIgnoreAllWarnings(state);
 }
 
-void SSLManager::closeEvent(QCloseEvent *e)
+void SSLManager::closeEvent(QCloseEvent* e)
 {
     QStringList paths;
     for (int i = 0; i < ui->pathList->count(); i++) {
         QListWidgetItem* item = ui->pathList->item(i);
-        if (!item || item->text().isEmpty())
+        if (!item || item->text().isEmpty()) {
             continue;
+        }
 
         paths.append(item->text());
     }

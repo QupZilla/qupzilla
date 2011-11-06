@@ -21,8 +21,9 @@
 #include <QWidget>
 #include <QMenu>
 
-namespace Ui {
-    class SiteInfoWidget;
+namespace Ui
+{
+class SiteInfoWidget;
 }
 
 class QupZilla;

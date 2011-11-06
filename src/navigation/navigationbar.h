@@ -31,7 +31,7 @@ class NavigationBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NavigationBar(QupZilla* mainClass, QWidget *parent = 0);
+    explicit NavigationBar(QupZilla* mainClass, QWidget* parent = 0);
     ~NavigationBar();
 
     void setSplitterSizes(int locationBar, int websearchBar);

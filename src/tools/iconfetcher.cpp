@@ -26,8 +26,9 @@ IconFetcher::IconFetcher(QObject* parent)
 
 void IconFetcher::fetchIcon(const QUrl &url)
 {
-    if (!m_manager)
+    if (!m_manager) {
         return;
+    }
 
     FollowRedirectReply* reply = new FollowRedirectReply(url, m_manager);
     connect(reply, SIGNAL(finished()), this, SLOT(pageDownloaded()));
@@ -36,8 +37,9 @@ void IconFetcher::fetchIcon(const QUrl &url)
 void IconFetcher::pageDownloaded()
 {
     FollowRedirectReply* reply = qobject_cast<FollowRedirectReply*> (sender());
-    if (!reply)
+    if (!reply) {
         return;
+    }
 
     QString html = reply->reply()->readAll();
     QUrl replyUrl = reply->reply()->url();
@@ -82,8 +84,9 @@ void IconFetcher::pageDownloaded()
 void IconFetcher::iconDownloaded()
 {
     FollowRedirectReply* reply = qobject_cast<FollowRedirectReply*> (sender());
-    if (!reply)
+    if (!reply) {
         return;
+    }
 
     QByteArray response = reply->reply()->readAll();
     delete reply;
@@ -92,8 +95,9 @@ void IconFetcher::iconDownloaded()
         QImage image;
         image.loadFromData(response);
         QIcon icon = QIcon(QPixmap::fromImage(image));
-        if (!icon.isNull())
+        if (!icon.isNull()) {
             emit iconFetched(icon);
+        }
     }
 
     emit finished();

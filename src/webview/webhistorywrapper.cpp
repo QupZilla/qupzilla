@@ -11,9 +11,10 @@ QList<QWebHistoryItem> WebHistoryWrapper::forwardItems(int maxItems, QWebHistory
     QUrl lastUrl = history->currentItem().url();
 
     int count = 0;
-    foreach (QWebHistoryItem item, history->forwardItems(maxItems + 5)) {
-        if (item.url() == lastUrl || count == maxItems)
+    foreach(QWebHistoryItem item, history->forwardItems(maxItems + 5)) {
+        if (item.url() == lastUrl || count == maxItems) {
             continue;
+        }
 
         lastUrl = item.url();
         list.append(item);
@@ -32,8 +33,9 @@ QList<QWebHistoryItem> WebHistoryWrapper::backItems(int maxItems, QWebHistory* h
     QList<QWebHistoryItem> bItems = history->backItems(maxItems + 5);
     for (int i = bItems.count() - 1; i >= 0; i--) {
         QWebHistoryItem item = bItems.at(i);
-        if (item.url() == lastUrl || count == maxItems)
+        if (item.url() == lastUrl || count == maxItems) {
             continue;
+        }
 
         lastUrl = item.url();
         list.append(item);
@@ -57,8 +59,9 @@ void WebHistoryWrapper::goBack(QWebHistory* history)
 {
     QList<QWebHistoryItem> items = backItems(1, history);
 
-    if (items.isEmpty())
+    if (items.isEmpty()) {
         return;
+    }
 
     history->goToItem(items.at(0));
 }
@@ -67,8 +70,9 @@ void WebHistoryWrapper::goForward(QWebHistory* history)
 {
     QList<QWebHistoryItem> items = forwardItems(1, history);
 
-    if (items.isEmpty())
+    if (items.isEmpty()) {
         return;
+    }
 
     history->goToItem(items.at(0));
 }

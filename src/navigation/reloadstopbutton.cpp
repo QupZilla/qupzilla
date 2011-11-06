@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "reloadstopbutton.h"
 
-ReloadStopButton::ReloadStopButton(QWidget *parent) :
+ReloadStopButton::ReloadStopButton(QWidget* parent) :
     QWidget(parent)
 {
     QHBoxLayout* lay = new QHBoxLayout(this);

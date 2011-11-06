@@ -42,10 +42,12 @@ AboutDialog::AboutDialog(QWidget* parent) :
 
 void AboutDialog::buttonClicked()
 {
-    if (ui->authorsButton->text() == tr("Authors and Contributors"))
+    if (ui->authorsButton->text() == tr("Authors and Contributors")) {
         showAuthors();
-    else if (ui->authorsButton->text() == tr("< About QupZilla"))
+    }
+    else if (ui->authorsButton->text() == tr("< About QupZilla")) {
         showAbout();
+    }
 }
 
 void AboutDialog::showAbout()
@@ -58,7 +60,7 @@ void AboutDialog::showAbout()
         m_aboutHtml.append(tr("<p>&copy; %1 %2<br/>All rights reserved.<br/>").arg(QupZilla::COPYRIGHT, QupZilla::AUTHOR));
         m_aboutHtml.append(tr("<small>Build time: %1 </small></p>").arg(QupZilla::BUILDTIME));
         m_aboutHtml.append(QString("<p><a href=%1>%1</a></p>").arg(QupZilla::WWWADDRESS));
-        m_aboutHtml.append("<p>"+mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl())+"</p>");
+        m_aboutHtml.append("<p>" + mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()) + "</p>");
         m_aboutHtml.append("</div>");
     }
     ui->textBrowser->setHtml(m_aboutHtml);
@@ -72,12 +74,12 @@ void AboutDialog::showAuthors()
         m_authorsHtml.append(tr("<p><b>Main developers:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>"));
         m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg("Daniele Cocca<br/>Jan Rajnoha"));
         m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg("Heimen Stoffels (Dutch)<br/>"
-                                                                         "Peter Vacula (Slovakia)<br/>"
-                                                                         "Jonathan Hooverman (German)<br/>"
-                                                                         "Unink-Lio (Chinese)<br/>"
-                                                                         "Federico Fabiani (Italy)<br/>"
-                                                                         "Francesco Marinucci (Italy)"
-                                                                         ));
+                             "Peter Vacula (Slovakia)<br/>"
+                             "Jonathan Hooverman (German)<br/>"
+                             "Unink-Lio (Chinese)<br/>"
+                             "Federico Fabiani (Italy)<br/>"
+                             "Francesco Marinucci (Italy)"
+                                                                        ));
         m_authorsHtml.append("</div>");
     }
     ui->textBrowser->setHtml(m_authorsHtml);

@@ -25,7 +25,7 @@ class ButtonBox : public QDialogButtonBox
 {
     Q_OBJECT
 public:
-    explicit ButtonBox(QWidget *parent = 0);
+    explicit ButtonBox(QWidget* parent = 0);
     ButtonRole clickedButtonRole();
 
 signals:

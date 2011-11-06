@@ -28,8 +28,9 @@
 
 #include "bookmarksmodel.h"
 
-namespace Ui {
-    class BookmarksImportDialog;
+namespace Ui
+{
+class BookmarksImportDialog;
 }
 
 class IconFetcher;
@@ -57,7 +58,7 @@ private:
     void startFetchingIcons();
     void addExportedBookmarks();
 
-    Ui::BookmarksImportDialog *ui;
+    Ui::BookmarksImportDialog* ui;
 
     int m_currentPage;
     Browser m_browser;

@@ -23,10 +23,10 @@
 #include "iconprovider.h"
 
 SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
-  : AnimatedWidget(AnimatedWidget::Up, 300, parent)
-  , ui(new Ui::SearchToolbar)
-  , p_QupZilla(mainClass)
-  , m_findFlags(0)
+    : AnimatedWidget(AnimatedWidget::Up, 300, parent)
+    , ui(new Ui::SearchToolbar)
+    , p_QupZilla(mainClass)
+    , m_findFlags(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
@@ -56,7 +56,7 @@ QLineEdit* SearchToolBar::searchLine()
 void SearchToolBar::findNext()
 {
     refreshFindFlags();
-    m_findFlags+=4;
+    m_findFlags += 4;
     searchText(ui->lineEdit->text());
 
 }
@@ -64,7 +64,7 @@ void SearchToolBar::findNext()
 void SearchToolBar::findPrevious()
 {
     refreshFindFlags();
-    m_findFlags+=5;
+    m_findFlags += 5;
     searchText(ui->lineEdit->text());
 }
 
@@ -72,15 +72,16 @@ void SearchToolBar::refreshFindFlags()
 {
     m_findFlags = 0;
     if (ui->highligh->isChecked()) {
-        m_findFlags+=8;
+        m_findFlags += 8;
         searchText(ui->lineEdit->text());
-    }else{
-        m_findFlags+=8;
+    }
+    else {
+        m_findFlags += 8;
         searchText("");
-        m_findFlags-=8;
+        m_findFlags -= 8;
     }
     if (ui->caseSensitive->isChecked()) {
-        m_findFlags+=2;
+        m_findFlags += 2;
         searchText(ui->lineEdit->text());
     }
 }
@@ -88,13 +89,16 @@ void SearchToolBar::refreshFindFlags()
 void SearchToolBar::searchText(const QString &text)
 {
     bool found = p_QupZilla->weView()->findText(text, QFlags<QWebPage::FindFlag>(m_findFlags));
-    if (text.isEmpty())
+    if (text.isEmpty()) {
         found = true;
+    }
 
-    if (!found)
+    if (!found) {
         ui->results->setText(tr("No results found."));
-    else
+    }
+    else {
         ui->results->clear();
+    }
 
 
     ui->lineEdit->setProperty("notfound", !found);

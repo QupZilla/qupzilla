@@ -45,15 +45,17 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
 
 QupZilla* RSSManager::getQupZilla()
 {
-    if (!p_QupZilla)
+    if (!p_QupZilla) {
         p_QupZilla = mApp->getWindow();
+    }
     return p_QupZilla;
 }
 
 void RSSManager::setMainWindow(QupZilla* window)
 {
-    if (window)
+    if (window) {
         p_QupZilla = window;
+    }
 }
 
 void RSSManager::refreshTable()
@@ -73,14 +75,14 @@ void RSSManager::refreshTable()
 
         ui->tabWidget->addTab(tree, title);
         ui->tabWidget->setTabToolTip(i, address.toString());
-        connect(tree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(loadFeed(QTreeWidgetItem*)));
+        connect(tree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*, int)), this, SLOT(loadFeed(QTreeWidgetItem*)));
         connect(tree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(controlLoadFeed(QTreeWidgetItem*)));
         connect(tree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(controlLoadFeed(QTreeWidgetItem*)));
         QTreeWidgetItem* item = new QTreeWidgetItem();
         item->setText(0, tr("Loading..."));
         tree->addTopLevelItem(item);
 
-        ui->tabWidget->setTabIcon(i, icon );
+        ui->tabWidget->setTabIcon(i, icon);
         beginToLoadSlot(address);
         i++;
     }
@@ -88,20 +90,21 @@ void RSSManager::refreshTable()
         ui->deletebutton->setEnabled(true);
         ui->reload->setEnabled(true);
         ui->edit->setEnabled(true);
-    } else {
+    }
+    else {
         ui->deletebutton->setEnabled(false);
         ui->reload->setEnabled(false);
         ui->edit->setEnabled(false);
 
-        QFrame *frame = new QFrame();
+        QFrame* frame = new QFrame();
         frame->setObjectName("rssmanager-frame");
-        QVBoxLayout *verticalLayout = new QVBoxLayout(frame);
-        QLabel *label_2 = new QLabel(frame);
+        QVBoxLayout* verticalLayout = new QVBoxLayout(frame);
+        QLabel* label_2 = new QLabel(frame);
         label_2->setPixmap(QPixmap(":/icons/menu/rss.png"));
-        label_2->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
+        label_2->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
         verticalLayout->addWidget(label_2);
-        QLabel *label = new QLabel(frame);
-        label->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
+        QLabel* label = new QLabel(frame);
+        label->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
         label->setText(tr("You don't have any RSS Feeds.<br/>\nPlease add some with RSS icon in navigation bar on site which offers feeds."));
         verticalLayout->addWidget(label);
         ui->tabWidget->addTab(frame, tr("Empty"));
@@ -111,34 +114,38 @@ void RSSManager::refreshTable()
 void RSSManager::reloadFeed()
 {
     TreeWidget* treeWidget = qobject_cast<TreeWidget*>(ui->tabWidget->widget(ui->tabWidget->currentIndex()));
-    if (!treeWidget)
+    if (!treeWidget) {
         return;
+    }
     treeWidget->clear();
     QTreeWidgetItem* item = new QTreeWidgetItem();
     item->setText(0, tr("Loading..."));
     treeWidget->addTopLevelItem(item);
 
-    beginToLoadSlot( QUrl(ui->tabWidget->tabToolTip(ui->tabWidget->currentIndex())) );
+    beginToLoadSlot(QUrl(ui->tabWidget->tabToolTip(ui->tabWidget->currentIndex())));
 }
 
 void RSSManager::deleteFeed()
 {
     QString url = ui->tabWidget->tabToolTip(ui->tabWidget->currentIndex());
-    if (url.isEmpty())
+    if (url.isEmpty()) {
         return;
+    }
     QSqlQuery query;
-    query.exec("DELETE FROM rss WHERE address='"+url+"'");
+    query.exec("DELETE FROM rss WHERE address='" + url + "'");
 
     ui->tabWidget->removeTab(ui->tabWidget->currentIndex());
-    if (ui->tabWidget->count() == 0)
+    if (ui->tabWidget->count() == 0) {
         refreshTable();
+    }
 }
 
 void RSSManager::editFeed()
 {
     QString url = ui->tabWidget->tabToolTip(ui->tabWidget->currentIndex());
-    if (url.isEmpty())
+    if (url.isEmpty()) {
         return;
+    }
 
     QDialog* dialog = new QDialog(this);
     QFormLayout* layout = new QFormLayout(dialog);
@@ -157,20 +164,22 @@ void RSSManager::editFeed()
     layout->addRow(new QLabel(tr("Feed URL: ")), editUrl);
     layout->addRow(box);
 
-    editUrl->setText( ui->tabWidget->tabToolTip(ui->tabWidget->currentIndex()) );
-    editTitle->setText( ui->tabWidget->tabText(ui->tabWidget->currentIndex()) );
+    editUrl->setText(ui->tabWidget->tabToolTip(ui->tabWidget->currentIndex()));
+    editTitle->setText(ui->tabWidget->tabText(ui->tabWidget->currentIndex()));
 
     dialog->setWindowTitle(tr("Edit RSS Feed"));
     dialog->setMinimumSize(400, 100);
     dialog->exec();
-    if (dialog->result() == QDialog::Rejected)
+    if (dialog->result() == QDialog::Rejected) {
         return;
+    }
 
     QString address = editUrl->text();
     QString title = editTitle->text();
 
-    if (address.isEmpty() || title.isEmpty())
+    if (address.isEmpty() || title.isEmpty()) {
         return;
+    }
 
     QSqlQuery query;
     query.prepare("UPDATE rss SET address=?, title=? WHERE address=?");
@@ -186,15 +195,18 @@ void RSSManager::editFeed()
 void RSSManager::customContextMenuRequested(const QPoint &position)
 {
     TreeWidget* treeWidget = qobject_cast<TreeWidget*>(ui->tabWidget->widget(ui->tabWidget->currentIndex()));
-    if (!treeWidget)
+    if (!treeWidget) {
         return;
+    }
 
-    if (!treeWidget->itemAt(position))
+    if (!treeWidget->itemAt(position)) {
         return;
+    }
 
     QString link = treeWidget->itemAt(position)->toolTip(0);
-    if (link.isEmpty())
+    if (link.isEmpty()) {
         return;
+    }
 
     QMenu menu;
     menu.addAction(tr("Open link in actual tab"), getQupZilla(), SLOT(loadActionUrl()))->setData(link);
@@ -202,32 +214,37 @@ void RSSManager::customContextMenuRequested(const QPoint &position)
 
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();
-    QPoint p(pos.x(), pos.y()+1);
+    QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 }
 
 void RSSManager::loadFeed(QTreeWidgetItem* item)
 {
-    if (!item)
+    if (!item) {
         return;
-    if (item->whatsThis(0).isEmpty())
+    }
+    if (item->whatsThis(0).isEmpty()) {
         return;
+    }
     getQupZilla()->loadAddress(QUrl(item->whatsThis(0)));
 }
 
 void RSSManager::controlLoadFeed(QTreeWidgetItem* item)
 {
-    if (!item)
+    if (!item) {
         return;
-    if (item->whatsThis(0).isEmpty())
+    }
+    if (item->whatsThis(0).isEmpty()) {
         return;
+    }
     getQupZilla()->tabWidget()->addView(QUrl(item->whatsThis(0)), tr("New Tab"), TabWidget::NewNotSelectedTab);
 }
 
 void RSSManager::loadFeedInNewTab()
 {
-    if (QAction* action = qobject_cast<QAction*>(sender()))
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
         getQupZilla()->tabWidget()->addView(action->data().toUrl(), tr("New Tab"), TabWidget::NewNotSelectedTab);
+    }
 }
 
 void RSSManager::beginToLoadSlot(const QUrl &url)
@@ -244,8 +261,9 @@ void RSSManager::beginToLoadSlot(const QUrl &url)
 void RSSManager::finished()
 {
     FollowRedirectReply* reply = qobject_cast<FollowRedirectReply*> (sender());
-    if (!reply)
+    if (!reply) {
         return;
+    }
 
     QString replyUrl;
     for (int i = 0; i < m_replies.count(); i++) {
@@ -256,8 +274,9 @@ void RSSManager::finished()
         }
     }
 
-    if (replyUrl.isEmpty())
+    if (replyUrl.isEmpty()) {
         return;
+    }
 
     QString currentTag;
     QString linkString;
@@ -268,45 +287,52 @@ void RSSManager::finished()
     delete reply;
 
     int tabIndex = -1;
-    for (int i=0; i<ui->tabWidget->count(); i++) {
+    for (int i = 0; i < ui->tabWidget->count(); i++) {
         if (replyUrl == ui->tabWidget->tabToolTip(i)) {
             tabIndex = i;
             break;
         }
     }
 
-    if (tabIndex == -1)
+    if (tabIndex == -1) {
         return;
+    }
 
     TreeWidget* treeWidget = qobject_cast<TreeWidget*>(ui->tabWidget->widget(tabIndex));
-    if (!treeWidget)
+    if (!treeWidget) {
         return;
+    }
     treeWidget->clear();
 
     while (!xml.atEnd()) {
         xml.readNext();
         if (xml.isStartElement()) {
-            if (xml.name() == "item")
+            if (xml.name() == "item") {
                 linkString = xml.attributes().value("rss:about").toString();
-            currentTag = xml.name().toString();
-            } else if (xml.isEndElement()) {
-                if (xml.name() == "item") {
-                    QTreeWidgetItem* item = new QTreeWidgetItem;
-                    item->setText(0, titleString);
-                    item->setWhatsThis(0, linkString);
-                    item->setIcon(0, QIcon(":/icons/other/feed.png"));
-                    item->setToolTip(0, linkString);
-                    treeWidget->addTopLevelItem(item);
-
-                    titleString.clear();
-                    linkString.clear();
-                }
-            } else if (xml.isCharacters() && !xml.isWhitespace()) {
-                if (currentTag == "title")
-                    titleString = xml.text().toString();
-                else if (currentTag == "link")
-                    linkString += xml.text().toString();
             }
+            currentTag = xml.name().toString();
+        }
+        else if (xml.isEndElement()) {
+            if (xml.name() == "item") {
+                QTreeWidgetItem* item = new QTreeWidgetItem;
+                item->setText(0, titleString);
+                item->setWhatsThis(0, linkString);
+                item->setIcon(0, QIcon(":/icons/other/feed.png"));
+                item->setToolTip(0, linkString);
+                treeWidget->addTopLevelItem(item);
+
+                titleString.clear();
+                linkString.clear();
+            }
+        }
+        else if (xml.isCharacters() && !xml.isWhitespace()) {
+            if (currentTag == "title") {
+                titleString = xml.text().toString();
+            }
+            else if (currentTag == "link") {
+                linkString += xml.text().toString();
+            }
+        }
     }
 
     if (treeWidget->topLevelItemCount() == 0) {
@@ -318,16 +344,19 @@ void RSSManager::finished()
 
 bool RSSManager::addRssFeed(const QString &address, const QString &title, const QIcon &icon)
 {
-    if (address.isEmpty())
+    if (address.isEmpty()) {
         return false;
+    }
     QSqlQuery query;
-    query.exec("SELECT id FROM rss WHERE address='"+address+"'");
+    query.exec("SELECT id FROM rss WHERE address='" + address + "'");
     if (!query.next()) {
         QByteArray iconData;
-        if (icon.pixmap(16,16).toImage() == QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage())
+        if (icon.pixmap(16, 16).toImage() == QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage()) {
             iconData = IconProvider::iconToBase64(QIcon(":icons/other/feed.png"));
-        else
+        }
+        else {
             iconData = IconProvider::iconToBase64(icon);
+        }
 
         query.prepare("INSERT INTO rss (address, title, icon) VALUES(?,?,?)");
         query.bindValue(0, address);
@@ -344,8 +373,9 @@ bool RSSManager::addRssFeed(const QString &address, const QString &title, const 
 void RSSManager::optimizeDb()
 {
     BrowsingLibrary* b = qobject_cast<BrowsingLibrary*>(parentWidget()->parentWidget());
-    if (!b)
+    if (!b) {
         return;
+    }
     b->optimizeDatabase();
 }
 

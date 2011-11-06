@@ -35,8 +35,9 @@
 
 #include "ecwin7.h"
 
-namespace Ui {
-    class DownloadManager;
+namespace Ui
+{
+class DownloadManager;
 }
 
 class DownloadItem;
@@ -81,7 +82,7 @@ private:
 #endif
     void timerEvent(QTimerEvent* event);
     void closeEvent(QCloseEvent* e);
-    void resizeEvent(QResizeEvent *e);
+    void resizeEvent(QResizeEvent* e);
 
     Ui::DownloadManager* ui;
     NetworkManager* m_networkManager;

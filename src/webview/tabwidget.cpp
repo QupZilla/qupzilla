@@ -32,16 +32,14 @@
 class NewTabButton : public QToolButton
 {
 public:
-    explicit NewTabButton(QWidget* parent ) : QToolButton(parent)
-    {
+    explicit NewTabButton(QWidget* parent) : QToolButton(parent) {
 #ifndef Q_WS_WIN
         setIcon(QIcon::fromTheme("list-add"));
-        setIconSize(QSize(16,16));
+        setIconSize(QSize(16, 16));
         setAutoRaise(true);
 #endif
     }
-    QSize sizeHint() const
-    {
+    QSize sizeHint() const {
         QSize siz = QToolButton::sizeHint();
         siz.setWidth(26);
         return siz;
@@ -49,8 +47,7 @@ public:
 
 #ifdef Q_WS_WIN
 private:
-    void paintEvent(QPaintEvent*)
-    {
+    void paintEvent(QPaintEvent*) {
         QPainter p(this);
         QStyleOptionTabV3 opt;
         opt.init(this);
@@ -58,8 +55,8 @@ private:
 
         QPixmap pix(":/icons/other/list-add.png");
         QRect r = this->rect();
-        r.setHeight(r.height()+3);
-        r.setWidth(r.width()+3);
+        r.setHeight(r.height() + 3);
+        r.setWidth(r.width() + 3);
         style()->drawItemPixmap(&p, r, Qt::AlignCenter, pix);
     }
 #endif
@@ -68,29 +65,29 @@ private:
 class TabListButton : public QToolButton
 {
 public:
-    explicit TabListButton(QWidget* parent ) : QToolButton(parent)
-    {
+    explicit TabListButton(QWidget* parent) : QToolButton(parent) {
     }
 
-    QSize sizeHint() const
-    {
+    QSize sizeHint() const {
         QSize siz = QToolButton::sizeHint();
         siz.setWidth(20);
         return siz;
     }
 
 private:
-    void paintEvent(QPaintEvent*)
-    {
+    void paintEvent(QPaintEvent*) {
         QPainter p(this);
         QStyleOptionToolButton opt;
         opt.init(this);
-        if (isDown())
+        if (isDown()) {
             opt.state |= QStyle::State_On;
-        if (opt.state & QStyle::State_MouseOver)
+        }
+        if (opt.state & QStyle::State_MouseOver) {
             opt.activeSubControls = QStyle::SC_ToolButton;
-        if (!isChecked() && !isDown())
-                opt.state |= QStyle::State_Raised;
+        }
+        if (!isChecked() && !isDown()) {
+            opt.state |= QStyle::State_Raised;
+        }
         opt.state |= QStyle::State_AutoRaise;
 
         style()->drawComplexControl(QStyle::CC_ToolButton, &opt, &p, this);
@@ -98,12 +95,12 @@ private:
 };
 
 TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
-   : QTabWidget(parent)
-   , p_QupZilla(mainClass)
-   , m_lastTabIndex(0)
-   , m_isClosingToLastTabIndex(false)
-   , m_closedTabsManager(new ClosedTabsManager(this))
-   , m_locationBars(new QStackedWidget())
+    : QTabWidget(parent)
+    , p_QupZilla(mainClass)
+    , m_lastTabIndex(0)
+    , m_isClosingToLastTabIndex(false)
+    , m_closedTabsManager(new ClosedTabsManager(this))
+    , m_locationBars(new QStackedWidget())
 {
     setObjectName("tabwidget");
     m_tabBar = new TabBar(p_QupZilla, this);
@@ -120,7 +117,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     connect(m_tabBar, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
-    connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
+    connect(m_tabBar, SIGNAL(tabMoved(int, int)), this, SLOT(tabMoved(int, int)));
 
     connect(m_tabBar, SIGNAL(moveAddTabButton(int)), this, SLOT(moveAddTabButton(int)));
     connect(m_tabBar, SIGNAL(showButtons()), this, SLOT(showButtons()));
@@ -147,19 +144,19 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
 
 void TabWidget::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath()+"settings.ini", QSettings::IniFormat);
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Browser-Tabs-Settings");
     m_hideCloseButtonWithOneTab = settings.value("hideCloseButtonWithOneTab", false).toBool();
-    m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab",false).toBool();
+    m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
     settings.endGroup();
     settings.beginGroup("Web-URL-Settings");
-    m_urlOnNewTab = settings.value("newTabUrl","").toUrl();
+    m_urlOnNewTab = settings.value("newTabUrl", "").toUrl();
     settings.endGroup();
 
     m_tabBar->loadSettings();
 }
 
-void TabWidget::resizeEvent(QResizeEvent *e)
+void TabWidget::resizeEvent(QResizeEvent* e)
 {
     QPoint posit;
     posit.setY(0);
@@ -183,7 +180,7 @@ void TabWidget::hideButtons()
 
 void TabWidget::moveAddTabButton(int posX)
 {
-    int posY = ( m_tabBar->height() - m_buttonAddTab->height() ) / 2;
+    int posY = (m_tabBar->height() - m_buttonAddTab->height()) / 2;
     m_buttonAddTab->move(posX, posY);
 }
 
@@ -191,29 +188,35 @@ void TabWidget::aboutToShowTabsMenu()
 {
     m_menuTabs->clear();
     WebView* actView = weView();
-    if (!actView)
+    if (!actView) {
         return;
-    for (int i = 0; i<count(); i++) {
+    }
+    for (int i = 0; i < count(); i++) {
         WebView* view = weView(i);
-        if (!view)
+        if (!view) {
             continue;
+        }
         QAction* action = new QAction(this);
-        if (view == actView)
+        if (view == actView) {
             action->setIcon(QIcon(":/icons/menu/dot.png"));
-        else
+        }
+        else {
             action->setIcon(_iconForUrl(view->url()));
+        }
         if (view->title().isEmpty()) {
             if (view->isLoading()) {
                 action->setText(tr("Loading..."));
                 action->setIcon(QIcon(":/icons/other/progress.gif"));
-            }else
+            }
+            else {
                 action->setText(tr("No Named Page"));
+            }
         }
-        else{
+        else {
             QString title = view->title();
-            if (title.length()>40) {
+            if (title.length() > 40) {
                 title.truncate(40);
-                title+="..";
+                title += "..";
             }
             action->setText(title);
         }
@@ -237,8 +240,9 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
 {
     m_lastTabIndex = currentIndex();
 
-    if (url.isEmpty())
+    if (url.isEmpty()) {
         url = m_urlOnNewTab;
+    }
 
     LocationBar* locBar = new LocationBar(p_QupZilla);
     m_locationBars->addWidget(locBar);
@@ -248,28 +252,37 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
 
     setTabText(index, title);
     webView->animationLoading(index, true)->movie()->stop();
-    webView->animationLoading(index, false)->setPixmap(_iconForUrl(url).pixmap(16,16));
+    webView->animationLoading(index, false)->setPixmap(_iconForUrl(url).pixmap(16, 16));
 
-    if (openIn == TabWidget::NewSelectedTab)
+    if (openIn == TabWidget::NewSelectedTab) {
         setCurrentIndex(index);
+    }
 
-    if (count() == 1 && m_hideTabBarWithOneTab)
+    if (count() == 1 && m_hideTabBarWithOneTab) {
         tabBar()->setVisible(false);
-    else tabBar()->setVisible(true);
+    }
+    else {
+        tabBar()->setVisible(true);
+    }
 
-    if (count() == 1 && m_hideCloseButtonWithOneTab)
+    if (count() == 1 && m_hideCloseButtonWithOneTab) {
         tabBar()->setTabsClosable(false);
-    else tabBar()->setTabsClosable(true);
+    }
+    else {
+        tabBar()->setTabsClosable(true);
+    }
 
     connect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
-    if (url.isValid())
+    if (url.isValid()) {
         webView->load(url);
+    }
 
-    if (selectLine)
+    if (selectLine) {
         p_QupZilla->locationBar()->setFocus();
+    }
 
     if (openIn == NewSelectedTab) {
         m_isClosingToLastTabIndex = true;
@@ -279,14 +292,15 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
     return index;
 }
 
-void TabWidget::setTabText(int index, const QString& text)
+void TabWidget::setTabText(int index, const QString &text)
 {
     QString newtext = text;
     newtext.remove("&"); // Avoid Alt+letter shortcuts
 
-    if (WebTab* webTab = qobject_cast<WebTab*>(p_QupZilla->tabWidget()->widget(index)) ) {
-        if (webTab->isPinned())
+    if (WebTab* webTab = qobject_cast<WebTab*>(p_QupZilla->tabWidget()->widget(index))) {
+        if (webTab->isPinned()) {
             newtext = "";
+        }
     }
 
     QTabWidget::setTabText(index, newtext);
@@ -294,17 +308,21 @@ void TabWidget::setTabText(int index, const QString& text)
 
 void TabWidget::closeTab(int index)
 {
-    if (count() == 1)
+    if (count() == 1) {
         return;
-    if (index == -1)
+    }
+    if (index == -1) {
         index = currentIndex();
+    }
 
     WebView* webView = weView(index);
-    if (!webView)
+    if (!webView) {
         return;
+    }
 
-    if (webView->webTab()->isPinned())
+    if (webView->webTab()->isPinned()) {
         emit pinnedTabClosed();
+    }
 
     m_locationBars->removeWidget(webView->webTab()->locationBar());
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
@@ -313,15 +331,18 @@ void TabWidget::closeTab(int index)
     //Save last tab url and history
     m_closedTabsManager->saveView(webView);
 
-    if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex())
+    if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
         setCurrentIndex(m_lastTabIndex);
+    }
 
     delete widget(index);
 
-    if (count() == 1 && m_hideCloseButtonWithOneTab)
+    if (count() == 1 && m_hideCloseButtonWithOneTab) {
         tabBar()->setTabsClosable(false);
-    if (count() == 1 && m_hideTabBarWithOneTab)
+    }
+    if (count() == 1 && m_hideTabBarWithOneTab) {
         tabBar()->setVisible(false);
+    }
 
 //    if (count() < 1)
 //        p_QupZilla->close();
@@ -336,22 +357,25 @@ void TabWidget::tabMoved(int before, int after)
 
 void TabWidget::currentTabChanged(int index)
 {
-    if (index < 0)
+    if (index < 0) {
         return;
+    }
 
     m_isClosingToLastTabIndex = false;
     WebView* webView = weView();
     LocationBar* locBar = webView->webTab()->locationBar();
 
     QString title = webView->title();
-    if (title.isEmpty())
+    if (title.isEmpty()) {
         title = tr("No Named Page");
+    }
 
     p_QupZilla->setWindowTitle(title + " - QupZilla");
 //    p_QupZilla->locationBar()->showUrl(weView()->url(),false);
 
-    if (m_locationBars->indexOf(locBar) != -1)
+    if (m_locationBars->indexOf(locBar) != -1) {
         m_locationBars->setCurrentWidget(locBar);
+    }
     p_QupZilla->ipLabel()->setText(webView->getIp());
 
     if (webView->isLoading()) {
@@ -359,7 +383,8 @@ void TabWidget::currentTabChanged(int index)
         p_QupZilla->progressBar()->setVisible(true);
         p_QupZilla->progressBar()->setValue(webView->getLoading());
         p_QupZilla->navigationBar()->showStopButton();
-    } else {
+    }
+    else {
         p_QupZilla->progressBar()->setVisible(false);
         p_QupZilla->navigationBar()->showReloadButton();
         p_QupZilla->ipLabel()->show();
@@ -372,7 +397,7 @@ void TabWidget::currentTabChanged(int index)
 
 void TabWidget::reloadAllTabs()
 {
-    for (int i = 0; i<count(); i++) {
+    for (int i = 0; i < count(); i++) {
         reloadTab(i);
     }
 }
@@ -381,9 +406,10 @@ void TabWidget::closeAllButCurrent(int index)
 {
     WebTab* akt = qobject_cast<WebTab*>(widget(index));
 
-    foreach (WebTab* tab, allTabs(false)) {
-        if (akt == widget(tab->view()->tabIndex()))
+    foreach(WebTab * tab, allTabs(false)) {
+        if (akt == widget(tab->view()->tabIndex())) {
             continue;
+        }
         closeTab(tab->view()->tabIndex());
     }
 }
@@ -402,16 +428,19 @@ void TabWidget::duplicateTab(int index)
 
 void TabWidget::restoreClosedTab()
 {
-    if (!m_closedTabsManager->isClosedTabAvailable())
+    if (!m_closedTabsManager->isClosedTabAvailable()) {
         return;
+    }
 
     ClosedTabsManager::Tab tab;
 
     QAction* action = qobject_cast<QAction*>(sender());
-    if (action && action->data().toInt() != 0)
+    if (action && action->data().toInt() != 0) {
         tab = m_closedTabsManager->getTabAt(action->data().toInt());
-    else
+    }
+    else {
         tab = m_closedTabsManager->getFirstClosedTab();
+    }
     int index = addView(QUrl(), tab.title);
     QDataStream historyStream(tab.history);
     historyStream >> *weView(index)->history();
@@ -421,11 +450,12 @@ void TabWidget::restoreClosedTab()
 
 void TabWidget::restoreAllClosedTabs()
 {
-    if (!m_closedTabsManager->isClosedTabAvailable())
+    if (!m_closedTabsManager->isClosedTabAvailable()) {
         return;
+    }
 
     QList<ClosedTabsManager::Tab> closedTabs = m_closedTabsManager->allClosedTabs();
-    foreach (ClosedTabsManager::Tab tab, closedTabs) {
+    foreach(ClosedTabsManager::Tab tab, closedTabs) {
         int index = addView(QUrl(), tab.title);
         QDataStream historyStream(tab.history);
         historyStream >> *weView(index)->history();
@@ -450,8 +480,9 @@ QList<WebTab*> TabWidget::allTabs(bool withPinned)
     QList<WebTab*> allTabs;
     for (int i = 0; i < count(); i++) {
         WebTab* tab = qobject_cast<WebTab*>(widget(i));
-        if (!tab || (!withPinned && tab->isPinned()) )
+        if (!tab || (!withPinned && tab->isPinned())) {
             continue;
+        }
         allTabs.append(tab);
     }
     return allTabs;
@@ -467,8 +498,9 @@ void TabWidget::savePinnedTabs()
     for (int i = 0; i < count(); ++i) {
         if (WebView* tab = weView(i)) {
             WebTab* webTab = qobject_cast<WebTab*>(widget(i));
-            if (!webTab || !webTab->isPinned())
+            if (!webTab || !webTab->isPinned()) {
                 continue;
+            }
 
             tabs.append(QString::fromUtf8(tab->url().toEncoded()));
             if (tab->history()->count() != 0) {
@@ -476,17 +508,19 @@ void TabWidget::savePinnedTabs()
                 QDataStream tabHistoryStream(&tabHistory, QIODevice::WriteOnly);
                 tabHistoryStream << *tab->history();
                 tabsHistory.append(tabHistory);
-            } else {
+            }
+            else {
                 tabsHistory << QByteArray();
             }
-        } else {
+        }
+        else {
             tabs.append(QString::null);
             tabsHistory.append(QByteArray());
         }
     }
     stream << tabs;
     stream << tabsHistory;
-    QFile file(mApp->getActiveProfilPath()+"pinnedtabs.dat");
+    QFile file(mApp->getActiveProfilPath() + "pinnedtabs.dat");
     file.open(QIODevice::WriteOnly);
     file.write(data);
     file.close();
@@ -494,14 +528,15 @@ void TabWidget::savePinnedTabs()
 
 void TabWidget::restorePinnedTabs()
 {
-    QFile file(mApp->getActiveProfilPath()+"pinnedtabs.dat");
+    QFile file(mApp->getActiveProfilPath() + "pinnedtabs.dat");
     file.open(QIODevice::ReadOnly);
     QByteArray sd = file.readAll();
     file.close();
 
     QDataStream stream(&sd, QIODevice::ReadOnly);
-    if (stream.atEnd())
+    if (stream.atEnd()) {
         return;
+    }
 
     QStringList pinnedTabs;
     stream >> pinnedTabs;
@@ -514,11 +549,12 @@ void TabWidget::restorePinnedTabs()
         QByteArray historyState = tabHistory.value(i);
         int addedIndex;
         if (!historyState.isEmpty()) {
-            addedIndex= addView(QUrl());
+            addedIndex = addView(QUrl());
             QDataStream historyStream(historyState);
             historyStream >> *weView(addedIndex)->history();
             weView(addedIndex)->load(url);
-        } else {
+        }
+        else {
             addedIndex = addView(url);
         }
         WebTab* webTab = qobject_cast<WebTab*>(widget(addedIndex));
@@ -542,8 +578,9 @@ QByteArray TabWidget::saveState()
     for (int i = 0; i < count(); ++i) {
         if (WebView* tab = weView(i)) {
             WebTab* webTab = qobject_cast<WebTab*>(widget(i));
-            if (webTab && webTab->isPinned())
+            if (webTab && webTab->isPinned()) {
                 continue;
+            }
 
             tabs.append(QString::fromUtf8(tab->url().toEncoded()));
             if (tab->history()->count() != 0) {
@@ -551,10 +588,12 @@ QByteArray TabWidget::saveState()
                 QDataStream tabHistoryStream(&tabHistory, QIODevice::WriteOnly);
                 tabHistoryStream << *tab->history();
                 tabsHistory.append(tabHistory);
-            } else {
+            }
+            else {
                 tabsHistory << QByteArray();
             }
-        } else {
+        }
+        else {
             tabs.append(QString::null);
             tabsHistory.append(QByteArray());
         }
@@ -570,8 +609,9 @@ bool TabWidget::restoreState(const QByteArray &state)
 {
     QByteArray sd = state;
     QDataStream stream(&sd, QIODevice::ReadOnly);
-    if (stream.atEnd())
+    if (stream.atEnd()) {
         return false;
+    }
 
     QStringList openTabs;
     int currentTab;
@@ -589,7 +629,8 @@ bool TabWidget::restoreState(const QByteArray &state)
             QDataStream historyStream(historyState);
             historyStream >> *weView(index)->history();
             weView(index)->load(url);
-        } else {
+        }
+        else {
             addView(url);
         }
     }
