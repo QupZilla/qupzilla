@@ -33,6 +33,7 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
     ui->historyTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
     ui->historyTree->setSelectionMode(QAbstractItemView::ExtendedSelection);
     qz_centerWidgetOnScreen(this);
+    ui->deleteB->setShortcut(QKeySequence("Del"));
 
     connect(ui->historyTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));
     connect(ui->historyTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)),this, SLOT(itemDoubleClicked(QTreeWidgetItem*)));

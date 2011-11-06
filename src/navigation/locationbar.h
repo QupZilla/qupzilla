@@ -67,6 +67,8 @@ private slots:
     void clearIcon();
     void showRSSIcon(bool state);
 
+    void updatePlaceHolderText();
+
 private:
     void focusOutEvent(QFocusEvent* e);
     void mouseDoubleClickEvent(QMouseEvent* event);

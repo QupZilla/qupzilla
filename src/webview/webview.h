@@ -114,7 +114,6 @@ private slots:
     void slotIconChanged();
 
 private:
-    void keyPressEvent(QKeyEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     void contextMenuEvent(QContextMenuEvent* event);
