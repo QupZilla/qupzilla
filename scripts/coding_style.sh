@@ -23,5 +23,7 @@ astyle --indent=spaces=4 --style=linux \
        --align-pointer=type --align-reference=name \
        `find -type f -name '*.h'`
        
+rm */*.orig
+       
 read -p "Press [ENTER] to close terminal"
 exit
