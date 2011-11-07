@@ -117,12 +117,12 @@ void AdBlockSubscription::rulesDownloaded()
 
     QString fileName = mApp->getActiveProfilPath() + "adblocklist.txt";
     QFile file(fileName);
-    if (!file.open(QFile::WriteOnly)) {
+    if (!file.open(QFile::ReadWrite | QFile::Truncate)) {
         qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << fileName;
         return;
     }
 
-    response = response.left(response.indexOf("!-----------------General element hiding rules-----------------!"));
+    response = response.left(response.indexOf("General element hiding rules"));
 
     bool customRules = false;
     foreach(const AdBlockRule & rule, allRules()) {
@@ -149,15 +149,17 @@ void AdBlockSubscription::saveRules()
     QString fileName = mApp->getActiveProfilPath() + "adblocklist.txt";
 
     QFile file(fileName);
-    if (!file.open(QFile::ReadWrite | QIODevice::Truncate)) {
+    if (!file.open(QFile::ReadWrite | QFile::Truncate)) {
         qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << fileName;
         return;
     }
 
     QTextStream textStream(&file);
     textStream << "[Adblock Plus 1.1.1]" << endl;
-    foreach(const AdBlockRule & rule, m_rules)
-    textStream << rule.filter() << endl;
+
+    foreach(const AdBlockRule & rule, m_rules) {
+        textStream << rule.filter() << endl;
+    }
 }
 
 const AdBlockRule* AdBlockSubscription::allow(const QString &urlString) const

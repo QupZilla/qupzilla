@@ -1248,6 +1248,16 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
         showPreferences();
         event->accept();
         break;
+    case Qt::Key_Tab:
+        if (event->modifiers() == Qt::ControlModifier) {
+            m_tabWidget->createKeyPressEvent(event);
+        }
+        break;
+    case Qt::Key_Backtab:
+        if (event->modifiers() == (Qt::ControlModifier + Qt::ShiftModifier)) {
+            m_tabWidget->createKeyPressEvent(event);
+        }
+        break;
 
     default:
         QMainWindow::keyPressEvent(event);
