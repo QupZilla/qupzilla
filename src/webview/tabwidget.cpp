@@ -166,6 +166,11 @@ void TabWidget::resizeEvent(QResizeEvent* e)
     QTabWidget::resizeEvent(e);
 }
 
+void TabWidget::createKeyPressEvent(QKeyEvent *event)
+{
+    QTabWidget::keyPressEvent(event);
+}
+
 void TabWidget::showButtons()
 {
     m_buttonListTabs->show();
