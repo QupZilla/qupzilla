@@ -25,14 +25,11 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent) :
     , ui(new Ui::SiteInfoWidget)
     , p_QupZilla(mainClass)
 {
-    WebView* view = p_QupZilla->weView();
-    QUrl url = view->url();
-    if (url.isEmpty() || url.scheme() == "qupzilla") {
-        return;
-    }
-
     this->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
+
+    WebView* view = p_QupZilla->weView();
+    QUrl url = view->url();
 
     if (view->webPage()->sslCertificate().isValid()) {
         ui->secureLabel->setText(tr("Your connection to this site is <b>secured</b>."));

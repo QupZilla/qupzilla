@@ -158,7 +158,8 @@ void LocationBar::hideGoButton()
 
 void LocationBar::showPopup()
 {
-    //TODO: Fix to next version
+//    TODO: Fix to next version
+
 //    return;
 //    emit textEdited("");
 //    m_locationCompleter->popup()->showNormal();
@@ -166,6 +167,12 @@ void LocationBar::showPopup()
 
 void LocationBar::showSiteInfo()
 {
+    QUrl url = p_QupZilla->weView()->url();
+
+    if (url.isEmpty() || url.scheme() == "qupzilla") {
+        return;
+    }
+
     SiteInfoWidget* info = new SiteInfoWidget(p_QupZilla);
     info->showAt(this);
 }

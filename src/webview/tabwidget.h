@@ -37,7 +37,6 @@ class TabListButton;
 class NewTabButton;
 class ClosedTabsManager;
 class ToolButton;
-
 class TabWidget : public QTabWidget
 {
     Q_OBJECT
@@ -61,6 +60,8 @@ public:
     QStackedWidget* locationBars() { return m_locationBars; }
     ToolButton* buttonListTabs() { return m_buttonListTabs; }
     ToolButton* buttonAddTab() { return m_buttonAddTab; }
+
+    void createKeyPressEvent(QKeyEvent* event);
 
 signals:
     void pinnedTabClosed();
