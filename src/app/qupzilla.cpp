@@ -1152,7 +1152,7 @@ void QupZilla::savePage()
     QNetworkRequest request(weView()->url());
 
     DownloadManager* dManager = mApp->downManager();
-    dManager->download(request, false);
+    dManager->download(request, weView()->webPage(), false);
 }
 
 void QupZilla::printPage()

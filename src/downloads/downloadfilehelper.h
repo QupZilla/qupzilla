@@ -30,11 +30,12 @@
 
 class DownloadItem;
 class DownloadManager;
+class WebPage;
 class DownloadFileHelper : public QObject
 {
     Q_OBJECT
 public:
-    explicit DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog);
+    explicit DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog, WebPage* page);
     ~DownloadFileHelper();
 
     void setListWidget(QListWidget* tw) { m_listWidget = tw; }
@@ -68,6 +69,7 @@ private:
     QListWidget* m_listWidget;
     QFileIconProvider* m_iconProvider;
     DownloadManager* m_manager;
+    WebPage* m_webPage;
 };
 
 #endif // DOWNLOADFILEHELPER_H
