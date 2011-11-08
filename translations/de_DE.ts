@@ -3458,7 +3458,7 @@ Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</tra
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart browser in order to changes take effect.</source>
         <translation>Alle Zertifikate müssen einen .crt suffix besitzen.
-Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gestarten werden, um die Änderung wirksam zu machen.</translation>
+Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gestartet werden, um die Änderung wirksam zu machen.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="55"/>
