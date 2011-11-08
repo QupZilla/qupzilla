@@ -43,6 +43,7 @@ class DownloadManager;
 class DownloadItem;
 class EcWin7;
 class NetworkManager;
+class WebPage;
 class DownloadManager : public QWidget
 {
     Q_OBJECT
@@ -53,8 +54,8 @@ public:
 
     void loadSettings();
 
-    void download(const QNetworkRequest &request, bool askWhatToDo = true);
-    void handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo = true);
+    void download(const QNetworkRequest &request, WebPage* page, bool askWhatToDo = true);
+    void handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool askWhatToDo = true);
     bool canClose();
     void setLastDownloadPath(const QString &lastPath) { m_lastDownloadPath = lastPath; }
 

@@ -25,7 +25,7 @@
 #include "downloadmanager.h"
 #include "globalfunctions.h"
 
-DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog)
+DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog, WebPage* page)
     : QObject()
     , m_lastDownloadPath(lastDownloadPath)
     , m_downloadPath(downloadPath)
@@ -36,6 +36,7 @@ DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QS
     , m_listWidget(0)
     , m_iconProvider(new QFileIconProvider)
     , m_manager(0)
+    , m_webPage(page)
 {
 }
 
@@ -60,19 +61,16 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
     m_fileIcon = m_iconProvider->icon(tempInfo).pixmap(30, 30);
     QString mimeType = m_iconProvider->type(tempInfo);
 
-    //Get Download Page and Close Empty Tab
-    QNetworkRequest request = m_reply->request();
-    QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-    WebPage* webPage = (WebPage*)(v.value<void*>());
-    if (webPage) {
-        if (!webPage->mainFrame()->url().isEmpty()) {
-            m_downloadPage = webPage->mainFrame()->url();
+    // Close Empty Tab
+    if (m_webPage) {
+        if (!m_webPage->mainFrame()->url().isEmpty()) {
+            m_downloadPage = m_webPage->mainFrame()->url();
         }
-        else if (webPage->history()->canGoBack()) {
-            m_downloadPage = webPage->history()->backItem().url();
+        else if (m_webPage->history()->canGoBack()) {
+            m_downloadPage = m_webPage->history()->backItem().url();
         }
-        else if (webPage->history()->count() == 0) {
-            webPage->getView()->closeTab();
+        else if (m_webPage->history()->count() == 0) {
+            m_webPage->getView()->closeTab();
         }
     }
 

@@ -166,18 +166,26 @@ void DownloadManager::clearList()
     qDeleteAll(items);
 }
 
-void DownloadManager::download(const QNetworkRequest &request, bool askWhatToDo)
+void DownloadManager::download(const QNetworkRequest &request, WebPage* page, bool askWhatToDo)
 {
-    handleUnsupportedContent(m_networkManager->get(request), askWhatToDo);
+    // Clearing web page info from request
+    QNetworkRequest req = request;
+    req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), 0);
+    req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), 0);
+    req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102), 0);
+
+    handleUnsupportedContent(m_networkManager->get(req), page, askWhatToDo);
 }
 
-void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo)
+void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool askWhatToDo)
 {
     if (reply->url().scheme() == "qupzilla") {
         return;
     }
 
-    DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog);
+    reply->setProperty("downReply", true);
+
+    DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog, page);
     connect(h, SIGNAL(itemCreated(QListWidgetItem*, DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*, DownloadItem*)));
 
     h->setDownloadManager(this);
