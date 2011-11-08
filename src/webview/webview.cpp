@@ -663,7 +663,7 @@ void WebView::downloadImageToDisk()
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         DownloadManager* dManager = mApp->downManager();
         QNetworkRequest request(action->data().toUrl());
-        dManager->download(request, false);
+        dManager->download(request, m_page, false);
     }
 }
 
@@ -696,14 +696,14 @@ void WebView::downloadLinkToDisk()
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         QNetworkRequest request(action->data().toUrl());
         DownloadManager* dManager = mApp->downManager();
-        dManager->download(request, false);
+        dManager->download(request, m_page, false);
     }
 }
 
 void WebView::downloadRequested(const QNetworkRequest &request)
 {
     DownloadManager* dManager = mApp->downManager();
-    dManager->download(request);
+    dManager->download(request, m_page);
 }
 
 void WebView::bookmarkLink()
@@ -792,7 +792,7 @@ void WebView::closeTab()
     }
     else {
         m_wantsClose = true;
-        QTimer::singleShot(20, this, SLOT(closeTab()));
+        QTimer::singleShot(100, this, SLOT(closeTab()));
     }
 }
 
@@ -832,6 +832,7 @@ void WebView::load(const QUrl &url)
 
 QUrl WebView::url() const
 {
+    return QWebView::url();
     QUrl ur = QWebView::url();
     if (ur.isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
         return m_aboutToLoadUrl;

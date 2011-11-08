@@ -69,6 +69,16 @@ public:
     static bool isUrlValid(const QUrl &url);
     int tabIndex() const;
 
+signals:
+    void showUrl(QUrl url);
+    void siteIconChanged();
+    void wantsCloseTab(int index);
+    void changed();
+    void ipChanged(QString ip);
+    void showNotification(QWidget* notif);
+    void viewportResized(QSize size);
+    void rssChanged(bool state);
+
 public slots:
     void stop();
     void back();
@@ -152,15 +162,8 @@ private:
     QList<QTouchEvent::TouchPoint> m_touchPoints;
     //QTimer* m_loadingTimer;
 
-signals:
-    void showUrl(QUrl url);
-    void siteIconChanged();
-    void wantsCloseTab(int index);
-    void changed();
-    void ipChanged(QString ip);
-    void showNotification(QWidget* notif);
-    void viewportResized(QSize size);
-    void rssChanged(bool state);
+//    static QList<WebView*> s_deletedPointers;
+//    static bool isPointerValid(WebView* pointer);
 };
 
 #endif // WEBVIEW_H

@@ -97,7 +97,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
     case QNetworkReply::NoError:
         if (reply->header(QNetworkRequest::ContentTypeHeader).isValid()) {
             DownloadManager* dManager = mApp->downManager();
-            dManager->handleUnsupportedContent(reply);
+            dManager->handleUnsupportedContent(reply, this);
             return;
         }
         break;
@@ -164,11 +164,14 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
 
 void WebPage::populateNetworkRequest(QNetworkRequest &request)
 {
-    QVariant variant = qVariantFromValue((void*) this);
+    QPointer<WebPage> pagePointer = this;
+    QPointer<WebView> webViewPointer = m_view;
+
+    QVariant variant = qVariantFromValue((void*) pagePointer);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), m_lastRequestType);
 
-    variant = qVariantFromValue((void*) m_view);
+    variant = qVariantFromValue((void*) webViewPointer);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102), variant);
 }
 

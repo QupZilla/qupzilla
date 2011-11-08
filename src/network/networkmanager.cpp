@@ -77,6 +77,10 @@ void NetworkManager::loadSettings()
 
 void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
 {
+    if (reply->property("downReply").toBool()) {
+        return;
+    }
+
     if (!reply->sslConfiguration().isNull()) {
         QSslCertificate cert = reply->sslConfiguration().peerCertificate();
         if (!cert.isValid()) {
@@ -92,7 +96,7 @@ void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
             return;
         }
 
-        if (webView->url().host() == reply->url().host()) {
+         if (webView->url().host() == reply->url().host()) {
             webPage->setSSLCertificate(cert);
         }
     }
@@ -102,6 +106,10 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
 {
     if (m_ignoreAllWarnings) {
         reply->ignoreSslErrors(errors);
+        return;
+    }
+
+    if (reply->property("downReply").toBool()) {
         return;
     }
 
