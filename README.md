@@ -48,7 +48,7 @@ To install QupZilla, you will have to run this command: (it may be neccessary to
 Current version
 ----------------------------------------------------------------------------------------
 
-The current released version of QupZilla is 1.0.0-rc1. You can download precompiled packages
+The current released version of QupZilla is 1.0.0. You can download precompiled packages
 and the sources from the download section.
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:
