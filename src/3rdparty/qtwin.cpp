@@ -49,13 +49,12 @@ typedef struct _DWM_BLURBEHIND {
     BOOL fTransitionOnMaximized;
 } DWM_BLURBEHIND, *PDWM_BLURBEHIND;
 
-//typedef struct _MARGINS
-//{
-//    int cxLeftWidth;
-//    int cxRightWidth;
-//    int cyTopHeight;
-//    int cyBottomHeight;
-//} MARGINS, *PMARGINS;
+typedef struct _MARGINS {
+    int cxLeftWidth;
+    int cxRightWidth;
+    int cyTopHeight;
+    int cyBottomHeight;
+} MARGINS, *PMARGINS;
 
 typedef HRESULT(WINAPI* PtrDwmIsCompositionEnabled)(BOOL* pfEnabled);
 typedef HRESULT(WINAPI* PtrDwmExtendFrameIntoClientArea)(HWND hWnd, const MARGINS* pMarInset);

@@ -70,7 +70,7 @@ void Plugins::loadPlugins()
         }
     }
 
-    std::cout << loadedPlugins.count() << "plugins loaded" << std::endl;
+    std::cout << loadedPlugins.count() << " plugins loaded" << std::endl;
 }
 
 PluginInterface* Plugins::getPlugin(QString pluginFileName)
