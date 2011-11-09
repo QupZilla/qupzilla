@@ -166,7 +166,7 @@ void TabWidget::resizeEvent(QResizeEvent* e)
     QTabWidget::resizeEvent(e);
 }
 
-void TabWidget::createKeyPressEvent(QKeyEvent *event)
+void TabWidget::createKeyPressEvent(QKeyEvent* event)
 {
     QTabWidget::keyPressEvent(event);
 }

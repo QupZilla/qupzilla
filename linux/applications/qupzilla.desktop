@@ -18,4 +18,5 @@ MimeType=text/html;application/xhtml+xml;
 Terminal=false
 Type=Application
 Icon=qupzilla.png
+StartupNotify=true
 Categories=Network;WebBrowser;

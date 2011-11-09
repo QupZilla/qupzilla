@@ -61,7 +61,7 @@
 #include "globalfunctions.h"
 #include "webhistorywrapper.h"
 
-const QString QupZilla::VERSION = "1.0.0-rc1";
+const QString QupZilla::VERSION = "1.0.0";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2011";
@@ -205,6 +205,14 @@ void QupZilla::setupUi()
     }
     else {
         setGeometry(settings.value("WindowGeometry", QRect(20, 20, 800, 550)).toRect());
+        if (m_startBehaviour == NewWindow) {
+            // Moving window +40 x,y to be visible that this is new window
+            QPoint p = pos();
+            p.setX(p.x() + 40);
+            p.setY(p.y() + 40);
+
+            move(p);
+        }
     }
 
     locationBarWidth = settings.value("LocationBarWidth", 0).toInt();
