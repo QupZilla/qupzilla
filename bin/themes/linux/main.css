@@ -82,13 +82,13 @@
 #tabwidget-button-opentabs
 {
     qproperty-icon: url(images/tabs-list-button.png);
-    qproperty-fixedsize: 20px 27px;
+    qproperty-fixedsize: 20px 25px;
 }
 
 #tabwidget-button-addtab
 {
     qproperty-themeIcon: "list-add";
-    qproperty-fixedsize: 25px 27px;
+    qproperty-fixedsize: 22px 25px;
 }
 
 #tabwidget-button-opentabs::menu-indicator

@@ -18,12 +18,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "QupZilla Association"
             VALUE "FileDescription", "QupZilla Web Browser"
-            VALUE "FileVersion", "1.0.0.rc1"
+            VALUE "FileVersion", "1.0.0"
             VALUE "LegalCopyright", "Copyright (C) 2010-2011 David Rosca"
             VALUE "InternalName", "qupzilla"
             VALUE "OriginalFilename", "qupzilla.exe"
             VALUE "ProductName", "QupZilla"
-            VALUE "ProductVersion", "1.0.0.rc1"
+            VALUE "ProductVersion", "1.0.0"
         END
     END
     BLOCK "VarFileInfo"

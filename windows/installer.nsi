@@ -3,7 +3,7 @@ RequestExecutionLevel admin
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.0.0-rc1"
+!define /date PRODUCT_VERSION "1.0.0"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -33,8 +33,9 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Czech"
 !insertmacro MUI_LANGUAGE "Slovak"
 !insertmacro MUI_LANGUAGE "Dutch"
-!insertmacro MUI_LANGUAGE "French"
 !insertmacro MUI_LANGUAGE "German"
+
+!insertmacro MUI_LANGUAGE "French"
 !insertmacro MUI_LANGUAGE "Korean"
 !insertmacro MUI_LANGUAGE "Russian"
 !insertmacro MUI_LANGUAGE "Spanish"
