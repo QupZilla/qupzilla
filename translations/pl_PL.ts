@@ -1143,148 +1143,148 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/downloads/downloaditem.ui" line="42"/>
         <source>A Clockwork Orange.avi</source>
-        <translation>A Clockwork Orange.avi</translation>
+        <translation type="unfinished">Mechaniczna pomarańcza.avi</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.ui" line="49"/>
         <source>Remaining 26 minutes - 339MB of 693 MB (350kB/s)</source>
-        <translation>Verbleibende Zeit 26 Minuten - 339MB von 693 MB (350kB/s)</translation>
+        <translation type="unfinished">pozostało 26 minut - 339MB z 693 MB (350kB/s)</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="57"/>
         <source>Remaining time unavailable</source>
-        <translation>Verbleibende Zeit unbekannt</translation>
+        <translation type="unfinished">Czas pozostały niedostępny</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="108"/>
         <source>Done - %1</source>
-        <translation>Erledigt - %1</translation>
+        <translation type="unfinished">Zakończone - %1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="160"/>
         <location filename="../src/downloads/downloaditem.cpp" line="291"/>
         <source>Cancelled</source>
-        <translation>Abgebrochen</translation>
+        <translation type="unfinished">Anulowane</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="166"/>
         <source>few seconds</source>
-        <translation>Wenige Sekunden</translation>
+        <translation type="unfinished">Niewiele sekund</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="168"/>
         <source>seconds</source>
-        <translation>Sekunden</translation>
+        <translation type="unfinished">sekund</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="170"/>
         <source>minutes</source>
-        <translation>Minuten</translation>
+        <translation type="unfinished">minut</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="172"/>
         <source>hours</source>
-        <translation>Stunden</translation>
+        <translation type="unfinished">godzin</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="178"/>
         <source>Unknown speed</source>
-        <translation>Downloadgeschwindigkeit unbekannt</translation>
+        <translation type="unfinished">Prędkość nieznana</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="195"/>
         <location filename="../src/downloads/downloaditem.cpp" line="231"/>
         <source>Unknown size</source>
-        <translation>Dateigröße unbekannt</translation>
+        <translation type="unfinished">Rozmiar nieznay</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="232"/>
         <source>%2 - unknown size (%3)</source>
-        <translation>%2 - unbekannte Dateigröße (%3)</translation>
+        <translation type="unfinished">%2 - niezmiany rozmiar (%3)</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="234"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation>Verbleibend %1 - %2 von %3 (%4)</translation>
+        <translation type="unfinished">Pozostało %1 - %2 z %3 (%4)</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="252"/>
         <source>Cancelled - %1</source>
-        <translation>Abgebrochen - %1</translation>
+        <translation type="unfinished">Anulowao - %1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="266"/>
         <source>Delete file</source>
-        <translation>Datei löschen</translation>
+        <translation type="unfinished">Usuń plik</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="266"/>
         <source>Do you want to also delete dowloaded file?</source>
-        <translation>Möchten Sie auch die heruntergeladene Datei löschen?</translation>
+        <translation type="unfinished">Czy chcesz też usunąć pliki pobrane?</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="281"/>
         <source>Open File</source>
-        <translation>Datei öffnen</translation>
+        <translation type="unfinished">Otwórz plik</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="283"/>
         <source>Open Folder</source>
-        <translation>Ordner öffnen</translation>
+        <translation type="unfinished">Otwórz folder</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="285"/>
         <source>Go to Download Page</source>
-        <translation>Gehe zu Link-Adresse</translation>
+        <translation type="unfinished">Idz do strony pobierania</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="286"/>
         <source>Copy Download Link</source>
-        <translation>Link-Adresse kopieren</translation>
+        <translation type="unfinished">Kopiuj łącze pobierania</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="288"/>
         <source>Cancel downloading</source>
-        <translation>Download abbrechen</translation>
+        <translation type="unfinished">Anuluj pobieranie</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="289"/>
         <source>Clear</source>
-        <translation>Leeren</translation>
+        <translation type="unfinished">Wyczyść</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="291"/>
         <source>Error</source>
-        <translation>Fehler</translation>
+        <translation type="unfinished">Błąd</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="298"/>
         <source>New tab</source>
-        <translation>Neuer Tab</translation>
+        <translation type="unfinished">Nowa zakładka</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="319"/>
         <source>Not found</source>
-        <translation>Nicht gefunden</translation>
+        <translation type="unfinished">Nie znaleziono</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="319"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation>Datei 
+        <translation type="unfinished">Przykro ale pliku 
  %1 
- konnte nicht gefunden werden!</translation>
+ nie znaleziono!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="334"/>
         <source>Error: Cannot write to file!</source>
-        <translation>Fehler: Datei kann nicht gespeichert werden!</translation>
+        <translation type="unfinished">Błąd: Nie można zpisać do pliku!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="346"/>
         <source>Error: </source>
-        <translation>Fehler:</translation>
+        <translation type="unfinished">Błąd:</translation>
     </message>
 </context>
 <context>
@@ -1793,12 +1793,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="23"/>
         <source>No Error</source>
-        <translation>Kein Fehler</translation>
+        <translation type="unfinished">Brak błedów</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="38"/>
         <source>Unable to open file.</source>
-        <translation>Datei kann nicht geöffnet werden.</translation>
+        <translation type="unfinished">Nie można otworzyć.</translation>
     </message>
 </context>
 <context>
@@ -1806,17 +1806,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/other/pagescreen.ui" line="14"/>
         <source>Page Screen</source>
-        <translation>Bildschirmseite</translation>
+        <translation type="unfinished">Ekran stony</translation>
     </message>
     <message>
         <location filename="../src/other/pagescreen.cpp" line="47"/>
         <source>Save Page Screen...</source>
-        <translation>Bildschirmseite speichern...</translation>
+        <translation type="unfinished">Zapisz ekran strony...</translation>
     </message>
     <message>
         <location filename="../src/other/pagescreen.cpp" line="47"/>
         <source>screen.png</source>
-        <translation>Bildschirmseite.png</translation>
+        <translation type="unfinished">ekran.png</translation>
     </message>
 </context>
 <context>
@@ -2634,252 +2634,252 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/app/qupzilla.cpp" line="311"/>
         <source>Bookmarks</source>
-        <translation>Lesezeichen</translation>
+        <translation type="unfinished">Zakąłdki</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="315"/>
         <source>History</source>
-        <translation>Verlauf</translation>
+        <translation type="unfinished">Historia</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="266"/>
         <source>Quit</source>
-        <translation>Beenden</translation>
+        <translation type="unfinished">Zakończ</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="254"/>
         <source>New Tab</source>
-        <translation>Neuer Tab</translation>
+        <translation type="unfinished">Nowa zakładka</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="257"/>
         <source>Close Tab</source>
-        <translation>Tab schließen</translation>
+        <translation type="unfinished">Zamknij zakłądkę</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="232"/>
         <source>IP Address of current page</source>
-        <translation>IP Adresse der aktuellen Seite</translation>
+        <translation type="unfinished">Adres IP obecnej strony</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="243"/>
         <source>&amp;Tools</source>
-        <translation>&amp;Werkzeuge</translation>
+        <translation type="unfinished">&amp;Narzędzia</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="244"/>
         <source>&amp;Help</source>
-        <translation>&amp;Hilfe</translation>
+        <translation type="unfinished">&amp;Pomoc</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="245"/>
         <source>&amp;Bookmarks</source>
-        <translation>&amp;Lesezeichen</translation>
+        <translation type="unfinished">&amp;Zakładki</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="246"/>
         <source>Hi&amp;story</source>
-        <translation>&amp;Verlauf</translation>
+        <translation type="unfinished">&amp;Historia</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="252"/>
         <source>&amp;File</source>
-        <translation>&amp;Datei</translation>
+        <translation type="unfinished">&amp;Plik</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="253"/>
         <source>&amp;New Window</source>
-        <translation>Neues &amp;Fenster</translation>
+        <translation type="unfinished">&amp;Nowe okno</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="256"/>
         <source>Open &amp;File</source>
-        <translation>Datei ö&amp;ffnen</translation>
+        <translation type="unfinished">Otwórz &amp;plik</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="260"/>
         <source>&amp;Save Page As...</source>
-        <translation>Seite speichern &amp;unter...</translation>
+        <translation type="unfinished">&amp;Zapisz stronę jako...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="263"/>
         <source>&amp;Print</source>
-        <translation>&amp;Drucken</translation>
+        <translation type="unfinished">&amp;Wydrukuj</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="265"/>
         <source>Import bookmarks...</source>
-        <translation>Lesezeichen importieren...</translation>
+        <translation type="unfinished">Importuj zakładki...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="269"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Bearbeiten</translation>
+        <translation type="unfinished">&amp;Edytuj</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="270"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Rückgängig</translation>
+        <translation type="unfinished">&amp;Cofnij zmianę</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="271"/>
         <source>&amp;Redo</source>
-        <translation>&amp;Wiederherstellen</translation>
+        <translation type="unfinished">&amp;Przywróc zmianę</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="273"/>
         <source>&amp;Cut</source>
-        <translation>&amp;Ausschneiden</translation>
+        <translation type="unfinished">&amp;Wytnij</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="274"/>
         <source>C&amp;opy</source>
-        <translation>&amp;Kopieren</translation>
+        <translation type="unfinished">&amp;Kopiuj</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="275"/>
         <source>&amp;Paste</source>
-        <translation>E&amp;infügen</translation>
+        <translation type="unfinished">&amp;Wklej</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="276"/>
         <source>&amp;Delete</source>
-        <translation>&amp;Löschen</translation>
+        <translation type="unfinished">&amp;Usuń</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="278"/>
         <source>Select &amp;All</source>
-        <translation>Alles au&amp;swählen</translation>
+        <translation type="unfinished">Zaznacz &amp;Wszystko</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="280"/>
         <source>&amp;Find</source>
-        <translation>&amp;Suchen</translation>
+        <translation type="unfinished">&amp;Szukaj</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="283"/>
         <source>&amp;View</source>
-        <translation>&amp;Ansicht</translation>
+        <translation type="unfinished">&amp;Podgląd</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="284"/>
         <source>&amp;Navigation Toolbar</source>
-        <translation>&amp;Navigations-Symbolleiste</translation>
+        <translation type="unfinished">Pasek narzędziowy &amp;nawigacji</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="287"/>
         <source>&amp;Bookmarks Toolbar</source>
-        <translation>&amp;Lesezeichen-Werkzeug-Leiste</translation>
+        <translation type="unfinished">Pasek narzędziowy &amp;zakładek</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="290"/>
         <source>Sta&amp;tus Bar</source>
-        <translation>Sta&amp;tus-Leiste</translation>
+        <translation type="unfinished">Pasek sta&amp;nu</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="323"/>
         <source>Toolbars</source>
-        <translation>Werkzeugleisten</translation>
+        <translation type="unfinished">Paski narzędziowe</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="327"/>
         <source>Sidebars</source>
-        <translation>Seiten-Leiste</translation>
+        <translation type="unfinished">Paski poboczne</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="345"/>
         <source>&amp;Page Source</source>
-        <translation>Seiten-&amp;Quelltext</translation>
+        <translation type="unfinished">&amp;Źródło storny</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="293"/>
         <source>&amp;Menu Bar</source>
-        <translation>&amp;Menü-Leiste</translation>
+        <translation type="unfinished">&amp;Paski menu głównego</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="296"/>
         <source>&amp;Fullscreen</source>
-        <translation>&amp;Vollbild</translation>
+        <translation type="unfinished">&amp;Pełen ekran</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="300"/>
         <source>&amp;Stop</source>
-        <translation>&amp;Stopp</translation>
+        <translation type="unfinished">&amp;Zatrzymaj</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="303"/>
         <source>&amp;Reload</source>
-        <translation>&amp;Neu laden</translation>
+        <translation type="unfinished">&amp;Przeładuj</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="306"/>
         <source>Character &amp;Encoding</source>
-        <translation>&amp;Zeichenkodierung</translation>
+        <translation type="unfinished">Kodowanie &amp;znaków</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="339"/>
         <source>Zoom &amp;In</source>
-        <translation>Ver&amp;größern</translation>
+        <translation type="unfinished">&amp;Powiększ</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="340"/>
         <source>Zoom &amp;Out</source>
-        <translation>Ver&amp;kleinern</translation>
+        <translation type="unfinished">&amp;Zmniejsz</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="341"/>
         <source>Reset</source>
-        <translation>Zurücksetzen</translation>
+        <translation type="unfinished">Resetuj</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="258"/>
         <source>Close Window</source>
-        <translation>Fenster schließen</translation>
+        <translation type="unfinished">Zamknij okno</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="255"/>
         <source>Open Location</source>
-        <translation>Adresse aufrufen</translation>
+        <translation type="unfinished">Otwórz adres</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="262"/>
         <source>Send Link...</source>
-        <translation>Link senden...</translation>
+        <translation type="unfinished">Wyślij łącze...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="705"/>
         <source>Other</source>
-        <translation>Andere</translation>
+        <translation type="unfinished">Inne</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="714"/>
         <source>Default</source>
-        <translation>Standard</translation>
+        <translation type="unfinished">Domyśle</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1089"/>
         <source>Current cookies cannot be accessed.</source>
-        <translation>Auf aktuelle Cookies kann nicht zugegriffen werden.</translation>
+        <translation type="unfinished">Obecne pliki cistek nie mogą być zaakceptowane.</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1090"/>
         <source>Your session is not stored.</source>
-        <translation>Ihre Sitzung wird nicht gespeichert.</translation>
+        <translation type="unfinished">Twoja sesja nie jest zapisywana.</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1097"/>
         <source>Start Private Browsing</source>
-        <translation>Privaten Modus starten</translation>
+        <translation type="unfinished">Pozpocznij Przeglądanie w Trybie Prywatnym</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="228"/>
         <source>Private Browsing Enabled</source>
-        <translation>Privater Modus aktiv</translation>
+        <translation type="unfinished">Tryb Prywatny aktywny</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="363"/>
         <source>Restore &amp;Closed Tab</source>
-        <translation>Geschlossenen Tab &amp;wiederherstellen</translation>
+        <translation type="unfinished">Przywróc &amp;zakładkę zamkniętą</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="531"/>
