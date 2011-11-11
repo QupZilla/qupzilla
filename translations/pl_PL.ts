@@ -79,33 +79,33 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="14"/>
         <source>Preferred Languages</source>
-        <translation>Bevorzugte Sprache</translation>
+        <translation type="unfinished">Języki preferowane</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="25"/>
         <source>Add...</source>
-        <translation>Hinzufügen...</translation>
+        <translation type="unfinished">Dodaj...</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="32"/>
         <source>Remove</source>
-        <translation>Entfernen</translation>
+        <translation type="unfinished">Usuń</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="39"/>
         <source>Up</source>
-        <translation>Nach oben</translation>
+        <translation type="unfinished">Do góry</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="46"/>
         <source>Down</source>
-        <translation>Nach unten</translation>
+        <translation type="unfinished">Do dołu</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.cpp" line="85"/>
         <location filename="../src/preferences/acceptlanguage.cpp" line="139"/>
         <source>Personal [%1]</source>
-        <translation>Eigene [%1]</translation>
+        <translation type="unfinished">Osobiste [%1]</translation>
     </message>
 </context>
 <context>
@@ -310,7 +310,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/autofill/autofillnotification.cpp" line="34"/>
         <source>Do you want QupZilla to remember password on %1?</source>
-        <translation>Möchten Sie das Passwort für %1 speichern?</translation>
+        <translation type="unfinished">Czy chcesz by QupZilla twoje zapamiętała hasło na %1?</translation>
     </message>
 </context>
 <context>
@@ -318,17 +318,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/autofill/autofillnotification.ui" line="81"/>
         <source>Remember</source>
-        <translation>Erinnern</translation>
+        <translation type="unfinished">Zapamiętaj</translation>
     </message>
     <message>
         <location filename="../src/autofill/autofillnotification.ui" line="97"/>
         <source>Never For This Site</source>
-        <translation>Nie für diese Seite</translation>
+        <translation type="unfinished">Nigdy dla tej strony</translation>
     </message>
     <message>
         <location filename="../src/autofill/autofillnotification.ui" line="113"/>
         <source>Not Now</source>
-        <translation>Nicht jetzt</translation>
+        <translation type="unfinished">Nie teraz</translation>
     </message>
 </context>
 <context>
@@ -337,12 +337,12 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/bookmarks/bookmarkicon.cpp" line="31"/>
         <location filename="../src/bookmarks/bookmarkicon.cpp" line="89"/>
         <source>Bookmark this Page</source>
-        <translation>Ein Lesezeichen für diese Seite hinzufügen</translation>
+        <translation type="unfinished">Utwórz zakładkę dla tej strony</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkicon.cpp" line="81"/>
         <source>Edit this bookmark</source>
-        <translation>Dieses Lesezeichen bearbeiten</translation>
+        <translation type="unfinished">Edytuj tą zakładkę</translation>
     </message>
 </context>
 <context>
@@ -350,32 +350,32 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="14"/>
         <source>Import Bookmarks</source>
-        <translation>Lesezeichen importieren</translation>
+        <translation type="unfinished">Zaimportuj zakładki</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="20"/>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Lesezeichen importieren&lt;/b&gt;</translation>
+        <translation type="unfinished">&lt;b&gt;Zaimportuj zakładki&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="84"/>
         <source>Choose browser from which you want to import bookmarks:</source>
-        <translation>Bitte Browser auswählen, von dem Lesezeichen importiert werden sollen:</translation>
+        <translation type="unfinished">Wybierz przeglądarkę, z której chcesz zaimportować swoje zakładki:</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="123"/>
         <source>Choose...</source>
-        <translation>Wählen...</translation>
+        <translation type="unfinished">Wybierz...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="208"/>
         <source>Fetching icons, please wait...</source>
-        <translation>Hole Symbole, bitte warten Sie...</translation>
+        <translation type="unfinished">Proszę czekać, pobieranie ikonek...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="296"/>
         <source>Title</source>
-        <translation>Titel</translation>
+        <translation type="unfinished">Tytuł</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="301"/>
@@ -385,49 +385,49 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="328"/>
         <source>Next</source>
-        <translation>Weiter</translation>
+        <translation type="unfinished">Następny</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="335"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation type="unfinished">Anuluj</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="53"/>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Importiere von %1&lt;/b&gt;</translation>
+        <translation type="unfinished">&lt;b&gt;Importowanie z %1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="86"/>
         <source>Finish</source>
-        <translation>Ende</translation>
+        <translation type="unfinished">Zakończ</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="177"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="188"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="199"/>
         <source>Error!</source>
-        <translation>Fehler!</translation>
+        <translation type="unfinished">Błąd!</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="212"/>
         <source>Choose directory...</source>
-        <translation>Verzeichnis wählen...</translation>
+        <translation type="unfinished">Wybierz folder...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="218"/>
         <source>Choose file...</source>
-        <translation>Datei wählen...</translation>
+        <translation type="unfinished">Wybierz plik...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="248"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation>Mozilla Firefox speichert die Lesezeichen in der Datei &lt;b&gt;places.sqlite&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter</translation>
+        <translation type="unfinished">Mozilla Firefox przechowuje swoje zakładki w bazie danych SQLite &lt;b&gt;places.sqlite&lt;/b&gt;. Jest ona najczęściej umieszczona w </translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="263"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Google Chrome speichert die Lesezeichen in der Datei &lt;b&gt;Bookmarks&lt;/b&gt;. Diese ist gewöhnlich gespeichert unter</translation>
+        <translation type="unfinished">Google Chrome przechowuje swoje zakładki w &lt;b&gt;Bookmarks&lt;/b&gt;. Plik ten zazwyczaj znajduje się w </translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="279"/>
