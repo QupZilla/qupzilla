@@ -75,10 +75,12 @@ void AboutDialog::showAuthors()
         m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg("Daniele Cocca<br/>Jan Rajnoha"));
         m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg("Heimen Stoffels (Dutch)<br/>"
                              "Peter Vacula (Slovakia)<br/>"
+                             "Ján Ďanovský (Slovakia)<br/>"
                              "Jonathan Hooverman (German)<br/>"
                              "Unink-Lio (Chinese)<br/>"
                              "Federico Fabiani (Italy)<br/>"
-                             "Francesco Marinucci (Italy)"
+                             "Francesco Marinucci (Italy)<br/>"
+                             "Krzysztof Malinowski (Polish)"
                                                                         ));
         m_authorsHtml.append("</div>");
     }

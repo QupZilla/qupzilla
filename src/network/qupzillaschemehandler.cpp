@@ -23,7 +23,7 @@
 
 QString authorString(const QString &name, const QString &mail)
 {
-    return QString("%1 &lt;<a href=mailto:%2>%2</a>&gt;").arg(name, mail);
+    return QString("%1 &lt;<a href=\"mailto:%2\">%2</a>&gt;").arg(name, mail);
 }
 
 QupZillaSchemeHandler::QupZillaSchemeHandler(QObject* parent) :
@@ -192,7 +192,8 @@ QString QupZillaSchemeReply::aboutPage()
                  authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>" +
                  authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
                  authorString("Federico Fabiani", "federico.fabiani85@gmail.com") + " (Italy)<br/>" +
-                 authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italy)"
+                 authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italy)<br/>" +
+                 authorString("Krzysztof Malinowski", "boromil@gmail.com") + " (Polish)"
                 );
 
     return page;
