@@ -39,14 +39,14 @@
    <item row="0" column="1" colspan="2">
     <widget class="SqueezeLabelV2" name="fileName">
      <property name="text">
-      <string>A Clockwork Orange.avi</string>
+      <string notr="true">A Clockwork Orange.avi</string>
      </property>
     </widget>
    </item>
    <item row="2" column="1" colspan="2">
     <widget class="SqueezeLabelV2" name="downloadInfo">
      <property name="text">
-      <string>Remaining 26 minutes - 339MB of 693 MB (350kB/s)</string>
+      <string notr="true">Remaining 26 minutes - 339MB of 693 MB (350kB/s)</string>
      </property>
     </widget>
    </item>

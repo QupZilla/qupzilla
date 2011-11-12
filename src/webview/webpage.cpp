@@ -48,6 +48,18 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     connect(m_view, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
 }
 
+void WebPage::scheduleAdjustPage()
+{
+    if (m_view->isLoading()) {
+        m_adjustingScheduled = true;
+    }
+    else {
+        mainFrame()->setZoomFactor(mainFrame()->zoomFactor() + 1);
+        mainFrame()->setZoomFactor(mainFrame()->zoomFactor() - 1);
+    }
+
+}
+
 void WebPage::urlChanged(const QUrl &url)
 {
     Q_UNUSED(url)
