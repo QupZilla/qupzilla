@@ -65,7 +65,7 @@ public:
 
     QupZilla* qupzilla() { return p_QupZilla; }
 
-    void scheduleAdjustPage() { m_adjustingScheduled = true; }
+    void scheduleAdjustPage();
 
 signals:
     void privacyChanged(bool status);
