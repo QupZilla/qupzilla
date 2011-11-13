@@ -2223,7 +2223,8 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="864"/>
         <source>Enable XSS Auditing</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Prevents cross-site scripting</translatorcomment>
+        <translation>Aktiviere XSS Prüfung</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="881"/>
