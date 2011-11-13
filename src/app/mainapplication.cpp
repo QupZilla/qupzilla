@@ -237,6 +237,7 @@ void MainApplication::loadSettings()
     bool linkInFocuschain = settings.value("IncludeLinkInFocusChain", false).toBool();
     bool zoomTextOnly = settings.value("zoomTextOnly", false).toBool();
     bool printElBg = settings.value("PrintElementBackground", true).toBool();
+    bool xssAuditing = settings.value("XSSAuditing", false).toBool();
     int maxCachedPages = settings.value("maximumCachedPages", 3).toInt();
     int scrollingLines = settings.value("wheelScrollLines", wheelScrollLines()).toInt();
     QUrl userStyleSheet = settings.value("userStyleSheet", QUrl()).toUrl();
@@ -254,6 +255,7 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::LinksIncludedInFocusChain, linkInFocuschain);
     m_websettings->setAttribute(QWebSettings::ZoomTextOnly, zoomTextOnly);
     m_websettings->setAttribute(QWebSettings::PrintElementBackgrounds, printElBg);
+    m_websettings->setAttribute(QWebSettings::XSSAuditingEnabled, xssAuditing);
 #ifdef USE_WEBGL
     m_websettings->setAttribute(QWebSettings::WebGLEnabled, true);
     m_websettings->setAttribute(QWebSettings::AcceleratedCompositingEnabled, true);
