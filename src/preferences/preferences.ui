@@ -844,17 +844,24 @@
                </property>
               </widget>
              </item>
-             <item row="8" column="0">
+             <item row="0" column="2">
+              <widget class="QCheckBox" name="printEBackground">
+               <property name="text">
+                <string>Print element background</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
               <widget class="QCheckBox" name="linksInFocusChain">
                <property name="text">
                 <string>Include links in focus chain</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="2">
-              <widget class="QCheckBox" name="printEBackground">
+             <item row="8" column="0" colspan="2">
+              <widget class="QCheckBox" name="xssAuditing">
                <property name="text">
-                <string>Print element background</string>
+                <string>Enable XSS Auditing</string>
                </property>
               </widget>
              </item>
