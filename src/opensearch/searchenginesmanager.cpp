@@ -71,13 +71,18 @@ void SearchEnginesManager::loadSettings()
 
 SearchEngine SearchEnginesManager::engineForShortcut(const QString &shortcut)
 {
+    Engine returnEngine;
+    if (shortcut.isEmpty())
+        return returnEngine;
+
     foreach(Engine en, m_allEngines) {
         if (en.shortcut == shortcut) {
-            return en;
+            returnEngine = en;
+            break;
         }
     }
 
-    return Engine();
+    return returnEngine;
 }
 
 QUrl SearchEnginesManager::searchUrl(const Engine &engine, const QString &string)
