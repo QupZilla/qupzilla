@@ -1622,11 +1622,10 @@ werd niet gevonden!</translation>
         <translation>Voer URL-adres in of zoek op %1</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="284"/>
+        <location filename="../src/navigation/locationbar.cpp" line="294"/>
         <source>.co.uk</source>
-        <oldsource>.cz</oldsource>
-        <comment>Append domain name on ALT key = Should be different for every country</comment>
-        <translation>.nl</translation>
+        <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
+        <translation type="unfinished">.nl</translation>
     </message>
 </context>
 <context>
@@ -2082,7 +2081,7 @@ werd niet gevonden!</translation>
         <translation>Verberg tabbladen als er maar 1 tabblad is</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="740"/>
+        <location filename="../src/preferences/preferences.ui" line="733"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Activeer laatste tabblad na sluiten van actieve tab</translation>
     </message>
@@ -2147,9 +2146,14 @@ werd niet gevonden!</translation>
         <translation>Geavanceerde instellingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="747"/>
+        <location filename="../src/preferences/preferences.ui" line="740"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Vraag bij sluiten van meerdere tabbladen</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="747"/>
+        <source>Select all text by clicking in address bar</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="784"/>
@@ -2482,11 +2486,6 @@ werd niet gevonden!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="700"/>
-        <source>Add .com domain by pressing CTRL key</source>
-        <translation>Voeg .com-domein toe door de CTRL-toets in te drukken</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="707"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Voeg .nl-domein toe door de ALT-toets in te drukken</translation>
     </message>
@@ -3497,27 +3496,27 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="243"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
         <source>Search Engine Added</source>
         <translation>Zoekmachine toegevoegd</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="243"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Zoekmachine &quot;%1&quot; is succesvol toegevoegd.</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="250"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
         <source>Search Engine is not valid!</source>
         <translation>Zoekmachine is ongeldig!</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Fout tijdens het toevoegen van de zoekmachine. &lt;br&gt;&lt;b&gt;Foutmelding:&lt;/b&gt; %1</translation>
     </message>

@@ -229,16 +229,6 @@ void LocationBar::setPrivacy(bool state)
     m_siteIcon->style()->polish(m_siteIcon);
 }
 
-void LocationBar::focusOutEvent(QFocusEvent* e)
-{
-    QLineEdit::focusOutEvent(e);
-    if (!selectedText().isEmpty() && e->reason() != Qt::TabFocusReason) {
-        return;
-    }
-    setCursorPosition(0);
-    hideGoButton();
-}
-
 void LocationBar::dropEvent(QDropEvent* event)
 {
     if (event->mimeData()->hasUrls()) {
@@ -263,6 +253,16 @@ void LocationBar::dropEvent(QDropEvent* event)
     QLineEdit::dropEvent(event);
 }
 
+void LocationBar::focusOutEvent(QFocusEvent* e)
+{
+    QLineEdit::focusOutEvent(e);
+    if (!selectedText().isEmpty() && e->reason() != Qt::TabFocusReason) {
+        return;
+    }
+    setCursorPosition(0);
+    hideGoButton();
+}
+
 void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton && m_locationBarSettings->selectAllOnDoubleClick) {
@@ -273,6 +273,16 @@ void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
     }
 }
 
+void LocationBar::mousePressEvent(QMouseEvent* event)
+{
+    if (cursorPosition() == 0) {
+        selectAll();
+        return;
+    }
+
+    LineEdit::mousePressEvent(event);
+}
+
 void LocationBar::keyPressEvent(QKeyEvent* event)
 {
     if (event->key() == Qt::Key_Escape) {
@@ -281,10 +291,8 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         return;
     }
 
-    QString localDomain = tr(".co.uk", "Append domain name on ALT key = Should be different for every country");
-    if (event->key() == Qt::Key_Control && m_locationBarSettings->addComWithCtrl && !text().endsWith(".com")) { //Disabled for a while
-        setText(text().append(".com"));
-    }
+    QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
+
     if (event->key() == Qt::Key_Alt && m_locationBarSettings->addCountryWithAlt && !text().endsWith(localDomain) && !text().endsWith("/")) {
         setText(text().append(localDomain));
     }

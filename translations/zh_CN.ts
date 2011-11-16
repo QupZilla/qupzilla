@@ -1619,10 +1619,10 @@
         <translation>输入URL地址或在%1上搜索</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="284"/>
+        <location filename="../src/navigation/locationbar.cpp" line="294"/>
         <source>.co.uk</source>
-        <comment>Append domain name on ALT key = Should be different for every country</comment>
-        <translation></translation>
+        <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2094,21 +2094,16 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="700"/>
-        <source>Add .com domain by pressing CTRL key</source>
-        <translation>按CTRL键添加.com</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="707"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>按ALT键添加.co.uk</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="740"/>
+        <location filename="../src/preferences/preferences.ui" line="733"/>
         <source>Activate last tab when closing active tab</source>
         <translation>关闭活动标签时激活最后一个标签页</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="747"/>
+        <location filename="../src/preferences/preferences.ui" line="740"/>
         <source>Ask when closing multiple tabs</source>
         <translation>关闭多个标签页时总是询问</translation>
     </message>
@@ -2176,6 +2171,11 @@
         <location filename="../src/preferences/preferences.ui" line="850"/>
         <source>Print element background</source>
         <translation>打印元素的背景</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="747"/>
+        <source>Select all text by clicking in address bar</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="864"/>
@@ -3490,27 +3490,27 @@ After adding or removing certificate paths, it is neccessary to restart browser 
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="243"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
         <source>Search Engine Added</source>
         <translation>新增搜索引擎</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="243"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>搜索引擎“%1”已成功添加。</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="250"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
         <source>Search Engine is not valid!</source>
         <translation>无效的搜索引擎！</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>添加搜索引擎时错误&lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</translation>
     </message>

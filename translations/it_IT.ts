@@ -1621,10 +1621,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="284"/>
+        <location filename="../src/navigation/locationbar.cpp" line="294"/>
         <source>.co.uk</source>
-        <comment>Append domain name on ALT key = Should be different for every country</comment>
-        <translation>.it</translation>
+        <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
+        <translation type="unfinished">.it</translation>
     </message>
 </context>
 <context>
@@ -2103,21 +2103,16 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="700"/>
-        <source>Add .com domain by pressing CTRL key</source>
-        <translation>Aggiungi .com al dominio premendo il taasto CTRL</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="707"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Aggiungi .it al dominio premendo il tasto ALT</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="740"/>
+        <location filename="../src/preferences/preferences.ui" line="733"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Attiva l&apos;ultima scheda quando chiudi la scheda attiva</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="747"/>
+        <location filename="../src/preferences/preferences.ui" line="740"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Chiedi quando chiudi più schede</translation>
     </message>
@@ -2180,6 +2175,11 @@
         <location filename="../src/preferences/preferences.ui" line="850"/>
         <source>Print element background</source>
         <translation>Mostra elementi di sfondo</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="747"/>
+        <source>Select all text by clicking in address bar</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="864"/>
@@ -3496,27 +3496,27 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="243"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
         <source>Search Engine Added</source>
         <translation>Motore di Ricerca Aggiunto</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="243"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Motore di Ricerca &quot;%1&quot; aggiunto con successo.</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="250"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
         <source>Search Engine is not valid!</source>
         <translation>Motore di ricerca non valido!</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Errore nell&apos;aggiunta del Motore di Ricerca &lt;br&gt;&lt;b&gt;Messaggio di Errore&lt;/b&gt; %1</translation>
     </message>

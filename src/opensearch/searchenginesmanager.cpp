@@ -72,8 +72,9 @@ void SearchEnginesManager::loadSettings()
 SearchEngine SearchEnginesManager::engineForShortcut(const QString &shortcut)
 {
     Engine returnEngine;
-    if (shortcut.isEmpty())
+    if (shortcut.isEmpty()) {
         return returnEngine;
+    }
 
     foreach(Engine en, m_allEngines) {
         if (en.shortcut == shortcut) {

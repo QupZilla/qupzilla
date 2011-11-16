@@ -29,7 +29,7 @@ public:
 
     static void loadSettings();
     static bool selectAllOnDoubleClick;
-    static bool addComWithCtrl;
+    static bool selectAllOnClick;
     static bool addCountryWithAlt;
 
 private:

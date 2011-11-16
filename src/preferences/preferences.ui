@@ -694,13 +694,6 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="1" colspan="3">
-        <widget class="QCheckBox" name="addComWithCtrl">
-         <property name="text">
-          <string>Add .com domain by pressing CTRL key</string>
-         </property>
-        </widget>
-       </item>
        <item row="10" column="1" colspan="3">
         <widget class="QCheckBox" name="addCountryWithAlt">
          <property name="text">
@@ -745,6 +738,13 @@
         <widget class="QCheckBox" name="askWhenClosingMultipleTabs">
          <property name="text">
           <string>Ask when closing multiple tabs</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1" colspan="3">
+        <widget class="QCheckBox" name="selectAllOnClick">
+         <property name="text">
+          <string>Select all text by clicking in address bar</string>
          </property>
         </widget>
        </item>
