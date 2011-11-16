@@ -72,6 +72,7 @@ private slots:
 private:
     void focusOutEvent(QFocusEvent* e);
     void mouseDoubleClickEvent(QMouseEvent* event);
+    void mousePressEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);
     void dropEvent(QDropEvent* event);
 

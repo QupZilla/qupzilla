@@ -20,7 +20,7 @@
 
 LocationBarSettings* LocationBarSettings::s_instance = 0;
 bool LocationBarSettings::selectAllOnDoubleClick = false;
-bool LocationBarSettings::addComWithCtrl = false;
+bool LocationBarSettings::selectAllOnClick = false;
 bool LocationBarSettings::addCountryWithAlt = false;
 
 LocationBarSettings::LocationBarSettings()
@@ -41,6 +41,6 @@ void LocationBarSettings::loadSettings()
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("AddressBar");
     selectAllOnDoubleClick = settings.value("SelectAllTextOnDoubleClick", true).toBool();
-    addComWithCtrl = settings.value("AddComDomainWithCtrlKey", false).toBool();
+    selectAllOnClick = settings.value("SelectAllTextOnClick", false).toBool();
     addCountryWithAlt = settings.value("AddCountryDomainWithAltKey", true).toBool();
 }
