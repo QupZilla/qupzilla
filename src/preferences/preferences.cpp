@@ -152,7 +152,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //AddressBar
     settings.beginGroup("AddressBar");
     ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
-    ui->addComWithCtrl->setChecked(settings.value("AddComDomainWithCtrlKey", false).toBool());
+    ui->selectAllOnClick->setChecked(settings.value("SelectAllTextOnClick", false).toBool());
     ui->addCountryWithAlt->setChecked(settings.value("AddCountryDomainWithAltKey", true).toBool());
     settings.endGroup();
 
@@ -685,7 +685,7 @@ void Preferences::saveSettings()
     //AddressBar
     settings.beginGroup("AddressBar");
     settings.setValue("SelectAllTextOnDoubleClick", ui->selectAllOnFocus->isChecked());
-    settings.setValue("AddComDomainWithCtrlKey", ui->addComWithCtrl->isChecked());
+    settings.setValue("SelectAllTextOnClick", ui->selectAllOnClick->isChecked());
     settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked());
     settings.endGroup();
 

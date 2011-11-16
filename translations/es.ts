@@ -1621,10 +1621,10 @@
         <translation>Introducir la dirección URL o buscar en %1</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="284"/>
+        <location filename="../src/navigation/locationbar.cpp" line="294"/>
         <source>.co.uk</source>
-        <comment>Append domain name on ALT key = Should be different for every country</comment>
-        <translation>.co.uk</translation>
+        <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
+        <translation type="unfinished">.co.uk</translation>
     </message>
 </context>
 <context>
@@ -2101,21 +2101,16 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="700"/>
-        <source>Add .com domain by pressing CTRL key</source>
-        <translation>Añadir dominio .com pulsando la tecla CTRL</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="707"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Añadir dominio .co.uk pulsando la tecla ALT</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="740"/>
+        <location filename="../src/preferences/preferences.ui" line="733"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Activar la última pestaña al cerrar la pestaña activa</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="747"/>
+        <location filename="../src/preferences/preferences.ui" line="740"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Preguntar al cerrar múltiples pestañas</translation>
     </message>
@@ -2178,6 +2173,11 @@
         <location filename="../src/preferences/preferences.ui" line="850"/>
         <source>Print element background</source>
         <translation>Imprimir fondo del elemento</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="747"/>
+        <source>Select all text by clicking in address bar</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="864"/>
@@ -2841,7 +2841,7 @@
         <location filename="../src/app/qupzilla.cpp" line="491"/>
         <location filename="../src/app/qupzilla.cpp" line="512"/>
         <source> (Private Browsing)</source>
-        <translation>(Navegación privada)</translation>
+        <translation> (Navegación privada)</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="544"/>
@@ -2958,7 +2958,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="714"/>
         <source>&amp;Private Browsing</source>
-        <translation>Iniciar &amp;navegación privada</translation>
+        <translation>&amp;Navegación privada</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="722"/>
@@ -2994,12 +2994,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1184"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Cuando la navegación privada está habilitada, algunas acciones relacionadas con su privacidad estarán deshabilitadas:</translation>
+        <translation>Cuando la navegación privada está habilitada, algunas opciones relacionadas con su privacidad estarán deshabilitadas:</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1187"/>
         <source>Webpages are not added to the history.</source>
-        <translation>Páginas web no se añaden al historial.</translation>
+        <translation>Las páginas web no se añaden al historial.</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1188"/>
@@ -3009,7 +3009,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1189"/>
         <source>Your session is not stored.</source>
-        <translation>Su sesión no se guardará.</translation>
+        <translation>La sesión no será guardada.</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1191"/>
@@ -3019,7 +3019,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1196"/>
         <source>Start Private Browsing</source>
-        <translation>Empezar navegación privada</translation>
+        <translation>Comenzar la navegación privada</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1331"/>
@@ -3239,12 +3239,12 @@
     <message>
         <location filename="../src/rss/rssmanager.ui" line="67"/>
         <source>Edit feed</source>
-        <translation>Editar feed</translation>
+        <translation>Editar canal</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="77"/>
         <source>Delete feed</source>
-        <translation>Eliminar feed</translation>
+        <translation>Eliminar canal</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="100"/>
@@ -3266,28 +3266,28 @@
         <location filename="../src/rss/rssmanager.cpp" line="108"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
-        <translation>No tiene ningún feed RSS.&lt;br/&gt;
-Por favor añada alguno con el icono RSS de la barra de navegación en sitios que ofrezcan feeds.</translation>
+        <translation>No tiene ningún canal RSS.&lt;br/&gt;
+Por favor, añada alguno con el icono RSS de la barra de navegación en sitios que ofrezcan canales RSS.</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="161"/>
         <source>Fill title and URL of a feed: </source>
-        <translation>Rellene el título y URL de un feed:</translation>
+        <translation>Introduzca el título y la URL de un canal RSS:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="163"/>
         <source>Feed title: </source>
-        <translation>Título del feed:</translation>
+        <translation>Título del canal RSS:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="164"/>
         <source>Feed URL: </source>
-        <translation>URL del feed:</translation>
+        <translation>URL del canal RSS:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="170"/>
         <source>Edit RSS Feed</source>
-        <translation>Editar feed RSS</translation>
+        <translation>Editar canal RSS</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="212"/>
@@ -3308,17 +3308,17 @@ Por favor añada alguno con el icono RSS de la barra de navegación en sitios qu
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="340"/>
         <source>Error in fetching feed</source>
-        <translation>Error al obtener feed</translation>
+        <translation>Error al obtener canal RSS</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="369"/>
         <source>RSS feed duplicated</source>
-        <translation>Feed RSS duplicado</translation>
+        <translation>Canal RSS duplicado</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="369"/>
         <source>You already have this feed.</source>
-        <translation>Usted ya tiene el feed.</translation>
+        <translation>Ya tiene agregado este canal RSS.</translation>
     </message>
 </context>
 <context>
@@ -3339,7 +3339,7 @@ Por favor añada alguno con el icono RSS de la barra de navegación en sitios qu
     <message>
         <location filename="../src/rss/rsswidget.ui" line="59"/>
         <source>Add RSS Feeds from this site</source>
-        <translation>Añadir feed RSS desde este sitio</translation>
+        <translation>Añadir canales RSS desde este sitio</translation>
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="44"/>
@@ -3493,27 +3493,27 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar el 
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="243"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
         <source>Search Engine Added</source>
         <translation>Motor de búsqueda añadido</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="243"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Motor de búsqueda &quot;%1&quot; ha sido añadido satisfactoriamente.</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="250"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
         <source>Search Engine is not valid!</source>
         <translation>¡El motor de búsqueda no es válido!</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Error al añadir el motor de búsqueda &lt;br&gt;&lt;b&gt;Mensaje de error:&lt;/b&gt; %1</translation>
     </message>
