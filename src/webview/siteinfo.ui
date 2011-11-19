@@ -76,7 +76,7 @@
       <bool>false</bool>
      </property>
      <property name="currentRow">
-      <number>0</number>
+      <number>-1</number>
      </property>
      <item>
       <property name="text">
@@ -84,10 +84,6 @@
       </property>
       <property name="whatsThis">
        <string notr="true">0</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/document-properties.png</normaloff>:/icons/preferences/document-properties.png</iconset>
       </property>
      </item>
      <item>
@@ -97,10 +93,6 @@
       <property name="whatsThis">
        <string notr="true">1</string>
       </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/applications-graphics.png</normaloff>:/icons/preferences/applications-graphics.png</iconset>
-      </property>
      </item>
      <item>
       <property name="text">
@@ -108,10 +100,6 @@
       </property>
       <property name="whatsThis">
        <string notr="true">2</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/stock_keyring.png</normaloff>:/icons/preferences/stock_keyring.png</iconset>
       </property>
      </item>
     </widget>
@@ -386,9 +374,7 @@
    <header>squeezelabelv2.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../data/icons.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>

@@ -38,6 +38,8 @@ public:
     explicit DesktopNotificationsFactory(QObject* parent = 0);
     void notify(const QPixmap &icon, const QString &heading, const QString &text);
 
+    void nativeNotificationPreview();
+
 signals:
 
 public slots:

@@ -42,6 +42,11 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent)
     , m_certWidget(0)
 {
     ui->setupUi(this);
+
+    ui->listWidget->item(0)->setIcon(QIcon::fromTheme("document-properties", QIcon(":/icons/preferences/document-properties.png")));
+    ui->listWidget->item(1)->setIcon(QIcon::fromTheme("applications-graphics", QIcon(":/icons/preferences/applications-graphics.png")));
+    ui->listWidget->item(2)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
+
     WebView* view = p_QupZilla->weView();
     QWebFrame* frame = view->page()->mainFrame();
     QString title = view->title();
