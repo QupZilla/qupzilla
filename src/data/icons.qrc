@@ -2,15 +2,11 @@
     <qresource prefix="/">
         <file>icons/qupzilla.png</file>
         <file>icons/qupzillaupdate.png</file>
-        <file>icons/preferences/applications-accessories.png</file>
         <file>icons/preferences/applications-internet.png</file>
         <file>icons/preferences/applications-system.png</file>
         <file>icons/preferences/applications-webbrowsers.png</file>
         <file>icons/preferences/contact-new.png</file>
         <file>icons/preferences/preferences-desktop.png</file>
-        <file>icons/preferences/gnome-window-manager.png</file>
-        <file>icons/preferences/history_entry.png</file>
-        <file>icons/preferences/stock_inbox.png</file>
         <file>icons/faenza/back.png</file>
         <file>icons/faenza/close.png</file>
         <file>icons/faenza/forward.png</file>
@@ -42,13 +38,10 @@
         <file>icons/preferences/applications-fonts.png</file>
         <file>icons/preferences/applications-graphics.png</file>
         <file>icons/preferences/document-properties.png</file>
-        <file>icons/preferences/stock_keyring.png</file>
         <file>icons/other/adblock.png</file>
-        <file>icons/preferences/stock_dialog-question.png</file>
         <file>icons/notifications/download.png</file>
         <file>icons/other/bighistory.png</file>
         <file>icons/menu/dot.png</file>
-        <file>icons/preferences/appereance.png</file>
         <file>icons/preferences/style-default.png</file>
         <file>icons/exeicons/qupzilla16.png</file>
         <file>icons/exeicons/qupzilla32.png</file>
@@ -69,5 +62,10 @@
         <file>icons/faenza/go-next.png</file>
         <file>icons/faenza/go-previous.png</file>
         <file>icons/faenza/list-remove.png</file>
+        <file>icons/preferences/application-x-theme.png</file>
+        <file>icons/preferences/dialog-password.png</file>
+        <file>icons/preferences/dialog-question.png</file>
+        <file>icons/preferences/mail-inbox.png</file>
+        <file>icons/preferences/preferences-system-firewall.png</file>
     </qresource>
 </RCC>

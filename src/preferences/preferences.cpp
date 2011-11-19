@@ -80,6 +80,18 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
+    ui->listWidget->item(0)->setIcon(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
+    ui->listWidget->item(1)->setIcon(QIcon::fromTheme("application-x-theme", QIcon(":/icons/preferences/application-x-theme.png")));
+    ui->listWidget->item(2)->setIcon(QIcon::fromTheme("applications-internet", QIcon(":/icons/preferences/applications-internet.png")));
+    ui->listWidget->item(3)->setIcon(QIcon::fromTheme("applications-webbrowsers", QIcon(":/icons/preferences/applications-webbrowsers.png")));
+    ui->listWidget->item(4)->setIcon(QIcon::fromTheme("applications-fonts", QIcon(":/icons/preferences/applications-fonts.png")));
+    ui->listWidget->item(5)->setIcon(QIcon::fromTheme("mail-inbox", QIcon(":/icons/preferences/mail-inbox.png")));
+    ui->listWidget->item(6)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
+    ui->listWidget->item(7)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
+    ui->listWidget->item(8)->setIcon(QIcon::fromTheme("dialog-question", QIcon(":/icons/preferences/dialog-question.png")));
+    ui->listWidget->item(9)->setIcon(QIcon::fromTheme("extension", QIcon(":/icons/preferences/extension.png")));
+    ui->listWidget->item(10)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
+
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
@@ -363,7 +375,7 @@ void Preferences::showStackedPage(QListWidgetItem* item)
         m_notification->move(m_notifPosition);
         m_notification->show();
 
-        mApp->desktopNotifications()->notify(QPixmap(":icons/preferences/stock_dialog-question.png"), tr("Native System Notification"), "");
+        mApp->desktopNotifications()->nativeNotificationPreview();
     }
     else if (m_notification) {
         m_notifPosition = m_notification->pos();
