@@ -16,9 +16,15 @@
   <layout class="QGridLayout" name="gridLayout_5">
    <item row="0" column="0" rowspan="5">
     <widget class="QListWidget" name="listWidget">
+     <property name="minimumSize">
+      <size>
+       <width>220</width>
+       <height>0</height>
+      </size>
+     </property>
      <property name="maximumSize">
       <size>
-       <width>200</width>
+       <width>220</width>
        <height>16777215</height>
       </size>
      </property>
@@ -56,10 +62,6 @@
       <property name="whatsThis">
        <string notr="true">0</string>
       </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/preferences-desktop.png</normaloff>:/icons/preferences/preferences-desktop.png</iconset>
-      </property>
      </item>
      <item>
       <property name="text">
@@ -67,10 +69,6 @@
       </property>
       <property name="whatsThis">
        <string notr="true">1</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/appereance.png</normaloff>:/icons/preferences/appereance.png</iconset>
       </property>
      </item>
      <item>
@@ -80,10 +78,6 @@
       <property name="whatsThis">
        <string notr="true">2</string>
       </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/applications-internet.png</normaloff>:/icons/preferences/applications-internet.png</iconset>
-      </property>
      </item>
      <item>
       <property name="text">
@@ -91,10 +85,6 @@
       </property>
       <property name="whatsThis">
        <string notr="true">3</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/applications-webbrowsers.png</normaloff>:/icons/preferences/applications-webbrowsers.png</iconset>
       </property>
      </item>
      <item>
@@ -104,10 +94,6 @@
       <property name="whatsThis">
        <string notr="true">4</string>
       </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/applications-fonts.png</normaloff>:/icons/preferences/applications-fonts.png</iconset>
-      </property>
      </item>
      <item>
       <property name="text">
@@ -115,10 +101,6 @@
       </property>
       <property name="whatsThis">
        <string notr="true">5</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/stock_inbox.png</normaloff>:/icons/preferences/stock_inbox.png</iconset>
       </property>
      </item>
      <item>
@@ -128,10 +110,6 @@
       <property name="whatsThis">
        <string notr="true">6</string>
       </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/contact-new.png</normaloff>:/icons/preferences/contact-new.png</iconset>
-      </property>
      </item>
      <item>
       <property name="text">
@@ -139,10 +117,6 @@
       </property>
       <property name="whatsThis">
        <string notr="true">7</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/history_entry.png</normaloff>:/icons/preferences/history_entry.png</iconset>
       </property>
      </item>
      <item>
@@ -152,10 +126,6 @@
       <property name="whatsThis">
        <string notr="true">8</string>
       </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/stock_dialog-question.png</normaloff>:/icons/preferences/stock_dialog-question.png</iconset>
-      </property>
      </item>
      <item>
       <property name="text">
@@ -164,10 +134,6 @@
       <property name="whatsThis">
        <string notr="true">9</string>
       </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/extension.png</normaloff>:/icons/preferences/extension.png</iconset>
-      </property>
      </item>
      <item>
       <property name="text">
@@ -175,10 +141,6 @@
       </property>
       <property name="whatsThis">
        <string notr="true">10</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../data/icons.qrc">
-        <normaloff>:/icons/preferences/applications-system.png</normaloff>:/icons/preferences/applications-system.png</iconset>
       </property>
      </item>
     </widget>
@@ -2008,8 +1970,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../data/icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
