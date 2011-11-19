@@ -362,6 +362,8 @@ void Preferences::showStackedPage(QListWidgetItem* item)
         m_notification->setText(tr("Drag it on the screen to place it where you want."));
         m_notification->move(m_notifPosition);
         m_notification->show();
+
+        mApp->desktopNotifications()->notify(QPixmap(":icons/preferences/stock_dialog-question.png"), tr("Native System Notification"), "");
     }
     else if (m_notification) {
         m_notifPosition = m_notification->pos();

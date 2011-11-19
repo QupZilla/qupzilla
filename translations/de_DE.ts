@@ -2131,7 +2131,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="461"/>
-        <location filename="../src/preferences/preferences.cpp" line="555"/>
+        <location filename="../src/preferences/preferences.cpp" line="557"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Hinweis: Ein aktives Profil kann nicht gelöscht werden.</translation>
     </message>
@@ -2515,48 +2515,53 @@
         <translation>Veschieben Sie es auf dem Bildschirm nach Belieben.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="389"/>
+        <location filename="../src/preferences/preferences.cpp" line="366"/>
+        <source>Native System Notification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.cpp" line="391"/>
         <source>Choose download location...</source>
         <translation>Download-Verzeichnis auswählen...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="403"/>
+        <location filename="../src/preferences/preferences.cpp" line="405"/>
         <source>Choose stylesheet location...</source>
         <translation>Stylesheet-Verzeichnis wählen...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="517"/>
+        <location filename="../src/preferences/preferences.cpp" line="519"/>
         <source>New Profile</source>
         <translation>Neues Profil</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="517"/>
+        <location filename="../src/preferences/preferences.cpp" line="519"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Bitte geben Sie den Namen des neuen Profils ein:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="523"/>
-        <location filename="../src/preferences/preferences.cpp" line="527"/>
+        <location filename="../src/preferences/preferences.cpp" line="525"/>
+        <location filename="../src/preferences/preferences.cpp" line="529"/>
         <source>Error!</source>
         <translation>Fehler!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="523"/>
+        <location filename="../src/preferences/preferences.cpp" line="525"/>
         <source>This profile already exists!</source>
         <translation>Dieses Profil existiert bereits!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="527"/>
+        <location filename="../src/preferences/preferences.cpp" line="529"/>
         <source>Cannot create profile directory!</source>
         <translation>Verzeichnis kann nicht erstellt werden!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="540"/>
+        <location filename="../src/preferences/preferences.cpp" line="542"/>
         <source>Confirmation</source>
         <translation>Bestätigung</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="541"/>
+        <location filename="../src/preferences/preferences.cpp" line="543"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Möchten Sie wirklich das Profil &quot;%1&quot; dauerhaft entfernen? Diese Aktion kann nicht rückgängig gemacht werden!</translation>
     </message>
@@ -3495,27 +3500,27 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="249"/>
         <source>Search Engine Added</source>
         <translation>Suchmaschine hinzugefügt</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="249"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Suchmaschine &quot;%1&quot; wurde erfolgreich hinzugefügt.</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
         <source>Search Engine is not valid!</source>
         <translation>Suchmaschine ist ungültig!</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="257"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="257"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Beim Hinzufügen der Suchmaschine ist ein Fehler aufgetreten &lt;br&gt;&lt;b&gt;Fehlermeldung: &lt;/b&gt; %1</translation>
     </message>

@@ -1624,7 +1624,7 @@
         <location filename="../src/navigation/locationbar.cpp" line="294"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
-        <translation type="unfinished">.sk</translation>
+        <translation>.co.uk</translation>
     </message>
 </context>
 <context>
@@ -2141,7 +2141,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="461"/>
-        <location filename="../src/preferences/preferences.cpp" line="555"/>
+        <location filename="../src/preferences/preferences.cpp" line="557"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Poznámka: Nemôžete vymazať aktívny profil.</translation>
     </message>
@@ -2223,12 +2223,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="747"/>
         <source>Select all text by clicking in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Označiť celý text kliknutím do adresného riadka</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="864"/>
         <source>Enable XSS Auditing</source>
-        <translation type="unfinished"></translation>
+        <translation>Povoliť kontrolu XSS</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="881"/>
@@ -2514,48 +2514,53 @@
         <translation>Pretiahnete ho na obrazovke na miesto, kde ho chcete mať.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="389"/>
+        <location filename="../src/preferences/preferences.cpp" line="366"/>
+        <source>Native System Notification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.cpp" line="391"/>
         <source>Choose download location...</source>
         <translation>Vyberte umiestnenie pre sťahovanie...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="403"/>
+        <location filename="../src/preferences/preferences.cpp" line="405"/>
         <source>Choose stylesheet location...</source>
         <translation>Vyberte umiestnenie štýlu...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="517"/>
+        <location filename="../src/preferences/preferences.cpp" line="519"/>
         <source>New Profile</source>
         <translation>Nový profil</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="517"/>
+        <location filename="../src/preferences/preferences.cpp" line="519"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Zadajte názov nového profilu:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="523"/>
-        <location filename="../src/preferences/preferences.cpp" line="527"/>
+        <location filename="../src/preferences/preferences.cpp" line="525"/>
+        <location filename="../src/preferences/preferences.cpp" line="529"/>
         <source>Error!</source>
         <translation>Chyba!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="523"/>
+        <location filename="../src/preferences/preferences.cpp" line="525"/>
         <source>This profile already exists!</source>
         <translation>Tento profil už existuje!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="527"/>
+        <location filename="../src/preferences/preferences.cpp" line="529"/>
         <source>Cannot create profile directory!</source>
         <translation>Nedá sa vytvoriť priečinok profilu!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="540"/>
+        <location filename="../src/preferences/preferences.cpp" line="542"/>
         <source>Confirmation</source>
         <translation>Potvrdenie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="541"/>
+        <location filename="../src/preferences/preferences.cpp" line="543"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Ste si istý, že chcete trvalo vymazať profil &quot;%1&quot;? Táto akcia sa nebude dať vrátiť späť!</translation>
     </message>
@@ -3494,27 +3499,27 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="249"/>
         <source>Search Engine Added</source>
         <translation>Pridaný vyhľadávač</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="248"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="249"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Vyhľadávač &quot;%1&quot; bol úspešne pridaný.</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
         <source>Search Engine is not valid!</source>
         <translation>Vyhľadávač nie je platný!</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="257"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="256"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="257"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Chyba pri pridávaní vyhľadávača &lt;br&gt;&lt;b&gt;Chybová správa: &lt;/b&gt; %1</translation>
     </message>
