@@ -88,24 +88,24 @@ void DesktopNotificationsFactory::notify(const QPixmap &icon, const QString &hea
 void DesktopNotificationsFactory::nativeNotificationPreview()
 {
 #ifdef Q_WS_X11
-        QFile tmp(QDir::tempPath() + "/qupzilla_notif.png");
-        tmp.open(QFile::WriteOnly);
-        QPixmap(":icons/preferences/stock_dialog-question.png").save(tmp.fileName());
+    QFile tmp(QDir::tempPath() + "/qupzilla_notif.png");
+    tmp.open(QFile::WriteOnly);
+    QPixmap(":icons/preferences/stock_dialog-question.png").save(tmp.fileName());
 
-        QDBusInterface dbus("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications", QDBusConnection::sessionBus());
-        QVariantList args;
-        args.append("qupzilla");
-        args.append(m_uint);
-        args.append(tmp.fileName());
-        args.append(tr("Native System Notification"));
-        args.append("");
-        args.append(QStringList());
-        args.append(QVariantMap());
-        args.append(m_timeout);
-        QDBusMessage message = dbus.callWithArgumentList(QDBus::Block, "Notify", args);
-        QVariantList list = message.arguments();
-        if (list.count() > 0) {
-            m_uint = list.at(0).toInt();
-        }
+    QDBusInterface dbus("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications", QDBusConnection::sessionBus());
+    QVariantList args;
+    args.append("qupzilla");
+    args.append(m_uint);
+    args.append(tmp.fileName());
+    args.append(tr("Native System Notification"));
+    args.append("");
+    args.append(QStringList());
+    args.append(QVariantMap());
+    args.append(m_timeout);
+    QDBusMessage message = dbus.callWithArgumentList(QDBus::Block, "Notify", args);
+    QVariantList list = message.arguments();
+    if (list.count() > 0) {
+        m_uint = list.at(0).toInt();
+    }
 #endif
 }

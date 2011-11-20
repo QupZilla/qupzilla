@@ -110,7 +110,7 @@ bool AutoFillModel::addEntry(const QUrl &url, const QString &name, const QString
 }
 
 ///WEB Form
-bool AutoFillModel::addEntry(const QUrl &url, const QByteArray &data, const QString &pass)
+bool AutoFillModel::addEntry(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass)
 {
     QSqlQuery query;
     query.exec("SELECT data FROM autofill WHERE server='" + url.host() + "'");
@@ -118,10 +118,11 @@ bool AutoFillModel::addEntry(const QUrl &url, const QByteArray &data, const QStr
         return false;
     }
 
-    query.prepare("INSERT INTO autofill (server, data, password) VALUES (?,?,?)");
+    query.prepare("INSERT INTO autofill (server, data, username, password) VALUES (?,?,?,?)");
     query.bindValue(0, url.host());
     query.bindValue(1, data);
-    query.bindValue(2, pass);
+    query.bindValue(2, user);
+    query.bindValue(3, pass);
     return query.exec();
 }
 
@@ -192,37 +193,95 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
         return;
     }
 
-    QString passwordName = "";
-    QString passwordValue = "";
+    QString usernameName;
+    QString usernameValue;
+    QString passwordName;
+    QString passwordValue;
     QUrl siteUrl = webView->url();
 
-    QWebElementCollection inputs;
+    if (!isStoringEnabled(siteUrl)) {
+        return;
+    }
+
+    QWebElementCollection allForms; // All form elements on page
+    QWebElement foundForm;          // Sent form element
+
     QList<QWebFrame*> frames;
-    frames.append(webPage->mainFrame());
+    frames.append(webPage->mainFrame());  // Find all form elements
     while (!frames.isEmpty()) {
         QWebFrame* frame = frames.takeFirst();
-        inputs.append(frame->findAllElements("input[type=\"password\"]"));
+        allForms.append(frame->findAllElements("form"));
         frames += frame->childFrames();
     }
 
-    foreach(QWebElement element, inputs) {
-        passwordName = element.attribute("name");
-        passwordValue = element.evaluateJavaScript("this.value").toString();
-        if (!passwordValue.isEmpty()) {
+    foreach(QWebElement formElement, allForms) {
+        foreach(QWebElement inputElement, formElement.findAll("input[type=\"password\"]")) {
+            passwordName = inputElement.attribute("name");
+            passwordValue = getValueFromData(outgoingData, inputElement);
+
+            if (!passwordValue.isEmpty() && dataContains(outgoingData, passwordName)) {
+                foundForm = formElement;
+                break;
+            }
+        }
+
+        if (!foundForm.isNull()) {
             break;
         }
     }
 
-    //Return if storing is not enabled, data for this page is already stored, no password element found in sent data
-    if (passwordName.isEmpty() || !isStoringEnabled(siteUrl) || isStored(siteUrl)) {
+    // Return if data for this page is already stored or no password element found in sent data
+    if (foundForm.isNull() || isStored(siteUrl)) {
         return;
     }
 
-    //Return if no password form has been sent
-    if (!outgoingData.contains((QUrl(passwordName).toEncoded() + "=")) || passwordValue.isEmpty()) {
-        return;
+    // We need to find username, we suppose that username is first not empty input[type=text] in form
+    // Tell me better solution. Maybe first try to find name="user", name="username" ?
+
+    foreach(QWebElement element, foundForm.findAll("input[type=\"text\"]")) {
+        usernameName = element.attribute("name");
+        usernameValue = getValueFromData(outgoingData, element);
+        if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {
+            break;
+        }
     }
 
-    AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, outgoingData, passwordValue);
+    AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, outgoingData, usernameValue, passwordValue);
     webView->addNotification(aWidget);
+}
+
+QString AutoFillModel::getValueFromData(const QByteArray &data, QWebElement element)
+{
+    QString name = element.attribute("name");
+    if (name.isEmpty()) {
+        return "";
+    }
+
+    QString value = element.evaluateJavaScript("this.value").toString();
+    if (value.isEmpty()) {
+        QueryItems queryItems = QUrl("http://a.b/?" + data).queryItems();
+        for (int i = 0; i < queryItems.count(); i++) {
+            QueryItem item = queryItems.at(i);
+
+            if (item.first == name) {
+                value = item.second;
+            }
+        }
+    }
+
+    return value;
+}
+
+bool AutoFillModel::dataContains(const QByteArray &data, const QString &attributeName)
+{
+    QueryItems queryItems = QUrl("http://a.b/?" + data).queryItems();
+    for (int i = 0; i < queryItems.count(); i++) {
+        QueryItem item = queryItems.at(i);
+
+        if (item.first == attributeName) {
+            return !item.second.isEmpty();
+        }
+    }
+
+    return false;
 }
