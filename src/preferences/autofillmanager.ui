@@ -29,12 +29,20 @@
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <widget class="QTreeWidget" name="treePass">
+         <property name="indentation">
+          <number>0</number>
+         </property>
          <attribute name="headerMinimumSectionSize">
-          <number>170</number>
+          <number>100</number>
          </attribute>
          <column>
           <property name="text">
            <string>Server</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Username</string>
           </property>
          </column>
          <column>
@@ -47,16 +55,16 @@
        <item row="0" column="1">
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QPushButton" name="removePass">
+          <widget class="QPushButton" name="editPass">
            <property name="text">
-            <string>Remove</string>
+            <string>Edit</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="editPass">
+          <widget class="QPushButton" name="removePass">
            <property name="text">
-            <string>Edit</string>
+            <string>Remove</string>
            </property>
           </widget>
          </item>

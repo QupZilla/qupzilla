@@ -22,16 +22,17 @@
 #include "animatedwidget.h"
 #include "iconprovider.h"
 
-AutoFillNotification::AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget* parent)
+AutoFillNotification::AutoFillNotification(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass, QWidget* parent)
     : AnimatedWidget(AnimatedWidget::Down, 300, parent)
     , ui(new Ui::AutoFillWidget)
     , m_url(url)
     , m_data(data)
+    , m_user(user)
     , m_pass(pass)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
-    ui->label->setText(tr("Do you want QupZilla to remember password on %1?").arg(url.host()));
+    ui->label->setText(tr("Do you want QupZilla to remember password for <b>%1</b> on %2?").arg(user, url.host()));
     ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
 
     connect(ui->remember, SIGNAL(clicked()), this, SLOT(remember()));
@@ -50,7 +51,7 @@ void AutoFillNotification::never()
 
 void AutoFillNotification::remember()
 {
-    mApp->autoFill()->addEntry(m_url, m_data, m_pass);
+    mApp->autoFill()->addEntry(m_url, m_data, m_user, m_pass);
     hide();
 }
 

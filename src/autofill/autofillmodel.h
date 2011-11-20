@@ -21,6 +21,7 @@
 #include <QObject>
 #include <QUrl>
 #include <QNetworkRequest>
+#include <QWebElement>
 
 class QupZilla;
 class WebView;
@@ -28,6 +29,9 @@ class AutoFillModel : public QObject
 {
     Q_OBJECT
 public:
+    typedef QList<QPair<QString, QString> > QueryItems;
+    typedef QPair<QString, QString> QueryItem;
+
     explicit AutoFillModel(QupZilla* mainClass, QObject* parent = 0);
     void completePage(WebView* view);
 
@@ -38,7 +42,7 @@ public:
     QString getUsername(const QUrl &url);
     QString getPassword(const QUrl &url);
     bool addEntry(const QUrl &url, const QString &name, const QString &pass);
-    bool addEntry(const QUrl &url, const QByteArray &data, const QString &pass);
+    bool addEntry(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass);
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
 
@@ -48,6 +52,9 @@ public slots:
     void loadSettings();
 
 private:
+    bool dataContains(const QByteArray &data, const QString &attributeName);
+    QString getValueFromData(const QByteArray &data, QWebElement element);
+
     QupZilla* p_QupZilla;
     QByteArray m_lastOutgoingData;
     bool m_isStoring;
