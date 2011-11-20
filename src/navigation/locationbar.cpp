@@ -275,7 +275,7 @@ void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
 
 void LocationBar::mousePressEvent(QMouseEvent* event)
 {
-    if (cursorPosition() == 0) {
+    if (cursorPosition() == 0 && m_locationBarSettings->selectAllOnClick) {
         selectAll();
         return;
     }
