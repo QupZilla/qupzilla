@@ -1111,7 +1111,8 @@
     <message>
         <location filename="../src/desktopnotifications/desktopnotificationsfactory.cpp" line="100"/>
         <source>Native System Notification</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Use system notifications provided by QupZilla</translatorcomment>
+        <translation>Native Systembenachrichtigungen</translation>
     </message>
 </context>
 <context>
@@ -1632,7 +1633,7 @@
         <location filename="../src/navigation/locationbar.cpp" line="294"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
-        <translation type="unfinished">.de</translation>
+        <translation>.de</translation>
     </message>
 </context>
 <context>
@@ -2226,7 +2227,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="709"/>
         <source>Select all text by clicking in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Gesamten Text durch Klick in die Adressleiste auswählen</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="746"/>
