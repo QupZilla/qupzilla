@@ -228,41 +228,46 @@
         <translation>Passwörter</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="37"/>
-        <location filename="../src/preferences/autofillmanager.ui" line="120"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="40"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="128"/>
         <source>Server</source>
         <translation>Server</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="42"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="45"/>
+        <source>Username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.ui" line="50"/>
         <source>Password</source>
         <translation>Passwort</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="52"/>
-        <location filename="../src/preferences/autofillmanager.ui" line="130"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="67"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="138"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="59"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="60"/>
         <source>Edit</source>
         <translation>Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="66"/>
-        <location filename="../src/preferences/autofillmanager.ui" line="137"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="74"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="145"/>
         <source>Remove All</source>
         <translation>Alle entfernen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="103"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="111"/>
         <location filename="../src/preferences/autofillmanager.cpp" line="71"/>
         <source>Show Passwords</source>
         <translation>Passwörter im Klartext anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="113"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="121"/>
         <source>Exceptions</source>
         <translation>Ausnahmen</translation>
     </message>
@@ -295,9 +300,9 @@
 <context>
     <name>AutoFillNotification</name>
     <message>
-        <location filename="../src/autofill/autofillnotification.cpp" line="34"/>
-        <source>Do you want QupZilla to remember password on %1?</source>
-        <translation>Möchten Sie das Passwort für %1 speichern?</translation>
+        <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
+        <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

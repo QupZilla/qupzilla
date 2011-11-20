@@ -35,7 +35,7 @@ class AutoFillNotification : public AnimatedWidget
     Q_OBJECT
 
 public:
-    explicit AutoFillNotification(QUrl url, QByteArray data, QString pass, QWidget* parent = 0);
+    explicit AutoFillNotification(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass, QWidget* parent = 0);
     ~AutoFillNotification();
 
 private slots:
@@ -46,6 +46,7 @@ private:
     Ui::AutoFillWidget* ui;
     QUrl m_url;
     QByteArray m_data;
+    QString m_user;
     QString m_pass;
 };
 

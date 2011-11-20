@@ -39,15 +39,15 @@ AutoFillManager::AutoFillManager(QWidget* parent)
 void AutoFillManager::loadPasswords()
 {
     QSqlQuery query;
-    query.exec("SELECT server, password, id FROM autofill");
+    query.exec("SELECT server, username, password, id FROM autofill");
     ui->treePass->clear();
     while (query.next()) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->treePass);
         item->setText(0, query.value(0).toString());
-//        item->setText(1, query.value(1).toString());
-        item->setText(1, "*****");
-        item->setWhatsThis(0, query.value(2).toString());
-        item->setWhatsThis(1, query.value(1).toString());
+        item->setText(1, query.value(1).toString());
+        item->setText(2, "*****");
+        item->setWhatsThis(0, query.value(3).toString());
+        item->setWhatsThis(1, query.value(2).toString());
         ui->treePass->addTopLevelItem(item);
     }
 
@@ -79,7 +79,7 @@ void AutoFillManager::showPasswords()
         if (!item) {
             continue;
         }
-        item->setText(1, item->whatsThis(1));
+        item->setText(2, item->whatsThis(1));
     }
 
     ui->showPasswords->hide();
