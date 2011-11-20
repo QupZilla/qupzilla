@@ -58,7 +58,7 @@ downloading a tarball or running:
 FAQ and Changelog
 ----------------------------------------------------------------------------------------
 
-If you are experiencing some sort of problem, please read FAQ before you open an issue.
+If you are experiencing some sort of problem, please read the FAQ before you open an issue.
 
 FAQ:       https://github.com/nowrep/QupZilla/blob/master/FAQ
 
