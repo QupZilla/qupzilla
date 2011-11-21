@@ -64,8 +64,20 @@ void AutoFillManager::loadPasswords()
 void AutoFillManager::showPasswords()
 {
     if (m_passwordsShown) {
+        for (int i = 0; i < ui->treePass->topLevelItemCount(); i++) {
+            QTreeWidgetItem* item = ui->treePass->topLevelItem(i);
+            if (!item) {
+                continue;
+            }
+            item->setText(2, "*****");
+        }
+
+        ui->showPasswords->setText(tr("Show Passwords"));
+        m_passwordsShown = false;
+
         return;
     }
+
     m_passwordsShown = true;
 
     int result = QMessageBox::question(this, tr("Show Passwords"), tr("Are you sure that you want to show all passwords?"),
@@ -82,8 +94,7 @@ void AutoFillManager::showPasswords()
         item->setText(2, item->whatsThis(1));
     }
 
-    ui->showPasswords->hide();
-    delete ui->showPasswordsLayout;
+    ui->showPasswords->setText(tr("Hide Passwords"));
 }
 
 void AutoFillManager::removePass()

@@ -262,7 +262,8 @@
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="111"/>
-        <location filename="../src/preferences/autofillmanager.cpp" line="71"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="75"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="83"/>
         <source>Show Passwords</source>
         <translation>显示密码</translation>
     </message>
@@ -272,27 +273,32 @@
         <translation>例外</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="71"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="83"/>
         <source>Are you sure that you want to show all passwords?</source>
         <translation>确定要显示所有密码？</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="104"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="97"/>
+        <source>Hide Passwords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="115"/>
         <source>Confirmation</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="105"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="116"/>
         <source>Are you sure to delete all passwords on your computer?</source>
         <translation>你确定要删除计算机上的所有密码吗？</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="123"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="134"/>
         <source>Edit password</source>
         <translation>编辑密码</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="123"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="134"/>
         <source>Change password:</source>
         <translation>改变密码：</translation>
     </message>
