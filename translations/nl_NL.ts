@@ -262,7 +262,8 @@
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="111"/>
-        <location filename="../src/preferences/autofillmanager.cpp" line="71"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="75"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="83"/>
         <source>Show Passwords</source>
         <translation>Toon wachtwoorden</translation>
     </message>
@@ -272,27 +273,32 @@
         <translation>Uitzonderingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="71"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="83"/>
         <source>Are you sure that you want to show all passwords?</source>
         <translation>Weet u zeker dat u alle wachtwoorden wilt tonen?</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="104"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="97"/>
+        <source>Hide Passwords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="115"/>
         <source>Confirmation</source>
         <translation>Bevestiging</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="105"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="116"/>
         <source>Are you sure to delete all passwords on your computer?</source>
         <translation>Weet u zeker dat u alle wachtwoorden op uw computer wilt verwijderen?</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="123"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="134"/>
         <source>Edit password</source>
         <translation>Bewerk wachtwoord</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="123"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="134"/>
         <source>Change password:</source>
         <translation>Verander wachtwoord:</translation>
     </message>
