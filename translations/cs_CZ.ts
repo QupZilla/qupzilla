@@ -262,7 +262,8 @@
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="111"/>
-        <location filename="../src/preferences/autofillmanager.cpp" line="71"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="75"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="83"/>
         <source>Show Passwords</source>
         <translation>Zobrazit hesla</translation>
     </message>
@@ -272,27 +273,32 @@
         <translation>Vyjímky</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="71"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="83"/>
         <source>Are you sure that you want to show all passwords?</source>
         <translation>Jste si jistí že chcete zobrazit všechna hesla?</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="104"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="97"/>
+        <source>Hide Passwords</source>
+        <translation>Skrýt hesla</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="115"/>
         <source>Confirmation</source>
         <translation>Potvrzení</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="105"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="116"/>
         <source>Are you sure to delete all passwords on your computer?</source>
         <translation>Opravdu si přejete smazat všechna hesla?</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="123"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="134"/>
         <source>Edit password</source>
         <translation>Upravit heslo</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="123"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="134"/>
         <source>Change password:</source>
         <translation>Změnit heslo:</translation>
     </message>
@@ -302,7 +308,7 @@
     <message>
         <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation>Chcete aby si QupZilla zapamatovala heslo pro &lt;b&gt;%1&lt;b&gt; na %2?</translation>
+        <translation>Chcete aby si QupZilla zapamatovala heslo pro &lt;b&gt;%1&lt;/b&gt; na %2?</translation>
     </message>
 </context>
 <context>
