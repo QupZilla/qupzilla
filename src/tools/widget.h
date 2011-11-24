@@ -19,6 +19,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QFrame>
 
 class Widget : public QWidget
 {
@@ -31,6 +32,18 @@ signals:
 public slots:
     void slotResize(const QSize &size);
 
+};
+
+class ResizableFrame : public QFrame
+{
+    Q_OBJECT
+public:
+    explicit ResizableFrame(QWidget* parent = 0);
+
+signals:
+
+public slots:
+    void slotResize(const QSize &size);
 };
 
 #endif // WIDGET_H
