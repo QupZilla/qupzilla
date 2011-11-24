@@ -17,12 +17,28 @@
 * ============================================================ */
 #include "widget.h"
 
+/*
+ *  class Widget
+ */
 Widget::Widget(QWidget* parent) :
     QWidget(parent)
 {
 }
 
 void Widget::slotResize(const QSize &size)
+{
+    resize(size);
+}
+
+/*
+ *  class ResizableFrame
+ */
+ResizableFrame::ResizableFrame(QWidget* parent) :
+    QFrame(parent)
+{
+}
+
+void ResizableFrame::slotResize(const QSize &size)
 {
     resize(size);
 }

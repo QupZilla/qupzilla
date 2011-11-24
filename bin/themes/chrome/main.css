@@ -336,6 +336,11 @@ DownloadManager #list
 }
 
 /*JavaScript Dialogs*/
+#jsFrame
+{
+    background: url(images/semi-transp.png);
+}
+
 QFrame[js-frame="true"]
 {
     border: 1px solid  black;
