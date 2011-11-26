@@ -259,12 +259,12 @@ QString AutoFillModel::getValueFromData(const QByteArray &data, QWebElement elem
 
     QString value = element.evaluateJavaScript("this.value").toString();
     if (value.isEmpty()) {
-        QueryItems queryItems = QUrl("http://a.b/?" + data).queryItems();
+        QueryItems queryItems = QUrl::fromEncoded("http://a.b/?" + data).queryItems();
         for (int i = 0; i < queryItems.count(); i++) {
             QueryItem item = queryItems.at(i);
 
             if (item.first == name) {
-                value = item.second;
+                value = item.second.toAscii();
             }
         }
     }
@@ -274,7 +274,7 @@ QString AutoFillModel::getValueFromData(const QByteArray &data, QWebElement elem
 
 bool AutoFillModel::dataContains(const QByteArray &data, const QString &attributeName)
 {
-    QueryItems queryItems = QUrl("http://a.b/?" + data).queryItems();
+    QueryItems queryItems = QUrl::fromEncoded("http://a.b/?" + data).queryItems();
     for (int i = 0; i < queryItems.count(); i++) {
         QueryItem item = queryItems.at(i);
 
