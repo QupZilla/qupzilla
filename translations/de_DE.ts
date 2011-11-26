@@ -4178,7 +4178,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation>Erneut versuchen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="483"/>
+        <location filename="../src/webview/webpage.cpp" line="447"/>
         <source>Choose file...</source>
         <translation>Datei wählen...</translation>
     </message>

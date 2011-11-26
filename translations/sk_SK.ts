@@ -4176,7 +4176,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>Skúsiť znova</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="483"/>
+        <location filename="../src/webview/webpage.cpp" line="447"/>
         <source>Choose file...</source>
         <translation>Vybrať súbor...</translation>
     </message>

@@ -4179,7 +4179,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation>Prova di nuovo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="483"/>
+        <location filename="../src/webview/webpage.cpp" line="447"/>
         <source>Choose file...</source>
         <translation>Scegli il file...</translation>
     </message>

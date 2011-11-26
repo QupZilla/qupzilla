@@ -4171,7 +4171,7 @@ After adding or removing certificate paths, it is neccessary to restart browser 
         <translation>再试一次</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="483"/>
+        <location filename="../src/webview/webpage.cpp" line="447"/>
         <source>Choose file...</source>
         <translation>选择文件...</translation>
     </message>
