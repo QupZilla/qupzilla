@@ -4179,7 +4179,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Probeer nogmaals</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="483"/>
+        <location filename="../src/webview/webpage.cpp" line="447"/>
         <source>Choose file...</source>
         <translation>Kies bestand...</translation>
     </message>

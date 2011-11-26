@@ -26,6 +26,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QUrl>
 
 namespace Ui
 {

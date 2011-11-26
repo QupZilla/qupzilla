@@ -4179,7 +4179,7 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
         <translation>Zkusit znovu</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="483"/>
+        <location filename="../src/webview/webpage.cpp" line="447"/>
         <source>Choose file...</source>
         <translation>Vyberte soubor...</translation>
     </message>

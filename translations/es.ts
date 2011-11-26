@@ -4175,7 +4175,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar el 
         <translation>Volver a intentar</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="483"/>
+        <location filename="../src/webview/webpage.cpp" line="447"/>
         <source>Choose file...</source>
         <translation>Elegir archivo...</translation>
     </message>
