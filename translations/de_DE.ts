@@ -236,7 +236,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="45"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Nutzername</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="50"/>
@@ -280,7 +280,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="97"/>
         <source>Hide Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzeige der Passwörter verbergen</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="115"/>
@@ -308,7 +308,7 @@
     <message>
         <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="unfinished"></translation>
+        <translation>Soll QupZilla das Passwort für &lt;b&gt;%1&lt;/b&gt; auf %2 speichern?</translation>
     </message>
 </context>
 <context>
