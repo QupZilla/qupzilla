@@ -153,6 +153,8 @@ private slots:
     void aboutToShowHelpMenu();
     void aboutToShowViewMenu();
     void aboutToHideViewMenu();
+    void aboutToShowMenuEdit();
+    void aboutToHideMenuEdit();
     void aboutToShowEncodingMenu();
 
     void searchOnPage();
@@ -180,7 +182,7 @@ private slots:
     void sendLink() { QDesktopServices::openUrl(QUrl("mailto:?body=" + weView()->url().toString())); }
     void webSearch();
 
-    void copy() { QApplication::clipboard()->setText(weView()->selectedText()); }
+    void copy();
     void selectAll() { weView()->selectAll(); }
 
     void zoomIn() { weView()->zoomIn(); }

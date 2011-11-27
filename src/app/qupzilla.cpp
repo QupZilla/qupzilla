@@ -299,6 +299,9 @@ void QupZilla::setupMenu()
     m_menuEdit->addSeparator();
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     menuBar()->addMenu(m_menuEdit);
+    connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowMenuEdit()));
+    connect(m_menuEdit, SIGNAL(aboutToHide()), this, SLOT(aboutToHideMenuEdit()));
+    aboutToHideMenuEdit();
 
     m_menuView = new QMenu(tr("&View"));
     m_actionShowToolbar = new QAction(tr("&Navigation Toolbar"), this);
@@ -769,6 +772,22 @@ void QupZilla::aboutToHideViewMenu()
     }
 }
 
+void QupZilla::aboutToShowMenuEdit()
+{
+    foreach (QAction* act, m_menuEdit->actions()) {
+        act->setEnabled(true);
+    }
+}
+
+void QupZilla::aboutToHideMenuEdit()
+{
+    foreach (QAction* act, m_menuEdit->actions()) {
+        act->setEnabled(false);
+    }
+
+    m_menuEdit->actions().at(10)->setEnabled(true);
+}
+
 void QupZilla::aboutToShowEncodingMenu()
 {
     m_menuEncoding->clear();
@@ -858,6 +877,13 @@ void QupZilla::bookmarkAllTabs()
 void QupZilla::goHome()
 {
     loadAddress(m_homepage);
+}
+
+void QupZilla::copy()
+{
+    if (!weView()->selectedText().isEmpty()) {
+        QApplication::clipboard()->setText(weView()->selectedText());
+    }
 }
 
 void QupZilla::goHomeInNewTab()

@@ -190,8 +190,8 @@
       </item>
       <item>
        <widget class="QLabel" name="message">
-        <property name="text">
-         <string/>
+        <property name="textInteractionFlags">
+         <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
         </property>
        </widget>
       </item>
