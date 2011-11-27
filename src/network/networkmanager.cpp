@@ -345,7 +345,10 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
         dir.mkdir("certificates");
     }
 
-    QString fileName = qz_ensureUniqueFilename(mApp->getActiveProfilPath() + "certificates/" + CertificateInfoWidget::certificateItemText(cert).remove(" ") + ".crt");
+    QString certFileName = CertificateInfoWidget::certificateItemText(cert).remove(" ") + ".crt";
+    certFileName = certFileName.remove("/");
+    QString fileName = qz_ensureUniqueFilename(mApp->getActiveProfilPath() + "certificates/" + certFileName);
+
 
     QFile file(fileName);
     if (file.open(QFile::WriteOnly)) {
