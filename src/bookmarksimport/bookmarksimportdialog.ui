@@ -140,7 +140,11 @@
         </spacer>
        </item>
        <item row="3" column="1">
-        <widget class="QLabel" name="standardDirLabel"/>
+        <widget class="QLabel" name="standardDirLabel">
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+         </property>
+        </widget>
        </item>
        <item row="1" column="1">
         <spacer name="verticalSpacer_2">

@@ -153,7 +153,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     }
 
     QString text2 = tr("Would you like to make exception for this certificate?");
-    QString message = QString(QLatin1String("<b>%1</b><p>%2</p>%3<p>%4</p>")).arg(title, text1, certs, text2);
+    QString message = QString("<b>%1</b><p>%2</p>%3<p>%4</p>").arg(title, text1, certs, text2);
 
     if (!certs.isEmpty())  {
         if (!webPage->javaScriptConfirm(webPage->mainFrame(), message)) {
@@ -346,13 +346,15 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     }
 
     QString fileName = qz_ensureUniqueFilename(mApp->getActiveProfilPath() + "certificates/" + CertificateInfoWidget::certificateItemText(cert).remove(" ") + ".crt");
-    qDebug() << fileName;
+
     QFile file(fileName);
     if (file.open(QFile::WriteOnly)) {
         file.write(cert.toPem());
         file.close();
-    } else
-        qDebug("cant write");
+    }
+    else {
+        qWarning() << "NetworkManager::addLocalCertificate cannot write to file: " << fileName;
+    }
 }
 
 void NetworkManager::saveCertificates()

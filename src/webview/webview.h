@@ -92,6 +92,8 @@ public slots:
     void zoomOut();
 
 private slots:
+    void copyText();
+
     void trackMouse(bool state) { m_mouseTrack = state; }
     void showImage();
     void copyImageToClipboard();
@@ -130,6 +132,8 @@ private:
     void wheelEvent(QWheelEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
     void resizeEvent(QResizeEvent* event);
+    void keyPressEvent(QKeyEvent* event);
+
     TabWidget* tabWidget() const;
     bool isCurrent();
     void applyZoom();
