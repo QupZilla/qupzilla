@@ -128,7 +128,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     }
 
     QString title = tr("SSL Certificate Error!");
-    QString text1 = tr("The page you trying to access has following errors in SSL Certificate:");
+    QString text1 = tr("The page you are trying to access has the following errors in the SSL certificate:");
 
     QString certs;
 
@@ -152,7 +152,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
         certs.append("</li></ul>");
     }
 
-    QString text2 = tr("Would you like to make exception for this certificate?");
+    QString text2 = tr("Would you like to make an exception for this certificate?");
     QString message = QString("<b>%1</b><p>%2</p>%3<p>%4</p>").arg(title, text1, certs, text2);
 
     if (!certs.isEmpty())  {
