@@ -239,7 +239,10 @@ void ClickToFlash::showInfo()
     int i = 0;
     foreach(QString name, m_argumentNames) {
         QString value = m_argumentValues.at(i);
-        lay->addRow(new SqueezeLabelV2(name), new SqueezeLabelV2(value));
+        SqueezeLabelV2* valueLabel = new SqueezeLabelV2(value);
+        valueLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
+
+        lay->addRow(new SqueezeLabelV2(name), valueLabel);
 
         i++;
     }

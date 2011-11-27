@@ -106,6 +106,13 @@ void WebView::slotIconChanged()
     mApp->iconProvider()->saveIcon(this);
 }
 
+void WebView::copyText()
+{
+    if (!selectedText().isEmpty()) {
+        QApplication::clipboard()->setText(selectedText());
+    }
+}
+
 WebPage* WebView::webPage() const
 {
     return m_page;
@@ -464,6 +471,30 @@ void WebView::mousePressEvent(QMouseEvent* event)
         QWebView::mousePressEvent(event);
         break;
     }
+}
+
+void WebView::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key()) {
+    case Qt::Key_C:
+        if (event->modifiers() == Qt::ControlModifier) {
+            copyText();
+            return;
+        }
+        break;
+
+    case Qt::Key_A:
+        if (event->modifiers() == Qt::ControlModifier) {
+            selectAll();
+            return;
+        }
+        break;
+
+    default:
+        break;
+    }
+
+    QWebView::keyPressEvent(event);
 }
 
 void WebView::resizeEvent(QResizeEvent* event)
