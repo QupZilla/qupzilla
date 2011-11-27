@@ -109,6 +109,17 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
         return;
     }
 
+    int errorsIgnored = 0;
+    foreach(QSslError error, errors) {
+        if (m_ignoredCerts.contains(error.certificate())) {
+            ++errorsIgnored;
+        }
+    }
+
+    if (errorsIgnored == errors.count()) {
+        return;
+    }
+
     QNetworkRequest request = reply->request();
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
     WebPage* webPage = (WebPage*)(v.value<void*>());
@@ -119,7 +130,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     QString title = tr("SSL Certificate Error!");
     QString text1 = tr("The page you trying to access has following errors in SSL Certificate:");
 
-    QStringList actions;
+    QString certs;
 
     foreach(QSslError error, errors) {
         if (m_localCerts.contains(error.certificate())) {
@@ -130,30 +141,30 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
         }
 
         QSslCertificate cert = error.certificate();
-        actions.append(tr("<b>Organization: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::Organization)));
-        actions.append(tr("<b>Domain Name: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::CommonName)));
-        actions.append(tr("<b>Expiration Date: </b>") + cert.expiryDate().toString("hh:mm:ss dddd d. MMMM yyyy"));
-        actions.append(tr("<b>Error: </b>") + error.errorString());
+        certs.append("<ul><li>");
+        certs.append(tr("<b>Organization: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::Organization)));
+        certs.append("</li><li>");
+        certs.append(tr("<b>Domain Name: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::CommonName)));
+        certs.append("</li><li>");
+        certs.append(tr("<b>Expiration Date: </b>") + cert.expiryDate().toString("hh:mm:ss dddd d. MMMM yyyy"));
+        certs.append("</li><li>");
+        certs.append(tr("<b>Error: </b>") + error.errorString());
+        certs.append("</li></ul>");
     }
 
     QString text2 = tr("Would you like to make exception for this certificate?");
-    QString message = QString(QLatin1String("<b>%1</b><p>%2</p><ul><li>%3</li></ul><p>%4</p>")).arg(title, text1, actions.join(QLatin1String("</li><li>")), text2);
+    QString message = QString(QLatin1String("<b>%1</b><p>%2</p>%3<p>%4</p>")).arg(title, text1, certs, text2);
 
-    if (!actions.isEmpty())  {
-//        QMessageBox::StandardButton button = QMessageBox::critical(p_QupZilla, tr("SSL Certificate Error"),
-//                                                               message, QMessageBox::Yes | QMessageBox::No);
-//        if (button != QMessageBox::Yes)
-//            return;
+    if (!certs.isEmpty())  {
         if (!webPage->javaScriptConfirm(webPage->mainFrame(), message)) {
             return;
         }
-    }
 
-    foreach(QSslError error, errors) {
-        if (m_localCerts.contains(error.certificate())) {
-            continue;
+        foreach(QSslError error, errors) {
+            if (!m_localCerts.contains(error.certificate())) {
+                addLocalCertificate(error.certificate());
+            }
         }
-        addLocalCertificate(error.certificate());
     }
 
     reply->ignoreSslErrors(errors);
@@ -322,9 +333,9 @@ void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
 
 void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
 {
-    if (!cert.isValid()) {
-        return;
-    }
+//    if (!cert.isValid()) {
+//        return;
+//    }
 
     m_localCerts.append(cert);
     QSslSocket::addDefaultCaCertificate(cert);
@@ -335,11 +346,13 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     }
 
     QString fileName = qz_ensureUniqueFilename(mApp->getActiveProfilPath() + "certificates/" + CertificateInfoWidget::certificateItemText(cert).remove(" ") + ".crt");
+    qDebug() << fileName;
     QFile file(fileName);
     if (file.open(QFile::WriteOnly)) {
         file.write(cert.toPem());
         file.close();
-    }
+    } else
+        qDebug("cant write");
 }
 
 void NetworkManager::saveCertificates()
