@@ -55,7 +55,7 @@ WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     , m_rssChecked(false)
 //    , m_loadingTimer(0)
 {
-    m_networkProxy = new NetworkManagerProxy(p_QupZilla);
+    m_networkProxy = new NetworkManagerProxy(this);
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
     m_networkProxy->setPage(m_page) ;
     m_networkProxy->setView(this);
@@ -473,7 +473,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
     }
 }
 
-void WebView::keyPressEvent(QKeyEvent *event)
+void WebView::keyPressEvent(QKeyEvent* event)
 {
     switch (event->key()) {
     case Qt::Key_C:

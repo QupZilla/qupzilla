@@ -18,13 +18,11 @@
 #include "networkmanagerproxy.h"
 #include "networkmanager.h"
 #include "webpage.h"
-#include "qupzilla.h"
 #include "cookiejar.h"
 #include "mainapplication.h"
 
-NetworkManagerProxy::NetworkManagerProxy(QupZilla* mainClass, QObject* parent)
+NetworkManagerProxy::NetworkManagerProxy(QObject* parent)
     : QNetworkAccessManager(parent)
-    , p_QupZilla(mainClass)
     , m_view(0)
     , m_page(0)
     , m_manager(0)
@@ -52,9 +50,11 @@ void NetworkManagerProxy::setPrimaryNetworkAccessManager(NetworkManager* manager
 
 QNetworkReply* NetworkManagerProxy::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
 {
-    if (m_manager && m_page) {
+    if (m_manager) {
         QNetworkRequest pageRequest = request;
-        m_page->populateNetworkRequest(pageRequest);
+        if (m_page) {
+            m_page->populateNetworkRequest(pageRequest);
+        }
         return m_manager->createRequest(op, pageRequest, outgoingData);
     }
     return QNetworkAccessManager::createRequest(op, request, outgoingData);

@@ -24,14 +24,13 @@
 
 class WebView;
 class WebPage;
-class QupZilla;
 class NetworkManager;
 
 class NetworkManagerProxy : public QNetworkAccessManager
 {
     Q_OBJECT
 public:
-    explicit NetworkManagerProxy(QupZilla* mainClass, QObject* parent = 0);
+    explicit NetworkManagerProxy(QObject* parent = 0);
     void setView(WebView* view) { m_view = view; }
     void setPage(WebPage* page) { m_page = page; }
 
@@ -42,7 +41,6 @@ protected:
     virtual void populateNetworkRequest(QNetworkRequest &request);
 
 private:
-    QupZilla* p_QupZilla;
     WebView* m_view;
     WebPage* m_page;
     NetworkManager* m_manager;
