@@ -18,8 +18,8 @@
 
 #include <QtGui/QApplication>
 #include <QTextCodec>
-#include <QtPlugin>
 #include <iostream>
+
 #include "commandlineoptions.h"
 #include "mainapplication.h"
 
@@ -29,6 +29,7 @@ int main(int argc, char* argv[])
     Q_INIT_RESOURCE(html);
 
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+
 #ifdef Q_WS_X11
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11
 #endif
@@ -41,7 +42,7 @@ int main(int argc, char* argv[])
         foreach(CommandLineOptions::ActionPair pair, cmdActions) {
             switch (pair.action) {
             case CommandLineOptions::ExitAction:
-                return 1;
+                return 0;
                 break;
             default:
                 break;

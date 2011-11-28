@@ -42,6 +42,8 @@ QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
 QString qz_ensureUniqueFilename(const QString &name);
 QString qz_getFileNameFromUrl(const QUrl &url);
 
+QString qz_filterCharsFromFilename(const QString &name);
+
 QString qz_buildSystem();
 
 #endif // GLOBALFUNCTIONS_H

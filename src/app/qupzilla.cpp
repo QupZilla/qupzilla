@@ -774,14 +774,14 @@ void QupZilla::aboutToHideViewMenu()
 
 void QupZilla::aboutToShowMenuEdit()
 {
-    foreach (QAction* act, m_menuEdit->actions()) {
+    foreach(QAction * act, m_menuEdit->actions()) {
         act->setEnabled(true);
     }
 }
 
 void QupZilla::aboutToHideMenuEdit()
 {
-    foreach (QAction* act, m_menuEdit->actions()) {
+    foreach(QAction * act, m_menuEdit->actions()) {
         act->setEnabled(false);
     }
 

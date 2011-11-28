@@ -31,7 +31,7 @@
 #include "acceptlanguage.h"
 
 NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
-    : NetworkManagerProxy(mainClass, parent)
+    : NetworkManagerProxy(parent)
     , m_adblockNetwork(0)
     , p_QupZilla(mainClass)
     , m_qupzillaSchemeHandler(new QupZillaSchemeHandler)
@@ -346,9 +346,8 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     }
 
     QString certFileName = CertificateInfoWidget::certificateItemText(cert).remove(" ") + ".crt";
-    certFileName = certFileName.remove("/");
+    certFileName = qz_filterCharsFromFilename(certFileName);
     QString fileName = qz_ensureUniqueFilename(mApp->getActiveProfilPath() + "certificates/" + certFileName);
-
 
     QFile file(fileName);
     if (file.open(QFile::WriteOnly)) {
