@@ -150,6 +150,22 @@ QString qz_getFileNameFromUrl(const QUrl &url)
     return fileName;
 }
 
+QString qz_filterCharsFromFilename(const QString &name)
+{
+    QString value = name;
+    value.remove("\\");
+    value.remove("/");
+    value.remove(":");
+    value.remove("*");
+    value.remove("?");
+    value.remove("\"");
+    value.remove("<");
+    value.remove(">");
+    value.remove("|");
+
+    return value;
+}
+
 QString qz_buildSystem()
 {
 #ifdef Q_OS_LINUX
