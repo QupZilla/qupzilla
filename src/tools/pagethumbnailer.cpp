@@ -19,22 +19,23 @@ QObject* CleanPluginFactory::create(const QString &mimeType, const QUrl &url, co
     Q_UNUSED(argumentNames)
     Q_UNUSED(argumentValues)
 
-    return 0;
+    return new QObject;
 }
 
 PageThumbnailer::PageThumbnailer(QObject* parent)
     : QObject(parent)
     , m_page(new QWebPage(this))
-    , m_size(QSize(210, 130))
+    , m_size(QSize(231, 130))
 {
     NetworkManagerProxy* m_networkProxy = new NetworkManagerProxy();
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
     m_page->setNetworkAccessManager(m_networkProxy);
 
-    m_page->setPluginFactory(new CleanPluginFactory);
-
     m_page->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
     m_page->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
+
+    // HD Ready :-D
+    // Every page should fit in this resolution
     m_page->setViewportSize(QSize(1280, 720));
 }
 
@@ -49,6 +50,13 @@ void PageThumbnailer::setUrl(const QUrl &url)
 {
     if (url.isValid()) {
         m_url = url;
+    }
+}
+
+void PageThumbnailer::setEnableFlash(bool enable)
+{
+    if (!enable) {
+        m_page->setPluginFactory(new CleanPluginFactory);
     }
 }
 
@@ -73,6 +81,8 @@ void PageThumbnailer::createThumbnail()
     QImage scaledImage = image.scaled(m_size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
 
     emit thumbnailCreated(QPixmap::fromImage(scaledImage));
+
+    QPixmap::fromImage(scaledImage).save("/home/david/pic.png");
 
     delete m_page;
     m_page = 0;

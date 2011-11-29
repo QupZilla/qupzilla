@@ -25,6 +25,7 @@ public:
 
     void setSize(const QSize &size);
     void setUrl(const QUrl &url);
+    void setEnableFlash(bool enable);
 
     void start();
 
