@@ -25,6 +25,7 @@
 #include <QUrl>
 #include <QPointer>
 #include <QNetworkDiskCache>
+#include <QWebSecurityOrigin>
 #include <iostream>
 
 #include "qtsingleapplication.h"

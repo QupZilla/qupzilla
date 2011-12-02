@@ -25,6 +25,7 @@
 
 #include "plugins.h"
 
+class SpeedDial;
 class PluginProxy : public Plugins
 {
 public:
@@ -41,9 +42,17 @@ public:
     void c2f_removeWhitelist(QString page) { c2f_whitelist.removeOne(page); }
     void c2f_setEnabled(bool en) { c2f_enabled = en; }
     bool c2f_isEnabled() { return c2f_enabled; }
+
     QStringList c2f_getWhiteList() { return c2f_whitelist; }
+
+    // SpeedDial
+    SpeedDial* speedDial() { return m_speedDial; }
+
+private:
     QStringList c2f_whitelist;
     bool c2f_enabled;
+
+    SpeedDial* m_speedDial;
 };
 
 #endif // PLUGINPROXY_H

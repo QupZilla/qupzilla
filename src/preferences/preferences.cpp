@@ -111,8 +111,11 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     else if (m_newTabUrl == m_homepage) {
         ui->newTab->setCurrentIndex(1);
     }
-    else {
+    else if (m_newTabUrl == "qupzilla:speeddial") {
         ui->newTab->setCurrentIndex(2);
+    }
+    else {
+        ui->newTab->setCurrentIndex(3);
         ui->newTabFrame->setVisible(true);
     }
     connect(ui->newTab, SIGNAL(currentIndexChanged(int)), this, SLOT(newTabChanged()));
@@ -423,7 +426,7 @@ void Preferences::chooseUserStyleClicked()
 
 void Preferences::newTabChanged()
 {
-    if (ui->newTab->currentIndex() == 2) {
+    if (ui->newTab->currentIndex() == 3) {
         ui->newTabFrame->setVisible(true);
     }
     else {
@@ -583,15 +586,25 @@ void Preferences::saveSettings()
     QString homepage = ui->homepage->text();
     settings.setValue("afterLaunch", ui->afterLaunch->currentIndex());
 
-
-    if (ui->newTab->currentIndex() == 0) {
+    switch (ui->newTab->currentIndex()) {
+    case 0:
         settings.setValue("newTabUrl", "");
-    }
-    else if (ui->newTab->currentIndex() == 1) {
+        break;
+
+    case 1:
         settings.setValue("newTabUrl", homepage);
-    }
-    else {
+        break;
+
+    case 2:
+        settings.setValue("newTabUrl", "qupzilla:speeddial");
+        break;
+
+    case 3:
         settings.setValue("newTabUrl", ui->newTabUrl->text());
+        break;
+
+    default:
+        break;
     }
 
     settings.endGroup();

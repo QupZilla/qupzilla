@@ -190,7 +190,7 @@ void LocationBar::showRSSIcon(bool state)
 
 void LocationBar::showUrl(const QUrl &url, bool empty)
 {
-    if (hasFocus() || (url.isEmpty() && empty)) {
+    if (hasFocus() || (url.isEmpty() && empty) || url.toString() == "qupzilla:speeddial") {
         return;
     }
 

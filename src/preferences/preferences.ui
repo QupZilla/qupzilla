@@ -281,6 +281,11 @@
          </item>
          <item>
           <property name="text">
+           <string>Open speed dial</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
            <string>Open other page...</string>
           </property>
          </item>

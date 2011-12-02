@@ -40,7 +40,7 @@
 #include "globalfunctions.h"
 #include "profileupdater.h"
 #include "searchenginesmanager.h"
-#include "operaimporter.h"
+#include "speeddial.h"
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -278,6 +278,7 @@ void MainApplication::loadSettings()
     m_websettings->setUserStyleSheetUrl(userStyleSheet);
     m_websettings->setDefaultTextEncoding("System");
     m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::fromTheme("text-plain").pixmap(16, 16));
+    QWebSecurityOrigin::addLocalScheme("qupzilla");
 
     if (allowPersistentStorage) {
         m_websettings->enablePersistentStorage(m_activeProfil);
@@ -463,6 +464,7 @@ void MainApplication::quitApplication()
     cookieJar()->saveCookies();
     m_networkmanager->saveCertificates();
     m_plugins->c2f_saveSettings();
+    m_plugins->speedDial()->saveSettings();
     AdBlockManager::instance()->save();
     QFile::remove(getActiveProfilPath() + "WebpageIcons.db");
     delete m_iconProvider;
