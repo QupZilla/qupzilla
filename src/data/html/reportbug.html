@@ -1,53 +1,16 @@
 <html><head>
 <title>%TITLE%</title>
-<link rel="icon" href="data:image/png;base64,%FAVICON%" type="image/x-icon" />
+<link rel="icon" href="%FAVICON%" type="image/x-icon" />
 <style>
-html {
-  background: #eeeeee;
-  font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #525c66;
-}
-
-html * {
-  font-size: 100%;
-  line-height: 1.6;
-}
-
-#box {
-  max-width: 650px;
-  overflow:auto;
-  margin: 25px auto 10px auto;
-  padding: 10px 40px;
-  border-width: 20px;
-  -webkit-border-image: url(data:image/png;base64,%BOX-BORDER%) 25;
-  text-align: left;
-}
-
-h1 {
-  color: #1a4ba4;
-  font-size: 160%;
-  margin-bottom: 0px;
-}
-
-p {
-    margin-left: 1%;
-}
-
-input {
-    width: 200px;
-}
-.submit
-{
-    width: 100px;
-}
-select {
-    width: 200px;
-}
-textarea {
-    width: 400px;
-    height: 100px;
-}
-
+html {background: #eeeeee;font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color: #525c66;}
+html * {font-size: 100%;line-height: 1.6;}
+#box {max-width: 650px;overflow:auto;margin: 25px auto 10px auto;padding: 10px 40px;border-width: 20px;-webkit-border-image: url(%BOX-BORDER%) 25;text-align: left;}
+h1 {color: #1a4ba4;font-size: 160%;margin-bottom: 0px;}
+p {margin-left: 1%;}
+input {width: 200px;}
+.submit {width: 100px;}
+select {width: 200px;}
+textarea {width: 400px;height: 100px;}
 </style>
 <script>
 function checkFields()

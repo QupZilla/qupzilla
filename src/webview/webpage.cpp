@@ -27,6 +27,8 @@
 #include "ui_jsprompt.h"
 #include "widget.h"
 #include "globalfunctions.h"
+#include "speeddial.h"
+#include "pluginproxy.h"
 
 QString WebPage::m_lastUploadLocation = QDir::homePath();
 
@@ -34,6 +36,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     : QWebPage(parent)
     , p_QupZilla(mainClass)
     , m_view(parent)
+    , m_speedDial(mApp->plugins()->speedDial())
     , m_blockAlerts(false)
     , m_secureStatus(false)
 //    , m_isOpeningNextWindowAsNewTab(false)
@@ -41,11 +44,14 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     setForwardUnsupportedContent(true);
     setPluginFactory(new WebPluginFactory(this));
     history()->setMaximumItemCount(20);
+
     connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), SLOT(handleUnsupportedContent(QNetworkReply*)));
 //    connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(progress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(finished()));
     connect(m_view, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
+
+    connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
 }
 
 void WebPage::scheduleAdjustPage()
@@ -97,6 +103,16 @@ void WebPage::finished()
 //    m_blockAlerts = false;
 //    m_SslCert.clear();
 //}
+
+void WebPage::addJavaScriptObject()
+{
+    if (mainFrame()->url().toString() != "qupzilla:speeddial") {
+        return;
+    }
+
+    mainFrame()->addToJavaScriptWindowObject("speeddial", m_speedDial);
+    m_speedDial->addWebFrame(mainFrame());
+}
 
 void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 {
@@ -334,7 +350,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
     errString.replace("%IMAGE%", qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
     errString.replace("%FAVICON%", qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
-    errString.replace("%BOX-BORDER%", qz_pixmapToByteArray(QPixmap(":html/box-border.png")));
+    errString.replace("%BOX-BORDER%", "qrc:html/box-border.png");
 
     errString.replace("%HEADING%", errorString);
     errString.replace("%HEADING2%", tr("QupZilla can't load page from %1.").arg(QUrl(loadedUrl).host()));

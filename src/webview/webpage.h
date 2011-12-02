@@ -34,6 +34,7 @@
 
 class QupZilla;
 class WebView;
+class SpeedDial;
 class WebPage : public QWebPage
 {
     Q_OBJECT
@@ -80,6 +81,7 @@ protected slots:
 private slots:
     void cleanBlockedObjects();
     void urlChanged(const QUrl &url);
+    void addJavaScriptObject();
 
 private:
     virtual bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
@@ -93,6 +95,7 @@ private:
     QNetworkRequest m_lastRequest;
     QWebPage::NavigationType m_lastRequestType;
     WebView* m_view;
+    SpeedDial* m_speedDial;
     QSslCertificate m_SslCert;
     QList<QSslCertificate> m_SslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
