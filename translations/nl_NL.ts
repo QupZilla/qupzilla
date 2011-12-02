@@ -1650,12 +1650,12 @@ werd niet gevonden!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="640"/>
+        <location filename="../src/app/mainapplication.cpp" line="642"/>
         <source>Last session crashed</source>
         <translation>Laatste sessie gecrashed</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="641"/>
+        <location filename="../src/app/mainapplication.cpp" line="643"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla crashte :-(&lt;/b&gt;&lt;br/&gt;Oeps, de laatste sessie van QupZilla eindigde met een crash. We verontschuldigen ons. Wilt u proberen om de opgeslagen status te herstellen?</translation>
     </message>
@@ -1887,7 +1887,7 @@ werd niet gevonden!</translation>
         <translation>Algemeen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="953"/>
+        <location filename="../src/preferences/preferences.ui" line="958"/>
         <source>1</source>
         <translation>1</translation>
     </message>
@@ -1933,38 +1933,38 @@ werd niet gevonden!</translation>
         <translation>Open leeg tabblad</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="284"/>
+        <location filename="../src/preferences/preferences.ui" line="289"/>
         <source>Open other page...</source>
         <translation>Open andere pagina...</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="257"/>
-        <location filename="../src/preferences/preferences.ui" line="400"/>
+        <location filename="../src/preferences/preferences.ui" line="405"/>
         <source>Use actual</source>
         <translation>Gebruik huidige pagina</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="528"/>
+        <location filename="../src/preferences/preferences.ui" line="533"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation>&lt;b&gt;Navigatie-werkbalk&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="556"/>
+        <location filename="../src/preferences/preferences.ui" line="561"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
         <translation>&lt;b&gt;Achtergrond&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="576"/>
+        <location filename="../src/preferences/preferences.ui" line="581"/>
         <source>Use transparent background</source>
         <translation>Gebruik transparante achtergrond</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1004"/>
+        <location filename="../src/preferences/preferences.ui" line="1009"/>
         <source>Maximum </source>
         <translation>Maximum </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1011"/>
+        <location filename="../src/preferences/preferences.ui" line="1016"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
@@ -1974,22 +1974,22 @@ werd niet gevonden!</translation>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="994"/>
+        <location filename="../src/preferences/preferences.ui" line="999"/>
         <source>Allow storing network cache on disk</source>
         <translation>Sta toe dat netwerkcache op schijf wordt opgeslagen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1584"/>
+        <location filename="../src/preferences/preferences.ui" line="1589"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="648"/>
+        <location filename="../src/preferences/preferences.ui" line="653"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
         <translation>&lt;b&gt;Gedrag van Adresbalk&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1849"/>
+        <location filename="../src/preferences/preferences.ui" line="1854"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Taal&lt;/b&gt;</translation>
     </message>
@@ -1999,52 +1999,52 @@ werd niet gevonden!</translation>
         <translation>&lt;b&gt;Algemeen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="299"/>
+        <location filename="../src/preferences/preferences.ui" line="304"/>
         <source>Startup profile:</source>
         <translation>Opstartprofiel:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="349"/>
+        <location filename="../src/preferences/preferences.ui" line="354"/>
         <source>Create New</source>
         <translation>Maak nieuw profiel aan</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="365"/>
+        <location filename="../src/preferences/preferences.ui" line="370"/>
         <source>Delete</source>
         <translation>Verwijder</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="492"/>
+        <location filename="../src/preferences/preferences.ui" line="497"/>
         <source>Show StatusBar on start</source>
         <translation>Toon Statusbalk bij opstarten</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="292"/>
+        <location filename="../src/preferences/preferences.ui" line="297"/>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
         <translation>&lt;b&gt;Profielen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="499"/>
+        <location filename="../src/preferences/preferences.ui" line="504"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>Toon Bladwijzerwerkbalk bij opstarten</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="506"/>
+        <location filename="../src/preferences/preferences.ui" line="511"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>Toon Navigatie-werkbalk bij opstarten</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="535"/>
+        <location filename="../src/preferences/preferences.ui" line="540"/>
         <source>Show Home button</source>
         <translation>Toon startpagina-knop</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="542"/>
+        <location filename="../src/preferences/preferences.ui" line="547"/>
         <source>Show Back / Forward buttons</source>
         <translation>Toon Terug / Vooruit-knoppen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="467"/>
+        <location filename="../src/preferences/preferences.ui" line="472"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;b&gt;Browser-venster&lt;/b&gt;</translation>
     </message>
@@ -2064,8 +2064,8 @@ werd niet gevonden!</translation>
         <translation>&lt;b&gt;Opstarten&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="423"/>
-        <location filename="../src/preferences/preferences.cpp" line="569"/>
+        <location filename="../src/preferences/preferences.ui" line="428"/>
+        <location filename="../src/preferences/preferences.cpp" line="572"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Noot: U kunt het actieve profiel niet verwijderen.</translation>
     </message>
@@ -2075,67 +2075,67 @@ werd niet gevonden!</translation>
         <translation>Meldingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="549"/>
+        <location filename="../src/preferences/preferences.ui" line="554"/>
         <source>Show Add Tab button</source>
         <translation>Toon Voeg tabblad toe-knop</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="591"/>
+        <location filename="../src/preferences/preferences.ui" line="596"/>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
         <translation>&lt;b&gt;CTabblad-gedrag&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="614"/>
+        <location filename="../src/preferences/preferences.ui" line="619"/>
         <source>Make tabs movable</source>
         <translation>Maak tabbladen verplaatsbaar</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="634"/>
+        <location filename="../src/preferences/preferences.ui" line="639"/>
         <source>Hide close button if there is only one tab</source>
         <translation>Verberg sluitknop als er maar 1 tabblad is</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="641"/>
+        <location filename="../src/preferences/preferences.ui" line="646"/>
         <source>Hide tabs when if there is only one tab</source>
         <translation>Verberg tabbladen als er maar 1 tabblad is</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="695"/>
+        <location filename="../src/preferences/preferences.ui" line="700"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Activeer laatste tabblad na sluiten van actieve tab</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="760"/>
+        <location filename="../src/preferences/preferences.ui" line="765"/>
         <source>Block PopUp windows</source>
         <translation>Blokkeer Popup-vensters</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="767"/>
+        <location filename="../src/preferences/preferences.ui" line="772"/>
         <source>Allow DNS Prefetch</source>
         <translation>Sta DNS-prefetch toe</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="791"/>
+        <location filename="../src/preferences/preferences.ui" line="796"/>
         <source>JavaScript can access clipboard</source>
         <translation>JavaScript kan klembord raadplegen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="819"/>
+        <location filename="../src/preferences/preferences.ui" line="824"/>
         <source>Include links in focus chain</source>
         <translation>Sluit links in in focus-ketting</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="805"/>
+        <location filename="../src/preferences/preferences.ui" line="810"/>
         <source>Zoom text only</source>
         <translation>Zoom alleen tekst</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="812"/>
+        <location filename="../src/preferences/preferences.ui" line="817"/>
         <source>Print element background</source>
         <translation>Print element-achtergrond</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="798"/>
+        <location filename="../src/preferences/preferences.ui" line="803"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Stuur Track Me Niet-header naar servers</translation>
     </message>
@@ -2150,255 +2150,260 @@ werd niet gevonden!</translation>
         <translation>Na opstarten:  </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="433"/>
+        <location filename="../src/preferences/preferences.ui" line="284"/>
+        <source>Open speed dial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="438"/>
         <source>Check for updates on start</source>
         <translation>Controleer op updates bij opstarten</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="448"/>
+        <location filename="../src/preferences/preferences.ui" line="453"/>
         <source>Themes</source>
         <translation>Thema&apos;s</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="461"/>
+        <location filename="../src/preferences/preferences.ui" line="466"/>
         <source>Advanced options</source>
         <translation>Geavanceerde instellingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="702"/>
+        <location filename="../src/preferences/preferences.ui" line="707"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Vraag bij sluiten van meerdere tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="709"/>
+        <location filename="../src/preferences/preferences.ui" line="714"/>
         <source>Select all text by clicking in address bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="746"/>
+        <location filename="../src/preferences/preferences.ui" line="751"/>
         <source>Allow JavaScript</source>
         <translation>Sta JavaScript toe</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="826"/>
+        <location filename="../src/preferences/preferences.ui" line="831"/>
         <source>Enable XSS Auditing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="843"/>
+        <location filename="../src/preferences/preferences.ui" line="848"/>
         <source>Mouse wheel scrolls</source>
         <translation>Muiswiel scrollt</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="863"/>
+        <location filename="../src/preferences/preferences.ui" line="868"/>
         <source>lines on page</source>
         <translation>regels op pagina</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="874"/>
+        <location filename="../src/preferences/preferences.ui" line="879"/>
         <source>Default zoom on pages: </source>
         <translation>Standaardzoom op pagina&apos;s: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="926"/>
+        <location filename="../src/preferences/preferences.ui" line="931"/>
         <source>Local Storage</source>
         <translation>Lokale opslag</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1101"/>
+        <location filename="../src/preferences/preferences.ui" line="1106"/>
         <source>Proxy Configuration</source>
         <translation>Proxy-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1250"/>
+        <location filename="../src/preferences/preferences.ui" line="1255"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Lettertype-families&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1263"/>
+        <location filename="../src/preferences/preferences.ui" line="1268"/>
         <source>Standard</source>
         <translation>Standaard</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1270"/>
+        <location filename="../src/preferences/preferences.ui" line="1275"/>
         <source>Fixed</source>
         <translation>Vast</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1280"/>
+        <location filename="../src/preferences/preferences.ui" line="1285"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1290"/>
+        <location filename="../src/preferences/preferences.ui" line="1295"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1300"/>
+        <location filename="../src/preferences/preferences.ui" line="1305"/>
         <source>Cursive</source>
         <translation>Cursief</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1310"/>
+        <location filename="../src/preferences/preferences.ui" line="1315"/>
         <source>Default Font</source>
         <translation>Standaardlettertype</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1327"/>
+        <location filename="../src/preferences/preferences.ui" line="1332"/>
         <source>Fixed Font</source>
         <translation>Vaste breedte-lettertype</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1386"/>
+        <location filename="../src/preferences/preferences.ui" line="1391"/>
         <source>Fantasy</source>
         <translation>Fantasie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1393"/>
+        <location filename="../src/preferences/preferences.ui" line="1398"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Lettertype-groottes&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1404"/>
+        <location filename="../src/preferences/preferences.ui" line="1409"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Downloadlocatie&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1411"/>
+        <location filename="../src/preferences/preferences.ui" line="1416"/>
         <source>Ask everytime for download location</source>
         <translation>Vraag elke keer om downloadlocatie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1418"/>
+        <location filename="../src/preferences/preferences.ui" line="1423"/>
         <source>Use defined location: </source>
         <translation>Gebruik de volgende locatie:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1430"/>
-        <location filename="../src/preferences/preferences.ui" line="1932"/>
+        <location filename="../src/preferences/preferences.ui" line="1435"/>
+        <location filename="../src/preferences/preferences.ui" line="1937"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1481"/>
+        <location filename="../src/preferences/preferences.ui" line="1486"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Download-instellingen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1488"/>
+        <location filename="../src/preferences/preferences.ui" line="1493"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Gebruik systeem bestands-dialoogvenster
 (kan wellicht problemen veroorzaken met het downloaden van SSL-beveiligde inhoud)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1496"/>
+        <location filename="../src/preferences/preferences.ui" line="1501"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Sluit downloadbeheerder wanneer downloaden voltooid is</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1703"/>
+        <location filename="../src/preferences/preferences.ui" line="1708"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Meldingen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1710"/>
+        <location filename="../src/preferences/preferences.ui" line="1715"/>
         <source>Use OSD Notifications</source>
         <translation>Gebruik OSD-meldingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1720"/>
+        <location filename="../src/preferences/preferences.ui" line="1725"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Gebruik systeemmeldingen (geldt alleen voor Linux)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1727"/>
+        <location filename="../src/preferences/preferences.ui" line="1732"/>
         <source>Do not use Notifications</source>
         <translation>Gebruik geen meldingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1778"/>
+        <location filename="../src/preferences/preferences.ui" line="1783"/>
         <source>Expiration timeout:</source>
         <translation>Vervaltijd-timeout:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1791"/>
+        <location filename="../src/preferences/preferences.ui" line="1796"/>
         <source> seconds</source>
         <translation> seconden</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1800"/>
+        <location filename="../src/preferences/preferences.ui" line="1805"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Noot: &lt;/b&gt; U kunt de positie van OSD-meldingen veranderen door te verslepen op het scherm.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1915"/>
+        <location filename="../src/preferences/preferences.ui" line="1920"/>
         <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;Gebruikers CSS-stylesheet&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1922"/>
+        <location filename="../src/preferences/preferences.ui" line="1927"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>Stylesheet welke automatisch geladen wordt met alle websites: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1941"/>
+        <location filename="../src/preferences/preferences.ui" line="1946"/>
         <source>Languages</source>
         <translation>Talen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1963"/>
+        <location filename="../src/preferences/preferences.ui" line="1968"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Voorkeurstalen voor websites&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1197"/>
+        <location filename="../src/preferences/preferences.ui" line="1202"/>
         <source>System proxy configuration</source>
         <translation>Systeemproxy-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1204"/>
+        <location filename="../src/preferences/preferences.ui" line="1209"/>
         <source>Do not use proxy</source>
         <translation>Gebruik geen proxy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1190"/>
+        <location filename="../src/preferences/preferences.ui" line="1195"/>
         <source>Manual configuration</source>
         <translation>Handmatige instellingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="724"/>
+        <location filename="../src/preferences/preferences.ui" line="729"/>
         <source>Web Configuration</source>
         <translation>Web-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1110"/>
+        <location filename="../src/preferences/preferences.ui" line="1115"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1115"/>
+        <location filename="../src/preferences/preferences.ui" line="1120"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1128"/>
+        <location filename="../src/preferences/preferences.ui" line="1133"/>
         <source>Port:</source>
         <translation>Poort:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1147"/>
+        <location filename="../src/preferences/preferences.ui" line="1152"/>
         <source>Username:</source>
         <translation>Gebruikersnaam:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1157"/>
+        <location filename="../src/preferences/preferences.ui" line="1162"/>
         <source>Password:</source>
         <translation>Wachtwoord:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1183"/>
+        <location filename="../src/preferences/preferences.ui" line="1188"/>
         <source>Don&apos;t use on:</source>
         <translation>Gebruik niet op:</translation>
     </message>
@@ -2408,22 +2413,22 @@ werd niet gevonden!</translation>
         <translation>Navigeren</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="732"/>
+        <location filename="../src/preferences/preferences.ui" line="737"/>
         <source>Load images</source>
         <translation>Laad afbeeldingen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="739"/>
+        <location filename="../src/preferences/preferences.ui" line="744"/>
         <source>Allow JAVA</source>
         <translation>Sta JAVA toe</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="753"/>
+        <location filename="../src/preferences/preferences.ui" line="758"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>Sta plugins toe (Flash-plugin)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="934"/>
+        <location filename="../src/preferences/preferences.ui" line="939"/>
         <source>Maximum pages in cache: </source>
         <translation>Maximum pagina&apos;s in cache: </translation>
     </message>
@@ -2433,12 +2438,12 @@ werd niet gevonden!</translation>
         <translation>Wachtwoordbeheerder</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1507"/>
+        <location filename="../src/preferences/preferences.ui" line="1512"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;AutoAanvullen-instellingen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1514"/>
+        <location filename="../src/preferences/preferences.ui" line="1519"/>
         <source>Allow saving passwords from sites</source>
         <translation>Sta opslaan van wachtwoorden van sites toe</translation>
     </message>
@@ -2448,47 +2453,47 @@ werd niet gevonden!</translation>
         <translation>Privacy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1591"/>
+        <location filename="../src/preferences/preferences.ui" line="1596"/>
         <source>Filter Tracking Cookies</source>
         <translation>Filter opsporingscookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1598"/>
+        <location filename="../src/preferences/preferences.ui" line="1603"/>
         <source>Allow storing of cookies</source>
         <translation>Sta opslag van cookies toe</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1605"/>
+        <location filename="../src/preferences/preferences.ui" line="1610"/>
         <source>Delete cookies on close</source>
         <translation>Verwijder cookies bij afsluiten</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1625"/>
+        <location filename="../src/preferences/preferences.ui" line="1630"/>
         <source>Match domain exactly</source>
         <translation>Exact overeenkomen domein</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1661"/>
+        <location filename="../src/preferences/preferences.ui" line="1666"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Waarschuwing:&lt;/b&gt; Exact overeenkomen domein en Filter opsporingscookies-instellingen kunnen leiden tot het weigeren van sommige cookies van sites. Indien u problemen hebt met cookies, probeer dan eerst deze instellingen uit te schakelen!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1677"/>
+        <location filename="../src/preferences/preferences.ui" line="1682"/>
         <source>Cookies Manager</source>
         <translation>Cookies-beheerder</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1038"/>
+        <location filename="../src/preferences/preferences.ui" line="1043"/>
         <source>Allow storing web icons</source>
         <translation>Sta opslag van web-pictogrammen toe</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1045"/>
+        <location filename="../src/preferences/preferences.ui" line="1050"/>
         <source>Allow saving history</source>
         <translation>Sta opslag van geschiedenis toe</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1052"/>
+        <location filename="../src/preferences/preferences.ui" line="1057"/>
         <source>Delete history on close</source>
         <translation>Verwijder geschiedenis bij afsluiten</translation>
     </message>
@@ -2498,84 +2503,84 @@ werd niet gevonden!</translation>
         <translation>Overig</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="655"/>
+        <location filename="../src/preferences/preferences.ui" line="660"/>
         <source>Select all text by double clicking in address bar</source>
         <oldsource>Select all text by clicking at address bar</oldsource>
         <translation>Selecteer alle tekst door te dubbelklikken in de adresbalk</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="662"/>
+        <location filename="../src/preferences/preferences.ui" line="667"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Voeg .nl-domein toe door de ALT-toets in te drukken</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1690"/>
+        <location filename="../src/preferences/preferences.ui" line="1695"/>
         <source>SSL Manager</source>
         <translation>SSL-beheerder</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1856"/>
+        <location filename="../src/preferences/preferences.ui" line="1861"/>
         <source>Available translations: </source>
         <translation>Beschikbare vertalingen: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1895"/>
+        <location filename="../src/preferences/preferences.ui" line="1900"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>Om de gekozen taal toe te passen, moet u de browser herstarten.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="373"/>
+        <location filename="../src/preferences/preferences.cpp" line="376"/>
         <source>OSD Notification</source>
         <translation>OSD-melding</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="374"/>
+        <location filename="../src/preferences/preferences.cpp" line="377"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Versleep het op het scherm en plaats het waar U wilt.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="403"/>
+        <location filename="../src/preferences/preferences.cpp" line="406"/>
         <source>Choose download location...</source>
         <translation>Kies downloadlocatie...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="417"/>
+        <location filename="../src/preferences/preferences.cpp" line="420"/>
         <source>Choose stylesheet location...</source>
         <translation>Kies stylesheet-locatie...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="531"/>
+        <location filename="../src/preferences/preferences.cpp" line="534"/>
         <source>New Profile</source>
         <translation>Nieuw profiel</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="531"/>
+        <location filename="../src/preferences/preferences.cpp" line="534"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Voer de nieuw profielnaam in:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="537"/>
-        <location filename="../src/preferences/preferences.cpp" line="541"/>
+        <location filename="../src/preferences/preferences.cpp" line="540"/>
+        <location filename="../src/preferences/preferences.cpp" line="544"/>
         <source>Error!</source>
         <translation>Fout!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="537"/>
+        <location filename="../src/preferences/preferences.cpp" line="540"/>
         <source>This profile already exists!</source>
         <translation>Dit profiel bestaat reeds!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="541"/>
+        <location filename="../src/preferences/preferences.cpp" line="544"/>
         <source>Cannot create profile directory!</source>
         <translation>Kan profielmap niet aanmaken!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="554"/>
+        <location filename="../src/preferences/preferences.cpp" line="557"/>
         <source>Confirmation</source>
         <translation>Bevestiging</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="555"/>
+        <location filename="../src/preferences/preferences.cpp" line="558"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Weet u zeker dat u profiel &quot;%1&quot;wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt!</translation>
     </message>
@@ -3052,192 +3057,233 @@ werd niet gevonden!</translation>
 <context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="56"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="58"/>
         <source>No Error</source>
         <translation>Geen fout</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="62"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="64"/>
         <source>Not Found</source>
         <translation>Niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="117"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="118"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="123"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="124"/>
         <source>Report issue</source>
         <translation>Rapporteer probleem</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="119"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="125"/>
         <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
         <translation>Indien u problemen ervaart met QupZilla, probeer dan eerst om alle plugins uit te schakelen. &lt;br/&gt;Mocht dat niet helpen, vul dan dit formulier in: </translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="121"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="127"/>
         <source>Your E-mail</source>
         <translation>Uw e-mailadres</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="122"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="128"/>
         <source>Issue type</source>
         <translation>Probleemtype</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="123"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="129"/>
         <source>Priority</source>
         <translation>Prioriteit</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="124"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
         <source>Low</source>
         <translation>Laag</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="125"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="131"/>
         <source>Normal</source>
         <translation>Normaal</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="126"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="132"/>
         <source>High</source>
         <translation>Hoog</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="127"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="133"/>
         <source>Issue description</source>
         <translation>Probleembeschrijving</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="128"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="134"/>
         <source>Send</source>
         <translation>Verzenden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="129"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="135"/>
         <source>E-mail is optional</source>
         <translation>E-mailadres is optioneel</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>Please fill all required fields!</source>
         <translation>Vul alstublieft alle benodigde velden in!</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="142"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="148"/>
         <source>Start Page</source>
         <translation>Startpagina</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="143"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="149"/>
         <source>Google Search</source>
         <translation>Google Zoeken</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="144"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="150"/>
         <source>Search results provided by Google</source>
         <translation>Zoekresultaten gebracht door Google</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="146"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="160"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="161"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="152"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="166"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="167"/>
         <source>About QupZilla</source>
         <translation>Over QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="162"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="168"/>
         <source>Informations about version</source>
         <translation>Informatie over versie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="163"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="169"/>
         <source>Browser Identification</source>
         <translation>Browser-identificatie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="164"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="170"/>
         <source>Paths</source>
         <translation>Paden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="165"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="171"/>
         <source>Copyright</source>
         <translation>Copyright</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="168"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="174"/>
         <source>Version</source>
         <translation>Versie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="169"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="175"/>
         <source>WebKit version</source>
         <translation>WebKit-versie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="170"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="176"/>
         <source>Build time</source>
         <translation>Bouwtijd</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="171"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="177"/>
         <source>Platform</source>
         <translation>Platform</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="174"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="180"/>
         <source>Profile</source>
         <translation>Profiel</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="175"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="181"/>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="176"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="182"/>
         <source>Saved session</source>
         <translation>Opgeslagen sessie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="177"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="183"/>
         <source>Pinned tabs</source>
         <translation>Vastgepinde tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="178"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="184"/>
         <source>Data</source>
         <translation>Data</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="179"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="185"/>
         <source>Themes</source>
         <translation>Thema&apos;s</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="180"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="186"/>
         <source>Plugins</source>
         <translation>Plugins</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="181"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="187"/>
         <source>Translations</source>
         <translation>Vertalingen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="182"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="188"/>
         <source>Main developer</source>
         <translation>Hoofdontwikkelaar</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="184"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="190"/>
         <source>Contributors</source>
         <translation>Bijdragers</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="188"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="194"/>
         <source>Translators</source>
         <translation>Vertalers</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="220"/>
+        <source>Speed Dial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="221"/>
+        <source>Add New Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="222"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="230"/>
+        <source>Edit</source>
+        <translation type="unfinished">Bewerk</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="223"/>
+        <source>Remove</source>
+        <translation type="unfinished">Verwijder</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="224"/>
+        <source>Reload</source>
+        <translation type="unfinished">Herlaad</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="228"/>
+        <source>Url</source>
+        <translation type="unfinished">URL</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="229"/>
+        <source>Title</source>
+        <translation type="unfinished">Titel</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="231"/>
+        <source>New Page</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4097,89 +4143,89 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="155"/>
+        <location filename="../src/webview/webpage.cpp" line="171"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Om deze pagina te tonen, moet QupZulla het verzoek opnieuw versturen
 (zoals zoeken op het maken van een shoping, welke al gedaan is.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="257"/>
+        <location filename="../src/webview/webpage.cpp" line="273"/>
         <source>Server refused the connection</source>
         <translation>Server weigerde de verbinding</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="260"/>
+        <location filename="../src/webview/webpage.cpp" line="276"/>
         <source>Server closed the connection</source>
         <translation>Server sloot de verbinding</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="263"/>
+        <location filename="../src/webview/webpage.cpp" line="279"/>
         <source>Server not found</source>
         <translation>Server niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="266"/>
+        <location filename="../src/webview/webpage.cpp" line="282"/>
         <source>Connection timed out</source>
         <translation>Verbinding onderbroken</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="269"/>
+        <location filename="../src/webview/webpage.cpp" line="285"/>
         <source>Untrusted connection</source>
         <translation>Onbeveiligde verbinding</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="293"/>
+        <location filename="../src/webview/webpage.cpp" line="309"/>
         <source>AdBlocked Content</source>
         <translation>Door AdBlock geblokkeerde inhoud</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="304"/>
+        <location filename="../src/webview/webpage.cpp" line="320"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Geblokkeerd door regel &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="311"/>
+        <location filename="../src/webview/webpage.cpp" line="327"/>
         <source>Content Access Denied</source>
         <translation>Inhoudstoegang geweigerd</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="321"/>
+        <location filename="../src/webview/webpage.cpp" line="337"/>
         <source>Error code %1</source>
         <translation>Foutcode %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="333"/>
+        <location filename="../src/webview/webpage.cpp" line="349"/>
         <source>Failed loading page</source>
         <translation>Mislukt om pagina te laden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="340"/>
+        <location filename="../src/webview/webpage.cpp" line="356"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla kan de pagina niet laden van %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="341"/>
+        <location filename="../src/webview/webpage.cpp" line="357"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Controleer het adres op typfouten zoals &lt;b&gt;ww.&lt;/b&gt;voorbeeld.nl in plaats van &lt;b&gt;www.&lt;/b&gt;voorbeeld.nl</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="342"/>
+        <location filename="../src/webview/webpage.cpp" line="358"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Indien u niet in staat bent om eender welke pagina te laden, controleer dan uw netwerkverbinding.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="343"/>
+        <location filename="../src/webview/webpage.cpp" line="359"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Indien uw computer of netwerk beveiligd is door een firewall of proxy, zorg dan dat QupZilla toestemming heeft om het web te benaderen.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="344"/>
+        <location filename="../src/webview/webpage.cpp" line="360"/>
         <source>Try Again</source>
         <translation>Probeer nogmaals</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="447"/>
+        <location filename="../src/webview/webpage.cpp" line="463"/>
         <source>Choose file...</source>
         <translation>Kies bestand...</translation>
     </message>

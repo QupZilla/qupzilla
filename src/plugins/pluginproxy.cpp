@@ -18,11 +18,15 @@
 #include "pluginproxy.h"
 #include "plugininterface.h"
 #include "mainapplication.h"
+#include "speeddial.h"
 
-PluginProxy::PluginProxy() :
-    Plugins()
+PluginProxy::PluginProxy()
+    : Plugins()
+    , m_speedDial(0)
 {
     c2f_loadSettings();
+
+    m_speedDial = new SpeedDial(this);
 }
 
 void PluginProxy::populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestResult r)

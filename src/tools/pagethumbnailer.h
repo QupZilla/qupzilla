@@ -22,9 +22,13 @@ class PageThumbnailer : public QObject
     Q_OBJECT
 public:
     explicit PageThumbnailer(QObject* parent = 0);
+    ~PageThumbnailer();
 
     void setSize(const QSize &size);
+
     void setUrl(const QUrl &url);
+    QUrl url();
+
     void setEnableFlash(bool enable);
 
     void start();

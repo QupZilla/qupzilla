@@ -53,6 +53,11 @@ void PageThumbnailer::setUrl(const QUrl &url)
     }
 }
 
+QUrl PageThumbnailer::url()
+{
+    return m_url;
+}
+
 void PageThumbnailer::setEnableFlash(bool enable)
 {
     if (!enable) {
@@ -62,10 +67,6 @@ void PageThumbnailer::setEnableFlash(bool enable)
 
 void PageThumbnailer::start()
 {
-    if (!m_page) {
-        return;
-    }
-
     m_page->mainFrame()->load(m_url);
 
     connect(m_page, SIGNAL(loadFinished(bool)), this, SLOT(createThumbnail()));
@@ -81,9 +82,9 @@ void PageThumbnailer::createThumbnail()
     QImage scaledImage = image.scaled(m_size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
 
     emit thumbnailCreated(QPixmap::fromImage(scaledImage));
+}
 
-    QPixmap::fromImage(scaledImage).save("/home/david/pic.png");
-
+PageThumbnailer::~PageThumbnailer()
+{
     delete m_page;
-    m_page = 0;
 }

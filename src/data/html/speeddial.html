@@ -1,0 +1,252 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<title>%SITE-TITLE%</title>
+<link rel="icon" href="%FAVICON%" type="image/x-icon" />
+<style type="text/css" media="screen">
+html {background: #eeeeee;font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;	color: #525c66;}
+html * {font-size: 100%;line-height: 1.6;margin: 0px;}
+.add {position: absolute;right:10px;top:10px;width: 24px;height: 24px;background: url(%IMG_PLUS%); cursor: pointer;}
+
+#quickdial {max-width: 1044px;margin: auto;}
+#quickdial div.entry {position: relative;width: 231px;height: 150px;float: left;border-width: 10px;
+-webkit-border-image: url(%BOX-BORDER%) 10;margin: 5px;}
+#quickdial img {display: block;margin: auto;}
+#quickdial a {position: absolute;left: 0px;top: 0px;width: 231px;height: 130px;}	
+
+div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload{display: inline;}
+span.boxTitle {width: 231px;position: absolute;top: 133px;left: 0px;text-align: center;}
+span.close {width: 14px;height: 14px;position: absolute;left: 215px;top: 135px;
+background: url(%IMG_CLOSE%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
+span.close:hover {border-color: grey; border-radius: 3px;}
+span.edit {width: 14px;height: 14px;position: absolute;left: 0px;top: 135px;
+background: url(%IMG_EDIT%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
+span.edit:hover {border-color: grey; border-radius: 3px;}
+span.reload {width: 16px;height: 16px;position: absolute;left: 213px;top: 0px;background: url(%IMG_RELOAD%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
+span.reload:hover {border-color: grey; border-radius: 4px;}
+	
+#overlay-edit {width: 380px;max-height: 265px;border-width: 20px;margin-left: auto;margin-right: auto;margin-top: 100px;
+-webkit-border-image: url(%BOX-BORDER%) 25;}
+#overlay-edit img {display: block;margin-left: auto;margin-right: auto;}
+#overlay-edit input[type="submit"] {margin-left: auto;margin-right: auto;margin-top: 10px;display: block;width: 200px;}
+
+.formTable {width: 350px;margin-left: auto;margin-right: auto;margin-top: 15px;}
+.formTable input[type="text"] {width: 100%;}
+</style>
+<script type="text/javascript" src="%JQUERY%"></script>
+<script type="text/javascript" src="%JQUERY-UI%"></script>
+<script type="text/javascript">
+var LOADING_IMAGE = '%LOADING-IMG%';
+var URL = '%URL%';
+var TITLE = '%TITLE%';
+var EDIT = '%EDIT%';
+var NEW_PAGE = '%NEW-PAGE%';
+var TITLE_EDIT = '%TITLE-EDIT%';
+var TITLE_REMOVE = '%TITLE-REMOVE%';
+var TITLE_RELOAD = '%TITLE-RELOAD%';
+
+var editingId = -1;
+
+function onRemoveClick(box) {
+    removeBox($(box).index());
+}
+	    
+function onEditClick(box) {
+    editingId = $(box).index();
+    var boxUrl = $(box).children('a').first().attr('href');
+    var boxTitle = $(box).children('span').first().text();
+	        
+    $('body').append('<div id="fadeOverlay" style="opacity:0.95;display:none;position:fixed;left:0;' +
+                     'top:0;width:100%;height:100%;z-index:9999;background:grey;">' +
+                     '<div id="overlay-edit"><img src="' + $(box).children('img').first().attr('src') + '"> ' +
+                     '<table class="formTable"><tr><td>' + URL + ': </td><td><input type="text" ' +
+                     'id="formUrl" value="' + boxUrl + '"></td></tr>' +
+                     '<tr><td>' + TITLE + ': </td><td><input maxlength="25" type="text" id="formTitle" value="' + boxTitle +
+                     '"></td></tr></table><input type="submit" value="' + EDIT + '" onClick="boxEdited()"></div>' +
+                     '</div>');
+
+    $('#fadeOverlay').css({'filter' : 'alpha(opacity=95)'}).fadeIn();
+    $('#fadeOverlay').click(function() { $(this).fadeOut("slow", function() {$("#fadeOverlay").remove();}); });
+    $('#overlay-edit').click(function(event) { event.stopPropagation(); });
+}
+
+function onReloadClick(box) {
+    var url = $(box).children('a').first().attr('href');
+    var img = $(box).children('img').first();
+
+    if (url === '')
+        return;
+
+    $(img).attr('src', LOADING_IMAGE);
+    speeddial.loadThumbnail(url);
+}
+	    
+function boxEdited() {
+    if (editingId == -1)
+        return;
+	            
+    var box = document.getElementById('quickdial').getElementsByTagName('div')[editingId];
+    var a = box.getElementsByTagName('a')[0];
+    var originalUrl = a.getAttribute('href');
+    setBoxUrl(editingId, $('#formUrl').attr("value"));
+    setBoxTitle(editingId, $('#formTitle').attr("value"));
+    var changedUrl = a.getAttribute('href');
+			
+    if (originalUrl != changedUrl && changedUrl !== '') {
+        var img = box.getElementsByTagName('img')[0];
+        img.setAttribute('src', LOADING_IMAGE);
+				
+        $('#fadeOverlay').fadeOut("slow", function() {
+            $("#fadeOverlay").remove();
+            speeddial.loadThumbnail(a.getAttribute('href'));
+            speeddial.removeImageForUrl(a.getAttribute('href'));
+        });
+    } else {
+        $('#fadeOverlay').fadeOut("slow", function() {$("#fadeOverlay").remove();});
+    }
+    speeddial.changed(allPages());
+}
+	    
+function allPages() {
+    var urls = $('a[class="boxUrl"]');
+    var titles = $('span[class="boxTitle"]');
+    var value = "";
+    $('div.entry').each(function(i) {
+        var url = $(this).children('a').first().attr('href');
+        var title = $(this).children('span[class="boxTitle"]').first().text();
+        value += 'url:"' + url + '"|title:"' + title + '";';
+    });
+            
+    return value;
+}
+	    
+function addBox(url, title, img_source) {
+    var div = document.createElement('div');
+    div.setAttribute('class', 'entry');
+    var img = document.createElement('img');
+    img.setAttribute('src', img_source);
+    var a = document.createElement('a');
+    a.setAttribute('href', url);
+    a.setAttribute('class', 'boxUrl');
+    var span1 = document.createElement('span');
+    span1.setAttribute('class', 'boxTitle');
+    span1.appendChild( document.createTextNode(title) );
+    var span2 = document.createElement('span');
+    span2.setAttribute('class', 'edit');
+    span2.setAttribute('onClick', 'onEditClick(parentNode)');
+    span2.setAttribute('title', TITLE_EDIT);
+    var span3 = document.createElement('span');
+    span3.setAttribute('class', 'close');
+    span3.setAttribute('onClick', 'onRemoveClick(parentNode)');
+    span3.setAttribute('title', TITLE_REMOVE);
+    var span4 = document.createElement('span');
+    span4.setAttribute('class', 'reload');
+    span4.setAttribute('onClick', 'onReloadClick(parentNode)');
+    span4.setAttribute('title', TITLE_RELOAD);
+		    
+    div.appendChild(img);
+    div.appendChild(img);
+    div.appendChild(a);
+    div.appendChild(span1);
+    div.appendChild(span2);
+    div.appendChild(span3);
+    div.appendChild(span4);
+		    
+    document.getElementById("quickdial").appendChild(div);
+}
+		
+function setBoxImage(id, img_source) {
+    var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
+    if (box === undefined)
+        return;
+		    
+    var img = box.getElementsByTagName('img')[0];
+    img.setAttribute('src', img_source);
+}
+		
+function setImageToUrl(url, img_source) {
+    var aElement = $('a[href="' + url + '"]');
+    $(aElement).each(function() {
+        var box = $(this).parent();
+        var imgElement = $(box).children("img").first();
+        if ($(imgElement).size() == 0)
+            return;
+
+        $(imgElement).attr('src', img_source);
+    });
+}
+		
+function setBoxUrl(id, url) {
+    var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
+    if (box === undefined)
+        return;
+		    
+    var a = box.getElementsByTagName('a')[0];
+    a.setAttribute('href', url);
+}
+		
+function setBoxTitle(id, title) {
+    var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
+    if (box === undefined)
+        return;
+		    
+    var span = box.getElementsByTagName('span')[0];
+    span.innerText = title;
+}
+		
+function removeBox(id) {
+    var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
+    if (box === undefined)
+        return;
+		    
+    var url = box.getElementsByTagName('a')[0].getAttribute('href');
+    document.getElementById("quickdial").removeChild(box);
+    alignPage();
+			
+    speeddial.removeImageForUrl(url);
+    speeddial.changed(allPages());
+}
+		
+function alignPage() {
+    var width = $(window).width();
+    var height = $(window).height();
+
+    // 1 box width: 261px
+    var maxBoxes = Math.floor(width / 261);
+    if (maxBoxes > 4) maxBoxes = 4;
+    if (maxBoxes < 1) maxBoxes = 1;
+	
+    var maxwidth = maxBoxes * 261;
+    $("#quickdial").css('width', maxwidth + 'px');
+			
+    var boxesCount = $("#quickdial").children("div").size();
+    var rows = Math.ceil(boxesCount / maxBoxes);
+    var margintop = (height - rows * 190) / 2;
+    if (margintop < 0) margintop = 0;
+    $("#quickdial").css('margin-top', margintop + 'px');
+}
+</script>
+</head>
+
+<body>
+<div id="quickdial"></div>
+<a onClick="addBox('', NEW_PAGE, ''); alignPage();" title="%ADD-TITLE%" class="add"></a>
+
+<script type="text/javascript">
+%INITIAL-SCRIPT%
+
+alignPage();
+$(window).resize(function() { alignPage(); });
+$("div").disableSelection();
+$("#quickdial").sortable({
+    revert: true,
+    cursor: 'move',
+    containment: 'document',
+    opacity: 0.8,
+    update: function(event, ui) {
+        speeddial.changed(allPages());
+    }
+});
+</script>
+</body>
+</html>
+

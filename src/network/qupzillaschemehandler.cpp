@@ -20,6 +20,8 @@
 #include "qupzilla.h"
 #include "mainapplication.h"
 #include "webpage.h"
+#include "pluginproxy.h"
+#include "speeddial.h"
 
 QString authorString(const QString &name, const QString &mail)
 {
@@ -51,7 +53,7 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* pa
     setUrl(req.url());
 
     m_pageName = req.url().path();
-    if (m_pageName == "about" || m_pageName == "reportbug" || m_pageName == "start") {
+    if (m_pageName == "about" || m_pageName == "reportbug" || m_pageName == "start" || m_pageName == "speeddial") {
         m_buffer.open(QIODevice::ReadWrite);
         setError(QNetworkReply::NoError, tr("No Error"));
 
@@ -67,6 +69,7 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* pa
 void QupZillaSchemeReply::loadPage()
 {
     QTextStream stream(&m_buffer);
+
     if (m_pageName == "about") {
         stream << aboutPage();
     }
@@ -75,6 +78,9 @@ void QupZillaSchemeReply::loadPage()
     }
     else if (m_pageName == "start") {
         stream << startPage();
+    }
+    else if (m_pageName == "speeddial") {
+        stream << speeddialPage();
     }
 
     stream.flush();
@@ -111,8 +117,8 @@ QString QupZillaSchemeReply::reportbugPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/reportbug.html"));
-    page.replace("%FAVICON%", qz_pixmapToByteArray(QPixmap(":icons/qupzilla.png")));
-    page.replace("%BOX-BORDER%", qz_pixmapToByteArray(QPixmap(":html/box-border.png")));
+    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+    page.replace("%BOX-BORDER%", "qrc:html/box-border.png");
 
     page.replace("%TITLE%", tr("Report issue"));
     page.replace("%REPORT-ISSUE%", tr("Report issue"));
@@ -135,9 +141,9 @@ QString QupZillaSchemeReply::startPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/start.html"));
-    page.replace("%FAVICON%", qz_pixmapToByteArray(QPixmap(":icons/qupzilla.png")));
-    page.replace("%BOX-BORDER%", qz_pixmapToByteArray(QPixmap(":html/box-border.png")));
-    page.replace("%ABOUT-IMG%", qz_pixmapToByteArray(QPixmap(":icons/other/about.png")));
+    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+    page.replace("%BOX-BORDER%", "qrc:html/box-border.png");
+    page.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
 
     page.replace("%TITLE%", tr("Start Page"));
     page.replace("%BUTTON-LABEL%", tr("Google Search"));
@@ -152,9 +158,9 @@ QString QupZillaSchemeReply::aboutPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/about.html"));
-    page.replace("%FAVICON%", qz_pixmapToByteArray(QPixmap(":icons/qupzilla.png")));
-    page.replace("%BOX-BORDER%", qz_pixmapToByteArray(QPixmap(":html/box-border.png")));
-    page.replace("%ABOUT-IMG%", qz_pixmapToByteArray(QPixmap(":icons/other/about.png")));
+    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+    page.replace("%BOX-BORDER%", "qrc:html/box-border.png");
+    page.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
     page.replace("%COPYRIGHT-INCLUDE%", qz_readAllFileContents(":html/copyright"));
 
     page.replace("%TITLE%", tr("About QupZilla"));
@@ -196,6 +202,34 @@ QString QupZillaSchemeReply::aboutPage()
                  authorString("Krzysztof Malinowski", "boromil@gmail.com") + " (Polish)<br/>" +
                  authorString("Jorge Sevilla", "jsevi@ozu.es") + " (Spanish)"
                 );
+
+    return page;
+}
+
+QString QupZillaSchemeReply::speeddialPage()
+{
+    QString page;
+    page.append(qz_readAllFileContents(":html/speeddial.html"));
+    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+    page.replace("%IMG_PLUS%", "qrc:html/plus.png");
+    page.replace("%BOX-BORDER%", "qrc:html/box-border-small.png");
+    page.replace("%IMG_CLOSE%", "qrc:html/close.png");
+    page.replace("%IMG_EDIT%", "qrc:html/edit.png");
+    page.replace("%IMG_RELOAD%", "qrc:html/reload.png");
+
+    page.replace("%SITE-TITLE%", tr("Speed Dial"));
+    page.replace("%ADD-TITLE%", tr("Add New Page"));
+    page.replace("%TITLE-EDIT%", tr("Edit"));
+    page.replace("%TITLE-REMOVE%", tr("Remove"));
+    page.replace("%TITLE-RELOAD%", tr("Reload"));
+    page.replace("%JQUERY%", "qrc:html/jquery.js");
+    page.replace("%JQUERY-UI%", "qrc:html/jquery-ui.js");
+    page.replace("%LOADING-IMG%", mApp->plugins()->speedDial()->loadingImagePath());
+    page.replace("%URL%", tr("Url"));
+    page.replace("%TITLE%", tr("Title"));
+    page.replace("%EDIT%", tr("Edit"));
+    page.replace("%NEW-PAGE%", tr("New Page"));
+    page.replace("%INITIAL-SCRIPT%", mApp->plugins()->speedDial()->initialScript());
 
     return page;
 }

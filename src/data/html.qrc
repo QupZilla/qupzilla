@@ -9,5 +9,14 @@
         <file>html/copyright</file>
         <file>html/reportbug.html</file>
         <file>html/start.html</file>
+        <file>html/box-border-small.png</file>
+        <file>html/close.png</file>
+        <file>html/edit.png</file>
+        <file>html/speeddial.html</file>
+        <file>html/jquery.js</file>
+        <file>html/jquery-ui.js</file>
+        <file>html/plus.png</file>
+        <file>html/loading.gif</file>
+        <file>html/reload.png</file>
     </qresource>
 </RCC>
