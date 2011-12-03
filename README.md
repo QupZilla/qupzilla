@@ -3,7 +3,7 @@ QupZilla Web Browser - http://www.qupzilla.co.cc (http://qupzilla.blogspot.com/)
 About QupZilla
 ----------------------------------------------------------------------------------------
 
-QupZilla is a new, very fast QtWebKit browser. It aims to be a lightweight web browser
+QupZilla is a new and very fast QtWebKit browser. It aims to be a lightweight web browser
 available through all major platforms. This project has been originally started only
 for educational purposes. But from its start, QupZilla has grown into a feature-rich browser.
 
