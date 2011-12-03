@@ -26,6 +26,7 @@
 #navigation-button-back
 {
     qproperty-themeIcon: "go-previous";
+    qproperty-fallbackIcon: url(images/go-previous.png);
 }
 
 #navigation-button-back::menu-indicator
@@ -36,6 +37,7 @@
 #navigation-button-next
 {
     qproperty-themeIcon: "go-next";
+    qproperty-fallbackIcon: url(images/go-next.png);
 }
 
 #navigation-button-next::menu-indicator
@@ -46,26 +48,31 @@
 #navigation-button-stop
 {
     qproperty-themeIcon: "process-stop";
+    qproperty-fallbackIcon: url(images/process-stop.png);
 }
 
 #navigation-button-reload
 {
     qproperty-themeIcon: "view-refresh";
+    qproperty-fallbackIcon: url(images/view-refresh.png);
 }
 
 #navigation-button-home
 {
     qproperty-themeIcon: "go-home";
+    qproperty-fallbackIcon: url(images/go-home.png);
 }
 
 #navigation-button-addtab
 {
     qproperty-themeIcon: "list-add";
+    qproperty-fallbackIcon: url(images/list-add.png);
 }
 
 #navigation-button-supermenu
 {
     qproperty-themeIcon: "preferences-desktop";
+    qproperty-fallbackIcon: url(images/preferences-desktop.png);
 }
 
 /*TabWidget*/
@@ -88,6 +95,7 @@
 #tabwidget-button-addtab
 {
     qproperty-themeIcon: "list-add";
+    qproperty-fallbackIcon: url(images/list-add.png);
     qproperty-fixedsize: 22px 25px;
 }
 
