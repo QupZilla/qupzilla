@@ -46,11 +46,13 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent)
     ui->listWidget->item(0)->setIcon(QIcon::fromTheme("document-properties", QIcon(":/icons/preferences/document-properties.png")));
     ui->listWidget->item(1)->setIcon(QIcon::fromTheme("applications-graphics", QIcon(":/icons/preferences/applications-graphics.png")));
     ui->listWidget->item(2)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
+    ui->listWidget->item(0)->setSelected(true);
 
     WebView* view = p_QupZilla->weView();
     QWebFrame* frame = view->page()->mainFrame();
     QString title = view->title();
     QSslCertificate cert = view->webPage()->sslCertificate();
+    m_baseUrl = view->url();
 
     //GENERAL
     ui->heading->setText(QString("<b>%1</b>:").arg(title));
@@ -189,6 +191,9 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
         return;
     }
     QUrl imageUrl = item->text(1);
+    if (imageUrl.isRelative()) {
+        imageUrl = m_baseUrl.resolved(imageUrl);
+    }
     QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
 
     if (imageUrl.scheme() == "data") {
@@ -196,12 +201,13 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
         QByteArray imageData = encodedUrl.mid(encodedUrl.indexOf(",") + 1);
         m_activePixmap = qz_pixmapFromByteArray(imageData);
     }
+    else if (imageUrl.scheme() == "file") {
+        m_activePixmap = QPixmap(imageUrl.toString(QUrl::RemoveScheme));
+    }
+    else if (imageUrl.scheme() == "qrc") {
+        m_activePixmap = QPixmap(imageUrl.toString().mid(3)); // Remove qrc from url
+    }
     else {
-        if (imageUrl.host().isEmpty()) {
-            imageUrl.setHost(QUrl(ui->siteAddress->text()).host());
-            imageUrl.setScheme(QUrl(ui->siteAddress->text()).scheme());
-        }
-
         QIODevice* cacheData = mApp->networkCache()->data(imageUrl);
         if (!cacheData) {
             m_activePixmap = QPixmap();

@@ -22,6 +22,7 @@
 #include <QListWidgetItem>
 #include <QTreeWidgetItem>
 #include <QGraphicsItem>
+#include <QUrl>
 
 namespace Ui
 {
@@ -55,6 +56,7 @@ private:
     CertificateInfoWidget* m_certWidget;
 
     QPixmap m_activePixmap;
+    QUrl m_baseUrl;
 };
 
 #endif // SITEINFO_H

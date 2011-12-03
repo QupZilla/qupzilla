@@ -307,15 +307,8 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     file.open(QFile::ReadOnly);
                     QString errString = file.readAll();
                     errString.replace("%TITLE%", tr("AdBlocked Content"));
-
-                    QPixmap pixmap(":/html/adblock_big.png");
-                    QByteArray bytes;
-                    QBuffer buffer(&bytes);
-                    buffer.open(QIODevice::WriteOnly);
-                    if (pixmap.save(&buffer, "PNG")) {
-                        errString.replace("%IMAGE%", buffer.buffer().toBase64());
-                        errString.replace("%FAVICON%", buffer.buffer().toBase64());
-                    }
+                    errString.replace("%IMAGE%", "qrc:html/adblock_big.png");
+                    errString.replace("%FAVICON%", "qrc:html/adblock_big.png");
 
                     errString.replace("%RULE%", tr("Blocked by rule <i>%1</i>").arg(rule));
 
