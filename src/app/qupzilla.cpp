@@ -96,7 +96,6 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
 {
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
-    setCursor(Qt::ArrowCursor);
     this->setWindowTitle("QupZilla");
     setUpdatesEnabled(false);
 
@@ -219,6 +218,7 @@ void QupZilla::setupUi()
     websearchBarWidth = settings.value("WebSearchBarWidth", 140).toInt();
 
     QWidget* widget = new QWidget(this);
+    widget->setCursor(Qt::ArrowCursor);
     setCentralWidget(widget);
 
     m_mainLayout = new QVBoxLayout(widget);
@@ -239,6 +239,7 @@ void QupZilla::setupUi()
     m_mainSplitter->setCollapsible(0, false);
 
     statusBar()->setObjectName("mainwindow-statusbar");
+    statusBar()->setCursor(Qt::ArrowCursor);
     m_progressBar = new ProgressBar(statusBar());
     m_privateBrowsing = new QLabel(this);
     m_privateBrowsing->setPixmap(QPixmap(":/icons/locationbar/privatebrowsing.png"));
@@ -258,6 +259,7 @@ void QupZilla::setupUi()
 void QupZilla::setupMenu()
 {
     menuBar()->setObjectName("mainwindow-menubar");
+    menuBar()->setCursor(Qt::ArrowCursor);
     m_menuTools = new QMenu(tr("&Tools"));
     m_menuHelp = new QMenu(tr("&Help"));
     m_menuBookmarks = new QMenu(tr("&Bookmarks"));
