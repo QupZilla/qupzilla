@@ -33,6 +33,7 @@ class ToolButton : public QToolButton
     Q_PROPERTY(QPixmap multiIcon READ pixmap WRITE setMultiIcon)
     Q_PROPERTY(QIcon icon READ icon WRITE setIcon)
     Q_PROPERTY(QString themeIcon READ themeIcon WRITE setThemeIcon)
+    Q_PROPERTY(QIcon fallbackIcon READ icon WRITE setFallbackIcon)
 
 public:
     explicit ToolButton(QWidget* parent = 0);
@@ -40,13 +41,15 @@ public:
     void setData(const QVariant &data);
     QVariant data();
 
-    void setMultiIcon(const QPixmap &icon);
+    void setMultiIcon(const QPixmap &image);
     QPixmap pixmap() { return m_normalIcon; }
 
-    void setThemeIcon(const QString &icon);
+    void setThemeIcon(const QString &image);
     QString themeIcon() { return m_themeIcon; }
 
-    void setIcon(const QIcon &icon);
+    void setFallbackIcon(const QIcon &image);
+
+    void setIcon(const QIcon &image);
 
 signals:
     void middleMouseClicked();
