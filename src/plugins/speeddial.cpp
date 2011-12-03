@@ -86,7 +86,11 @@ QString SpeedDial::initialScript()
             }
         }
         else {
+#ifdef Q_WS_X11
             imgSource.prepend("file://");
+#else
+            imgSource.prepend("file:///");
+#endif
         }
 
         m_initialScript.append(QString("addBox('%1', '%2', '%3');\n").arg(url, title, imgSource));
@@ -146,6 +150,12 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
             continue;
         }
 
-        frame->evaluateJavaScript(QString("setImageToUrl('%1', '%2');").arg(url, "file://" + fileName));
+#ifdef Q_WS_X11
+            fileName.prepend("file://");
+#else
+            fileName.prepend("file:///");
+#endif
+
+        frame->evaluateJavaScript(QString("setImageToUrl('%1', '%2');").arg(url, fileName));
     }
 }
