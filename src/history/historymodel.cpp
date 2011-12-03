@@ -41,7 +41,7 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
     if (!m_isSaving) {
         return -2;
     }
-    if (url.startsWith("file://") || url.startsWith("qupzilla:") || title.contains(tr("Failed loading page")) || url.isEmpty() || url.contains("about:blank")) {
+    if (url.startsWith("file:") || url.startsWith("qupzilla:") || title.contains(tr("Failed loading page")) || url.isEmpty() || url.contains("about:blank")) {
         return -1;
     }
     if (title == "") {

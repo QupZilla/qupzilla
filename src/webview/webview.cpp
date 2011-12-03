@@ -99,7 +99,7 @@ void WebView::slotIconChanged()
 {
     m_siteIcon = icon();
 
-    if (url().toString().contains("file://") || title().contains(tr("Failed loading page"))) {
+    if (url().scheme() == "file" || title().contains(tr("Failed loading page"))) {
         return;
     }
 
@@ -834,7 +834,7 @@ void WebView::load(const QUrl &url)
         return;
     }
 
-    if (url.scheme() == "data") {
+    if (url.scheme() == "data" || url.scheme() == "qrc") {
         QWebView::load(url);
         m_aboutToLoadUrl = url;
         return;
@@ -846,13 +846,9 @@ void WebView::load(const QUrl &url)
         return;
     }
 
-#ifdef Q_WS_WIN
-    if (QFile::exists(url.path().mid(1))) // From QUrl(file:///C:/Bla/ble/foo.html it returns
-        // /C:/Bla/ble/foo.html ... so we cut first char
-#else
-    if (QFile::exists(url.path()))
-#endif
+    if (QFile::exists(url.toLocalFile())) {
         QWebView::load(url);
+    }
     else {
         SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
         QString urlString = engine.url.replace("%s", url.toString());
