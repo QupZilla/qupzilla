@@ -23,21 +23,29 @@ ToolButton::ToolButton(QWidget* parent)
 {
 }
 
-void ToolButton::setThemeIcon(const QString &icon)
+void ToolButton::setThemeIcon(const QString &image)
 {
-    m_themeIcon = icon;
-    setIcon(QIcon::fromTheme(icon));
+    m_themeIcon = image;
+    setIcon(QIcon::fromTheme(image));
     m_usingMultiIcon = false;
 }
 
-void ToolButton::setIcon(const QIcon &icon)
+void ToolButton::setFallbackIcon(const QIcon &image)
+{
+    if (icon().isNull()) {
+        setIcon(image);
+        m_usingMultiIcon = false;
+    }
+}
+
+void ToolButton::setIcon(const QIcon &image)
 {
     if (m_usingMultiIcon) {
         setFixedSize(sizeHint());
     }
     m_usingMultiIcon = false;
 
-    QToolButton::setIcon(icon);
+    QToolButton::setIcon(image);
 }
 
 void ToolButton::setData(const QVariant &data)
@@ -50,15 +58,15 @@ QVariant ToolButton::data()
     return m_data;
 }
 
-void ToolButton::setMultiIcon(const QPixmap &icon)
+void ToolButton::setMultiIcon(const QPixmap &image)
 {
-    int w = icon.width();
-    int h = icon.height();
+    int w = image.width();
+    int h = image.height();
 
-    m_normalIcon = icon.copy(0, 0, w, h / 4);
-    m_hoverIcon = icon.copy(0, h / 4, w, h / 4);
-    m_activeIcon = icon.copy(0, h / 2, w, h / 4);
-    m_disabledIcon = icon.copy(0, 3 * h / 4, w, h / 4);
+    m_normalIcon = image.copy(0, 0, w, h / 4);
+    m_hoverIcon = image.copy(0, h / 4, w, h / 4);
+    m_activeIcon = image.copy(0, h / 2, w, h / 4);
+    m_disabledIcon = image.copy(0, 3 * h / 4, w, h / 4);
 
     m_usingMultiIcon = true;
 

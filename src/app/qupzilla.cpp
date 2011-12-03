@@ -215,8 +215,8 @@ void QupZilla::setupUi()
         }
     }
 
-    locationBarWidth = settings.value("LocationBarWidth", 0).toInt();
-    websearchBarWidth = settings.value("WebSearchBarWidth", 0).toInt();
+    locationBarWidth = settings.value("LocationBarWidth", 480).toInt();
+    websearchBarWidth = settings.value("WebSearchBarWidth", 140).toInt();
 
     QWidget* widget = new QWidget(this);
     setCentralWidget(widget);
