@@ -54,6 +54,8 @@ function onEditClick(box) {
     editingId = $(box).index();
     var boxUrl = $(box).children('a').first().attr('href');
     var boxTitle = $(box).children('span').first().text();
+    if (boxUrl === '')
+        boxUrl = 'http://';
 	        
     $('body').append('<div id="fadeOverlay" style="opacity:0.95;display:none;position:fixed;left:0;' +
                      'top:0;width:100%;height:100%;z-index:9999;background:grey;">' +

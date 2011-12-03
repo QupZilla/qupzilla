@@ -51,7 +51,7 @@
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>55</height>
+       <height>53</height>
       </size>
      </property>
      <property name="focusPolicy">
@@ -69,17 +69,11 @@
      <property name="flow">
       <enum>QListView::LeftToRight</enum>
      </property>
-     <property name="resizeMode">
-      <enum>QListView::Fixed</enum>
-     </property>
      <property name="viewMode">
       <enum>QListView::IconMode</enum>
      </property>
      <property name="uniformItemSizes">
-      <bool>false</bool>
-     </property>
-     <property name="currentRow">
-      <number>-1</number>
+      <bool>true</bool>
      </property>
      <item>
       <property name="text">
