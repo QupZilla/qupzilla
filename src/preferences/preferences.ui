@@ -234,6 +234,11 @@
          </item>
          <item>
           <property name="text">
+           <string>Open speed dial</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
            <string>Restore session</string>
           </property>
          </item>

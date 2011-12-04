@@ -213,7 +213,7 @@ QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
 //    view->show();
 //    return view->page();
     Q_UNUSED(type);
-    int index = p_QupZilla->tabWidget()->addView();
+    int index = p_QupZilla->tabWidget()->addView(QUrl(), tr("New tab"), TabWidget::CleanPage);
     return p_QupZilla->weView(index)->page();
 }
 

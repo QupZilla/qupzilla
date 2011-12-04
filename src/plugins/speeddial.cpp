@@ -33,13 +33,16 @@ void SpeedDial::loadSettings()
 
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("SpeedDial");
-    m_allPages = settings.value("pages", "url:\"http://www.google.com\"|title:\"Google\";"
-                                "url:\"http://qupzilla.co.cc\"|title:\"QupZilla\";"
-                                "url:\"http://qupzilla.blogspot.com\"|title:\"QupZilla Blog\";"
-                                "url:\"https://github.com/nowrep/QupZilla\"|title:\"QupZilla GitHub\";"
-                                "url:\"http://facebook.com\"|title:\"Facebook\";"
-                               ).toString();
+    m_allPages = settings.value("pages", "").toString();
     settings.endGroup();
+
+    if (m_allPages.isEmpty()) {
+        m_allPages = "url:\"http://www.google.com\"|title:\"Google\";"
+                     "url:\"http://qupzilla.co.cc\"|title:\"QupZilla\";"
+                     "url:\"http://qupzilla.blogspot.com\"|title:\"QupZilla Blog\";"
+                     "url:\"https://github.com/nowrep/QupZilla\"|title:\"QupZilla GitHub\";"
+                     "url:\"http://facebook.com\"|title:\"Facebook\";";
+    }
 
     m_loadingImagePath = "qrc:html/loading.gif";
 
@@ -114,6 +117,10 @@ QString SpeedDial::initialScript()
 
 void SpeedDial::changed(const QString &allPages)
 {
+    if (allPages.isEmpty()) {
+        return;
+    }
+
     m_allPages = allPages;
     m_regenerateScript = true;
 }
