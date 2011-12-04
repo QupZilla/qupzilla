@@ -18,5 +18,6 @@
         <file>html/plus.png</file>
         <file>html/loading.gif</file>
         <file>html/reload.png</file>
+        <file>html/qupzilla.ico</file>
     </qresource>
 </RCC>

@@ -56,7 +56,9 @@ void BookmarksSideBar::itemControlClicked(QTreeWidgetItem* item)
     if (!item || item->text(1).isEmpty()) {
         return;
     }
-    p_QupZilla->tabWidget()->addView(QUrl(item->text(1)));
+
+    QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
+    p_QupZilla->tabWidget()->addView(url);
 }
 
 void BookmarksSideBar::itemDoubleClicked(QTreeWidgetItem* item)
@@ -64,7 +66,9 @@ void BookmarksSideBar::itemDoubleClicked(QTreeWidgetItem* item)
     if (!item || item->text(1).isEmpty()) {
         return;
     }
-    p_QupZilla->loadAddress(QUrl(item->text(1)));
+
+    QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
+    p_QupZilla->loadAddress(url);
 }
 
 void BookmarksSideBar::loadInNewTab()
@@ -77,7 +81,7 @@ void BookmarksSideBar::loadInNewTab()
 void BookmarksSideBar::copyAddress()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        QApplication::clipboard()->setText(action->data().toString());
+        QApplication::clipboard()->setText(action->data().toUrl().toEncoded());
     }
 }
 
@@ -97,7 +101,7 @@ void BookmarksSideBar::contextMenuRequested(const QPoint &position)
     if (!ui->bookmarksTree->itemAt(position)) {
         return;
     }
-    QString link = ui->bookmarksTree->itemAt(position)->text(1);
+    QUrl link = QUrl::fromEncoded(ui->bookmarksTree->itemAt(position)->text(1).toUtf8());
     if (link.isEmpty()) {
         return;
     }

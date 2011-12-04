@@ -216,6 +216,47 @@ void WebView::loadStarted()
 //    m_loadingTimer->start(1000*20); //20 seconds timeout to automatically "stop" loading animation
 }
 
+void WebView::loadFinished(bool state)
+{
+    Q_UNUSED(state);
+
+    if (mApp->isClosing() || p_QupZilla->isClosing()) {
+        return;
+    }
+
+    if (animationLoading(tabIndex(), false)->movie()) {
+        animationLoading(tabIndex(), false)->movie()->stop();
+    }
+
+    m_isLoading = false;
+
+    if (m_lastUrl != url()) {
+        mApp->history()->addHistoryEntry(this);
+    }
+
+    emit showUrl(url());
+
+    iconChanged();
+    m_lastUrl = url();
+
+    //Icon is sometimes not available at the moment of finished loading
+    if (icon().isNull()) {
+        QTimer::singleShot(1000, this, SLOT(iconChanged()));
+    }
+
+    titleChanged();
+    mApp->autoFill()->completePage(this);
+    QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
+
+    if (isCurrent()) {
+        p_QupZilla->progressBar()->setVisible(false);
+        p_QupZilla->navigationBar()->showReloadButton();
+        p_QupZilla->ipLabel()->show();
+    }
+
+    emit urlChanged(url());
+}
+
 QLabel* WebView::animationLoading(int index, bool addMovie)
 {
     if (-1 == index) {
@@ -262,47 +303,6 @@ void WebView::setIp(const QHostInfo &info)
     if (isCurrent()) {
         emit ipChanged(m_currentIp);
     }
-}
-
-void WebView::loadFinished(bool state)
-{
-    Q_UNUSED(state);
-
-    if (mApp->isClosing() || p_QupZilla->isClosing()) {
-        return;
-    }
-
-    if (animationLoading(tabIndex(), false)->movie()) {
-        animationLoading(tabIndex(), false)->movie()->stop();
-    }
-
-    m_isLoading = false;
-
-    if (m_lastUrl != url()) {
-        mApp->history()->addHistoryEntry(this);
-    }
-
-    emit showUrl(url());
-
-    iconChanged();
-    m_lastUrl = url();
-
-    //Icon is sometimes not available at the moment of finished loading
-    if (icon().isNull()) {
-        QTimer::singleShot(1000, this, SLOT(iconChanged()));
-    }
-
-    titleChanged();
-    mApp->autoFill()->completePage(this);
-    QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
-
-    if (isCurrent()) {
-        p_QupZilla->progressBar()->setVisible(false);
-        p_QupZilla->navigationBar()->showReloadButton();
-        p_QupZilla->ipLabel()->show();
-    }
-
-    emit urlChanged(url());
 }
 
 void WebView::titleChanged()
@@ -354,8 +354,9 @@ QIcon WebView::siteIcon()
 
 void WebView::linkHovered(const QString &link, const QString &title, const QString &content)
 {
-    Q_UNUSED(title);
-    Q_UNUSED(content);
+    Q_UNUSED(title)
+    Q_UNUSED(content)
+
     if (isCurrent()) {
         if (link != "") {
             p_QupZilla->statusBarMessage()->showMessage(link);
@@ -453,7 +454,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         break;
     case Qt::MiddleButton:
         if (isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toAscii()), tr("New tab"), TabWidget::NewNotSelectedTab);
+            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewNotSelectedTab);
             event->accept();
         }
 #ifdef Q_WS_WIN
@@ -464,7 +465,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         break;
     case Qt::LeftButton:
         if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toAscii()), tr("New tab"), TabWidget::NewNotSelectedTab);
+            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewNotSelectedTab);
             return;
         }
     default:

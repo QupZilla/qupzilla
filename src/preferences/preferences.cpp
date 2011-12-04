@@ -96,7 +96,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
     m_homepage = settings.value("homepage", "qupzilla:start").toString();
-    m_newTabUrl = settings.value("newTabUrl", "").toString();
+    m_newTabUrl = settings.value("newTabUrl", "qupzilla:speeddial").toString();
     ui->homepage->setText(m_homepage);
     ui->newTabUrl->setText(m_newTabUrl);
     int afterLaunch = settings.value("afterLaunch", 1).toInt();

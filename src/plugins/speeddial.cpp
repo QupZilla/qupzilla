@@ -1,3 +1,20 @@
+/* ============================================================
+* QupZilla - WebKit based browser
+* Copyright (C) 2010-2011  David Rosca
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* ============================================================ */
 #include "speeddial.h"
 #include "mainapplication.h"
 #include "pagethumbnailer.h"
@@ -75,7 +92,7 @@ QString SpeedDial::initialScript()
         QString url = tmp.at(0).mid(5);
         QString title = tmp.at(1).mid(7);
 
-        QString imgSource = m_thumbnailsDir + QCryptographicHash::hash(url.toAscii(), QCryptographicHash::Md4).toHex() + ".png";
+        QString imgSource = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
         if (!QFile(imgSource).exists()) {
             loadThumbnail(url);
@@ -116,7 +133,7 @@ void SpeedDial::loadThumbnail(const QString &url)
 
 void SpeedDial::removeImageForUrl(const QString &url)
 {
-    QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toAscii(), QCryptographicHash::Md4).toHex() + ".png";
+    QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
     if (QFile(fileName).exists()) {
         QFile(fileName).remove();
@@ -131,7 +148,7 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
     }
 
     QString url = thumbnailer->url().toString();
-    QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toAscii(), QCryptographicHash::Md4).toHex() + ".png";
+    QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
     if (!image.save(fileName)) {
         qWarning() << "SpeedDial::thumbnailCreated Cannot save thumbnail to " << fileName;

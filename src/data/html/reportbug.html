@@ -7,21 +7,22 @@ html * {font-size: 100%;line-height: 1.6;}
 #box {max-width: 650px;overflow:auto;margin: 25px auto 10px auto;padding: 10px 40px;border-width: 20px;-webkit-border-image: url(%BOX-BORDER%) 25;text-align: left;}
 h1 {color: #1a4ba4;font-size: 160%;margin-bottom: 0px;}
 p {margin-left: 1%;}
-input {width: 200px;}
 .submit {width: 100px;}
 select {width: 200px;}
-textarea {width: 400px;height: 100px;}
+textarea {width: 400px;height: 100px; border: 1px solid #babcb8;}
+textarea:focus {border-color: #579eea;}
+input[type="text"], input[type="email"] {width: 200px;height: 25px;border: 1px solid #babcb8;}
+input[type="text"]:focus, input[type="email"]:focus {border-color: #579eea;}
 </style>
 <script>
 function checkFields()
 {
   var type = document.getElementById("type").value;
-  var priority = document.getElementById("priority").value;
   var description = document.getElementById("text").value;
   
-  if (type == null || type == "" || priority == null || priority == "" || description == null || description == "") {
-  alert("%FIELDS-ARE-REQUIRED%");
-  return false;
+  if (type == null || type == "" ||  description == null || description == "") {
+    alert("%FIELDS-ARE-REQUIRED%");
+    return false;
   }
   return true;
 }
@@ -36,10 +37,9 @@ function checkFields()
   <p>
 <table>
 <form action="http://qupzilla.co.cc/reportbug.php" onsubmit="return checkFields()" method="POST">
-<tr><td>%EMAIL%*:</td><td><input type="text" id="mail" name="mail"> </tr>
-<tr><td>%TYPE%:</td><td><input type="text" id="type" name="type"> </tr>
-<tr><td>%PRIORITY%:</td><td><select id="priority" name="priority"> <option>%LOW%</option><option>%NORMAL%</option><option>%HIGH%</option> </select></tr>
-<tr><td>%DESCRIPTION%:</td><td><textarea id="text" name="text"> </textarea> </tr>
+<tr><td>%EMAIL%*:</td><td><input type="text" id="mail" name="mail" required> </tr>
+<tr><td>%TYPE%:</td><td><input type="text" id="type" name="type" required> </tr>
+<tr><td>%DESCRIPTION%:</td><td><textarea id="text" name="text" required></textarea> </tr>
 <tr><td colspan=2 align=right><input class="submit" type="submit" name="ok" value="%SEND%"> </tr>
 </form>
 </table>
