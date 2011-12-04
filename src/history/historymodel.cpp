@@ -36,12 +36,13 @@ void HistoryModel::loadSettings()
     settings.endGroup();
 }
 
-int HistoryModel::addHistoryEntry(const QString &url, QString &title)
+int HistoryModel::addHistoryEntry(const QUrl &url, QString &title)
 {
     if (!m_isSaving) {
         return -2;
     }
-    if (url.startsWith("file:") || url.startsWith("qupzilla:") || title.contains(tr("Failed loading page")) || url.isEmpty() || url.contains("about:blank")) {
+    if (url.scheme() == "file:" || url.scheme() == "qupzilla" || url.scheme() == "about" ||
+            title.contains(tr("Failed loading page")) || url.isEmpty()) {
         return -1;
     }
     if (title == "") {
@@ -86,6 +87,7 @@ int HistoryModel::addHistoryEntry(const QString &url, QString &title)
         after.title = title;
         emit historyEntryEdited(before, after);
     }
+
     return query.lastInsertId().toInt();
 }
 
@@ -95,7 +97,7 @@ int HistoryModel::addHistoryEntry(WebView* view)
         return -2;
     }
 
-    QString url = view->url().toEncoded();
+    QUrl url = view->url();
     QString title = view->title();
     return addHistoryEntry(url, title);
 }

@@ -117,19 +117,15 @@ QString QupZillaSchemeReply::reportbugPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/reportbug.html"));
-    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+    page.replace("%FAVICON%", "qrc:html/qupzilla.ico");
     page.replace("%BOX-BORDER%", "qrc:html/box-border.png");
 
-    page.replace("%TITLE%", tr("Report issue"));
-    page.replace("%REPORT-ISSUE%", tr("Report issue"));
+    page.replace("%TITLE%", tr("Report Issue"));
+    page.replace("%REPORT-ISSUE%", tr("Report Issue"));
     page.replace("%PLUGINS-TEXT%", tr("If you are experiencing problems with QupZilla, please try first disable"
                                       " all plugins. <br/>If it won't help, then please fill this form: "));
     page.replace("%EMAIL%", tr("Your E-mail"));
     page.replace("%TYPE%", tr("Issue type"));
-    page.replace("%PRIORITY%", tr("Priority"));
-    page.replace("%LOW%", tr("Low"));
-    page.replace("%NORMAL%", tr("Normal"));
-    page.replace("%HIGH%", tr("High"));
     page.replace("%DESCRIPTION%", tr("Issue description"));
     page.replace("%SEND%", tr("Send"));
     page.replace("%E-MAIL-OPTIONAL%", tr("E-mail is optional"));
@@ -141,7 +137,7 @@ QString QupZillaSchemeReply::startPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/start.html"));
-    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+    page.replace("%FAVICON%", "qrc:html/qupzilla.ico");
     page.replace("%BOX-BORDER%", "qrc:html/box-border.png");
     page.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
 
@@ -158,7 +154,7 @@ QString QupZillaSchemeReply::aboutPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/about.html"));
-    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+    page.replace("%FAVICON%", "qrc:html/qupzilla.ico");
     page.replace("%BOX-BORDER%", "qrc:html/box-border.png");
     page.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
     page.replace("%COPYRIGHT-INCLUDE%", qz_readAllFileContents(":html/copyright"));
@@ -210,7 +206,7 @@ QString QupZillaSchemeReply::speeddialPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/speeddial.html"));
-    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+    page.replace("%FAVICON%", "qrc:html/qupzilla.ico");
     page.replace("%IMG_PLUS%", "qrc:html/plus.png");
     page.replace("%BOX-BORDER%", "qrc:html/box-border-small.png");
     page.replace("%IMG_CLOSE%", "qrc:html/close.png");

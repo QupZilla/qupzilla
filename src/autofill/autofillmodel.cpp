@@ -151,8 +151,8 @@ void AutoFillModel::completePage(WebView* view)
 
     QList<QPair<QString, QString> > arguments = QUrl::fromEncoded(QByteArray("http://bla.com/?" + data)).queryItems();
     for (int i = 0; i < arguments.count(); i++) {
-        QString key = QUrl::fromEncoded(arguments.at(i).first.toAscii()).toString();
-        QString value = QUrl::fromEncoded(arguments.at(i).second.toAscii()).toString();
+        QString key = QUrl::fromEncoded(arguments.at(i).first.toUtf8()).toString();
+        QString value = QUrl::fromEncoded(arguments.at(i).second.toUtf8()).toString();
         //key.replace("+"," ");
         //value.replace("+"," ");
 
@@ -264,7 +264,7 @@ QString AutoFillModel::getValueFromData(const QByteArray &data, QWebElement elem
             QueryItem item = queryItems.at(i);
 
             if (item.first == name) {
-                value = item.second.toAscii();
+                value = item.second.toUtf8();
             }
         }
     }

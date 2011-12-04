@@ -41,7 +41,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     setObjectName("locationbar");
     m_siteIcon = new ToolButton(this);
     m_siteIcon->setObjectName("locationbar-siteicon");
-    m_siteIcon->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    m_siteIcon->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_siteIcon->setCursor(Qt::ArrowCursor);
     m_siteIcon->setToolTip(tr("Show informations about this page"));
     m_siteIcon->setFocusPolicy(Qt::ClickFocus);

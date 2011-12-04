@@ -74,7 +74,9 @@ void HistoryManager::itemDoubleClicked(QTreeWidgetItem* item)
     if (!item || item->text(1).isEmpty()) {
         return;
     }
-    getQupZilla()->tabWidget()->addView(QUrl(item->text(1)));
+
+    QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
+    getQupZilla()->tabWidget()->addView(url);
 }
 
 void HistoryManager::loadInNewTab()
@@ -89,7 +91,7 @@ void HistoryManager::contextMenuRequested(const QPoint &position)
     if (!ui->historyTree->itemAt(position)) {
         return;
     }
-    QString link = ui->historyTree->itemAt(position)->text(1);
+    QUrl link = QUrl::fromEncoded(ui->historyTree->itemAt(position)->text(1).toUtf8());
     if (link.isEmpty()) {
         return;
     }

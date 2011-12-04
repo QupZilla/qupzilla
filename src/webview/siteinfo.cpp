@@ -197,7 +197,7 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
     QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
 
     if (imageUrl.scheme() == "data") {
-        QByteArray encodedUrl = item->text(1).toAscii();
+        QByteArray encodedUrl = item->text(1).toUtf8();
         QByteArray imageData = encodedUrl.mid(encodedUrl.indexOf(",") + 1);
         m_activePixmap = qz_pixmapFromByteArray(imageData);
     }

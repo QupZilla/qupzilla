@@ -30,6 +30,15 @@
 #include "globalfunctions.h"
 #include "acceptlanguage.h"
 
+QString fileNameForCert(const QSslCertificate &cert)
+{
+    QString certFileName = CertificateInfoWidget::certificateItemText(cert);
+    certFileName.remove(" ");
+    certFileName.append(".crt");
+    certFileName = qz_filterCharsFromFilename(certFileName);
+    return certFileName;
+}
+
 NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
     : NetworkManagerProxy(parent)
     , m_adblockNetwork(0)
@@ -316,7 +325,8 @@ void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
     QSslSocket::setDefaultCaCertificates(certs);
 
     //Delete cert file from profile
-    QString certFileName = CertificateInfoWidget::certificateItemText(cert);
+    bool deleted = false;
+    QString certFileName = fileNameForCert(cert);
     int startIndex = 0;
     QDirIterator it(mApp->getActiveProfilPath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it.hasNext()) {
@@ -326,8 +336,15 @@ void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
         }
 
         QFile file(filePath);
-        file.remove();
+        if (!file.remove()) {
+            qWarning() << "NetworkManager::removeLocalCertificate cannot remove file" << filePath;
+        }
+        deleted = true;
         break;
+    }
+
+    if (!deleted) {
+        qWarning() << "NetworkManager::removeLocalCertificate cannot find file" << certFileName;
     }
 }
 
@@ -345,8 +362,7 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
         dir.mkdir("certificates");
     }
 
-    QString certFileName = CertificateInfoWidget::certificateItemText(cert).remove(" ") + ".crt";
-    certFileName = qz_filterCharsFromFilename(certFileName);
+    QString certFileName = fileNameForCert(cert);
     QString fileName = qz_ensureUniqueFilename(mApp->getActiveProfilPath() + "certificates/" + certFileName);
 
     QFile file(fileName);
