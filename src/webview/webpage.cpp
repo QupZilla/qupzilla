@@ -464,6 +464,5 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
 
 WebPage::~WebPage()
 {
-    setNetworkAccessManager(0);
     mainFrame()->deleteLater();
 }

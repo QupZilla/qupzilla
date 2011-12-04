@@ -59,3 +59,9 @@ QNetworkReply* NetworkManagerProxy::createRequest(QNetworkAccessManager::Operati
     }
     return QNetworkAccessManager::createRequest(op, request, outgoingData);
 }
+
+NetworkManagerProxy::~NetworkManagerProxy()
+{
+    // Prevent deleting of cookie jar
+    cookieJar()->setParent(m_manager);
+}

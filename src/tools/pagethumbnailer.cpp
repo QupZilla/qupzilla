@@ -44,9 +44,9 @@ PageThumbnailer::PageThumbnailer(QObject* parent)
     , m_page(new QWebPage(this))
     , m_size(QSize(231, 130))
 {
-    NetworkManagerProxy* m_networkProxy = new NetworkManagerProxy();
-    m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
-    m_page->setNetworkAccessManager(m_networkProxy);
+    NetworkManagerProxy* networkProxy = new NetworkManagerProxy(this);
+    networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
+    m_page->setNetworkAccessManager(networkProxy);
 
     m_page->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
     m_page->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
@@ -103,5 +103,5 @@ void PageThumbnailer::createThumbnail()
 
 PageThumbnailer::~PageThumbnailer()
 {
-    delete m_page;
+    m_page->deleteLater();
 }
