@@ -43,7 +43,7 @@ class TabWidget : public QTabWidget
 public:
     explicit TabWidget(QupZilla* mainclass, QWidget* parent = 0);
     ~TabWidget();
-    enum OpenUrlIn { CurrentTab, NewSelectedTab, NewNotSelectedTab, NewTab = NewSelectedTab };
+    enum OpenUrlIn { CurrentTab, NewSelectedTab, NewNotSelectedTab, NewTab = NewSelectedTab, CleanPage };
 
     QByteArray saveState();
     bool restoreState(const QByteArray &state);

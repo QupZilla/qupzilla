@@ -89,8 +89,9 @@ void WebTab::pinTab(int index)
 
 WebTab::~WebTab()
 {
-    if (m_locationBar)
+    if (m_locationBar) {
         delete m_locationBar;
+    }
 
     m_view->deleteLater();
 }
