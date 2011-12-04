@@ -32,14 +32,14 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_layout->setContentsMargins(9, 3, 9, 3);
     setLayout(m_layout);
 
-    m_buttonBack = new ToolButton();
+    m_buttonBack = new ToolButton(this);
     m_buttonBack->setObjectName("navigation-button-back");
     m_buttonBack->setToolTip(tr("Back"));
     m_buttonBack->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonBack->setAutoRaise(true);
     m_buttonBack->setEnabled(false);
 
-    m_buttonNext = new ToolButton();
+    m_buttonNext = new ToolButton(this);
     m_buttonNext->setObjectName("navigation-button-next");
     m_buttonNext->setToolTip(tr("Forward"));
     m_buttonNext->setToolButtonStyle(Qt::ToolButtonIconOnly);
@@ -51,21 +51,21 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     backNextLayout->addWidget(m_buttonBack);
     backNextLayout->addWidget(m_buttonNext);
 
-    m_reloadStop = new ReloadStopButton();
+    m_reloadStop = new ReloadStopButton(this);
 
-    m_buttonHome = new ToolButton();
+    m_buttonHome = new ToolButton(this);
     m_buttonHome->setObjectName("navigation-button-home");
     m_buttonHome->setToolTip(tr("Home"));
     m_buttonHome->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonHome->setAutoRaise(true);
 
-    m_buttonAddTab = new ToolButton();
+    m_buttonAddTab = new ToolButton(this);
     m_buttonAddTab->setObjectName("navigation-button-addtab");
     m_buttonAddTab->setToolTip(tr("New Tab"));
     m_buttonAddTab->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonAddTab->setAutoRaise(true);
 
-    m_menuBack = new QMenu();
+    m_menuBack = new QMenu(this);
     m_buttonBack->setMenu(m_menuBack);
     m_menuForward = new QMenu();
     m_buttonNext->setMenu(m_menuForward);
@@ -247,11 +247,5 @@ void NavigationBar::goForward()
 
 NavigationBar::~NavigationBar()
 {
-    delete m_buttonBack;
-    delete m_buttonNext;
-    delete m_buttonHome;
-    delete m_reloadStop;
-    delete m_exitFullscreen;
     delete m_searchLine;
-    delete m_navigationSplitter;
 }

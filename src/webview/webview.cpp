@@ -981,7 +981,4 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
 
 WebView::~WebView()
 {
-    delete m_networkProxy;
-    history()->clear();
-    delete m_page;
 }

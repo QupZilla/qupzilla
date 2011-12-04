@@ -23,14 +23,14 @@ ReloadStopButton::ReloadStopButton(QWidget* parent) :
     QHBoxLayout* lay = new QHBoxLayout(this);
     setLayout(lay);
 
-    m_buttonStop = new ToolButton();
+    m_buttonStop = new ToolButton(this);
     m_buttonStop->setObjectName("navigation-button-stop");
     m_buttonStop->setToolTip(tr("Stop"));
     m_buttonStop->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonStop->setVisible(false);
     m_buttonStop->setAutoRaise(true);
 
-    m_buttonReload = new ToolButton();
+    m_buttonReload = new ToolButton(this);
     m_buttonReload->setObjectName("navigation-button-reload");
     m_buttonReload->setToolTip(tr("Reload"));
     m_buttonReload->setToolButtonStyle(Qt::ToolButtonIconOnly);
@@ -60,6 +60,4 @@ void ReloadStopButton::showStopButton()
 
 ReloadStopButton::~ReloadStopButton()
 {
-    delete m_buttonStop;
-    delete m_buttonReload;
 }

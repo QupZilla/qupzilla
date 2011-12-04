@@ -467,7 +467,7 @@ void MainApplication::quitApplication()
     m_plugins->speedDial()->saveSettings();
     AdBlockManager::instance()->save();
     QFile::remove(getActiveProfilPath() + "WebpageIcons.db");
-    delete m_iconProvider;
+    m_iconProvider->saveIconsToDatabase();
 
 //    qDebug() << "Quitting application...";
     quit();

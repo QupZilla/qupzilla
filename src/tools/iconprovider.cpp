@@ -228,6 +228,4 @@ QByteArray IconProvider::iconToBase64(const QIcon &icon)
 
 IconProvider::~IconProvider()
 {
-    delete m_timer;
-    saveIconsToDatabase();
 }

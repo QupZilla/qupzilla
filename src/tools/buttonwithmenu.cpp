@@ -143,5 +143,4 @@ void ButtonWithMenu::generateMenu()
 
 ButtonWithMenu::~ButtonWithMenu()
 {
-    delete m_menu;
 }

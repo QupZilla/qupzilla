@@ -321,7 +321,7 @@ BookmarksImportDialog::~BookmarksImportDialog()
         for (int i = 0; i < m_fetchers.count(); i++) {
             tr("");
             IconFetcher* fetcher = m_fetchers.at(i).first;
-            delete fetcher;
+            fetcher->deleteLater();
         }
     }
 
