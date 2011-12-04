@@ -287,5 +287,4 @@ void DownloadManager::closeEvent(QCloseEvent* e)
 DownloadManager::~DownloadManager()
 {
     delete ui;
-    delete m_networkManager;
 }

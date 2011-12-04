@@ -29,7 +29,7 @@ SideBar::SideBar(QupZilla* mainClass, QWidget* parent)
     setObjectName("sidebar");
     setAttribute(Qt::WA_DeleteOnClose);
 
-    m_layout = new QVBoxLayout();
+    m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
     setLayout(m_layout);
@@ -86,6 +86,4 @@ void SideBar::close()
 
 SideBar::~SideBar()
 {
-    delete m_titleBar;
-    delete m_layout;
 }

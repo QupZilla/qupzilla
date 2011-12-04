@@ -22,6 +22,7 @@
 #include <QLayout>
 #include <QPointer>
 #include "webview.h"
+#include "locationbar.h"
 
 class QupZilla;
 class LocationBar;
@@ -51,7 +52,7 @@ private:
     QupZilla* p_QupZilla;
     QPointer<WebView> m_view;
     QVBoxLayout* m_layout;
-    LocationBar* m_locationBar;
+    QPointer<LocationBar> m_locationBar;
 
     bool m_pinned;
     bool m_inspectorVisible;

@@ -125,7 +125,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
 
     m_buttonListTabs = new ToolButton(this);
     m_buttonListTabs->setObjectName("tabwidget-button-opentabs");
-    m_menuTabs = new QMenu();
+    m_menuTabs = new QMenu(this);
     m_buttonListTabs->setMenu(m_menuTabs);
     m_buttonListTabs->setPopupMode(QToolButton::InstantPopup);
     m_buttonListTabs->setToolTip(tr("Show list of opened tabs"));
@@ -340,7 +340,7 @@ void TabWidget::closeTab(int index)
         setCurrentIndex(m_lastTabIndex);
     }
 
-    delete widget(index);
+    widget(index)->deleteLater();
 
     if (count() == 1 && m_hideCloseButtonWithOneTab) {
         tabBar()->setTabsClosable(false);
@@ -646,6 +646,4 @@ bool TabWidget::restoreState(const QByteArray &state)
 
 TabWidget::~TabWidget()
 {
-    delete m_menuTabs;
-    delete m_buttonListTabs;
 }

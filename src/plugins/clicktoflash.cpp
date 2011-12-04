@@ -258,16 +258,4 @@ void ClickToFlash::showInfo()
 
 ClickToFlash::~ClickToFlash()
 {
-    if (m_toolButton) {
-        delete m_toolButton;
-    }
-    if (m_layout1) {
-        delete m_layout1;
-    }
-    if (m_layout2) {
-        delete m_layout2;
-    }
-    if (m_frame) {
-        delete m_frame;
-    }
 }

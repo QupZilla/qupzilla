@@ -155,6 +155,7 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
     }
 
     m_regenerateScript = true;
+    fileName = QUrl::fromLocalFile(fileName).toString();
 
     foreach(QWebFrame * frame, m_webFrames) {
         if (!frame) {
@@ -162,7 +163,6 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
             continue;
         }
 
-        fileName = QUrl::fromLocalFile(fileName).toString();
         frame->evaluateJavaScript(QString("setImageToUrl('%1', '%2');").arg(url, fileName));
     }
 

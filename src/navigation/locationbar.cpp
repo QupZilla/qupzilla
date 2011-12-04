@@ -303,8 +303,5 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
 LocationBar::~LocationBar()
 {
     delete m_bookmarkIcon;
-    delete m_goButton;
-    delete m_siteIcon;
-    delete m_rssIcon;
     delete m_locationCompleter;
 }
