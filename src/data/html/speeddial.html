@@ -162,7 +162,7 @@ function setBoxImage(id, img_source) {
         return;
 		    
     var img = box.getElementsByTagName('img')[0];
-    img.setAttribute('src', img_source);
+    img.setAttribute('src', img_source + '?' + new Date());
 }
 		
 function setImageToUrl(url, img_source) {
@@ -173,7 +173,7 @@ function setImageToUrl(url, img_source) {
         if ($(imgElement).size() == 0)
             return;
 
-        $(imgElement).attr('src', img_source);
+        $(imgElement).attr('src', img_source + '?' + new Date());
     });
 }
 		

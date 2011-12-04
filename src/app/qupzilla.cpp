@@ -1196,7 +1196,8 @@ void QupZilla::printPage()
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
     connect(dialog, SIGNAL(paintRequested(QPrinter*)), weView(), SLOT(print(QPrinter*)));
     dialog->exec();
-    delete dialog;
+
+    dialog->deleteLater();
 }
 
 void QupZilla::savePageScreen()
@@ -1372,14 +1373,4 @@ bool QupZilla::quitApp()
 
 QupZilla::~QupZilla()
 {
-    delete m_tabWidget;
-    delete m_navigationBar;
-    delete m_privateBrowsing;
-    delete m_adblockIcon;
-    delete m_bookmarksToolbar;
-    delete m_progressBar;
-
-    if (m_webInspectorDock) {
-        delete m_webInspectorDock;
-    }
 }

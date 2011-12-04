@@ -464,5 +464,4 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
 
 WebPage::~WebPage()
 {
-    mainFrame()->deleteLater();
 }

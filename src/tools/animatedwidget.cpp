@@ -31,7 +31,7 @@ AnimatedWidget::AnimatedWidget(const Direction &direction, int duration, QWidget
     m_heightAni = new QPropertyAnimation(this, "fixedheight");
     m_heightAni->setDuration(duration);
 
-    m_aniGroup = new QParallelAnimationGroup();
+    m_aniGroup = new QParallelAnimationGroup(this);
     m_aniGroup->addAnimation(m_positionAni);
     m_aniGroup->addAnimation(m_heightAni);
 
@@ -77,8 +77,4 @@ void AnimatedWidget::resizeEvent(QResizeEvent* event)
 
 AnimatedWidget::~AnimatedWidget()
 {
-    delete m_positionAni;
-    delete m_heightAni;
-    delete m_aniGroup;
-    delete m_widget;
 }

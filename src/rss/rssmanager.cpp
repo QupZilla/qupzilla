@@ -284,7 +284,8 @@ void RSSManager::finished()
 
     QXmlStreamReader xml;
     xml.addData(reply->reply()->readAll());
-    delete reply;
+
+    reply->deleteLater();
 
     int tabIndex = -1;
     for (int i = 0; i < ui->tabWidget->count(); i++) {
