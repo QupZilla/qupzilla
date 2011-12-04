@@ -245,7 +245,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
 {
     m_lastTabIndex = currentIndex();
 
-    if (url.isEmpty()) {
+    if (url.isEmpty() && openIn != CleanPage) {
         url = m_urlOnNewTab;
     }
 

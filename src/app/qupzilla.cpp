@@ -135,34 +135,32 @@ void QupZilla::postLaunch()
     settings.endGroup();
 
     QUrl startUrl;
+    switch (afterLaunch) {
+    case 0:
+        startUrl = QUrl("");
+        break;
+
+    case 2:
+        startUrl = QUrl("qupzilla:speeddial");
+        break;
+
+    case 1:
+    case 3:
+        startUrl = m_homepage;
+        break;
+
+    default:
+        break;
+    }
+
     switch (m_startBehaviour) {
     case FirstAppWindow:
-        if (afterLaunch == 0) {
-            startUrl = QUrl("");
-        }
-        else if (afterLaunch == 1) {
-            startUrl = m_homepage;
-        }
-        else {
-            startUrl = m_homepage;
-        }
-
-        if (startingAfterCrash || (addTab && afterLaunch == 2)) {
+        if (startingAfterCrash || (addTab && afterLaunch == 3)) {
             addTab = !mApp->restoreStateSlot(this);
         }
         break;
 
     case NewWindow:
-        if (afterLaunch == 0) {
-            startUrl = QUrl("");
-        }
-        else if (afterLaunch == 1) {
-            startUrl = m_homepage;
-        }
-        else {
-            startUrl = m_homepage;
-        }
-
         addTab = true;
         break;
 
@@ -177,7 +175,7 @@ void QupZilla::postLaunch()
     }
 
     if (addTab) {
-        m_tabWidget->addView(startUrl);
+        m_tabWidget->addView(startUrl, tr("New tab"), TabWidget::CleanPage);
     }
 
     aboutToShowHistoryMenu(false);
