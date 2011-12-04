@@ -2218,7 +2218,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="284"/>
         <source>Open speed dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Schnellwahl öffnen</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="438"/>
@@ -3187,43 +3187,43 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="220"/>
         <source>Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Schnellwahl</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="221"/>
         <source>Add New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Seite hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="222"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="230"/>
         <source>Edit</source>
-        <translation type="unfinished">Bearbeiten</translation>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="223"/>
         <source>Remove</source>
-        <translation type="unfinished">Entfernen</translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="224"/>
         <source>Reload</source>
-        <translation type="unfinished">Neu laden</translation>
+        <translation>Neu laden</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="228"/>
         <source>Url</source>
-        <translation type="unfinished">Url</translation>
+        <translation>Url</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="229"/>
         <source>Title</source>
-        <translation type="unfinished">Titel</translation>
+        <translation>Titel</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="231"/>
         <source>New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Seite</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="174"/>

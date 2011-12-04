@@ -54,7 +54,7 @@
        <item row="0" column="0" colspan="2">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>This is list of CA Authorities Certificates stored in standard system path and in user specified paths.</string>
+          <string>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -105,7 +105,7 @@
        <item row="0" column="0" colspan="2">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>This is list of Local Certificates stored in user profile. This list also contains all certificates, that have received an exception.</string>
+          <string>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -156,7 +156,7 @@
        <item row="0" column="0" colspan="4">
         <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>If CA Authorities Certificates were not automatically loaded from system, you can specify manual paths where certificates are stored.</string>
+          <string>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -168,7 +168,7 @@
          <item row="1" column="1">
           <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is big security risk!</string>
+            <string>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</string>
            </property>
            <property name="wordWrap">
             <bool>false</bool>
@@ -230,7 +230,7 @@
         <widget class="QLabel" name="label_5">
          <property name="text">
           <string>All certificates must have .crt suffix.
-After adding or removing certificate paths, it is neccessary to restart browser in order to changes take effect.</string>
+After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
