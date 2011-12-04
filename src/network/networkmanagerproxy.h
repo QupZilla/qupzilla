@@ -31,6 +31,8 @@ class NetworkManagerProxy : public QNetworkAccessManager
     Q_OBJECT
 public:
     explicit NetworkManagerProxy(QObject* parent = 0);
+    ~NetworkManagerProxy();
+
     void setView(WebView* view) { m_view = view; }
     void setPage(WebPage* page) { m_page = page; }
 

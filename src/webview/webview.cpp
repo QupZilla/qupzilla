@@ -55,9 +55,9 @@ WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     , m_rssChecked(false)
 //    , m_loadingTimer(0)
 {
-    m_networkProxy = new NetworkManagerProxy(p_QupZilla);
+    m_networkProxy = new NetworkManagerProxy(this);
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
-    m_networkProxy->setPage(m_page) ;
+    m_networkProxy->setPage(m_page);
     m_networkProxy->setView(this);
     m_page->setNetworkAccessManager(m_networkProxy);
     m_page->setView(this);
@@ -981,6 +981,7 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
 
 WebView::~WebView()
 {
+    delete m_networkProxy;
     history()->clear();
     delete m_page;
 }
