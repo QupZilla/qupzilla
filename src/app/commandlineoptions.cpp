@@ -50,7 +50,7 @@ void CommandLineOptions::showHelp()
                        " For more informations please visit wiki at \n"
                        " https://github.com/nowrep/QupZilla/wiki \n";
 
-    cout << help << " > " << QupZilla::WWWADDRESS.toAscii().data() << endl;
+    cout << help << " > " << QupZilla::WWWADDRESS.toUtf8().data() << endl;
 }
 
 void CommandLineOptions::parseActions()
@@ -79,8 +79,8 @@ void CommandLineOptions::parseActions()
             break;
         }
         if (arg == "-v" || arg == "--version") {
-            cout << "QupZilla v" << QupZilla::VERSION.toAscii().data()
-                 << "(build " << QupZilla::BUILDTIME.toAscii().data() << ")"
+            cout << "QupZilla v" << QupZilla::VERSION.toUtf8().data()
+                 << "(build " << QupZilla::BUILDTIME.toUtf8().data() << ")"
                  << endl;
             found = true;
             ActionPair pair;
@@ -93,7 +93,7 @@ void CommandLineOptions::parseActions()
             arg.remove("-p=");
             arg.remove("--profile=");
             found = true;
-            cout << "starting with profile " << arg.toAscii().data() << endl;
+            cout << "starting with profile " << arg.toUtf8().data() << endl;
             ActionPair pair;
             pair.action = StartWithProfile;
             pair.text = arg;
@@ -136,7 +136,7 @@ void CommandLineOptions::parseActions()
     QString url(m_argv[m_argc - 1]);
     if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-")) {
         found = true;
-        cout << "starting with url " << url.toAscii().data() << endl;
+        cout << "starting with url " << url.toUtf8().data() << endl;
         ActionPair pair;
         pair.action = OpenUrl;
         pair.text = url;

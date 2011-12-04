@@ -49,7 +49,9 @@ void HistorySideBar::itemDoubleClicked(QTreeWidgetItem* item)
     if (!item || item->text(1).isEmpty()) {
         return;
     }
-    p_QupZilla->loadAddress(QUrl(item->text(1)));
+
+    QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
+    p_QupZilla->loadAddress(url);
 }
 
 void HistorySideBar::itemControlClicked(QTreeWidgetItem* item)
@@ -57,7 +59,9 @@ void HistorySideBar::itemControlClicked(QTreeWidgetItem* item)
     if (!item || item->text(1).isEmpty()) {
         return;
     }
-    p_QupZilla->tabWidget()->addView(QUrl(item->text(1)));
+
+    QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
+    p_QupZilla->tabWidget()->addView(url);
 }
 
 void HistorySideBar::loadInNewTab()
@@ -70,7 +74,7 @@ void HistorySideBar::loadInNewTab()
 void HistorySideBar::copyAddress()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        QApplication::clipboard()->setText(action->data().toString());
+        QApplication::clipboard()->setText(action->data().toUrl().toEncoded());
     }
 }
 
@@ -79,7 +83,8 @@ void HistorySideBar::contextMenuRequested(const QPoint &position)
     if (!ui->historyTree->itemAt(position)) {
         return;
     }
-    QString link = ui->historyTree->itemAt(position)->text(1);
+
+    QUrl link = QUrl::fromEncoded(ui->historyTree->itemAt(position)->text(1).toUtf8());
     if (link.isEmpty()) {
         return;
     }

@@ -50,7 +50,7 @@ void ProfileUpdater::checkProfile()
     }
 
     versionFile.open(QFile::WriteOnly);
-    versionFile.write(QupZilla::VERSION.toAscii());
+    versionFile.write(QupZilla::VERSION.toUtf8());
     versionFile.close();
 }
 

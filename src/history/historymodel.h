@@ -45,7 +45,7 @@ public:
     static QString titleCaseLocalizedMonth(int month);
 
     int addHistoryEntry(WebView* view);
-    int addHistoryEntry(const QString &url, QString &title);
+    int addHistoryEntry(const QUrl &url, QString &title);
     bool deleteHistoryEntry(int index);
     bool deleteHistoryEntry(const QString &url, const QString &title);
     bool urlIsStored(const QString &url);

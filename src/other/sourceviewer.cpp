@@ -41,10 +41,6 @@ SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     m_layout->setSpacing(0);
     m_layout->setMenuBar(menuBar);
 
-    m_sourceEdit->setUndoRedoEnabled(false);
-    m_sourceEdit->insertPlainText(m_page->mainFrame()->toHtml());
-    m_sourceEdit->setUndoRedoEnabled(true);
-
     this->resize(650, 600);
     m_sourceEdit->setReadOnly(true);
     m_sourceEdit->moveCursor(QTextCursor::Start);
@@ -86,7 +82,11 @@ SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     menuView->actions().at(3)->setChecked(true);
     menuBar->addMenu(menuView);
 
-    qz_centerWidgetOnScreen(this);
+    qz_centerWidgetToParent(this, page->view());
+
+    m_sourceEdit->setUndoRedoEnabled(false);
+    m_sourceEdit->insertPlainText(m_page->mainFrame()->toHtml());
+    m_sourceEdit->setUndoRedoEnabled(true);
 
     //Highlight selectedHtml
     if (!selectedHtml.isEmpty()) {
@@ -107,7 +107,7 @@ void SourceViewer::save()
         m_statusBar->showMessage(tr("Error writing to file"));
         return;
     }
-    file.write(m_sourceEdit->toPlainText().toAscii());
+    file.write(m_sourceEdit->toPlainText().toUtf8());
     file.close();
 
     m_statusBar->showMessage(tr("Source successfully saved"));

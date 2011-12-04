@@ -142,7 +142,7 @@ void AutoFillManager::editPass()
 
         QByteArray data = query.value(0).toByteArray();
         QByteArray oldPass = "=" + QUrl::toPercentEncoding(query.value(1).toByteArray());
-        data.replace(oldPass, "=" + QUrl::toPercentEncoding(text.toAscii()));
+        data.replace(oldPass, "=" + QUrl::toPercentEncoding(text.toUtf8()));
 
         query.prepare("UPDATE autofill SET data=?, password=? WHERE id=?");
         query.bindValue(0, data);

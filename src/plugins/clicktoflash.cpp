@@ -211,7 +211,7 @@ bool ClickToFlash::checkUrlOnElement(QWebElement el)
 
     checkString = m_page->getView()->url().resolved(QUrl(checkString)).toString(QUrl::RemoveQuery);
 
-    return m_url.toEncoded().contains(checkString.toAscii());
+    return m_url.toEncoded().contains(checkString.toUtf8());
 }
 
 bool ClickToFlash::checkElement(QWebElement el)
