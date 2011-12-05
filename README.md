@@ -35,11 +35,10 @@ and you have read the BUILDING information.
 
 Then you can start compiling by running this commands:
 
-    $ cd src/
     $ qmake
     $ make
 
-After a successful compilation the executable binary can be found in the \bin directory.
+After a successful compilation the executable binary can be found in the bin/ directory.
 
 To install QupZilla, you will have to run this command: (it may be neccessary to run it as root)
 
