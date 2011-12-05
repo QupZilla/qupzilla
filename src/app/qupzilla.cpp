@@ -174,18 +174,24 @@ void QupZilla::postLaunch()
         addTab = true;
     }
 
-    if (addTab) {
-        m_tabWidget->addView(startUrl, tr("New tab"), TabWidget::CleanPage);
-    }
-
     aboutToShowHistoryMenu(false);
     aboutToShowBookmarksMenu();
+
+    if (addTab) {
+        int index = m_tabWidget->addView(startUrl, tr("New tab"), TabWidget::CleanPage);
+        m_tabWidget->setCurrentIndex(index);
+
+        if (startUrl.isEmpty() || startUrl.toString() == "qupzilla:speeddial") {
+            locationBar()->setFocus();
+        }
+    }
 
     if (m_tabWidget->getTabBar()->normalTabsCount() <= 0) { //Something went really wrong .. add one tab
         m_tabWidget->addView(m_homepage);
     }
 
     setUpdatesEnabled(true);
+
     emit startingCompleted();
 }
 
