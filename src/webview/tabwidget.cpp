@@ -245,7 +245,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
 {
     m_lastTabIndex = currentIndex();
 
-    if (url.isEmpty() && openIn != CleanPage) {
+    if (url.isEmpty() && openIn != CleanPage && openIn != CleanSelectedPage) {
         url = m_urlOnNewTab;
     }
 
@@ -259,7 +259,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
     webView->animationLoading(index, true)->movie()->stop();
     webView->animationLoading(index, false)->setPixmap(_iconForUrl(url).pixmap(16, 16));
 
-    if (openIn == TabWidget::NewSelectedTab) {
+    if (openIn == NewSelectedTab || openIn == CleanSelectedPage) {
         setCurrentIndex(index);
     }
 
@@ -289,7 +289,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
         p_QupZilla->locationBar()->setFocus();
     }
 
-    if (openIn == NewSelectedTab) {
+    if (openIn == NewSelectedTab || openIn == CleanSelectedPage) {
         m_isClosingToLastTabIndex = true;
         m_locationBars->setCurrentWidget(locBar);
     }
