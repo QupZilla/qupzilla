@@ -54,6 +54,12 @@ downloading a tarball or running:
 
     $ git clone git://github.com/nowrep/QupZilla.git
     
+If you are using Ubuntu, you can download QupZilla from PPA:
+
+    $ sudo add-apt-repository ppa:nowrep/qupzilla
+    $ sudo apt-get update
+    $ sudo apt-get install qupzilla
+    
 FAQ and Changelog
 ----------------------------------------------------------------------------------------
 
