@@ -68,6 +68,7 @@ function onEditClick(box) {
     $('#fadeOverlay').css({'filter' : 'alpha(opacity=95)'}).fadeIn();
     $('#fadeOverlay').click(function() { $(this).fadeOut("slow", function() {$("#fadeOverlay").remove();}); });
     $('#overlay-edit').click(function(event) { event.stopPropagation(); });
+    $('#formUrl').focus();
 }
 
 function onReloadClick(box) {
