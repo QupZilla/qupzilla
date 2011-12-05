@@ -4052,7 +4052,8 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <location filename="../src/webview/tabwidget.cpp" line="217"/>
         <location filename="../src/webview/tabwidget.cpp" line="375"/>
         <source>No Named Page</source>
-        <translation>Unbekannte Seite</translation>
+        <translatorcomment>This is displayed in the window title, when a blank tab is opened.</translatorcomment>
+        <translation>Leere Seite</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="234"/>
@@ -4133,7 +4134,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webpage.cpp" line="216"/>
         <source>New tab</source>
-        <translation type="unfinished">Neuer Tab</translation>
+        <translation>Neuer Tab</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="273"/>
