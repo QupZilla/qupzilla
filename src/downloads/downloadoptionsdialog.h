@@ -22,6 +22,8 @@
 #include <QUrl>
 #include <QCloseEvent>
 
+#include "downloadmanager.h"
+
 namespace Ui
 {
 class DownloadOptionsDialog;
@@ -34,6 +36,8 @@ class DownloadOptionsDialog : public QDialog
 public:
     explicit DownloadOptionsDialog(const QString &fileName, const QPixmap &fileIcon, const QString &mimeType, const QUrl &url, QWidget* parent = 0);
     ~DownloadOptionsDialog();
+
+    void setLastDownloadOption(const DownloadManager::DownloadOption &option);
 
 private slots:
     void emitDialogFinished(int status);

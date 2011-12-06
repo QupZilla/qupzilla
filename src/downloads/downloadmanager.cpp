@@ -188,6 +188,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* pa
     DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog, page);
     connect(h, SIGNAL(itemCreated(QListWidgetItem*, DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*, DownloadItem*)));
 
+    h->setLastDownloadOption(m_lastDownloadOption);
     h->setDownloadManager(this);
     h->setListWidget(ui->list);
     h->handleUnsupportedContent(reply, askWhatToDo);

@@ -236,7 +236,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="45"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruikersnaam</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="50"/>
@@ -280,7 +280,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="97"/>
         <source>Hide Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>Verberg wachtwoorden</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="115"/>
@@ -308,7 +308,7 @@
     <message>
         <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wilt u dat QupZilla het wachtwoord onthoudt voor &lt;b&gt;%1&lt;/b&gt; op %2?</translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1123,7 @@
     <message>
         <location filename="../src/desktopnotifications/desktopnotificationsfactory.cpp" line="100"/>
         <source>Native System Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Natieve systeemmelding</translation>
     </message>
 </context>
 <context>
@@ -1644,7 +1644,7 @@ werd niet gevonden!</translation>
         <location filename="../src/navigation/locationbar.cpp" line="294"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
-        <translation type="unfinished">.nl</translation>
+        <translation>.nl</translation>
     </message>
 </context>
 <context>
@@ -1730,12 +1730,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="140"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation type="unfinished"></translation>
+        <translation>De pagina die u probeert te bereiken heeft de volgende fouten in het SSL-certificaat:</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="164"/>
         <source>Would you like to make an exception for this certificate?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wilt u een uitzondering maken voor dit certificaat?</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="185"/>
@@ -2153,7 +2153,7 @@ werd niet gevonden!</translation>
         <location filename="../src/preferences/preferences.ui" line="237"/>
         <location filename="../src/preferences/preferences.ui" line="289"/>
         <source>Open speed dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Open speed dial</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="443"/>
@@ -2178,7 +2178,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="719"/>
         <source>Select all text by clicking in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer alle tekst door te klikken in de adresbalk</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="756"/>
@@ -2188,7 +2188,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="836"/>
         <source>Enable XSS Auditing</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel XSS-auditing in</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="853"/>
@@ -3229,43 +3229,43 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="216"/>
         <source>Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Speed Dial</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="217"/>
         <source>Add New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg nieuwe pagina toe</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="218"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="226"/>
         <source>Edit</source>
-        <translation type="unfinished">Bewerk</translation>
+        <translation>Bewerk</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="219"/>
         <source>Remove</source>
-        <translation type="unfinished">Verwijder</translation>
+        <translation>Verwijder</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="220"/>
         <source>Reload</source>
-        <translation type="unfinished">Herlaad</translation>
+        <translation>Herlaad</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="224"/>
         <source>Url</source>
-        <translation type="unfinished">URL</translation>
+        <translation>URL</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="225"/>
         <source>Title</source>
-        <translation type="unfinished">Titel</translation>
+        <translation>Titel</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="227"/>
         <source>New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuwe pagina</translation>
     </message>
 </context>
 <context>
@@ -4134,7 +4134,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webpage.cpp" line="216"/>
         <source>New tab</source>
-        <translation type="unfinished">Nieuw tabblad</translation>
+        <translation>Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="273"/>
