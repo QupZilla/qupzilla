@@ -31,7 +31,25 @@ DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPix
 
     setFixedHeight(sizeHint().height());
 
+    ui->buttonBox->setFocus();
+
     connect(this, SIGNAL(finished(int)), this, SLOT(emitDialogFinished(int)));
+}
+
+void DownloadOptionsDialog::setLastDownloadOption(const DownloadManager::DownloadOption &option)
+{
+    switch (option) {
+    case DownloadManager::OpenFile:
+        ui->radioOpen->setChecked(true);
+        break;
+
+    case DownloadManager::SaveFile:
+        ui->radioSave->setChecked(true);
+        break;
+
+    default:
+        break;
+    }
 }
 
 void DownloadOptionsDialog::emitDialogFinished(int status)

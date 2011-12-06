@@ -47,8 +47,9 @@ class WebPage;
 class DownloadManager : public QWidget
 {
     Q_OBJECT
-
 public:
+    enum DownloadOption { OpenFile, SaveFile };
+
     explicit DownloadManager(QWidget* parent = 0);
     ~DownloadManager();
 
@@ -58,6 +59,7 @@ public:
     void handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool askWhatToDo = true);
     bool canClose();
     void setLastDownloadPath(const QString &lastPath) { m_lastDownloadPath = lastPath; }
+    void setLastDownloadOption(const DownloadOption &option) { m_lastDownloadOption = option; }
 
 public slots:
     void show();
@@ -94,6 +96,8 @@ private:
     bool m_useNativeDialog;
     bool m_isClosing;
     bool m_closeOnFinish;
+
+    DownloadOption m_lastDownloadOption;
 };
 
 #endif // DOWNLOADMANAGER_H

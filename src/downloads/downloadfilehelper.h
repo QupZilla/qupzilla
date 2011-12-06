@@ -28,6 +28,8 @@
 #include <QFileIconProvider>
 #include <QFileDialog>
 
+#include "downloadmanager.h"
+
 class DownloadItem;
 class DownloadManager;
 class WebPage;
@@ -40,6 +42,8 @@ public:
 
     void setListWidget(QListWidget* tw) { m_listWidget = tw; }
     void setDownloadManager(DownloadManager* m) { m_manager = m; }
+    void setLastDownloadOption(const DownloadManager::DownloadOption &option) { m_lastDownloadOption = option; }
+
     void handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo);
 
 signals:
@@ -52,6 +56,7 @@ private slots:
 private:
     QString getFileName(QNetworkReply* reply);
 
+    DownloadManager::DownloadOption m_lastDownloadOption;
     QString m_lastDownloadPath;
     QString m_downloadPath;
     bool m_useNativeDialog;
