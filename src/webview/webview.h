@@ -153,6 +153,7 @@ private:
     WebTab* m_webTab;
     NetworkManagerProxy* m_networkProxy;
     LocationBar* m_locationBar;
+    QMenu* m_menu;
 
     bool m_mouseTrack;
     bool m_navigationVisible;

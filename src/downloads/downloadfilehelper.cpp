@@ -27,6 +27,7 @@
 
 DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog, WebPage* page)
     : QObject()
+    , m_lastDownloadOption(DownloadManager::SaveFile)
     , m_lastDownloadPath(lastDownloadPath)
     , m_downloadPath(downloadPath)
     , m_useNativeDialog(useNativeDialog)
@@ -76,6 +77,7 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
 
     if (askWhatToDo) {
         DownloadOptionsDialog* dialog = new DownloadOptionsDialog(m_h_fileName, m_fileIcon, mimeType, reply->url(), mApp->activeWindow());
+        dialog->setLastDownloadOption(m_lastDownloadOption);
         dialog->show();
         connect(dialog, SIGNAL(dialogFinished(int)), this, SLOT(optionsDialogAccepted(int)));
     }
@@ -96,10 +98,14 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
         break;
     case 1: //Open
         m_openFileChoosed = true;
+        m_lastDownloadOption = DownloadManager::OpenFile;
         break;
     case 2: //Save
+        m_lastDownloadOption = DownloadManager::SaveFile;
         break;
     }
+
+    m_manager->setLastDownloadOption(m_lastDownloadOption);
 
     if (!m_openFileChoosed) {
         if (m_downloadPath.isEmpty()) {

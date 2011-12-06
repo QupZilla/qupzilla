@@ -236,7 +236,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="45"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="50"/>
@@ -280,7 +280,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="97"/>
         <source>Hide Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar contraseñas</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="115"/>
@@ -308,7 +308,7 @@
     <message>
         <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Desea que QupZilla recuerde las contraseñas de &lt;b&gt;%1&lt;/b&gt; en %2?</translation>
     </message>
 </context>
 <context>
@@ -1122,7 +1122,7 @@
     <message>
         <location filename="../src/desktopnotifications/desktopnotificationsfactory.cpp" line="100"/>
         <source>Native System Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistema de notificación nativo</translation>
     </message>
 </context>
 <context>
@@ -1643,7 +1643,7 @@
         <location filename="../src/navigation/locationbar.cpp" line="294"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
-        <translation type="unfinished">.co.uk</translation>
+        <translation>.co.uk</translation>
     </message>
 </context>
 <context>
@@ -1729,12 +1729,12 @@
     <message>
         <location filename="../src/network/networkmanager.cpp" line="140"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation type="unfinished"></translation>
+        <translation>La página a la que está intentando acceder tiene los siguientes errores en el certificado SSL:</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="164"/>
         <source>Would you like to make an exception for this certificate?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Le gustaría hacer una excepción para este certificado?</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="185"/>
@@ -2197,17 +2197,17 @@
         <location filename="../src/preferences/preferences.ui" line="237"/>
         <location filename="../src/preferences/preferences.ui" line="289"/>
         <source>Open speed dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir speed dial</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="719"/>
         <source>Select all text by clicking in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar todo el texto al hacer click en la barra de direcciones</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="836"/>
         <source>Enable XSS Auditing</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilitar Auditoría XSS</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="853"/>
@@ -2810,7 +2810,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="329"/>
         <source>Character &amp;Encoding</source>
-        <translation>&amp;Carácter y codificación</translation>
+        <translation>&amp;Codificación de caracteres</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="334"/>
@@ -2943,7 +2943,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="703"/>
         <source>Report &amp;Issue</source>
-        <translation>&amp;Informar de un error</translation>
+        <translation>&amp;Informar de un fallo</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="709"/>
@@ -3084,7 +3084,7 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="123"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="124"/>
         <source>Report Issue</source>
-        <translation type="unfinished"></translation>
+        <translation>Informar de un fallo</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="129"/>
@@ -3226,43 +3226,43 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="216"/>
         <source>Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Speed Dial</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="217"/>
         <source>Add New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir página nueva</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="218"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="226"/>
         <source>Edit</source>
-        <translation type="unfinished">Editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="219"/>
         <source>Remove</source>
-        <translation type="unfinished">Quitar</translation>
+        <translation>Quitar</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="220"/>
         <source>Reload</source>
-        <translation type="unfinished">Recargar</translation>
+        <translation>Recargar</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="224"/>
         <source>Url</source>
-        <translation type="unfinished">Url</translation>
+        <translation>Url</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="225"/>
         <source>Title</source>
-        <translation type="unfinished">Título</translation>
+        <translation>Título</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="227"/>
         <source>New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Página nueva</translation>
     </message>
 </context>
 <context>
@@ -3428,28 +3428,29 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="57"/>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta es una lista con los certificados de autoridades CA alamcenados en la ruta estándard del sistema y en las rutas especificadas por el usuario.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="108"/>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta es una lista con los certificados locales almacenados en su perfil de usuario. También contiene todos los certificados que han recibido una excepción.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="159"/>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si los certificados de autoridades CA no se cargaron automáticamente desde el sistema, puede especificar manualmente la ruta donde están almacenados.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="171"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;NOTA:&lt;/b&gt; ¡Establecer esta opción supone un alto riesgo de seguridad!</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="232"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Todos los certificados deben tener el sufijo .crt.
+Después de añadir o quitar rutas de certificados, es necesario reiniciar QupZilla para que los cambios surjan efecto.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="68"/>
@@ -3475,7 +3476,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="210"/>
         <source>Ignore all SSL Warnings</source>
-        <translation>Ignorar todos los avisos SLL</translation>
+        <translation>Ignorar todos los avisos SSL</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="55"/>
@@ -4129,7 +4130,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="216"/>
         <source>New tab</source>
-        <translation type="unfinished">Nueva pestaña</translation>
+        <translation>Nueva pestaña</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="273"/>

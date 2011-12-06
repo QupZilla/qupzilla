@@ -46,6 +46,7 @@ WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     , m_page(new WebPage(this, p_QupZilla))
     , m_webTab(webTab)
     , m_locationBar(0)
+    , m_menu(new QMenu(this))
     , m_mouseTrack(false)
     , m_navigationVisible(false)
     , m_mouseWheelEnabled(true)
@@ -529,7 +530,7 @@ void WebView::mouseMoveEvent(QMouseEvent* event)
 
 void WebView::contextMenuEvent(QContextMenuEvent* event)
 {
-    QMenu* menu = new QMenu(this);
+    m_menu->clear();
 
     QWebHitTestResult r = page()->mainFrame()->hitTestContent(event->pos());
 
@@ -537,83 +538,84 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         if (page()->selectedText() == r.linkText()) {
             findText("");
         }
-        menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInNewTab()))->setData(r.linkUrl());
-        menu->addAction(tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(r.linkUrl());
-        menu->addSeparator();
-        menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(r.linkUrl());
-        menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadLinkToDisk()))->setData(r.linkUrl());
-        menu->addAction(tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
-        menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(r.linkUrl());
-        menu->addSeparator();
+        m_menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInNewTab()))->setData(r.linkUrl());
+        m_menu->addAction(tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(r.linkUrl());
+        m_menu->addSeparator();
+        m_menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(r.linkUrl());
+        m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadLinkToDisk()))->setData(r.linkUrl());
+        m_menu->addAction(tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
+        m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(r.linkUrl());
+        m_menu->addSeparator();
         if (!selectedText().isEmpty()) {
-            menu->addAction(pageAction(QWebPage::Copy));
+            m_menu->addAction(pageAction(QWebPage::Copy));
         }
     }
 
     if (!r.imageUrl().isEmpty()) {
-        if (!menu->isEmpty()) {
-            menu->addSeparator();
+        if (!m_menu->isEmpty()) {
+            m_menu->addSeparator();
         }
-        menu->addAction(tr("Show i&mage"), this, SLOT(showImage()))->setData(r.imageUrl());
-        menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(r.imageUrl());
-        menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(r.imageUrl());
-        menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadImageToDisk()))->setData(r.imageUrl());
-        menu->addAction(tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
-        menu->addSeparator();
+        m_menu->addAction(tr("Show i&mage"), this, SLOT(showImage()))->setData(r.imageUrl());
+        m_menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(r.imageUrl());
+        m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(r.imageUrl());
+        m_menu->addSeparator();
+        m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadImageToDisk()))->setData(r.imageUrl());
+        m_menu->addAction(tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
+        m_menu->addSeparator();
         //menu->addAction(tr("Block image"), this, SLOT(blockImage()))->setData(r.imageUrl().toString());
         if (!selectedText().isEmpty()) {
-            menu->addAction(pageAction(QWebPage::Copy));
+            m_menu->addAction(pageAction(QWebPage::Copy));
         }
     }
 
     QWebElement element = r.element();
-    if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea")) {
-        if (menu->isEmpty()) {
-            delete menu;
-            menu = page()->createStandardContextMenu();
+    if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea" ||
+            element.tagName().toLower() == "video" || element.tagName().toLower() == "audio") ) {
+        if (m_menu->isEmpty()) {
+            page()->createStandardContextMenu()->popup(QCursor::pos());
+            return;
         }
     }
 
-    if (menu->isEmpty()) {
-        QAction* action = menu->addAction(tr("&Back"), this, SLOT(back()));
+    if (m_menu->isEmpty()) {
+        QAction* action = m_menu->addAction(tr("&Back"), this, SLOT(back()));
         action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
         history()->canGoBack() ? action->setEnabled(true) : action->setEnabled(false);
 
-        action = menu->addAction(tr("&Forward"), this, SLOT(forward()));
+        action = m_menu->addAction(tr("&Forward"), this, SLOT(forward()));
         action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
 
         history()->canGoForward() ? action->setEnabled(true) : action->setEnabled(false);
 
-        menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(slotReload()));
-        action = menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this, SLOT(stop()));
+        m_menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(slotReload()));
+        action = m_menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this, SLOT(stop()));
         isLoading() ? action->setEnabled(true) : action->setEnabled(false);
 
-        menu->addSeparator();
-        menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
-        menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadLinkToDisk()))->setData(url());
-        menu->addAction(tr("Send page..."), this, SLOT(sendLinkByMail()))->setData(url());
-        menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
+        m_menu->addSeparator();
+        m_menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
+        m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadLinkToDisk()))->setData(url());
+        m_menu->addAction(tr("Send page..."), this, SLOT(sendLinkByMail()))->setData(url());
+        m_menu->addSeparator();
+        m_menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
         if (!selectedText().isEmpty()) {
-            menu->addAction(pageAction(QWebPage::Copy));
+            m_menu->addAction(pageAction(QWebPage::Copy));
         }
 
-        menu->addSeparator();
-        menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
-        menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()))->setData(url());
-        menu->addAction(tr("Show Web &Inspector"), this, SLOT(showInspector()));
+        m_menu->addSeparator();
+        m_menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
+        m_menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()))->setData(url());
+        m_menu->addAction(tr("Show Web &Inspector"), this, SLOT(showInspector()));
     }
 
-    mApp->plugins()->populateWebViewMenu(menu, this, r);
+    mApp->plugins()->populateWebViewMenu(m_menu, this, r);
 
     if (!selectedText().isEmpty()) {
-        menu->addSeparator();
+        m_menu->addSeparator();
         QString selectedText = page()->selectedText();
         selectedText.truncate(20);
 
         SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
-        menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
+        m_menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
     }
 
 #if QT_VERSION == 0x040800
@@ -621,12 +623,11 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
 //        menu->addAction(tr("Show source of selection"), this, SLOT(showSourceOfSelection()));
 #endif
 
-    if (!menu->isEmpty()) {
+    if (!m_menu->isEmpty()) {
         //Prevent choosing first option with double rightclick
         QPoint pos = QCursor::pos();
         QPoint p(pos.x(), pos.y() + 1);
-        menu->exec(p);
-        delete menu;
+        m_menu->popup(p);
         return;
     }
 
