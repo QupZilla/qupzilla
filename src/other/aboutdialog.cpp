@@ -22,8 +22,6 @@
 #include "webpage.h"
 #include "qtwin.h"
 
-#include "pagethumbnailer.h"
-
 AboutDialog::AboutDialog(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::AboutDialog)
@@ -40,10 +38,6 @@ AboutDialog::AboutDialog(QWidget* parent) :
     connect(ui->authorsButton, SIGNAL(clicked()), this, SLOT(buttonClicked()));
 
     showAbout();
-
-    PageThumbnailer* p = new PageThumbnailer(this);
-    p->setUrl(QUrl("http://qupzilla.co.cc"));
-    p->start();
 }
 
 void AboutDialog::buttonClicked()
