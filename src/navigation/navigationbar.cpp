@@ -109,6 +109,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     connect(m_reloadStop->buttonReload(), SIGNAL(clicked()), p_QupZilla, SLOT(reload()));
     connect(m_buttonHome, SIGNAL(clicked()), p_QupZilla, SLOT(goHome()));
     connect(m_buttonHome, SIGNAL(middleMouseClicked()), p_QupZilla, SLOT(goHomeInNewTab()));
+    connect(m_buttonHome, SIGNAL(controlClicked()), p_QupZilla, SLOT(goHomeInNewTab()));
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     connect(m_exitFullscreen, SIGNAL(clicked(bool)), p_QupZilla, SLOT(fullScreen(bool)));
 }
