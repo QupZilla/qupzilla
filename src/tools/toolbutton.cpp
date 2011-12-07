@@ -75,11 +75,6 @@ void ToolButton::setMultiIcon(const QPixmap &image)
 
 void ToolButton::mousePressEvent(QMouseEvent* e)
 {
-    if (e->buttons() == Qt::MiddleButton) {
-        emit middleMouseClicked();
-        return;
-    }
-
     if (e->button() == Qt::RightButton && menu()) {
         setDown(true);
         showMenu();
@@ -87,6 +82,21 @@ void ToolButton::mousePressEvent(QMouseEvent* e)
     }
 
     QToolButton::mousePressEvent(e);
+}
+
+void ToolButton::mouseReleaseEvent(QMouseEvent* e)
+{
+    if (e->button() == Qt::MiddleButton && rect().contains(e->pos()) ) {
+        emit middleMouseClicked();
+        return;
+    }
+
+    if (e->button() == Qt::LeftButton && rect().contains(e->pos()) && e->modifiers() == Qt::ControlModifier) {
+        emit controlClicked();
+        return;
+    }
+
+    QToolButton::mouseReleaseEvent(e);
 }
 
 void ToolButton::paintEvent(QPaintEvent* e)
