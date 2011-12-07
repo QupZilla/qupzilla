@@ -53,11 +53,13 @@ public:
 
 signals:
     void middleMouseClicked();
+    void controlClicked();
 
 public slots:
 
 private:
     void mousePressEvent(QMouseEvent* e);
+    void mouseReleaseEvent(QMouseEvent* e);
     void paintEvent(QPaintEvent* e);
 
     bool m_usingMultiIcon;

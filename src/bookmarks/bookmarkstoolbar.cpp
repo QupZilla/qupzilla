@@ -306,6 +306,7 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
 
     connect(button, SIGNAL(clicked()), this, SLOT(loadClickedBookmark()));
     connect(button, SIGNAL(middleMouseClicked()), this, SLOT(loadClickedBookmarkInNewTab()));
+    connect(button, SIGNAL(controlClicked()), this, SLOT(loadClickedBookmarkInNewTab()));
     connect(button, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showBookmarkContextMenu(QPoint)));
 
     int indexForBookmark = indexOfLastBookmark();
@@ -405,6 +406,7 @@ void BookmarksToolbar::refreshBookmarks()
 
         connect(button, SIGNAL(clicked()), this, SLOT(loadClickedBookmark()));
         connect(button, SIGNAL(middleMouseClicked()), this, SLOT(loadClickedBookmarkInNewTab()));
+        connect(button, SIGNAL(controlClicked()), this, SLOT(loadClickedBookmarkInNewTab()));
         connect(button, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showBookmarkContextMenu(QPoint)));
         m_layout->addWidget(button);
     }
