@@ -1212,7 +1212,10 @@ void QupZilla::savePageScreen()
 
 void QupZilla::startPrivate(bool state)
 {
-    if (state) {
+    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    bool askNow = settings.value("Browser-View-Settings/AskOnPrivate", true).toBool();
+
+    if (state && askNow) {
         QString title = tr("Are you sure you want to turn on private browsing?");
         QString text1 = tr("When private browsing is turned on, some actions concerning your privacy will be disabled:");
 
@@ -1231,7 +1234,10 @@ void QupZilla::startPrivate(bool state)
         if (button != QMessageBox::Yes) {
             return;
         }
+
+        settings.setValue("Browser-View-Settings/AskOnPrivate", false);
     }
+
     mApp->webSettings()->setAttribute(QWebSettings::PrivateBrowsingEnabled, state);
     mApp->history()->setSaving(!state);
     mApp->cookieJar()->turnPrivateJar(state);
