@@ -267,7 +267,7 @@ QLabel* WebView::animationLoading(int index, bool addMovie)
     QLabel* loadingAnimation = qobject_cast<QLabel*>(tabWidget()->getTabBar()->tabButton(index, QTabBar::LeftSide));
     if (!loadingAnimation) {
         loadingAnimation = new QLabel();
-        loadingAnimation->setStyleSheet("margin: 0px; padding: 0px; width: 16px; height: 16px;");
+//        loadingAnimation->setStyleSheet("margin: 0px; padding: 0px; width: 16px; height: 16px;");
     }
     if (addMovie && !loadingAnimation->movie()) {
         QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), loadingAnimation);
@@ -344,12 +344,17 @@ void WebView::iconChanged()
 
 QIcon WebView::siteIcon()
 {
+    if (url().scheme() == "qupzilla") {
+        return QIcon(":icons/qupzilla.png");
+    }
+
     if (!icon().isNull()) {
         return icon();
     }
     if (!m_siteIcon.isNull()) {
         return m_siteIcon;
     }
+
     return _iconForUrl(url());
 }
 

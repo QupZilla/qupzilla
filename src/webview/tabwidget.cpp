@@ -206,7 +206,7 @@ void TabWidget::aboutToShowTabsMenu()
             action->setIcon(QIcon(":/icons/menu/dot.png"));
         }
         else {
-            action->setIcon(_iconForUrl(view->url()));
+            action->setIcon(view->siteIcon());
         }
         if (view->title().isEmpty()) {
             if (view->isLoading()) {
