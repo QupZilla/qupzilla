@@ -240,7 +240,7 @@ void MainApplication::loadSettings()
     bool xssAuditing = settings.value("XSSAuditing", false).toBool();
     int maxCachedPages = settings.value("maximumCachedPages", 3).toInt();
     int scrollingLines = settings.value("wheelScrollLines", wheelScrollLines()).toInt();
-    QUrl userStyleSheet = settings.value("userStyleSheet", QUrl()).toUrl();
+    QUrl userStyleSheet = QUrl::fromLocalFile(settings.value("userStyleSheet", "").toString());
     m_defaultZoom = settings.value("DefaultZoom", 100).toInt();
     settings.endGroup();
 
