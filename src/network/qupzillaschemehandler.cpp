@@ -117,7 +117,7 @@ QString QupZillaSchemeReply::reportbugPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/reportbug.html"));
-    page.replace("%FAVICON%", "qrc:html/qupzilla.ico");
+    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
     page.replace("%BOX-BORDER%", "qrc:html/box-border.png");
 
     page.replace("%TITLE%", tr("Report Issue"));
@@ -137,7 +137,7 @@ QString QupZillaSchemeReply::startPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/start.html"));
-    page.replace("%FAVICON%", "qrc:html/qupzilla.ico");
+    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
     page.replace("%BOX-BORDER%", "qrc:html/box-border.png");
     page.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
 
@@ -154,7 +154,7 @@ QString QupZillaSchemeReply::aboutPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/about.html"));
-    page.replace("%FAVICON%", "qrc:html/qupzilla.ico");
+    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
     page.replace("%BOX-BORDER%", "qrc:html/box-border.png");
     page.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
     page.replace("%COPYRIGHT-INCLUDE%", qz_readAllFileContents(":html/copyright"));
@@ -206,7 +206,7 @@ QString QupZillaSchemeReply::speeddialPage()
 {
     QString page;
     page.append(qz_readAllFileContents(":html/speeddial.html"));
-    page.replace("%FAVICON%", "qrc:html/qupzilla.ico");
+    page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
     page.replace("%IMG_PLUS%", "qrc:html/plus.png");
     page.replace("%BOX-BORDER%", "qrc:html/box-border-small.png");
     page.replace("%IMG_CLOSE%", "qrc:html/close.png");
