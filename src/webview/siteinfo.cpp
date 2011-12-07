@@ -202,7 +202,7 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
         m_activePixmap = qz_pixmapFromByteArray(imageData);
     }
     else if (imageUrl.scheme() == "file") {
-        m_activePixmap = QPixmap(imageUrl.toString(QUrl::RemoveScheme));
+        m_activePixmap = QPixmap(imageUrl.toLocalFile());
     }
     else if (imageUrl.scheme() == "qrc") {
         m_activePixmap = QPixmap(imageUrl.toString().mid(3)); // Remove qrc from url
