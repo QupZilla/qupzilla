@@ -20,6 +20,7 @@
 #include "firefoximporter.h"
 #include "chromeimporter.h"
 #include "operaimporter.h"
+#include "htmlimporter.h"
 #include "mainapplication.h"
 #include "iconfetcher.h"
 #include "networkmanager.h"
@@ -38,6 +39,10 @@ BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     connect(ui->chooseFile, SIGNAL(clicked()), this, SLOT(setFile()));
     connect(ui->cancelButton, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->stopButton, SIGNAL(clicked()), this, SLOT(stopDownloading()));
+
+    HtmlImporter html(this);
+    html.setFile("/home/david/bookmarks.html");
+    html.exportBookmarks();
 }
 
 void BookmarksImportDialog::nextPage()
@@ -211,6 +216,19 @@ bool BookmarksImportDialog::exportedOK()
         }
         return true;
     }
+    else if (m_browser == Html) {
+        HtmlImporter html(this);
+        html.setFile(ui->fileLine->text());
+        if (html.openFile()) {
+            m_exportedBookmarks = html.exportBookmarks();
+        }
+
+        if (html.error()) {
+            QMessageBox::critical(this, tr("Error!"), html.errorString());
+            return false;
+        }
+        return true;
+    }
 
     return false;
 }
@@ -299,6 +317,16 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
 #else
             "/home/user/.opera/";
 #endif
+        break;
+
+    case Html:
+        m_browserPixmap = QPixmap(":icons/browsers/html.png");
+        m_browserName = "Html Import";
+        m_browserBookmarkFile = "*.htm, *.html";
+        m_browserFileText = tr("You can import bookmarks from any browser that supports HTML exporting. "
+                               "This file has usually these suffixes");
+        m_browserFileText2 = tr("Please choose this file to begin importing bookmarks.");
+        m_standardDir = ".html, .htm";
         break;
 
     case IE:

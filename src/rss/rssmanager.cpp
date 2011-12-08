@@ -25,6 +25,7 @@
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
 #include "followredirectreply.h"
+#include "databasewriter.h"
 
 RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -363,7 +364,7 @@ bool RSSManager::addRssFeed(const QString &address, const QString &title, const 
         query.bindValue(0, address);
         query.bindValue(1, title);
         query.bindValue(2, iconData);
-        query.exec();
+        mApp->dbWriter()->executeQuery(query);
         return true;
     }
 

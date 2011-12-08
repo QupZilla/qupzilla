@@ -571,7 +571,7 @@ void QupZilla::aboutToShowBookmarksMenu()
         m_menuBookmarks->addAction(icon, title, this, SLOT(loadActionUrl()))->setData(url);
     }
 
-    QMenu* menuBookmarks= new QMenu(tr("Bookmarks In ToolBar"), m_menuBookmarks);
+    QMenu* menuBookmarks = new QMenu(tr("Bookmarks In ToolBar"), m_menuBookmarks);
     menuBookmarks->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
 
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar'");

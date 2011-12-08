@@ -22,13 +22,12 @@
 #include <QSqlQuery>
 #include <QList>
 #include <QtConcurrentRun>
-#include <QFuture>
 
 class DatabaseWriter : public QObject
 {
     Q_OBJECT
 public:
-    explicit DatabaseWriter(QObject *parent = 0);
+    explicit DatabaseWriter(QObject* parent = 0);
 
     void executeQuery(const QSqlQuery &query);
 

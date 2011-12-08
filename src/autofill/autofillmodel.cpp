@@ -20,6 +20,7 @@
 #include "webview.h"
 #include "mainapplication.h"
 #include "autofillnotification.h"
+#include "databasewriter.h"
 
 AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject* parent) :
     QObject(parent)
@@ -73,7 +74,9 @@ void AutoFillModel::blockStoringfor(const QUrl &url)
 {
     QString server = url.host();
     QSqlQuery query;
-    query.exec("INSERT INTO autofill_exceptions (server) VALUES ('" + server + "')");
+    query.prepare("INSERT INTO autofill_exceptions (server) VALUES (?)");
+    query.addBindValue(server);
+    mApp->dbWriter()->executeQuery(query);
 }
 
 QString AutoFillModel::getUsername(const QUrl &url)
@@ -95,27 +98,27 @@ QString AutoFillModel::getPassword(const QUrl &url)
 }
 
 ///HTTP Authorization
-bool AutoFillModel::addEntry(const QUrl &url, const QString &name, const QString &pass)
+void AutoFillModel::addEntry(const QUrl &url, const QString &name, const QString &pass)
 {
     QSqlQuery query;
     query.exec("SELECT username FROM autofill WHERE server='" + url.host() + "'");
     if (query.next()) {
-        return false;
+        return;
     }
     query.prepare("INSERT INTO autofill (server, username, password) VALUES (?,?,?)");
     query.bindValue(0, url.host());
     query.bindValue(1, name);
     query.bindValue(2, pass);
-    return query.exec();
+    mApp->dbWriter()->executeQuery(query);
 }
 
 ///WEB Form
-bool AutoFillModel::addEntry(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass)
+void AutoFillModel::addEntry(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass)
 {
     QSqlQuery query;
     query.exec("SELECT data FROM autofill WHERE server='" + url.host() + "'");
     if (query.next()) {
-        return false;
+        return;
     }
 
     query.prepare("INSERT INTO autofill (server, data, username, password) VALUES (?,?,?,?)");
@@ -123,7 +126,7 @@ bool AutoFillModel::addEntry(const QUrl &url, const QByteArray &data, const QStr
     query.bindValue(1, data);
     query.bindValue(2, user);
     query.bindValue(3, pass);
-    return query.exec();
+    mApp->dbWriter()->executeQuery(query);
 }
 
 void AutoFillModel::completePage(WebView* view)

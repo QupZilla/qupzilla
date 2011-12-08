@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "databasewriter.h"
 
-DatabaseWriter::DatabaseWriter(QObject *parent)
+DatabaseWriter::DatabaseWriter(QObject* parent)
     : QObject(parent)
 {
 }

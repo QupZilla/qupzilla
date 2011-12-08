@@ -19,6 +19,7 @@
 #include "mainapplication.h"
 #include "webview.h"
 #include "iconprovider.h"
+#include "databasewriter.h"
 
 // SQLite DB -> table bookmarks + folders
 // Unique in bookmarks table is id
@@ -131,10 +132,7 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     query.bindValue(1, title);
     query.bindValue(2, folder);
     query.bindValue(3, IconProvider::iconToBase64(icon));
-
-    if (!query.exec()) {
-        return false;
-    }
+    mApp->dbWriter()->executeQuery(query);
 
     Bookmark bookmark;
     bookmark.id = query.lastInsertId().toInt();
