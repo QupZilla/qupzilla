@@ -41,8 +41,8 @@ public:
 
     QString getUsername(const QUrl &url);
     QString getPassword(const QUrl &url);
-    bool addEntry(const QUrl &url, const QString &name, const QString &pass);
-    bool addEntry(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass);
+    void addEntry(const QUrl &url, const QString &name, const QString &pass);
+    void addEntry(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass);
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
 

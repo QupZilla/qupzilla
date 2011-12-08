@@ -51,7 +51,7 @@ private slots:
     void loadFinished();
 
 private:
-    enum Browser { Firefox = 0, Chrome = 1, Opera = 2, IE = 3};
+    enum Browser { Firefox = 0, Chrome = 1, Opera = 2, Html = 3, IE = 4};
 
     void setupBrowser(Browser browser);
     bool exportedOK();
