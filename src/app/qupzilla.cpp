@@ -88,6 +88,7 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
     , m_isClosing(false)
     , m_startingUrl(startUrl)
     , m_startBehaviour(behaviour)
+    , m_menuBookmarksAction(0)
     , m_actionPrivateBrowsing(0)
     , m_webInspectorDock(0)
     , m_sideBar(0)
@@ -545,6 +546,9 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
 void QupZilla::aboutToShowBookmarksMenu()
 {
     if (!m_bookmarksMenuChanged) {
+        if (m_menuBookmarksAction) {
+            m_menuBookmarksAction->setVisible(m_bookmarksToolbar->isVisible());
+        }
         return;
     }
     m_bookmarksMenuChanged = false;
@@ -567,8 +571,8 @@ void QupZilla::aboutToShowBookmarksMenu()
         m_menuBookmarks->addAction(icon, title, this, SLOT(loadActionUrl()))->setData(url);
     }
 
-    QMenu* folderBookmarks = new QMenu(tr("Bookmarks In ToolBar"), m_menuBookmarks);
-    folderBookmarks->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
+    QMenu* menuBookmarks= new QMenu(tr("Bookmarks In ToolBar"), m_menuBookmarks);
+    menuBookmarks->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
 
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar'");
     while (query.next()) {
@@ -579,12 +583,12 @@ void QupZilla::aboutToShowBookmarksMenu()
             title.truncate(40);
             title += "..";
         }
-        folderBookmarks->addAction(icon, title, this, SLOT(loadActionUrl()))->setData(url);
+        menuBookmarks->addAction(icon, title, this, SLOT(loadActionUrl()))->setData(url);
     }
-    if (folderBookmarks->isEmpty()) {
-        folderBookmarks->addAction(tr("Empty"));
+    if (menuBookmarks->isEmpty()) {
+        menuBookmarks->addAction(tr("Empty"));
     }
-    m_menuBookmarks->addMenu(folderBookmarks);
+    m_menuBookmarksAction = m_menuBookmarks->addMenu(menuBookmarks);
 
     query.exec("SELECT name FROM folders");
     while (query.next()) {
@@ -610,6 +614,7 @@ void QupZilla::aboutToShowBookmarksMenu()
         m_menuBookmarks->addMenu(tempFolder);
     }
 
+    m_menuBookmarksAction->setVisible(m_bookmarksToolbar->isVisible());
 }
 
 void QupZilla::aboutToShowHistoryMenu(bool loadHistory)
