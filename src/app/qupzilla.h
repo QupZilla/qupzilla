@@ -224,6 +224,7 @@ private:
     QMenu* m_menuHistory;
     QMenu* m_menuClosedTabs;
     QMenu* m_menuEncoding;
+    QAction* m_menuBookmarksAction;
     QAction* m_actionShowToolbar;
     QAction* m_actionShowBookmarksToolbar;
     QAction* m_actionShowStatusbar;
