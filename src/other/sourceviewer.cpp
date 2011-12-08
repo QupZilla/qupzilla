@@ -91,7 +91,8 @@ SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
     //Highlight selectedHtml
     if (!selectedHtml.isEmpty()) {
         m_sourceEdit->find(selectedHtml, QTextDocument::FindWholeWords);
-    } else {
+    }
+    else {
         QTextCursor cursor = m_sourceEdit->textCursor();
         cursor.setPosition(0);
         m_sourceEdit->setTextCursor(cursor);

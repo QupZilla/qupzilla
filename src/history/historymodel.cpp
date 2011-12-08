@@ -59,7 +59,7 @@ int HistoryModel::addHistoryEntry(const QUrl &url, QString &title)
         query.bindValue(0, QDateTime::currentMSecsSinceEpoch());
         query.bindValue(1, url);
         query.bindValue(2, title);
-        query.exec();
+        mApp->dbWriter()->executeQuery(query);
 
         int id = query.lastInsertId().toInt();
         HistoryEntry entry;

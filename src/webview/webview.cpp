@@ -575,7 +575,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
 
     QWebElement element = r.element();
     if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea" ||
-            element.tagName().toLower() == "video" || element.tagName().toLower() == "audio") ) {
+                              element.tagName().toLower() == "video" || element.tagName().toLower() == "audio")) {
         if (m_menu->isEmpty()) {
             page()->createStandardContextMenu()->popup(QCursor::pos());
             return;

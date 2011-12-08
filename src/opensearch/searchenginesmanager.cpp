@@ -21,6 +21,7 @@
 #include "networkmanager.h"
 #include "opensearchreader.h"
 #include "opensearchengine.h"
+#include "databasewriter.h"
 
 #define ENSURE_LOADED if (!m_settingsLoaded) loadSettings();
 

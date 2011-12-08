@@ -86,7 +86,7 @@ void ToolButton::mousePressEvent(QMouseEvent* e)
 
 void ToolButton::mouseReleaseEvent(QMouseEvent* e)
 {
-    if (e->button() == Qt::MiddleButton && rect().contains(e->pos()) ) {
+    if (e->button() == Qt::MiddleButton && rect().contains(e->pos())) {
         emit middleMouseClicked();
         return;
     }

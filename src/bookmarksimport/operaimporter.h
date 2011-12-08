@@ -47,7 +47,6 @@ private:
 
     bool m_error;
     QString m_errorString;
-
 };
 
 #endif // OPERAIMPORTER_H

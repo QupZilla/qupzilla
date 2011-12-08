@@ -67,5 +67,6 @@
         <file>icons/preferences/dialog-question.png</file>
         <file>icons/preferences/mail-inbox.png</file>
         <file>icons/preferences/preferences-system-firewall.png</file>
+        <file>icons/browsers/html.png</file>
     </qresource>
 </RCC>
