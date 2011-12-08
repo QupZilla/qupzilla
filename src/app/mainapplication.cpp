@@ -41,6 +41,7 @@
 #include "profileupdater.h"
 #include "searchenginesmanager.h"
 #include "speeddial.h"
+#include "databasewriter.h"
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -60,6 +61,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     , m_desktopNotifications(0)
     , m_iconProvider(new IconProvider(this))
     , m_searchEnginesManager(0)
+    , m_dbWriter(new DatabaseWriter(this))
     , m_isClosing(false)
     , m_isStateChanged(false)
     , m_isExited(false)
