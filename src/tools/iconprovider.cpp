@@ -18,6 +18,7 @@
 #include "iconprovider.h"
 #include "webview.h"
 #include "mainapplication.h"
+#include "databasewriter.h"
 
 IconProvider::IconProvider(QObject* parent)
     : QObject(parent)
@@ -103,7 +104,7 @@ void IconProvider::saveIconsToDatabase()
 
         query.bindValue(0, iconToBase64(ic.icon));
         query.bindValue(1, ic.url.toEncoded(QUrl::RemoveFragment));
-        query.exec();
+        mApp->dbWriter()->executeQuery(query);
     }
 
     m_iconBuffer.clear();

@@ -19,6 +19,7 @@
 #include "webview.h"
 #include "qupzilla.h"
 #include "iconprovider.h"
+#include "databasewriter.h"
 
 HistoryModel::HistoryModel(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
@@ -75,7 +76,7 @@ int HistoryModel::addHistoryEntry(const QUrl &url, QString &title)
         query.bindValue(0, QDateTime::currentMSecsSinceEpoch());
         query.bindValue(1, title);
         query.bindValue(2, url);
-        query.exec();
+        mApp->dbWriter()->executeQuery(query);
 
         HistoryEntry before;
         before.id = id;
@@ -120,15 +121,13 @@ bool HistoryModel::deleteHistoryEntry(int index)
 
     query.prepare("DELETE FROM history WHERE id=?");
     query.bindValue(0, index);
-    bool removeHistorySuccess = query.exec();
+    mApp->dbWriter()->executeQuery(query);
     query.prepare("DELETE FROM icons WHERE url=?");
     query.bindValue(0, entry.url.toEncoded(QUrl::RemoveFragment));
-    query.exec();
-    if (removeHistorySuccess) {
-        emit historyEntryDeleted(entry);
-        return true;
-    }
-    return false;
+    mApp->dbWriter()->executeQuery(query);
+
+    emit historyEntryDeleted(entry);
+    return true;
 }
 
 bool HistoryModel::deleteHistoryEntry(const QString &url, const QString &title)

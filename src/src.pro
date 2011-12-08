@@ -173,7 +173,8 @@ SOURCES += main.cpp\
     tools/followredirectreply.cpp \
     webview/webhistorywrapper.cpp \
     tools/pagethumbnailer.cpp \
-    plugins/speeddial.cpp
+    plugins/speeddial.cpp \
+    other/databasewriter.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -289,7 +290,8 @@ HEADERS  += \
     tools/followredirectreply.h \
     webview/webhistorywrapper.h \
     tools/pagethumbnailer.h \
-    plugins/speeddial.h
+    plugins/speeddial.h \
+    other/databasewriter.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -386,3 +388,5 @@ equals(d_w7api, "true") { DEFINES += W7API }
 
 message(Using following defines)
 message($$DEFINES)
+
+
