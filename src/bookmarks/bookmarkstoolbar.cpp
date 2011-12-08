@@ -21,6 +21,7 @@
 #include "iconprovider.h"
 #include "historymodel.h"
 #include "toolbutton.h"
+#include "databasewriter.h"
 
 BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -115,12 +116,12 @@ void BookmarksToolbar::moveRight()
     query.prepare("UPDATE bookmarks SET toolbar_position=? WHERE id=?");
     query.addBindValue(index + 1);
     query.addBindValue(bookmark.id);
-    query.exec();
+    mApp->dbWriter()->executeQuery(query);
 
     query.prepare("UPDATE bookmarks SET toolbar_position=? WHERE id=?");
     query.addBindValue(index);
     query.addBindValue(bookmarkRight.id);
-    query.exec();
+    mApp->dbWriter()->executeQuery(query);
 
     QWidget* w = m_layout->takeAt(index)->widget();
     m_layout->insertWidget(index + 1, w);
@@ -152,12 +153,12 @@ void BookmarksToolbar::moveLeft()
     query.prepare("UPDATE bookmarks SET toolbar_position=? WHERE id=?");
     query.addBindValue(index - 1);
     query.addBindValue(bookmark.id);
-    query.exec();
+    mApp->dbWriter()->executeQuery(query);
 
     query.prepare("UPDATE bookmarks SET toolbar_position=? WHERE id=?");
     query.addBindValue(index);
     query.addBindValue(bookmarkLeft.id);
-    query.exec();
+    mApp->dbWriter()->executeQuery(query);
 
     QWidget* w = m_layout->takeAt(index)->widget();
     m_layout->insertWidget(index - 1, w);
@@ -316,7 +317,7 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     query.prepare("UPDATE bookmarks SET toolbar_position=? WHERE id=?");
     query.addBindValue(indexForBookmark);
     query.addBindValue(bookmark.id);
-    query.exec();
+    mApp->dbWriter()->executeQuery(query);
 }
 
 void BookmarksToolbar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
