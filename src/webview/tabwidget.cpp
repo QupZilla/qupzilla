@@ -146,7 +146,6 @@ void TabWidget::loadSettings()
 {
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Browser-Tabs-Settings");
-    m_hideCloseButtonWithOneTab = settings.value("hideCloseButtonWithOneTab", false).toBool();
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
     settings.endGroup();
     settings.beginGroup("Web-URL-Settings");
@@ -270,13 +269,6 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
         tabBar()->setVisible(true);
     }
 
-    if (count() == 1 && m_hideCloseButtonWithOneTab) {
-        tabBar()->setTabsClosable(false);
-    }
-    else {
-        tabBar()->setTabsClosable(true);
-    }
-
     connect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
@@ -342,9 +334,6 @@ void TabWidget::closeTab(int index)
 
     widget(index)->deleteLater();
 
-    if (count() == 1 && m_hideCloseButtonWithOneTab) {
-        tabBar()->setTabsClosable(false);
-    }
     if (count() == 1 && m_hideTabBarWithOneTab) {
         tabBar()->setVisible(false);
     }
