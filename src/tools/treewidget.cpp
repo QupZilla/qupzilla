@@ -195,9 +195,11 @@ bool TreeWidget::prependToParentItem(QTreeWidgetItem* parent, QTreeWidgetItem* i
 
 void TreeWidget::deleteItem(QTreeWidgetItem* item)
 {
-    if (m_allTreeItems.contains(item)) {
-        m_allTreeItems.removeOne(item);
-    }
+//    if (m_allTreeItems.contains(item)) {
+//        m_allTreeItems.removeOne(item);
+//    }
+
+    m_refreshAllItemsNeeded = true;
 
     delete item;
 }
