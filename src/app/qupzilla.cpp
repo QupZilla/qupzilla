@@ -90,8 +90,6 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
     , m_startBehaviour(behaviour)
     , m_menuBookmarksAction(0)
     , m_actionPrivateBrowsing(0)
-    , m_webInspectorDock(0)
-    , m_sideBar(0)
     , m_statusBarMessage(new StatusBarMessage(this))
     , m_sideBarWidth(0)
 {
@@ -756,13 +754,13 @@ void QupZilla::aboutToShowViewMenu()
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
 
-    if (!m_sideBar) {
+    if (!m_sideBar.data()) {
         m_actionShowBookmarksSideBar->setChecked(false);
         m_actionShowHistorySideBar->setChecked(false);
 //        m_actionShowRssSideBar->setChecked(false);
     }
     else {
-        SideBar::SideWidget actWidget = m_sideBar->activeWidget();
+        SideBar::SideWidget actWidget = m_sideBar.data()->activeWidget();
         m_actionShowBookmarksSideBar->setChecked(actWidget == SideBar::Bookmarks);
         m_actionShowHistorySideBar->setChecked(actWidget == SideBar::History);
 //        m_actionShowRssSideBar->setChecked(actWidget == SideBar::RSS);
@@ -997,11 +995,11 @@ void QupZilla::showBookmarksSideBar()
 {
     addSideBar();
 
-    if (m_sideBar->activeWidget() != SideBar::Bookmarks) {
-        m_sideBar->showBookmarks();
+    if (m_sideBar.data()->activeWidget() != SideBar::Bookmarks) {
+        m_sideBar.data()->showBookmarks();
     }
     else {
-        m_sideBar->close();
+        m_sideBar.data()->close();
     }
 }
 
@@ -1009,23 +1007,23 @@ void QupZilla::showHistorySideBar()
 {
     addSideBar();
 
-    if (m_sideBar->activeWidget() != SideBar::History) {
-        m_sideBar->showHistory();
+    if (m_sideBar.data()->activeWidget() != SideBar::History) {
+        m_sideBar.data()->showHistory();
     }
     else {
-        m_sideBar->close();
+        m_sideBar.data()->close();
     }
 }
 
 void QupZilla::addSideBar()
 {
-    if (m_sideBar) {
+    if (m_sideBar.data()) {
         return;
     }
 
     m_sideBar = new SideBar(this);
 
-    m_mainSplitter->insertWidget(0, m_sideBar);
+    m_mainSplitter->insertWidget(0, m_sideBar.data());
     m_mainSplitter->setCollapsible(0, false);
 
     QList<int> sizes;
@@ -1080,15 +1078,15 @@ void QupZilla::showWebInspector()
 #ifdef Q_WS_WIN
     weView()->triggerPageAction(QWebPage::InspectElement);
 #else
-    if (m_webInspectorDock) {
-        m_webInspectorDock->setPage(weView()->webPage());
-        m_webInspectorDock->show();
+    if (m_webInspectorDock.data()) {
+        m_webInspectorDock.data()->setPage(weView()->webPage());
+        m_webInspectorDock.data()->show();
         return;
     }
 
     m_webInspectorDock = new WebInspectorDockWidget(this);
-    connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock, SLOT(tabChanged()));
-    addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock);
+    connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock.data(), SLOT(tabChanged()));
+    addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock.data());
 #endif
 }
 
@@ -1353,7 +1351,7 @@ void QupZilla::closeEvent(QCloseEvent* event)
 
 bool QupZilla::quitApp()
 {
-    if (m_sideBar) {
+    if (m_sideBar.data()) {
         saveSideBarWidth();
     }
 
@@ -1366,7 +1364,7 @@ bool QupZilla::quitApp()
     settings.setValue("WindowGeometry", geometry());
     settings.setValue("LocationBarWidth", m_navigationBar->splitter()->sizes().at(0));
     settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
-    settings.setValue("SideBarWidth", m_sideBar ? m_mainSplitter->sizes().at(0) : m_sideBarWidth);
+    settings.setValue("SideBarWidth", m_sideBar.data() ? m_mainSplitter->sizes().at(0) : m_sideBarWidth);
 
     if (askOnClose && afterLaunch != 2 && m_tabWidget->count() > 1) {
         QDialog* dialog = new QDialog(this);

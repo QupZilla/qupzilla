@@ -23,7 +23,7 @@
 #include <QToolBar>
 #include <QWebSettings>
 #include <QUrl>
-#include <QPointer>
+#include <QWeakPointer>
 #include <QNetworkDiskCache>
 #include <QWebSecurityOrigin>
 #include <iostream>
@@ -137,7 +137,7 @@ private:
     SearchEnginesManager* m_searchEnginesManager;
     DatabaseWriter* m_dbWriter;
 
-    QList<QPointer<QupZilla> > m_mainWindows;
+    QList<QWeakPointer<QupZilla> > m_mainWindows;
 
     QString m_activeProfil;
     QString m_activeLanguage;

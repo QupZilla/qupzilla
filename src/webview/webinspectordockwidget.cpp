@@ -25,7 +25,6 @@
 WebInspectorDockWidget::WebInspectorDockWidget(QupZilla* mainClass)
     : QDockWidget(mainClass)
     , p_QupZilla(mainClass)
-    , m_inspector(0)
 {
     setWindowTitle(tr("Web Inspector"));
     setObjectName("WebInspector");
@@ -37,7 +36,7 @@ WebInspectorDockWidget::WebInspectorDockWidget(QupZilla* mainClass)
 
 void WebInspectorDockWidget::close()
 {
-    delete m_inspector;
+    delete m_inspector.data();
     p_QupZilla->weView()->webTab()->setInspectorVisible(false);
 
     hide();
@@ -45,14 +44,14 @@ void WebInspectorDockWidget::close()
 
 void WebInspectorDockWidget::show()
 {
-    if (!m_inspector) {
+    if (!m_inspector.data()) {
         m_inspector = new QWebInspector(this);
-        m_inspector->setPage(p_QupZilla->weView()->page());
-        setWidget(m_inspector);
+        m_inspector.data()->setPage(p_QupZilla->weView()->page());
+        setWidget(m_inspector.data());
     }
 
-    if (m_inspector->page() != p_QupZilla->weView()->page()) {
-        m_inspector->setPage(p_QupZilla->weView()->page());
+    if (m_inspector.data()->page() != p_QupZilla->weView()->page()) {
+        m_inspector.data()->setPage(p_QupZilla->weView()->page());
     }
 
     p_QupZilla->weView()->webTab()->setInspectorVisible(true);

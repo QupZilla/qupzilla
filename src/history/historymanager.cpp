@@ -56,10 +56,10 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
 
 QupZilla* HistoryManager::getQupZilla()
 {
-    if (!p_QupZilla) {
+    if (!p_QupZilla.data()) {
         p_QupZilla = mApp->getWindow();
     }
-    return p_QupZilla;
+    return p_QupZilla.data();
 }
 
 void HistoryManager::setMainWindow(QupZilla* window)

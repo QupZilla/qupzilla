@@ -21,7 +21,7 @@
 #include <QDockWidget>
 #include <QWebInspector>
 #include <QPair>
-#include <QPointer>
+#include <QWeakPointer>
 
 class WebPage;
 class QupZilla;
@@ -44,7 +44,7 @@ public slots:
 
 private:
     QupZilla* p_QupZilla;
-    QPointer<QWebInspector> m_inspector;
+    QWeakPointer<QWebInspector> m_inspector;
     WebPage* m_page;
 };
 

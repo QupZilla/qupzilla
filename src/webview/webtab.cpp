@@ -25,7 +25,6 @@
 WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     : QWidget()
     , p_QupZilla(mainClass)
-    , m_view(0)
     , m_locationBar(locationBar)
     , m_pinned(false)
     , m_inspectorVisible(false)
@@ -35,19 +34,19 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     m_layout->setSpacing(0);
 
     m_view = new WebView(p_QupZilla, this);
-    m_view->setLocationBar(locationBar);
-    m_layout->addWidget(m_view);
+    m_view.data()->setLocationBar(locationBar);
+    m_layout->addWidget(m_view.data());
 
     setLayout(m_layout);
     setAutoFillBackground(true); // We don't want this transparent
 
-    connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
-    connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(siteIconChanged()));
-    connect(m_view, SIGNAL(loadStarted()), m_locationBar, SLOT(clearIcon()));
-    connect(m_view, SIGNAL(loadFinished(bool)), m_locationBar, SLOT(siteIconChanged()));
-    connect(m_view, SIGNAL(showUrl(QUrl)), m_locationBar, SLOT(showUrl(QUrl)));
-    connect(m_view, SIGNAL(rssChanged(bool)), m_locationBar, SLOT(showRSSIcon(bool)));
-    connect(m_view->webPage(), SIGNAL(privacyChanged(bool)), m_locationBar, SLOT(setPrivacy(bool)));
+    connect(m_view.data(), SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
+    connect(m_view.data(), SIGNAL(iconChanged()), m_locationBar.data(), SLOT(siteIconChanged()));
+    connect(m_view.data(), SIGNAL(loadStarted()), m_locationBar.data(), SLOT(clearIcon()));
+    connect(m_view.data(), SIGNAL(loadFinished(bool)), m_locationBar.data(), SLOT(siteIconChanged()));
+    connect(m_view.data(), SIGNAL(showUrl(QUrl)), m_locationBar.data(), SLOT(showUrl(QUrl)));
+    connect(m_view.data(), SIGNAL(rssChanged(bool)), m_locationBar.data(), SLOT(showRSSIcon(bool)));
+    connect(m_view.data()->webPage(), SIGNAL(privacyChanged(bool)), m_locationBar.data(), SLOT(setPrivacy(bool)));
 }
 
 void WebTab::showNotification(QWidget* notif)
@@ -62,7 +61,7 @@ void WebTab::showNotification(QWidget* notif)
 
 int WebTab::tabIndex()
 {
-    return m_view->tabIndex();
+    return m_view.data()->tabIndex();
 }
 
 void WebTab::pinTab(int index)
@@ -74,7 +73,7 @@ void WebTab::pinTab(int index)
 
     if (m_pinned) { //Unpin tab
         m_pinned = false;
-        tabWidget->setTabText(index, m_view->title());
+        tabWidget->setTabText(index, m_view.data()->title());
         tabWidget->getTabBar()->updateCloseButton(index);
     }
     else {   // Pin tab
@@ -89,9 +88,9 @@ void WebTab::pinTab(int index)
 
 WebTab::~WebTab()
 {
-    if (m_locationBar) {
-        delete m_locationBar;
+    if (m_locationBar.data()) {
+        delete m_locationBar.data();
     }
 
-    m_view->deleteLater();
+    m_view.data()->deleteLater();
 }

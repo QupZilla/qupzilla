@@ -26,7 +26,7 @@
 #include <QSettings>
 #include <QPoint>
 #include <QTimer>
-#include <QPointer>
+#include <QWeakPointer>
 #include <QDir>
 
 class DesktopNotification;
@@ -51,7 +51,7 @@ private:
     Type m_notifType;
     QPoint m_position;
 
-    QPointer<DesktopNotification> m_desktopNotif;
+    QWeakPointer<DesktopNotification> m_desktopNotif;
     unsigned int m_uint;
 };
 

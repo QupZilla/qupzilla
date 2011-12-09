@@ -40,7 +40,7 @@
 #include <QPrintPreviewDialog>
 #include <QToolButton>
 #include <QWebInspector>
-#include <QPointer>
+#include <QWeakPointer>
 #include "qwebkitversion.h"
 
 #include "webtab.h"
@@ -240,11 +240,11 @@ private:
 
     QLabel* m_privateBrowsing;
     AdBlockIcon* m_adblockIcon;
-    QPointer<WebInspectorDockWidget> m_webInspectorDock;
+    QWeakPointer<WebInspectorDockWidget> m_webInspectorDock;
 
     BookmarksToolbar* m_bookmarksToolbar;
     TabWidget* m_tabWidget;
-    QPointer<SideBar> m_sideBar;
+    QWeakPointer<SideBar> m_sideBar;
     StatusBarMessage* m_statusBarMessage;
     NavigationBar* m_navigationBar;
 
