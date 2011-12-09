@@ -441,7 +441,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="326"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation type="unfinished">Sie können Lesezeichen von jedem Browser importieren, der den Export von Lesezeichen im HTML Format unterstützt. Diese Exportdatei hat gewöhnlich diese Endungen</translation>
+        <translation>Sie können Lesezeichen von jedem Browser importieren, der den Export von Lesezeichen im HTML Format unterstützt. Diese Exportdatei hat gewöhnlich diese Endungen</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="335"/>
