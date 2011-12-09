@@ -124,6 +124,7 @@ void BookmarksImportDialog::stopDownloading()
     ui->nextButton->setEnabled(true);
     ui->stopButton->hide();
     ui->progressBar->setValue(ui->progressBar->maximum());
+    ui->fetchingLabel->setText(tr("Please click Finish to save bookmarks."));
 }
 
 void BookmarksImportDialog::loadFinished()
@@ -133,6 +134,7 @@ void BookmarksImportDialog::loadFinished()
     if (ui->progressBar->value() == ui->progressBar->maximum()) {
         ui->stopButton->hide();
         ui->nextButton->setEnabled(true);
+        ui->fetchingLabel->setText(tr("Please click Finish to save bookmarks."));
     }
 }
 
