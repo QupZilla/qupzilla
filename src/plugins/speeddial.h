@@ -23,7 +23,7 @@
 #include <QCryptographicHash>
 #include <QDir>
 #include <QWebFrame>
-#include <QPointer>
+#include <QWeakPointer>
 #include <QDebug>
 
 class PageThumbnailer;
@@ -39,7 +39,7 @@ public:
     void addWebFrame(QWebFrame* frame);
 
     QString initialScript();
-    QString loadingImagePath() { return m_loadingImagePath; }
+    QString loadingImagePath();
 
 signals:
 
@@ -57,7 +57,7 @@ private:
     QString m_thumbnailsDir;
     QString m_loadingImagePath;
 
-    QList<QPointer<QWebFrame> > m_webFrames;
+    QList<QWeakPointer<QWebFrame> > m_webFrames;
 
     bool m_loaded;
     bool m_regenerateScript;

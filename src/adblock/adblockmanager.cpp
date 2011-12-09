@@ -57,7 +57,6 @@ AdBlockManager::AdBlockManager(QObject* parent)
     : QObject(parent)
     , m_loaded(false)
     , m_enabled(true)
-    , m_adBlockDialog(0)
     , m_adBlockNetwork(0)
     , m_adBlockPage(0)
     , m_subscription(0)
@@ -131,12 +130,12 @@ void AdBlockManager::save()
 
 AdBlockDialog* AdBlockManager::showDialog()
 {
-    if (!m_adBlockDialog) {
+    if (!m_adBlockDialog.data()) {
         m_adBlockDialog = new AdBlockDialog(mApp->getWindow());
     }
 
-    m_adBlockDialog->show();
-    return m_adBlockDialog;
+    m_adBlockDialog.data()->show();
+    return m_adBlockDialog.data();
 }
 
 void AdBlockManager::showRule()

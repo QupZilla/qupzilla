@@ -22,11 +22,9 @@
 
 PluginProxy::PluginProxy()
     : Plugins()
-    , m_speedDial(0)
+    , m_speedDial(new SpeedDial(this))
 {
     c2f_loadSettings();
-
-    m_speedDial = new SpeedDial(this);
 }
 
 void PluginProxy::populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestResult r)

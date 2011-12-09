@@ -49,7 +49,7 @@
 #include <QStringList>
 #include <QSettings>
 #include <QDebug>
-#include <QPointer>
+#include <QWeakPointer>
 
 class QUrl;
 class AdBlockDialog;
@@ -86,7 +86,7 @@ private:
 
     bool m_loaded;
     bool m_enabled;
-    QPointer<AdBlockDialog> m_adBlockDialog;
+    QWeakPointer<AdBlockDialog> m_adBlockDialog;
     AdBlockNetwork* m_adBlockNetwork;
     AdBlockPage* m_adBlockPage;
     AdBlockSubscription* m_subscription;

@@ -49,15 +49,15 @@ void DesktopNotificationsFactory::notify(const QPixmap &icon, const QString &hea
 
     switch (m_notifType) {
     case PopupWidget:
-        if (!m_desktopNotif) {
+        if (!m_desktopNotif.data()) {
             m_desktopNotif = new DesktopNotification();
         }
-        m_desktopNotif->setPixmap(icon);
-        m_desktopNotif->setHeading(heading);
-        m_desktopNotif->setText(text);
-        m_desktopNotif->setTimeout(m_timeout);
-        m_desktopNotif->move(m_position);
-        m_desktopNotif->show();
+        m_desktopNotif.data()->setPixmap(icon);
+        m_desktopNotif.data()->setHeading(heading);
+        m_desktopNotif.data()->setText(text);
+        m_desktopNotif.data()->setTimeout(m_timeout);
+        m_desktopNotif.data()->move(m_position);
+        m_desktopNotif.data()->show();
         break;
     case DesktopNative:
 #ifdef Q_WS_X11

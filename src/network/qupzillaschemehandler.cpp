@@ -20,8 +20,8 @@
 #include "qupzilla.h"
 #include "mainapplication.h"
 #include "webpage.h"
-#include "pluginproxy.h"
 #include "speeddial.h"
+#include "pluginproxy.h"
 
 QString authorString(const QString &name, const QString &mail)
 {

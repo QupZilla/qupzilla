@@ -22,11 +22,9 @@
 #include <QPushButton>
 #include <QToolButton>
 #include <QMenu>
-#include <QPointer>
+#include <QWeakPointer>
 #include <QCompleter>
 #include <QStringListModel>
-//#include <QWebFrame>
-//#include <QWebElement>
 
 #include "lineedit.h"
 #include "buttonwithmenu.h"
@@ -78,7 +76,7 @@ private:
     ClickableLabel* m_buttonSearch;
     ButtonWithMenu* m_boxSearchType;
     SearchEnginesManager* m_searchManager;
-    QPointer<SearchEnginesDialog> m_searchDialog;
+    QWeakPointer<SearchEnginesDialog> m_searchDialog;
 };
 
 #endif // WEBSEARCHBAR_H

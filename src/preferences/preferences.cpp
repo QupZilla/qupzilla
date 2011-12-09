@@ -371,17 +371,17 @@ void Preferences::showStackedPage(QListWidgetItem* item)
 
     if (ui->stackedWidget->currentIndex() == 8) {
         m_notification = new DesktopNotification(true);
-        m_notification->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
-        m_notification->setHeading(tr("OSD Notification"));
-        m_notification->setText(tr("Drag it on the screen to place it where you want."));
-        m_notification->move(m_notifPosition);
-        m_notification->show();
+        m_notification.data()->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
+        m_notification.data()->setHeading(tr("OSD Notification"));
+        m_notification.data()->setText(tr("Drag it on the screen to place it where you want."));
+        m_notification.data()->move(m_notifPosition);
+        m_notification.data()->show();
 
         mApp->desktopNotifications()->nativeNotificationPreview();
     }
-    else if (m_notification) {
-        m_notifPosition = m_notification->pos();
-        delete m_notification;
+    else if (m_notification.data()) {
+        m_notifPosition = m_notification.data()->pos();
+        delete m_notification.data();
     }
 }
 void Preferences::allowCacheChanged(bool state)
@@ -703,7 +703,7 @@ void Preferences::saveSettings()
     settings.setValue("Timeout", ui->notificationTimeout->value() * 1000);
     settings.setValue("Enabled", !ui->doNotUseNotifications->isChecked());
     settings.setValue("UseNativeDesktop", ui->useNativeSystemNotifications->isChecked());
-    settings.setValue("Position", m_notification ? m_notification->pos() : m_notifPosition);
+    settings.setValue("Position", m_notification.data() ? m_notification.data()->pos() : m_notifPosition);
     settings.endGroup();
 
     //OTHER
@@ -771,7 +771,7 @@ Preferences::~Preferences()
     delete ui;
     delete m_autoFillManager;
     delete m_pluginsList;
-    if (m_notification) {
-        delete m_notification;
+    if (m_notification.data()) {
+        delete m_notification.data();
     }
 }

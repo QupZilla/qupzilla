@@ -27,8 +27,8 @@
 #include "ui_jsprompt.h"
 #include "widget.h"
 #include "globalfunctions.h"
-#include "speeddial.h"
 #include "pluginproxy.h"
+#include "speeddial.h"
 
 QString WebPage::m_lastUploadLocation = QDir::homePath();
 
@@ -192,8 +192,8 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
 
 void WebPage::populateNetworkRequest(QNetworkRequest &request)
 {
-    QPointer<WebPage> pagePointer = this;
-    QPointer<WebView> webViewPointer = m_view;
+    WebPage* pagePointer = this;
+    WebView* webViewPointer = m_view;
 
     QVariant variant = qVariantFromValue((void*) pagePointer);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);

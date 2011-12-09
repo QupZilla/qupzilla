@@ -70,10 +70,10 @@ void BookmarksManager::search(const QString &string)
 
 QupZilla* BookmarksManager::getQupZilla()
 {
-    if (!p_QupZilla) {
+    if (!p_QupZilla.data()) {
         p_QupZilla = mApp->getWindow();
     }
-    return p_QupZilla;
+    return p_QupZilla.data();
 }
 
 void BookmarksManager::setMainWindow(QupZilla* window)
