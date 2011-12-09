@@ -358,7 +358,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="68"/>
         <source>From File</source>
-        <translation type="unfinished"></translation>
+        <translation>Von Datei</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="80"/>
@@ -441,7 +441,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="326"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation type="unfinished"></translation>
+        <translation>Sie können Lesezeichen von jedem Browser importieren, der den Exportvon Lesezeichen  im HTML Format unterstützt. Diese Exportdatei hat normalerweise diese Endungen</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="335"/>
@@ -877,7 +877,7 @@
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="24"/>
         <source>No Error</source>
-        <translation>Kein Fehler</translation>
+        <translation>Kein Fehler aufgetreten</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="39"/>
@@ -1422,7 +1422,7 @@
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="23"/>
         <source>No Error</source>
-        <translation>Kein Fehler</translation>
+        <translation>Kein Fehler aufgetreten</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="38"/>
@@ -1640,12 +1640,12 @@
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="6"/>
         <source>No Error</source>
-        <translation type="unfinished">Kein Fehler</translation>
+        <translation>Kein Fehler aufgetreten</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="21"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished">Datei kann nicht geöffnet werden.</translation>
+        <translation>Datei kann nicht geöffnet werden.</translation>
     </message>
 </context>
 <context>
@@ -2262,7 +2262,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="644"/>
         <source>Hide tabs when there is only one tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabs verstecken, wenn nur ein Tab geöffnet ist</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="705"/>
@@ -3089,7 +3089,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="58"/>
         <source>No Error</source>
-        <translation>Kein Fehler</translation>
+        <translation>Kein Fehler aufgetreten</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="64"/>
