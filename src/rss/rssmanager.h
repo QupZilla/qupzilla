@@ -23,7 +23,7 @@
 #include <QUrl>
 #include <QNetworkAccessManager>
 #include <QFormLayout>
-#include <QPointer>
+#include <QWeakPointer>
 #include <QDialogButtonBox>
 
 namespace Ui
@@ -64,7 +64,7 @@ private:
     QList<QPair<FollowRedirectReply*, QUrl> > m_replies;
     QNetworkAccessManager* m_networkManager;
     Ui::RSSManager* ui;
-    QPointer<QupZilla> p_QupZilla;
+    QWeakPointer<QupZilla> p_QupZilla;
 };
 
 #endif // RSSMANAGER_H

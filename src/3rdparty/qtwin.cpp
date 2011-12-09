@@ -29,7 +29,6 @@
 #include <QApplication>
 #include <QWidget>
 #include <QList>
-#include <QPointer>
 #include "historymodel.h"
 #include "mainapplication.h"
 

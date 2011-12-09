@@ -40,8 +40,8 @@
 #include "globalfunctions.h"
 #include "profileupdater.h"
 #include "searchenginesmanager.h"
-#include "speeddial.h"
 #include "databasewriter.h"
+#include "speeddial.h"
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -310,7 +310,7 @@ QupZilla* MainApplication::getWindow()
         if (!m_mainWindows.at(i)) {
             continue;
         }
-        return m_mainWindows.at(i);
+        return m_mainWindows.at(i).data();
     }
     return 0;
 }
@@ -609,12 +609,16 @@ bool MainApplication::saveStateSlot()
     stream << sessionVersion;
     stream << m_mainWindows.count();
     for (int i = 0; i < m_mainWindows.count(); i++) {
-        stream << m_mainWindows.at(i)->tabWidget()->saveState();
-        if (m_mainWindows.at(i)->isFullScreen()) {
+        QupZilla* qz = m_mainWindows.at(i).data();
+        if (!qz) {
+            continue;
+        }
+        stream << qz->tabWidget()->saveState();
+        if (qz->isFullScreen()) {
             stream << QByteArray();
         }
         else {
-            stream << m_mainWindows.at(i)->saveState();
+            stream << qz->saveState();
         }
     }
     file.close();

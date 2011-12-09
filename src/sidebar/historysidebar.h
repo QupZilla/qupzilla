@@ -20,7 +20,6 @@
 
 #include <QWidget>
 #include <QTreeWidgetItem>
-#include <QPointer>
 #include <QShortcut>
 
 #include "historymodel.h"
@@ -57,7 +56,7 @@ private slots:
 
 private:
     Ui::HistorySideBar* ui;
-    QPointer<QupZilla> p_QupZilla;
+    QupZilla* p_QupZilla;
     HistoryModel* m_historyModel;
 };
 

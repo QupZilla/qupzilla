@@ -28,7 +28,6 @@
 WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     : LineEdit(parent)
     , p_QupZilla(mainClass)
-    , m_searchDialog(0)
 {
     setObjectName("websearchbar");
     m_buttonSearch = new ClickableLabel(this);
@@ -83,14 +82,14 @@ void WebSearchBar::addSuggestions(const QStringList &list)
 
 void WebSearchBar::openSearchEnginesDialog()
 {
-    if (m_searchDialog) {
-        m_searchDialog->raise();
-        m_searchDialog->activateWindow();
+    if (m_searchDialog.data()) {
+        m_searchDialog.data()->raise();
+        m_searchDialog.data()->activateWindow();
         return;
     }
 
     m_searchDialog = new SearchEnginesDialog(this);
-    m_searchDialog->show();
+    m_searchDialog.data()->show();
 }
 
 void WebSearchBar::setupEngines()

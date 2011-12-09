@@ -20,7 +20,7 @@
 
 #include <QWidget>
 #include <QTreeWidgetItem>
-#include <QPointer>
+#include <QWeakPointer>
 
 #include "historymodel.h"
 
@@ -60,7 +60,7 @@ private slots:
 private:
     QupZilla* getQupZilla();
     Ui::HistoryManager* ui;
-    QPointer<QupZilla> p_QupZilla;
+    QWeakPointer<QupZilla> p_QupZilla;
     HistoryModel* m_historyModel;
 };
 

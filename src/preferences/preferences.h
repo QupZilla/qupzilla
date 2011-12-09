@@ -23,7 +23,7 @@
 #include <QListWidgetItem>
 #include <QColorDialog>
 #include <QAbstractButton>
-#include <QPointer>
+#include <QWeakPointer>
 
 namespace Ui
 {
@@ -77,7 +77,7 @@ private:
     AutoFillManager* m_autoFillManager;
     PluginsList* m_pluginsList;
     ThemeManager* m_themesManager;
-    QPointer<DesktopNotification> m_notification;
+    QWeakPointer<DesktopNotification> m_notification;
 
     QString m_homepage;
     QString m_newTabUrl;

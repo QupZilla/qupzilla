@@ -24,7 +24,6 @@ SpeedDial::SpeedDial(QObject* parent)
     , m_loaded(false)
     , m_regenerateScript(true)
 {
-    m_thumbnailsDir = mApp->getActiveProfilPath() + "thumbnails/";
 }
 
 void SpeedDial::loadSettings()
@@ -44,6 +43,7 @@ void SpeedDial::loadSettings()
                      "url:\"http://facebook.com\"|title:\"Facebook\";";
     }
 
+    m_thumbnailsDir = mApp->getActiveProfilPath() + "thumbnails/";
     m_loadingImagePath = "qrc:html/loading.gif";
 
     // If needed, create thumbnails directory
@@ -58,6 +58,15 @@ void SpeedDial::saveSettings()
     settings.beginGroup("SpeedDial");
     settings.setValue("pages", m_allPages);
     settings.endGroup();
+}
+
+QString SpeedDial::loadingImagePath()
+{
+    if (!m_loaded) {
+        loadSettings();
+    }
+
+    return m_loadingImagePath;
 }
 
 void SpeedDial::addWebFrame(QWebFrame* frame)
@@ -164,9 +173,11 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
     m_regenerateScript = true;
     fileName = QUrl::fromLocalFile(fileName).toString();
 
-    foreach(QWebFrame * frame, m_webFrames) {
+    for (int i = 0; i < m_webFrames.count(); i++) {
+        QWebFrame* frame = m_webFrames.at(i).data();
         if (!frame) {
-            m_webFrames.removeOne(frame);
+            m_webFrames.removeAt(i);
+            i--;
             continue;
         }
 

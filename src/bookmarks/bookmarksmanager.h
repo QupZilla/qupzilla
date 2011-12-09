@@ -21,7 +21,7 @@
 #include <QWidget>
 #include <QTreeWidgetItem>
 #include <QInputDialog>
-#include <QPointer>
+#include <QWeakPointer>
 #include <QDialogButtonBox>
 
 #include "bookmarksmodel.h"
@@ -76,7 +76,7 @@ private:
 
     bool m_isRefreshing;
     Ui::BookmarksManager* ui;
-    QPointer<QupZilla> p_QupZilla;
+    QWeakPointer<QupZilla> p_QupZilla;
     BookmarksModel* m_bookmarksModel;
 };
 
