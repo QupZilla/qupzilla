@@ -358,7 +358,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="68"/>
         <source>From File</source>
-        <translation type="unfinished"></translation>
+        <translation>Desde un archivo</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="80"/>
@@ -449,7 +449,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="326"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation type="unfinished"></translation>
+        <translation>Puede importar marcadores desde cualquier navegador que soporte la exportación en HTML. El archivo suele tener estos sufijos</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="335"/>
@@ -882,7 +882,7 @@
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="39"/>
         <source>Unable to open file.</source>
-        <translation>No se puede abrir archivo.</translation>
+        <translation>No se puede abrir el archivo.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="84"/>
@@ -1639,12 +1639,12 @@
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="6"/>
         <source>No Error</source>
-        <translation type="unfinished">Ningún error</translation>
+        <translation>Ningún error</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="21"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished">No se puede abrir archivo.</translation>
+        <translation>No se puede abrir el archivo.</translation>
     </message>
 </context>
 <context>
@@ -1809,7 +1809,7 @@
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="38"/>
         <source>Unable to open file.</source>
-        <translation>No se puede abrir archivo.</translation>
+        <translation>No se puede abrir el archivo.</translation>
     </message>
 </context>
 <context>
@@ -2225,7 +2225,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="644"/>
         <source>Hide tabs when there is only one tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar pestañas cuando sólo haya una pestaña</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="712"/>
@@ -2883,7 +2883,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="388"/>
         <source>Closed Tabs</source>
-        <translation>Pestañas cerradas</translation>
+        <translation>Pestañas cerradas recientemente</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="394"/>
