@@ -131,7 +131,7 @@ void HistorySideBar::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
         parentItem = new QTreeWidgetItem();
         parentItem->setText(0, localDate);
         parentItem->setIcon(0, QIcon(":/icons/menu/history_entry.png"));
-        ui->historyTree->addTopLevelItem(parentItem);
+        ui->historyTree->insertTopLevelItem(0, parentItem);
     }
 
     item->setText(0, entry.title);
