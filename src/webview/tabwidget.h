@@ -96,7 +96,6 @@ private:
     inline WebView* weView() { WebTab* webTab = qobject_cast<WebTab*>(widget(currentIndex())); if (!webTab) return 0; return webTab->view(); }
     inline WebView* weView(int index) { WebTab* webTab = qobject_cast<WebTab*>(widget(index)); if (!webTab) return 0; return webTab->view(); }
 
-    bool m_hideCloseButtonWithOneTab;
     bool m_hideTabBarWithOneTab;
     QUrl m_urlOnNewTab;
     QupZilla* p_QupZilla;
