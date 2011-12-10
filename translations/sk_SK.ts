@@ -1079,12 +1079,12 @@
         <location filename="../src/cookies/cookiemanager.ui" line="168"/>
         <location filename="../src/cookies/cookiemanager.ui" line="178"/>
         <location filename="../src/cookies/cookiemanager.ui" line="188"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="110"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="111"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="112"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="113"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="114"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="115"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="116"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="117"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation>&lt;nebolo vybraté cookie&gt;</translation>
     </message>
@@ -1095,7 +1095,7 @@
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="220"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="124"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="126"/>
         <source>Remove cookie</source>
         <translation>Odstrániť cookie</translation>
     </message>
@@ -1105,32 +1105,32 @@
         <translation>Hľadať</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="52"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="54"/>
         <source>Confirmation</source>
         <translation>Potvrdenie</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="53"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="55"/>
         <source>Are you sure to delete all cookies on your computer?</source>
         <translation>Ste si istý, že chcete vymazať všetky cookies z vášho počítača?</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="118"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="120"/>
         <source>Remove cookies</source>
         <translation>Odstrániť cookies</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="134"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
         <source>Secure only</source>
         <translation>Len zabezpečené</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="134"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
         <source>All connections</source>
         <translation>Všetky pripojenia</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="135"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="137"/>
         <source>Session cookie</source>
         <translation>Cookie relácie</translation>
     </message>
@@ -1680,12 +1680,12 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="648"/>
+        <location filename="../src/app/mainapplication.cpp" line="650"/>
         <source>Last session crashed</source>
         <translation>Minulá relácia spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="649"/>
+        <location filename="../src/app/mainapplication.cpp" line="651"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
     </message>
@@ -2663,12 +2663,12 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="339"/>
+        <location filename="../src/app/qupzilla.cpp" line="342"/>
         <source>Bookmarks</source>
         <translation>Záložky</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="343"/>
+        <location filename="../src/app/qupzilla.cpp" line="346"/>
         <source>History</source>
         <translation>História</translation>
     </message>
@@ -2783,82 +2783,82 @@
         <translation>Vybrať vš&amp;etko</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="305"/>
+        <location filename="../src/app/qupzilla.cpp" line="304"/>
         <source>&amp;Find</source>
         <translation>&amp;Nájsť</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="311"/>
+        <location filename="../src/app/qupzilla.cpp" line="314"/>
         <source>&amp;View</source>
         <translation>&amp;Zobrazenie</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="312"/>
+        <location filename="../src/app/qupzilla.cpp" line="315"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Panel &amp;navigácie</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="315"/>
+        <location filename="../src/app/qupzilla.cpp" line="318"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Panel &amp;záložiek</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="318"/>
+        <location filename="../src/app/qupzilla.cpp" line="321"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Stavový &amp;riadok</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="351"/>
+        <location filename="../src/app/qupzilla.cpp" line="354"/>
         <source>Toolbars</source>
         <translation>Panely nástrojov</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="355"/>
+        <location filename="../src/app/qupzilla.cpp" line="358"/>
         <source>Sidebars</source>
         <translation>Bočné panely</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="373"/>
+        <location filename="../src/app/qupzilla.cpp" line="376"/>
         <source>&amp;Page Source</source>
         <translation>Zdrojový &amp;kód stránky</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="321"/>
+        <location filename="../src/app/qupzilla.cpp" line="324"/>
         <source>&amp;Menu Bar</source>
         <translation>&amp;Menu panel</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="324"/>
+        <location filename="../src/app/qupzilla.cpp" line="327"/>
         <source>&amp;Fullscreen</source>
         <translation>&amp;Celá obrazovka</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="328"/>
+        <location filename="../src/app/qupzilla.cpp" line="331"/>
         <source>&amp;Stop</source>
         <translation>Za&amp;staviť</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="331"/>
+        <location filename="../src/app/qupzilla.cpp" line="334"/>
         <source>&amp;Reload</source>
         <translation>&amp;Obnoviť</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="334"/>
+        <location filename="../src/app/qupzilla.cpp" line="337"/>
         <source>Character &amp;Encoding</source>
         <translation>Kódovani&amp;e znakov</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="367"/>
+        <location filename="../src/app/qupzilla.cpp" line="370"/>
         <source>Zoom &amp;In</source>
         <translation>Priblíž&amp;iť</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="368"/>
+        <location filename="../src/app/qupzilla.cpp" line="371"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Oddialiť</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="369"/>
+        <location filename="../src/app/qupzilla.cpp" line="372"/>
         <source>Reset</source>
         <translation>Resetovať</translation>
     </message>
@@ -2878,27 +2878,27 @@
         <translation>Poslať odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="807"/>
+        <location filename="../src/app/qupzilla.cpp" line="815"/>
         <source>Other</source>
         <translation>Ostatné</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="817"/>
+        <location filename="../src/app/qupzilla.cpp" line="825"/>
         <source>Default</source>
         <translation>Štandardné</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1227"/>
+        <location filename="../src/app/qupzilla.cpp" line="1235"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Aktuálne cookies nie sú dostupné.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1228"/>
+        <location filename="../src/app/qupzilla.cpp" line="1236"/>
         <source>Your session is not stored.</source>
         <translation>Vaša relácia nie je uložená.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1235"/>
+        <location filename="../src/app/qupzilla.cpp" line="1243"/>
         <source>Start Private Browsing</source>
         <translation>Spustiť súkromné prehliadanie</translation>
     </message>
@@ -2908,66 +2908,66 @@
         <translation>Súkromné prehliadanie je zapnuté</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="392"/>
+        <location filename="../src/app/qupzilla.cpp" line="395"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Obnoviť zatvorenú &amp;kartu</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="572"/>
+        <location filename="../src/app/qupzilla.cpp" line="575"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Záložky v paneli nástrojov</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="587"/>
-        <location filename="../src/app/qupzilla.cpp" line="610"/>
-        <location filename="../src/app/qupzilla.cpp" line="691"/>
+        <location filename="../src/app/qupzilla.cpp" line="590"/>
+        <location filename="../src/app/qupzilla.cpp" line="613"/>
+        <location filename="../src/app/qupzilla.cpp" line="694"/>
         <source>Empty</source>
         <translation>Prázdne</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="180"/>
-        <location filename="../src/app/qupzilla.cpp" line="900"/>
+        <location filename="../src/app/qupzilla.cpp" line="908"/>
         <location filename="../src/app/qupzilla.h" line="144"/>
         <source>New tab</source>
         <translation>Nová karta</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="555"/>
+        <location filename="../src/app/qupzilla.cpp" line="558"/>
         <source>Bookmark &amp;This Page</source>
         <translation>Pridať túto &amp;stránku do záložiek</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="556"/>
+        <location filename="../src/app/qupzilla.cpp" line="559"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Pridať &amp;všetky karty do záložiek</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="557"/>
+        <location filename="../src/app/qupzilla.cpp" line="560"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>&amp;Organizovať záložky</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="639"/>
+        <location filename="../src/app/qupzilla.cpp" line="642"/>
         <source>&amp;Back</source>
         <translation>&amp;Späť</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="640"/>
+        <location filename="../src/app/qupzilla.cpp" line="643"/>
         <source>&amp;Forward</source>
         <translation>&amp;Dopredu</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="641"/>
+        <location filename="../src/app/qupzilla.cpp" line="644"/>
         <source>&amp;Home</source>
         <translation>Do&amp;mov</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="646"/>
+        <location filename="../src/app/qupzilla.cpp" line="649"/>
         <source>Show &amp;All History</source>
         <translation>Zobraziť celú &amp;históriu</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="386"/>
+        <location filename="../src/app/qupzilla.cpp" line="389"/>
         <source>Closed Tabs</source>
         <translation>Zatvorené karty</translation>
     </message>
@@ -2977,113 +2977,114 @@
         <translation>Uložiť obrázok stránky</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="499"/>
-        <location filename="../src/app/qupzilla.cpp" line="520"/>
+        <location filename="../src/app/qupzilla.cpp" line="502"/>
+        <location filename="../src/app/qupzilla.cpp" line="523"/>
         <source> (Private Browsing)</source>
         <translation> (Súkromné prehliadanie)</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="694"/>
+        <location filename="../src/app/qupzilla.cpp" line="697"/>
         <source>Restore All Closed Tabs</source>
         <translation>Obnoviť všetky zatvorené karty</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="695"/>
+        <location filename="../src/app/qupzilla.cpp" line="698"/>
         <source>Clear list</source>
         <translation>Vyčistiť zoznam</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="704"/>
+        <location filename="../src/app/qupzilla.cpp" line="707"/>
         <source>About &amp;Qt</source>
         <translation>O &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="705"/>
+        <location filename="../src/app/qupzilla.cpp" line="708"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp;O QupZille</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="707"/>
+        <location filename="../src/app/qupzilla.cpp" line="710"/>
         <source>Informations about application</source>
         <translation>Informácie o programe</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="712"/>
+        <location filename="../src/app/qupzilla.cpp" line="715"/>
         <source>Report &amp;Issue</source>
         <translation>Nahlásiť &amp;problém</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="718"/>
+        <location filename="../src/app/qupzilla.cpp" line="721"/>
         <source>&amp;Web Search</source>
         <translation>Hladať na &amp;webe</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="719"/>
+        <location filename="../src/app/qupzilla.cpp" line="722"/>
         <source>Page &amp;Info</source>
         <translation>&amp;Informácie o stránke</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="721"/>
+        <location filename="../src/app/qupzilla.cpp" line="724"/>
         <source>&amp;Download Manager</source>
         <translation>Správca &amp;sťahovania</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="722"/>
+        <location filename="../src/app/qupzilla.cpp" line="725"/>
         <source>&amp;Cookies Manager</source>
         <translation>Správca &amp;cookies</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="723"/>
+        <location filename="../src/app/qupzilla.cpp" line="726"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="724"/>
+        <location filename="../src/app/qupzilla.cpp" line="727"/>
         <source>RSS &amp;Reader</source>
         <translation>&amp;RSS čítačka</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="725"/>
+        <location filename="../src/app/qupzilla.cpp" line="728"/>
         <source>Clear Recent &amp;History</source>
         <translation>Vymazať nedávnu &amp;históriu</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="726"/>
+        <location filename="../src/app/qupzilla.cpp" line="729"/>
         <source>&amp;Private Browsing</source>
         <translation>Súkromné prehlia&amp;danie</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="734"/>
+        <location filename="../src/app/qupzilla.cpp" line="307"/>
+        <location filename="../src/app/qupzilla.cpp" line="738"/>
         <source>Pr&amp;eferences</source>
         <translation>Nastav&amp;enia</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1135"/>
+        <location filename="../src/app/qupzilla.cpp" line="1143"/>
         <source>Open file...</source>
         <translation>Otvoriť súbor...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1222"/>
+        <location filename="../src/app/qupzilla.cpp" line="1230"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Ste si istý, že chcete zapnúť súkromné prehliadanie?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1223"/>
+        <location filename="../src/app/qupzilla.cpp" line="1231"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Keď je zapnuté súkromné prehliadanie, niektoré akcie týkajúce sa vášho súkromia sú vypnuté:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1226"/>
+        <location filename="../src/app/qupzilla.cpp" line="1234"/>
         <source>Webpages are not added to the history.</source>
         <translation>Stránky nie sú pridávané do histórie.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1230"/>
+        <location filename="../src/app/qupzilla.cpp" line="1238"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Kým nezatvoríte okno, stále môžte používať tlačidlá Späť a Dopredu k vráteniu sa na stránky, ktoré ste mali otvorené.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1373"/>
+        <location filename="../src/app/qupzilla.cpp" line="1381"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
         <translation>Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
     </message>

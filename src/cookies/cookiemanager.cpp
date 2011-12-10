@@ -44,6 +44,8 @@ CookieManager::CookieManager(QWidget* parent)
     ui->search->setInactiveText(tr("Search"));
     ui->cookieTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
 
+    ui->cookieTree->sortItems(0, Qt::AscendingOrder);
+
 //    QTimer::singleShot(0, this, SLOT(refreshTable()));
 }
 
