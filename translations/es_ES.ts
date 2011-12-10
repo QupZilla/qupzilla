@@ -378,12 +378,12 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="296"/>
         <source>Title</source>
-        <translation>Título</translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="301"/>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation>Dirección</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="328"/>
@@ -409,7 +409,7 @@
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="127"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="137"/>
         <source>Please press Finish to complete importing process.</source>
-        <translation type="unfinished"></translation>
+        <translation>Por favor, presione Terminar para completar el proceso de importación.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="190"/>
@@ -478,12 +478,12 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="30"/>
         <source>Title</source>
-        <translation>Título</translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="35"/>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation>Dirección</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="43"/>
@@ -1450,12 +1450,12 @@
     <message>
         <location filename="../src/history/historymanager.ui" line="30"/>
         <source>Title</source>
-        <translation>Título</translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.ui" line="35"/>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation>Dirección</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.ui" line="43"/>
@@ -1599,7 +1599,7 @@
     <message>
         <location filename="../src/sidebar/historysidebar.ui" line="52"/>
         <source>Title</source>
-        <translation>Título</translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="70"/>
@@ -3287,12 +3287,12 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="224"/>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation>Dirección</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="225"/>
         <source>Title</source>
-        <translation>Título</translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="227"/>
@@ -3354,17 +3354,17 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="162"/>
         <source>Fill title and URL of a feed: </source>
-        <translation>Introduzca el título y la URL de un canal RSS:</translation>
+        <translation>Introduzca el nombre y la dirección de un canal RSS:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="164"/>
         <source>Feed title: </source>
-        <translation>Título del canal RSS:</translation>
+        <translation>Nombre del canal RSS:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="165"/>
         <source>Feed URL: </source>
-        <translation>URL del canal RSS:</translation>
+        <translation>Dirección del canal RSS:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="171"/>

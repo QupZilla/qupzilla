@@ -1364,7 +1364,7 @@ bool QupZilla::quitApp()
     }
 
     QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
-    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 0).toInt();
+    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
     bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", false).toBool();
 
     settings.beginGroup("Browser-View-Settings");
@@ -1374,7 +1374,7 @@ bool QupZilla::quitApp()
     settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
     settings.setValue("SideBarWidth", m_sideBar.data() ? m_mainSplitter->sizes().at(0) : m_sideBarWidth);
 
-    if (askOnClose && afterLaunch != 2 && m_tabWidget->count() > 1) {
+    if (askOnClose && afterLaunch != 3 && m_tabWidget->count() > 1) {
         QDialog* dialog = new QDialog(this);
         Ui_CloseDialog* ui = new Ui_CloseDialog();
         ui->setupUi(dialog);
