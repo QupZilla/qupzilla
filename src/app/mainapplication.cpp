@@ -646,7 +646,7 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
         m_isRestoring = false;
         return false;
     }
-    if (settings.value("isCrashed", false).toBool() && afterStart != 2) {
+    if (settings.value("isCrashed", false).toBool() && afterStart != 3) {
         QMessageBox::StandardButton button = QMessageBox::warning(window, tr("Last session crashed"),
                                              tr("<b>QupZilla crashed :-(</b><br/>Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?"),
                                              QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
