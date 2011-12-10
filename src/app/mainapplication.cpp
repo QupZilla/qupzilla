@@ -280,6 +280,8 @@ void MainApplication::loadSettings()
     m_websettings->setUserStyleSheetUrl(userStyleSheet);
     m_websettings->setDefaultTextEncoding("System");
     m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::fromTheme("text-plain").pixmap(16, 16));
+
+    // Allows to load files from qrc: scheme in qupzilla: pages
     QWebSecurityOrigin::addLocalScheme("qupzilla");
 
     if (allowPersistentStorage) {
