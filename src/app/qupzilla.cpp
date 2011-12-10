@@ -301,8 +301,11 @@ void QupZilla::setupMenu()
     m_menuEdit->addAction(QIcon::fromTheme("edit-delete"), tr("&Delete"))->setShortcut(QKeySequence("Del"));
     m_menuEdit->addSeparator();
     m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &All"), this, SLOT(selectAll()))->setShortcut(QKeySequence("Ctrl+A"));
-    m_menuEdit->addSeparator();
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
+    m_menuEdit->addSeparator();
+#ifdef Q_WS_X11
+    m_menuEdit->addAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
+#endif
     menuBar()->addMenu(m_menuEdit);
     connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowMenuEdit()));
     connect(m_menuEdit, SIGNAL(aboutToHide()), this, SLOT(aboutToHideMenuEdit()));
@@ -731,7 +734,9 @@ void QupZilla::aboutToShowToolsMenu()
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
     mApp->plugins()->populateToolsMenu(m_menuTools);
+#ifdef Q_WS_WIN
     m_menuTools->addAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
+#endif
 }
 
 void QupZilla::aboutToShowViewMenu()
@@ -794,7 +799,10 @@ void QupZilla::aboutToHideMenuEdit()
         act->setEnabled(false);
     }
 
-    m_menuEdit->actions().at(10)->setEnabled(true);
+    m_menuEdit->actions().at(9)->setEnabled(true);
+#ifdef Q_WS_X11
+    m_menuEdit->actions().at(11)->setEnabled(true);
+#endif
 }
 
 void QupZilla::aboutToShowEncodingMenu()
