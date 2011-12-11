@@ -31,7 +31,6 @@ void Menu::mouseReleaseEvent(QMouseEvent *e)
     }
 }
 
-
 Action::Action(QObject* parent)
     : QAction(parent)
 {
