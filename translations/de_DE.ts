@@ -460,7 +460,7 @@
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="127"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="137"/>
         <source>Please press Finish to complete importing process.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte klicken Sie auf &lt;Ende&gt;, um den Importvorgang abzuschließen.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="339"/>
@@ -1527,7 +1527,7 @@
     <message>
         <location filename="../src/history/historymodel.cpp" line="50"/>
         <source>No Named Page</source>
-        <translation>Unbekannte Seite</translation>
+        <translation>Leere Seite</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="203"/>
@@ -4382,7 +4382,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webview.cpp" line="890"/>
         <source>No Named Page</source>
-        <translation>Unbekannte Seite</translation>
+        <translation>Leere Seite</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="463"/>
