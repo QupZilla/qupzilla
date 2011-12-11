@@ -86,11 +86,16 @@ void PageThumbnailer::start()
 {
     m_page->mainFrame()->load(m_url);
 
-    connect(m_page, SIGNAL(loadFinished(bool)), this, SLOT(createThumbnail()));
+    connect(m_page, SIGNAL(loadFinished(bool)), this, SLOT(createThumbnail(bool)));
 }
 
-void PageThumbnailer::createThumbnail()
+void PageThumbnailer::createThumbnail(bool status)
 {
+    if (!status) {
+        emit thumbnailCreated(QPixmap());
+        return;
+    }
+
     QImage image(m_page->viewportSize(), QImage::Format_ARGB32);
     QPainter painter(&image);
     m_page->mainFrame()->render(&painter);

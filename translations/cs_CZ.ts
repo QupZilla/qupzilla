@@ -4384,7 +4384,7 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
         <translation>Hledat &quot;%1 ..&quot; s %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="887"/>
+        <location filename="../src/webview/webview.cpp" line="890"/>
         <source>No Named Page</source>
         <translation>Bezejmenná stránka</translation>
     </message>

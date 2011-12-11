@@ -4402,7 +4402,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation>Cerca &quot;%1 ..&quot; con %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="887"/>
+        <location filename="../src/webview/webview.cpp" line="890"/>
         <source>No Named Page</source>
         <translation>Pagina Senza Nome</translation>
     </message>

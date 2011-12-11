@@ -4377,7 +4377,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>Hľadať &quot;%1 ..&quot; s %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="887"/>
+        <location filename="../src/webview/webview.cpp" line="890"/>
         <source>No Named Page</source>
         <translation>Nepomenovaná stránka</translation>
     </message>

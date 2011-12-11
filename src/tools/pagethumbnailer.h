@@ -56,7 +56,7 @@ signals:
 public slots:
 
 private slots:
-    void createThumbnail();
+    void createThumbnail(bool status);
 
 private:
     QWebPage* m_page;
