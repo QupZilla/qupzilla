@@ -69,7 +69,7 @@ signals:
 
 public slots:
     void closeTab(int index = -1);
-    int addView(QUrl url = QUrl(), const QString &title = tr("New tab"), OpenUrlIn openIn = NewTab, bool selectLine = false);
+    int addView(QUrl url = QUrl(), const QString &title = tr("New tab"), OpenUrlIn openIn = NewTab, bool selectLine = false, int position = -1);
     void reloadTab(int index) { weView(index)->reload(); }
     void reloadAllTabs();
     void stopTab(int index) { weView(index)->stop(); }

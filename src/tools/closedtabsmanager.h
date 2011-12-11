@@ -31,13 +31,17 @@ public:
         QUrl url;
         QByteArray history;
         QString title;
+        int position;
 
-        bool operator==(const Tab &a) const {
-            return (a.url == url) && (a.history == history);
+        bool operator==(const Tab &a) const
+        {
+            return (a.url == url &&
+                    a.history == history &&
+                    a.position == position);
         }
     };
 
-    void saveView(WebView* view);
+    void saveView(WebView* view, int position);
     ClosedTabsManager::Tab getFirstClosedTab();
     ClosedTabsManager::Tab getTabAt(int index);
 
