@@ -4393,7 +4393,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>使用 %2搜索&quot;%1 ..&quot; </translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="887"/>
+        <location filename="../src/webview/webview.cpp" line="890"/>
         <source>No Named Page</source>
         <translation>无命名页面</translation>
     </message>

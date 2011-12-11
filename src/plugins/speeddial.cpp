@@ -166,12 +166,18 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
     QString url = thumbnailer->url().toString();
     QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
-    if (!image.save(fileName)) {
-        qWarning() << "SpeedDial::thumbnailCreated Cannot save thumbnail to " << fileName;
+    if (image.isNull()) {
+        fileName = "qrc:/html/broken-page.png";
+    }
+    else {
+        if (!image.save(fileName)) {
+            qWarning() << "SpeedDial::thumbnailCreated Cannot save thumbnail to " << fileName;
+        }
+
+        fileName = QUrl::fromLocalFile(fileName).toString();
     }
 
     m_regenerateScript = true;
-    fileName = QUrl::fromLocalFile(fileName).toString();
 
     for (int i = 0; i < m_webFrames.count(); i++) {
         QWebFrame* frame = m_webFrames.at(i).data();
