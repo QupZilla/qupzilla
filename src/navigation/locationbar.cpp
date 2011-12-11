@@ -84,6 +84,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
     connect(m_goButton, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
+    connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
 
     clearIcon();
@@ -156,13 +157,15 @@ void LocationBar::hideGoButton()
     m_goButton->hide();
 }
 
-void LocationBar::showPopup()
+void LocationBar::showMostVisited()
 {
-//    TODO: Fix to next version
-
-//    return;
-//    emit textEdited("");
-//    m_locationCompleter->popup()->showNormal();
+    if (text().isEmpty()) {
+        // Workaround: If we show popup when text in locationbar is empty and then
+        // move up and down in completer and then we leave completer -> completer will
+        // set text in locationbar back to last "real" completion
+        keyPressEvent(new QKeyEvent(QEvent::KeyPress, Qt::Key_unknown, Qt::NoModifier, QString(" ")));
+    }
+    m_locationCompleter->showMostVisited();
 }
 
 void LocationBar::showSiteInfo()
