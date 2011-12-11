@@ -22,6 +22,7 @@
 #include "historymodel.h"
 #include "toolbutton.h"
 #include "databasewriter.h"
+#include "menu.h"
 
 BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -239,7 +240,7 @@ void BookmarksToolbar::subfolderAdded(const QString &name)
     b->setIcon(style()->standardIcon(QStyle::SP_DirIcon));
     b->setText(name);
 
-    QMenu* menu = new QMenu(name);
+    Menu* menu = new Menu(name);
     b->setMenu(menu);
     connect(menu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowFolderMenu()));
 
@@ -420,7 +421,7 @@ void BookmarksToolbar::refreshBookmarks()
         b->setIcon(style()->standardIcon(QStyle::SP_DirIcon));
         b->setText(query.value(0).toString());
 
-        QMenu* menu = new QMenu(query.value(0).toString());
+        Menu* menu = new Menu(query.value(0).toString());
         b->setMenu(menu);
         connect(menu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowFolderMenu()));
 
@@ -434,7 +435,7 @@ void BookmarksToolbar::refreshBookmarks()
     m_mostVis->setText(tr("Most visited"));
     m_mostVis->setToolTip(tr("Sites you visited the most"));
 
-    m_menuMostVisited = new QMenu();
+    m_menuMostVisited = new Menu();
     m_mostVis->setMenu(m_menuMostVisited);
     connect(m_menuMostVisited, SIGNAL(aboutToShow()), this, SLOT(refreshMostVisited()));
 
@@ -466,7 +467,12 @@ void BookmarksToolbar::aboutToShowFolderMenu()
             title.truncate(40);
             title += "..";
         }
-        menu->addAction(icon, title, p_QupZilla, SLOT(loadActionUrl()))->setData(url);
+
+        Action* act = new Action(icon, title);
+        act->setData(url);
+        connect (act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
+        connect (act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewTab()));
+        menu->addAction(act);
     }
 
     if (menu->isEmpty()) {
@@ -484,7 +490,12 @@ void BookmarksToolbar::refreshMostVisited()
             entry.title.truncate(40);
             entry.title += "..";
         }
-        m_menuMostVisited->addAction(_iconForUrl(entry.url), entry.title, p_QupZilla, SLOT(loadActionUrl()))->setData(entry.url);
+
+        Action* act = new Action(_iconForUrl(entry.url), entry.title);
+        act->setData(entry.url);
+        connect (act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
+        connect (act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewTab()));
+        m_menuMostVisited->addAction(act);
     }
 
     if (m_menuMostVisited->isEmpty()) {

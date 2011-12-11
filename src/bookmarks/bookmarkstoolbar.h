@@ -28,6 +28,7 @@ class QupZilla;
 class BookmarksModel;
 class HistoryModel;
 class ToolButton;
+class Menu;
 class BookmarksToolbar : public QWidget
 {
     Q_OBJECT
@@ -68,7 +69,7 @@ private:
     QupZilla* p_QupZilla;
     BookmarksModel* m_bookmarksModel;
     HistoryModel* m_historyModel;
-    QMenu* m_menuMostVisited;
+    Menu* m_menuMostVisited;
     ToolButton* m_mostVis;
     QHBoxLayout* m_layout;
 };
