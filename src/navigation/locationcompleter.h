@@ -34,14 +34,13 @@ class LocationCompleter : public QCompleter
 public:
     explicit LocationCompleter(QObject* parent = 0);
 
-    //virtual QString pathFromIndex(const QModelIndex &index) const;
     virtual QStringList splitPath(const QString &path) const;
 
 signals:
 
 public slots:
     void refreshCompleter(const QString &string);
-
+    void showMostVisited();
 };
 
 #endif // LOCATIONCOMPLETER_H

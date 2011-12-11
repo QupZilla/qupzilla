@@ -42,12 +42,6 @@ LocationCompleter::LocationCompleter(QObject* parent) :
     setCompletionColumn(1);
 }
 
-//QString LocationCompleter::pathFromIndex(const QModelIndex &index) const
-//{
-//    qDebug() << __FUNCTION__ << "called";
-//    return QCompleter::pathFromIndex(index);
-//}
-
 QStringList LocationCompleter::splitPath(const QString &path) const
 {
     Q_UNUSED(path);
@@ -80,6 +74,39 @@ QStringList LocationCompleter::splitPath(const QString &path) const
         return returned2;
     }
 #endif
+}
+
+void LocationCompleter::showMostVisited()
+{
+    QSqlQuery query;
+    query.exec("SELECT title, url FROM history ORDER BY count DESC LIMIT 15");
+    int i = 0;
+    QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
+    QTreeView* treeView = qobject_cast<QTreeView*>(popup());
+
+    cModel->clear();
+    while (query.next()) {
+        QStandardItem* iconText = new QStandardItem();
+        QStandardItem* findUrl = new QStandardItem();
+        QString url = query.value(1).toUrl().toEncoded();
+
+        iconText->setIcon(_iconForUrl(query.value(1).toUrl()).pixmap(16, 16));
+        iconText->setText(query.value(0).toString().replace("\n", "").append("\n" + url));
+
+        findUrl->setText(url);
+        QList<QStandardItem*> items;
+        items.append(iconText);
+        items.append(findUrl);
+        cModel->insertRow(i, items);
+        i++;
+    }
+
+    treeView->header()->setResizeMode(0, QHeaderView::Stretch);
+    treeView->header()->resizeSection(1, 0);
+
+    popup()->setMinimumHeight(190);
+
+    QCompleter::complete();
 }
 
 void LocationCompleter::refreshCompleter(const QString &string)
