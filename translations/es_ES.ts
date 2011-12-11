@@ -4398,7 +4398,7 @@ Después de añadir o quitar rutas de certificados, es necesario reiniciar QupZi
         <translation>Buscar &quot;%1 ..&quot; con %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="887"/>
+        <location filename="../src/webview/webview.cpp" line="890"/>
         <source>No Named Page</source>
         <translation>Página en blanco</translation>
     </message>
