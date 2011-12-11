@@ -85,4 +85,18 @@ A: This feature has been added in version 1.0.0-rc1. If you are using older vers
    Then you will find the Import Bookmarks option in Menu File -> Import Bookmarks...
    The importing wizard will then guide you through the importing process.
 
-
+Q: Site xyz offers less features in QupZilla than in other browser, is it possbile to
+   change User Agent?
+----------------------------------------------------------------------------------
+A: You can change User Agent in QupZilla, but it is not possible from Preferences.
+   You need to manually edit settings.ini file in your profile directory.
+   Open settings.ini in your favourite text editor and find line with:
+    [Web-Browser-Settings]
+    
+   and append to next line this: UserAgent=YourUserAgent version 0.1.2.3 /Linux
+   So it will look something like that:
+   
+   [Web-Browser-Settings]
+   UserAgent=YourUserAgent version 0.1.2.3 /Linux
+   allowFlash=true
+   ...
