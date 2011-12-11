@@ -175,7 +175,8 @@ SOURCES += main.cpp\
     tools/pagethumbnailer.cpp \
     plugins/speeddial.cpp \
     other/databasewriter.cpp \
-    bookmarksimport/htmlimporter.cpp
+    bookmarksimport/htmlimporter.cpp \
+    tools/menu.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -293,7 +294,8 @@ HEADERS  += \
     tools/pagethumbnailer.h \
     plugins/speeddial.h \
     other/databasewriter.h \
-    bookmarksimport/htmlimporter.h
+    bookmarksimport/htmlimporter.h \
+    tools/menu.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -390,3 +392,5 @@ equals(d_w7api, "true") { DEFINES += W7API }
 
 message(Using following defines)
 message($$DEFINES)
+
+
