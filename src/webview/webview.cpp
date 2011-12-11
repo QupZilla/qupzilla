@@ -647,7 +647,7 @@ void WebView::stop()
         loadFinished(true);
 
         if (m_locationBar->text().isEmpty()) {
-            m_locationBar->setText(url().toEncoded());
+            emit urlChanged(url());
         }
     }
 }
@@ -843,24 +843,27 @@ void WebView::load(const QUrl &url)
 
     if (url.scheme() == "data" || url.scheme() == "qrc") {
         QWebView::load(url);
+        emit urlChanged(url);
         m_aboutToLoadUrl = url;
         return;
     }
 
     if (isUrlValid(url)) {
         QWebView::load(url);
+        emit urlChanged(url);
         m_aboutToLoadUrl = url;
         return;
     }
 
     if (QFile::exists(url.toLocalFile())) {
         QWebView::load(url);
+        emit urlChanged(url);
     }
     else {
         SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
         QString urlString = engine.url.replace("%s", url.toString());
         QWebView::load(QUrl(urlString));
-        m_locationBar->setText(urlString);
+        emit urlChanged(url);
     }
 }
 
