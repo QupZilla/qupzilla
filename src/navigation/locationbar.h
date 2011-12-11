@@ -60,7 +60,7 @@ private slots:
     void siteIconChanged();
     void setPrivacy(bool state);
     void textEdit();
-    void showPopup();
+    void showMostVisited();
     void showSiteInfo();
     void rssIconClicked();
     void urlEnter();
