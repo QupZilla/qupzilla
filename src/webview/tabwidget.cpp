@@ -240,7 +240,7 @@ void TabWidget::actionChangeIndex()
     }
 }
 
-int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool selectLine)
+int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool selectLine, int position)
 {
     m_lastTabIndex = currentIndex();
 
@@ -250,7 +250,15 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
 
     LocationBar* locBar = new LocationBar(p_QupZilla);
     m_locationBars->addWidget(locBar);
-    int index = addTab(new WebTab(p_QupZilla, locBar), "");
+    int index;
+
+    if (position == -1) {
+        index = addTab(new WebTab(p_QupZilla, locBar), "");
+    }
+    else {
+        index = insertTab(position, new WebTab(p_QupZilla, locBar), "");
+    }
+
     WebView* webView = weView(index);
     locBar->setWebView(webView);
 
@@ -326,7 +334,7 @@ void TabWidget::closeTab(int index)
     disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     disconnect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
     //Save last tab url and history
-    m_closedTabsManager->saveView(webView);
+    m_closedTabsManager->saveView(webView, index);
 
     if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
         setCurrentIndex(m_lastTabIndex);
@@ -434,7 +442,8 @@ void TabWidget::restoreClosedTab()
     else {
         tab = m_closedTabsManager->getFirstClosedTab();
     }
-    int index = addView(QUrl(), tab.title);
+
+    int index = addView(QUrl(), tab.title, TabWidget::NewSelectedTab, false, tab.position);
     QDataStream historyStream(tab.history);
     historyStream >> *weView(index)->history();
 
