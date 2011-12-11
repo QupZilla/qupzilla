@@ -30,6 +30,8 @@
 #include "pluginproxy.h"
 #include "speeddial.h"
 
+QString WebPage::UserAgent = "";
+
 QString WebPage::m_lastUploadLocation = QDir::homePath();
 
 WebPage::WebPage(WebView* parent, QupZilla* mainClass)
@@ -185,11 +187,6 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
     return accept;
 }
 
-QString WebPage::userAgentForUrl(const QUrl &url) const
-{
-    return QWebPage::userAgentForUrl(url);
-}
-
 void WebPage::populateNetworkRequest(QNetworkRequest &request)
 {
     WebPage* pagePointer = this;
@@ -255,6 +252,15 @@ void WebPage::cleanBlockedObjects()
     elements.append(docElement.findAll("*[src=\"" + s + "\"]"));
     foreach(QWebElement element, elements)
     element.setAttribute("style", "display:none;");
+}
+
+QString WebPage::userAgentForUrl(const QUrl &url) const
+{
+    if (UserAgent.isEmpty()) {
+        UserAgent = QWebPage::userAgentForUrl(url);
+    }
+
+    return UserAgent;
 }
 
 bool WebPage::extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output)

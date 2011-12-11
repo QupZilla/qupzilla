@@ -55,7 +55,6 @@ public:
     WebView* getView() { return m_view; }
     void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
-    QString userAgentForUrl(const QUrl &url) const;
 
     bool javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, const QString &defaultValue, QString* result);
     bool javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg);
@@ -68,6 +67,8 @@ public:
 
     void scheduleAdjustPage();
 
+    static QString UserAgent;
+
 signals:
     void privacyChanged(bool status);
 
@@ -77,6 +78,9 @@ protected slots:
 //    void loadingStarted();
     void progress(int prog);
     void finished();
+
+protected:
+    QString userAgentForUrl(const QUrl &url) const;
 
 private slots:
     void cleanBlockedObjects();

@@ -42,6 +42,7 @@
 #include "searchenginesmanager.h"
 #include "databasewriter.h"
 #include "speeddial.h"
+#include "webpage.h"
 
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
@@ -244,7 +245,9 @@ void MainApplication::loadSettings()
     int scrollingLines = settings.value("wheelScrollLines", wheelScrollLines()).toInt();
     QUrl userStyleSheet = QUrl::fromLocalFile(settings.value("userStyleSheet", "").toString());
     m_defaultZoom = settings.value("DefaultZoom", 100).toInt();
+    WebPage::UserAgent = settings.value("UserAgent", "").toString();
     settings.endGroup();
+
 
     m_websettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
     m_websettings->setAttribute(QWebSettings::PluginsEnabled, allowFlash);
@@ -268,6 +271,7 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::JavascriptCanCloseWindows, true);
 #endif
 
+    settings.beginGroup("Browser-Fonts");
     m_websettings->setFontFamily(QWebSettings::StandardFont, settings.value("StandardFont", m_websettings->fontFamily(QWebSettings::StandardFont)).toString());
     m_websettings->setFontFamily(QWebSettings::CursiveFont, settings.value("CursiveFont", m_websettings->fontFamily(QWebSettings::CursiveFont)).toString());
     m_websettings->setFontFamily(QWebSettings::FantasyFont, settings.value("FantasyFont", m_websettings->fontFamily(QWebSettings::FantasyFont)).toString());
@@ -276,6 +280,7 @@ void MainApplication::loadSettings()
     m_websettings->setFontFamily(QWebSettings::SerifFont, settings.value("SerifFont", m_websettings->fontFamily(QWebSettings::SerifFont)).toString());
     m_websettings->setFontSize(QWebSettings::DefaultFontSize, settings.value("DefaultFontSize", m_websettings->fontSize(QWebSettings::DefaultFontSize)).toInt());
     m_websettings->setFontSize(QWebSettings::DefaultFixedFontSize, settings.value("FixedFontSize", m_websettings->fontSize(QWebSettings::DefaultFixedFontSize)).toInt());
+    settings.endGroup();
 
     m_websettings->setUserStyleSheetUrl(userStyleSheet);
     m_websettings->setDefaultTextEncoding("System");
