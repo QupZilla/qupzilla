@@ -22,6 +22,7 @@
 #include "websearchbar.h"
 #include "reloadstopbutton.h"
 #include "webhistorywrapper.h"
+#include "menu.h"
 
 NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -65,9 +66,9 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_buttonAddTab->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonAddTab->setAutoRaise(true);
 
-    m_menuBack = new QMenu(this);
+    m_menuBack = new Menu(this);
     m_buttonBack->setMenu(m_menuBack);
-    m_menuForward = new QMenu();
+    m_menuForward = new Menu(this);
     m_buttonNext->setMenu(m_menuForward);
 
     m_supMenu = new ToolButton(this);
@@ -159,8 +160,18 @@ void NavigationBar::aboutToShowHistoryBackMenu()
                 title.truncate(40);
                 title += "..";
             }
-            QAction* action = m_menuBack->addAction(_iconForUrl(item.url()), title, this, SLOT(goAtHistoryIndex()));
-            action->setData(i);
+
+            QIcon icon = item.icon();
+            if (icon.isNull()) {
+                icon = _iconForUrl(item.url());
+            }
+
+            Action* act = new Action(icon, title);
+            act->setData(i);
+            connect (act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
+            connect (act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
+            m_menuBack->addAction(act);
+
             lastUrl = item.url();
         }
 
@@ -194,8 +205,18 @@ void NavigationBar::aboutToShowHistoryNextMenu()
                 title.truncate(40);
                 title += "..";
             }
-            QAction* action = m_menuForward->addAction(_iconForUrl(item.url()), title, this, SLOT(goAtHistoryIndex()));
-            action->setData(i);
+
+            QIcon icon = item.icon();
+            if (icon.isNull()) {
+                icon = _iconForUrl(item.url());
+            }
+
+            Action* act = new Action(icon, title);
+            act->setData(i);
+            connect (act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
+            connect (act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
+            m_menuForward->addAction(act);
+
             lastUrl = item.url();
         }
 
@@ -218,11 +239,26 @@ void NavigationBar::clearHistory()
 
 void NavigationBar::goAtHistoryIndex()
 {
+    QWebHistory* history = p_QupZilla->weView()->page()->history();
+
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        p_QupZilla->weView()->page()->history()->goToItem(p_QupZilla->weView()->page()->history()->itemAt(action->data().toInt()));
+        history->goToItem(history->itemAt(action->data().toInt()));
     }
 
     refreshHistory();
+}
+
+void NavigationBar::goAtHistoryIndexInNewTab()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        TabWidget* tabWidget = p_QupZilla->tabWidget();
+        tabWidget->duplicateTab(tabWidget->currentIndex());
+
+        int index = tabWidget->count() - 1;
+        QWebHistory* history = p_QupZilla->weView(index)->page()->history();
+
+        history->goToItem(history->itemAt(action->data().toInt()));
+    }
 }
 
 void NavigationBar::refreshHistory()
