@@ -236,7 +236,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="45"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="50"/>
@@ -280,7 +280,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="97"/>
         <source>Hide Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏密码</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="115"/>
@@ -308,7 +308,7 @@
     <message>
         <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="unfinished"></translation>
+        <translation>你想QupZilla记住密码&lt;b&gt;%1&lt;/b&gt; on %2?</translation>
     </message>
 </context>
 <context>
@@ -358,7 +358,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="68"/>
         <source>From File</source>
-        <translation type="unfinished"></translation>
+        <translation>从文件</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="80"/>
@@ -409,7 +409,7 @@
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="127"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="137"/>
         <source>Please press Finish to complete importing process.</source>
-        <translation type="unfinished"></translation>
+        <translation>请按Finish以完成导入过程。</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="190"/>
@@ -432,7 +432,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="282"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Mozilla Firefox的书签&lt;/ B&gt; SQLite数据库存储在&lt;b&gt; places.sqlite。此文件通常位于</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="284"/>
@@ -445,7 +445,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="297"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>谷歌浏览器存储在&lt;b&gt;书签书签&lt;/ b&gt;文本文件。此文件通常位于</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="313"/>
@@ -455,7 +455,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="328"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation type="unfinished"></translation>
+        <translation>您可以从任何支持HTML的浏览器中导入书签。此文件通常这些后缀</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="337"/>
@@ -819,7 +819,7 @@
     <message>
         <location filename="../src/other/browsinglibrary.cpp" line="150"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"></translation>
+        <translation>数据库成功优化&lt;br/&gt; &lt;br/&gt;&lt;b&gt;优化前数据库大小：&lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;优化后数据库大小：&lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -827,7 +827,7 @@
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="17"/>
         <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
-        <translation>导出</translation>
+        <translation>&lt;b&gt;导出&lt;b&gt;</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="24"/>
@@ -855,12 +855,12 @@
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="92"/>
         <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
-        <translation></translation>
+        <translation>&lt;b&gt;发行人&lt;b&gt;</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="150"/>
         <source>&lt;b&gt;Validity&lt;/b&gt;</source>
-        <translation>&lt;b&gt;有效期的&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;有效期的&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="157"/>
@@ -1140,7 +1140,7 @@
     <message>
         <location filename="../src/desktopnotifications/desktopnotificationsfactory.cpp" line="100"/>
         <source>Native System Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>本机系统通知</translation>
     </message>
 </context>
 <context>
@@ -1154,7 +1154,7 @@
     <message>
         <location filename="../src/downloads/downloadfilehelper.cpp" line="215"/>
         <source>NoNameDownload</source>
-        <translation></translation>
+        <translation>无命名下载</translation>
     </message>
 </context>
 <context>
@@ -1162,109 +1162,109 @@
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="58"/>
         <source>Remaining time unavailable</source>
-        <translation></translation>
+        <translation>剩余时间不可用</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="111"/>
         <source>Done - %1</source>
-        <translation></translation>
+        <translation>完成-%1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="166"/>
         <location filename="../src/downloads/downloaditem.cpp" line="311"/>
         <source>Cancelled</source>
-        <translation></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="172"/>
         <source>few seconds</source>
-        <translation></translation>
+        <translation>几秒钟</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="175"/>
         <source>seconds</source>
-        <translation></translation>
+        <translation>秒</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="178"/>
         <source>minutes</source>
-        <translation></translation>
+        <translation>分钟</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="181"/>
         <source>hours</source>
-        <translation></translation>
+        <translation>小时</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="188"/>
         <source>Unknown speed</source>
-        <translation></translation>
+        <translation>未知速度</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="208"/>
         <location filename="../src/downloads/downloaditem.cpp" line="247"/>
         <source>Unknown size</source>
-        <translation></translation>
+        <translation>未知大小</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="248"/>
         <source>%2 - unknown size (%3)</source>
-        <translation></translation>
+        <translation>%2-未知大小（%3）</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="251"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation></translation>
+        <translation>剩余 %1-%2 of %3 (%4)</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="271"/>
         <source>Cancelled - %1</source>
-        <translation></translation>
+        <translation>取消-%1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="285"/>
         <source>Delete file</source>
-        <translation></translation>
+        <translation>删除文件</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="285"/>
         <source>Do you want to also delete dowloaded file?</source>
-        <translation></translation>
+        <translation>你也想删除下载的文件吗？</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="301"/>
         <source>Open File</source>
-        <translation></translation>
+        <translation>打开文件</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="303"/>
         <source>Open Folder</source>
-        <translation></translation>
+        <translation>打开文件夹</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="305"/>
         <source>Go to Download Page</source>
-        <translation></translation>
+        <translation>转到下载页面</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="306"/>
         <source>Copy Download Link</source>
-        <translation></translation>
+        <translation>复制下载链接</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="308"/>
         <source>Cancel downloading</source>
-        <translation></translation>
+        <translation>取消下载</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="309"/>
         <source>Clear</source>
-        <translation></translation>
+        <translation>清除</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="311"/>
         <source>Error</source>
-        <translation></translation>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="319"/>
@@ -1274,24 +1274,24 @@
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="342"/>
         <source>Not found</source>
-        <translation></translation>
+        <translation>未找到</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="342"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation></translation>
+        <translation>对不起，文件%1未找到！</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="358"/>
         <source>Error: Cannot write to file!</source>
-        <translation></translation>
+        <translation>错误：无法写入文件！</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="370"/>
         <source>Error: </source>
-        <translation></translation>
+        <translation>错误：</translation>
     </message>
 </context>
 <context>
@@ -1311,7 +1311,7 @@
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="137"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation type="unfinished"></translation>
+        <translation>%1%的%2文件(%3)%4剩余</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="140"/>
@@ -1643,12 +1643,12 @@
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="6"/>
         <source>No Error</source>
-        <translation type="unfinished">没有错误</translation>
+        <translation>没有错误</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="21"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished">无法打开文件。</translation>
+        <translation>无法打开文件。</translation>
     </message>
 </context>
 <context>
@@ -1672,7 +1672,7 @@
         <location filename="../src/navigation/locationbar.cpp" line="294"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
-        <translation type="unfinished"></translation>
+        <translation>.co.uk</translation>
     </message>
 </context>
 <context>
@@ -1685,7 +1685,7 @@
     <message>
         <location filename="../src/app/mainapplication.cpp" line="651"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
-        <translation></translation>
+        <translation>QupZilla上次结束时崩溃，我们非常遗憾。您要还原保存的状态吗？</translation>
     </message>
 </context>
 <context>
@@ -1758,12 +1758,12 @@
     <message>
         <location filename="../src/network/networkmanager.cpp" line="140"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation type="unfinished"></translation>
+        <translation>您试图访问的页面有SSL证书错误：</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="164"/>
         <source>Would you like to make an exception for this certificate?</source>
-        <translation type="unfinished"></translation>
+        <translation>你想使这个证书例外吗？</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="185"/>
@@ -1790,7 +1790,7 @@
     <message>
         <location filename="../src/network/networkmanager.cpp" line="207"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
-        <translation></translation>
+        <translation>要求%1的用户名和密码。该网站说：“%2”</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="243"/>
@@ -2224,22 +2224,22 @@
         <location filename="../src/preferences/preferences.ui" line="237"/>
         <location filename="../src/preferences/preferences.ui" line="289"/>
         <source>Open speed dial</source>
-        <translation type="unfinished"></translation>
+        <translation>打开快速拨号</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="644"/>
         <source>Hide tabs when there is only one tab</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏选项卡当只有一个选项卡时</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="712"/>
         <source>Select all text by clicking in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>通过点击地址栏选择所有文本</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="829"/>
         <source>Enable XSS Auditing</source>
-        <translation type="unfinished"></translation>
+        <translation>启用的XSS审计</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="846"/>
@@ -2975,12 +2975,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="715"/>
         <source>Report &amp;Issue</source>
-        <translation>报告及发行&amp;I</translation>
+        <translation>&amp;I报告及发行</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="721"/>
         <source>&amp;Web Search</source>
-        <translation>网页搜索&amp;W</translation>
+        <translation>&amp;W网页搜索</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="722"/>
@@ -2990,17 +2990,17 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="724"/>
         <source>&amp;Download Manager</source>
-        <translation>下载管理&amp;D</translation>
+        <translation>&amp;D下载管理</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="725"/>
         <source>&amp;Cookies Manager</source>
-        <translation>管理Cookies&amp;C</translation>
+        <translation>&amp;C管理Cookies</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="726"/>
         <source>&amp;AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;AdBlock</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="727"/>
@@ -3117,7 +3117,7 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="123"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="124"/>
         <source>Report Issue</source>
-        <translation type="unfinished"></translation>
+        <translation>报告问题</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="129"/>
@@ -3259,43 +3259,43 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="216"/>
         <source>Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>快速拨号</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="217"/>
         <source>Add New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>添加新网页</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="218"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="226"/>
         <source>Edit</source>
-        <translation type="unfinished">编辑</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="219"/>
         <source>Remove</source>
-        <translation type="unfinished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="220"/>
         <source>Reload</source>
-        <translation type="unfinished">刷新</translation>
+        <translation>刷新</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="224"/>
         <source>Url</source>
-        <translation type="unfinished">地址</translation>
+        <translation>地址</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="225"/>
         <source>Title</source>
-        <translation type="unfinished">标题</translation>
+        <translation>标题</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="227"/>
         <source>New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>新网页</translation>
     </message>
 </context>
 <context>
@@ -3460,28 +3460,28 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="57"/>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
-        <translation type="unfinished"></translation>
+        <translation>这是一个标准系统路径和用户指定路径中的CA机构的证书列表。</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="108"/>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
-        <translation type="unfinished"></translation>
+        <translation>这是一个存储在您用户配置文件中的本地证书列表。它也包含了所有的证书，已接收到一个异常。</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="159"/>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
-        <translation type="unfinished"></translation>
+        <translation>如果CA机构证书不会自动加载到系统中，你可以手动指定证书存储路径。</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="171"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;注意:&lt;/b&gt;设置这个选项有很高的安全风险！</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="232"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
-        <translation type="unfinished"></translation>
+        <translation>所有证书必须有.CRT后缀。添加或删除证书路径后，QupZilla需要重新启动才能生效.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="68"/>
@@ -4162,7 +4162,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="216"/>
         <source>New tab</source>
-        <translation type="unfinished">新标签</translation>
+        <translation>新标签</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="273"/>
