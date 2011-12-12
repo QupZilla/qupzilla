@@ -113,6 +113,11 @@
     qproperty-fixedheight: 27;
 }
 
+#locationbar[secured="true"]
+{
+    background-color: #ffffbc;
+}
+
 #locationbar-bookmarkicon
 {
     margin-bottom: 2px;

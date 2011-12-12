@@ -236,6 +236,10 @@ void LocationBar::setPrivacy(bool state)
     m_siteIcon->setProperty("secured", state);
     m_siteIcon->style()->unpolish(m_siteIcon);
     m_siteIcon->style()->polish(m_siteIcon);
+
+    setProperty("secured", state);
+    style()->unpolish(this);
+    style()->polish(this);
 }
 
 void LocationBar::dropEvent(QDropEvent* event)
