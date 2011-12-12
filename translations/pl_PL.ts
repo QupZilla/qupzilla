@@ -502,15 +502,18 @@ p, li { white-space: pre-wrap; }
         <translation>Url</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="83"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="123"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="79"/>
+        <source>Import Bookmarks</source>
+        <translation type="unfinished">Zaimportuj zakładki</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="128"/>
         <source>Rename Folder</source>
         <translation>Ordner umbenennen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="90"/>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation type="obsolete">Löschen</translation>
     </message>
     <message>
         <source>Del</source>
@@ -527,105 +530,128 @@ p, li { white-space: pre-wrap; }
         <translation>Datenbank optimieren</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="76"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="218"/>
         <source>Add Subfolder</source>
         <translation>Unterordner hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="88"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Add new folder</source>
         <translation>Neuen Ordner hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="88"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Choose name for new bookmark folder: </source>
         <translation>Namen für neues Lesezeichen angeben:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="156"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Tab</source>
         <translation>Neuer Tab</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="119"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="211"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="234"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="260"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="516"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="561"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="124"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="222"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="246"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="273"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="299"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="555"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="600"/>
         <source>Bookmarks In Menu</source>
         <translation>Lesezeichen im Menü</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="119"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="212"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="239"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="263"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="436"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="517"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="562"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="124"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="217"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="222"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="247"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="278"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="302"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="475"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="556"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="601"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Lesezeichen in Werkzeug-Leiste</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="204"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
+        <source>Rename folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="224"/>
+        <source>Remove folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="239"/>
         <source>Open link in actual &amp;tab</source>
         <translation>Link in &amp;aktuellem Tab öffnen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="98"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="103"/>
         <source>Add new subfolder</source>
         <translation>Neuen Unterordner hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="98"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="103"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
         <translation>Namen für neuen Unterordner in Lesezeichen-Leiste auswählen: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="123"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="128"/>
         <source>Choose name for folder: </source>
         <translation>Namen für Ordner auswählen: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="205"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in &amp;new tab</source>
         <translation>Link in &amp;neuem Tab öffnen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="209"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="244"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>Lesezeichen in &amp;Ordner verschieben</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="210"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="515"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="560"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="245"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="554"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="599"/>
         <source>Unsorted Bookmarks</source>
         <translation>Unsortierte Lesezeichen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="511"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="256"/>
+        <source>Rename bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
+        <source>Remove bookmark</source>
+        <translation type="unfinished">Lesezeichen entfernen</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
         <translation>&lt;b&gt;Warnung: &lt;/b&gt;Diese Lesezeichen haben Sie bereits hinzugefügt!</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="524"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="563"/>
         <source>Choose name and location of bookmark.</source>
         <translation>Namen und Speicherort für Lesezeichen auswählen.</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="528"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="567"/>
         <source>Add New Bookmark</source>
         <translation>Neues Lesezeichen hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="569"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="608"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Ordner für Lesezeichen auswählen:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="570"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="609"/>
         <source>Bookmark All Tabs</source>
         <translation>Lesezeichen für alle geöffneten Tabs hinzufügen</translation>
     </message>
@@ -695,63 +721,63 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BookmarksToolbar</name>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="57"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="58"/>
         <source>&amp;Bookmark Current Page</source>
         <translation>Lesezeichen für &amp;aktuelle Seite hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="58"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="59"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Lesezeichen für alle &amp;geöffneten Tabs hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="59"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="60"/>
         <source>&amp;Organize Bookmarks</source>
         <translation>Bookmarks &amp;bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="61"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="62"/>
         <source>Hide Most &amp;Visited</source>
         <translation>Meistbesuchte &amp;verstecken</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="61"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="62"/>
         <source>Show Most &amp;Visited</source>
         <translation>Meistbesuchte &amp;anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="62"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="63"/>
         <source>&amp;Hide Toolbar</source>
         <translation>&amp;Werkzeugleiste verstecken</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="82"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="83"/>
         <source>Move right</source>
         <translation>Nach rechts</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="83"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="84"/>
         <source>Move left</source>
         <translation>Nach links</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="85"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="86"/>
         <source>Remove bookmark</source>
         <translation>Lesezeichen entfernen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="434"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="435"/>
         <source>Most visited</source>
         <translation>Meistbesuchte</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="435"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="436"/>
         <source>Sites you visited the most</source>
         <translation>Meistbesuchte Seiten</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="473"/>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="491"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="479"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="502"/>
         <source>Empty</source>
         <translation>Leer</translation>
     </message>
@@ -1505,45 +1531,45 @@ p, li { white-space: pre-wrap; }
         <translation>Datenbank optimieren</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="85"/>
+        <location filename="../src/history/historymanager.cpp" line="84"/>
         <source>New Tab</source>
         <translation>Neuer Tab</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="100"/>
+        <location filename="../src/history/historymanager.cpp" line="99"/>
         <source>Open link in actual tab</source>
         <translation>Link in aktuellem Tab öffnen</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="101"/>
+        <location filename="../src/history/historymanager.cpp" line="100"/>
         <source>Open link in new tab</source>
         <translation>Link in neuem Tab öffnen</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="143"/>
-        <location filename="../src/history/historymanager.cpp" line="229"/>
+        <location filename="../src/history/historymanager.cpp" line="142"/>
+        <location filename="../src/history/historymanager.cpp" line="228"/>
         <source>Today</source>
         <translation>Heute</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="146"/>
-        <location filename="../src/history/historymanager.cpp" line="232"/>
+        <location filename="../src/history/historymanager.cpp" line="145"/>
+        <location filename="../src/history/historymanager.cpp" line="231"/>
         <source>This Week</source>
         <translation>Diese Woche</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="149"/>
-        <location filename="../src/history/historymanager.cpp" line="235"/>
+        <location filename="../src/history/historymanager.cpp" line="148"/>
+        <location filename="../src/history/historymanager.cpp" line="234"/>
         <source>This Month</source>
         <translation>Dieser Monat</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="201"/>
+        <location filename="../src/history/historymanager.cpp" line="200"/>
         <source>Confirmation</source>
         <translation>Bestätigung</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="202"/>
+        <location filename="../src/history/historymanager.cpp" line="201"/>
         <source>Are you sure to delete all history?</source>
         <translation>Möchten Sie wirklich den gesamten Verlauf löschen?</translation>
     </message>
@@ -1698,12 +1724,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">Dodaj kanał RSS z tej strony...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="95"/>
+        <location filename="../src/navigation/locationbar.cpp" line="96"/>
         <source>Enter URL address or search on %1</source>
         <translation type="unfinished">Wprowadz adres URL lub szukaj dalej %1</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="294"/>
+        <location filename="../src/navigation/locationbar.cpp" line="303"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation type="unfinished">.pl</translation>
@@ -1717,12 +1743,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="650"/>
+        <location filename="../src/app/mainapplication.cpp" line="655"/>
         <source>Last session crashed</source>
         <translation type="unfinished">Ostania sesja zakończona nieprawidłowym z zamknięciem aplikacji</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="651"/>
+        <location filename="../src/app/mainapplication.cpp" line="656"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation type="unfinished">&lt;b&gt;QupZilla zawiesił się :-(&lt;/b&gt;&lt;br/&gt;Ostania sesja zakończona nieprawidłowym z zamknięciem QupZilli. Bardzo nam przykro. Czy chcesz spróbować przywrócić ostatni, zapisany stan?</translation>
     </message>
@@ -1730,39 +1756,39 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="37"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="38"/>
         <source>Back</source>
         <translation type="unfinished">Wróć</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="44"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="45"/>
         <source>Forward</source>
         <translation type="unfinished">Do przodu</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="58"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="59"/>
         <source>Home</source>
         <translation type="unfinished">Dom</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="64"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="65"/>
         <source>New Tab</source>
         <translation type="unfinished">Nowa zakłądka</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="76"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="77"/>
         <source>Main Menu</source>
         <translation type="unfinished">Menu główne</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="91"/>
         <location filename="../src/navigation/navigationbar.cpp" line="92"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="93"/>
         <source>Exit Fullscreen</source>
         <translation type="unfinished">Wyjdz z trybu pełnoekranowego</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="174"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="209"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="188"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="233"/>
         <source>Clear history</source>
         <translation type="unfinished">Wyczyść historię</translation>
     </message>
@@ -3379,12 +3405,12 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="33"/>
-        <location filename="../src/rss/rssmanager.cpp" line="111"/>
+        <location filename="../src/rss/rssmanager.cpp" line="110"/>
         <source>Empty</source>
         <translation>Leer</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="109"/>
+        <location filename="../src/rss/rssmanager.cpp" line="108"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation>Sie haben noch keine RSS Feeds abonniert.&lt;br/&gt;
@@ -3411,64 +3437,64 @@ Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</tra
         <translation>Datenbank optimieren</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="73"/>
+        <location filename="../src/rss/rssmanager.cpp" line="72"/>
         <source>News</source>
         <translation>Nachrichten</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="83"/>
-        <location filename="../src/rss/rssmanager.cpp" line="123"/>
+        <location filename="../src/rss/rssmanager.cpp" line="82"/>
+        <location filename="../src/rss/rssmanager.cpp" line="122"/>
         <source>Loading...</source>
         <translation>Laden...</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="162"/>
+        <location filename="../src/rss/rssmanager.cpp" line="161"/>
         <source>Fill title and URL of a feed: </source>
         <translation>Titel und URL des Feeds eintragen:</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="164"/>
+        <location filename="../src/rss/rssmanager.cpp" line="163"/>
         <source>Feed title: </source>
         <translation>Feed Titel: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="165"/>
+        <location filename="../src/rss/rssmanager.cpp" line="164"/>
         <source>Feed URL: </source>
         <translation>Feed URL: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="171"/>
+        <location filename="../src/rss/rssmanager.cpp" line="170"/>
         <source>Edit RSS Feed</source>
         <translation>RSS Feed barbeiten</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="213"/>
+        <location filename="../src/rss/rssmanager.cpp" line="212"/>
         <source>Open link in actual tab</source>
         <translation>Link in aktuellem Tab öffnen</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="214"/>
+        <location filename="../src/rss/rssmanager.cpp" line="213"/>
         <source>Open link in new tab</source>
         <translation>Link in neuem Tab öffnen</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="241"/>
-        <location filename="../src/rss/rssmanager.cpp" line="247"/>
+        <location filename="../src/rss/rssmanager.cpp" line="240"/>
+        <location filename="../src/rss/rssmanager.cpp" line="246"/>
         <source>New Tab</source>
         <translation>Neuer Tab</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="342"/>
+        <location filename="../src/rss/rssmanager.cpp" line="341"/>
         <source>Error in fetching feed</source>
         <translation>Feed konnte nicht abonniert werden</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="371"/>
+        <location filename="../src/rss/rssmanager.cpp" line="370"/>
         <source>RSS feed duplicated</source>
         <translation>Doppelter RSS Feed vorhanden</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="371"/>
+        <location filename="../src/rss/rssmanager.cpp" line="370"/>
         <source>You already have this feed.</source>
         <translation>Diesen Feed haben Sie bereits abonniert.</translation>
     </message>
@@ -3926,138 +3952,138 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
 <context>
     <name>SourceViewer</name>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="30"/>
+        <location filename="../src/other/sourceviewer.cpp" line="31"/>
         <source>Source of </source>
         <translation>Quelltext von </translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="56"/>
+        <location filename="../src/other/sourceviewer.cpp" line="57"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="57"/>
+        <location filename="../src/other/sourceviewer.cpp" line="58"/>
         <source>Save as...</source>
         <translation>Speichern als...</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="59"/>
+        <location filename="../src/other/sourceviewer.cpp" line="60"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="62"/>
+        <location filename="../src/other/sourceviewer.cpp" line="63"/>
         <source>Edit</source>
         <translation>Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="63"/>
+        <location filename="../src/other/sourceviewer.cpp" line="64"/>
         <source>Undo</source>
         <translation>Rückgängig</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="64"/>
+        <location filename="../src/other/sourceviewer.cpp" line="65"/>
         <source>Redo</source>
         <translation>Wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="66"/>
+        <location filename="../src/other/sourceviewer.cpp" line="67"/>
         <source>Cut</source>
         <translation>Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="67"/>
+        <location filename="../src/other/sourceviewer.cpp" line="68"/>
         <source>Copy</source>
         <translation>Kopieren</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="68"/>
+        <location filename="../src/other/sourceviewer.cpp" line="69"/>
         <source>Paste</source>
         <translation>Einfügen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="69"/>
+        <location filename="../src/other/sourceviewer.cpp" line="70"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="71"/>
+        <location filename="../src/other/sourceviewer.cpp" line="72"/>
         <source>Select All</source>
         <translation>Alle markieren</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="72"/>
+        <location filename="../src/other/sourceviewer.cpp" line="73"/>
         <source>Find</source>
         <translation>Suchen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="74"/>
-        <location filename="../src/other/sourceviewer.cpp" line="158"/>
+        <location filename="../src/other/sourceviewer.cpp" line="75"/>
+        <location filename="../src/other/sourceviewer.cpp" line="159"/>
         <source>Go to Line...</source>
         <translation>Gehe zu Zeile...</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="77"/>
+        <location filename="../src/other/sourceviewer.cpp" line="78"/>
         <source>View</source>
         <translation>Ansicht</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="78"/>
+        <location filename="../src/other/sourceviewer.cpp" line="79"/>
         <source>Reload</source>
         <translation>Neu laden</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="80"/>
+        <location filename="../src/other/sourceviewer.cpp" line="81"/>
         <source>Editable</source>
         <translation>Editierbar</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="81"/>
+        <location filename="../src/other/sourceviewer.cpp" line="82"/>
         <source>Word Wrap</source>
         <translation>Zeilenumbruch</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="104"/>
+        <location filename="../src/other/sourceviewer.cpp" line="105"/>
         <source>Save file...</source>
         <translation>Datei speichern...</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="111"/>
+        <location filename="../src/other/sourceviewer.cpp" line="112"/>
         <source>Error!</source>
         <translation>Fehler!</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="111"/>
+        <location filename="../src/other/sourceviewer.cpp" line="112"/>
         <source>Cannot write to file!</source>
         <translation>Datei kann nicht gespeichert werden!</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="112"/>
+        <location filename="../src/other/sourceviewer.cpp" line="113"/>
         <source>Error writing to file</source>
         <translation>Beim Schreiben der Datei ist ein Fehler aufgetreten</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="118"/>
+        <location filename="../src/other/sourceviewer.cpp" line="119"/>
         <source>Source successfully saved</source>
         <translation>Quelltext erfolgreich gespeichert</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="139"/>
+        <location filename="../src/other/sourceviewer.cpp" line="140"/>
         <source>Source reloaded</source>
         <translation>Quelltext neu geladen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="146"/>
+        <location filename="../src/other/sourceviewer.cpp" line="147"/>
         <source>Editable changed</source>
         <translation>Quelltext geändert</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="153"/>
+        <location filename="../src/other/sourceviewer.cpp" line="154"/>
         <source>Word Wrap changed</source>
         <translation>Zeilenumbruch geändert</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="158"/>
+        <location filename="../src/other/sourceviewer.cpp" line="159"/>
         <source>Enter line number</source>
         <translation>Zeilennummer eingeben</translation>
     </message>
@@ -4079,7 +4105,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <name>TabBar</name>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="316"/>
-        <location filename="../src/webview/tabbar.cpp" line="330"/>
+        <location filename="../src/webview/tabbar.cpp" line="334"/>
         <source>New tab</source>
         <translation>Neuer Tab</translation>
     </message>
@@ -4173,7 +4199,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="216"/>
-        <location filename="../src/webview/tabwidget.cpp" line="364"/>
+        <location filename="../src/webview/tabwidget.cpp" line="372"/>
         <source>No Named Page</source>
         <translation>Unbekannte Seite</translation>
     </message>
@@ -4183,9 +4209,9 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation>Aktuell sind %1 Tabs geöffnet</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="417"/>
-        <location filename="../src/webview/tabwidget.cpp" line="545"/>
-        <location filename="../src/webview/tabwidget.cpp" line="621"/>
+        <location filename="../src/webview/tabwidget.cpp" line="425"/>
+        <location filename="../src/webview/tabwidget.cpp" line="554"/>
+        <location filename="../src/webview/tabwidget.cpp" line="630"/>
         <location filename="../src/webview/tabwidget.h" line="72"/>
         <source>New tab</source>
         <translation>Neuer Tab</translation>
@@ -4249,94 +4275,94 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="171"/>
+        <location filename="../src/webview/webpage.cpp" line="173"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Um diese Seite anzeigen zu können, muss QupZilla eine erneute Abfrage an den Server versenden 
 </translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="216"/>
+        <location filename="../src/webview/webpage.cpp" line="213"/>
         <source>New tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="273"/>
+        <location filename="../src/webview/webpage.cpp" line="279"/>
         <source>Server refused the connection</source>
         <translation>Der Server hat den Verbindungsversuch abgelehnt</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="276"/>
+        <location filename="../src/webview/webpage.cpp" line="282"/>
         <source>Server closed the connection</source>
         <translation>Der Server hat die Verbindung beendet</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="279"/>
+        <location filename="../src/webview/webpage.cpp" line="285"/>
         <source>Server not found</source>
         <translation>Server nicht gefunden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="282"/>
+        <location filename="../src/webview/webpage.cpp" line="288"/>
         <source>Connection timed out</source>
         <translation>Zeitüberschreitung der Anfrage</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="285"/>
+        <location filename="../src/webview/webpage.cpp" line="291"/>
         <source>Untrusted connection</source>
         <translation>Keine vertrauenswürdige Verbindung</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="309"/>
+        <location filename="../src/webview/webpage.cpp" line="315"/>
         <source>AdBlocked Content</source>
         <translation>Inhalt von AdBlock blockiert</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="313"/>
+        <location filename="../src/webview/webpage.cpp" line="319"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Blockiert von Regel &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="320"/>
+        <location filename="../src/webview/webpage.cpp" line="326"/>
         <source>Content Access Denied</source>
         <translation>Zugriff auf Inhalt verweigert</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="330"/>
+        <location filename="../src/webview/webpage.cpp" line="336"/>
         <source>Error code %1</source>
         <translation>Fehler Code %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="342"/>
+        <location filename="../src/webview/webpage.cpp" line="348"/>
         <source>Failed loading page</source>
         <translation>Seite konnte nicht geladen werden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="349"/>
+        <location filename="../src/webview/webpage.cpp" line="355"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla kann Seite von %1 nicht laden.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="350"/>
+        <location filename="../src/webview/webpage.cpp" line="356"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Bitte überprüfen Sie die Adresse auf Tippfehler wie &lt;b&gt;ww.&lt;/b&gt;example.com anstatt &lt;b&gt;www.&lt;/b&gt;example.com</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="351"/>
+        <location filename="../src/webview/webpage.cpp" line="357"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Falls Sie keine Webseiten laden können, überprüfen Sie bitte Ihre Netzwerkverbindung.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="352"/>
+        <location filename="../src/webview/webpage.cpp" line="358"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Falls Ihr Computer über eine Firewall oder Proxy mit dem Internet verbunden ist, vergewissern Sie sich, dass QupZilla der Zugriff zum Internet gestattet ist.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="353"/>
+        <location filename="../src/webview/webpage.cpp" line="359"/>
         <source>Try Again</source>
         <translation>Erneut versuchen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="456"/>
+        <location filename="../src/webview/webpage.cpp" line="462"/>
         <source>Choose file...</source>
         <translation>Datei wählen...</translation>
     </message>

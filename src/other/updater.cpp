@@ -21,8 +21,8 @@
 #include "desktopnotificationsfactory.h"
 #include <QDebug>
 
-Updater::Updater(QupZilla* mainClass, QObject* parent) :
-    QObject(parent)
+Updater::Updater(QupZilla* mainClass, QObject* parent)
+    : QObject(parent)
     , p_QupZilla(mainClass)
 {
     QTimer::singleShot(60 * 1000, this, SLOT(start())); //Start checking after 1 minute

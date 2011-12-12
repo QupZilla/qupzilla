@@ -20,8 +20,8 @@
 #include "iconprovider.h"
 #include "mainapplication.h"
 
-LocationCompleter::LocationCompleter(QObject* parent) :
-    QCompleter(parent)
+LocationCompleter::LocationCompleter(QObject* parent)
+    : QCompleter(parent)
 {
     setMaxVisibleItems(6);
     QStandardItemModel* completeModel = new QStandardItemModel();

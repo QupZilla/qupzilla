@@ -21,8 +21,8 @@
 #include "historymodel.h"
 #include "iconprovider.h"
 
-HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent) :
-    QWidget(parent)
+HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent)
+    : QWidget(parent)
     , ui(new Ui::HistorySideBar)
     , p_QupZilla(mainClass)
     , m_historyModel(mApp->history())

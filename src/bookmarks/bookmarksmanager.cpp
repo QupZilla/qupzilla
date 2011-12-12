@@ -26,6 +26,7 @@
 #include "iconprovider.h"
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
+#include "bookmarksimportdialog.h"
 
 BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -35,15 +36,9 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     , m_bookmarksModel(mApp->bookmarksModel())
 {
     ui->setupUi(this);
-    qz_centerWidgetOnScreen(this);
 
-    ui->deleteB->setShortcut(QKeySequence("Del"));
-
-    connect(ui->deleteB, SIGNAL(clicked()), this, SLOT(deleteItem()));
     connect(ui->bookmarksTree, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(itemChanged(QTreeWidgetItem*)));
-    connect(ui->addSubfolder, SIGNAL(clicked()), this, SLOT(addSubfolder()));
     connect(ui->addFolder, SIGNAL(clicked()), this, SLOT(addFolder()));
-    connect(ui->renameFolder, SIGNAL(clicked()), this, SLOT(renameFolder()));
     connect(ui->bookmarksTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(ui->bookmarksTree, SIGNAL(itemControlClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
     connect(ui->bookmarksTree, SIGNAL(itemMiddleButtonClicked(QTreeWidgetItem*)), this, SLOT(itemControlClicked(QTreeWidgetItem*)));
@@ -57,10 +52,20 @@ BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     connect(m_bookmarksModel, SIGNAL(folderRenamed(QString, QString)), this, SLOT(renameFolder(QString, QString)));
 
     connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
+    connect(ui->importBookmarks, SIGNAL(clicked(QPoint)), this, SLOT(importBookmarks()));
+
+    QShortcut* deleteAction = new QShortcut(QKeySequence("Del"), ui->bookmarksTree);
+    connect(deleteAction, SIGNAL(activated()), this, SLOT(deleteItem()));
 
     ui->bookmarksTree->setDefaultItemShowMode(TreeWidget::ItemsExpanded);
 
     //QTimer::singleShot(0, this, SLOT(refreshTable()));
+}
+
+void BookmarksManager::importBookmarks()
+{
+    BookmarksImportDialog* b = new BookmarksImportDialog(this);
+    b->show();
 }
 
 void BookmarksManager::search(const QString &string)
@@ -126,6 +131,16 @@ void BookmarksManager::renameFolder()
     }
 
     m_bookmarksModel->renameFolder(folder, text);
+}
+
+void BookmarksManager::renameBookmark()
+{
+    QTreeWidgetItem* item = ui->bookmarksTree->currentItem();
+    if (!item) {
+        return;
+    }
+
+    ui->bookmarksTree->editItem(item, 0);
 }
 
 void BookmarksManager::itemChanged(QTreeWidgetItem* item)
@@ -197,6 +212,26 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
     }
     QString link = ui->bookmarksTree->itemAt(position)->text(1);
     if (link.isEmpty()) {
+        QString folderName = ui->bookmarksTree->itemAt(position)->text(0);
+        QMenu menu;
+        if (folderName == tr("Bookmarks In ToolBar")) {
+            menu.addAction(tr("Add Subfolder"), this, SLOT(addSubfolder()));
+            menu.addSeparator();
+        }
+
+        if (folderName != tr("Bookmarks In ToolBar") && folderName != tr("Bookmarks In Menu")) {
+            menu.addAction(tr("Rename folder"), this, SLOT(renameFolder()));
+            menu.addAction(tr("Remove folder"), this, SLOT(deleteItem()));
+        }
+
+        if (menu.actions().count() == 0) {
+            return;
+        }
+
+        //Prevent choosing first option with double rightclick
+        QPoint pos = QCursor::pos();
+        QPoint p(pos.x(), pos.y() + 1);
+        menu.exec(p);
         return;
     }
 
@@ -216,6 +251,10 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
         moveMenu.addAction(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString(), this, SLOT(moveBookmark()))->setData(query.value(0).toString());
     }
     menu.addMenu(&moveMenu);
+
+    menu.addSeparator();
+    menu.addAction(tr("Rename bookmark"), this, SLOT(renameBookmark()));
+    menu.addAction(tr("Remove bookmark"), this, SLOT(deleteItem()));
 
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();

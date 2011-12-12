@@ -17,8 +17,8 @@
 * ============================================================ */
 #include "buttonbox.h"
 
-ButtonBox::ButtonBox(QWidget* parent) :
-    QDialogButtonBox(parent)
+ButtonBox::ButtonBox(QWidget* parent)
+    : QDialogButtonBox(parent)
     , m_clickedButton(QDialogButtonBox::RejectRole)
 {
     connect(this, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));

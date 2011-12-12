@@ -20,8 +20,8 @@
 /*
  *  class Widget
  */
-Widget::Widget(QWidget* parent) :
-    QWidget(parent)
+Widget::Widget(QWidget* parent)
+    : QWidget(parent)
 {
 }
 
@@ -33,8 +33,8 @@ void Widget::slotResize(const QSize &size)
 /*
  *  class ResizableFrame
  */
-ResizableFrame::ResizableFrame(QWidget* parent) :
-    QFrame(parent)
+ResizableFrame::ResizableFrame(QWidget* parent)
+    : QFrame(parent)
 {
 }
 

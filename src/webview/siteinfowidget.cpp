@@ -20,8 +20,8 @@
 #include "qupzilla.h"
 #include "webpage.h"
 
-SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent) :
-    QMenu(parent)
+SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
+    : QMenu(parent)
     , ui(new Ui::SiteInfoWidget)
     , p_QupZilla(mainClass)
 {

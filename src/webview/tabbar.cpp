@@ -122,7 +122,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
         menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
         QAction* action = p_QupZilla->actionRestoreTab();
-        m_tabWidget->canRestoreTab() ? action->setEnabled(true) : action->setEnabled(false);
+        action->setEnabled(m_tabWidget->canRestoreTab());
         menu.addAction(action);
         menu.addSeparator();
         menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
@@ -134,7 +134,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
         menu.addAction(tr("Bookmark &All Ta&bs"), p_QupZilla, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
         QAction* action = menu.addAction(QIcon::fromTheme("user-trash"), tr("Restore &Closed Tab"), m_tabWidget, SLOT(restoreClosedTab()));
-        m_tabWidget->canRestoreTab() ? action->setEnabled(true) : action->setEnabled(false);
+        action->setEnabled(m_tabWidget->canRestoreTab());
     }
 
     //Prevent choosing first option with double rightclick
@@ -319,16 +319,20 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
     QTabBar::mouseDoubleClickEvent(event);
 }
 
-void TabBar::mousePressEvent(QMouseEvent* event)
+void TabBar::mouseReleaseEvent(QMouseEvent* event)
 {
+    if (!rect().contains(event->pos())) {
+        return;
+    }
+
     int id = tabAt(event->pos());
-    if (id != -1 && event->buttons() == Qt::MiddleButton) {
+    if (id != -1 && event->button() == Qt::MiddleButton) {
         m_tabWidget->closeTab(id);
         return;
     }
-    if (id == -1 && event->buttons() == Qt::MiddleButton) {
+    if (id == -1 && event->button() == Qt::MiddleButton) {
         m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewSelectedTab, true);
         return;
     }
-    QTabBar::mousePressEvent(event);
+    QTabBar::mouseReleaseEvent(event);
 }

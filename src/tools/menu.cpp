@@ -1,6 +1,6 @@
 #include "menu.h"
 
-Menu::Menu(QWidget *parent)
+Menu::Menu(QWidget* parent)
     : QMenu(parent)
 {
 }
@@ -10,7 +10,7 @@ Menu::Menu(const QString &title, QWidget* parent)
 {
 }
 
-void Menu::mouseReleaseEvent(QMouseEvent *e)
+void Menu::mouseReleaseEvent(QMouseEvent* e)
 {
     Action* act = qobject_cast<Action*> (actionAt(e->pos()));
 
@@ -36,12 +36,12 @@ Action::Action(QObject* parent)
 {
 }
 
-Action::Action(const QString &text, QObject *parent)
+Action::Action(const QString &text, QObject* parent)
     : QAction(text, parent)
 {
 }
 
-Action::Action(const QIcon &icon, const QString &text, QObject *parent)
+Action::Action(const QIcon &icon, const QString &text, QObject* parent)
     : QAction(icon, text, parent)
 {
 }
