@@ -18,8 +18,8 @@
 #include "commandlineoptions.h"
 #include "qupzilla.h"
 
-CommandLineOptions::CommandLineOptions(int &argc, char** argv) :
-    QObject(0)
+CommandLineOptions::CommandLineOptions(int &argc, char** argv)
+    : QObject(0)
     , m_argc(argc)
     , m_argv(argv)
 {

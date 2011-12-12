@@ -33,8 +33,7 @@ public:
         QString title;
         int position;
 
-        bool operator==(const Tab &a) const
-        {
+        bool operator==(const Tab &a) const {
             return (a.url == url &&
                     a.history == history &&
                     a.position == position);

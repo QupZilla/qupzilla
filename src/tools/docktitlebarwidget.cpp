@@ -18,8 +18,8 @@
 #include "docktitlebarwidget.h"
 #include "iconprovider.h"
 
-DockTitleBarWidget::DockTitleBarWidget(const QString &title, QWidget* parent) :
-    QWidget(parent)
+DockTitleBarWidget::DockTitleBarWidget(const QString &title, QWidget* parent)
+    : QWidget(parent)
 {
     setupUi(this);
     closeButton->setIcon(QIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton).pixmap(16, 16)));

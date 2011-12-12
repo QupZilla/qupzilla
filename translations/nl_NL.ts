@@ -486,15 +486,18 @@
         <translation>URL</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="83"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="123"/>
+        <location filename="../src/bookmarks/bookmarksmanager.ui" line="79"/>
+        <source>Import Bookmarks</source>
+        <translation type="unfinished">Importeer bladwijzers</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="128"/>
         <source>Rename Folder</source>
         <translation>Hernoem map</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="90"/>
         <source>Delete</source>
-        <translation>Verwijder</translation>
+        <translation type="obsolete">Verwijder</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="43"/>
@@ -507,105 +510,132 @@
         <translation>Optimaliseer database</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.ui" line="76"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="218"/>
         <source>Add Subfolder</source>
         <translation>Voeg submap toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="88"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Add new folder</source>
         <translation>Voeg nieuwe map toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="88"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Choose name for new bookmark folder: </source>
         <translation>Kies naam voor nieuwe bladwijzermap: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="156"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="119"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="211"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="234"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="260"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="516"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="561"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="124"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="222"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="246"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="273"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="299"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="555"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="600"/>
         <source>Bookmarks In Menu</source>
         <translation>Bladwijzers in menu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="119"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="212"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="239"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="263"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="436"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="517"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="562"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="124"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="217"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="222"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="247"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="278"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="302"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="475"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="556"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="601"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Bladwijzers op werkbalk</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="204"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
+        <source>Rename folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="224"/>
+        <source>Remove folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="239"/>
         <source>Open link in actual &amp;tab</source>
         <translation>Open link in actueel &amp;tabblad</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="98"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="103"/>
         <source>Add new subfolder</source>
         <translation>Voeg nieuwe submap toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="98"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="103"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
         <translation>Kies naam voor nieuwe submap op bladwijzerwerkbalk: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="123"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="128"/>
         <source>Choose name for folder: </source>
         <translation>Kies naam voor map: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="205"/>
+        <source>Remove</source>
+        <translation type="obsolete">Verwijder</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in &amp;new tab</source>
         <translation>Open link in &amp;nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="209"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="244"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>Verplaats bladwijzer naar &amp;map</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="210"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="515"/>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="560"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="245"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="554"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="599"/>
         <source>Unsorted Bookmarks</source>
         <translation>Ongesorteerde bladwijzers</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="511"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="256"/>
+        <source>Rename bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
+        <source>Remove bookmark</source>
+        <translation type="unfinished">Verwijder bladwijzer</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
         <translation>&lt;b&gt;Waarschuwing: &lt;/b&gt;U heeft deze pagina al gebladwijzerd!</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="524"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="563"/>
         <source>Choose name and location of bookmark.</source>
         <translation>Kies naam en locatie van deze bladwijzer.</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="528"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="567"/>
         <source>Add New Bookmark</source>
         <translation>Voeg nieuwe bladwijzer toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="569"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="608"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Kies map voor bladwijzers:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="570"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="609"/>
         <source>Bookmark All Tabs</source>
         <translation>Bladwijzer alle tabbladen</translation>
     </message>
@@ -675,63 +705,63 @@
 <context>
     <name>BookmarksToolbar</name>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="57"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="58"/>
         <source>&amp;Bookmark Current Page</source>
         <translation>&amp;Bladwijzer huidige pagina</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="58"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="59"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Bladwijzer &amp;alle tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="59"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="60"/>
         <source>&amp;Organize Bookmarks</source>
         <translation>&amp;Sorteer bladwijzers</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="61"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="62"/>
         <source>Hide Most &amp;Visited</source>
         <translation>Verberg meest &amp;bezocht</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="61"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="62"/>
         <source>Show Most &amp;Visited</source>
         <translation>Toon meest &amp;bezocht</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="62"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="63"/>
         <source>&amp;Hide Toolbar</source>
         <translation>&amp;Verberg werkbalk</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="82"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="83"/>
         <source>Move right</source>
         <translation>Verplaats naar rechts</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="83"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="84"/>
         <source>Move left</source>
         <translation>Verplaats naar links</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="85"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="86"/>
         <source>Remove bookmark</source>
         <translation>Verwijder bladwijzer</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="434"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="435"/>
         <source>Most visited</source>
         <translation>Meest bezocht</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="435"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="436"/>
         <source>Sites you visited the most</source>
         <translation>Websites die u het meest bezocht heeft</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="473"/>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="491"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="479"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="502"/>
         <source>Empty</source>
         <translation>Leeg</translation>
     </message>
@@ -1474,45 +1504,45 @@ werd niet gevonden!</translation>
         <translation>Optimaliseer database</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="85"/>
+        <location filename="../src/history/historymanager.cpp" line="84"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="100"/>
+        <location filename="../src/history/historymanager.cpp" line="99"/>
         <source>Open link in actual tab</source>
         <translation>Open link in huidig tabblad</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="101"/>
+        <location filename="../src/history/historymanager.cpp" line="100"/>
         <source>Open link in new tab</source>
         <translation>Open link in nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="143"/>
-        <location filename="../src/history/historymanager.cpp" line="229"/>
+        <location filename="../src/history/historymanager.cpp" line="142"/>
+        <location filename="../src/history/historymanager.cpp" line="228"/>
         <source>Today</source>
         <translation>Vandaag</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="146"/>
-        <location filename="../src/history/historymanager.cpp" line="232"/>
+        <location filename="../src/history/historymanager.cpp" line="145"/>
+        <location filename="../src/history/historymanager.cpp" line="231"/>
         <source>This Week</source>
         <translation>Deze week</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="149"/>
-        <location filename="../src/history/historymanager.cpp" line="235"/>
+        <location filename="../src/history/historymanager.cpp" line="148"/>
+        <location filename="../src/history/historymanager.cpp" line="234"/>
         <source>This Month</source>
         <translation>Deze maand</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="201"/>
+        <location filename="../src/history/historymanager.cpp" line="200"/>
         <source>Confirmation</source>
         <translation>Bevestiging</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="202"/>
+        <location filename="../src/history/historymanager.cpp" line="201"/>
         <source>Are you sure to delete all history?</source>
         <translation>Weet u zeker dat u alle geschiedenis wilt verwijderen?</translation>
     </message>
@@ -1667,12 +1697,12 @@ werd niet gevonden!</translation>
         <translation>Voeg RSS toe van deze pagina...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="95"/>
+        <location filename="../src/navigation/locationbar.cpp" line="96"/>
         <source>Enter URL address or search on %1</source>
         <translation>Voer URL-adres in of zoek op %1</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="294"/>
+        <location filename="../src/navigation/locationbar.cpp" line="303"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.nl</translation>
@@ -1681,12 +1711,12 @@ werd niet gevonden!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="650"/>
+        <location filename="../src/app/mainapplication.cpp" line="655"/>
         <source>Last session crashed</source>
         <translation>Laatste sessie gecrashed</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="651"/>
+        <location filename="../src/app/mainapplication.cpp" line="656"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
         <translation>&lt;b&gt;QupZilla crashte :-(&lt;/b&gt;&lt;br/&gt;Oeps, de laatste sessie van QupZilla eindigde met een crash. We verontschuldigen ons. Wilt u proberen om de opgeslagen status te herstellen?</translation>
     </message>
@@ -1694,39 +1724,39 @@ werd niet gevonden!</translation>
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="37"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="38"/>
         <source>Back</source>
         <translation>Terug</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="44"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="45"/>
         <source>Forward</source>
         <translation>Vooruit</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="58"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="59"/>
         <source>Home</source>
         <translation>Startpagina</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="64"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="65"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="76"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="77"/>
         <source>Main Menu</source>
         <translation>Hoofdmenu</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="91"/>
         <location filename="../src/navigation/navigationbar.cpp" line="92"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="93"/>
         <source>Exit Fullscreen</source>
         <translation>Verlaat volledig scherm</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="174"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="209"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="188"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="233"/>
         <source>Clear history</source>
         <translation>Verwijder geschiedenis</translation>
     </message>
@@ -3312,12 +3342,12 @@ werd niet gevonden!</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="33"/>
-        <location filename="../src/rss/rssmanager.cpp" line="111"/>
+        <location filename="../src/rss/rssmanager.cpp" line="110"/>
         <source>Empty</source>
         <translation>Leeg</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="109"/>
+        <location filename="../src/rss/rssmanager.cpp" line="108"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation>U heeft geen RSS-feeds.&lt;br/&gt;
@@ -3344,64 +3374,64 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
         <translation>Optimaliseer database</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="73"/>
+        <location filename="../src/rss/rssmanager.cpp" line="72"/>
         <source>News</source>
         <translation>Nieuws</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="83"/>
-        <location filename="../src/rss/rssmanager.cpp" line="123"/>
+        <location filename="../src/rss/rssmanager.cpp" line="82"/>
+        <location filename="../src/rss/rssmanager.cpp" line="122"/>
         <source>Loading...</source>
         <translation>Laden...</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="162"/>
+        <location filename="../src/rss/rssmanager.cpp" line="161"/>
         <source>Fill title and URL of a feed: </source>
         <translation>Voer titel en URL in van een feed: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="164"/>
+        <location filename="../src/rss/rssmanager.cpp" line="163"/>
         <source>Feed title: </source>
         <translation>Feed-titel:</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="165"/>
+        <location filename="../src/rss/rssmanager.cpp" line="164"/>
         <source>Feed URL: </source>
         <translation>Feed-URL: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="171"/>
+        <location filename="../src/rss/rssmanager.cpp" line="170"/>
         <source>Edit RSS Feed</source>
         <translation>Bewerk RSS-rfeed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="213"/>
+        <location filename="../src/rss/rssmanager.cpp" line="212"/>
         <source>Open link in actual tab</source>
         <translation>Open link in huidig tabblad</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="214"/>
+        <location filename="../src/rss/rssmanager.cpp" line="213"/>
         <source>Open link in new tab</source>
         <translation>Open link in nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="241"/>
-        <location filename="../src/rss/rssmanager.cpp" line="247"/>
+        <location filename="../src/rss/rssmanager.cpp" line="240"/>
+        <location filename="../src/rss/rssmanager.cpp" line="246"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="342"/>
+        <location filename="../src/rss/rssmanager.cpp" line="341"/>
         <source>Error in fetching feed</source>
         <translation>Fout bij ophalen van feed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="371"/>
+        <location filename="../src/rss/rssmanager.cpp" line="370"/>
         <source>RSS feed duplicated</source>
         <translation>Duplicaat van RSS-feed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="371"/>
+        <location filename="../src/rss/rssmanager.cpp" line="370"/>
         <source>You already have this feed.</source>
         <translation>U heeft deze feed al.</translation>
     </message>
@@ -3839,138 +3869,138 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>SourceViewer</name>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="30"/>
+        <location filename="../src/other/sourceviewer.cpp" line="31"/>
         <source>Source of </source>
         <translation>Bron van </translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="56"/>
+        <location filename="../src/other/sourceviewer.cpp" line="57"/>
         <source>File</source>
         <translation>Bestand</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="57"/>
+        <location filename="../src/other/sourceviewer.cpp" line="58"/>
         <source>Save as...</source>
         <translation>Sla op als...</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="59"/>
+        <location filename="../src/other/sourceviewer.cpp" line="60"/>
         <source>Close</source>
         <translation>Sluit</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="62"/>
+        <location filename="../src/other/sourceviewer.cpp" line="63"/>
         <source>Edit</source>
         <translation>Bewerk</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="63"/>
+        <location filename="../src/other/sourceviewer.cpp" line="64"/>
         <source>Undo</source>
         <translation>Ongedaan maken</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="64"/>
+        <location filename="../src/other/sourceviewer.cpp" line="65"/>
         <source>Redo</source>
         <translation>Herhalen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="66"/>
+        <location filename="../src/other/sourceviewer.cpp" line="67"/>
         <source>Cut</source>
         <translation>Knippen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="67"/>
+        <location filename="../src/other/sourceviewer.cpp" line="68"/>
         <source>Copy</source>
         <translation>Kopieren</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="68"/>
+        <location filename="../src/other/sourceviewer.cpp" line="69"/>
         <source>Paste</source>
         <translation>Plakken</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="69"/>
+        <location filename="../src/other/sourceviewer.cpp" line="70"/>
         <source>Delete</source>
         <translation>Verwijder</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="71"/>
+        <location filename="../src/other/sourceviewer.cpp" line="72"/>
         <source>Select All</source>
         <translation>Alles selecteren</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="72"/>
+        <location filename="../src/other/sourceviewer.cpp" line="73"/>
         <source>Find</source>
         <translation>Vind</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="74"/>
-        <location filename="../src/other/sourceviewer.cpp" line="158"/>
+        <location filename="../src/other/sourceviewer.cpp" line="75"/>
+        <location filename="../src/other/sourceviewer.cpp" line="159"/>
         <source>Go to Line...</source>
         <translation>Ga naar regel...</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="77"/>
+        <location filename="../src/other/sourceviewer.cpp" line="78"/>
         <source>View</source>
         <translation>Toon</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="78"/>
+        <location filename="../src/other/sourceviewer.cpp" line="79"/>
         <source>Reload</source>
         <translation>Herlaad</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="80"/>
+        <location filename="../src/other/sourceviewer.cpp" line="81"/>
         <source>Editable</source>
         <translation>Bewerkbaar</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="81"/>
+        <location filename="../src/other/sourceviewer.cpp" line="82"/>
         <source>Word Wrap</source>
         <translation>Woordwikkel</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="104"/>
+        <location filename="../src/other/sourceviewer.cpp" line="105"/>
         <source>Save file...</source>
         <translation>Sla bestand op...</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="111"/>
+        <location filename="../src/other/sourceviewer.cpp" line="112"/>
         <source>Error!</source>
         <translation>Fout!</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="111"/>
+        <location filename="../src/other/sourceviewer.cpp" line="112"/>
         <source>Cannot write to file!</source>
         <translation>Kan niet naar bestand schrijven!</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="112"/>
+        <location filename="../src/other/sourceviewer.cpp" line="113"/>
         <source>Error writing to file</source>
         <translation>Fout bij schrijven naar bestand</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="118"/>
+        <location filename="../src/other/sourceviewer.cpp" line="119"/>
         <source>Source successfully saved</source>
         <translation>Bron succesvol opgeslagen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="139"/>
+        <location filename="../src/other/sourceviewer.cpp" line="140"/>
         <source>Source reloaded</source>
         <translation>Bron herladen</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="146"/>
+        <location filename="../src/other/sourceviewer.cpp" line="147"/>
         <source>Editable changed</source>
         <translation>Bewerkbaar veranderd</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="153"/>
+        <location filename="../src/other/sourceviewer.cpp" line="154"/>
         <source>Word Wrap changed</source>
         <translation>Woordwikkel veranderd</translation>
     </message>
     <message>
-        <location filename="../src/other/sourceviewer.cpp" line="158"/>
+        <location filename="../src/other/sourceviewer.cpp" line="159"/>
         <source>Enter line number</source>
         <translation>Vul regelnummer in</translation>
     </message>
@@ -3992,7 +4022,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <name>TabBar</name>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="316"/>
-        <location filename="../src/webview/tabbar.cpp" line="330"/>
+        <location filename="../src/webview/tabbar.cpp" line="334"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
@@ -4086,7 +4116,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="216"/>
-        <location filename="../src/webview/tabwidget.cpp" line="364"/>
+        <location filename="../src/webview/tabwidget.cpp" line="372"/>
         <source>No Named Page</source>
         <translation>Niet-benoemde pagina</translation>
     </message>
@@ -4096,9 +4126,9 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Eigenlijk heeft U %1 geopende tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="417"/>
-        <location filename="../src/webview/tabwidget.cpp" line="545"/>
-        <location filename="../src/webview/tabwidget.cpp" line="621"/>
+        <location filename="../src/webview/tabwidget.cpp" line="425"/>
+        <location filename="../src/webview/tabwidget.cpp" line="554"/>
+        <location filename="../src/webview/tabwidget.cpp" line="630"/>
         <location filename="../src/webview/tabwidget.h" line="72"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
@@ -4162,94 +4192,94 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="171"/>
+        <location filename="../src/webview/webpage.cpp" line="173"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Om deze pagina te tonen, moet QupZulla het verzoek opnieuw versturen
 (zoals zoeken op het maken van een shoping, welke al gedaan is.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="216"/>
+        <location filename="../src/webview/webpage.cpp" line="213"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="273"/>
+        <location filename="../src/webview/webpage.cpp" line="279"/>
         <source>Server refused the connection</source>
         <translation>Server weigerde de verbinding</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="276"/>
+        <location filename="../src/webview/webpage.cpp" line="282"/>
         <source>Server closed the connection</source>
         <translation>Server sloot de verbinding</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="279"/>
+        <location filename="../src/webview/webpage.cpp" line="285"/>
         <source>Server not found</source>
         <translation>Server niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="282"/>
+        <location filename="../src/webview/webpage.cpp" line="288"/>
         <source>Connection timed out</source>
         <translation>Verbinding onderbroken</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="285"/>
+        <location filename="../src/webview/webpage.cpp" line="291"/>
         <source>Untrusted connection</source>
         <translation>Onbeveiligde verbinding</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="309"/>
+        <location filename="../src/webview/webpage.cpp" line="315"/>
         <source>AdBlocked Content</source>
         <translation>Door AdBlock geblokkeerde inhoud</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="313"/>
+        <location filename="../src/webview/webpage.cpp" line="319"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Geblokkeerd door regel &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="320"/>
+        <location filename="../src/webview/webpage.cpp" line="326"/>
         <source>Content Access Denied</source>
         <translation>Inhoudstoegang geweigerd</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="330"/>
+        <location filename="../src/webview/webpage.cpp" line="336"/>
         <source>Error code %1</source>
         <translation>Foutcode %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="342"/>
+        <location filename="../src/webview/webpage.cpp" line="348"/>
         <source>Failed loading page</source>
         <translation>Mislukt om pagina te laden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="349"/>
+        <location filename="../src/webview/webpage.cpp" line="355"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla kan de pagina niet laden van %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="350"/>
+        <location filename="../src/webview/webpage.cpp" line="356"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Controleer het adres op typfouten zoals &lt;b&gt;ww.&lt;/b&gt;voorbeeld.nl in plaats van &lt;b&gt;www.&lt;/b&gt;voorbeeld.nl</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="351"/>
+        <location filename="../src/webview/webpage.cpp" line="357"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Indien u niet in staat bent om eender welke pagina te laden, controleer dan uw netwerkverbinding.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="352"/>
+        <location filename="../src/webview/webpage.cpp" line="358"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Indien uw computer of netwerk beveiligd is door een firewall of proxy, zorg dan dat QupZilla toestemming heeft om het web te benaderen.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="353"/>
+        <location filename="../src/webview/webpage.cpp" line="359"/>
         <source>Try Again</source>
         <translation>Probeer nogmaals</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="456"/>
+        <location filename="../src/webview/webpage.cpp" line="462"/>
         <source>Choose file...</source>
         <translation>Kies bestand...</translation>
     </message>

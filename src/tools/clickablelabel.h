@@ -35,7 +35,7 @@ signals:
     void clicked(QPoint);
 
 private:
-    void mousePressEvent(QMouseEvent* ev);
+    void mouseReleaseEvent(QMouseEvent* ev);
     void mouseDoubleClickEvent(QMouseEvent* ev);
 
 };

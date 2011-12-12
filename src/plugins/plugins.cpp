@@ -19,8 +19,8 @@
 #include "plugininterface.h"
 #include "mainapplication.h"
 
-Plugins::Plugins(QObject* parent) :
-    QObject(parent)
+Plugins::Plugins(QObject* parent)
+    : QObject(parent)
 {
     loadSettings();
 }
