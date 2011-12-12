@@ -76,7 +76,7 @@
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="32"/>
         <source>Remove</source>
-        <translation>Quitar</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/preferences/acceptlanguage.ui" line="39"/>
@@ -247,7 +247,7 @@
         <location filename="../src/preferences/autofillmanager.ui" line="67"/>
         <location filename="../src/preferences/autofillmanager.ui" line="138"/>
         <source>Remove</source>
-        <translation>Quitar</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="60"/>
@@ -258,7 +258,7 @@
         <location filename="../src/preferences/autofillmanager.ui" line="74"/>
         <location filename="../src/preferences/autofillmanager.ui" line="145"/>
         <source>Remove All</source>
-        <translation>Quitar todo</translation>
+        <translation>Eliminar todo</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="111"/>
@@ -498,7 +498,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="79"/>
         <source>Import Bookmarks</source>
-        <translation type="unfinished">Importar marcadores</translation>
+        <translation>Importar marcadores</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="218"/>
@@ -575,12 +575,12 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
         <source>Rename folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Renombrar carpeta</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="224"/>
         <source>Remove folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar carpeta</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="239"/>
@@ -607,12 +607,12 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="256"/>
         <source>Rename bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Renombrar marcador</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
         <source>Remove bookmark</source>
-        <translation type="unfinished">Quitar marcador</translation>
+        <translation>Eliminar marcador</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
@@ -747,7 +747,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="86"/>
         <source>Remove bookmark</source>
-        <translation>Quitar marcador</translation>
+        <translation>Eliminar marcador</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="435"/>
@@ -776,7 +776,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="53"/>
         <source>Remove Bookmark</source>
-        <translation>Quitar marcador</translation>
+        <translation>Eliminar marcador</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="60"/>
@@ -1916,7 +1916,7 @@
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="149"/>
         <source>Remove</source>
-        <translation>Quitar</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="171"/>
@@ -3307,7 +3307,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="219"/>
         <source>Remove</source>
-        <translation>Quitar</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="220"/>
@@ -3515,7 +3515,7 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Todos los certificados deben tener el sufijo .crt.
-Después de añadir o quitar rutas de certificados, es necesario reiniciar QupZilla para que los cambios surjan efecto.</translation>
+Después de añadir o eliminar rutas de certificados, es necesario reiniciar QupZilla para que los cambios surjan efecto.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="68"/>
@@ -3526,7 +3526,7 @@ Después de añadir o quitar rutas de certificados, es necesario reiniciar QupZi
         <location filename="../src/preferences/sslmanager.ui" line="99"/>
         <location filename="../src/preferences/sslmanager.ui" line="150"/>
         <source>Remove</source>
-        <translation>Quitar</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="119"/>
@@ -3569,7 +3569,7 @@ Después de añadir o quitar rutas de certificados, es necesario reiniciar QupZi
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="29"/>
         <source>Remove</source>
-        <translation>Quitar</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="36"/>
