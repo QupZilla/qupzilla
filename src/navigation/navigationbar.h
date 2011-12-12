@@ -55,14 +55,16 @@ public slots:
     void refreshHistory();
 
     void goBack();
+    void goBackInNewTab();
     void goForward();
+    void goForwardInNewTab();
 
 private slots:
     void aboutToShowHistoryNextMenu();
     void aboutToShowHistoryBackMenu();
 
     void goAtHistoryIndex();
-    void goAtHistoryIndexInNewTab();
+    void goAtHistoryIndexInNewTab(int index = -1);
 
     void clearHistory();
 
