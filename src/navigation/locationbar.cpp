@@ -193,12 +193,18 @@ void LocationBar::showRSSIcon(bool state)
 
 void LocationBar::showUrl(const QUrl &url, bool empty)
 {
-    if (hasFocus() || (url.isEmpty() && empty) || url.toString() == "qupzilla:speeddial") {
+    if (hasFocus() || (url.isEmpty() && empty)) {
         return;
     }
 
+    QString encodedUrl = url.toEncoded();
+
+    if (url.toString() == "qupzilla:speeddial") {
+        encodedUrl = "";
+    }
+
     if (url.toEncoded() != text()) {
-        setText(url.toEncoded());
+        setText(encodedUrl);
         setCursorPosition(0);
     }
     p_QupZilla->statusBarMessage()->clearMessage();

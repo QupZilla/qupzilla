@@ -93,3 +93,20 @@ void WebHistoryWrapper::goForward(QWebHistory* history)
 
     history->goToItem(items.at(0));
 }
+
+int WebHistoryWrapper::indexOfItem(const QList<QWebHistoryItem> &list, const QWebHistoryItem &item)
+{
+    for (int i = 0; i < list.count(); i++) {
+        QWebHistoryItem it = list.at(i);
+
+        if (it.lastVisited() == item.lastVisited() &&
+            it.originalUrl() == item.originalUrl() &&
+            it.title() == item.title() &&
+            it.url() == item.url())
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
