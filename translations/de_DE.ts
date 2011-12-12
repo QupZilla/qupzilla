@@ -488,7 +488,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="79"/>
         <source>Import Bookmarks</source>
-        <translation type="unfinished">Lesezeichen importieren</translation>
+        <translation>Lesezeichen importieren</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="128"/>
@@ -556,12 +556,12 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
         <source>Rename folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordner umbenennen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="224"/>
         <source>Remove folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordner entfernen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="239"/>
@@ -607,12 +607,12 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="256"/>
         <source>Rename bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen umbenennen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
         <source>Remove bookmark</source>
-        <translation type="unfinished">Lesezeichen entfernen</translation>
+        <translation>Lesezeichen entfernen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
