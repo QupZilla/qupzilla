@@ -105,7 +105,10 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     connect(m_menuBack, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryBackMenu()));
     connect(m_menuForward, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryNextMenu()));
     connect(m_buttonBack, SIGNAL(clicked()), this, SLOT(goBack()));
+    connect(m_buttonBack, SIGNAL(middleMouseClicked()), this, SLOT(goBackInNewTab()));
     connect(m_buttonNext, SIGNAL(clicked()), this, SLOT(goForward()));
+    connect(m_buttonNext, SIGNAL(middleMouseClicked()), this, SLOT(goForwardInNewTab()));
+
     connect(m_reloadStop->buttonStop(), SIGNAL(clicked()), p_QupZilla, SLOT(stop()));
     connect(m_reloadStop->buttonReload(), SIGNAL(clicked()), p_QupZilla, SLOT(reload()));
     connect(m_buttonHome, SIGNAL(clicked()), p_QupZilla, SLOT(goHome()));
@@ -248,17 +251,23 @@ void NavigationBar::goAtHistoryIndex()
     refreshHistory();
 }
 
-void NavigationBar::goAtHistoryIndexInNewTab()
+void NavigationBar::goAtHistoryIndexInNewTab(int index)
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        TabWidget* tabWidget = p_QupZilla->tabWidget();
-        tabWidget->duplicateTab(tabWidget->currentIndex());
-
-        int index = tabWidget->count() - 1;
-        QWebHistory* history = p_QupZilla->weView(index)->page()->history();
-
-        history->goToItem(history->itemAt(action->data().toInt()));
+        index = action->data().toInt();
     }
+
+    if (index == -1) {
+        return;
+    }
+
+    TabWidget* tabWidget = p_QupZilla->tabWidget();
+    tabWidget->duplicateTab(tabWidget->currentIndex());
+
+    int tabIndex = tabWidget->count() - 1;
+    QWebHistory* history = p_QupZilla->weView(tabIndex)->page()->history();
+
+    history->goToItem(history->itemAt(index));
 }
 
 void NavigationBar::refreshHistory()
@@ -274,12 +283,48 @@ void NavigationBar::refreshHistory()
 
 void NavigationBar::goBack()
 {
-    WebHistoryWrapper::goBack(p_QupZilla->weView()->page()->history());
+    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    WebHistoryWrapper::goBack(history);
+}
+
+void NavigationBar::goBackInNewTab()
+{
+    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    QList<QWebHistoryItem> backItems = WebHistoryWrapper::backItems(1, history);
+
+    if (backItems.isEmpty()) {
+        return;
+    }
+
+    int itemIndex = WebHistoryWrapper::indexOfItem(history->items(), backItems.at(0));
+    if (itemIndex == -1) {
+        return;
+    }
+
+    goAtHistoryIndexInNewTab(itemIndex);
 }
 
 void NavigationBar::goForward()
 {
-    WebHistoryWrapper::goForward(p_QupZilla->weView()->page()->history());
+    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    WebHistoryWrapper::goForward(history);
+}
+
+void NavigationBar::goForwardInNewTab()
+{
+    QWebHistory* history = p_QupZilla->weView()->page()->history();
+    QList<QWebHistoryItem> forwardItems = WebHistoryWrapper::forwardItems(1, history);
+
+    if (forwardItems.isEmpty()) {
+        return;
+    }
+
+    int itemIndex = WebHistoryWrapper::indexOfItem(history->items(), forwardItems.at(0));
+    if (itemIndex == -1) {
+        return;
+    }
+
+    goAtHistoryIndexInNewTab(itemIndex);
 }
 
 NavigationBar::~NavigationBar()
