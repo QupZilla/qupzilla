@@ -27,6 +27,7 @@ class ToolButton;
 class WebSearchBar;
 class QupZilla;
 class ReloadStopButton;
+class Menu;
 class NavigationBar : public QWidget
 {
     Q_OBJECT
@@ -61,6 +62,8 @@ private slots:
     void aboutToShowHistoryBackMenu();
 
     void goAtHistoryIndex();
+    void goAtHistoryIndexInNewTab();
+
     void clearHistory();
 
 private:
@@ -76,8 +79,8 @@ private:
     ToolButton* m_exitFullscreen;
     ReloadStopButton* m_reloadStop;
 
-    QMenu* m_menuBack;
-    QMenu* m_menuForward;
+    Menu* m_menuBack;
+    Menu* m_menuForward;
 
     WebSearchBar* m_searchLine;
 };
