@@ -18,8 +18,8 @@
 #include "autosaver.h"
 #include "mainapplication.h"
 
-AutoSaver::AutoSaver(QObject* parent) :
-    QObject(parent)
+AutoSaver::AutoSaver(QObject* parent)
+    : QObject(parent)
 {
     m_timer.start(1000 * 5, this);
 }

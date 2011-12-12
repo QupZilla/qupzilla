@@ -585,16 +585,16 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
     if (m_menu->isEmpty()) {
         QAction* action = m_menu->addAction(tr("&Back"), this, SLOT(back()));
         action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
-        history()->canGoBack() ? action->setEnabled(true) : action->setEnabled(false);
+        action->setEnabled(history()->canGoBack());
 
         action = m_menu->addAction(tr("&Forward"), this, SLOT(forward()));
         action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
 
-        history()->canGoForward() ? action->setEnabled(true) : action->setEnabled(false);
+        action->setEnabled(history()->canGoForward());
 
         m_menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(slotReload()));
         action = m_menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this, SLOT(stop()));
-        isLoading() ? action->setEnabled(true) : action->setEnabled(false);
+        action->setEnabled(isLoading());
 
         m_menu->addSeparator();
         m_menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));

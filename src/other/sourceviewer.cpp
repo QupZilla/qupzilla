@@ -23,8 +23,8 @@
 #include "iconprovider.h"
 #include "menu.h"
 
-SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml) :
-    QWidget(0)
+SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml)
+    : QWidget(0)
     , m_page(page)
 {
     setAttribute(Qt::WA_DeleteOnClose);

@@ -22,8 +22,8 @@
 #include "autofillnotification.h"
 #include "databasewriter.h"
 
-AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject* parent) :
-    QObject(parent)
+AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject* parent)
+    : QObject(parent)
     , p_QupZilla(mainClass)
     , m_isStoring(false)
 {

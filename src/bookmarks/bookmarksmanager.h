@@ -23,6 +23,7 @@
 #include <QInputDialog>
 #include <QWeakPointer>
 #include <QDialogButtonBox>
+#include <QShortcut>
 
 #include "bookmarksmodel.h"
 
@@ -62,14 +63,17 @@ private slots:
     void loadInNewTab();
     void itemControlClicked(QTreeWidgetItem* item);
     void moveBookmark();
+    void renameBookmark();
+    void importBookmarks();
 
-    void addBookmark(const BookmarksModel::Bookmark &bookmark);
-    void removeBookmark(const BookmarksModel::Bookmark &bookmark);
-    void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
     void addFolder(const QString &name);
     void addSubfolder(const QString &name);
     void removeFolder(const QString &name);
     void renameFolder(const QString &before, const QString &after);
+
+    void addBookmark(const BookmarksModel::Bookmark &bookmark);
+    void removeBookmark(const BookmarksModel::Bookmark &bookmark);
+    void bookmarkEdited(const BookmarksModel::Bookmark &before, const BookmarksModel::Bookmark &after);
 
 private:
     QupZilla* getQupZilla();

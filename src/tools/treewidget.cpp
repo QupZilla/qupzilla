@@ -17,8 +17,8 @@
 * ============================================================ */
 #include "treewidget.h"
 
-TreeWidget::TreeWidget(QWidget* parent) :
-    QTreeWidget(parent)
+TreeWidget::TreeWidget(QWidget* parent)
+    : QTreeWidget(parent)
     , m_refreshAllItemsNeeded(true)
     , m_showMode(ItemsCollapsed)
 {

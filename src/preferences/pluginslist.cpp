@@ -21,9 +21,9 @@
 #include "mainapplication.h"
 #include "plugininterface.h"
 
-PluginsList::PluginsList(QWidget* parent) :
-    QWidget(parent),
-    ui(new Ui::PluginsList)
+PluginsList::PluginsList(QWidget* parent)
+    : QWidget(parent)
+    , ui(new Ui::PluginsList)
 {
     ui->setupUi(this);
 

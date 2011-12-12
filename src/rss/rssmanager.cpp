@@ -33,7 +33,6 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     , p_QupZilla(mainClass)
 {
     ui->setupUi(this);
-    qz_centerWidgetOnScreen(this);
 
     ui->tabWidget->setElideMode(Qt::ElideRight);
     m_networkManager = new QNetworkAccessManager();

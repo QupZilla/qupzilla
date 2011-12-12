@@ -14,7 +14,7 @@
    <string>Bookmarks</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="9">
+   <item row="0" column="0" colspan="7">
     <widget class="TreeWidget" name="bookmarksTree">
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
@@ -44,7 +44,7 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="7">
+   <item row="1" column="4">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -57,7 +57,7 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="8">
+   <item row="1" column="6">
     <widget class="ClickableLabel" name="optimizeDb">
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
@@ -70,24 +70,16 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="4">
-    <widget class="QPushButton" name="addSubfolder">
-     <property name="text">
-      <string>Add Subfolder</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="5">
-    <widget class="QPushButton" name="renameFolder">
-     <property name="text">
-      <string>Rename Folder</string>
+    <widget class="ClickableLabel" name="importBookmarks">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
-    </widget>
-   </item>
-   <item row="1" column="6">
-    <widget class="QPushButton" name="deleteB">
      <property name="text">
-      <string>Delete</string>
+      <string>Import Bookmarks</string>
+     </property>
+     <property name="html-link-look" stdset="0">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

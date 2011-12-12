@@ -28,8 +28,8 @@ QString authorString(const QString &name, const QString &mail)
     return QString("%1 &lt;<a href=\"mailto:%2\">%2</a>&gt;").arg(name, mail);
 }
 
-QupZillaSchemeHandler::QupZillaSchemeHandler(QObject* parent) :
-    QObject(parent)
+QupZillaSchemeHandler::QupZillaSchemeHandler(QObject* parent)
+    : QObject(parent)
 {
 }
 
@@ -171,7 +171,7 @@ QString QupZillaSchemeReply::aboutPage()
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
-    page.replace("%USER-AGENT%", mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()));
+    page.replace("%USER-AGENT%", WebPage::UserAgent);
     page.replace("%PATHS-TEXT%",
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->getActiveProfilPath()) +
                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->getActiveProfilPath() + "settings.ini") +

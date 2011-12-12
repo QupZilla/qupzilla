@@ -171,8 +171,8 @@ void NavigationBar::aboutToShowHistoryBackMenu()
 
             Action* act = new Action(icon, title);
             act->setData(i);
-            connect (act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
-            connect (act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
+            connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
+            connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
             m_menuBack->addAction(act);
 
             lastUrl = item.url();
@@ -216,8 +216,8 @@ void NavigationBar::aboutToShowHistoryNextMenu()
 
             Action* act = new Action(icon, title);
             act->setData(i);
-            connect (act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
-            connect (act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
+            connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
+            connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
             m_menuForward->addAction(act);
 
             lastUrl = item.url();
