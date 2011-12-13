@@ -12,7 +12,7 @@ General
   Path section.
   
   You may want to build QupZilla with debugging symbols (for generating
-  backtrace of crash) as easily as adding one line to QupZilla.pro:
+  backtrace of crash) as easily as adding one line to src/src.pro:
                
                CONFIG += debug
                
@@ -42,7 +42,7 @@ OS/2
   machine with OS/2, but it is possible to get QupZilla working there.
   There may be some more things to do, but as far as I know, you need to
   add Q_WS_WIN define to qmake.
-  You will do this by adding one line to QupZilla.pro:
+  You will do this by adding one line to src/src.pro:
                
                DEFINES += Q_WS_WIN
 
@@ -50,7 +50,7 @@ OS/2
 Available Defines
 ----------------------------------------------------------------------------------
 
-  You can set define directly in project file (QupZilla.pro)
+  You can set define directly in project file (src/src.pro)
   or set environment variable by
   
     $ export NAME="value"
@@ -80,6 +80,13 @@ Available Defines
 
  
  Linux / Unix specific defines:
+ 
+     KDE                  For now, it just use better oxygen icons in Preferences.
+                          Nepomuk integration is planned, and it will be enabled with
+                          this define also.
+                          
+                          example:
+                          $ export KDE="true"
  
      NO_SYSTEM_DATAPATH   By default, QupZilla is using /usr/share/qupzilla/ path
                           for storing themes, translations and plugins.
