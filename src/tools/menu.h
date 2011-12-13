@@ -18,6 +18,8 @@ public slots:
 private:
     void mouseReleaseEvent(QMouseEvent* e);
 
+    void closeAllMenus();
+
 };
 
 class Action : public QAction
