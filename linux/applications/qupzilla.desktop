@@ -1,13 +1,18 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=QupZilla
+Type=Application
+Icon=qupzilla.png
+Categories=Network;WebBrowser;
 Comment=A fast and secure web browser
+Comment[es]=Un navegador web rápido y seguro
 Comment[cs]=Rychlý a bezpečný webový prohlížeč
 Comment[sk]=Rýchly a bezpečný webový prehliadač
 Comment[de]=Ein schneller und sicherer Web Browser
 Comment[nl]=Een snelle en veilige webbrowser
 Comment[it]=Un browser web veloce e sicuro
 GenericName=Web Browser
+GenericName[es]=Navegador Web
 GenericName[cs]=Webový prohlížeč
 GenericName[sk]=Webový prehliadač
 GenericName[de]=Web Browser
@@ -16,7 +21,4 @@ GenericName[it]=Browser Web
 Exec=qupzilla %u
 MimeType=text/html;application/xhtml+xml;
 Terminal=false
-Type=Application
-Icon=qupzilla.png
 StartupNotify=true
-Categories=Network;WebBrowser;
