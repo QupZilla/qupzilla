@@ -624,8 +624,8 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
     }
 
 #if QT_VERSION == 0x040800
-//    still bugged in 4.8 RC (it shows webkit internal source of selection, not html from page)
-//    it may are may not be bug, but this implementation is useless for us
+//    still bugged in 4.8 RC (it shows selection of webkit's internal source, not html from page)
+//    it may or may not be bug, but this implementation is useless for us
 //
 //    if (!selectedHtml().isEmpty())
 //        menu->addAction(tr("Show source of selection"), this, SLOT(showSourceOfSelection()));
