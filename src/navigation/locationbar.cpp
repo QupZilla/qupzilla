@@ -122,9 +122,8 @@ void LocationBar::urlEnter()
         }
     }
 
-    m_webView->load(urlToLoad);
-    setText(urlToLoad.toEncoded());
     m_webView->setFocus();
+    m_webView->load(urlToLoad);
 }
 
 void LocationBar::textEdit()
