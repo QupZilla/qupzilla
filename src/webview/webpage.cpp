@@ -39,6 +39,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     , p_QupZilla(mainClass)
     , m_view(parent)
     , m_speedDial(mApp->plugins()->speedDial())
+    , m_runningLoop(0)
     , m_blockAlerts(false)
     , m_secureStatus(false)
 //    , m_isOpeningNextWindowAsNewTab(false)
@@ -54,6 +55,8 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     connect(m_view, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
 
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
+
+    m_runningLoop = 0;
 }
 
 void WebPage::scheduleAdjustPage()
@@ -380,14 +383,19 @@ bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, 
     connect(ui->lineEdit, SIGNAL(returnPressed()), ui->buttonBox->button(QDialogButtonBox::Ok), SLOT(animateClick()));
 
     QEventLoop eLoop;
+    m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
-    eLoop.exec();
+
+    if (eLoop.exec() == 1) {
+        return result;
+    }
+    m_runningLoop = 0;
 
     QString x = ui->lineEdit->text();
     bool _result = ui->buttonBox->clickedButtonRole() == QDialogButtonBox::AcceptRole;
     *result = x;
-    delete widget;
 
+    delete widget;
     _view->setFocus();
 
     return _result;
@@ -409,12 +417,17 @@ bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
     connect(_view, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
 
     QEventLoop eLoop;
+    m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
-    eLoop.exec();
+
+    if (eLoop.exec() == 1) {
+        return false;
+    }
+    m_runningLoop = 0;
 
     bool result = ui->buttonBox->clickedButtonRole() == QDialogButtonBox::AcceptRole;
-    delete widget;
 
+    delete widget;
     _view->setFocus();
 
     return result;
@@ -440,8 +453,13 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     connect(_view, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
 
     QEventLoop eLoop;
+    m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
-    eLoop.exec();
+
+    if (eLoop.exec() == 1) {
+        return;
+    }
+    m_runningLoop = 0;
 
     m_blockAlerts = ui->preventAlerts->isChecked();
 
@@ -470,4 +488,7 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
 
 WebPage::~WebPage()
 {
+    if (m_runningLoop) {
+        m_runningLoop->exit(1);
+    }
 }

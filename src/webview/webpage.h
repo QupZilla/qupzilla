@@ -64,7 +64,6 @@ public:
     QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
 
     QupZilla* qupzilla() { return p_QupZilla; }
-
     void scheduleAdjustPage();
 
     static QString UserAgent;
@@ -103,6 +102,8 @@ private:
     QSslCertificate m_SslCert;
     QList<QSslCertificate> m_SslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
+
+    QEventLoop* m_runningLoop;
 
     bool m_blockAlerts;
     bool m_secureStatus;
