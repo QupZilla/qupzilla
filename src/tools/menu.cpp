@@ -21,13 +21,23 @@ void Menu::mouseReleaseEvent(QMouseEvent* e)
 
     if (e->button() == Qt::LeftButton && e->modifiers() == Qt::NoModifier) {
         act->trigger();
-        close();
+        closeAllMenus();
         e->accept();
     }
     else if (e->button() == Qt::MiddleButton || (e->button() == Qt::LeftButton && e->modifiers() == Qt::ControlModifier)) {
         act->triggerMiddleClick();
-        close();
+        closeAllMenus();
         e->accept();
+    }
+}
+
+void Menu::closeAllMenus()
+{
+    QMenu* parentMenu = this;
+
+    while (parentMenu) {
+        parentMenu->close();
+        parentMenu = qobject_cast<QMenu*>(parentMenu->parentWidget());
     }
 }
 
