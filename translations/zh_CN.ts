@@ -432,7 +432,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="282"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation>Mozilla Firefox的书签&lt;/ B&gt; SQLite数据库存储在&lt;b&gt; places.sqlite。此文件通常位于</translation>
+        <translation>Mozilla Firefox的书签文件通常位于</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="284"/>
@@ -445,12 +445,12 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="297"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>谷歌浏览器存储在&lt;b&gt;书签书签&lt;/ b&gt;文本文件。此文件通常位于</translation>
+        <translation>谷歌浏览器的书签文件通常位于</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="313"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Opera浏览器的书签文件通常位于</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="328"/>
@@ -460,7 +460,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="337"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Internet Explorer的书签文件通常位于</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="339"/>
@@ -488,7 +488,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="79"/>
         <source>Import Bookmarks</source>
-        <translation type="unfinished">导入书签</translation>
+        <translation>导入书签</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="218"/>
@@ -597,22 +597,22 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
         <source>Rename folder</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名文件夹</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="224"/>
         <source>Remove folder</source>
-        <translation type="unfinished"></translation>
+        <translation>删除文件夹</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="256"/>
         <source>Rename bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名书签</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
         <source>Remove bookmark</source>
-        <translation type="unfinished">删除书签</translation>
+        <translation>删除书签</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>

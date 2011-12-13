@@ -358,7 +358,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="68"/>
         <source>From File</source>
-        <translation type="unfinished"></translation>
+        <translation>Zo súboru</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="80"/>
@@ -441,7 +441,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="328"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation type="unfinished"></translation>
+        <translation>Záložky môžete importovať z ktoréhokoľvek prehliadača, ktorý podporuje export do HTML. Tento súbor má zvyčajn tieto prípony</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="337"/>
@@ -460,7 +460,7 @@
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="127"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="137"/>
         <source>Please press Finish to complete importing process.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prosím stlačte Dokončiť pre dokončenie importu.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="339"/>
@@ -488,7 +488,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="79"/>
         <source>Import Bookmarks</source>
-        <translation type="unfinished">Import záložiek</translation>
+        <translation>Import záložiek</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="128"/>
@@ -556,12 +556,12 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
         <source>Rename folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Premenovať priečinok</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="224"/>
         <source>Remove folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť priečinok</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="239"/>
@@ -603,12 +603,12 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="256"/>
         <source>Rename bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Premenovať záložku</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
         <source>Remove bookmark</source>
-        <translation type="unfinished">Odstrániť záložku</translation>
+        <translation>Odstrániť záložku</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
@@ -1671,12 +1671,12 @@
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="6"/>
         <source>No Error</source>
-        <translation type="unfinished">Žiadna chyba</translation>
+        <translation>Žiadna chyba</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="21"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished">Nepodarilo sa otvoriť súbor.</translation>
+        <translation>Nepodarilo sa otvoriť súbor.</translation>
     </message>
 </context>
 <context>
@@ -2298,7 +2298,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="644"/>
         <source>Hide tabs when there is only one tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Skryť zoznam kariet, keď je otvorená len jedna karta</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="705"/>
@@ -4194,7 +4194,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <location filename="../src/webview/webpage.cpp" line="213"/>
         <source>New tab</source>
-        <translation type="unfinished">Nová karta</translation>
+        <translation>Nová karta</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="279"/>
