@@ -19,6 +19,7 @@ UI_DIR = ../build
 #DEFINES += UNRELEASED_BUILD
 #DEFINES += NO_SYSTEM_DATAPATH
 #DEFINES += USE_WEBGL
+#DEFINES += KDE
 win32:DEFINES += W7API
 
 unix:QT += dbus
@@ -384,11 +385,13 @@ d_unreleased_build = $$(UNRELEASED_BUILD)
 d_no_system_datapath = $$(NO_SYSTEM_DATAPATH)
 d_use_webgl = $$(USE_WEBGL)
 d_w7api = $$(W7API)
+d_kde = $$(KDE)
 
 equals(d_unreleased_build, "true") { DEFINES += UNRELEASED_BUILD }
 equals(d_no_system_datapath, "true") { DEFINES += NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES += USE_WEBGL }
 equals(d_w7api, "true") { DEFINES += W7API }
+equals(d_kde, "true") { DEFINES += KDE }
 
 message(Using following defines)
 message($$DEFINES)
