@@ -193,7 +193,7 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
 {
     QString path;
     if (reply->hasRawHeader("Content-Disposition")) {
-        QString value = reply->rawHeader("Content-Disposition");
+        QString value = QString::fromLatin1(reply->rawHeader("Content-Disposition"));
         int pos = value.indexOf("filename=");
         if (pos != -1) {
             QString name = value.mid(pos + 9);
@@ -206,6 +206,8 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
     if (path.isEmpty()) {
         path = reply->url().path();
     }
+
+    path = qz_filterCharsFromFilename(path);
 
     QFileInfo info(path);
     QString baseName = info.completeBaseName();
