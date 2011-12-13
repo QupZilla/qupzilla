@@ -60,6 +60,7 @@
 #include "bookmarksimportdialog.h"
 #include "globalfunctions.h"
 #include "webhistorywrapper.h"
+#include "menu.h"
 
 const QString QupZilla::VERSION = "1.0.0";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
@@ -265,8 +266,8 @@ void QupZilla::setupMenu()
     menuBar()->setCursor(Qt::ArrowCursor);
     m_menuTools = new QMenu(tr("&Tools"));
     m_menuHelp = new QMenu(tr("&Help"));
-    m_menuBookmarks = new QMenu(tr("&Bookmarks"));
-    m_menuHistory = new QMenu(tr("Hi&story"));
+    m_menuBookmarks = new Menu(tr("&Bookmarks"));
+    m_menuHistory = new Menu(tr("Hi&story"));
     connect(m_menuHistory, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMenu()));
     connect(m_menuHistory, SIGNAL(aboutToHide()), this, SLOT(aboutToHideHistoryMenu()));
     connect(m_menuBookmarks, SIGNAL(aboutToShow()), this, SLOT(aboutToShowBookmarksMenu()));
@@ -569,10 +570,15 @@ void QupZilla::aboutToShowBookmarksMenu()
             title.truncate(40);
             title += "..";
         }
-        m_menuBookmarks->addAction(icon, title, this, SLOT(loadActionUrl()))->setData(url);
+
+        Action* act = new Action(icon, title);
+        act->setData(url);
+        connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewTab()));
+        m_menuBookmarks->addAction(act);
     }
 
-    QMenu* menuBookmarks = new QMenu(tr("Bookmarks In ToolBar"), m_menuBookmarks);
+    Menu* menuBookmarks = new Menu(tr("Bookmarks In ToolBar"), m_menuBookmarks);
     menuBookmarks->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
 
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar'");
@@ -584,7 +590,12 @@ void QupZilla::aboutToShowBookmarksMenu()
             title.truncate(40);
             title += "..";
         }
-        menuBookmarks->addAction(icon, title, this, SLOT(loadActionUrl()))->setData(url);
+
+        Action* act = new Action(icon, title);
+        act->setData(url);
+        connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewTab()));
+        menuBookmarks->addAction(act);
     }
     if (menuBookmarks->isEmpty()) {
         menuBookmarks->addAction(tr("Empty"));
@@ -594,7 +605,7 @@ void QupZilla::aboutToShowBookmarksMenu()
     query.exec("SELECT name FROM folders");
     while (query.next()) {
         QString folderName = query.value(0).toString();
-        QMenu* tempFolder = new QMenu(folderName, m_menuBookmarks);
+        Menu* tempFolder = new Menu(folderName, m_menuBookmarks);
         tempFolder->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
 
         QSqlQuery query2;
@@ -607,7 +618,12 @@ void QupZilla::aboutToShowBookmarksMenu()
                 title.truncate(40);
                 title += "..";
             }
-            tempFolder->addAction(icon, title, this, SLOT(loadActionUrl()))->setData(url);
+
+            Action* act = new Action(icon, title);
+            act->setData(url);
+            connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
+            connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewTab()));
+            tempFolder->addAction(act);
         }
         if (tempFolder->isEmpty()) {
             tempFolder->addAction(tr("Empty"));
@@ -659,7 +675,12 @@ void QupZilla::aboutToShowHistoryMenu(bool loadHistory)
                 title.truncate(40);
                 title += "..";
             }
-            m_menuHistory->addAction(_iconForUrl(url), title, this, SLOT(loadActionUrl()))->setData(url);
+
+            Action* act = new Action(_iconForUrl(url), title);
+            act->setData(url);
+            connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
+            connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewTab()));
+            m_menuHistory->addAction(act);
         }
         m_menuHistory->addSeparator();
     }

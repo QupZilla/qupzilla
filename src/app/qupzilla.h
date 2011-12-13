@@ -64,6 +64,7 @@ class StatusBarMessage;
 class NavigationBar;
 class ClickableLabel;
 class WebInspectorDockWidget;
+class Menu;
 class QupZilla : public QMainWindow
 {
     Q_OBJECT
@@ -220,8 +221,8 @@ private:
     QMenu* m_menuTools;
     QMenu* m_menuHelp;
     QMenu* m_menuView;
-    QMenu* m_menuBookmarks;
-    QMenu* m_menuHistory;
+    Menu* m_menuBookmarks;
+    Menu* m_menuHistory;
     QMenu* m_menuClosedTabs;
     QMenu* m_menuEncoding;
     QAction* m_menuBookmarksAction;
