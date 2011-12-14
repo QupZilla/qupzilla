@@ -22,7 +22,7 @@
 #include "historymodel.h"
 #include "toolbutton.h"
 #include "databasewriter.h"
-#include "menu.h"
+#include "enhancedmenu.h"
 
 BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)

@@ -15,8 +15,8 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef MENU_H
-#define MENU_H
+#ifndef ENHANCEDMENU_H
+#define ENHANCEDMENU_H
 
 #include <QMenu>
 #include <QMouseEvent>
@@ -55,4 +55,4 @@ public slots:
 
 };
 
-#endif // MENU_H
+#endif // ENHANCEDMENU_H
