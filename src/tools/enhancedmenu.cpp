@@ -15,7 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "menu.h"
+#include "enhancedmenu.h"
 
 Menu::Menu(QWidget* parent)
     : QMenu(parent)
@@ -37,13 +37,13 @@ void Menu::mouseReleaseEvent(QMouseEvent* e)
     }
 
     if (e->button() == Qt::LeftButton && e->modifiers() == Qt::NoModifier) {
-        act->trigger();
         closeAllMenus();
+        act->trigger();
         e->accept();
     }
     else if (e->button() == Qt::MiddleButton || (e->button() == Qt::LeftButton && e->modifiers() == Qt::ControlModifier)) {
-        act->triggerMiddleClick();
         closeAllMenus();
+        act->triggerMiddleClick();
         e->accept();
     }
 }

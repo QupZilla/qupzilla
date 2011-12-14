@@ -177,7 +177,7 @@ SOURCES += main.cpp\
     plugins/speeddial.cpp \
     other/databasewriter.cpp \
     bookmarksimport/htmlimporter.cpp \
-    tools/menu.cpp
+    tools/enhancedmenu.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -296,7 +296,7 @@ HEADERS  += \
     plugins/speeddial.h \
     other/databasewriter.h \
     bookmarksimport/htmlimporter.h \
-    tools/menu.h
+    tools/enhancedmenu.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

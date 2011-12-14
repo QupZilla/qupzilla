@@ -218,7 +218,7 @@ void MainApplication::loadSettings()
         cssFile.close();
     }
 #endif
-#ifdef Q_WS_WIN
+#if defined(Q_WS_WIN) || defined(Q_OS_OS2)
     if (QFile(m_activeThemePath + "windows.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "windows.css");
         cssFile.open(QFile::ReadOnly);

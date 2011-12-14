@@ -60,7 +60,7 @@
 #include "bookmarksimportdialog.h"
 #include "globalfunctions.h"
 #include "webhistorywrapper.h"
-#include "menu.h"
+#include "enhancedmenu.h"
 
 const QString QupZilla::VERSION = "1.1.0";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
