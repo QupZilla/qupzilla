@@ -504,7 +504,7 @@ void TabWidget::savePinnedTabs()
                 continue;
             }
 
-            tabs.append(QString::fromUtf8(tab->url().toEncoded()));
+            tabs.append(tab->url().toString());
             if (tab->history()->count() != 0) {
                 QByteArray tabHistory;
                 QDataStream tabHistoryStream(&tabHistory, QIODevice::WriteOnly);
@@ -584,7 +584,7 @@ QByteArray TabWidget::saveState()
                 continue;
             }
 
-            tabs.append(QString::fromUtf8(tab->url().toEncoded()));
+            tabs.append(tab->url().toString());
             if (tab->history()->count() != 0) {
                 QByteArray tabHistory;
                 QDataStream tabHistoryStream(&tabHistory, QIODevice::WriteOnly);
