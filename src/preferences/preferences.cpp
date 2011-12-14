@@ -116,7 +116,13 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     int afterLaunch = settings.value("afterLaunch", 1).toInt();
     settings.endGroup();
     ui->afterLaunch->setCurrentIndex(afterLaunch);
-    ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates", true).toBool());
+    ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates",
+                                            #ifdef Q_WS_WIN
+                                                true
+                                            #else
+                                                false
+                                            #endif
+                                                ).toBool());
 
     ui->newTabFrame->setVisible(false);
     if (m_newTabUrl.isEmpty()) {

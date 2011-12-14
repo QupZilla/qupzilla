@@ -80,8 +80,8 @@ void AboutDialog::showAuthors()
                              "Unink-Lio (Chinese)<br/>"
                              "Federico Fabiani (Italy)<br/>"
                              "Francesco Marinucci (Italy)<br/>"
-                             "Krzysztof Malinowski (Polish)<br/>"
-                             "Jorge Sevilla (Spanish)"
+                             "Jorge Sevilla (Spanish)<br/>"
+                             "Michał Szymanowski (Polish)"
                                                                         ));
         m_authorsHtml.append("</div>");
     }
