@@ -22,7 +22,7 @@
 #include "websearchbar.h"
 #include "reloadstopbutton.h"
 #include "webhistorywrapper.h"
-#include "menu.h"
+#include "enhancedmenu.h"
 
 NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)

@@ -21,7 +21,7 @@
 #include "sourceviewersearch.h"
 #include "globalfunctions.h"
 #include "iconprovider.h"
-#include "menu.h"
+#include "enhancedmenu.h"
 
 SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml)
     : QWidget(0)
