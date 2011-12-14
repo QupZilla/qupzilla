@@ -39,6 +39,7 @@ private:
 
     void update100b4();
     void update100rc1();
+    void update100();
 
     QString m_profilePath;
     QString m_dataPath;

@@ -170,7 +170,13 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     AutoSaver* saver = new AutoSaver();
     connect(saver, SIGNAL(saveApp()), this, SLOT(saveStateSlot()));
 
-    if (settings2.value("Web-Browser-Settings/CheckUpdates", true).toBool()) {
+    if (settings2.value("Web-Browser-Settings/CheckUpdates",
+                    #ifdef Q_WS_WIN
+                        true
+                    #else
+                        false
+                    #endif
+                        ).toBool()) {
         m_updater = new Updater(qupzilla);
     }
 
