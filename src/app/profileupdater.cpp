@@ -66,11 +66,18 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
     if (profileVersion == Updater::parseVersionFromString("1.0.0-b4")) {
         update100b4();
         update100rc1();
+        update100();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.0.0-rc1")) {
         update100rc1();
+        update100();
+        return;
+    }
+
+    if (profileVersion == Updater::parseVersionFromString("1.0.0")) {
+        update100();
         return;
     }
 
@@ -111,4 +118,14 @@ void ProfileUpdater::update100rc1()
     query.exec("ALTER TABLE bookmarks ADD COLUMN toolbar_position NUMERIC");
     query.exec("UPDATE bookmarks SET toolbar_position=0");
 
+}
+
+void ProfileUpdater::update100()
+{
+    std::cout << "upgrading profile version from 1.0.0..." << std::endl;
+    mApp->connectDatabase();
+
+    QSqlQuery query;
+    query.exec("ALTER TABLE autofill ADD COLUMN last_used NUMERIC");
+    query.exec("UPDATE autofill SET last_used=0");
 }

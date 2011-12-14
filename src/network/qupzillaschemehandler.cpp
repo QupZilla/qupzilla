@@ -195,8 +195,8 @@ QString QupZillaSchemeReply::aboutPage()
                  authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
                  authorString("Federico Fabiani", "federico.fabiani85@gmail.com") + " (Italy)<br/>" +
                  authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italy)<br/>" +
-                 authorString("Krzysztof Malinowski", "boromil@gmail.com") + " (Polish)<br/>" +
-                 authorString("Jorge Sevilla", "jsevi@ozu.es") + " (Spanish)"
+                 authorString("Jorge Sevilla", "jsevi@ozu.es") + " (Spanish)<br/>" +
+                 authorString("Michał Szymanowski", "tylkobuba@gmail.com") + " (Polish)"
                 );
 
     return page;

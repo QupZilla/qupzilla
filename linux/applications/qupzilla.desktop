@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=QupZilla
 Type=Application
-Icon=qupzilla.png
+Icon=qupzilla
 Categories=Network;WebBrowser;
 Comment=A fast and secure web browser
 Comment[es]=Un navegador web rápido y seguro
