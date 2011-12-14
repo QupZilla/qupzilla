@@ -164,12 +164,7 @@ void NavigationBar::aboutToShowHistoryBackMenu()
                 title += "..";
             }
 
-            QIcon icon = item.icon();
-            if (icon.isNull()) {
-                icon = _iconForUrl(item.url());
-            }
-
-            Action* act = new Action(icon, title);
+            Action* act = new Action(_iconForUrl(item.url()), title);
             act->setData(i);
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
             connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
@@ -209,12 +204,7 @@ void NavigationBar::aboutToShowHistoryNextMenu()
                 title += "..";
             }
 
-            QIcon icon = item.icon();
-            if (icon.isNull()) {
-                icon = _iconForUrl(item.url());
-            }
-
-            Action* act = new Action(icon, title);
+            Action* act = new Action(_iconForUrl(item.url()), title);
             act->setData(i);
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
             connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
