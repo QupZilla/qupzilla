@@ -354,12 +354,14 @@ unix {
     data_folder = /usr/share/qupzilla
     launcher_folder = /usr/share/applications
     icon_folder = /usr/share/pixmaps
+    hicolor_folder = /usr/share/icons/hicolor
 
     !equals(d_prefix, "") {
         binary_folder = "$$d_prefix"bin
         data_folder = "$$d_prefix"share/qupzilla
         launcher_folder = "$$d_prefix"share/applications
         icon_folder = "$$d_prefix"share/pixmaps
+        hicolor_folder = "$$d_prefix"share/icons/hicolor
     }
 
     DEFINES += USE_DATADIR=\\\"""$$data_folder/"\\\""
@@ -378,7 +380,26 @@ unix {
     target3.files = ../linux/pixmaps/qupzilla.png
     target3.path = $$icon_folder
 
+    ico16.files = ../linux/hicolor/16x16/qupzilla.png
+    ico16.path = $$hicolor_folder/16x16/apps
+
+    ico32.files = ../linux/hicolor/32x32/qupzilla.png
+    ico32.path = $$hicolor_folder/32x32/apps
+
+    ico48.files = ../linux/hicolor/48x48/qupzilla.png
+    ico48.path = $$hicolor_folder/48x48/apps
+
+    ico64.files = ../linux/hicolor/64x64/qupzilla.png
+    ico64.path = $$hicolor_folder/64x64/apps
+
+    ico128.files = ../linux/hicolor/128x128/qupzilla.png
+    ico128.path = $$hicolor_folder/128x128/apps
+
+    ico256.files = ../linux/hicolor/256x256/qupzilla.png
+    ico256.path = $$hicolor_folder/256x256/apps
+
     INSTALLS += target target1 target2 target3
+    INSTALLS += ico16 ico32 ico48 ico64 ico128 ico256
 }
 
 d_unreleased_build = $$(UNRELEASED_BUILD)
