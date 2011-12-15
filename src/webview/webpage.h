@@ -31,6 +31,7 @@
 #include <QStyle>
 #include <QFileDialog>
 #include <QWebInspector>
+#include <QFileSystemWatcher>
 
 class QupZilla;
 class WebView;
@@ -86,6 +87,8 @@ private slots:
     void urlChanged(const QUrl &url);
     void addJavaScriptObject();
 
+    void watchedFileChanged(const QString &file);
+
 private:
     virtual bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
     virtual bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
@@ -102,6 +105,7 @@ private:
     QSslCertificate m_SslCert;
     QList<QSslCertificate> m_SslCerts;
     QList<AdBlockedEntry> m_adBlockedEntries;
+    QFileSystemWatcher* m_fileWatcher;
 
     QEventLoop* m_runningLoop;
 
