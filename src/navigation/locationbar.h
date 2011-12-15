@@ -53,6 +53,9 @@ public:
 
     void setWebView(WebView* view) { m_webView = view; }
 
+signals:
+    void loadUrl(const QUrl &url);
+
 public slots:
     void showUrl(const QUrl &url, bool empty = true);
 

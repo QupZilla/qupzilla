@@ -316,6 +316,7 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
         m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewTab, true);
         return;
     }
+
     QTabBar::mouseDoubleClickEvent(event);
 }
 
@@ -335,5 +336,6 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
         m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewSelectedTab, true);
         return;
     }
+
     QTabBar::mouseReleaseEvent(event);
 }
