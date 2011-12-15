@@ -322,6 +322,7 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 void TabBar::mouseReleaseEvent(QMouseEvent* event)
 {
     if (!rect().contains(event->pos())) {
+        QTabBar::mouseReleaseEvent(event);
         return;
     }
 
