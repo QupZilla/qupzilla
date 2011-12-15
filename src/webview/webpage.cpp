@@ -39,6 +39,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     , p_QupZilla(mainClass)
     , m_view(parent)
     , m_speedDial(mApp->plugins()->speedDial())
+    , m_fileWatcher(0)
     , m_runningLoop(0)
     , m_blockAlerts(false)
     , m_secureStatus(false)
@@ -99,7 +100,31 @@ void WebPage::finished()
         mainFrame()->setZoomFactor(mainFrame()->zoomFactor() - 1);
     }
 
+    if (mainFrame()->url().scheme() == "file") {
+        if (!m_fileWatcher) {
+            m_fileWatcher = new QFileSystemWatcher(this);
+            connect(m_fileWatcher, SIGNAL(fileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
+        }
+
+        QString absPath = mainFrame()->url().toLocalFile();
+
+        if (!m_fileWatcher->files().contains(absPath)) {
+            m_fileWatcher->addPath(absPath);
+        }
+    }
+    else if (m_fileWatcher) {
+        m_fileWatcher->removePaths(m_fileWatcher->files());
+    }
+
     QTimer::singleShot(100, this, SLOT(cleanBlockedObjects()));
+}
+
+void WebPage::watchedFileChanged(const QString &file)
+{
+    qDebug() << file;
+    if (mainFrame()->url().toLocalFile() == file) {
+        triggerAction(QWebPage::Reload);
+    }
 }
 
 //void WebPage::loadingStarted()
