@@ -9,7 +9,6 @@ The list is not sorted by priority.
 * Zoom Widget in statusbar
 * Password Manager: save more than one account for site + input completer
 * New LocationBar completer
-* QFileSystemWatcher reloading local files
 * (KDE) Nepomuk integration
 * Own FileType detect for downloads (based on suffix)
 * Page previews as tooltip on tabs (like Opera)
