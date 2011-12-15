@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca
+* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -157,7 +157,7 @@ QString QupZillaSchemeReply::aboutPage()
     page.replace("%FAVICON%", "qrc:icons/qupzilla.png");
     page.replace("%BOX-BORDER%", "qrc:html/box-border.png");
     page.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
-    page.replace("%COPYRIGHT-INCLUDE%", qz_readAllFileContents(":html/copyright"));
+    page.replace("%COPYRIGHT-INCLUDE%", Qt::escape(qz_readAllFileContents(":html/copyright")));
 
     page.replace("%TITLE%", tr("About QupZilla"));
     page.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
