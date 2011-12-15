@@ -21,4 +21,3 @@ GenericName[it]=Browser Web
 Exec=qupzilla %u
 MimeType=text/html;application/xhtml+xml;
 Terminal=false
-StartupNotify=true
