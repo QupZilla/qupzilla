@@ -47,6 +47,7 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     connect(m_view.data(), SIGNAL(showUrl(QUrl)), m_locationBar.data(), SLOT(showUrl(QUrl)));
     connect(m_view.data(), SIGNAL(rssChanged(bool)), m_locationBar.data(), SLOT(showRSSIcon(bool)));
     connect(m_view.data()->webPage(), SIGNAL(privacyChanged(bool)), m_locationBar.data(), SLOT(setPrivacy(bool)));
+    connect(m_locationBar.data(), SIGNAL(loadUrl(QUrl)), m_view.data(), SLOT(load(QUrl)));
 }
 
 void WebTab::showNotification(QWidget* notif)

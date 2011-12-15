@@ -123,7 +123,7 @@ void LocationBar::urlEnter()
     }
 
     m_webView->setFocus();
-    m_webView->load(urlToLoad);
+    emit loadUrl(urlToLoad);
 }
 
 void LocationBar::textEdit()
@@ -247,8 +247,10 @@ void LocationBar::dropEvent(QDropEvent* event)
         QUrl dropUrl = event->mimeData()->urls().at(0);
         if (WebView::isUrlValid(dropUrl)) {
             setText(dropUrl.toString());
-            p_QupZilla->loadAddress(dropUrl);
-            QLineEdit::focusOutEvent(new QFocusEvent(QFocusEvent::FocusOut));
+
+            m_webView->setFocus();
+            emit loadUrl(dropUrl);
+
             return;
         }
     }
@@ -256,8 +258,10 @@ void LocationBar::dropEvent(QDropEvent* event)
         QUrl dropUrl = QUrl(event->mimeData()->text().trimmed());
         if (WebView::isUrlValid(dropUrl)) {
             setText(dropUrl.toString());
-            p_QupZilla->loadAddress(dropUrl);
-            QLineEdit::focusOutEvent(new QFocusEvent(QFocusEvent::FocusOut));
+
+            m_webView->setFocus();
+            emit loadUrl(dropUrl);
+
             return;
         }
 

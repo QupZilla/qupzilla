@@ -47,7 +47,6 @@ public:
     int getLoading() { return m_progress; }
 
     void zoomReset();
-    void load(const QUrl &url);
     QUrl url() const;
     QString title() const;
     void reload();
@@ -80,6 +79,8 @@ signals:
     void rssChanged(bool state);
 
 public slots:
+    void load(const QUrl &url);
+
     void stop();
     void back();
     void forward();
