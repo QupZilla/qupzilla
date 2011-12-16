@@ -401,6 +401,10 @@ unix {
 
     INSTALLS += target target1 target2 target3
     INSTALLS += ico16 ico32 ico48 ico64 ico128 ico256
+
+    #Git revision
+    rev = $$system(sh ../scripts/getrevision.sh)
+    !equals(rev, ""): DEFINES += GIT_REVISION=\\\"""$$rev"\\\""
 }
 
 d_unreleased_build = $$(UNRELEASED_BUILD)
