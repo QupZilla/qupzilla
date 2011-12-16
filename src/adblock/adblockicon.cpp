@@ -26,7 +26,7 @@ AdBlockIcon::AdBlockIcon(QupZilla* mainClass, QWidget* parent)
 {
     setMaximumHeight(16);
     setCursor(Qt::PointingHandCursor);
-    setToolTip(tr("AdBlock let you block any unwanted content on pages"));
+    setToolTip(tr("AdBlock lets you block unwanted content on web-pages"));
 
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(showMenu(QPoint)));
 }

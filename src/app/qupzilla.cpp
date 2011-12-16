@@ -1248,7 +1248,7 @@ void QupZilla::startPrivate(bool state)
     bool askNow = settings.value("Browser-View-Settings/AskOnPrivate", true).toBool();
 
     if (state && askNow) {
-        QString title = tr("Are you sure you want to turn on private browsing?");
+        QString title = tr("Are you sure you want to turn to private browsing?");
         QString text1 = tr("When private browsing is turned on, some actions concerning your privacy will be disabled:");
 
         QStringList actions;
@@ -1399,7 +1399,7 @@ bool QupZilla::quitApp()
         QDialog* dialog = new QDialog(this);
         Ui_CloseDialog* ui = new Ui_CloseDialog();
         ui->setupUi(dialog);
-        ui->textLabel->setText(tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit?").arg(m_tabWidget->count()));
+        ui->textLabel->setText(tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit QupZilla?").arg(m_tabWidget->count()));
         ui->iconLabel->setPixmap(style()->standardPixmap(QStyle::SP_MessageBoxWarning));
         if (dialog->exec() != QDialog::Accepted) {
             return false;
