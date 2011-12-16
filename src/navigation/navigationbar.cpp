@@ -24,6 +24,25 @@
 #include "webhistorywrapper.h"
 #include "enhancedmenu.h"
 
+QString titleForUrl(QString title, const QUrl &url)
+{
+    if (title.isEmpty()) {
+        title = url.path();
+    }
+    if (title.isEmpty()) {
+        title = url.host();
+    }
+    if (title.isEmpty()) {
+        return NavigationBar::tr("No Named Page");
+    }
+    if (title.length() > 40) {
+        title.truncate(40);
+        title += "..";
+    }
+
+    return title;
+}
+
 NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , p_QupZilla(mainClass)
@@ -158,11 +177,7 @@ void NavigationBar::aboutToShowHistoryBackMenu()
     for (int i = curindex - 1; i >= 0; i--) {
         QWebHistoryItem item = history->itemAt(i);
         if (item.isValid() && lastUrl != item.url()) {
-            QString title = item.title();
-            if (title.length() > 40) {
-                title.truncate(40);
-                title += "..";
-            }
+            QString title = titleForUrl(item.title(), item.url());
 
             Action* act = new Action(_iconForUrl(item.url()), title);
             act->setData(i);
@@ -198,11 +213,7 @@ void NavigationBar::aboutToShowHistoryNextMenu()
     for (int i = curindex + 1; i < history->count(); i++) {
         QWebHistoryItem item = history->itemAt(i);
         if (item.isValid() && lastUrl != item.url()) {
-            QString title = item.title();
-            if (title.length() > 40) {
-                title.truncate(40);
-                title += "..";
-            }
+            QString title = titleForUrl(item.title(), item.url());
 
             Action* act = new Action(_iconForUrl(item.url()), title);
             act->setData(i);

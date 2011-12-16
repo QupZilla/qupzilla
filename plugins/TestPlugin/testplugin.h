@@ -34,9 +34,9 @@ public:
     bool hasSettings() { return true; }
     void showSettings();
 
-    void populateWebViewMenu(QMenu *menu, QWebView *view, QWebHitTestResult r);
-    void populateHelpMenu(QMenu *menu);
-    void populateToolsMenu(QMenu *menu);
+    void populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestResult r);
+    void populateHelpMenu(QMenu* menu);
+    void populateToolsMenu(QMenu* menu);
 
 private slots:
     void actionSlot();
