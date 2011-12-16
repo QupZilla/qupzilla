@@ -1399,7 +1399,7 @@ bool QupZilla::quitApp()
         QDialog* dialog = new QDialog(this);
         Ui_CloseDialog* ui = new Ui_CloseDialog();
         ui->setupUi(dialog);
-        ui->textLabel->setText(tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit?").arg(m_tabWidget->count()));
+        ui->textLabel->setText(tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit QupZilla?").arg(m_tabWidget->count()));
         ui->iconLabel->setPixmap(style()->standardPixmap(QStyle::SP_MessageBoxWarning));
         if (dialog->exec() != QDialog::Accepted) {
             return false;
