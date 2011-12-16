@@ -27,10 +27,7 @@
 QString titleForUrl(QString title, const QUrl &url)
 {
     if (title.isEmpty()) {
-        title = url.path();
-    }
-    if (title.isEmpty()) {
-        title = url.host();
+        title = url.toString(QUrl::RemoveFragment);
     }
     if (title.isEmpty()) {
         return NavigationBar::tr("No Named Page");

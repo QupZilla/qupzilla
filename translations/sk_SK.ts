@@ -154,11 +154,15 @@
     </message>
     <message>
         <source>AdBlock let you block any unwanted content on pages</source>
-        <translation>AdBlock vám umožňuje blokovať nechcený obsah na stránkach</translation>
+        <translation type="obsolete">AdBlock vám umožňuje blokovať nechcený obsah na stránkach</translation>
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
         <translation>Zistiť viac o písaní p&amp;ravidiel</translation>
+    </message>
+    <message>
+        <source>AdBlock lets you block unwanted content on web-pages</source>
+        <translation>AdBlock vám umožňuje blokovať nechcený obsah na stránkach</translation>
     </message>
 </context>
 <context>
@@ -243,6 +247,10 @@
     <name>AutoFillNotification</name>
     <message>
         <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
+        <translation type="obsolete">Chcete, aby si QupZilla zapamätala heslo pre &lt;b&gt;%1&lt;/b&gt; na %2?</translation>
+    </message>
+    <message>
+        <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
         <translation>Chcete, aby si QupZilla zapamätala heslo pre &lt;b&gt;%1&lt;/b&gt; na %2?</translation>
     </message>
 </context>
@@ -471,7 +479,7 @@
     </message>
     <message>
         <source>Choose name and location of bookmark.</source>
-        <translation>Zvoľte názov a umiestnenie záložky.</translation>
+        <translation type="obsolete">Zvoľte názov a umiestnenie záložky.</translation>
     </message>
     <message>
         <source>Add Subfolder</source>
@@ -483,7 +491,15 @@
     </message>
     <message>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
+        <translation type="obsolete">&lt;b&gt;Upozornenie: &lt;/b&gt;Túto stránku už máte v záložkách!</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
         <translation>&lt;b&gt;Upozornenie: &lt;/b&gt;Túto stránku už máte v záložkách!</translation>
+    </message>
+    <message>
+        <source>Choose name and location of this bookmark.</source>
+        <translation>Zvoľte názov a umiestnenie záložky.</translation>
     </message>
 </context>
 <context>
@@ -1340,6 +1356,10 @@
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
+        <translation type="obsolete">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
     </message>
 </context>
@@ -1372,6 +1392,10 @@
     <message>
         <source>Forward</source>
         <translation>Dopredu</translation>
+    </message>
+    <message>
+        <source>No Named Page</source>
+        <translation>Stránka bez názvu</translation>
     </message>
 </context>
 <context>
@@ -2385,7 +2409,7 @@
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
-        <translation>Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
+        <translation type="obsolete">Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
     </message>
     <message>
         <source>&amp;Menu Bar</source>
@@ -2446,6 +2470,10 @@
     <message>
         <source>Sidebars</source>
         <translation>Bočné panely</translation>
+    </message>
+    <message>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
+        <translation>Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
     </message>
 </context>
 <context>
@@ -2831,6 +2859,14 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Shortcut</source>
         <translation>Zástupca</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation>Vyššie</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation>Nižšie</translation>
     </message>
 </context>
 <context>
