@@ -21,7 +21,7 @@
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="48"/>
-        <location filename="../src/other/aboutdialog.cpp" line="71"/>
+        <location filename="../src/other/aboutdialog.cpp" line="75"/>
         <source>&lt; About QupZilla</source>
         <translation>&lt; O QupZille</translation>
     </message>
@@ -31,32 +31,32 @@
         <translation>&lt;p&gt;&lt;b&gt;Verze aplikace %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="59"/>
+        <location filename="../src/other/aboutdialog.cpp" line="63"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>&lt;b&gt;Verze WebKitu %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="60"/>
+        <location filename="../src/other/aboutdialog.cpp" line="64"/>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
         <translation>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Všechna práva vyhrazena.&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="61"/>
+        <location filename="../src/other/aboutdialog.cpp" line="65"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;Datum sestavení: %1&lt;/small&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="74"/>
+        <location filename="../src/other/aboutdialog.cpp" line="78"/>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Hlavní vývojáři:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="75"/>
+        <location filename="../src/other/aboutdialog.cpp" line="79"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Přispěvatelé&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="76"/>
+        <location filename="../src/other/aboutdialog.cpp" line="80"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Překladatelé&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -167,8 +167,12 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock let you block any unwanted content on pages</source>
+        <translation type="obsolete">AdBlock blokuje nevyžádaný obsah na stánkách</translation>
+    </message>
+    <message>
+        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
+        <source>AdBlock lets you block unwanted content on web-pages</source>
         <translation>AdBlock blokuje nevyžádaný obsah na stánkách</translation>
     </message>
     <message>
@@ -306,8 +310,12 @@
 <context>
     <name>AutoFillNotification</name>
     <message>
-        <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
+        <translation type="obsolete">Chcete aby si QupZilla zapamatovala heslo pro &lt;b&gt;%1&lt;/b&gt; na %2?</translation>
+    </message>
+    <message>
+        <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
+        <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
         <translation>Chcete aby si QupZilla zapamatovala heslo pro &lt;b&gt;%1&lt;/b&gt; na %2?</translation>
     </message>
 </context>
@@ -573,6 +581,16 @@
         <translation>Otevřít odkaz v &amp;aktuálním panelu</translation>
     </message>
     <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
+        <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
+        <translation>&lt;b&gt;Upozornění: &lt;/b&gt;Tuto stránku již máte v záložkách!</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="563"/>
+        <source>Choose name and location of this bookmark.</source>
+        <translation>Zvolte jméno a umístění záložky.</translation>
+    </message>
+    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="103"/>
         <source>Add new subfolder</source>
         <translation>Přidat podsložku</translation>
@@ -619,14 +637,12 @@
         <translation>Odstranit záložku</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
-        <translation>&lt;b&gt;Upozornění: &lt;/b&gt;Tuto stránku již máte v záložkách!</translation>
+        <translation type="obsolete">&lt;b&gt;Upozornění: &lt;/b&gt;Tuto stránku již máte v záložkách!</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="563"/>
         <source>Choose name and location of bookmark.</source>
-        <translation>Zvolte jméno a umístění záložky.</translation>
+        <translation type="obsolete">Zvolte jméno a umístění záložky.</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="567"/>
@@ -1721,46 +1737,55 @@ nebyl nalezen!</translation>
     </message>
     <message>
         <location filename="../src/app/mainapplication.cpp" line="662"/>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
+        <translation type="obsolete">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="38"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="33"/>
+        <source>No Named Page</source>
+        <translation>Bezejmenná stránka</translation>
+    </message>
+    <message>
+        <location filename="../src/navigation/navigationbar.cpp" line="54"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="45"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="61"/>
         <source>Forward</source>
         <translation>Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="59"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="75"/>
         <source>Home</source>
         <translation>Domů</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="65"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="81"/>
         <source>New Tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="77"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="93"/>
         <source>Main Menu</source>
         <translation>Hlavní menu</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="92"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="93"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="108"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="109"/>
         <source>Exit Fullscreen</source>
         <translation>Zrušit celou obrazovku</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="183"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="223"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="195"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="231"/>
         <source>Clear history</source>
         <translation>Smazat historii</translation>
     </message>
@@ -2130,7 +2155,7 @@ nebyl nalezen!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="302"/>
-        <location filename="../src/preferences/preferences.cpp" line="591"/>
+        <location filename="../src/preferences/preferences.cpp" line="609"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Poznámka: Nemůžete smazat aktivní profil.</translation>
     </message>
@@ -2602,58 +2627,58 @@ nebyl nalezen!</translation>
         <translation>Ke změně jazyka je nutný restart prohlížeče.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="395"/>
+        <location filename="../src/preferences/preferences.cpp" line="414"/>
         <source>OSD Notification</source>
         <translation>OSD Oznámení</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="396"/>
+        <location filename="../src/preferences/preferences.cpp" line="415"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Přetáhněte jej na obrazovce na místo, na kterém jej chcete mít.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="425"/>
+        <location filename="../src/preferences/preferences.cpp" line="443"/>
         <source>Choose download location...</source>
         <translation>Vyberte složku pro stahování...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="439"/>
+        <location filename="../src/preferences/preferences.cpp" line="457"/>
         <source>Choose stylesheet location...</source>
         <translation>Vyberte umístění stylu...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="553"/>
+        <location filename="../src/preferences/preferences.cpp" line="571"/>
         <source>New Profile</source>
         <translation>Nový profil</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="553"/>
+        <location filename="../src/preferences/preferences.cpp" line="571"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Zvolte jméno nového profilu:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="559"/>
-        <location filename="../src/preferences/preferences.cpp" line="563"/>
+        <location filename="../src/preferences/preferences.cpp" line="577"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
         <source>Error!</source>
         <translation>Chyba!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="559"/>
+        <location filename="../src/preferences/preferences.cpp" line="577"/>
         <source>This profile already exists!</source>
         <translation>Tento profil již existuje!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="563"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
         <source>Cannot create profile directory!</source>
         <translation>Nemohu vytvořit složku profilu!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="576"/>
+        <location filename="../src/preferences/preferences.cpp" line="594"/>
         <source>Confirmation</source>
         <translation>Potvrzení</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="577"/>
+        <location filename="../src/preferences/preferences.cpp" line="595"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Jste si jisti že chcete permanentně smazat profil &quot;%1&quot;? Tuto akci nelze vzít zpět!</translation>
     </message>
@@ -2862,6 +2887,11 @@ nebyl nalezen!</translation>
         <translation>Zdrojový &amp;kód stránky</translation>
     </message>
     <message>
+        <location filename="../src/app/qupzilla.cpp" line="1409"/>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
+        <translation>Ještě je otevřeno %1 panelů a Vaše relace nebude uložena. Opravdu chcete skončit?</translation>
+    </message>
+    <message>
         <location filename="../src/app/qupzilla.cpp" line="325"/>
         <source>&amp;Menu Bar</source>
         <translation>&amp;Menu</translation>
@@ -2927,17 +2957,17 @@ nebyl nalezen!</translation>
         <translation>Defaultní</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1256"/>
+        <location filename="../src/app/qupzilla.cpp" line="1262"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Současné cookies nejsou dostupné.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1257"/>
+        <location filename="../src/app/qupzilla.cpp" line="1263"/>
         <source>Your session is not stored.</source>
         <translation>Vaše relace není uložena.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1264"/>
+        <location filename="../src/app/qupzilla.cpp" line="1270"/>
         <source>Start Private Browsing</source>
         <translation>Spustit anonymní prohlížení</translation>
     </message>
@@ -3104,29 +3134,28 @@ nebyl nalezen!</translation>
         <translation>Otevřít soubor...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1251"/>
+        <location filename="../src/app/qupzilla.cpp" line="1257"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Jste si jistý že chcete zapnout soukromé prohlížení?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1252"/>
+        <location filename="../src/app/qupzilla.cpp" line="1258"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Se zapnutým soukromým prohlížením jsou některé akce týkající se soukromí vypnuty:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1255"/>
+        <location filename="../src/app/qupzilla.cpp" line="1261"/>
         <source>Webpages are not added to the history.</source>
         <translation>Stránky nejsou přidávány do historie.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1259"/>
+        <location filename="../src/app/qupzilla.cpp" line="1265"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Než zavřete prohlížeč, stále můžete použít tlačítka Zpět a Vpřed k vrácení se na stránky které jste otevřeli.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1402"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
-        <translation>Ještě je otevřeno %1 panelů a Vaše relace nebude uložena. Opravdu chcete skončit?</translation>
+        <translation type="obsolete">Ještě je otevřeno %1 panelů a Vaše relace nebude uložena. Opravdu chcete skončit?</translation>
     </message>
 </context>
 <context>
@@ -3589,26 +3618,36 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="56"/>
+        <source>Up</source>
+        <translation>Nahoru</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="63"/>
+        <source>Down</source>
+        <translation>Dolů</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="91"/>
         <source>Defaults</source>
         <translation>Původní</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.ui" line="79"/>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="76"/>
         <source>Search Engine</source>
         <translation>Vyhledávač</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.ui" line="84"/>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="81"/>
         <source>Shortcut</source>
         <translation>Zkratka</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.cpp" line="44"/>
+        <location filename="../src/opensearch/searchenginesdialog.cpp" line="47"/>
         <source>Add Search Engine</source>
         <translation>Přidat vyhledávač</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.cpp" line="92"/>
+        <location filename="../src/opensearch/searchenginesdialog.cpp" line="95"/>
         <source>Edit Search Engine</source>
         <translation>Upravit vyhledávač</translation>
     </message>
@@ -4418,7 +4457,7 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
         <translation>Hledat &quot;%1 ..&quot; s %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="894"/>
+        <location filename="../src/webview/webview.cpp" line="891"/>
         <source>No Named Page</source>
         <translation>Bezejmenná stránka</translation>
     </message>

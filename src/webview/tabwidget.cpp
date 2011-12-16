@@ -422,7 +422,7 @@ void TabWidget::duplicateTab(int index)
     QDataStream tabHistoryStream(&history, QIODevice::WriteOnly);
     tabHistoryStream << *weView(index)->history();
 
-    int id = addView(url, tr("New tab"), TabWidget::NewSelectedTab);
+    int id = addView(url, tr("New tab"), TabWidget::NewNotSelectedTab);
     QDataStream historyStream(history);
     historyStream >> *weView(id)->history();
 }

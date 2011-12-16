@@ -125,6 +125,8 @@ public slots:
     void showBookmarksToolbar();
     void loadActionUrl();
     void loadActionUrlInNewTab();
+    void loadActionUrlInNewNotSelectedTab();
+
     void bookmarkPage();
     void loadAddress(const QUrl &url);
     void showSource(const QString &selectedHtml = "");
@@ -180,7 +182,7 @@ private slots:
     void openLocation();
     void openFile();
     void savePage();
-    void sendLink() { QDesktopServices::openUrl(QUrl("mailto:?body=" + weView()->url().toString())); }
+    void sendLink();
     void webSearch();
 
     void copy();

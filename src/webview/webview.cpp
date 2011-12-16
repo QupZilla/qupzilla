@@ -885,14 +885,12 @@ QString WebView::title() const
 {
     QString title = QWebView::title();
     if (title.isEmpty()) {
-        title = url().path();
-    }
-    if (title.isEmpty()) {
-        title = url().host();
+        title = url().toString(QUrl::RemoveFragment);
     }
     if (title.isEmpty()) {
         return tr("No Named Page");
     }
+
     return title;
 }
 

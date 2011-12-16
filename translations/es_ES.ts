@@ -21,7 +21,7 @@
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="48"/>
-        <location filename="../src/other/aboutdialog.cpp" line="71"/>
+        <location filename="../src/other/aboutdialog.cpp" line="75"/>
         <source>&lt; About QupZilla</source>
         <translation>&lt; Acerca de QupZilla</translation>
     </message>
@@ -31,32 +31,32 @@
         <translation>&lt;p&gt;&lt;b&gt;Versión de la aplicación %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="59"/>
+        <location filename="../src/other/aboutdialog.cpp" line="63"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>&lt;b&gt;Versión WebKit %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="60"/>
+        <location filename="../src/other/aboutdialog.cpp" line="64"/>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
         <translation>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Todos los derechos reservados.&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="61"/>
+        <location filename="../src/other/aboutdialog.cpp" line="65"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;Fecha de compilación: %1 &lt;/small&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="74"/>
+        <location filename="../src/other/aboutdialog.cpp" line="78"/>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Desarrolladores principales:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="75"/>
+        <location filename="../src/other/aboutdialog.cpp" line="79"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Contribuidores:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="76"/>
+        <location filename="../src/other/aboutdialog.cpp" line="80"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Traductores:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -167,8 +167,12 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock let you block any unwanted content on pages</source>
+        <translation type="obsolete">AdBlock le permite bloquear contenido no deseado en las páginas</translation>
+    </message>
+    <message>
+        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
+        <source>AdBlock lets you block unwanted content on web-pages</source>
         <translation>AdBlock le permite bloquear contenido no deseado en las páginas</translation>
     </message>
     <message>
@@ -306,8 +310,12 @@
 <context>
     <name>AutoFillNotification</name>
     <message>
-        <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
+        <translation type="obsolete">¿Desea que QupZilla recuerde las contraseñas de &lt;b&gt;%1&lt;/b&gt; en %2?</translation>
+    </message>
+    <message>
+        <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
+        <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
         <translation>¿Desea que QupZilla recuerde las contraseñas de &lt;b&gt;%1&lt;/b&gt; en %2?</translation>
     </message>
 </context>
@@ -569,6 +577,16 @@
         <translation>Nueva pestaña</translation>
     </message>
     <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
+        <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
+        <translation>&lt;b&gt;Aviso: &lt;/b&gt;¡Ya ha añadido esta página a los marcadores!</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="563"/>
+        <source>Choose name and location of this bookmark.</source>
+        <translation>Elegir nombre y localización del marcador.</translation>
+    </message>
+    <message>
         <source>Remove</source>
         <translation type="obsolete">Quitar</translation>
     </message>
@@ -615,14 +633,12 @@
         <translation>Eliminar marcador</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
-        <translation>&lt;b&gt;Aviso: &lt;/b&gt;¡Ya ha añadido esta página a los marcadores!</translation>
+        <translation type="obsolete">&lt;b&gt;Aviso: &lt;/b&gt;¡Ya ha añadido esta página a los marcadores!</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="563"/>
         <source>Choose name and location of bookmark.</source>
-        <translation>Elegir nombre y localización del marcador.</translation>
+        <translation type="obsolete">Elegir nombre y localización del marcador.</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="567"/>
@@ -1716,46 +1732,55 @@
     </message>
     <message>
         <location filename="../src/app/mainapplication.cpp" line="662"/>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla se cerró inesperadamente :-(&lt;/b&gt;&lt;br/&gt;Lo sentimos, la última sesión de QupZilla terminó inesperadamente. ¿Le gustaría intentar restaurar la última sesión?</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
+        <translation type="obsolete">&lt;b&gt;QupZilla se cerró inesperadamente :-(&lt;/b&gt;&lt;br/&gt;Lo sentimos, la última sesión de QupZilla terminó inesperadamente. ¿Le gustaría intentar restaurar la última sesión?</translation>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="38"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="33"/>
+        <source>No Named Page</source>
+        <translation>Página sin nombre</translation>
+    </message>
+    <message>
+        <location filename="../src/navigation/navigationbar.cpp" line="54"/>
         <source>Back</source>
         <translation>Anterior</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="45"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="61"/>
         <source>Forward</source>
         <translation>Siguiente</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="59"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="75"/>
         <source>Home</source>
         <translation>Inicio</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="65"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="81"/>
         <source>New Tab</source>
         <translation>Nueva pestaña</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="77"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="93"/>
         <source>Main Menu</source>
         <translation>Menú principal</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="92"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="93"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="108"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="109"/>
         <source>Exit Fullscreen</source>
         <translation>Salir de pantalla completa</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="183"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="223"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="195"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="231"/>
         <source>Clear history</source>
         <translation>Limpiar historial</translation>
     </message>
@@ -2079,7 +2104,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="302"/>
-        <location filename="../src/preferences/preferences.cpp" line="591"/>
+        <location filename="../src/preferences/preferences.cpp" line="609"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Nota: no puede eliminar el perfil activo.</translation>
     </message>
@@ -2596,58 +2621,58 @@
         <translation>Apariencia</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="395"/>
+        <location filename="../src/preferences/preferences.cpp" line="414"/>
         <source>OSD Notification</source>
         <translation>Notificación OSD</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="396"/>
+        <location filename="../src/preferences/preferences.cpp" line="415"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Arrástrela por la pantalla para situarla donde quiera.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="425"/>
+        <location filename="../src/preferences/preferences.cpp" line="443"/>
         <source>Choose download location...</source>
         <translation>Seleccione la ubicación de la descarga...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="439"/>
+        <location filename="../src/preferences/preferences.cpp" line="457"/>
         <source>Choose stylesheet location...</source>
         <translation>Seleccione la ubicación de la hoja de estilos...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="553"/>
+        <location filename="../src/preferences/preferences.cpp" line="571"/>
         <source>New Profile</source>
         <translation>Nuevo perfil</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="553"/>
+        <location filename="../src/preferences/preferences.cpp" line="571"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Introduzca el nombre del nuevo perfil:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="559"/>
-        <location filename="../src/preferences/preferences.cpp" line="563"/>
+        <location filename="../src/preferences/preferences.cpp" line="577"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
         <source>Error!</source>
         <translation>¡Error!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="559"/>
+        <location filename="../src/preferences/preferences.cpp" line="577"/>
         <source>This profile already exists!</source>
         <translation>¡Este perfil ya existe!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="563"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
         <source>Cannot create profile directory!</source>
         <translation>¡No se puede crear el directorio del perfil!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="576"/>
+        <location filename="../src/preferences/preferences.cpp" line="594"/>
         <source>Confirmation</source>
         <translation>Confirmación</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="577"/>
+        <location filename="../src/preferences/preferences.cpp" line="595"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>¿Está seguro de eliminar permanentemente el perfil &quot;%1&quot;? ¡Esta acción no puede deshacerse!</translation>
     </message>
@@ -3054,6 +3079,11 @@
         <translation>&amp;Navegación privada</translation>
     </message>
     <message>
+        <location filename="../src/app/qupzilla.cpp" line="1409"/>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
+        <translation>Está a punto de cerrar %1 pestañas. ¿Está seguro de continuar?</translation>
+    </message>
+    <message>
         <location filename="../src/app/qupzilla.cpp" line="308"/>
         <location filename="../src/app/qupzilla.cpp" line="759"/>
         <source>Pr&amp;eferences</source>
@@ -3082,44 +3112,43 @@
         <translation>Abrir archivo...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1251"/>
+        <location filename="../src/app/qupzilla.cpp" line="1257"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>¿Está seguro que desea habilitar la navegación privada?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1252"/>
+        <location filename="../src/app/qupzilla.cpp" line="1258"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Cuando la navegación privada está habilitada, algunas opciones relacionadas con su privacidad estarán deshabilitadas:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1255"/>
+        <location filename="../src/app/qupzilla.cpp" line="1261"/>
         <source>Webpages are not added to the history.</source>
         <translation>Las páginas web no se añaden al historial.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1256"/>
+        <location filename="../src/app/qupzilla.cpp" line="1262"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Las cookies actuales no pueden ser accedidas.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1257"/>
+        <location filename="../src/app/qupzilla.cpp" line="1263"/>
         <source>Your session is not stored.</source>
         <translation>La sesión no será guardada.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1259"/>
+        <location filename="../src/app/qupzilla.cpp" line="1265"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Hasta que cierre la ventana, puede hacer click en los botones Anterior y Siguiente para regresar a las páginas web que haya abierto.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1264"/>
+        <location filename="../src/app/qupzilla.cpp" line="1270"/>
         <source>Start Private Browsing</source>
         <translation>Comenzar la navegación privada</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1402"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
-        <translation>Está a punto de cerrar %1 pestañas. ¿Está seguro de continuar?</translation>
+        <translation type="obsolete">Está a punto de cerrar %1 pestañas. ¿Está seguro de continuar?</translation>
     </message>
 </context>
 <context>
@@ -3582,26 +3611,36 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="56"/>
+        <source>Up</source>
+        <translation>Subir</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="63"/>
+        <source>Down</source>
+        <translation>Bajar</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="91"/>
         <source>Defaults</source>
         <translation>Predeterminados</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.ui" line="79"/>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="76"/>
         <source>Search Engine</source>
         <translation>Motor de búsqueda</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.ui" line="84"/>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="81"/>
         <source>Shortcut</source>
         <translation>Palabra clave</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.cpp" line="44"/>
+        <location filename="../src/opensearch/searchenginesdialog.cpp" line="47"/>
         <source>Add Search Engine</source>
         <translation>Añadir motor de búsqueda</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.cpp" line="92"/>
+        <location filename="../src/opensearch/searchenginesdialog.cpp" line="95"/>
         <source>Edit Search Engine</source>
         <translation>Editar motor de búsqueda</translation>
     </message>
@@ -4432,7 +4471,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
         <translation>Buscar &quot;%1 ..&quot; con %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="894"/>
+        <location filename="../src/webview/webview.cpp" line="891"/>
         <source>No Named Page</source>
         <translation>Página en blanco</translation>
     </message>
