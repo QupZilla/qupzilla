@@ -57,9 +57,9 @@ void AboutDialog::showAbout()
         m_aboutHtml.append("<div style='margin:10px;'>");
         m_aboutHtml.append(tr("<p><b>Application version %1</b><br/>").arg(QupZilla::VERSION
 #ifdef GIT_REVISION
-                                                                           + " (" + GIT_REVISION + ")"
+                           + " (" + GIT_REVISION + ")"
 #endif
-                                                                           ));
+                                                                          ));
         m_aboutHtml.append(tr("<b>WebKit version %1</b></p>").arg(QupZilla::WEBKITVERSION));
         m_aboutHtml.append(tr("<p>&copy; %1 %2<br/>All rights reserved.<br/>").arg(QupZilla::COPYRIGHT, QupZilla::AUTHOR));
         m_aboutHtml.append(tr("<small>Build time: %1 </small></p>").arg(QupZilla::BUILDTIME));

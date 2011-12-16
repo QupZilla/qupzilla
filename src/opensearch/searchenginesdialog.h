@@ -42,6 +42,9 @@ private slots:
     void removeEngine();
     void editEngine();
 
+    void moveUp();
+    void moveDown();
+
     void defaults();
 
 private:

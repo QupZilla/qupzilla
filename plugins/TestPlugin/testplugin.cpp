@@ -19,7 +19,7 @@ bool TestPlugin::testPlugin()
 QTranslator* TestPlugin::getTranslator(QString locale)
 {
     QTranslator* translator = new QTranslator();
-    translator->load(":/"+locale);
+    translator->load(":/" + locale);
     return translator;
 }
 
@@ -27,7 +27,7 @@ void TestPlugin::showSettings()
 {
     QWidget* widget = new QWidget();
     new QLabel("Example Plugin v0.0.1", widget);
-    widget->resize(200,200);
+    widget->resize(200, 200);
     widget->setAttribute(Qt::WA_DeleteOnClose);
     widget->setWindowModality(Qt::WindowModal); //As the preferences window is modal too
     widget->setWindowTitle("Example Plugin Settings");
@@ -35,26 +35,29 @@ void TestPlugin::showSettings()
     widget->show();
 }
 
-void TestPlugin::populateWebViewMenu(QMenu *menu, QWebView *view, QWebHitTestResult r)
+void TestPlugin::populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestResult r)
 {
     Q_UNUSED(view)
     QString title;
-    if (!r.imageUrl().isEmpty())
+    if (!r.imageUrl().isEmpty()) {
         title += " on image";
-    if (!r.linkUrl().isEmpty())
+    }
+    if (!r.linkUrl().isEmpty()) {
         title += " on link";
+    }
     QWebElement element = r.element();
-       if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea"))
-           title += " on input";
+    if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea")) {
+        title += " on input";
+    }
     menu->addAction(tr("My first plugin action") + title, this, SLOT(actionSlot()));
 }
 
-void TestPlugin::populateHelpMenu(QMenu *menu)
+void TestPlugin::populateHelpMenu(QMenu* menu)
 {
     menu->addAction(tr("My first plugin action"), this, SLOT(actionSlot()));
 }
 
-void TestPlugin::populateToolsMenu(QMenu *menu)
+void TestPlugin::populateToolsMenu(QMenu* menu)
 {
     menu->addAction(tr("My first plugin action"), this, SLOT(actionSlot()));
 }

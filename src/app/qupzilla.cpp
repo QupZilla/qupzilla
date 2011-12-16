@@ -1167,6 +1167,12 @@ void QupZilla::openFile()
     }
 }
 
+void QupZilla::openLocation()
+{
+    locationBar()->setFocus();
+    locationBar()->selectAll();
+}
+
 void QupZilla::showNavigationWithFullscreen()
 {
     bool state;
@@ -1307,6 +1313,7 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
         searchOnPage();
         event->accept();
         break;
+    case Qt::Key_F6:
     case Qt::Key_OpenUrl:
         openLocation();
         event->accept();

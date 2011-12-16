@@ -117,12 +117,12 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     settings.endGroup();
     ui->afterLaunch->setCurrentIndex(afterLaunch);
     ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates",
-                                            #ifdef Q_WS_WIN
-                                                true
-                                            #else
-                                                false
-                                            #endif
-                                                ).toBool());
+#ifdef Q_WS_WIN
+                                 true
+#else
+                                 false
+#endif
+                                               ).toBool());
 
     ui->newTabFrame->setVisible(false);
     if (m_newTabUrl.isEmpty()) {
@@ -313,6 +313,9 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         ui->useOSDNotifications->setChecked(true);
     }
 
+    connect(ui->useNativeSystemNotifications, SIGNAL(toggled(bool)), this, SLOT(setNotificationPreviewVisible(bool)));
+    connect(ui->useOSDNotifications, SIGNAL(toggled(bool)), this, SLOT(setNotificationPreviewVisible(bool)));
+
     ui->doNotUseNotifications->setChecked(!settings.value("Enabled", true).toBool());
     m_notifPosition = settings.value("Position", QPoint(10, 10)).toPoint();
     settings.endGroup();
@@ -389,21 +392,36 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     ui->caption->setText("<b>" + item->text() + "</b>");
     ui->stackedWidget->setCurrentIndex(item->whatsThis().toInt());
 
-    if (ui->stackedWidget->currentIndex() == 8) {
-        m_notification = new DesktopNotification(true);
-        m_notification.data()->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
-        m_notification.data()->setHeading(tr("OSD Notification"));
-        m_notification.data()->setText(tr("Drag it on the screen to place it where you want."));
-        m_notification.data()->move(m_notifPosition);
-        m_notification.data()->show();
+    setNotificationPreviewVisible(ui->stackedWidget->currentIndex() == 8);
+}
 
-        mApp->desktopNotifications()->nativeNotificationPreview();
-    }
-    else if (m_notification.data()) {
+void Preferences::setNotificationPreviewVisible(bool state)
+{
+    if (!state && m_notification.data()) {
         m_notifPosition = m_notification.data()->pos();
         delete m_notification.data();
     }
+
+    if (state) {
+        if (ui->useOSDNotifications->isChecked()) {
+            if (m_notification.data()) {
+                m_notifPosition = m_notification.data()->pos();
+                delete m_notification.data();
+            }
+
+            m_notification = new DesktopNotification(true);
+            m_notification.data()->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
+            m_notification.data()->setHeading(tr("OSD Notification"));
+            m_notification.data()->setText(tr("Drag it on the screen to place it where you want."));
+            m_notification.data()->move(m_notifPosition);
+            m_notification.data()->show();
+        }
+        else if (ui->useNativeSystemNotifications->isChecked()) {
+            mApp->desktopNotifications()->nativeNotificationPreview();
+        }
+    }
 }
+
 void Preferences::allowCacheChanged(bool state)
 {
     ui->cacheFrame->setEnabled(state);
