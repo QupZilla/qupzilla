@@ -71,6 +71,8 @@ private slots:
     void deleteProfile();
     void startProfileIndexChanged(QString index);
 
+    void setNotificationPreviewVisible(bool state);
+
 private:
     Ui::Preferences* ui;
     QupZilla* p_QupZilla;

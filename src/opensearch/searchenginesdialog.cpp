@@ -34,6 +34,9 @@ SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
     connect(ui->remove, SIGNAL(clicked()), this, SLOT(removeEngine()));
     connect(ui->edit, SIGNAL(clicked()), this, SLOT(editEngine()));
     connect(ui->defaults, SIGNAL(clicked()), this, SLOT(defaults()));
+    connect(ui->moveUp, SIGNAL(clicked()), this, SLOT(moveUp()));
+    connect(ui->moveDown, SIGNAL(clicked()), this, SLOT(moveDown()));
+
     connect(ui->treeWidget, SIGNAL(itemDoubleClicked(QTreeWidgetItem*, int)), this, SLOT(editEngine()));
 
     reloadEngines();
@@ -122,6 +125,34 @@ void SearchEnginesDialog::defaults()
 {
     m_manager->restoreDefaults();
     reloadEngines();
+}
+
+void SearchEnginesDialog::moveUp()
+{
+    QTreeWidgetItem* currentItem = ui->treeWidget->currentItem();
+    int index = ui->treeWidget->indexOfTopLevelItem(currentItem);
+
+    if (!currentItem || index == 0) {
+        return;
+    }
+
+    ui->treeWidget->takeTopLevelItem(index);
+    ui->treeWidget->insertTopLevelItem(index - 1, currentItem);
+    ui->treeWidget->setCurrentItem(currentItem);
+}
+
+void SearchEnginesDialog::moveDown()
+{
+    QTreeWidgetItem* currentItem = ui->treeWidget->currentItem();
+    int index = ui->treeWidget->indexOfTopLevelItem(currentItem);
+
+    if (!currentItem || !ui->treeWidget->itemBelow(currentItem)) {
+        return;
+    }
+
+    ui->treeWidget->takeTopLevelItem(index);
+    ui->treeWidget->insertTopLevelItem(index + 1, currentItem);
+    ui->treeWidget->setCurrentItem(currentItem);
 }
 
 void SearchEnginesDialog::reloadEngines()

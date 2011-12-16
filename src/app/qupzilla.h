@@ -177,7 +177,7 @@ private slots:
     void bookmarkAllTabs();
     void newWindow() { mApp->makeNewWindow(false); }
 
-    void openLocation() { locationBar()->setFocus(); locationBar()->selectAll(); }
+    void openLocation();
     void openFile();
     void savePage();
     void sendLink() { QDesktopServices::openUrl(QUrl("mailto:?body=" + weView()->url().toString())); }
