@@ -547,7 +547,7 @@ void BookmarksManager::insertBookmark(const QUrl &url, const QString &title, con
     layout->addWidget(edit);
     layout->addWidget(combo);
     if (m_bookmarksModel->isBookmarked(url)) {
-        layout->addWidget(new QLabel(tr("<b>Warning: </b>You already have this page bookmarked!")));
+        layout->addWidget(new QLabel(tr("<b>Warning: </b>You already have bookmarked this page!")));
     }
     layout->addWidget(box);
 
@@ -560,7 +560,7 @@ void BookmarksManager::insertBookmark(const QUrl &url, const QString &title, con
         combo->addItem(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString());
     }
 
-    label->setText(tr("Choose name and location of bookmark."));
+    label->setText(tr("Choose name and location of this bookmark."));
     edit->setText(title);
     edit->setCursorPosition(0);
     dialog->setWindowIcon(_iconForUrl(url));

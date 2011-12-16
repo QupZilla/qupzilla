@@ -144,7 +144,7 @@ void CommandLineOptions::parseActions()
     }
 
     if (m_argc > 1 && !found) {
-        cout << " Used bad arguments! Please see help below." << endl;
+        cout << " Invalid option! Please see help below." << endl;
         showHelp();
         ActionPair pair;
         pair.action = ExitAction;
