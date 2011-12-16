@@ -106,10 +106,10 @@ void WebPage::finished()
             connect(m_fileWatcher, SIGNAL(fileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
         }
 
-        QString absPath = mainFrame()->url().toLocalFile();
+        QString filePath = mainFrame()->url().toLocalFile();
 
-        if (!m_fileWatcher->files().contains(absPath)) {
-            m_fileWatcher->addPath(absPath);
+        if (!m_fileWatcher->files().contains(filePath)) {
+            m_fileWatcher->addPath(filePath);
         }
     }
     else if (m_fileWatcher) {
