@@ -1248,7 +1248,7 @@ void QupZilla::startPrivate(bool state)
     bool askNow = settings.value("Browser-View-Settings/AskOnPrivate", true).toBool();
 
     if (state && askNow) {
-        QString title = tr("Are you sure you want to turn to private browsing?");
+        QString title = tr("Are you sure you want to turn on private browsing?");
         QString text1 = tr("When private browsing is turned on, some actions concerning your privacy will be disabled:");
 
         QStringList actions;
