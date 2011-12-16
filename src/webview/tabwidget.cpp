@@ -149,7 +149,7 @@ void TabWidget::loadSettings()
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
     settings.endGroup();
     settings.beginGroup("Web-URL-Settings");
-    m_urlOnNewTab = settings.value("newTabUrl", "").toUrl();
+    m_urlOnNewTab = settings.value("newTabUrl", "qupzilla:speeddial").toUrl();
     settings.endGroup();
 
     m_tabBar->loadSettings();
