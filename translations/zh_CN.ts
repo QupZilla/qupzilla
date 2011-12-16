@@ -21,7 +21,7 @@
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="48"/>
-        <location filename="../src/other/aboutdialog.cpp" line="71"/>
+        <location filename="../src/other/aboutdialog.cpp" line="75"/>
         <source>&lt; About QupZilla</source>
         <translation>关于作者</translation>
     </message>
@@ -31,32 +31,32 @@
         <translation>程序版本 %1</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="59"/>
+        <location filename="../src/other/aboutdialog.cpp" line="63"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>Webkit版本 %1</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="60"/>
+        <location filename="../src/other/aboutdialog.cpp" line="64"/>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="61"/>
+        <location filename="../src/other/aboutdialog.cpp" line="65"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="74"/>
+        <location filename="../src/other/aboutdialog.cpp" line="78"/>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="75"/>
+        <location filename="../src/other/aboutdialog.cpp" line="79"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>贡献人员 %1</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="76"/>
+        <location filename="../src/other/aboutdialog.cpp" line="80"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>翻译人员 %1</translation>
     </message>
@@ -167,8 +167,12 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock let you block any unwanted content on pages</source>
+        <translation type="obsolete">AdBlock为你阻止网页上任何不需要的内容</translation>
+    </message>
+    <message>
+        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
+        <source>AdBlock lets you block unwanted content on web-pages</source>
         <translation>AdBlock为你阻止网页上任何不需要的内容</translation>
     </message>
     <message>
@@ -306,8 +310,12 @@
 <context>
     <name>AutoFillNotification</name>
     <message>
-        <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
+        <translation type="obsolete">你想QupZilla记住密码&lt;b&gt;%1&lt;/b&gt; on %2?</translation>
+    </message>
+    <message>
+        <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
+        <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
         <translation>你想QupZilla记住密码&lt;b&gt;%1&lt;/b&gt; on %2?</translation>
     </message>
 </context>
@@ -545,6 +553,16 @@
         <translation>新标签</translation>
     </message>
     <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
+        <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
+        <translation>&lt;b&gt;警告：&lt;/b&gt;您已经有了此页书签！</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="563"/>
+        <source>Choose name and location of this bookmark.</source>
+        <translation>选择书签的名称和位置.</translation>
+    </message>
+    <message>
         <source>Remove</source>
         <translation type="obsolete">删除</translation>
     </message>
@@ -615,14 +633,12 @@
         <translation>删除书签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
-        <translation>B&gt;警告：&lt;/ b&gt;您已经有了此页书签！</translation>
+        <translation type="obsolete">B&gt;警告：&lt;/ b&gt;您已经有了此页书签！</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="563"/>
         <source>Choose name and location of bookmark.</source>
-        <translation>选择书签的名称和位置.</translation>
+        <translation type="obsolete">选择书签的名称和位置.</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="567"/>
@@ -1714,46 +1730,55 @@
     </message>
     <message>
         <location filename="../src/app/mainapplication.cpp" line="662"/>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>QupZilla上次结束时崩溃，我们非常遗憾。您要还原保存的状态吗？</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
+        <translation type="obsolete">QupZilla上次结束时崩溃，我们非常遗憾。您要还原保存的状态吗？</translation>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="38"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="33"/>
+        <source>No Named Page</source>
+        <translation>无命名页面</translation>
+    </message>
+    <message>
+        <location filename="../src/navigation/navigationbar.cpp" line="54"/>
         <source>Back</source>
         <translation>后退</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="45"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="61"/>
         <source>Forward</source>
         <translation>前进</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="59"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="75"/>
         <source>Home</source>
         <translation>主页</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="65"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="81"/>
         <source>New Tab</source>
         <translation>新标签</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="77"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="93"/>
         <source>Main Menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="92"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="93"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="108"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="109"/>
         <source>Exit Fullscreen</source>
         <translation>退出全屏</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="183"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="223"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="195"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="231"/>
         <source>Clear history</source>
         <translation>清除历史</translation>
     </message>
@@ -2072,7 +2097,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="302"/>
-        <location filename="../src/preferences/preferences.cpp" line="591"/>
+        <location filename="../src/preferences/preferences.cpp" line="609"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>注意：您不能删除活动配置文件。</translation>
     </message>
@@ -2594,58 +2619,58 @@
         <translation>外观</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="395"/>
+        <location filename="../src/preferences/preferences.cpp" line="414"/>
         <source>OSD Notification</source>
         <translation>OSD的通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="396"/>
+        <location filename="../src/preferences/preferences.cpp" line="415"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>在屏幕上拖动它到你想要的地方。</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="425"/>
+        <location filename="../src/preferences/preferences.cpp" line="443"/>
         <source>Choose download location...</source>
         <translation>选择下载位置... ...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="439"/>
+        <location filename="../src/preferences/preferences.cpp" line="457"/>
         <source>Choose stylesheet location...</source>
         <translation>选择样式表的位置...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="553"/>
+        <location filename="../src/preferences/preferences.cpp" line="571"/>
         <source>New Profile</source>
         <translation>新的配置文件</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="553"/>
+        <location filename="../src/preferences/preferences.cpp" line="571"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>输入新配置文件的名称：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="559"/>
-        <location filename="../src/preferences/preferences.cpp" line="563"/>
+        <location filename="../src/preferences/preferences.cpp" line="577"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
         <source>Error!</source>
         <translation>错误！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="559"/>
+        <location filename="../src/preferences/preferences.cpp" line="577"/>
         <source>This profile already exists!</source>
         <translation>此配置文件已经存在！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="563"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
         <source>Cannot create profile directory!</source>
         <translation>无法创建配置文件目录！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="576"/>
+        <location filename="../src/preferences/preferences.cpp" line="594"/>
         <source>Confirmation</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="577"/>
+        <location filename="../src/preferences/preferences.cpp" line="595"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>您确定要永久删除“%1”个人资料吗？这将无法复原！</translation>
     </message>
@@ -3052,6 +3077,11 @@
         <translation>隐私浏览&amp;P</translation>
     </message>
     <message>
+        <location filename="../src/app/qupzilla.cpp" line="1409"/>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
+        <translation>还有%1打开的标签和您的会话将不会被储存。你一定要退出吗？</translation>
+    </message>
+    <message>
         <location filename="../src/app/qupzilla.cpp" line="308"/>
         <location filename="../src/app/qupzilla.cpp" line="759"/>
         <source>Pr&amp;eferences</source>
@@ -3073,44 +3103,43 @@
         <translation>打开文件...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1251"/>
+        <location filename="../src/app/qupzilla.cpp" line="1257"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>你确定要打开隐私浏览吗？</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1252"/>
+        <location filename="../src/app/qupzilla.cpp" line="1258"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>打开隐私浏览时，有关于您的隐私行动将被禁用：</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1255"/>
+        <location filename="../src/app/qupzilla.cpp" line="1261"/>
         <source>Webpages are not added to the history.</source>
         <translation>网页不会添加到历史记录。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1256"/>
+        <location filename="../src/app/qupzilla.cpp" line="1262"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>当前的cookies无法被访问。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1257"/>
+        <location filename="../src/app/qupzilla.cpp" line="1263"/>
         <source>Your session is not stored.</source>
         <translation>不会存储您的会话。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1259"/>
+        <location filename="../src/app/qupzilla.cpp" line="1265"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>直到您关闭该窗口，你仍然可以单击后退和前进按钮，返回到你已经打开的网页.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1264"/>
+        <location filename="../src/app/qupzilla.cpp" line="1270"/>
         <source>Start Private Browsing</source>
         <translation>开始隐私浏览</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1402"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
-        <translation>还有%1打开的标签和您的会话将不会被储存。你一定要退出吗？</translation>
+        <translation type="obsolete">还有%1打开的标签和您的会话将不会被储存。你一定要退出吗？</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="181"/>
@@ -3578,26 +3607,36 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="56"/>
+        <source>Up</source>
+        <translation>UP</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="63"/>
+        <source>Down</source>
+        <translation>Down</translation>
+    </message>
+    <message>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="91"/>
         <source>Defaults</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.ui" line="79"/>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="76"/>
         <source>Search Engine</source>
         <translation>搜索引擎</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.ui" line="84"/>
+        <location filename="../src/opensearch/searchenginesdialog.ui" line="81"/>
         <source>Shortcut</source>
         <translation>捷径</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.cpp" line="44"/>
+        <location filename="../src/opensearch/searchenginesdialog.cpp" line="47"/>
         <source>Add Search Engine</source>
         <translation>添加搜索引擎</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesdialog.cpp" line="92"/>
+        <location filename="../src/opensearch/searchenginesdialog.cpp" line="95"/>
         <source>Edit Search Engine</source>
         <translation>编辑搜索引擎</translation>
     </message>
@@ -4427,7 +4466,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>使用 %2搜索&quot;%1 ..&quot; </translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="894"/>
+        <location filename="../src/webview/webview.cpp" line="891"/>
         <source>No Named Page</source>
         <translation>无命名页面</translation>
     </message>

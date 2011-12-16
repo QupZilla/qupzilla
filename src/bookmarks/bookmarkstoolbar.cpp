@@ -471,7 +471,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
         Action* act = new Action(icon, title);
         act->setData(url);
         connect(act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewTab()));
+        connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));
         menu->addAction(act);
     }
 
@@ -494,7 +494,7 @@ void BookmarksToolbar::refreshMostVisited()
         Action* act = new Action(_iconForUrl(entry.url), entry.title);
         act->setData(entry.url);
         connect(act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewTab()));
+        connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));
         m_menuMostVisited->addAction(act);
     }
 

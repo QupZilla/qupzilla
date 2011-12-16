@@ -574,7 +574,7 @@ void QupZilla::aboutToShowBookmarksMenu()
         Action* act = new Action(icon, title);
         act->setData(url);
         connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewTab()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
         m_menuBookmarks->addAction(act);
     }
 
@@ -594,7 +594,7 @@ void QupZilla::aboutToShowBookmarksMenu()
         Action* act = new Action(icon, title);
         act->setData(url);
         connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
-        connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewTab()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
         menuBookmarks->addAction(act);
     }
     if (menuBookmarks->isEmpty()) {
@@ -622,7 +622,7 @@ void QupZilla::aboutToShowBookmarksMenu()
             Action* act = new Action(icon, title);
             act->setData(url);
             connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
-            connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewTab()));
+            connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
             tempFolder->addAction(act);
         }
         if (tempFolder->isEmpty()) {
@@ -679,7 +679,7 @@ void QupZilla::aboutToShowHistoryMenu(bool loadHistory)
             Action* act = new Action(_iconForUrl(url), title);
             act->setData(url);
             connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
-            connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewTab()));
+            connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
             m_menuHistory->addAction(act);
         }
         m_menuHistory->addSeparator();
@@ -940,6 +940,13 @@ void QupZilla::loadActionUrlInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         m_tabWidget->addView(action->data().toUrl());
+    }
+}
+
+void QupZilla::loadActionUrlInNewNotSelectedTab()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        m_tabWidget->addView(action->data().toUrl(), tr("New tab"), TabWidget::NewNotSelectedTab);
     }
 }
 
@@ -1231,6 +1238,12 @@ void QupZilla::savePage()
 
     DownloadManager* dManager = mApp->downManager();
     dManager->download(request, weView()->webPage(), false);
+}
+
+void QupZilla::sendLink()
+{
+    QUrl url = QUrl("mailto:?body=" + weView()->url().toString());
+    QDesktopServices::openUrl(url);
 }
 
 void QupZilla::printPage()
