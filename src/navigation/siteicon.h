@@ -27,15 +27,15 @@ class SiteIcon : public ToolButton
 {
     Q_OBJECT
 public:
-    explicit SiteIcon(LocationBar *parent);
+    explicit SiteIcon(LocationBar* parent);
 
 signals:
 
 public slots:
 
 private:
-    void mousePressEvent(QMouseEvent *e);
-    void mouseMoveEvent(QMouseEvent *e);
+    void mousePressEvent(QMouseEvent* e);
+    void mouseMoveEvent(QMouseEvent* e);
 
     LocationBar* m_locationBar;
 

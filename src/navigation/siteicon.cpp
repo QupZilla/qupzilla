@@ -19,7 +19,7 @@
 #include "locationbar.h"
 #include "webview.h"
 
-SiteIcon::SiteIcon(LocationBar *parent)
+SiteIcon::SiteIcon(LocationBar* parent)
     : ToolButton(parent)
     , m_locationBar(parent)
 {
@@ -30,7 +30,7 @@ SiteIcon::SiteIcon(LocationBar *parent)
     setFocusPolicy(Qt::ClickFocus);
 }
 
-void SiteIcon::mousePressEvent(QMouseEvent *e)
+void SiteIcon::mousePressEvent(QMouseEvent* e)
 {
     if (e->buttons() & Qt::LeftButton) {
         m_dragStartPosition = mapFromGlobal(e->globalPos());
@@ -39,7 +39,7 @@ void SiteIcon::mousePressEvent(QMouseEvent *e)
     ToolButton::mousePressEvent(e);
 }
 
-void SiteIcon::mouseMoveEvent(QMouseEvent *e)
+void SiteIcon::mouseMoveEvent(QMouseEvent* e)
 {
     int manhattanLength = (e->pos() - m_dragStartPosition).manhattanLength();
     if (manhattanLength > QApplication::startDragDistance()) {
@@ -47,14 +47,14 @@ void SiteIcon::mouseMoveEvent(QMouseEvent *e)
         return;
     }
 
-    QDrag *drag = new QDrag(this);
+    QDrag* drag = new QDrag(this);
     QMimeData* mime = new QMimeData;
     mime->setUrls(QList<QUrl>() << m_locationBar->webView()->url());
     mime->setText(m_locationBar->webView()->title());
     mime->setImageData(QVariant::fromValue(icon()));
 
     drag->setMimeData(mime);
-    drag->setPixmap(icon().pixmap(16,16));
+    drag->setPixmap(icon().pixmap(16, 16));
 
     drag->exec();
 }
