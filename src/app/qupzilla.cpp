@@ -1170,7 +1170,7 @@ void QupZilla::openFile()
 {
     QString filePath = QFileDialog::getOpenFileName(this, tr("Open file..."), QDir::homePath(), "(*.html *.htm *.jpg *.png)");
     if (!filePath.isEmpty()) {
-        loadAddress(QUrl(filePath));
+        loadAddress(QUrl::fromLocalFile(filePath));
     }
 }
 
