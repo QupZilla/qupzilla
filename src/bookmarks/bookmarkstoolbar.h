@@ -65,8 +65,8 @@ private slots:
     void folderRenamed(const QString &before, const QString &after);
 
 private:
-    void dropEvent(QDropEvent *e);
-    void dragEnterEvent(QDragEnterEvent *e);
+    void dropEvent(QDropEvent* e);
+    void dragEnterEvent(QDragEnterEvent* e);
 
     int indexOfLastBookmark();
 

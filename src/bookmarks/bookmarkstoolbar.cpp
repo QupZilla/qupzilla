@@ -482,7 +482,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     }
 }
 
-void BookmarksToolbar::dragEnterEvent(QDragEnterEvent *e)
+void BookmarksToolbar::dragEnterEvent(QDragEnterEvent* e)
 {
     const QMimeData* mime = e->mimeData();
 
@@ -494,7 +494,7 @@ void BookmarksToolbar::dragEnterEvent(QDragEnterEvent *e)
     QWidget::dropEvent(e);
 }
 
-void BookmarksToolbar::dropEvent(QDropEvent *e)
+void BookmarksToolbar::dropEvent(QDropEvent* e)
 {
     const QMimeData* mime = e->mimeData();
 

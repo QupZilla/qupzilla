@@ -34,7 +34,7 @@ HistoryModel::HistoryModel(QupZilla* mainClass)
     t->start();
     moveToThread(t);
 
-    connect(this, SIGNAL(signalAddHistoryEntry(QUrl,QString)), this, SLOT(slotAddHistoryEntry(QUrl,QString)));
+    connect(this, SIGNAL(signalAddHistoryEntry(QUrl, QString)), this, SLOT(slotAddHistoryEntry(QUrl, QString)));
     connect(this, SIGNAL(signalDeleteHistoryEntry(int)), this, SLOT(slotDeleteHistoryEntry(int)));
 }
 
