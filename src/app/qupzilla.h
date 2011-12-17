@@ -148,6 +148,8 @@ private slots:
     void printPage();
     void savePageScreen();
 
+    void aboutToShowFileMenu();
+    void aboutToHideFileMenu();
     void aboutToShowHistoryMenu(bool loadHistory = true);
     void aboutToHideHistoryMenu();
     void aboutToShowClosedTabsMenu();
@@ -156,8 +158,8 @@ private slots:
     void aboutToShowHelpMenu();
     void aboutToShowViewMenu();
     void aboutToHideViewMenu();
-    void aboutToShowMenuEdit();
-    void aboutToHideMenuEdit();
+    void aboutToShowEditMenu();
+    void aboutToHideEditMenu();
     void aboutToShowEncodingMenu();
 
     void searchOnPage();
@@ -228,6 +230,8 @@ private:
     QMenu* m_menuClosedTabs;
     QMenu* m_menuEncoding;
     QAction* m_menuBookmarksAction;
+
+    QAction* m_actionCloseWindow;
     QAction* m_actionShowToolbar;
     QAction* m_actionShowBookmarksToolbar;
     QAction* m_actionShowStatusbar;

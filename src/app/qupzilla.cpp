@@ -280,7 +280,8 @@ void QupZilla::setupMenu()
     m_menuFile->addAction(tr("Open Location"), this, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
     m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File"), this, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
     m_menuFile->addAction(tr("Close Tab"), m_tabWidget, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
-    m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), this, SLOT(close()))->setShortcut(QKeySequence("Ctrl+Shift+W"));
+    m_actionCloseWindow = m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), this, SLOT(close()));
+    m_actionCloseWindow->setShortcut(QKeySequence("Ctrl+Shift+W"));
     m_menuFile->addSeparator();
     m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), this, SLOT(savePage()))->setShortcut(QKeySequence("Ctrl+S"));
     m_menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()));
@@ -291,6 +292,8 @@ void QupZilla::setupMenu()
     m_menuFile->addAction(tr("Import bookmarks..."), this, SLOT(showBookmarkImport()));
     m_menuFile->addAction(QIcon::fromTheme("application-exit"), tr("Quit"), this, SLOT(quitApp()))->setShortcut(QKeySequence("Ctrl+Q"));
     menuBar()->addMenu(m_menuFile);
+    connect(m_menuFile, SIGNAL(aboutToShow()), this, SLOT(aboutToShowFileMenu()));
+    connect(m_menuFile, SIGNAL(aboutToHide()), this, SLOT(aboutToHideFileMenu()));
 
     m_menuEdit = new QMenu(tr("&Edit"));
     m_menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("&Undo"))->setShortcut(QKeySequence("Ctrl+Z"));
@@ -308,9 +311,9 @@ void QupZilla::setupMenu()
     m_menuEdit->addAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
 #endif
     menuBar()->addMenu(m_menuEdit);
-    connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowMenuEdit()));
-    connect(m_menuEdit, SIGNAL(aboutToHide()), this, SLOT(aboutToHideMenuEdit()));
-    aboutToHideMenuEdit();
+    connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
+    connect(m_menuEdit, SIGNAL(aboutToHide()), this, SLOT(aboutToHideEditMenu()));
+    aboutToHideEditMenu();
 
     m_menuView = new QMenu(tr("&View"));
     m_actionShowToolbar = new QAction(tr("&Navigation Toolbar"), this);
@@ -543,6 +546,16 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
         qWarning("Unresolved message sent! This could never happen!");
         break;
     }
+}
+
+void QupZilla::aboutToShowFileMenu()
+{
+    m_actionCloseWindow->setEnabled(mApp->windowCount() > 1);
+}
+
+void QupZilla::aboutToHideFileMenu()
+{
+    m_actionCloseWindow->setEnabled(true);
 }
 
 void QupZilla::aboutToShowBookmarksMenu()
@@ -807,14 +820,14 @@ void QupZilla::aboutToHideViewMenu()
     }
 }
 
-void QupZilla::aboutToShowMenuEdit()
+void QupZilla::aboutToShowEditMenu()
 {
     foreach(QAction * act, m_menuEdit->actions()) {
         act->setEnabled(true);
     }
 }
 
-void QupZilla::aboutToHideMenuEdit()
+void QupZilla::aboutToHideEditMenu()
 {
     foreach(QAction * act, m_menuEdit->actions()) {
         act->setEnabled(false);
