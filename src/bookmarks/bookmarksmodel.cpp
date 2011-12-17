@@ -132,7 +132,7 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     query.bindValue(1, title);
     query.bindValue(2, folder);
     query.bindValue(3, IconProvider::iconToBase64(icon));
-    mApp->dbWriter()->executeQuery(query);
+    query.exec();
 
     Bookmark bookmark;
     bookmark.id = query.lastInsertId().toInt();
@@ -275,7 +275,7 @@ bool BookmarksModel::createFolder(const QString &name)
 
 bool BookmarksModel::removeFolder(const QString &name)
 {
-    if (name == tr("Bookmarks In Menu") || name == tr("Bookmarks In ToolBar")) {
+    if (name == _bookmarksMenu || name == _bookmarksToolbar) {
         return false;
     }
 

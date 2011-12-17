@@ -121,7 +121,7 @@ void BookmarksManager::renameFolder()
 
     QString folder = item->text(0);
 
-    if (folder == tr("Bookmarks In Menu") || folder == tr("Bookmarks In ToolBar")) {
+    if (folder == _bookmarksMenu || folder == _bookmarksToolbar) {
         return;
     }
 
@@ -214,12 +214,12 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
     if (link.isEmpty()) {
         QString folderName = ui->bookmarksTree->itemAt(position)->text(0);
         QMenu menu;
-        if (folderName == tr("Bookmarks In ToolBar")) {
+        if (folderName == _bookmarksToolbar) {
             menu.addAction(tr("Add Subfolder"), this, SLOT(addSubfolder()));
             menu.addSeparator();
         }
 
-        if (folderName != tr("Bookmarks In ToolBar") && folderName != tr("Bookmarks In Menu")) {
+        if (folderName != _bookmarksToolbar && folderName != _bookmarksMenu) {
             menu.addAction(tr("Rename folder"), this, SLOT(renameFolder()));
             menu.addAction(tr("Remove folder"), this, SLOT(deleteItem()));
         }
@@ -242,9 +242,9 @@ void BookmarksManager::contextMenuRequested(const QPoint &position)
 
     QMenu moveMenu;
     moveMenu.setTitle(tr("Move bookmark to &folder"));
-    moveMenu.addAction(QIcon(":icons/other/unsortedbookmarks.png"), tr("Unsorted Bookmarks"), this, SLOT(moveBookmark()))->setData("unsorted");
-    moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In Menu"), this, SLOT(moveBookmark()))->setData("bookmarksMenu");
-    moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In ToolBar"), this, SLOT(moveBookmark()))->setData("bookmarksToolbar");
+    moveMenu.addAction(QIcon(":icons/other/unsortedbookmarks.png"), _bookmarksUnsorted, this, SLOT(moveBookmark()))->setData("unsorted");
+    moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksMenu, this, SLOT(moveBookmark()))->setData("bookmarksMenu");
+    moveMenu.addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksToolbar, this, SLOT(moveBookmark()))->setData("bookmarksToolbar");
     QSqlQuery query;
     query.exec("SELECT name FROM folders");
     while (query.next()) {
@@ -270,12 +270,12 @@ void BookmarksManager::refreshTable()
 
     QSqlQuery query;
     QTreeWidgetItem* newItem = new QTreeWidgetItem(ui->bookmarksTree);
-    newItem->setText(0, tr("Bookmarks In Menu"));
+    newItem->setText(0, _bookmarksMenu);
     newItem->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
     ui->bookmarksTree->addTopLevelItem(newItem);
 
     QTreeWidgetItem* bookmarksToolbar = new QTreeWidgetItem(ui->bookmarksTree);
-    bookmarksToolbar->setText(0, tr("Bookmarks In ToolBar"));
+    bookmarksToolbar->setText(0, _bookmarksToolbar);
     bookmarksToolbar->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
     ui->bookmarksTree->addTopLevelItem(bookmarksToolbar);
 
@@ -296,10 +296,10 @@ void BookmarksManager::refreshTable()
         QIcon icon = IconProvider::iconFromBase64(query.value(4).toByteArray());
         QTreeWidgetItem* item = new QTreeWidgetItem();
         if (folder == "bookmarksMenu") {
-            folder = tr("Bookmarks In Menu");
+            folder = _bookmarksMenu;
         }
         if (folder == "bookmarksToolbar") {
-            folder = tr("Bookmarks In ToolBar");
+            folder = _bookmarksToolbar;
         }
 
         if (folder != "unsorted") {
@@ -472,7 +472,7 @@ void BookmarksManager::addSubfolder(const QString &name)
 {
     m_isRefreshing = true;
 
-    QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(tr("Bookmarks In ToolBar"), Qt::MatchExactly);
+    QList<QTreeWidgetItem*> list = ui->bookmarksTree->findItems(_bookmarksToolbar, Qt::MatchExactly);
     if (list.count() != 0) {
         QTreeWidgetItem* item = new QTreeWidgetItem(list.at(0));
         item->setText(0, name);
@@ -551,9 +551,9 @@ void BookmarksManager::insertBookmark(const QUrl &url, const QString &title, con
     }
     layout->addWidget(box);
 
-    combo->addItem(QIcon(":icons/other/unsortedbookmarks.png"), tr("Unsorted Bookmarks"));
-    combo->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In Menu"));
-    combo->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In ToolBar"));
+    combo->addItem(QIcon(":icons/other/unsortedbookmarks.png"), _bookmarksUnsorted);
+    combo->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksMenu);
+    combo->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksToolbar);
     QSqlQuery query;
     query.exec("SELECT name FROM folders");
     while (query.next()) {
@@ -596,9 +596,9 @@ void BookmarksManager::insertAllTabs()
     layout->addWidget(combo);
     layout->addWidget(box);
 
-    combo->addItem(QIcon(":icons/other/unsortedbookmarks.png"), tr("Unsorted Bookmarks"));
-    combo->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In Menu"));
-    combo->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In ToolBar"));
+    combo->addItem(QIcon(":icons/other/unsortedbookmarks.png"), _bookmarksUnsorted);
+    combo->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksMenu);
+    combo->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksToolbar);
     QSqlQuery query;
     query.exec("SELECT name FROM folders");
     while (query.next()) {

@@ -42,9 +42,9 @@ void BookmarksWidget::loadBookmark()
     ui->name->setText(bookmark.title);
 
     // Bookmark folders
-    ui->folder->addItem(QIcon(":icons/other/unsortedbookmarks.png"), tr("Unsorted Bookmarks"), "unsorted");
-    ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In Menu"), "bookmarksMenu");
-    ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Bookmarks In ToolBar"), "bookmarksToolbar");
+    ui->folder->addItem(QIcon(":icons/other/unsortedbookmarks.png"), _bookmarksUnsorted, "unsorted");
+    ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksMenu, "bookmarksMenu");
+    ui->folder->addItem(style()->standardIcon(QStyle::SP_DirOpenIcon), _bookmarksToolbar, "bookmarksToolbar");
     QSqlQuery query;
     query.exec("SELECT name FROM folders");
     while (query.next()) {

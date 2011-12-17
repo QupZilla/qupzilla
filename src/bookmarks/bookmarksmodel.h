@@ -18,6 +18,10 @@
 #ifndef BOOKMARKSMODEL_H
 #define BOOKMARKSMODEL_H
 
+#define _bookmarksToolbar BookmarksModel::toTranslatedFolder("bookmarksToolbar")
+#define _bookmarksMenu BookmarksModel::toTranslatedFolder("bookmarksMenu")
+#define _bookmarksUnsorted BookmarksModel::toTranslatedFolder("unsorted")
+
 #include <QObject>
 #include <QUrl>
 #include <QSettings>
@@ -29,7 +33,7 @@ class BookmarksModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit BookmarksModel(QObject* parent);
+    explicit BookmarksModel(QObject* parent = 0);
 
     struct Bookmark {
         int id;

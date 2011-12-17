@@ -578,7 +578,7 @@ void QupZilla::aboutToShowBookmarksMenu()
         m_menuBookmarks->addAction(act);
     }
 
-    Menu* menuBookmarks = new Menu(tr("Bookmarks In ToolBar"), m_menuBookmarks);
+    Menu* menuBookmarks = new Menu(_bookmarksToolbar, m_menuBookmarks);
     menuBookmarks->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
 
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar'");
@@ -1170,7 +1170,7 @@ void QupZilla::openFile()
 {
     QString filePath = QFileDialog::getOpenFileName(this, tr("Open file..."), QDir::homePath(), "(*.html *.htm *.jpg *.png)");
     if (!filePath.isEmpty()) {
-        loadAddress(QUrl(filePath));
+        loadAddress(QUrl::fromLocalFile(filePath));
     }
 }
 
