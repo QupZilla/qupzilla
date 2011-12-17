@@ -21,12 +21,21 @@
 #include "iconprovider.h"
 #include "databasewriter.h"
 
-HistoryModel::HistoryModel(QupZilla* mainClass, QObject* parent)
-    : QObject(parent)
+HistoryModel::HistoryModel(QupZilla* mainClass)
+    : QObject()
     , m_isSaving(true)
     , p_QupZilla(mainClass)
 {
     loadSettings();
+
+    qRegisterMetaType<HistoryModel::HistoryEntry>("HistoryModel::HistoryEntry");
+
+    QThread* t = new QThread(this);
+    t->start();
+    moveToThread(t);
+
+    connect(this, SIGNAL(signalAddHistoryEntry(QUrl,QString)), this, SLOT(slotAddHistoryEntry(QUrl,QString)));
+    connect(this, SIGNAL(signalDeleteHistoryEntry(int)), this, SLOT(slotDeleteHistoryEntry(int)));
 }
 
 void HistoryModel::loadSettings()
@@ -37,14 +46,32 @@ void HistoryModel::loadSettings()
     settings.endGroup();
 }
 
-int HistoryModel::addHistoryEntry(const QUrl &url, QString &title)
+// AddHistoryEntry
+void HistoryModel::addHistoryEntry(WebView* view)
 {
     if (!m_isSaving) {
-        return -2;
+        return;
+    }
+
+    QUrl url = view->url();
+    QString title = view->title();
+
+    addHistoryEntry(url, title);
+}
+
+void HistoryModel::addHistoryEntry(const QUrl &url, QString title)
+{
+    emit signalAddHistoryEntry(url, title);
+}
+
+void HistoryModel::slotAddHistoryEntry(const QUrl &url, QString title)
+{
+    if (!m_isSaving) {
+        return;
     }
     if (url.scheme() == "file:" || url.scheme() == "qupzilla" || url.scheme() == "about" ||
             title.contains(tr("Failed loading page")) || url.isEmpty()) {
-        return -1;
+        return;
     }
     if (title == "") {
         title = tr("No Named Page");
@@ -59,7 +86,7 @@ int HistoryModel::addHistoryEntry(const QUrl &url, QString &title)
         query.bindValue(0, QDateTime::currentMSecsSinceEpoch());
         query.bindValue(1, url);
         query.bindValue(2, title);
-        mApp->dbWriter()->executeQuery(query);
+        query.exec();
 
         int id = query.lastInsertId().toInt();
         HistoryEntry entry;
@@ -76,7 +103,7 @@ int HistoryModel::addHistoryEntry(const QUrl &url, QString &title)
         query.bindValue(0, QDateTime::currentMSecsSinceEpoch());
         query.bindValue(1, title);
         query.bindValue(2, url);
-        mApp->dbWriter()->executeQuery(query);
+        query.exec();
 
         HistoryEntry before;
         before.id = id;
@@ -88,30 +115,37 @@ int HistoryModel::addHistoryEntry(const QUrl &url, QString &title)
         after.title = title;
         emit historyEntryEdited(before, after);
     }
-
-    return query.lastInsertId().toInt();
 }
 
-int HistoryModel::addHistoryEntry(WebView* view)
+// DeleteHistoryEntry
+void HistoryModel::deleteHistoryEntry(int index)
 {
-    if (!m_isSaving) {
-        return -2;
-    }
-
-    QUrl url = view->url();
-    QString title = view->title();
-    return addHistoryEntry(url, title);
+    emit signalDeleteHistoryEntry(index);
 }
 
-bool HistoryModel::deleteHistoryEntry(int index)
+void HistoryModel::deleteHistoryEntry(const QString &url, const QString &title)
+{
+    QSqlQuery query;
+    query.prepare("SELECT id FROM history WHERE url=? AND title=?");
+    query.bindValue(0, url);
+    query.bindValue(1, title);
+    query.exec();
+    if (query.next()) {
+        int id = query.value(0).toInt();
+        deleteHistoryEntry(id);
+    }
+}
+
+void HistoryModel::slotDeleteHistoryEntry(int index)
 {
     QSqlQuery query;
     query.prepare("SELECT id, count, date, url, title FROM history WHERE id=?");
     query.bindValue(0, index);
     query.exec();
     if (!query.next()) {
-        return false;
+        return;
     }
+
     HistoryEntry entry;
     entry.id = query.value(0).toInt();
     entry.count = query.value(1).toInt();
@@ -121,27 +155,12 @@ bool HistoryModel::deleteHistoryEntry(int index)
 
     query.prepare("DELETE FROM history WHERE id=?");
     query.bindValue(0, index);
-    mApp->dbWriter()->executeQuery(query);
+    query.exec();
     query.prepare("DELETE FROM icons WHERE url=?");
     query.bindValue(0, entry.url.toEncoded(QUrl::RemoveFragment));
-    mApp->dbWriter()->executeQuery(query);
+    query.exec();
 
     emit historyEntryDeleted(entry);
-    return true;
-}
-
-bool HistoryModel::deleteHistoryEntry(const QString &url, const QString &title)
-{
-    QSqlQuery query;
-    query.prepare("SELECT id FROM history WHERE url=? AND title=?");
-    query.bindValue(0, url);
-    query.bindValue(1, title);
-    query.exec();
-    if (query.next()) {
-        int id = query.value(0).toInt();
-        return deleteHistoryEntry(id);
-    }
-    return false;
 }
 
 bool HistoryModel::urlIsStored(const QString &url)

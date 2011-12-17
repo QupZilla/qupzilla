@@ -62,7 +62,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     , m_desktopNotifications(0)
     , m_iconProvider(new IconProvider(this))
     , m_searchEnginesManager(0)
-    , m_dbWriter(new DatabaseWriter(this))
+    , m_dbWriter(new DatabaseWriter())
     , m_isClosing(false)
     , m_isStateChanged(false)
     , m_isExited(false)

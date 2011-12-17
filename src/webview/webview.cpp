@@ -917,7 +917,7 @@ bool WebView::isUrlValid(const QUrl &url)
 }
 
 ///
-// This function was taken and modified from QTestBrowser to fix bug #33 with flighradar24.com
+// This function was taken and modified from QTestBrowser to fix bug #33 with flightradar24.com
 // You can find original source and copyright here:
 // http://gitorious.org/+qtwebkit-developers/webkit/qtwebkit/blobs/qtwebkit-2.2/Tools/QtTestBrowser/launcherwindow.cpp
 ///

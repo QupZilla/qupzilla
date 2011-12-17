@@ -57,9 +57,11 @@ signals:
 
 public slots:
 
-private:
+protected:
     void mousePressEvent(QMouseEvent* e);
     void mouseReleaseEvent(QMouseEvent* e);
+
+private:
     void paintEvent(QPaintEvent* e);
 
     bool m_usingMultiIcon;

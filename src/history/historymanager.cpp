@@ -108,7 +108,6 @@ void HistoryManager::contextMenuRequested(const QPoint &position)
 
 void HistoryManager::deleteItem()
 {
-    QApplication::setOverrideCursor(Qt::WaitCursor);
     foreach(QTreeWidgetItem * item, ui->historyTree->selectedItems()) {
         if (!item) {
             return;
@@ -119,15 +118,20 @@ void HistoryManager::deleteItem()
                 QTreeWidgetItem* children = item->child(i);
                 int id = children->whatsThis(1).toInt();
                 m_historyModel->deleteHistoryEntry(id);
+
+                ui->historyTree->deleteItem(children);
+                m_ignoredIds.append(id);
             }
             ui->historyTree->deleteItem(item);
         }
         else {
             int id = item->whatsThis(1).toInt();
             m_historyModel->deleteHistoryEntry(id);
+
+            ui->historyTree->deleteItem(item);
+            m_ignoredIds.append(id);
         }
     }
-    QApplication::restoreOverrideCursor();
 }
 
 void HistoryManager::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
@@ -176,6 +180,11 @@ void HistoryManager::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
 
 void HistoryManager::historyEntryDeleted(const HistoryModel::HistoryEntry &entry)
 {
+    if (m_ignoredIds.contains(entry.id)) {
+        m_ignoredIds.removeOne(entry.id);
+        return;
+    }
+
     QList<QTreeWidgetItem*> list = ui->historyTree->allItems();
     foreach(QTreeWidgetItem * item, list) {
         if (!item) {
