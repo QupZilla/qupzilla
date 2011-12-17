@@ -447,7 +447,7 @@
     </message>
     <message>
         <source>Unsorted Bookmarks</source>
-        <translation>Neroztriedené záložky</translation>
+        <translation type="obsolete">Neroztriedené záložky</translation>
     </message>
     <message>
         <source>Rename Folder</source>
@@ -467,7 +467,7 @@
     </message>
     <message>
         <source>Bookmarks In Menu</source>
-        <translation>Záložky v menu</translation>
+        <translation type="obsolete">Záložky v menu</translation>
     </message>
     <message>
         <source>Remove folder</source>
@@ -487,7 +487,7 @@
     </message>
     <message>
         <source>Bookmarks In ToolBar</source>
-        <translation>Panel záložiek</translation>
+        <translation type="obsolete">Panel záložiek</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
@@ -545,7 +545,7 @@
     </message>
     <message>
         <source>Bookmarks In Menu</source>
-        <translation>Záložky v menu</translation>
+        <translation type="obsolete">Záložky v menu</translation>
     </message>
 </context>
 <context>
@@ -619,7 +619,7 @@
     </message>
     <message>
         <source>Unsorted Bookmarks</source>
-        <translation>Neroztriedené záložky</translation>
+        <translation type="obsolete">Neroztriedené záložky</translation>
     </message>
     <message>
         <source>Edit This Bookmark</source>
@@ -631,11 +631,11 @@
     </message>
     <message>
         <source>Bookmarks In Menu</source>
-        <translation>Záložky v menu</translation>
+        <translation type="obsolete">Záložky v menu</translation>
     </message>
     <message>
         <source>Bookmarks In ToolBar</source>
-        <translation>Panel záložiek</translation>
+        <translation type="obsolete">Panel záložiek</translation>
     </message>
 </context>
 <context>
@@ -1328,7 +1328,7 @@
     <name>LocationBar</name>
     <message>
         <source>Show informations about this page</source>
-        <translation>Zobraziť informácie o tejto stránke</translation>
+        <translation type="obsolete">Zobraziť informácie o tejto stránke</translation>
     </message>
     <message>
         <source>Add RSS from this page...</source>
@@ -2465,7 +2465,7 @@
     </message>
     <message>
         <source>Bookmarks In ToolBar</source>
-        <translation>Záložky v paneli nástrojov</translation>
+        <translation type="obsolete">Záložky v paneli nástrojov</translation>
     </message>
     <message>
         <source>Sidebars</source>
@@ -2927,6 +2927,13 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>History</source>
         <translation>História</translation>
+    </message>
+</context>
+<context>
+    <name>SiteIcon</name>
+    <message>
+        <source>Show informations about this page</source>
+        <translation type="unfinished">Zobraziť informácie o tejto stránke</translation>
     </message>
 </context>
 <context>
