@@ -21,6 +21,7 @@
 #include <QMenu>
 #include <QToolButton>
 #include <QHBoxLayout>
+#include <QDropEvent>
 
 #include "bookmarksmodel.h"
 
@@ -64,6 +65,9 @@ private slots:
     void folderRenamed(const QString &before, const QString &after);
 
 private:
+    void dropEvent(QDropEvent *e);
+    void dragEnterEvent(QDragEnterEvent *e);
+
     int indexOfLastBookmark();
 
     QupZilla* p_QupZilla;
