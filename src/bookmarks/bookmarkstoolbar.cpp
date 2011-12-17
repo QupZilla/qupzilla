@@ -36,6 +36,8 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     m_layout->setSpacing(0);
     setLayout(m_layout);
 
+    setAcceptDrops(true);
+
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
 
@@ -478,6 +480,34 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     if (menu->isEmpty()) {
         menu->addAction(tr("Empty"));
     }
+}
+
+void BookmarksToolbar::dragEnterEvent(QDragEnterEvent *e)
+{
+    const QMimeData* mime = e->mimeData();
+
+    if (mime->hasUrls() || mime->hasText()) {
+        e->acceptProposedAction();
+        return;
+    }
+
+    QWidget::dropEvent(e);
+}
+
+void BookmarksToolbar::dropEvent(QDropEvent *e)
+{
+    const QMimeData* mime = e->mimeData();
+
+    if (!mime->hasUrls() || !mime->hasText()) {
+        QWidget::dropEvent(e);
+        return;
+    }
+
+    QString title = mime->text();
+    QUrl url = mime->urls().at(0);
+    QIcon icon = mime->imageData().value<QIcon>();
+
+    m_bookmarksModel->saveBookmark(url, title, icon, "bookmarksToolbar");
 }
 
 void BookmarksToolbar::refreshMostVisited()

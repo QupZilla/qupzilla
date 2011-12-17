@@ -31,6 +31,7 @@
 #include "locationbarsettings.h"
 #include "toolbutton.h"
 #include "searchenginesmanager.h"
+#include "siteicon.h"
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit()
@@ -39,12 +40,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_locationBarSettings(LocationBarSettings::instance())
 {
     setObjectName("locationbar");
-    m_siteIcon = new ToolButton(this);
-    m_siteIcon->setObjectName("locationbar-siteicon");
-    m_siteIcon->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    m_siteIcon->setCursor(Qt::ArrowCursor);
-    m_siteIcon->setToolTip(tr("Show informations about this page"));
-    m_siteIcon->setFocusPolicy(Qt::ClickFocus);
+    m_siteIcon = new SiteIcon(this);
 
     m_rssIcon = new ClickableLabel(this);
     m_rssIcon->setObjectName("locationbar-rss-icon");
@@ -89,6 +85,12 @@ LocationBar::LocationBar(QupZilla* mainClass)
 
     clearIcon();
     updatePlaceHolderText();
+}
+
+void LocationBar::setText(const QString &text)
+{
+    LineEdit::setText(text);
+    setCursorPosition(0);
 }
 
 void LocationBar::updatePlaceHolderText()
@@ -204,7 +206,6 @@ void LocationBar::showUrl(const QUrl &url, bool empty)
 
     if (url.toEncoded() != text()) {
         setText(encodedUrl);
-        setCursorPosition(0);
     }
     p_QupZilla->statusBarMessage()->clearMessage();
 
@@ -275,6 +276,7 @@ void LocationBar::focusOutEvent(QFocusEvent* e)
     if (!selectedText().isEmpty() && e->reason() != Qt::TabFocusReason) {
         return;
     }
+
     setCursorPosition(0);
     hideGoButton();
 }
