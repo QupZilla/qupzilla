@@ -39,7 +39,7 @@ class ClickableLabel;
 class BookmarkIcon;
 class WebView;
 class LocationBarSettings;
-class ToolButton;
+class SiteIcon;
 class LocationBar : public LineEdit
 {
     Q_OBJECT
@@ -52,12 +52,14 @@ public:
     ~LocationBar();
 
     void setWebView(WebView* view) { m_webView = view; }
+    WebView* webView() { return m_webView; }
 
 signals:
     void loadUrl(const QUrl &url);
 
 public slots:
     void showUrl(const QUrl &url, bool empty = true);
+    virtual void setText(const QString &text);
 
 private slots:
     void siteIconChanged();
@@ -85,7 +87,7 @@ private:
     BookmarkIcon* m_bookmarkIcon;
     ClickableLabel* m_goButton;
     ClickableLabel* m_rssIcon;
-    ToolButton* m_siteIcon;
+    SiteIcon* m_siteIcon;
 
     QupZilla* p_QupZilla;
     WebView* m_webView;
