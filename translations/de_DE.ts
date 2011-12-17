@@ -3698,7 +3698,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/navigation/siteicon.cpp" line="29"/>
         <source>Show informations about this page</source>
-        <translation type="unfinished">Seiteninformationen anzeigen</translation>
+        <translation>Seiteninformationen anzeigen</translation>
     </message>
 </context>
 <context>
