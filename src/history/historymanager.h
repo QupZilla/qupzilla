@@ -62,6 +62,8 @@ private:
     Ui::HistoryManager* ui;
     QWeakPointer<QupZilla> p_QupZilla;
     HistoryModel* m_historyModel;
+
+    QList<int> m_ignoredIds;
 };
 
 #endif // HISTORYMANAGER_H

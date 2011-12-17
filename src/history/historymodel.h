@@ -24,6 +24,7 @@
 #include <QFile>
 #include <QIcon>
 #include <QUrl>
+#include <QThread>
 
 class QupZilla;
 class WebView;
@@ -32,7 +33,7 @@ class HistoryModel : public QObject
 {
     Q_OBJECT
 public:
-    HistoryModel(QupZilla* mainClass, QObject* parent = 0);
+    HistoryModel(QupZilla* mainClass);
 
     struct HistoryEntry {
         int id;
@@ -44,10 +45,12 @@ public:
 
     static QString titleCaseLocalizedMonth(int month);
 
-    int addHistoryEntry(WebView* view);
-    int addHistoryEntry(const QUrl &url, QString &title);
-    bool deleteHistoryEntry(int index);
-    bool deleteHistoryEntry(const QString &url, const QString &title);
+    void addHistoryEntry(WebView* view);
+    void addHistoryEntry(const QUrl &url, QString title);
+
+    void deleteHistoryEntry(int index);
+    void deleteHistoryEntry(const QString &url, const QString &title);
+
     bool urlIsStored(const QString &url);
 
     QList<HistoryModel::HistoryEntry> mostVisited(int count);
@@ -59,12 +62,19 @@ public:
 
     void loadSettings();
 
+private slots:
+    void slotAddHistoryEntry(const QUrl &url, QString title);
+    void slotDeleteHistoryEntry(int index);
+
 signals:
     void historyEntryAdded(HistoryModel::HistoryEntry entry);
     void historyEntryDeleted(HistoryModel::HistoryEntry entry);
     void historyEntryEdited(HistoryModel::HistoryEntry before, HistoryModel::HistoryEntry after);
     //WARNING: Incomplete HistoryEntry structs are passed to historyEntryEdited!
     void historyClear();
+
+    void signalAddHistoryEntry(QUrl url, QString title);
+    void signalDeleteHistoryEntry(int index);
 
 private:
     bool m_isSaving;

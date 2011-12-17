@@ -221,7 +221,7 @@ void BookmarksSideBar::refreshTable()
 
     QSqlQuery query;
     QTreeWidgetItem* newItem = new QTreeWidgetItem(ui->bookmarksTree);
-    newItem->setText(0, tr("Bookmarks In Menu"));
+    newItem->setText(0, _bookmarksMenu);
     newItem->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
     ui->bookmarksTree->addTopLevelItem(newItem);
 
@@ -242,7 +242,7 @@ void BookmarksSideBar::refreshTable()
         QIcon icon = IconProvider::iconFromBase64(query.value(4).toByteArray());
         QTreeWidgetItem* item;
         if (folder == "bookmarksMenu") {
-            folder = tr("Bookmarks In Menu");
+            folder = _bookmarksMenu;
         }
         if (folder == "bookmarksToolbar") {
             continue;

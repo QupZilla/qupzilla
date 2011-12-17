@@ -17,16 +17,19 @@
 * ============================================================ */
 #include "databasewriter.h"
 
-DatabaseWriter::DatabaseWriter(QObject* parent)
-    : QObject(parent)
+DatabaseWriter::DatabaseWriter()
+    : QObject()
 {
+    QThread* t = new QThread(this);
+    t->start();
+    moveToThread(t);
 }
 
 void DatabaseWriter::executeQuery(const QSqlQuery &query)
 {
     m_queries.append(query);
 
-    QtConcurrent::run(this, &DatabaseWriter::execute);
+    QTimer::singleShot(0, this, SLOT(execute()));
 }
 
 void DatabaseWriter::execute()

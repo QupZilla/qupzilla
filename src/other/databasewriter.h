@@ -19,25 +19,25 @@
 #define DATABASEWRITER_H
 
 #include <QObject>
+#include <QThread>
 #include <QSqlQuery>
 #include <QList>
-#include <QtConcurrentRun>
+#include <QTimer>
 
 class DatabaseWriter : public QObject
 {
     Q_OBJECT
 public:
-    explicit DatabaseWriter(QObject* parent = 0);
+    explicit DatabaseWriter();
 
     void executeQuery(const QSqlQuery &query);
 
 signals:
 
-public slots:
-
-private:
+private slots:
     void execute();
 
+private:
     QList<QSqlQuery> m_queries;
 };
 
