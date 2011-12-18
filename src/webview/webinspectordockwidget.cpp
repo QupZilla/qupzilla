@@ -36,7 +36,9 @@ WebInspectorDockWidget::WebInspectorDockWidget(QupZilla* mainClass)
 
 void WebInspectorDockWidget::close()
 {
+#if (QTWEBKIT_VERSION < QTWEBKIT_VERSION_CHECK(2, 2, 0))
     delete m_inspector.data();
+#endif
     p_QupZilla->weView()->webTab()->setInspectorVisible(false);
 
     hide();
