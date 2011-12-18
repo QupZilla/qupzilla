@@ -207,8 +207,6 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
         path = reply->url().path();
     }
 
-    path = qz_filterCharsFromFilename(path);
-
     QFileInfo info(path);
     QString baseName = info.completeBaseName();
     QString endName = info.suffix();
@@ -228,6 +226,8 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
     if (name.endsWith("\";")) {
         name.remove("\";");
     }
+
+    name = qz_filterCharsFromFilename(name);
 
     return name;
 }
