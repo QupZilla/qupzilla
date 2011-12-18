@@ -64,6 +64,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_buttonNext->setEnabled(false);
 
     QHBoxLayout* backNextLayout = new QHBoxLayout();
+    backNextLayout->setContentsMargins(0, 0, 0, 0);
     backNextLayout->setSpacing(0);
     backNextLayout->addWidget(m_buttonBack);
     backNextLayout->addWidget(m_buttonNext);
