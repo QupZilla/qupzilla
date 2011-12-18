@@ -50,6 +50,41 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     connect(m_locationBar.data(), SIGNAL(loadUrl(QUrl)), m_view.data(), SLOT(load(QUrl)));
 }
 
+WebView* WebTab::view()
+{
+    return m_view.data();
+}
+
+bool WebTab::isPinned()
+{
+    return m_pinned;
+}
+
+void WebTab::setPinned(bool state)
+{
+    m_pinned = state;
+}
+
+void WebTab::setLocationBar(LocationBar* bar)
+{
+    m_locationBar = bar;
+}
+
+LocationBar* WebTab::locationBar()
+{
+    return m_locationBar.data();
+}
+
+bool WebTab::inspectorVisible()
+{
+    return m_inspectorVisible;
+}
+
+void WebTab::setInspectorVisible(bool v)
+{
+    m_inspectorVisible = v;
+}
+
 void WebTab::showNotification(QWidget* notif)
 {
     if (m_layout->count() > 1) {
