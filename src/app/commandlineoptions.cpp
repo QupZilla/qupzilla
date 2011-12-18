@@ -80,9 +80,9 @@ void CommandLineOptions::parseActions()
         }
         if (arg == "-v" || arg == "--version") {
             cout << "QupZilla v" << QupZilla::VERSION.toUtf8().data()
-                 #ifdef GIT_REVISION
+#ifdef GIT_REVISION
                  << " rev " << GIT_REVISION << " "
-        #endif
+#endif
                  << "(build " << QupZilla::BUILDTIME.toUtf8().data() << ")"
                  << endl;
             found = true;

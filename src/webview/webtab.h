@@ -32,16 +32,16 @@ class WebTab : public QWidget
 public:
     explicit WebTab(QupZilla* mainClass, LocationBar* locationBar);
     ~WebTab();
-    WebView* view() { return m_view.data(); }
-    bool isPinned() { return m_pinned; }
+    WebView* view();
+    bool isPinned();
     void pinTab(int index);
-    void setPinned(bool state) { m_pinned = state; }
+    void setPinned(bool state);
 
-    void setLocationBar(LocationBar* bar) { m_locationBar = bar; }
-    LocationBar* locationBar() { return m_locationBar.data(); }
+    void setLocationBar(LocationBar* bar);
+    LocationBar* locationBar();
 
-    bool inspectorVisible() { return m_inspectorVisible; }
-    void setInspectorVisible(bool v) { m_inspectorVisible = v; }
+    bool inspectorVisible();
+    void setInspectorVisible(bool v);
 
 private slots:
     void showNotification(QWidget* notif);
