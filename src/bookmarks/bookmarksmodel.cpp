@@ -334,6 +334,29 @@ bool BookmarksModel::renameFolder(const QString &before, const QString &after)
     return true;
 }
 
+QList<Bookmark> BookmarksModel::folderBookmarks(const QString &name)
+{
+    QList<Bookmark> list;
+
+    QSqlQuery query;
+    query.prepare("SELECT id, url, title, folder, icon FROM bookmarks WHERE folder=?");
+    query.addBindValue(name);
+    query.exec();
+    while (query.next()) {
+        Bookmark bookmark;
+        bookmark.id = query.value(0).toInt();
+        bookmark.url = query.value(1).toUrl();
+        bookmark.title = query.value(2).toString();
+        bookmark.folder = query.value(3).toString();
+        bookmark.icon = IconProvider::iconFromBase64(query.value(4).toByteArray());
+        bookmark.inSubfolder = isSubfolder(bookmark.folder);
+
+        list.append(bookmark);
+    }
+
+    return list;
+}
+
 bool BookmarksModel::createSubfolder(const QString &name)
 {
     QSqlQuery query;

@@ -79,6 +79,8 @@ public:
     bool createFolder(const QString &name);
     bool removeFolder(const QString &name);
 
+    QList<Bookmark> folderBookmarks(const QString &name);
+
     bool createSubfolder(const QString &name);
     bool isSubfolder(const QString &name);
 
