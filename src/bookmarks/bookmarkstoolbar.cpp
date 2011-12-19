@@ -212,6 +212,23 @@ void BookmarksToolbar::loadClickedBookmarkInNewTab()
     p_QupZilla->tabWidget()->addView(bookmark.url);
 }
 
+void BookmarksToolbar::loadFolderBookmarksInTabs()
+{
+    ToolButton* b = qobject_cast<ToolButton*>(sender());
+    if (!b) {
+        return;
+    }
+
+    QString folder = b->text();
+    if (folder.isEmpty()) {
+        return;
+    }
+
+    foreach (Bookmark b, m_bookmarksModel->folderBookmarks(folder)) {
+        p_QupZilla->tabWidget()->addView(b.url, b.title);
+    }
+}
+
 void BookmarksToolbar::showMostVisited()
 {
     m_bookmarksModel->setShowingMostVisited(!m_bookmarksModel->isShowingMostVisited());
@@ -241,6 +258,7 @@ void BookmarksToolbar::subfolderAdded(const QString &name)
     b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     b->setIcon(style()->standardIcon(QStyle::SP_DirIcon));
     b->setText(name);
+    connect(b, SIGNAL(middleMouseClicked()), this, SLOT(loadFolderBookmarksInTabs()));
 
     Menu* menu = new Menu(name);
     b->setMenu(menu);
@@ -422,6 +440,7 @@ void BookmarksToolbar::refreshBookmarks()
         b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         b->setIcon(style()->standardIcon(QStyle::SP_DirIcon));
         b->setText(query.value(0).toString());
+        connect(b, SIGNAL(middleMouseClicked()), this, SLOT(loadFolderBookmarksInTabs()));
 
         Menu* menu = new Menu(query.value(0).toString());
         b->setMenu(menu);
@@ -457,21 +476,14 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     menu->clear();
     QString folder = menu->title();
 
-    QSqlQuery query;
-    query.prepare("SELECT title, url, icon FROM bookmarks WHERE folder=?");
-    query.addBindValue(folder);
-    query.exec();
-    while (query.next()) {
-        QString title = query.value(0).toString();
-        QUrl url = query.value(1).toUrl();
-        QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
-        if (title.length() > 40) {
-            title.truncate(40);
-            title += "..";
+    foreach (Bookmark b, m_bookmarksModel->folderBookmarks(folder)) {
+        if (b.title.length() > 40) {
+            b.title.truncate(40);
+            b.title += "..";
         }
 
-        Action* act = new Action(icon, title);
-        act->setData(url);
+        Action* act = new Action(b.icon, b.title);
+        act->setData(b.url);
         connect(act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
         connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));
         menu->addAction(act);

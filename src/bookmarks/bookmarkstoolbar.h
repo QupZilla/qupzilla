@@ -46,6 +46,7 @@ public slots:
 private slots:
     void loadClickedBookmark();
     void loadClickedBookmarkInNewTab();
+    void loadFolderBookmarksInTabs();
 
     void aboutToShowFolderMenu();
     void showBookmarkContextMenu(const QPoint &pos);
