@@ -126,6 +126,7 @@ public slots:
     void loadActionUrl();
     void loadActionUrlInNewTab();
     void loadActionUrlInNewNotSelectedTab();
+    void loadFolderBookmarks(Menu* menu);
 
     void bookmarkPage();
     void loadAddress(const QUrl &url);
