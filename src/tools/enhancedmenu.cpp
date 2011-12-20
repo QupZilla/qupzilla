@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "enhancedmenu.h"
 
+#include <QDebug>
+
 Menu::Menu(QWidget* parent)
     : QMenu(parent)
 {
@@ -29,7 +31,21 @@ Menu::Menu(const QString &title, QWidget* parent)
 
 void Menu::mouseReleaseEvent(QMouseEvent* e)
 {
-    Action* act = qobject_cast<Action*> (actionAt(e->pos()));
+    QAction* qact = actionAt(e->pos());
+    Action* act = qobject_cast<Action*> (qact);
+
+    if (qact && qact->menu()) {
+        Menu* m = qobject_cast<Menu*> (qact->menu());
+        if (!m) {
+            QMenu::mouseReleaseEvent(e);
+            return;
+        }
+
+        if (e->button() == Qt::MiddleButton || (e->button() == Qt::LeftButton && e->modifiers() == Qt::ControlModifier)) {
+            closeAllMenus();
+            emit menuMiddleClicked(m);
+        }
+    }
 
     if (!act) {
         QMenu::mouseReleaseEvent(e);

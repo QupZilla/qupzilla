@@ -313,7 +313,7 @@ int TabBar::normalTabsCount()
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton && tabAt(event->pos()) == -1) {
-        m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewTab, true);
+        m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewSelectedTab, true);
         return;
     }
 
