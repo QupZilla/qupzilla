@@ -21,6 +21,7 @@
 #include <QMenu>
 #include <QMouseEvent>
 
+class Action;
 class Menu : public QMenu
 {
     Q_OBJECT
@@ -29,14 +30,13 @@ public:
     explicit Menu(const QString &title, QWidget* parent = 0);
 
 signals:
+    void menuMiddleClicked(Menu*);
 
 public slots:
 
 private:
     void mouseReleaseEvent(QMouseEvent* e);
-
     void closeAllMenus();
-
 };
 
 class Action : public QAction

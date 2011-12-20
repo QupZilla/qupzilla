@@ -75,7 +75,7 @@ void HistoryManager::itemDoubleClicked(QTreeWidgetItem* item)
     }
 
     QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
-    getQupZilla()->tabWidget()->addView(url);
+    getQupZilla()->tabWidget()->addView(url, item->text(0));
 }
 
 void HistoryManager::loadInNewTab()

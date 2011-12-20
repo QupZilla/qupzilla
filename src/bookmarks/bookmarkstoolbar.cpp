@@ -209,7 +209,7 @@ void BookmarksToolbar::loadClickedBookmarkInNewTab()
 
     Bookmark bookmark = button->data().value<Bookmark>();
 
-    p_QupZilla->tabWidget()->addView(bookmark.url);
+    p_QupZilla->tabWidget()->addView(bookmark.url, bookmark.title);
 }
 
 void BookmarksToolbar::loadFolderBookmarksInTabs()
@@ -225,7 +225,7 @@ void BookmarksToolbar::loadFolderBookmarksInTabs()
     }
 
     foreach (Bookmark b, m_bookmarksModel->folderBookmarks(folder)) {
-        p_QupZilla->tabWidget()->addView(b.url, b.title);
+        p_QupZilla->tabWidget()->addView(b.url, b.title, TabWidget::NewNotSelectedTab);
     }
 }
 

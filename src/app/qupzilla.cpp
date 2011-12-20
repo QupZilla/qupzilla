@@ -271,6 +271,7 @@ void QupZilla::setupMenu()
     connect(m_menuHistory, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMenu()));
     connect(m_menuHistory, SIGNAL(aboutToHide()), this, SLOT(aboutToHideHistoryMenu()));
     connect(m_menuBookmarks, SIGNAL(aboutToShow()), this, SLOT(aboutToShowBookmarksMenu()));
+    connect(m_menuBookmarks, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(loadFolderBookmarks(Menu*)));
     connect(m_menuHelp, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHelpMenu()));
     connect(m_menuTools, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolsMenu()));
 
@@ -960,6 +961,18 @@ void QupZilla::loadActionUrlInNewNotSelectedTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         m_tabWidget->addView(action->data().toUrl(), tr("New tab"), TabWidget::NewNotSelectedTab);
+    }
+}
+
+void QupZilla::loadFolderBookmarks(Menu *menu)
+{
+    QString folder = BookmarksModel::fromTranslatedFolder(menu->title());
+    if (folder.isEmpty()) {
+        return;
+    }
+
+    foreach(Bookmark b, mApp->bookmarksModel()->folderBookmarks(folder)) {
+        tabWidget()->addView(b.url, b.title, TabWidget::NewNotSelectedTab);
     }
 }
 

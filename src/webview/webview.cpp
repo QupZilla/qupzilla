@@ -290,8 +290,9 @@ void WebView::stopAnimation()
     QMovie* mov = animationLoading(tabIndex(), false)->movie();
     if (mov) {
         mov->stop();
-        iconChanged();
     }
+
+    iconChanged();
 }
 
 void WebView::setIp(const QHostInfo &info)
@@ -726,7 +727,7 @@ void WebView::showSource()
     p_QupZilla->showSource();
 }
 
-#if QT_VERSION == 0x040800
+#if QT_VERSION >= 0x040800
 void WebView::showSourceOfSelection()
 {
     p_QupZilla->showSource(selectedHtml());

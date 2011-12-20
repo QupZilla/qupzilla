@@ -162,7 +162,7 @@ void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
     if (!item || item->text(1).isEmpty()) {
         return;
     }
-    getQupZilla()->tabWidget()->addView(QUrl(item->text(1)));
+    getQupZilla()->tabWidget()->addView(QUrl(item->text(1)), item->text(0));
 }
 
 void BookmarksManager::loadInNewTab()
