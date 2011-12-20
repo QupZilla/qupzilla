@@ -215,7 +215,7 @@ QString QupZillaSchemeReply::speeddialPage()
 
     page.replace("%SITE-TITLE%", tr("Speed Dial"));
     page.replace("%ADD-TITLE%", tr("Add New Page"));
-    page.replace("%TITLE-EDIT%", tr("Edit"));
+    page.replace("%TITLE-EDIT%", tr("Apply"));
     page.replace("%TITLE-REMOVE%", tr("Remove"));
     page.replace("%TITLE-RELOAD%", tr("Reload"));
     page.replace("%JQUERY%", "qrc:html/jquery.js");

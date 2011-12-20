@@ -2642,6 +2642,10 @@
         <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
         <translation>Ak máte problémy pri používaní QupZilly, prosím skúste najprv zakázať všetky pluginy. &lt;br/&gt; Ak to nepomúže, potom prosím vyplňte tento formulár: </translation>
     </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
