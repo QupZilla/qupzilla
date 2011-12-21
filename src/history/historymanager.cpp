@@ -99,11 +99,19 @@ void HistoryManager::contextMenuRequested(const QPoint &position)
     menu.addAction(tr("Open link in actual tab"), getQupZilla(), SLOT(loadActionUrl()))->setData(link);
     menu.addAction(tr("Open link in new tab"), this, SLOT(loadInNewTab()))->setData(link);
     menu.addSeparator();
+    menu.addAction(tr("Copy address"), this, SLOT(copyUrl()))->setData(link);
 
     //Prevent choosing first option with double rightclick
     QPoint pos = QCursor::pos();
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
+}
+
+void HistoryManager::copyUrl()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        QApplication::clipboard()->setText(action->data().toUrl().toEncoded());
+    }
 }
 
 void HistoryManager::deleteItem()

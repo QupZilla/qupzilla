@@ -1513,30 +1513,39 @@ nebyl nalezen!</translation>
         <translation>Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="146"/>
-        <location filename="../src/history/historymanager.cpp" line="237"/>
+        <source>Copy url to clipboard</source>
+        <translation type="obsolete">Kopírovat adresu</translation>
+    </message>
+    <message>
+        <location filename="../src/history/historymanager.cpp" line="102"/>
+        <source>Copy address</source>
+        <translation>Kopírovat adresu</translation>
+    </message>
+    <message>
+        <location filename="../src/history/historymanager.cpp" line="154"/>
+        <location filename="../src/history/historymanager.cpp" line="245"/>
         <source>Today</source>
         <translation>Dnes</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="149"/>
-        <location filename="../src/history/historymanager.cpp" line="240"/>
+        <location filename="../src/history/historymanager.cpp" line="157"/>
+        <location filename="../src/history/historymanager.cpp" line="248"/>
         <source>This Week</source>
         <translation>Tento týden</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="152"/>
-        <location filename="../src/history/historymanager.cpp" line="243"/>
+        <location filename="../src/history/historymanager.cpp" line="160"/>
+        <location filename="../src/history/historymanager.cpp" line="251"/>
         <source>This Month</source>
         <translation>Tento měsíc</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="209"/>
+        <location filename="../src/history/historymanager.cpp" line="217"/>
         <source>Confirmation</source>
         <translation>Potvrzení</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="210"/>
+        <location filename="../src/history/historymanager.cpp" line="218"/>
         <source>Are you sure to delete all history?</source>
         <translation>Opravdu chcete vymazat celou historii?</translation>
     </message>
@@ -1642,25 +1651,25 @@ nebyl nalezen!</translation>
         <translation>Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
         <source>Copy address</source>
         <translation>Kopírovat adresu</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="112"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="215"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="113"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="216"/>
         <source>Today</source>
         <translation>Dnes</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="115"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="218"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="116"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="219"/>
         <source>This Week</source>
         <translation>Tento týden</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="118"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="221"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="119"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="222"/>
         <source>This Month</source>
         <translation>Tento měsíc</translation>
     </message>
