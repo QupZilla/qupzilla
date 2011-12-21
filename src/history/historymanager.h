@@ -52,6 +52,7 @@ private slots:
     void clearHistory();
     void contextMenuRequested(const QPoint &position);
     void loadInNewTab();
+    void copyUrl();
 
     void historyEntryAdded(const HistoryModel::HistoryEntry &entry);
     void historyEntryDeleted(const HistoryModel::HistoryEntry &entry);

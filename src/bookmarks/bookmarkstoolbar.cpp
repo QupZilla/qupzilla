@@ -224,7 +224,7 @@ void BookmarksToolbar::loadFolderBookmarksInTabs()
         return;
     }
 
-    foreach (Bookmark b, m_bookmarksModel->folderBookmarks(folder)) {
+    foreach(Bookmark b, m_bookmarksModel->folderBookmarks(folder)) {
         p_QupZilla->tabWidget()->addView(b.url, b.title, TabWidget::NewNotSelectedTab);
     }
 }
@@ -476,7 +476,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     menu->clear();
     QString folder = menu->title();
 
-    foreach (Bookmark b, m_bookmarksModel->folderBookmarks(folder)) {
+    foreach(Bookmark b, m_bookmarksModel->folderBookmarks(folder)) {
         if (b.title.length() > 40) {
             b.title.truncate(40);
             b.title += "..";

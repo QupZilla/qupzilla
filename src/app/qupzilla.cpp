@@ -964,7 +964,7 @@ void QupZilla::loadActionUrlInNewNotSelectedTab()
     }
 }
 
-void QupZilla::loadFolderBookmarks(Menu *menu)
+void QupZilla::loadFolderBookmarks(Menu* menu)
 {
     QString folder = BookmarksModel::fromTranslatedFolder(menu->title());
     if (folder.isEmpty()) {

@@ -66,6 +66,8 @@ public:
     explicit ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, WebPage* parentPage);
     ~ClickToFlash();
 
+    static bool isAlreadyAccepted(const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues);
+
 private slots:
     void load();
     void customContextMenuRequested(const QPoint &pos);
@@ -93,6 +95,11 @@ private:
     used to find the right QWebElement between the ones of the different plugins
     */
     const QUrl m_url;
+
+    static QUrl acceptedUrl;
+    static QStringList acceptedArgNames;
+    static QStringList acceptedArgValues;
+
 
     WebPage* m_page;
 };

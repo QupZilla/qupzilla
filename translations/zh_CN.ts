@@ -1506,30 +1506,35 @@
         <translation>在新标签打开链接 </translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="146"/>
-        <location filename="../src/history/historymanager.cpp" line="237"/>
+        <location filename="../src/history/historymanager.cpp" line="102"/>
+        <source>Copy address</source>
+        <translation type="unfinished">复制地址</translation>
+    </message>
+    <message>
+        <location filename="../src/history/historymanager.cpp" line="154"/>
+        <location filename="../src/history/historymanager.cpp" line="245"/>
         <source>Today</source>
         <translation>到今天</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="149"/>
-        <location filename="../src/history/historymanager.cpp" line="240"/>
+        <location filename="../src/history/historymanager.cpp" line="157"/>
+        <location filename="../src/history/historymanager.cpp" line="248"/>
         <source>This Week</source>
         <translation>本周</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="152"/>
-        <location filename="../src/history/historymanager.cpp" line="243"/>
+        <location filename="../src/history/historymanager.cpp" line="160"/>
+        <location filename="../src/history/historymanager.cpp" line="251"/>
         <source>This Month</source>
         <translation>本月</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="209"/>
+        <location filename="../src/history/historymanager.cpp" line="217"/>
         <source>Confirmation</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="210"/>
+        <location filename="../src/history/historymanager.cpp" line="218"/>
         <source>Are you sure to delete all history?</source>
         <translation>确定删除所有历史吗？</translation>
     </message>
@@ -1635,25 +1640,25 @@
         <translation>在新标签打开链接 </translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
         <source>Copy address</source>
         <translation>复制地址</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="112"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="215"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="113"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="216"/>
         <source>Today</source>
         <translation>到今天</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="115"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="218"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="116"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="219"/>
         <source>This Week</source>
         <translation>本周</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="118"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="221"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="119"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="222"/>
         <source>This Month</source>
         <translation>本月</translation>
     </message>

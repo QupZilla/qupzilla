@@ -1214,6 +1214,10 @@
         <source>History</source>
         <translation>História</translation>
     </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">Kopírovať adresu</translation>
+    </message>
 </context>
 <context>
     <name>HistoryModel</name>
