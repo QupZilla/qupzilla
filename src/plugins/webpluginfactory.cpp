@@ -36,7 +36,7 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
 
     if (mime != "application/x-shockwave-flash") {
         if (mime != "application/futuresplash") {
-            qDebug()  << "missing mimeType handler for: " << mime;
+            qDebug()  << "WebPluginFactory::create missing mimeType handler for: " << mime;
         }
         return 0;
     }
@@ -45,9 +45,14 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
         return 0;
     }
 
-    //Click2Flash whitelist
+    // Click2Flash whitelist
     QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
     if (whitelist.contains(url.host()) || whitelist.contains("www." + url.host()) || whitelist.contains(url.host().remove("www."))) {
+        return 0;
+    }
+    // Click2Flash already accepted
+    if (ClickToFlash::isAlreadyAccepted(url, argumentNames, argumentValues)) {
+        qDebug() << "already accepted";
         return 0;
     }
 

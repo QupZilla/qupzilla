@@ -49,6 +49,10 @@
 #include "globalfunctions.h"
 #include "qupzilla.h"
 
+QUrl ClickToFlash::acceptedUrl;
+QStringList ClickToFlash::acceptedArgNames;
+QStringList ClickToFlash::acceptedArgValues;
+
 ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNames, const QStringList &argumentValues, WebPage* parentPage)
     : QWidget()
     , m_argumentNames(argumentNames)
@@ -93,6 +97,13 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
 
     QTimer::singleShot(0, this, SLOT(ensurePluginVisible()));
+}
+
+bool ClickToFlash::isAlreadyAccepted(const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues)
+{
+    return (url == acceptedUrl &&
+            argumentNames == acceptedArgNames &&
+            argumentValues == acceptedArgValues);
 }
 
 void ClickToFlash::ensurePluginVisible()
@@ -158,8 +169,21 @@ void ClickToFlash::findElement()
         return;
     }
 
+    QPoint objectPos = view->mapFromGlobal(m_toolButton->mapToGlobal(m_toolButton->pos()));
+    QWebFrame* objectFrame = view->page()->frameAt(objectPos);
+    QWebHitTestResult hitResult = objectFrame->hitTestContent(objectPos);
+    QWebElement hitElement = hitResult.element();
+
+    if (!hitElement.isNull()) {
+        m_element = hitElement;
+        return;
+    }
+
+    // HitTestResult failed, trying to find element by src
+    // attribute in elements at all frames on page (less accurate)
+
     QList<QWebFrame*> frames;
-    frames.append(view->page()->frameAt(view->mapFromGlobal(m_toolButton->mapToGlobal(m_toolButton->pos()))));
+    frames.append(objectFrame);
     m_mainFrame = view->page()->mainFrame();
     frames.append(m_mainFrame);
 
@@ -196,6 +220,10 @@ void ClickToFlash::load()
         QWebElement substitute = m_element.clone();
         substitute.setAttribute(QLatin1String("type"), "application/futuresplash");
         m_element.replace(substitute);
+
+        acceptedUrl = m_url;
+        acceptedArgNames = m_argumentNames;
+        acceptedArgValues = m_argumentValues;
     }
 }
 
