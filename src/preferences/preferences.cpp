@@ -171,6 +171,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
     ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
     ui->useTransparentBg->setChecked(settings.value("useTransparentBackground", false).toBool());
+    ui->askOnPrivateBrowsing->setChecked(settings.value("AskOnPrivate", true).toBool());
     settings.endGroup();
 #ifdef Q_WS_WIN
     ui->useTransparentBg->setEnabled(QtWin::isCompositionEnabled());
@@ -662,6 +663,7 @@ void Preferences::saveSettings()
     settings.setValue("showBackForwardButtons", ui->showBackForward->isChecked());
     settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
     settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
+    settings.setValue("AskOnPrivate", ui->askOnPrivateBrowsing->isChecked());
     settings.endGroup();
 
     //TABS

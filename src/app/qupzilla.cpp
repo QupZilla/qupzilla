@@ -1311,8 +1311,6 @@ void QupZilla::startPrivate(bool state)
         if (button != QMessageBox::Yes) {
             return;
         }
-
-        settings.setValue("Browser-View-Settings/AskOnPrivate", false);
     }
 
     mApp->webSettings()->setAttribute(QWebSettings::PrivateBrowsingEnabled, state);

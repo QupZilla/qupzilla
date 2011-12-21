@@ -49,6 +49,137 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="0" rowspan="5">
+    <widget class="QListWidget" name="listWidget">
+     <property name="minimumSize">
+      <size>
+       <width>220</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>220</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="movement">
+      <enum>QListView::Static</enum>
+     </property>
+     <property name="spacing">
+      <number>2</number>
+     </property>
+     <property name="uniformItemSizes">
+      <bool>true</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="selectionRectVisible">
+      <bool>false</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>General</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">0</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Appearance</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">1</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Tabs</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">2</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Browsing</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">3</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fonts</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">4</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Downloads</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">5</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Password Manager</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">6</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Privacy</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">7</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Notifications</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">8</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Plugins</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">9</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Other</string>
+      </property>
+      <property name="whatsThis">
+       <string notr="true">10</string>
+      </property>
+     </item>
+    </widget>
+   </item>
    <item row="2" column="1" colspan="2">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="focusPolicy">
@@ -605,13 +736,6 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="0" colspan="2">
-              <widget class="QCheckBox" name="allowJava">
-               <property name="text">
-                <string>Allow JAVA</string>
-               </property>
-              </widget>
-             </item>
              <item row="2" column="0" colspan="2">
               <widget class="QCheckBox" name="allowJavaScript">
                <property name="text">
@@ -626,7 +750,7 @@
                </property>
               </widget>
              </item>
-             <item row="3" column="0" colspan="2">
+             <item row="4" column="0" colspan="2">
               <widget class="QCheckBox" name="blockPopup">
                <property name="text">
                 <string>Block PopUp windows</string>
@@ -699,9 +823,16 @@
                </property>
               </widget>
              </item>
+             <item row="3" column="0">
+              <widget class="QCheckBox" name="allowJava">
+               <property name="text">
+                <string>Allow JAVA</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </item>
-           <item row="1" column="0">
+           <item row="2" column="0">
             <layout class="QHBoxLayout" name="horizontalLayout_11">
              <item>
               <widget class="QLabel" name="label_14">
@@ -738,7 +869,7 @@
              </item>
             </layout>
            </item>
-           <item row="2" column="0">
+           <item row="3" column="0">
             <layout class="QHBoxLayout" name="horizontalLayout_12">
              <item>
               <widget class="QLabel" name="label_44">
@@ -778,7 +909,7 @@
              </item>
             </layout>
            </item>
-           <item row="3" column="0">
+           <item row="4" column="0">
             <spacer name="verticalSpacer_9">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -790,6 +921,13 @@
               </size>
              </property>
             </spacer>
+           </item>
+           <item row="1" column="0">
+            <widget class="QCheckBox" name="askOnPrivateBrowsing">
+             <property name="text">
+              <string>Ask when entering Private Browsing mode</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -1838,137 +1976,6 @@
        </item>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item row="0" column="0" rowspan="5">
-    <widget class="QListWidget" name="listWidget">
-     <property name="minimumSize">
-      <size>
-       <width>220</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>220</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="showDropIndicator" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>32</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="movement">
-      <enum>QListView::Static</enum>
-     </property>
-     <property name="spacing">
-      <number>2</number>
-     </property>
-     <property name="uniformItemSizes">
-      <bool>true</bool>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-     <property name="selectionRectVisible">
-      <bool>false</bool>
-     </property>
-     <item>
-      <property name="text">
-       <string>General</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">0</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Appearance</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">1</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Tabs</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">2</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Browsing</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">3</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Fonts</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">4</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Downloads</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">5</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Password Manager</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">6</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Privacy</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">7</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Notifications</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">8</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Plugins</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">9</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Other</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">10</string>
-      </property>
-     </item>
     </widget>
    </item>
   </layout>
