@@ -1938,7 +1938,7 @@
         <translation>首选项</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1886"/>
+        <location filename="../src/preferences/preferences.ui" line="95"/>
         <source>General</source>
         <translation>常规</translation>
     </message>
@@ -1947,47 +1947,47 @@
         <translation type="obsolete">外观</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1902"/>
+        <location filename="../src/preferences/preferences.ui" line="111"/>
         <source>Tabs</source>
         <translation>标签</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1910"/>
+        <location filename="../src/preferences/preferences.ui" line="119"/>
         <source>Browsing</source>
         <translation>浏览</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1918"/>
+        <location filename="../src/preferences/preferences.ui" line="127"/>
         <source>Fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1926"/>
+        <location filename="../src/preferences/preferences.ui" line="135"/>
         <source>Downloads</source>
         <translation>下载</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1934"/>
+        <location filename="../src/preferences/preferences.ui" line="143"/>
         <source>Password Manager</source>
         <translation>密码管理</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1942"/>
+        <location filename="../src/preferences/preferences.ui" line="151"/>
         <source>Privacy</source>
         <translation>隐私</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1950"/>
+        <location filename="../src/preferences/preferences.ui" line="159"/>
         <source>Notifications</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1958"/>
+        <location filename="../src/preferences/preferences.ui" line="167"/>
         <source>Plugins</source>
         <translation>插件</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1966"/>
+        <location filename="../src/preferences/preferences.ui" line="175"/>
         <source>Other</source>
         <translation>其他</translation>
     </message>
@@ -2002,150 +2002,150 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="65"/>
+        <location filename="../src/preferences/preferences.ui" line="196"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
         <translation>&lt;B&gt;启动&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="96"/>
+        <location filename="../src/preferences/preferences.ui" line="227"/>
         <source>Open blank page</source>
         <translation>打开空白页</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="101"/>
-        <location filename="../src/preferences/preferences.ui" line="153"/>
+        <location filename="../src/preferences/preferences.ui" line="232"/>
+        <location filename="../src/preferences/preferences.ui" line="284"/>
         <source>Open homepage</source>
         <translation>打开主页</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="111"/>
+        <location filename="../src/preferences/preferences.ui" line="242"/>
         <source>Restore session</source>
         <translation>恢复会话</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="119"/>
+        <location filename="../src/preferences/preferences.ui" line="250"/>
         <source>Homepage: </source>
         <translation>主页:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="131"/>
-        <location filename="../src/preferences/preferences.ui" line="279"/>
+        <location filename="../src/preferences/preferences.ui" line="262"/>
+        <location filename="../src/preferences/preferences.ui" line="410"/>
         <source>Use actual</source>
         <translation>实际使用</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="140"/>
+        <location filename="../src/preferences/preferences.ui" line="271"/>
         <source>On new tab: </source>
         <translation>在新的选项卡:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="148"/>
+        <location filename="../src/preferences/preferences.ui" line="279"/>
         <source>Open blank tab</source>
         <translation>打开空白标签页</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="163"/>
+        <location filename="../src/preferences/preferences.ui" line="294"/>
         <source>Open other page...</source>
         <translation>打开其他页面...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="171"/>
+        <location filename="../src/preferences/preferences.ui" line="302"/>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
         <translation>b&gt;资料&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="178"/>
+        <location filename="../src/preferences/preferences.ui" line="309"/>
         <source>Startup profile:</source>
         <translation>启动配置文件:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="228"/>
+        <location filename="../src/preferences/preferences.ui" line="359"/>
         <source>Create New</source>
         <translation>新建</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="244"/>
+        <location filename="../src/preferences/preferences.ui" line="375"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="302"/>
-        <location filename="../src/preferences/preferences.cpp" line="609"/>
+        <location filename="../src/preferences/preferences.ui" line="433"/>
+        <location filename="../src/preferences/preferences.cpp" line="610"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>注意：您不能删除活动配置文件。</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="312"/>
+        <location filename="../src/preferences/preferences.ui" line="443"/>
         <source>Check for updates on start</source>
         <translation>启动时检查更新</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="327"/>
+        <location filename="../src/preferences/preferences.ui" line="458"/>
         <source>Themes</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="340"/>
+        <location filename="../src/preferences/preferences.ui" line="471"/>
         <source>Advanced options</source>
         <translation>高级选项</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="346"/>
+        <location filename="../src/preferences/preferences.ui" line="477"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;B&gt;浏览器窗口&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="371"/>
+        <location filename="../src/preferences/preferences.ui" line="502"/>
         <source>Show StatusBar on start</source>
         <translation>显示状态栏</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="378"/>
+        <location filename="../src/preferences/preferences.ui" line="509"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>显示书签工具栏</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="385"/>
+        <location filename="../src/preferences/preferences.ui" line="516"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>显示导航工具栏</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="407"/>
+        <location filename="../src/preferences/preferences.ui" line="538"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation>&lt;B&gt;导航工具栏&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="414"/>
+        <location filename="../src/preferences/preferences.ui" line="545"/>
         <source>Show Home button</source>
         <translation>显示主页按钮</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="421"/>
+        <location filename="../src/preferences/preferences.ui" line="552"/>
         <source>Show Back / Forward buttons</source>
         <translation>显示后退/前进按钮</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="428"/>
+        <location filename="../src/preferences/preferences.ui" line="559"/>
         <source>Show Add Tab button</source>
         <translation>显示新建标签页按钮</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="435"/>
+        <location filename="../src/preferences/preferences.ui" line="566"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
         <translation>&lt;B&gt;背景&lt;b/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="455"/>
+        <location filename="../src/preferences/preferences.ui" line="586"/>
         <source>Use transparent background</source>
         <translation>使用透明背景</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="470"/>
+        <location filename="../src/preferences/preferences.ui" line="601"/>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
         <translation>&lt;B&gt;标签的行为&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="493"/>
+        <location filename="../src/preferences/preferences.ui" line="624"/>
         <source>Make tabs movable</source>
         <translation></translation>
     </message>
@@ -2158,492 +2158,497 @@
         <translation type="obsolete">如果只有一个选项卡，隐藏标签页</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="520"/>
+        <location filename="../src/preferences/preferences.ui" line="651"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
         <translation>&lt;b&gt;地址栏的行为&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="527"/>
+        <location filename="../src/preferences/preferences.ui" line="658"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>双击地址栏选择的所有文字</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="534"/>
+        <location filename="../src/preferences/preferences.ui" line="665"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>按ALT键添加.co.uk</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="567"/>
+        <location filename="../src/preferences/preferences.ui" line="698"/>
         <source>Activate last tab when closing active tab</source>
         <translation>关闭活动标签时激活最后一个标签页</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="574"/>
+        <location filename="../src/preferences/preferences.ui" line="705"/>
         <source>Ask when closing multiple tabs</source>
         <translation>关闭多个标签页时总是询问</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="596"/>
+        <location filename="../src/preferences/preferences.ui" line="727"/>
         <source>Web Configuration</source>
         <translation>Web配置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="604"/>
+        <location filename="../src/preferences/preferences.ui" line="735"/>
         <source>Load images</source>
         <translation>载入图像</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="611"/>
+        <location filename="../src/preferences/preferences.ui" line="829"/>
         <source>Allow JAVA</source>
         <translation>允许Java</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="88"/>
+        <location filename="../src/preferences/preferences.ui" line="219"/>
         <source>After launch: </source>
         <translation>启动后：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="618"/>
+        <location filename="../src/preferences/preferences.ui" line="742"/>
         <source>Allow JavaScript</source>
         <translation>允许JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="625"/>
+        <location filename="../src/preferences/preferences.ui" line="749"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>允许插件（Flash插件）</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="632"/>
+        <location filename="../src/preferences/preferences.ui" line="756"/>
         <source>Block PopUp windows</source>
         <translation>拦截弹出窗口</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="639"/>
+        <location filename="../src/preferences/preferences.ui" line="763"/>
         <source>Allow DNS Prefetch</source>
         <translation>允许DNS预取</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="663"/>
+        <location filename="../src/preferences/preferences.ui" line="787"/>
         <source>JavaScript can access clipboard</source>
         <translation>JavaScript可访问剪贴板</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="670"/>
+        <location filename="../src/preferences/preferences.ui" line="794"/>
         <source>Send Do Not Track header to servers</source>
         <translation>发送不跟踪头到服务器</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="677"/>
+        <location filename="../src/preferences/preferences.ui" line="801"/>
         <source>Zoom text only</source>
         <translation>仅缩放文本</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="691"/>
+        <location filename="../src/preferences/preferences.ui" line="815"/>
         <source>Include links in focus chain</source>
         <translation>包括焦点链中的链接</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="684"/>
+        <location filename="../src/preferences/preferences.ui" line="808"/>
         <source>Print element background</source>
         <translation>打印元素的背景</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="106"/>
-        <location filename="../src/preferences/preferences.ui" line="158"/>
+        <location filename="../src/preferences/preferences.ui" line="237"/>
+        <location filename="../src/preferences/preferences.ui" line="289"/>
         <source>Open speed dial</source>
         <translation>打开快速拨号</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="513"/>
+        <location filename="../src/preferences/preferences.ui" line="644"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>隐藏选项卡当只有一个选项卡时</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="581"/>
+        <location filename="../src/preferences/preferences.ui" line="712"/>
         <source>Select all text by clicking in address bar</source>
         <translation>通过点击地址栏选择所有文本</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="698"/>
+        <location filename="../src/preferences/preferences.ui" line="822"/>
         <source>Enable XSS Auditing</source>
         <translation>启用的XSS审计</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="715"/>
+        <location filename="../src/preferences/preferences.ui" line="846"/>
         <source>Mouse wheel scrolls</source>
         <translation>滚动鼠标滚轮</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="735"/>
+        <location filename="../src/preferences/preferences.ui" line="866"/>
         <source>lines on page</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="746"/>
+        <location filename="../src/preferences/preferences.ui" line="877"/>
         <source>Default zoom on pages: </source>
         <translation>默认网页缩放：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="798"/>
+        <location filename="../src/preferences/preferences.ui" line="928"/>
+        <source>Ask when entering Private Browsing mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="936"/>
         <source>Local Storage</source>
         <translation>本地存储</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="806"/>
+        <location filename="../src/preferences/preferences.ui" line="944"/>
         <source>Maximum pages in cache: </source>
         <translation>高速缓存中的最大页面：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="825"/>
+        <location filename="../src/preferences/preferences.ui" line="963"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="866"/>
+        <location filename="../src/preferences/preferences.ui" line="1004"/>
         <source>Allow storing network cache on disk</source>
         <translation>允许在磁盘上存储网络缓存</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="876"/>
+        <location filename="../src/preferences/preferences.ui" line="1014"/>
         <source>Maximum </source>
         <translation>最大</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="883"/>
+        <location filename="../src/preferences/preferences.ui" line="1021"/>
         <source>50 MB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="910"/>
+        <location filename="../src/preferences/preferences.ui" line="1048"/>
         <source>Allow storing web icons</source>
         <translation>允许存储网页图标</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="917"/>
+        <location filename="../src/preferences/preferences.ui" line="1055"/>
         <source>Allow saving history</source>
         <translation>允许保存历史</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="924"/>
+        <location filename="../src/preferences/preferences.ui" line="1062"/>
         <source>Delete history on close</source>
         <translation>删除近来的历史记录</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="973"/>
+        <location filename="../src/preferences/preferences.ui" line="1111"/>
         <source>Proxy Configuration</source>
         <translation>代理配置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="982"/>
+        <location filename="../src/preferences/preferences.ui" line="1120"/>
         <source>HTTP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="987"/>
+        <location filename="../src/preferences/preferences.ui" line="1125"/>
         <source>SOCKS5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1000"/>
+        <location filename="../src/preferences/preferences.ui" line="1138"/>
         <source>Port:</source>
         <translation>端口：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1019"/>
+        <location filename="../src/preferences/preferences.ui" line="1157"/>
         <source>Username:</source>
         <translation>用户名：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1029"/>
+        <location filename="../src/preferences/preferences.ui" line="1167"/>
         <source>Password:</source>
         <translation>密码：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1055"/>
+        <location filename="../src/preferences/preferences.ui" line="1193"/>
         <source>Don&apos;t use on:</source>
         <translation>不要使用：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1062"/>
+        <location filename="../src/preferences/preferences.ui" line="1200"/>
         <source>Manual configuration</source>
         <translation>手动配置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1069"/>
+        <location filename="../src/preferences/preferences.ui" line="1207"/>
         <source>System proxy configuration</source>
         <translation>系统代理配置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1076"/>
+        <location filename="../src/preferences/preferences.ui" line="1214"/>
         <source>Do not use proxy</source>
         <translation>不使用代理</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1122"/>
+        <location filename="../src/preferences/preferences.ui" line="1260"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1135"/>
+        <location filename="../src/preferences/preferences.ui" line="1273"/>
         <source>Standard</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1142"/>
+        <location filename="../src/preferences/preferences.ui" line="1280"/>
         <source>Fixed</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1152"/>
+        <location filename="../src/preferences/preferences.ui" line="1290"/>
         <source>Serif</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1162"/>
+        <location filename="../src/preferences/preferences.ui" line="1300"/>
         <source>Sans Serif</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1172"/>
+        <location filename="../src/preferences/preferences.ui" line="1310"/>
         <source>Cursive</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1182"/>
+        <location filename="../src/preferences/preferences.ui" line="1320"/>
         <source>Default Font</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1199"/>
+        <location filename="../src/preferences/preferences.ui" line="1337"/>
         <source>Fixed Font</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1258"/>
+        <location filename="../src/preferences/preferences.ui" line="1396"/>
         <source>Fantasy</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1265"/>
+        <location filename="../src/preferences/preferences.ui" line="1403"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1276"/>
+        <location filename="../src/preferences/preferences.ui" line="1414"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;下载位置&lt;/ b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1283"/>
+        <location filename="../src/preferences/preferences.ui" line="1421"/>
         <source>Ask everytime for download location</source>
         <translation>每次询问下载位置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1290"/>
+        <location filename="../src/preferences/preferences.ui" line="1428"/>
         <source>Use defined location: </source>
         <translation>使用定义的位置：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1302"/>
-        <location filename="../src/preferences/preferences.ui" line="1804"/>
+        <location filename="../src/preferences/preferences.ui" line="1440"/>
+        <location filename="../src/preferences/preferences.ui" line="1942"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1353"/>
+        <location filename="../src/preferences/preferences.ui" line="1491"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;下载选项&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1360"/>
+        <location filename="../src/preferences/preferences.ui" line="1498"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>使用本地系统文件对话框
 （可能会导致下载SSL保护内容的问题）</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1368"/>
+        <location filename="../src/preferences/preferences.ui" line="1506"/>
         <source>Close download manager when downloading finishes</source>
         <translation>下载完成后关闭下载管理器</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1379"/>
+        <location filename="../src/preferences/preferences.ui" line="1517"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;B&gt;自动填充选项&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1386"/>
+        <location filename="../src/preferences/preferences.ui" line="1524"/>
         <source>Allow saving passwords from sites</source>
         <translation>允许保存网站密码</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1456"/>
+        <location filename="../src/preferences/preferences.ui" line="1594"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1463"/>
+        <location filename="../src/preferences/preferences.ui" line="1601"/>
         <source>Filter Tracking Cookies</source>
         <translation>追踪cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1470"/>
+        <location filename="../src/preferences/preferences.ui" line="1608"/>
         <source>Allow storing of cookies</source>
         <translation>允许存储cookie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1477"/>
+        <location filename="../src/preferences/preferences.ui" line="1615"/>
         <source>Delete cookies on close</source>
         <translation>关闭后删除cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1497"/>
+        <location filename="../src/preferences/preferences.ui" line="1635"/>
         <source>Match domain exactly</source>
         <translation>域完全匹配</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1533"/>
+        <location filename="../src/preferences/preferences.ui" line="1671"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;警告：&lt;/ B&gt;匹配域完全和过滤器跟踪Cookie选项可能会导致拒绝网站的一些cookies，如果您的cookie有问题，尝试禁用这个选项！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1549"/>
+        <location filename="../src/preferences/preferences.ui" line="1687"/>
         <source>Cookies Manager</source>
         <translation>管理Cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1562"/>
+        <location filename="../src/preferences/preferences.ui" line="1700"/>
         <source>SSL Manager</source>
         <translation>管理SSL</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1575"/>
+        <location filename="../src/preferences/preferences.ui" line="1713"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;通知&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1582"/>
+        <location filename="../src/preferences/preferences.ui" line="1720"/>
         <source>Use OSD Notifications</source>
         <translation>使用OSD的通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1592"/>
+        <location filename="../src/preferences/preferences.ui" line="1730"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>使用本机的系统通知（仅限Linux）</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1599"/>
+        <location filename="../src/preferences/preferences.ui" line="1737"/>
         <source>Do not use Notifications</source>
         <translation>不要使用通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1650"/>
+        <location filename="../src/preferences/preferences.ui" line="1788"/>
         <source>Expiration timeout:</source>
         <translation>到期超时：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1663"/>
+        <location filename="../src/preferences/preferences.ui" line="1801"/>
         <source> seconds</source>
         <translation>秒</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1672"/>
+        <location filename="../src/preferences/preferences.ui" line="1810"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;注意：&lt;/ b&gt;您可以在屏幕上拖动以改变OSD​​通知的位置。</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1721"/>
+        <location filename="../src/preferences/preferences.ui" line="1859"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;语言&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1728"/>
+        <location filename="../src/preferences/preferences.ui" line="1866"/>
         <source>Available translations: </source>
         <translation>可用的翻译：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1767"/>
+        <location filename="../src/preferences/preferences.ui" line="1905"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>要改变语言，你必须重新启动浏览器。</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1787"/>
+        <location filename="../src/preferences/preferences.ui" line="1925"/>
         <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;用户CSS样式表&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1794"/>
+        <location filename="../src/preferences/preferences.ui" line="1932"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>所有的网站自动加载样式表：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1813"/>
+        <location filename="../src/preferences/preferences.ui" line="1951"/>
         <source>Languages</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1835"/>
+        <location filename="../src/preferences/preferences.ui" line="1973"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;网站首选的语言&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1894"/>
+        <location filename="../src/preferences/preferences.ui" line="103"/>
         <source>Appearance</source>
         <translation>外观</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="414"/>
+        <location filename="../src/preferences/preferences.cpp" line="415"/>
         <source>OSD Notification</source>
         <translation>OSD的通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="415"/>
+        <location filename="../src/preferences/preferences.cpp" line="416"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>在屏幕上拖动它到你想要的地方。</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="443"/>
+        <location filename="../src/preferences/preferences.cpp" line="444"/>
         <source>Choose download location...</source>
         <translation>选择下载位置... ...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="457"/>
+        <location filename="../src/preferences/preferences.cpp" line="458"/>
         <source>Choose stylesheet location...</source>
         <translation>选择样式表的位置...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="571"/>
+        <location filename="../src/preferences/preferences.cpp" line="572"/>
         <source>New Profile</source>
         <translation>新的配置文件</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="571"/>
+        <location filename="../src/preferences/preferences.cpp" line="572"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>输入新配置文件的名称：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="577"/>
-        <location filename="../src/preferences/preferences.cpp" line="581"/>
+        <location filename="../src/preferences/preferences.cpp" line="578"/>
+        <location filename="../src/preferences/preferences.cpp" line="582"/>
         <source>Error!</source>
         <translation>错误！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="577"/>
+        <location filename="../src/preferences/preferences.cpp" line="578"/>
         <source>This profile already exists!</source>
         <translation>此配置文件已经存在！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="581"/>
+        <location filename="../src/preferences/preferences.cpp" line="582"/>
         <source>Cannot create profile directory!</source>
         <translation>无法创建配置文件目录！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="594"/>
+        <location filename="../src/preferences/preferences.cpp" line="595"/>
         <source>Confirmation</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="595"/>
+        <location filename="../src/preferences/preferences.cpp" line="596"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>您确定要永久删除“%1”个人资料吗？这将无法复原！</translation>
     </message>
@@ -3049,7 +3054,7 @@
         <translation>隐私浏览&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1448"/>
+        <location filename="../src/app/qupzilla.cpp" line="1446"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>还有%1打开的标签和您的会话将不会被储存。你一定要退出吗？</translation>
     </message>

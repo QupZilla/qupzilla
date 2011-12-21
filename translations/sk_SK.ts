@@ -2098,6 +2098,10 @@
         <source>Allow storing of cookies</source>
         <translation>Povoliť ukladanie cookies</translation>
     </message>
+    <message>
+        <source>Ask when entering Private Browsing mode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
