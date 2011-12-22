@@ -48,6 +48,13 @@ var editingId = -1;
 function onRemoveClick(box) {
     removeBox($(box).index());
 }
+
+function onEditKeyPress(e) {
+    if (e.keyCode == 13) {
+        boxEdited();
+        return false;
+    }
+}
 	    
 function onEditClick(box) {
     editingId = $(box).index();
@@ -58,7 +65,7 @@ function onEditClick(box) {
 	        
     $('body').append('<div id="fadeOverlay" style="opacity:0.95;display:none;position:fixed;left:0;' +
                      'top:0;width:100%;height:100%;z-index:9999;background:grey;">' +
-                     '<div id="overlay-edit"><img src="' + $(box).children('img').first().attr('src') + '"> ' +
+                     '<div id="overlay-edit" onkeypress="return onEditKeyPress(event)"><img src="' + $(box).children('img').first().attr('src') + '"> ' +
                      '<table class="formTable"><tr><td>' + URL + ': </td><td><input type="text" ' +
                      'id="formUrl" value="' + boxUrl + '"></td></tr>' +
                      '<tr><td>' + TITLE + ': </td><td><input maxlength="25" type="text" id="formTitle" value="' + boxTitle +
