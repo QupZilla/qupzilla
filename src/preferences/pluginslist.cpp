@@ -47,7 +47,7 @@ PluginsList::PluginsList(QWidget* parent)
 
     settings.beginGroup("ClickToFlash");
     QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
-    ui->allowClick2Flash->setChecked(settings.value("Enable", false).toBool());
+    ui->allowClick2Flash->setChecked(settings.value("Enable", true).toBool());
     settings.endGroup();
     foreach(QString site, whitelist) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->whitelist);
