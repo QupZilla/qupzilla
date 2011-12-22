@@ -37,11 +37,11 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
     ui->previous->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
 
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
-    connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(searchText(QString)));
+    connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(findNext()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(findNext()));
     connect(ui->previous, SIGNAL(clicked()), this, SLOT(findPrevious()));
-    connect(ui->highligh, SIGNAL(clicked()), this, SLOT(refreshFindFlags()));
-    connect(ui->caseSensitive, SIGNAL(clicked()), this, SLOT(refreshFindFlags()));
+    connect(ui->highligh, SIGNAL(clicked()), this, SLOT(highlightChanged()));
+    connect(ui->caseSensitive, SIGNAL(clicked()), this, SLOT(caseSensitivityChanged()));
     startAnimation();
 
     QShortcut* findNextAction = new QShortcut(QKeySequence("F3"), this);
@@ -58,42 +58,64 @@ QLineEdit* SearchToolBar::searchLine()
 
 void SearchToolBar::findNext()
 {
-    refreshFindFlags();
-    m_findFlags += 4;
-    searchText(ui->lineEdit->text());
+    m_findFlags = QWebPage::FindWrapsAroundDocument;
+    updateFindFlags();
 
+    searchText(ui->lineEdit->text());
 }
 
 void SearchToolBar::findPrevious()
 {
-    refreshFindFlags();
-    m_findFlags += 5;
+    m_findFlags = QWebPage::FindBackward | QWebPage::FindWrapsAroundDocument;
+    updateFindFlags();
+
     searchText(ui->lineEdit->text());
 }
 
-void SearchToolBar::refreshFindFlags()
+void SearchToolBar::updateFindFlags()
 {
-    m_findFlags = 0;
-    if (ui->highligh->isChecked()) {
-        m_findFlags += 8;
-        searchText(ui->lineEdit->text());
+    if (ui->caseSensitive->isChecked()) {
+        m_findFlags = m_findFlags | QWebPage::FindCaseSensitively;
     }
     else {
-        m_findFlags += 8;
-        searchText("");
-        m_findFlags -= 8;
+        m_findFlags = m_findFlags & ~QWebPage::FindCaseSensitively;
     }
-    if (ui->caseSensitive->isChecked()) {
-        m_findFlags += 2;
-        searchText(ui->lineEdit->text());
+}
+
+void SearchToolBar::highlightChanged()
+{
+    WebView* view = p_QupZilla->weView();
+
+    if (ui->highligh->isChecked()) {
+        view->findText(ui->lineEdit->text(), m_findFlags | QWebPage::HighlightAllOccurrences);
     }
+    else {
+        view->findText("", QWebPage::HighlightAllOccurrences);
+    }
+}
+
+void SearchToolBar::caseSensitivityChanged()
+{
+    updateFindFlags();
+
+    searchText(ui->lineEdit->text());
 }
 
 void SearchToolBar::searchText(const QString &text)
 {
-    bool found = p_QupZilla->weView()->findText(text, QFlags<QWebPage::FindFlag>(m_findFlags));
+    WebView* view = p_QupZilla->weView();
+    bool found = view->findText(text, m_findFlags);
     if (text.isEmpty()) {
         found = true;
+    }
+
+    if (ui->highligh->isChecked()) {
+        m_findFlags = QWebPage::HighlightAllOccurrences;
+        updateFindFlags();
+        view->findText(text, m_findFlags);
+    }
+    else {
+        view->findText("", QWebPage::HighlightAllOccurrences);
     }
 
     if (!found) {

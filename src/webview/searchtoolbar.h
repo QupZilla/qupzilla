@@ -49,7 +49,10 @@ signals:
 
 public slots:
     void searchText(const QString &text);
-    void refreshFindFlags();
+    void updateFindFlags();
+    void highlightChanged();
+    void caseSensitivityChanged();
+
     void findNext();
     void findPrevious();
 
@@ -58,7 +61,7 @@ private:
     QupZilla* p_QupZilla;
 
     QPropertyAnimation* m_animation;
-    int m_findFlags;
+    QWebPage::FindFlags m_findFlags;
 };
 
 #endif // SEARCHTOOLBAR_H
