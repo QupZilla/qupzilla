@@ -39,6 +39,9 @@ SourceViewerSearch::SourceViewerSearch(SourceViewer* parent)
     connect(ui->next, SIGNAL(clicked()), this, SLOT(next()));
     connect(ui->previous, SIGNAL(clicked()), this, SLOT(previous()));
 
+    QShortcut* findNextAction = new QShortcut(QKeySequence("F3"), this);
+    connect(findNextAction, SIGNAL(activated()), this, SLOT(next()));
+
     startAnimation();
     qApp->installEventFilter(this);
 }

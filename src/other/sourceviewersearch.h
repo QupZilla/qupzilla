@@ -20,6 +20,7 @@
 #include <QDebug>
 #include <QTextDocument>
 #include <QTextCursor>
+#include <QShortcut>
 
 #include "animatedwidget.h"
 
