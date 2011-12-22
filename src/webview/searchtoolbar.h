@@ -24,6 +24,8 @@
 #include <QLabel>
 #include <QFlags>
 #include <QPropertyAnimation>
+#include <QShortcut>
+
 #include "animatedwidget.h"
 
 namespace Ui
