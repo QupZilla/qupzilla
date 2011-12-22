@@ -44,6 +44,9 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
     connect(ui->caseSensitive, SIGNAL(clicked()), this, SLOT(refreshFindFlags()));
     startAnimation();
 
+    QShortcut* findNextAction = new QShortcut(QKeySequence("F3"), this);
+    connect(findNextAction, SIGNAL(activated()), this, SLOT(findNext()));
+
     p_QupZilla->actionStop()->setEnabled(false);
     qApp->installEventFilter(this);
 }

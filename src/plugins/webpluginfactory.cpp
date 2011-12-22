@@ -50,9 +50,9 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
     if (whitelist.contains(url.host()) || whitelist.contains("www." + url.host()) || whitelist.contains(url.host().remove("www."))) {
         return 0;
     }
+
     // Click2Flash already accepted
     if (ClickToFlash::isAlreadyAccepted(url, argumentNames, argumentValues)) {
-        qDebug() << "already accepted";
         return 0;
     }
 
