@@ -47,6 +47,9 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
     QShortcut* findNextAction = new QShortcut(QKeySequence("F3"), this);
     connect(findNextAction, SIGNAL(activated()), this, SLOT(findNext()));
 
+    QShortcut* findPreviousAction = new QShortcut(QKeySequence("Shift+F3"), this);
+    connect(findPreviousAction, SIGNAL(activated()), this, SLOT(findPrevious()));
+
     p_QupZilla->actionStop()->setEnabled(false);
     qApp->installEventFilter(this);
 }
