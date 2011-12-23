@@ -2654,6 +2654,10 @@
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Load title from page</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3218,6 +3222,13 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Search: </source>
         <translation>Hľadať: </translation>
+    </message>
+</context>
+<context>
+    <name>SpeedDial</name>
+    <message>
+        <source>Unable to load</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
