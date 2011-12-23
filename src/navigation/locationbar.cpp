@@ -75,7 +75,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
     connect(this, SIGNAL(textEdited(QString)), m_locationCompleter, SLOT(refreshCompleter(QString)));
-    connect(this, SIGNAL(returnPressed()), this, SLOT(urlEnter()));
+//    connect(this, SIGNAL(returnPressed()), this, SLOT(urlEnter()));
     connect(m_locationCompleter->popup(), SIGNAL(clicked(QModelIndex)), p_QupZilla, SLOT(urlEnter()));
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
     connect(m_goButton, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
@@ -303,19 +303,36 @@ void LocationBar::mousePressEvent(QMouseEvent* event)
 
 void LocationBar::keyPressEvent(QKeyEvent* event)
 {
-    if (event->key() == Qt::Key_Escape) {
+    static QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
+
+    switch (event->key()) {
+    case Qt::Key_Escape:
         setText(m_webView->url().toEncoded());
         event->accept();
-        return;
+        break;
+
+    case Qt::Key_Alt:
+        if (event->key() == Qt::Key_Alt && m_locationBarSettings->addCountryWithAlt && !text().endsWith(localDomain) && !text().endsWith("/")) {
+            setText(text().append(localDomain));
+        }
+
+        LineEdit::keyPressEvent(event);
+        break;
+
+    case Qt::Key_Return:
+    case Qt::Key_Enter:
+        if (event->modifiers() == Qt::ControlModifier) {
+            setText(text().append(".com"));
+            urlEnter();
+        }
+        else {
+            urlEnter();
+        }
+        break;
+
+    default:
+        LineEdit::keyPressEvent(event);
     }
-
-    QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
-
-    if (event->key() == Qt::Key_Alt && m_locationBarSettings->addCountryWithAlt && !text().endsWith(localDomain) && !text().endsWith("/")) {
-        setText(text().append(localDomain));
-    }
-
-    QLineEdit::keyPressEvent(event);
 }
 
 LocationBar::~LocationBar()
