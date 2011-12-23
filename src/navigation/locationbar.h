@@ -30,6 +30,8 @@
 #include <QToolButton>
 #include <QMenu>
 #include <QTableView>
+#include <QShortcut>
+
 #include "lineedit.h"
 
 class QupZilla;
