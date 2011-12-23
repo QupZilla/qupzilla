@@ -314,7 +314,7 @@ void TabWidget::setTabText(int index, const QString &text)
 void TabWidget::closeTab(int index)
 {
     if (count() == 1) {
-        return;
+        p_QupZilla->close();
     }
     if (index == -1) {
         index = currentIndex();
