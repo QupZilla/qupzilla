@@ -65,12 +65,14 @@ function onEditClick(box) {
 	        
     $('body').append('<div id="fadeOverlay" style="opacity:0.95;display:none;position:fixed;left:0;' +
                      'top:0;width:100%;height:100%;z-index:9999;background:grey;">' +
-                     '<div id="overlay-edit" onkeypress="return onEditKeyPress(event)"><img src="' + $(box).children('img').first().attr('src') + '"> ' +
-                     '<table class="formTable"><tr><td>' + URL + ': </td><td><input type="text" ' +
-                     'id="formUrl" value="' + boxUrl + '"></td></tr>' +
-                     '<tr><td>' + TITLE + ': </td><td><input maxlength="25" type="text" id="formTitle" value="' + boxTitle +
-                     '"></td></tr></table><input type="submit" value="' + EDIT + '" onClick="boxEdited()"></div>' +
-                     '</div>');
+                     '<div id="overlay-edit" onkeypress="return onEditKeyPress(event)">' +
+                     '<img src="' + $(box).children('img').first().attr('src') + '"> ' +
+                     '<table class="formTable"><tr><td>' + URL + ': </td><td>' + 
+                     '<input type="text" id="formUrl" value="' + boxUrl + '"></td></tr>' +
+                     '<tr><td>' + TITLE + ': </td><td>' +
+                     '<input maxlength="25" type="text" id="formTitle" value="' + boxTitle +
+                     '"></td></tr></table><input type="submit" value="' + EDIT + '" onClick="boxEdited()">' + 
+                     '</div></div>');
 
     $('#fadeOverlay').css({'filter' : 'alpha(opacity=95)'}).fadeIn();
     $('#fadeOverlay').click(function() { $(this).fadeOut("slow", function() {$("#fadeOverlay").remove();}); });
