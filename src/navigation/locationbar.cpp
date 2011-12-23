@@ -75,7 +75,6 @@ LocationBar::LocationBar(QupZilla* mainClass)
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
     connect(this, SIGNAL(textEdited(QString)), m_locationCompleter, SLOT(refreshCompleter(QString)));
-//    connect(this, SIGNAL(returnPressed()), this, SLOT(urlEnter()));
     connect(m_locationCompleter->popup(), SIGNAL(clicked(QModelIndex)), p_QupZilla, SLOT(urlEnter()));
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
     connect(m_goButton, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));

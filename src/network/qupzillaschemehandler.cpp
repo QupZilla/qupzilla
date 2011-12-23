@@ -218,6 +218,7 @@ QString QupZillaSchemeReply::speeddialPage()
     page.replace("%TITLE-EDIT%", tr("Apply"));
     page.replace("%TITLE-REMOVE%", tr("Remove"));
     page.replace("%TITLE-RELOAD%", tr("Reload"));
+    page.replace("%TITLE-FETCHTITLE%", tr("Load title from page"));
     page.replace("%JQUERY%", "qrc:html/jquery.js");
     page.replace("%JQUERY-UI%", "qrc:html/jquery-ui.js");
     page.replace("%LOADING-IMG%", mApp->plugins()->speedDial()->loadingImagePath());

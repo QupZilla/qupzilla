@@ -974,42 +974,42 @@
 <context>
     <name>ClickToFlash</name>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="114"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="125"/>
         <source>Object blocked by ClickToFlash</source>
         <translation>Oggetto bloccato da ClickToFlash</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="115"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="126"/>
         <source>Show more informations about object</source>
         <translation>Mostra maggiori informazioni sul progetto</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="117"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="128"/>
         <source>Delete object</source>
         <translation>Cancella oggetto</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="118"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="129"/>
         <source>Add %1 to whitelist</source>
         <translation>Aggiungi %1 alla withelist</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="234"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="262"/>
         <source>Flash Object</source>
         <translation>Oggetto Flash</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="237"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="265"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nome dell&apos;Attributo&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="237"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="265"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Valore&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="251"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="279"/>
         <source>No more informations available.</source>
         <translation>Non sono disponibili ulteriori informazioni.</translation>
     </message>
@@ -1682,12 +1682,12 @@
         <translation>Aggiungi RSS da questa pagina...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="98"/>
+        <location filename="../src/navigation/locationbar.cpp" line="97"/>
         <source>Enter URL address or search on %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="312"/>
+        <location filename="../src/navigation/locationbar.cpp" line="305"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation type="unfinished">.it</translation>
@@ -3315,7 +3315,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="226"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="221"/>
+        <source>Load title from page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="227"/>
         <source>Edit</source>
         <translation type="unfinished">Modifica</translation>
     </message>
@@ -3330,17 +3335,17 @@
         <translation type="unfinished">Ricarica</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="224"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="225"/>
         <source>Url</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="225"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="226"/>
         <source>Title</source>
         <translation type="unfinished">Titolo</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="227"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="228"/>
         <source>New Page</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3658,7 +3663,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
 <context>
     <name>SearchToolBar</name>
     <message>
-        <location filename="../src/webview/searchtoolbar.cpp" line="97"/>
+        <location filename="../src/webview/searchtoolbar.cpp" line="125"/>
         <source>No results found.</source>
         <translation>Nessun risulatato trovato.</translation>
     </message>
@@ -4048,6 +4053,14 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
     </message>
 </context>
 <context>
+    <name>SpeedDial</name>
+    <message>
+        <location filename="../src/plugins/speeddial.cpp" line="174"/>
+        <source>Unable to load</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TabBar</name>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="103"/>
@@ -4220,7 +4233,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="201"/>
+        <location filename="../src/webview/webpage.cpp" line="200"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translatorcomment>I don&apos;t know what you mean for &quot;shoping&quot;</translatorcomment>
@@ -4228,87 +4241,87 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
 (come fare una ricerca sul fare shopping, che è stata già fatta.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="241"/>
+        <location filename="../src/webview/webpage.cpp" line="240"/>
         <source>New tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="307"/>
+        <location filename="../src/webview/webpage.cpp" line="306"/>
         <source>Server refused the connection</source>
         <translation>Il Server ha rifiutato la connessione</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="310"/>
+        <location filename="../src/webview/webpage.cpp" line="309"/>
         <source>Server closed the connection</source>
         <translation>Il Server ha chiuso la connessione</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="313"/>
+        <location filename="../src/webview/webpage.cpp" line="312"/>
         <source>Server not found</source>
         <translation>Server non trovato</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="316"/>
+        <location filename="../src/webview/webpage.cpp" line="315"/>
         <source>Connection timed out</source>
         <translation>Connessione scaduta</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="319"/>
+        <location filename="../src/webview/webpage.cpp" line="318"/>
         <source>Untrusted connection</source>
         <translation>Connessione non attendibile</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="343"/>
+        <location filename="../src/webview/webpage.cpp" line="342"/>
         <source>AdBlocked Content</source>
         <translation>Contenuto bloccato (AdBlock)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="347"/>
+        <location filename="../src/webview/webpage.cpp" line="346"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Bloccato dalla regola &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="354"/>
+        <location filename="../src/webview/webpage.cpp" line="353"/>
         <source>Content Access Denied</source>
         <translation>Accesso al Contenuto Negato</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="364"/>
+        <location filename="../src/webview/webpage.cpp" line="363"/>
         <source>Error code %1</source>
         <translation>Errore codice %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="376"/>
+        <location filename="../src/webview/webpage.cpp" line="375"/>
         <source>Failed loading page</source>
         <translation>Caricamento pagina fallito</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="383"/>
+        <location filename="../src/webview/webpage.cpp" line="382"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla non può caricare la pagina da %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="384"/>
+        <location filename="../src/webview/webpage.cpp" line="383"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Controllare l&apos;indirizzo per errori di battitura come &lt;b&gt;ww.&lt;/b&gt;esempio.com invece di &lt;b&gt;www.&lt;/b&gt;esempio.com</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="385"/>
+        <location filename="../src/webview/webpage.cpp" line="384"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Se non si riesce a caricare nessuna pagina, controllare la connessione di rete del compiuter.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="386"/>
+        <location filename="../src/webview/webpage.cpp" line="385"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Se il tuo computer o la rete sono protetti da un firewall o un proxy, assicurati che QupZilla sia autorizzato ad accedere al Web.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="387"/>
+        <location filename="../src/webview/webpage.cpp" line="386"/>
         <source>Try Again</source>
         <translation>Prova di nuovo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="505"/>
+        <location filename="../src/webview/webpage.cpp" line="504"/>
         <source>Choose file...</source>
         <translation>Scegli il file...</translation>
     </message>

@@ -121,7 +121,6 @@ void WebPage::finished()
 
 void WebPage::watchedFileChanged(const QString &file)
 {
-    qDebug() << file;
     if (mainFrame()->url().toLocalFile() == file) {
         triggerAction(QWebPage::Reload);
     }

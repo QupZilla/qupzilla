@@ -13,7 +13,7 @@ html * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
 #quickdial a {position: absolute;left: 0px;top: 0px;width: 231px;height: 130px;}	
 
 div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload{display: inline;}
-span.boxTitle {width: 231px;position: absolute;top: 133px;left: 0px;text-align: center;}
+span.boxTitle {width:231px;max-height: 20px; position: absolute;top: 133px;left: 0px;text-align: center;overflow:hidden;}
 span.close {width: 14px;height: 14px;position: absolute;left: 215px;top: 135px;
 background: url(%IMG_CLOSE%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
 span.close:hover {border-color: grey; border-radius: 3px;}
@@ -42,6 +42,7 @@ var NEW_PAGE = '%NEW-PAGE%';
 var TITLE_EDIT = '%TITLE-EDIT%';
 var TITLE_REMOVE = '%TITLE-REMOVE%';
 var TITLE_RELOAD = '%TITLE-RELOAD%';
+var TITLE_FETCHTITLE = '%TITLE-FETCHTITLE%';
 
 var editingId = -1;
 
@@ -54,6 +55,12 @@ function onEditKeyPress(e) {
         boxEdited();
         return false;
     }
+}
+	    
+function onFetchTitleClick(checkbox) {
+    var displayStyle;
+    checkbox.checked ? displayStyle = 'hidden' : displayStyle = 'visible';
+    $('#titleLine').css({'visibility' : displayStyle });
 }
 	    
 function onEditClick(box) {
@@ -69,9 +76,11 @@ function onEditClick(box) {
                      '<img src="' + $(box).children('img').first().attr('src') + '"> ' +
                      '<table class="formTable"><tr><td>' + URL + ': </td><td>' + 
                      '<input type="text" id="formUrl" value="' + boxUrl + '"></td></tr>' +
-                     '<tr><td>' + TITLE + ': </td><td>' +
-                     '<input maxlength="25" type="text" id="formTitle" value="' + boxTitle +
-                     '"></td></tr></table><input type="submit" value="' + EDIT + '" onClick="boxEdited()">' + 
+                     '<tr id="titleLine"><td>' + TITLE + ': </td><td>' +
+                     '<input type="text" id="formTitle" value="' + boxTitle + '"></td></tr>' +
+                     '<tr><td></td><td><input type="checkbox" id="fetchTitle" onclick="onFetchTitleClick(this)">' +
+                     '<label for="fetchTitle">  ' + TITLE_FETCHTITLE + ' </label></td></tr>' +
+                     '</table><input type="submit" value="' + EDIT + '" onClick="boxEdited()">' + 
                      '</div></div>');
 
     $('#fadeOverlay').css({'filter' : 'alpha(opacity=95)'}).fadeIn();
@@ -94,21 +103,22 @@ function onReloadClick(box) {
 function boxEdited() {
     if (editingId == -1)
         return;
-	            
+
     var box = document.getElementById('quickdial').getElementsByTagName('div')[editingId];
     var a = box.getElementsByTagName('a')[0];
     var originalUrl = a.getAttribute('href');
     setBoxUrl(editingId, $('#formUrl').attr("value"));
     setBoxTitle(editingId, $('#formTitle').attr("value"));
     var changedUrl = a.getAttribute('href');
+    var fetchTitleChecked = document.getElementById('fetchTitle').checked;
 			
-    if (originalUrl != changedUrl && changedUrl !== '') {
+    if (fetchTitleChecked || (originalUrl != changedUrl && changedUrl !== '') ) {
         var img = box.getElementsByTagName('img')[0];
         img.setAttribute('src', LOADING_IMAGE);
 				
         $('#fadeOverlay').fadeOut("slow", function() {
             $("#fadeOverlay").remove();
-            speeddial.loadThumbnail(a.getAttribute('href'));
+            speeddial.loadThumbnail(a.getAttribute('href'), fetchTitleChecked);
             speeddial.removeImageForUrl(a.getAttribute('href'));
         });
     } else {
@@ -172,6 +182,26 @@ function setBoxImage(id, img_source) {
 		    
     var img = box.getElementsByTagName('img')[0];
     img.setAttribute('src', img_source + '?' + new Date());
+}
+
+function setTitleToUrl(url, title) {
+    var boxes = document.getElementById('quickdial').getElementsByTagName('div');
+    for (i = 0; i < boxes.length; ++i) {
+        var box = boxes[i];
+        
+        if (box === undefined)
+            continue;
+		    
+		var boxUrl = box.getElementsByTagName('a')[0].getAttribute('href');
+		console.log(boxUrl + "  >  " + url);
+		if (url != boxUrl)
+		    continue;
+		    
+        var span = box.getElementsByTagName('span')[0];
+        span.innerText = title;
+    }
+    
+    speeddial.changed(allPages());
 }
 		
 function setImageToUrl(url, img_source) {
