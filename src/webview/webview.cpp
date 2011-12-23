@@ -461,7 +461,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         break;
     case Qt::MiddleButton:
         if (isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewNotSelectedTab);
+            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewBackgroundTab);
             event->accept();
         }
 #ifdef Q_WS_WIN
@@ -472,7 +472,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         break;
     case Qt::LeftButton:
         if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewNotSelectedTab);
+            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewBackgroundTab);
             return;
         }
     default:

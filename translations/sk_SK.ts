@@ -1216,7 +1216,7 @@
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished">Kopírovať adresu</translation>
+        <translation>Kopírovať adresu</translation>
     </message>
 </context>
 <context>
@@ -2104,7 +2104,7 @@
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Pýtať sa pri zapínaní súkromného prehliadania</translation>
     </message>
 </context>
 <context>
@@ -2652,11 +2652,11 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložiť</translation>
     </message>
     <message>
         <source>Load title from page</source>
-        <translation type="unfinished"></translation>
+        <translation>Načítať názov zo stránky</translation>
     </message>
 </context>
 <context>
@@ -2949,7 +2949,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <name>SiteIcon</name>
     <message>
         <source>Show informations about this page</source>
-        <translation type="unfinished">Zobraziť informácie o tejto stránke</translation>
+        <translation>Zobraziť informácie o tejto stránke</translation>
     </message>
 </context>
 <context>
@@ -3228,7 +3228,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <name>SpeedDial</name>
     <message>
         <source>Unable to load</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodarilo sa načítať</translation>
     </message>
 </context>
 <context>
