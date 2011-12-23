@@ -46,6 +46,10 @@ public:
     void setUrl(const QUrl &url);
     QUrl url();
 
+    bool loadTitle();
+    void setLoadTitle(bool load);
+    QString title();
+
     void setEnableFlash(bool enable);
 
     void start();
@@ -63,6 +67,8 @@ private:
 
     QSize m_size;
     QUrl m_url;
+    QString m_title;
+    bool m_loadTitle;
 };
 
 #endif // PAGETHUMBNAILER_H

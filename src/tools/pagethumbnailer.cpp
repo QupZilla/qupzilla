@@ -75,6 +75,21 @@ QUrl PageThumbnailer::url()
     return m_url;
 }
 
+bool PageThumbnailer::loadTitle()
+{
+    return m_loadTitle;
+}
+
+void PageThumbnailer::setLoadTitle(bool load)
+{
+    m_loadTitle = load;
+}
+
+QString PageThumbnailer::title()
+{
+    return m_title;
+}
+
 void PageThumbnailer::setEnableFlash(bool enable)
 {
     if (!enable) {
@@ -95,6 +110,8 @@ void PageThumbnailer::createThumbnail(bool status)
         emit thumbnailCreated(QPixmap());
         return;
     }
+
+    m_title = m_page->mainFrame()->title();
 
     QImage image(m_page->viewportSize(), QImage::Format_ARGB32);
     QPainter painter(&image);

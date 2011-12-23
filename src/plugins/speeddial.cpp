@@ -134,7 +134,7 @@ void SpeedDial::changed(const QString &allPages)
     m_regenerateScript = true;
 }
 
-void SpeedDial::loadThumbnail(const QString &url)
+void SpeedDial::loadThumbnail(const QString &url, bool loadTitle)
 {
     if (url.isEmpty()) {
         return;
@@ -142,6 +142,7 @@ void SpeedDial::loadThumbnail(const QString &url)
 
     PageThumbnailer* thumbnailer = new PageThumbnailer(this);
     thumbnailer->setUrl(QUrl(url));
+    thumbnailer->setLoadTitle(loadTitle);
     connect(thumbnailer, SIGNAL(thumbnailCreated(QPixmap)), this, SLOT(thumbnailCreated(QPixmap)));
 
     thumbnailer->start();
@@ -163,11 +164,15 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
         return;
     }
 
+    bool loadTitle = thumbnailer->loadTitle();
+    QString title = thumbnailer->title();
     QString url = thumbnailer->url().toString();
     QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
     if (image.isNull()) {
         fileName = "qrc:/html/broken-page.png";
+        title = tr("Unable to load");
+        loadTitle = true;
     }
     else {
         if (!image.save(fileName)) {
@@ -188,6 +193,9 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
         }
 
         frame->evaluateJavaScript(QString("setImageToUrl('%1', '%2');").arg(url, fileName));
+        if (loadTitle) {
+            frame->evaluateJavaScript(QString("setTitleToUrl('%1', '%2');").arg(url, title));
+        }
     }
 
     thumbnailer->deleteLater();

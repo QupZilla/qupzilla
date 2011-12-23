@@ -45,7 +45,7 @@ signals:
 
 public slots:
     Q_INVOKABLE void changed(const QString &allPages);
-    Q_INVOKABLE void loadThumbnail(const QString &url);
+    Q_INVOKABLE void loadThumbnail(const QString &url, bool loadTitle = false);
     Q_INVOKABLE void removeImageForUrl(const QString &url);
 
 private slots:
