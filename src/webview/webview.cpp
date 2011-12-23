@@ -665,7 +665,7 @@ void WebView::addNotification(QWidget* notif)
 void WebView::openUrlInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        tabWidget()->addView(action->data().toUrl(), tr("New tab"), TabWidget::NewNotSelectedTab);
+        tabWidget()->addView(action->data().toUrl(), tr("New tab"), TabWidget::NewBackgroundTab);
     }
 }
 

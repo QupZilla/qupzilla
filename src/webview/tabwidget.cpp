@@ -248,6 +248,10 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
         url = m_urlOnNewTab;
     }
 
+    if (openIn == NewBackgroundTab) {
+        position = currentIndex() + 1;
+    }
+
     LocationBar* locBar = new LocationBar(p_QupZilla);
     m_locationBars->addWidget(locBar);
     int index;
