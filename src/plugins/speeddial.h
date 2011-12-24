@@ -38,6 +38,8 @@ public:
 
     void addWebFrame(QWebFrame* frame);
 
+    void addPage(const QUrl &url, const QString &title);
+
     QString initialScript();
 
 signals:
