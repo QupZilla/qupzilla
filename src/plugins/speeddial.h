@@ -39,7 +39,6 @@ public:
     void addWebFrame(QWebFrame* frame);
 
     QString initialScript();
-    QString loadingImagePath();
 
 signals:
 
@@ -55,7 +54,6 @@ private:
     QString m_initialScript;
     QString m_allPages;
     QString m_thumbnailsDir;
-    QString m_loadingImagePath;
 
     QList<QWeakPointer<QWebFrame> > m_webFrames;
 

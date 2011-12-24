@@ -2644,7 +2644,7 @@
     </message>
     <message>
         <source>E-mail is optional</source>
-        <translation>E-mail je nepovinný</translation>
+        <translation type="obsolete">E-mail je nepovinný</translation>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
@@ -2657,6 +2657,10 @@
     <message>
         <source>Load title from page</source>
         <translation>Načítať názov zo stránky</translation>
+    </message>
+    <message>
+        <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
