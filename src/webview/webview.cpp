@@ -450,90 +450,6 @@ void WebView::checkRss()
     emit rssChanged(m_hasRss);
 }
 
-void WebView::mousePressEvent(QMouseEvent* event)
-{
-    switch (event->button()) {
-    case Qt::XButton1:
-        back();
-        break;
-    case Qt::XButton2:
-        forward();
-        break;
-    case Qt::MiddleButton:
-        if (isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewBackgroundTab);
-            event->accept();
-        }
-#ifdef Q_WS_WIN
-        else {
-            QWebView::mouseDoubleClickEvent(event);
-        }
-#endif
-        break;
-    case Qt::LeftButton:
-        if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewBackgroundTab);
-            return;
-        }
-    default:
-        QWebView::mousePressEvent(event);
-        break;
-    }
-}
-
-void WebView::keyPressEvent(QKeyEvent* event)
-{
-    switch (event->key()) {
-    case Qt::Key_C:
-        if (event->modifiers() == Qt::ControlModifier) {
-            copyText();
-            return;
-        }
-        break;
-
-    case Qt::Key_A:
-        if (event->modifiers() == Qt::ControlModifier) {
-            selectAll();
-            return;
-        }
-        break;
-
-    default:
-        break;
-    }
-
-    QWebView::keyPressEvent(event);
-}
-
-void WebView::resizeEvent(QResizeEvent* event)
-{
-    QWebView::resizeEvent(event);
-    emit viewportResized(m_page->viewportSize());
-}
-
-void WebView::mouseReleaseEvent(QMouseEvent* event)
-{
-    //Workaround for crash in mouseReleaseEvent when closing tab from javascript :/
-    if (!m_wantsClose) {
-        QWebView::mouseReleaseEvent(event);
-    }
-}
-
-void WebView::mouseMoveEvent(QMouseEvent* event)
-{
-    if (m_mouseTrack) {
-        if (m_navigationVisible) {
-            m_navigationVisible = false;
-            p_QupZilla->showNavigationWithFullscreen();
-        }
-        else if (event->y() < 5) {
-            m_navigationVisible = true;
-            p_QupZilla->showNavigationWithFullscreen();
-        }
-    }
-    QWebView::mouseMoveEvent(event);
-}
-
 void WebView::contextMenuEvent(QContextMenuEvent* event)
 {
     m_menu->clear();
@@ -917,6 +833,90 @@ bool WebView::isUrlValid(const QUrl &url)
     return false;
 }
 
+void WebView::mousePressEvent(QMouseEvent* event)
+{
+    switch (event->button()) {
+    case Qt::XButton1:
+        back();
+        break;
+    case Qt::XButton2:
+        forward();
+        break;
+    case Qt::MiddleButton:
+        if (isUrlValid(QUrl(m_hoveredLink))) {
+            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewBackgroundTab);
+            event->accept();
+        }
+#ifdef Q_WS_WIN
+        else {
+            QWebView::mouseDoubleClickEvent(event);
+        }
+#endif
+        break;
+    case Qt::LeftButton:
+        if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
+            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewBackgroundTab);
+            return;
+        }
+    default:
+        QWebView::mousePressEvent(event);
+        break;
+    }
+}
+
+void WebView::keyPressEvent(QKeyEvent* event)
+{
+    switch (event->key()) {
+    case Qt::Key_C:
+        if (event->modifiers() == Qt::ControlModifier) {
+            copyText();
+            return;
+        }
+        break;
+
+    case Qt::Key_A:
+        if (event->modifiers() == Qt::ControlModifier) {
+            selectAll();
+            return;
+        }
+        break;
+
+    default:
+        break;
+    }
+
+    QWebView::keyPressEvent(event);
+}
+
+void WebView::resizeEvent(QResizeEvent* event)
+{
+    QWebView::resizeEvent(event);
+    emit viewportResized(m_page->viewportSize());
+}
+
+void WebView::mouseReleaseEvent(QMouseEvent* event)
+{
+    //Workaround for crash in mouseReleaseEvent when closing tab from javascript :/
+    if (!m_wantsClose) {
+        QWebView::mouseReleaseEvent(event);
+    }
+}
+
+void WebView::mouseMoveEvent(QMouseEvent* event)
+{
+    if (m_mouseTrack) {
+        if (m_navigationVisible) {
+            m_navigationVisible = false;
+            p_QupZilla->showNavigationWithFullscreen();
+        }
+        else if (event->y() < 5) {
+            m_navigationVisible = true;
+            p_QupZilla->showNavigationWithFullscreen();
+        }
+    }
+    QWebView::mouseMoveEvent(event);
+}
+
 ///
 // This function was taken and modified from QTestBrowser to fix bug #33 with flightradar24.com
 // You can find original source and copyright here:
@@ -924,6 +924,10 @@ bool WebView::isUrlValid(const QUrl &url)
 ///
 bool WebView::eventFilter(QObject* obj, QEvent* event)
 {
+    if (obj != this) {
+        return false;
+    }
+
     if (event->type() == QEvent::MouseButtonPress ||
             event->type() == QEvent::MouseButtonRelease ||
             event->type() == QEvent::MouseButtonDblClick ||

@@ -44,7 +44,6 @@ void SpeedDial::loadSettings()
     }
 
     m_thumbnailsDir = mApp->getActiveProfilPath() + "thumbnails/";
-    m_loadingImagePath = "qrc:html/loading.gif";
 
     // If needed, create thumbnails directory
     if (!QDir(m_thumbnailsDir).exists()) {
@@ -58,15 +57,6 @@ void SpeedDial::saveSettings()
     settings.beginGroup("SpeedDial");
     settings.setValue("pages", m_allPages);
     settings.endGroup();
-}
-
-QString SpeedDial::loadingImagePath()
-{
-    if (!m_loaded) {
-        loadSettings();
-    }
-
-    return m_loadingImagePath;
 }
 
 void SpeedDial::addWebFrame(QWebFrame* frame)
@@ -108,7 +98,7 @@ QString SpeedDial::initialScript()
 
         if (!QFile(imgSource).exists()) {
             loadThumbnail(url);
-            imgSource = m_loadingImagePath;
+            imgSource = "qrc:html/loading.gif";
 
             if (url.isEmpty()) {
                 imgSource = "";
