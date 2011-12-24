@@ -3487,6 +3487,11 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="44"/>
+        <source>Untitled feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rsswidget.cpp" line="48"/>
         <source>Add</source>
         <translation>Voeg toe</translation>
     </message>
@@ -4068,7 +4073,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="164"/>
+        <location filename="../src/plugins/speeddial.cpp" line="186"/>
         <source>Unable to load</source>
         <translation type="unfinished"></translation>
     </message>

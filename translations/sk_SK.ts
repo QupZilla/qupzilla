@@ -2765,6 +2765,10 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
         <source>Add RSS Feeds from this site</source>
         <translation>Pridať RSS odber z tejto stránky</translation>
     </message>
+    <message>
+        <source>Untitled feed</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ReloadStopButton</name>
