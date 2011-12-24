@@ -3396,6 +3396,11 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="44"/>
+        <source>Untitled feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rsswidget.cpp" line="48"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3975,7 +3980,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="164"/>
+        <location filename="../src/plugins/speeddial.cpp" line="186"/>
         <source>Unable to load</source>
         <translation type="unfinished"></translation>
     </message>

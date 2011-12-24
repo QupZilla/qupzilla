@@ -36,8 +36,12 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
         QWebElement element = links.at(i);
         QString title = element.attribute("title");
         QString href = element.attribute("href");
-        if (href.isEmpty() || title.isEmpty()) {
+        if (href.isEmpty()) {
             continue;
+        }
+
+        if (title.isEmpty()) {
+            title = tr("Untitled feed");
         }
 
         QPushButton* button = new QPushButton(this);

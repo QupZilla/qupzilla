@@ -3487,6 +3487,11 @@ Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</tra
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="44"/>
+        <source>Untitled feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rsswidget.cpp" line="48"/>
         <source>Add</source>
         <translation>Hinzufügen</translation>
     </message>
@@ -4067,7 +4072,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="164"/>
+        <location filename="../src/plugins/speeddial.cpp" line="186"/>
         <source>Unable to load</source>
         <translation type="unfinished"></translation>
     </message>
