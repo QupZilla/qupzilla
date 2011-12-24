@@ -66,6 +66,28 @@ void SpeedDial::addWebFrame(QWebFrame* frame)
     }
 }
 
+void SpeedDial::addPage(const QUrl &url, const QString &title)
+{
+    if (url.isEmpty()) {
+        return;
+    }
+
+    QString sitePair = QString("url:\"%1\"|title:\"%2\";").arg(url.toString(), title);
+
+    m_allPages.append(sitePair);
+
+    for (int i = 0; i < m_webFrames.count(); i++) {
+        QWebFrame* frame = m_webFrames.at(i).data();
+        if (!frame) {
+            m_webFrames.removeAt(i);
+            i--;
+            continue;
+        }
+
+        frame->page()->triggerAction(QWebPage::Reload);
+    }
+}
+
 QString SpeedDial::initialScript()
 {
     if (!m_loaded) {

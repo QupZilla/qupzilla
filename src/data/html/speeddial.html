@@ -132,8 +132,8 @@ function allPages() {
     var titles = $('span[class="boxTitle"]');
     var value = "";
     $('div.entry').each(function(i) {
-        var url = $(this).children('a').first().attr('href');
-        var title = $(this).children('span[class="boxTitle"]').first().text();
+        var url = $(this).children('a').first().attr('href').replace('"', '').replace(';','');
+        var title = $(this).children('span[class="boxTitle"]').first().text().replace('"', '').replace(';','');
         value += 'url:"' + url + '"|title:"' + title + '";';
     });
             
