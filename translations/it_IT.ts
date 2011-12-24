@@ -3479,6 +3479,11 @@ Si prega di aggiungere l&apos;icona RSS nella barra di navigazione su un sito ch
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="44"/>
+        <source>Untitled feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rsswidget.cpp" line="48"/>
         <source>Add</source>
         <translation>Aggiungi</translation>
     </message>
@@ -4059,7 +4064,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="164"/>
+        <location filename="../src/plugins/speeddial.cpp" line="186"/>
         <source>Unable to load</source>
         <translation type="unfinished"></translation>
     </message>

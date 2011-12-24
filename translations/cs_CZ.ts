@@ -3495,6 +3495,11 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="44"/>
+        <source>Untitled feed</source>
+        <translation>Kanál bez názvu</translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rsswidget.cpp" line="48"/>
         <source>Add</source>
         <translation>Přidat</translation>
     </message>
@@ -4076,7 +4081,7 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="164"/>
+        <location filename="../src/plugins/speeddial.cpp" line="186"/>
         <source>Unable to load</source>
         <translation>Nepodařilo se načíst</translation>
     </message>
