@@ -87,7 +87,8 @@ void AboutDialog::showAuthors()
                              "Jorge Sevilla (Spanish)<br/>"
                              "Michał Szymanowski (Polish)<br/>"
                              "Jérôme Giry (French)<br/>"
-                             "Nicolas Ourceau (French)"
+                             "Nicolas Ourceau (French)<br/>"
+                             "Vasilis Tsivikis (Greek)"
                                                                         ));
         m_authorsHtml.append("</div>");
     }
