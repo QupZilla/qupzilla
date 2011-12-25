@@ -76,7 +76,7 @@ void AboutDialog::showAuthors()
     if (m_authorsHtml.isEmpty()) {
         m_authorsHtml.append("<div style='margin:10px;'>");
         m_authorsHtml.append(tr("<p><b>Main developers:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>"));
-        m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg("Daniele Cocca<br/>Jan Rajnoha"));
+        m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg("Bryan M Dunsmore<br/>Daniele Cocca<br/>Jan Rajnoha"));
         m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg("Heimen Stoffels (Dutch)<br/>"
                              "Peter Vacula (Slovakia)<br/>"
                              "Ján Ďanovský (Slovakia)<br/>"
@@ -85,7 +85,9 @@ void AboutDialog::showAuthors()
                              "Federico Fabiani (Italy)<br/>"
                              "Francesco Marinucci (Italy)<br/>"
                              "Jorge Sevilla (Spanish)<br/>"
-                             "Michał Szymanowski (Polish)"
+                             "Michał Szymanowski (Polish)<br/>"
+                             "Jérôme Giry (French)<br/>"
+                             "Nicolas Ourceau (French)"
                                                                         ));
         m_authorsHtml.append("</div>");
     }
