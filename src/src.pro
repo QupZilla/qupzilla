@@ -38,6 +38,7 @@ TRANSLATIONS +=../translations/cs_CZ.ts\
                ../translations/pl_PL.ts\
                ../translations/es_ES.ts\
                ../translations/fr_FR.ts\
+               ../translations/el_GR.ts\
                ../translations/empty.ts\
 
 
