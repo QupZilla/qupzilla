@@ -216,7 +216,7 @@ QString QupZillaSchemeReply::aboutPage()
                   authorString("Michał Szymanowski", "tylkobuba@gmail.com") + " (Polish)<br/>" +
                   authorString("Jérôme Giry", "baikalink@hotmail.fr") + " (French)<br/>" +
                   authorString("Nicolas Ourceau", "lamessen@hotmail.fr") + " (French)<br/>" +
-                  authorString("Vasilis Tsivikis", "") + " (Greek)"
+                  authorString("Vasilis Tsivikis", "vasitsiv.dev@gmail.com") + " (Greek)"
                  );
 
     return aPage;
