@@ -82,7 +82,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     setWindowIcon(QupZilla::qupzillaIcon());
     bool noAddons = false;
     QUrl startUrl("");
-    QString message;
+    QStringList messages;
     QString startProfile;
 
     if (argc > 1) {
@@ -95,17 +95,20 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
                 startProfile = pair.text;
                 break;
             case CommandLineOptions::NewTab:
-                message = "ACTION:NewTab";
+                messages.append("ACTION:NewTab");
                 break;
             case CommandLineOptions::NewWindow:
-                message = "ACTION:NewWindow";
+                messages.append("ACTION:NewWindow");
                 break;
             case CommandLineOptions::ShowDownloadManager:
-                message = "ACTION:ShowDownloadManager";
+                messages.append("ACTION:ShowDownloadManager");
+                break;
+            case CommandLineOptions::StartPrivateBrowsing:
+                messages.append("ACTION:StartPrivateBrowsing");
                 break;
             case CommandLineOptions::OpenUrl:
                 startUrl = pair.text;
-                message = "URL:" + startUrl.toString();
+                messages.append("URL:" + startUrl.toString());
                 break;
             default:
                 break;
@@ -114,7 +117,9 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     }
 
     if (isRunning()) {
-        sendMessage(message);
+        foreach (QString message, messages) {
+            sendMessage(message);
+        }
         m_isExited = true;
         return;
     }
@@ -364,6 +369,9 @@ void MainApplication::receiveAppMessage(QString message)
         }
         else if (text == "ShowDownloadManager") {
             downManager()->show();
+        }
+        else if (text == "StartPrivateBrowsing") {
+            sendMessages(StartPrivateBrowsing, true);
         }
     }
 
