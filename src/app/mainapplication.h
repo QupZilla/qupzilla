@@ -59,7 +59,8 @@ public:
     QString THEMESDIR;
     explicit MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv);
 
-    enum MessageType { SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,  HistoryStateChanged, BookmarksChanged };
+    enum MessageType { SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,
+                       HistoryStateChanged, BookmarksChanged, StartPrivateBrowsing };
 
     void connectDatabase();
     void loadSettings();
