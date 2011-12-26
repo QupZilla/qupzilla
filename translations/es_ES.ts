@@ -1510,7 +1510,7 @@
     <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
         <source>Copy address</source>
-        <translation type="unfinished">Copiar dirección</translation>
+        <translation>Copiar dirección</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="154"/>
@@ -2293,7 +2293,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="928"/>
         <source>Ask when entering Private Browsing mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Preguntar al iniciar el modo de navegación privada</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="936"/>
@@ -3304,57 +3304,57 @@
         <translation>Traductores</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="237"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="238"/>
         <source>Speed Dial</source>
         <translation>Speed Dial</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="238"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="239"/>
         <source>Add New Page</source>
         <translation>Añadir página nueva</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="239"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicar</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Load title from page</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar título desde la página</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
         <source>Edit</source>
         <translation>Editar</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
         <source>Remove</source>
         <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation type="unfinished"></translation>
+        <translation>El correo electrónico es opcional&lt;br/&gt;&lt;b&gt;Nota: &lt;/b&gt;Por favor, usen únicamente el inglés.</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Reload</source>
         <translation>Recargar</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
         <source>Url</source>
         <translation>Dirección</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
         <source>Title</source>
         <translation>Nombre</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
         <source>New Page</source>
         <translation>Página nueva</translation>
     </message>
@@ -3485,7 +3485,7 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="44"/>
         <source>Untitled feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Canal sin título</translation>
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="48"/>
@@ -3723,7 +3723,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/navigation/siteicon.cpp" line="29"/>
         <source>Show informations about this page</source>
-        <translation type="unfinished">Ver información de la página</translation>
+        <translation>Ver información de la página</translation>
     </message>
 </context>
 <context>
@@ -4071,7 +4071,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="186"/>
         <source>Unable to load</source>
-        <translation type="unfinished"></translation>
+        <translation>No se puede cargar</translation>
     </message>
 </context>
 <context>
