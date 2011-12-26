@@ -69,5 +69,5 @@ Name[it]=Avvia Navigazione Anonima
 Name[nl]=Start incognito browsen
 Name[pl]=Początek prywatną oglądania
 Name[sk]=Spustiť súkromné prehliadanie
-Exec=qupzilla --private
+Exec=qupzilla --private-browsing
 TargetEnvironment=Unity
