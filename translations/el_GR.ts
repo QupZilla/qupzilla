@@ -1875,7 +1875,7 @@
     <message>
         <location filename="../src/preferences/pluginslist.cpp" line="61"/>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation>Διακομιστής χωρίς http:// (ex. youtube.com)</translation>
+        <translation>Διακομιστής χωρίς http:// (π.χ. youtube.com)</translation>
     </message>
 </context>
 <context>
@@ -1936,7 +1936,7 @@
         <location filename="../src/preferences/preferences.ui" line="262"/>
         <location filename="../src/preferences/preferences.ui" line="410"/>
         <source>Use actual</source>
-        <translation>Χρήση ακριβής</translation>
+        <translation>Χρήση τρέχουσας</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="271"/>
@@ -2395,7 +2395,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1671"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;Προσοχή:&lt;/b&gt; Ακριβές ταίριασμα domain και επιλογές φίλτρων των cookies παρακολούθησης μπορεί να οδηγήσουν κάποια cookies να απορρίπτονται από σελίδες. Αν έχετε προβλήματα με τα cookies, δοκιμάστε να απενεργοποιήσετε αυτή την επιλογή πρώτα!</translation>
+        <translation>&lt;b&gt;Προσοχή:&lt;/b&gt; Ακριβές ταίριασμα domain και φιλτράρισμα των cookies παρακολούθησης μπορεί να οδηγήσουν κάποια cookies να απορρίπτονται από σελίδες. Αν έχετε προβλήματα με τα cookies, δοκιμάστε να απενεργοποιήσετε αυτή την επιλογή πρώτα!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1687"/>
@@ -2440,7 +2440,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1810"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
-        <translation>&lt;b&gt;Σημείωση: &lt;/b&gt; Μπορείτε να αλλάξετε τη θέση των OSD ενημερώσεων σέρνοντας τη στην οθόνη.</translation>
+        <translation>&lt;b&gt;Σημείωση: &lt;/b&gt; Μπορείτε να αλλάξετε τη θέση των OSD ενημερώσεων σέρνοντας τo στην οθόνη.</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1859"/>
@@ -2586,7 +2586,7 @@
     <message>
         <location filename="../src/preferences/preferences.cpp" line="596"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation>Είστε σίγουροι ότι θέλετε να διαγράψετε μόνιμα το προφίλ &quot;%1&quot;; Η δράση αυτή δεν μπορεί να αναιρεθεί!</translation>
+        <translation>Είστε σίγουροι ότι θέλετε να διαγράψετε μόνιμα το προφίλ &quot;%1&quot;; Η ενέργεια αυτή δεν μπορεί να αναιρεθεί!</translation>
     </message>
 </context>
 <context>
@@ -3242,7 +3242,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Load title from page</source>
-        <translation type="unfinished"></translation>
+        <translation>Φόρτωση τίτλου από σελίδα</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
@@ -3257,7 +3257,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το e-mail είναι προαιρετικό&lt;br/&gt;&lt;b&gt;Σημείωση: &lt;/b&gt;Παρακαλώ χρησιμοποιείστε μόνο Αγγλική γλώσσα.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
@@ -3406,7 +3406,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="44"/>
         <source>Untitled feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ροή χωρίς τίτλο</translation>
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="48"/>
@@ -3992,7 +3992,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="186"/>
         <source>Unable to load</source>
-        <translation type="unfinished"></translation>
+        <translation>Αδυναμία φόρτωσης</translation>
     </message>
 </context>
 <context>
