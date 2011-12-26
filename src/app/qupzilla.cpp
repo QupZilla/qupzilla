@@ -93,6 +93,7 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
     , m_actionPrivateBrowsing(0)
     , m_statusBarMessage(new StatusBarMessage(this))
     , m_sideBarWidth(0)
+    , m_usingTransparentBackground(false)
 {
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
@@ -480,6 +481,13 @@ void QupZilla::loadSettings()
     m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
     m_privateBrowsing->setVisible(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
 
+#ifdef Q_WS_WIN
+    if (m_usingTransparentBackground && !makeTransparent) {
+        QtWin::enableBlurBehindWindow(this, false);
+        m_usingTransparentBackground = false;
+    }
+#endif
+
     if (!makeTransparent) {
         return;
     }
@@ -498,6 +506,8 @@ void QupZilla::loadSettings()
     if (QtWin::isCompositionEnabled()) {
         QtWin::extendFrameIntoClientArea(this);
         setContentsMargins(0, 0, 0, 0);
+
+        m_usingTransparentBackground = true;
     }
 }
 
