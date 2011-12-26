@@ -540,7 +540,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         m_menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
     }
 
-#if QT_VERSION == 0x040800
+#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
 //    still bugged in 4.8 RC (it shows selection of webkit's internal source, not html from page)
 //    it may or may not be bug, but this implementation is useless for us
 //
@@ -643,7 +643,7 @@ void WebView::showSource()
     p_QupZilla->showSource();
 }
 
-#if QT_VERSION >= 0x040800
+#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
 void WebView::showSourceOfSelection()
 {
     p_QupZilla->showSource(selectedHtml());
