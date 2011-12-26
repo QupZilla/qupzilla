@@ -643,12 +643,12 @@ void WebView::showSource()
     p_QupZilla->showSource();
 }
 
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
 void WebView::showSourceOfSelection()
 {
+#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
     p_QupZilla->showSource(selectedHtml());
-}
 #endif
+}
 
 void WebView::downloadLinkToDisk()
 {
