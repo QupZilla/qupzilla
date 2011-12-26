@@ -853,17 +853,17 @@
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="24"/>
         <source>No Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Без ошибок</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="39"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно открыть файл</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="84"/>
         <source>Cannot evaluate JSON code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно выполнить JSON код</translation>
     </message>
 </context>
 <context>
@@ -871,62 +871,62 @@
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="14"/>
         <source>Clear Recent History</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Очистить историю посещений</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="20"/>
         <source>Choose what you want to delete:</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите, что необходимо очистить:</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="27"/>
         <source>Clear history</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Историю за</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="37"/>
         <source>Clear cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Кукисы</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="47"/>
         <source>Clear cache</source>
-        <translation type="unfinished"></translation>
+        <translation>Кеш</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="57"/>
         <source>Clear icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Значки</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="67"/>
         <source>Clear cookies from Adobe Flash Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить кукисы Adobe Flash Player</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="87"/>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Очистить историю посещений&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="111"/>
         <source>Later Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="116"/>
         <source>Week</source>
-        <translation type="unfinished"></translation>
+        <translation>Неделю</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="121"/>
         <source>Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Месяц</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="126"/>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Весь период</translation>
     </message>
 </context>
 <context>
@@ -934,42 +934,42 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="125"/>
         <source>Object blocked by ClickToFlash</source>
-        <translation type="unfinished"></translation>
+        <translation>ClickToFlash заблокировал объект</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="126"/>
         <source>Show more informations about object</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать больше информации об объекте</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="128"/>
         <source>Delete object</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить объект</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="129"/>
         <source>Add %1 to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить %1 в белый список</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="262"/>
         <source>Flash Object</source>
-        <translation type="unfinished"></translation>
+        <translation>Объект Flash</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="265"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Название атрибута&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="265"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Значение&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="279"/>
         <source>No more informations available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Более подробная информация не доступна.</translation>
     </message>
 </context>
 <context>
@@ -977,12 +977,12 @@
     <message>
         <location filename="../src/other/closedialog.ui" line="14"/>
         <source>There are still open tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Некоторые вкладки до сих пор открыты</translation>
     </message>
     <message>
         <location filename="../src/other/closedialog.ui" line="47"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished"></translation>
+        <translation>Не спрашивать снова</translation>
     </message>
 </context>
 <context>
@@ -990,57 +990,57 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="14"/>
         <source>Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Куки</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="20"/>
         <source>Find: </source>
-        <translation type="unfinished"></translation>
+        <translation>Найти:</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="30"/>
         <source>These cookies are stored on your computer:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Эти куки хранятся на Вашем компьютере:</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="50"/>
         <source>Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="55"/>
         <source>Cookie name</source>
-        <translation type="unfinished"></translation>
+        <translation>Название</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="93"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметр:</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="103"/>
         <source>Value:</source>
-        <translation type="unfinished"></translation>
+        <translation>Значение:</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="110"/>
         <source>Server:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер:</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="117"/>
         <source>Path:</source>
-        <translation type="unfinished"></translation>
+        <translation>Путь:</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="124"/>
         <source>Secure:</source>
-        <translation type="unfinished"></translation>
+        <translation>Безопасность:</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="131"/>
         <source>Expiration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Истекает:</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="138"/>
@@ -1056,53 +1056,53 @@
         <location filename="../src/cookies/cookiemanager.cpp" line="116"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="117"/>
         <source>&lt;cookie not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;ни одной куки не выбрано&gt;</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="213"/>
         <source>Remove all cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Получить все куки</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="220"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="126"/>
         <source>Remove cookie</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить куки</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="44"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Искать</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="54"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Подтверждение</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="55"/>
         <source>Are you sure to delete all cookies on your computer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы действительно желаете удалить все куки на компьютере?</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="120"/>
         <source>Remove cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить куки</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
         <source>Secure only</source>
-        <translation type="unfinished"></translation>
+        <translation>Только защищенные соединения</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
         <source>All connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Все соединения</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="137"/>
         <source>Session cookie</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Куки сессии</translation>
     </message>
 </context>
 <context>
@@ -1110,7 +1110,7 @@
     <message>
         <location filename="../src/desktopnotifications/desktopnotificationsfactory.cpp" line="100"/>
         <source>Native System Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Уведомления средствами ОС</translation>
     </message>
 </context>
 <context>
@@ -1119,12 +1119,12 @@
         <location filename="../src/downloads/downloadfilehelper.cpp" line="113"/>
         <location filename="../src/downloads/downloadfilehelper.cpp" line="118"/>
         <source>Save file as...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить файл как...</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadfilehelper.cpp" line="215"/>
         <source>NoNameDownload</source>
-        <translation type="unfinished"></translation>
+        <translation>Безымянная загрузка</translation>
     </message>
 </context>
 <context>
@@ -1132,136 +1132,138 @@
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="58"/>
         <source>Remaining time unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>Оставшееся время не доступно</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="111"/>
         <source>Done - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Завершено - %1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="166"/>
         <location filename="../src/downloads/downloaditem.cpp" line="311"/>
         <source>Cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>Отменено</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="172"/>
         <source>few seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>несколько секунд</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="175"/>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>секунд</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="178"/>
         <source>minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>минут</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="181"/>
         <source>hours</source>
-        <translation type="unfinished"></translation>
+        <translation>часов</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="188"/>
         <source>Unknown speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость не определена</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="208"/>
         <location filename="../src/downloads/downloaditem.cpp" line="247"/>
         <source>Unknown size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер не определен</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="248"/>
         <source>%2 - unknown size (%3)</source>
-        <translation type="unfinished"></translation>
+        <translation>%2 - размер не определен (%3)</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="251"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation type="unfinished"></translation>
+        <translation>Осталось %1 - %2 из %3 (%4)</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="271"/>
         <source>Cancelled - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Отменено - %1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="285"/>
         <source>Delete file</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить файл</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="285"/>
         <source>Do you want to also delete dowloaded file?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Вы хотите также удалить загруженный файл?</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="301"/>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть файл</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="303"/>
         <source>Open Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть директорию</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="305"/>
         <source>Go to Download Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Перейти на страницу загрузки</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="306"/>
         <source>Copy Download Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать ссылку на загрузку</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="308"/>
         <source>Cancel downloading</source>
-        <translation type="unfinished"></translation>
+        <translation>Отменить загрузку</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="309"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="311"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="319"/>
         <source>New tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Новая вкладка</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="342"/>
         <source>Not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Не найден</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="342"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Извините, файл 
+ %1 
+ не найден!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="358"/>
         <source>Error: Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка: невозможно сохранить файл!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="370"/>
         <source>Error: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка: </translation>
     </message>
 </context>
 <context>
@@ -1271,42 +1273,42 @@
         <location filename="../src/downloads/downloadmanager.cpp" line="105"/>
         <location filename="../src/downloads/downloadmanager.cpp" line="230"/>
         <source>Download Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер загрузок</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="73"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="137"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation type="unfinished"></translation>
+        <translation>%1% из %2 файлов (%3) %4 осталось</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="140"/>
         <source>% - Download Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>% - менеджер загрузок</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="223"/>
         <source>Download Finished</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка завершена</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="223"/>
         <source>All files have been successfully downloaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>Все файлы были успешно загружены.</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="275"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Предупреждение</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="276"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы действительно хотите выйти? Все незавершенный загрузки будут отменены!</translation>
     </message>
 </context>
 <context>
@@ -1314,42 +1316,42 @@
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="26"/>
         <source>Opening</source>
-        <translation type="unfinished"></translation>
+        <translation>Открытие</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="32"/>
         <source>You have chosen to open</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы желаете открыть</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="70"/>
         <source>which is a:</source>
-        <translation type="unfinished"></translation>
+        <translation>который является:</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="97"/>
         <source>from:</source>
-        <translation type="unfinished"></translation>
+        <translation>в:</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="116"/>
         <source>What should QupZilla do with this file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Что необходимо сделать с данным файлом?</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="138"/>
         <source>Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть...</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="145"/>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.cpp" line="30"/>
         <source>Opening %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Открытие %1</translation>
     </message>
 </context>
 <context>
@@ -1357,37 +1359,37 @@
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="17"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Название:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="27"/>
         <source>Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="41"/>
         <source>Shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сокращение:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="51"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Значок:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="58"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation type="unfinished"></translation>
+        <translation>%s в адресе - текст поиска</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="97"/>
         <source>Add from file ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать файл....</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.cpp" line="84"/>
         <source>Choose icon...</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать значок...</translation>
     </message>
 </context>
 <context>
@@ -1395,17 +1397,17 @@
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="23"/>
         <source>No Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Без ошибок</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="38"/>
         <source>File does not exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл не существует.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="46"/>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно открыть базу данных. Возможно, Firefox запущен?</translation>
     </message>
 </context>
 <context>
@@ -1413,80 +1415,80 @@
     <message>
         <location filename="../src/history/historymanager.ui" line="14"/>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>История посещений</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.ui" line="30"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Заголовок</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.ui" line="35"/>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.ui" line="43"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.ui" line="50"/>
         <source>Clear All History</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить историю</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.ui" line="73"/>
         <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
+        <translation>Оптимизировать БД</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="84"/>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Новая вкладка</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="99"/>
         <source>Open link in actual tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть ссылку в текущей вкладке</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="100"/>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть ссылку в новой вкладке</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать адрес</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="154"/>
         <location filename="../src/history/historymanager.cpp" line="245"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="157"/>
         <location filename="../src/history/historymanager.cpp" line="248"/>
         <source>This Week</source>
-        <translation type="unfinished"></translation>
+        <translation>На этой неделе</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="160"/>
         <location filename="../src/history/historymanager.cpp" line="251"/>
         <source>This Month</source>
-        <translation type="unfinished"></translation>
+        <translation>В этом месяце</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="217"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Подтверждение</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="218"/>
         <source>Are you sure to delete all history?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы действительно хотить удалить всю историю посещений?</translation>
     </message>
 </context>
 <context>
@@ -1494,72 +1496,72 @@
     <message>
         <location filename="../src/history/historymodel.cpp" line="73"/>
         <source>Failed loading page</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка загрузки страницы</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="77"/>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Безымянная страница</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="222"/>
         <source>January</source>
-        <translation type="unfinished"></translation>
+        <translation>Январь</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="224"/>
         <source>February</source>
-        <translation type="unfinished"></translation>
+        <translation>Февраль</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="226"/>
         <source>March</source>
-        <translation type="unfinished"></translation>
+        <translation>Март</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="228"/>
         <source>April</source>
-        <translation type="unfinished"></translation>
+        <translation>Апрель</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="230"/>
         <source>May</source>
-        <translation type="unfinished"></translation>
+        <translation>Май</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="232"/>
         <source>June</source>
-        <translation type="unfinished"></translation>
+        <translation>Июнь</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="234"/>
         <source>July</source>
-        <translation type="unfinished"></translation>
+        <translation>Июль</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="236"/>
         <source>August</source>
-        <translation type="unfinished"></translation>
+        <translation>Август</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="238"/>
         <source>September</source>
-        <translation type="unfinished"></translation>
+        <translation>Сентябрь</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="240"/>
         <source>October</source>
-        <translation type="unfinished"></translation>
+        <translation>Октябрь</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="242"/>
         <source>November</source>
-        <translation type="unfinished"></translation>
+        <translation>Ноябрь</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="244"/>
         <source>December</source>
-        <translation type="unfinished"></translation>
+        <translation>Декабрь</translation>
     </message>
 </context>
 <context>
@@ -1567,50 +1569,50 @@
     <message>
         <location filename="../src/sidebar/historysidebar.ui" line="32"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск...</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.ui" line="52"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Заголовок</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="70"/>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Новая вкладка</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="93"/>
         <source>Open link in actual tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть ссылку в текущей вкладке</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="94"/>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть ссылку в новой вкладке</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать адрес</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="113"/>
         <location filename="../src/sidebar/historysidebar.cpp" line="216"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="116"/>
         <location filename="../src/sidebar/historysidebar.cpp" line="219"/>
         <source>This Week</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта неделя</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="119"/>
         <location filename="../src/sidebar/historysidebar.cpp" line="222"/>
         <source>This Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Этот месяц</translation>
     </message>
 </context>
 <context>
@@ -1618,12 +1620,12 @@
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="6"/>
         <source>No Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Без ошибок</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="21"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно открыть файл.</translation>
     </message>
 </context>
 <context>
@@ -1631,18 +1633,18 @@
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="48"/>
         <source>Add RSS from this page...</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить RSS с этой страницы...</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="97"/>
         <source>Enter URL address or search on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите адрес или используйте поиск в %1</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="305"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
-        <translation type="unfinished"></translation>
+        <translation>.ru</translation>
     </message>
 </context>
 <context>
@@ -1650,12 +1652,12 @@
     <message>
         <location filename="../src/app/mainapplication.cpp" line="661"/>
         <source>Last session crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Последняя сессия завершилась с ошибками</translation>
     </message>
     <message>
         <location filename="../src/app/mainapplication.cpp" line="662"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;QupZilla упал :-(&lt;/b&gt;&lt;br/&gt;К сожалению, последняя сессия QupZilla была внезапно прервана. Мы извиняемся за это. Может быть, Вы желаете восстановить последнее сохраненное состояние?</translation>
     </message>
 </context>
 <context>
@@ -1663,44 +1665,44 @@
     <message>
         <location filename="../src/navigation/navigationbar.cpp" line="33"/>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Безымянная страница</translation>
     </message>
     <message>
         <location filename="../src/navigation/navigationbar.cpp" line="54"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <location filename="../src/navigation/navigationbar.cpp" line="61"/>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Вперед</translation>
     </message>
     <message>
         <location filename="../src/navigation/navigationbar.cpp" line="76"/>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Домой</translation>
     </message>
     <message>
         <location filename="../src/navigation/navigationbar.cpp" line="82"/>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Новая вкладка</translation>
     </message>
     <message>
         <location filename="../src/navigation/navigationbar.cpp" line="94"/>
         <source>Main Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Главное меню</translation>
     </message>
     <message>
         <location filename="../src/navigation/navigationbar.cpp" line="109"/>
         <location filename="../src/navigation/navigationbar.cpp" line="110"/>
         <source>Exit Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Покинуть полноэкранный режим</translation>
     </message>
     <message>
         <location filename="../src/navigation/navigationbar.cpp" line="196"/>
         <location filename="../src/navigation/navigationbar.cpp" line="232"/>
         <source>Clear history</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить историю посещений</translation>
     </message>
 </context>
 <context>
@@ -1708,74 +1710,75 @@
     <message>
         <location filename="../src/network/networkmanager.cpp" line="139"/>
         <source>SSL Certificate Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка сертификата SSL!</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="140"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation type="unfinished"></translation>
+        <translation>Страница содержит следующие ошибки в SSL сертификате:</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="154"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Организация:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="156"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Имя домена:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="158"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Истекает:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="160"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Ошибка:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="164"/>
         <source>Would you like to make an exception for this certificate?</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить исключение для данного сертификата?</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="185"/>
         <source>Authorization required</source>
-        <translation type="unfinished"></translation>
+        <translation>Необходима авторизация</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="192"/>
         <location filename="../src/network/networkmanager.cpp" line="250"/>
         <source>Username: </source>
-        <translation type="unfinished"></translation>
+        <translation>Имя пользователя:</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="193"/>
         <location filename="../src/network/networkmanager.cpp" line="251"/>
         <source>Password: </source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль: </translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="198"/>
         <source>Save username and password on this site</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить имя пользователя и пароль для этого сайта</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="207"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Сайт сказал звучит, конечно, забавно... но как-то не так.</translatorcomment>
+        <translation type="unfinished">Имя пользователя и пароль были запрошены %1. Сайт сказал &quot;%2&quot;</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="243"/>
         <source>Proxy authorization required</source>
-        <translation type="unfinished"></translation>
+        <translation>Прокси сервер требует авторизацию</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="263"/>
         <source>A username and password are being requested by proxy %1. </source>
-        <translation type="unfinished"></translation>
+        <translation>Имя пользователя и пароль были запрошены прокси сервером %1. </translation>
     </message>
 </context>
 <context>
@@ -1783,12 +1786,12 @@
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="23"/>
         <source>No Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Без ошибок</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="38"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно открыть файл.</translation>
     </message>
 </context>
 <context>
@@ -1796,17 +1799,17 @@
     <message>
         <location filename="../src/other/pagescreen.ui" line="14"/>
         <source>Page Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Снимок страницы</translation>
     </message>
     <message>
         <location filename="../src/other/pagescreen.cpp" line="47"/>
         <source>Save Page Screen...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить снимок страницы...</translation>
     </message>
     <message>
         <location filename="../src/other/pagescreen.cpp" line="47"/>
         <source>screen.png</source>
-        <translation type="unfinished"></translation>
+        <translation>screen.png</translation>
     </message>
 </context>
 <context>
@@ -1814,67 +1817,68 @@
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="24"/>
         <source>Application Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Расширения</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="30"/>
         <source>Allow Application Extensions to be loaded</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Не уверен...</translatorcomment>
+        <translation type="unfinished">Разрешить загрузку расширений</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="61"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="91"/>
         <source>Load Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузить плагины</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="108"/>
         <source>WebKit Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Плагины WebKit</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="114"/>
         <source>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Плагин Click To Flash&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="121"/>
         <source>Click To Flash is a plugin which blocks auto loading of Flash content at page. You can always load it manually by clicking on the Flash play icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Click To Flash это плагин, блокирующий загрузку Flash содержимого на странице. Вы всегда можете загрузить Flash содержимое просто кликнув на значок &quot;Play&quot;.</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="134"/>
         <source>Whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Белый список</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="142"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="149"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="171"/>
         <source>Allow Click To Flash</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешить Click To Flash</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.cpp" line="61"/>
         <source>Add site to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить сайт в белый список</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.cpp" line="61"/>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Сервер без http:// (например, youtube.ru)</translation>
     </message>
 </context>
 <context>
@@ -1887,7 +1891,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="20"/>
         <source>&lt;b&gt;General&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Основное&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="41"/>
@@ -1897,7 +1901,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="196"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Запуск&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="219"/>
@@ -1955,7 +1959,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="302"/>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Профили&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="309"/>
@@ -1996,7 +2000,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="477"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Окно браузера&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="502"/>
@@ -2016,7 +2020,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="538"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Панель навигации&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="545"/>
@@ -2036,7 +2040,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="566"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Фон&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="586"/>
@@ -2046,7 +2050,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="601"/>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Поведение вкладок&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="624"/>
@@ -2061,7 +2065,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="651"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Поведение панели адреса&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="658"/>
@@ -2186,7 +2190,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="963"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1004"/>
@@ -2201,7 +2205,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1021"/>
         <source>50 MB</source>
-        <translation type="unfinished"></translation>
+        <translation>50 Мб</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1048"/>
@@ -2271,7 +2275,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1260"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Шрифты&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1273"/>
@@ -2316,12 +2320,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1403"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Размеры шрифтов&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1414"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Директория загрузок&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1421"/>
@@ -2337,12 +2341,12 @@
         <location filename="../src/preferences/preferences.ui" line="1440"/>
         <location filename="../src/preferences/preferences.ui" line="1942"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1491"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Опции загрузки&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1498"/>
@@ -2358,7 +2362,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1517"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Настройки автодополнения&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1524"/>
@@ -2368,7 +2372,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1594"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Куки&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1601"/>
@@ -2408,7 +2412,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1713"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Уведомления&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1720"/>
@@ -2438,12 +2442,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1810"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Примечание: &lt;/b&gt; Вы можете изменить положение OSD уведомления перетягивая его по экрану.</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1859"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Язык&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1866"/>
@@ -2458,7 +2462,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1925"/>
         <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Пользовательский CSS&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1932"/>
@@ -2473,7 +2477,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1973"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Предпочитаемый язык для веб сайтов&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="95"/>
