@@ -3447,32 +3447,32 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="237"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="238"/>
         <source>Speed Dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="238"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="239"/>
         <source>Add New Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="239"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Load title from page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
         <source>Edit</source>
         <translation type="unfinished">Edytuj</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
         <source>Remove</source>
         <translation type="unfinished">Usuń</translation>
     </message>
@@ -3482,22 +3482,22 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Reload</source>
         <translation type="unfinished">Odświerz</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
         <source>Url</source>
         <translation type="unfinished">Adres</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
         <source>New Page</source>
         <translation type="unfinished"></translation>
     </message>

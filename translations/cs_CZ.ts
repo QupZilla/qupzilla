@@ -2956,7 +2956,7 @@ nebyl nalezen!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1309"/>
         <source>Start Private Browsing</source>
-        <translation>Spustit anonymní prohlížení</translation>
+        <translation>Spustit soukromé prohlížení</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="251"/>
@@ -3315,32 +3315,32 @@ nebyl nalezen!</translation>
         <translation>Překladatelé</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="237"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="238"/>
         <source>Speed Dial</source>
         <translation>Rychlá volba</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="238"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="239"/>
         <source>Add New Page</source>
         <translation>Přidat novou stránku</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="239"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
         <source>Apply</source>
         <translation>Uložit</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Load title from page</source>
         <translation>Načíst titulek ze stránky</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
         <source>Edit</source>
         <translation>Upravit</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
         <source>Remove</source>
         <translation>Odstranit</translation>
     </message>
@@ -3350,22 +3350,22 @@ nebyl nalezen!</translation>
         <translation>E-mail je nepovinný&lt;br/&gt;&lt;b&gt;Poznámka: &lt;/b&gt;Používejte prosím pouze anglický jazyk.</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Reload</source>
         <translation>Načíst znovu</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
         <source>Url</source>
         <translation>Adresa</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
         <source>Title</source>
         <translation>Titulek</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
         <source>New Page</source>
         <translation>Nová stránka</translation>
     </message>
