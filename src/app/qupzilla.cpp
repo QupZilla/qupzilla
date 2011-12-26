@@ -521,12 +521,7 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
     case MainApplication::CheckPrivateBrowsing:
         m_privateBrowsing->setVisible(state);
         m_actionPrivateBrowsing->setChecked(state);
-        if (state) {
-            setWindowTitle(windowTitle());
-        }
-        else {
-            setWindowTitle(windowTitle().remove(tr(" (Private Browsing)")));
-        }
+        weView()->titleChanged();
         break;
 
     case MainApplication::ReloadSettings:
@@ -541,6 +536,10 @@ void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
 
     case MainApplication::BookmarksChanged:
         m_bookmarksMenuChanged = true;
+        break;
+
+    case MainApplication::StartPrivateBrowsing:
+        startPrivate(state);
         break;
 
     default:
@@ -1289,10 +1288,14 @@ void QupZilla::savePageScreen()
 
 void QupZilla::startPrivate(bool state)
 {
+    static bool askedThisSession = false;
+
     QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
     bool askNow = settings.value("Browser-View-Settings/AskOnPrivate", true).toBool();
 
-    if (state && askNow) {
+    if (state && askNow && !askedThisSession) {
+        askedThisSession = true;
+
         QString title = tr("Are you sure you want to turn on private browsing?");
         QString text1 = tr("When private browsing is turned on, some actions concerning your privacy will be disabled:");
 
