@@ -144,7 +144,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //PROFILES
     m_actProfileName = mApp->getActiveProfilPath();
-    m_actProfileName = m_actProfileName.left(m_actProfileName.length()-1);
+    m_actProfileName = m_actProfileName.left(m_actProfileName.length() - 1);
     m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf("/"));
     m_actProfileName.remove("/");
 

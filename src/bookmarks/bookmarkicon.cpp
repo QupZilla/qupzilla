@@ -96,7 +96,7 @@ void BookmarkIcon::setBookmarkDisabled()
     setToolTip(tr("Bookmark this Page"));
 }
 
-void BookmarkIcon::mousePressEvent(QMouseEvent *ev)
+void BookmarkIcon::mousePressEvent(QMouseEvent* ev)
 {
     ClickableLabel::mousePressEvent(ev);
 

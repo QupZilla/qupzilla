@@ -88,7 +88,8 @@ void AboutDialog::showAuthors()
                              "Michał Szymanowski (Polish)<br/>"
                              "Jérôme Giry (French)<br/>"
                              "Nicolas Ourceau (French)<br/>"
-                             "Vasilis Tsivikis (Greek)"
+                             "Vasilis Tsivikis (Greek)<br/>"
+                             "Alexander Maslov (Russian)"
                                                                         ));
         m_authorsHtml.append("</div>");
     }
