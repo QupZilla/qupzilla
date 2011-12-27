@@ -9,6 +9,7 @@ Q: Search engines are not saved through restarts.
 Q: Cannot find Import bookmarks feature.
 Q: How to change User Agent.
 Q: Browser is using ugly theme and cannot find any translations.
+Q: Empty window when trying to run on FreeBSD
 
 Q: I have been told to look for a file in my profile directory. So where are
    all my profile data stored?
@@ -124,3 +125,24 @@ A: You have probably downloaded tarball for other Linux distributions and execut
    
    If you are not using tarball for other Linux distributions, didn't you forget to run
    make install?
+   
+Q: I have successfully compiled QupZilla on FreeBSD, but when I tried to run it, only
+   blank window appeared. Is QupZilla incompatible with FreeBSD?
+----------------------------------------------------------------------------------
+A: There is problem with raster graphics system on FreeBSD with (probably) NVIDIA drivers.
+   You can workaround it by running QupZilla with native graphics system:
+      qupzilla -graphicssystem native
+   but running with native graphics system is very slow.
+   
+   To fix this issue, you have to set 3 sysctls:
+     kern.ipc.shmmax=67108864
+     kern.ipc.shmall=32768
+     kern.ipc.shm_allow_removed=1
+     
+   You can do it by 
+      a) put them in /etc/sysctl.conf and run '/etc/rc.d/sysctl restart'
+      b) set them manually with
+          'sysctl kern.ipc.shmmax=67108864'
+          'sysctl kern.ipc.shmall=32768'
+          'sysctl kern.ipc.shm_allow_removed=1'
+         commands (without ' of course)
