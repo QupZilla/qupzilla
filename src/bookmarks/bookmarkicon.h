@@ -41,7 +41,7 @@ private slots:
     void bookmarkDeleted(const BookmarksModel::Bookmark &bookmark);
 
 private:
-    void mousePressEvent(QMouseEvent *ev);
+    void mousePressEvent(QMouseEvent* ev);
 
     void setBookmarkSaved();
     void setBookmarkDisabled();

@@ -121,7 +121,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     }
 
     if (isRunning()) {
-        foreach (QString message, messages) {
+        foreach(QString message, messages) {
             sendMessage(message);
         }
         m_isExited = true;

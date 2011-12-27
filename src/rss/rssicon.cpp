@@ -1,6 +1,6 @@
 #include "rssicon.h"
 
-RssIcon::RssIcon(QWidget *parent)
+RssIcon::RssIcon(QWidget* parent)
     : ClickableLabel(parent)
 {
     setObjectName("locationbar-rss-icon");
@@ -9,7 +9,7 @@ RssIcon::RssIcon(QWidget *parent)
     setVisible(false);
 }
 
-void RssIcon::mousePressEvent(QMouseEvent *ev)
+void RssIcon::mousePressEvent(QMouseEvent* ev)
 {
     ClickableLabel::mousePressEvent(ev);
 
