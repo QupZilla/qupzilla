@@ -1683,17 +1683,17 @@
         <translation type="obsolete">显示网页信息</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="48"/>
+        <location filename="../src/navigation/locationbar.cpp" line="50"/>
         <source>Add RSS from this page...</source>
         <translation>从网页添加RSS...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="97"/>
+        <location filename="../src/navigation/locationbar.cpp" line="88"/>
         <source>Enter URL address or search on %1</source>
         <translation>输入URL地址或在%1上搜索</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="305"/>
+        <location filename="../src/navigation/locationbar.cpp" line="296"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.co.uk</translation>
@@ -3484,12 +3484,12 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation>从这个网站添加RSS订阅</translation>
     </message>
     <message>
-        <location filename="../src/rss/rsswidget.cpp" line="44"/>
+        <location filename="../src/rss/rsswidget.cpp" line="49"/>
         <source>Untitled feed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rss/rsswidget.cpp" line="48"/>
+        <location filename="../src/rss/rsswidget.cpp" line="53"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>

@@ -1677,17 +1677,17 @@
         <translation type="obsolete">Mostra informazioni sulla pagina</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="48"/>
+        <location filename="../src/navigation/locationbar.cpp" line="50"/>
         <source>Add RSS from this page...</source>
         <translation>Aggiungi RSS da questa pagina...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="97"/>
+        <location filename="../src/navigation/locationbar.cpp" line="88"/>
         <source>Enter URL address or search on %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="305"/>
+        <location filename="../src/navigation/locationbar.cpp" line="296"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation type="unfinished">.it</translation>
@@ -3482,12 +3482,12 @@ Si prega di aggiungere l&apos;icona RSS nella barra di navigazione su un sito ch
         <translation>Aggiungi fonte RSS da questo sito</translation>
     </message>
     <message>
-        <location filename="../src/rss/rsswidget.cpp" line="44"/>
+        <location filename="../src/rss/rsswidget.cpp" line="49"/>
         <source>Untitled feed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rss/rsswidget.cpp" line="48"/>
+        <location filename="../src/rss/rsswidget.cpp" line="53"/>
         <source>Add</source>
         <translation>Aggiungi</translation>
     </message>
