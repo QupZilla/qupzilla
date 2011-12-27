@@ -1702,12 +1702,12 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="661"/>
+        <location filename="../src/app/mainapplication.cpp" line="682"/>
         <source>Last session crashed</source>
         <translation>会话崩溃</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="662"/>
+        <location filename="../src/app/mainapplication.cpp" line="683"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>QupZilla上次结束时崩溃，我们非常遗憾。您要还原保存的状态吗？</translation>
     </message>
@@ -2075,7 +2075,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="433"/>
-        <location filename="../src/preferences/preferences.cpp" line="610"/>
+        <location filename="../src/preferences/preferences.cpp" line="619"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>注意：您不能删除活动配置文件。</translation>
     </message>
@@ -2085,72 +2085,72 @@
         <translation>启动时检查更新</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="458"/>
+        <location filename="../src/preferences/preferences.ui" line="472"/>
         <source>Themes</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="471"/>
+        <location filename="../src/preferences/preferences.ui" line="485"/>
         <source>Advanced options</source>
         <translation>高级选项</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="477"/>
+        <location filename="../src/preferences/preferences.ui" line="491"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;B&gt;浏览器窗口&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="502"/>
+        <location filename="../src/preferences/preferences.ui" line="516"/>
         <source>Show StatusBar on start</source>
         <translation>显示状态栏</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="509"/>
+        <location filename="../src/preferences/preferences.ui" line="523"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>显示书签工具栏</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="516"/>
+        <location filename="../src/preferences/preferences.ui" line="530"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>显示导航工具栏</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="538"/>
+        <location filename="../src/preferences/preferences.ui" line="552"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation>&lt;B&gt;导航工具栏&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="545"/>
+        <location filename="../src/preferences/preferences.ui" line="559"/>
         <source>Show Home button</source>
         <translation>显示主页按钮</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="552"/>
+        <location filename="../src/preferences/preferences.ui" line="566"/>
         <source>Show Back / Forward buttons</source>
         <translation>显示后退/前进按钮</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="559"/>
+        <location filename="../src/preferences/preferences.ui" line="573"/>
         <source>Show Add Tab button</source>
         <translation>显示新建标签页按钮</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="566"/>
+        <location filename="../src/preferences/preferences.ui" line="580"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
         <translation>&lt;B&gt;背景&lt;b/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="586"/>
+        <location filename="../src/preferences/preferences.ui" line="600"/>
         <source>Use transparent background</source>
         <translation>使用透明背景</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="601"/>
+        <location filename="../src/preferences/preferences.ui" line="615"/>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
         <translation>&lt;B&gt;标签的行为&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="624"/>
+        <location filename="../src/preferences/preferences.ui" line="638"/>
         <source>Make tabs movable</source>
         <translation></translation>
     </message>
@@ -2163,42 +2163,42 @@
         <translation type="obsolete">如果只有一个选项卡，隐藏标签页</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="651"/>
+        <location filename="../src/preferences/preferences.ui" line="665"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
         <translation>&lt;b&gt;地址栏的行为&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="658"/>
+        <location filename="../src/preferences/preferences.ui" line="672"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>双击地址栏选择的所有文字</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="665"/>
+        <location filename="../src/preferences/preferences.ui" line="679"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>按ALT键添加.co.uk</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="698"/>
+        <location filename="../src/preferences/preferences.ui" line="712"/>
         <source>Activate last tab when closing active tab</source>
         <translation>关闭活动标签时激活最后一个标签页</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="705"/>
+        <location filename="../src/preferences/preferences.ui" line="719"/>
         <source>Ask when closing multiple tabs</source>
         <translation>关闭多个标签页时总是询问</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="727"/>
+        <location filename="../src/preferences/preferences.ui" line="741"/>
         <source>Web Configuration</source>
         <translation>Web配置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="735"/>
+        <location filename="../src/preferences/preferences.ui" line="749"/>
         <source>Load images</source>
         <translation>载入图像</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="829"/>
+        <location filename="../src/preferences/preferences.ui" line="843"/>
         <source>Allow JAVA</source>
         <translation>允许Java</translation>
     </message>
@@ -2208,47 +2208,47 @@
         <translation>启动后：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="742"/>
+        <location filename="../src/preferences/preferences.ui" line="756"/>
         <source>Allow JavaScript</source>
         <translation>允许JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="749"/>
+        <location filename="../src/preferences/preferences.ui" line="763"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>允许插件（Flash插件）</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="756"/>
+        <location filename="../src/preferences/preferences.ui" line="770"/>
         <source>Block PopUp windows</source>
         <translation>拦截弹出窗口</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="763"/>
+        <location filename="../src/preferences/preferences.ui" line="777"/>
         <source>Allow DNS Prefetch</source>
         <translation>允许DNS预取</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="787"/>
+        <location filename="../src/preferences/preferences.ui" line="801"/>
         <source>JavaScript can access clipboard</source>
         <translation>JavaScript可访问剪贴板</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="794"/>
+        <location filename="../src/preferences/preferences.ui" line="808"/>
         <source>Send Do Not Track header to servers</source>
         <translation>发送不跟踪头到服务器</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="801"/>
+        <location filename="../src/preferences/preferences.ui" line="815"/>
         <source>Zoom text only</source>
         <translation>仅缩放文本</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="815"/>
+        <location filename="../src/preferences/preferences.ui" line="829"/>
         <source>Include links in focus chain</source>
         <translation>包括焦点链中的链接</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="808"/>
+        <location filename="../src/preferences/preferences.ui" line="822"/>
         <source>Print element background</source>
         <translation>打印元素的背景</translation>
     </message>
@@ -2259,340 +2259,345 @@
         <translation>打开快速拨号</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="644"/>
+        <location filename="../src/preferences/preferences.ui" line="450"/>
+        <source>Active profile:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="658"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>隐藏选项卡当只有一个选项卡时</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="712"/>
+        <location filename="../src/preferences/preferences.ui" line="726"/>
         <source>Select all text by clicking in address bar</source>
         <translation>通过点击地址栏选择所有文本</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="822"/>
+        <location filename="../src/preferences/preferences.ui" line="836"/>
         <source>Enable XSS Auditing</source>
         <translation>启用的XSS审计</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="846"/>
+        <location filename="../src/preferences/preferences.ui" line="860"/>
         <source>Mouse wheel scrolls</source>
         <translation>滚动鼠标滚轮</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="866"/>
+        <location filename="../src/preferences/preferences.ui" line="880"/>
         <source>lines on page</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="877"/>
+        <location filename="../src/preferences/preferences.ui" line="891"/>
         <source>Default zoom on pages: </source>
         <translation>默认网页缩放：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="928"/>
+        <location filename="../src/preferences/preferences.ui" line="942"/>
         <source>Ask when entering Private Browsing mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="936"/>
+        <location filename="../src/preferences/preferences.ui" line="950"/>
         <source>Local Storage</source>
         <translation>本地存储</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="944"/>
+        <location filename="../src/preferences/preferences.ui" line="958"/>
         <source>Maximum pages in cache: </source>
         <translation>高速缓存中的最大页面：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="963"/>
+        <location filename="../src/preferences/preferences.ui" line="977"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1004"/>
+        <location filename="../src/preferences/preferences.ui" line="1018"/>
         <source>Allow storing network cache on disk</source>
         <translation>允许在磁盘上存储网络缓存</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1014"/>
+        <location filename="../src/preferences/preferences.ui" line="1028"/>
         <source>Maximum </source>
         <translation>最大</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1021"/>
+        <location filename="../src/preferences/preferences.ui" line="1035"/>
         <source>50 MB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1048"/>
+        <location filename="../src/preferences/preferences.ui" line="1062"/>
         <source>Allow storing web icons</source>
         <translation>允许存储网页图标</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1055"/>
+        <location filename="../src/preferences/preferences.ui" line="1069"/>
         <source>Allow saving history</source>
         <translation>允许保存历史</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1062"/>
+        <location filename="../src/preferences/preferences.ui" line="1076"/>
         <source>Delete history on close</source>
         <translation>删除近来的历史记录</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1111"/>
+        <location filename="../src/preferences/preferences.ui" line="1125"/>
         <source>Proxy Configuration</source>
         <translation>代理配置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1120"/>
+        <location filename="../src/preferences/preferences.ui" line="1134"/>
         <source>HTTP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1125"/>
+        <location filename="../src/preferences/preferences.ui" line="1139"/>
         <source>SOCKS5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1138"/>
+        <location filename="../src/preferences/preferences.ui" line="1152"/>
         <source>Port:</source>
         <translation>端口：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1157"/>
+        <location filename="../src/preferences/preferences.ui" line="1171"/>
         <source>Username:</source>
         <translation>用户名：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1167"/>
+        <location filename="../src/preferences/preferences.ui" line="1181"/>
         <source>Password:</source>
         <translation>密码：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1193"/>
+        <location filename="../src/preferences/preferences.ui" line="1207"/>
         <source>Don&apos;t use on:</source>
         <translation>不要使用：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1200"/>
+        <location filename="../src/preferences/preferences.ui" line="1214"/>
         <source>Manual configuration</source>
         <translation>手动配置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1207"/>
+        <location filename="../src/preferences/preferences.ui" line="1221"/>
         <source>System proxy configuration</source>
         <translation>系统代理配置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1214"/>
+        <location filename="../src/preferences/preferences.ui" line="1228"/>
         <source>Do not use proxy</source>
         <translation>不使用代理</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1260"/>
+        <location filename="../src/preferences/preferences.ui" line="1274"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1273"/>
+        <location filename="../src/preferences/preferences.ui" line="1287"/>
         <source>Standard</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1280"/>
+        <location filename="../src/preferences/preferences.ui" line="1294"/>
         <source>Fixed</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1290"/>
+        <location filename="../src/preferences/preferences.ui" line="1304"/>
         <source>Serif</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1300"/>
+        <location filename="../src/preferences/preferences.ui" line="1314"/>
         <source>Sans Serif</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1310"/>
+        <location filename="../src/preferences/preferences.ui" line="1324"/>
         <source>Cursive</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1320"/>
+        <location filename="../src/preferences/preferences.ui" line="1334"/>
         <source>Default Font</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1337"/>
+        <location filename="../src/preferences/preferences.ui" line="1351"/>
         <source>Fixed Font</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1396"/>
+        <location filename="../src/preferences/preferences.ui" line="1410"/>
         <source>Fantasy</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1403"/>
+        <location filename="../src/preferences/preferences.ui" line="1417"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1414"/>
+        <location filename="../src/preferences/preferences.ui" line="1428"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;下载位置&lt;/ b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1421"/>
+        <location filename="../src/preferences/preferences.ui" line="1435"/>
         <source>Ask everytime for download location</source>
         <translation>每次询问下载位置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1428"/>
+        <location filename="../src/preferences/preferences.ui" line="1442"/>
         <source>Use defined location: </source>
         <translation>使用定义的位置：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1440"/>
-        <location filename="../src/preferences/preferences.ui" line="1942"/>
+        <location filename="../src/preferences/preferences.ui" line="1454"/>
+        <location filename="../src/preferences/preferences.ui" line="1956"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1491"/>
+        <location filename="../src/preferences/preferences.ui" line="1505"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;下载选项&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1498"/>
+        <location filename="../src/preferences/preferences.ui" line="1512"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>使用本地系统文件对话框
 （可能会导致下载SSL保护内容的问题）</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1506"/>
+        <location filename="../src/preferences/preferences.ui" line="1520"/>
         <source>Close download manager when downloading finishes</source>
         <translation>下载完成后关闭下载管理器</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1517"/>
+        <location filename="../src/preferences/preferences.ui" line="1531"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;B&gt;自动填充选项&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1524"/>
+        <location filename="../src/preferences/preferences.ui" line="1538"/>
         <source>Allow saving passwords from sites</source>
         <translation>允许保存网站密码</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1594"/>
+        <location filename="../src/preferences/preferences.ui" line="1608"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1601"/>
+        <location filename="../src/preferences/preferences.ui" line="1615"/>
         <source>Filter Tracking Cookies</source>
         <translation>追踪cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1608"/>
+        <location filename="../src/preferences/preferences.ui" line="1622"/>
         <source>Allow storing of cookies</source>
         <translation>允许存储cookie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1615"/>
+        <location filename="../src/preferences/preferences.ui" line="1629"/>
         <source>Delete cookies on close</source>
         <translation>关闭后删除cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1635"/>
+        <location filename="../src/preferences/preferences.ui" line="1649"/>
         <source>Match domain exactly</source>
         <translation>域完全匹配</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1671"/>
+        <location filename="../src/preferences/preferences.ui" line="1685"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;警告：&lt;/ B&gt;匹配域完全和过滤器跟踪Cookie选项可能会导致拒绝网站的一些cookies，如果您的cookie有问题，尝试禁用这个选项！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1687"/>
+        <location filename="../src/preferences/preferences.ui" line="1701"/>
         <source>Cookies Manager</source>
         <translation>管理Cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1700"/>
+        <location filename="../src/preferences/preferences.ui" line="1714"/>
         <source>SSL Manager</source>
         <translation>管理SSL</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1713"/>
+        <location filename="../src/preferences/preferences.ui" line="1727"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;通知&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1720"/>
+        <location filename="../src/preferences/preferences.ui" line="1734"/>
         <source>Use OSD Notifications</source>
         <translation>使用OSD的通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1730"/>
+        <location filename="../src/preferences/preferences.ui" line="1744"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>使用本机的系统通知（仅限Linux）</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1737"/>
+        <location filename="../src/preferences/preferences.ui" line="1751"/>
         <source>Do not use Notifications</source>
         <translation>不要使用通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1788"/>
+        <location filename="../src/preferences/preferences.ui" line="1802"/>
         <source>Expiration timeout:</source>
         <translation>到期超时：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1801"/>
+        <location filename="../src/preferences/preferences.ui" line="1815"/>
         <source> seconds</source>
         <translation>秒</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1810"/>
+        <location filename="../src/preferences/preferences.ui" line="1824"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;注意：&lt;/ b&gt;您可以在屏幕上拖动以改变OSD​​通知的位置。</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1859"/>
+        <location filename="../src/preferences/preferences.ui" line="1873"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;语言&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1866"/>
+        <location filename="../src/preferences/preferences.ui" line="1880"/>
         <source>Available translations: </source>
         <translation>可用的翻译：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1905"/>
+        <location filename="../src/preferences/preferences.ui" line="1919"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>要改变语言，你必须重新启动浏览器。</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1925"/>
+        <location filename="../src/preferences/preferences.ui" line="1939"/>
         <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;用户CSS样式表&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1932"/>
+        <location filename="../src/preferences/preferences.ui" line="1946"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>所有的网站自动加载样式表：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1951"/>
+        <location filename="../src/preferences/preferences.ui" line="1965"/>
         <source>Languages</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1973"/>
+        <location filename="../src/preferences/preferences.ui" line="1987"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;网站首选的语言&lt;/ B&gt;</translation>
     </message>
@@ -2602,58 +2607,58 @@
         <translation>外观</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="415"/>
+        <location filename="../src/preferences/preferences.cpp" line="423"/>
         <source>OSD Notification</source>
         <translation>OSD的通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="416"/>
+        <location filename="../src/preferences/preferences.cpp" line="424"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>在屏幕上拖动它到你想要的地方。</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="444"/>
+        <location filename="../src/preferences/preferences.cpp" line="452"/>
         <source>Choose download location...</source>
         <translation>选择下载位置... ...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="458"/>
+        <location filename="../src/preferences/preferences.cpp" line="466"/>
         <source>Choose stylesheet location...</source>
         <translation>选择样式表的位置...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="572"/>
+        <location filename="../src/preferences/preferences.cpp" line="580"/>
         <source>New Profile</source>
         <translation>新的配置文件</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="572"/>
+        <location filename="../src/preferences/preferences.cpp" line="580"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>输入新配置文件的名称：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="578"/>
-        <location filename="../src/preferences/preferences.cpp" line="582"/>
+        <location filename="../src/preferences/preferences.cpp" line="586"/>
+        <location filename="../src/preferences/preferences.cpp" line="590"/>
         <source>Error!</source>
         <translation>错误！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="578"/>
+        <location filename="../src/preferences/preferences.cpp" line="586"/>
         <source>This profile already exists!</source>
         <translation>此配置文件已经存在！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="582"/>
+        <location filename="../src/preferences/preferences.cpp" line="590"/>
         <source>Cannot create profile directory!</source>
         <translation>无法创建配置文件目录！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="595"/>
+        <location filename="../src/preferences/preferences.cpp" line="604"/>
         <source>Confirmation</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="596"/>
+        <location filename="../src/preferences/preferences.cpp" line="605"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>您确定要永久删除“%1”个人资料吗？这将无法复原！</translation>
     </message>
@@ -2702,258 +2707,257 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="251"/>
+        <location filename="../src/app/qupzilla.cpp" line="252"/>
         <source>Private Browsing Enabled</source>
         <translation>启用隐私浏览</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="255"/>
+        <location filename="../src/app/qupzilla.cpp" line="256"/>
         <source>IP Address of current page</source>
         <translation>当前页面的IP地址</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="347"/>
+        <location filename="../src/app/qupzilla.cpp" line="348"/>
         <source>Bookmarks</source>
         <translation>书签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="351"/>
+        <location filename="../src/app/qupzilla.cpp" line="352"/>
         <source>History</source>
         <translation>历史</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="279"/>
+        <location filename="../src/app/qupzilla.cpp" line="280"/>
         <source>&amp;New Window</source>
         <translation>打开新窗口&amp;N</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="280"/>
+        <location filename="../src/app/qupzilla.cpp" line="281"/>
         <source>New Tab</source>
         <translation>新标签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="281"/>
+        <location filename="../src/app/qupzilla.cpp" line="282"/>
         <source>Open Location</source>
         <translation>打开位置</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="282"/>
+        <location filename="../src/app/qupzilla.cpp" line="283"/>
         <source>Open &amp;File</source>
         <translation>打开&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="283"/>
+        <location filename="../src/app/qupzilla.cpp" line="284"/>
         <source>Close Tab</source>
         <translation>关闭标签页</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="284"/>
+        <location filename="../src/app/qupzilla.cpp" line="285"/>
         <source>Close Window</source>
         <translation>关闭窗口</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="287"/>
+        <location filename="../src/app/qupzilla.cpp" line="288"/>
         <source>&amp;Save Page As...</source>
         <translation>保存页作为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="288"/>
+        <location filename="../src/app/qupzilla.cpp" line="289"/>
         <source>Save Page Screen</source>
         <translation>保存屏幕网页</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="289"/>
+        <location filename="../src/app/qupzilla.cpp" line="290"/>
         <source>Send Link...</source>
         <translation>发送链接...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="290"/>
+        <location filename="../src/app/qupzilla.cpp" line="291"/>
         <source>&amp;Print</source>
         <translation>打印&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="293"/>
+        <location filename="../src/app/qupzilla.cpp" line="294"/>
         <source>Import bookmarks...</source>
         <translation>导入书签...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="294"/>
+        <location filename="../src/app/qupzilla.cpp" line="295"/>
         <source>Quit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="300"/>
+        <location filename="../src/app/qupzilla.cpp" line="301"/>
         <source>&amp;Undo</source>
         <translation>撤消&amp;U</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="301"/>
+        <location filename="../src/app/qupzilla.cpp" line="302"/>
         <source>&amp;Redo</source>
         <translation>重做&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="303"/>
+        <location filename="../src/app/qupzilla.cpp" line="304"/>
         <source>&amp;Cut</source>
         <translation>剪切&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="304"/>
+        <location filename="../src/app/qupzilla.cpp" line="305"/>
         <source>C&amp;opy</source>
         <translation>复制&amp;o</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="305"/>
+        <location filename="../src/app/qupzilla.cpp" line="306"/>
         <source>&amp;Paste</source>
         <translation>粘贴&amp;p</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="306"/>
+        <location filename="../src/app/qupzilla.cpp" line="307"/>
         <source>&amp;Delete</source>
         <translation>删除&amp;D</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="308"/>
+        <location filename="../src/app/qupzilla.cpp" line="309"/>
         <source>Select &amp;All</source>
         <translation>选取所有&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="309"/>
+        <location filename="../src/app/qupzilla.cpp" line="310"/>
         <source>&amp;Find</source>
         <translation>查找&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="267"/>
+        <location filename="../src/app/qupzilla.cpp" line="268"/>
         <source>&amp;Tools</source>
         <translation>工具&amp;T</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="268"/>
+        <location filename="../src/app/qupzilla.cpp" line="269"/>
         <source>&amp;Help</source>
         <translation>帮助&amp;H</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="269"/>
+        <location filename="../src/app/qupzilla.cpp" line="270"/>
         <source>&amp;Bookmarks</source>
         <translation>书签&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="270"/>
+        <location filename="../src/app/qupzilla.cpp" line="271"/>
         <source>Hi&amp;story</source>
         <translation>历史&amp;s</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="278"/>
+        <location filename="../src/app/qupzilla.cpp" line="279"/>
         <source>&amp;File</source>
         <translation>文件&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="299"/>
+        <location filename="../src/app/qupzilla.cpp" line="300"/>
         <source>&amp;Edit</source>
         <translation>编辑&amp;E</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="319"/>
+        <location filename="../src/app/qupzilla.cpp" line="320"/>
         <source>&amp;View</source>
         <translation>查看&amp;V</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="320"/>
+        <location filename="../src/app/qupzilla.cpp" line="321"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>导航工具栏&amp;N</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="323"/>
+        <location filename="../src/app/qupzilla.cpp" line="324"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>书签工具栏&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="326"/>
+        <location filename="../src/app/qupzilla.cpp" line="327"/>
         <source>Sta&amp;tus Bar</source>
         <translation>状态栏&amp;t</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="329"/>
+        <location filename="../src/app/qupzilla.cpp" line="330"/>
         <source>&amp;Menu Bar</source>
         <translation>菜单栏&amp;M</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="332"/>
+        <location filename="../src/app/qupzilla.cpp" line="333"/>
         <source>&amp;Fullscreen</source>
         <translation>全屏&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="336"/>
+        <location filename="../src/app/qupzilla.cpp" line="337"/>
         <source>&amp;Stop</source>
         <translation>停止&amp;S</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="339"/>
+        <location filename="../src/app/qupzilla.cpp" line="340"/>
         <source>&amp;Reload</source>
         <translation>刷新&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="342"/>
+        <location filename="../src/app/qupzilla.cpp" line="343"/>
         <source>Character &amp;Encoding</source>
         <translation>字符与编码&amp;E</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="359"/>
+        <location filename="../src/app/qupzilla.cpp" line="360"/>
         <source>Toolbars</source>
         <translation>工具栏</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="363"/>
+        <location filename="../src/app/qupzilla.cpp" line="364"/>
         <source>Sidebars</source>
         <translation>侧边栏</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="375"/>
+        <location filename="../src/app/qupzilla.cpp" line="376"/>
         <source>Zoom &amp;In</source>
         <translation>放大&amp;I</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="376"/>
+        <location filename="../src/app/qupzilla.cpp" line="377"/>
         <source>Zoom &amp;Out</source>
         <translation>缩小&amp;O</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="377"/>
+        <location filename="../src/app/qupzilla.cpp" line="378"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="381"/>
+        <location filename="../src/app/qupzilla.cpp" line="382"/>
         <source>&amp;Page Source</source>
         <translation>页面源代码&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="394"/>
+        <location filename="../src/app/qupzilla.cpp" line="395"/>
         <source>Closed Tabs</source>
         <translation>关闭标签页</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="400"/>
+        <location filename="../src/app/qupzilla.cpp" line="401"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>还原关闭的标签&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="507"/>
-        <location filename="../src/app/qupzilla.cpp" line="528"/>
+        <location filename="../src/app/qupzilla.cpp" line="517"/>
         <source> (Private Browsing)</source>
         <translation>（私人浏览）</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="573"/>
+        <location filename="../src/app/qupzilla.cpp" line="582"/>
         <source>Bookmark &amp;This Page</source>
         <translation>收藏本页&amp;T</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="574"/>
+        <location filename="../src/app/qupzilla.cpp" line="583"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>收藏全部标签页&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="575"/>
+        <location filename="../src/app/qupzilla.cpp" line="584"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>组织书签&amp;B</translation>
     </message>
@@ -2962,160 +2966,160 @@
         <translation type="obsolete">工具栏中的书签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="615"/>
-        <location filename="../src/app/qupzilla.cpp" line="643"/>
-        <location filename="../src/app/qupzilla.cpp" line="729"/>
+        <location filename="../src/app/qupzilla.cpp" line="624"/>
+        <location filename="../src/app/qupzilla.cpp" line="652"/>
+        <location filename="../src/app/qupzilla.cpp" line="738"/>
         <source>Empty</source>
         <translation>空页面</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="672"/>
+        <location filename="../src/app/qupzilla.cpp" line="681"/>
         <source>&amp;Back</source>
         <translation>后退&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="673"/>
+        <location filename="../src/app/qupzilla.cpp" line="682"/>
         <source>&amp;Forward</source>
         <translation>前进&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="674"/>
+        <location filename="../src/app/qupzilla.cpp" line="683"/>
         <source>&amp;Home</source>
         <translation>主页&amp;H</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="679"/>
+        <location filename="../src/app/qupzilla.cpp" line="688"/>
         <source>Show &amp;All History</source>
         <translation>显示所有历史页&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="732"/>
+        <location filename="../src/app/qupzilla.cpp" line="741"/>
         <source>Restore All Closed Tabs</source>
         <translation>还原关闭的标签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="733"/>
+        <location filename="../src/app/qupzilla.cpp" line="742"/>
         <source>Clear list</source>
         <translation>清除列表</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="742"/>
+        <location filename="../src/app/qupzilla.cpp" line="751"/>
         <source>About &amp;Qt</source>
         <translation>关于Qt&amp;Q</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="743"/>
+        <location filename="../src/app/qupzilla.cpp" line="752"/>
         <source>&amp;About QupZilla</source>
         <translation>关于QupZIlla&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="745"/>
+        <location filename="../src/app/qupzilla.cpp" line="754"/>
         <source>Informations about application</source>
         <translation>软件信息</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="750"/>
+        <location filename="../src/app/qupzilla.cpp" line="759"/>
         <source>Report &amp;Issue</source>
         <translation>&amp;I报告及发行</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="756"/>
+        <location filename="../src/app/qupzilla.cpp" line="765"/>
         <source>&amp;Web Search</source>
         <translation>&amp;W网页搜索</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="757"/>
+        <location filename="../src/app/qupzilla.cpp" line="766"/>
         <source>Page &amp;Info</source>
         <translation>网页信息&amp;I</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="759"/>
+        <location filename="../src/app/qupzilla.cpp" line="768"/>
         <source>&amp;Download Manager</source>
         <translation>&amp;D下载管理</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="760"/>
+        <location filename="../src/app/qupzilla.cpp" line="769"/>
         <source>&amp;Cookies Manager</source>
         <translation>&amp;C管理Cookies</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="761"/>
+        <location filename="../src/app/qupzilla.cpp" line="770"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="762"/>
+        <location filename="../src/app/qupzilla.cpp" line="771"/>
         <source>RSS &amp;Reader</source>
         <translation>RSS阅读器&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="763"/>
+        <location filename="../src/app/qupzilla.cpp" line="772"/>
         <source>Clear Recent &amp;History</source>
         <translation>清除最近的历史&amp;H</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="764"/>
+        <location filename="../src/app/qupzilla.cpp" line="773"/>
         <source>&amp;Private Browsing</source>
         <translation>隐私浏览&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1446"/>
+        <location filename="../src/app/qupzilla.cpp" line="1459"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>还有%1打开的标签和您的会话将不会被储存。你一定要退出吗？</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="312"/>
-        <location filename="../src/app/qupzilla.cpp" line="773"/>
+        <location filename="../src/app/qupzilla.cpp" line="313"/>
+        <location filename="../src/app/qupzilla.cpp" line="782"/>
         <source>Pr&amp;eferences</source>
         <translation>首选项&amp;e</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="850"/>
+        <location filename="../src/app/qupzilla.cpp" line="859"/>
         <source>Other</source>
         <translation>其他</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="860"/>
+        <location filename="../src/app/qupzilla.cpp" line="869"/>
         <source>Default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1197"/>
+        <location filename="../src/app/qupzilla.cpp" line="1206"/>
         <source>Open file...</source>
         <translation>打开文件...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1296"/>
+        <location filename="../src/app/qupzilla.cpp" line="1309"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>你确定要打开隐私浏览吗？</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1297"/>
+        <location filename="../src/app/qupzilla.cpp" line="1310"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>打开隐私浏览时，有关于您的隐私行动将被禁用：</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1300"/>
+        <location filename="../src/app/qupzilla.cpp" line="1313"/>
         <source>Webpages are not added to the history.</source>
         <translation>网页不会添加到历史记录。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1301"/>
+        <location filename="../src/app/qupzilla.cpp" line="1314"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>当前的cookies无法被访问。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1302"/>
+        <location filename="../src/app/qupzilla.cpp" line="1315"/>
         <source>Your session is not stored.</source>
         <translation>不会存储您的会话。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1304"/>
+        <location filename="../src/app/qupzilla.cpp" line="1317"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>直到您关闭该窗口，你仍然可以单击后退和前进按钮，返回到你已经打开的网页.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1309"/>
+        <location filename="../src/app/qupzilla.cpp" line="1322"/>
         <source>Start Private Browsing</source>
         <translation>开始隐私浏览</translation>
     </message>
@@ -3124,9 +3128,9 @@
         <translation type="obsolete">还有%1打开的标签和您的会话将不会被储存。你一定要退出吗？</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="181"/>
-        <location filename="../src/app/qupzilla.cpp" line="943"/>
-        <location filename="../src/app/qupzilla.cpp" line="963"/>
+        <location filename="../src/app/qupzilla.cpp" line="182"/>
+        <location filename="../src/app/qupzilla.cpp" line="952"/>
+        <location filename="../src/app/qupzilla.cpp" line="972"/>
         <location filename="../src/app/qupzilla.h" line="148"/>
         <source>New tab</source>
         <translation>新标签</translation>
