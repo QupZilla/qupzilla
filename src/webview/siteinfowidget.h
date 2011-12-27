@@ -20,6 +20,7 @@
 
 #include <QWidget>
 #include <QMenu>
+#include <QToolTip>
 
 namespace Ui
 {
