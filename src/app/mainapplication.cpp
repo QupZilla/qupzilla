@@ -154,7 +154,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
         m_activeProfil = homePath + "profiles/" + startProfile + "/";
     }
 
-    ProfileUpdater u(m_activeProfil, DATADIR);
+    ProfileUpdater u(m_activeProfil);
     u.checkProfile();
     connectDatabase();
 
@@ -430,7 +430,9 @@ void MainApplication::connectDatabase()
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(m_activeProfil + "browsedata.db");
     if (!QFile::exists(m_activeProfil + "browsedata.db")) {
-        QFile(DATADIR + "data/default/profiles/default/browsedata.db").copy(m_activeProfil + "browsedata.db");
+        QFile(":data/browsedata.db").copy(m_activeProfil + "browsedata.db");
+        QFile(m_activeProfil + "browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
+
         db.setDatabaseName(m_activeProfil + "browsedata.db");
         qWarning("Cannot find SQLite database file! Copying and using the defaults!");
     }
@@ -454,7 +456,7 @@ void MainApplication::translateApp()
     }
 
     QTranslator* app = new QTranslator();
-    app->load(DATADIR + "locale/" + file);
+    app->load(TRANSLATIONSDIR + file);
     QTranslator* sys = new QTranslator();
 
     if (QFile::exists(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm")) {
@@ -766,14 +768,16 @@ bool MainApplication::checkSettingsDir()
 
     //.qupzilla/profiles
     QFile(homePath + "profiles/profiles.ini").remove();
-    QFile(DATADIR + "data/default/profiles/profiles.ini").copy(homePath + "profiles/profiles.ini");
+    QFile(":data/profiles.ini").copy(homePath + "profiles/profiles.ini");
+    QFile(homePath + "profiles/profiles.ini").setPermissions(QFile::ReadUser | QFile::WriteUser);
 
     dir.mkdir("default");
     dir.cd("default");
 
     //.qupzilla/profiles/default
     QFile(homePath + "profiles/default/browsedata.db").remove();
-    QFile(DATADIR + "data/default/profiles/default/browsedata.db").copy(homePath + "profiles/default/browsedata.db");
+    QFile(":data/browsedata.db").copy(homePath + "profiles/default/browsedata.db");
+    QFile(homePath + "profiles/default/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
 
     return dir.isReadable();
 }

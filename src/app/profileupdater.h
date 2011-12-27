@@ -26,7 +26,7 @@ class ProfileUpdater : public QObject
 {
     Q_OBJECT
 public:
-    explicit ProfileUpdater(const QString &profilePath, const QString &dataPath);
+    explicit ProfileUpdater(const QString &profilePath);
     void checkProfile();
 
 signals:
@@ -42,8 +42,6 @@ private:
     void update100();
 
     QString m_profilePath;
-    QString m_dataPath;
-
 };
 
 #endif // PROFILEUPDATER_H

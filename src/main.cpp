@@ -25,6 +25,7 @@
 
 int main(int argc, char* argv[])
 {
+    Q_INIT_RESOURCE(data);
     Q_INIT_RESOURCE(icons);
     Q_INIT_RESOURCE(html);
 
