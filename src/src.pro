@@ -346,7 +346,8 @@ FORMS    += \
 
 RESOURCES += \
     data/icons.qrc \
-    data/html.qrc
+    data/html.qrc \
+    data/data.qrc
 
 OTHER_FILES += \
     appicon.rc
@@ -373,7 +374,6 @@ unix {
 
     target.path = $$binary_folder
 
-    target1.files = ../bin/data
     target1.files += ../bin/locale
     target1.files += ../bin/plugins
     target1.files += ../bin/themes
