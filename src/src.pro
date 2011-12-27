@@ -181,7 +181,10 @@ SOURCES += main.cpp\
     other/databasewriter.cpp \
     bookmarksimport/htmlimporter.cpp \
     tools/enhancedmenu.cpp \
-    navigation/siteicon.cpp
+    navigation/siteicon.cpp \
+    navigation/goicon.cpp \
+    rss/rssicon.cpp \
+    navigation/downicon.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -301,7 +304,10 @@ HEADERS  += \
     other/databasewriter.h \
     bookmarksimport/htmlimporter.h \
     tools/enhancedmenu.h \
-    navigation/siteicon.h
+    navigation/siteicon.h \
+    navigation/goicon.h \
+    rss/rssicon.h \
+    navigation/downicon.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

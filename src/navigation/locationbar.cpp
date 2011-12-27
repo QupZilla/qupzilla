@@ -32,6 +32,9 @@
 #include "toolbutton.h"
 #include "searchenginesmanager.h"
 #include "siteicon.h"
+#include "goicon.h"
+#include "rssicon.h"
+#include "downicon.h"
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit()
@@ -40,29 +43,17 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_locationBarSettings(LocationBarSettings::instance())
 {
     setObjectName("locationbar");
-    m_siteIcon = new SiteIcon(this);
-
-    m_rssIcon = new ClickableLabel(this);
-    m_rssIcon->setObjectName("locationbar-rss-icon");
-    m_rssIcon->setCursor(Qt::PointingHandCursor);
-    m_rssIcon->setToolTip(tr("Add RSS from this page..."));
-    m_rssIcon->setFocusPolicy(Qt::ClickFocus);
-    m_rssIcon->setVisible(false);
-
-    m_goButton = new ClickableLabel(this);
-    m_goButton->setObjectName("locationbar-goicon");
-    m_goButton->setCursor(Qt::PointingHandCursor);
-    m_goButton->setHidden(true);
 
     m_bookmarkIcon = new BookmarkIcon(p_QupZilla);
-
-    ClickableLabel* down = new ClickableLabel(this);
-    down->setObjectName("locationbar-down-icon");
-    down->setCursor(Qt::ArrowCursor);
+    m_goIcon = new GoIcon(this);
+    m_rssIcon = new RssIcon(this);
+    m_rssIcon->setToolTip(tr("Add RSS from this page..."));
+    m_siteIcon = new SiteIcon(this);
+    DownIcon* down = new DownIcon(this);
 
     addWidget(down, LineEdit::RightSide);
     addWidget(m_bookmarkIcon, LineEdit::RightSide);
-    addWidget(m_goButton, LineEdit::RightSide);
+    addWidget(m_goIcon, LineEdit::RightSide);
     addWidget(m_rssIcon, LineEdit::RightSide);
 
     setWidgetSpacing(0);
@@ -77,7 +68,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     connect(this, SIGNAL(textEdited(QString)), m_locationCompleter, SLOT(refreshCompleter(QString)));
     connect(m_locationCompleter->popup(), SIGNAL(clicked(QModelIndex)), p_QupZilla, SLOT(urlEnter()));
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
-    connect(m_goButton, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
+    connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
     connect(down, SIGNAL(clicked(QPoint)), this, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
@@ -135,7 +126,7 @@ void LocationBar::textEdit()
 
 void LocationBar::showGoButton()
 {
-    if (m_goButton->isVisible()) {
+    if (m_goIcon->isVisible()) {
         return;
     }
 
@@ -143,18 +134,18 @@ void LocationBar::showGoButton()
 
     m_bookmarkIcon->hide();
     m_rssIcon->hide();
-    m_goButton->show();
+    m_goIcon->show();
 }
 
 void LocationBar::hideGoButton()
 {
-    if (!m_goButton->isVisible()) {
+    if (!m_goIcon->isVisible()) {
         return;
     }
 
     m_rssIcon->setVisible(m_rssIconVisible);
     m_bookmarkIcon->show();
-    m_goButton->hide();
+    m_goIcon->hide();
 }
 
 void LocationBar::showMostVisited()
