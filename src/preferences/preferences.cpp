@@ -143,16 +143,23 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->newTabUseActual, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
 
     //PROFILES
+    m_actProfileName = mApp->getActiveProfilPath();
+    m_actProfileName = m_actProfileName.left(m_actProfileName.length()-1);
+    m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf("/"));
+    m_actProfileName.remove("/");
+
+    ui->activeProfile->setText("<b>" + m_actProfileName + "</b>");
+
     QString homePath = QDir::homePath();
     homePath += "/.qupzilla/";
     QSettings profileSettings(homePath + "profiles/profiles.ini", QSettings::IniFormat);
-    m_actProfileName = profileSettings.value("Profiles/startProfile", "default").toString();
+    QString actProfileName = profileSettings.value("Profiles/startProfile", "default").toString();
 
-    ui->startProfile->addItem(m_actProfileName);
+    ui->startProfile->addItem(actProfileName);
     QDir profilesDir(QDir::homePath() + "/.qupzilla/profiles/");
     QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
     foreach(QString name, list_) {
-        if (m_actProfileName == name) {
+        if (actProfileName == name) {
             continue;
         }
         ui->startProfile->addItem(name);
@@ -160,6 +167,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->createProfile, SIGNAL(clicked()), this, SLOT(createProfile()));
     connect(ui->deleteProfile, SIGNAL(clicked()), this, SLOT(deleteProfile()));
     connect(ui->startProfile, SIGNAL(currentIndexChanged(QString)), this, SLOT(startProfileIndexChanged(QString)));
+    startProfileIndexChanged(ui->startProfile->currentText());
 
     //APPEREANCE
     m_themesManager = new ThemeManager(ui->themesWidget);
@@ -583,7 +591,8 @@ void Preferences::createProfile()
         return;
     }
     dir.cd(name);
-    QFile(mApp->DATADIR + "data/default/profiles/default/browsedata.db").copy(dir.absolutePath() + "/browsedata.db");
+    QFile(":data/browsedata.db").copy(dir.absolutePath() + "/browsedata.db");
+    QFile(dir.absolutePath() + "/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
 
     ui->startProfile->insertItem(0, name);
     ui->startProfile->setCurrentIndex(0);

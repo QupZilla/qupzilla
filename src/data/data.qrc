@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>data/browsedata.db</file>
+        <file>data/profiles.ini</file>
+    </qresource>
+</RCC>

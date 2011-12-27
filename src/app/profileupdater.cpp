@@ -20,10 +20,9 @@
 #include "updater.h"
 #include "mainapplication.h"
 
-ProfileUpdater::ProfileUpdater(const QString &profilePath, const QString &dataPath)
+ProfileUpdater::ProfileUpdater(const QString &profilePath)
     : QObject()
     , m_profilePath(profilePath)
-    , m_dataPath(dataPath)
 {
 }
 
@@ -93,7 +92,8 @@ void ProfileUpdater::copyDataToProfile()
     profileDir.mkdir("certificates");
 
     QFile(m_profilePath + "browsedata.db").remove();
-    QFile(m_dataPath + "data/default/profiles/default/browsedata.db").copy(m_profilePath + "browsedata.db");
+    QFile(":data/browsedata.db").copy(m_profilePath + "browsedata.db");
+    QFile(m_profilePath + "browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
 }
 
 void ProfileUpdater::update100b4()
