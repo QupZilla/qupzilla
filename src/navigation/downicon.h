@@ -10,7 +10,7 @@ public:
     explicit DownIcon(QWidget* parent = 0);
 
 private:
-    void mousePressEvent(QMouseEvent *ev);
+    void mousePressEvent(QMouseEvent* ev);
 
 };
 

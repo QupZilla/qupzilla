@@ -1,6 +1,6 @@
 #include "goicon.h"
 
-GoIcon::GoIcon(QWidget *parent)
+GoIcon::GoIcon(QWidget* parent)
     : ClickableLabel(parent)
 {
     setObjectName("locationbar-goicon");
@@ -8,7 +8,7 @@ GoIcon::GoIcon(QWidget *parent)
     setHidden(true);
 }
 
-void GoIcon::mousePressEvent(QMouseEvent *ev)
+void GoIcon::mousePressEvent(QMouseEvent* ev)
 {
     ClickableLabel::mousePressEvent(ev);
 

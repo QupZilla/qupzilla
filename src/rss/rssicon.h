@@ -7,14 +7,14 @@ class RssIcon : public ClickableLabel
 {
     Q_OBJECT
 public:
-    explicit RssIcon(QWidget *parent = 0);
+    explicit RssIcon(QWidget* parent = 0);
 
 signals:
 
 public slots:
 
 private:
-    void mousePressEvent(QMouseEvent *ev);
+    void mousePressEvent(QMouseEvent* ev);
 };
 
 #endif // RSSICON_H

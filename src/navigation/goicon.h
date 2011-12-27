@@ -7,14 +7,14 @@ class GoIcon : public ClickableLabel
 {
     Q_OBJECT
 public:
-    explicit GoIcon(QWidget *parent = 0);
+    explicit GoIcon(QWidget* parent = 0);
 
 signals:
 
 public slots:
 
 private:
-    void mousePressEvent(QMouseEvent *ev);
+    void mousePressEvent(QMouseEvent* ev);
 
 };
 
