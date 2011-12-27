@@ -37,12 +37,15 @@ void SiteIcon::mousePressEvent(QMouseEvent* e)
     }
 
     ToolButton::mousePressEvent(e);
+
+    // Prevent propagating to LocationBar
+    e->accept();
 }
 
 void SiteIcon::mouseMoveEvent(QMouseEvent* e)
 {
     int manhattanLength = (e->pos() - m_dragStartPosition).manhattanLength();
-    if (manhattanLength > QApplication::startDragDistance()) {
+    if (manhattanLength <= QApplication::startDragDistance()) {
         ToolButton::mouseMoveEvent(e);
         return;
     }

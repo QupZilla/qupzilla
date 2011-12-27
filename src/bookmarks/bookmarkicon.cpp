@@ -95,3 +95,11 @@ void BookmarkIcon::setBookmarkDisabled()
     style()->polish(this);
     setToolTip(tr("Bookmark this Page"));
 }
+
+void BookmarkIcon::mousePressEvent(QMouseEvent *ev)
+{
+    ClickableLabel::mousePressEvent(ev);
+
+    // Prevent propagating to LocationBar
+    ev->accept();
+}
