@@ -71,6 +71,11 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
         }
     }
     connect(ui->pushButton, SIGNAL(clicked()), p_QupZilla, SLOT(showPageInfo()));
+
+    QPalette pal = palette();
+    pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
+    ui->historyLabel->setPalette(pal);
+    ui->secureLabel->setPalette(pal);
 }
 
 void SiteInfoWidget::showAt(QWidget* _parent)
