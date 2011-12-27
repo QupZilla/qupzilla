@@ -116,6 +116,10 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
         }
     }
 
+    if (messages.isEmpty()) {
+        messages.append(" ");
+    }
+
     if (isRunning()) {
         foreach (QString message, messages) {
             sendMessage(message);
@@ -355,31 +359,36 @@ void MainApplication::sendMessages(MainApplication::MessageType mes, bool state)
 
 void MainApplication::receiveAppMessage(QString message)
 {
+    QWidget* actWin = getWindow();
     if (message.startsWith("URL:")) {
         QString url(message.remove("URL:"));
         addNewTab(WebView::guessUrlFromString(url));
+        actWin = getWindow();
     }
     else if (message.startsWith("ACTION:")) {
         QString text = message.mid(7);
         if (text == "NewTab") {
             addNewTab();
+            actWin = getWindow();
         }
         else if (text == "NewWindow") {
-            makeNewWindow(false);
+            actWin = makeNewWindow(false);
         }
         else if (text == "ShowDownloadManager") {
             downManager()->show();
+            actWin = downManager();
         }
         else if (text == "StartPrivateBrowsing") {
             sendMessages(StartPrivateBrowsing, true);
+            actWin = getWindow();
         }
     }
 
-    QupZilla* actWin = getWindow();
     if (!actWin && !isClosing()) { // It can only occur if download manager window was still open
         makeNewWindow(true);
         return;
     }
+
     actWin->setWindowState(actWin->windowState() & ~Qt::WindowMinimized);
     actWin->raise();
     actWin->activateWindow();
@@ -394,7 +403,7 @@ void MainApplication::addNewTab(const QUrl &url)
     getWindow()->tabWidget()->addView(url);
 }
 
-void MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
+QupZilla* MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
 {
     QupZilla::StartBehaviour behaviour;
     if (tryRestore) {
@@ -408,6 +417,8 @@ void MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
     connect(newWindow, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(sendMessages(MainApplication::MessageType, bool)));
     m_mainWindows.append(newWindow);
     newWindow->show();
+
+    return newWindow;
 }
 
 void MainApplication::connectDatabase()
