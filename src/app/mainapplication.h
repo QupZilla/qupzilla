@@ -54,9 +54,11 @@ class MainApplication : public QtSingleApplication
 
 public:
     QString DATADIR;
+    QString PROFILEDIR;
     QString PLUGINSDIR;
     QString TRANSLATIONSDIR;
     QString THEMESDIR;
+
     explicit MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv);
 
     enum MessageType { SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,

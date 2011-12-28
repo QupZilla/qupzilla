@@ -52,6 +52,10 @@
 #define DEFAULT_THEME_NAME "linux"
 #endif
 
+#if defined(PORTABLE_BUILD) && !defined(NO_SYSTEM_DATAPATH)
+#define NO_SYSTEM_DATAPATH
+#endif
+
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
     , m_cookiemanager(0)
@@ -77,16 +81,23 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     , m_isRestoring(false)
     , m_databaseConnected(false)
 {
-    setOverrideCursor(Qt::WaitCursor);
 #if defined(Q_WS_X11) & !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR;
 #else
     DATADIR = qApp->applicationDirPath() + "/";
 #endif
+
+#ifdef PORTABLE_BUILD
+    PROFILEDIR = DATADIR + "profiles/";
+#else
+    PROFILEDIR = QDir::homePath() + "/.qupzilla/";
+#endif
+
     PLUGINSDIR = DATADIR + "plugins/";
     TRANSLATIONSDIR = DATADIR + "locale/";
     THEMESDIR = DATADIR + "themes/";
 
+    setOverrideCursor(Qt::WaitCursor);
     setWindowIcon(QupZilla::qupzillaIcon());
     bool noAddons = false;
     QUrl startUrl("");
@@ -143,23 +154,20 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     setApplicationVersion(QupZilla::VERSION);
     setOrganizationDomain("qupzilla");
 
-    QString homePath = QDir::homePath();
-    homePath += "/.qupzilla/";
-
     checkSettingsDir();
 
     QSettings::setDefaultFormat(QSettings::IniFormat);
     if (startProfile.isEmpty()) {
-        QSettings settings(homePath + "profiles/profiles.ini", QSettings::IniFormat);
+        QSettings settings(PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
         if (settings.value("Profiles/startProfile", "default").toString().contains("/")) {
-            m_activeProfil = homePath + "profiles/default/";
+            m_activeProfil = PROFILEDIR + "profiles/default/";
         }
         else {
-            m_activeProfil = homePath + "profiles/" + settings.value("Profiles/startProfile", "default").toString() + "/";
+            m_activeProfil = PROFILEDIR + "profiles/" + settings.value("Profiles/startProfile", "default").toString() + "/";
         }
     }
     else {
-        m_activeProfil = homePath + "profiles/" + startProfile + "/";
+        m_activeProfil = PROFILEDIR + "profiles/" + startProfile + "/";
     }
 
     ProfileUpdater u(m_activeProfil);
@@ -747,33 +755,34 @@ bool MainApplication::checkSettingsDir()
         |
     browsedata.db
     */
-    QString homePath = QDir::homePath() + "/.qupzilla/";
 
-    if (QDir(homePath).exists() && QFile(homePath + "profiles/profiles.ini").exists()) {
+    if (QDir(PROFILEDIR).exists() && QFile(PROFILEDIR + "profiles/profiles.ini").exists()) {
         return true;
     }
 
     std::cout << "Creating new profile directory" << std::endl;
 
-    QDir dir = QDir::home();
-    dir.mkdir(".qupzilla");
-    dir.cd(".qupzilla");
+    QDir dir(PROFILEDIR);
+
+    if (!dir.exists()) {
+        dir.mkpath(PROFILEDIR);
+    }
 
     dir.mkdir("profiles");
     dir.cd("profiles");
 
     //.qupzilla/profiles
-    QFile(homePath + "profiles/profiles.ini").remove();
-    QFile(":data/profiles.ini").copy(homePath + "profiles/profiles.ini");
-    QFile(homePath + "profiles/profiles.ini").setPermissions(QFile::ReadUser | QFile::WriteUser);
+    QFile(PROFILEDIR + "profiles/profiles.ini").remove();
+    QFile(":data/profiles.ini").copy(PROFILEDIR + "profiles/profiles.ini");
+    QFile(PROFILEDIR + "profiles/profiles.ini").setPermissions(QFile::ReadUser | QFile::WriteUser);
 
     dir.mkdir("default");
     dir.cd("default");
 
     //.qupzilla/profiles/default
-    QFile(homePath + "profiles/default/browsedata.db").remove();
-    QFile(":data/browsedata.db").copy(homePath + "profiles/default/browsedata.db");
-    QFile(homePath + "profiles/default/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
+    QFile(PROFILEDIR + "profiles/default/browsedata.db").remove();
+    QFile(":data/browsedata.db").copy(PROFILEDIR + "profiles/default/browsedata.db");
+    QFile(PROFILEDIR + "profiles/default/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
 
     return dir.isReadable();
 }

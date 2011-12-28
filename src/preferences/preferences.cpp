@@ -152,13 +152,11 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     ui->activeProfile->setText("<b>" + m_actProfileName + "</b>");
 
-    QString homePath = QDir::homePath();
-    homePath += "/.qupzilla/";
-    QSettings profileSettings(homePath + "profiles/profiles.ini", QSettings::IniFormat);
+    QSettings profileSettings(mApp->PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
     QString actProfileName = profileSettings.value("Profiles/startProfile", "default").toString();
 
     ui->startProfile->addItem(actProfileName);
-    QDir profilesDir(QDir::homePath() + "/.qupzilla/profiles/");
+    QDir profilesDir(mApp->PROFILEDIR + "profiles/");
     QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
     foreach(QString name, list_) {
         if (actProfileName == name) {
@@ -574,10 +572,11 @@ void Preferences::buttonClicked(QAbstractButton* button)
 void Preferences::createProfile()
 {
     QString name = QInputDialog::getText(this, tr("New Profile"), tr("Enter the new profile's name:"));
+    name = qz_filterCharsFromFilename(name);
     if (name.isEmpty() || name.contains("/") || name.contains("\\")) {
         return;
     }
-    QDir dir(QDir::homePath() + "/.qupzilla/profiles/");
+    QDir dir(mApp->PROFILEDIR + "profiles/");
     if (QDir(dir.absolutePath() + "/" + name).exists()) {
         QMessageBox::warning(this, tr("Error!"), tr("This profile already exists!"));
         return;
@@ -603,7 +602,7 @@ void Preferences::deleteProfile()
         return;
     }
 
-    removeDir(QDir::homePath() + "/.qupzilla/profiles/" + name);
+    removeDir(mApp->PROFILEDIR + "profiles/" + name);
     ui->startProfile->removeItem(ui->startProfile->currentIndex());
 }
 
@@ -795,9 +794,7 @@ void Preferences::saveSettings()
     settings.endGroup();
 
     //Profiles
-    QString homePath = QDir::homePath();
-    homePath += "/.qupzilla/";
-    QSettings profileSettings(homePath + "profiles/profiles.ini", QSettings::IniFormat);
+    QSettings profileSettings(mApp->PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
     profileSettings.setValue("Profiles/startProfile", ui->startProfile->currentText());
 
     m_pluginsList->save();

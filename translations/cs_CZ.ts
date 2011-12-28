@@ -1324,39 +1324,39 @@ nebyl nalezen!</translation>
 <context>
     <name>DownloadManager</name>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="137"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="138"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% z %2 souborů (%3) %4 zbyvá</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="140"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="141"/>
         <source>% - Download Manager</source>
         <translation>% - Správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="223"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="224"/>
         <source>Download Finished</source>
         <translation>Stahování dokončeno</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="223"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="224"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Všechna stahování byla úspěšně dokončena.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="275"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="276"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="276"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="277"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Jste si jistý že chcete skončit? Všechna nedokončená stahování budou zrušena!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="105"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="230"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="106"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="231"/>
         <source>Download Manager</source>
         <translation>Správce stahování</translation>
     </message>
@@ -1713,12 +1713,12 @@ nebyl nalezen!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="688"/>
+        <location filename="../src/app/mainapplication.cpp" line="680"/>
         <source>Last session crashed</source>
         <translation>Poslední relace spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="689"/>
+        <location filename="../src/app/mainapplication.cpp" line="681"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
@@ -2137,7 +2137,7 @@ nebyl nalezen!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="433"/>
-        <location filename="../src/preferences/preferences.cpp" line="619"/>
+        <location filename="../src/preferences/preferences.cpp" line="614"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Poznámka: Nemůžete smazat aktivní profil.</translation>
     </message>
@@ -2619,58 +2619,58 @@ nebyl nalezen!</translation>
         <translation>Ke změně jazyka je nutný restart prohlížeče.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="423"/>
+        <location filename="../src/preferences/preferences.cpp" line="417"/>
         <source>OSD Notification</source>
         <translation>OSD Oznámení</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="424"/>
+        <location filename="../src/preferences/preferences.cpp" line="418"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Přetáhněte jej na obrazovce na místo, na kterém jej chcete mít.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="452"/>
+        <location filename="../src/preferences/preferences.cpp" line="446"/>
         <source>Choose download location...</source>
         <translation>Vyberte složku pro stahování...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="466"/>
+        <location filename="../src/preferences/preferences.cpp" line="460"/>
         <source>Choose stylesheet location...</source>
         <translation>Vyberte umístění stylu...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="580"/>
+        <location filename="../src/preferences/preferences.cpp" line="574"/>
         <source>New Profile</source>
         <translation>Nový profil</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="580"/>
+        <location filename="../src/preferences/preferences.cpp" line="574"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Zvolte jméno nového profilu:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="586"/>
-        <location filename="../src/preferences/preferences.cpp" line="590"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
+        <location filename="../src/preferences/preferences.cpp" line="585"/>
         <source>Error!</source>
         <translation>Chyba!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="586"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
         <source>This profile already exists!</source>
         <translation>Tento profil již existuje!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="590"/>
+        <location filename="../src/preferences/preferences.cpp" line="585"/>
         <source>Cannot create profile directory!</source>
         <translation>Nemohu vytvořit složku profilu!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="604"/>
+        <location filename="../src/preferences/preferences.cpp" line="599"/>
         <source>Confirmation</source>
         <translation>Potvrzení</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="605"/>
+        <location filename="../src/preferences/preferences.cpp" line="600"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Jste si jisti že chcete permanentně smazat profil &quot;%1&quot;? Tuto akci nelze vzít zpět!</translation>
     </message>
@@ -4093,78 +4093,78 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="316"/>
-        <location filename="../src/webview/tabbar.cpp" line="336"/>
+        <location filename="../src/webview/tabbar.cpp" line="319"/>
+        <location filename="../src/webview/tabbar.cpp" line="339"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="103"/>
+        <location filename="../src/webview/tabbar.cpp" line="106"/>
         <source>&amp;New tab</source>
         <translation>&amp;Nový panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="111"/>
+        <location filename="../src/webview/tabbar.cpp" line="114"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Zastavit panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="114"/>
+        <location filename="../src/webview/tabbar.cpp" line="117"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Obnovit panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="117"/>
+        <location filename="../src/webview/tabbar.cpp" line="120"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Duplikovat panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="133"/>
+        <location filename="../src/webview/tabbar.cpp" line="136"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Obnovit &amp;všechny panely</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="121"/>
+        <location filename="../src/webview/tabbar.cpp" line="124"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>Přidat pane&amp;l do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="118"/>
+        <location filename="../src/webview/tabbar.cpp" line="121"/>
         <source>Un&amp;pin Tab</source>
         <translation>Ode&amp;pnout panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="118"/>
+        <location filename="../src/webview/tabbar.cpp" line="121"/>
         <source>&amp;Pin Tab</source>
         <translation>&amp;Připnout panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="120"/>
+        <location filename="../src/webview/tabbar.cpp" line="123"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Obnovit všec&amp;hny panely</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="122"/>
+        <location filename="../src/webview/tabbar.cpp" line="125"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Přidat &amp;všechny panely do záložek</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="136"/>
+        <location filename="../src/webview/tabbar.cpp" line="139"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Obnovit zavř&amp;ený panel</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="128"/>
+        <location filename="../src/webview/tabbar.cpp" line="131"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Zavřít osta&amp;tní panely</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="129"/>
+        <location filename="../src/webview/tabbar.cpp" line="132"/>
         <source>Cl&amp;ose</source>
         <translation>Z&amp;avřít</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="134"/>
+        <location filename="../src/webview/tabbar.cpp" line="137"/>
         <source>Bookmark &amp;All Ta&amp;bs</source>
         <translation>Přidat &amp;všechny panely do záložek</translation>
     </message>

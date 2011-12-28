@@ -21,6 +21,12 @@
 #include "mainapplication.h"
 #include "plugininterface.h"
 
+#ifdef PORTABLE_BUILD
+#define DEFAULT_ENABLE_PLUGINS false
+#else
+#define DEFAULT_ENABLE_PLUGINS true
+#endif
+
 PluginsList::PluginsList(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::PluginsList)
@@ -36,7 +42,7 @@ PluginsList::PluginsList(QWidget* parent)
 
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
-    ui->allowAppPlugins->setChecked(settings.value("EnablePlugins", true).toBool());
+    ui->allowAppPlugins->setChecked(settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool());
     settings.endGroup();
     allowAppPluginsChanged(ui->allowAppPlugins->isChecked());
 

@@ -23,7 +23,7 @@
         <location filename="../src/other/aboutdialog.cpp" line="48"/>
         <location filename="../src/other/aboutdialog.cpp" line="75"/>
         <source>&lt; About QupZilla</source>
-        <translation>О QupZilla</translation>
+        <translation>&lt; О QupZilla</translation>
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="58"/>
@@ -195,7 +195,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="53"/>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Информация о написании правил</translation>
+        <translation>Информация о написании &amp;правил</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="60"/>
@@ -365,7 +365,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="80"/>
         <source>Choose browser from which you want to import bookmarks:</source>
-        <translation>Выберите браузер из которого вы хотите импортировать закладки</translation>
+        <translation>Выберите браузер из которого вы хотите импортировать закладки:</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="119"/>
@@ -375,7 +375,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="208"/>
         <source>Fetching icons, please wait...</source>
-        <translation>Получаю иконки, пожалуйста подождите</translation>
+        <translation>Получаю иконки, пожалуйста подождите...</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.ui" line="296"/>
@@ -411,7 +411,7 @@
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="127"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="137"/>
         <source>Please press Finish to complete importing process.</source>
-        <translation>Пожалуйста, нажмите &quot;Завершено&quot; чтобы окончить импорт</translation>
+        <translation>Пожалуйста, нажмите &quot;Завершено&quot; чтобы окончить импорт.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="190"/>
@@ -468,7 +468,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="339"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation>Пожалуйста, выберите эту папку, чтобы начать импорт</translation>
+        <translation>Пожалуйста, выберите эту папку, чтобы начать импорт.</translation>
     </message>
 </context>
 <context>
@@ -511,7 +511,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
         <source>Choose name for new bookmark folder: </source>
-        <translation>Введите имя для новой папки</translation>
+        <translation>Введите имя для новой папки:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="103"/>
@@ -531,7 +531,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="128"/>
         <source>Choose name for folder: </source>
-        <translation>Введите имя</translation>
+        <translation>Введите имя:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
@@ -556,12 +556,12 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="239"/>
         <source>Open link in actual &amp;tab</source>
-        <translation>Открыть ссылку в текущей вкладке</translation>
+        <translation>Открыть ссылку в текущей &amp;вкладке</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in &amp;new tab</source>
-        <translation>Открыть ссылку в новой вкладке</translation>
+        <translation>Открыть ссылку в &amp;новой вкладке</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="244"/>
@@ -586,7 +586,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="563"/>
         <source>Choose name and location of this bookmark.</source>
-        <translation>Выберите имя и положение этой закладки</translation>
+        <translation>Выберите имя и папку для этой закладки.</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="567"/>
@@ -596,7 +596,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="608"/>
         <source>Choose folder for bookmarks:</source>
-        <translation>Выберите папку для закладок</translation>
+        <translation>Выберите папку для закладок:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="609"/>
@@ -673,7 +673,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="62"/>
         <source>&amp;Organize Bookmarks</source>
-        <translation>Управление закладками</translation>
+        <translation>&amp;Управление закладками</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="64"/>
@@ -859,7 +859,7 @@
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="39"/>
         <source>Unable to open file.</source>
-        <translation>Невозможно открыть файл</translation>
+        <translation>Невозможно открыть файл.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="84"/>
@@ -970,7 +970,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="279"/>
         <source>No more informations available.</source>
-        <translation>Нет доступной информации</translation>
+        <translation>Нет доступной информации.</translation>
     </message>
 </context>
 <context>
@@ -996,7 +996,7 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="20"/>
         <source>Find: </source>
-        <translation>Найти</translation>
+        <translation>Найти:</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="30"/>
@@ -1134,7 +1134,7 @@
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="58"/>
         <source>Remaining time unavailable</source>
-        <translation>Оставшееся время недоступно</translation>
+        <translation>Оставшееся время неизвестно</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="111"/>
@@ -1273,8 +1273,8 @@
     <name>DownloadManager</name>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="105"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="230"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="106"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="231"/>
         <source>Download Manager</source>
         <translation>Менеджер загрузок</translation>
     </message>
@@ -1284,32 +1284,32 @@
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="137"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="138"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% из %2 файлов (%3) %4 осталось</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="140"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="141"/>
         <source>% - Download Manager</source>
         <translation>% - Менеджер загрузок</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="223"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="224"/>
         <source>Download Finished</source>
         <translation>Загузка закончена</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="223"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="224"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Все файлы были успешно загружены.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="275"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="276"/>
         <source>Warning</source>
         <translation>Внимание</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="276"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="277"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Вы точно хотите выйти? Все незавершенные загрузки будут отменены!</translation>
     </message>
@@ -1334,7 +1334,7 @@
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="97"/>
         <source>from:</source>
-        <translation>из</translation>
+        <translation>из:</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadoptionsdialog.ui" line="116"/>
@@ -1367,12 +1367,12 @@
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="27"/>
         <source>Url:</source>
-        <translation>Url</translation>
+        <translation>Url:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="41"/>
         <source>Shortcut:</source>
-        <translation>Сокращение</translation>
+        <translation>Сокращение:</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="51"/>
@@ -1387,7 +1387,7 @@
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="97"/>
         <source>Add from file ...</source>
-        <translation>Выбрать файл</translation>
+        <translation>Выбрать файл ...</translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.cpp" line="84"/>
@@ -1628,7 +1628,7 @@
     <message>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="21"/>
         <source>Unable to open file.</source>
-        <translation>Невозможно открыть файл</translation>
+        <translation>Невозможно открыть файл.</translation>
     </message>
 </context>
 <context>
@@ -1653,12 +1653,12 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="688"/>
+        <location filename="../src/app/mainapplication.cpp" line="680"/>
         <source>Last session crashed</source>
         <translation>Последняя сессия завершилась неудачно</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="689"/>
+        <location filename="../src/app/mainapplication.cpp" line="681"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla упал :-(&lt;/b&gt;&lt;br/&gt;К сожалению, последняя сессия QupZilla была завершена неудачно. Вы хотите попробовать восстановить её?</translation>
     </message>
@@ -1713,7 +1713,7 @@
     <message>
         <location filename="../src/network/networkmanager.cpp" line="139"/>
         <source>SSL Certificate Error!</source>
-        <translation>Ошибка сертификата SSL</translation>
+        <translation>Ошибка в сертификате SSL!</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="140"/>
@@ -1793,7 +1793,7 @@
     <message>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="38"/>
         <source>Unable to open file.</source>
-        <translation>Невозможно открыть файл</translation>
+        <translation>Невозможно открыть файл.</translation>
     </message>
 </context>
 <context>
@@ -1801,7 +1801,7 @@
     <message>
         <location filename="../src/other/pagescreen.ui" line="14"/>
         <source>Page Screen</source>
-        <translation>Снимок страницы:</translation>
+        <translation>Снимок страницы</translation>
     </message>
     <message>
         <location filename="../src/other/pagescreen.cpp" line="47"/>
@@ -1888,7 +1888,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Настройки:</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="20"/>
@@ -1946,7 +1946,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="271"/>
         <source>On new tab: </source>
-        <translation>На новой вкладке</translation>
+        <translation>На новой вкладке:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="279"/>
@@ -1966,7 +1966,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="309"/>
         <source>Startup profile:</source>
-        <translation>Профиль по умолчанию</translation>
+        <translation>Профиль по умолчанию:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="359"/>
@@ -1980,7 +1980,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="433"/>
-        <location filename="../src/preferences/preferences.cpp" line="619"/>
+        <location filename="../src/preferences/preferences.cpp" line="614"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Примечание: Нельзя удалить активный профиль.</translation>
     </message>
@@ -2107,12 +2107,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="843"/>
         <source>Allow JAVA</source>
-        <translation>Использовать Java</translation>
+        <translation>Позволять использовать Java</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="756"/>
         <source>Allow JavaScript</source>
-        <translation>Использовать JavaScript</translation>
+        <translation>Позволять использовать JavaScript</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="450"/>
@@ -2122,7 +2122,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="763"/>
         <source>Allow Plugins (Flash plugin)</source>
-        <translation>Использовать Плагины (плагин Flash)</translation>
+        <translation>Позволять использовать плагины (плагин Flash)</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="770"/>
@@ -2178,7 +2178,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="891"/>
         <source>Default zoom on pages: </source>
-        <translation>Масштабирование страницы по умолчанию</translation>
+        <translation>Масштабирование страницы по умолчанию:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="942"/>
@@ -2273,7 +2273,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1221"/>
         <source>System proxy configuration</source>
-        <translation>Настройки прокси</translation>
+        <translation>Использовать системные настройки прокси</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1228"/>
@@ -2408,7 +2408,7 @@
         <location filename="../src/preferences/preferences.ui" line="1685"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Внимание:&lt;/b&gt; Match domain exactly и фильтрация шпионских Cookies могут привести к запрещению некторых Cookies. Если у вас проблемы с cookies, то поробуёте отключить эти 
-опции</translation>
+опции!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1701"/>
@@ -2443,12 +2443,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1802"/>
         <source>Expiration timeout:</source>
-        <translation>Срок действия истек!</translation>
+        <translation>Длительность уведомления:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1815"/>
         <source> seconds</source>
-        <translation>секунд</translation>
+        <translation> секунд</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1824"/>
@@ -2478,7 +2478,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1946"/>
         <source>StyleSheet automatically loaded with all websites: </source>
-        <translation>Загружать таблицу стилей для всех сайтов</translation>
+        <translation>Загружать таблицу стилей для всех сайтов:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1965"/>
@@ -2546,58 +2546,58 @@
         <translation>Прочее</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="423"/>
+        <location filename="../src/preferences/preferences.cpp" line="417"/>
         <source>OSD Notification</source>
         <translation>OSD Уведомления</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="424"/>
+        <location filename="../src/preferences/preferences.cpp" line="418"/>
         <source>Drag it on the screen to place it where you want.</source>
-        <translation>Перетащите уведомление, в место где вы хотите его разместить</translation>
+        <translation>Перетащите уведомление, в место где вы хотите его разместить.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="452"/>
+        <location filename="../src/preferences/preferences.cpp" line="446"/>
         <source>Choose download location...</source>
         <translation>Выберите папку для загрузок...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="466"/>
+        <location filename="../src/preferences/preferences.cpp" line="460"/>
         <source>Choose stylesheet location...</source>
-        <translation>Укажите местоположение таблицы стилей</translation>
+        <translation>Укажите местоположение таблицы стилей...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="580"/>
+        <location filename="../src/preferences/preferences.cpp" line="574"/>
         <source>New Profile</source>
         <translation>Новый профиль</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="580"/>
+        <location filename="../src/preferences/preferences.cpp" line="574"/>
         <source>Enter the new profile&apos;s name:</source>
-        <translation>Введите новое имя профиля:</translation>
+        <translation>Введите имя нового профиля:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="586"/>
-        <location filename="../src/preferences/preferences.cpp" line="590"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
+        <location filename="../src/preferences/preferences.cpp" line="585"/>
         <source>Error!</source>
         <translation>Ошибка!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="586"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
         <source>This profile already exists!</source>
         <translation>Такой профиль уже существует!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="590"/>
+        <location filename="../src/preferences/preferences.cpp" line="585"/>
         <source>Cannot create profile directory!</source>
         <translation>Невозможно создать папку для профиля!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="604"/>
+        <location filename="../src/preferences/preferences.cpp" line="599"/>
         <source>Confirmation</source>
         <translation>Подтверждение</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="605"/>
+        <location filename="../src/preferences/preferences.cpp" line="600"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Вы точно хотите удалить профиль &quot;%1&quot;? Это действие необратимо!</translation>
     </message>
@@ -2722,12 +2722,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="288"/>
         <source>&amp;Save Page As...</source>
-        <translation>Сохранить как...</translation>
+        <translation>&amp;Сохранить как...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="289"/>
         <source>Save Page Screen</source>
-        <translation>Сохранить снимок страницы...</translation>
+        <translation>Сохранить снимок страницы</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="290"/>
@@ -2742,7 +2742,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="294"/>
         <source>Import bookmarks...</source>
-        <translation>Импортировать закладки</translation>
+        <translation>Импортировать закладки...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="295"/>
@@ -2818,7 +2818,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="327"/>
         <source>Sta&amp;tus Bar</source>
-        <translation>Пане ль &amp;Статуса</translation>
+        <translation>Панель &amp;статуса</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="330"/>
@@ -2858,12 +2858,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="360"/>
         <source>Toolbars</source>
-        <translation>&amp;Панели инструментов</translation>
+        <translation>Панели инструментов</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="364"/>
         <source>Sidebars</source>
-        <translation>&amp;Боковые панели</translation>
+        <translation>Боковые панели</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="376"/>
@@ -2883,7 +2883,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="382"/>
         <source>&amp;Page Source</source>
-        <translation>Исходый код страницы</translation>
+        <translation>&amp;Исходый код страницы</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="395"/>
@@ -3040,7 +3040,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1313"/>
         <source>Webpages are not added to the history.</source>
-        <translation>Будет отключено ведение истории</translation>
+        <translation>Будет отключено ведение истории.</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1314"/>
@@ -3340,12 +3340,12 @@
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation>У вас нет RSS лент&lt;br/&gt;
-Пожалуйста, добавьте их с помощью значка RSS в панели Навигации на сайте который предлагает RSS</translation>
+Пожалуйста, добавьте их с помощью значка RSS в панели Навигации на сайте который предлагает RSS.</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="161"/>
         <source>Fill title and URL of a feed: </source>
-        <translation>Введите назвние и адрес ленты</translation>
+        <translation>Введите назвние и адрес ленты:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="163"/>
@@ -3391,7 +3391,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="370"/>
         <source>You already have this feed.</source>
-        <translation>У вас уже есть эта лента</translation>
+        <translation>Вы  уже подписаны на эту ленту.</translation>
     </message>
 </context>
 <context>
@@ -3459,7 +3459,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="57"/>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
-        <translation>Это список сертификатов авторизации расположенных в системных, а также определенных пользователем местах</translation>
+        <translation>Это список сертификатов авторизации расположенных в системных, а также определенных пользователем местах.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="68"/>
@@ -3495,7 +3495,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="171"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation>&lt;b&gt;Внимание: &lt;/b&gt; Включение этой опции - большой риск для безопасности</translation>
+        <translation>&lt;b&gt;Внимание: &lt;/b&gt; Включение этой опции - большой риск для безопасности!</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="210"/>
@@ -3593,7 +3593,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="257"/>
         <source>Search Engine is not valid!</source>
-        <translation>Поисковая система не является допустимой</translation>
+        <translation>Поисковая система не является допустимой!</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="258"/>
@@ -3611,7 +3611,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/searchtoolbar.cpp" line="125"/>
         <source>No results found.</source>
-        <translation>Результатов нет</translation>
+        <translation>Результатов нет.</translation>
     </message>
 </context>
 <context>
@@ -3799,7 +3799,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="221"/>
         <source>Preview not available</source>
-        <translation>Предпросмотр не доступен!</translation>
+        <translation>Предпросмотр не доступен</translation>
     </message>
 </context>
 <context>
@@ -3807,7 +3807,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/siteinfowidget.ui" line="93"/>
         <source>More...</source>
-        <translation>Подробнее</translation>
+        <translation>Подробнее...</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="35"/>
@@ -3823,7 +3823,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/siteinfowidget.cpp" line="51"/>
         <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation>Это ваше &lt;b&gt;%2 .&lt;/b&gt; посещение этого сайта.</translation>
+        <translation>Это ваше &lt;b&gt;%1 &lt;/b&gt; посещение этого сайта.</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="55"/>
@@ -4010,79 +4010,79 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="103"/>
+        <location filename="../src/webview/tabbar.cpp" line="106"/>
         <source>&amp;New tab</source>
         <translation>&amp;Новая вкладка</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="111"/>
+        <location filename="../src/webview/tabbar.cpp" line="114"/>
         <source>&amp;Stop Tab</source>
         <translatorcomment>???????????</translatorcomment>
         <translation>&amp;Прервать загрузку</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="114"/>
+        <location filename="../src/webview/tabbar.cpp" line="117"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Обновить вкладку</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="117"/>
+        <location filename="../src/webview/tabbar.cpp" line="120"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Клонировать вкладку</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="118"/>
+        <location filename="../src/webview/tabbar.cpp" line="121"/>
         <source>Un&amp;pin Tab</source>
         <translation>О&amp;ткрепить вкладку</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="118"/>
+        <location filename="../src/webview/tabbar.cpp" line="121"/>
         <source>&amp;Pin Tab</source>
         <translation>П&amp;рикрепить вкладку</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="120"/>
+        <location filename="../src/webview/tabbar.cpp" line="123"/>
         <source>Re&amp;load All Tabs</source>
         <translation>О&amp;бновить все вкладки</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="121"/>
+        <location filename="../src/webview/tabbar.cpp" line="124"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>Добавить &amp;закладку для этой страницы</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="122"/>
+        <location filename="../src/webview/tabbar.cpp" line="125"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Закладки для &amp;всех открытых страниц</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="128"/>
+        <location filename="../src/webview/tabbar.cpp" line="131"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Закрыть &amp;остальные вкладки</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="129"/>
+        <location filename="../src/webview/tabbar.cpp" line="132"/>
         <source>Cl&amp;ose</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="133"/>
+        <location filename="../src/webview/tabbar.cpp" line="136"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Об&amp;новить все вкладки</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="134"/>
+        <location filename="../src/webview/tabbar.cpp" line="137"/>
         <source>Bookmark &amp;All Ta&amp;bs</source>
         <translation>Закладки для &amp;всех открытых страниц</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="136"/>
+        <location filename="../src/webview/tabbar.cpp" line="139"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Открыть &amp;закрытую вкладку</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="316"/>
-        <location filename="../src/webview/tabbar.cpp" line="336"/>
+        <location filename="../src/webview/tabbar.cpp" line="319"/>
+        <location filename="../src/webview/tabbar.cpp" line="339"/>
         <source>New tab</source>
         <translation>Новая вкладка</translation>
     </message>
@@ -4245,7 +4245,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="382"/>
         <source>QupZilla can&apos;t load page from %1.</source>
-        <translation>QupZilla не может загрузить страницу %1</translation>
+        <translation>QupZilla не может загрузить страницу %1.</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="383"/>
@@ -4255,12 +4255,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="384"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
-        <translation>Если невозможно загрузить любую страницу, проверьте ваше соединение с Internet</translation>
+        <translation>Если не можете открыть любую страницу, проверьте ваше соединение с Internet.</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="385"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
-        <translation>Если ваш компютер или сеть защишена с помощью фаервола или прокси, удостовертесь, что QupZilla может выходить в Internet</translation>
+        <translation>Если ваш компютер или сеть защишена с помощью фаервола или прокси, удостовертесь, что QupZilla может выходить в Internet.</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="386"/>
@@ -4283,7 +4283,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="164"/>
         <source>Add %1 ...</source>
-        <translation>Добавить %1</translation>
+        <translation>Добавить %1 ...</translation>
     </message>
 </context>
 <context>
@@ -4323,7 +4323,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="467"/>
         <source>&amp;Save link as...</source>
-        <translation>Сохранить ссылку как...</translation>
+        <translation>&amp;Сохранить ссылку как...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="468"/>
@@ -4338,12 +4338,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="480"/>
         <source>Show i&amp;mage</source>
-        <translation>Показать изображение</translation>
+        <translation>Показать &amp;изображение</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="481"/>
         <source>Copy im&amp;age</source>
-        <translation>Копировать изображение</translation>
+        <translation>Копировать и&amp;зображение</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="482"/>
@@ -4353,7 +4353,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="484"/>
         <source>&amp;Save image as...</source>
-        <translation>Сохранить изображение как...</translation>
+        <translation>Сохранить изображение &amp;как...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="485"/>
@@ -4413,7 +4413,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="529"/>
         <source>Show Web &amp;Inspector</source>
-        <translation>Показать Web инспектор</translation>
+        <translation>Показать Web &amp;инспектор</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="540"/>
