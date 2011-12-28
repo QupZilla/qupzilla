@@ -19,6 +19,12 @@
 #include "plugininterface.h"
 #include "mainapplication.h"
 
+#ifdef PORTABLE_BUILD
+#define DEFAULT_ENABLE_PLUGINS false
+#else
+#define DEFAULT_ENABLE_PLUGINS true
+#endif
+
 Plugins::Plugins(QObject* parent)
     : QObject(parent)
 {
@@ -31,7 +37,7 @@ void Plugins::loadSettings()
 
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Plugin-Settings");
-    m_pluginsEnabled = settings.value("EnablePlugins", true).toBool();
+    m_pluginsEnabled = settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool();
     m_allowedPluginFileNames = settings.value("AllowedPlugins", QStringList()).toStringList();
     settings.endGroup();
 }

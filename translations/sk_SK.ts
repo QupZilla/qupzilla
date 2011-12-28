@@ -2106,6 +2106,10 @@
         <source>Ask when entering Private Browsing mode</source>
         <translation>Pýtať sa pri zapínaní súkromného prehliadania</translation>
     </message>
+    <message>
+        <source>Active profile:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

@@ -23,6 +23,7 @@
 #include <QPushButton>
 #include <QDebug>
 #include <QWebFrame>
+#include <QToolTip>
 
 namespace Ui
 {

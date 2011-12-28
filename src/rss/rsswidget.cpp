@@ -32,6 +32,11 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
     QWebFrame* frame = m_view->page()->mainFrame();
     QWebElementCollection links = frame->findAllElements("link[type=\"application/rss+xml\"]");
 
+    // Use light color for QLabels even with Ubuntu Ambiance theme
+    QPalette pal = palette();
+    pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
+    ui->label_2->setPalette(pal);
+
     for (int i = 0; i < links.count(); i++) {
         QWebElement element = links.at(i);
         QString title = element.attribute("title");
@@ -49,6 +54,7 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
         button->setWhatsThis(href);
         button->setToolTip(title);
         QLabel* label = new QLabel(this);
+        label->setPalette(pal);
         label->setText(title);
         ui->gridLayout->addWidget(label, i, 0);
         ui->gridLayout->addWidget(button, i, 1);

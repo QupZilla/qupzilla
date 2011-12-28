@@ -42,6 +42,8 @@ class BookmarkIcon;
 class WebView;
 class LocationBarSettings;
 class SiteIcon;
+class GoIcon;
+class RssIcon;
 class LocationBar : public LineEdit
 {
     Q_OBJECT
@@ -87,8 +89,8 @@ private:
     void hideGoButton();
 
     BookmarkIcon* m_bookmarkIcon;
-    ClickableLabel* m_goButton;
-    ClickableLabel* m_rssIcon;
+    GoIcon* m_goIcon;
+    RssIcon* m_rssIcon;
     SiteIcon* m_siteIcon;
 
     QupZilla* p_QupZilla;
