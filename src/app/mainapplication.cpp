@@ -44,6 +44,14 @@
 #include "speeddial.h"
 #include "webpage.h"
 
+#ifdef Q_WS_WIN
+#define DEFAULT_CHECK_UPDATES true
+#define DEFAULT_THEME_NAME "windows"
+#else
+#define DEFAULT_CHECK_UPDATES false
+#define DEFAULT_THEME_NAME "linux"
+#endif
+
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
     , m_cookiemanager(0)
@@ -179,13 +187,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     AutoSaver* saver = new AutoSaver();
     connect(saver, SIGNAL(saveApp()), this, SLOT(saveStateSlot()));
 
-    if (settings2.value("Web-Browser-Settings/CheckUpdates",
-#ifdef Q_WS_WIN
-                        true
-#else
-                        false
-#endif
-                       ).toBool()) {
+    if (settings2.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool()) {
         m_updater = new Updater(qupzilla);
     }
 
@@ -206,13 +208,7 @@ void MainApplication::loadSettings()
 {
     QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Themes");
-    QString activeTheme = settings.value("activeTheme",
-#ifdef Q_WS_X11
-                                         "linux"
-#else
-                                         "windows"
-#endif
-                                        ).toString();
+    QString activeTheme = settings.value("activeTheme", DEFAULT_THEME_NAME).toString();
     settings.endGroup();
     m_activeThemePath = THEMESDIR + activeTheme + "/";
     QFile cssFile(m_activeThemePath + "main.css");

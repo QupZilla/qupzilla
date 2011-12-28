@@ -309,7 +309,7 @@ void QupZilla::setupMenu()
     m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &All"), this, SLOT(selectAll()))->setShortcut(QKeySequence("Ctrl+A"));
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     m_menuEdit->addSeparator();
-#ifdef Q_WS_X11
+#ifndef Q_WS_WIN
     m_menuEdit->addAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
 #endif
     menuBar()->addMenu(m_menuEdit);
@@ -844,7 +844,7 @@ void QupZilla::aboutToHideEditMenu()
     }
 
     m_menuEdit->actions().at(9)->setEnabled(true);
-#ifdef Q_WS_X11
+#ifndef Q_WS_WIN
     m_menuEdit->actions().at(11)->setEnabled(true);
 #endif
 }

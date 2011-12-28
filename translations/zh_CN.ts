@@ -1702,12 +1702,12 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="682"/>
+        <location filename="../src/app/mainapplication.cpp" line="688"/>
         <source>Last session crashed</source>
         <translation>会话崩溃</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="683"/>
+        <location filename="../src/app/mainapplication.cpp" line="689"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>QupZilla上次结束时崩溃，我们非常遗憾。您要还原保存的状态吗？</translation>
     </message>
@@ -3306,32 +3306,32 @@
         <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="239"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
         <source>Speed Dial</source>
         <translation>快速拨号</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
         <source>Add New Page</source>
         <translation>添加新网页</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Load title from page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Remove</source>
         <translation>删除</translation>
     </message>
@@ -3341,22 +3341,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Reload</source>
         <translation>刷新</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
         <source>Url</source>
         <translation>地址</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
         <source>Title</source>
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>New Page</source>
         <translation>新网页</translation>
     </message>

@@ -1649,12 +1649,12 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="682"/>
+        <location filename="../src/app/mainapplication.cpp" line="688"/>
         <source>Last session crashed</source>
         <translation>Η τελευταία συνεδρία κατέρρευσε</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="683"/>
+        <location filename="../src/app/mainapplication.cpp" line="689"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>Το &lt;b&gt;QupZilla κατέρρευσε :-(&lt;/b&gt;&lt;br/&gt;Ούπς, η τελευταία συνεδρία του QupZilla διακόπηκε απροσδόκητα. Ζητάμε συγνώμη για αυτό. Θα θέλατε να δοκιμάσετε την επαναφορά στην ποιο πρόσφατα αποθηκευμένη κατάσταση;</translation>
     </message>
@@ -3229,32 +3229,32 @@
         <translation>Μεταφραστές</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="239"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
         <source>Speed Dial</source>
         <translation>Γρήγορη κλήση</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
         <source>Add New Page</source>
         <translation>Προσθήκη νέας σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Apply</source>
         <translation>Εφαρμογή</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Load title from page</source>
         <translation>Φόρτωση τίτλου από σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
         <source>Edit</source>
         <translation>Επεξεργασία</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Remove</source>
         <translation>Αφαίρεση</translation>
     </message>
@@ -3264,22 +3264,22 @@
         <translation>Το e-mail είναι προαιρετικό&lt;br/&gt;&lt;b&gt;Σημείωση: &lt;/b&gt;Παρακαλώ χρησιμοποιείστε μόνο Αγγλική γλώσσα.</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Reload</source>
         <translation>Ανανέωση</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
         <source>Url</source>
         <translation>Url</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
         <source>Title</source>
         <translation>Τίτλος</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>New Page</source>
         <translation>Νέα σελίδα</translation>
     </message>
