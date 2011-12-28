@@ -81,6 +81,9 @@ public slots:
     AdBlockDialog* showDialog();
     void showRule();
 
+private slots:
+    void rulesUpdated();
+
 private:
     static AdBlockManager* s_adBlockManager;
 

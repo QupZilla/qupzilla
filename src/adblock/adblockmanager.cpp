@@ -108,11 +108,25 @@ void AdBlockManager::load()
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("AdBlock");
     m_enabled = settings.value("enabled", m_enabled).toBool();
+    QDateTime lastUpdate = settings.value("lastUpdate", QDateTime()).toDateTime();
     settings.endGroup();
 
-    m_subscription = new AdBlockSubscription(this);
+    m_subscription = new AdBlockSubscription();
     connect(m_subscription, SIGNAL(rulesChanged()), this, SIGNAL(rulesChanged()));
-    connect(m_subscription, SIGNAL(changed()), this, SIGNAL(rulesChanged()));
+    connect(m_subscription, SIGNAL(rulesUpdated()), this, SLOT(rulesUpdated()));
+
+    if (lastUpdate.addDays(3) < QDateTime::currentDateTime()) {
+        m_subscription->scheduleUpdate();
+    }
+}
+
+void AdBlockManager::rulesUpdated()
+{
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    settings.beginGroup("AdBlock");
+    settings.setValue("lastUpdate", QDateTime::currentDateTime());
+
+    emit rulesChanged();
 }
 
 void AdBlockManager::save()

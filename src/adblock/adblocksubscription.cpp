@@ -82,6 +82,16 @@ void AdBlockSubscription::loadRules()
             }
         }
     }
+
+    if (m_rules.isEmpty()) {
+        // Initial update
+        QTimer::singleShot(0, this, SLOT(updateNow()));
+    }
+}
+
+void AdBlockSubscription::scheduleUpdate()
+{
+    QTimer::singleShot(1000 * 30, this, SLOT(updateNow()));
 }
 
 void AdBlockSubscription::updateNow()
@@ -140,7 +150,7 @@ void AdBlockSubscription::rulesDownloaded()
     file.write(response);
     file.close();
     loadRules();
-    emit changed();
+    emit rulesUpdated();
     m_downloading = 0;
 }
 
