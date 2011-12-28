@@ -97,6 +97,8 @@ QList<QTreeWidgetItem*> TreeWidget::allItems()
     }
     return m_allTreeItems;
 }
+
+#include <QDebug>
 void TreeWidget::filterString(QString string)
 {
     expandAll();
@@ -123,8 +125,13 @@ void TreeWidget::filterString(QString string)
 
         QTreeWidgetItem* firstItem = topLevelItem(0);
         QTreeWidgetItem* belowItem = itemBelow(firstItem);
+
+        int topLvlIndex = 0;
         while (firstItem) {
-            if (!firstItem->parent() && !belowItem) {
+            if (firstItem->text(0).contains(string, Qt::CaseInsensitive)) {
+                firstItem->setHidden(false);
+            }
+            else if (!firstItem->parent() && !belowItem) {
                 firstItem->setHidden(true);
             }
             else if (!belowItem) {
@@ -133,7 +140,9 @@ void TreeWidget::filterString(QString string)
             else if (!firstItem->parent() && !belowItem->parent()) {
                 firstItem->setHidden(true);
             }
-            firstItem = belowItem;
+
+            topLvlIndex++;
+            firstItem = topLevelItem(topLvlIndex);
             belowItem = itemBelow(firstItem);
         }
     }
