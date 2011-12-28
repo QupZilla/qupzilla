@@ -24,8 +24,11 @@
 
 #define MAXIMUM_TAB_WIDTH 250
 #define MINIMUM_TAB_WIDTH 50
+
 #ifdef Q_WS_WIN
 #define PINNED_TAB_WIDTH 38
+#elif defined(KDE)
+#define PINNED_TAB_WIDTH 24
 #else
 #define PINNED_TAB_WIDTH 31
 #endif
