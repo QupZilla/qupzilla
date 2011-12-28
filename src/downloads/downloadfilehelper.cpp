@@ -64,7 +64,7 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
 
     // Close Empty Tab
     if (m_webPage) {
-        if (!m_webPage->mainFrame()->url().isEmpty()) {
+        if (!m_webPage->mainFrame()->url().isEmpty() && m_webPage->mainFrame()->url().toString() != "about:blank") {
             m_downloadPage = m_webPage->mainFrame()->url();
         }
         else if (m_webPage->history()->canGoBack()) {
