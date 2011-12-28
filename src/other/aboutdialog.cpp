@@ -89,7 +89,8 @@ void AboutDialog::showAuthors()
                              "Jérôme Giry (French)<br/>"
                              "Nicolas Ourceau (French)<br/>"
                              "Vasilis Tsivikis (Greek)<br/>"
-                             "Alexander Maslov (Russian)"
+                             "Alexander Maslov (Russian)<br/>"
+                             "Oleg Brezhnev (Russian)"
                                                                         ));
         m_authorsHtml.append("</div>");
     }
