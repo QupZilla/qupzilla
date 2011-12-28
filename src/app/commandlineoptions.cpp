@@ -40,8 +40,10 @@ void CommandLineOptions::showHelp()
                        "    -p or --profile=PROFILE       start with specified profile \n"
                        "    -np or --no-plugins           start without plugins \n"
                        "\n"
+                       " Options to control running QupZilla:\n"
                        "    -nt or --new-tab              open new tab\n"
                        "    -nw or --new-window           open new window\n"
+                       "    -pb or --private-browsing     start private browsing\n"
                        "    -dm or --download-manager     show download manager\n"
                        "\n"
                        " QupZilla is a new, fast and secure web browser\n"
@@ -69,6 +71,7 @@ void CommandLineOptions::parseActions()
             m_actions.append(pair);
             break;
         }
+
         if (arg == "-a" || arg == "--authors") {
             cout << "QupZilla authors: " << endl;
             cout << "  nowrep <nowrep@gmail.com>" << endl;
@@ -78,6 +81,7 @@ void CommandLineOptions::parseActions()
             m_actions.append(pair);
             break;
         }
+
         if (arg == "-v" || arg == "--version") {
             cout << "QupZilla v" << QupZilla::VERSION.toUtf8().data()
 #ifdef GIT_REVISION
@@ -131,6 +135,14 @@ void CommandLineOptions::parseActions()
             found = true;
             ActionPair pair;
             pair.action = ShowDownloadManager;
+            pair.text = "";
+            m_actions.append(pair);
+        }
+
+        if (arg.startsWith("-pb") || arg.startsWith("--private-browsing")) {
+            found = true;
+            ActionPair pair;
+            pair.action = StartPrivateBrowsing;
             pair.text = "";
             m_actions.append(pair);
         }

@@ -40,6 +40,14 @@
 #include "globalfunctions.h"
 #include "autofillmodel.h"
 
+#ifdef Q_WS_WIN
+#define DEFAULT_CHECK_UPDATES true
+#define DEFAULT_USE_NATIVE_DIALOG false
+#else
+#define DEFAULT_CHECK_UPDATES false
+#define DEFAULT_USE_NATIVE_DIALOG true
+#endif
+
 bool removeFile(const QString &fullFileName)
 {
     QFile f(fullFileName);
@@ -116,13 +124,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     int afterLaunch = settings.value("afterLaunch", 1).toInt();
     settings.endGroup();
     ui->afterLaunch->setCurrentIndex(afterLaunch);
-    ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates",
-#ifdef Q_WS_WIN
-                                 true
-#else
-                                 false
-#endif
-                                               ).toBool());
+    ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool());
 
     ui->newTabFrame->setVisible(false);
     if (m_newTabUrl.isEmpty()) {
@@ -143,16 +145,21 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->newTabUseActual, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
 
     //PROFILES
-    QString homePath = QDir::homePath();
-    homePath += "/.qupzilla/";
-    QSettings profileSettings(homePath + "profiles/profiles.ini", QSettings::IniFormat);
-    m_actProfileName = profileSettings.value("Profiles/startProfile", "default").toString();
+    m_actProfileName = mApp->getActiveProfilPath();
+    m_actProfileName = m_actProfileName.left(m_actProfileName.length() - 1);
+    m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf("/"));
+    m_actProfileName.remove("/");
 
-    ui->startProfile->addItem(m_actProfileName);
-    QDir profilesDir(QDir::homePath() + "/.qupzilla/profiles/");
+    ui->activeProfile->setText("<b>" + m_actProfileName + "</b>");
+
+    QSettings profileSettings(mApp->PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
+    QString actProfileName = profileSettings.value("Profiles/startProfile", "default").toString();
+
+    ui->startProfile->addItem(actProfileName);
+    QDir profilesDir(mApp->PROFILEDIR + "profiles/");
     QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
     foreach(QString name, list_) {
-        if (m_actProfileName == name) {
+        if (actProfileName == name) {
             continue;
         }
         ui->startProfile->addItem(name);
@@ -160,6 +167,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->createProfile, SIGNAL(clicked()), this, SLOT(createProfile()));
     connect(ui->deleteProfile, SIGNAL(clicked()), this, SLOT(deleteProfile()));
     connect(ui->startProfile, SIGNAL(currentIndexChanged(QString)), this, SLOT(startProfileIndexChanged(QString)));
+    startProfileIndexChanged(ui->startProfile->currentText());
 
     //APPEREANCE
     m_themesManager = new ThemeManager(ui->themesWidget);
@@ -260,13 +268,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     settings.beginGroup("DownloadManager");
     ui->downLoc->setText(settings.value("defaultDownloadPath", "").toString());
     ui->closeDownManOnFinish->setChecked(settings.value("CloseManagerOnFinish", false).toBool());
-    ui->downlaodNativeSystemDialog->setChecked(settings.value("useNativeDialog",
-#ifdef Q_WS_WIN
-            false
-#else
-            true
-#endif
-                                                             ).toBool());
+    ui->downlaodNativeSystemDialog->setChecked(settings.value("useNativeDialog", DEFAULT_USE_NATIVE_DIALOG).toBool());
     if (ui->downLoc->text().isEmpty()) {
         ui->askEverytime->setChecked(true);
     }
@@ -570,10 +572,11 @@ void Preferences::buttonClicked(QAbstractButton* button)
 void Preferences::createProfile()
 {
     QString name = QInputDialog::getText(this, tr("New Profile"), tr("Enter the new profile's name:"));
+    name = qz_filterCharsFromFilename(name);
     if (name.isEmpty() || name.contains("/") || name.contains("\\")) {
         return;
     }
-    QDir dir(QDir::homePath() + "/.qupzilla/profiles/");
+    QDir dir(mApp->PROFILEDIR + "profiles/");
     if (QDir(dir.absolutePath() + "/" + name).exists()) {
         QMessageBox::warning(this, tr("Error!"), tr("This profile already exists!"));
         return;
@@ -583,7 +586,8 @@ void Preferences::createProfile()
         return;
     }
     dir.cd(name);
-    QFile(mApp->DATADIR + "data/default/profiles/default/browsedata.db").copy(dir.absolutePath() + "/browsedata.db");
+    QFile(":data/browsedata.db").copy(dir.absolutePath() + "/browsedata.db");
+    QFile(dir.absolutePath() + "/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
 
     ui->startProfile->insertItem(0, name);
     ui->startProfile->setCurrentIndex(0);
@@ -598,7 +602,7 @@ void Preferences::deleteProfile()
         return;
     }
 
-    removeDir(QDir::homePath() + "/.qupzilla/profiles/" + name);
+    removeDir(mApp->PROFILEDIR + "profiles/" + name);
     ui->startProfile->removeItem(ui->startProfile->currentIndex());
 }
 
@@ -790,9 +794,7 @@ void Preferences::saveSettings()
     settings.endGroup();
 
     //Profiles
-    QString homePath = QDir::homePath();
-    homePath += "/.qupzilla/";
-    QSettings profileSettings(homePath + "profiles/profiles.ini", QSettings::IniFormat);
+    QSettings profileSettings(mApp->PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
     profileSettings.setValue("Profiles/startProfile", ui->startProfile->currentText());
 
     m_pluginsList->save();

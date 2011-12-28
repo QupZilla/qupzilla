@@ -22,9 +22,9 @@ Microsoft Windows
 
   You need Microsoft Visual C++ Compiler 2008 or higher and Qt Libraries 4.7.0
   or higher in order to build QupZilla.
-  Building with Microsoft Visual C++ Compiler 2010 is also possible, but as this
-  version is not yet suported by Qt, created binary can be executed, but is very 
-  likely to unreasonable crash randomly.
+  Building with Microsoft Visual C++ Compiler 2010 is possible only with Qt 4.8.0
+  and higher. If you try to compile with Qt 4.7, you will get random crashes when
+  running QupZilla.
   Building with MingW is perhaps possible too, but MingW QtWebKit crashes with 
   every Flash, so MingW is not officially supported.
   If you don't meet this, please use precompiled version, which is also in smart 
@@ -40,11 +40,13 @@ OS/2
 
   I cannot provide support for QupZilla on OS/2 as I don't have access to 
   machine with OS/2, but it is possible to get QupZilla working there.
-  There may be some more things to do, but as far as I know, you need to
-  add Q_WS_WIN define to qmake.
-  You will do this by adding one line to src/src.pro:
-               
-               DEFINES += Q_WS_WIN
+  
+FreeBSD
+----------------------------------------------------------------------------------
+
+  You may need to set few sysctls to get QupZilla running with raster graphics system.
+  
+  For more informations, please see FAQ.
 
 
 Available Defines
@@ -56,12 +58,13 @@ Available Defines
     $ export NAME="value"
 
  General:
-     UNRELEASED_BUILD     QupZilla won't check profile version,
-                          thus, it won't reset your profile is lower version
+     PORTABLE_BUILD       QupZilla won't write any data outside of path of exection.
+                          It will also disable plugins by default.
                           (disabled by default)
                           
                           example:
-                          $ export UNRELEASED_BUILD="true"
+                          $ export PORTABLE_BUILD="true"
+                          
                           
      USE_WEBGL            Enable WebGL. You need to build QupZilla with WebKit built
                           with WebGL support, otherwise you won't be able to compile
@@ -69,7 +72,7 @@ Available Defines
                           (disabled by default)
                           
                           example:
-                          $ export USE_WEBGL="true"      
+                          $ export USE_WEBGL="true"
                        
  Windows specific defines:
  

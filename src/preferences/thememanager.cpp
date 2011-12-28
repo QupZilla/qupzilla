@@ -20,6 +20,12 @@
 #include "mainapplication.h"
 #include "globalfunctions.h"
 
+#ifdef Q_WS_WIN
+#define DEFAULT_THEME_NAME "windows"
+#else
+#define DEFAULT_THEME_NAME "linux"
+#endif
+
 ThemeManager::ThemeManager(QWidget* parent)
     : QWidget()
     , ui(new Ui::ThemeManager)
@@ -28,13 +34,7 @@ ThemeManager::ThemeManager(QWidget* parent)
     ui->license->hide();
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Themes");
-    m_activeTheme = settings.value("activeTheme",
-#ifdef Q_WS_X11
-                                   "linux"
-#else
-                                   "windows"
-#endif
-                                  ).toString();
+    m_activeTheme = settings.value("activeTheme", DEFAULT_THEME_NAME).toString();
     settings.endGroup();
 
     QDir themeDir(mApp->THEMESDIR);

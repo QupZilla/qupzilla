@@ -54,18 +54,22 @@ class MainApplication : public QtSingleApplication
 
 public:
     QString DATADIR;
+    QString PROFILEDIR;
     QString PLUGINSDIR;
     QString TRANSLATIONSDIR;
     QString THEMESDIR;
+
     explicit MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv);
 
-    enum MessageType { SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,  HistoryStateChanged, BookmarksChanged };
+    enum MessageType { SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,
+                       HistoryStateChanged, BookmarksChanged, StartPrivateBrowsing
+                     };
 
     void connectDatabase();
     void loadSettings();
     void reloadSettings() { loadSettings(); emit message(ReloadSettings, true); }
     bool restoreStateSlot(QupZilla* window);
-    void makeNewWindow(bool tryRestore, const QUrl &startUrl = QUrl());
+    QupZilla* makeNewWindow(bool tryRestore, const QUrl &startUrl = QUrl());
     void addNewTab(const QUrl &url = QUrl());
     void aboutToCloseWindow(QupZilla* window);
     bool isStateChanged();
