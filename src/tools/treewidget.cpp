@@ -98,7 +98,6 @@ QList<QTreeWidgetItem*> TreeWidget::allItems()
     return m_allTreeItems;
 }
 
-#include <QDebug>
 void TreeWidget::filterString(QString string)
 {
     expandAll();
