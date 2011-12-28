@@ -672,7 +672,7 @@ void WebView::bookmarkLink()
             p_QupZilla->bookmarkPage();
         }
         else {
-            p_QupZilla->addBookmark(action->data().toUrl(), action->data().toString(), siteIcon());
+            p_QupZilla->addBookmark(action->data().toUrl(), title(), siteIcon());
         }
     }
 }
