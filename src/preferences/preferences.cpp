@@ -40,6 +40,14 @@
 #include "globalfunctions.h"
 #include "autofillmodel.h"
 
+#ifdef Q_WS_WIN
+#define DEFAULT_CHECK_UPDATES true
+#define DEFAULT_USE_NATIVE_DIALOG false
+#else
+#define DEFAULT_CHECK_UPDATES false
+#define DEFAULT_USE_NATIVE_DIALOG true
+#endif
+
 bool removeFile(const QString &fullFileName)
 {
     QFile f(fullFileName);
@@ -116,13 +124,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     int afterLaunch = settings.value("afterLaunch", 1).toInt();
     settings.endGroup();
     ui->afterLaunch->setCurrentIndex(afterLaunch);
-    ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates",
-#ifdef Q_WS_WIN
-                                 true
-#else
-                                 false
-#endif
-                                               ).toBool());
+    ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool());
 
     ui->newTabFrame->setVisible(false);
     if (m_newTabUrl.isEmpty()) {
@@ -268,13 +270,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     settings.beginGroup("DownloadManager");
     ui->downLoc->setText(settings.value("defaultDownloadPath", "").toString());
     ui->closeDownManOnFinish->setChecked(settings.value("CloseManagerOnFinish", false).toBool());
-    ui->downlaodNativeSystemDialog->setChecked(settings.value("useNativeDialog",
-#ifdef Q_WS_WIN
-            false
-#else
-            true
-#endif
-                                                             ).toBool());
+    ui->downlaodNativeSystemDialog->setChecked(settings.value("useNativeDialog", DEFAULT_USE_NATIVE_DIALOG).toBool());
     if (ui->downLoc->text().isEmpty()) {
         ui->askEverytime->setChecked(true);
     }
