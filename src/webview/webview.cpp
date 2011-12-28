@@ -846,10 +846,12 @@ void WebView::mousePressEvent(QMouseEvent* event)
         if (isUrlValid(QUrl(m_hoveredLink))) {
             tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewBackgroundTab);
             event->accept();
+            return;
         }
 #ifdef Q_WS_WIN
         else {
             QWebView::mouseDoubleClickEvent(event);
+            return;
         }
 #endif
         break;
@@ -859,9 +861,10 @@ void WebView::mousePressEvent(QMouseEvent* event)
             return;
         }
     default:
-        QWebView::mousePressEvent(event);
         break;
     }
+
+    QWebView::mousePressEvent(event);
 }
 
 void WebView::keyPressEvent(QKeyEvent* event)
