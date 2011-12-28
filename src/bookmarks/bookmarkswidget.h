@@ -28,6 +28,7 @@
 #include <QDebug>
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QToolTip>
 
 namespace Ui
 {

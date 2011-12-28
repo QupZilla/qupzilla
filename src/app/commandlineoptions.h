@@ -26,7 +26,10 @@ class CommandLineOptions : public QObject
 {
     Q_OBJECT
 public:
-    enum Action {NoAction, OpenUrl, StartWithProfile, StartWithoutAddons, NewTab, NewWindow, ShowDownloadManager, ExitAction};
+    enum Action { NoAction, OpenUrl, StartWithProfile, StartWithoutAddons,
+                  NewTab, NewWindow, ShowDownloadManager, StartPrivateBrowsing,
+                  ExitAction
+                };
 
     struct ActionPair {
         Action action;

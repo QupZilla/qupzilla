@@ -80,6 +80,7 @@ signals:
 
 public slots:
     void load(const QUrl &url);
+    void titleChanged();
 
     void stop();
     void back();
@@ -107,7 +108,6 @@ private slots:
     void loadFinished(bool state);
     void linkClicked(const QUrl &url);
     void urlChanged(const QUrl &url);
-    void titleChanged();
     void linkHovered(const QString &link, const QString &title, const QString &content);
     void openUrlInNewWindow();
     void openUrlInNewTab();
@@ -115,9 +115,7 @@ private slots:
     void sendLinkByMail();
     void bookmarkLink();
     void showSource();
-#if QT_VERSION >= 0x040800
     void showSourceOfSelection();
-#endif
     void showSiteInfo();
     void getFocus(const QUrl &urla);
     void showInspector();

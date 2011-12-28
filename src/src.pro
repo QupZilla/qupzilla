@@ -16,10 +16,10 @@ RCC_DIR = ../build
 UI_DIR = ../build
 
 # Please read BUILD informations #
-#DEFINES += UNRELEASED_BUILD
 #DEFINES += NO_SYSTEM_DATAPATH
 #DEFINES += USE_WEBGL
 #DEFINES += KDE
+#DEFINES += PORTABLE_BUILD
 win32:DEFINES += W7API
 
 unix:QT += dbus
@@ -39,6 +39,7 @@ TRANSLATIONS +=../translations/cs_CZ.ts\
                ../translations/es_ES.ts\
                ../translations/fr_FR.ts\
                ../translations/el_GR.ts\
+               ../translations/ru_RU.ts\
                ../translations/empty.ts\
 
 
@@ -181,7 +182,10 @@ SOURCES += main.cpp\
     other/databasewriter.cpp \
     bookmarksimport/htmlimporter.cpp \
     tools/enhancedmenu.cpp \
-    navigation/siteicon.cpp
+    navigation/siteicon.cpp \
+    navigation/goicon.cpp \
+    rss/rssicon.cpp \
+    navigation/downicon.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -301,7 +305,10 @@ HEADERS  += \
     other/databasewriter.h \
     bookmarksimport/htmlimporter.h \
     tools/enhancedmenu.h \
-    navigation/siteicon.h
+    navigation/siteicon.h \
+    navigation/goicon.h \
+    rss/rssicon.h \
+    navigation/downicon.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -346,7 +353,8 @@ FORMS    += \
 
 RESOURCES += \
     data/icons.qrc \
-    data/html.qrc
+    data/html.qrc \
+    data/data.qrc
 
 OTHER_FILES += \
     appicon.rc
@@ -373,7 +381,6 @@ unix {
 
     target.path = $$binary_folder
 
-    target1.files = ../bin/data
     target1.files += ../bin/locale
     target1.files += ../bin/plugins
     target1.files += ../bin/themes
@@ -411,17 +418,17 @@ unix {
     !equals(rev, ""): DEFINES += GIT_REVISION=\\\"""$$rev"\\\""
 }
 
-d_unreleased_build = $$(UNRELEASED_BUILD)
 d_no_system_datapath = $$(NO_SYSTEM_DATAPATH)
 d_use_webgl = $$(USE_WEBGL)
 d_w7api = $$(W7API)
 d_kde = $$(KDE)
+d_portable = $$(PORTABLE_BUILD)
 
-equals(d_unreleased_build, "true") { DEFINES += UNRELEASED_BUILD }
 equals(d_no_system_datapath, "true") { DEFINES += NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES += USE_WEBGL }
 equals(d_w7api, "true") { DEFINES += W7API }
 equals(d_kde, "true") { DEFINES += KDE }
+equals(d_portable, "true") { DEFINES += PORTABLE_BUILD }
 
 message(Using following defines)
 message($$DEFINES)

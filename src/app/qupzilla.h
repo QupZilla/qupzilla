@@ -264,6 +264,7 @@ private:
     QColor m_menuTextColor;
 
     int m_sideBarWidth;
+    bool m_usingTransparentBackground;
 
     //Used for F11 FullScreen remember visibility
     //of menubar and statusbar

@@ -44,6 +44,18 @@
 #include "speeddial.h"
 #include "webpage.h"
 
+#ifdef Q_WS_WIN
+#define DEFAULT_CHECK_UPDATES true
+#define DEFAULT_THEME_NAME "windows"
+#else
+#define DEFAULT_CHECK_UPDATES false
+#define DEFAULT_THEME_NAME "linux"
+#endif
+
+#if defined(PORTABLE_BUILD) && !defined(NO_SYSTEM_DATAPATH)
+#define NO_SYSTEM_DATAPATH
+#endif
+
 MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
     , m_cookiemanager(0)
@@ -69,20 +81,27 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     , m_isRestoring(false)
     , m_databaseConnected(false)
 {
-    setOverrideCursor(Qt::WaitCursor);
 #if defined(Q_WS_X11) & !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR;
 #else
     DATADIR = qApp->applicationDirPath() + "/";
 #endif
+
+#ifdef PORTABLE_BUILD
+    PROFILEDIR = DATADIR + "profiles/";
+#else
+    PROFILEDIR = QDir::homePath() + "/.qupzilla/";
+#endif
+
     PLUGINSDIR = DATADIR + "plugins/";
     TRANSLATIONSDIR = DATADIR + "locale/";
     THEMESDIR = DATADIR + "themes/";
 
+    setOverrideCursor(Qt::WaitCursor);
     setWindowIcon(QupZilla::qupzillaIcon());
     bool noAddons = false;
     QUrl startUrl("");
-    QString message;
+    QStringList messages;
     QString startProfile;
 
     if (argc > 1) {
@@ -95,17 +114,20 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
                 startProfile = pair.text;
                 break;
             case CommandLineOptions::NewTab:
-                message = "ACTION:NewTab";
+                messages.append("ACTION:NewTab");
                 break;
             case CommandLineOptions::NewWindow:
-                message = "ACTION:NewWindow";
+                messages.append("ACTION:NewWindow");
                 break;
             case CommandLineOptions::ShowDownloadManager:
-                message = "ACTION:ShowDownloadManager";
+                messages.append("ACTION:ShowDownloadManager");
+                break;
+            case CommandLineOptions::StartPrivateBrowsing:
+                messages.append("ACTION:StartPrivateBrowsing");
                 break;
             case CommandLineOptions::OpenUrl:
                 startUrl = pair.text;
-                message = "URL:" + startUrl.toString();
+                messages.append("URL:" + startUrl.toString());
                 break;
             default:
                 break;
@@ -113,8 +135,14 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
         }
     }
 
+    if (messages.isEmpty()) {
+        messages.append(" ");
+    }
+
     if (isRunning()) {
-        sendMessage(message);
+        foreach(QString message, messages) {
+            sendMessage(message);
+        }
         m_isExited = true;
         return;
     }
@@ -126,26 +154,23 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     setApplicationVersion(QupZilla::VERSION);
     setOrganizationDomain("qupzilla");
 
-    QString homePath = QDir::homePath();
-    homePath += "/.qupzilla/";
-
     checkSettingsDir();
 
     QSettings::setDefaultFormat(QSettings::IniFormat);
     if (startProfile.isEmpty()) {
-        QSettings settings(homePath + "profiles/profiles.ini", QSettings::IniFormat);
+        QSettings settings(PROFILEDIR + "profiles/profiles.ini", QSettings::IniFormat);
         if (settings.value("Profiles/startProfile", "default").toString().contains("/")) {
-            m_activeProfil = homePath + "profiles/default/";
+            m_activeProfil = PROFILEDIR + "profiles/default/";
         }
         else {
-            m_activeProfil = homePath + "profiles/" + settings.value("Profiles/startProfile", "default").toString() + "/";
+            m_activeProfil = PROFILEDIR + "profiles/" + settings.value("Profiles/startProfile", "default").toString() + "/";
         }
     }
     else {
-        m_activeProfil = homePath + "profiles/" + startProfile + "/";
+        m_activeProfil = PROFILEDIR + "profiles/" + startProfile + "/";
     }
 
-    ProfileUpdater u(m_activeProfil, DATADIR);
+    ProfileUpdater u(m_activeProfil);
     u.checkProfile();
     connectDatabase();
 
@@ -170,13 +195,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     AutoSaver* saver = new AutoSaver();
     connect(saver, SIGNAL(saveApp()), this, SLOT(saveStateSlot()));
 
-    if (settings2.value("Web-Browser-Settings/CheckUpdates",
-#ifdef Q_WS_WIN
-                        true
-#else
-                        false
-#endif
-                       ).toBool()) {
+    if (settings2.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool()) {
         m_updater = new Updater(qupzilla);
     }
 
@@ -197,13 +216,7 @@ void MainApplication::loadSettings()
 {
     QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("Themes");
-    QString activeTheme = settings.value("activeTheme",
-#ifdef Q_WS_X11
-                                         "linux"
-#else
-                                         "windows"
-#endif
-                                        ).toString();
+    QString activeTheme = settings.value("activeTheme", DEFAULT_THEME_NAME).toString();
     settings.endGroup();
     m_activeThemePath = THEMESDIR + activeTheme + "/";
     QFile cssFile(m_activeThemePath + "main.css");
@@ -350,28 +363,36 @@ void MainApplication::sendMessages(MainApplication::MessageType mes, bool state)
 
 void MainApplication::receiveAppMessage(QString message)
 {
+    QWidget* actWin = getWindow();
     if (message.startsWith("URL:")) {
         QString url(message.remove("URL:"));
         addNewTab(WebView::guessUrlFromString(url));
+        actWin = getWindow();
     }
     else if (message.startsWith("ACTION:")) {
         QString text = message.mid(7);
         if (text == "NewTab") {
             addNewTab();
+            actWin = getWindow();
         }
         else if (text == "NewWindow") {
-            makeNewWindow(false);
+            actWin = makeNewWindow(false);
         }
         else if (text == "ShowDownloadManager") {
             downManager()->show();
+            actWin = downManager();
+        }
+        else if (text == "StartPrivateBrowsing") {
+            sendMessages(StartPrivateBrowsing, true);
+            actWin = getWindow();
         }
     }
 
-    QupZilla* actWin = getWindow();
     if (!actWin && !isClosing()) { // It can only occur if download manager window was still open
         makeNewWindow(true);
         return;
     }
+
     actWin->setWindowState(actWin->windowState() & ~Qt::WindowMinimized);
     actWin->raise();
     actWin->activateWindow();
@@ -386,7 +407,7 @@ void MainApplication::addNewTab(const QUrl &url)
     getWindow()->tabWidget()->addView(url);
 }
 
-void MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
+QupZilla* MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
 {
     QupZilla::StartBehaviour behaviour;
     if (tryRestore) {
@@ -400,6 +421,8 @@ void MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
     connect(newWindow, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(sendMessages(MainApplication::MessageType, bool)));
     m_mainWindows.append(newWindow);
     newWindow->show();
+
+    return newWindow;
 }
 
 void MainApplication::connectDatabase()
@@ -411,7 +434,9 @@ void MainApplication::connectDatabase()
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(m_activeProfil + "browsedata.db");
     if (!QFile::exists(m_activeProfil + "browsedata.db")) {
-        QFile(DATADIR + "data/default/profiles/default/browsedata.db").copy(m_activeProfil + "browsedata.db");
+        QFile(":data/browsedata.db").copy(m_activeProfil + "browsedata.db");
+        QFile(m_activeProfil + "browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
+
         db.setDatabaseName(m_activeProfil + "browsedata.db");
         qWarning("Cannot find SQLite database file! Copying and using the defaults!");
     }
@@ -435,7 +460,7 @@ void MainApplication::translateApp()
     }
 
     QTranslator* app = new QTranslator();
-    app->load(DATADIR + "locale/" + file);
+    app->load(TRANSLATIONSDIR + file);
     QTranslator* sys = new QTranslator();
 
     if (QFile::exists(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm")) {
@@ -730,31 +755,34 @@ bool MainApplication::checkSettingsDir()
         |
     browsedata.db
     */
-    QString homePath = QDir::homePath() + "/.qupzilla/";
 
-    if (QDir(homePath).exists() && QFile(homePath + "profiles/profiles.ini").exists()) {
+    if (QDir(PROFILEDIR).exists() && QFile(PROFILEDIR + "profiles/profiles.ini").exists()) {
         return true;
     }
 
     std::cout << "Creating new profile directory" << std::endl;
 
-    QDir dir = QDir::home();
-    dir.mkdir(".qupzilla");
-    dir.cd(".qupzilla");
+    QDir dir(PROFILEDIR);
+
+    if (!dir.exists()) {
+        dir.mkpath(PROFILEDIR);
+    }
 
     dir.mkdir("profiles");
     dir.cd("profiles");
 
     //.qupzilla/profiles
-    QFile(homePath + "profiles/profiles.ini").remove();
-    QFile(DATADIR + "data/default/profiles/profiles.ini").copy(homePath + "profiles/profiles.ini");
+    QFile(PROFILEDIR + "profiles/profiles.ini").remove();
+    QFile(":data/profiles.ini").copy(PROFILEDIR + "profiles/profiles.ini");
+    QFile(PROFILEDIR + "profiles/profiles.ini").setPermissions(QFile::ReadUser | QFile::WriteUser);
 
     dir.mkdir("default");
     dir.cd("default");
 
     //.qupzilla/profiles/default
-    QFile(homePath + "profiles/default/browsedata.db").remove();
-    QFile(DATADIR + "data/default/profiles/default/browsedata.db").copy(homePath + "profiles/default/browsedata.db");
+    QFile(PROFILEDIR + "profiles/default/browsedata.db").remove();
+    QFile(":data/browsedata.db").copy(PROFILEDIR + "profiles/default/browsedata.db");
+    QFile(PROFILEDIR + "profiles/default/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
 
     return dir.isReadable();
 }
