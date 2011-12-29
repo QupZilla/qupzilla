@@ -261,9 +261,8 @@ void NavigationBar::goAtHistoryIndexInNewTab(int index)
     }
 
     TabWidget* tabWidget = p_QupZilla->tabWidget();
-    tabWidget->duplicateTab(tabWidget->currentIndex());
+    int tabIndex = tabWidget->duplicateTab(tabWidget->currentIndex());
 
-    int tabIndex = tabWidget->count() - 1;
     QWebHistory* history = p_QupZilla->weView(tabIndex)->page()->history();
 
     history->goToItem(history->itemAt(index));
