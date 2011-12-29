@@ -78,6 +78,8 @@ private slots:
     void copyDownloadLink();
 
 private:
+    void startDownloading();
+
     void timerEvent(QTimerEvent* event);
     void updateDownloadInfo(double currSpeed, qint64 received, qint64 total);
     void mouseDoubleClickEvent(QMouseEvent* e);
