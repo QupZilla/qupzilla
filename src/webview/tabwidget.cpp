@@ -419,7 +419,7 @@ void TabWidget::closeAllButCurrent(int index)
     }
 }
 
-void TabWidget::duplicateTab(int index)
+int TabWidget::duplicateTab(int index)
 {
     QUrl url = weView(index)->url();
     QByteArray history;
@@ -429,6 +429,8 @@ void TabWidget::duplicateTab(int index)
     int id = addView(url, tabText(index), TabWidget::NewNotSelectedTab);
     QDataStream historyStream(history);
     historyStream >> *weView(id)->history();
+
+    return id;
 }
 
 void TabWidget::restoreClosedTab()
