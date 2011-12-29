@@ -48,7 +48,6 @@ public:
     QString themeIcon() { return m_themeIcon; }
 
     void setFallbackIcon(const QIcon &image);
-
     void setIcon(const QIcon &image);
 
 signals:
@@ -73,7 +72,6 @@ private:
 
     QString m_themeIcon;
     QVariant m_data;
-
 };
 
 #endif // TOOLBUTTON_H
