@@ -201,6 +201,7 @@ private slots:
     bool quitApp();
 
 private:
+    void resizeEvent(QResizeEvent *event);
     void keyPressEvent(QKeyEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void closeEvent(QCloseEvent* event);

@@ -21,6 +21,7 @@ ToolButton::ToolButton(QWidget* parent)
     : QToolButton(parent)
     , m_usingMultiIcon(false)
 {
+    setMinimumWidth(16);
 }
 
 void ToolButton::setThemeIcon(const QString &image)
