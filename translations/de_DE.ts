@@ -1002,22 +1002,22 @@
         <translation>%1 zur Whitelist hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="262"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="267"/>
         <source>Flash Object</source>
         <translation>Flash Objekt</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="265"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="270"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Attribut Name&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="265"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="270"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Wert&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="279"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="284"/>
         <source>No more informations available.</source>
         <translation>Keine weiteren Informationen verfügbar.</translation>
     </message>
@@ -1705,12 +1705,12 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="680"/>
+        <location filename="../src/app/mainapplication.cpp" line="686"/>
         <source>Last session crashed</source>
         <translation>Die letzte Sitzung wurde unerwartet beendet</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="681"/>
+        <location filename="../src/app/mainapplication.cpp" line="687"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla ist abgestürzt :-(&lt;/b&gt;&lt;br/&gt;Hoppla,die letzte Sitzung wurde unerwartet beendet. Verzeihung. Möchten Sie den letzten Status wiederherstellen?</translation>
     </message>
@@ -1928,12 +1928,12 @@
         <translation>Click To Flash erlauben</translation>
     </message>
     <message>
-        <location filename="../src/preferences/pluginslist.cpp" line="61"/>
+        <location filename="../src/preferences/pluginslist.cpp" line="67"/>
         <source>Add site to whitelist</source>
         <translation>Aktuelle Seite zur Whitelist hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/pluginslist.cpp" line="61"/>
+        <location filename="../src/preferences/pluginslist.cpp" line="67"/>
         <source>Server without http:// (ex. youtube.com)</source>
         <translation>Server ohne http:// (z.B. youtube.com)</translation>
     </message>
@@ -4480,7 +4480,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webview.cpp" line="584"/>
         <location filename="../src/webview/webview.cpp" line="847"/>
-        <location filename="../src/webview/webview.cpp" line="858"/>
+        <location filename="../src/webview/webview.cpp" line="860"/>
         <source>New tab</source>
         <translation>Neuer Tab</translation>
     </message>

@@ -1006,22 +1006,22 @@
         <translation>Přidat %1 na bílou listinu</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="262"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="267"/>
         <source>Flash Object</source>
         <translation>Flash objekt</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="265"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="270"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jméno atributu&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="265"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="270"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Hodnota&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="279"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="284"/>
         <source>No more informations available.</source>
         <translation>Žádné další informace.</translation>
     </message>
@@ -1713,12 +1713,12 @@ nebyl nalezen!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="680"/>
+        <location filename="../src/app/mainapplication.cpp" line="686"/>
         <source>Last session crashed</source>
         <translation>Poslední relace spadla</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="681"/>
+        <location filename="../src/app/mainapplication.cpp" line="687"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
@@ -1936,12 +1936,12 @@ nebyl nalezen!</translation>
         <translation>Povolit Click To Flash</translation>
     </message>
     <message>
-        <location filename="../src/preferences/pluginslist.cpp" line="61"/>
+        <location filename="../src/preferences/pluginslist.cpp" line="67"/>
         <source>Add site to whitelist</source>
         <translation>Přidat stránku na bílou listinu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/pluginslist.cpp" line="61"/>
+        <location filename="../src/preferences/pluginslist.cpp" line="67"/>
         <source>Server without http:// (ex. youtube.com)</source>
         <translation>Server bez http:// (např. youtube.com)</translation>
     </message>
@@ -4488,7 +4488,7 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
     <message>
         <location filename="../src/webview/webview.cpp" line="584"/>
         <location filename="../src/webview/webview.cpp" line="847"/>
-        <location filename="../src/webview/webview.cpp" line="858"/>
+        <location filename="../src/webview/webview.cpp" line="860"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>

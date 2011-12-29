@@ -997,22 +997,22 @@
         <translation>Ajouter %1 à la liste blanche</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="262"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="267"/>
         <source>Flash Object</source>
         <translation>FlashObject</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="265"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="270"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt; Nom de l&apos;attribut&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="265"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="270"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Valeur&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="279"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="284"/>
         <source>No more informations available.</source>
         <translation>Aucune information supplémentaire disponible.</translation>
     </message>
@@ -1699,12 +1699,12 @@ n&apos;a pas été trouvé!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="680"/>
+        <location filename="../src/app/mainapplication.cpp" line="686"/>
         <source>Last session crashed</source>
         <translation>La dernière session a planté</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="681"/>
+        <location filename="../src/app/mainapplication.cpp" line="687"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla a planté :-(&lt;/b&gt;&lt;br/&gt;Oops, la dernière session de QupZilla s&apos;est terminée par un incident. Nous sommes vraiment désolé. Voulez-vous essayer de restaurer la dernière session?</translation>
     </message>
@@ -1922,12 +1922,12 @@ n&apos;a pas été trouvé!</translation>
         <translation>Autoriser ClickToFlash</translation>
     </message>
     <message>
-        <location filename="../src/preferences/pluginslist.cpp" line="61"/>
+        <location filename="../src/preferences/pluginslist.cpp" line="67"/>
         <source>Add site to whitelist</source>
         <translation>Ajouter un site à la liste blanche</translation>
     </message>
     <message>
-        <location filename="../src/preferences/pluginslist.cpp" line="61"/>
+        <location filename="../src/preferences/pluginslist.cpp" line="67"/>
         <source>Server without http:// (ex. youtube.com)</source>
         <translation>Adresse sans http:// (ex.youtube.com)</translation>
     </message>
@@ -4356,7 +4356,7 @@ Après avoir ajouté ou retiré un certificat, il est nécessaire de redémarrer
     <message>
         <location filename="../src/webview/webview.cpp" line="584"/>
         <location filename="../src/webview/webview.cpp" line="847"/>
-        <location filename="../src/webview/webview.cpp" line="858"/>
+        <location filename="../src/webview/webview.cpp" line="860"/>
         <source>New tab</source>
         <translation>Nouvel onglet</translation>
     </message>

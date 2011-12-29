@@ -1332,6 +1332,13 @@ void QupZilla::startPrivate(bool state)
     emit message(MainApplication::CheckPrivateBrowsing, state);
 }
 
+void QupZilla::resizeEvent(QResizeEvent *event)
+{
+    m_bookmarksToolbar->setMaximumWidth(width());
+
+    QMainWindow::resizeEvent(event);
+}
+
 void QupZilla::keyPressEvent(QKeyEvent* event)
 {
     switch (event->key()) {
