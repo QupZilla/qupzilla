@@ -48,7 +48,6 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(folderDeleted(QString)));
     connect(m_bookmarksModel, SIGNAL(folderRenamed(QString, QString)), this, SLOT(folderRenamed(QString, QString)));
 
-
     setMaximumWidth(p_QupZilla->width());
 
 //    QTimer::singleShot(0, this, SLOT(refreshBookmarks()));
