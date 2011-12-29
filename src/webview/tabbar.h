@@ -80,6 +80,8 @@ private slots:
     void closeCurrentTab();
 
 private:
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     QSize tabSizeHint(int index) const;
@@ -99,6 +101,8 @@ private:
     int m_normalTabWidth;
     int m_lastTabWidth;
     bool m_adjustingLastTab;
+
+    QPoint m_dragStartPosition;
 };
 
 #endif // TABBAR_H

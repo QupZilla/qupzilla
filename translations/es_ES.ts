@@ -2263,7 +2263,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="450"/>
         <source>Active profile:</source>
-        <translation type="unfinished"></translation>
+        <translation>Perfil activo:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="658"/>
@@ -4320,7 +4320,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webpage.cpp" line="383"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
-        <translation>Compruebe errores de escritura en la dirección como&lt;b&gt;ww.&lt;/b&gt;ejemplo.com en lugar de &lt;b&gt;www.&lt;/b&gt;ejemplo.com</translation>
+        <translation>Compruebe errores de escritura en la dirección como &lt;b&gt;ww.&lt;/b&gt;ejemplo.com en lugar de &lt;b&gt;www.&lt;/b&gt;ejemplo.com</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="384"/>
