@@ -138,13 +138,17 @@ void AdBlockSubscription::rulesDownloaded()
     foreach(const AdBlockRule & rule, allRules()) {
         if (rule.filter().contains("*******- user custom filters")) {
             customRules = true;
-            response.append("! *******- user custom filters -*************\n");
+            response.append("\n! *******- user custom filters -*************\n");
             continue;
         }
         if (!customRules) {
             continue;
         }
         response.append(rule.filter() + "\n");
+    }
+
+    if (!customRules) {
+        response.append("\n! *******- user custom filters -*************\n");
     }
 
     file.write(response);
