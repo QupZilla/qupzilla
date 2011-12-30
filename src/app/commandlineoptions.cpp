@@ -37,7 +37,7 @@ void CommandLineOptions::showHelp()
                        "    -a or --authors               print QupZilla authors \n"
                        "    -v or --version               print QupZilla version \n"
                        "\n"
-                       "    -p or --profile=PROFILE       start with specified profile \n"
+                       "    -p or --profile=<profile>     start with specified profile \n"
                        "    -np or --no-plugins           start without plugins \n"
                        "\n"
                        " Options to control running QupZilla:\n"
