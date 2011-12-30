@@ -239,7 +239,7 @@ QString QupZillaSchemeReply::speeddialPage()
 
         dPage.replace("%SITE-TITLE%", tr("Speed Dial"));
         dPage.replace("%ADD-TITLE%", tr("Add New Page"));
-        dPage.replace("%TITLE-EDIT%", tr("Apply"));
+        dPage.replace("%TITLE-EDIT%", tr("Edit"));
         dPage.replace("%TITLE-REMOVE%", tr("Remove"));
         dPage.replace("%TITLE-RELOAD%", tr("Reload"));
         dPage.replace("%TITLE-FETCHTITLE%", tr("Load title from page"));
@@ -248,7 +248,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%LOADING-IMG%", "qrc:html/loading.gif");
         dPage.replace("%URL%", tr("Url"));
         dPage.replace("%TITLE%", tr("Title"));
-        dPage.replace("%EDIT%", tr("Edit"));
+        dPage.replace("%EDIT%", tr("Apply"));
         dPage.replace("%NEW-PAGE%", tr("New Page"));
     }
 
