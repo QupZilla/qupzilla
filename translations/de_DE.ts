@@ -1511,7 +1511,7 @@
     <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
         <source>Copy address</source>
-        <translation type="unfinished">Link-Adresse kopieren</translation>
+        <translation>Link-Adresse kopieren</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="154"/>
@@ -2295,7 +2295,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="450"/>
         <source>Active profile:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktives Profil:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="472"/>
@@ -2351,7 +2351,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="942"/>
         <source>Ask when entering Private Browsing mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Starten des Privaten Modus bestätigen</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="950"/>
@@ -3257,12 +3257,12 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwenden</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Load title from page</source>
-        <translation type="unfinished"></translation>
+        <translation>Titel von der Web-Seite laden</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
@@ -3308,7 +3308,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Angabe der E-Mail Adresse ist optional.&lt;br/&gt;&lt;b&gt;Hinweis: &lt;/b&gt;Bitte verfassen Sie die Fehlerberichte ausschließlich in englischer Sprache.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="187"/>
@@ -3492,7 +3492,7 @@ Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</tra
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="49"/>
         <source>Untitled feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbenannter Feed</translation>
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="53"/>
@@ -4078,7 +4078,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="186"/>
         <source>Unable to load</source>
-        <translation type="unfinished"></translation>
+        <translation>Laden nicht möglich</translation>
     </message>
 </context>
 <context>
