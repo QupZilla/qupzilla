@@ -1511,7 +1511,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
         <source>Copy address</source>
-        <translation type="unfinished">Kopieer adres</translation>
+        <translation>Kopieer adres</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="154"/>
@@ -2224,7 +2224,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="450"/>
         <source>Active profile:</source>
-        <translation type="unfinished"></translation>
+        <translation>Actief profiel:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="472"/>
@@ -2279,7 +2279,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="942"/>
         <source>Ask when entering Private Browsing mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Vraag bij starten Incognito-browser-modus</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="950"/>
@@ -3323,12 +3323,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas toe</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Load title from page</source>
-        <translation type="unfinished"></translation>
+        <translation>Laad titel van pagina</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
@@ -3343,7 +3343,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mailadres is optioneel&lt;br/&gt;&lt;b&gt;Noot:&lt;/b&gt;Gebruik alstublieft alleen Engels.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
@@ -3492,7 +3492,7 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="49"/>
         <source>Untitled feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ongetitelde feed</translation>
     </message>
     <message>
         <location filename="../src/rss/rsswidget.cpp" line="53"/>
@@ -3730,7 +3730,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/navigation/siteicon.cpp" line="29"/>
         <source>Show informations about this page</source>
-        <translation type="unfinished">Toon informatie over deze pagina</translation>
+        <translation>Toon informatie over deze pagina</translation>
     </message>
 </context>
 <context>
@@ -4079,7 +4079,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="186"/>
         <source>Unable to load</source>
-        <translation type="unfinished"></translation>
+        <translation>Niet in staat om te laden</translation>
     </message>
 </context>
 <context>
