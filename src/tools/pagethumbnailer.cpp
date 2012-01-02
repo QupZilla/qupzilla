@@ -43,6 +43,7 @@ PageThumbnailer::PageThumbnailer(QObject* parent)
     : QObject(parent)
     , m_page(new QWebPage(this))
     , m_size(QSize(231, 130))
+    , m_loadTitle(false)
 {
     NetworkManagerProxy* networkProxy = new NetworkManagerProxy(this);
     networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());

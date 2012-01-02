@@ -1039,7 +1039,7 @@ void QupZilla::showPreferences()
     prefs->show();
 }
 
-void QupZilla::showSource(QWebFrame *frame, const QString &selectedHtml)
+void QupZilla::showSource(QWebFrame* frame, const QString &selectedHtml)
 {
     if (!frame) {
         frame = weView()->page()->mainFrame();
@@ -1285,7 +1285,7 @@ void QupZilla::sendLink()
     QDesktopServices::openUrl(url);
 }
 
-void QupZilla::printPage(QWebFrame *frame)
+void QupZilla::printPage(QWebFrame* frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
 
@@ -1340,7 +1340,7 @@ void QupZilla::startPrivate(bool state)
     mApp->togglePrivateBrowsingMode(state);
 }
 
-void QupZilla::resizeEvent(QResizeEvent *event)
+void QupZilla::resizeEvent(QResizeEvent* event)
 {
     m_bookmarksToolbar->setMaximumWidth(width());
 

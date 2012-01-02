@@ -80,8 +80,8 @@ private slots:
     void closeCurrentTab();
 
 private:
-    void mousePressEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent* event);
+    void mouseMoveEvent(QMouseEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     QSize tabSizeHint(int index) const;

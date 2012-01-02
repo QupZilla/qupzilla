@@ -182,9 +182,9 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     m_lastOutgoingData = outgoingData;
 
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-    QWebPage* webPage = (QWebPage*)(v.value<void*>());
+    QWebPage* webPage = static_cast<QWebPage*> (v.value<void*>());
     v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102));
-    WebView* webView = (WebView*)(v.value<void*>());
+    WebView* webView = static_cast<WebView*> (v.value<void*>());
     if (!webPage || !webView) {
         return;
     }

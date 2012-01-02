@@ -115,8 +115,9 @@ bool QtWin::isRunningWindows7()
 {
 #ifdef Q_WS_WIN
     return QSysInfo::windowsVersion() == QSysInfo::WV_WINDOWS7;
-#endif
+#else
     return false;
+#endif
 }
 
 /*!
