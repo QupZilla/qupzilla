@@ -313,7 +313,7 @@ int TabBar::normalTabsCount()
     return count() - m_pinnedTabsCount;
 }
 
-void TabBar::mousePressEvent(QMouseEvent *event)
+void TabBar::mousePressEvent(QMouseEvent* event)
 {
     if (event->buttons() & Qt::LeftButton && tabAt(event->pos()) != -1) {
         m_dragStartPosition = mapFromGlobal(event->globalPos());
@@ -325,7 +325,7 @@ void TabBar::mousePressEvent(QMouseEvent *event)
     QTabBar::mousePressEvent(event);
 }
 
-void TabBar::mouseMoveEvent(QMouseEvent *event)
+void TabBar::mouseMoveEvent(QMouseEvent* event)
 {
     if (!m_dragStartPosition.isNull() && m_tabWidget->buttonAddTab()->isVisible()) {
         int manhattanLength = (event->pos() - m_dragStartPosition).manhattanLength();
