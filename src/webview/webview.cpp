@@ -810,7 +810,6 @@ void WebView::load(const QUrl &url)
 
 QUrl WebView::url() const
 {
-    return QWebView::url();
     QUrl ur = QWebView::url();
     if (ur.isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
         return m_aboutToLoadUrl;
