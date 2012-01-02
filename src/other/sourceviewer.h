@@ -37,7 +37,7 @@ class SourceViewer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SourceViewer(QWebPage* page, const QString &selectedHtml);
+    explicit SourceViewer(QWebFrame* frame, const QString &selectedHtml);
     QTextEdit* sourceEdit() { return m_sourceEdit; }
 signals:
 
@@ -54,7 +54,7 @@ private slots:
 private:
     QBoxLayout* m_layout;
     QTextEdit* m_sourceEdit;
-    QWebPage* m_page;
+    QWebFrame* m_frame;
     QStatusBar* m_statusBar;
 };
 

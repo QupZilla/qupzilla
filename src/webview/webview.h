@@ -124,6 +124,16 @@ private slots:
     void checkRss();
     void slotIconChanged();
 
+    // ClickedFrame
+    void loadClickedFrame();
+    void loadClickedFrameInNewTab();
+    void reloadClickedFrame();
+    void printClickedFrame();
+    void clickedFrameZoomIn();
+    void clickedFrameZoomOut();
+    void clickedFrameZoomReset();
+    void showClickedFrameSource();
+
 private:
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
@@ -153,6 +163,7 @@ private:
     NetworkManagerProxy* m_networkProxy;
     LocationBar* m_locationBar;
     QMenu* m_menu;
+    QWebFrame* m_clickedFrame;
 
     bool m_mouseTrack;
     bool m_navigationVisible;

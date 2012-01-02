@@ -130,7 +130,8 @@ public slots:
 
     void bookmarkPage();
     void loadAddress(const QUrl &url);
-    void showSource(const QString &selectedHtml = "");
+    void showSource(QWebFrame* frame = 0, const QString &selectedHtml = "");
+    void printPage(QWebFrame* frame = 0);
     void showPageInfo();
     void receiveMessage(MainApplication::MessageType mes, bool state);
 
@@ -146,7 +147,6 @@ private slots:
     void urlEnter();
     void aboutQupZilla();
     void addTab() { m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewTab, true); }
-    void printPage();
     void savePageScreen();
 
     void aboutToShowFileMenu();

@@ -37,7 +37,7 @@ void SpeedDial::loadSettings()
 
     if (m_allPages.isEmpty()) {
         m_allPages = "url:\"http://www.google.com\"|title:\"Google\";"
-                     "url:\"http://qupzilla.com\"|title:\"QupZilla\";"
+                     "url:\"http://www.qupzilla.com\"|title:\"QupZilla\";"
                      "url:\"http://qupzilla.blogspot.com\"|title:\"QupZilla Blog\";"
                      "url:\"https://github.com/nowrep/QupZilla\"|title:\"QupZilla GitHub\";"
                      "url:\"http://facebook.com\"|title:\"Facebook\";";

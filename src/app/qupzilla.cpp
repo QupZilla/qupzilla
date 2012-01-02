@@ -1039,9 +1039,13 @@ void QupZilla::showPreferences()
     prefs->show();
 }
 
-void QupZilla::showSource(const QString &selectedHtml)
+void QupZilla::showSource(QWebFrame *frame, const QString &selectedHtml)
 {
-    SourceViewer* source = new SourceViewer(weView()->page(), selectedHtml);
+    if (!frame) {
+        frame = weView()->page()->mainFrame();
+    }
+
+    SourceViewer* source = new SourceViewer(frame, selectedHtml);
     qz_centerWidgetToParent(source, this);
     source->show();
 }
@@ -1281,10 +1285,17 @@ void QupZilla::sendLink()
     QDesktopServices::openUrl(url);
 }
 
-void QupZilla::printPage()
+void QupZilla::printPage(QWebFrame *frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
-    connect(dialog, SIGNAL(paintRequested(QPrinter*)), weView(), SLOT(print(QPrinter*)));
+
+    if (!frame) {
+        connect(dialog, SIGNAL(paintRequested(QPrinter*)), weView(), SLOT(print(QPrinter*)));
+    }
+    else {
+        connect(dialog, SIGNAL(paintRequested(QPrinter*)), frame, SLOT(print(QPrinter*)));
+    }
+
     dialog->exec();
 
     dialog->deleteLater();
