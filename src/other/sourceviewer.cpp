@@ -23,18 +23,18 @@
 #include "iconprovider.h"
 #include "enhancedmenu.h"
 
-SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml)
+SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     : QWidget(0)
-    , m_page(page)
+    , m_frame(frame)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setWindowTitle(tr("Source of ") + page->mainFrame()->url().toString());
+    setWindowTitle(tr("Source of ") + frame->url().toString());
     m_layout = new QBoxLayout(QBoxLayout::TopToBottom, this);
     m_sourceEdit = new QTextEdit(this);
     m_sourceEdit->setObjectName("sourceviewer-textedit");
 
     m_statusBar = new QStatusBar(this);
-    m_statusBar->showMessage(page->mainFrame()->url().toString());
+    m_statusBar->showMessage(frame->url().toString());
     QMenuBar* menuBar = new QMenuBar(this);
     m_layout->addWidget(m_sourceEdit);
     m_layout->addWidget(m_statusBar);
@@ -83,10 +83,10 @@ SourceViewer::SourceViewer(QWebPage* page, const QString &selectedHtml)
     menuView->actions().at(3)->setChecked(true);
     menuBar->addMenu(menuView);
 
-    qz_centerWidgetToParent(this, page->view());
+    qz_centerWidgetToParent(this, frame->page()->view());
 
     m_sourceEdit->setUndoRedoEnabled(false);
-    m_sourceEdit->insertPlainText(m_page->mainFrame()->toHtml());
+    m_sourceEdit->insertPlainText(frame->toHtml());
     m_sourceEdit->setUndoRedoEnabled(true);
 
     //Highlight selectedHtml
@@ -135,7 +135,7 @@ void SourceViewer::findText()
 void SourceViewer::reload()
 {
     m_sourceEdit->clear();
-    m_sourceEdit->insertPlainText(m_page->mainFrame()->toHtml());
+    m_sourceEdit->insertPlainText(m_frame->toHtml());
 
     m_statusBar->showMessage(tr("Source reloaded"));
 }
