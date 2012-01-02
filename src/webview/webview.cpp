@@ -47,6 +47,7 @@ WebView::WebView(QupZilla* mainClass, WebTab* webTab)
     , m_webTab(webTab)
     , m_locationBar(0)
     , m_menu(new QMenu(this))
+    , m_clickedFrame(0)
     , m_mouseTrack(false)
     , m_navigationVisible(false)
     , m_mouseWheelEnabled(true)
@@ -454,6 +455,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
 {
     m_menu->clear();
 
+    QWebFrame* frameAtPos = page()->frameAt(event->pos());
     QWebHitTestResult r = page()->mainFrame()->hitTestContent(event->pos());
 
     if (!r.linkUrl().isEmpty() && r.linkUrl().scheme() != "javascript") {
@@ -506,12 +508,30 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
 
         action = m_menu->addAction(tr("&Forward"), this, SLOT(forward()));
         action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
-
         action->setEnabled(history()->canGoForward());
 
         m_menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(slotReload()));
         action = m_menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this, SLOT(stop()));
         action->setEnabled(isLoading());
+        m_menu->addSeparator();
+
+        if (frameAtPos && page()->mainFrame() != frameAtPos) {
+            m_clickedFrame = frameAtPos;
+            QMenu* menu = new QMenu(tr("This frame"));
+            menu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
+            menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Show this frame in new &tab"), this, SLOT(loadClickedFrameInNewTab()));
+            menu->addSeparator();
+            menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
+            menu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
+            menu->addSeparator();
+            menu->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &in"), this, SLOT(clickedFrameZoomIn()));
+            menu->addAction(QIcon::fromTheme("zoom-out"), tr("&Zoom out"), this, SLOT(clickedFrameZoomOut()));
+            menu->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(clickedFrameZoomReset()));
+            menu->addSeparator();
+            menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce of frame"), this, SLOT(showClickedFrameSource()));
+
+            m_menu->addMenu(menu);
+        }
 
         m_menu->addSeparator();
         m_menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
@@ -646,7 +666,7 @@ void WebView::showSource()
 void WebView::showSourceOfSelection()
 {
 #if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
-    p_QupZilla->showSource(selectedHtml());
+    p_QupZilla->showSource(page()->mainFrame(), selectedHtml());
 #endif
 }
 
@@ -831,6 +851,58 @@ bool WebView::isUrlValid(const QUrl &url)
         return true;
     }
     return false;
+}
+
+// ClickedFrame slots
+
+void WebView::loadClickedFrame()
+{
+    load(m_clickedFrame->url());
+}
+
+void WebView::loadClickedFrameInNewTab()
+{
+    p_QupZilla->tabWidget()->addView(m_clickedFrame->url());
+}
+
+void WebView::reloadClickedFrame()
+{
+    m_clickedFrame->load(m_clickedFrame->url());
+}
+
+void WebView::printClickedFrame()
+{
+    p_QupZilla->printPage(m_clickedFrame);
+}
+
+void WebView::clickedFrameZoomIn()
+{
+    qreal zFactor = m_clickedFrame->zoomFactor() + 0.1;
+    if (zFactor > 2.5) {
+        zFactor = 2.5;
+    }
+
+    m_clickedFrame->setZoomFactor(zFactor);
+}
+
+void WebView::clickedFrameZoomOut()
+{
+    qreal zFactor = m_clickedFrame->zoomFactor() - 0.1;
+    if (zFactor < 0.5) {
+        zFactor = 0.5;
+    }
+
+    m_clickedFrame->setZoomFactor(zFactor);
+}
+
+void WebView::clickedFrameZoomReset()
+{
+    m_clickedFrame->setZoomFactor(zoomFactor());
+}
+
+void WebView::showClickedFrameSource()
+{
+    p_QupZilla->showSource(m_clickedFrame);
 }
 
 void WebView::mousePressEvent(QMouseEvent* event)
