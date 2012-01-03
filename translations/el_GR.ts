@@ -3840,7 +3840,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτή είναι η &lt;b&gt;%1&lt;/b&gt; επίσκεψη σας σε αυτή τη σελίδα.</translation>
     </message>
 </context>
 <context>
