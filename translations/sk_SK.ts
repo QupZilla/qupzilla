@@ -3115,7 +3115,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation type="unfinished"></translation>
+        <translation>Toto je vaša &lt;b&gt;%1&lt;/b&gt; návšteva tejto stránky.</translation>
     </message>
 </context>
 <context>
