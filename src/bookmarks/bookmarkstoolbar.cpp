@@ -102,7 +102,7 @@ void BookmarksToolbar::moveRight()
         return;
     }
 
-    ToolButton* button = static_cast<ToolButton*> (act->data().value<void*>());
+    ToolButton* button = static_cast<ToolButton*>(act->data().value<void*>());
 
     int index = m_layout->indexOf(button);
     if (index == m_layout->count() - 1) {
@@ -139,7 +139,7 @@ void BookmarksToolbar::moveLeft()
         return;
     }
 
-    ToolButton* button = static_cast<ToolButton*> (act->data().value<void*>());
+    ToolButton* button = static_cast<ToolButton*>(act->data().value<void*>());
 
     int index = m_layout->indexOf(button);
     if (index == 0) {
@@ -176,7 +176,7 @@ void BookmarksToolbar::removeButton()
         return;
     }
 
-    ToolButton* button = static_cast<ToolButton*> (act->data().value<void*>());
+    ToolButton* button = static_cast<ToolButton*>(act->data().value<void*>());
     if (!button) {
         return;
     }
