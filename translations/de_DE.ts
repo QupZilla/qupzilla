@@ -4419,42 +4419,42 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webview.cpp" line="520"/>
         <source>This frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Dieser Rahmen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="521"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur diesen Rahmen anzei&amp;gen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="522"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Diesen Rahmen in einem neuen &amp;Tab anzeigen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="525"/>
         <source>Print frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Rahmen drucken</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="527"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished"></translation>
+        <translation>Ver&amp;größern</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="528"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>Ver&amp;kleinern</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="529"/>
         <source>Reset</source>
-        <translation type="unfinished">Zurücksetzen</translation>
+        <translation>Zurücksetzen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="531"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Q&amp;uelltext dieses Rahmens anzeigen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="548"/>
