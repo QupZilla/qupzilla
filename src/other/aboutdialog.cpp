@@ -90,7 +90,8 @@ void AboutDialog::showAuthors()
                              "Nicolas Ourceau (French)<br/>"
                              "Vasilis Tsivikis (Greek)<br/>"
                              "Alexander Maslov (Russian)<br/>"
-                             "Oleg Brezhnev (Russian)"
+                             "Oleg Brezhnev (Russian)<br/>"
+                             "Sérgio Marques (Portuguese)"
                                                                         ));
         m_authorsHtml.append("</div>");
     }
