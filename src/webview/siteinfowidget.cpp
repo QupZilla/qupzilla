@@ -48,7 +48,7 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
     if (query.next()) {
         int count = query.value(0).toInt();
         if (count > 3) {
-            ui->historyLabel->setText(tr("This is your <b>%1.</b> visit of this site.").arg(count));
+            ui->historyLabel->setText(tr("This is your <b>%1</b> visit of this site.").arg(QString::number(count) + "."));
             ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/accept.png"));
         }
         else if (count == 0) {
@@ -67,7 +67,7 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
             else if (count == 3) {
                 text = tr("third");
             }
-            ui->historyLabel->setText(tr("This is your <b>%1.</b> visit of this site.").arg(text));
+            ui->historyLabel->setText(tr("This is your <b>%1</b> visit of this site.").arg(text));
         }
     }
     connect(ui->pushButton, SIGNAL(clicked()), p_QupZilla, SLOT(showPageInfo()));

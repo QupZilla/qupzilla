@@ -1764,74 +1764,74 @@
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="139"/>
+        <location filename="../src/network/networkmanager.cpp" line="155"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL证书错误!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="154"/>
+        <location filename="../src/network/networkmanager.cpp" line="170"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>机构</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="156"/>
+        <location filename="../src/network/networkmanager.cpp" line="172"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>域名</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="158"/>
+        <location filename="../src/network/networkmanager.cpp" line="174"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>截止日期</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="160"/>
+        <location filename="../src/network/networkmanager.cpp" line="176"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;错误：&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="140"/>
+        <location filename="../src/network/networkmanager.cpp" line="156"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>您试图访问的页面有SSL证书错误：</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="164"/>
+        <location filename="../src/network/networkmanager.cpp" line="180"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>你想使这个证书例外吗？</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="185"/>
+        <location filename="../src/network/networkmanager.cpp" line="201"/>
         <source>Authorization required</source>
         <translation>需要授权</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="192"/>
-        <location filename="../src/network/networkmanager.cpp" line="250"/>
+        <location filename="../src/network/networkmanager.cpp" line="208"/>
+        <location filename="../src/network/networkmanager.cpp" line="266"/>
         <source>Username: </source>
         <translation>用户名:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="193"/>
-        <location filename="../src/network/networkmanager.cpp" line="251"/>
+        <location filename="../src/network/networkmanager.cpp" line="209"/>
+        <location filename="../src/network/networkmanager.cpp" line="267"/>
         <source>Password: </source>
         <translation>密码:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="198"/>
+        <location filename="../src/network/networkmanager.cpp" line="214"/>
         <source>Save username and password on this site</source>
         <translation>保存用户名和密码</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="207"/>
+        <location filename="../src/network/networkmanager.cpp" line="223"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>要求%1的用户名和密码。该网站说：“%2”</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="243"/>
+        <location filename="../src/network/networkmanager.cpp" line="259"/>
         <source>Proxy authorization required</source>
         <translation>需要代理授权</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="263"/>
+        <location filename="../src/network/networkmanager.cpp" line="279"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>正在由代理要求用户名和密码%1.</translation>
     </message>
@@ -2674,32 +2674,32 @@
 <context>
     <name>QtWin</name>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="346"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="347"/>
         <source>Open new tab</source>
         <translation>打开新标签页</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="346"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="347"/>
         <source>Opens a new tab if browser is running</source>
         <translation>浏览器运行时打开一个新标签页</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="350"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="351"/>
         <source>Open new window</source>
         <translation>打开新窗口</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="350"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="351"/>
         <source>Opens a new window if browser is running</source>
         <translation>浏览器运行时打开一个新窗口</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="354"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="355"/>
         <source>Open download manager</source>
         <translation>打开下载管理器</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="354"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="355"/>
         <source>Opens a download manager if browser is running</source>
         <translation>浏览器运行时打开下载管理器</translation>
     </message>
@@ -3889,7 +3889,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="51"/>
-        <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
         <translation>这是您的&lt;b&gt;%1&lt;/ B&gt;此网站的访问。</translation>
     </message>
@@ -3912,6 +3911,11 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/siteinfowidget.cpp" line="68"/>
         <source>third</source>
         <translation>第三</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
+        <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4365,8 +4369,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="604"/>
-        <location filename="../src/webview/webview.cpp" line="919"/>
-        <location filename="../src/webview/webview.cpp" line="932"/>
+        <location filename="../src/webview/webview.cpp" line="918"/>
+        <location filename="../src/webview/webview.cpp" line="931"/>
         <source>New tab</source>
         <translation>新标签</translation>
     </message>
@@ -4527,7 +4531,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>使用 %2搜索&quot;%1 ..&quot; </translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="828"/>
+        <location filename="../src/webview/webview.cpp" line="827"/>
         <source>No Named Page</source>
         <translation>无命名页面</translation>
     </message>

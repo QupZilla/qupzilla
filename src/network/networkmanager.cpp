@@ -81,6 +81,21 @@ void NetworkManager::loadSettings()
     QSslConfiguration::setDefaultConfiguration(config);
 #endif
 
+    QString certDir = mApp->PROFILEDIR + "certificates";
+    QString bundlePath = certDir + "/ca-bundle.crt";
+
+    if (!QDir(certDir).exists()) {
+        QDir dir(mApp->PROFILEDIR);
+        dir.mkdir("certificates");
+    }
+
+    if (!QFile::exists(bundlePath)) {
+        QFile(":data/ca-bundle.crt").copy(bundlePath);
+        QFile(bundlePath).setPermissions(QFile::ReadUser | QFile::WriteUser);
+    }
+
+    QSslSocket::setDefaultCaCertificates(QSslCertificate::fromPath(bundlePath));
+
     m_proxyFactory->loadSettings();
 }
 
@@ -94,9 +109,9 @@ void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
 
         QNetworkRequest request = reply->request();
         QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-        WebPage* webPage = static_cast<WebPage*> (v.value<void*>());
+        WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
         v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102));
-        WebView* webView = static_cast<WebView*> (v.value<void*>());
+        WebView* webView = static_cast<WebView*>(v.value<void*>());
         if (!webPage || !webView) {
             return;
         }
@@ -131,7 +146,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
 
     QNetworkRequest request = reply->request();
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-    WebPage* webPage = static_cast<WebPage*> (v.value<void*>());
+    WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
     if (!webPage) {
         return;
     }

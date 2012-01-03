@@ -1767,74 +1767,74 @@ werd niet gevonden!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="139"/>
+        <location filename="../src/network/networkmanager.cpp" line="155"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL-certificaatfout!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="154"/>
+        <location filename="../src/network/networkmanager.cpp" line="170"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organisatie: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="156"/>
+        <location filename="../src/network/networkmanager.cpp" line="172"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Domeinnaam: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="158"/>
+        <location filename="../src/network/networkmanager.cpp" line="174"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Vervaldatum: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="160"/>
+        <location filename="../src/network/networkmanager.cpp" line="176"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Fout: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="140"/>
+        <location filename="../src/network/networkmanager.cpp" line="156"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>De pagina die u probeert te bereiken heeft de volgende fouten in het SSL-certificaat:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="164"/>
+        <location filename="../src/network/networkmanager.cpp" line="180"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Wilt u een uitzondering maken voor dit certificaat?</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="185"/>
+        <location filename="../src/network/networkmanager.cpp" line="201"/>
         <source>Authorization required</source>
         <translation>Machtiging benodigd</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="192"/>
-        <location filename="../src/network/networkmanager.cpp" line="250"/>
+        <location filename="../src/network/networkmanager.cpp" line="208"/>
+        <location filename="../src/network/networkmanager.cpp" line="266"/>
         <source>Username: </source>
         <translation>Gebruikersnaam: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="193"/>
-        <location filename="../src/network/networkmanager.cpp" line="251"/>
+        <location filename="../src/network/networkmanager.cpp" line="209"/>
+        <location filename="../src/network/networkmanager.cpp" line="267"/>
         <source>Password: </source>
         <translation>Wachtwoord: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="198"/>
+        <location filename="../src/network/networkmanager.cpp" line="214"/>
         <source>Save username and password on this site</source>
         <translation>Sla gebruikersnaam en wachtwoord van deze site op</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="207"/>
+        <location filename="../src/network/networkmanager.cpp" line="223"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Er wordt om een gebruikersnaam en wachtwoord gevraagd door %1. De site zegt: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="243"/>
+        <location filename="../src/network/networkmanager.cpp" line="259"/>
         <source>Proxy authorization required</source>
         <translation>Proxy-machtiging benodigd</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="263"/>
+        <location filename="../src/network/networkmanager.cpp" line="279"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Er wordt om een gebruikersnaam en wachtwoord gevraagd door proxy %1. </translation>
     </message>
@@ -2678,32 +2678,32 @@ werd niet gevonden!</translation>
 <context>
     <name>QtWin</name>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="346"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="347"/>
         <source>Open new tab</source>
         <translation>Open nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="346"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="347"/>
         <source>Opens a new tab if browser is running</source>
         <translation>Opent een nieuw tabblad wanneer browser draait</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="350"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="351"/>
         <source>Open new window</source>
         <translation>Open nieuw venster</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="350"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="351"/>
         <source>Opens a new window if browser is running</source>
         <translation>Opent een nieuw venster wanneer browser draait</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="354"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="355"/>
         <source>Open download manager</source>
         <translation>Open downloadbeheerder</translation>
     </message>
     <message>
-        <location filename="../src/3rdparty/qtwin.cpp" line="354"/>
+        <location filename="../src/3rdparty/qtwin.cpp" line="355"/>
         <source>Opens a download manager if browser is running</source>
         <translation>Opent een downloadbeheerder wanneer browser draait</translation>
     </message>
@@ -3897,7 +3897,6 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="51"/>
-        <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
         <translation>Dit is uw &lt;b&gt;%1.&lt;/b&gt; bezoek aan deze site.</translation>
     </message>
@@ -3915,6 +3914,11 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <location filename="../src/webview/siteinfowidget.cpp" line="68"/>
         <source>third</source>
         <translation>derde</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
+        <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="55"/>
@@ -4514,14 +4518,14 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Zoek &quot;%1 ..&quot; met %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="828"/>
+        <location filename="../src/webview/webview.cpp" line="827"/>
         <source>No Named Page</source>
         <translation>Niet benoemde pagina</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="604"/>
-        <location filename="../src/webview/webview.cpp" line="919"/>
-        <location filename="../src/webview/webview.cpp" line="932"/>
+        <location filename="../src/webview/webview.cpp" line="918"/>
+        <location filename="../src/webview/webview.cpp" line="931"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
