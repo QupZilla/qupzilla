@@ -3113,6 +3113,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
         <translation>Túto stránku ste &lt;b&gt;nikdy&lt;/b&gt; predtým nenavštívili.</translation>
     </message>
+    <message>
+        <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SourceViewer</name>
