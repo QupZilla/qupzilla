@@ -56,6 +56,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     connect(m_view, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
 
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
+    connect(this, SIGNAL(printRequested(QWebFrame*)), this, SLOT(printFrame(QWebFrame*)));
 
     m_runningLoop = 0;
 }
@@ -124,6 +125,11 @@ void WebPage::watchedFileChanged(const QString &file)
     if (mainFrame()->url().toLocalFile() == file) {
         triggerAction(QWebPage::Reload);
     }
+}
+
+void WebPage::printFrame(QWebFrame *frame)
+{
+    p_QupZilla->printPage(frame);
 }
 
 //void WebPage::loadingStarted()
