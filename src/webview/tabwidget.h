@@ -62,6 +62,7 @@ public:
     ToolButton* buttonAddTab() { return m_buttonAddTab; }
 
     void createKeyPressEvent(QKeyEvent* event);
+    void showTabBar();
 
 signals:
     void pinnedTabClosed();
