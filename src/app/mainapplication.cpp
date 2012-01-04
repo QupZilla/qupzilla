@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -115,15 +115,18 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
                 break;
             case CommandLineOptions::NewTab:
                 messages.append("ACTION:NewTab");
+                m_postLaunchActions.append(OpenNewTab);
                 break;
             case CommandLineOptions::NewWindow:
                 messages.append("ACTION:NewWindow");
                 break;
             case CommandLineOptions::ShowDownloadManager:
                 messages.append("ACTION:ShowDownloadManager");
+                m_postLaunchActions.append(OpenDownloadManager);
                 break;
             case CommandLineOptions::StartPrivateBrowsing:
                 messages.append("ACTION:StartPrivateBrowsing");
+                m_postLaunchActions.append(PrivateBrowsing);
                 break;
             case CommandLineOptions::OpenUrl:
                 startUrl = pair.text;
@@ -208,8 +211,26 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     plugins()->loadPlugins();
     loadSettings();
 
+    QTimer::singleShot(0, this, SLOT(postLaunch()));
     QTimer::singleShot(2000, this, SLOT(restoreCursor()));
+#ifdef Q_WS_WIN
     QTimer::singleShot(10 * 1000, this, SLOT(setupJumpList()));
+#endif
+}
+
+void MainApplication::postLaunch()
+{
+    if (m_postLaunchActions.contains(PrivateBrowsing)) {
+        togglePrivateBrowsingMode(true);
+    }
+
+    if (m_postLaunchActions.contains(OpenDownloadManager)) {
+        downManager()->show();
+    }
+
+    if (m_postLaunchActions.contains(OpenNewTab)) {
+        getWindow()->tabWidget()->addView();
+    }
 }
 
 void MainApplication::loadSettings()
@@ -354,6 +375,15 @@ bool MainApplication::isStateChanged()
         return true;
     }
     return false;
+}
+
+void MainApplication::togglePrivateBrowsingMode(bool state)
+{
+    webSettings()->setAttribute(QWebSettings::PrivateBrowsingEnabled, state);
+    history()->setSaving(!state);
+    cookieJar()->turnPrivateJar(state);
+
+    emit message(MainApplication::CheckPrivateBrowsing, state);
 }
 
 void MainApplication::sendMessages(MainApplication::MessageType mes, bool state)
@@ -674,6 +704,10 @@ bool MainApplication::saveStateSlot()
 
 bool MainApplication::restoreStateSlot(QupZilla* window)
 {
+    if (m_postLaunchActions.contains(PrivateBrowsing)) {
+        return false;
+    }
+
     m_isRestoring = true;
     QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
     int afterStart = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();

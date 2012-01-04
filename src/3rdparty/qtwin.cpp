@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -115,8 +115,9 @@ bool QtWin::isRunningWindows7()
 {
 #ifdef Q_WS_WIN
     return QSysInfo::windowsVersion() == QSysInfo::WV_WINDOWS7;
-#endif
+#else
     return false;
+#endif
 }
 
 /*!

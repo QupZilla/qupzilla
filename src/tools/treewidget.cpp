@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -97,6 +97,7 @@ QList<QTreeWidgetItem*> TreeWidget::allItems()
     }
     return m_allTreeItems;
 }
+
 void TreeWidget::filterString(QString string)
 {
     expandAll();
@@ -123,8 +124,13 @@ void TreeWidget::filterString(QString string)
 
         QTreeWidgetItem* firstItem = topLevelItem(0);
         QTreeWidgetItem* belowItem = itemBelow(firstItem);
+
+        int topLvlIndex = 0;
         while (firstItem) {
-            if (!firstItem->parent() && !belowItem) {
+            if (firstItem->text(0).contains(string, Qt::CaseInsensitive)) {
+                firstItem->setHidden(false);
+            }
+            else if (!firstItem->parent() && !belowItem) {
                 firstItem->setHidden(true);
             }
             else if (!belowItem) {
@@ -133,7 +139,9 @@ void TreeWidget::filterString(QString string)
             else if (!firstItem->parent() && !belowItem->parent()) {
                 firstItem->setHidden(true);
             }
-            firstItem = belowItem;
+
+            topLvlIndex++;
+            firstItem = topLevelItem(topLvlIndex);
             belowItem = itemBelow(firstItem);
         }
     }

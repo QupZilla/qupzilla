@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -65,8 +65,8 @@
 const QString QupZilla::VERSION = "1.1.0";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
-const QString QupZilla::COPYRIGHT = "2010-2011";
-const QString QupZilla::WWWADDRESS = "http://qupzilla.co.cc";
+const QString QupZilla::COPYRIGHT = "2010-2012";
+const QString QupZilla::WWWADDRESS = "http://qupzilla.com";
 const QString QupZilla::WIKIADDRESS = "https://github.com/nowrep/QupZilla/wiki";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
@@ -1039,9 +1039,13 @@ void QupZilla::showPreferences()
     prefs->show();
 }
 
-void QupZilla::showSource(const QString &selectedHtml)
+void QupZilla::showSource(QWebFrame* frame, const QString &selectedHtml)
 {
-    SourceViewer* source = new SourceViewer(weView()->page(), selectedHtml);
+    if (!frame) {
+        frame = weView()->page()->mainFrame();
+    }
+
+    SourceViewer* source = new SourceViewer(frame, selectedHtml);
     qz_centerWidgetToParent(source, this);
     source->show();
 }
@@ -1281,10 +1285,17 @@ void QupZilla::sendLink()
     QDesktopServices::openUrl(url);
 }
 
-void QupZilla::printPage()
+void QupZilla::printPage(QWebFrame* frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
-    connect(dialog, SIGNAL(paintRequested(QPrinter*)), weView(), SLOT(print(QPrinter*)));
+
+    if (!frame) {
+        connect(dialog, SIGNAL(paintRequested(QPrinter*)), weView(), SLOT(print(QPrinter*)));
+    }
+    else {
+        connect(dialog, SIGNAL(paintRequested(QPrinter*)), frame, SLOT(print(QPrinter*)));
+    }
+
     dialog->exec();
 
     dialog->deleteLater();
@@ -1326,10 +1337,14 @@ void QupZilla::startPrivate(bool state)
         }
     }
 
-    mApp->webSettings()->setAttribute(QWebSettings::PrivateBrowsingEnabled, state);
-    mApp->history()->setSaving(!state);
-    mApp->cookieJar()->turnPrivateJar(state);
-    emit message(MainApplication::CheckPrivateBrowsing, state);
+    mApp->togglePrivateBrowsingMode(state);
+}
+
+void QupZilla::resizeEvent(QResizeEvent* event)
+{
+    m_bookmarksToolbar->setMaximumWidth(width());
+
+    QMainWindow::resizeEvent(event);
 }
 
 void QupZilla::keyPressEvent(QKeyEvent* event)

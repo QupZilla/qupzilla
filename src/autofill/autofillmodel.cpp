@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -182,9 +182,9 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     m_lastOutgoingData = outgoingData;
 
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-    QWebPage* webPage = (QWebPage*)(v.value<void*>());
+    QWebPage* webPage = static_cast<QWebPage*>(v.value<void*>());
     v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102));
-    WebView* webView = (WebView*)(v.value<void*>());
+    WebView* webView = static_cast<WebView*>(v.value<void*>());
     if (!webPage || !webView) {
         return;
     }

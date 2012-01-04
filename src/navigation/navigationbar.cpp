@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -261,9 +261,8 @@ void NavigationBar::goAtHistoryIndexInNewTab(int index)
     }
 
     TabWidget* tabWidget = p_QupZilla->tabWidget();
-    tabWidget->duplicateTab(tabWidget->currentIndex());
+    int tabIndex = tabWidget->duplicateTab(tabWidget->currentIndex());
 
-    int tabIndex = tabWidget->count() - 1;
     QWebHistory* history = p_QupZilla->weView(tabIndex)->page()->history();
 
     history->goToItem(history->itemAt(index));

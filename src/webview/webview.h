@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -124,6 +124,16 @@ private slots:
     void checkRss();
     void slotIconChanged();
 
+    // ClickedFrame
+    void loadClickedFrame();
+    void loadClickedFrameInNewTab();
+    void reloadClickedFrame();
+    void printClickedFrame();
+    void clickedFrameZoomIn();
+    void clickedFrameZoomOut();
+    void clickedFrameZoomReset();
+    void showClickedFrameSource();
+
 private:
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
@@ -153,6 +163,7 @@ private:
     NetworkManagerProxy* m_networkProxy;
     LocationBar* m_locationBar;
     QMenu* m_menu;
+    QWebFrame* m_clickedFrame;
 
     bool m_mouseTrack;
     bool m_navigationVisible;

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -218,7 +218,8 @@ QString QupZillaSchemeReply::aboutPage()
                   authorString("Nicolas Ourceau", "lamessen@hotmail.fr") + " (French)<br/>" +
                   authorString("Vasilis Tsivikis", "vasitsiv.dev@gmail.com") + " (Greek)<br/>" +
                   authorString("Alexander Maslov", "it@delta-z.ru") + " (Russian)<br/>" +
-                  authorString("Oleg Brezhnev", "oleg-423@yandex.ru") + " (Russian)<br/>"
+                  authorString("Oleg Brezhnev", "oleg-423@yandex.ru") + " (Russian)<br/>" +
+                  authorString("Sérgio Marques", "smarquespt@gmail.com") + " (Portuguese)"
                  );
 
     return aPage;
@@ -239,7 +240,7 @@ QString QupZillaSchemeReply::speeddialPage()
 
         dPage.replace("%SITE-TITLE%", tr("Speed Dial"));
         dPage.replace("%ADD-TITLE%", tr("Add New Page"));
-        dPage.replace("%TITLE-EDIT%", tr("Apply"));
+        dPage.replace("%TITLE-EDIT%", tr("Edit"));
         dPage.replace("%TITLE-REMOVE%", tr("Remove"));
         dPage.replace("%TITLE-RELOAD%", tr("Reload"));
         dPage.replace("%TITLE-FETCHTITLE%", tr("Load title from page"));
@@ -248,7 +249,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%LOADING-IMG%", "qrc:html/loading.gif");
         dPage.replace("%URL%", tr("Url"));
         dPage.replace("%TITLE%", tr("Title"));
-        dPage.replace("%EDIT%", tr("Edit"));
+        dPage.replace("%EDIT%", tr("Apply"));
         dPage.replace("%NEW-PAGE%", tr("New Page"));
     }
 

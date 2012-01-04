@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -283,32 +283,31 @@ void HistoryManager::refreshTable()
 void HistoryManager::search(const QString &searchText)
 {
     ui->historyTree->filterString(searchText);
-    return;
-    if (searchText.isEmpty()) {
-        refreshTable();
-        return;
-    }
+//    if (searchText.isEmpty()) {
+//        refreshTable();
+//        return;
+//    }
 
-    refreshTable();
-    ui->historyTree->setUpdatesEnabled(false);
+//    refreshTable();
+//    ui->historyTree->setUpdatesEnabled(false);
 
-    QList<QTreeWidgetItem*> items = ui->historyTree->findItems("*" + searchText + "*", Qt::MatchRecursive | Qt::MatchWildcard);
+//    QList<QTreeWidgetItem*> items = ui->historyTree->findItems("*" + searchText + "*", Qt::MatchRecursive | Qt::MatchWildcard);
 
-    QList<QTreeWidgetItem*> foundItems;
-    foreach(QTreeWidgetItem * fitem, items) {
-        if (fitem->text(1).isEmpty()) {
-            continue;
-        }
-        QTreeWidgetItem* item = new QTreeWidgetItem();
-        item->setText(0, fitem->text(0));
-        item->setText(1, fitem->text(1));
-        item->setWhatsThis(1, fitem->whatsThis(1));
-        item->setIcon(0, _iconForUrl(fitem->text(1)));
-        foundItems.append(item);
-    }
-    ui->historyTree->clear();
-    ui->historyTree->addTopLevelItems(foundItems);
-    ui->historyTree->setUpdatesEnabled(true);
+//    QList<QTreeWidgetItem*> foundItems;
+//    foreach(QTreeWidgetItem * fitem, items) {
+//        if (fitem->text(1).isEmpty()) {
+//            continue;
+//        }
+//        QTreeWidgetItem* item = new QTreeWidgetItem();
+//        item->setText(0, fitem->text(0));
+//        item->setText(1, fitem->text(1));
+//        item->setWhatsThis(1, fitem->whatsThis(1));
+//        item->setIcon(0, _iconForUrl(fitem->text(1)));
+//        foundItems.append(item);
+//    }
+//    ui->historyTree->clear();
+//    ui->historyTree->addTopLevelItems(foundItems);
+//    ui->historyTree->setUpdatesEnabled(true);
 }
 
 void HistoryManager::optimizeDb()

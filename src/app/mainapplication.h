@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -82,8 +82,9 @@ public:
     inline int windowCount() { return m_mainWindows.count(); }
 
     bool checkSettingsDir();
-
     int defaultZoom() { return m_defaultZoom; }
+
+    void togglePrivateBrowsingMode(bool state);
 
     QupZilla* getWindow();
     CookieManager* cookieManager();
@@ -116,10 +117,13 @@ signals:
     void message(MainApplication::MessageType mes, bool state);
 
 private slots:
+    void postLaunch();
     void setupJumpList();
     void restoreCursor();
 
 private:
+    enum PostLaunchAction { PrivateBrowsing, OpenDownloadManager, OpenNewTab };
+
     void translateApp();
     void restoreOtherWindows();
 
@@ -154,6 +158,7 @@ private:
     bool m_isRestoring;
 
     bool m_databaseConnected;
+    QList<PostLaunchAction> m_postLaunchActions;
 };
 
 #endif // MAINAPPLICATION_H

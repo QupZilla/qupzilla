@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -55,6 +55,7 @@
 #include <QNetworkReply>
 #include <QTextStream>
 #include <QFileInfo>
+#include <QTimer>
 
 class QNetworkReply;
 class QUrl;
@@ -62,19 +63,13 @@ class AdBlockSubscription : public QObject
 {
     Q_OBJECT
 
-signals:
-    void changed();
-    void rulesChanged();
-
 public:
     AdBlockSubscription(QObject* parent = 0);
 
     QString title() const { return m_title; }
     void setTitle(const QString &title) { m_title = title; }
 
-    void updateNow();
-    QDateTime lastUpdate() const;
-
+    void scheduleUpdate();
     void saveRules();
 
     const AdBlockRule* allow(const QString &urlString) const;
@@ -86,17 +81,21 @@ public:
     void removeRule(int offset);
     void replaceRule(const AdBlockRule &rule, int offset);
 
+signals:
+    void rulesUpdated();
+    void rulesChanged();
+
+public slots:
+    void updateNow();
+
 private slots:
+    void loadRules();
     void rulesDownloaded();
 
 private:
     void populateCache();
-    QString rulesFileName() const;
-    void parseUrl(const QUrl &url);
-    void loadRules();
 
     QString m_title;
-    bool m_enabled;
 
     QNetworkReply* m_downloading;
     QList<AdBlockRule> m_rules;

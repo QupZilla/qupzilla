@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ class SourceViewer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SourceViewer(QWebPage* page, const QString &selectedHtml);
+    explicit SourceViewer(QWebFrame* frame, const QString &selectedHtml);
     QTextEdit* sourceEdit() { return m_sourceEdit; }
 signals:
 
@@ -54,7 +54,7 @@ private slots:
 private:
     QBoxLayout* m_layout;
     QTextEdit* m_sourceEdit;
-    QWebPage* m_page;
+    QWebFrame* m_frame;
     QStatusBar* m_statusBar;
 };
 

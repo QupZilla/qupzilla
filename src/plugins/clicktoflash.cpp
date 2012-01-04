@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -171,8 +171,13 @@ void ClickToFlash::findElement()
 
     QPoint objectPos = view->mapFromGlobal(m_toolButton->mapToGlobal(m_toolButton->pos()));
     QWebFrame* objectFrame = view->page()->frameAt(objectPos);
-    QWebHitTestResult hitResult = objectFrame->hitTestContent(objectPos);
-    QWebElement hitElement = hitResult.element();
+    QWebHitTestResult hitResult;
+    QWebElement hitElement;
+
+    if (objectFrame) {
+        hitResult = objectFrame->hitTestContent(objectPos);
+        hitElement = hitResult.element();
+    }
 
     if (!hitElement.isNull()) {
         m_element = hitElement;
