@@ -77,7 +77,14 @@ void CookieJar::saveCookies()
         return;
     }
 
-    QList<QNetworkCookie> allCookies = getAllCookies();
+    QList<QNetworkCookie> allCookies;
+    if (m_tempList.isEmpty()) {
+        allCookies = getAllCookies();
+    }
+    else {
+        allCookies = m_tempList;
+    }
+
     QFile file(m_activeProfil + "cookies.dat");
     file.open(QIODevice::WriteOnly);
     QDataStream stream(&file);
