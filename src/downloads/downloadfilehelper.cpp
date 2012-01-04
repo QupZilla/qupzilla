@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -64,7 +64,7 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
 
     // Close Empty Tab
     if (m_webPage) {
-        if (!m_webPage->mainFrame()->url().isEmpty()) {
+        if (!m_webPage->mainFrame()->url().isEmpty() && m_webPage->mainFrame()->url().toString() != "about:blank") {
             m_downloadPage = m_webPage->mainFrame()->url();
         }
         else if (m_webPage->history()->canGoBack()) {

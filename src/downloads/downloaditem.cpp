@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@
 #include "webpage.h"
 #include "downloadmanager.h"
 #include "iconprovider.h"
+#include "networkmanager.h"
 
 //#define DOWNMANAGER_DEBUG
 
@@ -60,6 +61,21 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
 
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
+    connect(ui->button, SIGNAL(clicked(QPoint)), this, SLOT(stop()));
+    connect(manager, SIGNAL(resized(QSize)), this, SLOT(parentResized(QSize)));
+
+    startDownloading();
+}
+
+void DownloadItem::startDownloading()
+{
+    QUrl locationHeader = m_reply->header(QNetworkRequest::LocationHeader).toUrl();
+    if (locationHeader.isValid()) {
+        m_reply->close();
+        m_reply->deleteLater();
+
+        m_reply = mApp->networkManager()->get(QNetworkRequest(locationHeader));
+    }
 
     m_reply->setParent(this);
     connect(m_reply, SIGNAL(finished()), this, SLOT(finished()));
@@ -67,8 +83,6 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     connect(m_reply, SIGNAL(downloadProgress(qint64, qint64)), this, SLOT(downloadProgress(qint64, qint64)));
     connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error(QNetworkReply::NetworkError)));
     connect(m_reply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged()));
-    connect(ui->button, SIGNAL(clicked(QPoint)), this, SLOT(stop()));
-    connect(manager, SIGNAL(resized(QSize)), this, SLOT(parentResized(QSize)));
 
     m_downloading = true;
     m_timer.start(1000, this);
@@ -91,15 +105,14 @@ void DownloadItem::parentResized(const QSize &size)
 
 void DownloadItem::metaDataChanged()
 {
-//    http://www.olympus.cz/consumer/images/XD-Picture_card_1GB_Hand_CROP(1).jpg
-//    << download this picture emits metaDataChanged signal, but image is downloaded correctly
+    QUrl locationHeader = m_reply->header(QNetworkRequest::LocationHeader).toUrl();
+    if (locationHeader.isValid()) {
+        m_reply->close();
+        m_reply->deleteLater();
 
-    QVariant locationHeader = m_reply->header(QNetworkRequest::LocationHeader);
-    if (!locationHeader.toUrl().isEmpty()) {
-        qWarning("DownloadManager: metaDataChanged << URL: %s", qPrintable(locationHeader.toString()));
+        m_reply = mApp->networkManager()->get(QNetworkRequest(locationHeader));
+        startDownloading();
     }
-
-//    QMessageBox::information(m_item->listWidget()->parentWidget(), "Meta Data Changed", QString("Meta data changed feature unimplemented yet, sorry.\n URL: '%̈́'").arg(locationHeader.toUrl().toString()));
 }
 
 void DownloadItem::finished()

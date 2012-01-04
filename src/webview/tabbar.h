@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -80,6 +80,8 @@ private slots:
     void closeCurrentTab();
 
 private:
+    void mousePressEvent(QMouseEvent* event);
+    void mouseMoveEvent(QMouseEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     QSize tabSizeHint(int index) const;
@@ -99,6 +101,8 @@ private:
     int m_normalTabWidth;
     int m_lastTabWidth;
     bool m_adjustingLastTab;
+
+    QPoint m_dragStartPosition;
 };
 
 #endif // TABBAR_H

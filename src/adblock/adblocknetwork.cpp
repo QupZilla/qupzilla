@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -81,7 +81,7 @@ QNetworkReply* AdBlockNetwork::block(const QNetworkRequest &request)
 
     if (blockedRule) {
         QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-        WebPage* webPage = (WebPage*)(v.value<void*>());
+        WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
         if (webPage) {
             webPage->addAdBlockRule(blockedRule->filter(), request.url());
         }

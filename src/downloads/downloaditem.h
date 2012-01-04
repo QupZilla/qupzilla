@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -78,6 +78,8 @@ private slots:
     void copyDownloadLink();
 
 private:
+    void startDownloading();
+
     void timerEvent(QTimerEvent* event);
     void updateDownloadInfo(double currSpeed, qint64 received, qint64 total);
     void mouseDoubleClickEvent(QMouseEvent* e);

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ void CommandLineOptions::showHelp()
                        "    -a or --authors               print QupZilla authors \n"
                        "    -v or --version               print QupZilla version \n"
                        "\n"
-                       "    -p or --profile=PROFILE       start with specified profile \n"
+                       "    -p or --profile=<profile>     start with specified profile \n"
                        "    -np or --no-plugins           start without plugins \n"
                        "\n"
                        " Options to control running QupZilla:\n"

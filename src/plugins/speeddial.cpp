@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ void SpeedDial::loadSettings()
 
     if (m_allPages.isEmpty()) {
         m_allPages = "url:\"http://www.google.com\"|title:\"Google\";"
-                     "url:\"http://qupzilla.co.cc\"|title:\"QupZilla\";"
+                     "url:\"http://www.qupzilla.com\"|title:\"QupZilla\";"
                      "url:\"http://qupzilla.blogspot.com\"|title:\"QupZilla Blog\";"
                      "url:\"https://github.com/nowrep/QupZilla\"|title:\"QupZilla GitHub\";"
                      "url:\"http://facebook.com\"|title:\"Facebook\";";

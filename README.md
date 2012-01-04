@@ -1,4 +1,4 @@
-QupZilla Web Browser - http://www.qupzilla.co.cc (http://qupzilla.blogspot.com/)
+QupZilla Web Browser - http://www.qupzilla.com (http://qupzilla.blogspot.com/)
 
 About QupZilla
 ----------------------------------------------------------------------------------------

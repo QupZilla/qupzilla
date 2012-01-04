@@ -3113,6 +3113,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
         <translation>Túto stránku ste &lt;b&gt;nikdy&lt;/b&gt; predtým nenavštívili.</translation>
     </message>
+    <message>
+        <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
+        <translation>Toto je vaša &lt;b&gt;%1&lt;/b&gt; návšteva tejto stránky.</translation>
+    </message>
 </context>
 <context>
     <name>SourceViewer</name>
@@ -3575,6 +3579,38 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Copy image ad&amp;dress</source>
         <translation>Kopírovať a&amp;dresu obrázku</translation>
+    </message>
+    <message>
+        <source>This frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show &amp;only this frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show this frame in new &amp;tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom &amp;in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Zoom out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">Resetovať</translation>
+    </message>
+    <message>
+        <source>Show so&amp;urce of frame</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
