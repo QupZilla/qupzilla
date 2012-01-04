@@ -7,7 +7,6 @@
 QT       += core gui webkit sql network script
 TARGET = qupzilla
 TEMPLATE = app
-VERSION = 1.00.rc1
 
 DESTDIR = ../bin
 OBJECTS_DIR = ../build
