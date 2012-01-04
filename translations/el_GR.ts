@@ -2112,7 +2112,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="450"/>
         <source>Active profile:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ενεργό προφίλ:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="763"/>
@@ -4379,42 +4379,42 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="520"/>
         <source>This frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτό το πλαίσιο</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="521"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση &amp;μόνο αυτού του πλαισίου</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="522"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση αυτού του πλαισίου σε νέα &amp;καρτέλα</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="525"/>
         <source>Print frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Εκτύπωση πλαισίου</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="527"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished"></translation>
+        <translation>Ε&amp;στίαση</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="528"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>Σμίκρ&amp;υνση</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="529"/>
         <source>Reset</source>
-        <translation type="unfinished">Επαναφορά</translation>
+        <translation>Επαναφορά</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="531"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση πη&amp;γαίου του πλαισίου</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="537"/>
