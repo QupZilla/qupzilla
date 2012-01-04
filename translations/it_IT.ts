@@ -3918,7 +3918,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation type="unfinished"></translation>
+        <translation>Questa è la tua &lt;b&gt;%1&lt;/b&gt; visita a questo sito.</translation>
     </message>
 </context>
 <context>
@@ -4427,7 +4427,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
     <message>
         <location filename="../src/webview/webview.cpp" line="486"/>
         <source>&amp;Save image as...</source>
-        <translation>&amp;Salva immagine come...</translation>
+        <translation>Sa&amp;lva immagine come...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="487"/>
@@ -4458,42 +4458,42 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
     <message>
         <location filename="../src/webview/webview.cpp" line="520"/>
         <source>This frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Questa cornice</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="521"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra s&amp;olo questa cornice</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="522"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra questa cornice in una nuova &amp;scheda</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="525"/>
         <source>Print frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa cornice</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="527"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ingrandisci</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="528"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Riduci</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="529"/>
         <source>Reset</source>
-        <translation type="unfinished">Ripristina</translation>
+        <translation>Ripristina</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="531"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra sor&amp;gente della cornice</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="537"/>
