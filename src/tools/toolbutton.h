@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -48,7 +48,6 @@ public:
     QString themeIcon() { return m_themeIcon; }
 
     void setFallbackIcon(const QIcon &image);
-
     void setIcon(const QIcon &image);
 
 signals:
@@ -73,7 +72,6 @@ private:
 
     QString m_themeIcon;
     QVariant m_data;
-
 };
 
 #endif // TOOLBUTTON_H

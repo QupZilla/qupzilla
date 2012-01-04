@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -130,7 +130,8 @@ public slots:
 
     void bookmarkPage();
     void loadAddress(const QUrl &url);
-    void showSource(const QString &selectedHtml = "");
+    void showSource(QWebFrame* frame = 0, const QString &selectedHtml = "");
+    void printPage(QWebFrame* frame = 0);
     void showPageInfo();
     void receiveMessage(MainApplication::MessageType mes, bool state);
 
@@ -146,7 +147,6 @@ private slots:
     void urlEnter();
     void aboutQupZilla();
     void addTab() { m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewTab, true); }
-    void printPage();
     void savePageScreen();
 
     void aboutToShowFileMenu();
@@ -201,6 +201,7 @@ private slots:
     bool quitApp();
 
 private:
+    void resizeEvent(QResizeEvent* event);
     void keyPressEvent(QKeyEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void closeEvent(QCloseEvent* event);

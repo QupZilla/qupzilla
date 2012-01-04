@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -63,7 +63,7 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
     connect(addButton, SIGNAL(clicked()), this, SLOT(addCustomRule()));
     connect(reloadButton, SIGNAL(clicked()), this, SLOT(updateSubscription()));
     connect(search, SIGNAL(textChanged(QString)), treeWidget, SLOT(filterString(QString)));
-    connect(m_manager->subscription(), SIGNAL(changed()), this, SLOT(refreshAfterUpdate()));
+    connect(m_manager->subscription(), SIGNAL(rulesUpdated()), this, SLOT(refreshAfterUpdate()));
     connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested()));
 
 //    QTimer::singleShot(0, this, SLOT(firstRefresh()));

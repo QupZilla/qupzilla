@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -43,6 +43,7 @@ PageThumbnailer::PageThumbnailer(QObject* parent)
     : QObject(parent)
     , m_page(new QWebPage(this))
     , m_size(QSize(231, 130))
+    , m_loadTitle(false)
 {
     NetworkManagerProxy* networkProxy = new NetworkManagerProxy(this);
     networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -47,6 +47,8 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     connect(m_bookmarksModel, SIGNAL(subfolderAdded(QString)), this, SLOT(subfolderAdded(QString)));
     connect(m_bookmarksModel, SIGNAL(folderDeleted(QString)), this, SLOT(folderDeleted(QString)));
     connect(m_bookmarksModel, SIGNAL(folderRenamed(QString, QString)), this, SLOT(folderRenamed(QString, QString)));
+
+    setMaximumWidth(p_QupZilla->width());
 
 //    QTimer::singleShot(0, this, SLOT(refreshBookmarks()));
     refreshBookmarks();
@@ -100,7 +102,7 @@ void BookmarksToolbar::moveRight()
         return;
     }
 
-    ToolButton* button = (ToolButton*) act->data().value<void*>();
+    ToolButton* button = static_cast<ToolButton*>(act->data().value<void*>());
 
     int index = m_layout->indexOf(button);
     if (index == m_layout->count() - 1) {
@@ -137,7 +139,7 @@ void BookmarksToolbar::moveLeft()
         return;
     }
 
-    ToolButton* button = (ToolButton*) act->data().value<void*>();
+    ToolButton* button = static_cast<ToolButton*>(act->data().value<void*>());
 
     int index = m_layout->indexOf(button);
     if (index == 0) {
@@ -174,7 +176,7 @@ void BookmarksToolbar::removeButton()
         return;
     }
 
-    ToolButton* button = (ToolButton*) act->data().value<void*>();
+    ToolButton* button = static_cast<ToolButton*>(act->data().value<void*>());
     if (!button) {
         return;
     }

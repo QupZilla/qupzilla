@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2011  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -82,6 +82,16 @@ void AdBlockSubscription::loadRules()
             }
         }
     }
+
+    if (m_rules.isEmpty()) {
+        // Initial update
+        QTimer::singleShot(0, this, SLOT(updateNow()));
+    }
+}
+
+void AdBlockSubscription::scheduleUpdate()
+{
+    QTimer::singleShot(1000 * 30, this, SLOT(updateNow()));
 }
 
 void AdBlockSubscription::updateNow()
@@ -128,7 +138,7 @@ void AdBlockSubscription::rulesDownloaded()
     foreach(const AdBlockRule & rule, allRules()) {
         if (rule.filter().contains("*******- user custom filters")) {
             customRules = true;
-            response.append("! *******- user custom filters -*************\n");
+            response.append("\n! *******- user custom filters -*************\n");
             continue;
         }
         if (!customRules) {
@@ -137,10 +147,14 @@ void AdBlockSubscription::rulesDownloaded()
         response.append(rule.filter() + "\n");
     }
 
+    if (!customRules) {
+        response.append("\n! *******- user custom filters -*************\n");
+    }
+
     file.write(response);
     file.close();
     loadRules();
-    emit changed();
+    emit rulesUpdated();
     m_downloading = 0;
 }
 
