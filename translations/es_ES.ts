@@ -3919,7 +3919,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta es su visita &lt;b&gt;%1&lt;/b&gt; a este sitio.</translation>
     </message>
 </context>
 <context>
@@ -4412,12 +4412,12 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webview.cpp" line="482"/>
         <source>Show i&amp;mage</source>
-        <translation>&amp;Mostrar imágen</translation>
+        <translation>Mostrar &amp;imágen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="483"/>
         <source>Copy im&amp;age</source>
-        <translation>Copiar &amp;imágen</translation>
+        <translation>Co&amp;piar imágen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="484"/>
@@ -4458,42 +4458,42 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webview.cpp" line="520"/>
         <source>This frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Este marco</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="521"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished"></translation>
+        <translation>M&amp;ostrar solamente este marco</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="522"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar este marco en una nueva &amp;pestaña</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="525"/>
         <source>Print frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprimir marco</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="527"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aumentar tamaño</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="528"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Reducir tamaño</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="529"/>
         <source>Reset</source>
-        <translation type="unfinished">Reiniciar tamaño</translation>
+        <translation>Reiniciar tamaño</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="531"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar código f&amp;uente del marco</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="537"/>
