@@ -505,10 +505,13 @@ void MainApplication::translateApp()
 
 void MainApplication::quitApplication()
 {
+    bool isPrivate = m_websettings->testAttribute(QWebSettings::PrivateBrowsingEnabled);
+
     if (m_downloadManager && !m_downloadManager->canClose()) {
         m_downloadManager->show();
         return;
     }
+
     m_isClosing = true;
     if (m_mainWindows.count() > 0) {
         saveStateSlot();
@@ -523,7 +526,7 @@ void MainApplication::quitApplication()
     bool deleteCookies = settings.value("Web-Browser-Settings/deleteCookiesOnClose", false).toBool();
     bool deleteHistory = settings.value("Web-Browser-Settings/deleteHistoryOnClose", false).toBool();
 
-    if (deleteCookies) {
+    if (deleteCookies && !isPrivate) {
         QFile::remove(m_activeProfil + "cookies.dat");
     }
     if (deleteHistory) {
