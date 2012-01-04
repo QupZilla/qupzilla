@@ -299,7 +299,7 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
         m_browserFileText2 = tr("Please choose this file to begin importing bookmarks.");
         m_standardDir =
 #ifdef Q_WS_WIN
-            "%APPDATA%/Opera/";
+            "%APPDATA%/Chrome/Default/";
 #else
             "/home/user/.config/chrome/Default/";
 #endif
@@ -315,7 +315,7 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
         m_browserFileText2 = tr("Please choose this file to begin importing bookmarks.");
         m_standardDir =
 #ifdef Q_WS_WIN
-            "%APPDATA%/Chrome/Default/";
+            "%APPDATA%/Opera/";
 #else
             "/home/user/.opera/";
 #endif
