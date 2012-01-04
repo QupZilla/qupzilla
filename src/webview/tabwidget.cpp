@@ -344,14 +344,21 @@ void TabWidget::closeTab(int index)
         setCurrentIndex(m_lastTabIndex);
     }
 
-    widget(index)->deleteLater();
-
-    if (count() == 1 && m_hideTabBarWithOneTab) {
+    if (count() == 2 && m_hideTabBarWithOneTab) {
         tabBar()->setVisible(false);
     }
 
-//    if (count() < 1)
-//        p_QupZilla->close();
+    widget(index)->deleteLater();
+}
+
+void TabWidget::showTabBar()
+{
+    if (count() == 1 && m_hideTabBarWithOneTab) {
+        tabBar()->hide();
+    }
+    else {
+        tabBar()->show();
+    }
 }
 
 void TabWidget::tabMoved(int before, int after)
