@@ -2,7 +2,7 @@ FAQ
 
 Q: Profile data storage location
 Q: Cannot find page bookmarked with clicking on star icon.
-Q: Errors when visiting secured (https) sites.
+Q: Errors when visiting secured (https) sites or downloading EasyList.
 Q: Cannot save bookmarks and history.
 Q: Using a lot of % CPU.
 Q: Search engines are not saved through restarts.
@@ -27,7 +27,7 @@ A: When you add a bookmark from the star icon, it is automatically added
    
 
 Q: I am getting a lot of SSL errors when visiting secured (https) pages.
-   Why does this happen?
+   Also I cannot update EasyList. Why does this happen?
 ----------------------------------------------------------------------------------
 A: Your system CA certificates list is probably too small or even missing.
    You can check this in SSL Manager (Tools ->Preferences -> Privacy -> SSL Manager).

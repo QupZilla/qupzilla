@@ -88,6 +88,7 @@ private slots:
     void addJavaScriptObject();
 
     void watchedFileChanged(const QString &file);
+    void printFrame(QWebFrame* frame);
 
 private:
     virtual bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
