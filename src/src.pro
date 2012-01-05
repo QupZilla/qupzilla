@@ -24,7 +24,6 @@ win32:DEFINES += W7API
 unix:QT += dbus
 win32:RC_FILE = appicon.rc
 win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
-
 ##It won't compile on windows with this define. Some bug in qtsingleapp / qvector template
 !win32: !CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT
 
@@ -357,9 +356,15 @@ RESOURCES += \
     data/data.qrc
 
 OTHER_FILES += \
-    appicon.rc
+    appicon.rc \
+    Info.plist
 
 include(3rdparty/qtsingleapplication.pri)
+
+mac {
+    QMAKE_INFO_PLIST = Info.plist
+    ICON = data/icons/exeicons/qupzilla.icns
+}
 
 unix {
     d_prefix = $$(QUPZILLA_PREFIX)
