@@ -153,10 +153,6 @@
         <translation>Žiadny obsah neblokovaný</translation>
     </message>
     <message>
-        <source>AdBlock let you block any unwanted content on pages</source>
-        <translation type="obsolete">AdBlock vám umožňuje blokovať nechcený obsah na stránkach</translation>
-    </message>
-    <message>
         <source>Learn About Writing &amp;Rules</source>
         <translation>Zistiť viac o písaní p&amp;ravidiel</translation>
     </message>
@@ -245,10 +241,6 @@
 </context>
 <context>
     <name>AutoFillNotification</name>
-    <message>
-        <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="obsolete">Chcete, aby si QupZilla zapamätala heslo pre &lt;b&gt;%1&lt;/b&gt; na %2?</translation>
-    </message>
     <message>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
         <translation>Chcete, aby si QupZilla zapamätala heslo pre &lt;b&gt;%1&lt;/b&gt; na %2?</translation>
@@ -446,10 +438,6 @@
         <translation>Presunúť záložku do &amp;priečinka</translation>
     </message>
     <message>
-        <source>Unsorted Bookmarks</source>
-        <translation type="obsolete">Neroztriedené záložky</translation>
-    </message>
-    <message>
         <source>Rename Folder</source>
         <translation>Premenovať priečinok</translation>
     </message>
@@ -466,10 +454,6 @@
         <translation>Optimalizovať databázu</translation>
     </message>
     <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Záložky v menu</translation>
-    </message>
-    <message>
         <source>Remove folder</source>
         <translation>Odstrániť priečinok</translation>
     </message>
@@ -478,20 +462,8 @@
         <translation>Premenovať priečinok</translation>
     </message>
     <message>
-        <source>Choose name and location of bookmark.</source>
-        <translation type="obsolete">Zvoľte názov a umiestnenie záložky.</translation>
-    </message>
-    <message>
         <source>Add Subfolder</source>
         <translation>Pridať podpriečinok</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Panel záložiek</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
-        <translation type="obsolete">&lt;b&gt;Upozornenie: &lt;/b&gt;Túto stránku už máte v záložkách!</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
@@ -542,10 +514,6 @@
     <message>
         <source>&amp;Delete</source>
         <translation>O&amp;dstrániť</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Záložky v menu</translation>
     </message>
 </context>
 <context>
@@ -618,24 +586,12 @@
         <translation>Odstrániť záložku</translation>
     </message>
     <message>
-        <source>Unsorted Bookmarks</source>
-        <translation type="obsolete">Neroztriedené záložky</translation>
-    </message>
-    <message>
         <source>Edit This Bookmark</source>
         <translation>Upraviť túto záložku</translation>
     </message>
     <message>
         <source>Folder:</source>
         <translation>Priečinok:</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Záložky v menu</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Panel záložiek</translation>
     </message>
 </context>
 <context>
@@ -1331,16 +1287,8 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <source>Show informations about this page</source>
-        <translation type="obsolete">Zobraziť informácie o tejto stránke</translation>
-    </message>
-    <message>
         <source>Add RSS from this page...</source>
         <translation>Pridať RSS kanál z tejto stránky...</translation>
-    </message>
-    <message>
-        <source>.co.uk</source>
-        <translation type="obsolete">.sk</translation>
     </message>
     <message>
         <source>Enter URL address or search on %1</source>
@@ -1357,10 +1305,6 @@
     <message>
         <source>Last session crashed</source>
         <translation>Minulá relácia spadla</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
-        <translation type="obsolete">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
@@ -2420,10 +2364,6 @@
         <translation>&amp;RSS čítačka</translation>
     </message>
     <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
-        <translation type="obsolete">Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
-    </message>
-    <message>
         <source>&amp;Menu Bar</source>
         <translation>&amp;Menu panel</translation>
     </message>
@@ -2474,10 +2414,6 @@
     <message>
         <source>History</source>
         <translation>História</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Záložky v paneli nástrojov</translation>
     </message>
     <message>
         <source>Sidebars</source>
@@ -2645,10 +2581,6 @@
     <message>
         <source>Search results provided by Google</source>
         <translation>Výsledky vyhľadávania poskytované Googleom</translation>
-    </message>
-    <message>
-        <source>E-mail is optional</source>
-        <translation type="obsolete">E-mail je nepovinný</translation>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
@@ -3088,10 +3020,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>third</source>
         <translation>tretia</translation>
-    </message>
-    <message>
-        <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">Toto je vaša &lt;b&gt;%1.&lt;/b&gt; návšteva tejto stránky.</translation>
     </message>
     <message>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
