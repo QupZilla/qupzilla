@@ -3808,10 +3808,6 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
         <translation>A ligação a esta página &lt;b&gt;não é segura&lt;/b&gt;.</translation>
     </message>
     <message>
-        <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">Esta é a sua &lt;b&gt;%1.ª&lt;/b&gt; visita a esta página.</translation>
-    </message>
-    <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="55"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
         <translation>Você &lt;b&gt;nunca&lt;/b&gt; visitou esta página.</translation>

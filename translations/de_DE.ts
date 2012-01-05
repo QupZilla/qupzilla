@@ -167,10 +167,6 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <source>AdBlock let you block any unwanted content on pages</source>
-        <translation type="obsolete">AdBlock blockiert unerwünschte Seiteninhalte</translation>
-    </message>
-    <message>
         <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock lets you block unwanted content on web-pages</source>
         <translation>AdBlock blockiert unerwünschte Seiteninhalte</translation>
@@ -309,10 +305,6 @@
 </context>
 <context>
     <name>AutoFillNotification</name>
-    <message>
-        <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="obsolete">Soll QupZilla das Passwort für &lt;b&gt;%1&lt;/b&gt; auf %2 speichern?</translation>
-    </message>
     <message>
         <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
@@ -504,10 +496,6 @@
         <translation>Ordner umbenennen</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation type="obsolete">Löschen</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="43"/>
         <source>Add Folder</source>
         <translation>Ordner hinzufügen</translation>
@@ -536,14 +524,6 @@
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Tab</source>
         <translation>Neuer Tab</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Lesezeichen im Menü</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Lesezeichen in Werkzeug-Leiste</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
@@ -586,10 +566,6 @@
         <translation>Namen für Ordner auswählen: </translation>
     </message>
     <message>
-        <source>Remove</source>
-        <translation type="obsolete">Entfernen</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in &amp;new tab</source>
         <translation>Link in &amp;neuem Tab öffnen</translation>
@@ -600,10 +576,6 @@
         <translation>Lesezeichen in &amp;Ordner verschieben</translation>
     </message>
     <message>
-        <source>Unsorted Bookmarks</source>
-        <translation type="obsolete">Unsortierte Lesezeichen</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="256"/>
         <source>Rename bookmark</source>
         <translation>Lesezeichen umbenennen</translation>
@@ -612,14 +584,6 @@
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
         <source>Remove bookmark</source>
         <translation>Lesezeichen entfernen</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
-        <translation type="obsolete">&lt;b&gt;Warnung: &lt;/b&gt;Diese Lesezeichen haben Sie bereits hinzugefügt!</translation>
-    </message>
-    <message>
-        <source>Choose name and location of bookmark.</source>
-        <translation type="obsolete">Namen und Speicherort für Lesezeichen auswählen.</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="567"/>
@@ -684,10 +648,6 @@
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="112"/>
         <source>Copy address</source>
         <translation>Link-Adresse kopieren</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Lesezeichen im Menü</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="114"/>
@@ -790,18 +750,6 @@
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="117"/>
         <source>Close</source>
         <translation>Schließen</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Lesezeichen im Menü</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Lesezeichen in Werkzeug-Leiste</translation>
-    </message>
-    <message>
-        <source>Unsorted Bookmarks</source>
-        <translation type="obsolete">Unsortierte Lesezeichen</translation>
     </message>
 </context>
 <context>
@@ -1682,10 +1630,6 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <source>Show informations about this page</source>
-        <translation type="obsolete">Seiteninformationen anzeigen</translation>
-    </message>
-    <message>
         <location filename="../src/navigation/locationbar.cpp" line="50"/>
         <source>Add RSS from this page...</source>
         <translation>RSS Feed von dieser Seite hinzufügen...</translation>
@@ -1713,10 +1657,6 @@
         <location filename="../src/app/mainapplication.cpp" line="724"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla ist abgestürzt :-(&lt;/b&gt;&lt;br/&gt;Hoppla,die letzte Sitzung wurde unerwartet beendet. Verzeihung. Möchten Sie den letzten Status wiederherstellen?</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
-        <translation type="obsolete">&lt;b&gt;QupZilla ist abgestürzt :-(&lt;/b&gt;&lt;br/&gt;Hoppla,die letzte Sitzung wurde unerwartet beendet. Verzeihung. Möchten Sie den letzten Status wiederherstellen?</translation>
     </message>
 </context>
 <context>
@@ -2123,14 +2063,6 @@
         <translation>Verschieben von Tabs erlauben</translation>
     </message>
     <message>
-        <source>Hide close button if there is only one tab</source>
-        <translation type="obsolete">Beenden-Schaltfläche verstecken, wenn nur ein Tab aktiv</translation>
-    </message>
-    <message>
-        <source>Hide tabs when if there is only one tab</source>
-        <translation type="obsolete">Tabs verstecken, wenn nur einer aktiv</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="741"/>
         <source>Web Configuration</source>
         <translation>Web Konfiguration</translation>
@@ -2271,10 +2203,6 @@
         <location filename="../src/preferences/preferences.ui" line="808"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Do Not Track Kopfzeile zum Server senden</translation>
-    </message>
-    <message>
-        <source>Appereance</source>
-        <translation type="obsolete">Erscheinungsbild</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="219"/>
@@ -2967,10 +2895,6 @@
         <translation>Geschlossenen Tab &amp;wiederherstellen</translation>
     </message>
     <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Lesezeichen in Werkzeug-Leiste</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="624"/>
         <location filename="../src/app/qupzilla.cpp" line="652"/>
         <location filename="../src/app/qupzilla.cpp" line="738"/>
@@ -3136,10 +3060,6 @@
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Solange dieses Fenster geöffnet ist, können Sie über die Symbole &quot;Zurück&quot; und &quot;Vor&quot; zu den Webseiten zurückkehren, die Sie geöffnet haben.</translation>
     </message>
-    <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
-        <translation type="obsolete">Es sind noch %1 Tabs geöffnet und Ihre Sitzung wird nicht gespeichert. Möchten Sie QupZilla wirklich beenden?</translation>
-    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -3177,10 +3097,6 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="135"/>
         <source>Send</source>
         <translation>Senden</translation>
-    </message>
-    <message>
-        <source>E-mail is optional</source>
-        <translation type="obsolete">Angabe optional</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
@@ -3893,10 +3809,6 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <location filename="../src/webview/siteinfowidget.cpp" line="39"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
         <translation>Diese Verbindung ist &lt;b&gt;unverschlüsselt&lt;/b&gt;.</translation>
-    </message>
-    <message>
-        <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">Dies ist Ihr &lt;b&gt;%1.&lt;/b&gt; Besuch dieser Seite.</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="62"/>
