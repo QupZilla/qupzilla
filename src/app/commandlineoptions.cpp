@@ -59,13 +59,11 @@ void CommandLineOptions::parseActions()
 {
     using namespace std;
 
-    bool found = false;
     // Skip first argument (it should be program itself)
     for (int i = 1; i < m_argc; i++) {
         QString arg(m_argv[i]);
         if (arg == "-h" || arg == "--help") {
             showHelp();
-            found = true;
             ActionPair pair;
             pair.action = ExitAction;
             m_actions.append(pair);
@@ -75,7 +73,6 @@ void CommandLineOptions::parseActions()
         if (arg == "-a" || arg == "--authors") {
             cout << "QupZilla authors: " << endl;
             cout << "  nowrep <nowrep@gmail.com>" << endl;
-            found = true;
             ActionPair pair;
             pair.action = ExitAction;
             m_actions.append(pair);
@@ -89,7 +86,6 @@ void CommandLineOptions::parseActions()
 #endif
                  << "(build " << QupZilla::BUILDTIME.toUtf8().data() << ")"
                  << endl;
-            found = true;
             ActionPair pair;
             pair.action = ExitAction;
             m_actions.append(pair);
@@ -99,7 +95,6 @@ void CommandLineOptions::parseActions()
         if (arg.startsWith("-p=") || arg.startsWith("--profile=")) {
             arg.remove("-p=");
             arg.remove("--profile=");
-            found = true;
             cout << "starting with profile " << arg.toUtf8().data() << endl;
             ActionPair pair;
             pair.action = StartWithProfile;
@@ -108,7 +103,6 @@ void CommandLineOptions::parseActions()
         }
 
         if (arg.startsWith("-np") || arg.startsWith("--no-plugins")) {
-            found = true;
             ActionPair pair;
             pair.action = StartWithoutAddons;
             pair.text = "";
@@ -116,7 +110,6 @@ void CommandLineOptions::parseActions()
         }
 
         if (arg.startsWith("-nt") || arg.startsWith("--new-tab")) {
-            found = true;
             ActionPair pair;
             pair.action = NewTab;
             pair.text = "";
@@ -124,7 +117,6 @@ void CommandLineOptions::parseActions()
         }
 
         if (arg.startsWith("-nw") || arg.startsWith("--new-window")) {
-            found = true;
             ActionPair pair;
             pair.action = NewWindow;
             pair.text = "";
@@ -132,7 +124,6 @@ void CommandLineOptions::parseActions()
         }
 
         if (arg.startsWith("-dm") || arg.startsWith("--download-manager")) {
-            found = true;
             ActionPair pair;
             pair.action = ShowDownloadManager;
             pair.text = "";
@@ -140,7 +131,6 @@ void CommandLineOptions::parseActions()
         }
 
         if (arg.startsWith("-pb") || arg.startsWith("--private-browsing")) {
-            found = true;
             ActionPair pair;
             pair.action = StartPrivateBrowsing;
             pair.text = "";
@@ -150,19 +140,10 @@ void CommandLineOptions::parseActions()
 
     QString url(m_argv[m_argc - 1]);
     if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-")) {
-        found = true;
         cout << "starting with url " << url.toUtf8().data() << endl;
         ActionPair pair;
         pair.action = OpenUrl;
         pair.text = url;
-        m_actions.append(pair);
-    }
-
-    if (m_argc > 1 && !found) {
-        cout << " Invalid option! Please see help below." << endl;
-        showHelp();
-        ActionPair pair;
-        pair.action = ExitAction;
         m_actions.append(pair);
     }
 }
