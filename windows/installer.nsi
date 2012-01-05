@@ -1,9 +1,9 @@
-RequestExecutionLevel admin
+﻿RequestExecutionLevel admin
 !include "wininstall\FileAssociation.nsh"
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.0.0"
+!define /date PRODUCT_VERSION "1.1.0"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -34,6 +34,8 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Slovak"
 !insertmacro MUI_LANGUAGE "Dutch"
 !insertmacro MUI_LANGUAGE "German"
+!insertmacro MUI_LANGUAGE "Greek"
+!insertmacro MUI_LANGUAGE "Portuguese"
 
 !insertmacro MUI_LANGUAGE "French"
 !insertmacro MUI_LANGUAGE "Korean"
@@ -75,19 +77,14 @@ Section !$(TITLE_SecMain) SecMain
   File "QtSql4.dll"
   File "QtWebKit4.dll"
 
-  SetOutPath "$INSTDIR\data\default\profiles"
-  File "data\default\profiles\profiles.ini"
-  
-  SetOutPath "$INSTDIR\data\default\profiles\default"
-  File "data\default\profiles\default\browsedata.db"
-
   SetOutPath "$INSTDIR\imageformats"
   File "imageformats\qico4.dll"
   File "imageformats\qsvg4.dll"
   File "imageformats\qgif4.dll"
   File "imageformats\qjpeg4.dll"
-  File "imageformats\qtiff4.dll"
   File "imageformats\qmng4.dll"
+  File "imageformats\qtiff4.dll"
+  File "imageformats\qtga4.dll"
 
   SetOutPath "$INSTDIR\sqldrivers"
   File "sqldrivers\qsqlite4.dll"
@@ -167,6 +164,42 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\qt_zh.qm"
   SectionEnd
 
+  Section "Polish"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\pl_PL.qm"
+  File "locale\qt_pl.qm"
+  SectionEnd
+
+  Section "Spanish"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\es_ES.qm"
+  File "locale\qt_es.qm"
+  SectionEnd
+  
+  Section "Greek"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\el_GR.qm"
+  File "locale\qt_el.qm"
+  SectionEnd
+  
+  Section "French"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\fr_FR.qm"
+  File "locale\qt_fr.qm"
+  SectionEnd
+  
+  Section "Russian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ru_RU.qm"
+  File "locale\qt_ru.qm"
+  SectionEnd
+  
+  Section "Portuguese"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\pt_PT.qm"
+  File "locale\qt_pt.qm"
+  SectionEnd
+
 SectionGroupEnd
 
 SectionGroup $(TITLE_SecPlugins) SecPlugins
@@ -238,28 +271,18 @@ Function .onInit
 	Push ""
     Push ${LANG_ENGLISH}
 	Push English
-	Push ${LANG_CZECH}
-	Push Czech
-	Push ${LANG_DUTCH}
-	Push Dutch
-	Push ${LANG_FRENCH}
-	Push French
 	Push ${LANG_GERMAN}
 	Push German
-	Push ${LANG_KOREAN}
-	Push Korean
-	Push ${LANG_RUSSIAN}
-	Push Russian
-	Push ${LANG_SPANISH}
-	Push Spanish
-	Push ${LANG_SWEDISH}
-	Push Swedish
-	Push ${LANG_TRADCHINESE}
-	Push "Traditional Chinese"
-	Push ${LANG_SIMPCHINESE}
-	Push "Simplified Chinese"
+	Push ${LANG_CZECH}
+	Push Czech
 	Push ${LANG_SLOVAK}
 	Push Slovak
+	Push ${LANG_DUTCH}
+	Push Dutch
+	Push ${LANG_GREEK}
+	Push Greek
+	Push ${LANG_PORTUGUESE}
+	Push Portuguese
 	Push A ; A means auto count languages
 	       ; for the auto count to work the first empty push (Push "") must remain
 	LangDLL::LangDialog "Installer Language" "Please select the language of the installer"
