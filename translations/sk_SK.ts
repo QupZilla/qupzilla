@@ -2108,7 +2108,7 @@
     </message>
     <message>
         <source>Active profile:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivovať profil:</translation>
     </message>
 </context>
 <context>
@@ -2664,7 +2664,7 @@
     </message>
     <message>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mail je nepovinný&lt;br/&gt;&lt;b&gt;Poznámka: &lt;/b&gt;Používajte prosím len anglický jazyk.</translation>
     </message>
 </context>
 <context>
@@ -2771,7 +2771,7 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     </message>
     <message>
         <source>Untitled feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanál bez názvu</translation>
     </message>
 </context>
 <context>
@@ -3091,7 +3091,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation>Toto je vaša &lt;b&gt;%1.&lt;/b&gt; návšteva tejto stránky.</translation>
+        <translation type="obsolete">Toto je vaša &lt;b&gt;%1.&lt;/b&gt; návšteva tejto stránky.</translation>
     </message>
     <message>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
@@ -3582,35 +3582,35 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>This frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento rám</translation>
     </message>
     <message>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť &amp;len tento rám</translation>
     </message>
     <message>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť tento rám na &amp;novom panely</translation>
     </message>
     <message>
         <source>Print frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytlačiť rám</translation>
     </message>
     <message>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoo&amp;m +</translation>
     </message>
     <message>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>Z&amp;oom -</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">Resetovať</translation>
+        <translation>Resetovať</translation>
     </message>
     <message>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť &amp;zdrojový kód rámu</translation>
     </message>
 </context>
 <context>

@@ -1702,12 +1702,12 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="720"/>
+        <location filename="../src/app/mainapplication.cpp" line="723"/>
         <source>Last session crashed</source>
         <translation>会话崩溃</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="721"/>
+        <location filename="../src/app/mainapplication.cpp" line="724"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>QupZilla上次结束时崩溃，我们非常遗憾。您要还原保存的状态吗？</translation>
     </message>
@@ -1764,74 +1764,74 @@
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="155"/>
+        <location filename="../src/network/networkmanager.cpp" line="154"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL证书错误!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="170"/>
+        <location filename="../src/network/networkmanager.cpp" line="169"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>机构</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="172"/>
+        <location filename="../src/network/networkmanager.cpp" line="171"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>域名</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="174"/>
+        <location filename="../src/network/networkmanager.cpp" line="173"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>截止日期</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="176"/>
+        <location filename="../src/network/networkmanager.cpp" line="175"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;错误：&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="156"/>
+        <location filename="../src/network/networkmanager.cpp" line="155"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>您试图访问的页面有SSL证书错误：</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="180"/>
+        <location filename="../src/network/networkmanager.cpp" line="179"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>你想使这个证书例外吗？</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="201"/>
+        <location filename="../src/network/networkmanager.cpp" line="200"/>
         <source>Authorization required</source>
         <translation>需要授权</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="208"/>
-        <location filename="../src/network/networkmanager.cpp" line="266"/>
+        <location filename="../src/network/networkmanager.cpp" line="207"/>
+        <location filename="../src/network/networkmanager.cpp" line="265"/>
         <source>Username: </source>
         <translation>用户名:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="209"/>
-        <location filename="../src/network/networkmanager.cpp" line="267"/>
+        <location filename="../src/network/networkmanager.cpp" line="208"/>
+        <location filename="../src/network/networkmanager.cpp" line="266"/>
         <source>Password: </source>
         <translation>密码:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="214"/>
+        <location filename="../src/network/networkmanager.cpp" line="213"/>
         <source>Save username and password on this site</source>
         <translation>保存用户名和密码</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="223"/>
+        <location filename="../src/network/networkmanager.cpp" line="222"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>要求%1的用户名和密码。该网站说：“%2”</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="259"/>
+        <location filename="../src/network/networkmanager.cpp" line="258"/>
         <source>Proxy authorization required</source>
         <translation>需要代理授权</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="279"/>
+        <location filename="../src/network/networkmanager.cpp" line="278"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>正在由代理要求用户名和密码%1.</translation>
     </message>
@@ -3063,7 +3063,7 @@
         <translation>隐私浏览&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1474"/>
+        <location filename="../src/app/qupzilla.cpp" line="1475"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>还有%1打开的标签和您的会话将不会被储存。你一定要退出吗？</translation>
     </message>
@@ -3089,37 +3089,37 @@
         <translation>打开文件...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1320"/>
+        <location filename="../src/app/qupzilla.cpp" line="1319"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>你确定要打开隐私浏览吗？</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1321"/>
+        <location filename="../src/app/qupzilla.cpp" line="1320"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>打开隐私浏览时，有关于您的隐私行动将被禁用：</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1324"/>
+        <location filename="../src/app/qupzilla.cpp" line="1323"/>
         <source>Webpages are not added to the history.</source>
         <translation>网页不会添加到历史记录。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1325"/>
+        <location filename="../src/app/qupzilla.cpp" line="1324"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>当前的cookies无法被访问。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1326"/>
+        <location filename="../src/app/qupzilla.cpp" line="1325"/>
         <source>Your session is not stored.</source>
         <translation>不会存储您的会话。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1328"/>
+        <location filename="../src/app/qupzilla.cpp" line="1327"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>直到您关闭该窗口，你仍然可以单击后退和前进按钮，返回到你已经打开的网页.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1333"/>
+        <location filename="../src/app/qupzilla.cpp" line="1332"/>
         <source>Start Private Browsing</source>
         <translation>开始隐私浏览</translation>
     </message>
@@ -3306,32 +3306,32 @@
         <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
         <source>Speed Dial</source>
         <translation>快速拨号</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Add New Page</source>
         <translation>添加新网页</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
         <source>Load title from page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Remove</source>
         <translation>删除</translation>
     </message>
@@ -3341,22 +3341,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Reload</source>
         <translation>刷新</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
         <source>Url</source>
         <translation>地址</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
         <source>Title</source>
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
         <source>New Page</source>
         <translation>新网页</translation>
     </message>
@@ -3888,9 +3888,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>您连接到这个网站是&lt;b&gt;无担保&lt;/ B&gt;。</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="51"/>
         <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation>这是您的&lt;b&gt;%1&lt;/ B&gt;此网站的访问。</translation>
+        <translation type="obsolete">这是您的&lt;b&gt;%1&lt;/ B&gt;此网站的访问。</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="55"/>
@@ -3913,6 +3912,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>第三</translation>
     </message>
     <message>
+        <location filename="../src/webview/siteinfowidget.cpp" line="51"/>
         <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
         <translation type="unfinished"></translation>
@@ -4176,7 +4176,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="216"/>
-        <location filename="../src/webview/tabwidget.cpp" line="376"/>
+        <location filename="../src/webview/tabwidget.cpp" line="383"/>
         <source>No Named Page</source>
         <translation>无命名页面</translation>
     </message>
@@ -4186,9 +4186,9 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>你已有%1打开的标签</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="560"/>
-        <location filename="../src/webview/tabwidget.cpp" line="636"/>
-        <location filename="../src/webview/tabwidget.h" line="71"/>
+        <location filename="../src/webview/tabwidget.cpp" line="567"/>
+        <location filename="../src/webview/tabwidget.cpp" line="643"/>
+        <location filename="../src/webview/tabwidget.h" line="72"/>
         <source>New tab</source>
         <translation>新标签</translation>
     </message>
@@ -4251,93 +4251,93 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="200"/>
+        <location filename="../src/webview/webpage.cpp" line="206"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>为显示此页QupZilla须重新发送请求</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="240"/>
+        <location filename="../src/webview/webpage.cpp" line="246"/>
         <source>New tab</source>
         <translation>新标签</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="306"/>
+        <location filename="../src/webview/webpage.cpp" line="312"/>
         <source>Server refused the connection</source>
         <translation>服务器拒绝了连接</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="309"/>
+        <location filename="../src/webview/webpage.cpp" line="315"/>
         <source>Server closed the connection</source>
         <translation>服务器关闭了连接</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="312"/>
+        <location filename="../src/webview/webpage.cpp" line="318"/>
         <source>Server not found</source>
         <translation>找不到服务器</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="315"/>
+        <location filename="../src/webview/webpage.cpp" line="321"/>
         <source>Connection timed out</source>
         <translation>连接超时</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="318"/>
+        <location filename="../src/webview/webpage.cpp" line="324"/>
         <source>Untrusted connection</source>
         <translation>不受信任的连接</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="342"/>
+        <location filename="../src/webview/webpage.cpp" line="348"/>
         <source>AdBlocked Content</source>
         <translation>AdBlocked内容</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="346"/>
+        <location filename="../src/webview/webpage.cpp" line="352"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>阻止规则 &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="353"/>
+        <location filename="../src/webview/webpage.cpp" line="359"/>
         <source>Content Access Denied</source>
         <translation>内容访问被拒绝</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="363"/>
+        <location filename="../src/webview/webpage.cpp" line="369"/>
         <source>Error code %1</source>
         <translation>错误代码为%1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="375"/>
+        <location filename="../src/webview/webpage.cpp" line="381"/>
         <source>Failed loading page</source>
         <translation>载入页面失败</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="382"/>
+        <location filename="../src/webview/webpage.cpp" line="388"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla无法加载%1页。</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="383"/>
+        <location filename="../src/webview/webpage.cpp" line="389"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>检查输入错误的地址，如&lt;b&gt; WW&lt;/b&gt; example.com，而不是&lt;B&gt; WWW。&lt;/b&gt; example.com</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="384"/>
+        <location filename="../src/webview/webpage.cpp" line="390"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>如果您无法载入任何页面，请检查您的计算机的网络连接。</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="385"/>
+        <location filename="../src/webview/webpage.cpp" line="391"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>如果您的计算机或网络受到防火墙或代理的保护，确保QupZilla允许访问Web。</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="386"/>
+        <location filename="../src/webview/webpage.cpp" line="392"/>
         <source>Try Again</source>
         <translation>再试一次</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="504"/>
+        <location filename="../src/webview/webpage.cpp" line="510"/>
         <source>Choose file...</source>
         <translation>选择文件...</translation>
     </message>

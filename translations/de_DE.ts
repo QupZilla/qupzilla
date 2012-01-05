@@ -1705,12 +1705,12 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="720"/>
+        <location filename="../src/app/mainapplication.cpp" line="723"/>
         <source>Last session crashed</source>
         <translation>Die letzte Sitzung wurde unerwartet beendet</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="721"/>
+        <location filename="../src/app/mainapplication.cpp" line="724"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla ist abgestürzt :-(&lt;/b&gt;&lt;br/&gt;Hoppla,die letzte Sitzung wurde unerwartet beendet. Verzeihung. Möchten Sie den letzten Status wiederherstellen?</translation>
     </message>
@@ -1767,74 +1767,74 @@
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="155"/>
+        <location filename="../src/network/networkmanager.cpp" line="154"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL Zertifikatsfehler!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="170"/>
+        <location filename="../src/network/networkmanager.cpp" line="169"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organisation: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="172"/>
+        <location filename="../src/network/networkmanager.cpp" line="171"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Domänen-Name: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="174"/>
+        <location filename="../src/network/networkmanager.cpp" line="173"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Ablaufdatum: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="176"/>
+        <location filename="../src/network/networkmanager.cpp" line="175"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Fehler: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="156"/>
+        <location filename="../src/network/networkmanager.cpp" line="155"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Beim Laden dieser Seite sind folgende SSL Zertifikatsfehler aufgetreten:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="180"/>
+        <location filename="../src/network/networkmanager.cpp" line="179"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Möchten Sie eine Ausnahme für dieses Zertifkat zulassen?</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="201"/>
+        <location filename="../src/network/networkmanager.cpp" line="200"/>
         <source>Authorization required</source>
         <translation>Authentifizierung erforderlich</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="208"/>
-        <location filename="../src/network/networkmanager.cpp" line="266"/>
+        <location filename="../src/network/networkmanager.cpp" line="207"/>
+        <location filename="../src/network/networkmanager.cpp" line="265"/>
         <source>Username: </source>
         <translation>Nutzername:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="209"/>
-        <location filename="../src/network/networkmanager.cpp" line="267"/>
+        <location filename="../src/network/networkmanager.cpp" line="208"/>
+        <location filename="../src/network/networkmanager.cpp" line="266"/>
         <source>Password: </source>
         <translation>Passwort: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="214"/>
+        <location filename="../src/network/networkmanager.cpp" line="213"/>
         <source>Save username and password on this site</source>
         <translation>Nutzername und Passwort für diese Seite speichern</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="223"/>
+        <location filename="../src/network/networkmanager.cpp" line="222"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Bitte Nutzername und Passwort zur Anmeldung an Server %1 angeben. Statusmeldung: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="259"/>
+        <location filename="../src/network/networkmanager.cpp" line="258"/>
         <source>Proxy authorization required</source>
         <translation>Anmeldung am Proxy erforderlich</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="279"/>
+        <location filename="../src/network/networkmanager.cpp" line="278"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Bitte Nutzername und Passwort zur Anmeldung an Proxy %1 angeben.</translation>
     </message>
@@ -2872,7 +2872,7 @@
         <translation>Seiten-&amp;Quelltext</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1474"/>
+        <location filename="../src/app/qupzilla.cpp" line="1475"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Es sind noch %1 Tabs geöffnet und Ihre Sitzung wird nicht gespeichert. Möchten Sie QupZilla wirklich beenden?</translation>
     </message>
@@ -2942,17 +2942,17 @@
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1325"/>
+        <location filename="../src/app/qupzilla.cpp" line="1324"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Auf aktuelle Cookies kann nicht zugegriffen werden.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1326"/>
+        <location filename="../src/app/qupzilla.cpp" line="1325"/>
         <source>Your session is not stored.</source>
         <translation>Ihre Sitzung wird nicht gespeichert.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1333"/>
+        <location filename="../src/app/qupzilla.cpp" line="1332"/>
         <source>Start Private Browsing</source>
         <translation>Privaten Modus starten</translation>
     </message>
@@ -3117,22 +3117,22 @@
         <translation>Datei öffnen...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1320"/>
+        <location filename="../src/app/qupzilla.cpp" line="1319"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Möchten Sie wirklich den privaten Modus starten?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1321"/>
+        <location filename="../src/app/qupzilla.cpp" line="1320"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Wenn der private Modus aktiv ist, stehen einige Aktionen nicht zur Verfügung:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1324"/>
+        <location filename="../src/app/qupzilla.cpp" line="1323"/>
         <source>Webpages are not added to the history.</source>
         <translation>Webseiten werden nicht zum Verlauf hinzugefügt.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1328"/>
+        <location filename="../src/app/qupzilla.cpp" line="1327"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Solange dieses Fenster geöffnet ist, können Sie über die Symbole &quot;Zurück&quot; und &quot;Vor&quot; zu den Webseiten zurückkehren, die Sie geöffnet haben.</translation>
     </message>
@@ -3245,52 +3245,52 @@
         <translation>Übersetzer</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="240"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
         <source>Speed Dial</source>
         <translation>Schnellwahl</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Add New Page</source>
         <translation>Neue Seite hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>Apply</source>
         <translation>Anwenden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
         <source>Load title from page</source>
         <translation>Titel von der Web-Seite laden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Edit</source>
         <translation>Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Reload</source>
         <translation>Neu laden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="249"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
         <source>Url</source>
         <translation>Url</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
         <source>Title</source>
         <translation>Titel</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
         <source>New Page</source>
         <translation>Neue Seite</translation>
     </message>
@@ -3895,9 +3895,8 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation>Diese Verbindung ist &lt;b&gt;unverschlüsselt&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="51"/>
         <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation>Dies ist Ihr &lt;b&gt;%1.&lt;/b&gt; Besuch dieser Seite.</translation>
+        <translation type="obsolete">Dies ist Ihr &lt;b&gt;%1.&lt;/b&gt; Besuch dieser Seite.</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="62"/>
@@ -3915,6 +3914,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation>dritter</translation>
     </message>
     <message>
+        <location filename="../src/webview/siteinfowidget.cpp" line="51"/>
         <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
         <translation>Dies ist Ihr &lt;b&gt;%1&lt;/b&gt; Besuch dieser Seite.</translation>
@@ -4183,7 +4183,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="216"/>
-        <location filename="../src/webview/tabwidget.cpp" line="376"/>
+        <location filename="../src/webview/tabwidget.cpp" line="383"/>
         <source>No Named Page</source>
         <translatorcomment>This is displayed in the window title, when a blank tab is opened.</translatorcomment>
         <translation>Leere Seite</translation>
@@ -4194,9 +4194,9 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation>Aktuell sind %1 Tabs geöffnet</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="560"/>
-        <location filename="../src/webview/tabwidget.cpp" line="636"/>
-        <location filename="../src/webview/tabwidget.h" line="71"/>
+        <location filename="../src/webview/tabwidget.cpp" line="567"/>
+        <location filename="../src/webview/tabwidget.cpp" line="643"/>
+        <location filename="../src/webview/tabwidget.h" line="72"/>
         <source>New tab</source>
         <translation>Neuer Tab</translation>
     </message>
@@ -4259,94 +4259,94 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="200"/>
+        <location filename="../src/webview/webpage.cpp" line="206"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Um diese Seite anzeigen zu können, muss QupZilla eine erneute Abfrage an den Server versenden 
 </translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="240"/>
+        <location filename="../src/webview/webpage.cpp" line="246"/>
         <source>New tab</source>
         <translation>Neuer Tab</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="306"/>
+        <location filename="../src/webview/webpage.cpp" line="312"/>
         <source>Server refused the connection</source>
         <translation>Der Server hat den Verbindungsversuch abgelehnt</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="309"/>
+        <location filename="../src/webview/webpage.cpp" line="315"/>
         <source>Server closed the connection</source>
         <translation>Der Server hat die Verbindung beendet</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="312"/>
+        <location filename="../src/webview/webpage.cpp" line="318"/>
         <source>Server not found</source>
         <translation>Server nicht gefunden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="315"/>
+        <location filename="../src/webview/webpage.cpp" line="321"/>
         <source>Connection timed out</source>
         <translation>Zeitüberschreitung der Anfrage</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="318"/>
+        <location filename="../src/webview/webpage.cpp" line="324"/>
         <source>Untrusted connection</source>
         <translation>Keine vertrauenswürdige Verbindung</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="342"/>
+        <location filename="../src/webview/webpage.cpp" line="348"/>
         <source>AdBlocked Content</source>
         <translation>Inhalt von AdBlock blockiert</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="346"/>
+        <location filename="../src/webview/webpage.cpp" line="352"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Blockiert von Regel &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="353"/>
+        <location filename="../src/webview/webpage.cpp" line="359"/>
         <source>Content Access Denied</source>
         <translation>Zugriff auf Inhalt verweigert</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="363"/>
+        <location filename="../src/webview/webpage.cpp" line="369"/>
         <source>Error code %1</source>
         <translation>Fehler Code %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="375"/>
+        <location filename="../src/webview/webpage.cpp" line="381"/>
         <source>Failed loading page</source>
         <translation>Seite konnte nicht geladen werden</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="382"/>
+        <location filename="../src/webview/webpage.cpp" line="388"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla kann Seite von %1 nicht laden.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="383"/>
+        <location filename="../src/webview/webpage.cpp" line="389"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Bitte überprüfen Sie die Adresse auf Tippfehler wie &lt;b&gt;ww.&lt;/b&gt;example.com anstatt &lt;b&gt;www.&lt;/b&gt;example.com</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="384"/>
+        <location filename="../src/webview/webpage.cpp" line="390"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Falls Sie keine Webseiten laden können, überprüfen Sie bitte Ihre Netzwerkverbindung.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="385"/>
+        <location filename="../src/webview/webpage.cpp" line="391"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Falls Ihr Computer über eine Firewall oder Proxy mit dem Internet verbunden ist, vergewissern Sie sich, dass QupZilla der Zugriff zum Internet gestattet ist.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="386"/>
+        <location filename="../src/webview/webpage.cpp" line="392"/>
         <source>Try Again</source>
         <translation>Erneut versuchen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="504"/>
+        <location filename="../src/webview/webpage.cpp" line="510"/>
         <source>Choose file...</source>
         <translation>Datei wählen...</translation>
     </message>
