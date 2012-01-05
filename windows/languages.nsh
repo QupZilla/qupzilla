@@ -98,6 +98,26 @@ LangString DESC_SecDesktop ${LANG_DUTCH} "Voeg starter toe op bureaublad."
 LangString DESC_SecExtensions ${LANG_DUTCH} "Associeer QupZilla met .htm en .html-bestanden"
 LangString DESC_SecThemes ${LANG_DUTCH} "Extra thema's voor QupZilla"
 
+;;;;Portuguese
+LangString TITLE_SecMain ${LANG_PORTUGUESE} "Principais componentes"
+LangString TITLE_SecTranslations ${LANG_PORTUGUESE} "Traduções"
+LangString TITLE_SecPlugins ${LANG_PORTUGUESE} "Plugins"
+LangString TITLE_SecExamplePlugin ${LANG_PORTUGUESE} "Plugin Example"
+LangString TITLE_SecDesktop ${LANG_PORTUGUESE} "Ícone no ambiente de trabalho"
+LangString TITLE_SecExtensions ${LANG_PORTUGUESE} "Associação de ficheiros"
+LangString TITLE_SecThemes ${LANG_PORTUGUESE} "Temas"
+
+LangString FILE_Htm ${LANG_PORTUGUESE} "Ficheiro HTM"
+LangString FILE_Html ${LANG_PORTUGUESE} "Ficheiro HTML"
+;
+LangString DESC_SecMain ${LANG_PORTUGUESE} "Principais componentes da aplicação"
+LangString DESC_SecTranslations ${LANG_PORTUGUESE} "Outros idiomas disponíveis. O idioma padrão é inglês"
+LangString DESC_SecPlugins ${LANG_PORTUGUESE} "Outros plugins disponíveis"
+LangString DESC_SecExamplePlugin ${LANG_PORTUGUESE} "Plugin de exemplo sem qualquer utilidade"
+LangString DESC_SecDesktop ${LANG_PORTUGUESE} "Adicionar ícone ao ambiente de trabalho"
+LangString DESC_SecExtensions ${LANG_PORTUGUESE} "Associar QupZilla aos ficheiros .htm e .html"
+LangString DESC_SecThemes ${LANG_PORTUGUESE} "Temas extra para o QupZilla"
+
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
