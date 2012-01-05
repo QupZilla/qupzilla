@@ -167,10 +167,6 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <source>AdBlock let you block any unwanted content on pages</source>
-        <translation type="obsolete">AdBlock stelt u in staat ongewenste inhoud op pagina&apos;s te blokkeren</translation>
-    </message>
-    <message>
         <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock lets you block unwanted content on web-pages</source>
         <translation>AdBlock stelt u in staat ongewenste inhoud op pagina&apos;s te blokkeren</translation>
@@ -309,10 +305,6 @@
 </context>
 <context>
     <name>AutoFillNotification</name>
-    <message>
-        <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="obsolete">Wilt u dat QupZilla het wachtwoord onthoudt voor &lt;b&gt;%1&lt;/b&gt; op %2?</translation>
-    </message>
     <message>
         <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
@@ -504,10 +496,6 @@
         <translation>Hernoem map</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation type="obsolete">Verwijder</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="43"/>
         <source>Add Folder</source>
         <translation>Voeg map toe</translation>
@@ -536,14 +524,6 @@
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Bladwijzers in menu</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Bladwijzers op werkbalk</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
@@ -586,10 +566,6 @@
         <translation>Kies naam voor map: </translation>
     </message>
     <message>
-        <source>Remove</source>
-        <translation type="obsolete">Verwijder</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in &amp;new tab</source>
         <translation>Open link in &amp;nieuw tabblad</translation>
@@ -600,10 +576,6 @@
         <translation>Verplaats bladwijzer naar &amp;map</translation>
     </message>
     <message>
-        <source>Unsorted Bookmarks</source>
-        <translation type="obsolete">Ongesorteerde bladwijzers</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="256"/>
         <source>Rename bookmark</source>
         <translation>Hernoem bladwijzer</translation>
@@ -612,14 +584,6 @@
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
         <source>Remove bookmark</source>
         <translation>Verwijder bladwijzer</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
-        <translation type="obsolete">&lt;b&gt;Waarschuwing: &lt;/b&gt;U heeft deze pagina al gebladwijzerd!</translation>
-    </message>
-    <message>
-        <source>Choose name and location of bookmark.</source>
-        <translation type="obsolete">Kies naam en locatie van deze bladwijzer.</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="567"/>
@@ -684,10 +648,6 @@
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="112"/>
         <source>Copy address</source>
         <translation>Kopieer adres</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Bladwijzers in menu</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="114"/>
@@ -790,18 +750,6 @@
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="117"/>
         <source>Close</source>
         <translation>Sluit</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Bladwijzers in menu</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Bladwijzers in werkbalk</translation>
-    </message>
-    <message>
-        <source>Unsorted Bookmarks</source>
-        <translation type="obsolete">Ongesorteerde bladwijzers</translation>
     </message>
 </context>
 <context>
@@ -1682,10 +1630,6 @@ werd niet gevonden!</translation>
 <context>
     <name>LocationBar</name>
     <message>
-        <source>Show informations about this page</source>
-        <translation type="obsolete">Toon informatie over deze pagina</translation>
-    </message>
-    <message>
         <location filename="../src/navigation/locationbar.cpp" line="50"/>
         <source>Add RSS from this page...</source>
         <translation>Voeg RSS toe van deze pagina...</translation>
@@ -1713,10 +1657,6 @@ werd niet gevonden!</translation>
         <location filename="../src/app/mainapplication.cpp" line="724"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla crashte :-(&lt;/b&gt;&lt;br/&gt;Oeps, de laatste sessie van QupZilla eindigde met een crash. We verontschuldigen ons. Wilt u proberen om de opgeslagen status te herstellen?</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
-        <translation type="obsolete">&lt;b&gt;QupZilla crashte :-(&lt;/b&gt;&lt;br/&gt;Oeps, de laatste sessie van QupZilla eindigde met een crash. We verontschuldigen ons. Wilt u proberen om de opgeslagen status te herstellen?</translation>
     </message>
 </context>
 <context>
@@ -2154,14 +2094,6 @@ werd niet gevonden!</translation>
         <translation>Maak tabbladen verplaatsbaar</translation>
     </message>
     <message>
-        <source>Hide close button if there is only one tab</source>
-        <translation type="obsolete">Verberg sluitknop als er maar 1 tabblad is</translation>
-    </message>
-    <message>
-        <source>Hide tabs when if there is only one tab</source>
-        <translation type="obsolete">Verberg tabbladen als er maar 1 tabblad is</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="712"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Activeer laatste tabblad na sluiten van actieve tab</translation>
@@ -2200,10 +2132,6 @@ werd niet gevonden!</translation>
         <location filename="../src/preferences/preferences.ui" line="808"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Stuur Track Me Niet-header naar servers</translation>
-    </message>
-    <message>
-        <source>Appereance</source>
-        <translation type="obsolete">Uiterlijk</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="219"/>
@@ -2966,11 +2894,6 @@ werd niet gevonden!</translation>
         <translation>Herstel &amp;gesloten tabblad</translation>
     </message>
     <message>
-        <source>Bookmarks In ToolBar</source>
-        <oldsource>Bookmarks In Toolbar</oldsource>
-        <translation type="obsolete">Bladwijzers op werkbalk</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="624"/>
         <location filename="../src/app/qupzilla.cpp" line="652"/>
         <location filename="../src/app/qupzilla.cpp" line="738"/>
@@ -3136,10 +3059,6 @@ werd niet gevonden!</translation>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Totdat u dit venster afsluit, kunt nog steeds op de Terug en Vooruit-knoppen klikken om terug naar de webpagina&apos;s te gaan die u hebt geopend.</translation>
     </message>
-    <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
-        <translation type="obsolete">U heeft nog steeds %1 geopende tabs en uw sessie zal niet worden opgeslagen. Weet u zeker dat u wilt afsluiten?</translation>
-    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -3183,10 +3102,6 @@ werd niet gevonden!</translation>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="135"/>
         <source>Send</source>
         <translation>Verzenden</translation>
-    </message>
-    <message>
-        <source>E-mail is optional</source>
-        <translation type="obsolete">E-mailadres is optioneel</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
@@ -3894,10 +3809,6 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <location filename="../src/webview/siteinfowidget.cpp" line="39"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
         <translation>Uw verbinding met deze site is &lt;b&gt;onbeveiligd&lt;/b&gt;.</translation>
-    </message>
-    <message>
-        <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">Dit is uw &lt;b&gt;%1.&lt;/b&gt; bezoek aan deze site.</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="62"/>

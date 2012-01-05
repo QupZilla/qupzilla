@@ -3820,10 +3820,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Соединение с этим сайтом &lt;b&gt;не безопасно&lt;/b&gt;.</translation>
     </message>
     <message>
-        <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">Это ваше &lt;b&gt;%1 .&lt;/b&gt; посещение этого сайта.</translation>
-    </message>
-    <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="55"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
         <translation>Вы &lt;b&gt;никогда&lt;/b&gt; не посещали этот сайт раньше.</translation>

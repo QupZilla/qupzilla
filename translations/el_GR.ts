@@ -3103,10 +3103,6 @@
         <translation>Αποστολή</translation>
     </message>
     <message>
-        <source>E-mail is optional</source>
-        <translation type="obsolete">Το e-mail είναι προαιρετικό</translation>
-    </message>
-    <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Please fill all required fields!</source>
         <translation>Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία!</translation>
@@ -3811,10 +3807,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/siteinfowidget.cpp" line="39"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
         <translation>H σύνδεση σας σε αυτή τη σελίδα &lt;b&gt;δεν είναι ασφαλής&lt;/b&gt;.</translation>
-    </message>
-    <message>
-        <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">Αυτή είναι η &lt;b&gt;%1.&lt;/b&gt; επίσκεψη σας σε αυτή τη σελίδα.</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="55"/>

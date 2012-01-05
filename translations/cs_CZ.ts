@@ -167,10 +167,6 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <source>AdBlock let you block any unwanted content on pages</source>
-        <translation type="obsolete">AdBlock blokuje nevyžádaný obsah na stánkách</translation>
-    </message>
-    <message>
         <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock lets you block unwanted content on web-pages</source>
         <translation>AdBlock blokuje nevyžádaný obsah na stánkách</translation>
@@ -310,10 +306,6 @@
 <context>
     <name>AutoFillNotification</name>
     <message>
-        <source>Do you want QupZilla to remember password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="obsolete">Chcete aby si QupZilla zapamatovala heslo pro &lt;b&gt;%1&lt;/b&gt; na %2?</translation>
-    </message>
-    <message>
         <location filename="../src/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
         <translation>Chcete aby si QupZilla zapamatovala heslo pro &lt;b&gt;%1&lt;/b&gt; na %2?</translation>
@@ -414,10 +406,6 @@
         <translation>Dokončit</translation>
     </message>
     <message>
-        <source>Please click Finish to save bookmarks.</source>
-        <translation type="obsolete">Klikem na dokončit záložky uložíte.</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="190"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="203"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="216"/>
@@ -508,10 +496,6 @@
         <translation>Přejmenovat složku</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation type="obsolete">Odstranit</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.ui" line="43"/>
         <source>Add Folder</source>
         <translation>Přidat složku</translation>
@@ -540,14 +524,6 @@
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Tab</source>
         <translation>Nový panel</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Záložky v menu</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Panel záložek</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
@@ -590,10 +566,6 @@
         <translation>Zvolte jméno pro složku: </translation>
     </message>
     <message>
-        <source>Remove</source>
-        <translation type="obsolete">Odstranit</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in &amp;new tab</source>
         <translation>Otevřít odkaz v novém &amp;panelu</translation>
@@ -604,10 +576,6 @@
         <translation>Přesunout záložku do &amp;složky</translation>
     </message>
     <message>
-        <source>Unsorted Bookmarks</source>
-        <translation type="obsolete">Nesetříděné záložky</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="256"/>
         <source>Rename bookmark</source>
         <translation>Přejmenovat záložku</translation>
@@ -616,14 +584,6 @@
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
         <source>Remove bookmark</source>
         <translation>Odstranit záložku</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Warning: &lt;/b&gt;You already have this page bookmarked!</source>
-        <translation type="obsolete">&lt;b&gt;Upozornění: &lt;/b&gt;Tuto stránku již máte v záložkách!</translation>
-    </message>
-    <message>
-        <source>Choose name and location of bookmark.</source>
-        <translation type="obsolete">Zvolte jméno a umístění záložky.</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="567"/>
@@ -688,10 +648,6 @@
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="112"/>
         <source>Copy address</source>
         <translation>Kopírovat adresu</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Záložky v menu</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="114"/>
@@ -794,18 +750,6 @@
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="117"/>
         <source>Close</source>
         <translation>Zavřít</translation>
-    </message>
-    <message>
-        <source>Bookmarks In Menu</source>
-        <translation type="obsolete">Záložky v menu</translation>
-    </message>
-    <message>
-        <source>Bookmarks In ToolBar</source>
-        <translation type="obsolete">Panel záložek</translation>
-    </message>
-    <message>
-        <source>Unsorted Bookmarks</source>
-        <translation type="obsolete">Nesetříděné záložky</translation>
     </message>
 </context>
 <context>
@@ -1513,10 +1457,6 @@ nebyl nalezen!</translation>
         <translation>Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <source>Copy url to clipboard</source>
-        <translation type="obsolete">Kopírovat adresu</translation>
-    </message>
-    <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
         <source>Copy address</source>
         <translation>Kopírovat adresu</translation>
@@ -1690,10 +1630,6 @@ nebyl nalezen!</translation>
 <context>
     <name>LocationBar</name>
     <message>
-        <source>Show informations about this page</source>
-        <translation type="obsolete">Zobrazit informace o stránce</translation>
-    </message>
-    <message>
         <location filename="../src/navigation/locationbar.cpp" line="50"/>
         <source>Add RSS from this page...</source>
         <translation>Přidat RSS kanál ...</translation>
@@ -1721,10 +1657,6 @@ nebyl nalezen!</translation>
         <location filename="../src/app/mainapplication.cpp" line="724"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, last session of QupZilla ends with its crash. We are very sorry. Would you try to restore saved state?</source>
-        <translation type="obsolete">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, poslední relace QupZilly skončila jejím pádem. Velice se omlouváme. Přejete si obnovit uložený stav?</translation>
     </message>
 </context>
 <context>
@@ -2162,14 +2094,6 @@ nebyl nalezen!</translation>
         <translation>Přesouvat panely přetažením</translation>
     </message>
     <message>
-        <source>Hide close button if there is only one tab</source>
-        <translation type="obsolete">Skrýt zavírací tlačítko při jediném panelu</translation>
-    </message>
-    <message>
-        <source>Hide tabs when if there is only one tab</source>
-        <translation type="obsolete">Skrýt seznam panelů při jediném panelu</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="712"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Aktivovat poslední panel při zavírání aktuálního</translation>
@@ -2208,10 +2132,6 @@ nebyl nalezen!</translation>
         <location filename="../src/preferences/preferences.ui" line="808"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Zasílat serverům Do Not Track hlavičku</translation>
-    </message>
-    <message>
-        <source>Appereance</source>
-        <translation type="obsolete">Vzhled</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="219"/>
@@ -2974,11 +2894,6 @@ nebyl nalezen!</translation>
         <translation>Obnovit zavř&amp;ený panel</translation>
     </message>
     <message>
-        <source>Bookmarks In ToolBar</source>
-        <oldsource>Bookmarks In Toolbar</oldsource>
-        <translation type="obsolete">Panel záložek</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="624"/>
         <location filename="../src/app/qupzilla.cpp" line="652"/>
         <location filename="../src/app/qupzilla.cpp" line="738"/>
@@ -3144,10 +3059,6 @@ nebyl nalezen!</translation>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Než zavřete prohlížeč, stále můžete použít tlačítka Zpět a Vpřed k vrácení se na stránky které jste otevřeli.</translation>
     </message>
-    <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit?</source>
-        <translation type="obsolete">Ještě je otevřeno %1 panelů a Vaše relace nebude uložena. Opravdu chcete skončit?</translation>
-    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -3191,10 +3102,6 @@ nebyl nalezen!</translation>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="135"/>
         <source>Send</source>
         <translation>Odeslat</translation>
-    </message>
-    <message>
-        <source>E-mail is optional</source>
-        <translation type="obsolete">e-mail je nepovinný</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
@@ -3902,10 +3809,6 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
         <location filename="../src/webview/siteinfowidget.cpp" line="39"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
         <translation>Připojení k této stránce je &lt;b&gt;nezabezpečené&lt;/b&gt;.</translation>
-    </message>
-    <message>
-        <source>This is your &lt;b&gt;%1.&lt;/b&gt; visit of this site.</source>
-        <translation type="obsolete">Toto je Vaše &lt;b&gt;%1.&lt;/b&gt; návštěva této stránky.</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="62"/>
