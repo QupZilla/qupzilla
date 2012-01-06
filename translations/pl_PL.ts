@@ -2050,7 +2050,7 @@
         <location filename="../src/preferences/preferences.ui" line="111"/>
         <source>Tabs</source>
         <translation>Karty</translation>
-    </message&gt;
+    </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="262"/>
         <location filename="../src/preferences/preferences.ui" line="410"/>
