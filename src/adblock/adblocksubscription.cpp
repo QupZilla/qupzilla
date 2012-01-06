@@ -117,11 +117,7 @@ void AdBlockSubscription::rulesDownloaded()
     reply->close();
     reply->deleteLater();
 
-    if (reply->error() != QNetworkReply::NoError) {
-        return;
-    }
-
-    if (response.isEmpty()) {
+    if (reply->error() != QNetworkReply::NoError || response.isEmpty()) {
         return;
     }
 
