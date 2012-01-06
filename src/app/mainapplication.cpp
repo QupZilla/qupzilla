@@ -484,6 +484,7 @@ void MainApplication::translateApp()
     settings.beginGroup("Language");
     QString file = settings.value("language", locale.name() + ".qm").toString();
     QString shortLoc = file.left(2);
+    QString longLoc = file.left(5);
 
     if (file == "" || !QFile::exists(TRANSLATIONSDIR + file)) {
         return;
@@ -493,7 +494,10 @@ void MainApplication::translateApp()
     app->load(TRANSLATIONSDIR + file);
     QTranslator* sys = new QTranslator();
 
-    if (QFile::exists(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm")) {
+    if (QFile::exists(TRANSLATIONSDIR + "qt_" + longLoc + ".qm")) {
+        sys->load(TRANSLATIONSDIR + "qt_" + longLoc + ".qm");
+    }
+    else if (QFile::exists(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm")) {
         sys->load(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm");
     }
 
