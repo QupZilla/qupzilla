@@ -68,6 +68,7 @@ public:
     void scheduleAdjustPage();
 
     static QString UserAgent;
+    QString userAgentForUrl(const QUrl &url) const;
 
 signals:
     void privacyChanged(bool status);
@@ -78,9 +79,6 @@ protected slots:
 //    void loadingStarted();
     void progress(int prog);
     void finished();
-
-protected:
-    QString userAgentForUrl(const QUrl &url) const;
 
 private slots:
     void cleanBlockedObjects();
