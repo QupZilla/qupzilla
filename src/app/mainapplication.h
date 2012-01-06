@@ -70,7 +70,6 @@ public:
     void reloadSettings() { loadSettings(); emit message(ReloadSettings, true); }
     bool restoreStateSlot(QupZilla* window);
     QupZilla* makeNewWindow(bool tryRestore, const QUrl &startUrl = QUrl());
-    void addNewTab(const QUrl &url = QUrl());
     void aboutToCloseWindow(QupZilla* window);
     bool isStateChanged();
 
@@ -112,6 +111,7 @@ public slots:
     void sendMessages(MainApplication::MessageType mes, bool state);
     void receiveAppMessage(QString message);
     void setStateChanged();
+    void addNewTab(const QUrl &url = QUrl());
 
 signals:
     void message(MainApplication::MessageType mes, bool state);
