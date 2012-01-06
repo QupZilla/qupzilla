@@ -152,10 +152,16 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
 
     connect(this, SIGNAL(messageReceived(QString)), this, SLOT(receiveAppMessage(QString)));
 
+#ifdef Q_WS_MAC
+    setQuitOnLastWindowClosed(false);
+#else
     setQuitOnLastWindowClosed(true);
+#endif
+
     setApplicationName("QupZilla");
     setApplicationVersion(QupZilla::VERSION);
     setOrganizationDomain("qupzilla");
+    QDesktopServices::setUrlHandler("http", this, "addNewTab");
 
     checkSettingsDir();
 

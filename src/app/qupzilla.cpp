@@ -66,7 +66,7 @@ const QString QupZilla::VERSION = "1.1.0";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2012";
-const QString QupZilla::WWWADDRESS = "http://qupzilla.com";
+const QString QupZilla::WWWADDRESS = "http://www.qupzilla.com";
 const QString QupZilla::WIKIADDRESS = "https://github.com/nowrep/QupZilla/wiki";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
@@ -97,13 +97,11 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
 {
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
-    this->setWindowTitle("QupZilla");
+    setWindowTitle("QupZilla");
     setUpdatesEnabled(false);
 
     m_activeProfil = mApp->getActiveProfilPath();
     m_activeLanguage = mApp->getActiveLanguage();
-
-    QDesktopServices::setUrlHandler("http", this, "loadAddress");
 
     setupUi();
     setupMenu();
@@ -309,7 +307,7 @@ void QupZilla::setupMenu()
     m_menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &All"), this, SLOT(selectAll()))->setShortcut(QKeySequence("Ctrl+A"));
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     m_menuEdit->addSeparator();
-#ifndef Q_WS_WIN
+#ifdef Q_WS_X11
     m_menuEdit->addAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
 #endif
     menuBar()->addMenu(m_menuEdit);
@@ -778,7 +776,7 @@ void QupZilla::aboutToShowToolsMenu()
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
     mApp->plugins()->populateToolsMenu(m_menuTools);
-#ifdef Q_WS_WIN
+#ifndef Q_WS_X11
     m_menuTools->addAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
 #endif
 }
@@ -844,7 +842,7 @@ void QupZilla::aboutToHideEditMenu()
     }
 
     m_menuEdit->actions().at(9)->setEnabled(true);
-#ifndef Q_WS_WIN
+#ifdef Q_WS_X11
     m_menuEdit->actions().at(11)->setEnabled(true);
 #endif
 }
@@ -1443,10 +1441,12 @@ void QupZilla::closeEvent(QCloseEvent* event)
     mApp->saveStateSlot();
     mApp->aboutToCloseWindow(this);
 
+#ifndef Q_WS_MAC
     if (mApp->windowCount() == 0) {
         quitApp() ? event->accept() : event->ignore();
         return;
     }
+#endif
 
     event->accept();
 }
