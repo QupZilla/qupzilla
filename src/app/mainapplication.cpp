@@ -252,6 +252,14 @@ void MainApplication::loadSettings()
         cssFile.close();
     }
 #endif
+#ifdef Q_WS_MAC
+    if (QFile(m_activeThemePath + "mac.css").exists()) {
+        cssFile.setFileName(m_activeThemePath + "mac.css");
+        cssFile.open(QFile::ReadOnly);
+        css.append(cssFile.readAll());
+        cssFile.close();
+    }
+#endif
 #if defined(Q_WS_WIN) || defined(Q_OS_OS2)
     if (QFile(m_activeThemePath + "windows.css").exists()) {
         cssFile.setFileName(m_activeThemePath + "windows.css");
