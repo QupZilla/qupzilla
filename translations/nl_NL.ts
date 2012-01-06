@@ -3829,7 +3829,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <location filename="../src/webview/siteinfowidget.cpp" line="51"/>
         <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dit is uw &lt;b&gt;%1&lt;/b&gt; bezoek aan deze site.</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfowidget.cpp" line="55"/>
@@ -4330,42 +4330,42 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webview.cpp" line="520"/>
         <source>This frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Dit frame</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="521"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon &amp;alleen dit frame</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="522"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon dit frame in nieuw &amp;tabblad</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="525"/>
         <source>Print frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Druk frame af</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="527"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom &amp;in</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="528"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zoom uit</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="529"/>
         <source>Reset</source>
-        <translation type="unfinished">Herstart</translation>
+        <translation>Zet terug</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="531"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon &amp;bron van frame</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="548"/>
