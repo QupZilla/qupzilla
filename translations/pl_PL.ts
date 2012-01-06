@@ -919,7 +919,7 @@
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="121"/>
         <source>Month</source>
-        <translation>Miesiąć</translation>
+        <translation>Miesiąc</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="126"/>
@@ -2050,7 +2050,7 @@
         <location filename="../src/preferences/preferences.ui" line="111"/>
         <source>Tabs</source>
         <translation>Karty</translation>
-    </message>
+    </message&gt;
     <message>
         <location filename="../src/preferences/preferences.ui" line="262"/>
         <location filename="../src/preferences/preferences.ui" line="410"/>
@@ -2825,7 +2825,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="340"/>
         <source>&amp;Reload</source>
-        <translation>&amp;Odświerz</translation>
+        <translation>&amp;Odśwież</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="343"/>
@@ -3120,7 +3120,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="157"/>
         <source>Search results provided by Google</source>
-        <translation>Pokaż wyniki wyszukiwania w Google</translation>
+        <translation>Wyniki wyszukiwania dostarcza Google</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="159"/>
@@ -3262,7 +3262,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Reload</source>
-        <translation>Odświerz</translation>
+        <translation>Odśwież</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
@@ -3303,7 +3303,7 @@ Dodawaj kanały klikając na ikonę RSS pasku nawigacyjnym.</translation>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="57"/>
         <source>Reload</source>
-        <translation>Odświerz</translation>
+        <translation>Odśwież</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="67"/>
@@ -3424,7 +3424,7 @@ Dodawaj kanały klikając na ikonę RSS pasku nawigacyjnym.</translation>
     <message>
         <location filename="../src/navigation/reloadstopbutton.cpp" line="35"/>
         <source>Reload</source>
-        <translation>Odświerz</translation>
+        <translation>Odśwież</translation>
     </message>
 </context>
 <context>
@@ -3915,7 +3915,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="79"/>
         <source>Reload</source>
-        <translation>Odświerz</translation>
+        <translation>Odśwież</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="81"/>
@@ -3955,7 +3955,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="140"/>
         <source>Source reloaded</source>
-        <translation>Kod odświerzony</translation>
+        <translation>Kod odświeżony</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="147"/>
@@ -4015,7 +4015,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabbar.cpp" line="117"/>
         <source>&amp;Reload Tab</source>
-        <translation>&amp;Odświerz kartę</translation>
+        <translation>&amp;Odśwież kartę</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="120"/>
@@ -4025,7 +4025,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabbar.cpp" line="136"/>
         <source>Reloa&amp;d All Tabs</source>
-        <translation>Odświe&amp;rz wszystkie karty</translation>
+        <translation>Odśwież wszystkie ka&amp;rty</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="124"/>
@@ -4045,7 +4045,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabbar.cpp" line="123"/>
         <source>Re&amp;load All Tabs</source>
-        <translation>Odświerz &amp;wszystkie karty</translation>
+        <translation>Odśwież &amp;wszystkie karty</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="125"/>
