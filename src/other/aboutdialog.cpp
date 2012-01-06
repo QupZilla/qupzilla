@@ -64,7 +64,7 @@ void AboutDialog::showAbout()
         m_aboutHtml.append(tr("<p>&copy; %1 %2<br/>All rights reserved.<br/>").arg(QupZilla::COPYRIGHT, QupZilla::AUTHOR));
         m_aboutHtml.append(tr("<small>Build time: %1 </small></p>").arg(QupZilla::BUILDTIME));
         m_aboutHtml.append(QString("<p><a href=%1>%1</a></p>").arg(QupZilla::WWWADDRESS));
-        m_aboutHtml.append("<p>" + WebPage::UserAgent + "</p>");
+        m_aboutHtml.append("<p>" + mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()) + "</p>");
         m_aboutHtml.append("</div>");
     }
     ui->textBrowser->setHtml(m_aboutHtml);
