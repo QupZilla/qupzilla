@@ -775,10 +775,10 @@ void QupZilla::aboutToShowToolsMenu()
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), this, SLOT(startPrivate(bool)));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
-    mApp->plugins()->populateToolsMenu(m_menuTools);
 #ifndef Q_WS_X11
     m_menuTools->addAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
 #endif
+    mApp->plugins()->populateToolsMenu(m_menuTools);
 }
 
 void QupZilla::aboutToShowViewMenu()
