@@ -72,11 +72,13 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
     }
     connect(ui->pushButton, SIGNAL(clicked()), p_QupZilla, SLOT(showPageInfo()));
 
+#ifndef KDE
     // Use light color for QLabels even with Ubuntu Ambiance theme
     QPalette pal = palette();
     pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
     ui->historyLabel->setPalette(pal);
     ui->secureLabel->setPalette(pal);
+#endif
 }
 
 void SiteInfoWidget::showAt(QWidget* _parent)
