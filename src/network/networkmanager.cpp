@@ -29,6 +29,7 @@
 #include "certificateinfowidget.h"
 #include "globalfunctions.h"
 #include "acceptlanguage.h"
+#include "cabundleupdater.h"
 
 QString fileNameForCert(const QSslCertificate &cert)
 {
@@ -83,6 +84,7 @@ void NetworkManager::loadSettings()
 
     QString certDir = mApp->PROFILEDIR + "certificates";
     QString bundlePath = certDir + "/ca-bundle.crt";
+    QString bundleVersionPath = certDir + "/bundle_version";
 
     if (!QDir(certDir).exists()) {
         QDir dir(mApp->PROFILEDIR);
@@ -92,6 +94,9 @@ void NetworkManager::loadSettings()
     if (!QFile::exists(bundlePath)) {
         QFile(":data/ca-bundle.crt").copy(bundlePath);
         QFile(bundlePath).setPermissions(QFile::ReadUser | QFile::WriteUser);
+
+        QFile(":data/bundle_version").copy(bundleVersionPath);
+        QFile(bundleVersionPath).setPermissions(QFile::ReadUser | QFile::WriteUser);
     }
 
     QSslSocket::setDefaultCaCertificates(QSslCertificate::fromPath(bundlePath));
@@ -450,4 +455,6 @@ void NetworkManager::loadCertificates()
 #endif
 
     QSslSocket::setDefaultCaCertificates(m_caCerts + m_localCerts);
+
+    new CaBundleUpdater(this, this);
 }

@@ -127,7 +127,7 @@ void WebPage::watchedFileChanged(const QString &file)
     }
 }
 
-void WebPage::printFrame(QWebFrame *frame)
+void WebPage::printFrame(QWebFrame* frame)
 {
     p_QupZilla->printPage(frame);
 }

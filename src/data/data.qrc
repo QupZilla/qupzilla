@@ -3,5 +3,6 @@
         <file>data/browsedata.db</file>
         <file>data/profiles.ini</file>
         <file>data/ca-bundle.crt</file>
+        <file>data/bundle_version</file>
     </qresource>
 </RCC>
