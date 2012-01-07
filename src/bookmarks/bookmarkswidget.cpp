@@ -35,12 +35,14 @@ BookmarksWidget::BookmarksWidget(int bookmarkId, QWidget* parent)
     m_bookmarksModel = mApp->bookmarksModel();
     loadBookmark();
 
+#ifndef KDE
     // Use light color for QLabels even with Ubuntu Ambiance theme
     QPalette pal = palette();
     pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
     ui->label_2->setPalette(pal);
     ui->label_3->setPalette(pal);
     ui->label_4->setPalette(pal);
+#endif
 }
 
 void BookmarksWidget::loadBookmark()

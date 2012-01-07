@@ -180,7 +180,7 @@ void ClickToFlash::findElement()
     }
 
     if (!hitElement.isNull() && (hitElement.tagName().compare("embed", Qt::CaseInsensitive) == 0 ||
-                                 hitElement.tagName().compare("object", Qt::CaseInsensitive) == 0 ) ) {
+                                 hitElement.tagName().compare("object", Qt::CaseInsensitive) == 0)) {
         m_element = hitElement;
         return;
     }
