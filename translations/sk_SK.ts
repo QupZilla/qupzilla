@@ -158,7 +158,11 @@
     </message>
     <message>
         <source>AdBlock lets you block unwanted content on web-pages</source>
-        <translation>AdBlock vám umožňuje blokovať nechcený obsah na stránkach</translation>
+        <translation type="obsolete">AdBlock vám umožňuje blokovať nechcený obsah na stránkach</translation>
+    </message>
+    <message>
+        <source>AdBlock lets you block unwanted content on web pages</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2678,6 +2682,22 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     <message>
         <source>Feed title: </source>
         <translation>Názov odberu: </translation>
+    </message>
+    <message>
+        <source>Add feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter URL of new feed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New feed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

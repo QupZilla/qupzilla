@@ -167,9 +167,13 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock lets you block unwanted content on web-pages</source>
-        <translation>AdBlock stelt u in staat ongewenste inhoud op pagina&apos;s te blokkeren</translation>
+        <translation type="obsolete">AdBlock stelt u in staat ongewenste inhoud op pagina&apos;s te blokkeren</translation>
+    </message>
+    <message>
+        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
+        <source>AdBlock lets you block unwanted content on web pages</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="39"/>
@@ -1707,74 +1711,74 @@ werd niet gevonden!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="157"/>
+        <location filename="../src/network/networkmanager.cpp" line="159"/>
         <source>SSL Certificate Error!</source>
         <translation>SSL-certificaatfout!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="172"/>
+        <location filename="../src/network/networkmanager.cpp" line="174"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organisatie: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="174"/>
+        <location filename="../src/network/networkmanager.cpp" line="176"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Domeinnaam: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="176"/>
+        <location filename="../src/network/networkmanager.cpp" line="178"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Vervaldatum: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="178"/>
+        <location filename="../src/network/networkmanager.cpp" line="180"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Fout: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="158"/>
+        <location filename="../src/network/networkmanager.cpp" line="160"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>De pagina die u probeert te bereiken heeft de volgende fouten in het SSL-certificaat:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="182"/>
+        <location filename="../src/network/networkmanager.cpp" line="184"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Wilt u een uitzondering maken voor dit certificaat?</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="203"/>
+        <location filename="../src/network/networkmanager.cpp" line="205"/>
         <source>Authorization required</source>
         <translation>Machtiging benodigd</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="210"/>
-        <location filename="../src/network/networkmanager.cpp" line="268"/>
+        <location filename="../src/network/networkmanager.cpp" line="212"/>
+        <location filename="../src/network/networkmanager.cpp" line="270"/>
         <source>Username: </source>
         <translation>Gebruikersnaam: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="211"/>
-        <location filename="../src/network/networkmanager.cpp" line="269"/>
+        <location filename="../src/network/networkmanager.cpp" line="213"/>
+        <location filename="../src/network/networkmanager.cpp" line="271"/>
         <source>Password: </source>
         <translation>Wachtwoord: </translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="216"/>
+        <location filename="../src/network/networkmanager.cpp" line="218"/>
         <source>Save username and password on this site</source>
         <translation>Sla gebruikersnaam en wachtwoord van deze site op</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="225"/>
+        <location filename="../src/network/networkmanager.cpp" line="227"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Er wordt om een gebruikersnaam en wachtwoord gevraagd door %1. De site zegt: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="261"/>
+        <location filename="../src/network/networkmanager.cpp" line="263"/>
         <source>Proxy authorization required</source>
         <translation>Proxy-machtiging benodigd</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="281"/>
+        <location filename="../src/network/networkmanager.cpp" line="283"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Er wordt om een gebruikersnaam en wachtwoord gevraagd door proxy %1. </translation>
     </message>
@@ -3290,96 +3294,116 @@ werd niet gevonden!</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="33"/>
-        <location filename="../src/rss/rssmanager.cpp" line="110"/>
+        <location filename="../src/rss/rssmanager.cpp" line="120"/>
         <source>Empty</source>
         <translation>Leeg</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="108"/>
+        <location filename="../src/rss/rssmanager.cpp" line="118"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation>U heeft geen RSS-feeds.&lt;br/&gt;
 Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds levert.</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.ui" line="57"/>
+        <location filename="../src/rss/rssmanager.cpp" line="43"/>
         <source>Reload</source>
         <translation>Herlaad</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.ui" line="67"/>
+        <location filename="../src/rss/rssmanager.ui" line="54"/>
+        <source>Add feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rssmanager.ui" line="64"/>
         <source>Edit feed</source>
         <translation>Bewerk feed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.ui" line="77"/>
+        <location filename="../src/rss/rssmanager.ui" line="74"/>
         <source>Delete feed</source>
         <translation>Verwijder feed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.ui" line="100"/>
+        <location filename="../src/rss/rssmanager.ui" line="97"/>
         <source>Optimize Database</source>
         <translation>Optimaliseer database</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="72"/>
+        <location filename="../src/rss/rssmanager.cpp" line="82"/>
         <source>News</source>
         <translation>Nieuws</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="82"/>
-        <location filename="../src/rss/rssmanager.cpp" line="122"/>
+        <location filename="../src/rss/rssmanager.cpp" line="92"/>
+        <location filename="../src/rss/rssmanager.cpp" line="132"/>
         <source>Loading...</source>
         <translation>Laden...</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="161"/>
+        <location filename="../src/rss/rssmanager.cpp" line="140"/>
+        <source>Add new feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rssmanager.cpp" line="140"/>
+        <source>Please enter URL of new feed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rssmanager.cpp" line="146"/>
+        <source>New feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rssmanager.cpp" line="183"/>
         <source>Fill title and URL of a feed: </source>
         <translation>Voer titel en URL in van een feed: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="163"/>
+        <location filename="../src/rss/rssmanager.cpp" line="185"/>
         <source>Feed title: </source>
         <translation>Feed-titel:</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="164"/>
+        <location filename="../src/rss/rssmanager.cpp" line="186"/>
         <source>Feed URL: </source>
         <translation>Feed-URL: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="170"/>
+        <location filename="../src/rss/rssmanager.cpp" line="192"/>
         <source>Edit RSS Feed</source>
         <translation>Bewerk RSS-rfeed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="212"/>
+        <location filename="../src/rss/rssmanager.cpp" line="234"/>
         <source>Open link in actual tab</source>
         <translation>Open link in huidig tabblad</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="213"/>
+        <location filename="../src/rss/rssmanager.cpp" line="235"/>
         <source>Open link in new tab</source>
         <translation>Open link in nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="240"/>
-        <location filename="../src/rss/rssmanager.cpp" line="246"/>
+        <location filename="../src/rss/rssmanager.cpp" line="262"/>
+        <location filename="../src/rss/rssmanager.cpp" line="268"/>
         <source>New Tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="341"/>
+        <location filename="../src/rss/rssmanager.cpp" line="363"/>
         <source>Error in fetching feed</source>
         <translation>Fout bij ophalen van feed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="370"/>
+        <location filename="../src/rss/rssmanager.cpp" line="392"/>
         <source>RSS feed duplicated</source>
         <translation>Duplicaat van RSS-feed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="370"/>
+        <location filename="../src/rss/rssmanager.cpp" line="392"/>
         <source>You already have this feed.</source>
         <translation>U heeft deze feed al.</translation>
     </message>
@@ -3405,12 +3429,12 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
         <translation>Voeg RSS-feeds toe van deze site</translation>
     </message>
     <message>
-        <location filename="../src/rss/rsswidget.cpp" line="49"/>
+        <location filename="../src/rss/rsswidget.cpp" line="51"/>
         <source>Untitled feed</source>
         <translation>Ongetitelde feed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rsswidget.cpp" line="53"/>
+        <location filename="../src/rss/rsswidget.cpp" line="55"/>
         <source>Add</source>
         <translation>Voeg toe</translation>
     </message>
@@ -4095,7 +4119,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="216"/>
-        <location filename="../src/webview/tabwidget.cpp" line="383"/>
+        <location filename="../src/webview/tabwidget.cpp" line="385"/>
         <source>No Named Page</source>
         <translation>Niet-benoemde pagina</translation>
     </message>
@@ -4105,8 +4129,8 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Eigenlijk heeft U %1 geopende tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="567"/>
-        <location filename="../src/webview/tabwidget.cpp" line="643"/>
+        <location filename="../src/webview/tabwidget.cpp" line="569"/>
+        <location filename="../src/webview/tabwidget.cpp" line="645"/>
         <location filename="../src/webview/tabwidget.h" line="72"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>

@@ -167,9 +167,13 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock lets you block unwanted content on web-pages</source>
-        <translation>AdBlock permette di bloccare ogni contenuto indesiderato nelle pagine</translation>
+        <translation type="obsolete">AdBlock permette di bloccare ogni contenuto indesiderato nelle pagine</translation>
+    </message>
+    <message>
+        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
+        <source>AdBlock lets you block unwanted content on web pages</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="39"/>
@@ -1706,74 +1710,74 @@
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="157"/>
+        <location filename="../src/network/networkmanager.cpp" line="159"/>
         <source>SSL Certificate Error!</source>
         <translation>Errore Certificato SSL!</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="172"/>
+        <location filename="../src/network/networkmanager.cpp" line="174"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizzazione: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="174"/>
+        <location filename="../src/network/networkmanager.cpp" line="176"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Nome Dominio: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="176"/>
+        <location filename="../src/network/networkmanager.cpp" line="178"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Data di Scadenza: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="178"/>
+        <location filename="../src/network/networkmanager.cpp" line="180"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Errore: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="158"/>
+        <location filename="../src/network/networkmanager.cpp" line="160"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>La pagina cui stai cercando di accedere ha i seguenti errori nel certificato SSL:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="182"/>
+        <location filename="../src/network/networkmanager.cpp" line="184"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Vuoi fare un&apos;eccezione per questo certificato?</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="203"/>
+        <location filename="../src/network/networkmanager.cpp" line="205"/>
         <source>Authorization required</source>
         <translation>Richiesta autorizzazione</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="210"/>
-        <location filename="../src/network/networkmanager.cpp" line="268"/>
+        <location filename="../src/network/networkmanager.cpp" line="212"/>
+        <location filename="../src/network/networkmanager.cpp" line="270"/>
         <source>Username: </source>
         <translation>Nome Utente:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="211"/>
-        <location filename="../src/network/networkmanager.cpp" line="269"/>
+        <location filename="../src/network/networkmanager.cpp" line="213"/>
+        <location filename="../src/network/networkmanager.cpp" line="271"/>
         <source>Password: </source>
         <translation>Password:</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="216"/>
+        <location filename="../src/network/networkmanager.cpp" line="218"/>
         <source>Save username and password on this site</source>
         <translation>Salva nome utente e password per questo sito</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="225"/>
+        <location filename="../src/network/networkmanager.cpp" line="227"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Nome utente e password sono richiesti da %1. Questo sito: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="261"/>
+        <location filename="../src/network/networkmanager.cpp" line="263"/>
         <source>Proxy authorization required</source>
         <translation>Richiesta autorizzazione Proxy</translation>
     </message>
     <message>
-        <location filename="../src/network/networkmanager.cpp" line="281"/>
+        <location filename="../src/network/networkmanager.cpp" line="283"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Nome utente e password sono richiesti dal proxy %1. </translation>
     </message>
@@ -3291,96 +3295,116 @@
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="33"/>
-        <location filename="../src/rss/rssmanager.cpp" line="110"/>
+        <location filename="../src/rss/rssmanager.cpp" line="120"/>
         <source>Empty</source>
         <translation>Vuoto</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.ui" line="57"/>
+        <location filename="../src/rss/rssmanager.cpp" line="43"/>
         <source>Reload</source>
         <translation>Ricarica</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.ui" line="67"/>
+        <location filename="../src/rss/rssmanager.ui" line="54"/>
+        <source>Add feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rssmanager.ui" line="64"/>
         <source>Edit feed</source>
         <translation>Modifica feed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.ui" line="77"/>
+        <location filename="../src/rss/rssmanager.ui" line="74"/>
         <source>Delete feed</source>
         <translation>Cancella feed</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.ui" line="100"/>
+        <location filename="../src/rss/rssmanager.ui" line="97"/>
         <source>Optimize Database</source>
         <translation>Ottimizza database</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="72"/>
+        <location filename="../src/rss/rssmanager.cpp" line="82"/>
         <source>News</source>
         <translation>Novità</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="82"/>
-        <location filename="../src/rss/rssmanager.cpp" line="122"/>
+        <location filename="../src/rss/rssmanager.cpp" line="92"/>
+        <location filename="../src/rss/rssmanager.cpp" line="132"/>
         <source>Loading...</source>
         <translation>Caricamento...</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="108"/>
+        <location filename="../src/rss/rssmanager.cpp" line="118"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation>Non hai nessuna fonte RSS&lt;br/&gt;
 Si prega di aggiungere l&apos;icona RSS nella barra di navigazione su un sito che offre fonti.</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="161"/>
+        <location filename="../src/rss/rssmanager.cpp" line="140"/>
+        <source>Add new feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rssmanager.cpp" line="140"/>
+        <source>Please enter URL of new feed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rssmanager.cpp" line="146"/>
+        <source>New feed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/rss/rssmanager.cpp" line="183"/>
         <source>Fill title and URL of a feed: </source>
         <translation>Aggiungi titolo e URL di una fonte:</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="163"/>
+        <location filename="../src/rss/rssmanager.cpp" line="185"/>
         <source>Feed title: </source>
         <translation>Titolo fonte: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="164"/>
+        <location filename="../src/rss/rssmanager.cpp" line="186"/>
         <source>Feed URL: </source>
         <translation>URL Fonti: </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="170"/>
+        <location filename="../src/rss/rssmanager.cpp" line="192"/>
         <source>Edit RSS Feed</source>
         <translation>Modifica fonti RSS</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="212"/>
+        <location filename="../src/rss/rssmanager.cpp" line="234"/>
         <source>Open link in actual tab</source>
         <translation>Apri link nella scheda attuale</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="213"/>
+        <location filename="../src/rss/rssmanager.cpp" line="235"/>
         <source>Open link in new tab</source>
         <translation>Apri il link in una nuova scheda</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="240"/>
-        <location filename="../src/rss/rssmanager.cpp" line="246"/>
+        <location filename="../src/rss/rssmanager.cpp" line="262"/>
+        <location filename="../src/rss/rssmanager.cpp" line="268"/>
         <source>New Tab</source>
         <translation>Nuova scheda</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="341"/>
+        <location filename="../src/rss/rssmanager.cpp" line="363"/>
         <source>Error in fetching feed</source>
         <translation>Errore nel recupero della fonte</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="370"/>
+        <location filename="../src/rss/rssmanager.cpp" line="392"/>
         <source>RSS feed duplicated</source>
         <translation>Fonte RSS duplicata</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="370"/>
+        <location filename="../src/rss/rssmanager.cpp" line="392"/>
         <source>You already have this feed.</source>
         <translation>Hai già questa fonte.</translation>
     </message>
@@ -3406,12 +3430,12 @@ Si prega di aggiungere l&apos;icona RSS nella barra di navigazione su un sito ch
         <translation>Aggiungi fonte RSS da questo sito</translation>
     </message>
     <message>
-        <location filename="../src/rss/rsswidget.cpp" line="49"/>
+        <location filename="../src/rss/rsswidget.cpp" line="51"/>
         <source>Untitled feed</source>
         <translation>Fonte senza titolo</translation>
     </message>
     <message>
-        <location filename="../src/rss/rsswidget.cpp" line="53"/>
+        <location filename="../src/rss/rsswidget.cpp" line="55"/>
         <source>Add</source>
         <translation>Aggiungi</translation>
     </message>
@@ -4095,7 +4119,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="216"/>
-        <location filename="../src/webview/tabwidget.cpp" line="383"/>
+        <location filename="../src/webview/tabwidget.cpp" line="385"/>
         <source>No Named Page</source>
         <translation>Pagina senza nome</translation>
     </message>
@@ -4105,8 +4129,8 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation>Attualmente hai %1 schede aperte</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="567"/>
-        <location filename="../src/webview/tabwidget.cpp" line="643"/>
+        <location filename="../src/webview/tabwidget.cpp" line="569"/>
+        <location filename="../src/webview/tabwidget.cpp" line="645"/>
         <location filename="../src/webview/tabwidget.h" line="72"/>
         <source>New tab</source>
         <translation>Nuova scheda</translation>
