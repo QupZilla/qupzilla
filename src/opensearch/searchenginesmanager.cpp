@@ -126,7 +126,7 @@ void SearchEnginesManager::restoreDefaults()
     yt.icon = QIcon(":/icons/menu/youtube.png");
     yt.url = "http://www.youtube.com/results?search_query=%s&search=Search";
     yt.shortcut = "yt";
-    yt.suggestionsUrl = "http://suggestqueries.google.com/complete/search?ds=yt&json=t&q=%s&nolabels=t";
+    yt.suggestionsUrl = "http://suggestqueries.google.com/complete/search?ds=yt&output=firefox&q=%s";
 
     Engine yahoo;
     yahoo.name = "Yahoo!";
