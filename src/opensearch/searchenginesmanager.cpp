@@ -112,7 +112,7 @@ void SearchEnginesManager::restoreDefaults()
     google.icon = QIcon(":icons/menu/google.png");
     google.url = "http://www.google.com/search?client=qupzilla&q=%s";
     google.shortcut = "g";
-    google.suggestionsUrl = "http://suggestqueries.google.com/complete/search?json=t&q=%s&nolabels=t";
+    google.suggestionsUrl = "http://suggestqueries.google.com/complete/search?output=firefox&q=%s";
 
     Engine wiki;
     wiki.name = "Wikipedia (en)";

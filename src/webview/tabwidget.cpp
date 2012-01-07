@@ -249,7 +249,9 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
     }
 
     if (openIn == NewBackgroundTab) {
-        position = currentIndex() + 1;
+        // If we are opening newBgTab from pinned tab, make sure it won't be
+        // opened between other pinned tabs
+        position = qMax(currentIndex() + 1, m_tabBar->pinnedTabsCount());
     }
 
     LocationBar* locBar = new LocationBar(p_QupZilla);
