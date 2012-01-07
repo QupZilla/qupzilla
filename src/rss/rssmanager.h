@@ -25,14 +25,17 @@
 #include <QFormLayout>
 #include <QWeakPointer>
 #include <QDialogButtonBox>
+#include <QToolButton>
+#include <QInputDialog>
 
 namespace Ui
 {
 class RSSManager;
 }
 
-class FollowRedirectReply;
 class QupZilla;
+class FollowRedirectReply;
+class NetworkManager;
 class RSSManager : public QWidget
 {
     Q_OBJECT
@@ -53,7 +56,8 @@ private slots:
     void finished();
     void loadFeed(QTreeWidgetItem* item);
     void controlLoadFeed(QTreeWidgetItem* item);
-    void reloadFeed();
+    void addFeed();
+    void reloadFeeds();
     void deleteFeed();
     void editFeed();
     void customContextMenuRequested(const QPoint &position);
@@ -62,8 +66,10 @@ private slots:
 private:
     QupZilla* getQupZilla();
     QList<QPair<FollowRedirectReply*, QUrl> > m_replies;
-    QNetworkAccessManager* m_networkManager;
+    NetworkManager* m_networkManager;
+
     Ui::RSSManager* ui;
+    QToolButton* m_reloadButton;
     QWeakPointer<QupZilla> p_QupZilla;
 };
 

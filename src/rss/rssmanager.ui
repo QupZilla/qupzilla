@@ -49,12 +49,9 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="reload">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
+      <widget class="QPushButton" name="add">
        <property name="text">
-        <string>Reload</string>
+        <string>Add feed</string>
        </property>
       </widget>
      </item>

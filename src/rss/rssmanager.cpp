@@ -26,6 +26,7 @@
 #include "globalfunctions.h"
 #include "followredirectreply.h"
 #include "databasewriter.h"
+#include "networkmanager.h"
 
 RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -35,8 +36,17 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     ui->setupUi(this);
 
     ui->tabWidget->setElideMode(Qt::ElideRight);
-    m_networkManager = new QNetworkAccessManager();
-    connect(ui->reload, SIGNAL(clicked()), this, SLOT(reloadFeed()));
+    m_networkManager = mApp->networkManager();
+
+    m_reloadButton = new QToolButton(this);
+    m_reloadButton->setAutoRaise(true);
+    m_reloadButton->setToolTip(tr("Reload"));
+    m_reloadButton->setIcon(IconProvider::standardIcon(QStyle::SP_BrowserReload));
+
+    ui->tabWidget->setCornerWidget(m_reloadButton);
+
+    connect(m_reloadButton, SIGNAL(clicked()), this, SLOT(reloadFeeds()));
+    connect(ui->add, SIGNAL(clicked()), this, SLOT(addFeed()));
     connect(ui->deletebutton, SIGNAL(clicked()), this, SLOT(deleteFeed()));
     connect(ui->edit, SIGNAL(clicked()), this, SLOT(editFeed()));
 
@@ -88,12 +98,12 @@ void RSSManager::refreshTable()
     }
     if (i > 0) {
         ui->deletebutton->setEnabled(true);
-        ui->reload->setEnabled(true);
+        m_reloadButton->setEnabled(true);
         ui->edit->setEnabled(true);
     }
     else {
         ui->deletebutton->setEnabled(false);
-        ui->reload->setEnabled(false);
+        m_reloadButton->setEnabled(false);
         ui->edit->setEnabled(false);
 
         QFrame* frame = new QFrame();
@@ -111,7 +121,7 @@ void RSSManager::refreshTable()
     }
 }
 
-void RSSManager::reloadFeed()
+void RSSManager::reloadFeeds()
 {
     TreeWidget* treeWidget = qobject_cast<TreeWidget*>(ui->tabWidget->widget(ui->tabWidget->currentIndex()));
     if (!treeWidget) {
@@ -123,6 +133,18 @@ void RSSManager::reloadFeed()
     treeWidget->addTopLevelItem(item);
 
     beginToLoadSlot(QUrl(ui->tabWidget->tabToolTip(ui->tabWidget->currentIndex())));
+}
+
+void RSSManager::addFeed()
+{
+    QUrl url = QUrl(QInputDialog::getText(this, tr("Add new feed"), tr("Please enter URL of new feed:")));
+
+    if (url.isEmpty() || !url.isValid()) {
+        return;
+    }
+
+    addRssFeed(url.toString(), tr("New feed"), _iconForUrl(url));
+    refreshTable();
 }
 
 void RSSManager::deleteFeed()
