@@ -80,8 +80,12 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         return;
     }
 
+    if (profileVersion == Updater::parseVersionFromString("1.1.0")) {
+        // Do nothing, nothing changed
+        return;
+    }
 
-    std::cout << "incompatible profile version detected, updating profile data..." << std::endl;
+    std::cout << "incompatible profile version detected, overwriting profile data..." << std::endl;
 
     copyDataToProfile();
 }
