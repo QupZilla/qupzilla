@@ -29,12 +29,14 @@ ReloadStopButton::ReloadStopButton(QWidget* parent)
     m_buttonStop->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonStop->setVisible(false);
     m_buttonStop->setAutoRaise(true);
+    m_buttonStop->setFocusPolicy(Qt::NoFocus);
 
     m_buttonReload = new ToolButton(this);
     m_buttonReload->setObjectName("navigation-button-reload");
     m_buttonReload->setToolTip(tr("Reload"));
     m_buttonReload->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonReload->setAutoRaise(true);
+    m_buttonReload->setFocusPolicy(Qt::NoFocus);
 
     lay->addWidget(m_buttonStop);
     lay->addWidget(m_buttonReload);

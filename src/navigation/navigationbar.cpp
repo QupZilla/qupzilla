@@ -55,6 +55,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_buttonBack->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonBack->setAutoRaise(true);
     m_buttonBack->setEnabled(false);
+    m_buttonBack->setFocusPolicy(Qt::NoFocus);
 
     m_buttonNext = new ToolButton(this);
     m_buttonNext->setObjectName("navigation-button-next");
@@ -62,6 +63,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_buttonNext->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonNext->setAutoRaise(true);
     m_buttonNext->setEnabled(false);
+    m_buttonNext->setFocusPolicy(Qt::NoFocus);
 
     QHBoxLayout* backNextLayout = new QHBoxLayout();
     backNextLayout->setContentsMargins(0, 0, 0, 0);
@@ -76,12 +78,14 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_buttonHome->setToolTip(tr("Home"));
     m_buttonHome->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonHome->setAutoRaise(true);
+    m_buttonHome->setFocusPolicy(Qt::NoFocus);
 
     m_buttonAddTab = new ToolButton(this);
     m_buttonAddTab->setObjectName("navigation-button-addtab");
     m_buttonAddTab->setToolTip(tr("New Tab"));
     m_buttonAddTab->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonAddTab->setAutoRaise(true);
+    m_buttonAddTab->setFocusPolicy(Qt::NoFocus);
 
     m_menuBack = new Menu(this);
     m_buttonBack->setMenu(m_menuBack);
