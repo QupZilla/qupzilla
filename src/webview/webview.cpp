@@ -484,7 +484,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(r.imageUrl());
         m_menu->addSeparator();
         m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadImageToDisk()))->setData(r.imageUrl());
-        m_menu->addAction(tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
+        m_menu->addAction(tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(r.imageUrl());
         m_menu->addSeparator();
         //menu->addAction(tr("Block image"), this, SLOT(blockImage()))->setData(r.imageUrl().toString());
         if (!selectedText().isEmpty()) {
