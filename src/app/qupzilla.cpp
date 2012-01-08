@@ -266,17 +266,17 @@ void QupZilla::setupMenu()
     // Standard actions - needed on Mac to be placed correctly in "application" menu
     m_actionAbout = new QAction(QIcon(":/icons/qupzilla.png"), tr("&About QupZilla"), this);
     m_actionAbout->setMenuRole(QAction::AboutRole);
-    connect (m_actionAbout, SIGNAL(triggered()), this, SLOT(aboutQupZilla()));
+    connect(m_actionAbout, SIGNAL(triggered()), this, SLOT(aboutQupZilla()));
 
     m_actionPreferences = new QAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this);
     m_actionPreferences->setMenuRole(QAction::PreferencesRole);
     m_actionPreferences->setShortcut(QKeySequence("Ctrl+P"));
-    connect (m_actionPreferences, SIGNAL(triggered()), this, SLOT(showPreferences()));
+    connect(m_actionPreferences, SIGNAL(triggered()), this, SLOT(showPreferences()));
 
     m_actionQuit = new QAction(QIcon::fromTheme("application-exit"), tr("Quit"), this);
     m_actionQuit->setMenuRole(QAction::QuitRole);
     m_actionQuit->setShortcut(QKeySequence("Ctrl+Q"));
-    connect (m_actionQuit, SIGNAL(triggered()), this, SLOT(quitApp()));
+    connect(m_actionQuit, SIGNAL(triggered()), this, SLOT(quitApp()));
 
     menuBar()->setObjectName("mainwindow-menubar");
     menuBar()->setCursor(Qt::ArrowCursor);

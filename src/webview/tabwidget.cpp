@@ -28,6 +28,8 @@
 #include "progressbar.h"
 #include "navigationbar.h"
 #include "toolbutton.h"
+#include "locationbar.h"
+#include "websearchbar.h"
 
 class NewTabButton : public QToolButton
 {
@@ -130,11 +132,13 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     m_buttonListTabs->setPopupMode(QToolButton::InstantPopup);
     m_buttonListTabs->setToolTip(tr("Show list of opened tabs"));
     m_buttonListTabs->setAutoRaise(true);
+    m_buttonListTabs->setFocusPolicy(Qt::NoFocus);
 
     m_buttonAddTab = new ToolButton(this);
     m_buttonAddTab->setObjectName("tabwidget-button-addtab");
     m_buttonAddTab->setAutoRaise(true);
     m_buttonAddTab->setToolTip(tr("New Tab"));
+    m_buttonAddTab->setFocusPolicy(Qt::NoFocus);
 
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowTabsMenu()));
@@ -405,6 +409,9 @@ void TabWidget::currentTabChanged(int index)
     }
 
     webView->setFocus();
+    // Setting correct tab order (LocationBar -> WebSearchBar -> WebView)
+    setTabOrder(p_QupZilla->locationBar(), p_QupZilla->navigationBar()->searchLine());
+    setTabOrder(p_QupZilla->navigationBar()->searchLine(), webView);
 
     m_tabBar->updateCloseButton(index);
 }
