@@ -173,9 +173,6 @@ void QupZilla::postLaunch()
         addTab = true;
     }
 
-    aboutToShowHistoryMenu(false);
-    aboutToShowBookmarksMenu();
-
     if (addTab) {
         int index = m_tabWidget->addView(startUrl, tr("New tab"), TabWidget::CleanPage);
         m_tabWidget->setCurrentIndex(index);
@@ -188,6 +185,10 @@ void QupZilla::postLaunch()
     if (m_tabWidget->getTabBar()->normalTabsCount() <= 0) { //Something went really wrong .. add one tab
         m_tabWidget->addView(m_homepage);
     }
+
+    aboutToShowHistoryMenu(false);
+    aboutToHideHistoryMenu();
+    aboutToShowBookmarksMenu();
 
     setUpdatesEnabled(true);
 
@@ -401,10 +402,14 @@ void QupZilla::setupMenu()
     connect(m_actionRestoreTab, SIGNAL(triggered()), m_tabWidget, SLOT(restoreClosedTab()));
     addAction(m_actionRestoreTab);
 
-    QAction* reloadByPassCacheAction = new QAction(this);
-    reloadByPassCacheAction->setShortcut(QKeySequence("Ctrl+F5"));
-    connect(reloadByPassCacheAction, SIGNAL(triggered()), this, SLOT(reloadByPassCache()));
-    addAction(reloadByPassCacheAction);
+    QShortcut* reloadByPassCacheAction = new QShortcut(QKeySequence("Ctrl+F5"), this);
+    connect(reloadByPassCacheAction, SIGNAL(activated()), this, SLOT(reloadByPassCache()));
+
+    QShortcut* backAction = new QShortcut(QKeySequence("Alt+Left"), this);
+    connect(backAction, SIGNAL(activated()), this, SLOT(goBack()));
+
+    QShortcut* forwardAction = new QShortcut(QKeySequence("Alt+Right"), this);
+    connect(forwardAction, SIGNAL(activated()), this, SLOT(goNext()));
 
     // Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
