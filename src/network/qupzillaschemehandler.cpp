@@ -127,14 +127,14 @@ QString QupZillaSchemeReply::reportbugPage()
 
     bPage.replace("%TITLE%", tr("Report Issue"));
     bPage.replace("%REPORT-ISSUE%", tr("Report Issue"));
-    bPage.replace("%PLUGINS-TEXT%", tr("If you are experiencing problems with QupZilla, please try first disable"
-                                       " all plugins. <br/>If it won't help, then please fill this form: "));
+    bPage.replace("%PLUGINS-TEXT%", tr("If you are experiencing problems with QupZilla, please try to disable"
+                                       " all plugins first. <br/>If this does not fix it, then please fill out this form: "));
     bPage.replace("%EMAIL%", tr("Your E-mail"));
     bPage.replace("%TYPE%", tr("Issue type"));
     bPage.replace("%DESCRIPTION%", tr("Issue description"));
     bPage.replace("%SEND%", tr("Send"));
     bPage.replace("%E-MAIL-OPTIONAL%", tr("E-mail is optional<br/><b>Note: </b>Please use English language only."));
-    bPage.replace("%FIELDS-ARE-REQUIRED%", tr("Please fill all required fields!"));
+    bPage.replace("%FIELDS-ARE-REQUIRED%", tr("Please fill out all required fields!"));
 
     return bPage;
 }
