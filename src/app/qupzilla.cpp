@@ -105,6 +105,7 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
 
     setupUi();
     setupMenu();
+
     QTimer::singleShot(0, this, SLOT(postLaunch()));
     connect(mApp, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(receiveMessage(MainApplication::MessageType, bool)));
 }
@@ -262,6 +263,21 @@ void QupZilla::setupUi()
 
 void QupZilla::setupMenu()
 {
+    // Standard actions - needed on Mac to be placed correctly in "application" menu
+    m_actionAbout = new QAction(QIcon(":/icons/qupzilla.png"), tr("&About QupZilla"), this);
+    m_actionAbout->setMenuRole(QAction::AboutRole);
+    connect (m_actionAbout, SIGNAL(triggered()), this, SLOT(aboutQupZilla()));
+
+    m_actionPreferences = new QAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this);
+    m_actionPreferences->setMenuRole(QAction::PreferencesRole);
+    m_actionPreferences->setShortcut(QKeySequence("Ctrl+P"));
+    connect (m_actionPreferences, SIGNAL(triggered()), this, SLOT(showPreferences()));
+
+    m_actionQuit = new QAction(QIcon::fromTheme("application-exit"), tr("Quit"), this);
+    m_actionQuit->setMenuRole(QAction::QuitRole);
+    m_actionQuit->setShortcut(QKeySequence("Ctrl+Q"));
+    connect (m_actionQuit, SIGNAL(triggered()), this, SLOT(quitApp()));
+
     menuBar()->setObjectName("mainwindow-menubar");
     menuBar()->setCursor(Qt::ArrowCursor);
     m_menuTools = new QMenu(tr("&Tools"));
@@ -291,7 +307,11 @@ void QupZilla::setupMenu()
     m_menuFile->addSeparator();
     m_menuFile->addSeparator();
     m_menuFile->addAction(tr("Import bookmarks..."), this, SLOT(showBookmarkImport()));
-    m_menuFile->addAction(QIcon::fromTheme("application-exit"), tr("Quit"), this, SLOT(quitApp()))->setShortcut(QKeySequence("Ctrl+Q"));
+    m_menuFile->addAction(m_actionQuit);
+#ifdef Q_WS_MAC // Add standard actions to File Menu (as it won't be ever cleared) and Mac menubar should move them to "application" menu
+    m_menuFile->addAction(m_actionAbout);
+    m_menuFile->addAction(m_actionPreferences);
+#endif
     menuBar()->addMenu(m_menuFile);
     connect(m_menuFile, SIGNAL(aboutToShow()), this, SLOT(aboutToShowFileMenu()));
     connect(m_menuFile, SIGNAL(aboutToHide()), this, SLOT(aboutToHideFileMenu()));
@@ -309,7 +329,7 @@ void QupZilla::setupMenu()
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("&Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     m_menuEdit->addSeparator();
 #ifdef Q_WS_X11
-    m_menuEdit->addAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
+    m_menuEdit->addAction(m_actionPreferences);
 #endif
     menuBar()->addMenu(m_menuEdit);
     connect(m_menuEdit, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEditMenu()));
@@ -352,9 +372,6 @@ void QupZilla::setupMenu()
     m_actionShowHistorySideBar->setCheckable(true);
     m_actionShowHistorySideBar->setShortcut(QKeySequence("Ctrl+H"));
     connect(m_actionShowHistorySideBar, SIGNAL(triggered()), this, SLOT(showHistorySideBar()));
-//    m_actionShowRssSideBar = new QAction(tr("RSS Reader"), this);
-//    m_actionShowRssSideBar->setCheckable(true);
-//    connect(m_actionShowRssSideBar, SIGNAL(triggered()), this, SLOT(showRssSideBar()));
 
     QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
     toolbarsMenu->addAction(m_actionShowMenubar);
@@ -363,7 +380,6 @@ void QupZilla::setupMenu()
     QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
     sidebarsMenu->addAction(m_actionShowBookmarksSideBar);
     sidebarsMenu->addAction(m_actionShowHistorySideBar);
-//    sidebarsMenu->addAction(m_actionShowRssSideBar);
 
     m_menuView->addMenu(toolbarsMenu);
     m_menuView->addMenu(sidebarsMenu);
@@ -751,9 +767,11 @@ void QupZilla::aboutToShowHelpMenu()
     m_menuHelp->clear();
     mApp->plugins()->populateHelpMenu(m_menuHelp);
     m_menuHelp->addSeparator();
+#ifndef Q_WS_MAC
     m_menuHelp->addAction(QIcon(":/icons/menu/qt.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
-    m_menuHelp->addAction(QIcon(":/icons/qupzilla.png"), tr("&About QupZilla"), this, SLOT(aboutQupZilla()));
+    m_menuHelp->addAction(m_actionAbout);
     m_menuHelp->addSeparator();
+#endif
     QAction* infoAction = new QAction(QIcon(":/icons/menu/informations.png"), tr("Informations about application"), m_menuHelp);
     infoAction->setData(QUrl("qupzilla:about"));
     infoAction->setShortcut(QKeySequence(QKeySequence::HelpContents));
@@ -781,8 +799,8 @@ void QupZilla::aboutToShowToolsMenu()
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
     mApp->plugins()->populateToolsMenu(m_menuTools);
-#ifndef Q_WS_X11
-    m_menuTools->addAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this, SLOT(showPreferences()))->setShortcut(QKeySequence("Ctrl+P"));
+#if !defined(Q_WS_X11) && !defined(Q_WS_MAC)
+    m_menuTools->addAction(m_actionPreferences);
 #endif
 }
 
