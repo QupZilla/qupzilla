@@ -10,6 +10,7 @@ $menu_download = "Transferir";
 $menu_reportbug = "Reportar erros";
 $menu_about = "Participar";
 $footer_site = "www.qupzilla.com";
+$translated_by = "Página traduzida por Sérgio Marques";
 
 //Home Page
 $actual_version = "Versão atual";
@@ -26,13 +27,13 @@ $technology = "Tecnologia";
 $technology_text = "O QupZilla é um navegador web baseado no WebKit e na plataforma Qt. O WebKit garante uma navegação <a>rápida</a> e a plataforma Qt disponibiliza a tecnologia nos principais sistemas operativos.";
 $technology_button = "WebKit e Qt";
 $looknfeel_header = "Aparência de acordo com o sistema operativo";
-$looknfeel_text = "O QupZilla utiliza o estilo e os ícones dos ambientes de trabalho Linux. No entanto, se considerar   que este aspeto é aborrecido ou caso tenha alguns problemas,pode sempre trocar entre os temas disponíveis.";
+$looknfeel_text = "O QupZilla utiliza o estilo e os ícones dos ambientes de trabalho Linux. No entanto, se considerar que este aspeto é aborrecido ou caso tenha alguns problemas, pode sempre trocar entre os temas disponíveis.";
 $library_header = "Uniformidade";
-$library_text = "O QupZilla agrega os marcadores, histórico e as fontes RSS numa só janela. Nada de diversas janelas para estes itens!<br/> Com o leitor RSS integrado, pode estar a par das suas fontes preferidas. Para além disso, o QupZilla consegue importar os marcadores de outros navegadores web.";
+$library_text = "O QupZilla agrega os marcadores, histórico e fontes RSS numa só janela. Nada de diversas janelas para estes itens!<br/> Com o leitor RSS integrado, tem sempre as suas fontes atualizadas. Para além disso, o QupZilla consegue importar os marcadores de outros navegadores web.";
 $adblock_header = "AdBlock integrado";
 $adblock_text = "Não gosta dos anúncios que algumas páginas web exibem? Estão estes anúncios a gastar largura de banda e fazem-no(a) perder tempo? Com o QupZilla, tudo o que tem de fazer é atualizar a EasyList ou, eventualmente, adicionar as suas regras e pode navegar sem ser importunado.";
 $speeddial_header = "Ligação rápida";
-$speeddial_text = "Finalmente, este funcionalidade está disponível para os utilizadores QupZilla! Agora, já pode aceder fácil e rapidamente às suas páginas favoritas com apenas um clique. As miniaturas das páginas são carregadas automaticamente e pode utilizar o processo arrastar e largar para as mover entre as diversas posições.";
+$speeddial_text = "Finalmente, este funcionalidade está disponível para os utilizadores QupZilla! Agora já pode aceder, fácil e rapidamente, às suas páginas favoritas com apenas um clique. As miniaturas das páginas são carregadas automaticamente e pode utilizar o processo arrastar e largar para as mover entre as diversas posições.";
 $devnews_header = "Desenvolvimento";
 $feed_loading = "A carregar...";
 
@@ -43,7 +44,7 @@ $choose_os = "Escolha o seu sistema operativo";
 $windows_text = "Pode transferir as versões 32 bits e 64 bits para o Windows nas ligações abaixo";
 $ubuntu_text = "Os utilizadores do Ubuntu Oneiric, Natty e Maverick podem instalar o QupZilla através destes comandos";
 $for_development_version = "Versões de desenvolvimento:";
-$packages_text = "Pacotes 32 bits e 64 bits";
+$packages_text = "Os pacotes 32 bits e 64 bits";
 $tarballs_text = "Os pacotes pré-compilados 32 bits e 64 bits";
 $can_be_downloaded = "podem ser transferidos nas ligações abaixo";
 $source_text = "Pode obter o código fonte clonando o repositório (se tiver o git instalado)";

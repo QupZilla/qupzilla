@@ -91,7 +91,8 @@ void AboutDialog::showAuthors()
                              "Vasilis Tsivikis (Greek)<br/>"
                              "Alexander Maslov (Russian)<br/>"
                              "Oleg Brezhnev (Russian)<br/>"
-                             "Sérgio Marques (Portuguese)"
+                             "Sérgio Marques (Portuguese)<br/>"
+                             "Mladen Pejaković (Serbian)"
                                                                         ));
         m_authorsHtml.append("</div>");
     }
