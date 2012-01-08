@@ -1,68 +1,68 @@
 ﻿<?php
 // Header + Footer
-$site_title = "QupZilla - Lightweight multiplatform browser";
+$site_title = "QupZilla - lekka i wieloplatformowa przeglądarka internetowa";
 $qupzilla = "QupZilla";
-$header_description = "Web Browser";
+$header_description = "Nowoczesna Przeglądarka";
 
 $menu_home = "Home";
-$menu_screenshots = "Screenshots";
-$menu_download = "Download";
-$menu_reportbug = "Report Issue";
-$menu_about = "Contribute";
-$footer_site = "QupZilla.com";
+$menu_screenshots = "Zrzuty";
+$menu_download = "Pobierz";
+$menu_reportbug = "Zgłoś Błąd";
+$menu_about = "Przyczyń się";
+$footer_site = "www.qupzilla.com";
 
 //Home Page
-$actual_version = "Current Version";
-$actual_version_text = "Current version is from ". $qupzilla_version_date .
-					   " and it is version " . $qupzilla_version . ". Changes in changelog. <br/>Don't hesitate and <a href=\"download\">download</a> it right now!";
-$actual_version_button = "DOWNLOAD";
-$older_versions = "Changelog";
-$older_versions_text = "You ever wanted to know what happened from that version to this? <br/>You can find everything in <a>changelog</a> at github!";
-$older_versions_button = "Changelog";
-$reportbug = "Report Issue";
-$reportbug_text = "Did you found some bug or you only have a suggestion how to <a>improve</a> QupZilla?<br/>
-                  Please open an issue at github issue tracker.";
-$reportbug_button = "Report now";
-$technology = "Technology";
-$technology_text = "QupZilla is modern web browser based on WebKit core and Qt Framework. WebKit guarante <a>fast</a> 
-                    browsing and Qt availability on all major platforms.";
-$technology_button = "WebKit &amp; Qt";
-$looknfeel_header = "Native look'n'feel";
-$looknfeel_text = "QupZilla is using native widgets style on major Linux Desktop Environments. It is also using icons from active desktop icon theme. If you find native theme too boring or have some problems with it, you can always switch to other themes.";
-$library_header = "Unified Library";
-$library_text = "QupZilla unifies bookmarks, history and rss reader in one well-arranged window. No more multiple windows, QupZilla uses just one!<br/>
-With integrated rss reader, you can stay up to date with your favourite sites. QupZilla can also import bookmarks from other browsers.";
-$adblock_header = "Integrated AdBlock";
-$adblock_text = "Are you bored of websited full of advertisements? Are they eating your bandwidth and time? The only thing you need with QupZilla is to update EasyList or maybe add your own rules and start browsing ad free.";
+$actual_version = "Aktualna Wersja";
+$actual_version_text = "Aktualna wersja jest z ". $qupzilla_version_date .
+					   " i jest to wersja " . $qupzilla_version . ". Zmiany w changelogu. <br/>Nie wahaj się i <a href=\"download\">pobierz</a> już teraz!";
+$actual_version_button = "POBIERZ";
+$older_versions = "Lista Zmian";
+$older_versions_text = "Czy kiedykolwiek chciałeś wiedzieć, co się zmieniło w nowej wersji? <br/>Wszystko możesz znaleźć w <a>liście zmian</a> na github!";
+$older_versions_button = "Lista zmian";
+$reportbug = "Zgłoś Błąd";
+$reportbug_text = "Czy znalazłeś jakiś błąd lub masz tylko sugestie, jak <a>poprawić</a> QupZille?<br/>
+                  Otwórz nowy wątek na trackerze QupZilli na github.";
+$reportbug_button = "Zgłoś teraz";
+$technology = "Technologia";
+$technology_text = "QupZilla jest nowoczesną przeglądarką bazującą na silniku WebKit i Frameworku Qt. WebKit gwarantuje <a>szybkie</a> 
+                    przeglądanie a Qt wieloplatformowość aplikacji.";
+$technology_button = "WebKit i Qt";
+$looknfeel_header = "Nowoczesny wygląd i odczucia";
+$looknfeel_text = "QupZilla wykorzystuje wiele natywnych motywów dla popularnych linuksowych środowisk graficznych. Jeżeli twój natywny motyw jest zbyt nudny lub masz z nim jakieś problemy, możesz w prosty sposób go zmienić.";
+$library_header = "Ujednolicone Biblioteki";
+$library_text = "QupZilla łączy zakładki, historię oraz czytnik rss w jednym oknie. Nigdy więcej dla takiego rozbicia, z QupZillą wszystko będziesz mieć w jednym oknie!<br/>
+Dzięki wbudowanemu czytnikowi RSS, można pozostać na bieżąco z ulubionymi stronami. QupZilla może także importować zakładki z innych przeglądarek.";
+$adblock_header = "Zintegrowany AdBlock";
+$adblock_text = "Czy nie denerwują się strony przeładowane reklamami?  Ładują się za długo? Jedyne co potrzebujesz w QupZill to aktualizacja EasyList lub dodanie swojich własnych reguł blokowania reklam.";
 $speeddial_header = "Speed Dial";
-$speeddial_text = "This popular extension is finally available for QupZilla users! You can now access your favourite pages as fast as you want on one page opened in new tab. Needless to say that it fully supports drag&amp;drop and page thumbnail loading.";
-$devnews_header = "Development News";
-$feed_loading = "Loading...";
+$speeddial_text = "Ten popularny dodatek wreszcie zagościł w QupZilli! Możesz teraz uzyskać dostęp do ulubionych stron tak szybko, jak chcesz w każdej nowej karcie. Nie zapomnijmy wspomnieć że Spped Dial umożliwia zarządznie zakładkami za pomocą drag&amp;drop (przeciągnij i upuść).";
+$devnews_header = "Nowości";
+$feed_loading = "Ładowanie...";
 
 // Download Page
-$other_linux = "Other Linux";
-$source_code = "Source Code";
-$choose_os = "Please choose your operating system";
-$windows_text = "32bit and 64bit Windows installers can be downloaded by clicking on links bellow";
-$ubuntu_text = "Oneiric, Natty and Maverick users can install QupZilla by running these commands";
-$for_development_version = "for development version:";
-$packages_text = "32bit and 64bit packages";
+$other_linux = "Inne z rodziny Linux";
+$source_code = "Kod Źródłowy";
+$choose_os = "Wybierz system operacyjny";
+$windows_text = "32bit i 64bit instalator dla systemu Windows można pobrać klikając na linki poniżej";
+$ubuntu_text = "Użytkownicy Ubuntu Oneric, Natty i Maverick mogą zainstalować QupZille wykonując komendy"; 
+$for_development_version = "wersja developerska:";
+$packages_text = "Paczki 32bit i 64bit";
 $tarballs_text = "32bit and 64bit precompiled tarballs";
-$can_be_downloaded = "can be downloaded by clicking on links bellow";
-$source_text = "You can get source code by cloning repository (if you have git installed)";
-$view_source = "view source on github.com";
-$download_snapshot = "download current snapshot";
+$can_be_downloaded = "można pobrać klikająć w link poniżej";
+$source_text = "Możesz pobrać kod źródłowy, klonując repozytorium (jeżeli ma się zainstalowany git)";
+$view_source = "pokaż źródła na github.com";
+$download_snapshot = "Pobierz aktualną migawkę";
 
 // Contribute Page
-$contribute_to = "Contribute to QupZilla";
-$contribute_text = "QupZilla is open source project, so your help is very welcome! I will be very happy to include patches you send me. But hacking into 
-                    code is not the only one way to help, you can translate QupZilla to your language or just share it with your friends. Remember, every (even small) help is highly appreciated!";
-$getting_source = "Getting Source";
-$getting_source_text1 = "The easiest way you can get QupZilla source is to clone it from github repository. You can do it by running this command";
-$getting_source_text2 = "and then you can start hacking. You cand send me your patches by e-mail or at github.";
-$translating = "Translating into other languages";
-$translating_text = "Another way how to contribute is to add or improve current translation. If you want add new language, you can generate new translations file manually, or you can contact me, and I will do it for you. You cand send me your translations again by e-mail or at github.";
-$translating_moreinfo = "More informations about translating <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>here</a> [wiki at github]";
-$share_with_friends = "Share with Friends!";
-$share_with_friends_text = "Do you like QupZilla? Then share it amongst your friends!"
+$contribute_to = "Przyczyń się dla QupZilli";
+$contribute_text = "QupZilla jest projektem open source, dlatego twoja pomoc jest mile widziana! Będę bardzo szczęśliwy z poprawek które mi wyślesz. 
+                    Tworzenie kodu nie jest jedynym sposobem aby pomóc, można tłumaczyć QupZille na swój język lub po prostu podzielić się nią ze znajomymi. Pamiętaj, że każda (nawet mała) pomoc jest wysoko ceniona!";
+$getting_source = "Kod Źródłowy";
+$getting_source_text1 = "Najprostszą metodą na zdobycie kodu źródłowego jest sklonowanie repozytorium na github. Możesz to zrobić wykonując komendę";
+$getting_source_text2 = "i poprostu zacząć hakować. Możesz wysyłać poprawki za pomoca e-maila lub po przez github.";
+$translating = "Tłumaczenie na inne języki";
+$translating_text = "Innym sposobem aby przyczynić sie dla projektu jest dodanie nowego lub poprawienie obecnego tłumaczenia. Jeżeli chcesz dodać nowe tłumaczenie, możesz wygenerowac plik tłumaczenia ręcznie, lub skontaktować się ze mną, a ja zrobie to dla Ciebie. Możesz mi wysłać swoje tłumaczenie po przez e-mial lub github.";
+$translating_moreinfo = "Więcej informacji o tłumaczeniu <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>tutaj</a> [wiki na github]";
+$share_with_friends = "Podziel się ze znajomymi!";
+$share_with_friends_text = "Lubisz QupZille? W takim razie podziel się nią ze swoimi znajomymi!"
 ?>

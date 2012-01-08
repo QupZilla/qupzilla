@@ -10,6 +10,7 @@ $menu_download = "Download";
 $menu_reportbug = "Report Issue";
 $menu_about = "Contribute";
 $footer_site = "www.qupzilla.com";
+$translated_by = "";
 
 //Home Page
 $actual_version = "Current Version";

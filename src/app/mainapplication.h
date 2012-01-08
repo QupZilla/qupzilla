@@ -45,7 +45,6 @@ class DownloadManager;
 class AutoFillModel;
 class DesktopNotificationsFactory;
 class IconProvider;
-class Style;
 class SearchEnginesManager;
 class DatabaseWriter;
 class MainApplication : public QtSingleApplication
@@ -102,8 +101,6 @@ public:
     DesktopNotificationsFactory* desktopNotifications();
     IconProvider* iconProvider() { return m_iconProvider; }
     DatabaseWriter* dbWriter() { return m_dbWriter; }
-
-    static Style* appStyle;
 
 public slots:
     bool saveStateSlot();
