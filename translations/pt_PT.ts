@@ -173,7 +173,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation type="unfinished"></translation>
+        <translation>O AdBlock permite-lhe bloquear o conteúdo das páginas web</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="39"/>
@@ -3304,7 +3304,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="54"/>
         <source>Add feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar fonte</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="64"/>
@@ -3342,17 +3342,17 @@ Adicione as fontes com o ícone RSS existente na barra de navegação, nas pági
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
         <source>Add new feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar nova fonte</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
         <source>Please enter URL of new feed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Indique o URL da nova fonte:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="146"/>
         <source>New feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Nova fonte</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="183"/>
@@ -3667,7 +3667,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/navigation/siteicon.cpp" line="29"/>
         <source>Show informations about this page</source>
-        <translation>Mostrar infromações desta página</translation>
+        <translation>Mostrar informações desta página</translation>
     </message>
 </context>
 <context>

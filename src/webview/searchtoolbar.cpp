@@ -139,6 +139,7 @@ bool SearchToolBar::eventFilter(QObject* obj, QEvent* event)
 {
     if (event->type() == QEvent::KeyPress && static_cast<QKeyEvent*>(event)->key() == Qt::Key_Escape) {
         hide();
+        p_QupZilla->weView()->setFocus();
         return false;
     }
 
