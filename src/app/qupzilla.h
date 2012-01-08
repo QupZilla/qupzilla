@@ -233,6 +233,10 @@ private:
     QMenu* m_menuEncoding;
     QAction* m_menuBookmarksAction;
 
+    QAction* m_actionAbout;
+    QAction* m_actionPreferences;
+    QAction* m_actionQuit;
+
     QAction* m_actionCloseWindow;
     QAction* m_actionShowToolbar;
     QAction* m_actionShowBookmarksToolbar;
