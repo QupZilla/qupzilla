@@ -173,7 +173,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock blockiert unerwünschte Seiteninhalte</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="39"/>
@@ -3304,7 +3304,7 @@
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation>Sie haben noch keine RSS Feeds abonniert.&lt;br/&gt;
-Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</translation>
+Bitte fügen Sie welche über das RSS Symbol in der Navigationsleiste hinzu.</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="43"/>
@@ -3314,7 +3314,7 @@ Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</tra
     <message>
         <location filename="../src/rss/rssmanager.ui" line="54"/>
         <source>Add feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Feed hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="64"/>
@@ -3345,17 +3345,17 @@ Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</tra
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
         <source>Add new feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Neuen Feed hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
         <source>Please enter URL of new feed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte geben Sie die URL des neuen Feed ein:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="146"/>
         <source>New feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Neuer Feed</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="183"/>
@@ -3375,7 +3375,7 @@ Bitte fügen Sie Feeds über das RSS Symbol in der Navigationsleiste hinzu.</tra
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="192"/>
         <source>Edit RSS Feed</source>
-        <translation>RSS Feed barbeiten</translation>
+        <translation>RSS Feed bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="234"/>
