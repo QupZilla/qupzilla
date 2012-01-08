@@ -1,6 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=QupZilla
+Name[sr]=Капзила
+Name[sr@ijekavian]=Капзила
 Type=Application
 Icon=qupzilla
 Categories=Network;WebBrowser;
@@ -16,6 +18,10 @@ Comment[pl]=Szybka i bezpieczna przeglądarka internetowa
 Comment[pt]=Um navegador web rápido e seguro
 Comment[ru]=Быстрый и безопасный веб-браузер
 Comment[sk]=Rýchly a bezpečný webový prehliadač
+Comment[sr]=Брз и сигуран веб прегледач
+Comment[sr@ijekavian]=Брз и сигуран веб прегледач
+Comment[sr@ijekavianlatin]=Brz i siguran veb pregledač
+Comment[sr@latin]=Brz i siguran veb pregledač
 GenericName=Web Browser
 GenericName[cs]=Webový prohlížeč
 GenericName[de]=Web Browser
@@ -28,6 +34,10 @@ GenericName[pl]=Przeglądarka Internetowa
 GenericName[pt]=Navegador web
 GenericName[ru]=Веб-Браузер
 GenericName[sk]=Webový prehliadač
+GenericName[sr]=Веб прегледач
+GenericName[sr@ijekavian]=Веб прегледач
+GenericName[sr@ijekavianlatin]=Veb pregledač
+GenericName[sr@latin]=Veb pregledač
 
 Exec=qupzilla %u
 MimeType=text/html;application/xhtml+xml;
@@ -47,6 +57,11 @@ Name[pl]=Otwórz nowe okno
 Name[pt]=Abrir novo separador
 Name[ru]=Открыть новую вкладку
 Name[sk]=Otvoriť novú kartu
+Name[sr]=Отвори у новом језичку
+Name[sr@ijekavian]=Отвори у новом језичку
+Name[sr@ijekavianlatin]=Otvori u novom jezičku
+Name[sr@latin]=Otvori u novom jezičku
+
 Exec=qupzilla --new-tab
 TargetEnvironment=Unity
 
@@ -63,6 +78,10 @@ Name[pl]=Otwórz nowe okno
 Name[pt]=Abrir nova janela
 Name[ru]=Открыть в новом окне
 Name[sk]=Otvoriť nové okno
+Name[sr]=Отвори у новом прозору
+Name[sr@ijekavian]=Отвори у новом прозору
+Name[sr@ijekavianlatin]=Otvori u novom prozoru
+Name[sr@latin]=Otvori u novom prozoru
 Exec=qupzilla --new-window
 TargetEnvironment=Unity
 
@@ -79,5 +98,9 @@ Name[pl]=Początek prywatną oglądania
 Name[pt]=Iniciar navegação privada
 Name[ru]=Запустить в режиме приватного просмотра
 Name[sk]=Spustiť súkromné prehliadanie
+Name[sr]=Покрени приватно прегледање
+Name[sr@ijekavian]=Покрени приватно прегледање
+Name[sr@ijekavianlatin]=Pokreni privatno pregledanje
+Name[sr@latin]=Pokreni privatno pregledanje
 Exec=qupzilla --private-browsing
 TargetEnvironment=Unity
