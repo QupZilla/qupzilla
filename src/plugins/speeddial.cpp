@@ -53,6 +53,10 @@ void SpeedDial::loadSettings()
 
 void SpeedDial::saveSettings()
 {
+    if (m_allPages.isEmpty()) {
+        return;
+    }
+
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("SpeedDial");
     settings.setValue("pages", m_allPages);
