@@ -47,6 +47,7 @@ QNetworkReply* QupZillaSchemeHandler::createRequest(QNetworkAccessManager::Opera
 
 QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* parent)
     : QNetworkReply(parent)
+    , m_loaded(false)
 {
     setOperation(QNetworkAccessManager::GetOperation);
     setRequest(req);
@@ -111,6 +112,18 @@ qint64 QupZillaSchemeReply::bytesAvailable() const
 qint64 QupZillaSchemeReply::readData(char* data, qint64 maxSize)
 {
     return m_buffer.read(data, maxSize);
+}
+
+void QupZillaSchemeReply::loadSpeedDialBack()
+{
+    m_loaded = true;
+
+    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    settings.beginGroup("SpeedDial");
+    m_backImg = settings.value("background", "").toString();
+    m_backImgSize = settings.value("backsize", "").toString();
+    m_backImgSize = (m_backImgSize == "" ? "auto" : m_backImgSize);
+    settings.endGroup();
 }
 
 QString QupZillaSchemeReply::reportbugPage()
@@ -230,6 +243,10 @@ QString QupZillaSchemeReply::speeddialPage()
 {
     static QString dPage;
 
+    if (!m_loaded) {
+        loadSpeedDialBack();
+    }
+
     if (dPage.isEmpty()) {
         dPage.append(qz_readAllFileContents(":html/speeddial.html"));
         dPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
@@ -252,6 +269,8 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%TITLE%", tr("Title"));
         dPage.replace("%EDIT%", tr("Apply"));
         dPage.replace("%NEW-PAGE%", tr("New Page"));
+        dPage.replace("%IMG_BACKGROUND%", m_backImg);
+        dPage.replace("%B_SIZE%", m_backImgSize);
     }
 
     QString page = dPage;
