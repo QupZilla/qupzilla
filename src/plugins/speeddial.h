@@ -37,9 +37,10 @@ public:
     void saveSettings();
 
     void addWebFrame(QWebFrame* frame);
-
     void addPage(const QUrl &url, const QString &title);
 
+    QString backgroundImage();
+    QString backgroundImageSize();
     QString initialScript();
 
 signals:
@@ -56,6 +57,8 @@ private:
     QString m_initialScript;
     QString m_allPages;
     QString m_thumbnailsDir;
+    QString m_bgImg;
+    QString m_bgImgSize;
 
     QList<QWeakPointer<QWebFrame> > m_webFrames;
 

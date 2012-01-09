@@ -5,7 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;b&gt;Hlavní vývojári:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
+        <translation type="obsolete">&lt;p&gt;&lt;b&gt;Hlavní vývojári:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
@@ -46,6 +46,10 @@
     <message>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Prispievatelia:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3291,33 +3295,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>No Named Page</source>
         <translation>Nepomenovaná tránka</translation>
-    </message>
-</context>
-<context>
-    <name>TestPlugin</name>
-    <message>
-        <source>My first plugin action</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hello</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>First plugin action works :-)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Example Plugin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Example minimal plugin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Very simple minimal plugin example</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

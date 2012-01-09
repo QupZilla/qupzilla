@@ -47,8 +47,8 @@
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="78"/>
-        <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation></translation>
+        <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="79"/>
@@ -3218,37 +3218,37 @@
         <translation>贡献者</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="207"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="208"/>
         <source>Translators</source>
         <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Speed Dial</source>
         <translation>快速拨号</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Add New Page</source>
         <translation>添加新网页</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
         <source>Load title from page</source>
         <translation>从网页载入标题</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
         <source>Remove</source>
         <translation>删除</translation>
     </message>
@@ -3268,22 +3268,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
         <source>Reload</source>
         <translation>刷新</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>Url</source>
         <translation>地址</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
         <source>Title</source>
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="255"/>
         <source>New Page</source>
         <translation>新网页</translation>
     </message>
@@ -4016,7 +4016,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="190"/>
+        <location filename="../src/plugins/speeddial.cpp" line="212"/>
         <source>Unable to load</source>
         <translation>无法加载</translation>
     </message>
@@ -4134,41 +4134,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/tabwidget.h" line="72"/>
         <source>New tab</source>
         <translation>新标签</translation>
-    </message>
-</context>
-<context>
-    <name>TestPlugin</name>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="52"/>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="57"/>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="62"/>
-        <source>My first plugin action</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="67"/>
-        <source>Hello</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="67"/>
-        <source>First plugin action works :-)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.h" line="24"/>
-        <source>Example Plugin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.h" line="25"/>
-        <source>Example minimal plugin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.h" line="26"/>
-        <source>Very simple minimal plugin example</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
