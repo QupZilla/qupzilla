@@ -3075,10 +3075,6 @@
         <translation>Пријави проблем</translation>
     </message>
     <message>
-        <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
-        <translation type="obsolete">Ако имате проблема са Капзилом најприје покушајте са онемогућеним прикључцима. &lt;br/&gt;Ако то не помогне, онда попуните овај формулар: </translation>
-    </message>
-    <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="132"/>
         <source>Your E-mail</source>
         <translation>Ваша е-адреса</translation>
@@ -3097,10 +3093,6 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="135"/>
         <source>Send</source>
         <translation>Пошаљи</translation>
-    </message>
-    <message>
-        <source>Please fill all required fields!</source>
-        <translation type="obsolete">Попуните сва обавезна поља!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="155"/>
@@ -3257,12 +3249,12 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ако имате проблема са Капзилом најприје покушајте да онемогућите прикључке. &lt;br/&gt;Ако то не помогне, онда попуните овај формулар: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"></translation>
+        <translation>Попуните сва обавезна поља!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
@@ -4346,37 +4338,37 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="539"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Копирај везу странице</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="540"/>
         <source>Send page link...</source>
-        <translation type="unfinished"></translation>
+        <translation>Пошаљи везу странице...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="541"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Штампај страницу</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="548"/>
         <source>Validate page</source>
-        <translation type="unfinished"></translation>
+        <translation>Провјера кôда</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="562"/>
         <source>Send text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Пошаљи текст...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="566"/>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Рјечник</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="575"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation>Иди на &amp;веб адресу</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="625"/>
@@ -4510,10 +4502,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/webview.cpp" line="538"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Сачувај страницу као...</translation>
-    </message>
-    <message>
-        <source>Send page...</source>
-        <translation type="obsolete">Пошаљи страницу...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="543"/>
