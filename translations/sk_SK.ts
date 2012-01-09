@@ -2484,7 +2484,7 @@
     </message>
     <message>
         <source>Please fill all required fields!</source>
-        <translation>Prosím vyplňte všetky povinné políčka!</translation>
+        <translation type="obsolete">Prosím vyplňte všetky povinné políčka!</translation>
     </message>
     <message>
         <source>Main developer</source>
@@ -2588,7 +2588,7 @@
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
-        <translation>Ak máte problémy pri používaní QupZilly, prosím skúste najprv zakázať všetky pluginy. &lt;br/&gt; Ak to nepomúže, potom prosím vyplňte tento formulár: </translation>
+        <translation type="obsolete">Ak máte problémy pri používaní QupZilly, prosím skúste najprv zakázať všetky pluginy. &lt;br/&gt; Ak to nepomúže, potom prosím vyplňte tento formulár: </translation>
     </message>
     <message>
         <source>Apply</source>
@@ -2601,6 +2601,14 @@
     <message>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
         <translation>E-mail je nepovinný&lt;br/&gt;&lt;b&gt;Poznámka: &lt;/b&gt;Používajte prosím len anglický jazyk.</translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please fill out all required fields!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3286,6 +3294,33 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
 </context>
 <context>
+    <name>TestPlugin</name>
+    <message>
+        <source>My first plugin action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hello</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First plugin action works :-)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Example Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Example minimal plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Very simple minimal plugin example</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ThemeManager</name>
     <message>
         <source>&lt;b&gt;Author:&lt;/b&gt;</source>
@@ -3442,7 +3477,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Send page...</source>
-        <translation>Odoslať stránku...</translation>
+        <translation type="obsolete">Odoslať stránku...</translation>
     </message>
     <message>
         <source>New tab</source>
@@ -3559,6 +3594,34 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Show so&amp;urce of frame</source>
         <translation>Zobraziť &amp;zdrojový kód rámu</translation>
+    </message>
+    <message>
+        <source>&amp;Copy page link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send page link...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Print page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Validate page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send text...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to &amp;web address</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
