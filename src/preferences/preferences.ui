@@ -186,7 +186,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>10</number>
      </property>
      <widget class="QWidget" name="stackedWidgetPage1">
       <layout class="QGridLayout" name="gridLayout_6">
@@ -1994,6 +1994,94 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>buttonBox</tabstop>
+  <tabstop>afterLaunch</tabstop>
+  <tabstop>homepage</tabstop>
+  <tabstop>useActualBut</tabstop>
+  <tabstop>newTab</tabstop>
+  <tabstop>newTabUrl</tabstop>
+  <tabstop>newTabUseActual</tabstop>
+  <tabstop>checkUpdates</tabstop>
+  <tabstop>startProfile</tabstop>
+  <tabstop>createProfile</tabstop>
+  <tabstop>deleteProfile</tabstop>
+  <tabstop>tabWidget_2</tabstop>
+  <tabstop>makeMovable</tabstop>
+  <tabstop>hideTabsOnTab</tabstop>
+  <tabstop>activateLastTab</tabstop>
+  <tabstop>askWhenClosingMultipleTabs</tabstop>
+  <tabstop>selectAllOnFocus</tabstop>
+  <tabstop>selectAllOnClick</tabstop>
+  <tabstop>addCountryWithAlt</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>allowPlugins</tabstop>
+  <tabstop>allowDNSPrefetch</tabstop>
+  <tabstop>allowJavaScript</tabstop>
+  <tabstop>allowJava</tabstop>
+  <tabstop>blockPopup</tabstop>
+  <tabstop>loadImages</tabstop>
+  <tabstop>jscanAccessClipboard</tabstop>
+  <tabstop>doNotTrack</tabstop>
+  <tabstop>xssAuditing</tabstop>
+  <tabstop>askOnPrivateBrowsing</tabstop>
+  <tabstop>printEBackground</tabstop>
+  <tabstop>zoomTextOnly</tabstop>
+  <tabstop>linksInFocusChain</tabstop>
+  <tabstop>wheelScroll</tabstop>
+  <tabstop>defaultZoom</tabstop>
+  <tabstop>fontStandard</tabstop>
+  <tabstop>fontFixed</tabstop>
+  <tabstop>fontSerif</tabstop>
+  <tabstop>fontSansSerif</tabstop>
+  <tabstop>fontCursive</tabstop>
+  <tabstop>fontFantasy</tabstop>
+  <tabstop>sizeDefault</tabstop>
+  <tabstop>sizeFixed</tabstop>
+  <tabstop>askEverytime</tabstop>
+  <tabstop>useDefined</tabstop>
+  <tabstop>downLoc</tabstop>
+  <tabstop>downButt</tabstop>
+  <tabstop>closeDownManOnFinish</tabstop>
+  <tabstop>downlaodNativeSystemDialog</tabstop>
+  <tabstop>allowPassManager</tabstop>
+  <tabstop>saveCookies</tabstop>
+  <tabstop>deleteCookiesOnClose</tabstop>
+  <tabstop>matchExactly</tabstop>
+  <tabstop>filterTracking</tabstop>
+  <tabstop>cookieManagerBut</tabstop>
+  <tabstop>sslManagerButton</tabstop>
+  <tabstop>useOSDNotifications</tabstop>
+  <tabstop>useNativeSystemNotifications</tabstop>
+  <tabstop>doNotUseNotifications</tabstop>
+  <tabstop>notificationTimeout</tabstop>
+  <tabstop>languages</tabstop>
+  <tabstop>preferredLanguages</tabstop>
+  <tabstop>userStyleSheet</tabstop>
+  <tabstop>chooseUserStylesheet</tabstop>
+  <tabstop>showBackForward</tabstop>
+  <tabstop>allowCache</tabstop>
+  <tabstop>cacheMB</tabstop>
+  <tabstop>storeIcons</tabstop>
+  <tabstop>saveHistory</tabstop>
+  <tabstop>proxyType</tabstop>
+  <tabstop>deleteHistoryOnClose</tabstop>
+  <tabstop>proxyServer</tabstop>
+  <tabstop>proxyExceptions</tabstop>
+  <tabstop>proxyPort</tabstop>
+  <tabstop>proxyUsername</tabstop>
+  <tabstop>proxyPassword</tabstop>
+  <tabstop>manualProxy</tabstop>
+  <tabstop>systemProxy</tabstop>
+  <tabstop>noProxy</tabstop>
+  <tabstop>showStatusbar</tabstop>
+  <tabstop>useTransparentBg</tabstop>
+  <tabstop>showNavigationToolbar</tabstop>
+  <tabstop>showAddTabButton</tabstop>
+  <tabstop>pagesInCache</tabstop>
+  <tabstop>showHome</tabstop>
+  <tabstop>showBookmarksToolbar</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
