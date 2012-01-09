@@ -545,7 +545,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         if (url().scheme() == "http" || url().scheme() == "https") {
 //             bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
 //                 if (result) {
-                    m_menu->addAction(tr("Validate page"), this, SLOT(openUrlInNewTab()))->setData("http://validator.w3.org/check?uri=" + url().toString());
+            m_menu->addAction(tr("Validate page"), this, SLOT(openUrlInNewTab()))->setData("http://validator.w3.org/check?uri=" + url().toString());
 //                 }
         }
 
@@ -558,21 +558,26 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
     mApp->plugins()->populateWebViewMenu(m_menu, this, r);
 
     if (!selectedText().isEmpty()) {
-        m_menu->addAction(pageAction(QWebPage::Copy));
-        m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText());
-        m_menu->addSeparator();
         QString selectedText = page()->selectedText();
-        QString langCode = mApp->getActiveLanguage().left(2);
-        m_menu->addAction(tr("Dictionary"), this, SLOT(openUrlInNewTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
+
+        m_menu->addAction(pageAction(QWebPage::Copy));
+        m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
         m_menu->addSeparator();
 
-//    Doing this so that text strings without http:// like "google.com" can be loaded. However,
-//    there is no way (for now) not to display menu entry for addresses without domain name.
-        QString trimmedText = selectedText.trimmed();
-        QString selectedTextUrl = (trimmedText.left(7) == "http://" || trimmedText.left(6) == "ftp://" || trimmedText.left(7) == "file://" ? trimmedText : "http://" + trimmedText);
+        QString langCode = mApp->getActiveLanguage().left(2);
+        QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
+        m_menu->addAction(QIcon(":icons/menu/translate.png"), tr("Dictionary (Google Translate)"), this, SLOT(openUrlInNewTab()))->setData(googleTranslateUrl);
+        m_menu->addSeparator();
 
-        if ((selectedTextUrl.left(7) == "file://" || isUrlValid( QUrl(selectedTextUrl))) && selectedTextUrl.contains(QLatin1Char('.'))) {
-            m_menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Go to &web address"), this, SLOT(openUrlInNewTab()))->setData(selectedTextUrl);
+        QString selectedString = selectedText.trimmed();
+        if (!selectedString.contains(".")) {
+            // Try to add .com
+            selectedString.append(".com");
+        }
+        QUrl guessedUrl = QUrl::fromUserInput(selectedString);
+
+        if (isUrlValid(guessedUrl)) {
+            m_menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Go to &web address"), this, SLOT(openUrlInNewTab()))->setData(guessedUrl);
         }
 
         selectedText.truncate(20);
