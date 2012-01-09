@@ -91,19 +91,20 @@ void ToolButton::mousePressEvent(QMouseEvent* e)
 
 void ToolButton::mouseReleaseEvent(QMouseEvent* e)
 {
-    setDown(false);
-
     if (e->button() == Qt::MiddleButton && rect().contains(e->pos())) {
         emit middleMouseClicked();
+        setDown(false);
         return;
     }
 
     if (e->button() == Qt::LeftButton && rect().contains(e->pos()) && e->modifiers() == Qt::ControlModifier) {
         emit controlClicked();
+        setDown(false);
         return;
     }
 
     QToolButton::mouseReleaseEvent(e);
+    setDown(false);
 }
 
 void ToolButton::paintEvent(QPaintEvent* e)
