@@ -566,7 +566,8 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
 
         QString langCode = mApp->getActiveLanguage().left(2);
         QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
-        m_menu->addAction(QIcon(":icons/menu/translate.png"), tr("Dictionary (Google Translate)"), this, SLOT(openUrlInNewTab()))->setData(googleTranslateUrl);
+        m_menu->addAction(QIcon(":icons/menu/translate.png"), tr("Google Translate"), this, SLOT(openUrlInNewTab()))->setData(googleTranslateUrl);
+        m_menu->addAction(tr("Dictionary"), this, SLOT(openUrlInNewTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
         m_menu->addSeparator();
 
         QString selectedString = selectedText.trimmed();
