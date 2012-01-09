@@ -90,6 +90,9 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
     , m_startingUrl(startUrl)
     , m_startBehaviour(behaviour)
     , m_menuBookmarksAction(0)
+    #ifdef Q_WS_MAC
+    , m_macMenuBar(new QMenuBar())
+    #endif
     , m_actionPrivateBrowsing(0)
     , m_statusBarMessage(new StatusBarMessage(this))
     , m_sideBarWidth(0)
@@ -261,19 +264,28 @@ void QupZilla::setupUi()
     statusBar()->insertPermanentWidget(3, m_adblockIcon);
 }
 
+QMenuBar* QupZilla::menuBar() const
+{
+#ifdef Q_WS_MAC
+    return m_macMenuBar;
+#else
+    return QMainWindow::menuBar();
+#endif
+}
+
 void QupZilla::setupMenu()
 {
     // Standard actions - needed on Mac to be placed correctly in "application" menu
-    m_actionAbout = new QAction(QIcon(":/icons/qupzilla.png"), tr("&About QupZilla"), this);
+    m_actionAbout = new QAction(QIcon(":/icons/qupzilla.png"), tr("&About QupZilla"), 0);
     m_actionAbout->setMenuRole(QAction::AboutRole);
     connect(m_actionAbout, SIGNAL(triggered()), this, SLOT(aboutQupZilla()));
 
-    m_actionPreferences = new QAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), this);
+    m_actionPreferences = new QAction(QIcon(":/icons/faenza/settings.png"), tr("Pr&eferences"), 0);
     m_actionPreferences->setMenuRole(QAction::PreferencesRole);
     m_actionPreferences->setShortcut(QKeySequence("Ctrl+P"));
     connect(m_actionPreferences, SIGNAL(triggered()), this, SLOT(showPreferences()));
 
-    m_actionQuit = new QAction(QIcon::fromTheme("application-exit"), tr("Quit"), this);
+    m_actionQuit = new QAction(QIcon::fromTheme("application-exit"), tr("Quit"), 0);
     m_actionQuit->setMenuRole(QAction::QuitRole);
     m_actionQuit->setShortcut(QKeySequence("Ctrl+Q"));
     connect(m_actionQuit, SIGNAL(triggered()), this, SLOT(quitApp()));
