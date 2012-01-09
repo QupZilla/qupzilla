@@ -3593,11 +3593,11 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Dictionary</source>
+        <source>Go to &amp;web address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Go to &amp;web address</source>
+        <source>Dictionary (Google Translate)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

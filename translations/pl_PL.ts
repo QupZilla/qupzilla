@@ -4425,6 +4425,11 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Pokaż &amp;informacje o stronie</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="569"/>
+        <source>Dictionary (Google Translate)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/webview/webview.cpp" line="553"/>
         <source>Show Web &amp;Inspector</source>
         <translation>Pokaż Web Inspe&amp;ktora</translation>
@@ -4476,34 +4481,29 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Pokaż kod &amp;źródłowy</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="562"/>
+        <location filename="../src/webview/webview.cpp" line="564"/>
         <source>Send text...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="566"/>
-        <source>Dictionary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webview.cpp" line="575"/>
+        <location filename="../src/webview/webview.cpp" line="580"/>
         <source>Go to &amp;web address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="581"/>
+        <location filename="../src/webview/webview.cpp" line="586"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Szukaj &quot;%1 ..&quot; z %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="848"/>
+        <location filename="../src/webview/webview.cpp" line="853"/>
         <source>No Named Page</source>
         <translation>Strona bez nazwy</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="625"/>
-        <location filename="../src/webview/webview.cpp" line="944"/>
-        <location filename="../src/webview/webview.cpp" line="957"/>
+        <location filename="../src/webview/webview.cpp" line="630"/>
+        <location filename="../src/webview/webview.cpp" line="949"/>
+        <location filename="../src/webview/webview.cpp" line="962"/>
         <source>New tab</source>
         <translation>Nowa karta</translation>
     </message>

@@ -68,5 +68,6 @@
         <file>icons/preferences/mail-inbox.png</file>
         <file>icons/preferences/preferences-system-firewall.png</file>
         <file>icons/browsers/html.png</file>
+        <file>icons/menu/translate.png</file>
     </qresource>
 </RCC>

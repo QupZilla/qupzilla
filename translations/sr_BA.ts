@@ -4352,24 +4352,23 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Провјера кôда</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="562"/>
+        <location filename="../src/webview/webview.cpp" line="564"/>
         <source>Send text...</source>
         <translation>Пошаљи текст...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="566"/>
         <source>Dictionary</source>
-        <translation>Рјечник</translation>
+        <translation type="obsolete">Рјечник</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="575"/>
+        <location filename="../src/webview/webview.cpp" line="580"/>
         <source>Go to &amp;web address</source>
         <translation>Иди на &amp;веб адресу</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="625"/>
-        <location filename="../src/webview/webview.cpp" line="944"/>
-        <location filename="../src/webview/webview.cpp" line="957"/>
+        <location filename="../src/webview/webview.cpp" line="630"/>
+        <location filename="../src/webview/webview.cpp" line="949"/>
+        <location filename="../src/webview/webview.cpp" line="962"/>
         <source>New tab</source>
         <translation>Нови језичак</translation>
     </message>
@@ -4520,12 +4519,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Прикажи &amp;веб Инспектора</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="581"/>
+        <location filename="../src/webview/webview.cpp" line="569"/>
+        <source>Dictionary (Google Translate)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="586"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Тражи „%1“ на %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="848"/>
+        <location filename="../src/webview/webview.cpp" line="853"/>
         <source>No Named Page</source>
         <translation>Нема именоване странице</translation>
     </message>
