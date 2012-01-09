@@ -47,6 +47,8 @@ public:
 
     virtual qint64 bytesAvailable() const;
 
+    void loadSpeedDialBack();
+
 protected:
     virtual qint64 readData(char* data, qint64 maxSize);
     virtual void abort() { }
@@ -60,9 +62,13 @@ private:
     QString reportbugPage();
     QString startPage();
     QString speeddialPage();
+    QString m_backImg;
+    QString m_backImgSize;
 
     QBuffer m_buffer;
     QString m_pageName;
+
+    bool m_loaded;
 
 };
 
