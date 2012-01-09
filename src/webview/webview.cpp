@@ -467,7 +467,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         m_menu->addSeparator();
         m_menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(r.linkUrl());
         m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadLinkToDisk()))->setData(r.linkUrl());
-        m_menu->addAction(tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
+        m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
         m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(r.linkUrl());
         m_menu->addSeparator();
         if (!selectedText().isEmpty()) {
@@ -484,7 +484,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(r.imageUrl());
         m_menu->addSeparator();
         m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadImageToDisk()))->setData(r.imageUrl());
-        m_menu->addAction(tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(r.imageUrl());
+        m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(r.imageUrl());
         m_menu->addSeparator();
         //menu->addAction(tr("Block image"), this, SLOT(blockImage()))->setData(r.imageUrl().toString());
         if (!selectedText().isEmpty()) {
@@ -501,7 +501,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         }
     }
 
-    if (m_menu->isEmpty()) {
+    if (m_menu->isEmpty() && selectedText().isEmpty()) {
         QAction* action = m_menu->addAction(tr("&Back"), this, SLOT(back()));
         action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
         action->setEnabled(history()->canGoBack());
@@ -536,24 +536,45 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         m_menu->addSeparator();
         m_menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
         m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadLinkToDisk()))->setData(url());
-        m_menu->addAction(tr("Send page..."), this, SLOT(sendLinkByMail()))->setData(url());
+        m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
+        m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendLinkByMail()))->setData(url());
+        m_menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printThisPage()));
         m_menu->addSeparator();
         m_menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
-        if (!selectedText().isEmpty()) {
-            m_menu->addAction(pageAction(QWebPage::Copy));
+        m_menu->addSeparator();
+        if (url().scheme() == "http" || url().scheme() == "https") {
+//             bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
+//                 if (result) {
+                    m_menu->addAction(tr("Validate page"), this, SLOT(openUrlInNewTab()))->setData("http://validator.w3.org/check?uri=" + url().toString());
+//                 }
         }
 
-        m_menu->addSeparator();
         m_menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
-        m_menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()))->setData(url());
         m_menu->addAction(tr("Show Web &Inspector"), this, SLOT(showInspector()));
+        m_menu->addSeparator();
+        m_menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()))->setData(url());
     }
 
     mApp->plugins()->populateWebViewMenu(m_menu, this, r);
 
     if (!selectedText().isEmpty()) {
+        m_menu->addAction(pageAction(QWebPage::Copy));
+        m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText());
         m_menu->addSeparator();
         QString selectedText = page()->selectedText();
+        QString langCode = mApp->getActiveLanguage().left(2);
+        m_menu->addAction(tr("Dictionary"), this, SLOT(openUrlInNewTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
+        m_menu->addSeparator();
+
+//    Doing this so that text strings without http:// like "google.com" can be loaded. However,
+//    there is no way (for now) not to display menu entry for addresses without domain name.
+        QString trimmedText = selectedText.trimmed();
+        QString selectedTextUrl = (trimmedText.left(7) == "http://" || trimmedText.left(6) == "ftp://" || trimmedText.left(7) == "file://" ? trimmedText : "http://" + trimmedText);
+
+        if ((selectedTextUrl.left(7) == "file://" || isUrlValid( QUrl(selectedTextUrl))) && selectedTextUrl.contains(QLatin1Char('.'))) {
+            m_menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Go to &web address"), this, SLOT(openUrlInNewTab()))->setData(selectedTextUrl);
+        }
+
         selectedText.truncate(20);
 
         SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
@@ -850,6 +871,11 @@ bool WebView::isUrlValid(const QUrl &url)
         return true;
     }
     return false;
+}
+
+void WebView::printThisPage()
+{
+    p_QupZilla->printPage();
 }
 
 // ClickedFrame slots
