@@ -1671,34 +1671,34 @@
         <translation>Назад</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="61"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="62"/>
         <source>Forward</source>
         <translation>Напред</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="76"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="78"/>
         <source>Home</source>
         <translation>Домаћа</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="82"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="85"/>
         <source>New Tab</source>
         <translation>Нови језичак</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="94"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="98"/>
         <source>Main Menu</source>
         <translation>Главни мени</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="109"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="110"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="113"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="114"/>
         <source>Exit Fullscreen</source>
         <translation>Напусти цио екран</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="196"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="232"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="200"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="236"/>
         <source>Clear history</source>
         <translation>Очисти историјат</translation>
     </message>
@@ -3075,11 +3075,6 @@
         <translation>Пријави проблем</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
-        <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
-        <translation>Ако имате проблема са Капзилом најпре покушајте са онемогућеним прикључцима. &lt;br/&gt;Ако то не помогне, онда попуните овај формулар: </translation>
-    </message>
-    <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="132"/>
         <source>Your E-mail</source>
         <translation>Ваша е-адреса</translation>
@@ -3098,11 +3093,6 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="135"/>
         <source>Send</source>
         <translation>Пошаљи</translation>
-    </message>
-    <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
-        <source>Please fill all required fields!</source>
-        <translation>Попуните сва обавезна поља!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="155"/>
@@ -3222,32 +3212,32 @@
         <translation>Преводиоци</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="241"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Speed Dial</source>
         <translation>Брзо бирање</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Add New Page</source>
         <translation>Додај нову страницу</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
         <source>Apply</source>
         <translation>Примени</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
         <source>Load title from page</source>
         <translation>Учитај наслов са странице</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Edit</source>
         <translation>Уреди</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Remove</source>
         <translation>Уклони</translation>
     </message>
@@ -3257,22 +3247,32 @@
         <translation>Е-адреса није обавезна&lt;br/&gt;&lt;b&gt;Напомена: &lt;/b&gt;Користите само енглески језик.</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
+        <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation>Ако имате проблема са Капзилом најпре покушајте да онемогућите прикључке. &lt;br/&gt;Ако то не помогне, онда попуните овај формулар: </translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
+        <source>Please fill out all required fields!</source>
+        <translation>Попуните сва обавезна поља!</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
         <source>Reload</source>
         <translation>Учитај поново</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
         <source>Url</source>
         <translation>Урл</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>Title</source>
         <translation>Име</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
         <source>New Page</source>
         <translation>Нова страница</translation>
     </message>
@@ -3439,7 +3439,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation>Заустави</translation>
     </message>
     <message>
-        <location filename="../src/navigation/reloadstopbutton.cpp" line="35"/>
+        <location filename="../src/navigation/reloadstopbutton.cpp" line="36"/>
         <source>Reload</source>
         <translation>Учитај поново</translation>
     </message>
@@ -4093,34 +4093,34 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="131"/>
+        <location filename="../src/webview/tabwidget.cpp" line="133"/>
         <source>Show list of opened tabs</source>
         <translation>Прикажи списак отворених језичака</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="137"/>
+        <location filename="../src/webview/tabwidget.cpp" line="140"/>
         <source>New Tab</source>
         <translation>Нови језичак</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="212"/>
+        <location filename="../src/webview/tabwidget.cpp" line="216"/>
         <source>Loading...</source>
         <translation>Учитавам...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="216"/>
-        <location filename="../src/webview/tabwidget.cpp" line="385"/>
+        <location filename="../src/webview/tabwidget.cpp" line="220"/>
+        <location filename="../src/webview/tabwidget.cpp" line="389"/>
         <source>No Named Page</source>
         <translation>Неименована страница</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="233"/>
+        <location filename="../src/webview/tabwidget.cpp" line="237"/>
         <source>Actually you have %1 opened tabs</source>
         <translation>Имате %1 отворених језичака</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="569"/>
-        <location filename="../src/webview/tabwidget.cpp" line="645"/>
+        <location filename="../src/webview/tabwidget.cpp" line="576"/>
+        <location filename="../src/webview/tabwidget.cpp" line="652"/>
         <location filename="../src/webview/tabwidget.h" line="72"/>
         <source>New tab</source>
         <translation>Нови језичак</translation>
@@ -4336,9 +4336,44 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Учитавам...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="604"/>
-        <location filename="../src/webview/webview.cpp" line="918"/>
-        <location filename="../src/webview/webview.cpp" line="931"/>
+        <location filename="../src/webview/webview.cpp" line="539"/>
+        <source>&amp;Copy page link</source>
+        <translation>&amp;Копирај везу странице</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="540"/>
+        <source>Send page link...</source>
+        <translation>Пошаљи везу странице...</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="541"/>
+        <source>&amp;Print page</source>
+        <translation>&amp;Штампај страницу</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="548"/>
+        <source>Validate page</source>
+        <translation>Провера кôда</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="562"/>
+        <source>Send text...</source>
+        <translation>Пошаљи текст...</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="566"/>
+        <source>Dictionary</source>
+        <translation>Речник</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="575"/>
+        <source>Go to &amp;web address</source>
+        <translation>Иди на &amp;веб адресу</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="625"/>
+        <location filename="../src/webview/webview.cpp" line="944"/>
+        <location filename="../src/webview/webview.cpp" line="957"/>
         <source>New tab</source>
         <translation>Нови језичак</translation>
     </message>
@@ -4469,37 +4504,32 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>&amp;Сачувај страницу као...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="539"/>
-        <source>Send page...</source>
-        <translation>Пошаљи страницу...</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webview.cpp" line="541"/>
+        <location filename="../src/webview/webview.cpp" line="543"/>
         <source>Select &amp;all</source>
         <translation>Из&amp;абери све</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="547"/>
+        <location filename="../src/webview/webview.cpp" line="552"/>
         <source>Show so&amp;urce code</source>
         <translation>Прикажи изворни &amp;кôд</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="548"/>
+        <location filename="../src/webview/webview.cpp" line="555"/>
         <source>Show info ab&amp;out site</source>
         <translation>Ин&amp;формације о сајту</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="549"/>
+        <location filename="../src/webview/webview.cpp" line="553"/>
         <source>Show Web &amp;Inspector</source>
         <translation>Прикажи &amp;веб Инспектора</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="560"/>
+        <location filename="../src/webview/webview.cpp" line="581"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Тражи „%1“ на %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="827"/>
+        <location filename="../src/webview/webview.cpp" line="848"/>
         <source>No Named Page</source>
         <translation>Нема именоване странице</translation>
     </message>
