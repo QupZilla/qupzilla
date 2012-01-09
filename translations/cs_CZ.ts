@@ -47,8 +47,12 @@
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="78"/>
+        <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
+        <translation>&lt;p&gt;&lt;b&gt;Hlavní vývojář:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;b&gt;Hlavní vývojáři:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
+        <translation type="obsolete">&lt;p&gt;&lt;b&gt;Hlavní vývojáři:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="79"/>
@@ -3222,37 +3226,37 @@ nebyl nalezen!</translation>
         <translation>Přispěvatelé</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="207"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="208"/>
         <source>Translators</source>
         <translation>Překladatelé</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Speed Dial</source>
         <translation>Rychlá volba</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Add New Page</source>
         <translation>Přidat novou stránku</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
         <source>Apply</source>
         <translation>Uložit</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
         <source>Load title from page</source>
         <translation>Načíst titulek ze stránky</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Edit</source>
         <translation>Upravit</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
         <source>Remove</source>
         <translation>Odstranit</translation>
     </message>
@@ -3264,30 +3268,30 @@ nebyl nalezen!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud máte problém s používáním QupZilly, zakažte prosím všechny doplňky. &lt;br/&gt; Pokud problém přetrvává, vyplňte tento formulář: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyplňte prosím všechna povinná pole!</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
         <source>Reload</source>
         <translation>Načíst znovu</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>Url</source>
         <translation>Adresa</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
         <source>Title</source>
         <translation>Titulek</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="255"/>
         <source>New Page</source>
         <translation>Nová stránka</translation>
     </message>
@@ -4023,7 +4027,7 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="190"/>
+        <location filename="../src/plugins/speeddial.cpp" line="212"/>
         <source>Unable to load</source>
         <translation>Nepodařilo se načíst</translation>
     </message>
@@ -4141,41 +4145,6 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
         <location filename="../src/webview/tabwidget.h" line="72"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
-    </message>
-</context>
-<context>
-    <name>TestPlugin</name>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="52"/>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="57"/>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="62"/>
-        <source>My first plugin action</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="67"/>
-        <source>Hello</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="67"/>
-        <source>First plugin action works :-)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.h" line="24"/>
-        <source>Example Plugin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.h" line="25"/>
-        <source>Example minimal plugin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/TestPlugin/testplugin.h" line="26"/>
-        <source>Very simple minimal plugin example</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4436,22 +4405,22 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
     <message>
         <location filename="../src/webview/webview.cpp" line="539"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovat &amp;adresu stránky</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="540"/>
         <source>Send page link...</source>
-        <translation type="unfinished"></translation>
+        <translation>Odeslat adresu stránky...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="541"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation>Ti&amp;sknout stránku</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="548"/>
         <source>Validate page</source>
-        <translation type="unfinished"></translation>
+        <translation>Zkontrolovat stránku</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="555"/>
@@ -4512,17 +4481,17 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
     <message>
         <location filename="../src/webview/webview.cpp" line="562"/>
         <source>Send text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Odeslat text...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="566"/>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Slovník</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="575"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation>Přejít na web&amp;ovou adresu</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="581"/>

@@ -33,6 +33,8 @@ void SpeedDial::loadSettings()
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("SpeedDial");
     m_allPages = settings.value("pages", "").toString();
+    m_bgImg = settings.value("background", "").toString();
+    m_bgImgSize = settings.value("backsize", "auto").toString();
     settings.endGroup();
 
     if (m_allPages.isEmpty()) {
@@ -60,6 +62,8 @@ void SpeedDial::saveSettings()
     QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
     settings.beginGroup("SpeedDial");
     settings.setValue("pages", m_allPages);
+    settings.setValue("background", m_bgImg);
+    settings.setValue("backsize", m_bgImgSize);
     settings.endGroup();
 }
 
@@ -90,6 +94,24 @@ void SpeedDial::addPage(const QUrl &url, const QString &title)
 
         frame->page()->triggerAction(QWebPage::Reload);
     }
+}
+
+QString SpeedDial::backgroundImage()
+{
+    if (!m_loaded) {
+        loadSettings();
+    }
+
+    return m_bgImg;
+}
+
+QString SpeedDial::backgroundImageSize()
+{
+    if (!m_loaded) {
+        loadSettings();
+    }
+
+    return m_bgImgSize;
 }
 
 QString SpeedDial::initialScript()

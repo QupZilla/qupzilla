@@ -47,8 +47,12 @@
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="78"/>
+        <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;b&gt;Главни програмери:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
+        <translation type="obsolete">&lt;p&gt;&lt;b&gt;Главни програмери:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="79"/>
@@ -3207,37 +3211,37 @@
         <translation>Сарадници</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="207"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="208"/>
         <source>Translators</source>
         <translation>Преводиоци</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Speed Dial</source>
         <translation>Брзо бирање</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Add New Page</source>
         <translation>Додај нову страницу</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
         <source>Apply</source>
         <translation>Примијени</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="248"/>
         <source>Load title from page</source>
         <translation>Учитај наслов са странице</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Edit</source>
         <translation>Уреди</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
         <source>Remove</source>
         <translation>Уклони</translation>
     </message>
@@ -3257,22 +3261,22 @@
         <translation>Попуните сва обавезна поља!</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
         <source>Reload</source>
         <translation>Учитај поново</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>Url</source>
         <translation>Урл</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
         <source>Title</source>
         <translation>Име</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="255"/>
         <source>New Page</source>
         <translation>Нова страница</translation>
     </message>
@@ -4006,7 +4010,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="190"/>
+        <location filename="../src/plugins/speeddial.cpp" line="212"/>
         <source>Unable to load</source>
         <translation>Не могу да учитам</translation>
     </message>
@@ -4129,36 +4133,28 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="52"/>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="57"/>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="62"/>
         <source>My first plugin action</source>
-        <translation>Моја прва радња прикључка</translation>
+        <translation type="obsolete">Моја прва радња прикључка</translation>
     </message>
     <message>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="67"/>
         <source>Hello</source>
-        <translation>Здраво</translation>
+        <translation type="obsolete">Здраво</translation>
     </message>
     <message>
-        <location filename="../plugins/TestPlugin/testplugin.cpp" line="67"/>
         <source>First plugin action works :-)</source>
-        <translation>Прва радња прикључка ради :-)</translation>
+        <translation type="obsolete">Прва радња прикључка ради :-)</translation>
     </message>
     <message>
-        <location filename="../plugins/TestPlugin/testplugin.h" line="24"/>
         <source>Example Plugin</source>
-        <translation>Примјер прикључка</translation>
+        <translation type="obsolete">Примјер прикључка</translation>
     </message>
     <message>
-        <location filename="../plugins/TestPlugin/testplugin.h" line="25"/>
         <source>Example minimal plugin</source>
-        <translation>Примјер минималног прикључка</translation>
+        <translation type="obsolete">Примјер минималног прикључка</translation>
     </message>
     <message>
-        <location filename="../plugins/TestPlugin/testplugin.h" line="26"/>
         <source>Very simple minimal plugin example</source>
-        <translation>Веома једноставан примјер минималног прикључка</translation>
+        <translation type="obsolete">Веома једноставан примјер минималног прикључка</translation>
     </message>
 </context>
 <context>
