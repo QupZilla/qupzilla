@@ -76,24 +76,30 @@ void AboutDialog::showAuthors()
     if (m_authorsHtml.isEmpty()) {
         m_authorsHtml.append("<div style='margin:10px;'>");
         m_authorsHtml.append(tr("<p><b>Main developer:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>"));
-        m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg("Mladen Pejaković<br/>Bryan M Dunsmore<br/>Jan Rajnoha<br/>Daniele Cocca"));
-        m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg("Heimen Stoffels (Dutch)<br/>"
-                             "Peter Vacula (Slovakia)<br/>"
-                             "Ján Ďanovský (Slovakia)<br/>"
-                             "Jonathan Hooverman (German)<br/>"
-                             "Unink-Lio (Chinese)<br/>"
-                             "Federico Fabiani (Italy)<br/>"
-                             "Francesco Marinucci (Italy)<br/>"
-                             "Jorge Sevilla (Spanish)<br/>"
-                             "Michał Szymanowski (Polish)<br/>"
-                             "Jérôme Giry (French)<br/>"
-                             "Nicolas Ourceau (French)<br/>"
-                             "Vasilis Tsivikis (Greek)<br/>"
-                             "Alexander Maslov (Russian)<br/>"
-                             "Oleg Brezhnev (Russian)<br/>"
-                             "Sérgio Marques (Portuguese)<br/>"
-                             "Mladen Pejaković (Serbian)"
-                                                                        ));
+        m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg(
+                                 "Mladen Pejaković<br/>"
+                                 "Bryan M Dunsmore<br/>"
+                                 "Jan Rajnoha<br/>"
+                                 "Daniele Cocca"
+                             ));
+        m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg(
+                                 "Heimen Stoffels (Dutch)<br/>"
+                                 "Peter Vacula (Slovakia)<br/>"
+                                 "Ján Ďanovský (Slovakia)<br/>"
+                                 "Jonathan Hooverman (German)<br/>"
+                                 "Unink-Lio (Chinese)<br/>"
+                                 "Federico Fabiani (Italy)<br/>"
+                                 "Francesco Marinucci (Italy)<br/>"
+                                 "Jorge Sevilla (Spanish)<br/>"
+                                 "Michał Szymanowski (Polish)<br/>"
+                                 "Jérôme Giry (French)<br/>"
+                                 "Nicolas Ourceau (French)<br/>"
+                                 "Vasilis Tsivikis (Greek)<br/>"
+                                 "Alexander Maslov (Russian)<br/>"
+                                 "Oleg Brezhnev (Russian)<br/>"
+                                 "Sérgio Marques (Portuguese)<br/>"
+                                 "Mladen Pejaković (Serbian)"
+                             ));
         m_authorsHtml.append("</div>");
     }
     ui->textBrowser->setHtml(m_authorsHtml);
