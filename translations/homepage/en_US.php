@@ -21,18 +21,18 @@ $older_versions = "Changelog";
 $older_versions_text = "You ever wanted to know what happened from that version to this? <br/>You can find everything in <a>changelog</a> at github!";
 $older_versions_button = "Changelog";
 $reportbug = "Report Issue";
-$reportbug_text = "Did you found some bug or you only have a suggestion how to <a>improve</a> QupZilla?<br/>
+$reportbug_text = "Did you find a bug or you only have a suggestion how to <a>improve</a> QupZilla?<br/>
                   Please open an issue at github issue tracker.";
 $reportbug_button = "Report now";
 $technology = "Technology";
-$technology_text = "QupZilla is modern web browser based on WebKit core and Qt Framework. WebKit guarante <a>fast</a> 
+$technology_text = "QupZilla is modern web browser based on WebKit core and Qt Framework. WebKit guarantees <a>fast</a> 
                     browsing and Qt availability on all major platforms.";
 $technology_button = "WebKit &amp; Qt";
 $looknfeel_header = "Native look'n'feel";
-$looknfeel_text = "QupZilla is using native widgets style on major Linux Desktop Environments. It is also using icons from active desktop icon theme. If you find native theme too boring or have some problems with it, you can always switch to other themes.";
+$looknfeel_text = "QupZilla is using native widgets style on major Linux Desktop Environments. It is also using icons from the active desktop icon theme. If you find native themes too boring or have some problems with it, you can always switch to other themes.";
 $library_header = "Unified Library";
 $library_text = "QupZilla unifies bookmarks, history and rss reader in one well-arranged window. No more multiple windows, QupZilla uses just one!<br/>
-With integrated rss reader, you can stay up to date with your favourite sites. QupZilla can also import bookmarks from other browsers.";
+With the integrated rss reader, you can stay up to date with your favourite sites. QupZilla can also import bookmarks from other browsers.";
 $adblock_header = "Integrated AdBlock";
 $adblock_text = "Are you bored of websited full of advertisements? Are they eating your bandwidth and time? The only thing you need with QupZilla is to update EasyList or maybe add your own rules and start browsing ad free.";
 $speeddial_header = "Speed Dial";
@@ -44,12 +44,12 @@ $feed_loading = "Loading...";
 $other_linux = "Other Linux";
 $source_code = "Source Code";
 $choose_os = "Please choose your operating system";
-$windows_text = "32bit and 64bit Windows installers can be downloaded by clicking on links bellow";
+$windows_text = "32bit and 64bit Windows installers can be downloaded by clicking on links below";
 $ubuntu_text = "Oneiric, Natty and Maverick users can install QupZilla by running these commands";
 $for_development_version = "for development version:";
 $packages_text = "32bit and 64bit packages";
 $tarballs_text = "32bit and 64bit precompiled tarballs";
-$can_be_downloaded = "can be downloaded by clicking on links bellow";
+$can_be_downloaded = "can be downloaded by clicking on links below";
 $source_text = "You can get source code by cloning repository (if you have git installed)";
 $source_text2 = "You can also view it online and download it in zip archive";
 $view_source = "view source on github.com";
@@ -57,14 +57,14 @@ $download_snapshot = "download current snapshot";
 
 // Contribute Page
 $contribute_to = "Contribute to QupZilla";
-$contribute_text = "QupZilla is open source project, so your help is very welcome! I will be very happy to include patches you send me. But hacking into 
-                    code is not the only one way to help, you can translate QupZilla to your language or just share it with your friends. Remember, every (even small) help is highly appreciated!";
+$contribute_text = "QupZilla is an open source project, so your help is very welcome! I will be very happy to include patches you send me. But hacking into 
+                    code is not the only one way to help: You can translate QupZilla to your language or just share it with your friends. Remember, every (even small) help is highly appreciated!";
 $getting_source = "Getting Source";
 $getting_source_text1 = "The easiest way you can get QupZilla source is to clone it from github repository. You can do it by running this command";
-$getting_source_text2 = "and then you can start hacking. You cand send me your patches by e-mail or at github.";
+$getting_source_text2 = "and then you can start hacking. You can send me your patches by e-mail or at github.";
 $translating = "Translating into other languages";
-$translating_text = "Another way how to contribute is to add or improve current translation. If you want add new language, you can generate new translations file manually, or you can contact me, and I will do it for you. You cand send me your translations again by e-mail or at github.";
-$translating_moreinfo = "More informations about translating <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>here</a> [wiki at github]";
+$translating_text = "Another way how to contribute is to add or improve current translations. If you want add new language, you can generate new translations file manually, or you can contact me, and I will do it for you. You cand send me your translations again by e-mail or at github.";
+$translating_moreinfo = "More information about translating <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>here</a> [wiki at github]";
 $share_with_friends = "Share with Friends!";
 $share_with_friends_text = "Do you like QupZilla? Then share it amongst your friends!"
 ?>
