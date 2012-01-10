@@ -106,7 +106,7 @@ void NetworkManager::loadSettings()
 
 void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
 {
-    if (!reply->sslConfiguration().isNull() && !mApp->isClosing()) {
+    if (!reply->sslConfiguration().isNull()) {
         QSslCertificate cert = reply->sslConfiguration().peerCertificate();
         if (!cert.isValid() || reply->property("downReply").toBool()) {
             return;

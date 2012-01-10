@@ -1479,7 +1479,14 @@ void QupZilla::closeEvent(QCloseEvent* event)
 
 #ifndef Q_WS_MAC
     if (mApp->windowCount() == 0) {
-        quitApp() ? event->accept() : event->ignore();
+        if (quitApp()) {
+            event->accept();
+            disconnectAllWidgets();
+        }
+        else {
+            event->ignore();
+        }
+
         return;
     }
 #endif
@@ -1537,7 +1544,7 @@ bool QupZilla::quitApp()
         }
     }
 
-    mApp->quitApplication();
+    QTimer::singleShot(0, mApp, SLOT(quitApplication()));
     return true;
 }
 

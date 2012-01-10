@@ -683,7 +683,8 @@ static const int sessionVersion = 0x0002;
 
 bool MainApplication::saveStateSlot()
 {
-    if (m_websettings->testAttribute(QWebSettings::PrivateBrowsingEnabled) || m_isRestoring) {
+    if (m_websettings->testAttribute(QWebSettings::PrivateBrowsingEnabled) ||
+            m_isRestoring || m_mainWindows.count() == 0) {
         return false;
     }
 
@@ -697,6 +698,7 @@ bool MainApplication::saveStateSlot()
 
     stream << sessionVersion;
     stream << m_mainWindows.count();
+
     for (int i = 0; i < m_mainWindows.count(); i++) {
         QupZilla* qz = m_mainWindows.at(i).data();
         if (!qz) {
