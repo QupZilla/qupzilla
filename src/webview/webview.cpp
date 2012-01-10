@@ -222,10 +222,6 @@ void WebView::loadFinished(bool state)
 {
     Q_UNUSED(state);
 
-    if (mApp->isClosing() || p_QupZilla->isClosing()) {
-        return;
-    }
-
     if (animationLoading(tabIndex(), false)->movie()) {
         animationLoading(tabIndex(), false)->movie()->stop();
     }
@@ -324,11 +320,6 @@ void WebView::titleChanged()
 
 void WebView::iconChanged()
 {
-    if (mApp->isClosing() || p_QupZilla->isClosing()) {
-        return;
-    }
-
-//    if (isCurrent())
     emit siteIconChanged();
 
     if (m_isLoading) {
