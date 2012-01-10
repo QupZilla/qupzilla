@@ -354,6 +354,8 @@ void TabWidget::closeTab(int index)
         tabBar()->setVisible(false);
     }
 
+    webView->webPage()->disconnect();
+    webView->disconnect();
     widget(index)->disconnect();
     widget(index)->deleteLater();
 }
