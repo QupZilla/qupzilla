@@ -388,6 +388,9 @@ TabWidget* WebView::tabWidget() const
     return 0;
 }
 
+// FIXME: Don't do this magic to get index of tab.
+// Implement setTabIndex() and call it from TabWidget (when creating and also from
+// tabMoved slot)
 int WebView::tabIndex() const
 {
     TabWidget* tabWid = tabWidget();
@@ -396,7 +399,10 @@ int WebView::tabIndex() const
     }
 
     int i = 0;
-    while (qobject_cast<WebTab*>(tabWid->widget(i))->view() != this) {
+    while (WebTab* wTab = qobject_cast<WebTab*>(tabWid->widget(i))) {
+        if (wTab && wTab->view() == this) {
+            break;
+        }
         i++;
     }
     return i;
@@ -1103,4 +1109,5 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
 
 WebView::~WebView()
 {
+    m_page->triggerAction(QWebPage::Stop);
 }

@@ -210,8 +210,9 @@ private:
 
     void setupUi();
     void setupMenu();
-
     void addSideBar();
+
+    void disconnectAllWidgets();
 
     bool m_historyMenuChanged;
     bool m_bookmarksMenuChanged;

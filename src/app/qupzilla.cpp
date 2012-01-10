@@ -1484,7 +1484,26 @@ void QupZilla::closeEvent(QCloseEvent* event)
     }
 #endif
 
+    disconnectAllWidgets();
     event->accept();
+}
+
+void QupZilla::disconnectAllWidgets()
+{
+    // Disconnecting all important widgets before deleting this window
+    // so it cannot happen that slots will be invoked after the object
+    // is deleted.
+    // We have to do it this way, because ~QObject is deleting all child
+    // objects with plain delete - not deleteLater().
+
+    disconnect();
+    m_tabWidget->disconnect();
+    m_tabWidget->getTabBar()->disconnect();
+
+    foreach(WebTab * tab, m_tabWidget->allTabs()) {
+        WebView* view = tab->view();
+        view->disconnect();
+    }
 }
 
 bool QupZilla::quitApp()
