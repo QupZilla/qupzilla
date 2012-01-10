@@ -48,7 +48,7 @@
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="78"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;Hauptentwickler:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
@@ -678,7 +678,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="64"/>
         <source>&amp;Organize Bookmarks</source>
-        <translation>Bookmarks &amp;bearbeiten</translation>
+        <translation>Lesezeichen &amp;bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="66"/>
@@ -3229,7 +3229,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn Sie bei der Nutzung von QupZilla auf Probleme stoßen, deaktivieren Sie bitte zuerst alle Plugins. &lt;br/&gt; Sollte dies das Problem nicht lösen, füllen Sie bitte dieses Formular aus: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
@@ -3239,7 +3239,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte füllen Sie alle erforderlichen Felder aus!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="187"/>
@@ -4406,22 +4406,22 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webview.cpp" line="536"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
+        <translation>Link zur Seite &amp;kopieren</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="537"/>
         <source>Send page link...</source>
-        <translation type="unfinished"></translation>
+        <translation>Link der Seite versenden...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="538"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation>Seite &amp;drucken</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="545"/>
         <source>Validate page</source>
-        <translation type="unfinished"></translation>
+        <translation>Seite überprüfen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="552"/>
@@ -4429,7 +4429,16 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
         <translation>S&amp;eiteninformationen anzeigen</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/webview/webview.cpp" line="550"/>
+=======
+        <location filename="../src/webview/webview.cpp" line="569"/>
+        <source>Dictionary (Google Translate)</source>
+        <translation>Wörterbuch (Google Translate)</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="553"/>
+>>>>>>> 889476770a327d6b0b419a1758d4bc2549f27d1f
         <source>Show Web &amp;Inspector</source>
         <translation>Web &amp;Inspector anzeigen</translation>
     </message>
@@ -4482,7 +4491,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webview.cpp" line="561"/>
         <source>Send text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Text senden...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="566"/>
@@ -4497,7 +4506,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webview.cpp" line="578"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehe zu &amp;Web-Adresse</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="584"/>
