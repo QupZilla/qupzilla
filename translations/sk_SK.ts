@@ -3597,7 +3597,11 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Dictionary (Google Translate)</source>
+        <source>Google Translate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

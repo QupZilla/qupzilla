@@ -1480,8 +1480,8 @@ void QupZilla::closeEvent(QCloseEvent* event)
 #ifndef Q_WS_MAC
     if (mApp->windowCount() == 0) {
         if (quitApp()) {
-            event->accept();
             disconnectAllWidgets();
+            event->accept();
         }
         else {
             event->ignore();
