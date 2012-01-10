@@ -354,6 +354,7 @@ void TabWidget::closeTab(int index)
         tabBar()->setVisible(false);
     }
 
+    widget(index)->disconnect();
     widget(index)->deleteLater();
 }
 
