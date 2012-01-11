@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "cookiejar.h"
 #include "qupzilla.h"
+#include "settings.h"
 //#define COOKIE_DEBUG
 
 //TODO: black/white listing
@@ -30,7 +31,7 @@ CookieJar::CookieJar(QupZilla* mainClass, QObject* parent)
 
 void CookieJar::loadSettings()
 {
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     m_allowCookies = settings.value("allowCookies", true).toBool();
     m_allowCookiesFromDomain = settings.value("allowCookiesFromVisitedDomainOnly", false).toBool();

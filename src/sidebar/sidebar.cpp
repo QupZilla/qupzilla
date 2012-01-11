@@ -20,6 +20,7 @@
 #include "bookmarkssidebar.h"
 #include "historysidebar.h"
 #include "qupzilla.h"
+#include "settings.h"
 
 SideBar::SideBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -45,7 +46,7 @@ void SideBar::showBookmarks()
     setWidget(bar);
     m_activeWidget = Bookmarks;
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.setValue("Browser-View-Settings/SideBar", "Bookmarks");
 }
 
@@ -56,7 +57,7 @@ void SideBar::showHistory()
     setWidget(bar);
     m_activeWidget = History;
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.setValue("Browser-View-Settings/SideBar", "History");
 }
 
@@ -76,7 +77,7 @@ void SideBar::setWidget(QWidget* widget)
 
 void SideBar::close()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.setValue("Browser-View-Settings/SideBar", "None");
 
     p_QupZilla->saveSideBarWidth();

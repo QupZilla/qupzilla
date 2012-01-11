@@ -23,10 +23,10 @@
 #define _bookmarksUnsorted BookmarksModel::toTranslatedFolder("unsorted")
 
 #include <QObject>
+#include <QVariant>
 #include <QUrl>
-#include <QSettings>
-#include <QSqlQuery>
 #include <QIcon>
+#include <QSqlQuery>
 
 class WebView;
 class BookmarksModel : public QObject
@@ -105,10 +105,10 @@ public slots:
 
 private:
     bool m_showMostVisited;
-
 };
 
 typedef BookmarksModel::Bookmark Bookmark;
+
 Q_DECLARE_METATYPE(BookmarksModel::Bookmark)
 
 #endif // BOOKMARKSMODEL_H

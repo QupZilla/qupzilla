@@ -30,6 +30,7 @@
 #include "globalfunctions.h"
 #include "acceptlanguage.h"
 #include "cabundleupdater.h"
+#include "settings.h"
 
 QString fileNameForCert(const QSslCertificate &cert)
 {
@@ -59,7 +60,7 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
 
 void NetworkManager::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Web-Browser-Settings");
 
     if (settings.value("AllowLocalCache", true).toBool()) {
@@ -397,7 +398,7 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
 
 void NetworkManager::saveCertificates()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("SSL-Configuration");
     settings.setValue("CACertPaths", m_certPaths);
     settings.setValue("IgnoreAllSSLWarnings", m_ignoreAllWarnings);
@@ -406,7 +407,7 @@ void NetworkManager::saveCertificates()
 
 void NetworkManager::loadCertificates()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("SSL-Configuration");
     m_certPaths = settings.value("CACertPaths", QStringList()).toStringList();
     m_ignoreAllWarnings = settings.value("IgnoreAllSSLWarnings", false).toBool();

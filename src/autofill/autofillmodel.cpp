@@ -21,6 +21,7 @@
 #include "mainapplication.h"
 #include "autofillnotification.h"
 #include "databasewriter.h"
+#include "settings.h"
 
 AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
@@ -32,7 +33,7 @@ AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject* parent)
 
 void AutoFillModel::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     m_isStoring = settings.value("SavePasswordsOnSites", true).toBool();
     settings.endGroup();

@@ -17,12 +17,11 @@
 * ============================================================ */
 #ifndef MAINAPPLICATION_H
 #define MAINAPPLICATION_H
-#define mApp MainApplication::getInstance()
-#define mStyle MainApplication::appStyle
 
-#include <QToolBar>
-#include <QWebSettings>
+#define mApp MainApplication::getInstance()
+
 #include <QUrl>
+#include <QWebSettings>
 #include <QWeakPointer>
 #include <QNetworkDiskCache>
 #include <QWebSecurityOrigin>

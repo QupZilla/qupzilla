@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "locationbarsettings.h"
 #include "mainapplication.h"
+#include "settings.h"
 
 LocationBarSettings* LocationBarSettings::s_instance = 0;
 bool LocationBarSettings::selectAllOnDoubleClick = false;
@@ -38,9 +39,10 @@ LocationBarSettings* LocationBarSettings::instance()
 
 void LocationBarSettings::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("AddressBar");
     selectAllOnDoubleClick = settings.value("SelectAllTextOnDoubleClick", true).toBool();
     selectAllOnClick = settings.value("SelectAllTextOnClick", false).toBool();
     addCountryWithAlt = settings.value("AddCountryDomainWithAltKey", true).toBool();
+    settings.endGroup();
 }

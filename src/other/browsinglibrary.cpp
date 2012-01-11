@@ -23,6 +23,7 @@
 #include "mainapplication.h"
 #include "downloaditem.h"
 #include "globalfunctions.h"
+#include "settings.h"
 
 BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -35,7 +36,7 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     , m_rssLoaded(false)
 {
     ui->setupUi(this);
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("BrowsingLibrary");
     resize(settings.value("size", QSize(760, 470)).toSize());
     settings.endGroup();
@@ -152,7 +153,7 @@ void BrowsingLibrary::optimizeDatabase()
 
 void BrowsingLibrary::closeEvent(QCloseEvent* e)
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("BrowsingLibrary");
     settings.setValue("size", size());
     settings.endGroup();

@@ -21,7 +21,6 @@
 #include <QNetworkProxyFactory>
 #include <QUrl>
 #include <QStringList>
-#include <QSettings>
 
 class NetworkProxyFactory : public QNetworkProxyFactory
 {

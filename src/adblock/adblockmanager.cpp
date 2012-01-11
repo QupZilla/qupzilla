@@ -50,6 +50,7 @@
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "qupzilla.h"
+#include "settings.h"
 
 AdBlockManager* AdBlockManager::s_adBlockManager = 0;
 
@@ -105,7 +106,7 @@ void AdBlockManager::load()
     }
     m_loaded = true;
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("AdBlock");
     m_enabled = settings.value("enabled", m_enabled).toBool();
     QDateTime lastUpdate = settings.value("lastUpdate", QDateTime()).toDateTime();
@@ -122,7 +123,7 @@ void AdBlockManager::load()
 
 void AdBlockManager::rulesUpdated()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("AdBlock");
     settings.setValue("lastUpdate", QDateTime::currentDateTime());
 
@@ -136,7 +137,7 @@ void AdBlockManager::save()
     }
     m_subscription->saveRules();
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup(QLatin1String("AdBlock"));
     settings.setValue(QLatin1String("enabled"), m_enabled);
     settings.endGroup();

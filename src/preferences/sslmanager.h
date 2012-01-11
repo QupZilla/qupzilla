@@ -23,7 +23,6 @@
 #include <QMessageBox>
 #include <QSslCertificate>
 #include <QDateTime>
-#include <QSettings>
 #include <QFileDialog>
 #include <QCloseEvent>
 

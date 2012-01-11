@@ -25,7 +25,6 @@
 #include <QHeaderView>
 #include <QStandardItem>
 #include <QUrl>
-#include <QSettings>
 #include <QAction>
 #include <QToolButton>
 #include <QMenu>

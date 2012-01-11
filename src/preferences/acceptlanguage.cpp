@@ -37,7 +37,7 @@
 #include "ui_acceptlanguage.h"
 #include "ui_addacceptlanguage.h"
 #include "mainapplication.h"
-#include <QDebug>
+#include "settings.h"
 
 QStringList AcceptLanguage::defaultLanguage()
 {
@@ -74,7 +74,7 @@ AcceptLanguage::AcceptLanguage(QWidget* parent)
 {
     ui->setupUi(this);
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Language");
     QStringList langs = settings.value("acceptLanguage", defaultLanguage()).toStringList();
 
@@ -204,7 +204,7 @@ void AcceptLanguage::accept()
         langs.append(code);
     }
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Language");
     settings.setValue("acceptLanguage", langs);
 

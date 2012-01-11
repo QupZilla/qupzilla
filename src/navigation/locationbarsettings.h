@@ -18,8 +18,6 @@
 #ifndef LOCATIONBARSETTINGS_H
 #define LOCATIONBARSETTINGS_H
 
-#include <QSettings>
-
 class LocationBarSettings
 {
 public:

@@ -24,6 +24,7 @@
 #include "downloaditem.h"
 #include "downloadmanager.h"
 #include "globalfunctions.h"
+#include "settings.h"
 
 DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog, WebPage* page)
     : QObject()
@@ -173,7 +174,7 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
         m_lastDownloadPath = m_path;
     }
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("DownloadManager");
     settings.setValue("lastDownloadPath", m_lastDownloadPath);
     settings.endGroup();

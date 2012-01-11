@@ -27,12 +27,12 @@
 #include "globalfunctions.h"
 #include "webpage.h"
 #include "downloadfilehelper.h"
+#include "settings.h"
 
 #ifdef Q_WS_WIN
 #define DEFAULT_USE_NATIVE_DIALOG false
 #else
 #define DEFAULT_USE_NATIVE_DIALOG true
-
 #endif
 
 DownloadManager::DownloadManager(QWidget* parent)
@@ -65,7 +65,7 @@ DownloadManager::DownloadManager(QWidget* parent)
 
 void DownloadManager::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("DownloadManager");
     m_downloadPath = settings.value("defaultDownloadPath", "").toString();
     m_lastDownloadPath = settings.value("lastDownloadPath", QDir::homePath() + "/").toString();

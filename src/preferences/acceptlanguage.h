@@ -20,7 +20,6 @@
 
 #include <QDialog>
 #include <QLocale>
-#include <QSettings>
 
 namespace Ui
 {

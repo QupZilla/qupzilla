@@ -19,6 +19,7 @@
 #include "ui_thememanager.h"
 #include "mainapplication.h"
 #include "globalfunctions.h"
+#include "settings.h"
 
 #ifdef Q_WS_WIN
 #define DEFAULT_THEME_NAME "windows"
@@ -32,7 +33,7 @@ ThemeManager::ThemeManager(QWidget* parent)
 {
     ui->setupUi(parent);
     ui->license->hide();
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Themes");
     m_activeTheme = settings.value("activeTheme", DEFAULT_THEME_NAME).toString();
     settings.endGroup();
@@ -153,7 +154,7 @@ ThemeManager::Theme ThemeManager::parseTheme(const QString &name)
 
 void ThemeManager::save()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Themes");
     settings.setValue("activeTheme", ui->listWidget->currentItem()->data(Qt::UserRole));
     settings.endGroup();
