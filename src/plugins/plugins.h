@@ -22,8 +22,8 @@
 #include <QtPlugin>
 #include <QPluginLoader>
 #include <QDir>
+
 #include <QTimer>
-#include <QSettings>
 #include <iostream>
 
 class PluginInterface;

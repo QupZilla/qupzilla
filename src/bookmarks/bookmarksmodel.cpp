@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "bookmarksmodel.h"
+#include "settings.h"
 #include "mainapplication.h"
 #include "webview.h"
 #include "iconprovider.h"
@@ -34,7 +35,7 @@ BookmarksModel::BookmarksModel(QObject* parent)
 
 void BookmarksModel::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     m_showMostVisited = settings.value("showMostVisited", true).toBool();
     settings.endGroup();
@@ -42,7 +43,7 @@ void BookmarksModel::loadSettings()
 
 void BookmarksModel::setShowingMostVisited(bool state)
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     settings.setValue("showMostVisited", state);
     settings.endGroup();

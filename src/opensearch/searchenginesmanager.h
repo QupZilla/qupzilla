@@ -25,7 +25,6 @@
 #include <QVariant>
 #include <QNetworkReply>
 #include <QMessageBox>
-#include <QSettings>
 
 #include "opensearchengine.h"
 

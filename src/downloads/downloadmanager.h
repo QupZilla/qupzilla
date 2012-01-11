@@ -28,7 +28,6 @@
 #include <QDesktopServices>
 #include <QCloseEvent>
 #include <QMessageBox>
-#include <QSettings>
 #include <QTimer>
 #include <QNetworkReply>
 #include <QListWidgetItem>

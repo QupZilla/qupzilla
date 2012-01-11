@@ -43,6 +43,7 @@
 #include "databasewriter.h"
 #include "speeddial.h"
 #include "webpage.h"
+#include "settings.h"
 
 #ifdef Q_WS_WIN
 #define DEFAULT_CHECK_UPDATES true
@@ -183,7 +184,9 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     u.checkProfile();
     connectDatabase();
 
-    QSettings settings2(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings::createSettings(m_activeProfil + "settings.ini");
+
+    Settings settings2;
     settings2.beginGroup("SessionRestore");
     if (settings2.value("isRunning", false).toBool()) {
         settings2.setValue("isCrashed", true);
@@ -241,7 +244,7 @@ void MainApplication::postLaunch()
 
 void MainApplication::loadSettings()
 {
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Themes");
     QString activeTheme = settings.value("activeTheme", DEFAULT_THEME_NAME).toString();
     settings.endGroup();
@@ -494,7 +497,7 @@ void MainApplication::connectDatabase()
 void MainApplication::translateApp()
 {
     QLocale locale;
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Language");
     QString file = settings.value("language", locale.name() + ".qm").toString();
     QString shortLoc = file.left(2);
@@ -535,7 +538,7 @@ void MainApplication::quitApplication()
         saveStateSlot();
     }
 
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("SessionRestore");
     settings.setValue("isRunning", false);
     settings.setValue("isCrashed", false);
@@ -559,6 +562,8 @@ void MainApplication::quitApplication()
     AdBlockManager::instance()->save();
     QFile::remove(getActiveProfilPath() + "WebpageIcons.db");
     m_iconProvider->saveIconsToDatabase();
+
+    Settings::syncSettings();
 
 //    qDebug() << "Quitting application...";
     quit();
@@ -688,7 +693,7 @@ bool MainApplication::saveStateSlot()
         return false;
     }
 
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("SessionRestore");
     settings.setValue("restoreSession", false);
 
@@ -732,7 +737,7 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
     }
 
     m_isRestoring = true;
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     int afterStart = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
     settings.beginGroup("SessionRestore");
     if (!settings.value("restoreSession", false).toBool()) {

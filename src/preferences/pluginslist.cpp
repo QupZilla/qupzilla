@@ -20,6 +20,7 @@
 #include "pluginproxy.h"
 #include "mainapplication.h"
 #include "plugininterface.h"
+#include "settings.h"
 
 #ifdef PORTABLE_BUILD
 #define DEFAULT_ENABLE_PLUGINS false
@@ -40,7 +41,7 @@ PluginsList::PluginsList(QWidget* parent)
     connect(ui->butLoad, SIGNAL(clicked()), this, SLOT(reloadPlugins()));
     connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Plugin-Settings");
     ui->allowAppPlugins->setChecked(settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool());
     settings.endGroup();
@@ -86,7 +87,7 @@ void PluginsList::removeWhitelist()
 
 void PluginsList::save()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Plugin-Settings");
     settings.setValue("EnablePlugins", ui->allowAppPlugins->isChecked());
     settings.endGroup();
@@ -96,7 +97,7 @@ void PluginsList::save()
 
 void PluginsList::allowAppPluginsChanged(bool state)
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Plugin-Settings");
     settings.setValue("EnablePlugins", state);
     settings.endGroup();
@@ -106,7 +107,7 @@ void PluginsList::allowAppPluginsChanged(bool state)
 
 void PluginsList::allowC2FChanged(bool state)
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("ClickToFlash");
     settings.setValue("Enable", state);
     settings.endGroup();
@@ -191,7 +192,7 @@ void PluginsList::reloadPlugins()
             allowedPlugins.append(ui->list->item(i)->toolTip());
         }
     }
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Plugin-Settings");
     settings.setValue("AllowedPlugins", allowedPlugins);
     settings.endGroup();

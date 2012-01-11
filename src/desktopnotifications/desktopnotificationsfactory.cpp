@@ -18,6 +18,7 @@
 #include "desktopnotificationsfactory.h"
 #include "desktopnotification.h"
 #include "mainapplication.h"
+#include "settings.h"
 
 DesktopNotificationsFactory::DesktopNotificationsFactory(QObject* parent)
     : QObject(parent)
@@ -28,7 +29,7 @@ DesktopNotificationsFactory::DesktopNotificationsFactory(QObject* parent)
 
 void DesktopNotificationsFactory::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Notifications");
     m_enabled = settings.value("Enabled", true).toBool();
     m_timeout = settings.value("Timeout", 6000).toInt();

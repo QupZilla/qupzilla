@@ -20,6 +20,7 @@
 #include "qupzilla.h"
 #include "iconprovider.h"
 #include "databasewriter.h"
+#include "settings.h"
 
 HistoryModel::HistoryModel(QupZilla* mainClass)
     : QObject()
@@ -40,7 +41,7 @@ HistoryModel::HistoryModel(QupZilla* mainClass)
 
 void HistoryModel::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     m_isSaving = settings.value("allowHistory", true).toBool();
     settings.endGroup();

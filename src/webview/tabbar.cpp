@@ -21,6 +21,7 @@
 #include "webtab.h"
 #include "iconprovider.h"
 #include "toolbutton.h"
+#include "settings.h"
 
 #define MAXIMUM_TAB_WIDTH 250
 #define MINIMUM_TAB_WIDTH 50
@@ -58,7 +59,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
 
 void TabBar::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Browser-Tabs-Settings");
 
     setMovable(settings.value("makeTabsMovable", true).toBool());

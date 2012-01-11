@@ -30,6 +30,7 @@
 #include "toolbutton.h"
 #include "locationbar.h"
 #include "websearchbar.h"
+#include "settings.h"
 
 class NewTabButton : public QToolButton
 {
@@ -148,7 +149,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
 
 void TabWidget::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Browser-Tabs-Settings");
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
     settings.endGroup();

@@ -39,6 +39,7 @@
 #include "acceptlanguage.h"
 #include "globalfunctions.h"
 #include "autofillmodel.h"
+#include "settings.h"
 
 #ifdef Q_WS_WIN
 #define DEFAULT_CHECK_UPDATES true
@@ -114,7 +115,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->listWidget->item(10)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
 #endif
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
     m_homepage = settings.value("homepage", "qupzilla:start").toString();
@@ -620,7 +621,7 @@ void Preferences::startProfileIndexChanged(QString index)
 
 void Preferences::saveSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
     settings.setValue("homepage", ui->homepage->text());

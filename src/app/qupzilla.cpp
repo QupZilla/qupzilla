@@ -61,6 +61,7 @@
 #include "globalfunctions.h"
 #include "webhistorywrapper.h"
 #include "enhancedmenu.h"
+#include "settings.h"
 
 const QString QupZilla::VERSION = "1.1.5";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
@@ -90,9 +91,9 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
     , m_startingUrl(startUrl)
     , m_startBehaviour(behaviour)
     , m_menuBookmarksAction(0)
-    #ifdef Q_WS_MAC
+#ifdef Q_WS_MAC
     , m_macMenuBar(new QMenuBar())
-    #endif
+#endif
     , m_actionPrivateBrowsing(0)
     , m_statusBarMessage(new StatusBarMessage(this))
     , m_sideBarWidth(0)
@@ -129,7 +130,7 @@ void QupZilla::postLaunch()
         }
     }
 
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Web-URL-Settings");
     int afterLaunch = settings.value("afterLaunch", 1).toInt();
     settings.endGroup();
@@ -204,7 +205,7 @@ void QupZilla::setupUi()
     int locationBarWidth;
     int websearchBarWidth;
 
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Browser-View-Settings");
     if (settings.value("WindowMaximised", false).toBool()) {
         resize(800, 550);
@@ -459,7 +460,7 @@ void QupZilla::setupMenu()
 
 void QupZilla::loadSettings()
 {
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
 
     //Url settings
     settings.beginGroup("Web-URL-Settings");
@@ -1095,7 +1096,7 @@ void QupZilla::showBookmarksToolbar()
     bool status = m_bookmarksToolbar->isVisible();
     m_bookmarksToolbar->setVisible(!status);
 
-    QSettings settings(activeProfil() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.setValue("Browser-View-Settings/showBookmarksToolbar", !status);
 }
 
@@ -1155,7 +1156,7 @@ void QupZilla::showNavigationToolbar()
     bool status = m_navigationBar->isVisible();
     m_navigationBar->setVisible(!status);
 
-    QSettings settings(activeProfil() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.setValue("Browser-View-Settings/showNavigationToolbar", !status);
 }
 
@@ -1168,7 +1169,7 @@ void QupZilla::showMenubar()
     menuBar()->setVisible(!menuBar()->isVisible());
     m_navigationBar->buttonSuperMenu()->setVisible(!menuBar()->isVisible());
 
-    QSettings settings(activeProfil() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.setValue("Browser-View-Settings/showMenubar", menuBar()->isVisible());
 }
 
@@ -1177,7 +1178,7 @@ void QupZilla::showStatusbar()
     bool status = statusBar()->isVisible();
     statusBar()->setVisible(!status);
 
-    QSettings settings(activeProfil() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.setValue("Browser-View-Settings/showStatusbar", !status);
 }
 
@@ -1346,7 +1347,7 @@ void QupZilla::startPrivate(bool state)
 {
     static bool askedThisSession = false;
 
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     bool askNow = settings.value("Browser-View-Settings/AskOnPrivate", true).toBool();
 
     if (state && askNow && !askedThisSession) {
@@ -1519,7 +1520,7 @@ bool QupZilla::quitApp()
         saveSideBarWidth();
     }
 
-    QSettings settings(m_activeProfil + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
     bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", false).toBool();
 

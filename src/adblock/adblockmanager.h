@@ -47,8 +47,6 @@
 
 #include <QObject>
 #include <QStringList>
-#include <QSettings>
-#include <QDebug>
 #include <QWeakPointer>
 
 class QUrl;

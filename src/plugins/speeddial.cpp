@@ -18,6 +18,7 @@
 #include "speeddial.h"
 #include "mainapplication.h"
 #include "pagethumbnailer.h"
+#include "settings.h"
 
 SpeedDial::SpeedDial(QObject* parent)
     : QObject(parent)
@@ -30,7 +31,7 @@ void SpeedDial::loadSettings()
 {
     m_loaded = true;
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("SpeedDial");
     m_allPages = settings.value("pages", "").toString();
     m_bgImg = settings.value("background", "").toString();
@@ -59,7 +60,7 @@ void SpeedDial::saveSettings()
         return;
     }
 
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("SpeedDial");
     settings.setValue("pages", m_allPages);
     settings.setValue("background", m_bgImg);

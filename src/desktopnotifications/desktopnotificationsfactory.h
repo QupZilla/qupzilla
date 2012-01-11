@@ -23,7 +23,6 @@
 #include <QDBusInterface>
 #endif
 #include <QStringList>
-#include <QSettings>
 #include <QPoint>
 #include <QTimer>
 #include <QWeakPointer>

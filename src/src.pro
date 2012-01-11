@@ -187,7 +187,8 @@ SOURCES += main.cpp\
     navigation/goicon.cpp \
     rss/rssicon.cpp \
     navigation/downicon.cpp \
-    network/cabundleupdater.cpp
+    network/cabundleupdater.cpp \
+    app/settings.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -311,7 +312,8 @@ HEADERS  += \
     navigation/goicon.h \
     rss/rssicon.h \
     navigation/downicon.h \
-    network/cabundleupdater.h
+    network/cabundleupdater.h \
+    app/settings.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

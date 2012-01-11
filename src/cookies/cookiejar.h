@@ -20,7 +20,6 @@
 
 #include <QNetworkCookieJar>
 #include <QDebug>
-#include <QSettings>
 #include <QFile>
 
 class QupZilla;

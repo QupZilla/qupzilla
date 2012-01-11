@@ -22,6 +22,7 @@
 #include "opensearchreader.h"
 #include "opensearchengine.h"
 #include "databasewriter.h"
+#include "settings.h"
 
 #define ENSURE_LOADED if (!m_settingsLoaded) loadSettings();
 
@@ -40,7 +41,7 @@ SearchEnginesManager::SearchEnginesManager()
     , m_settingsLoaded(false)
     , m_saveScheduled(false)
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("SearchEngines");
     m_startingEngineName = settings.value("activeEngine", "Google").toString();
     settings.endGroup();
@@ -310,7 +311,7 @@ QList<SearchEngine> SearchEnginesManager::allEngines()
 
 void SearchEnginesManager::saveSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("SearchEngines");
     settings.setValue("activeEngine", m_activeEngine.name);
     settings.endGroup();

@@ -19,7 +19,6 @@
 #define THEMEMANAGER_H
 
 #include <QWidget>
-#include <QSettings>
 #include <QDir>
 #include <QListWidgetItem>
 #include <QHash>

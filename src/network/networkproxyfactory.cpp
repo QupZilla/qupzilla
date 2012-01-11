@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "networkproxyfactory.h"
 #include "mainapplication.h"
+#include "settings.h"
 
 NetworkProxyFactory::NetworkProxyFactory()
     : QNetworkProxyFactory()
@@ -26,7 +27,7 @@ NetworkProxyFactory::NetworkProxyFactory()
 
 void NetworkProxyFactory::loadSettings()
 {
-    QSettings settings(mApp->getActiveProfilPath() + "settings.ini", QSettings::IniFormat);
+    Settings settings;
     settings.beginGroup("Web-Proxy");
     m_proxyPreference = ProxyPreference(settings.value("UseProxy", SystemProxy).toInt());
     m_proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::HttpProxy).toInt());
