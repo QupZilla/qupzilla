@@ -66,7 +66,7 @@ public:
 
     void connectDatabase();
     void loadSettings();
-    void reloadSettings() { loadSettings(); emit message(ReloadSettings, true); }
+    void reloadSettings();
     bool restoreStateSlot(QupZilla* window);
     QupZilla* makeNewWindow(bool tryRestore, const QUrl &startUrl = QUrl());
     void aboutToCloseWindow(QupZilla* window);

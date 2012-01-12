@@ -40,7 +40,6 @@ TRANSLATIONS +=../translations/cs_CZ.ts\
                ../translations/sr_RS.ts\
                ../translations/empty.ts\
 
-
 INCLUDEPATH += 3rdparty\
                app\
                autofill\
@@ -386,7 +385,7 @@ mac {
     QMAKE_BUNDLE_DATA += bundle_target
 }
 
-unix {
+!mac:unix {
     QT += dbus
 
     d_prefix = $$(QUPZILLA_PREFIX)
