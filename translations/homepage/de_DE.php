@@ -10,7 +10,7 @@ $menu_download = "Download";
 $menu_reportbug = "Fehlerbericht";
 $menu_about = "Mitmachen!";
 $footer_site = "www.qupzilla.com";
-$translated_by = "";
+$translated_by = "Translated by Jonathan Hooverman";
 
 //Home Page
 $actual_version = "Aktuelle Version";
@@ -50,7 +50,7 @@ $for_development_version = "Zum Installieren der aktuellen Entwicklungsversion f
 $packages_text = "32bit und 64bit Pakete";
 $tarballs_text = "32bit und 64bit vorkompilierte TAR-Archive";
 $can_be_downloaded = "können durch Klick auf die untenstehenden Links heruntergeladen werden";
-$source_text = "Sie können den Quellcode durch Klonen des Repositoriums erhalten (wenn Sie "git" installiert haben)";
+$source_text = "Sie können den Quellcode durch Klonen des Repositoriums erhalten (wenn Sie git installiert haben)";
 $source_text2 = "Sie können sich den Quellcode auch online anschauen und als ZIP-Archiv herunterladen";
 $view_source = "Quellcode bei github.com ansehen";
 $download_snapshot = "Einen aktuellen Snapshot herunterladen";
