@@ -47,10 +47,20 @@
 
 #ifdef Q_WS_WIN
 #define DEFAULT_CHECK_UPDATES true
-#define DEFAULT_THEME_NAME "windows"
 #else
 #define DEFAULT_CHECK_UPDATES false
+#endif
+
+#ifdef Q_WS_WIN
+#define DEFAULT_THEME_NAME "windows"
+#elif defined(Q_WS_X11)
 #define DEFAULT_THEME_NAME "linux"
+#elif defined(Q_WS_MAC)
+#define DEFAULT_THEME_NAME "mac"
+#elif defined(Q_OS_OS2)
+#define DEFAULT_THEME_NAME "windows"
+#else
+#define DEFAULT_THEME_NAME "default"
 #endif
 
 #if defined(PORTABLE_BUILD) && !defined(NO_SYSTEM_DATAPATH)
@@ -82,10 +92,14 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     , m_isRestoring(false)
     , m_databaseConnected(false)
 {
-#if defined(Q_WS_X11) & !defined(NO_SYSTEM_DATAPATH)
+#if defined(Q_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
     DATADIR = USE_DATADIR;
 #else
     DATADIR = qApp->applicationDirPath() + "/";
+#endif
+
+#ifdef Q_WS_MAC
+    DATADIR.append("Resources/");
 #endif
 
 #ifdef PORTABLE_BUILD
@@ -561,7 +575,7 @@ void MainApplication::quitApplication()
     // everything gets saved also when quitting application in other
     // way than clicking Quit action in File menu or closing last window
     //
-    //  * this can occur on Mac OS
+    //  * this can occur on Mac OS (see #157)
 
     quit();
 }
