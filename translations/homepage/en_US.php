@@ -34,7 +34,7 @@ $library_header = "Unified Library";
 $library_text = "QupZilla unifies bookmarks, history and rss reader in one well-arranged window. No more multiple windows, QupZilla uses just one!<br/>
 With the integrated rss reader, you can stay up to date with your favourite sites. QupZilla can also import bookmarks from other browsers.";
 $adblock_header = "Integrated AdBlock";
-$adblock_text = "Are you bored of websited full of advertisements? Are they eating your bandwidth and time? The only thing you need with QupZilla is to update EasyList or maybe add your own rules and start browsing ad free.";
+$adblock_text = "Are you bored of websites full of advertisements? Are they eating your bandwidth and time? The only thing you need with QupZilla is to update EasyList or maybe add your own rules and start browsing ad free.";
 $speeddial_header = "Speed Dial";
 $speeddial_text = "This popular extension is finally available for QupZilla users! You can now access your favourite pages as fast as you want on one page opened in new tab. Needless to say that it fully supports drag&amp;drop and page thumbnail loading.";
 $devnews_header = "Development News";
