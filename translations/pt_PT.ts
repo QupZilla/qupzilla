@@ -48,7 +48,7 @@
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="78"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;Programador principal:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
@@ -3266,12 +3266,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Se estiverem a ocorrer problemas no QupZilla, experimente desativar os plugins. &lt;br/&gt;Se os erros persistirem, preencha este formulário: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tem que preencher os campos obrigatórios!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
@@ -4322,42 +4322,42 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/webview/webview.cpp" line="536"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Copiar ligação da página</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="537"/>
         <source>Send page link...</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar ligação da página...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="538"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation>Im&amp;primir página</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="545"/>
         <source>Validate page</source>
-        <translation type="unfinished"></translation>
+        <translation>Validar página</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="561"/>
         <source>Send text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar texto...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="566"/>
         <source>Google Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>Google Translate</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="567"/>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Dicionário</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="578"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation>Ir para endereço &amp;web</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="628"/>
@@ -4519,7 +4519,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/webview/webview.cpp" line="584"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation>Procurar &quot;%1 ..&quot; com %2</translation>
+        <translation>Procurar &quot;%1 ...&quot; com %2</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="851"/>

@@ -130,6 +130,16 @@ void CookieJar::restoreCookies()
     setAllCookies(restoredCookies);
 }
 
+void CookieJar::clearCookies()
+{
+    if (m_tempList.isEmpty()) {
+        setAllCookies(QList<QNetworkCookie>());
+    }
+    else {
+        m_tempList.clear();
+    }
+}
+
 QList<QNetworkCookie> CookieJar::getAllCookies()
 {
     return QNetworkCookieJar::allCookies();

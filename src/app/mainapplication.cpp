@@ -152,6 +152,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     }
 
     connect(this, SIGNAL(messageReceived(QString)), this, SLOT(receiveAppMessage(QString)));
+    connect(this, SIGNAL(aboutToQuit()), this, SLOT(saveSettings()));
 
 #ifdef Q_WS_MAC
     setQuitOnLastWindowClosed(false);
@@ -472,6 +473,25 @@ QupZilla* MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
     return newWindow;
 }
 
+#ifdef Q_WS_MAC
+bool MainApplication::event(QEvent* e)
+{
+    switch (e->type()) {
+    case QEvent::FileOpen: {
+        QString fileName = static_cast<QFileOpenEvent*>(event)->file();
+        addNewTab(QUrl::fromLocalFile(fileName));
+        return true;
+    }
+    break;
+
+    default:
+        break;
+    }
+
+    return QtSingleApplication::event(e);
+}
+#endif
+
 void MainApplication::connectDatabase()
 {
     if (m_databaseConnected) {
@@ -526,17 +546,29 @@ void MainApplication::translateApp()
 
 void MainApplication::quitApplication()
 {
-    bool isPrivate = m_websettings->testAttribute(QWebSettings::PrivateBrowsingEnabled);
-
     if (m_downloadManager && !m_downloadManager->canClose()) {
         m_downloadManager->show();
         return;
     }
 
     m_isClosing = true;
+
     if (m_mainWindows.count() > 0) {
         saveStateSlot();
     }
+
+    // Saving settings in saveSettings() slot called from quit() so
+    // everything gets saved also when quitting application in other
+    // way than clicking Quit action in File menu or closing last window
+    //
+    //  * this can occur on Mac OS
+
+    quit();
+}
+
+void MainApplication::saveSettings()
+{
+    m_isClosing = true;
 
     Settings settings;
     settings.beginGroup("SessionRestore");
@@ -547,26 +579,23 @@ void MainApplication::quitApplication()
     bool deleteCookies = settings.value("Web-Browser-Settings/deleteCookiesOnClose", false).toBool();
     bool deleteHistory = settings.value("Web-Browser-Settings/deleteHistoryOnClose", false).toBool();
 
-    if (deleteCookies && !isPrivate) {
-        QFile::remove(m_activeProfil + "cookies.dat");
+    if (deleteCookies) {
+        m_cookiejar->clearCookies();
     }
     if (deleteHistory) {
         m_historymodel->clearHistory();
     }
 
     m_searchEnginesManager->saveSettings();
-    cookieJar()->saveCookies();
+    m_cookiejar->saveCookies();
     m_networkmanager->saveCertificates();
     m_plugins->c2f_saveSettings();
     m_plugins->speedDial()->saveSettings();
-    AdBlockManager::instance()->save();
-    QFile::remove(getActiveProfilPath() + "WebpageIcons.db");
     m_iconProvider->saveIconsToDatabase();
 
+    AdBlockManager::instance()->save();
+    QFile::remove(getActiveProfilPath() + "WebpageIcons.db");
     Settings::syncSettings();
-
-//    qDebug() << "Quitting application...";
-    quit();
 }
 
 BrowsingLibrary* MainApplication::browsingLibrary()

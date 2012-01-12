@@ -33,10 +33,12 @@ public:
     bool setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url);
     QList<QNetworkCookie> getAllCookies();
     void setAllCookies(const QList<QNetworkCookie> &cookieList);
+
     void saveCookies();
     void restoreCookies();
-    void setAllowCookies(bool allow);
+    void clearCookies();
 
+    void setAllowCookies(bool allow);
     void turnPrivateJar(bool state);
 
 signals:
