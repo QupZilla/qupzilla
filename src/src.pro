@@ -19,11 +19,8 @@ UI_DIR = ../build
 #DEFINES += USE_WEBGL
 #DEFINES += KDE
 #DEFINES += PORTABLE_BUILD
-win32:DEFINES += W7API
+#win32:DEFINES += W7API
 
-unix:QT += dbus
-win32:RC_FILE = appicon.rc
-win32:LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 ##It won't compile on windows with this define. Some bug in qtsingleapp / qvector template
 !win32: !CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT
 
@@ -363,9 +360,19 @@ RESOURCES += \
 
 OTHER_FILES += \
     appicon.rc \
+    appicon_os2.rc \
     Info.plist
 
 include(3rdparty/qtsingleapplication.pri)
+
+os2 {
+    RC_FILE = appicon_os2.rc
+}
+
+win32 {
+    RC_FILE = appicon.rc
+    LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
+}
 
 mac {
     QMAKE_INFO_PLIST = Info.plist
@@ -373,6 +380,8 @@ mac {
 }
 
 unix {
+    QT += dbus
+
     d_prefix = $$(QUPZILLA_PREFIX)
     binary_folder = /usr/bin
     data_folder = /usr/share/qupzilla

@@ -20,6 +20,7 @@
 
 #define mApp MainApplication::getInstance()
 
+#include <QEvent>
 #include <QUrl>
 #include <QWebSettings>
 #include <QWeakPointer>
@@ -101,6 +102,10 @@ public:
     IconProvider* iconProvider() { return m_iconProvider; }
     DatabaseWriter* dbWriter() { return m_dbWriter; }
 
+#ifdef Q_WS_MAC
+    bool event(QEvent* e);
+#endif
+
 public slots:
     bool saveStateSlot();
     void quitApplication();
@@ -116,6 +121,8 @@ private slots:
     void postLaunch();
     void setupJumpList();
     void restoreCursor();
+
+    void saveSettings();
 
 private:
     enum PostLaunchAction { PrivateBrowsing, OpenDownloadManager, OpenNewTab };
