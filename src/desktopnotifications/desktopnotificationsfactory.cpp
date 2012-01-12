@@ -42,7 +42,7 @@ void DesktopNotificationsFactory::loadSettings()
     settings.endGroup();
 }
 
-void DesktopNotificationsFactory::notify(const QPixmap &icon, const QString &heading, const QString &text)
+void DesktopNotificationsFactory::showNotifications(const QPixmap &icon, const QString &heading, const QString &text)
 {
     if (!m_enabled) {
         return;
