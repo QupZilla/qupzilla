@@ -386,6 +386,8 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
 
     ui->version->setText(" QupZilla v" + QupZilla::VERSION);
+
+    showStackedPage(ui->listWidget->item(0));
 }
 
 void Preferences::showStackedPage(QListWidgetItem* item)

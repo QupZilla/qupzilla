@@ -1996,7 +1996,7 @@
     </message>
     <message>
         <source>&lt;b&gt;General&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Všeobecné&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Všeobecné&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Downloads</source>

@@ -373,6 +373,12 @@ void MainApplication::loadSettings()
     }
 }
 
+void MainApplication::reloadSettings()
+{
+    loadSettings();
+    emit message(ReloadSettings, true);
+}
+
 void MainApplication::restoreCursor()
 {
     QApplication::restoreOverrideCursor();
