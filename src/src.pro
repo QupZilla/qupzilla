@@ -377,6 +377,13 @@ win32 {
 mac {
     QMAKE_INFO_PLIST = Info.plist
     ICON = data/icons/exeicons/qupzilla.icns
+
+    bundle_target.files += ../bin/locale
+    bundle_target.files += ../bin/plugins
+    bundle_target.files += ../bin/themes
+    bundle_target.path = Resources
+
+    QMAKE_BUNDLE_DATA += bundle_target
 }
 
 unix {
