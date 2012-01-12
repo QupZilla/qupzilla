@@ -21,6 +21,7 @@
 #include <QWidget>
 #include <QTimer>
 #include <QMouseEvent>
+#include <QPixmap>
 
 namespace Ui
 {
