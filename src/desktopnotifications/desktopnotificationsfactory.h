@@ -27,6 +27,7 @@
 #include <QTimer>
 #include <QWeakPointer>
 #include <QDir>
+#include <QPixmap>
 
 class DesktopNotification;
 class DesktopNotificationsFactory : public QObject
@@ -35,7 +36,7 @@ class DesktopNotificationsFactory : public QObject
 public:
     enum Type { DesktopNative, PopupWidget };
     explicit DesktopNotificationsFactory(QObject* parent = 0);
-    void notify(const QPixmap &icon, const QString &heading, const QString &text);
+    void showNotifications(const QPixmap &icon, const QString &heading, const QString &text);
 
     void nativeNotificationPreview();
 
