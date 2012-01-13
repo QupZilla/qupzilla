@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>cs_CZ.qm</file>
         <file>sk_SK.qm</file>
+        <file>sr_BA.qm</file>
+        <file>sr_RS.qm</file>
     </qresource>
 </RCC>

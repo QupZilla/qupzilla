@@ -15,14 +15,14 @@ $translated_by = "Translated by Jonathan Hooverman";
 //Home Page
 $actual_version = "Aktuelle Version";
 $actual_version_text = "Die aktuelle Version " . $qupzilla_version . 
-					   " ist am " . $qupzilla_version_date . " erschienen. Die Änderungen entnehmen Sie bitte dem Changelog. <br/>Direkt zum Download: <a href=\"download\">download</a>";
+					   " ist am " . $qupzilla_version_date . " erschienen. Die Änderungen entnehmen Sie bitte dem Changelog. <br/>Direkt zum <a href=\"download\">download</a>";
 $actual_version_button = "DOWNLOAD";
 $older_versions = "Changelog";
 $older_versions_text = "Sie möchten wissen, welche Neuerungen und Verbesserungen von Version zu Version eingeflossen sind? <br/>Sie finden sie im Überblick <a>changelog</a> bei github!";
 $older_versions_button = "Changelog";
 $reportbug = "Fehlerbericht";
 $reportbug_text = "Haben Sie einen Programmfehler entdeckt oder einen Vorschlag, wie QupZilla <a>verbessert</a> werden kann?<br/>
-                  Bitte erstellen Sie einen Fehlerbericht oder reichen einen Verbesserungsvorschlag bei github ein.";
+                  Bitte erstellen Sie einen Report bei github.";
 $reportbug_button = "Erstellen";
 $technology = "Technologie";
 $technology_text = "QupZilla ist ein moderner Web Browser, der auf WebKit und dem Qt Framework basiert. WebKit ermöglicht <a>schnelles</a> 
@@ -37,7 +37,7 @@ $adblock_header = "Integrierter Werbeblocker";
 $adblock_text = "Nerven Sie Webseiten voller Werbung, die Ihre Zeit und Bandbreite vergeudet? Um mit QupZilla werbefrei surfen zu können, müssen Sie lediglich die integrierte Filterliste (EasyList) aktualisieren. Natürlich können Sie auch eigene Filter definieren.";
 $speeddial_header = "Speed Dial";
 $speeddial_text = "Diese beliebte Erweiterung ist auch für QupZilla Nutzer verfügbar! Sie können Ihre Favoriten schnell und einfach erreichen, indem Sie eine Seite in einem neuen Tab öffnen. Es versteht sich von selbst, dass drag&amp;drop und eine Seitenvorschau vollständig unterstützt werden.";
-$devnews_header = "Neuigkeiten";
+$devnews_header = "Aktuelles";
 $feed_loading = "Lade...";
 
 // Download Page
@@ -58,13 +58,13 @@ $download_snapshot = "Einen aktuellen Snapshot herunterladen";
 // Contribute Page
 $contribute_to = "Bei QupZilla mitarbeiten";
 $contribute_text = "QupZilla ist ein Open Source Project. Ihre Unterstützung ist also herzlich willkommen! Ich freue mich sehr über die Zusendung von Programmerweiterungen und -verbesserungen. Dies ist jedoch nicht  
-                    die einzige Möglichkeit der Unterstützung: Sie können QupZilla auch in Ihre Muttersprache übersetzen oder einfach nur Ihren Freunden und Bekannten weiterempfehlen. Denken Sie daran, dass auch die Kleinste Hilfe hoch geschätzt wird!";
+                    die einzige Möglichkeit der Unterstützung: Sie können QupZilla auch in Ihre Muttersprache übersetzen oder einfach nur Ihren Freunden und Bekannten weiterempfehlen. Denken Sie daran, dass auch die kleinste Hilfe hoch geschätzt wird!";
 $getting_source = "Quellcode";
 $getting_source_text1 = "Der einfachste Weg, den Quellcode von QupZilla zu beschaffen, ist, diesen von github zu klonen. Führen Sie dazu folgenden Befehl aus:";
 $getting_source_text2 = "Nun können Sie mit der Arbeit beginnen. Bitte senden Sie mir Ihre Erweiterungen per E-Mail oder über github.";
 $translating = "Übersetzung in weitere Sprachen";
 $translating_text = "Eine weitere Möglichkeit der Mitarbeit ist, Übersetzungen zu erstellen oder bestehende zu verbessern. Wenn Sie eine neue Übersetzung erstellen möchten, so können Sie die dazu erforderliche Datei manuell erzeugen oder mit mir Kontakt aufnehmen. Ich werde sie Ihnen zur Verfügung stellen. Bitte übermitteln Sie mir Ihre Übersetzung per E-Mail oder über github.";
-$translating_moreinfo = "Weitere Informationen zu Übersetzungen finden Sie<a href='https://github.com/nowrep/QupZilla/wiki/Translating'>hier</a> [wiki at github]";
+$translating_moreinfo = "Weitere Informationen zu Übersetzungen finden Sie <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>hier</a> [wiki at github]";
 $share_with_friends = "Mit Freunden teilen!";
 $share_with_friends_text = "Mögen Sie QupZilla? Dann teilen Sie ihn mit Ihren Freunden!"
 ?>
