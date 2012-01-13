@@ -243,7 +243,11 @@ QtSingleApplication::QtSingleApplication(Display* dpy, const QString &appId, int
 
 bool QtSingleApplication::isRunning()
 {
+#ifdef Q_OS_HAIKU
+    return false;
+#else
     return peer->isClient();
+#endif
 }
 
 
@@ -262,7 +266,11 @@ bool QtSingleApplication::isRunning()
 */
 bool QtSingleApplication::sendMessage(const QString &message, int timeout)
 {
+#ifdef Q_OS_HAIKU
+    return false;
+#else
     return peer->sendMessage(message, timeout);
+#endif
 }
 
 
