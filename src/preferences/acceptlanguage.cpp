@@ -127,8 +127,8 @@ QStringList AcceptLanguage::expand(const QLocale::Language &language)
 void AcceptLanguage::addLanguage()
 {
     Ui_AddAcceptLanguage _ui = Ui_AddAcceptLanguage();
-    QDialog dialog(this);
-    _ui.setupUi(&dialog);
+    QDialog* dialog = new QDialog(this);
+    _ui.setupUi(dialog);
 
     QStringList allLanguages;
     for (int i = 1 + (int)QLocale::C; i <= (int)QLocale::LastLanguage; ++i) {
@@ -137,9 +137,10 @@ void AcceptLanguage::addLanguage()
 
     _ui.listWidget->addItems(allLanguages);
 
-    connect(_ui.listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), &dialog, SLOT(accept()));
+    connect(_ui.listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), dialog, SLOT(accept()));
 
-    if (dialog.exec() == QDialog::Rejected) {
+    if (dialog->exec() == QDialog::Rejected) {
+        delete dialog;
         return;
     }
 
@@ -150,12 +151,14 @@ void AcceptLanguage::addLanguage()
     else {
         QListWidgetItem* c = _ui.listWidget->currentItem();
         if (!c) {
+            delete dialog;
             return;
         }
 
         ui->listWidget->addItem(c->text());
     }
 
+    delete dialog;
 }
 
 void AcceptLanguage::removeLanguage()
