@@ -524,8 +524,10 @@ void Preferences::openSslManager()
 
 void Preferences::showAcceptLanguage()
 {
-    AcceptLanguage a(this);
-    a.exec();
+    AcceptLanguage* a = new AcceptLanguage(this);
+    a->exec();
+
+    delete a;
 }
 
 void Preferences::cacheValueChanged(int value)
