@@ -3,7 +3,7 @@
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.1.0"
+!define /date PRODUCT_VERSION "1.1.5"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -85,6 +85,12 @@ Section !$(TITLE_SecMain) SecMain
   File "imageformats\qmng4.dll"
   File "imageformats\qtiff4.dll"
   File "imageformats\qtga4.dll"
+
+  SetOutPath "$INSTDIR\codecs"
+  File "codecs\qcncodecs4.dll"
+  File "codecs\qjpcodecs4.dll"
+  File "codecs\qkrcodecs4.dll"
+  File "codecs\qtwcodecs4.dll"
 
   SetOutPath "$INSTDIR\sqldrivers"
   File "sqldrivers\qsqlite4.dll"
