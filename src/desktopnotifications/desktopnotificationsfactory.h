@@ -35,9 +35,10 @@ class DesktopNotificationsFactory : public QObject
     Q_OBJECT
 public:
     enum Type { DesktopNative, PopupWidget };
-    explicit DesktopNotificationsFactory(QObject* parent = 0);
-    void showNotifications(const QPixmap &icon, const QString &heading, const QString &text);
 
+    explicit DesktopNotificationsFactory(QObject* parent = 0);
+
+    void showNotifications(const QPixmap &icon, const QString &heading, const QString &text);
     void nativeNotificationPreview();
 
 signals:
