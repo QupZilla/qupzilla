@@ -49,6 +49,10 @@
 #include <QtNetwork/QLocalSocket>
 #include <QtCore/QDir>
 
+#ifdef Q_OS_HAIKU
+#include <unistd.h>
+#endif
+
 namespace QtLP_Private
 {
 #include "qtlockedfile.h"
