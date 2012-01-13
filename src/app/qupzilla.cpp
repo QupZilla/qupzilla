@@ -96,7 +96,6 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
 #endif
     , m_actionPrivateBrowsing(0)
     , m_statusBarMessage(new StatusBarMessage(this))
-    , m_sideBarWidth(0)
     , m_usingTransparentBackground(false)
 {
     setObjectName("mainwindow");
@@ -482,7 +481,7 @@ void QupZilla::loadSettings()
     bool showMenuBar = settings.value("showMenubar", true).toBool();
     bool showAddTab = settings.value("showAddTabButton", false).toBool();
     bool makeTransparent = settings.value("useTransparentBackground", false).toBool();
-    m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
+    m_sideBarWidth = settings.value("SideBarWidth", 250).value<QList<int> >();
     QString activeSideBar = settings.value("SideBar", "None").toString();
     settings.endGroup();
     bool adBlockEnabled = settings.value("AdBlock/enabled", true).toBool();
@@ -1135,16 +1134,18 @@ void QupZilla::addSideBar()
     m_mainSplitter->insertWidget(0, m_sideBar.data());
     m_mainSplitter->setCollapsible(0, false);
 
-    QList<int> sizes;
-    sizes << m_sideBarWidth << width() - m_sideBarWidth;
-    m_mainSplitter->setSizes(sizes);
+    m_mainSplitter->setSizes(m_sideBarWidth);
 }
 
 void QupZilla::saveSideBarWidth()
 {
+    int barWidth = m_mainSplitter->sizes().at(0) + 1;
+    int viewWidth = width() - barWidth;
     // That +1 is important here, without it, the sidebar width would
     // decrease by 1 pixel every close
-    m_sideBarWidth = m_mainSplitter->sizes().at(0) + 1;
+
+    m_sideBarWidth.clear();
+    m_sideBarWidth << barWidth << viewWidth;
 }
 
 void QupZilla::showNavigationToolbar()
@@ -1529,7 +1530,14 @@ bool QupZilla::quitApp()
     settings.setValue("WindowGeometry", geometry());
     settings.setValue("LocationBarWidth", m_navigationBar->splitter()->sizes().at(0));
     settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
-    settings.setValue("SideBarWidth", m_sideBar.data() ? m_mainSplitter->sizes().at(0) : m_sideBarWidth);
+
+    if (m_sideBar.data()) {
+        saveSideBarWidth();
+    }
+
+    QVariant sidebar;
+    sidebar = QVariant::fromValue<QList<int> >(m_sideBarWidth);
+    settings.setValue("SideBarWidth", sidebar);
 
     if (askOnClose && afterLaunch != 3 && m_tabWidget->count() > 1) {
         QDialog* dialog = new QDialog(this);

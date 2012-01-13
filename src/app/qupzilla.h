@@ -274,7 +274,7 @@ private:
     QString m_activeLanguage;
     QColor m_menuTextColor;
 
-    int m_sideBarWidth;
+    QList<int> m_sideBarWidth;
     bool m_usingTransparentBackground;
 
     //Used for F11 FullScreen remember visibility
@@ -284,5 +284,7 @@ private:
     bool m_navigationVisible;
     bool m_bookmarksToolBarVisible;
 };
+
+Q_DECLARE_METATYPE(QList<int>)
 
 #endif // QUPZILLA_H
