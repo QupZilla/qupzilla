@@ -304,6 +304,11 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
     const ErrorPageExtensionOption* exOption = static_cast<const QWebPage::ErrorPageExtensionOption*>(option);
     ErrorPageExtensionReturn* exReturn = static_cast<QWebPage::ErrorPageExtensionReturn*>(output);
+    WebPage* erPage = qobject_cast<WebPage*>(exOption->frame->page());
+
+    if (erPage->bytesReceived() != 0) {
+        return QWebPage::extension(extension, option, output);
+    }
 
     QString errorString;
     if (exOption->domain == QWebPage::QtNetwork) {
@@ -325,8 +330,8 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             break;
         case QNetworkReply::ContentAccessDenied:
             if (exOption->errorString.startsWith("AdBlockRule")) {
-                if (exOption->frame != exOption->frame->page()->mainFrame()) { //Content in <iframe>
-                    QWebElement docElement = exOption->frame->page()->mainFrame()->documentElement();
+                if (exOption->frame != erPage->mainFrame()) { //Content in <iframe>
+                    QWebElement docElement = erPage->mainFrame()->documentElement();
 
                     QWebElementCollection elements;
                     elements.append(docElement.findAll("iframe"));
