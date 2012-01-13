@@ -4,5 +4,6 @@
         <file>sk_SK.qm</file>
         <file>sr_BA.qm</file>
         <file>sr_RS.qm</file>
+	<file>de_DE.qm</file>
     </qresource>
 </RCC>
