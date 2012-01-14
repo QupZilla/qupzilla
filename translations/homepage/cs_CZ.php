@@ -66,6 +66,8 @@ $getting_source_text2 = "a můžete se pustit do vývoje. Vaše patche mi může
 $translating = "Překlad do jiných jazyků";
 $translating_text = "Další způsob jak přispět je přidat nebo upravit stávající překlady. Pokud chcete přidat dosud neobsažený překlad, můžete si buď vygenerovat překladový soubor, nebo mne kontaktovat a já to udělám za Vás. Vaše překlady mi opět můžete posílat e-maile nebo na githubu.";
 $translating_moreinfo = "Více informací o překládání <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>zde</a> [wiki na githubu]";
+$contributors = "Přispěvatelé";
+$contributors_text = "Celý seznam přispěvatelů lze najít na <a href='https://github.com/nowrep/QupZilla/src/master/AUTHORS'>githubu</a>.<br/>Také se můžete připojit na IRC kanál #qupzilla na irc.freenode.net.";
 $share_with_friends = "Sdílet s přáteli!";
 $share_with_friends_text = "Máte rádi QupZillu? Sdílejte ji tedy s Vašimi přáteli!"
 

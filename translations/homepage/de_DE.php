@@ -65,6 +65,8 @@ $getting_source_text2 = "Nun können Sie mit der Arbeit beginnen. Bitte senden S
 $translating = "Übersetzung in weitere Sprachen";
 $translating_text = "Eine weitere Möglichkeit der Mitarbeit ist, Übersetzungen zu erstellen oder bestehende zu verbessern. Wenn Sie eine neue Übersetzung erstellen möchten, so können Sie die dazu erforderliche Datei manuell erzeugen oder mit mir Kontakt aufnehmen. Ich werde sie Ihnen zur Verfügung stellen. Bitte übermitteln Sie mir Ihre Übersetzung per E-Mail oder über github.";
 $translating_moreinfo = "Weitere Informationen zu Übersetzungen finden Sie <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>hier</a> [wiki at github]";
+$contributors = "Contributors";
+$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/src/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
 $share_with_friends = "Mit Freunden teilen!";
 $share_with_friends_text = "Mögen Sie QupZilla? Dann teilen Sie ihn mit Ihren Freunden!"
 ?>

@@ -63,6 +63,8 @@ $getting_source_text2 = "i poprostu zacząć hakować. Możesz wysyłać poprawk
 $translating = "Tłumaczenie na inne języki";
 $translating_text = "Innym sposobem aby przyczynić sie dla projektu jest dodanie nowego lub poprawienie obecnego tłumaczenia. Jeżeli chcesz dodać nowe tłumaczenie, możesz wygenerowac plik tłumaczenia ręcznie, lub skontaktować się ze mną, a ja zrobie to dla Ciebie. Możesz mi wysłać swoje tłumaczenie po przez e-mial lub github.";
 $translating_moreinfo = "Więcej informacji o tłumaczeniu <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>tutaj</a> [wiki na github]";
+$contributors = "Contributors";
+$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/src/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
 $share_with_friends = "Podziel się ze znajomymi!";
 $share_with_friends_text = "Lubisz QupZille? W takim razie podziel się nią ze swoimi znajomymi!"
 ?>
