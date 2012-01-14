@@ -91,6 +91,9 @@ public:
     void showNavigationWithFullscreen();
     void saveSideBarWidth();
 
+    void currentTabChanged();
+    void updateLoadingActions();
+
     virtual QMenuBar* menuBar() const;
 
     inline WebView* weView() const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabWidget->currentIndex())); if (!webTab) return 0; return webTab->view(); }

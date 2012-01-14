@@ -388,35 +388,11 @@ void TabWidget::currentTabChanged(int index)
     WebView* webView = weView();
     LocationBar* locBar = webView->webTab()->locationBar();
 
-    QString title = webView->title();
-    if (title.isEmpty()) {
-        title = tr("No Named Page");
-    }
-
-    p_QupZilla->setWindowTitle(title + " - QupZilla");
-
     if (m_locationBars->indexOf(locBar) != -1) {
         m_locationBars->setCurrentWidget(locBar);
     }
-    p_QupZilla->ipLabel()->setText(webView->getIp());
 
-    if (webView->isLoading()) {
-        p_QupZilla->ipLabel()->hide();
-        p_QupZilla->progressBar()->setVisible(true);
-        p_QupZilla->progressBar()->setValue(webView->getLoading());
-        p_QupZilla->navigationBar()->showStopButton();
-    }
-    else {
-        p_QupZilla->progressBar()->setVisible(false);
-        p_QupZilla->navigationBar()->showReloadButton();
-        p_QupZilla->ipLabel()->show();
-    }
-
-    webView->setFocus();
-    // Setting correct tab order (LocationBar -> WebSearchBar -> WebView)
-    setTabOrder(p_QupZilla->locationBar(), p_QupZilla->navigationBar()->searchLine());
-    setTabOrder(p_QupZilla->navigationBar()->searchLine(), webView);
-
+    p_QupZilla->currentTabChanged();
     m_tabBar->updateCloseButton(index);
 }
 
