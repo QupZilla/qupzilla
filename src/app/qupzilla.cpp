@@ -1235,7 +1235,7 @@ void QupZilla::updateLoadingActions()
         m_navigationBar->showStopButton();
     }
     else {
-        m_ipLabel->show();
+        m_navigationBar->showReloadButton();
     }
 }
 

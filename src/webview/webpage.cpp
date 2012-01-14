@@ -306,10 +306,6 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     ErrorPageExtensionReturn* exReturn = static_cast<QWebPage::ErrorPageExtensionReturn*>(output);
     WebPage* erPage = qobject_cast<WebPage*>(exOption->frame->page());
 
-    if (erPage->bytesReceived() != 0) {
-        return QWebPage::extension(extension, option, output);
-    }
-
     QString errorString;
     if (exOption->domain == QWebPage::QtNetwork) {
         switch (exOption->error) {
@@ -327,6 +323,24 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             break;
         case QNetworkReply::SslHandshakeFailedError:
             errorString = tr("Untrusted connection");
+            break;
+        case QNetworkReply::TemporaryNetworkFailureError:
+            errorString = tr("Temporary network failure");
+            break;
+        case QNetworkReply::ProxyConnectionRefusedError:
+            errorString = tr("Proxy connection refused");
+            break;
+        case QNetworkReply::ProxyNotFoundError:
+            errorString = tr("Proxy host name not found");
+            break;
+        case QNetworkReply::ProxyTimeoutError:
+            errorString = tr("Proxy connection timed out");
+            break;
+        case QNetworkReply::ProxyAuthenticationRequiredError:
+            errorString = tr("Proxy authentication required");
+            break;
+        case QNetworkReply::ContentNotFoundError:
+            errorString = tr("Content not found");
             break;
         case QNetworkReply::ContentAccessDenied:
             if (exOption->errorString.startsWith("AdBlockRule")) {
@@ -366,8 +380,6 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         default:
             qDebug() << "Content error: " << exOption->errorString;
             return false;
-//            if (errorString.isEmpty())
-//                errorString = tr("Unknown error");
         }
     }
     else if (exOption->domain == QWebPage::Http) {
