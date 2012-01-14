@@ -10,15 +10,15 @@ $menu_download = "Download";
 $menu_reportbug = "Fehlerbericht";
 $menu_about = "Mitmachen!";
 $footer_site = "www.qupzilla.com";
-$translated_by = "Translated by Jonathan Hooverman";
+$translated_by = "Deutsche Übersetzung: Jonathan Hooverman";
 
 //Home Page
 $actual_version = "Aktuelle Version";
 $actual_version_text = "Die aktuelle Version " . $qupzilla_version . 
-					   " ist am " . $qupzilla_version_date . " erschienen. Die Änderungen entnehmen Sie bitte dem Changelog. <br/>Direkt zum <a href=\"download\">download</a>";
+					   " ist am " . $qupzilla_version_date . " erschienen. Die Änderungen entnehmen Sie bitte dem CHANGELOG. <br/>Direkt zum <a href=\"download\">DOWNLOAD</a>";
 $actual_version_button = "DOWNLOAD";
 $older_versions = "Changelog";
-$older_versions_text = "Sie möchten wissen, welche Neuerungen und Verbesserungen von Version zu Version eingeflossen sind? <br/>Sie finden sie im Überblick <a>changelog</a> bei github!";
+$older_versions_text = "Sie möchten wissen, welche Neuerungen und Verbesserungen von Version zu Version eingeflossen sind? <br/>Sie finden sie im <a>CHANGELOG</a> bei github!";
 $older_versions_button = "Changelog";
 $reportbug = "Fehlerbericht";
 $reportbug_text = "Haben Sie einen Programmfehler entdeckt oder einen Vorschlag, wie QupZilla <a>verbessert</a> werden kann?<br/>
@@ -26,12 +26,12 @@ $reportbug_text = "Haben Sie einen Programmfehler entdeckt oder einen Vorschlag,
 $reportbug_button = "Erstellen";
 $technology = "Technologie";
 $technology_text = "QupZilla ist ein moderner Web Browser, der auf WebKit und dem Qt Framework basiert. WebKit ermöglicht <a>schnelles</a> 
-                    Browsen, das Qt Framework die Verfügbarkeit auf allen wichtigen Plattformen.";
+                    Browsen, Qt die Verfügbarkeit auf allen wichtigen Plattformen.";
 $technology_button = "WebKit &amp; Qt";
 $looknfeel_header = "Natürliches Erscheinungsbild";
 $looknfeel_text = "QupZilla nutzt die Steuerelemente, die in den Bordmitteln der bedeutenden Linux Desktop Umgebungen enthalten sind. Darüber hinaus werden ebenfalls die Symbole des aktiven Desktop-Themas verwendet. Wenn Sie ab und zu einen Tapetenwechsel brauchen, so wechseln Sie einfach das Thema.";
 $library_header = "Einheitliche Programmbibliotheken";
-$library_text = "QupZilla vereinigt Lesezeichen, Verlauf und einen RSS Reader in einer übersichtlichen Oberfläche - keine über den Desktop verteilten Fenster mehr. QupZilla stellt alle Inhalte in einer Oberfläche dar!<br/>
+$library_text = "QupZilla vereinigt Lesezeichen, Verlauf und einen RSS Reader in einer übersichtlichen Oberfläche - Sie erleben keine über den Desktop verteilten Fenster mehr. QupZilla stellt alle Inhalte in einer Oberfläche dar!<br/>
 Mit dem integrierten RSS Reader bleiben Sie immer auf dem neuesten Stand Ihrer Interessensschwerpunkte. QupZilla ist auch in der Lage, Lesezeichen von anderen Browsern zu importieren.";
 $adblock_header = "Integrierter Werbeblocker";
 $adblock_text = "Nerven Sie Webseiten voller Werbung, die Ihre Zeit und Bandbreite vergeudet? Um mit QupZilla werbefrei surfen zu können, müssen Sie lediglich die integrierte Filterliste (EasyList) aktualisieren. Natürlich können Sie auch eigene Filter definieren.";
