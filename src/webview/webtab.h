@@ -43,6 +43,8 @@ public:
     bool inspectorVisible();
     void setInspectorVisible(bool v);
 
+    void disconnectObjects();
+
 private slots:
     void showNotification(QWidget* notif);
 

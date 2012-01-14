@@ -371,3 +371,8 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
 
     QTabBar::mouseReleaseEvent(event);
 }
+
+void TabBar::disconnectObjects()
+{
+    disconnect(this);
+}

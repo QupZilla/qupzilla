@@ -49,7 +49,7 @@ WebPage::WebPage(WebView* parent, QupZilla* mainClass)
     setPluginFactory(new WebPluginFactory(this));
     history()->setMaximumItemCount(20);
 
-    connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), SLOT(handleUnsupportedContent(QNetworkReply*)));
+    connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), this, SLOT(handleUnsupportedContent(QNetworkReply*)));
 //    connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(progress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(finished()));
@@ -519,6 +519,11 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
     }
 
     return fileName;
+}
+
+void WebPage::disconnectObjects()
+{
+    disconnect(this);
 }
 
 WebPage::~WebPage()

@@ -332,11 +332,13 @@ void TabWidget::closeTab(int index)
     }
 
     WebView* webView = weView(index);
-    if (!webView) {
+    WebPage* webPage = webView->webPage();
+    WebTab* webTab = webView->webTab();
+    if (!webView || !webPage || !webTab) {
         return;
     }
 
-    if (webView->webTab()->isPinned()) {
+    if (webTab->isPinned()) {
         emit pinnedTabClosed();
     }
 
@@ -355,10 +357,11 @@ void TabWidget::closeTab(int index)
         tabBar()->setVisible(false);
     }
 
-    webView->webPage()->disconnect();
-    webView->disconnect();
-    widget(index)->disconnect();
-    widget(index)->deleteLater();
+    webPage->disconnectObjects();
+    webView->disconnectObjects();
+    webTab->disconnectObjects();
+
+    webTab->deleteLater();
 }
 
 void TabWidget::showTabBar()
@@ -641,6 +644,14 @@ bool TabWidget::restoreState(const QByteArray &state)
 
     setCurrentIndex(currentTab);
     return true;
+}
+
+void TabWidget::disconnectObjects()
+{
+    disconnect(this);
+    disconnect(p_QupZilla);
+    disconnect(mApp);
+    disconnect(p_QupZilla->ipLabel());
 }
 
 TabWidget::~TabWidget()

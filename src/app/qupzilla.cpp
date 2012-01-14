@@ -481,7 +481,8 @@ void QupZilla::loadSettings()
     bool showMenuBar = settings.value("showMenubar", true).toBool();
     bool showAddTab = settings.value("showAddTabButton", false).toBool();
     bool makeTransparent = settings.value("useTransparentBackground", false).toBool();
-    m_sideBarWidth = settings.value("SideBarWidth", 250).value<QList<int> >();
+    m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
+    m_webViewWidth = settings.value("WebViewWidth", 390).toInt();
     QString activeSideBar = settings.value("SideBar", "None").toString();
     settings.endGroup();
     bool adBlockEnabled = settings.value("AdBlock/enabled", true).toBool();
@@ -1122,18 +1123,16 @@ void QupZilla::addSideBar()
     m_mainSplitter->insertWidget(0, m_sideBar.data());
     m_mainSplitter->setCollapsible(0, false);
 
-    m_mainSplitter->setSizes(m_sideBarWidth);
+    m_mainSplitter->setSizes(QList<int>() << m_sideBarWidth << m_webViewWidth);
 }
 
 void QupZilla::saveSideBarWidth()
 {
-    int barWidth = m_mainSplitter->sizes().at(0) + 1;
-    int viewWidth = width() - barWidth;
     // That +1 is important here, without it, the sidebar width would
     // decrease by 1 pixel every close
 
-    m_sideBarWidth.clear();
-    m_sideBarWidth << barWidth << viewWidth;
+    m_sideBarWidth = m_mainSplitter->sizes().at(0) + 1;
+    m_webViewWidth = width() - m_sideBarWidth;
 }
 
 void QupZilla::showNavigationToolbar()
@@ -1511,7 +1510,7 @@ void QupZilla::closeEvent(QCloseEvent* event)
 #ifndef Q_WS_MAC
     if (mApp->windowCount() == 0) {
         if (quitApp()) {
-            disconnectAllWidgets();
+            disconnectObjects();
             event->accept();
         }
         else {
@@ -1522,25 +1521,30 @@ void QupZilla::closeEvent(QCloseEvent* event)
     }
 #endif
 
-    disconnectAllWidgets();
+    disconnectObjects();
     event->accept();
 }
 
-void QupZilla::disconnectAllWidgets()
+void QupZilla::disconnectObjects()
 {
     // Disconnecting all important widgets before deleting this window
     // so it cannot happen that slots will be invoked after the object
     // is deleted.
     // We have to do it this way, because ~QObject is deleting all child
     // objects with plain delete - not deleteLater().
+    //
+    // Also using own disconnectObjects() method, not default disconnect()
+    // because we need to retain connections to destroyed(QObject*) signal
+    // in order to avoid crashes for example with setting stylesheets
+    // (QStyleSheet backend is holding list of all widgets)
 
-    disconnect();
-    m_tabWidget->disconnect();
-    m_tabWidget->getTabBar()->disconnect();
+    m_tabWidget->disconnectObjects();
+    m_tabWidget->getTabBar()->disconnectObjects();
 
     foreach(WebTab * tab, m_tabWidget->allTabs()) {
-        WebView* view = tab->view();
-        view->disconnect();
+        tab->disconnectObjects();
+        tab->view()->disconnectObjects();
+        tab->view()->webPage()->disconnectObjects();
     }
 }
 
@@ -1564,9 +1568,8 @@ bool QupZilla::quitApp()
         saveSideBarWidth();
     }
 
-    QVariant sidebar;
-    sidebar = QVariant::fromValue<QList<int> >(m_sideBarWidth);
-    settings.setValue("SideBarWidth", sidebar);
+    settings.setValue("SideBarWidth", m_sideBarWidth);
+    settings.setValue("WebViewWidth", m_webViewWidth);
 
     if (askOnClose && afterLaunch != 3 && m_tabWidget->count() > 1) {
         QDialog* dialog = new QDialog(this);

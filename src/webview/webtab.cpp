@@ -122,6 +122,13 @@ void WebTab::pinTab(int index)
     }
 }
 
+void WebTab::disconnectObjects()
+{
+    disconnect(this);
+    disconnect(m_locationBar.data());
+    disconnect(m_view.data());
+}
+
 WebTab::~WebTab()
 {
     if (m_locationBar.data()) {

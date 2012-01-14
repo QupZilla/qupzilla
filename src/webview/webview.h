@@ -68,6 +68,8 @@ public:
     static bool isUrlValid(const QUrl &url);
     int tabIndex() const;
 
+    void disconnectObjects();
+
 signals:
     void showUrl(QUrl url);
     void siteIconChanged();

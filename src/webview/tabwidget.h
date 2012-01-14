@@ -64,6 +64,8 @@ public:
     void createKeyPressEvent(QKeyEvent* event);
     void showTabBar();
 
+    void disconnectObjects();
+
 signals:
     void pinnedTabClosed();
     void pinnedTabAdded();

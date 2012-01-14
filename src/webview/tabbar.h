@@ -46,6 +46,8 @@ public:
     int pinnedTabsCount();
     int normalTabsCount();
 
+    void disconnectObjects();
+
 signals:
     void reloadTab(int index);
     void stopTab(int index);
