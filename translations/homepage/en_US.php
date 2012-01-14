@@ -66,7 +66,7 @@ $translating = "Translating into other languages";
 $translating_text = "Another way how to contribute is to add or improve current translations. If you want add new language, you can generate new translations file manually, or you can contact me, and I will do it for you. You cand send me your translations again by e-mail or at github.";
 $translating_moreinfo = "More information about translating <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>here</a> [wiki at github]";
 $contributors = "Contributors";
-$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/src/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
+$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
 $share_with_friends = "Share with Friends!";
 $share_with_friends_text = "Do you like QupZilla? Then share it amongst your friends!"
 ?>
