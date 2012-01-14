@@ -15,10 +15,10 @@ $translated_by = "Deutsche Übersetzung: Jonathan Hooverman";
 //Home Page
 $actual_version = "Aktuelle Version";
 $actual_version_text = "Die aktuelle Version " . $qupzilla_version . 
-					   " ist am " . $qupzilla_version_date . " erschienen. Die Änderungen entnehmen Sie bitte dem CHANGELOG. <br/>Direkt zum <a href=\"download\">DOWNLOAD</a>";
+					   " ist am " . $qupzilla_version_date . " erschienen. Die Änderungen entnehmen Sie bitte dem CHANGELOG. <br/><br/>Direkt zum <a href=\"download\">DOWNLOAD</a>";
 $actual_version_button = "DOWNLOAD";
 $older_versions = "Changelog";
-$older_versions_text = "Sie möchten wissen, welche Neuerungen und Verbesserungen von Version zu Version eingeflossen sind? <br/><br/>Sie finden sie im <a>CHANGELOG</a> bei github!";
+$older_versions_text = "Sie möchten wissen, welche Neuerungen und Verbesserungen von Version zu Version eingeflossen sind? <br/>Sie finden sie im <a>CHANGELOG</a> bei github!";
 $older_versions_button = "Changelog";
 $reportbug = "Fehlerbericht";
 $reportbug_text = "Haben Sie einen Programmfehler entdeckt oder einen Vorschlag, wie QupZilla <a>verbessert</a> werden kann?<br/>
