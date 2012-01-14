@@ -48,11 +48,7 @@
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="78"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;&lt;b&gt;Главни програмери:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;b&gt;Главни програмер:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="79"/>
@@ -1889,10 +1885,6 @@
         <translation>Подешавање</translation>
     </message>
     <message>
-        <source>&lt;b&gt;General&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Опште&lt;/b&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="37"/>
         <source>QupZilla</source>
         <translation>Капзила</translation>
@@ -1905,55 +1897,55 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="215"/>
         <source>After launch: </source>
-        <translation type="unfinished"></translation>
+        <translation>По покретању: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="223"/>
         <source>Open blank page</source>
-        <translation type="unfinished"></translation>
+        <translation>отвори празну страницу</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="228"/>
         <location filename="../src/preferences/preferences.ui" line="280"/>
         <source>Open homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>отвори домаћу страницу</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="233"/>
         <location filename="../src/preferences/preferences.ui" line="285"/>
         <source>Open speed dial</source>
-        <translation type="unfinished"></translation>
+        <translation>отвори брзо бирање</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="238"/>
         <source>Restore session</source>
-        <translation type="unfinished"></translation>
+        <translation>поврати сесију</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="246"/>
         <source>Homepage: </source>
-        <translation type="unfinished"></translation>
+        <translation>Домаћа страница: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="258"/>
         <location filename="../src/preferences/preferences.ui" line="406"/>
         <source>Use actual</source>
-        <translation type="unfinished"></translation>
+        <translation>Користи тренутну</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="267"/>
         <source>On new tab: </source>
-        <translation type="unfinished"></translation>
+        <translation>На новом језичку: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="275"/>
         <source>Open blank tab</source>
-        <translation type="unfinished"></translation>
+        <translation>отвори празан језичак</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="290"/>
         <source>Open other page...</source>
-        <translation type="unfinished"></translation>
+        <translation>отвори другу страницу...</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="298"/>
@@ -1963,12 +1955,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="305"/>
         <source>Startup profile:</source>
-        <translation type="unfinished"></translation>
+        <translation>Почетни профил:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="355"/>
         <source>Create New</source>
-        <translation type="unfinished"></translation>
+        <translation>Направи нови</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="371"/>
@@ -1979,12 +1971,12 @@
         <location filename="../src/preferences/preferences.ui" line="429"/>
         <location filename="../src/preferences/preferences.cpp" line="619"/>
         <source>Note: You cannot delete active profile.</source>
-        <translation type="unfinished"></translation>
+        <translation>Напомена: Не можете обрисати активни профил.</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="439"/>
         <source>Check for updates on start</source>
-        <translation type="unfinished"></translation>
+        <translation>Потражи надоградње по покретању</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="468"/>
@@ -1994,7 +1986,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="481"/>
         <source>Advanced options</source>
-        <translation type="unfinished"></translation>
+        <translation>Напредне опције</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="487"/>
@@ -2004,37 +1996,37 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="512"/>
         <source>Show StatusBar on start</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи траку стања по покретању</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="519"/>
         <source>Show Bookmarks ToolBar on start</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи траку обиљеживача по покретању</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="526"/>
         <source>Show Navigation ToolBar on start</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи траку навигације по покретању</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="548"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Трака навигације&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="555"/>
         <source>Show Home button</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи дугме Домаћа</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="562"/>
         <source>Show Back / Forward buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи дугмад Назад / Напријед</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="569"/>
         <source>Show Add Tab button</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи дугме Додај језичак</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="576"/>
@@ -2044,7 +2036,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="596"/>
         <source>Use transparent background</source>
-        <translation type="unfinished"></translation>
+        <translation>Користи провидну позадину</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="611"/>
@@ -2064,7 +2056,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="661"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Понашање траке адресе&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="668"/>
@@ -2114,7 +2106,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="446"/>
         <source>Active profile:</source>
-        <translation type="unfinished"></translation>
+        <translation>Активни профил:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="759"/>
@@ -2329,17 +2321,17 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1424"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Локација преузимања&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1431"/>
         <source>Ask everytime for download location</source>
-        <translation type="unfinished"></translation>
+        <translation>Питај сваки пут за локацију преузимања</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1438"/>
         <source>Use defined location: </source>
-        <translation type="unfinished"></translation>
+        <translation>Користи локацију: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1450"/>
@@ -2350,18 +2342,19 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1501"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Опције преузимања&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1508"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
-        <translation type="unfinished"></translation>
+        <translation>Користи системски дијалог фајлова
+(може проузрочити проблеме за преузимање ССЛ безбиједног садржаја)</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1516"/>
         <source>Close download manager when downloading finishes</source>
-        <translation type="unfinished"></translation>
+        <translation>Затвори менаџера преузимања када се преузимање заврши</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1527"/>
@@ -2461,7 +2454,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1915"/>
         <source>In order to change language, you must restart browser.</source>
-        <translation type="unfinished"></translation>
+        <translation>Да бисте промијенили језик, морате поново покренути прегледач.</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1935"/>
@@ -2481,7 +2474,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1983"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Приоритетни језик за веб странице&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="91"/>
@@ -2561,12 +2554,12 @@
     <message>
         <location filename="../src/preferences/preferences.cpp" line="579"/>
         <source>New Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Нови профил</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="579"/>
         <source>Enter the new profile&apos;s name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Унесите име новог профила:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="586"/>
@@ -2582,7 +2575,7 @@
     <message>
         <location filename="../src/preferences/preferences.cpp" line="590"/>
         <source>Cannot create profile directory!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не могу да направим директоријум профила!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="604"/>
@@ -2592,7 +2585,7 @@
     <message>
         <location filename="../src/preferences/preferences.cpp" line="605"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation type="unfinished"></translation>
+        <translation>Желите ли заиста трајно да обришете „%1“ профил? Ова радња не може да се поништи!</translation>
     </message>
 </context>
 <context>
@@ -3457,7 +3450,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="24"/>
         <source>CA Authorities Certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Сертификати издавача</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="48"/>
@@ -3468,7 +3461,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="57"/>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ово је списак издавача сертификата за овлашћења смјештених на системски уобичајеној путањи и кориснички одређеној путањи.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="68"/>
@@ -3499,7 +3492,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="159"/>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ако сертификати издавача нису аутоматски учитани са система, можете ручно одредити путање гдје су сертификати смјештени.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="171"/>
@@ -3515,7 +3508,8 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <location filename="../src/preferences/sslmanager.ui" line="232"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сви сертификати морају имати .crt наставак.
+Након додавања или уклањања путања сертификата потребно је да поново покренете Капзилу како би измјене имале ефекта.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="55"/>
@@ -4129,33 +4123,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
 </context>
 <context>
-    <name>TestPlugin</name>
-    <message>
-        <source>My first plugin action</source>
-        <translation type="obsolete">Моја прва радња прикључка</translation>
-    </message>
-    <message>
-        <source>Hello</source>
-        <translation type="obsolete">Здраво</translation>
-    </message>
-    <message>
-        <source>First plugin action works :-)</source>
-        <translation type="obsolete">Прва радња прикључка ради :-)</translation>
-    </message>
-    <message>
-        <source>Example Plugin</source>
-        <translation type="obsolete">Примјер прикључка</translation>
-    </message>
-    <message>
-        <source>Example minimal plugin</source>
-        <translation type="obsolete">Примјер минималног прикључка</translation>
-    </message>
-    <message>
-        <source>Very simple minimal plugin example</source>
-        <translation type="obsolete">Веома једноставан примјер минималног прикључка</translation>
-    </message>
-</context>
-<context>
     <name>ThemeManager</name>
     <message>
         <location filename="../src/preferences/thememanager.ui" line="35"/>
@@ -4216,7 +4183,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/webpage.cpp" line="206"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Да би приказала ову страницу Капзила мора поново да пошаље захтијев 
+за учитавањем (као претрага куповине која је већ обављена)</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="246"/>
@@ -4226,77 +4194,77 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="313"/>
         <source>Server refused the connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер је одбио везу</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="316"/>
         <source>Server closed the connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер је затворио везу</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="319"/>
         <source>Server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер није нађен</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="322"/>
         <source>Connection timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Истекло вријеме повезивања</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="325"/>
         <source>Untrusted connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Неповјерљива веза</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="328"/>
         <source>Temporary network failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Привремени неуспјех мреже</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="331"/>
         <source>Proxy connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Веза са проксијем одбијена</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="334"/>
         <source>Proxy host name not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Име домаћина проксија није нађено</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="337"/>
         <source>Proxy connection timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Истекло вријеме повезивања са проксијем</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="340"/>
         <source>Proxy authentication required</source>
-        <translation type="unfinished"></translation>
+        <translation>Прокси захтијева аутентификацију</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="343"/>
         <source>Content not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Садржај није нађен</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="367"/>
         <source>AdBlocked Content</source>
-        <translation type="unfinished"></translation>
+        <translation>Блокиран садржај</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="371"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Блокирано филтером &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="378"/>
         <source>Content Access Denied</source>
-        <translation type="unfinished"></translation>
+        <translation>Приступ садржају одбијен</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="386"/>
         <source>Error code %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Кôд грешке %1</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="398"/>
@@ -4306,27 +4274,27 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="405"/>
         <source>QupZilla can&apos;t load page from %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Капзила не може да учита страницу са %1.</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="406"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
-        <translation type="unfinished"></translation>
+        <translation>Провјерите да ли сте погрешно укуцали адресу, на примјер &lt;b&gt;ww.&lt;/b&gt;example.com умјесто &lt;b&gt;www.&lt;/b&gt;example.com</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="407"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ако не можете да учитате ниједну страницу, провјерите везу вашег рачунара са интернетом.</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="408"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ако су ваш рачунар или мрежа заштићени заштитним зидом или проксијем, провјерите да ли је Капзили дозвољен приступ интернету.</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="409"/>
         <source>Try Again</source>
-        <translation type="unfinished"></translation>
+        <translation>Покушај поново</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="527"/>
@@ -4387,12 +4355,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="561"/>
         <source>Google Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>Гуглов преводилац</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="562"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Рјечник</translation>
+        <translation>Рјечник</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="573"/>
