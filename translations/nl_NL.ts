@@ -48,7 +48,7 @@
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="78"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;Hoofdontwikkelaar:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
@@ -177,7 +177,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock stelt u in staat ongewenste inhoud op pagina&apos;s te blokkeren</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="39"/>
@@ -3267,12 +3267,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Indien u problemen ervaart met QupZilla, probeer dan eerst alle plugins uit te schakelen. &lt;br/&gt;Mocht dit het niet oplossen, vul dan dit formulier in:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"></translation>
+        <translation>Vul alstublieft alle verplichte velden in!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
@@ -3323,7 +3323,7 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
     <message>
         <location filename="../src/rss/rssmanager.ui" line="54"/>
         <source>Add feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg feed toe</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="64"/>
@@ -3354,17 +3354,17 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
         <source>Add new feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg nieuwe feed toe</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
         <source>Please enter URL of new feed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer de URL van de nieuwe feed in:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="146"/>
         <source>New feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuwe feed</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="183"/>
@@ -4242,32 +4242,32 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webpage.cpp" line="328"/>
         <source>Temporary network failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Tijdelijke netwerkfout</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="331"/>
         <source>Proxy connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy-verbinding geweigerd</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="334"/>
         <source>Proxy host name not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy-hostnaam niet gevonden</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="337"/>
         <source>Proxy connection timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy-verbinding tijdsonderbreking</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="340"/>
         <source>Proxy authentication required</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy-authenticatie benodigd</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="343"/>
         <source>Content not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Inhoud niet gevonden</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="367"/>
@@ -4433,22 +4433,22 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webview.cpp" line="531"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopieer paginalink</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="532"/>
         <source>Send page link...</source>
-        <translation type="unfinished"></translation>
+        <translation>Verstuur paginalink...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="533"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Print pagina</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="540"/>
         <source>Validate page</source>
-        <translation type="unfinished"></translation>
+        <translation>Valideer pagina</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="547"/>
@@ -4509,22 +4509,22 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webview.cpp" line="556"/>
         <source>Send text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Verstuur tekst...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="561"/>
         <source>Google Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>Google Vertalen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="562"/>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Woordenboek</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="573"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation>Ga naar &amp;webadres</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="579"/>
