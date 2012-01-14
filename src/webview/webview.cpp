@@ -189,10 +189,7 @@ void WebView::setProgress(int prog)
     }
 
     if (isCurrent()) {
-        p_QupZilla->ipLabel()->hide();
-        p_QupZilla->progressBar()->setVisible(true);
-        p_QupZilla->progressBar()->setValue(m_progress);
-        p_QupZilla->navigationBar()->showStopButton();
+        p_QupZilla->updateLoadingActions();
     }
 }
 
@@ -247,9 +244,7 @@ void WebView::loadFinished(bool state)
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
 
     if (isCurrent()) {
-        p_QupZilla->progressBar()->setVisible(false);
-        p_QupZilla->navigationBar()->showReloadButton();
-        p_QupZilla->ipLabel()->show();
+        p_QupZilla->updateLoadingActions();
     }
 
     emit urlChanged(url());
@@ -938,9 +933,11 @@ void WebView::mousePressEvent(QMouseEvent* event)
     switch (event->button()) {
     case Qt::XButton1:
         back();
+        event->accept();
         break;
     case Qt::XButton2:
         forward();
+        event->accept();
         break;
     case Qt::MiddleButton:
         if (isUrlValid(QUrl(m_hoveredLink))) {
@@ -958,6 +955,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
     case Qt::LeftButton:
         if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
             tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewBackgroundTab);
+            event->accept();
             return;
         }
     default:
@@ -973,6 +971,7 @@ void WebView::keyPressEvent(QKeyEvent* event)
     case Qt::Key_C:
         if (event->modifiers() == Qt::ControlModifier) {
             copyText();
+            event->accept();
             return;
         }
         break;
@@ -980,6 +979,7 @@ void WebView::keyPressEvent(QKeyEvent* event)
     case Qt::Key_A:
         if (event->modifiers() == Qt::ControlModifier) {
             selectAll();
+            event->accept();
             return;
         }
         break;

@@ -822,15 +822,6 @@ void QupZilla::aboutToShowViewMenu()
         return;
     }
 
-    if (weView()->isLoading()) {
-        m_actionStop->setEnabled(true);
-        m_actionReload->setEnabled(false);
-    }
-    else {
-        m_actionStop->setEnabled(false);
-        m_actionReload->setEnabled(true);
-    }
-
     m_actionShowToolbar->setChecked(m_navigationBar->isVisible());
     m_actionShowMenubar->setChecked(menuBar()->isVisible());
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
@@ -851,9 +842,6 @@ void QupZilla::aboutToShowViewMenu()
 
 void QupZilla::aboutToHideViewMenu()
 {
-    m_actionReload->setEnabled(true);
-    m_actionStop->setEnabled(true);
-
     if (m_mainLayout->count() == 4) {
         SearchToolBar* search = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(3)->widget());
         if (!search) {
@@ -1209,6 +1197,47 @@ void QupZilla::showBookmarkImport()
 void QupZilla::refreshHistory()
 {
     m_navigationBar->refreshHistory();
+}
+
+void QupZilla::currentTabChanged()
+{
+    WebView* view = weView();
+    if (!view) {
+        return;
+    }
+
+    setWindowTitle(view->title() + " - QupZilla");
+    m_ipLabel->setText(view->getIp());
+    view->setFocus();
+
+    updateLoadingActions();
+
+    // Setting correct tab order (LocationBar -> WebSearchBar -> WebView)
+    setTabOrder(locationBar(), m_navigationBar->searchLine());
+    setTabOrder(m_navigationBar->searchLine(), view);
+}
+
+void QupZilla::updateLoadingActions()
+{
+    WebView* view = weView();
+    if (!view) {
+        return;
+    }
+
+    bool isLoading = view->isLoading();
+
+    m_ipLabel->setVisible(!isLoading);
+    m_progressBar->setVisible(isLoading);
+    m_actionStop->setEnabled(isLoading);
+    m_actionReload->setEnabled(!isLoading);
+
+    if (isLoading) {
+        m_progressBar->setValue(view->getLoading());
+        m_navigationBar->showStopButton();
+    }
+    else {
+        m_ipLabel->show();
+    }
 }
 
 void QupZilla::aboutQupZilla()

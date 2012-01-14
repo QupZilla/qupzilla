@@ -10,7 +10,7 @@ html * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
 #quickdial div.entry {position: relative;width: 231px;height: 150px;float: left;border-width: 10px;
 -webkit-border-image: url(%BOX-BORDER%) 10;margin: 5px;}
 #quickdial img {display: block;margin: auto;}
-#quickdial a {position: absolute;left: 0px;top: 0px;width: 231px;height: 130px;}	
+#quickdial a {position: absolute;left: 0px;top: 0px;width: 231px;height: 130px;}
 
 div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload{display: inline;}
 span.boxTitle {width:231px;max-height: 20px; position: absolute;top: 133px;left: 0px;text-align: center;overflow:hidden;}
@@ -22,7 +22,7 @@ background: url(%IMG_EDIT%) no-repeat;background-position: center;border: 1px so
 span.edit:hover {border-color: grey; border-radius: 3px;}
 span.reload {width: 16px;height: 16px;position: absolute;left: 213px;top: 0px;background: url(%IMG_RELOAD%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
 span.reload:hover {border-color: grey; border-radius: 4px;}
-	
+
 #overlay-edit {width: 380px;max-height: 265px;border-width: 20px;margin-left: auto;margin-right: auto;margin-top: 100px;
 -webkit-border-image: url(%BOX-BORDER%) 25;}
 #overlay-edit img {display: block;margin-left: auto;margin-right: auto;}
@@ -55,32 +55,37 @@ function onEditKeyPress(e) {
         boxEdited();
         return false;
     }
+    else if (e.keyCode == 27) {
+        $('#fadeOverlay').click();
+        return false;
+    }
+    return true;
 }
-	    
+
 function onFetchTitleClick(checkbox) {
     var displayStyle;
     checkbox.checked ? displayStyle = 'hidden' : displayStyle = 'visible';
     $('#titleLine').css({'visibility' : displayStyle });
 }
-	    
+
 function onEditClick(box) {
     editingId = $(box).index();
     var boxUrl = $(box).children('a').first().attr('href');
     var boxTitle = $(box).children('span').first().text();
     if (boxUrl === '')
         boxUrl = 'http://';
-	        
+
     $('body').append('<div id="fadeOverlay" style="opacity:0.95;display:none;position:fixed;left:0;' +
                      'top:0;width:100%;height:100%;z-index:9999;background:grey;">' +
                      '<div id="overlay-edit" onkeypress="return onEditKeyPress(event)">' +
                      '<img src="' + $(box).children('img').first().attr('src') + '"> ' +
-                     '<table class="formTable"><tr><td>' + URL + ': </td><td>' + 
+                     '<table class="formTable"><tr><td>' + URL + ': </td><td>' +
                      '<input type="text" id="formUrl" value="' + boxUrl + '"></td></tr>' +
                      '<tr id="titleLine"><td>' + TITLE + ': </td><td>' +
                      '<input type="text" id="formTitle" value="' + boxTitle + '"></td></tr>' +
                      '<tr><td></td><td><input type="checkbox" id="fetchTitle" onclick="onFetchTitleClick(this)">' +
                      '<label for="fetchTitle">  ' + TITLE_FETCHTITLE + ' </label></td></tr>' +
-                     '</table><input type="submit" value="' + EDIT + '" onClick="boxEdited()">' + 
+                     '</table><input type="submit" value="' + EDIT + '" onClick="boxEdited()">' +
                      '</div></div>');
 
     $('#fadeOverlay').css({'filter' : 'alpha(opacity=95)'}).fadeIn();
@@ -99,7 +104,7 @@ function onReloadClick(box) {
     $(img).attr('src', LOADING_IMAGE);
     speeddial.loadThumbnail(url);
 }
-	    
+
 function boxEdited() {
     if (editingId == -1)
         return;
@@ -111,11 +116,11 @@ function boxEdited() {
     setBoxTitle(editingId, $('#formTitle').attr("value"));
     var changedUrl = a.getAttribute('href');
     var fetchTitleChecked = document.getElementById('fetchTitle').checked;
-			
+
     if (fetchTitleChecked || (originalUrl != changedUrl && changedUrl !== '') ) {
         var img = box.getElementsByTagName('img')[0];
         img.setAttribute('src', LOADING_IMAGE);
-				
+
         $('#fadeOverlay').fadeOut("slow", function() {
             $("#fadeOverlay").remove();
             speeddial.loadThumbnail(a.getAttribute('href'), fetchTitleChecked);
@@ -126,7 +131,7 @@ function boxEdited() {
     }
     speeddial.changed(allPages());
 }
-	    
+
 function allPages() {
     var urls = $('a[class="boxUrl"]');
     var titles = $('span[class="boxTitle"]');
@@ -136,10 +141,10 @@ function allPages() {
         var title = $(this).children('span[class="boxTitle"]').first().text().replace('"', '').replace(';','');
         value += 'url:"' + url + '"|title:"' + title + '";';
     });
-            
+
     return value;
 }
-	    
+
 function addBox(url, title, img_source) {
     var div = document.createElement('div');
     div.setAttribute('class', 'entry');
@@ -163,7 +168,7 @@ function addBox(url, title, img_source) {
     span4.setAttribute('class', 'reload');
     span4.setAttribute('onClick', 'onReloadClick(parentNode)');
     span4.setAttribute('title', TITLE_RELOAD);
-		    
+
     div.appendChild(img);
     div.appendChild(img);
     div.appendChild(a);
@@ -171,15 +176,15 @@ function addBox(url, title, img_source) {
     div.appendChild(span2);
     div.appendChild(span3);
     div.appendChild(span4);
-		    
+
     document.getElementById("quickdial").appendChild(div);
 }
-		
+
 function setBoxImage(id, img_source) {
     var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
     if (box === undefined)
         return;
-		    
+
     var img = box.getElementsByTagName('img')[0];
     img.setAttribute('src', img_source + '?' + new Date());
 }
@@ -188,22 +193,22 @@ function setTitleToUrl(url, title) {
     var boxes = document.getElementById('quickdial').getElementsByTagName('div');
     for (i = 0; i < boxes.length; ++i) {
         var box = boxes[i];
-        
+
         if (box === undefined)
             continue;
-		    
-		var boxUrl = box.getElementsByTagName('a')[0].getAttribute('href');
-		console.log(boxUrl + "  >  " + url);
-		if (url != boxUrl)
-		    continue;
-		    
+
+                var boxUrl = box.getElementsByTagName('a')[0].getAttribute('href');
+                console.log(boxUrl + "  >  " + url);
+                if (url != boxUrl)
+                    continue;
+
         var span = box.getElementsByTagName('span')[0];
         span.innerText = title;
     }
-    
+
     speeddial.changed(allPages());
 }
-		
+
 function setImageToUrl(url, img_source) {
     var aElement = $('a[href="' + url + '"]');
     $(aElement).each(function() {
@@ -215,38 +220,38 @@ function setImageToUrl(url, img_source) {
         $(imgElement).attr('src', img_source + '?' + new Date());
     });
 }
-		
+
 function setBoxUrl(id, url) {
     var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
     if (box === undefined)
         return;
-		    
+
     var a = box.getElementsByTagName('a')[0];
     a.setAttribute('href', url);
 }
-		
+
 function setBoxTitle(id, title) {
     var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
     if (box === undefined)
         return;
-		    
+
     var span = box.getElementsByTagName('span')[0];
     span.innerText = title;
 }
-		
+
 function removeBox(id) {
     var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
     if (box === undefined)
         return;
-		    
+
     var url = box.getElementsByTagName('a')[0].getAttribute('href');
     document.getElementById("quickdial").removeChild(box);
     alignPage();
-			
+
     speeddial.removeImageForUrl(url);
     speeddial.changed(allPages());
 }
-		
+
 function alignPage() {
     var width = $(window).width();
     var height = $(window).height();
@@ -255,10 +260,10 @@ function alignPage() {
     var maxBoxes = Math.floor(width / 261);
     if (maxBoxes > 4) maxBoxes = 4;
     if (maxBoxes < 1) maxBoxes = 1;
-	
+
     var maxwidth = maxBoxes * 261;
     $("#quickdial").css('width', maxwidth + 'px');
-			
+
     var boxesCount = $("#quickdial").children("div").size();
     var rows = Math.ceil(boxesCount / maxBoxes);
     var margintop = (height - rows * 190) / 2;
