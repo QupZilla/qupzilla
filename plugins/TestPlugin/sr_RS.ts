@@ -19,19 +19,19 @@
         <translation>Веома једноставан пример прикључка</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="49"/>
-        <location filename="testplugin.cpp" line="54"/>
-        <location filename="testplugin.cpp" line="59"/>
+        <location filename="testplugin.cpp" line="52"/>
+        <location filename="testplugin.cpp" line="57"/>
+        <location filename="testplugin.cpp" line="62"/>
         <source>My first plugin action</source>
         <translation>Моја прва радња прикључка</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="64"/>
+        <location filename="testplugin.cpp" line="67"/>
         <source>Hello</source>
         <translation>Здраво</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="64"/>
+        <location filename="testplugin.cpp" line="67"/>
         <source>First plugin action works :-)</source>
         <translation>Прва радња прикључка ради :-)</translation>
     </message>
