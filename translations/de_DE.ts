@@ -4243,17 +4243,17 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webpage.cpp" line="328"/>
         <source>Temporary network failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Temporärer Netzwerkfehler</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="331"/>
         <source>Proxy connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Proxyserver hat den Verbindungsversuch abgelehnt</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="334"/>
         <source>Proxy host name not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Hostname des Proxyservers wurde nicht gefunden</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="337"/>
