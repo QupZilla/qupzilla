@@ -215,7 +215,7 @@ private:
     void setupMenu();
     void addSideBar();
 
-    void disconnectAllWidgets();
+    void disconnectObjects();
 
     bool m_historyMenuChanged;
     bool m_bookmarksMenuChanged;
@@ -277,7 +277,8 @@ private:
     QString m_activeLanguage;
     QColor m_menuTextColor;
 
-    QList<int> m_sideBarWidth;
+    int m_sideBarWidth;
+    int m_webViewWidth;
     bool m_usingTransparentBackground;
 
     //Used for F11 FullScreen remember visibility

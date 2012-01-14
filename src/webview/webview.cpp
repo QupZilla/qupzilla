@@ -1098,7 +1098,12 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
     return QWebView::eventFilter(obj, event);
 }
 
+void WebView::disconnectObjects()
+{
+    disconnect(this);
+    disconnect(p_QupZilla->statusBar());
+}
+
 WebView::~WebView()
 {
-    m_page->triggerAction(QWebPage::Stop);
 }

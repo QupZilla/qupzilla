@@ -70,6 +70,8 @@ public:
     static QString UserAgent;
     QString userAgentForUrl(const QUrl &url) const;
 
+    void disconnectObjects();
+
 signals:
     void privacyChanged(bool status);
 
