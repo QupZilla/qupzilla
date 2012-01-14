@@ -3418,6 +3418,30 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>Na zobrazenie tejto stránky musí QupZilla znova odoslať požiadavku
 (ako napr. hľadanie pri nakupovaní, ktoré už raz bolo urobené.)</translation>
     </message>
+    <message>
+        <source>Temporary network failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proxy connection refused</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proxy host name not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proxy connection timed out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proxy authentication required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Content not found</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WebSearchBar</name>
