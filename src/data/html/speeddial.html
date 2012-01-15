@@ -178,6 +178,8 @@ function addBox(url, title, img_source) {
     div.appendChild(span4);
 
     document.getElementById("quickdial").appendChild(div);
+
+    return div;
 }
 
 function setBoxImage(id, img_source) {
@@ -275,7 +277,7 @@ function alignPage() {
 
 <body>
 <div id="quickdial"></div>
-<a onClick="addBox('', NEW_PAGE, ''); alignPage();" title="%ADD-TITLE%" class="add"></a>
+<a onClick="onEditClick(addBox('', NEW_PAGE, '')); alignPage();" title="%ADD-TITLE%" class="add"></a>
 
 <script type="text/javascript">
 %INITIAL-SCRIPT%
