@@ -4,21 +4,21 @@ $site_title = "Капзила - Лаган мултиплатформски ве
 $qupzilla = "Капзила";
 $header_description = "Веб прегледач";
 
-$menu_home = "Домаћа";
+$menu_home = "Почетна";
 $menu_screenshots = "Снимци екрана";
 $menu_download = "Преузимање";
 $menu_reportbug = "Пријави проблем";
-$menu_about = "Допринеси";
+$menu_about = "Доприноси";
 $footer_site = "www.qupzilla.com";
 $translated_by = "Превео на српски: Младен Пејаковић";
 
 //Home Page
 $actual_version = "Тренутно издање";
 $actual_version_text = "Тренутно издање је ". $qupzilla_version .
-					   " изашло " . $qupzilla_version . ". Измене су у фајлу дневника измена. <br/>Не оклевајте и <a href=\"download\">преузмите</a> одмах!";
+					   " изашло " . $qupzilla_version_date . ". Измене су у фајлу дневника измена. <br/>Не оклевајте и <a href=\"download\">преузмите</a> одмах!";
 $actual_version_button = "ПРЕУЗМИ";
 $older_versions = "Дневник измена";
-$older_versions_text = "Да ли сте икад жељели да знате шта се променило из једнога у друго издање? <br/>Све можете да пронађете у <a>дневнику измена</a> на Гитхабу!";
+$older_versions_text = "Да ли сте икад желели да знате шта се променило из једнога у друго издање? <br/>Све можете да пронађете у <a>дневнику измена</a> на Гитхабу!";
 $older_versions_button = "Дневнк измена";
 $reportbug = "Пријава проблема";
 $reportbug_text = "Открили сте неку грешку или имате предлог за <a>побољшање</a> Капзиле?<br/>
