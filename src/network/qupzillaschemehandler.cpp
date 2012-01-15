@@ -200,13 +200,16 @@ QString QupZillaSchemeReply::aboutPage()
     aPage.replace("%MAIN-DEVELOPER%", tr("Main developer"));
     aPage.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR, "nowrep@gmail.com"));
     aPage.replace("%CONTRIBUTORS%", tr("Contributors"));
-    aPage.replace("%CONTRIBUTORS-TEXT%", authorString("Mladen Pejaković", "pejakm@gmail.com") + "<br/>" +
+    aPage.replace("%CONTRIBUTORS-TEXT%",
+                  authorString("Mladen Pejaković", "pejakm@gmail.com") + "<br/>" +
                   authorString("Bryan M Dunsmore", "dunsmoreb@gmail.com") + "<br/>" +
+                  authorString("Mariusz Fik", "fisiu@opensuse.org") + "<br/>" +
                   authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +
                   authorString("Daniele Cocca", "jmc@chakra-project.org")
                  );
     aPage.replace("%TRANSLATORS%", tr("Translators"));
-    aPage.replace("%TRANSLATORS-TEXT%", authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
+    aPage.replace("%TRANSLATORS-TEXT%",
+                  authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
                   authorString("Peter Vacula", "pvacula1989@gmail.com") + " (Slovak)<br/>" +
                   authorString("Ján Ďanovský", "dagsoftware@yahoo.com") + " (Slovak)<br/>" +
                   authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>" +
@@ -215,6 +218,7 @@ QString QupZillaSchemeReply::aboutPage()
                   authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italy)<br/>" +
                   authorString("Jorge Sevilla", "jsevi@ozu.es") + " (Spanish)<br/>" +
                   authorString("Michał Szymanowski", "tylkobuba@gmail.com") + " (Polish)<br/>" +
+                  authorString("Mariusz Fik", "fisiu@opensuse.org") + " (Polish)<br/>" +
                   authorString("Jérôme Giry", "baikalink@hotmail.fr") + " (French)<br/>" +
                   authorString("Nicolas Ourceau", "lamessen@hotmail.fr") + " (French)<br/>" +
                   authorString("Vasilis Tsivikis", "vasitsiv.dev@gmail.com") + " (Greek)<br/>" +

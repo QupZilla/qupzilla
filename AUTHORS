@@ -6,9 +6,9 @@ Contributors:
 
 Mladen Pejaković      <pejakm@gmail.com>              (webview context menu improvements, speed dial background)
 Bryan M Dunsmore      <dunsmoreb@gmail.com>           (opening background tabs, closing window when closing last tab)
+Mariusz Fik           <fisiu@opensuse.org>            (fixed tab order in preferences dialog)
 Daniele Cocca         <jmc@chakra-project.org>        (close tabs with middle click, initial work on speed dial)
 Jan Rajnoha           <honza.rajny@hotmail.com>       (QupZilla icon)
-
 
 Translators:
 
@@ -21,6 +21,7 @@ Federico Fabiani      <federico.fabiani85@gmail.com>    (Italy)
 Francesco Marinucci   <framarinucci@gmail.com>          (Italy)
 Jorge Sevilla         <jsevi@ozu.es>                    (Spanish)
 Michał Szymanowski    <tylkobuba@gmail.com>             (Polish)
+Mariusz Fik           <fisiu@opensuse.org>              (Polish)
 Jérôme Giry           <baikalink@hotmail.fr>            (French)
 Nicolas Ourceau       <lamessen@hotmail.fr>             (French)
 Vasilis Tsivikis      <vasitsiv.dev@gmail.com>          (Greek)
