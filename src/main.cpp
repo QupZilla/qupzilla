@@ -22,6 +22,7 @@
 
 #include "commandlineoptions.h"
 #include "mainapplication.h"
+#include "proxystyle.h"
 
 int main(int argc, char* argv[])
 {
@@ -52,6 +53,8 @@ int main(int argc, char* argv[])
     }
 
     MainApplication app(cmdActions, argc, argv);
+    app.setStyle(new ProxyStyle());
+
     if (app.isExited()) {
 //        Not showing any output, otherwise XFCE shows "Failed to execute default browser. I/O error" error
 //        if (argc == 1) {
