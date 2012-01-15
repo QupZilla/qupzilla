@@ -48,7 +48,7 @@
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="78"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;Desarrollador princial:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
@@ -104,12 +104,12 @@
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="14"/>
         <source>AdBlock Configuration</source>
-        <translation>Configuración de AdBlock</translation>
+        <translation>Configuración del bloqueador de publicidad</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="20"/>
         <source>Enable AdBlock</source>
-        <translation>Habilitar AdBlock</translation>
+        <translation>Habilitar el bloqueador de publicidad</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="39"/>
@@ -135,7 +135,7 @@
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="114"/>
         <source>AdBlock</source>
-        <translation>AdBlock</translation>
+        <translation>Bloqueador de publicidad</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="101"/>
@@ -177,12 +177,12 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="29"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation type="unfinished"></translation>
+        <translation>El bloqueador de publicidad le permite bloquear contenido no deseado en las páginas</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="39"/>
         <source>Show AdBlock &amp;Settings</source>
-        <translation>Ver &amp;Preferencias de AdBlock</translation>
+        <translation>Ver &amp;preferencias del bloqueador de publicidad</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="43"/>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="46"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
-        <translation>URL bloqueada (regla de AdBlock) - click para editar regla</translation>
+        <translation>URL bloqueada (regla del bloqueador de publicidad) - click para editar regla</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="49"/>
@@ -2978,7 +2978,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="804"/>
         <source>&amp;AdBlock</source>
-        <translation>&amp;AdBlock</translation>
+        <translation>&amp;Bloqueador de publicidad</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="805"/>
@@ -3265,12 +3265,12 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Si experimenta problemas con QupZilla, por favor intente deshabilitar todos los plugins. &lt;br/&gt;Si esto no ayuda, entonces rellene este formulario: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Por favor, rellene todos los campos requeridos!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
@@ -3314,7 +3314,7 @@
     <message>
         <location filename="../src/rss/rssmanager.ui" line="54"/>
         <source>Add feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir canal</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="64"/>
@@ -3352,17 +3352,17 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
         <source>Add new feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir un canal nuevo</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
         <source>Please enter URL of new feed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Por favor, introduzca la dirección del nuevo canal:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="146"/>
         <source>New feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuevo canal</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="183"/>
@@ -4239,37 +4239,37 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webpage.cpp" line="328"/>
         <source>Temporary network failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Fallo de la red temporal</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="331"/>
         <source>Proxy connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Conexión proxy rechazada</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="334"/>
         <source>Proxy host name not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre del host proxy no encontrado</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="337"/>
         <source>Proxy connection timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Expiró el tiempo de conexión al proxy</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="340"/>
         <source>Proxy authentication required</source>
-        <translation type="unfinished"></translation>
+        <translation>Autentificación proxy requerida</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="343"/>
         <source>Content not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Contenido no encontrado</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="367"/>
         <source>AdBlocked Content</source>
-        <translation>Contenido AdBlocked</translation>
+        <translation>Contenido publicitario bloqueado</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="371"/>
@@ -4350,42 +4350,42 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webview.cpp" line="531"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
+        <translation>Cop&amp;iar el enlace de la página</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="532"/>
         <source>Send page link...</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar enlace de la página...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="533"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Imprimir página</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="540"/>
         <source>Validate page</source>
-        <translation type="unfinished"></translation>
+        <translation>Validar página</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="556"/>
         <source>Send text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar texto...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="561"/>
         <source>Google Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>Traductor de Google</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="562"/>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Diccionario</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="573"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation>Ir a &amp;dirección web</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="623"/>
