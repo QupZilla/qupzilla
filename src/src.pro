@@ -184,7 +184,8 @@ SOURCES += main.cpp\
     rss/rssicon.cpp \
     navigation/downicon.cpp \
     network/cabundleupdater.cpp \
-    app/settings.cpp
+    app/settings.cpp \
+    app/proxystyle.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -309,7 +310,8 @@ HEADERS  += \
     rss/rssicon.h \
     navigation/downicon.h \
     network/cabundleupdater.h \
-    app/settings.h
+    app/settings.h \
+    app/proxystyle.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

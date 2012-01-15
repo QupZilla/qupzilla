@@ -20,6 +20,7 @@
 
 #include <QMenu>
 #include <QMouseEvent>
+#include <QStyle>
 
 class Action;
 class Menu : public QMenu

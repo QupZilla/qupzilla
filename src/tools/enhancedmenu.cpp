@@ -17,8 +17,6 @@
 * ============================================================ */
 #include "enhancedmenu.h"
 
-#include <QDebug>
-
 Menu::Menu(QWidget* parent)
     : QMenu(parent)
 {
