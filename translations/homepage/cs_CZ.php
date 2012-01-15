@@ -25,8 +25,7 @@ $reportbug_text = "Pokud jste našli chybu nebo máte pouze nápad jak <a>vylep�
 				   bude řešit co nejdříve to bude možné!";
 $reportbug_button = "Nahlásit";
 $technology = "Technologie";
-$technology_text = "QupZilla je moderní webový prohlížeč založený na jádře WebKitu a multiplatformním
-				   frameworku Qt. WebKit zaručí <a>rychlé</a> zobrazení stránek a Qt funkčnost na všech
+$technology_text = "QupZilla je moderní webový prohlížeč založený na jádře WebKitu a frameworku Qt. WebKit zaručí <a>rychlé</a> zobrazení stránek a Qt funkčnost na všech
 				   majoritních platformách.";
 $technology_button = "WebKit &amp; Qt";
 $looknfeel_header = "Nativní vzhled";

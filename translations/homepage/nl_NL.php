@@ -32,7 +32,7 @@ $looknfeel_header = "Geintegreerde look'n'feel";
 $looknfeel_text = "QupZilla gebruikt de natieve widgets-stijl op grote Linux Bureaublad-omgevingen. Het gebruikt tevens pictogrammen van het huidige systeempictogramthema. Indien u natieve thema's te saai vindt of enige problemen hebt ermee, kunt u altijd een ander thema kiezen.";
 $library_header = "Samenhangende bibliotheek";
 $library_text = "QupZilla hangt bladwijzers, geschiedenis en RSS samen in een goed georganiseerd venster. Geen verschillende venster meer, QupZilla gebruikt er slechts 1!<br/>
-Met de geintegreerde RSS-lezer kunt u up-to-date blijven van uw favoriete sites. QupZilla kan tevens bladwijzers importeren van andere browsers."
+Met de geintegreerde RSS-lezer kunt u up-to-date blijven van uw favoriete sites. QupZilla kan tevens bladwijzers importeren van andere browsers.";
 $adblock_header = "Geintegreerde AdBlock";
 $adblock_text = "Bent u het zat dat sites vol reclame staan? Eten ze uw bandbreedte en tijd op? Het enige wat u hoeft te doen met QupZilla is EasyList updaten of misschien uw eigen regels creeren en begin advertentievrij te surfen.";
 $speeddial_header = "Snelkiezer";
