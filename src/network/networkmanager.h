@@ -45,6 +45,7 @@ public:
     explicit NetworkManager(QupZilla* mainClass, QObject* parent = 0);
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 
+    void loadSettings();
     void saveCertificates();
     void loadCertificates();
 
@@ -60,7 +61,7 @@ public:
     void setIgnoreAllWarnings(bool state) { m_ignoreAllWarnings = state; }
     bool isIgnoringAllWarnings() { return m_ignoreAllWarnings; }
 
-    void loadSettings();
+    void disconnectObjects();
 
 signals:
     void finishLoading(bool state);
