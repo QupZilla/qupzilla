@@ -571,6 +571,7 @@ void MainApplication::quitApplication()
     }
 
     m_isClosing = true;
+    m_networkmanager->disconnectObjects();
 
     if (m_mainWindows.count() > 0) {
         saveStateSlot();
@@ -588,6 +589,7 @@ void MainApplication::quitApplication()
 void MainApplication::saveSettings()
 {
     m_isClosing = true;
+    m_networkmanager->disconnectObjects();
 
     Settings settings;
     settings.beginGroup("SessionRestore");
