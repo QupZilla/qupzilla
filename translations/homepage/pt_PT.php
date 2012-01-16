@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Header + Footer
 $site_title = "QupZilla - Navegador web multi-plataforma";
 $qupzilla = "QupZilla";
@@ -18,13 +18,13 @@ $actual_version_text = "A versão atual data de ". $qupzilla_version_date .
 					   " e é a versão " . $qupzilla_version . ". As novidades estão no registo de alterações. <br/>Não perca tempo e <a href=\"download\">transfira</a> já!";
 $actual_version_button = "Transferir";
 $older_versions = "Registo de alterações";
-$older_versions_text = "Pretende saber que alterações foram efetuadas entre as versões? <br/>Encontra-as no <a>registo de alterações</a> no github!";
+$older_versions_text = "Pretende saber que alterações foram efetuadas entre as versões? <br/>Encontra-as no <a>registo de alterações</a> do código fonte!";
 $older_versions_button = "Registo de alterações";
 $reportbug = "Reportar erros";
 $reportbug_text = "Encontrou erros ou pretende sugerir algo para <a>melhorar</a> o QupZilla?<br/> Crie um relatório no github.";
 $reportbug_button = "Reportar agora";
 $technology = "Tecnologia";
-$technology_text = "O QupZilla é um navegador web baseado no WebKit e na plataforma Qt. O WebKit garante uma navegação <a>rápida</a> e a plataforma Qt disponibiliza a tecnologia nos principais sistemas operativos.";
+$technology_text = "O QupZilla é um navegador web baseado no WebKit e na plataforma Qt. O WebKit garante uma navegação <a>rápida</a> e a plataforma Qt disponibiliza a tecnologia para os principais sistemas operativos.";
 $technology_button = "WebKit e Qt";
 $looknfeel_header = "Aparência de acordo com o sistema operativo";
 $looknfeel_text = "O QupZilla utiliza o estilo e os ícones dos ambientes de trabalho Linux. No entanto, se considerar que este aspeto é aborrecido ou caso tenha alguns problemas, pode sempre trocar entre os temas disponíveis.";
@@ -61,8 +61,8 @@ $getting_source_text2 = "e já pode começar a mexer no código. Pode enviar as 
 $translating = "Traduzir o programa";
 $translating_text = "Outra forma de contribuir no desenvolvimento é adicionando ou corrigindo as traduções existentes. Se quiser adicionar um novo idioma, pode gerar o ficheiro manualmente ou contactar-me para que eu o crie por si. Posteriormente, pode enviar o ficheiro traduzido por correio eletrónico ou através do github.";
 $translating_moreinfo = "Pode encontrar mais informações sobre o processo de traduções <a href='https://github.com/	nowrep/QupZilla/wiki/Translating'>aqui</a> [wiki no github]";
-$contributors = "Contributors";
-$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
+$contributors = "Contributos";
+$contributors_text = "Para ver a lista dos contributos, aceda <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>aqui</a>.<br/>Também pode participar no canal IRC #qupzilla at irc.freenode.net.";
 $share_with_friends = "Partilhar com os amigos!";
 $share_with_friends_text = "Gosta do QupZilla? Então, partilhe-o com os seus amigos!"
 ?>
