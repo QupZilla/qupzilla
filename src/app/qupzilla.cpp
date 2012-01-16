@@ -430,8 +430,11 @@ void QupZilla::setupMenu()
     connect(m_actionRestoreTab, SIGNAL(triggered()), m_tabWidget, SLOT(restoreClosedTab()));
     addAction(m_actionRestoreTab);
 
-    QShortcut* reloadByPassCacheAction = new QShortcut(QKeySequence("Ctrl+F5"), this);
+    QShortcut* reloadByPassCacheAction = new QShortcut(QKeySequence("Shift+F5"), this);
     connect(reloadByPassCacheAction, SIGNAL(activated()), this, SLOT(reloadByPassCache()));
+
+    QShortcut* reloadAction = new QShortcut(QKeySequence("Ctrl+R"), this);
+    connect(reloadAction, SIGNAL(activated()), this, SLOT(reload()));
 
     QShortcut* backAction = new QShortcut(QKeySequence("Alt+Left"), this);
     connect(backAction, SIGNAL(activated()), this, SLOT(goBack()));
