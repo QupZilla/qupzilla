@@ -380,7 +380,6 @@ mac {
     ICON = data/icons/exeicons/qupzilla.icns
 
     bundle_target.files += ../bin/locale
-    bundle_target.files += ../bin/plugins
     bundle_target.files += ../bin/themes
     bundle_target.path = Resources
 
@@ -410,7 +409,6 @@ mac {
     target.path = $$binary_folder
 
     target1.files += ../bin/locale
-    target1.files += ../bin/plugins
     target1.files += ../bin/themes
     target1.path = $$data_folder
 
