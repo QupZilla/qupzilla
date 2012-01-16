@@ -65,8 +65,12 @@ $getting_source_text2 = "και μετά μπορείτε να αρχίσετε 
 $translating = "Μεταφράζοντας σε άλλες γλώσσες";
 $translating_text = "Άλλος τρόπος για να συνεισφέρετε είναι να προσθέσετε ή να βελτιώσετε μια τρέχουσα μετάφραση. Αν θέλετε να προσθέσετε μια νέα γλώσσα, μπορείτε να δημιουργήσετε νέα αρχεία μετάφρασης χειροκίνητα, ή μπορείτε να επικοινωνήσετε μαζί μου, και θα το κάνω για σας. Μπορείτε να μου στείλετε τις μεταφράσεις σας ξανά μέσω e-mail ή στο github.";
 $translating_moreinfo = "Περισσότερες πληροφορίες περί μετάφρασης <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>εδώ</a> [wiki στο github]";
-$contributors = "Contributors";
-$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
+$creators = "Who creates QupZilla?";
+$creators_text = "The project owner, maintainer and main developer is Czech student <b>David Rosca</b> (nowrep).<br/>
+Apart from coding, others are contributing also by making translations or supporting QupZilla. Full list of contributors can be found <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>here</a> [at github].<br/><br/>You can also join IRC channel <b>#qupzilla</b> at irc.freenode.net to chat with poeple involved in QupZilla.";
+// You can delete these (commented) lines after you translate $creators and $creators_text
+//$contributors = "Contributors";
+//$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
 $share_with_friends = "Μοιραστείτε με φίλους!";
 $share_with_friends_text = "Σας αρέσει το QupZilla; Τότε μοιραστείτε το με τους φίλους σας!"
 ?>
