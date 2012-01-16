@@ -100,7 +100,7 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
 {
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
-    setWindowTitle("QupZilla");
+    setWindowTitle(tr("QupZilla"));
     setUpdatesEnabled(false);
 
     m_activeProfil = mApp->getActiveProfilPath();
@@ -1210,7 +1210,7 @@ void QupZilla::currentTabChanged()
         return;
     }
 
-    setWindowTitle(view->title() + " - QupZilla");
+    setWindowTitle(view->title() + tr(" - QupZilla"));
     m_ipLabel->setText(view->getIp());
     view->setFocus();
 

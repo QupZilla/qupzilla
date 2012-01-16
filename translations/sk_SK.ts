@@ -2431,6 +2431,14 @@
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
     </message>
+    <message>
+        <source>QupZilla</source>
+        <translation type="unfinished">QupZilla</translation>
+    </message>
+    <message>
+        <source> - QupZilla</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -3626,6 +3634,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

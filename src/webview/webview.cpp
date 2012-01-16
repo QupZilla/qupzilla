@@ -305,7 +305,7 @@ void WebView::titleChanged()
     QString title2 = title_;
     tabWidget()->setTabToolTip(tabIndex(), title2);
 
-    title2 += " - QupZilla";
+    title2 += tr(" - QupZilla");
     if (isCurrent()) {
         p_QupZilla->setWindowTitle(title2);
     }
