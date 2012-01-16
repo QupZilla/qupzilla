@@ -4224,7 +4224,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/webview/webpage.cpp" line="319"/>
         <source>Server not found</source>
-        <translation>O servidor não foi encontrado</translation>
+        <translation>Servidor não encontrado</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="322"/>
@@ -4239,32 +4239,32 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/webview/webpage.cpp" line="328"/>
         <source>Temporary network failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha temporária de rede</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="331"/>
         <source>Proxy connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Ligação de rede recusada</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="334"/>
         <source>Proxy host name not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome de proxy não encontrado</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="337"/>
         <source>Proxy connection timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>A ligação proxy expirou</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="340"/>
         <source>Proxy authentication required</source>
-        <translation type="unfinished"></translation>
+        <translation>Requer autorização de proxy</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="343"/>
         <source>Content not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Conteúdo não encontrado</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="367"/>
