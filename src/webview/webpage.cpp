@@ -291,6 +291,11 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
 {
     if (UserAgent.isEmpty()) {
         UserAgent = QWebPage::userAgentForUrl(url);
+#ifdef Q_WS_MAC
+#ifdef __i386__ || __x86_64__
+        UserAgent.replace("PPC Mac OS X", "Intel Mac OS X");
+#endif
+#endif
     }
 
     return UserAgent;

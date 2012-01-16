@@ -56,6 +56,8 @@ public slots:
     void findNext();
     void findPrevious();
 
+    void hide();
+
 private:
     Ui::SearchToolbar* ui;
     QupZilla* p_QupZilla;

@@ -59,6 +59,12 @@ QLineEdit* SearchToolBar::searchLine()
     return ui->lineEdit;
 }
 
+void SearchToolBar::hide()
+{
+    p_QupZilla->weView()->setFocus();
+    AnimatedWidget::hide();
+}
+
 void SearchToolBar::findNext()
 {
     m_findFlags = QWebPage::FindWrapsAroundDocument;
@@ -139,7 +145,6 @@ bool SearchToolBar::eventFilter(QObject* obj, QEvent* event)
 {
     if (event->type() == QEvent::KeyPress && static_cast<QKeyEvent*>(event)->key() == Qt::Key_Escape) {
         hide();
-        p_QupZilla->weView()->setFocus();
         return false;
     }
 
