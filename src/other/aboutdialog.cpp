@@ -79,7 +79,7 @@ void AboutDialog::showAuthors()
         m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg(
                                  "Mladen Pejaković<br/>"
                                  "Bryan M Dunsmore<br/>"
-                                 "Mariusz Fik (Polish)<br/>"
+                                 "Mariusz Fik<br/>"
                                  "Jan Rajnoha<br/>"
                                  "Daniele Cocca"
                              ));
