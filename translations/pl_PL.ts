@@ -2680,7 +2680,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="103"/>
         <source>QupZilla</source>
-        <translation type="unfinished">QupZilla</translation>
+        <translation>QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="295"/>
@@ -2715,7 +2715,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="310"/>
         <source>Open &amp;File</source>
-        <translation>Otwórz &amp;Plik</translation>
+        <translation>Otwórz &amp;plik</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="315"/>
@@ -2735,7 +2735,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="331"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Edytuj</translation>
+        <translation>&amp;Edycja</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="332"/>
@@ -2820,7 +2820,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1213"/>
         <source> - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation> - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1583"/>
@@ -3907,7 +3907,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="63"/>
         <source>Edit</source>
-        <translation>Edytuj</translation>
+        <translation>Edycja</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="64"/>
@@ -4359,7 +4359,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/webview/webview.cpp" line="308"/>
         <source> - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation> - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="457"/>
