@@ -2787,7 +2787,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="103"/>
         <source>QupZilla</source>
-        <translation type="unfinished">Капзила</translation>
+        <translation>Капзила</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="351"/>
@@ -3014,7 +3014,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1213"/>
         <source> - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation> - Капзила</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1278"/>
@@ -4392,7 +4392,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="308"/>
         <source> - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation> - Капзила</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="458"/>
