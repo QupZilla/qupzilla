@@ -23,6 +23,7 @@
 #include "htmlimporter.h"
 #include "mainapplication.h"
 #include "iconfetcher.h"
+#include "iconprovider.h"
 #include "networkmanager.h"
 
 BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
@@ -39,10 +40,6 @@ BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     connect(ui->chooseFile, SIGNAL(clicked()), this, SLOT(setFile()));
     connect(ui->cancelButton, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->stopButton, SIGNAL(clicked()), this, SLOT(stopDownloading()));
-
-    HtmlImporter html(this);
-    html.setFile("/home/david/bookmarks.html");
-    html.exportBookmarks();
 }
 
 void BookmarksImportDialog::nextPage()
@@ -169,7 +166,7 @@ void BookmarksImportDialog::iconFetched(const QIcon &icon)
         foreach(BookmarksModel::Bookmark b, m_exportedBookmarks) {
             if (b.url == url) {
                 m_exportedBookmarks.removeOne(b);
-                b.icon = icon;
+                b.image = icon.pixmap(16, 16).toImage();
                 m_exportedBookmarks.append(b);
                 break;
             }
@@ -266,8 +263,9 @@ void BookmarksImportDialog::addExportedBookmarks()
         model->createFolder(m_exportedBookmarks.at(0).folder);
     }
 
-    foreach(BookmarksModel::Bookmark b, m_exportedBookmarks)
-    model->saveBookmark(b.url, b.title, b.icon, b.folder);
+    foreach(BookmarksModel::Bookmark b, m_exportedBookmarks) {
+        model->saveBookmark(b.url, b.title, IconProvider::iconFromImage(b.image), b.folder);
+    }
 
     qApp->restoreOverrideCursor();
 }

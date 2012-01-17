@@ -40,7 +40,7 @@ public:
         QString title;
         QString folder;
         QUrl url;
-        QIcon icon;
+        QImage image;
         bool inSubfolder;
 
         Bookmark() {

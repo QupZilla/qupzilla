@@ -115,7 +115,7 @@ BookmarksModel::Bookmark BookmarksModel::getBookmark(int id)
         bookmark.url = query.value(0).toUrl();
         bookmark.title = query.value(1).toString();
         bookmark.folder = query.value(2).toString();
-        bookmark.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
+        bookmark.image = QImage::fromData(query.value(3).toByteArray());
         bookmark.inSubfolder = isSubfolder(bookmark.folder);
     }
     return bookmark;
@@ -127,12 +127,18 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
         return false;
     }
 
+    QImage image = icon.pixmap(16, 16).toImage();
+
     QSqlQuery query;
     query.prepare("INSERT INTO bookmarks (url, title, folder, icon) VALUES (?,?,?,?)");
     query.bindValue(0, url.toString());
     query.bindValue(1, title);
     query.bindValue(2, folder);
-    query.bindValue(3, IconProvider::iconToBase64(icon));
+    QByteArray ba;
+    QBuffer buffer(&ba);
+    buffer.open(QIODevice::WriteOnly);
+    image.save(&buffer, "PNG");
+    query.bindValue(3, buffer.data());
     query.exec();
 
     Bookmark bookmark;
@@ -140,7 +146,7 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     bookmark.url = url;
     bookmark.title = title;
     bookmark.folder = folder;
-    bookmark.icon = icon;
+    bookmark.image = image;
     bookmark.inSubfolder = isSubfolder(bookmark.folder);
 
     emit bookmarkAdded(bookmark);
@@ -168,7 +174,7 @@ bool BookmarksModel::removeBookmark(int id)
     bookmark.url = query.value(0).toUrl();
     bookmark.title = query.value(1).toString();
     bookmark.folder = query.value(2).toString();
-    bookmark.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
+    bookmark.image = QImage::fromData(query.value(3).toByteArray());
     bookmark.inSubfolder = isSubfolder(bookmark.folder);
 
     if (!query.exec("DELETE FROM bookmarks WHERE id = " + QString::number(id))) {
@@ -227,7 +233,7 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     before.title = query.value(0).toString();
     before.url = query.value(1).toUrl();
     before.folder = query.value(2).toString();
-    before.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
+    before.image = QImage::fromData(query.value(3).toByteArray());
     before.inSubfolder = isSubfolder(before.folder);
 
     Bookmark after;
@@ -235,7 +241,7 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     after.title = title.isEmpty() ? before.title : title;
     after.url = url.isEmpty() ? before.url : url;
     after.folder = folder.isEmpty() ? before.folder : folder;
-    after.icon = before.icon;
+    after.image = before.image;
     after.inSubfolder = isSubfolder(after.folder);
 
     query.prepare("UPDATE bookmarks SET title=?, url=?, folder=? WHERE id = ?");
@@ -349,7 +355,7 @@ QList<Bookmark> BookmarksModel::folderBookmarks(const QString &name)
         bookmark.url = query.value(1).toUrl();
         bookmark.title = query.value(2).toString();
         bookmark.folder = query.value(3).toString();
-        bookmark.icon = IconProvider::iconFromBase64(query.value(4).toByteArray());
+        bookmark.image = QImage::fromData(query.value(4).toByteArray());
         bookmark.inSubfolder = isSubfolder(bookmark.folder);
 
         list.append(bookmark);

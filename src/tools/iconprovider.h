@@ -18,7 +18,7 @@
 #ifndef ICONPROVIDER_H
 #define ICONPROVIDER_H
 
-#define _iconForUrl(url) mApp->iconProvider()->iconForUrl(url)
+#define _iconForUrl(url) IconProvider::iconFromImage(mApp->iconProvider()->iconForUrl(url))
 
 #include <QObject>
 #include <QIcon>
@@ -36,11 +36,13 @@ public:
     explicit IconProvider(QObject* parent = 0);
     ~IconProvider();
 
-    void saveIcon(WebView* view);
-    QIcon iconForUrl(const QUrl &url);
-    QIcon iconForDomain(const QUrl &url);
-
     void clearIconDatabase();
+
+    void saveIcon(WebView* view);
+    QImage iconForUrl(const QUrl &url);
+    QImage iconForDomain(const QUrl &url);
+
+    static QIcon iconFromImage(const QImage &image);
 
     static QIcon iconFromBase64(const QByteArray &data);
     static QByteArray iconToBase64(const QIcon &icon);
@@ -59,7 +61,7 @@ private:
 
     struct Icon {
         QUrl url;
-        QIcon icon;
+        QImage image;
     };
 
     QList<Icon> m_iconBuffer;

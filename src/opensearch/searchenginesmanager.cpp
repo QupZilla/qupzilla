@@ -28,7 +28,7 @@
 
 QIcon SearchEnginesManager::iconForSearchEngine(const QUrl &url)
 {
-    QIcon ic = mApp->iconProvider()->iconForDomain(url);
+    QIcon ic = IconProvider::iconFromImage(mApp->iconProvider()->iconForDomain(url));
     if (ic.isNull()) {
         ic = QIcon(":icons/menu/search-icon.png");
     }
