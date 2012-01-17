@@ -2679,7 +2679,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="103"/>
         <source>QupZilla</source>
-        <translation type="unfinished">QupZilla</translation>
+        <translation>QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="295"/>
@@ -2814,7 +2814,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1213"/>
         <source> - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation> - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1583"/>
@@ -4359,7 +4359,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webview.cpp" line="308"/>
         <source> - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation> - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="457"/>
