@@ -321,7 +321,7 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     ToolButton* button = new ToolButton(this);
     button->setText(title);
     button->setData(v);
-    button->setIcon(bookmark.icon);
+    button->setIcon(IconProvider::iconFromImage(bookmark.image));
     button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     button->setToolTip(bookmark.url.toEncoded());
     button->setAutoRaise(true);
@@ -389,7 +389,7 @@ void BookmarksToolbar::bookmarkEdited(const BookmarksModel::Bookmark &before, co
 
                 button->setText(title);
                 button->setData(v);
-                button->setIcon(after.icon);
+                button->setIcon(IconProvider::iconFromImage(after.image));
                 button->setToolTip(after.url.toEncoded());
                 button->setWhatsThis(after.title);
                 return;
@@ -407,7 +407,7 @@ void BookmarksToolbar::refreshBookmarks()
         bookmark.id = query.value(0).toInt();
         bookmark.title = query.value(1).toString();
         bookmark.url = query.value(2).toUrl();
-        bookmark.icon = IconProvider::iconFromBase64(query.value(3).toByteArray());
+        bookmark.image = QImage::fromData(query.value(3).toByteArray());
         bookmark.folder = "bookmarksToolbar";
         QString title = bookmark.title;
         if (title.length() > 15) {
@@ -421,7 +421,7 @@ void BookmarksToolbar::refreshBookmarks()
         ToolButton* button = new ToolButton(this);
         button->setText(title);
         button->setData(v);
-        button->setIcon(bookmark.icon);
+        button->setIcon(IconProvider::iconFromImage(bookmark.image));
         button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         button->setToolTip(bookmark.url.toEncoded());
         button->setWhatsThis(bookmark.title);
@@ -484,7 +484,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
             b.title += "..";
         }
 
-        Action* act = new Action(b.icon, b.title);
+        Action* act = new Action(IconProvider::iconFromImage(b.image), b.title);
         act->setData(b.url);
         connect(act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
         connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));

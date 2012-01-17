@@ -72,7 +72,6 @@ public:
 
 signals:
     void showUrl(QUrl url);
-    void siteIconChanged();
     void wantsCloseTab(int index);
     void changed();
     void ipChanged(QString ip);

@@ -625,7 +625,7 @@ void QupZilla::aboutToShowBookmarksMenu()
     while (query.next()) {
         QString title = query.value(0).toString();
         QUrl url = query.value(1).toUrl();
-        QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
+        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         if (title.length() > 40) {
             title.truncate(40);
             title += "..";
@@ -645,7 +645,7 @@ void QupZilla::aboutToShowBookmarksMenu()
     while (query.next()) {
         QString title = query.value(0).toString();
         QUrl url = query.value(1).toUrl();
-        QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
+        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         if (title.length() > 40) {
             title.truncate(40);
             title += "..";
@@ -673,7 +673,7 @@ void QupZilla::aboutToShowBookmarksMenu()
         while (query2.next()) {
             QString title = query2.value(0).toString();
             QUrl url = query2.value(1).toUrl();
-            QIcon icon = IconProvider::iconFromBase64(query2.value(2).toByteArray());
+            QIcon icon = IconProvider::iconFromImage(QImage::fromData(query2.value(2).toByteArray()));
             if (title.length() > 40) {
                 title.truncate(40);
                 title += "..";

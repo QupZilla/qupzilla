@@ -77,7 +77,7 @@ void RSSManager::refreshTable()
     while (query.next()) {
         QUrl address = query.value(0).toUrl();
         QString title = query.value(1).toString();
-        QIcon icon = IconProvider::iconFromBase64(query.value(2).toByteArray());
+        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         TreeWidget* tree = new TreeWidget();
         tree->setHeaderLabel(tr("News"));
         tree->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -373,18 +373,20 @@ bool RSSManager::addRssFeed(const QString &address, const QString &title, const 
     QSqlQuery query;
     query.exec("SELECT id FROM rss WHERE address='" + address + "'");
     if (!query.next()) {
+        QImage image = icon.pixmap(16, 16).toImage();
         QByteArray iconData;
-        if (icon.pixmap(16, 16).toImage() == QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage()) {
-            iconData = IconProvider::iconToBase64(QIcon(":icons/other/feed.png"));
-        }
-        else {
-            iconData = IconProvider::iconToBase64(icon);
+        if (image == QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage()) {
+            image.load(":icons/other/feed.png");
         }
 
         query.prepare("INSERT INTO rss (address, title, icon) VALUES(?,?,?)");
         query.bindValue(0, address);
         query.bindValue(1, title);
-        query.bindValue(2, iconData);
+        QByteArray ba;
+        QBuffer buffer(&ba);
+        buffer.open(QIODevice::WriteOnly);
+        image.save(&buffer, "PNG");
+        query.bindValue(2, buffer.data());
         mApp->dbWriter()->executeQuery(query);
         return true;
     }

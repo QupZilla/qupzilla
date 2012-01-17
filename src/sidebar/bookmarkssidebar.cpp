@@ -126,7 +126,7 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
     item->setWhatsThis(0, QString::number(bookmark.id));
-    item->setIcon(0, bookmark.icon);
+    item->setIcon(0, IconProvider::iconFromImage(bookmark.image));
     item->setToolTip(0, bookmark.url.toEncoded());
 
     if (bookmark.folder != "unsorted") {

@@ -33,29 +33,27 @@ IconProvider::IconProvider(QObject* parent)
 void IconProvider::saveIcon(WebView* view)
 {
     Icon item;
-    item.icon = view->icon();
+    item.image = view->icon().pixmap(16, 16).toImage();
     item.url = view->url();
 
-    if (item.icon.isNull()) {
+    if (item.image.isNull()) {
         return;
     }
 
-    QPixmap iconPixmap = item.icon.pixmap(16, 16);
     foreach(Icon ic, m_iconBuffer) {
-        if (ic.url == item.url && ic.icon.pixmap(16, 16).toImage() == iconPixmap.toImage()) {
+        if (ic.url == item.url && ic.image == item.image) {
             return;
         }
     }
 
-    item.icon = QIcon(iconPixmap);
     m_iconBuffer.append(item);
 }
 
-QIcon IconProvider::iconForUrl(const QUrl &url)
+QImage IconProvider::iconForUrl(const QUrl &url)
 {
     foreach(Icon ic, m_iconBuffer) {
         if (ic.url == url) {
-            return ic.icon;
+            return ic.image;
         }
     }
 
@@ -64,27 +62,27 @@ QIcon IconProvider::iconForUrl(const QUrl &url)
     query.bindValue(0, url.toEncoded(QUrl::RemoveFragment));
     query.exec();
     if (query.next()) {
-        return iconFromBase64(query.value(0).toByteArray());
+        return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic);
+    return QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage();
 }
 
-QIcon IconProvider::iconForDomain(const QUrl &url)
+QImage IconProvider::iconForDomain(const QUrl &url)
 {
     foreach(Icon ic, m_iconBuffer) {
         if (ic.url.host() == url.host()) {
-            return ic.icon;
+            return ic.image;
         }
     }
 
     QSqlQuery query;
     query.exec("SELECT icon FROM icons WHERE url LIKE '%" + url.host() + "%'");
     if (query.next()) {
-        return iconFromBase64(query.value(0).toByteArray());
+        return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return QIcon();
+    return QImage();
 }
 
 void IconProvider::saveIconsToDatabase()
@@ -102,7 +100,11 @@ void IconProvider::saveIconsToDatabase()
             query.prepare("INSERT INTO icons (icon, url) VALUES (?,?)");
         }
 
-        query.bindValue(0, iconToBase64(ic.icon));
+        QByteArray ba;
+        QBuffer buffer(&ba);
+        buffer.open(QIODevice::WriteOnly);
+        ic.image.save(&buffer, "PNG");
+        query.bindValue(0, buffer.data());
         query.bindValue(1, ic.url.toEncoded(QUrl::RemoveFragment));
         mApp->dbWriter()->executeQuery(query);
     }
@@ -198,6 +200,11 @@ QIcon IconProvider::fromTheme(const QString &icon)
     else {
         return QIcon::fromTheme(icon);
     }
+}
+
+QIcon IconProvider::iconFromImage(const QImage &image)
+{
+    return QIcon(QPixmap::fromImage(image));
 }
 
 QIcon IconProvider::iconFromBase64(const QByteArray &data)

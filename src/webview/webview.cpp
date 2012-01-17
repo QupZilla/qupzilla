@@ -101,11 +101,15 @@ void WebView::slotIconChanged()
 {
     m_siteIcon = icon();
 
-    if (url().scheme() == "file" || title().contains(tr("Failed loading page"))) {
+    if (url().scheme() == "file" || url().scheme() == "qupzilla" || title().contains(tr("Failed loading page"))) {
         return;
     }
 
     mApp->iconProvider()->saveIcon(this);
+
+    if (!m_isLoading) {
+        iconChanged();
+    }
 }
 
 void WebView::copyText()
@@ -234,11 +238,6 @@ void WebView::loadFinished(bool state)
     iconChanged();
     m_lastUrl = url();
 
-    //Icon is sometimes not available at the moment of finished loading
-    if (icon().isNull()) {
-        QTimer::singleShot(1000, this, SLOT(iconChanged()));
-    }
-
     titleChanged();
     mApp->autoFill()->completePage(this);
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
@@ -259,7 +258,6 @@ QLabel* WebView::animationLoading(int index, bool addMovie)
     QLabel* loadingAnimation = qobject_cast<QLabel*>(tabWidget()->getTabBar()->tabButton(index, QTabBar::LeftSide));
     if (!loadingAnimation) {
         loadingAnimation = new QLabel();
-//        loadingAnimation->setStyleSheet("margin: 0px; padding: 0px; width: 16px; height: 16px;");
     }
     if (addMovie && !loadingAnimation->movie()) {
         QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), loadingAnimation);
@@ -315,8 +313,6 @@ void WebView::titleChanged()
 
 void WebView::iconChanged()
 {
-    emit siteIconChanged();
-
     if (m_isLoading) {
         return;
     }
