@@ -91,6 +91,9 @@ Section !$(TITLE_SecMain) SecMain
   File "codecs\qjpcodecs4.dll"
   File "codecs\qkrcodecs4.dll"
   File "codecs\qtwcodecs4.dll"
+  
+  SetOutPath "$INSTDIR\iconengines"
+  File "iconengines\qsvgicon4.dll"
 
   SetOutPath "$INSTDIR\sqldrivers"
   File "sqldrivers\qsqlite4.dll"
@@ -205,6 +208,14 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\pt_PT.qm"
   File "locale\qt_pt.qm"
   SectionEnd
+  
+  Section "Serbian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\sr_BA.qm"
+  File "locale\sr_RS.qm"
+  File "locale\qt_sr_BA.qm"
+  File "locale\qt_sr_RS.qm"
+  SectionEnd
 
 SectionGroupEnd
 
@@ -215,14 +226,13 @@ SectionGroup $(TITLE_SecPlugins) SecPlugins
   SectionEnd
 SectionGroupEnd
 
-
 Section $(TITLE_SecExtensions) SecExtensions
   SetOutPath "$INSTDIR"
   ${registerExtension} "$INSTDIR\qupzilla.exe" ".htm" $(FILE_Htm)
   ${registerExtension} "$INSTDIR\qupzilla.exe" ".html" $(FILE_Html)
 SectionEnd
 
-Section "-StartMenu"
+Section -StartMenu
   SetOutPath "$INSTDIR"
   SetShellVarContext all
   CreateDirectory "$SMPROGRAMS\QupZilla"
@@ -246,13 +256,21 @@ SectionEnd
   !insertmacro MUI_DESCRIPTION_TEXT ${SecThemes} $(DESC_SecThemes)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
-Section "-Uninstaller"
+Section -Uninstaller
   WriteUninstaller "$INSTDIR\uninstall.exe"
   WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\qupzilla.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\Uninstall.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\qupzilla.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
+SectionEnd
+
+Section -MSVC
+  InitPluginsDir
+  SetOutPath $PLUGINSDIR
+  File "wininstall\vcredist_x86.exe"
+  DetailPrint "Installing Visual C++ 2008 Libraries"
+  ExecWait '"$PLUGINSDIR\vcredist_x86.exe" /q:a /c:"msiexec /i vcredist.msi /quiet"'
 SectionEnd
 
 Section Uninstall

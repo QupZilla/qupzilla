@@ -210,17 +210,7 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
         }
     }
 
-    if (!frame && type != QWebPage::NavigationTypeOther) {
-        qDebug() << "coming from javascript";
-    }
-
-//    TabWidget::OpenUrlIn openIn= frame ? TabWidget::CurrentTab: TabWidget::NewTab;
-
     bool accept = QWebPage::acceptNavigationRequest(frame, request, type);
-//    if (accept && openIn == TabWidget::NewTab) {
-//        m_isOpeningNextWindowAsNewTab = true;
-//        p_QupZilla->tabWidget()->addView(request.url(),tr("New tab"), openIn);
-//    }
     return accept;
 }
 
@@ -247,7 +237,6 @@ QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
 //    view->show();
 //    return view->page();
 
-    qDebug() << "createWindow";
     Q_UNUSED(type);
     int index = p_QupZilla->tabWidget()->addView(QUrl(), tr("New tab"), TabWidget::CleanSelectedPage);
     return p_QupZilla->weView(index)->page();
