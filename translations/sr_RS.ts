@@ -697,7 +697,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
         <source>Edit bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Уреди обиљеживач</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
@@ -707,22 +707,22 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="198"/>
         <source>Edit bookmark: </source>
-        <translation type="unfinished"></translation>
+        <translation>Уреди обиљеживач: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
         <source>Title: </source>
-        <translation type="unfinished"></translation>
+        <translation>Име: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="201"/>
         <source>Url: </source>
-        <translation type="unfinished"></translation>
+        <translation>Урл: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="207"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Уређивање обележивача</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="510"/>
@@ -4032,7 +4032,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="201"/>
         <source>Select image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Изабери слику...</translation>
     </message>
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="218"/>
