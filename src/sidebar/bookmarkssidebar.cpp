@@ -239,7 +239,7 @@ void BookmarksSideBar::refreshTable()
         QUrl url = query.value(1).toUrl();
         int id = query.value(2).toInt();
         QString folder = query.value(3).toString();
-        QIcon icon = IconProvider::iconFromBase64(query.value(4).toByteArray());
+        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(4).toByteArray()));
         QTreeWidgetItem* item;
         if (folder == "bookmarksMenu") {
             folder = _bookmarksMenu;

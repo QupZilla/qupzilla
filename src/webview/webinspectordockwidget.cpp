@@ -47,7 +47,7 @@ void WebInspectorDockWidget::close()
 
 void WebInspectorDockWidget::show()
 {
-    if (!m_inspector.data()) {
+    if (!m_inspector) {
         m_inspector = new QWebInspector(this);
         m_inspector.data()->setPage(p_QupZilla->weView()->page());
         setWidget(m_inspector.data());

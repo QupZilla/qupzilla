@@ -484,6 +484,10 @@ QupZilla* MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
         behaviour = QupZilla::NewWindow;
     }
 
+    if (m_mainWindows.count() == 0) {
+        behaviour = QupZilla::FirstAppWindow;
+    }
+
     QupZilla* newWindow = new QupZilla(behaviour, startUrl);
     connect(newWindow, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(sendMessages(MainApplication::MessageType, bool)));
     m_mainWindows.append(newWindow);
@@ -730,6 +734,16 @@ void MainApplication::aboutToCloseWindow(QupZilla* window)
         return;
     }
 
+    if (m_mainWindows.count() == 1) {
+        if (m_browsingLibrary) {
+            m_browsingLibrary->close();
+        }
+
+        if (m_cookiemanager) {
+            m_cookiemanager->close();
+        }
+    }
+
     m_mainWindows.removeOne(window);
 }
 
@@ -773,7 +787,7 @@ bool MainApplication::saveStateSlot()
     settings.endGroup();
 
     QupZilla* qupzilla_ = getWindow();
-    if (qupzilla_) {
+    if (qupzilla_ && m_mainWindows.count() == 1) {
         qupzilla_->tabWidget()->savePinnedTabs();
     }
 

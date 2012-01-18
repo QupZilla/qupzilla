@@ -83,7 +83,7 @@ void WebSearchBar::addSuggestions(const QStringList &list)
 
 void WebSearchBar::openSearchEnginesDialog()
 {
-    if (m_searchDialog.data()) {
+    if (m_searchDialog) {
         m_searchDialog.data()->raise();
         m_searchDialog.data()->activateWindow();
         return;

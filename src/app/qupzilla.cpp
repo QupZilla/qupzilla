@@ -116,7 +116,10 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
 void QupZilla::postLaunch()
 {
     loadSettings();
-    m_tabWidget->restorePinnedTabs();
+
+    if (m_startBehaviour == FirstAppWindow) {
+        m_tabWidget->restorePinnedTabs();
+    }
 
     //Open tab from command line argument
     bool addTab = true;
@@ -833,7 +836,7 @@ void QupZilla::aboutToShowViewMenu()
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
 
-    if (!m_sideBar.data()) {
+    if (!m_sideBar) {
         m_actionShowBookmarksSideBar->setChecked(false);
         m_actionShowHistorySideBar->setChecked(false);
 //        m_actionShowRssSideBar->setChecked(false);
@@ -1119,7 +1122,7 @@ void QupZilla::showHistorySideBar()
 
 void QupZilla::addSideBar()
 {
-    if (m_sideBar.data()) {
+    if (m_sideBar) {
         return;
     }
 
@@ -1180,7 +1183,7 @@ void QupZilla::showWebInspector()
 #ifdef Q_WS_WIN
     weView()->triggerPageAction(QWebPage::InspectElement);
 #else
-    if (m_webInspectorDock.data()) {
+    if (m_webInspectorDock) {
         m_webInspectorDock.data()->setPage(weView()->webPage());
         m_webInspectorDock.data()->show();
         return;
@@ -1510,10 +1513,9 @@ void QupZilla::closeEvent(QCloseEvent* event)
 
     m_isClosing = true;
     mApp->saveStateSlot();
-    mApp->aboutToCloseWindow(this);
 
 #ifndef Q_WS_MAC
-    if (mApp->windowCount() == 0) {
+    if (mApp->windowCount() == 1) {
         if (quitApp()) {
             disconnectObjects();
             event->accept();
@@ -1525,6 +1527,8 @@ void QupZilla::closeEvent(QCloseEvent* event)
         return;
     }
 #endif
+
+    mApp->aboutToCloseWindow(this);
 
     disconnectObjects();
     event->accept();
@@ -1555,7 +1559,7 @@ void QupZilla::disconnectObjects()
 
 bool QupZilla::quitApp()
 {
-    if (m_sideBar.data()) {
+    if (m_sideBar) {
         saveSideBarWidth();
     }
 
@@ -1568,11 +1572,6 @@ bool QupZilla::quitApp()
     settings.setValue("WindowGeometry", geometry());
     settings.setValue("LocationBarWidth", m_navigationBar->splitter()->sizes().at(0));
     settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
-
-    if (m_sideBar.data()) {
-        saveSideBarWidth();
-    }
-
     settings.setValue("SideBarWidth", m_sideBarWidth);
     settings.setValue("WebViewWidth", m_webViewWidth);
     settings.endGroup();

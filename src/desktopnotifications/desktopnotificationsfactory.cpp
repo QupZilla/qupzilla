@@ -50,7 +50,7 @@ void DesktopNotificationsFactory::showNotifications(const QPixmap &icon, const Q
 
     switch (m_notifType) {
     case PopupWidget:
-        if (!m_desktopNotif.data()) {
+        if (!m_desktopNotif) {
             m_desktopNotif = new DesktopNotification();
         }
         m_desktopNotif.data()->setPixmap(icon);
