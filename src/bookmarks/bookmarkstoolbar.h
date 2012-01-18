@@ -21,6 +21,8 @@
 #include <QMenu>
 #include <QToolButton>
 #include <QHBoxLayout>
+#include <QFormLayout>
+#include <QDialogButtonBox>
 #include <QDropEvent>
 
 #include "bookmarksmodel.h"
@@ -54,6 +56,7 @@ private slots:
 
     void moveRight();
     void moveLeft();
+    void editBookmark();
     void removeButton();
 
     void hidePanel();

@@ -706,23 +706,48 @@
         <translation>Mover a la izquierda</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="90"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
+        <source>Edit bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
         <source>Remove bookmark</source>
         <translation>Eliminar marcador</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="458"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="198"/>
+        <source>Edit bookmark: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
+        <source>Title: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="201"/>
+        <source>Url: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="207"/>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="510"/>
         <source>Most visited</source>
         <translation>Más visitados</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="459"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="511"/>
         <source>Sites you visited the most</source>
         <translation>Sitios más visitados</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="495"/>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="546"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="547"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="598"/>
         <source>Empty</source>
         <translation>Vacío</translation>
     </message>
@@ -4036,7 +4061,12 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="213"/>
+        <location filename="../src/plugins/speeddial.cpp" line="201"/>
+        <source>Select image...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/plugins/speeddial.cpp" line="218"/>
         <source>Unable to load</source>
         <translation>No se puede cargar</translation>
     </message>
