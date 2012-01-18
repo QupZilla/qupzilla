@@ -2799,7 +2799,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="103"/>
         <source>QupZilla</source>
-        <translation type="unfinished">QupZilla</translation>
+        <translation>QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="351"/>
@@ -3026,7 +3026,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1213"/>
         <source> - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation> - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1278"/>
@@ -4254,7 +4254,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/webview/webpage.cpp" line="336"/>
         <source>Proxy connection refused</source>
-        <translation>Ligação de rede recusada</translation>
+        <translation>Ligação de proxy recusada</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="339"/>

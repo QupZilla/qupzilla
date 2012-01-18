@@ -15,7 +15,7 @@ $translated_by = "Página traduzida por Sérgio Marques";
 //Home Page
 $actual_version = "Versão atual";
 $actual_version_text = "A versão atual data de ". $qupzilla_version_date .
-					   " e é a versão " . $qupzilla_version . ". As novidades estão no registo de alterações. <br/>Não perca tempo e <a href=\"download\">transfira</a> já!";
+					   " e é a versão " . $qupzilla_version . ". As novidades estão no registo de alterações.<br/>Não perca tempo e <a href=\"download\">transfira</a> já!";
 $actual_version_button = "Transferir";
 $older_versions = "Registo de alterações";
 $older_versions_text = "Pretende saber que alterações foram efetuadas entre as versões? <br/>Encontra-as no <a>registo de alterações</a> do código fonte!";
@@ -27,8 +27,8 @@ $technology = "Tecnologia";
 $technology_text = "O QupZilla é um navegador web baseado no WebKit e na plataforma Qt. O WebKit garante uma navegação <a>rápida</a> e a plataforma Qt disponibiliza a tecnologia para os principais sistemas operativos.";
 $technology_button = "WebKit e Qt";
 $looknfeel_header = "Aparência de acordo com o sistema operativo";
-$looknfeel_text = "O QupZilla utiliza o estilo e os ícones dos ambientes de trabalho Linux. No entanto, se considerar que este aspeto é aborrecido ou caso tenha alguns problemas, pode sempre trocar entre os temas disponíveis.";
-$library_header = "Uniformidade";
+$looknfeel_text = "O QupZilla utiliza o estilo e os ícones dos ambientes de trabalho em que for instalado. No entanto, se considerar que este aspeto é aborrecido ou caso tenha alguns problemas, pode sempre trocar entre os temas disponíveis.";
+$library_header = "Agregação de componentes";
 $library_text = "O QupZilla agrega os marcadores, histórico e fontes RSS numa só janela. Nada de diversas janelas para estes itens!<br/> Com o leitor RSS integrado, tem sempre as suas fontes atualizadas. Para além disso, o QupZilla consegue importar os marcadores de outros navegadores web.";
 $adblock_header = "AdBlock integrado";
 $adblock_text = "Não gosta dos anúncios que algumas páginas web exibem? Estão estes anúncios a gastar largura de banda e fazem-no(a) perder tempo? Com o QupZilla, tudo o que tem de fazer é atualizar a EasyList ou, eventualmente, adicionar as suas regras e pode navegar sem ser importunado.";
@@ -61,12 +61,8 @@ $getting_source_text2 = "e já pode começar a mexer no código. Pode enviar as 
 $translating = "Traduzir o programa";
 $translating_text = "Outra forma de contribuir no desenvolvimento é adicionando ou corrigindo as traduções existentes. Se quiser adicionar um novo idioma, pode gerar o ficheiro manualmente ou contactar-me para que eu o crie por si. Posteriormente, pode enviar o ficheiro traduzido por correio eletrónico ou através do github.";
 $translating_moreinfo = "Pode encontrar mais informações sobre o processo de traduções <a href='https://github.com/	nowrep/QupZilla/wiki/Translating'>aqui</a> [wiki no github]";
-$creators = "Who creates QupZilla?";
-$creators_text = "The project owner, maintainer and main developer is Czech student <b>David Rosca</b> (nowrep).<br/>
-Apart from coding, others are contributing also by making translations or supporting QupZilla. Full list of contributors can be found <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>here</a> [at github].<br/><br/>You can also join IRC channel <b>#qupzilla</b> at irc.freenode.net to chat with poeple involved in QupZilla.";
-// You can delete these (commented) lines after you translate $creators and $creators_text
-//$contributors = "Contributos";
-//$contributors_text = "Para ver a lista dos contributos, aceda <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>aqui</a>.<br/>Também pode participar no canal IRC #qupzilla at irc.freenode.net.";
+$creators = "Quem é o programador do QupZilla?";
+$creators_text = "O criador e programador principal do Qupzilla é um estudante Checo de nome <b>David Rosca</b> (nowrep).<br/>Para além do programador principal, outras pessoas ajudam no desenvolvimento, tradução e apoio ao QupZilla. Pode encontrar a lista de contributos <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>aqui</a> [no github].<br/><br/>Você também pode ajudar. Aceda ao canal IRC do <b>#qupzilla</b> em irc.freenode.net e converse com as pessoas envolvidas no desenvolvimento do QupZilla.";
 $share_with_friends = "Partilhar com os amigos!";
 $share_with_friends_text = "Gosta do QupZilla? Então, partilhe-o com os seus amigos!"
 ?>
