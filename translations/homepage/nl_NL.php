@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Header + Footer
 $site_title = "QupZilla - Lichtgewicht multiplatform-browser";
 $qupzilla = "QupZilla";
@@ -33,8 +33,8 @@ $looknfeel_text = "QupZilla gebruikt de natieve widgets-stijl op grote Linux Bur
 $library_header = "Samenhangende bibliotheek";
 $library_text = "QupZilla hangt bladwijzers, geschiedenis en RSS samen in een goed georganiseerd venster. Geen verschillende venster meer, QupZilla gebruikt er slechts 1!<br/>
 Met de geintegreerde RSS-lezer kunt u up-to-date blijven van uw favoriete sites. QupZilla kan tevens bladwijzers importeren van andere browsers.";
-$adblock_header = "Geintegreerde AdBlock";
-$adblock_text = "Bent u het zat dat sites vol reclame staan? Eten ze uw bandbreedte en tijd op? Het enige wat u hoeft te doen met QupZilla is EasyList updaten of misschien uw eigen regels creeren en begin advertentievrij te surfen.";
+$adblock_header = "Geïntegreerde AdBlock";
+$adblock_text = "Bent u het zat dat sites vol reclame staan? Eten ze uw bandbreedte en tijd op? Het enige wat u hoeft te doen met QupZilla is EasyList updaten of misschien uw eigen regels creëren en begin advertentievrij te surfen.";
 $speeddial_header = "Snelkiezer";
 $speeddial_text = "Deze populaire extensie is eindelijk beschikbaar voor QupZilla-gebruikers! U kunt nu uw favoriete sites zo snel als u wilt bijhouden op 1 pagina op een nieuw tabblad. Wellicht overbodig om te zeggen dat het drag&amp;drop en pagina-voorbeeldweergave ondersteunt.";
 $devnews_header = "Nieuws over de ontwikkeling";
@@ -65,12 +65,9 @@ $getting_source_text2 = "en dan kunt u beginnen met hacken. U kunt uw patches aa
 $translating = "Vertalen naar andere talen";
 $translating_text = "Een andere manier om bij te dragen is vertalingen toe te voegen of huidige te verbeteren. Indien u een nieuwe taal wilt toevoegen, kunt u een vertalingssjabloon creeren of u kunt mij contacteren en dan zal ik het voor u doen. U kunt vertalingen eveneens opsturen via e-mail of op Github.";
 $translating_moreinfo = "Meer info over vertalen <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>hier</a> [wiki op Github]";
-$creators = "Who creates QupZilla?";
-$creators_text = "The project owner, maintainer and main developer is Czech student <b>David Rosca</b> (nowrep).<br/>
-Apart from coding, others are contributing also by making translations or supporting QupZilla. Full list of contributors can be found <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>here</a> [at github].<br/><br/>You can also join IRC channel <b>#qupzilla</b> at irc.freenode.net to chat with poeple involved in QupZilla.";
-// You can delete these (commented) lines after you translate $creators and $creators_text
-//$contributors = "Bijdragers";
-//$contributors_text = "De volledige lijst van bijdragers kunt u vinden op <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>Github</a>.<br/>U kunt tevens naar ons IRC-kanaal #qupzilla op irc.freenode.net.";
+$creators = "Wie creërt QupZilla?";
+$creators_text = "De project-eigenaar, -onderhouder en hoofdontwikkelaar is de Tjechische student <b>David Rosca</b> (nowrep).<br/>
+Buiten het programmeren, dragen anderen tevens bij door het maken van vertalingen of het ondersteunen van QupZilla. Een volledige lijst van bijdragers kan <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>hier</a> worden gevonden [op github].<br/><br/>U kunt tevens deelnemen op ons IRC-kanaal <b>#qupzilla</b> op irc.freenode.net om te chatten met mensen die zich bezig houden met QupZilla.";
 $share_with_friends = "Deel met uw vrienden!";
 $share_with_friends_text = "Vind u QupZilla geweldig? Deel het dan met vrienden!"
 ?>

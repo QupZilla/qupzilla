@@ -705,7 +705,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
         <source>Edit bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerk bladwijzer</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
@@ -715,22 +715,22 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="198"/>
         <source>Edit bookmark: </source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerk bladwijzer: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
         <source>Title: </source>
-        <translation type="unfinished"></translation>
+        <translation>Titel:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="201"/>
         <source>Url: </source>
-        <translation type="unfinished"></translation>
+        <translation>Url:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="207"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerk bladwijzer</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="510"/>
@@ -2700,7 +2700,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="103"/>
         <source>QupZilla</source>
-        <translation type="unfinished">QupZilla</translation>
+        <translation>QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="298"/>
@@ -2835,7 +2835,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1216"/>
         <source> - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation> - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1583"/>
@@ -3275,47 +3275,47 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="261"/>
         <source>Speed Dial settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Snelkiezer-instellingen</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="262"/>
         <source>Placement: </source>
-        <translation type="unfinished"></translation>
+        <translation>Plaatsing: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="263"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="264"/>
         <source>Cover</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlappend</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Passend</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Fit Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas in breedte</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="267"/>
         <source>Fit Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas in hoogte</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
         <source>Use background image</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik achtergrondafbeelding</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
         <source>Select image</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer afbeelding</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
@@ -4099,7 +4099,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="212"/>
         <source>Select image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer afbeelding...</translation>
     </message>
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="244"/>
@@ -4420,7 +4420,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webview.cpp" line="306"/>
         <source> - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation> - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="453"/>

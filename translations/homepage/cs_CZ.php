@@ -14,15 +14,14 @@ $footer_site = "www.qupzilla.com";
 //Home Page
 $actual_version = "Aktuální verze";
 $actual_version_text = "Aktuální verze QupZilly je z ". $qupzilla_version_date . 
-					   " jedná se o verzi " . $qupzilla_version . ". Změny lze nalézt v changelogu. <br/><br/>Neváhejte a <a href=\"download\">stahujte</a> ještě dnes!";
+					   " jedná se o verzi " . $qupzilla_version . ". Změny lze nalézt v changelogu. <br/>Neváhejte a <a href=\"download\">stahujte</a> ještě dnes!";
 $actual_version_button = "DOWNLOAD";
 $older_versions = "Changelog";
 $older_versions_text = "Zajímá Vás co nového se stalo od této verze po tuto? <br/><br/>Kompletní <a>changelogu</a> všech verzí lze nalézt  na githubu!";
 $older_versions_button = "Changelog";
 $reportbug = "Nahlásit chybu";
 $reportbug_text = "Pokud jste našli chybu nebo máte pouze nápad jak <a>vylepšit</a>
-		           QupZillu, právě toto místo je pro Vás!<br/> Váš nápad, připomínka, bug se
-				   bude řešit co nejdříve to bude možné!";
+		           QupZillu, právě toto místo je pro Vás!<br/> Vaše připomínka či bug se bude řešit co nejdříve to bude možné!";
 $reportbug_button = "Nahlásit";
 $technology = "Technologie";
 $technology_text = "QupZilla je moderní webový prohlížeč založený na jádře WebKitu a frameworku Qt. WebKit zaručí <a>rychlé</a> zobrazení stránek a Qt funkčnost na všech
