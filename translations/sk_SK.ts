@@ -2674,7 +2674,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Speed Dial background image</source>
+        <source>Use background image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select image</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -63,8 +63,8 @@ private:
     QString m_initialScript;
     QString m_allPages;
     QString m_thumbnailsDir;
-    QString m_bgImg;
-    QString m_bgImgSize;
+    QString m_backgroundImage;
+    QString m_backgroundImageSize;
     int m_maxPagesInRow;
 
     QList<QWeakPointer<QWebFrame> > m_webFrames;

@@ -255,22 +255,24 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%LOADING-IMG%", "qrc:html/loading.gif");
         dPage.replace("%URL%", tr("Url"));
         dPage.replace("%TITLE%", tr("Title"));
-        dPage.replace("%EDIT%", tr("Apply"));
+        dPage.replace("%APPLY%", tr("Apply"));
         dPage.replace("%NEW-PAGE%", tr("New Page"));
         dPage.replace("%IMG_SETTINGS%", "qrc:html/setting.png");
         dPage.replace("%SETTINGS-TITLE%", tr("Speed Dial settings"));
+        dPage.replace("%TXT_PLACEMENT%", tr("Placement: "));
+        dPage.replace("%TXT_AUTO%", tr("Auto"));
+        dPage.replace("%TXT_COVER%", tr("Cover"));
+        dPage.replace("%TXT_FIT%", tr("Fit"));
+        dPage.replace("%TXT_FWIDTH%", tr("Fit Width"));
+        dPage.replace("%TXT_FHEIGHT%", tr("Fit Height"));
+        dPage.replace("%TXT_NOTE%", tr("Use background image"));
+        dPage.replace("%TXT_SELECTIMAGE%", tr("Select image"));
     }
 
     QString page = dPage;
     page.replace("%INITIAL-SCRIPT%", mApp->plugins()->speedDial()->initialScript());
     page.replace("%IMG_BACKGROUND%", mApp->plugins()->speedDial()->backgroundImage());
     page.replace("%B_SIZE%", mApp->plugins()->speedDial()->backgroundImageSize());
-    page.replace("%TXT_PLACEMENT%", tr("Placement: "));
-    page.replace("%TXT_AUTO%", tr("Auto"));
-    page.replace("%TXT_COVER%", tr("Cover"));
-    page.replace("%TXT_FIT%", tr("Fit"));
-    page.replace("%TXT_FWIDTH%", tr("Fit Width"));
-    page.replace("%TXT_FHEIGHT%", tr("Fit Height"));
-    page.replace("%TXT_NOTE%", tr("Speed Dial background image"));
+    page.replace("%ROW-PAGES%", QString::number(mApp->plugins()->speedDial()->pagesInRow()));
     return page;
 }
