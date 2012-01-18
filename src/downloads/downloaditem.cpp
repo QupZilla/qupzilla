@@ -329,7 +329,7 @@ void DownloadItem::customContextMenuRequested(const QPoint &pos)
 
 void DownloadItem::goToDownloadPage()
 {
-    mApp->getWindow()->tabWidget()->addView(m_downloadPage, tr("New tab"), TabWidget::NewSelectedTab);
+    mApp->getWindow()->tabWidget()->addView(m_downloadPage, TabWidget::NewSelectedTab);
 }
 
 void DownloadItem::copyDownloadLink()

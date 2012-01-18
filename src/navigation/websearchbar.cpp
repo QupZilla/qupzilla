@@ -42,6 +42,7 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
 
     connect(this, SIGNAL(returnPressed()), this, SLOT(search()));
     connect(m_buttonSearch, SIGNAL(clicked(QPoint)), this, SLOT(search()));
+    connect(m_buttonSearch, SIGNAL(middleClicked(QPoint)), this, SLOT(searchInNewTab()));
     connect(m_boxSearchType, SIGNAL(activeItemChanged(ButtonWithMenu::Item)), this, SLOT(searchChanged(ButtonWithMenu::Item)));
 
     setWidgetSpacing(0);
@@ -137,8 +138,14 @@ void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
 
 void WebSearchBar::search()
 {
-    p_QupZilla->weView()->load(m_searchManager->searchUrl(m_activeEngine, text()));
     p_QupZilla->weView()->setFocus();
+    p_QupZilla->weView()->load(m_searchManager->searchUrl(m_activeEngine, text()));
+}
+
+void WebSearchBar::searchInNewTab()
+{
+    p_QupZilla->weView()->setFocus();
+    p_QupZilla->tabWidget()->addView(m_searchManager->searchUrl(m_activeEngine, text()), TabWidget::NewNotSelectedTab);
 }
 
 void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
@@ -202,4 +209,22 @@ void WebSearchBar::dropEvent(QDropEvent* event)
         return;
     }
     QLineEdit::dropEvent(event);
+}
+
+void WebSearchBar::keyPressEvent(QKeyEvent* event)
+{
+    switch (event->key()) {
+    case Qt::Key_Return:
+    case Qt::Key_Enter:
+        if (event->modifiers() ==Qt::AltModifier) {
+            searchInNewTab();
+        }
+        else {
+            search();
+        }
+        break;
+
+    default:
+        LineEdit::keyPressEvent(event);
+    }
 }

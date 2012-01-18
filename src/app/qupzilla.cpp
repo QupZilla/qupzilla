@@ -178,7 +178,7 @@ void QupZilla::postLaunch()
     }
 
     if (addTab) {
-        int index = m_tabWidget->addView(startUrl, tr("New tab"), TabWidget::CleanPage);
+        int index = m_tabWidget->addView(startUrl, TabWidget::CleanPage);
         m_tabWidget->setCurrentIndex(index);
 
         if (startUrl.isEmpty() || startUrl.toString() == "qupzilla:speeddial") {
@@ -976,7 +976,7 @@ void QupZilla::copy()
 
 void QupZilla::goHomeInNewTab()
 {
-    m_tabWidget->addView(m_homepage, tr("New tab"), TabWidget::NewSelectedTab);
+    m_tabWidget->addView(m_homepage, TabWidget::NewSelectedTab);
 }
 
 void QupZilla::loadActionUrl()
@@ -996,7 +996,7 @@ void QupZilla::loadActionUrlInNewTab()
 void QupZilla::loadActionUrlInNewNotSelectedTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        m_tabWidget->addView(action->data().toUrl(), tr("New tab"), TabWidget::NewNotSelectedTab);
+        m_tabWidget->addView(action->data().toUrl(), TabWidget::NewNotSelectedTab);
     }
 }
 

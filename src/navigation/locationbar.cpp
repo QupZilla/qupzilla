@@ -41,6 +41,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , p_QupZilla(mainClass)
     , m_webView(0)
     , m_locationBarSettings(LocationBarSettings::instance())
+    , m_holdingAlt(false)
 {
     setObjectName("locationbar");
 
@@ -88,7 +89,7 @@ void LocationBar::updatePlaceHolderText()
     setPlaceholderText(tr("Enter URL address or search on %1").arg(mApp->searchEnginesManager()->activeEngine().name));
 }
 
-void LocationBar::urlEnter()
+QUrl LocationBar::createUrl()
 {
     QUrl urlToLoad;
 
@@ -114,8 +115,13 @@ void LocationBar::urlEnter()
         }
     }
 
+    return urlToLoad;
+}
+
+void LocationBar::urlEnter()
+{
     m_webView->setFocus();
-    emit loadUrl(urlToLoad);
+    emit loadUrl(createUrl());
 }
 
 void LocationBar::textEdit()
@@ -293,8 +299,6 @@ void LocationBar::mousePressEvent(QMouseEvent* event)
 
 void LocationBar::keyPressEvent(QKeyEvent* event)
 {
-    static QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
-
     switch (event->key()) {
     case Qt::Key_Escape:
         setText(m_webView->url().toEncoded());
@@ -302,27 +306,40 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         break;
 
     case Qt::Key_Alt:
-        if (event->key() == Qt::Key_Alt && m_locationBarSettings->addCountryWithAlt && !text().endsWith(localDomain) && !text().endsWith("/")) {
-            setText(text().append(localDomain));
-        }
-
-        LineEdit::keyPressEvent(event);
+        m_holdingAlt = true;
         break;
 
     case Qt::Key_Return:
     case Qt::Key_Enter:
-        if (event->modifiers() == Qt::ControlModifier) {
+        switch (event->modifiers()) {
+        case Qt::ControlModifier:
             setText(text().append(".com"));
             urlEnter();
-        }
-        else {
+            break;
+
+        case Qt::AltModifier:
+            p_QupZilla->tabWidget()->addView(createUrl(), TabWidget::NewNotSelectedTab);
+            break;
+
+        default:
             urlEnter();
         }
-        break;
-
     default:
+        m_holdingAlt = false;
         LineEdit::keyPressEvent(event);
     }
+}
+
+void LocationBar::keyReleaseEvent(QKeyEvent* event)
+{
+    QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
+
+    if (event->key() == Qt::Key_Alt && m_holdingAlt && m_locationBarSettings->addCountryWithAlt &&
+        !text().endsWith(localDomain) && !text().endsWith("/")) {
+        setText(text().append(localDomain));
+    }
+
+    LineEdit::keyReleaseEvent(event);
 }
 
 LocationBar::~LocationBar()

@@ -33,10 +33,10 @@ public:
 
 signals:
     void clicked(QPoint);
+    void middleClicked(QPoint);
 
 private:
     void mouseReleaseEvent(QMouseEvent* ev);
-    void mouseDoubleClickEvent(QMouseEvent* ev);
 
 };
 

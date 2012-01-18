@@ -245,6 +245,11 @@ void TabWidget::actionChangeIndex()
     }
 }
 
+int TabWidget::addView(const QUrl &url, OpenUrlIn openIn, bool selectLine)
+{
+    return addView(url, tr("New tab"), openIn, selectLine);
+}
+
 int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool selectLine, int position)
 {
     m_lastTabIndex = currentIndex();
@@ -556,7 +561,7 @@ void TabWidget::restorePinnedTabs()
         QByteArray historyState = tabHistory.value(i);
         int addedIndex;
         if (!historyState.isEmpty()) {
-            addedIndex = addView(QUrl(), tr("New tab"), CleanPage);
+            addedIndex = addView(QUrl(), CleanPage);
             QDataStream historyStream(historyState);
             historyStream >> *weView(addedIndex)->history();
             weView(addedIndex)->load(url);
@@ -632,7 +637,7 @@ bool TabWidget::restoreState(const QByteArray &state)
 
         QByteArray historyState = tabHistory.value(i);
         if (!historyState.isEmpty()) {
-            int index = addView(QUrl(), tr("New tab"), CleanPage);
+            int index = addView(QUrl(), CleanPage);
             QDataStream historyStream(historyState);
             historyStream >> *weView(index)->history();
             weView(index)->load(url);

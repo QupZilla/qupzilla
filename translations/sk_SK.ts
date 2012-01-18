@@ -142,7 +142,7 @@
     </message>
     <message>
         <source>New tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
@@ -423,7 +423,7 @@
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Add Folder</source>
@@ -509,7 +509,7 @@
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Open link in &amp;new tab</source>
@@ -953,7 +953,7 @@
     </message>
     <message>
         <source>New tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Sorry, the file 
@@ -1172,7 +1172,7 @@
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>This Month</source>
@@ -1286,7 +1286,7 @@
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>This Month</source>
@@ -2236,7 +2236,7 @@
     </message>
     <message>
         <source>New tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Organize &amp;Bookmarks</source>
@@ -2670,7 +2670,7 @@
     </message>
     <message>
         <source>New Tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Reload</source>
@@ -3266,7 +3266,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>New tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>&amp;Reload Tab</source>
@@ -3397,7 +3397,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>New tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
@@ -3517,7 +3517,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>New tab</source>
-        <translation>Nová karta</translation>
+        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>B&amp;ookmark link</source>

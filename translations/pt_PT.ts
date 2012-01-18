@@ -708,7 +708,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
         <source>Edit bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar marcador</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
@@ -718,22 +718,22 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="198"/>
         <source>Edit bookmark: </source>
-        <translation type="unfinished"></translation>
+        <translation>Editar marcador: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
         <source>Title: </source>
-        <translation type="unfinished"></translation>
+        <translation>Título: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="201"/>
         <source>Url: </source>
-        <translation type="unfinished"></translation>
+        <translation>Url: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="207"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar marcador</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="510"/>
@@ -4063,7 +4063,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="201"/>
         <source>Select image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecione a imagem...</translation>
     </message>
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="218"/>

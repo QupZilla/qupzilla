@@ -25,13 +25,17 @@ ClickableLabel::ClickableLabel(QWidget* parent)
 void ClickableLabel::mouseReleaseEvent(QMouseEvent* ev)
 {
     if (ev->button() == Qt::LeftButton && rect().contains(ev->pos())) {
-        emit clicked(ev->globalPos());
+        if (ev->modifiers() == Qt::ControlModifier) {
+            emit middleClicked(ev->globalPos());
+        }
+        else {
+            emit clicked(ev->globalPos());
+        }
     }
-}
-
-void ClickableLabel::mouseDoubleClickEvent(QMouseEvent* ev)
-{
-    if (ev->button() == Qt::LeftButton) {
-        emit clicked(ev->globalPos());
+    else if (ev->button() == Qt::MiddleButton && rect().contains(ev->pos())) {
+        emit middleClicked(ev->globalPos());
+    }
+    else {
+        QLabel::mouseReleaseEvent(ev);
     }
 }

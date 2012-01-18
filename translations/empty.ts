@@ -196,11 +196,6 @@
         <source>Learn About Writing &amp;Rules</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="60"/>
-        <source>New tab</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>AddAcceptLanguage</name>
@@ -531,11 +526,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
-        <source>New Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="218"/>
         <source>Add Subfolder</source>
         <translation type="unfinished"></translation>
@@ -627,11 +617,6 @@
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.ui" line="32"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="77"/>
-        <source>New Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1260,11 +1245,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="332"/>
-        <source>New tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/downloads/downloaditem.cpp" line="355"/>
         <source>Not found</source>
         <translation type="unfinished"></translation>
@@ -1464,11 +1444,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="84"/>
-        <source>New Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/history/historymanager.cpp" line="99"/>
         <source>Open link in actual tab</source>
         <translation type="unfinished"></translation>
@@ -1598,11 +1573,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="70"/>
-        <source>New Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="93"/>
         <source>Open link in actual tab</source>
         <translation type="unfinished"></translation>
@@ -1652,17 +1622,18 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="50"/>
+        <location filename="../src/navigation/locationbar.cpp" line="51"/>
         <source>Add RSS from this page...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="88"/>
+        <location filename="../src/navigation/locationbar.cpp" line="89"/>
         <source>Enter URL address or search on %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="296"/>
+        <location filename="../src/navigation/locationbar.cpp" line="302"/>
+        <location filename="../src/navigation/locationbar.cpp" line="337"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation type="unfinished"></translation>
@@ -2657,14 +2628,6 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="181"/>
-        <location filename="../src/app/qupzilla.cpp" line="979"/>
-        <location filename="../src/app/qupzilla.cpp" line="999"/>
-        <location filename="../src/app/qupzilla.h" line="154"/>
-        <source>New tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="255"/>
         <source>Private Browsing Enabled</source>
         <translation type="unfinished"></translation>
@@ -3409,12 +3372,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="262"/>
-        <location filename="../src/rss/rssmanager.cpp" line="268"/>
-        <source>New Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/rss/rssmanager.cpp" line="363"/>
         <source>Error in fetching feed</source>
         <translation type="unfinished"></translation>
@@ -4118,12 +4075,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Restore &amp;Closed Tab</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../src/webview/tabbar.cpp" line="344"/>
-        <location filename="../src/webview/tabbar.cpp" line="368"/>
-        <source>New tab</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>TabWidget</name>
@@ -4153,9 +4104,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="559"/>
-        <location filename="../src/webview/tabwidget.cpp" line="635"/>
-        <location filename="../src/webview/tabwidget.h" line="74"/>
+        <location filename="../src/webview/tabwidget.cpp" line="250"/>
+        <location filename="../src/webview/tabwidget.h" line="75"/>
         <source>New tab</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4221,11 +4171,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/webpage.cpp" line="206"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webpage.cpp" line="241"/>
-        <source>New tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4402,13 +4347,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="569"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webview.cpp" line="619"/>
-        <location filename="../src/webview/webview.cpp" line="940"/>
-        <location filename="../src/webview/webview.cpp" line="953"/>
-        <source>New tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

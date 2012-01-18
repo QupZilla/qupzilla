@@ -526,15 +526,14 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
         m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadLinkToDisk()))->setData(url());
         m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
         m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendLinkByMail()))->setData(url());
-        m_menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printThisPage()));
+        m_menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), p_QupZilla, SLOT(printPage()));
         m_menu->addSeparator();
         m_menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
         m_menu->addSeparator();
         if (url().scheme() == "http" || url().scheme() == "https") {
 //             bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
-//                 if (result) {
+//                 if (result)
             m_menu->addAction(tr("Validate page"), this, SLOT(openUrlInNewTab()))->setData("http://validator.w3.org/check?uri=" + url().toString());
-//                 }
         }
 
         m_menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
@@ -576,7 +575,7 @@ void WebView::contextMenuEvent(QContextMenuEvent* event)
     }
 
 #if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
-//    still bugged in 4.8 RC (it shows selection of webkit's internal source, not html from page)
+//    still bugged? in 4.8 RC (it shows selection of webkit's internal source, not html from page)
 //    it may or may not be bug, but this implementation is useless for us
 //
 //    if (!selectedHtml().isEmpty())
@@ -616,7 +615,7 @@ void WebView::addNotification(QWidget* notif)
 void WebView::openUrlInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        tabWidget()->addView(action->data().toUrl(), tr("New tab"), TabWidget::NewBackgroundTab);
+        tabWidget()->addView(action->data().toUrl(), TabWidget::NewBackgroundTab);
     }
 }
 
@@ -644,7 +643,7 @@ void WebView::copyLinkToClipboard()
 void WebView::searchSelectedText()
 {
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
-    load(engine.url.replace("%s", selectedText()));
+    tabWidget()->addView(engine.url.replace("%s", selectedText()), TabWidget::NewBackgroundTab);
 }
 
 void WebView::selectAll()
@@ -867,11 +866,6 @@ bool WebView::isUrlValid(const QUrl &url)
     return false;
 }
 
-void WebView::printThisPage()
-{
-    p_QupZilla->printPage();
-}
-
 // ClickedFrame slots
 
 void WebView::loadClickedFrame()
@@ -937,7 +931,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         break;
     case Qt::MiddleButton:
         if (isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewBackgroundTab);
+            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), TabWidget::NewBackgroundTab);
             event->accept();
             return;
         }
@@ -950,7 +944,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         break;
     case Qt::LeftButton:
         if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), tr("New tab"), TabWidget::NewBackgroundTab);
+            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), TabWidget::NewBackgroundTab);
             event->accept();
             return;
         }

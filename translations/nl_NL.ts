@@ -205,9 +205,8 @@
         <translation>Leer over het schrijven van &amp;regels</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="60"/>
         <source>New tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
 </context>
 <context>
@@ -529,9 +528,8 @@
         <translation>Kies naam voor nieuwe bladwijzermap: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
@@ -638,9 +636,8 @@
         <translation>Zoeken...</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="77"/>
         <source>New Tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
@@ -1269,9 +1266,8 @@
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="332"/>
         <source>New tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="355"/>
@@ -1475,9 +1471,8 @@ werd niet gevonden!</translation>
         <translation>Optimaliseer database</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="84"/>
         <source>New Tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="99"/>
@@ -1609,9 +1604,8 @@ werd niet gevonden!</translation>
         <translation>Titel</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="70"/>
         <source>New Tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="93"/>
@@ -1663,17 +1657,18 @@ werd niet gevonden!</translation>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="50"/>
+        <location filename="../src/navigation/locationbar.cpp" line="51"/>
         <source>Add RSS from this page...</source>
         <translation>Voeg RSS toe van deze pagina...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="88"/>
+        <location filename="../src/navigation/locationbar.cpp" line="89"/>
         <source>Enter URL address or search on %1</source>
         <translation>Voer URL-adres in of zoek op %1</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="296"/>
+        <location filename="../src/navigation/locationbar.cpp" line="302"/>
+        <location filename="../src/navigation/locationbar.cpp" line="337"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.nl</translation>
@@ -2946,12 +2941,8 @@ werd niet gevonden!</translation>
         <translation>Leeg</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="181"/>
-        <location filename="../src/app/qupzilla.cpp" line="979"/>
-        <location filename="../src/app/qupzilla.cpp" line="999"/>
-        <location filename="../src/app/qupzilla.h" line="154"/>
         <source>New tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="619"/>
@@ -3435,10 +3426,8 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
         <translation>Open link in nieuw tabblad</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="262"/>
-        <location filename="../src/rss/rssmanager.cpp" line="268"/>
         <source>New Tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="363"/>
@@ -4077,10 +4066,8 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="344"/>
-        <location filename="../src/webview/tabbar.cpp" line="368"/>
         <source>New tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="107"/>
@@ -4181,9 +4168,8 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Eigenlijk heeft U %1 geopende tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="559"/>
-        <location filename="../src/webview/tabwidget.cpp" line="635"/>
-        <location filename="../src/webview/tabwidget.h" line="74"/>
+        <location filename="../src/webview/tabwidget.cpp" line="250"/>
+        <location filename="../src/webview/tabwidget.h" line="75"/>
         <source>New tab</source>
         <translation>Nieuw tabblad</translation>
     </message>
@@ -4253,9 +4239,8 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 (zoals zoeken op het maken van een shoping, welke al gedaan is.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="241"/>
         <source>New tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="313"/>
@@ -4585,11 +4570,8 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Niet benoemde pagina</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="619"/>
-        <location filename="../src/webview/webview.cpp" line="940"/>
-        <location filename="../src/webview/webview.cpp" line="953"/>
         <source>New tab</source>
-        <translation>Nieuw tabblad</translation>
+        <translation type="obsolete">Nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="458"/>

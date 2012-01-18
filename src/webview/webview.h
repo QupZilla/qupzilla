@@ -124,7 +124,6 @@ private slots:
     void setIp(const QHostInfo &info);
     void checkRss();
     void slotIconChanged();
-    void printThisPage();
 
     // ClickedFrame
     void loadClickedFrame();

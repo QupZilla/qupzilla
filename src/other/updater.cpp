@@ -118,7 +118,7 @@ void Updater::downCompleted(QNetworkReply* reply)
 
 void Updater::downloadNewVersion()
 {
-    p_QupZilla->tabWidget()->addView(QUrl(QupZilla::WWWADDRESS + "/download.php"), tr("Update"), TabWidget::NewSelectedTab);
+    p_QupZilla->tabWidget()->addView(QUrl(QupZilla::WWWADDRESS + "/download"), tr("Update"), TabWidget::NewSelectedTab);
 }
 
 Updater::~Updater()
