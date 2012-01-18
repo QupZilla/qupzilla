@@ -196,6 +196,11 @@ void SpeedDial::removeImageForUrl(const QString &url)
     }
 }
 
+QString SpeedDial::getOpenFileName()
+{
+    return QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), "(*.png *.jpg *.jpeg)");
+}
+
 void SpeedDial::thumbnailCreated(const QPixmap &image)
 {
     PageThumbnailer* thumbnailer = qobject_cast<PageThumbnailer*>(sender());

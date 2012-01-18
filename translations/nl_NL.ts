@@ -706,23 +706,48 @@
         <translation>Verplaats naar links</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="90"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
+        <source>Edit bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
         <source>Remove bookmark</source>
         <translation>Verwijder bladwijzer</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="458"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="198"/>
+        <source>Edit bookmark: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
+        <source>Title: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="201"/>
+        <source>Url: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="207"/>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="510"/>
         <source>Most visited</source>
         <translation>Meest bezocht</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="459"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="511"/>
         <source>Sites you visited the most</source>
         <translation>Websites die u het meest bezocht heeft</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="495"/>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="546"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="547"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="598"/>
         <source>Empty</source>
         <translation>Leeg</translation>
     </message>
@@ -4039,7 +4064,12 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="213"/>
+        <location filename="../src/plugins/speeddial.cpp" line="201"/>
+        <source>Select image...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/plugins/speeddial.cpp" line="218"/>
         <source>Unable to load</source>
         <translation>Niet in staat om te laden</translation>
     </message>

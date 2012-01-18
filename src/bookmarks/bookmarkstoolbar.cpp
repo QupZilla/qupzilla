@@ -86,6 +86,7 @@ void BookmarksToolbar::showBookmarkContextMenu(const QPoint &pos)
     QMenu menu;
     menu.addAction(IconProvider::fromTheme("go-next"), tr("Move right"), this, SLOT(moveRight()))->setData(buttonPointer);
     menu.addAction(IconProvider::fromTheme("go-previous"), tr("Move left"), this, SLOT(moveLeft()))->setData(buttonPointer);
+    menu.addAction(tr("Edit bookmark"), this, SLOT(editBookmark()))->setData(buttonPointer);
     menu.addSeparator();
     menu.addAction(IconProvider::fromTheme("list-remove"), tr("Remove bookmark"), this, SLOT(removeButton()))->setData(buttonPointer);
 
@@ -167,6 +168,57 @@ void BookmarksToolbar::moveLeft()
 
     QWidget* w = m_layout->takeAt(index)->widget();
     m_layout->insertWidget(index - 1, w);
+}
+
+void BookmarksToolbar::editBookmark()
+{
+    QAction* act = qobject_cast<QAction*> (sender());
+    if (!act) {
+        return;
+    }
+
+    ToolButton* button = static_cast<ToolButton*>(act->data().value<void*>());
+    if (!button) {
+        return;
+    }
+
+    Bookmark b = button->data().value<Bookmark>();
+
+    QDialog* dialog = new QDialog(this);
+    QFormLayout* layout = new QFormLayout(dialog);
+    QLabel* label = new QLabel(dialog);
+    QLineEdit* editUrl = new QLineEdit(dialog);
+    QLineEdit* editTitle = new QLineEdit(dialog);
+    QDialogButtonBox* box = new QDialogButtonBox(dialog);
+    box->addButton(QDialogButtonBox::Ok);
+    box->addButton(QDialogButtonBox::Cancel);
+    connect(box, SIGNAL(rejected()), dialog, SLOT(reject()));
+    connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
+
+    label->setText(tr("Edit bookmark: "));
+    layout->addRow(label);
+    layout->addRow(new QLabel(tr("Title: ")), editTitle);
+    layout->addRow(new QLabel(tr("Url: ")), editUrl);
+    layout->addRow(box);
+
+    editUrl->setText(b.url.toString());
+    editTitle->setText(b.title);
+
+    dialog->setWindowTitle(tr("Edit Bookmark"));
+    dialog->setMinimumSize(400, 100);
+    dialog->exec();
+    if (dialog->result() == QDialog::Rejected) {
+        return;
+    }
+
+    QString url = editUrl->text();
+    QString title = editTitle->text();
+
+    if (url.isEmpty() || title.isEmpty()) {
+        return;
+    }
+
+    m_bookmarksModel->editBookmark(b.id, title, url, b.folder);
 }
 
 void BookmarksToolbar::removeButton()

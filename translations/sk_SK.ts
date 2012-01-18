@@ -574,6 +574,26 @@
         <source>Bookmark &amp;All Tabs</source>
         <translation>Pridať všetky k&amp;arty do záložiek</translation>
     </message>
+    <message>
+        <source>Edit bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit bookmark: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url: </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksWidget</name>
@@ -3216,6 +3236,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Unable to load</source>
         <translation>Nepodarilo sa načítať</translation>
+    </message>
+    <message>
+        <source>Select image...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

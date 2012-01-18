@@ -706,23 +706,52 @@
         <translation>Posunout doleva</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="90"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
+        <source>Edit bookmark</source>
+        <translation>Upravit záložku</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
         <source>Remove bookmark</source>
         <translation>Odstranit záložku</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="458"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="198"/>
+        <source>Edit bookmark: </source>
+        <translation>Upravit záložku:</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
+        <source>Title: </source>
+        <translation>Titulek:</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="201"/>
+        <source>Url: </source>
+        <translation>Url:</translation>
+    </message>
+    <message>
+        <source>URL: </source>
+        <translation type="obsolete">Url:</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="207"/>
+        <source>Edit Bookmark</source>
+        <translation>Upravit záložku</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="510"/>
         <source>Most visited</source>
         <translation>Nejnavštěvovanější</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="459"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="511"/>
         <source>Sites you visited the most</source>
         <translation>Nejvíce navštěvované stránky</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="495"/>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="546"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="547"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="598"/>
         <source>Empty</source>
         <translation>Prázdný</translation>
     </message>
@@ -4039,7 +4068,12 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="213"/>
+        <location filename="../src/plugins/speeddial.cpp" line="201"/>
+        <source>Select image...</source>
+        <translation>Zvolte obrázek...</translation>
+    </message>
+    <message>
+        <location filename="../src/plugins/speeddial.cpp" line="218"/>
         <source>Unable to load</source>
         <translation>Nepodařilo se načíst</translation>
     </message>
