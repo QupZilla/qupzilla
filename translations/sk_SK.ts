@@ -2645,6 +2645,38 @@
         <source>Please fill out all required fields!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Speed Dial settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Placement: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed Dial background image</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
