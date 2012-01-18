@@ -3,8 +3,8 @@
 <title>%SITE-TITLE%</title>
 <link rel="icon" href="%FAVICON%" type="image/x-icon" />
 <style type="text/css" media="screen">
-html {background: #eeeeee url(%IMG_BACKGROUND%) no-repeat center center;background-size: %B_SIZE%;font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color: #525c66;}
-html * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
+body {background: #eeeeee url(%IMG_BACKGROUND%) no-repeat center center;background-size: %B_SIZE%;font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color: #525c66;}
+body * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
 .add {position: absolute;right:10px;top:10px;width: 24px;height: 24px;background: url(%IMG_PLUS%); cursor: pointer;}
 
 #quickdial {max-width: 1044px;margin: auto;}
@@ -31,6 +31,17 @@ span.reload:hover {border-color: grey; border-radius: 4px;}
 
 .formTable {width: 350px;margin-left: auto;margin-right: auto;margin-top: 15px;}
 .formTable input[type="text"] {width: 100%;-webkit-user-select: auto;}
+
+.sett {position: absolute;right:36px;top:10px;width: 24px;height: 24px;background: url(%IMG_SETTINGS%); cursor: pointer;}
+#settingsBox {position: absolute;right:58px;top:25px;width: 240px;height: 135px;background: #eeeeee;margin: 5px;-webkit-box-shadow: 0 0 6px 6px#888;box-shadow: 0 0 6px 6px #888;border-radius: 15px;display: none;padding:8px 20px;border: 1px solid transparent;}
+#settingsBox .title {margin-bottom: 1px;padding-bottom:2px;}
+#settingsBox .content {float:right;}
+#settingsBox .thumbhold {margin: 2px;padding: 1px;border-radius: 10px;text-align:center;width: 100px; height: 100px;background: #AAA;}
+#settingsBox .thumbhold p {margin: 0;padding: 0;background: #eeeeee url(%IMG_BACKGROUND%) no-repeat center center;background-size: %B_SIZE%;width: 98px;height:98px;border-radius: 10px;position: relative;left: 1px;top: 1px;}
+#settingsBox p label {margin: 2px;padding: 1px;text-align: center;}
+#settingsBox p select {margin: 2px;padding: 1px;text-align: center;width: 100px;}
+#settingsBox p select option {text-align: center;}
+#settingsBox .button {margin: 2px;padding: 1px;text-align:center;width: 100px;}
 </style>
 <script type="text/javascript" src="%JQUERY%"></script>
 <script type="text/javascript" src="%JQUERY-UI%"></script>
@@ -273,11 +284,73 @@ function alignPage() {
     if (margintop < 0) margintop = 0;
     $("#quickdial").css('margin-top', margintop + 'px');
 }
+
+function toggleDisplay(id) {
+    var div = document.getElementById(id);
+    div.style.display = (div.style.display == 'block' ? 'none' : 'block');
+}
+
+function checkSet() {
+    var checkb = document.getElementById('BgImgToggle');
+    var BgImgSel = document.getElementById('BgImgSel');
+    var BgImgSz = document.getElementById('BgImgSelSiz');
+    var bgImg = '%IMG_BACKGROUND%';
+    checkb.checked = (bgImg == '' ? false : true);
+    BgImgSel.disabled = (bgImg == '' ? true : false);
+    BgImgSz.disabled = (bgImg == '' ? true : false);
+}
+
+function bgImageSel() {
+    var img = speeddial.getOpenFileName();
+    if (img) {
+      document.getElementById('BgImgHold').value = 'file://' + img;
+    }
+}
+
+function saveSettings() {
+    var BgImg = document.getElementById('BgImgHold').value;
+    var BgImgSz = document.getElementById('BgImgSelSiz').value;
+    speeddial.setBackgroundImage(BgImg);
+    speeddial.setBackgroundImageSize(BgImgSz);
+}
+
+function bgImgToggle() {
+    var check = document.getElementById('BgImgToggle');
+    var BgImgSel = document.getElementById('BgImgSel');
+    var BgImgHold = document.getElementById('BgImgHold');
+    var BgImgSz = document.getElementById('BgImgSelSiz');
+    if (check.checked) {
+      BgImgSel.disabled = false;
+      BgImgHold.disabled = false;
+      BgImgSz.disabled = false;
+      BgImgHold.value = '%IMG_BACKGROUND%';
+    }
+    else {
+      BgImgSel.disabled = true;
+      BgImgHold.disabled = true;
+      BgImgSz.disabled = true;
+      BgImgHold.value = '';
+    }
+}
+
+function bgImgUpdate() {
+    var imgUrl = document.getElementById('BgImgHold').value;
+    var imgSize = document.getElementById('BgImgSelSiz').value;
+    var imgThumb = document.getElementById('thumb');
+    imgThumb.style.backgroundImage = 'url("' + imgUrl + '")';
+    imgThumb.title = imgUrl.substring(imgUrl.lastIndexOf('/')+1);
+    imgThumb.style.backgroundSize = imgSize;
+    document.body.style.backgroundImage = 'url("' + imgUrl + '")';
+    document.body.style.backgroundSize = imgSize;
+}
+
+document.addEventListener("DOMContentLoaded", checkSet, false);
 </script>
 </head>
 
 <body>
 <div id="quickdial"></div>
+<a onClick="toggleDisplay('settingsBox');" title="%SETTINGS-TITLE%" class="sett"></a>
 <a onClick="onEditClick(addBox('', NEW_PAGE, '')); alignPage();" title="%ADD-TITLE%" class="add"></a>
 
 <script type="text/javascript">
@@ -297,6 +370,29 @@ $("#quickdial").sortable({
     }
 });
 </script>
+<div id="settingsBox">
+  <div class="title"><input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label></div>
+  <div class="content">
+    <p>
+      <input id="BgImgSel" type="button" class="button" value="Select image" onclick="bgImageSel();bgImgUpdate()" />
+      <input id="BgImgHold" type="hidden" value="%IMG_BACKGROUND%" />
+    </p>
+    <p>
+      <label for="BgImgSelSiz">%TXT_PLACEMENT%</label><br />
+      <select id="BgImgSelSiz" name="imgselsize" onchange="bgImgUpdate()">
+        <option value="auto">%TXT_AUTO%</option>
+        <option value="cover">%TXT_COVER%</option>
+        <option value="contain">%TXT_FIT%</option>
+        <option value="100% auto">%TXT_FWIDTH%</option>
+        <option value="auto 100%">%TXT_FHEIGHT%</option>
+      </select>
+    </p>
+    <p>
+      <input class="button" type="button" value="Apply" onClick="saveSettings();" />
+    </p>
+  </div>
+  <div class="thumbhold"><p id="thumb" ></p></div>
+</div>
 </body>
 </html>
 

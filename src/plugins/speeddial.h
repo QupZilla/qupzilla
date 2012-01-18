@@ -39,6 +39,7 @@ public:
     void addWebFrame(QWebFrame* frame);
     void addPage(const QUrl &url, const QString &title);
 
+    int pagesInRow();
     QString backgroundImage();
     QString backgroundImageSize();
     QString initialScript();
@@ -51,6 +52,9 @@ public slots:
     Q_INVOKABLE void removeImageForUrl(const QString &url);
 
     Q_INVOKABLE QString getOpenFileName();
+    Q_INVOKABLE void setBackgroundImage(const QString &image);
+    Q_INVOKABLE void setBackgroundImageSize(const QString &size);
+    Q_INVOKABLE void setPagesInRow(int count);
 
 private slots:
     void thumbnailCreated(const QPixmap &image);
@@ -61,6 +65,7 @@ private:
     QString m_thumbnailsDir;
     QString m_bgImg;
     QString m_bgImgSize;
+    int m_maxPagesInRow;
 
     QList<QWeakPointer<QWebFrame> > m_webFrames;
 
