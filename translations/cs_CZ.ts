@@ -3279,42 +3279,47 @@ nebyl nalezen!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="261"/>
         <source>Speed Dial settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení rychlé volby</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="262"/>
+        <source>Placement: </source>
+        <translation>Umístění:</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="263"/>
+        <source>Auto</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="264"/>
+        <source>Cover</source>
+        <translation>Krytí</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="265"/>
+        <source>Fit</source>
+        <translation>Přizpůsobit</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="266"/>
+        <source>Fit Width</source>
+        <translation>Přizpůsobit šířce</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="267"/>
+        <source>Fit Height</source>
+        <translation>Přizpůsobit výšce</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
-        <source>Placement: </source>
-        <translation type="unfinished"></translation>
+        <source>Use background image</source>
+        <translation>Použít obrázek na pozadí</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
-        <source>Auto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
-        <source>Cover</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
-        <source>Fit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="272"/>
-        <source>Fit Width</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="273"/>
-        <source>Fit Height</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="274"/>
-        <source>Speed Dial background image</source>
-        <translation type="unfinished"></translation>
+        <source>Select image</source>
+        <translation>Zvolit obrázek</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>

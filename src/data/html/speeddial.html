@@ -7,7 +7,7 @@ body {background: #eeeeee url(%IMG_BACKGROUND%) no-repeat center center;backgrou
 body * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
 .add {position: absolute;right:10px;top:10px;width: 24px;height: 24px;background: url(%IMG_PLUS%); cursor: pointer;}
 
-#quickdial {max-width: 1044px;margin: auto;}
+#quickdial {margin: auto;}
 #quickdial div.entry {position: relative;width: 231px;height: 150px;float: left;border-width: 10px;
 -webkit-border-image: url(%BOX-BORDER%) 10;margin: 5px;}
 #quickdial img {display: block;margin: auto;}
@@ -49,12 +49,13 @@ span.reload:hover {border-color: grey; border-radius: 4px;}
 var LOADING_IMAGE = '%LOADING-IMG%';
 var URL = '%URL%';
 var TITLE = '%TITLE%';
-var EDIT = '%EDIT%';
+var EDIT = '%APPLY%';
 var NEW_PAGE = '%NEW-PAGE%';
 var TITLE_EDIT = '%TITLE-EDIT%';
 var TITLE_REMOVE = '%TITLE-REMOVE%';
 var TITLE_RELOAD = '%TITLE-RELOAD%';
 var TITLE_FETCHTITLE = '%TITLE-FETCHTITLE%';
+var MAX_PAGES_ROW = %ROW-PAGES%;
 
 var editingId = -1;
 
@@ -270,12 +271,12 @@ function alignPage() {
     var width = $(window).width();
     var height = $(window).height();
 
-    // 1 box width: 261px
-    var maxBoxes = Math.floor(width / 261);
-    if (maxBoxes > 4) maxBoxes = 4;
+    // 1 box width: 262px
+    var maxBoxes = Math.floor(width / 262);
+    if (maxBoxes > MAX_PAGES_ROW) maxBoxes = MAX_PAGES_ROW;
     if (maxBoxes < 1) maxBoxes = 1;
 
-    var maxwidth = maxBoxes * 261;
+    var maxwidth = maxBoxes * 262;
     $("#quickdial").css('width', maxwidth + 'px');
 
     var boxesCount = $("#quickdial").children("div").size();
@@ -374,7 +375,7 @@ $("#quickdial").sortable({
   <div class="title"><input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label></div>
   <div class="content">
     <p>
-      <input id="BgImgSel" type="button" class="button" value="Select image" onclick="bgImageSel();bgImgUpdate()" />
+      <input id="BgImgSel" type="button" class="button" value="%TXT_SELECTIMAGE%" onclick="bgImageSel();bgImgUpdate()" />
       <input id="BgImgHold" type="hidden" value="%IMG_BACKGROUND%" />
     </p>
     <p>
@@ -388,7 +389,7 @@ $("#quickdial").sortable({
       </select>
     </p>
     <p>
-      <input class="button" type="button" value="Apply" onClick="saveSettings();" />
+      <input class="button" type="button" value="%APPLY%" onClick="saveSettings();document.getElementById('settingsBox').style.display  = 'none';" />
     </p>
   </div>
   <div class="thumbhold"><p id="thumb" ></p></div>
