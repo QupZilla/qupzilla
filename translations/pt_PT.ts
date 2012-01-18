@@ -205,9 +205,8 @@
         <translation>Saber mais sobre as &amp;regras</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="60"/>
         <source>New tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
 </context>
 <context>
@@ -539,9 +538,8 @@
         <translation>Escolha o nome da pasta: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="218"/>
@@ -638,9 +636,8 @@
         <translation>Procurar...</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="77"/>
         <source>New Tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
@@ -1268,17 +1265,16 @@
         <translation>Erro</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="332"/>
         <source>New tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="355"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="362"/>
         <source>Not found</source>
         <translation>Não encontrado</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="355"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="362"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
@@ -1287,12 +1283,12 @@
 não foi encontrado!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="371"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="378"/>
         <source>Error: Cannot write to file!</source>
         <translation>Erro: incapaz de escrever no ficheiro!</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="383"/>
+        <location filename="../src/downloads/downloaditem.cpp" line="390"/>
         <source>Error: </source>
         <translation>Erro: </translation>
     </message>
@@ -1474,9 +1470,8 @@ não foi encontrado!</translation>
         <translation>Otimizar base de dados</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="84"/>
         <source>New Tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="99"/>
@@ -1608,9 +1603,8 @@ não foi encontrado!</translation>
         <translation>Título</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="70"/>
         <source>New Tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="93"/>
@@ -1662,17 +1656,17 @@ não foi encontrado!</translation>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="50"/>
+        <location filename="../src/navigation/locationbar.cpp" line="51"/>
         <source>Add RSS from this page...</source>
         <translation>Adicionar RSS desta página...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="88"/>
+        <location filename="../src/navigation/locationbar.cpp" line="89"/>
         <source>Enter URL address or search on %1</source>
         <translation>Indique o URL ou procure em %1</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="296"/>
+        <location filename="../src/navigation/locationbar.cpp" line="335"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.pt</translation>
@@ -1681,12 +1675,12 @@ não foi encontrado!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="798"/>
+        <location filename="../src/app/mainapplication.cpp" line="812"/>
         <source>Last session crashed</source>
         <translation>A última sessão terminou abruptamente</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="799"/>
+        <location filename="../src/app/mainapplication.cpp" line="813"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;A última sessão do QupZilla terminou abruptamente :-(&lt;/b&gt;&lt;br/&gt; Pedimos desculpa pelo ocorrido. Pretende que o QupZilla tente restaurar a última sessão?</translation>
     </message>
@@ -2672,155 +2666,151 @@ não foi encontrado!</translation>
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="181"/>
-        <location filename="../src/app/qupzilla.cpp" line="979"/>
-        <location filename="../src/app/qupzilla.cpp" line="999"/>
-        <location filename="../src/app/qupzilla.h" line="154"/>
         <source>New tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="255"/>
+        <location filename="../src/app/qupzilla.cpp" line="258"/>
         <source>Private Browsing Enabled</source>
         <translation>Navegação privada ativada</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="259"/>
+        <location filename="../src/app/qupzilla.cpp" line="262"/>
         <source>IP Address of current page</source>
         <translation>Endereço IP da página atual</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="295"/>
+        <location filename="../src/app/qupzilla.cpp" line="298"/>
         <source>&amp;Tools</source>
         <translation>Ferramen&amp;tas</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="296"/>
+        <location filename="../src/app/qupzilla.cpp" line="299"/>
         <source>&amp;Help</source>
         <translation>Aj&amp;uda</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="297"/>
+        <location filename="../src/app/qupzilla.cpp" line="300"/>
         <source>&amp;Bookmarks</source>
         <translation>&amp;Marcadores</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="298"/>
+        <location filename="../src/app/qupzilla.cpp" line="301"/>
         <source>Hi&amp;story</source>
         <translation>Hi&amp;stórico</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="306"/>
+        <location filename="../src/app/qupzilla.cpp" line="309"/>
         <source>&amp;File</source>
         <translation>&amp;Ficheiro</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="307"/>
+        <location filename="../src/app/qupzilla.cpp" line="310"/>
         <source>&amp;New Window</source>
         <translation>&amp;Nova janela</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="308"/>
+        <location filename="../src/app/qupzilla.cpp" line="311"/>
         <source>New Tab</source>
         <translation>Novo separador</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="309"/>
+        <location filename="../src/app/qupzilla.cpp" line="312"/>
         <source>Open Location</source>
         <translation>Abrir localização</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="310"/>
+        <location filename="../src/app/qupzilla.cpp" line="313"/>
         <source>Open &amp;File</source>
         <translation>Abrir &amp;ficheiro</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="311"/>
+        <location filename="../src/app/qupzilla.cpp" line="314"/>
         <source>Close Tab</source>
         <translation>Fechar separador</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="312"/>
+        <location filename="../src/app/qupzilla.cpp" line="315"/>
         <source>Close Window</source>
         <translation>Fechar janela</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="315"/>
+        <location filename="../src/app/qupzilla.cpp" line="318"/>
         <source>&amp;Save Page As...</source>
         <translation>Gra&amp;var página como...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="316"/>
+        <location filename="../src/app/qupzilla.cpp" line="319"/>
         <source>Save Page Screen</source>
         <translation>Gravar ecrã da página</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="317"/>
+        <location filename="../src/app/qupzilla.cpp" line="320"/>
         <source>Send Link...</source>
         <translation>Enviar ligação...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="318"/>
+        <location filename="../src/app/qupzilla.cpp" line="321"/>
         <source>&amp;Print</source>
         <translation>Im&amp;primir</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="321"/>
+        <location filename="../src/app/qupzilla.cpp" line="324"/>
         <source>Import bookmarks...</source>
         <translation>Importar marcadores...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="288"/>
+        <location filename="../src/app/qupzilla.cpp" line="291"/>
         <source>Quit</source>
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="331"/>
+        <location filename="../src/app/qupzilla.cpp" line="334"/>
         <source>&amp;Edit</source>
         <translation>&amp;Editar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="332"/>
+        <location filename="../src/app/qupzilla.cpp" line="335"/>
         <source>&amp;Undo</source>
         <translation>An&amp;ular</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="333"/>
+        <location filename="../src/app/qupzilla.cpp" line="336"/>
         <source>&amp;Redo</source>
         <translation>&amp;Refazer</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="335"/>
+        <location filename="../src/app/qupzilla.cpp" line="338"/>
         <source>&amp;Cut</source>
         <translation>&amp;Cortar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="336"/>
+        <location filename="../src/app/qupzilla.cpp" line="339"/>
         <source>C&amp;opy</source>
         <translation>C&amp;opiar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="337"/>
+        <location filename="../src/app/qupzilla.cpp" line="340"/>
         <source>&amp;Paste</source>
         <translation>Co&amp;lar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="338"/>
+        <location filename="../src/app/qupzilla.cpp" line="341"/>
         <source>&amp;Delete</source>
         <translation>E&amp;liminar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="340"/>
+        <location filename="../src/app/qupzilla.cpp" line="343"/>
         <source>Select &amp;All</source>
         <translation>Selecion&amp;ar tudo</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="341"/>
+        <location filename="../src/app/qupzilla.cpp" line="344"/>
         <source>&amp;Find</source>
         <translation>Locali&amp;zar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="283"/>
+        <location filename="../src/app/qupzilla.cpp" line="286"/>
         <source>Pr&amp;eferences</source>
         <translation>Pr&amp;eferências</translation>
     </message>
@@ -2830,274 +2820,274 @@ não foi encontrado!</translation>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="351"/>
+        <location filename="../src/app/qupzilla.cpp" line="354"/>
         <source>&amp;View</source>
         <translation>&amp;Ver</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="352"/>
+        <location filename="../src/app/qupzilla.cpp" line="355"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Barra de &amp;navegação</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="355"/>
+        <location filename="../src/app/qupzilla.cpp" line="358"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>&amp;Barra de marcadores</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="358"/>
+        <location filename="../src/app/qupzilla.cpp" line="361"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Barra de es&amp;tado</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="361"/>
+        <location filename="../src/app/qupzilla.cpp" line="364"/>
         <source>&amp;Menu Bar</source>
         <translation>Barra de &amp;menu</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="364"/>
+        <location filename="../src/app/qupzilla.cpp" line="367"/>
         <source>&amp;Fullscreen</source>
         <translation>&amp;Ecrã completo</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="368"/>
+        <location filename="../src/app/qupzilla.cpp" line="371"/>
         <source>&amp;Stop</source>
         <translation>&amp;Parar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="371"/>
+        <location filename="../src/app/qupzilla.cpp" line="374"/>
         <source>&amp;Reload</source>
         <translation>&amp;Recarregar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="374"/>
+        <location filename="../src/app/qupzilla.cpp" line="377"/>
         <source>Character &amp;Encoding</source>
         <translation>Codificação dos caract&amp;eres</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="379"/>
+        <location filename="../src/app/qupzilla.cpp" line="382"/>
         <source>Bookmarks</source>
         <translation>Marcadores</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="383"/>
+        <location filename="../src/app/qupzilla.cpp" line="386"/>
         <source>History</source>
         <translation>Histórico</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="388"/>
+        <location filename="../src/app/qupzilla.cpp" line="391"/>
         <source>Toolbars</source>
         <translation>Barras de ferramentas</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="392"/>
+        <location filename="../src/app/qupzilla.cpp" line="395"/>
         <source>Sidebars</source>
         <translation>Barra lateral</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="403"/>
+        <location filename="../src/app/qupzilla.cpp" line="406"/>
         <source>Zoom &amp;In</source>
         <translation>Ampl&amp;iar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="404"/>
+        <location filename="../src/app/qupzilla.cpp" line="407"/>
         <source>Zoom &amp;Out</source>
         <translation>Red&amp;uzir</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="405"/>
+        <location filename="../src/app/qupzilla.cpp" line="408"/>
         <source>Reset</source>
         <translation>Restaurar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="409"/>
+        <location filename="../src/app/qupzilla.cpp" line="412"/>
         <source>&amp;Page Source</source>
         <translation>Código fonte da &amp;página</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="422"/>
+        <location filename="../src/app/qupzilla.cpp" line="425"/>
         <source>Closed Tabs</source>
         <translation>Separadores fechados</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="428"/>
+        <location filename="../src/app/qupzilla.cpp" line="431"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Restaurar separador fe&amp;chado</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="554"/>
+        <location filename="../src/app/qupzilla.cpp" line="557"/>
         <source> (Private Browsing)</source>
         <translation>(Navegação privada)</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="619"/>
+        <location filename="../src/app/qupzilla.cpp" line="622"/>
         <source>Bookmark &amp;This Page</source>
         <translation>Marcar es&amp;ta página</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="620"/>
+        <location filename="../src/app/qupzilla.cpp" line="623"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>M&amp;arcar todos os separadores</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="621"/>
+        <location filename="../src/app/qupzilla.cpp" line="624"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>Organizar &amp;marcadores</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="661"/>
-        <location filename="../src/app/qupzilla.cpp" line="689"/>
-        <location filename="../src/app/qupzilla.cpp" line="775"/>
+        <location filename="../src/app/qupzilla.cpp" line="664"/>
+        <location filename="../src/app/qupzilla.cpp" line="692"/>
+        <location filename="../src/app/qupzilla.cpp" line="778"/>
         <source>Empty</source>
         <translation>Vazio</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="718"/>
+        <location filename="../src/app/qupzilla.cpp" line="721"/>
         <source>&amp;Back</source>
         <translation>&amp;Recuar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="719"/>
+        <location filename="../src/app/qupzilla.cpp" line="722"/>
         <source>&amp;Forward</source>
         <translation>&amp;Avançar</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="720"/>
+        <location filename="../src/app/qupzilla.cpp" line="723"/>
         <source>&amp;Home</source>
         <translation>Pági&amp;na inicial</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="725"/>
+        <location filename="../src/app/qupzilla.cpp" line="728"/>
         <source>Show &amp;All History</source>
         <translation>Mostr&amp;ar todo o histórico</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="778"/>
+        <location filename="../src/app/qupzilla.cpp" line="781"/>
         <source>Restore All Closed Tabs</source>
         <translation>Restaurar todos os separadores fechados</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="779"/>
+        <location filename="../src/app/qupzilla.cpp" line="782"/>
         <source>Clear list</source>
         <translation>Apagar lista</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="789"/>
+        <location filename="../src/app/qupzilla.cpp" line="792"/>
         <source>About &amp;Qt</source>
         <translation>Sobre &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="279"/>
+        <location filename="../src/app/qupzilla.cpp" line="282"/>
         <source>&amp;About QupZilla</source>
         <translation>Sobre QupZill&amp;a</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="793"/>
+        <location filename="../src/app/qupzilla.cpp" line="796"/>
         <source>Informations about application</source>
         <translation>Informações da aplicação</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="798"/>
+        <location filename="../src/app/qupzilla.cpp" line="801"/>
         <source>Report &amp;Issue</source>
         <translation>Reportar pro&amp;blema</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="804"/>
+        <location filename="../src/app/qupzilla.cpp" line="807"/>
         <source>&amp;Web Search</source>
         <translation>Procura &amp;web</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="805"/>
+        <location filename="../src/app/qupzilla.cpp" line="808"/>
         <source>Page &amp;Info</source>
         <translation>&amp;Informações da página</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="807"/>
+        <location filename="../src/app/qupzilla.cpp" line="810"/>
         <source>&amp;Download Manager</source>
         <translation>Gestor &amp;de transferências</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="808"/>
+        <location filename="../src/app/qupzilla.cpp" line="811"/>
         <source>&amp;Cookies Manager</source>
         <translation>Gestor de &amp;cookies</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="809"/>
+        <location filename="../src/app/qupzilla.cpp" line="812"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;Adblock</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="810"/>
+        <location filename="../src/app/qupzilla.cpp" line="813"/>
         <source>RSS &amp;Reader</source>
         <translation>Leitor &amp;RSS</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="811"/>
+        <location filename="../src/app/qupzilla.cpp" line="814"/>
         <source>Clear Recent &amp;History</source>
         <translation>Apagar &amp;histórico recente</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="812"/>
+        <location filename="../src/app/qupzilla.cpp" line="815"/>
         <source>&amp;Private Browsing</source>
         <translation>Navegação &amp;privada</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="886"/>
+        <location filename="../src/app/qupzilla.cpp" line="889"/>
         <source>Other</source>
         <translation>Outras</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="896"/>
+        <location filename="../src/app/qupzilla.cpp" line="899"/>
         <source>Default</source>
         <translation>Padrão</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1213"/>
+        <location filename="../src/app/qupzilla.cpp" line="1216"/>
         <source> - QupZilla</source>
         <translation> - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1278"/>
+        <location filename="../src/app/qupzilla.cpp" line="1281"/>
         <source>Open file...</source>
         <translation>Abrir ficheiro...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1388"/>
+        <location filename="../src/app/qupzilla.cpp" line="1391"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Tem a certeza que pretende ativar a navegação privada?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1389"/>
+        <location filename="../src/app/qupzilla.cpp" line="1392"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Se a navegação privada estiver ativa, alguns elementos de privacidade estarão inativos:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1392"/>
+        <location filename="../src/app/qupzilla.cpp" line="1395"/>
         <source>Webpages are not added to the history.</source>
         <translation>As páginas web não são adicionadas ao histórico.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/app/qupzilla.cpp" line="1396"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Os cookies atuais não estarão acessíveis.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1394"/>
+        <location filename="../src/app/qupzilla.cpp" line="1397"/>
         <source>Your session is not stored.</source>
         <translation>A sua sessão não pode ser gravada.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1396"/>
+        <location filename="../src/app/qupzilla.cpp" line="1399"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>No entanto, enquanto não fechar a janela pode utilizar os botões Recuar e Avançar para voltar às páginas abertas anteriormente.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1401"/>
+        <location filename="../src/app/qupzilla.cpp" line="1404"/>
         <source>Start Private Browsing</source>
         <translation>Iniciar navegação privada</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1584"/>
+        <location filename="../src/app/qupzilla.cpp" line="1583"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Ainda existe(m) %1 separador(es) aberto(s) e a sessão não será gravada. Tem a certeza que pretende sair?</translation>
     </message>
@@ -3281,6 +3271,46 @@ não foi encontrado!</translation>
         <translation>Aplicar</translation>
     </message>
     <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="261"/>
+        <source>Speed Dial settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
+        <source>Placement: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
+        <source>Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
+        <source>Cover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
+        <source>Fit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="272"/>
+        <source>Fit Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="273"/>
+        <source>Fit Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="274"/>
+        <source>Speed Dial background image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>Load title from page</source>
         <translation>Carregar título da página</translation>
@@ -3433,10 +3463,8 @@ Adicione as fontes com o ícone RSS existente na barra de navegação, nas pági
         <translation>Abrir ligação em novo separador</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="262"/>
-        <location filename="../src/rss/rssmanager.cpp" line="268"/>
         <source>New Tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="363"/>
@@ -4061,12 +4089,12 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="201"/>
+        <location filename="../src/plugins/speeddial.cpp" line="212"/>
         <source>Select image...</source>
         <translation>Selecione a imagem...</translation>
     </message>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="218"/>
+        <location filename="../src/plugins/speeddial.cpp" line="244"/>
         <source>Unable to load</source>
         <translation>Incapaz de carregar</translation>
     </message>
@@ -4144,10 +4172,8 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
         <translation>Restaurar separador fe&amp;chado</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="344"/>
-        <location filename="../src/webview/tabbar.cpp" line="368"/>
         <source>New tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
 </context>
 <context>
@@ -4178,9 +4204,8 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
         <translation>Atualmente, tem %1 separador(es) aberto(s)</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="559"/>
-        <location filename="../src/webview/tabwidget.cpp" line="635"/>
-        <location filename="../src/webview/tabwidget.h" line="74"/>
+        <location filename="../src/webview/tabwidget.cpp" line="250"/>
+        <location filename="../src/webview/tabwidget.h" line="75"/>
         <source>New tab</source>
         <translation>Novo separador</translation>
     </message>
@@ -4250,9 +4275,8 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
 (tal como fazer algo que já foi feito.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="241"/>
         <source>New tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="313"/>
@@ -4368,12 +4392,12 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
 <context>
     <name>WebSearchBar</name>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="74"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="75"/>
         <source>Manage Search Engines</source>
         <translation>Gestão dos motores de procura</translation>
     </message>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="164"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="171"/>
         <source>Add %1 ...</source>
         <translation>Adicionar %1...</translation>
     </message>
@@ -4411,31 +4435,28 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
         <translation>Validar página</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="552"/>
+        <location filename="../src/webview/webview.cpp" line="551"/>
         <source>Send text...</source>
         <translation>Enviar texto...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="557"/>
+        <location filename="../src/webview/webview.cpp" line="556"/>
         <source>Google Translate</source>
         <translation>Google Translate</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="558"/>
+        <location filename="../src/webview/webview.cpp" line="557"/>
         <source>Dictionary</source>
         <translation>Dicionário</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="569"/>
+        <location filename="../src/webview/webview.cpp" line="568"/>
         <source>Go to &amp;web address</source>
         <translation>Ir para endereço &amp;web</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="619"/>
-        <location filename="../src/webview/webview.cpp" line="940"/>
-        <location filename="../src/webview/webview.cpp" line="953"/>
         <source>New tab</source>
-        <translation>Novo separador</translation>
+        <translation type="obsolete">Novo separador</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="453"/>
@@ -4578,27 +4599,27 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
         <translation>Selecion&amp;ar tudo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="540"/>
+        <location filename="../src/webview/webview.cpp" line="539"/>
         <source>Show so&amp;urce code</source>
         <translation>Mos&amp;trar código fonte</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="543"/>
+        <location filename="../src/webview/webview.cpp" line="542"/>
         <source>Show info ab&amp;out site</source>
         <translation>Mostrar inf&amp;ormações da página</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="541"/>
+        <location filename="../src/webview/webview.cpp" line="540"/>
         <source>Show Web &amp;Inspector</source>
         <translation>Mostrar &amp;inspetor web</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="575"/>
+        <location filename="../src/webview/webview.cpp" line="574"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Procurar &quot;%1 ...&quot; com %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="842"/>
+        <location filename="../src/webview/webview.cpp" line="841"/>
         <source>No Named Page</source>
         <translation>Página sem nome</translation>
     </message>

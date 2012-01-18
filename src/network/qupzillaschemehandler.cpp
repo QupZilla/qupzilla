@@ -257,12 +257,20 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%TITLE%", tr("Title"));
         dPage.replace("%EDIT%", tr("Apply"));
         dPage.replace("%NEW-PAGE%", tr("New Page"));
+        dPage.replace("%IMG_SETTINGS%", "qrc:html/setting.png");
+        dPage.replace("%SETTINGS-TITLE%", tr("Speed Dial settings"));
     }
 
     QString page = dPage;
     page.replace("%INITIAL-SCRIPT%", mApp->plugins()->speedDial()->initialScript());
     page.replace("%IMG_BACKGROUND%", mApp->plugins()->speedDial()->backgroundImage());
     page.replace("%B_SIZE%", mApp->plugins()->speedDial()->backgroundImageSize());
-
+    page.replace("%TXT_PLACEMENT%", tr("Placement: "));
+    page.replace("%TXT_AUTO%", tr("Auto"));
+    page.replace("%TXT_COVER%", tr("Cover"));
+    page.replace("%TXT_FIT%", tr("Fit"));
+    page.replace("%TXT_FWIDTH%", tr("Fit Width"));
+    page.replace("%TXT_FHEIGHT%", tr("Fit Height"));
+    page.replace("%TXT_NOTE%", tr("Speed Dial background image"));
     return page;
 }
