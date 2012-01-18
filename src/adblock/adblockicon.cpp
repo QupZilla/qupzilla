@@ -57,7 +57,7 @@ void AdBlockIcon::showMenu(const QPoint &pos)
 
 void AdBlockIcon::learnAboutRules()
 {
-    p_QupZilla->tabWidget()->addView(QUrl("http://adblockplus.org/en/filters"), tr("New tab"), TabWidget::NewSelectedTab);
+    p_QupZilla->tabWidget()->addView(QUrl("http://adblockplus.org/en/filters"), TabWidget::NewSelectedTab);
 }
 
 void AdBlockIcon::setEnabled(bool enabled)

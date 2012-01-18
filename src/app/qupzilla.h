@@ -151,7 +151,7 @@ private slots:
     void reloadByPassCache() { weView()->page()->triggerAction(QWebPage::ReloadAndBypassCache); }
     void urlEnter();
     void aboutQupZilla();
-    void addTab() { m_tabWidget->addView(QUrl(), tr("New tab"), TabWidget::NewTab, true); }
+    void addTab() { m_tabWidget->addView(QUrl(), TabWidget::NewTab, true); }
     void savePageScreen();
 
     void aboutToShowFileMenu();

@@ -206,9 +206,8 @@
         <translation>Dowiedz się jak pisać &amp;filtry</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="60"/>
         <source>New tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
 </context>
 <context>
@@ -520,9 +519,8 @@
         <translation>Wybierz nazwę dla nowego katalogu zakładek:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="103"/>
@@ -639,9 +637,8 @@
         <translation>Szukaj...</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="77"/>
         <source>New Tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
@@ -1269,9 +1266,8 @@
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="332"/>
         <source>New tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="355"/>
@@ -1476,9 +1472,8 @@
         <translation>Optymalizuj bazę danych</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="84"/>
         <source>New Tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="99"/>
@@ -1610,9 +1605,8 @@
         <translation>Tytuł</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="70"/>
         <source>New Tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="93"/>
@@ -1664,17 +1658,18 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="50"/>
+        <location filename="../src/navigation/locationbar.cpp" line="51"/>
         <source>Add RSS from this page...</source>
         <translation>Dodaj kanał RSS...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="88"/>
+        <location filename="../src/navigation/locationbar.cpp" line="89"/>
         <source>Enter URL address or search on %1</source>
         <translation>Wpisz adres URL lub szukaj na %1</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="296"/>
+        <location filename="../src/navigation/locationbar.cpp" line="302"/>
+        <location filename="../src/navigation/locationbar.cpp" line="337"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.pl</translation>
@@ -2953,12 +2948,8 @@
         <translation>Pusty</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="181"/>
-        <location filename="../src/app/qupzilla.cpp" line="979"/>
-        <location filename="../src/app/qupzilla.cpp" line="999"/>
-        <location filename="../src/app/qupzilla.h" line="154"/>
         <source>New tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="619"/>
@@ -3437,10 +3428,8 @@ Dodawaj kanały klikając na ikonę RSS pasku nawigacyjnym.</translation>
         <translation>Otwórz odnośnik w nowej karcie</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="262"/>
-        <location filename="../src/rss/rssmanager.cpp" line="268"/>
         <source>New Tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="363"/>
@@ -4078,10 +4067,8 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="344"/>
-        <location filename="../src/webview/tabbar.cpp" line="368"/>
         <source>New tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="107"/>
@@ -4182,9 +4169,8 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
         <translation>Aktualnie masz otwartych %1 kart</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="559"/>
-        <location filename="../src/webview/tabwidget.cpp" line="635"/>
-        <location filename="../src/webview/tabwidget.h" line="74"/>
+        <location filename="../src/webview/tabwidget.cpp" line="250"/>
+        <location filename="../src/webview/tabwidget.h" line="75"/>
         <source>New tab</source>
         <translation>Nowa karta</translation>
     </message>
@@ -4254,9 +4240,8 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
 (jak wyszukiwanie czy kupowanie czegoś, co zostało już zrobione.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="241"/>
         <source>New tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="313"/>
@@ -4586,11 +4571,8 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
         <translation>Strona bez nazwy</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="619"/>
-        <location filename="../src/webview/webview.cpp" line="940"/>
-        <location filename="../src/webview/webview.cpp" line="953"/>
         <source>New tab</source>
-        <translation>Nowa karta</translation>
+        <translation type="obsolete">Nowa karta</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="458"/>

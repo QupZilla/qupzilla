@@ -48,8 +48,10 @@ public:
 
 private slots:
     void searchChanged(const ButtonWithMenu::Item &item);
-    void search();
     void setupEngines();
+
+    void search();
+    void searchInNewTab();
 
     void aboutToShowMenu();
     void openSearchEnginesDialog();
@@ -62,6 +64,7 @@ private:
     void focusInEvent(QFocusEvent* e);
     void focusOutEvent(QFocusEvent* e);
     void dropEvent(QDropEvent* event);
+    void keyPressEvent(QKeyEvent* event);
 
     void completeMenuWithAvailableEngines(QMenu* menu);
 

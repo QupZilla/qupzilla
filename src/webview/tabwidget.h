@@ -71,6 +71,7 @@ signals:
     void pinnedTabAdded();
 
 public slots:
+    int addView(const QUrl &url, OpenUrlIn openIn, bool selectLine = false);
     int addView(QUrl url = QUrl(), const QString &title = tr("New tab"), OpenUrlIn openIn = NewTab, bool selectLine = false, int position = -1);
     int duplicateTab(int index);
 

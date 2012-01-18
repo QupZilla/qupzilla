@@ -205,9 +205,8 @@
         <translation>Zjistit více o psaní &amp;pravidel</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="60"/>
         <source>New tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
 </context>
 <context>
@@ -529,9 +528,8 @@
         <translation>Zvolte jméno pro novou složku:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
@@ -638,9 +636,8 @@
         <translation>Hledat...</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="77"/>
         <source>New Tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
@@ -1273,9 +1270,8 @@
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="332"/>
         <source>New tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="355"/>
@@ -1479,9 +1475,8 @@ nebyl nalezen!</translation>
         <translation>Optimalizovat databázi</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="84"/>
         <source>New Tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="99"/>
@@ -1613,9 +1608,8 @@ nebyl nalezen!</translation>
         <translation>Titulek</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="70"/>
         <source>New Tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="93"/>
@@ -1667,17 +1661,18 @@ nebyl nalezen!</translation>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="50"/>
+        <location filename="../src/navigation/locationbar.cpp" line="51"/>
         <source>Add RSS from this page...</source>
         <translation>Přidat RSS kanál ...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="88"/>
+        <location filename="../src/navigation/locationbar.cpp" line="89"/>
         <source>Enter URL address or search on %1</source>
         <translation>Zadejte internetovou adresu nebo vyhledávejte na %1</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="296"/>
+        <location filename="../src/navigation/locationbar.cpp" line="302"/>
+        <location filename="../src/navigation/locationbar.cpp" line="337"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.cz</translation>
@@ -2950,12 +2945,8 @@ nebyl nalezen!</translation>
         <translation>Prázdný</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="181"/>
-        <location filename="../src/app/qupzilla.cpp" line="979"/>
-        <location filename="../src/app/qupzilla.cpp" line="999"/>
-        <location filename="../src/app/qupzilla.h" line="154"/>
         <source>New tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="619"/>
@@ -3439,10 +3430,8 @@ Prosím přidejte si nějaký kliknutím na RSS ikonku v navigačním řádku.</
         <translation>Otevřít odkaz v novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="262"/>
-        <location filename="../src/rss/rssmanager.cpp" line="268"/>
         <source>New Tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="363"/>
@@ -4081,10 +4070,8 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="344"/>
-        <location filename="../src/webview/tabbar.cpp" line="368"/>
         <source>New tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="107"/>
@@ -4185,9 +4172,8 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
         <translation>Dohromady máte otevřeno %1 panelů</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="559"/>
-        <location filename="../src/webview/tabwidget.cpp" line="635"/>
-        <location filename="../src/webview/tabwidget.h" line="74"/>
+        <location filename="../src/webview/tabwidget.cpp" line="250"/>
+        <location filename="../src/webview/tabwidget.h" line="75"/>
         <source>New tab</source>
         <translation>Nový panel</translation>
     </message>
@@ -4257,9 +4243,8 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
 (jako např. hledaní při nakupování, které již bylo provedeno.)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="241"/>
         <source>New tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="313"/>
@@ -4593,11 +4578,8 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
         <translation>Bezejmenná stránka</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="619"/>
-        <location filename="../src/webview/webview.cpp" line="940"/>
-        <location filename="../src/webview/webview.cpp" line="953"/>
         <source>New tab</source>
-        <translation>Nový panel</translation>
+        <translation type="obsolete">Nový panel</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="458"/>

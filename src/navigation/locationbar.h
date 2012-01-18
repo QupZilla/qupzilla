@@ -82,7 +82,10 @@ private:
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);
+    void keyReleaseEvent(QKeyEvent* event);
     void dropEvent(QDropEvent* event);
+
+    QUrl createUrl();
 
     void showGoButton();
     void hideGoButton();
@@ -98,6 +101,7 @@ private:
     LocationBarSettings* m_locationBarSettings;
 
     bool m_rssIconVisible;
+    bool m_holdingAlt;
 };
 
 #endif // LOCATIONBAR_H

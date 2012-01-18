@@ -201,9 +201,8 @@
         <translation>了解写作与规则 &amp;R</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="60"/>
         <source>New tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
 </context>
 <context>
@@ -540,9 +539,8 @@
         <translation>选择文件夹的名称：</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
@@ -634,9 +632,8 @@
         <translation>搜索...</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="77"/>
         <source>New Tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
@@ -1264,9 +1261,8 @@
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloaditem.cpp" line="332"/>
         <source>New tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="355"/>
@@ -1468,9 +1464,8 @@
         <translation>优化数据库</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="84"/>
         <source>New Tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="99"/>
@@ -1602,9 +1597,8 @@
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="70"/>
         <source>New Tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="93"/>
@@ -1656,17 +1650,18 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="50"/>
+        <location filename="../src/navigation/locationbar.cpp" line="51"/>
         <source>Add RSS from this page...</source>
         <translation>从网页添加RSS...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="88"/>
+        <location filename="../src/navigation/locationbar.cpp" line="89"/>
         <source>Enter URL address or search on %1</source>
         <translation>输入URL地址或在%1上搜索</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="296"/>
+        <location filename="../src/navigation/locationbar.cpp" line="302"/>
+        <location filename="../src/navigation/locationbar.cpp" line="337"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.co.uk</translation>
@@ -3088,12 +3083,8 @@
         <translation>开始隐私浏览</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="181"/>
-        <location filename="../src/app/qupzilla.cpp" line="979"/>
-        <location filename="../src/app/qupzilla.cpp" line="999"/>
-        <location filename="../src/app/qupzilla.h" line="154"/>
         <source>New tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
 </context>
 <context>
@@ -3426,10 +3417,8 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation>在新标签页中打开链接 </translation>
     </message>
     <message>
-        <location filename="../src/rss/rssmanager.cpp" line="262"/>
-        <location filename="../src/rss/rssmanager.cpp" line="268"/>
         <source>New Tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="363"/>
@@ -4136,10 +4125,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>还原关闭的标签&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbar.cpp" line="344"/>
-        <location filename="../src/webview/tabbar.cpp" line="368"/>
         <source>New tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
 </context>
 <context>
@@ -4170,9 +4157,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>你已有%1打开的标签</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="559"/>
-        <location filename="../src/webview/tabwidget.cpp" line="635"/>
-        <location filename="../src/webview/tabwidget.h" line="74"/>
+        <location filename="../src/webview/tabwidget.cpp" line="250"/>
+        <location filename="../src/webview/tabwidget.h" line="75"/>
         <source>New tab</source>
         <translation>新标签</translation>
     </message>
@@ -4241,9 +4227,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>为显示此页QupZilla须重新发送请求</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="241"/>
         <source>New tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="313"/>
@@ -4422,11 +4407,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="619"/>
-        <location filename="../src/webview/webview.cpp" line="940"/>
-        <location filename="../src/webview/webview.cpp" line="953"/>
         <source>New tab</source>
-        <translation>新标签</translation>
+        <translation type="obsolete">新标签</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="453"/>

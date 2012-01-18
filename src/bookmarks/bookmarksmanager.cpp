@@ -168,7 +168,7 @@ void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
 void BookmarksManager::loadInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        getQupZilla()->tabWidget()->addView(action->data().toUrl(), tr("New Tab"), TabWidget::NewNotSelectedTab);
+        getQupZilla()->tabWidget()->addView(action->data().toUrl(), TabWidget::NewNotSelectedTab);
     }
 }
 
