@@ -2141,32 +2141,20 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="818"/>
         <source>Print element background</source>
-<<<<<<< HEAD
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
-        <translation type="unfinished"></translation>
-=======
         <translation>Штампај позадину елемента</translation>
->>>>>>> 464d4f13f50e2a5decf7bf412971c0cf0851c1f3
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="825"/>
         <source>Include links in focus chain</source>
-<<<<<<< HEAD
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
-        <translation type="unfinished"></translation>
-=======
         <translation>Укључи везе у ланац фокуса</translation>
->>>>>>> 464d4f13f50e2a5decf7bf412971c0cf0851c1f3
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="832"/>
         <source>Enable XSS Auditing</source>
-<<<<<<< HEAD
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
-        <translation type="unfinished"></translation>
-=======
         <translation>Укључи ИксСС провјеравање</translation>
->>>>>>> 464d4f13f50e2a5decf7bf412971c0cf0851c1f3
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="856"/>
