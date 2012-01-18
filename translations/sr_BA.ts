@@ -3253,42 +3253,42 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="261"/>
         <source>Speed Dial settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Подешавање брзог бирања</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
         <source>Placement: </source>
-        <translation type="unfinished"></translation>
+        <translation>Положај: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Ауто</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Cover</source>
-        <translation type="unfinished"></translation>
+        <translation>Прекриј</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Уклопи</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="272"/>
         <source>Fit Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Уклопи ширину</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="273"/>
         <source>Fit Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Уклопи висину</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="274"/>
         <source>Speed Dial background image</source>
-        <translation type="unfinished"></translation>
+        <translation>Слика позадине брзог бирања</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
