@@ -20,5 +20,6 @@
         <file>html/reload.png</file>
         <file>html/qupzilla.ico</file>
         <file>html/broken-page.png</file>
+        <file>html/setting.png</file>
     </qresource>
 </RCC>

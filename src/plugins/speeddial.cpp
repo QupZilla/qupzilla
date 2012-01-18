@@ -36,6 +36,7 @@ void SpeedDial::loadSettings()
     m_allPages = settings.value("pages", "").toString();
     m_bgImg = settings.value("background", "").toString();
     m_bgImgSize = settings.value("backsize", "auto").toString();
+    m_maxPagesInRow = settings.value("pagesrow", 4).toInt();
     settings.endGroup();
 
     if (m_allPages.isEmpty()) {
@@ -65,6 +66,7 @@ void SpeedDial::saveSettings()
     settings.setValue("pages", m_allPages);
     settings.setValue("background", m_bgImg);
     settings.setValue("backsize", m_bgImgSize);
+    settings.setValue("pagesrow", m_maxPagesInRow);
     settings.endGroup();
 }
 
@@ -95,6 +97,15 @@ void SpeedDial::addPage(const QUrl &url, const QString &title)
 
         frame->page()->triggerAction(QWebPage::Reload);
     }
+}
+
+int SpeedDial::pagesInRow()
+{
+    if (!m_loaded) {
+        loadSettings();
+    }
+
+    return m_maxPagesInRow;
 }
 
 QString SpeedDial::backgroundImage()
@@ -198,7 +209,22 @@ void SpeedDial::removeImageForUrl(const QString &url)
 
 QString SpeedDial::getOpenFileName()
 {
-    return QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), "(*.png *.jpg *.jpeg)");
+    return QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), "(*.png *.jpg *.jpeg *.bmp *.gif *.tiff)");
+}
+
+void SpeedDial::setBackgroundImage(const QString &image)
+{
+    m_bgImg = image;
+}
+
+void SpeedDial::setBackgroundImageSize(const QString &size)
+{
+    m_bgImgSize = size;
+}
+
+void SpeedDial::setPagesInRow(int count)
+{
+    m_maxPagesInRow = count;
 }
 
 void SpeedDial::thumbnailCreated(const QPixmap &image)
