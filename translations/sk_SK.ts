@@ -1602,6 +1602,7 @@
     </message>
     <message>
         <source>Enable XSS Auditing</source>
+        <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>Povoliť kontrolu XSS</translation>
     </message>
     <message>
@@ -1774,6 +1775,7 @@
     </message>
     <message>
         <source>Print element background</source>
+        <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>Tlačiť pozadie prvkov</translation>
     </message>
     <message>
@@ -1888,6 +1890,7 @@
     </message>
     <message>
         <source>Include links in focus chain</source>
+        <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>Označovať odkazy tabulátorom</translation>
     </message>
     <message>

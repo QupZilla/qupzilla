@@ -1561,7 +1561,7 @@ bool QupZilla::quitApp()
 
     Settings settings;
     int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
-    bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", false).toBool();
+    bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", true).toBool();
 
     settings.beginGroup("Browser-View-Settings");
     settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
@@ -1575,6 +1575,7 @@ bool QupZilla::quitApp()
 
     settings.setValue("SideBarWidth", m_sideBarWidth);
     settings.setValue("WebViewWidth", m_webViewWidth);
+    settings.endGroup();
 
     if (askOnClose && afterLaunch != 3 && m_tabWidget->count() > 1) {
         QDialog* dialog = new QDialog(this);
