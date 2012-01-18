@@ -55,7 +55,7 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
 
 QupZilla* HistoryManager::getQupZilla()
 {
-    if (!p_QupZilla.data()) {
+    if (!p_QupZilla) {
         p_QupZilla = mApp->getWindow();
     }
     return p_QupZilla.data();

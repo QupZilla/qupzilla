@@ -289,6 +289,4 @@ private:
     bool m_bookmarksToolBarVisible;
 };
 
-Q_DECLARE_METATYPE(QList<int>)
-
 #endif // QUPZILLA_H

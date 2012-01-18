@@ -403,14 +403,14 @@ void Preferences::showStackedPage(QListWidgetItem* item)
 
 void Preferences::setNotificationPreviewVisible(bool state)
 {
-    if (!state && m_notification.data()) {
+    if (!state && m_notification) {
         m_notifPosition = m_notification.data()->pos();
         delete m_notification.data();
     }
 
     if (state) {
         if (ui->useOSDNotifications->isChecked()) {
-            if (m_notification.data()) {
+            if (m_notification) {
                 m_notifPosition = m_notification.data()->pos();
                 delete m_notification.data();
             }
@@ -818,7 +818,7 @@ Preferences::~Preferences()
     delete ui;
     delete m_autoFillManager;
     delete m_pluginsList;
-    if (m_notification.data()) {
+    if (m_notification) {
         delete m_notification.data();
     }
 }

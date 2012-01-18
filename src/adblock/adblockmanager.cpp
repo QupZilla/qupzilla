@@ -145,7 +145,7 @@ void AdBlockManager::save()
 
 AdBlockDialog* AdBlockManager::showDialog()
 {
-    if (!m_adBlockDialog.data()) {
+    if (!m_adBlockDialog) {
         m_adBlockDialog = new AdBlockDialog(mApp->getWindow());
     }
 
