@@ -196,10 +196,6 @@
         <source>Learn About Writing &amp;Rules</source>
         <translation>Научите како да направите &amp;филтере</translation>
     </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Нови језичак</translation>
-    </message>
 </context>
 <context>
     <name>AddAcceptLanguage</name>
@@ -530,10 +526,6 @@
         <translation>Име за фасциклу: </translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Нови језичак</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="218"/>
         <source>Add Subfolder</source>
         <translation>Додај подфасциклу</translation>
@@ -626,10 +618,6 @@
         <location filename="../src/sidebar/bookmarkssidebar.ui" line="32"/>
         <source>Search...</source>
         <translation>Тражи...</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Нови језичак</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
@@ -1257,10 +1245,6 @@
         <translation>Грешка</translation>
     </message>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">Нови језичак</translation>
-    </message>
-    <message>
         <location filename="../src/downloads/downloaditem.cpp" line="362"/>
         <source>Not found</source>
         <translation>Није нађено</translation>
@@ -1462,10 +1446,6 @@
         <translation>Оптимизуј базу података</translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Нови језичак</translation>
-    </message>
-    <message>
         <location filename="../src/history/historymanager.cpp" line="99"/>
         <source>Open link in actual tab</source>
         <translation>Отвори везу у текућем језичку</translation>
@@ -1593,10 +1573,6 @@
         <location filename="../src/sidebar/historysidebar.ui" line="52"/>
         <source>Title</source>
         <translation>име</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Нови језичак</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="93"/>
@@ -2654,10 +2630,6 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">Нови језичак</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="258"/>
         <source>Private Browsing Enabled</source>
         <translation>Приватно прегледање је омогућено</translation>
@@ -3288,16 +3260,17 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
         <source>Use background image</source>
-        <translation type="unfinished"></translation>
+        <translation>Слика за позадину</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
         <source>Select image</source>
-        <translation type="unfinished"></translation>
+        <translation>Изабери слику</translation>
     </message>
     <message>
-        <source>Speed Dial background image</source>
-        <translation type="obsolete">Слика позадине брзог бирања</translation>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
+        <source>Max dials in row:</source>
+        <translation>Најв. страница у реду:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
@@ -3450,10 +3423,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <location filename="../src/rss/rssmanager.cpp" line="235"/>
         <source>Open link in new tab</source>
         <translation>Отвори везу у новом језичку</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Нови језичак</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="363"/>
@@ -4160,10 +4129,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Restore &amp;Closed Tab</source>
         <translation>&amp;Врати затворени језичак</translation>
     </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Нови језичак</translation>
-    </message>
 </context>
 <context>
     <name>TabWidget</name>
@@ -4262,10 +4227,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Да би приказала ову страницу Капзила мора поново да пошаље захтев 
 за учитавањем (као претрага куповине која је већ обављена)</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Нови језичак</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="313"/>
@@ -4442,10 +4403,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/webview.cpp" line="568"/>
         <source>Go to &amp;web address</source>
         <translation>Иди на &amp;веб адресу</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Нови језичак</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="453"/>
