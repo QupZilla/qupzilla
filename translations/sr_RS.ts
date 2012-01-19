@@ -3260,7 +3260,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
         <source>Use background image</source>
-        <translation>Користи слику за позадину</translation>
+        <translation>Слика за позадину</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
