@@ -40,6 +40,7 @@ public:
     void addPage(const QUrl &url, const QString &title);
 
     int pagesInRow();
+    int sdSize();
     QString backgroundImage();
     QString backgroundImageSize();
     QString initialScript();
@@ -55,6 +56,7 @@ public slots:
     Q_INVOKABLE void setBackgroundImage(const QString &image);
     Q_INVOKABLE void setBackgroundImageSize(const QString &size);
     Q_INVOKABLE void setPagesInRow(int count);
+    Q_INVOKABLE void setSdSize(int count);
 
 private slots:
     void thumbnailCreated(const QPixmap &image);
@@ -66,6 +68,7 @@ private:
     QString m_backgroundImage;
     QString m_backgroundImageSize;
     int m_maxPagesInRow;
+    int m_sizeOfSpeedDials;
 
     QList<QWeakPointer<QWebFrame> > m_webFrames;
 
