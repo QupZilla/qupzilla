@@ -316,12 +316,22 @@ function bgImageSel() {
 function saveSettings() {
     var BgImg = document.getElementById('BgImgHold').value;
     var BgImgSz = document.getElementById('BgImgSelSiz').value;
+<<<<<<< HEAD
     var PgInRow = document.getElementById('PgInRow').value;
     var SdSize = document.getElementById('SdSize').value;
     speeddial.setBackgroundImage(BgImg);
     speeddial.setBackgroundImageSize(BgImgSz);
     speeddial.setPagesInRow(PgInRow);
     speeddial.setSdSize(SdSize);
+=======
+    MAX_PAGES_ROW = document.getElementById('PgInRow').value;
+    speeddial.setBackgroundImage(BgImg);
+    speeddial.setBackgroundImageSize(BgImgSz);
+    speeddial.setPagesInRow(MAX_PAGES_ROW);
+
+    document.getElementById('settingsBox').style.display  = 'none';
+    alignPage();
+>>>>>>> upstream/master
 }
 
 function bgImgToggle() {
@@ -380,6 +390,7 @@ $("#quickdial").sortable({
     }
 });
 </script>
+<<<<<<< HEAD
 
 <div id="fadeOverlay2" style="opacity:0.95;display:none;position:fixed;left:0;top:0;width:100%;height:100%;z-index:100;background:grey;">
   <div id="settingsBox">
@@ -414,8 +425,34 @@ $("#quickdial").sortable({
       </p>
     </div>
     <div class="thumbhold"><p id="thumb" ></p></div>
+=======
+<div id="settingsBox">
+  <div class="rowsel">
+    <span id="sliderValue">%ROW-PAGES%</span>
+    <input id="PgInRow" type="range" min="2" max="8" value="%ROW-PAGES%" step="1" onchange="document.getElementById('sliderValue').innerHTML = this.value;" />
+    <label for="PgInRow">%TXT_NRROWS%</label>
+  </div>
+  <div class="title"><input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label></div>
+  <div class="content">
+    <p>
+      <input id="BgImgSel" type="button" class="button" value="%TXT_SELECTIMAGE%" onclick="bgImageSel();bgImgUpdate()" />
+      <input id="BgImgHold" type="hidden" value="%IMG_BACKGROUND%" />
+    </p>
+    <p>
+      <label for="BgImgSelSiz">%TXT_PLACEMENT%</label><br />
+      <select id="BgImgSelSiz" name="imgselsize" onchange="bgImgUpdate()">
+        <option value="auto">%TXT_AUTO%</option>
+        <option value="cover">%TXT_COVER%</option>
+        <option value="contain">%TXT_FIT%</option>
+        <option value="100% auto">%TXT_FWIDTH%</option>
+        <option value="auto 100%">%TXT_FHEIGHT%</option>
+      </select>
+    </p>
+    <p>
+      <input class="button" type="button" value="%APPLY%" onClick="saveSettings();" />
+    </p>
+>>>>>>> upstream/master
   </div>
 </div>
 </body>
 </html>
-

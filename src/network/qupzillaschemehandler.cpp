@@ -267,7 +267,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%TXT_FHEIGHT%", tr("Fit Height"));
         dPage.replace("%TXT_NOTE%", tr("Use background image"));
         dPage.replace("%TXT_SELECTIMAGE%", tr("Select image"));
-        dPage.replace("%TXT_NRROWS%", tr("Max dials in row:"));
+        dPage.replace("%TXT_NRROWS%", tr("Max pages in row:"));
         dPage.replace("%TXT_SDSIZE%", tr("Size of dials:"));
     }
 
