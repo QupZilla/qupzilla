@@ -316,10 +316,13 @@ function bgImageSel() {
 function saveSettings() {
     var BgImg = document.getElementById('BgImgHold').value;
     var BgImgSz = document.getElementById('BgImgSelSiz').value;
-    var PgInRow = document.getElementById('PgInRow').value;
+    MAX_PAGES_ROW = document.getElementById('PgInRow').value;
     speeddial.setBackgroundImage(BgImg);
     speeddial.setBackgroundImageSize(BgImgSz);
-    speeddial.setPagesInRow(PgInRow);
+    speeddial.setPagesInRow(MAX_PAGES_ROW);
+
+    document.getElementById('settingsBox').style.display  = 'none';
+    alignPage();
 }
 
 function bgImgToggle() {
@@ -401,11 +404,10 @@ $("#quickdial").sortable({
       </select>
     </p>
     <p>
-      <input class="button" type="button" value="%APPLY%" onClick="saveSettings();document.getElementById('settingsBox').style.display  = 'none';" />
+      <input class="button" type="button" value="%APPLY%" onClick="saveSettings();" />
     </p>
   </div>
   <div class="thumbhold"><p id="thumb" ></p></div>
 </div>
 </body>
 </html>
-

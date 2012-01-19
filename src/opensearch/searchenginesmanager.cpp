@@ -129,16 +129,16 @@ void SearchEnginesManager::restoreDefaults()
     yt.shortcut = "yt";
     yt.suggestionsUrl = "http://suggestqueries.google.com/complete/search?ds=yt&output=firefox&q=%s";
 
-    Engine yahoo;
-    yahoo.name = "Yahoo!";
-    yahoo.icon = QIcon(":/icons/menu/yahoo.png");
-    yahoo.url = "http://search.yahoo.com/search?ei=utf-8&fr=sfp&iscqry=&p=%s";
-    yahoo.shortcut = "yh";
+    Engine duck;
+    duck.name = "DuckDuckGo";
+    duck.icon = QIcon(":/icons/menu/duck.png");
+    duck.url = "https://duckduckgo.com/?q=%s";
+    duck.shortcut = "d";
 
     addEngine(google, false);
     addEngine(wiki, false);
     addEngine(yt, false);
-    addEngine(yahoo, false);
+    addEngine(duck, false);
 
     emit enginesChanged();
 }

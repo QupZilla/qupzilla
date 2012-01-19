@@ -55,7 +55,6 @@
         <file>icons/menu/search-icon.png</file>
         <file>icons/menu/gear.png</file>
         <file>icons/menu/wikipedia.png</file>
-        <file>icons/menu/yahoo.png</file>
         <file>icons/browsers/firefox.png</file>
         <file>icons/browsers/chrome.png</file>
         <file>icons/browsers/opera.png</file>
@@ -69,5 +68,6 @@
         <file>icons/preferences/preferences-system-firewall.png</file>
         <file>icons/browsers/html.png</file>
         <file>icons/menu/translate.png</file>
+        <file>icons/menu/duck.png</file>
     </qresource>
 </RCC>
