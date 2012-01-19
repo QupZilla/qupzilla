@@ -37,6 +37,7 @@ void SpeedDial::loadSettings()
     m_backgroundImage = settings.value("background", "").toString();
     m_backgroundImageSize = settings.value("backsize", "auto").toString();
     m_maxPagesInRow = settings.value("pagesrow", 4).toInt();
+    m_sizeOfSpeedDials = settings.value("sdsize", 231).toInt();
     settings.endGroup();
 
     if (m_allPages.isEmpty()) {
@@ -67,6 +68,7 @@ void SpeedDial::saveSettings()
     settings.setValue("background", m_backgroundImage);
     settings.setValue("backsize", m_backgroundImageSize);
     settings.setValue("pagesrow", m_maxPagesInRow);
+    settings.setValue("sdsize", m_sizeOfSpeedDials);
     settings.endGroup();
 }
 
@@ -106,6 +108,15 @@ int SpeedDial::pagesInRow()
     }
 
     return m_maxPagesInRow;
+}
+
+int SpeedDial::sdSize()
+{
+    if (!m_loaded) {
+        loadSettings();
+    }
+
+    return m_sizeOfSpeedDials;
 }
 
 QString SpeedDial::backgroundImage()
@@ -225,6 +236,11 @@ void SpeedDial::setBackgroundImageSize(const QString &size)
 void SpeedDial::setPagesInRow(int count)
 {
     m_maxPagesInRow = count;
+}
+
+void SpeedDial::setSdSize(int count)
+{
+    m_sizeOfSpeedDials = count;
 }
 
 void SpeedDial::thumbnailCreated(const QPixmap &image)
