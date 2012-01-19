@@ -2682,7 +2682,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Max dials in row:</source>
+        <source>Max number of pages in a row:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change size of dials</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
