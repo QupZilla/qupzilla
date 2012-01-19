@@ -2681,6 +2681,10 @@
         <source>Select image</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Max dials in row:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>

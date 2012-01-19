@@ -3368,6 +3368,11 @@
         <source>Select image</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
+        <source>Max dials in row:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>

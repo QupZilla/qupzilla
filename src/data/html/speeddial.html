@@ -33,7 +33,7 @@ span.reload:hover {border-color: grey; border-radius: 4px;}
 .formTable input[type="text"] {width: 100%;-webkit-user-select: auto;}
 
 .sett {position: absolute;right:36px;top:10px;width: 24px;height: 24px;background: url(%IMG_SETTINGS%); cursor: pointer;}
-#settingsBox {position: absolute;right:58px;top:25px;width: 240px;height: 135px;background: #eeeeee;margin: 5px;-webkit-box-shadow: 0 0 6px 6px#888;box-shadow: 0 0 6px 6px #888;border-radius: 15px;display: none;padding:8px 20px;border: 1px solid transparent;}
+#settingsBox {position: absolute;right:58px;top:25px;width: 245px;height: auto;background: #eeeeee;margin: 5px;-webkit-box-shadow: 0 0 6px 6px#888;box-shadow: 0 0 6px 6px #888;border-radius: 15px;display: none;padding:8px 20px;border: 1px solid transparent;}
 #settingsBox .title {margin-bottom: 1px;padding-bottom:2px;}
 #settingsBox .content {float:right;}
 #settingsBox .thumbhold {margin: 2px;padding: 1px;border-radius: 10px;text-align:center;width: 100px; height: 100px;background: #AAA;}
@@ -42,6 +42,10 @@ span.reload:hover {border-color: grey; border-radius: 4px;}
 #settingsBox p select {margin: 2px;padding: 1px;text-align: center;width: 100px;}
 #settingsBox p select option {text-align: center;}
 #settingsBox .button {margin: 2px;padding: 1px;text-align:center;width: 100px;}
+#settingsBox .rowsel {margin: 2px;padding: 1px;border-bottom: 1px solid #888;}
+#settingsBox .rowsel label {width: 130px;}
+#settingsBox .rowsel input {text-align:center;width: 75px;margin-bottom: 6px;margin-right: 4px;float: right;}
+#settingsBox .rowsel span {font-weight: bold;text-align: center;float: right;margin-left: 2px;}
 </style>
 <script type="text/javascript" src="%JQUERY%"></script>
 <script type="text/javascript" src="%JQUERY-UI%"></script>
@@ -299,6 +303,7 @@ function checkSet() {
     checkb.checked = (bgImg == '' ? false : true);
     BgImgSel.disabled = (bgImg == '' ? true : false);
     BgImgSz.disabled = (bgImg == '' ? true : false);
+    BgImgSz.selectedIndex
 }
 
 function bgImageSel() {
@@ -311,8 +316,10 @@ function bgImageSel() {
 function saveSettings() {
     var BgImg = document.getElementById('BgImgHold').value;
     var BgImgSz = document.getElementById('BgImgSelSiz').value;
+    var PgInRow = document.getElementById('PgInRow').value;
     speeddial.setBackgroundImage(BgImg);
     speeddial.setBackgroundImageSize(BgImgSz);
+    speeddial.setPagesInRow(PgInRow);
 }
 
 function bgImgToggle() {
@@ -372,6 +379,11 @@ $("#quickdial").sortable({
 });
 </script>
 <div id="settingsBox">
+  <div class="rowsel">
+    <span id="sliderValue">%ROW-PAGES%</span>
+    <input id="PgInRow" type="range" min="2" max="8" value="%ROW-PAGES%" step="1" onchange="document.getElementById('sliderValue').innerHTML = this.value;" />
+    <label for="PgInRow">%TXT_NRROWS%</label>
+  </div>
   <div class="title"><input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label></div>
   <div class="content">
     <p>
