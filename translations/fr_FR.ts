@@ -3319,6 +3319,11 @@ n&apos;a pas été trouvé!</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
+        <source>Max dials in row:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>Load title from page</source>
         <translatorcomment>???</translatorcomment>
