@@ -191,6 +191,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->makeMovable->setChecked(settings.value("makeTabsMovable", true).toBool());
     ui->hideTabsOnTab->setChecked(settings.value("hideTabsWithOneTab", false).toBool());
     ui->activateLastTab->setChecked(settings.value("ActivateLastTabWhenClosingActual", false).toBool());
+    ui->dontQuitOnTab->setChecked(settings.value("dontQuitWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     settings.endGroup();
     //AddressBar
@@ -680,6 +681,7 @@ void Preferences::saveSettings()
     settings.setValue("makeTabsMovable", ui->makeMovable->isChecked());
     settings.setValue("hideTabsWithOneTab", ui->hideTabsOnTab->isChecked());
     settings.setValue("ActivateLastTabWhenClosingActual", ui->activateLastTab->isChecked());
+    settings.setValue("dontQuitWithOneTab", ui->dontQuitOnTab->isChecked());
     settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.endGroup();
 
