@@ -7,21 +7,22 @@ body {background: #eeeeee url(%IMG_BACKGROUND%) no-repeat center center;backgrou
 body * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
 .add {position: absolute;right:10px;top:10px;width: 24px;height: 24px;background: url(%IMG_PLUS%); cursor: pointer;}
 
-#quickdial {margin: auto;}
-#quickdial div.entry {position: relative;width: 231px;height: 150px;float: left;border-width: 10px;
+#quickdial {margin: auto;text-align: center;}
+#quickdial div.entry {position: relative;width: %SD-SIZE%px;float: left;border-width: 10px;
 -webkit-border-image: url(%BOX-BORDER%) 10;margin: 5px;}
 #quickdial img {display: block;margin: auto;}
-#quickdial a {position: absolute;left: 0px;top: 0px;width: 231px;height: 130px;}
+#quickdial img[src*=".png"] {width: %SD-SIZE%px;height: auto;}
+#quickdial a {position: absolute;left: 0px;top: 0px;width: 100%;height: 87%;}
 
 div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload{display: inline;}
-span.boxTitle {width:231px;max-height: 20px; position: absolute;top: 133px;left: 0px;text-align: center;overflow:hidden;}
-span.close {width: 14px;height: 14px;position: absolute;left: 215px;top: 135px;
+span.boxTitle {width:100%;max-height: 20px; position: absolute;top: 88%;left: 0px;text-align: center;overflow:hidden;}
+span.close {width: 14px;height: 14px;position: absolute;left: 92%;top: 90%;
 background: url(%IMG_CLOSE%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
 span.close:hover {border-color: grey; border-radius: 3px;}
-span.edit {width: 14px;height: 14px;position: absolute;left: 0px;top: 135px;
+span.edit {width: 14px;height: 14px;position: absolute;left: 0px;top: 90%;
 background: url(%IMG_EDIT%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
 span.edit:hover {border-color: grey; border-radius: 3px;}
-span.reload {width: 16px;height: 16px;position: absolute;left: 213px;top: 0px;background: url(%IMG_RELOAD%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
+span.reload {width: 16px;height: 16px;position: absolute;left: 92%;top: 0px;background: url(%IMG_RELOAD%) no-repeat;background-position: center;border: 1px solid transparent;display: none;}
 span.reload:hover {border-color: grey; border-radius: 4px;}
 
 #overlay-edit {width: 380px;max-height: 265px;border-width: 20px;margin-left: auto;margin-right: auto;margin-top: 100px;
@@ -33,19 +34,18 @@ span.reload:hover {border-color: grey; border-radius: 4px;}
 .formTable input[type="text"] {width: 100%;-webkit-user-select: auto;}
 
 .sett {position: absolute;right:36px;top:10px;width: 24px;height: 24px;background: url(%IMG_SETTINGS%); cursor: pointer;}
-#settingsBox {position: absolute;right:58px;top:25px;width: 245px;height: auto;background: #eeeeee;margin: 5px;-webkit-box-shadow: 0 0 6px 6px#888;box-shadow: 0 0 6px 6px #888;border-radius: 15px;display: none;padding:8px 20px;border: 1px solid transparent;}
-#settingsBox .title {margin-bottom: 1px;padding-bottom:2px;}
+#settingsBox {position: absolute;right:58px;top:25px;width: 250px;height: auto;background: #eeeeee;margin: 5px;-webkit-box-shadow: 0 0 6px 6px#888;box-shadow: 0 0 6px 6px #888;border-radius: 15px;padding: 8px 15px;border: 1px solid transparent;opacity: 1;z-index:200}
 #settingsBox .content {float:right;}
 #settingsBox .thumbhold {margin: 2px;padding: 1px;border-radius: 10px;text-align:center;width: 100px; height: 100px;background: #AAA;}
 #settingsBox .thumbhold p {margin: 0;padding: 0;background: #eeeeee url(%IMG_BACKGROUND%) no-repeat center center;background-size: %B_SIZE%;width: 98px;height:98px;border-radius: 10px;position: relative;left: 1px;top: 1px;}
 #settingsBox p label {margin: 2px;padding: 1px;text-align: center;}
 #settingsBox p select {margin: 2px;padding: 1px;text-align: center;width: 100px;}
 #settingsBox p select option {text-align: center;}
+#settingsBox .togop {margin-bottom: 1px;padding-bottom:2px;}
 #settingsBox .button {margin: 2px;padding: 1px;text-align:center;width: 100px;}
-#settingsBox .rowsel {margin: 2px;padding: 1px;border-bottom: 1px solid #888;}
-#settingsBox .rowsel label {width: 130px;}
-#settingsBox .rowsel input {text-align:center;width: 75px;margin-bottom: 6px;margin-right: 4px;float: right;}
-#settingsBox .rowsel span {font-weight: bold;text-align: center;float: right;margin-left: 2px;}
+#settingsBox .rowsel {margin: 2px;padding: 3px 0;border-bottom: 1px solid #888;}
+#settingsBox .rowsel input {text-align: center;width: 150px;height: 12px;margin: 0px;padding-bottom: 0;}
+#settingsBox .rowsel span {font-weight: bold;text-align: center;margin: 2px;margin-right: 7px;display: inline-block;width: 25px;}
 </style>
 <script type="text/javascript" src="%JQUERY%"></script>
 <script type="text/javascript" src="%JQUERY-UI%"></script>
@@ -60,6 +60,10 @@ var TITLE_REMOVE = '%TITLE-REMOVE%';
 var TITLE_RELOAD = '%TITLE-RELOAD%';
 var TITLE_FETCHTITLE = '%TITLE-FETCHTITLE%';
 var MAX_PAGES_ROW = %ROW-PAGES%;
+
+$(document).ready(function () {
+  $('head').append('<style type="text/css" media="screen">#quickdial div.entry {height: ' + Math.round(%SD-SIZE% / 1.54) + 'px;}</style>');
+});
 
 var editingId = -1;
 
@@ -274,36 +278,21 @@ function removeBox(id) {
 function alignPage() {
     var width = $(window).width();
     var height = $(window).height();
+    var boxWidth = Math.floor(%SD-SIZE% + 30);
+    var boxHeight = Math.floor(Math.round(%SD-SIZE% / 1.54) + 40);
 
-    // 1 box width: 262px
-    var maxBoxes = Math.floor(width / 262);
+    var maxBoxes = Math.floor(width / boxWidth);
     if (maxBoxes > MAX_PAGES_ROW) maxBoxes = MAX_PAGES_ROW;
     if (maxBoxes < 1) maxBoxes = 1;
 
-    var maxwidth = maxBoxes * 262;
+    var maxwidth = maxBoxes * boxWidth;
     $("#quickdial").css('width', maxwidth + 'px');
 
     var boxesCount = $("#quickdial").children("div").size();
     var rows = Math.ceil(boxesCount / maxBoxes);
-    var margintop = (height - rows * 190) / 2;
+    var margintop = (height - rows * boxHeight) / 2;
     if (margintop < 0) margintop = 0;
     $("#quickdial").css('margin-top', margintop + 'px');
-}
-
-function toggleDisplay(id) {
-    var div = document.getElementById(id);
-    div.style.display = (div.style.display == 'block' ? 'none' : 'block');
-}
-
-function checkSet() {
-    var checkb = document.getElementById('BgImgToggle');
-    var BgImgSel = document.getElementById('BgImgSel');
-    var BgImgSz = document.getElementById('BgImgSelSiz');
-    var bgImg = '%IMG_BACKGROUND%';
-    checkb.checked = (bgImg == '' ? false : true);
-    BgImgSel.disabled = (bgImg == '' ? true : false);
-    BgImgSz.disabled = (bgImg == '' ? true : false);
-    BgImgSz.selectedIndex
 }
 
 function bgImageSel() {
@@ -314,6 +303,7 @@ function bgImageSel() {
 }
 
 function saveSettings() {
+<<<<<<< HEAD
     var BgImg = document.getElementById('BgImgHold').value;
     var BgImgSz = document.getElementById('BgImgSelSiz').value;
     MAX_PAGES_ROW = document.getElementById('PgInRow').value;
@@ -323,6 +313,12 @@ function saveSettings() {
 
     document.getElementById('settingsBox').style.display  = 'none';
     alignPage();
+=======
+    speeddial.setBackgroundImage($('#BgImgHold').val());
+    speeddial.setBackgroundImageSize($('#BgImgSelSiz').val());
+    speeddial.setPagesInRow($('#PgInRow').val());
+    speeddial.setSdSize($('#SdSize').val());
+>>>>>>> 5a9e3ba389b76c5e8b0477483f6298ff5dd53ddc
 }
 
 function bgImgToggle() {
@@ -330,18 +326,20 @@ function bgImgToggle() {
     var BgImgSel = document.getElementById('BgImgSel');
     var BgImgHold = document.getElementById('BgImgHold');
     var BgImgSz = document.getElementById('BgImgSelSiz');
-    if (check.checked) {
-      BgImgSel.disabled = false;
-      BgImgHold.disabled = false;
-      BgImgSz.disabled = false;
-      BgImgHold.value = '%IMG_BACKGROUND%';
-    }
-    else {
-      BgImgSel.disabled = true;
-      BgImgHold.disabled = true;
-      BgImgSz.disabled = true;
-      BgImgHold.value = '';
-    }
+
+    BgImgSel.disabled = (check.checked ? false : true);
+    BgImgHold.disabled = (check.checked ? false : true);
+    BgImgSz.disabled = (check.checked ? false : true);
+    BgImgHold.value = (check.checked ? '%IMG_BACKGROUND%' : '');
+}
+
+function sdSizeToggle() {
+    var check = document.getElementById('SdSizeToggle');
+    var SdSize = document.getElementById('SdSize');
+    var SdSizeSl = document.getElementById('sliderValueSd');
+    SdSize.disabled = (check.checked ? false : true);
+    SdSize.value = (check.checked ? SdSize.value : 231);
+    SdSizeSl.innerHTML = (check.checked ? %SD-SIZE% : 231);
 }
 
 function bgImgUpdate() {
@@ -355,13 +353,23 @@ function bgImgUpdate() {
     document.body.style.backgroundSize = imgSize;
 }
 
-document.addEventListener("DOMContentLoaded", checkSet, false);
+$(document).ready(function () {
+  $('#BgImgSelSiz').val('%B_SIZE%').attr('selected','selected');
+  var bgImg = '%IMG_BACKGROUND%';
+  var sdSize = '%SD-SIZE%';
+  bgImg == '' ? $('#BgImgToggle').prop('checked', false) : $('#BgImgToggle').prop('checked', true)
+  sdSize == '231' ? $('#SdSizeToggle').prop('checked', false) : $('#SdSizeToggle').prop('checked', true)
+  $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
+  $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
+  $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
+});
+
 </script>
 </head>
 
 <body>
 <div id="quickdial"></div>
-<a onClick="toggleDisplay('settingsBox');" title="%SETTINGS-TITLE%" class="sett"></a>
+<a onClick="$('#fadeOverlay2').css({'filter' : 'alpha(opacity=95)'}).fadeIn();$('#fadeOverlay2').click(function() { $(this).fadeOut('slow'); });$('#settingsBox').click(function(event) { event.stopPropagation(); });" title="%SETTINGS-TITLE%" class="sett"></a>
 <a onClick="onEditClick(addBox('', NEW_PAGE, '')); alignPage();" title="%ADD-TITLE%" class="add"></a>
 
 <script type="text/javascript">
@@ -381,12 +389,47 @@ $("#quickdial").sortable({
     }
 });
 </script>
-<div id="settingsBox">
-  <div class="rowsel">
-    <span id="sliderValue">%ROW-PAGES%</span>
-    <input id="PgInRow" type="range" min="2" max="8" value="%ROW-PAGES%" step="1" onchange="document.getElementById('sliderValue').innerHTML = this.value;" />
-    <label for="PgInRow">%TXT_NRROWS%</label>
+<div id="fadeOverlay2" style="opacity:0.95;display:none;position:fixed;left:0;top:0;width:100%;height:100%;z-index:100;background:grey;">
+  <div id="settingsBox">
+    <div class="togop">
+      <label for="PgInRow">%TXT_NRROWS%</label>
+    </div>
+    <div class="rowsel">
+      <span id="sliderValuePg">%ROW-PAGES%</span>
+      <input id="PgInRow" type="range" min="2" max="8" value="%ROW-PAGES%" step="1" onchange="$('#sliderValuePg').html(this.value);" />
+    </div>
+    <div class="togop">
+      <input type="checkbox" name="sdsizet" id="SdSizeToggle" onchange="sdSizeToggle()" />&nbsp;<label for="SdSizeToggle">%TXT_SDSIZE%</label>
+    </div>
+    <div class="rowsel">
+      <span id="sliderValueSd">%SD-SIZE%</span>
+      <input id="SdSize" type="range" min="145" max="280" value="%SD-SIZE%" step="1" onchange="$('#sliderValueSd').html(this.value);" />
+    </div>
+    <div class="togop">
+      <input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label>
+    </div>
+    <div class="content">
+      <p>
+        <input id="BgImgSel" type="button" class="button" value="%TXT_SELECTIMAGE%" onclick="bgImageSel();bgImgUpdate()" />
+        <input id="BgImgHold" type="hidden" value="%IMG_BACKGROUND%" />
+      </p>
+      <p>
+        <label for="BgImgSelSiz">%TXT_PLACEMENT%</label><br />
+        <select id="BgImgSelSiz" name="imgselsize" onchange="bgImgUpdate()">
+          <option value="auto">%TXT_AUTO%</option>
+          <option value="cover">%TXT_COVER%</option>
+          <option value="contain">%TXT_FIT%</option>
+          <option value="100% auto">%TXT_FWIDTH%</option>
+          <option value="auto 100%">%TXT_FHEIGHT%</option>
+        </select>
+      </p>
+      <p>
+        <input class="button" type="button" value="%APPLY%" onClick="saveSettings();$('#fadeOverlay2').fadeOut('slow', function(){window.location.reload();});" />
+      </p>
+    </div>
+    <div class="thumbhold"><p id="thumb"></p></div>
   </div>
+<<<<<<< HEAD
   <div class="title"><input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label></div>
   <div class="content">
     <p>
@@ -408,6 +451,8 @@ $("#quickdial").sortable({
     </p>
   </div>
   <div class="thumbhold"><p id="thumb" ></p></div>
+=======
+>>>>>>> 5a9e3ba389b76c5e8b0477483f6298ff5dd53ddc
 </div>
 </body>
 </html>
