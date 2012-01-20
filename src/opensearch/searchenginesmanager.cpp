@@ -92,18 +92,14 @@ QUrl SearchEnginesManager::searchUrl(const Engine &engine, const QString &string
 {
     ENSURE_LOADED;
 
-    QString url = engine.url;
-    url.replace("%s", string);
-    return QUrl(url);
+    QByteArray url = engine.url.toUtf8();
+    url.replace("%s", QUrl::toPercentEncoding(string));
+    return QUrl::fromEncoded(url);
 }
 
 QUrl SearchEnginesManager::searchUrl(const QString &string)
 {
-    ENSURE_LOADED;
-
-    QString url = m_activeEngine.url;
-    url.replace("%s", string);
-    return QUrl(url);
+    return searchUrl(m_activeEngine, string);
 }
 
 void SearchEnginesManager::restoreDefaults()
