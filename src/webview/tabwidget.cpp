@@ -152,6 +152,7 @@ void TabWidget::loadSettings()
     Settings settings;
     settings.beginGroup("Browser-Tabs-Settings");
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
+    m_dontQuitWithOneTab = settings.value("dontQuitWithOneTab", false).toBool();
     settings.endGroup();
     settings.beginGroup("Web-URL-Settings");
     m_urlOnNewTab = settings.value("newTabUrl", "qupzilla:speeddial").toUrl();
@@ -329,11 +330,20 @@ void TabWidget::setTabText(int index, const QString &text)
 
 void TabWidget::closeTab(int index)
 {
-    if (count() == 1) {
-        p_QupZilla->close();
-    }
     if (index == -1) {
         index = currentIndex();
+    }
+
+    if (count() == 1) {
+          if (m_dontQuitWithOneTab) {
+             weView(index)->load(m_urlOnNewTab);
+             weView(index)->page()->history()->clear();
+             return;
+          }
+          else {
+              p_QupZilla->close();
+              return;
+          }
     }
 
     WebView* webView = weView(index);
