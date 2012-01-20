@@ -2340,7 +2340,7 @@
     </message>
     <message>
         <source>Informations about application</source>
-        <translation>Informácie o programe</translation>
+        <translation type="obsolete">Informácie o programe</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
@@ -2460,6 +2460,10 @@
     </message>
     <message>
         <source> - QupZilla</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Information about application</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2682,11 +2686,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Max number of pages in a row:</source>
+        <source>Maximum pages in a row:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Change size of dials</source>
+        <source>Change size of pages:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

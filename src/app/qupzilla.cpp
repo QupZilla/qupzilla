@@ -793,7 +793,7 @@ void QupZilla::aboutToShowHelpMenu()
     m_menuHelp->addAction(m_actionAbout);
     m_menuHelp->addSeparator();
 #endif
-    QAction* infoAction = new QAction(QIcon(":/icons/menu/informations.png"), tr("Informations about application"), m_menuHelp);
+    QAction* infoAction = new QAction(QIcon(":/icons/menu/informations.png"), tr("Information about application"), m_menuHelp);
     infoAction->setData(QUrl("qupzilla:about"));
     infoAction->setShortcut(QKeySequence(QKeySequence::HelpContents));
     connect(infoAction, SIGNAL(triggered()), this, SLOT(loadActionUrlInNewTab()));

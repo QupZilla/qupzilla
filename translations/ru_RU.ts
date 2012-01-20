@@ -2987,14 +2987,18 @@
         <translation>О &amp;Qt</translation>
     </message>
     <message>
+        <location filename="../src/app/qupzilla.cpp" line="796"/>
+        <source>Information about application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/app/qupzilla.cpp" line="282"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp;О QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="796"/>
         <source>Informations about application</source>
-        <translation>О программе</translation>
+        <translation type="obsolete">О программе</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="801"/>
@@ -3329,12 +3333,12 @@
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
-        <source>Max number of pages in a row:</source>
+        <source>Maximum pages in a row:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
-        <source>Change size of dials</source>
+        <source>Change size of pages:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

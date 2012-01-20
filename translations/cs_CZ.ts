@@ -2837,6 +2837,11 @@ nebyl nalezen!</translation>
         <translation>Zdrojový &amp;kód stránky</translation>
     </message>
     <message>
+        <location filename="../src/app/qupzilla.cpp" line="796"/>
+        <source>Information about application</source>
+        <translation>Informace o aplikaci</translation>
+    </message>
+    <message>
         <location filename="../src/app/qupzilla.cpp" line="1216"/>
         <source> - QupZilla</source>
         <translation> - QupZilla</translation>
@@ -3018,9 +3023,8 @@ nebyl nalezen!</translation>
         <translation>&amp;O QupZille</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="796"/>
         <source>Informations about application</source>
-        <translation>Informace o aplikaci</translation>
+        <translation type="obsolete">Informace o aplikaci</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="801"/>
@@ -3323,13 +3327,17 @@ nebyl nalezen!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
-        <source>Max number of pages in a row:</source>
-        <translation type="unfinished"></translation>
+        <source>Maximum pages in a row:</source>
+        <translation>Maximum stránek v řadě:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
-        <source>Change size of dials</source>
-        <translation type="unfinished"></translation>
+        <source>Change size of pages:</source>
+        <translation>Změnit velikost stránek:</translation>
+    </message>
+    <message>
+        <source>Max number of pages in a row:</source>
+        <translation type="obsolete">Maximální počet stránek v řadě:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
