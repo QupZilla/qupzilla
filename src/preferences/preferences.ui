@@ -635,6 +635,74 @@
          </property>
         </widget>
        </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QCheckBox" name="hideTabsOnTab">
+         <property name="text">
+          <string>Hide tabs when there is only one tab</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0" colspan="4">
+        <widget class="QLabel" name="label_25">
+         <property name="text">
+          <string>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <spacer name="verticalSpacer_8">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="9" column="1" colspan="3">
+        <widget class="QCheckBox" name="selectAllOnFocus">
+         <property name="text">
+          <string>Select all text by double clicking in address bar</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1" colspan="3">
+        <widget class="QCheckBox" name="addCountryWithAlt">
+         <property name="text">
+          <string>Add .co.uk domain by pressing ALT key</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <spacer name="verticalSpacer_7">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="askWhenClosingMultipleTabs">
+         <property name="text">
+          <string>Ask when closing multiple tabs</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1" colspan="3">
+        <widget class="QCheckBox" name="selectAllOnClick">
+         <property name="text">
+          <string>Select all text by clicking in address bar</string>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="3">
         <spacer name="horizontalSpacer_16">
          <property name="orientation">
@@ -648,78 +716,17 @@
          </property>
         </spacer>
        </item>
-       <item row="2" column="1" colspan="2">
-        <widget class="QCheckBox" name="hideTabsOnTab">
-         <property name="text">
-          <string>Hide tabs when there is only one tab</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0" colspan="4">
-        <widget class="QLabel" name="label_25">
-         <property name="text">
-          <string>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="1" colspan="3">
-        <widget class="QCheckBox" name="selectAllOnFocus">
-         <property name="text">
-          <string>Select all text by double clicking in address bar</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="1" colspan="3">
-        <widget class="QCheckBox" name="addCountryWithAlt">
-         <property name="text">
-          <string>Add .co.uk domain by pressing ALT key</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="1">
-        <spacer name="verticalSpacer_8">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="5" column="1">
-        <spacer name="verticalSpacer_7">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="1">
+       <item row="4" column="1">
         <widget class="QCheckBox" name="activateLastTab">
          <property name="text">
           <string>Activate last tab when closing active tab</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
-        <widget class="QCheckBox" name="askWhenClosingMultipleTabs">
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="dontQuitOnTab">
          <property name="text">
-          <string>Ask when closing multiple tabs</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="1" colspan="3">
-        <widget class="QCheckBox" name="selectAllOnClick">
-         <property name="text">
-          <string>Select all text by clicking in address bar</string>
+          <string>Don't quit upon closing last tab</string>
          </property>
         </widget>
        </item>
@@ -2005,7 +2012,6 @@
   <tabstop>tabWidget_2</tabstop>
   <tabstop>makeMovable</tabstop>
   <tabstop>hideTabsOnTab</tabstop>
-  <tabstop>activateLastTab</tabstop>
   <tabstop>askWhenClosingMultipleTabs</tabstop>
   <tabstop>selectAllOnFocus</tabstop>
   <tabstop>selectAllOnClick</tabstop>
