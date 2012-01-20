@@ -3320,7 +3320,12 @@ n&apos;a pas été trouvé!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
-        <source>Max dials in row:</source>
+        <source>Max number of pages in a row:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
+        <source>Change size of dials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4103,12 +4108,12 @@ Après avoir ajouté ou retiré un certificat, il est nécessaire de redémarrer
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="212"/>
+        <location filename="../src/plugins/speeddial.cpp" line="223"/>
         <source>Select image...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="244"/>
+        <location filename="../src/plugins/speeddial.cpp" line="260"/>
         <source>Unable to load</source>
         <translation>Impossible d&apos;actualiser</translation>
     </message>
