@@ -2833,6 +2833,11 @@ werd niet gevonden!</translation>
         <translation>&amp;Pagina-broncode</translation>
     </message>
     <message>
+        <location filename="../src/app/qupzilla.cpp" line="796"/>
+        <source>Information about application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/app/qupzilla.cpp" line="1216"/>
         <source> - QupZilla</source>
         <translation> - QupZilla</translation>
@@ -3014,9 +3019,8 @@ werd niet gevonden!</translation>
         <translation>&amp;Over QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="796"/>
         <source>Informations about application</source>
-        <translation>Informatie over programma</translation>
+        <translation type="obsolete">Informatie over programma</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="801"/>
@@ -3319,12 +3323,12 @@ werd niet gevonden!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
-        <source>Max number of pages in a row:</source>
+        <source>Maximum pages in a row:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
-        <source>Change size of dials</source>
+        <source>Change size of pages:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -2967,9 +2967,8 @@
         <translation>关于QupZIlla&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="796"/>
         <source>Informations about application</source>
-        <translation>软件信息</translation>
+        <translation type="obsolete">软件信息</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="801"/>
@@ -3030,6 +3029,11 @@
         <location filename="../src/app/qupzilla.cpp" line="286"/>
         <source>Pr&amp;eferences</source>
         <translation>首选项&amp;e</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="796"/>
+        <source>Information about application</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="889"/>
@@ -3311,12 +3315,12 @@
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
-        <source>Max number of pages in a row:</source>
+        <source>Maximum pages in a row:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
-        <source>Change size of dials</source>
+        <source>Change size of pages:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

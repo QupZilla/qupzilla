@@ -2937,14 +2937,18 @@
         <translation>О &amp;Кјуту</translation>
     </message>
     <message>
+        <location filename="../src/app/qupzilla.cpp" line="796"/>
+        <source>Information about application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/app/qupzilla.cpp" line="282"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp;О Капзили</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="796"/>
         <source>Informations about application</source>
-        <translation>Инфо програма</translation>
+        <translation type="obsolete">Инфо програма</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="801"/>
@@ -3269,13 +3273,21 @@
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
-        <source>Max number of pages in a row:</source>
-        <translation>Максималан број брзих бирања у реду:</translation>
+        <source>Maximum pages in a row:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
+        <source>Change size of pages:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max number of pages in a row:</source>
+        <translation type="obsolete">Максималан број брзих бирања у реду:</translation>
+    </message>
+    <message>
         <source>Change size of dials</source>
-        <translation>Промијени величину брзих бирања</translation>
+        <translation type="obsolete">Промијени величину брзих бирања</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
