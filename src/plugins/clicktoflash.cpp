@@ -123,7 +123,7 @@ void ClickToFlash::customContextMenuRequested(const QPoint &pos)
 {
     QMenu menu;
     menu.addAction(tr("Object blocked by ClickToFlash"));
-    menu.addAction(tr("Show more informations about object"), this, SLOT(showInfo()));
+    menu.addAction(tr("Show more information about object"), this, SLOT(showInfo()));
     menu.addSeparator();
     menu.addAction(tr("Delete object"), this, SLOT(hideAdBlocked()));
     menu.addAction(tr("Add %1 to whitelist").arg(m_url.host()), this, SLOT(toWhitelist()));
@@ -282,7 +282,7 @@ void ClickToFlash::showInfo()
     }
 
     if (i == 0) {
-        lay->addRow(new QLabel(tr("No more informations available.")));
+        lay->addRow(new QLabel(tr("No more information available.")));
     }
 
     widg->setMaximumHeight(500);
