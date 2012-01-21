@@ -366,6 +366,65 @@ QUrl WebView::lastUrl()
     return m_lastUrl;
 }
 
+bool WebView::isMediaElement(const QWebElement &element)
+{
+    return (element.tagName().toLower() == "video" || element.tagName().toLower() == "audio");
+}
+
+QMenu *WebView::createMediaContextMenu(const QWebHitTestResult &hitTest)
+{
+    QMenu* menu = new QMenu(this);
+    m_mediaElement = hitTest.element();
+
+    bool paused = m_mediaElement.evaluateJavaScript("this.paused").toBool();
+    bool muted = m_mediaElement.evaluateJavaScript("this.muted").toBool();
+    QUrl videoUrl = m_mediaElement.evaluateJavaScript("this.currentSrc").toUrl();
+
+    menu->addAction(paused ? tr("Un&pause") : tr("&Pause"), this, SLOT(pauseMedia()));
+    menu->addAction(muted ? tr("Un&mute") : tr("&Mute"), this, SLOT(muteMedia()));
+    menu->addSeparator();
+    menu->addAction(tr("Copy Media &Address"), this, SLOT(copyLinkToClipboard()))->setData(videoUrl);
+    menu->addAction(tr("&Download Media To Disk"), this, SLOT(downloadLinkToDisk()))->setData(videoUrl);
+
+    return menu;
+}
+
+void WebView::pauseMedia()
+{
+    bool paused = m_mediaElement.evaluateJavaScript("this.paused").toBool();
+
+    if (paused) {
+        m_mediaElement.evaluateJavaScript("this.play()");
+    }
+    else {
+        m_mediaElement.evaluateJavaScript("this.pause()");
+    }
+}
+
+void WebView::muteMedia()
+{
+    bool muted = m_mediaElement.evaluateJavaScript("this.muted").toBool();
+
+    if (muted) {
+        m_mediaElement.evaluateJavaScript("this.muted = false");
+    }
+    else {
+        m_mediaElement.evaluateJavaScript("this.muted = true");
+    }
+}
+
+void WebView::controlsMedia()
+{
+    bool controls= m_mediaElement.evaluateJavaScript("this.controls").toBool();
+
+    if (controls) {
+        m_mediaElement.evaluateJavaScript("this.controls = false");
+    }
+    else {
+        m_mediaElement.evaluateJavaScript("this.controls = true");
+    }
+}
+
 void WebView::wheelEvent(QWheelEvent* event)
 {
     if (event->modifiers() & Qt::ControlModifier) {

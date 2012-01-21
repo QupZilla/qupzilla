@@ -95,6 +95,15 @@ protected:
     void copyText();
     QUrl lastUrl();
 
+    bool isMediaElement(const QWebElement &element);
+
+    QMenu* createMediaContextMenu(const QWebHitTestResult &hitTest);
+
+private slots:
+    void pauseMedia();
+    void muteMedia();
+    void controlsMedia();
+
 private:
     QList<int> m_zoomLevels;
     int m_currentZoom;
@@ -106,6 +115,8 @@ private:
     int m_progress;
     QUrl m_aboutToLoadUrl;
     QUrl m_lastUrl;
+
+    QWebElement m_mediaElement;
 
     QList<QTouchEvent::TouchPoint> m_touchPoints;
 };

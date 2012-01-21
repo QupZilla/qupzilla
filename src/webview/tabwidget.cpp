@@ -515,7 +515,7 @@ void TabWidget::restoreAllClosedTabs()
 
     QList<ClosedTabsManager::Tab> closedTabs = m_closedTabsManager->allClosedTabs();
     foreach(ClosedTabsManager::Tab tab, closedTabs) {
-        int index = addView(QUrl(), tab.title, Qz::NT_CleanNotSelectedTab);
+        int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab);
         QDataStream historyStream(tab.history);
         historyStream >> *weView(index)->history();
 
@@ -608,7 +608,7 @@ void TabWidget::restorePinnedTabs()
         QByteArray historyState = tabHistory.value(i);
         int addedIndex;
         if (!historyState.isEmpty()) {
-            addedIndex = addView(QUrl(), Qz::NT_CleanNotSelectedTab);
+            addedIndex = addView(QUrl(), Qz::NT_CleanSelectedTab);
             QDataStream historyStream(historyState);
             historyStream >> *weView(addedIndex)->history();
             weView(addedIndex)->load(url);
@@ -684,7 +684,7 @@ bool TabWidget::restoreState(const QByteArray &state)
 
         QByteArray historyState = tabHistory.value(i);
         if (!historyState.isEmpty()) {
-            int index = addView(QUrl(), Qz::NT_CleanNotSelectedTab);
+            int index = addView(QUrl(), Qz::NT_CleanSelectedTab);
             QDataStream historyStream(historyState);
             historyStream >> *weView(index)->history();
             weView(index)->load(url);
