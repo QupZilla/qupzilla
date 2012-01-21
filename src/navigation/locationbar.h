@@ -74,10 +74,12 @@ private slots:
     void urlEnter();
     void clearIcon();
     void showRSSIcon(bool state);
+    void pasteAndGo();
 
     void updatePlaceHolderText();
 
 private:
+    void contextMenuEvent(QContextMenuEvent* event);
     void focusOutEvent(QFocusEvent* e);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
@@ -99,6 +101,10 @@ private:
     WebView* m_webView;
     LocationCompleter* m_locationCompleter;
     LocationBarSettings* m_locationBarSettings;
+
+    QMenu* m_menu;
+    QAction* m_pasteAndGoAction;
+    QAction* m_clearAction;
 
     bool m_rssIconVisible;
     bool m_holdingAlt;
