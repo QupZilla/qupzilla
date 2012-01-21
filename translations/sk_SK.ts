@@ -1327,6 +1327,14 @@
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.sk</translation>
     </message>
+    <message>
+        <source>Paste And &amp;Go</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear All</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainApplication</name>
