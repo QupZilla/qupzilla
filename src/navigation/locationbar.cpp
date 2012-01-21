@@ -124,7 +124,9 @@ QUrl LocationBar::createUrl()
 
 void LocationBar::urlEnter()
 {
+    m_locationCompleter->popup()->hide();
     m_webView->setFocus();
+
     emit loadUrl(createUrl());
 }
 
@@ -255,7 +257,6 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
     if (!m_pasteAndGoAction) {
         m_pasteAndGoAction = new QAction(QIcon::fromTheme("edit-paste"), tr("Paste And &Go"), this);
         m_pasteAndGoAction->setShortcut(QKeySequence("Ctrl+Shift+V"));
-        connect(m_pasteAndGoAction, SIGNAL(triggered()), this, SLOT(pasteAndGo()));
     }
 
     if (!m_clearAction) {
@@ -374,6 +375,14 @@ void LocationBar::mousePressEvent(QMouseEvent* event)
 void LocationBar::keyPressEvent(QKeyEvent* event)
 {
     switch (event->key()) {
+    case Qt::Key_V:
+        if (event->modifiers() == (Qt::ControlModifier | Qt::ShiftModifier)) {
+            pasteAndGo();
+            event->accept();
+            return;
+        }
+        break;
+
     case Qt::Key_Escape:
         m_webView->setFocus();
         showUrl(m_webView->url());
@@ -401,8 +410,9 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         }
     default:
         m_holdingAlt = false;
-        LineEdit::keyPressEvent(event);
     }
+
+    LineEdit::keyPressEvent(event);
 }
 
 void LocationBar::keyReleaseEvent(QKeyEvent* event)
