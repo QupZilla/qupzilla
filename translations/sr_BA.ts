@@ -2962,10 +2962,6 @@
         <translation>&amp;О Капзили</translation>
     </message>
     <message>
-        <source>Informations about application</source>
-        <translation type="obsolete">Инфо програма</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="801"/>
         <source>Report &amp;Issue</source>
         <translation>&amp;Пријави проблем</translation>
@@ -3295,14 +3291,6 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
         <source>Change size of pages:</source>
         <translation>Промијени величину брзих бирања:</translation>
-    </message>
-    <message>
-        <source>Max number of pages in a row:</source>
-        <translation type="obsolete">Максималан број брзих бирања у реду:</translation>
-    </message>
-    <message>
-        <source>Change size of dials</source>
-        <translation type="obsolete">Промијени величину брзих бирања</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
