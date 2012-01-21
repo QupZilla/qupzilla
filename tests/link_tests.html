@@ -1,0 +1,63 @@
+<html>
+<head>
+ <title>Link Tests</title>
+</head>
+<!--  
+Original file used from kWebKitPart (https://projects.kde.org/projects/extragear/base/kwebkitpart)
+-->
+<body>
+<h2>MAILTO Link Tests</h2>
+  <a href="mailto:joe@xyz.com&amp;CC=bob@xyz.com&amp;BCC=bob@xyz.com&amp;attach=%2Fetc%2Fpasswd&amp;subject=hello&amp;body=hello">Email link #1</a>
+  <br/>
+  <a href="mailto:joe@xyz.com">Email link #2</a>
+  <br/>
+<!--
+<h2>FTP Link Tests</h2>
+  <a href="ftp://ftp.kde.org" target="top">FTP link #1 (new window)</a>
+  <br/>
+  <a href="ftp://ftp.kde.org/pub" target="top">FTP link #2 (new window)</a>
+  <br/>
+  <a href="ftp://upload.kde.org">FTP link #3</a>
+  <br/>
+  <a href="ftp://ftp.kde.org/pub/kde/README_UPLOAD">Text File Link</a>
+  <br/>
+-->
+<h2>HTTP Link Tests</h2>
+  <a href="http://www.kde.org" target="_blank">Web site link (new window)</a>
+  <br/>
+  <a href="http://foo@www.kde.org">Web site link with bogus username</a>
+  <br/>
+  <a href="http://bar@www.kde.org">Web site link with different bogus username</a>
+  <br/>
+  <a href="http://ev.kde.org/reports/ev-quarterly-2009Q1.pdf">PDF link</a>
+  <br/>
+  <a href="http://ev.kde.org/reports/ev-quarterly-2009Q1.pdf" target="_blank">PDF link (new window)</a>
+  <br/>
+  <a href="http://blip.tv/file/get/Sebasje-WindowManagingFeaturesInKDEPlasma44222.ogg">Movie link</a>
+  <br/>
+  <a href="http://blip.tv/file/get/Sebasje-WindowManagingFeaturesInKDEPlasma44222.ogg" target="_blank">Movie link (new window)</a>
+  <br/>
+  <a href="http://www.ietf.org/rfc/rfc2344.txt">Text Document Link</a>
+  <br/>
+  <a href="http://www.microsoft.com%26item%3Dq209354rexsddiuyjkiuylkuryt2583453453fsesfsdfsfasfdfdsf@www.kde.org/">Bogus link</a>
+  <br/>
+<h2>Javascript Link Tests</h2>
+  <a href="javascript:window.open('http://www.qupzilla.com','dialog', 'width=600,height=600,statusbar=no,toolbar=no')">Open dialog like window link #1</a>
+  <br/>
+  <a href="javascript:window.open('http://www.kde.org')">Open new window link #2 (might be opened as Tab)</a>
+  <br/>
+  <a href="javascript:window.open('http://ev.kde.org/reports/ev-quarterly-2009Q1.pdf', '_blank', 'width=600,height=600,statusbar=no,toolbar=no')">Open PDF Document (new window)</a>
+  <br/>
+  <a href="javascript:window.open('forms/form.html', '_blank', 'width=600,height=600,statusbar=no,toolbar=no')">Open form test (new window)</a>
+  <br/>
+  <a href="javascript:window.close()">Close window</a>
+  <br/>
+<h2>Form Tests</h2>
+  <form action="mailto:someone@example.com?CC='bob@example.com&amp;attach=%2fetc%2fpasswd&amp;body=" method="post" enctype="application/x-www-form-urlencoded">
+    Choose file to upload:<br />
+    <input type="file" name="upload_file" size="20" /><br/>
+    <input type="submit" value="Send" />
+    <input type="reset" value="Reset" />
+  </form>
+</body>
+</html>

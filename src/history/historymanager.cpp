@@ -18,10 +18,12 @@
 #include "historymanager.h"
 #include "ui_historymanager.h"
 #include "qupzilla.h"
+#include "mainapplication.h"
 #include "historymodel.h"
 #include "iconprovider.h"
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
+#include "tabwidget.h"
 
 HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -81,7 +83,7 @@ void HistoryManager::itemDoubleClicked(QTreeWidgetItem* item)
 void HistoryManager::loadInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        getQupZilla()->tabWidget()->addView(action->data().toUrl(), TabWidget::NewNotSelectedTab);
+        getQupZilla()->tabWidget()->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
     }
 }
 

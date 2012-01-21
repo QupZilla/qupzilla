@@ -341,7 +341,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton && tabAt(event->pos()) == -1) {
-        m_tabWidget->addView(QUrl(), TabWidget::NewSelectedTab, true);
+        m_tabWidget->addView(QUrl(), Qz::NT_SelectedTab, true);
         return;
     }
 
@@ -365,7 +365,7 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
         return;
     }
     if (id == -1 && event->button() == Qt::MiddleButton) {
-        m_tabWidget->addView(QUrl(), TabWidget::NewSelectedTab, true);
+        m_tabWidget->addView(QUrl(), Qz::NT_SelectedTab, true);
         return;
     }
 

@@ -74,7 +74,7 @@ void BookmarksSideBar::itemDoubleClicked(QTreeWidgetItem* item)
 void BookmarksSideBar::loadInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        p_QupZilla->tabWidget()->addView(action->data().toUrl(), TabWidget::NewNotSelectedTab);
+        p_QupZilla->tabWidget()->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
     }
 }
 

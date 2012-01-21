@@ -45,7 +45,7 @@ void PopupWebView::closeView()
     parentWidget()->close();
 }
 
-void PopupWebView::contextMenuEvent(QContextMenuEvent *event)
+void PopupWebView::contextMenuEvent(QContextMenuEvent* event)
 {
     m_menu->clear();
     m_clickedFrame = 0;

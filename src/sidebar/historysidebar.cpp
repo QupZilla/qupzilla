@@ -18,6 +18,8 @@
 #include "historysidebar.h"
 #include "ui_historysidebar.h"
 #include "qupzilla.h"
+#include "tabwidget.h"
+#include "mainapplication.h"
 #include "historymodel.h"
 #include "iconprovider.h"
 
@@ -61,13 +63,13 @@ void HistorySideBar::itemControlClicked(QTreeWidgetItem* item)
     }
 
     QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
-    p_QupZilla->tabWidget()->addView(url, item->text(0));
+    p_QupZilla->tabWidget()->addView(url, item->text(0), Qz::NT_NotSelectedTab);
 }
 
 void HistorySideBar::loadInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        p_QupZilla->tabWidget()->addView(action->data().toUrl(), TabWidget::NewNotSelectedTab);
+        p_QupZilla->tabWidget()->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
     }
 }
 

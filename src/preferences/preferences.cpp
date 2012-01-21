@@ -40,6 +40,7 @@
 #include "globalfunctions.h"
 #include "autofillmodel.h"
 #include "settings.h"
+#include "tabbedwebview.h"
 
 #ifdef Q_WS_WIN
 #define DEFAULT_CHECK_UPDATES true

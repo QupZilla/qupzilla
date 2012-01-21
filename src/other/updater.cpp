@@ -17,9 +17,9 @@
 * ============================================================ */
 #include "updater.h"
 #include "qupzilla.h"
+#include "mainapplication.h"
 #include "tabwidget.h"
 #include "desktopnotificationsfactory.h"
-#include <QDebug>
 
 Updater::Updater(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
@@ -118,7 +118,7 @@ void Updater::downCompleted(QNetworkReply* reply)
 
 void Updater::downloadNewVersion()
 {
-    p_QupZilla->tabWidget()->addView(QUrl(QupZilla::WWWADDRESS + "/download"), tr("Update"), TabWidget::NewSelectedTab);
+    p_QupZilla->tabWidget()->addView(QUrl(QupZilla::WWWADDRESS + "/download"), tr("Update"), Qz::NT_NotSelectedTab);
 }
 
 Updater::~Updater()

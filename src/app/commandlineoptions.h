@@ -21,21 +21,20 @@
 #include <QPair>
 #include <iostream>
 
+#include "qz_namespace.h"
+
 class CommandLineOptions
 {
 public:
-    enum Action { NoAction, OpenUrl, StartWithProfile, StartWithoutAddons,
-                  NewTab, NewWindow, ShowDownloadManager, StartPrivateBrowsing,
-                  ExitAction
-                };
-
     struct ActionPair {
-        Action action;
+        Qz::CommandLineAction action;
         QString text;
     };
 
+    typedef QList<ActionPair> ActionPairList;
+
     explicit CommandLineOptions(int &argc, char** argv);
-    QList<ActionPair> getActions() { return m_actions; }
+    ActionPairList getActions();
 
 private:
     void showHelp();
@@ -43,7 +42,7 @@ private:
 
     int m_argc;
     char** m_argv;
-    QList<ActionPair> m_actions;
+    ActionPairList m_actions;
 };
 
 #endif // COMMANDLINEOPTIONS_H

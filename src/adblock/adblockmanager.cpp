@@ -80,7 +80,7 @@ void AdBlockManager::setEnabled(bool enabled)
     }
     m_enabled = enabled;
     emit rulesChanged();
-    mApp->sendMessages(MainApplication::SetAdBlockIconEnabled, enabled);
+    mApp->sendMessages(Qz::AM_SetAdBlockIconEnabled, enabled);
 }
 
 AdBlockNetwork* AdBlockManager::network()

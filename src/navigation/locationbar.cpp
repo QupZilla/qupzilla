@@ -25,6 +25,7 @@
 #include "siteinfowidget.h"
 #include "rsswidget.h"
 #include "webpage.h"
+#include "tabwidget.h"
 #include "bookmarkicon.h"
 #include "progressbar.h"
 #include "statusbarmessage.h"
@@ -392,7 +393,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
             break;
 
         case Qt::AltModifier:
-            p_QupZilla->tabWidget()->addView(createUrl(), TabWidget::NewNotSelectedTab);
+            p_QupZilla->tabWidget()->addView(createUrl(), Qz::NT_NotSelectedTab);
             break;
 
         default:

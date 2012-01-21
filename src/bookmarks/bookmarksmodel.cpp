@@ -150,7 +150,7 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     bookmark.inSubfolder = isSubfolder(bookmark.folder);
 
     emit bookmarkAdded(bookmark);
-    mApp->sendMessages(MainApplication::BookmarksChanged, true);
+    mApp->sendMessages(Qz::AM_BookmarksChanged, true);
     return true;
 }
 
@@ -182,7 +182,7 @@ bool BookmarksModel::removeBookmark(int id)
     }
 
     emit bookmarkDeleted(bookmark);
-    mApp->sendMessages(MainApplication::BookmarksChanged, true);
+    mApp->sendMessages(Qz::AM_BookmarksChanged, true);
     return true;
 }
 
@@ -255,7 +255,7 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     }
 
     emit bookmarkEdited(before, after);
-    mApp->sendMessages(MainApplication::BookmarksChanged, true);
+    mApp->sendMessages(Qz::AM_BookmarksChanged, true);
     return true;
 }
 
@@ -276,7 +276,7 @@ bool BookmarksModel::createFolder(const QString &name)
     }
 
     emit folderAdded(name);
-    mApp->sendMessages(MainApplication::BookmarksChanged, true);
+    mApp->sendMessages(Qz::AM_BookmarksChanged, true);
     return true;
 }
 
@@ -309,7 +309,7 @@ bool BookmarksModel::removeFolder(const QString &name)
     }
 
     emit folderDeleted(name);
-    mApp->sendMessages(MainApplication::BookmarksChanged, true);
+    mApp->sendMessages(Qz::AM_BookmarksChanged, true);
     return true;
 }
 
@@ -381,7 +381,7 @@ bool BookmarksModel::createSubfolder(const QString &name)
     }
 
     emit subfolderAdded(name);
-    mApp->sendMessages(MainApplication::BookmarksChanged, true);
+    mApp->sendMessages(Qz::AM_BookmarksChanged, true);
     return true;
 }
 

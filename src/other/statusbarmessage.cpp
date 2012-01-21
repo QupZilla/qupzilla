@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "statusbarmessage.h"
 #include "qupzilla.h"
+#include "tabwidget.h"
+#include "tabbedwebview.h"
 #include "squeezelabelv1.h"
 
 TipLabel::TipLabel(QupZilla* parent)

@@ -25,9 +25,9 @@
 #include <QStylePainter>
 #include <QStackedWidget>
 #include <QTextDocument>
+#include <QUrl>
 
-#include "tabbedwebview.h"
-#include "webtab.h"
+#include "qz_namespace.h"
 
 class QupZilla;
 class TabbedWebView;
@@ -43,7 +43,6 @@ class TabWidget : public QTabWidget
 public:
     explicit TabWidget(QupZilla* mainclass, QWidget* parent = 0);
     ~TabWidget();
-    enum OpenUrlIn { CurrentTab, NewSelectedTab, NewNotSelectedTab, NewTab = NewSelectedTab, NewBackgroundTab = NewNotSelectedTab, CleanPage, CleanSelectedPage };
 
     QByteArray saveState();
     bool restoreState(const QByteArray &state);
@@ -71,16 +70,16 @@ signals:
     void pinnedTabAdded();
 
 public slots:
-    int addView(const QUrl &url, OpenUrlIn openIn, bool selectLine = false);
-    int addView(QUrl url = QUrl(), const QString &title = tr("New tab"), OpenUrlIn openIn = NewTab, bool selectLine = false, int position = -1);
+    int addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false);
+    int addView(QUrl url = QUrl(), const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1);
     int duplicateTab(int index);
 
     void closeTab(int index = -1);
-    void reloadTab(int index) { weView(index)->reload(); }
+    void reloadTab(int index);
     void reloadAllTabs();
-    void stopTab(int index) { weView(index)->stop(); }
-    void backTab(int index) { weView(index)->back(); }
-    void forwardTab(int index) { weView(index)->forward(); }
+    void stopTab(int index);
+    void backTab(int index);
+    void forwardTab(int index);
     void closeAllButCurrent(int index);
     void restoreClosedTab();
     void restoreAllClosedTabs();
@@ -98,8 +97,8 @@ private slots:
 
 private:
     void resizeEvent(QResizeEvent* e);
-    inline TabbedWebView* weView() { WebTab* webTab = qobject_cast<WebTab*>(widget(currentIndex())); if (!webTab) return 0; return webTab->view(); }
-    inline TabbedWebView* weView(int index) { WebTab* webTab = qobject_cast<WebTab*>(widget(index)); if (!webTab) return 0; return webTab->view(); }
+    inline TabbedWebView* weView();
+    inline TabbedWebView* weView(int index);
 
     bool m_hideTabBarWithOneTab;
     bool m_dontQuitWithOneTab;

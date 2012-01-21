@@ -18,6 +18,7 @@
 #include "downloadmanager.h"
 #include "ui_downloadmanager.h"
 #include "qupzilla.h"
+#include "mainapplication.h"
 #include "downloadoptionsdialog.h"
 #include "downloaditem.h"
 #include "ecwin7.h"

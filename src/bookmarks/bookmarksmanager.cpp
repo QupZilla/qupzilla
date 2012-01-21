@@ -27,6 +27,7 @@
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
 #include "bookmarksimportdialog.h"
+#include "webtab.h"
 
 BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -168,7 +169,7 @@ void BookmarksManager::itemControlClicked(QTreeWidgetItem* item)
 void BookmarksManager::loadInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        getQupZilla()->tabWidget()->addView(action->data().toUrl(), TabWidget::NewNotSelectedTab);
+        getQupZilla()->tabWidget()->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
     }
 }
 

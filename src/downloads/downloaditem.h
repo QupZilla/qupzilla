@@ -32,6 +32,7 @@
 #include <QListWidgetItem>
 #include <QMenu>
 #include <QMessageBox>
+#include <QClipboard>
 
 namespace Ui
 {

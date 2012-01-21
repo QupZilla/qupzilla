@@ -21,6 +21,7 @@
 #include <QWidget>
 #include <QTreeWidgetItem>
 #include <QShortcut>
+#include <QClipboard>
 
 #include "historymodel.h"
 

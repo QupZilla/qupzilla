@@ -122,28 +122,28 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     if (argc > 1) {
         foreach(CommandLineOptions::ActionPair pair, cmdActions) {
             switch (pair.action) {
-            case CommandLineOptions::StartWithoutAddons:
+            case Qz::CL_StartWithoutAddons:
                 noAddons = true;
                 break;
-            case CommandLineOptions::StartWithProfile:
+            case Qz::CL_StartWithProfile:
                 startProfile = pair.text;
                 break;
-            case CommandLineOptions::NewTab:
+            case Qz::CL_NewTab:
                 messages.append("ACTION:NewTab");
                 m_postLaunchActions.append(OpenNewTab);
                 break;
-            case CommandLineOptions::NewWindow:
+            case Qz::CL_NewWindow:
                 messages.append("ACTION:NewWindow");
                 break;
-            case CommandLineOptions::ShowDownloadManager:
+            case Qz::CL_ShowDownloadManager:
                 messages.append("ACTION:ShowDownloadManager");
                 m_postLaunchActions.append(OpenDownloadManager);
                 break;
-            case CommandLineOptions::StartPrivateBrowsing:
+            case Qz::CL_StartPrivateBrowsing:
                 messages.append("ACTION:StartPrivateBrowsing");
                 m_postLaunchActions.append(PrivateBrowsing);
                 break;
-            case CommandLineOptions::OpenUrl:
+            case Qz::CL_OpenUrl:
                 startUrl = pair.text;
                 messages.append("URL:" + startUrl.toString());
                 break;
@@ -214,9 +214,9 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     translateApp();
     QWebHistoryInterface::setDefaultInterface(new WebHistoryInterface(this));
 
-    QupZilla* qupzilla = new QupZilla(QupZilla::FirstAppWindow, startUrl);
+    QupZilla* qupzilla = new QupZilla(Qz::BW_FirstAppWindow, startUrl);
     m_mainWindows.append(qupzilla);
-    connect(qupzilla, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(sendMessages(MainApplication::MessageType, bool)));
+    connect(qupzilla, SIGNAL(message(Qz::AppMessageType, bool)), this, SLOT(sendMessages(Qz::AppMessageType, bool)));
     qupzilla->show();
 
     AutoSaver* saver = new AutoSaver();
@@ -375,7 +375,7 @@ void MainApplication::loadSettings()
 void MainApplication::reloadSettings()
 {
     loadSettings();
-    emit message(ReloadSettings, true);
+    emit message(Qz::AM_ReloadSettings, true);
 }
 
 void MainApplication::restoreCursor()
@@ -402,7 +402,7 @@ QupZilla* MainApplication::getWindow()
 void MainApplication::setStateChanged()
 {
     m_isStateChanged = true;
-    sendMessages(HistoryStateChanged, true);
+    sendMessages(Qz::AM_HistoryStateChanged, true);
 }
 
 bool MainApplication::isStateChanged()
@@ -420,10 +420,10 @@ void MainApplication::togglePrivateBrowsingMode(bool state)
     history()->setSaving(!state);
     cookieJar()->turnPrivateJar(state);
 
-    emit message(MainApplication::CheckPrivateBrowsing, state);
+    emit message(Qz::AM_CheckPrivateBrowsing, state);
 }
 
-void MainApplication::sendMessages(MainApplication::MessageType mes, bool state)
+void MainApplication::sendMessages(Qz::AppMessageType mes, bool state)
 {
     emit message(mes, state);
 }
@@ -443,20 +443,20 @@ void MainApplication::receiveAppMessage(QString message)
             actWin = getWindow();
         }
         else if (text == "NewWindow") {
-            actWin = makeNewWindow(false);
+            actWin = makeNewWindow(Qz::BW_NewWindow);
         }
         else if (text == "ShowDownloadManager") {
             downManager()->show();
             actWin = downManager();
         }
         else if (text == "StartPrivateBrowsing") {
-            sendMessages(StartPrivateBrowsing, true);
+            sendMessages(Qz::AM_StartPrivateBrowsing, true);
             actWin = getWindow();
         }
     }
 
     if (!actWin && !isClosing()) { // It can only occur if download manager window was still open
-        makeNewWindow(true);
+        makeNewWindow(Qz::BW_NewWindow);
         return;
     }
 
@@ -474,22 +474,13 @@ void MainApplication::addNewTab(const QUrl &url)
     getWindow()->tabWidget()->addView(url);
 }
 
-QupZilla* MainApplication::makeNewWindow(bool tryRestore, const QUrl &startUrl)
+QupZilla* MainApplication::makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl)
 {
-    QupZilla::StartBehaviour behaviour;
-    if (tryRestore) {
-        behaviour = QupZilla::OtherRestoredWindow;
-    }
-    else {
-        behaviour = QupZilla::NewWindow;
-    }
-
     if (m_mainWindows.count() == 0) {
-        behaviour = QupZilla::FirstAppWindow;
+        type = Qz::BW_FirstAppWindow;
     }
 
-    QupZilla* newWindow = new QupZilla(behaviour, startUrl);
-    connect(newWindow, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(sendMessages(MainApplication::MessageType, bool)));
+    QupZilla* newWindow = new QupZilla(type, startUrl);
     m_mainWindows.append(newWindow);
     newWindow->show();
 
@@ -849,16 +840,14 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
             stream >> tabState;
             stream >> qMainWindowState;
 
-            QupZilla* window = new QupZilla(QupZilla::OtherRestoredWindow);
+            QupZilla* window = new QupZilla(Qz::BW_OtherRestoredWindow);
             m_mainWindows.append(window);
-            connect(window, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(sendMessages(MainApplication::MessageType, bool)));
             QEventLoop eLoop;
             connect(window, SIGNAL(startingCompleted()), &eLoop, SLOT(quit()));
             eLoop.exec();
 
             window->tabWidget()->restoreState(tabState);
             window->restoreState(qMainWindowState);
-//            window->tabWidget()->closeTab(0);
             window->show();
         }
     }
