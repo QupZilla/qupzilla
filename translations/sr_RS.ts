@@ -1624,17 +1624,27 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="51"/>
+        <location filename="../src/navigation/locationbar.cpp" line="54"/>
         <source>Add RSS from this page...</source>
         <translation>Додај РСС са ове странице...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="89"/>
+        <location filename="../src/navigation/locationbar.cpp" line="92"/>
         <source>Enter URL address or search on %1</source>
         <translation>Унесите УРЛ адресу или тражите на %1</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="335"/>
+        <location filename="../src/navigation/locationbar.cpp" line="256"/>
+        <source>Paste And &amp;Go</source>
+        <translation>Налепи и &amp;иди</translation>
+    </message>
+    <message>
+        <location filename="../src/navigation/locationbar.cpp" line="262"/>
+        <source>Clear All</source>
+        <translation>Очисти све</translation>
+    </message>
+    <message>
+        <location filename="../src/navigation/locationbar.cpp" line="409"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.rs.ba</translation>
@@ -2106,7 +2116,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="729"/>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Не напуштај по затварању последњег језичка</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="766"/>
@@ -2944,16 +2954,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="796"/>
         <source>Information about application</source>
-        <translation type="unfinished"></translation>
+        <translation>Подаци о програму</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="282"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp;О Капзили</translation>
-    </message>
-    <message>
-        <source>Informations about application</source>
-        <translation type="obsolete">Инфо програма</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="801"/>
@@ -3279,20 +3285,12 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Maximum pages in a row:</source>
-        <translation type="unfinished"></translation>
+        <translation>Највише брзих бирања у реду:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
         <source>Change size of pages:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Max number of pages in a row:</source>
-        <translation type="obsolete">Максималан број брзих бирања у реду:</translation>
-    </message>
-    <message>
-        <source>Change size of dials</source>
-        <translation type="obsolete">Промени величину брзих бирања</translation>
+        <translation>Промени величину брзих бирања:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
