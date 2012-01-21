@@ -705,7 +705,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
         <source>Edit bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
@@ -715,22 +715,22 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="198"/>
         <source>Edit bookmark: </source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen bearbeiten: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
         <source>Title: </source>
-        <translation type="unfinished"></translation>
+        <translation>Titel: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="201"/>
         <source>Url: </source>
-        <translation type="unfinished"></translation>
+        <translation>Url:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="207"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="510"/>
@@ -967,6 +967,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="126"/>
         <source>Show more informations about object</source>
+        <translatorcomment>src/plugins/clicktoflash.cpp</translatorcomment>
         <translation>Mehr Informationen anzeigen</translation>
     </message>
     <message>
@@ -2281,7 +2282,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="729"/>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim Schließen des letzten Tab QupZilla nicht beenden</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="759"/>
@@ -2841,7 +2842,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="796"/>
         <source>Information about application</source>
-        <translation type="unfinished"></translation>
+        <translation>Mehr über QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1216"/>
@@ -3335,57 +3336,57 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="261"/>
         <source>Speed Dial settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungen Schnellwahl</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="262"/>
         <source>Placement: </source>
-        <translation type="unfinished"></translation>
+        <translation>Anordnung: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="263"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="264"/>
         <source>Cover</source>
-        <translation type="unfinished"></translation>
+        <translation>Cover</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassen</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Fit Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Seitenbreite</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="267"/>
         <source>Fit Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Seitenhöhe</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
         <source>Use background image</source>
-        <translation type="unfinished"></translation>
+        <translation>Hintergrundbild verwenden</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
         <source>Select image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild auswählen</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Maximum pages in a row:</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximale Anzahl Seiten in einer Reihe: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
         <source>Change size of pages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Größe der Seiten ändern:</translation>
     </message>
 </context>
 <context>
@@ -3770,6 +3771,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/navigation/siteicon.cpp" line="29"/>
         <source>Show informations about this page</source>
+        <translatorcomment>src/navigation/siteicon.cpp</translatorcomment>
         <translation>Seiteninformationen anzeigen</translation>
     </message>
 </context>
@@ -4118,7 +4120,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="223"/>
         <source>Select image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild auswählen...</translation>
     </message>
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="260"/>
