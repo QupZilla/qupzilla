@@ -468,29 +468,29 @@
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="7"/>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="24"/>
         <source>No Error</source>
-        <translation type="unfinished">Нема грешке</translation>
+        <translation>Нема грешке</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="40"/>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="22"/>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="39"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished">Не могу да отворим фајл.</translation>
+        <translation>Не могу да отворим фајл.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="85"/>
         <source>Cannot evaluate JSON code.</source>
-        <translation type="unfinished">Не могу да обрадим ЈСОН фајл.</translation>
+        <translation>Не могу да обрадим ЈСОН фајл.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="39"/>
         <source>File does not exists.</source>
-        <translation type="unfinished">Фајл не постоји.</translation>
+        <translation>Фајл не постоји.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="47"/>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation type="unfinished">Не могу да отворим базу података. Да ли је Фајерфокс покренут?</translation>
+        <translation>Не могу да отворим базу података. Да ли је Фајерфокс покренут?</translation>
     </message>
 </context>
 <context>
@@ -880,25 +880,6 @@
         <source>Expires On:</source>
         <translation>Датум истека:</translation>
     </message>
-    <message>
-        <source>&lt;not set in certificate&gt;</source>
-        <translation type="obsolete">&lt;није постављено у сертификату&gt;</translation>
-    </message>
-</context>
-<context>
-    <name>ChromeImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Нема грешке</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">Не могу да отворим фајл.</translation>
-    </message>
-    <message>
-        <source>Cannot evaluate JSON code.</source>
-        <translation type="obsolete">Не могу да обрадим ЈСОН фајл.</translation>
-    </message>
 </context>
 <context>
     <name>ClearPrivateData</name>
@@ -971,13 +952,9 @@
         <translation>Објекат блокирао Кликни-за-флеш</translation>
     </message>
     <message>
-        <source>Show more informations about object</source>
-        <translation type="obsolete">Прикажи више информација о објекту</translation>
-    </message>
-    <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="126"/>
         <source>Show more information about object</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи још података о објекту</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="128"/>
@@ -1007,11 +984,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="285"/>
         <source>No more information available.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No more informations available.</source>
-        <translation type="obsolete">Нема више доступних информација.</translation>
+        <translation>Нема више доступних података.</translation>
     </message>
 </context>
 <context>
@@ -1145,13 +1118,6 @@
         <location filename="../src/cookies/cookiemanager.cpp" line="137"/>
         <source>Session cookie</source>
         <translation>Колачић сесије</translation>
-    </message>
-</context>
-<context>
-    <name>DesktopNotificationsFactory</name>
-    <message>
-        <source>Native System Notification</source>
-        <translation type="obsolete">Изворна системска обавештења</translation>
     </message>
 </context>
 <context>
@@ -1429,21 +1395,6 @@
     </message>
 </context>
 <context>
-    <name>FirefoxImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Нема грешке</translation>
-    </message>
-    <message>
-        <source>File does not exists.</source>
-        <translation type="obsolete">Фајл не постоји.</translation>
-    </message>
-    <message>
-        <source>Unable to open database. Is Firefox running?</source>
-        <translation type="obsolete">Не могу да отворим базу података. Да ли је Фајерфокс покренут?</translation>
-    </message>
-</context>
-<context>
     <name>HistoryManager</name>
     <message>
         <location filename="../src/history/historymanager.ui" line="14"/>
@@ -1639,17 +1590,6 @@
     </message>
 </context>
 <context>
-    <name>HtmlImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Нема грешке</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">Не могу да отворим фајл.</translation>
-    </message>
-</context>
-<context>
     <name>LocationBar</name>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="54"/>
@@ -1680,7 +1620,7 @@
     <message>
         <location filename="../src/navigation/siteicon.cpp" line="29"/>
         <source>Show information about this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи податке о овој страници</translation>
     </message>
 </context>
 <context>
@@ -1818,17 +1758,6 @@
     </message>
 </context>
 <context>
-    <name>OperaImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Нема грешке</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">Не могу да отворим фајл.</translation>
-    </message>
-</context>
-<context>
     <name>PageScreen</name>
     <message>
         <location filename="../src/other/pagescreen.ui" line="14"/>
@@ -1919,158 +1848,158 @@
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="60"/>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished">Отвори везу у новом &amp;прозору</translation>
+        <translation>Отвори везу у новом &amp;прозору</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="62"/>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished">&amp;Сачувај везу као...</translation>
+        <translation>&amp;Сачувај везу као...</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="63"/>
         <source>Send link...</source>
-        <translation type="unfinished">Пошаљи везу...</translation>
+        <translation>Пошаљи везу...</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="64"/>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished">&amp;Копирај адресу везе</translation>
+        <translation>&amp;Копирај адресу везе</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="75"/>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished">П&amp;рикажи слику</translation>
+        <translation>П&amp;рикажи слику</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="76"/>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished">К&amp;опирај слику</translation>
+        <translation>К&amp;опирај слику</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="77"/>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished">Копирај &amp;адресу слике</translation>
+        <translation>Копирај &amp;адресу слике</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="79"/>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished">Сачувај с&amp;лику као...</translation>
+        <translation>Сачувај с&amp;лику као...</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="80"/>
         <source>Send image...</source>
-        <translation type="unfinished">Пошаљи слику...</translation>
+        <translation>Пошаљи слику...</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="98"/>
         <source>&amp;Back</source>
-        <translation type="unfinished">На&amp;зад</translation>
+        <translation>На&amp;зад</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="102"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished">На&amp;пред</translation>
+        <translation>На&amp;пред</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="106"/>
         <location filename="../src/webview/popupwebview.cpp" line="116"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished">&amp;Учитај поново</translation>
+        <translation>&amp;Учитај поново</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="107"/>
         <source>S&amp;top</source>
-        <translation type="unfinished">&amp;Заустави</translation>
+        <translation>Заус&amp;тави</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="113"/>
         <source>This frame</source>
-        <translation type="unfinished">Оквир</translation>
+        <translation>Оквир</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="114"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished">П&amp;рикажи само овај оквир</translation>
+        <translation>П&amp;рикажи само овај оквир</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="117"/>
         <source>Print frame</source>
-        <translation type="unfinished">Штампај оквир</translation>
+        <translation>Штампај оквир</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="119"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished">У&amp;већај</translation>
+        <translation>У&amp;већај</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="120"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished">У&amp;мањи</translation>
+        <translation>У&amp;мањи</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="121"/>
         <source>Reset</source>
-        <translation type="unfinished">Стварна величина</translation>
+        <translation>Стварна величина</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="123"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished">Прикажи извор о&amp;квира</translation>
+        <translation>Прикажи извор о&amp;квира</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="129"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished">&amp;Сачувај страницу као...</translation>
+        <translation>&amp;Сачувај страницу као...</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="130"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished">&amp;Копирај везу странице</translation>
+        <translation>&amp;Копирај везу странице</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="131"/>
         <source>Send page link...</source>
-        <translation type="unfinished">Пошаљи везу странице...</translation>
+        <translation>Пошаљи везу странице...</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="132"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished">&amp;Штампај страницу</translation>
+        <translation>&amp;Штампај страницу</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="134"/>
         <source>Select &amp;all</source>
-        <translation type="unfinished">Из&amp;абери све</translation>
+        <translation>Из&amp;абери све</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="136"/>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished">Прикажи изворни &amp;кôд</translation>
+        <translation>Прикажи &amp;изворни кôд</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="138"/>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished">Ин&amp;формације о сајту</translation>
+        <translation>По&amp;даци о сајту</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="145"/>
         <source>Send text...</source>
-        <translation type="unfinished">Пошаљи текст...</translation>
+        <translation>Пошаљи текст...</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="150"/>
         <source>Google Translate</source>
-        <translation type="unfinished">Гуглов преводилац</translation>
+        <translation>Гуглов преводилац</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="151"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Речник</translation>
+        <translation>Речник</translation>
     </message>
     <message>
         <location filename="../src/webview/popupwebview.cpp" line="162"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished">Иди на &amp;веб адресу</translation>
+        <translation>Иди на &amp;веб адресу</translation>
     </message>
 </context>
 <context>
@@ -2078,7 +2007,7 @@
     <message>
         <location filename="../src/popupwindow/popupwindow.cpp" line="110"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - Капзила</translation>
     </message>
 </context>
 <context>
@@ -2810,12 +2739,12 @@
     <message>
         <location filename="../src/tools/certificateinfowidget.cpp" line="286"/>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished">&lt;није постављено у сертификату&gt;</translation>
+        <translation>&lt;није постављено у сертификату&gt;</translation>
     </message>
     <message>
         <location filename="../src/desktopnotifications/desktopnotificationsfactory.cpp" line="101"/>
         <source>Native System Notification</source>
-        <translation type="unfinished">Изворна системска обавештења</translation>
+        <translation>Изворна системска обавештења</translation>
     </message>
 </context>
 <context>
@@ -3168,7 +3097,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1207"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="282"/>
@@ -3231,10 +3160,6 @@
         <translation>Подразумевано</translation>
     </message>
     <message>
-        <source> - QupZilla</source>
-        <translation type="obsolete"> - Капзила</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="1279"/>
         <source>Open file...</source>
         <translation>Отвори фајл...</translation>
@@ -3282,7 +3207,7 @@
     <message>
         <location filename="../src/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="unfinished">Успешно сте додали РСС довод „%1“.</translation>
+        <translation>Успешно сте додали РСС довод „%1“.</translation>
     </message>
 </context>
 <context>
@@ -3344,10 +3269,6 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="183"/>
         <source>About QupZilla</source>
         <translation>О Капзили</translation>
-    </message>
-    <message>
-        <source>Informations about version</source>
-        <translation type="obsolete">Информације о издању</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="185"/>
@@ -3542,7 +3463,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="184"/>
         <source>Information about version</source>
-        <translation type="unfinished"></translation>
+        <translation>Подаци о издању</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="255"/>
@@ -3689,10 +3610,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <source>Open RSS Manager</source>
         <translation>Отвори менаџера РСС довода</translation>
     </message>
-    <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="obsolete">Успешно сте додали РСС довод „%1“.</translation>
-    </message>
 </context>
 <context>
     <name>RSSWidget</name>
@@ -3713,17 +3630,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
 </context>
 <context>
-    <name>ReloadStopButton</name>
-    <message>
-        <source>Stop</source>
-        <translation type="obsolete">Заустави</translation>
-    </message>
-    <message>
-        <source>Reload</source>
-        <translation type="obsolete">Учитај поново</translation>
-    </message>
-</context>
-<context>
     <name>SSLManager</name>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="14"/>
@@ -3739,7 +3645,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <location filename="../src/preferences/sslmanager.ui" line="48"/>
         <location filename="../src/preferences/sslmanager.ui" line="92"/>
         <source>Show info</source>
-        <translation>Информације</translation>
+        <translation>Прикажи инфо</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="57"/>
@@ -3936,18 +3842,11 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
 </context>
 <context>
-    <name>SiteIcon</name>
-    <message>
-        <source>Show informations about this page</source>
-        <translation type="obsolete">Прикажи информације о овој страници</translation>
-    </message>
-</context>
-<context>
     <name>SiteInfo</name>
     <message>
         <location filename="../src/webview/siteinfo.ui" line="14"/>
         <source>Site Info</source>
-        <translation>Информације о сајту</translation>
+        <translation>Подаци о сајту</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.ui" line="80"/>
@@ -3997,7 +3896,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/siteinfo.ui" line="226"/>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Безбедносне информације&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Подаци о безбедности&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.ui" line="246"/>
@@ -4256,7 +4155,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="144"/>
         <source>Cannot reload source. Page has been closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не могу да учитам извор поново. Страница је затворена.</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="152"/>
@@ -4412,208 +4311,208 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="89"/>
         <source>Failed loading page</source>
-        <translation type="unfinished">Неуспех учитавања странице</translation>
+        <translation>Неуспех учитавања странице</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="153"/>
         <source>Loading...</source>
-        <translation type="unfinished">Учитавам...</translation>
+        <translation>Учитавам...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="228"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - Капзила</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="316"/>
         <source>Open link in new &amp;tab</source>
-        <translation type="unfinished">Отвори везу у новом &amp;језичку</translation>
+        <translation>Отвори везу у новом &amp;језичку</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="317"/>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished">Отвори везу у новом &amp;прозору</translation>
+        <translation>Отвори везу у новом &amp;прозору</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="319"/>
         <source>B&amp;ookmark link</source>
-        <translation type="unfinished">&amp;Обележи везу</translation>
+        <translation>&amp;Обележи везу</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="320"/>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished">&amp;Сачувај везу као...</translation>
+        <translation>&amp;Сачувај везу као...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="321"/>
         <source>Send link...</source>
-        <translation type="unfinished">Пошаљи везу...</translation>
+        <translation>Пошаљи везу...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="322"/>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished">&amp;Копирај адресу везе</translation>
+        <translation>&amp;Копирај адресу везе</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="333"/>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished">П&amp;рикажи слику</translation>
+        <translation>П&amp;рикажи слику</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="334"/>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished">К&amp;опирај слику</translation>
+        <translation>К&amp;опирај слику</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="335"/>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished">Копирај &amp;адресу слике</translation>
+        <translation>Копирај &amp;адресу слике</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="337"/>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished">Сачувај с&amp;лику као...</translation>
+        <translation>Сачувај с&amp;лику као...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="338"/>
         <source>Send image...</source>
-        <translation type="unfinished">Пошаљи слику...</translation>
+        <translation>Пошаљи слику...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="356"/>
         <source>&amp;Back</source>
-        <translation type="unfinished">На&amp;зад</translation>
+        <translation>На&amp;зад</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="360"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished">На&amp;пред</translation>
+        <translation>На&amp;пред</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="364"/>
         <location filename="../src/webview/tabbedwebview.cpp" line="375"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished">&amp;Учитај поново</translation>
+        <translation>&amp;Учитај поново</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="365"/>
         <source>S&amp;top</source>
-        <translation type="unfinished">&amp;Заустави</translation>
+        <translation>Заус&amp;тави</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="371"/>
         <source>This frame</source>
-        <translation type="unfinished">Оквир</translation>
+        <translation>Оквир</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="372"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished">П&amp;рикажи само овај оквир</translation>
+        <translation>П&amp;рикажи само овај оквир</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="373"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished">Прикажи овај оквир у новом &amp;језичку</translation>
+        <translation>Прикажи овај оквир у новом &amp;језичку</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="376"/>
         <source>Print frame</source>
-        <translation type="unfinished">Штампај оквир</translation>
+        <translation>Штампај оквир</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="378"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished">У&amp;већај</translation>
+        <translation>У&amp;већај</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="379"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished">У&amp;мањи</translation>
+        <translation>У&amp;мањи</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="380"/>
         <source>Reset</source>
-        <translation type="unfinished">Стварна величина</translation>
+        <translation>Стварна величина</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="382"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished">Прикажи извор о&amp;квира</translation>
+        <translation>Прикажи извор о&amp;квира</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="388"/>
         <source>Book&amp;mark page</source>
-        <translation type="unfinished">&amp;Обележи страницу</translation>
+        <translation>&amp;Обележи страницу</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="389"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished">&amp;Сачувај страницу као...</translation>
+        <translation>&amp;Сачувај страницу као...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="390"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished">&amp;Копирај везу странице</translation>
+        <translation>&amp;Копирај везу странице</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="391"/>
         <source>Send page link...</source>
-        <translation type="unfinished">Пошаљи везу странице...</translation>
+        <translation>Пошаљи везу странице...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="392"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished">&amp;Штампај страницу</translation>
+        <translation>&amp;Штампај страницу</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="394"/>
         <source>Select &amp;all</source>
-        <translation type="unfinished">Из&amp;абери све</translation>
+        <translation>Из&amp;абери све</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="399"/>
         <source>Validate page</source>
-        <translation type="unfinished">Провера кôда</translation>
+        <translation>Провера кôда</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="402"/>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished">Прикажи изворни &amp;кôд</translation>
+        <translation>Прикажи &amp;изворни кôд</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="403"/>
         <source>Show Web &amp;Inspector</source>
-        <translation type="unfinished">Прикажи &amp;веб Инспектора</translation>
+        <translation>Прикажи &amp;веб Инспектора</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="405"/>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished">Ин&amp;формације о сајту</translation>
+        <translation>По&amp;даци о сајту</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="414"/>
         <source>Send text...</source>
-        <translation type="unfinished">Пошаљи текст...</translation>
+        <translation>Пошаљи текст...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="419"/>
         <source>Google Translate</source>
-        <translation type="unfinished">Гуглов преводилац</translation>
+        <translation>Гуглов преводилац</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="420"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Речник</translation>
+        <translation>Речник</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="431"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished">Иди на &amp;веб адресу</translation>
+        <translation>Иди на &amp;веб адресу</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="437"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished">Тражи „%1“ на %2</translation>
+        <translation>Тражи „%1“ на %2</translation>
     </message>
 </context>
 <context>
@@ -4649,12 +4548,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/navigation/reloadstopbutton.cpp" line="28"/>
         <source>Stop</source>
-        <translation type="unfinished">Заустави</translation>
+        <translation>Заустави</translation>
     </message>
     <message>
         <location filename="../src/navigation/reloadstopbutton.cpp" line="36"/>
         <source>Reload</source>
-        <translation type="unfinished">Учитај поново</translation>
+        <translation>Учитај поново</translation>
     </message>
 </context>
 <context>
@@ -4696,12 +4595,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="246"/>
         <source>Resend request confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Поново пошаљи потврду за захтјевом</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="353"/>
         <source>Select files to upload...</source>
-        <translation type="unfinished"></translation>
+        <translation>Изабери фајлове за слање...</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="374"/>
@@ -4811,12 +4710,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="571"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished">Не дозволи овој страници да прави још дијалога</translation>
+        <translation>Не дозволи овој страници да прави још дијалога</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="574"/>
         <source>JavaScript alert - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Јаваскрипт упозорење - %1</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="620"/>
@@ -4839,170 +4738,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 </context>
 <context>
     <name>WebView</name>
-    <message>
-        <source>Failed loading page</source>
-        <translation type="obsolete">Неуспех учитавања странице</translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation type="obsolete">Учитавам...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy page link</source>
-        <translation type="obsolete">&amp;Копирај везу странице</translation>
-    </message>
-    <message>
-        <source>Send page link...</source>
-        <translation type="obsolete">Пошаљи везу странице...</translation>
-    </message>
-    <message>
-        <source>&amp;Print page</source>
-        <translation type="obsolete">&amp;Штампај страницу</translation>
-    </message>
-    <message>
-        <source>Validate page</source>
-        <translation type="obsolete">Провера кôда</translation>
-    </message>
-    <message>
-        <source>Send text...</source>
-        <translation type="obsolete">Пошаљи текст...</translation>
-    </message>
-    <message>
-        <source>Google Translate</source>
-        <translation type="obsolete">Гуглов преводилац</translation>
-    </message>
-    <message>
-        <source>Dictionary</source>
-        <translation type="obsolete">Речник</translation>
-    </message>
-    <message>
-        <source>Go to &amp;web address</source>
-        <translation type="obsolete">Иди на &amp;веб адресу</translation>
-    </message>
-    <message>
-        <source>Open link in new &amp;tab</source>
-        <translation type="obsolete">Отвори везу у новом &amp;језичку</translation>
-    </message>
-    <message>
-        <source> - QupZilla</source>
-        <translation type="obsolete"> - Капзила</translation>
-    </message>
-    <message>
-        <source>Open link in new &amp;window</source>
-        <translation type="obsolete">Отвори везу у новом &amp;прозору</translation>
-    </message>
-    <message>
-        <source>B&amp;ookmark link</source>
-        <translation type="obsolete">&amp;Обележи везу</translation>
-    </message>
-    <message>
-        <source>&amp;Save link as...</source>
-        <translation type="obsolete">&amp;Сачувај везу као...</translation>
-    </message>
-    <message>
-        <source>Send link...</source>
-        <translation type="obsolete">Пошаљи везу...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy link address</source>
-        <translation type="obsolete">&amp;Копирај адресу везе</translation>
-    </message>
-    <message>
-        <source>Show i&amp;mage</source>
-        <translation type="obsolete">П&amp;рикажи слику</translation>
-    </message>
-    <message>
-        <source>Copy im&amp;age</source>
-        <translation type="obsolete">К&amp;опирај слику</translation>
-    </message>
-    <message>
-        <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">Копирај &amp;адресу слике</translation>
-    </message>
-    <message>
-        <source>&amp;Save image as...</source>
-        <translation type="obsolete">Сачувај с&amp;лику као...</translation>
-    </message>
-    <message>
-        <source>Send image...</source>
-        <translation type="obsolete">Пошаљи слику...</translation>
-    </message>
-    <message>
-        <source>&amp;Back</source>
-        <translation type="obsolete">На&amp;зад</translation>
-    </message>
-    <message>
-        <source>&amp;Forward</source>
-        <translation type="obsolete">На&amp;пред</translation>
-    </message>
-    <message>
-        <source>&amp;Reload</source>
-        <translation type="obsolete">&amp;Учитај поново</translation>
-    </message>
-    <message>
-        <source>S&amp;top</source>
-        <translation type="obsolete">&amp;Заустави</translation>
-    </message>
-    <message>
-        <source>This frame</source>
-        <translation type="obsolete">Оквир</translation>
-    </message>
-    <message>
-        <source>Show &amp;only this frame</source>
-        <translation type="obsolete">П&amp;рикажи само овај оквир</translation>
-    </message>
-    <message>
-        <source>Show this frame in new &amp;tab</source>
-        <translation type="obsolete">Прикажи овај оквир у новом &amp;језичку</translation>
-    </message>
-    <message>
-        <source>Print frame</source>
-        <translation type="obsolete">Штампај оквир</translation>
-    </message>
-    <message>
-        <source>Zoom &amp;in</source>
-        <translation type="obsolete">У&amp;већај</translation>
-    </message>
-    <message>
-        <source>&amp;Zoom out</source>
-        <translation type="obsolete">У&amp;мањи</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="obsolete">Стварна величина</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">Прикажи извор о&amp;квира</translation>
-    </message>
-    <message>
-        <source>Book&amp;mark page</source>
-        <translation type="obsolete">&amp;Обележи страницу</translation>
-    </message>
-    <message>
-        <source>&amp;Save page as...</source>
-        <translation type="obsolete">&amp;Сачувај страницу као...</translation>
-    </message>
-    <message>
-        <source>Select &amp;all</source>
-        <translation type="obsolete">Из&amp;абери све</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce code</source>
-        <translation type="obsolete">Прикажи изворни &amp;кôд</translation>
-    </message>
-    <message>
-        <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">Ин&amp;формације о сајту</translation>
-    </message>
-    <message>
-        <source>Show Web &amp;Inspector</source>
-        <translation type="obsolete">Прикажи &amp;веб Инспектора</translation>
-    </message>
-    <message>
-        <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="obsolete">Тражи „%1“ на %2</translation>
-    </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="75"/>
         <source>No Named Page</source>
