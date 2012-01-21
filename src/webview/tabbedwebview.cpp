@@ -344,10 +344,16 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
     }
 
     QWebElement element = r.element();
-    if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea" ||
-                              element.tagName().toLower() == "video" || element.tagName().toLower() == "audio")) {
+    if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea")) {
         if (m_menu->isEmpty()) {
             page()->createStandardContextMenu()->popup(QCursor::pos());
+            return;
+        }
+    }
+
+    if (isMediaElement(element)) {
+        if (m_menu->isEmpty()) {
+            createMediaContextMenu(r)->popup(QCursor::pos());
             return;
         }
     }
