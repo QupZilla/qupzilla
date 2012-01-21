@@ -216,7 +216,7 @@ void WebSearchBar::keyPressEvent(QKeyEvent* event)
     switch (event->key()) {
     case Qt::Key_Return:
     case Qt::Key_Enter:
-        if (event->modifiers() ==Qt::AltModifier) {
+        if (event->modifiers() == Qt::AltModifier) {
             searchInNewTab();
         }
         else {

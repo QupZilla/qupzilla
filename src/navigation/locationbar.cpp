@@ -41,6 +41,9 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , p_QupZilla(mainClass)
     , m_webView(0)
     , m_locationBarSettings(LocationBarSettings::instance())
+    , m_menu(new QMenu(this))
+    , m_pasteAndGoAction(0)
+    , m_clearAction(0)
     , m_holdingAlt(false)
 {
     setObjectName("locationbar");
@@ -238,6 +241,77 @@ void LocationBar::setPrivacy(bool state)
     style()->polish(this);
 }
 
+void LocationBar::pasteAndGo()
+{
+    clear();
+    paste();
+    urlEnter();
+}
+
+void LocationBar::contextMenuEvent(QContextMenuEvent* event)
+{
+    Q_UNUSED(event)
+
+    if (!m_pasteAndGoAction) {
+        m_pasteAndGoAction = new QAction(QIcon::fromTheme("edit-paste"), tr("Paste And &Go"), this);
+        m_pasteAndGoAction->setShortcut(QKeySequence("Ctrl+Shift+V"));
+        connect(m_pasteAndGoAction, SIGNAL(triggered()), this, SLOT(pasteAndGo()));
+    }
+
+    if (!m_clearAction) {
+        m_clearAction = new QAction(QIcon::fromTheme("edit-clear"), tr("Clear All"), this);
+        connect(m_clearAction, SIGNAL(triggered()), this, SLOT(clear()));
+    }
+
+    QMenu* tempMenu = createStandardContextMenu();
+    m_menu->clear();
+
+    int i = 0;
+    foreach(QAction * act, tempMenu->actions()) {
+        act->setParent(m_menu);
+        tempMenu->removeAction(act);
+        m_menu->addAction(act);
+
+        switch (i) {
+        case 0:
+            act->setIcon(QIcon::fromTheme("edit-undo"));
+            break;
+        case 1:
+            act->setIcon(QIcon::fromTheme("edit-redo"));
+            break;
+        case 3:
+            act->setIcon(QIcon::fromTheme("edit-cut"));
+            break;
+        case 4:
+            act->setIcon(QIcon::fromTheme("edit-copy"));
+            break;
+        case 5:
+            act->setIcon(QIcon::fromTheme("edit-paste"));
+            m_menu->addAction(act);
+            m_menu->addAction(m_pasteAndGoAction);
+            break;
+        case 6:
+            act->setIcon(QIcon::fromTheme("edit-delete"));
+            m_menu->addAction(act);
+            m_menu->addAction(m_clearAction);
+            break;
+        case 8:
+            act->setIcon(QIcon::fromTheme("edit-select-all"));
+            break;
+        }
+        ++i;
+    }
+
+    delete tempMenu;
+
+    m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());
+
+    //Prevent choosing first option with double rightclick
+    QPoint pos = QCursor::pos();
+    QPoint p(pos.x(), pos.y() + 1);
+    m_menu->popup(p);
+}
+
 void LocationBar::dropEvent(QDropEvent* event)
 {
     if (event->mimeData()->hasUrls()) {
@@ -335,7 +409,7 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
     QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
 
     if (event->key() == Qt::Key_Alt && m_holdingAlt && m_locationBarSettings->addCountryWithAlt &&
-        !text().endsWith(localDomain) && !text().endsWith("/")) {
+            !text().endsWith(localDomain) && !text().endsWith("/")) {
         setText(text().append(localDomain));
     }
 
