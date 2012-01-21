@@ -26,7 +26,7 @@ SiteIcon::SiteIcon(LocationBar* parent)
     setObjectName("locationbar-siteicon");
     setToolButtonStyle(Qt::ToolButtonIconOnly);
     setCursor(Qt::ArrowCursor);
-    setToolTip(tr("Show informations about this page"));
+    setToolTip(tr("Show information about this page"));
     setFocusPolicy(Qt::ClickFocus);
 }
 
