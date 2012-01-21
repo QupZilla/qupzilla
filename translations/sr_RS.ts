@@ -1964,7 +1964,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="429"/>
-        <location filename="../src/preferences/preferences.cpp" line="619"/>
+        <location filename="../src/preferences/preferences.cpp" line="620"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Напомена: Не можете обрисати активни профил.</translation>
     </message>
@@ -2044,12 +2044,12 @@
         <translation>Језичци се могу премештати</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="654"/>
+        <location filename="../src/preferences/preferences.ui" line="641"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>Сакриј траку са језичцима када има само један</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="661"/>
+        <location filename="../src/preferences/preferences.ui" line="648"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
         <translation>&lt;b&gt;Понашање траке адресе&lt;/b&gt;</translation>
     </message>
@@ -2064,37 +2064,37 @@
         <translation>Додај .co.rs домен притиском на ALT тастер</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="708"/>
+        <location filename="../src/preferences/preferences.ui" line="722"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Активирај претходно коришћен језичак при затварању текућег</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="715"/>
+        <location filename="../src/preferences/preferences.ui" line="695"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Потврди затварање прозора са више језичака</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="722"/>
+        <location filename="../src/preferences/preferences.ui" line="702"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Изабери сав текст кликом у траци адресе</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="737"/>
+        <location filename="../src/preferences/preferences.ui" line="744"/>
         <source>Web Configuration</source>
         <translation>Веб подешавање</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="745"/>
+        <location filename="../src/preferences/preferences.ui" line="752"/>
         <source>Load images</source>
         <translation>Учитавај слике</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="839"/>
+        <location filename="../src/preferences/preferences.ui" line="846"/>
         <source>Allow JAVA</source>
         <translation>Дозволи Јаву</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="752"/>
+        <location filename="../src/preferences/preferences.ui" line="759"/>
         <source>Allow JavaScript</source>
         <translation>Дозволи Јаваскрипте</translation>
     </message>
@@ -2104,373 +2104,378 @@
         <translation>Активни профил:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="759"/>
+        <location filename="../src/preferences/preferences.ui" line="729"/>
+        <source>Don&apos;t quit upon closing last tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="766"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>Дозволи прикључке (Флеш)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="766"/>
+        <location filename="../src/preferences/preferences.ui" line="773"/>
         <source>Block PopUp windows</source>
         <translation>Блокирај искачуће прозоре</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="773"/>
+        <location filename="../src/preferences/preferences.ui" line="780"/>
         <source>Allow DNS Prefetch</source>
         <translation>Предохватање ДНС уноса</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="797"/>
+        <location filename="../src/preferences/preferences.ui" line="804"/>
         <source>JavaScript can access clipboard</source>
         <translation>Јаваскрипта може приступити клипборду</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="804"/>
+        <location filename="../src/preferences/preferences.ui" line="811"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Шаљи ДНТ (Не Прати Ме) заглавље серверима</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="811"/>
+        <location filename="../src/preferences/preferences.ui" line="818"/>
         <source>Zoom text only</source>
         <translation>Увеличавај само текст</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="818"/>
+        <location filename="../src/preferences/preferences.ui" line="825"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>Штампај позадину елемента</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="825"/>
+        <location filename="../src/preferences/preferences.ui" line="832"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>Укључи везе у ланац фокуса</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="832"/>
+        <location filename="../src/preferences/preferences.ui" line="839"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>Укључи ИксСС проверавање</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="856"/>
+        <location filename="../src/preferences/preferences.ui" line="863"/>
         <source>Mouse wheel scrolls</source>
         <translation>Точкић миша клиза</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="876"/>
+        <location filename="../src/preferences/preferences.ui" line="883"/>
         <source>lines on page</source>
         <translation>линија на страници</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="887"/>
+        <location filename="../src/preferences/preferences.ui" line="894"/>
         <source>Default zoom on pages: </source>
         <translation>Подразумевано увеличање страница:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="938"/>
+        <location filename="../src/preferences/preferences.ui" line="945"/>
         <source>Ask when entering Private Browsing mode</source>
         <translation>Потврди улазак у режим приватног прегледања</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="946"/>
+        <location filename="../src/preferences/preferences.ui" line="953"/>
         <source>Local Storage</source>
         <translation>Локално складиште</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="954"/>
+        <location filename="../src/preferences/preferences.ui" line="961"/>
         <source>Maximum pages in cache: </source>
         <translation>Највише страница у кешу: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="973"/>
+        <location filename="../src/preferences/preferences.ui" line="980"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1014"/>
+        <location filename="../src/preferences/preferences.ui" line="1021"/>
         <source>Allow storing network cache on disk</source>
         <translation>Дозволи смјештање мрежног кеша на диск</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1024"/>
+        <location filename="../src/preferences/preferences.ui" line="1031"/>
         <source>Maximum </source>
         <translation>Највише</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1031"/>
+        <location filename="../src/preferences/preferences.ui" line="1038"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1058"/>
+        <location filename="../src/preferences/preferences.ui" line="1065"/>
         <source>Allow storing web icons</source>
         <translation>Дозволи успремање фавикона</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1065"/>
+        <location filename="../src/preferences/preferences.ui" line="1072"/>
         <source>Allow saving history</source>
         <translation>Дозволи чување историјата</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1072"/>
+        <location filename="../src/preferences/preferences.ui" line="1079"/>
         <source>Delete history on close</source>
         <translation>Обриши историјат по затварању</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1121"/>
+        <location filename="../src/preferences/preferences.ui" line="1128"/>
         <source>Proxy Configuration</source>
         <translation>Подешавање проксија</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1130"/>
+        <location filename="../src/preferences/preferences.ui" line="1137"/>
         <source>HTTP</source>
         <translation>ХТТП</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1135"/>
+        <location filename="../src/preferences/preferences.ui" line="1142"/>
         <source>SOCKS5</source>
         <translation>СОЦКС5</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1148"/>
+        <location filename="../src/preferences/preferences.ui" line="1155"/>
         <source>Port:</source>
         <translation>Порт:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1167"/>
+        <location filename="../src/preferences/preferences.ui" line="1174"/>
         <source>Username:</source>
         <translation>Корисничко име:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1177"/>
+        <location filename="../src/preferences/preferences.ui" line="1184"/>
         <source>Password:</source>
         <translation>Лозинка:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1203"/>
+        <location filename="../src/preferences/preferences.ui" line="1210"/>
         <source>Don&apos;t use on:</source>
         <translation>Не користи на:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1210"/>
+        <location filename="../src/preferences/preferences.ui" line="1217"/>
         <source>Manual configuration</source>
         <translation>Ручне поставке</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1217"/>
+        <location filename="../src/preferences/preferences.ui" line="1224"/>
         <source>System proxy configuration</source>
         <translation>Системске поставке</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1224"/>
+        <location filename="../src/preferences/preferences.ui" line="1231"/>
         <source>Do not use proxy</source>
         <translation>Не користи прокси</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1270"/>
+        <location filename="../src/preferences/preferences.ui" line="1277"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Породице фонта&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1283"/>
+        <location filename="../src/preferences/preferences.ui" line="1290"/>
         <source>Standard</source>
         <translation>Стандардни</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1290"/>
+        <location filename="../src/preferences/preferences.ui" line="1297"/>
         <source>Fixed</source>
         <translation>Фиксни</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1300"/>
+        <location filename="../src/preferences/preferences.ui" line="1307"/>
         <source>Serif</source>
         <translation>Серифни</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1310"/>
+        <location filename="../src/preferences/preferences.ui" line="1317"/>
         <source>Sans Serif</source>
         <translation>Бесерифни</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1320"/>
+        <location filename="../src/preferences/preferences.ui" line="1327"/>
         <source>Cursive</source>
         <translation>Курзивни</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1330"/>
+        <location filename="../src/preferences/preferences.ui" line="1337"/>
         <source>Default Font</source>
         <translation>Подразумевани</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1347"/>
+        <location filename="../src/preferences/preferences.ui" line="1354"/>
         <source>Fixed Font</source>
         <translation>Фиксни фонт</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1406"/>
+        <location filename="../src/preferences/preferences.ui" line="1413"/>
         <source>Fantasy</source>
         <translation>Фантазијски</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1413"/>
+        <location filename="../src/preferences/preferences.ui" line="1420"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Величине фонта&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1424"/>
+        <location filename="../src/preferences/preferences.ui" line="1431"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Одредиште преузимања&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1431"/>
+        <location filename="../src/preferences/preferences.ui" line="1438"/>
         <source>Ask everytime for download location</source>
         <translation>Питај сваки пут за одредиште</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1438"/>
+        <location filename="../src/preferences/preferences.ui" line="1445"/>
         <source>Use defined location: </source>
         <translation>Користи одредиште: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1450"/>
-        <location filename="../src/preferences/preferences.ui" line="1952"/>
+        <location filename="../src/preferences/preferences.ui" line="1457"/>
+        <location filename="../src/preferences/preferences.ui" line="1959"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1501"/>
+        <location filename="../src/preferences/preferences.ui" line="1508"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Опције преузимања&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1508"/>
+        <location filename="../src/preferences/preferences.ui" line="1515"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Користи системски дијалог фајлова
 (може проузрочити проблеме за преузимање ССЛ безбедног садржаја)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1516"/>
+        <location filename="../src/preferences/preferences.ui" line="1523"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Затвори менаџера преузимања када се преузимање заврши</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1527"/>
+        <location filename="../src/preferences/preferences.ui" line="1534"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Опције аутоматске попуне&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1534"/>
+        <location filename="../src/preferences/preferences.ui" line="1541"/>
         <source>Allow saving passwords from sites</source>
         <translation>Дозволи успремање лозинки са сајтова</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1604"/>
+        <location filename="../src/preferences/preferences.ui" line="1611"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Колачићи&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1611"/>
+        <location filename="../src/preferences/preferences.ui" line="1618"/>
         <source>Filter Tracking Cookies</source>
         <translation>Пречишћај колачиће пратиоце</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1618"/>
+        <location filename="../src/preferences/preferences.ui" line="1625"/>
         <source>Allow storing of cookies</source>
         <translation>Дозволи успремање колачића</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1625"/>
+        <location filename="../src/preferences/preferences.ui" line="1632"/>
         <source>Delete cookies on close</source>
         <translation>Обриши колачиће по затварању</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1645"/>
+        <location filename="../src/preferences/preferences.ui" line="1652"/>
         <source>Match domain exactly</source>
         <translation>Поклапај домен тачно</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1681"/>
+        <location filename="../src/preferences/preferences.ui" line="1688"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Упозорење:&lt;/b&gt; Тачно поклапање домена и пречишћање колачића пратиоца може довести до одбијања неких колачића са сајтова. Ако имате проблема са колачићима, искључите ове опције!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1697"/>
+        <location filename="../src/preferences/preferences.ui" line="1704"/>
         <source>Cookies Manager</source>
         <translation>Менаџер колачића</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1710"/>
+        <location filename="../src/preferences/preferences.ui" line="1717"/>
         <source>SSL Manager</source>
         <translation>ССЛ менаџер</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1723"/>
+        <location filename="../src/preferences/preferences.ui" line="1730"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Обавештења&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1730"/>
+        <location filename="../src/preferences/preferences.ui" line="1737"/>
         <source>Use OSD Notifications</source>
         <translation>Користи ОСД обавештења</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1740"/>
+        <location filename="../src/preferences/preferences.ui" line="1747"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Користи изворна системска обавештења (само за Линукс)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1747"/>
+        <location filename="../src/preferences/preferences.ui" line="1754"/>
         <source>Do not use Notifications</source>
         <translation>Не користи ОСД обавештења</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1798"/>
+        <location filename="../src/preferences/preferences.ui" line="1805"/>
         <source>Expiration timeout:</source>
         <translation>Време истека:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1811"/>
+        <location filename="../src/preferences/preferences.ui" line="1818"/>
         <source> seconds</source>
         <translation> секунди</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1820"/>
+        <location filename="../src/preferences/preferences.ui" line="1827"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Напомена: &lt;/b&gt;Можете променити положај ОСД обавештења превлачењем по екрану.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1869"/>
+        <location filename="../src/preferences/preferences.ui" line="1876"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Језик&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1876"/>
+        <location filename="../src/preferences/preferences.ui" line="1883"/>
         <source>Available translations: </source>
         <translation>Доступни преводи: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1915"/>
+        <location filename="../src/preferences/preferences.ui" line="1922"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>Да бисте промијенили језик, морате поново покренути прегледач.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1935"/>
+        <location filename="../src/preferences/preferences.ui" line="1942"/>
         <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;Кориснички опис стила (ЦСС)&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1942"/>
+        <location filename="../src/preferences/preferences.ui" line="1949"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>Опис стила који ће аутоматски бити учитан за све сајтове:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1961"/>
+        <location filename="../src/preferences/preferences.ui" line="1968"/>
         <source>Languages</source>
         <translation>Језици</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1983"/>
+        <location filename="../src/preferences/preferences.ui" line="1990"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Приоритетни језик за веб странице&lt;/b&gt;</translation>
     </message>
@@ -2530,58 +2535,58 @@
         <translation>Остало</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="420"/>
+        <location filename="../src/preferences/preferences.cpp" line="421"/>
         <source>OSD Notification</source>
         <translation>ОСД обавештење</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="421"/>
+        <location filename="../src/preferences/preferences.cpp" line="422"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Превуците га по екрану на жељени положај.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="449"/>
+        <location filename="../src/preferences/preferences.cpp" line="450"/>
         <source>Choose download location...</source>
         <translation>Одабир одредишта за преузимање...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="463"/>
+        <location filename="../src/preferences/preferences.cpp" line="464"/>
         <source>Choose stylesheet location...</source>
         <translation>Одабир фајла описа стила...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="579"/>
+        <location filename="../src/preferences/preferences.cpp" line="580"/>
         <source>New Profile</source>
         <translation>Нови профил</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="579"/>
+        <location filename="../src/preferences/preferences.cpp" line="580"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Унесите име новог профила:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="586"/>
-        <location filename="../src/preferences/preferences.cpp" line="590"/>
+        <location filename="../src/preferences/preferences.cpp" line="587"/>
+        <location filename="../src/preferences/preferences.cpp" line="591"/>
         <source>Error!</source>
         <translation>Грешка!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="586"/>
+        <location filename="../src/preferences/preferences.cpp" line="587"/>
         <source>This profile already exists!</source>
         <translation>Овај профил већ постоји!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="590"/>
+        <location filename="../src/preferences/preferences.cpp" line="591"/>
         <source>Cannot create profile directory!</source>
         <translation>Не могу да направим директоријум профила!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="604"/>
+        <location filename="../src/preferences/preferences.cpp" line="605"/>
         <source>Confirmation</source>
         <translation>Потврда</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="605"/>
+        <location filename="../src/preferences/preferences.cpp" line="606"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Желите ли заиста трајно да обришете „%1“ профил? Ова радња не може да се поништи!</translation>
     </message>
@@ -3644,27 +3649,27 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="247"/>
         <source>Search Engine Added</source>
         <translation>Мотор претраге је додат</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="247"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Мотор претраге „%1“ је успешно додат.</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="258"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="254"/>
         <source>Search Engine is not valid!</source>
         <translation>Мотор претраге није исправан!</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="259"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
         <source>Error</source>
         <translation>Грешка</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="259"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Грешка приликом додавања мотора претраге &lt;br&gt;&lt;b&gt;Извештај о грешци: &lt;/b&gt; %1</translation>
     </message>
@@ -4160,22 +4165,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Нови језичак</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="217"/>
+        <location filename="../src/webview/tabwidget.cpp" line="218"/>
         <source>Loading...</source>
         <translation>Учитавам...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="221"/>
+        <location filename="../src/webview/tabwidget.cpp" line="222"/>
         <source>No Named Page</source>
         <translation>Неименована страница</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="238"/>
+        <location filename="../src/webview/tabwidget.cpp" line="239"/>
         <source>Actually you have %1 opened tabs</source>
         <translation>Имате %1 отворених језичака</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="250"/>
+        <location filename="../src/webview/tabwidget.cpp" line="251"/>
         <location filename="../src/webview/tabwidget.h" line="75"/>
         <source>New tab</source>
         <translation>Нови језичак</translation>

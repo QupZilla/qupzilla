@@ -2001,7 +2001,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="429"/>
-        <location filename="../src/preferences/preferences.cpp" line="619"/>
+        <location filename="../src/preferences/preferences.cpp" line="620"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Σημείωση: Δεν μπορείτε να διαγράψετε το ενεργό προφίλ.</translation>
     </message>
@@ -2081,12 +2081,12 @@
         <translation>Να είναι κινητές οι καρτέλες</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="654"/>
+        <location filename="../src/preferences/preferences.ui" line="641"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>Απόκρυψη καρτελών όταν υπάρχει μόνο μία καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="661"/>
+        <location filename="../src/preferences/preferences.ui" line="648"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
         <translation>&lt;b&gt;Συμπεριφορά μπάρας διευθύνσεων&lt;/b&gt;</translation>
     </message>
@@ -2101,37 +2101,37 @@
         <translation>Προσθήκη του domain .gr πατώντας το πλήκτρο ALT</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="708"/>
+        <location filename="../src/preferences/preferences.ui" line="722"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Ενεργοποίηση τελευταίας καρτέλας στο κλείσιμο ενεργής καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="715"/>
+        <location filename="../src/preferences/preferences.ui" line="695"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Ερώτηση στο κλείσιμο πολλαπλών καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="722"/>
+        <location filename="../src/preferences/preferences.ui" line="702"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Επιλογή ολόκληρου του κειμένου κάνοντας κλικ στην μπάρα διευθύνσεων</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="737"/>
+        <location filename="../src/preferences/preferences.ui" line="744"/>
         <source>Web Configuration</source>
         <translation>Ρυθμίσεις διαδικτύου</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="745"/>
+        <location filename="../src/preferences/preferences.ui" line="752"/>
         <source>Load images</source>
         <translation>Φόρτωση εικόνων</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="839"/>
+        <location filename="../src/preferences/preferences.ui" line="846"/>
         <source>Allow JAVA</source>
         <translation>Να επιτρέπεται το JAVA</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="752"/>
+        <location filename="../src/preferences/preferences.ui" line="759"/>
         <source>Allow JavaScript</source>
         <translation>Να επιτρέπεται το JavaScript</translation>
     </message>
@@ -2141,373 +2141,378 @@
         <translation>Ενεργό προφίλ:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="759"/>
+        <location filename="../src/preferences/preferences.ui" line="729"/>
+        <source>Don&apos;t quit upon closing last tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="766"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>Να επιτρέπονται τα πρόσθετα (πρόσθετο Flash)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="766"/>
+        <location filename="../src/preferences/preferences.ui" line="773"/>
         <source>Block PopUp windows</source>
         <translation>Φραγή αναδυόμενων παράθυρων</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="773"/>
+        <location filename="../src/preferences/preferences.ui" line="780"/>
         <source>Allow DNS Prefetch</source>
         <translation>Να επιτρέπεται η προανάκτηση DNS </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="797"/>
+        <location filename="../src/preferences/preferences.ui" line="804"/>
         <source>JavaScript can access clipboard</source>
         <translation>Να έχει πρόσβαση στο πρόχειρο το JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="804"/>
+        <location filename="../src/preferences/preferences.ui" line="811"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Αποστολή κεφαλίδας Do Not Track (Μην εντοπίζεις) στους διακομηστές</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="811"/>
+        <location filename="../src/preferences/preferences.ui" line="818"/>
         <source>Zoom text only</source>
         <translation>Ζουμ μόνο στο κείμενο</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="818"/>
+        <location filename="../src/preferences/preferences.ui" line="825"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>Εκτύπωση στοιχείου φόντου</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="825"/>
+        <location filename="../src/preferences/preferences.ui" line="832"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>Συμπερίληψη συνδέσμων στην αλυσίδα εστίασης</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="832"/>
+        <location filename="../src/preferences/preferences.ui" line="839"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>Ενεργοποίηση ελεγκτικών XSS</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="856"/>
+        <location filename="../src/preferences/preferences.ui" line="863"/>
         <source>Mouse wheel scrolls</source>
         <translation>Κύλιση ροδέλας ποντικιού</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="876"/>
+        <location filename="../src/preferences/preferences.ui" line="883"/>
         <source>lines on page</source>
         <translation>γραμμές στην σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="887"/>
+        <location filename="../src/preferences/preferences.ui" line="894"/>
         <source>Default zoom on pages: </source>
         <translation>Προκαθορισμένο ζουμ στις σελίδες: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="938"/>
+        <location filename="../src/preferences/preferences.ui" line="945"/>
         <source>Ask when entering Private Browsing mode</source>
         <translation>Ερώτηση στην εισαγωγή σε κατάσταση Ιδιωτικής περιήγησης</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="946"/>
+        <location filename="../src/preferences/preferences.ui" line="953"/>
         <source>Local Storage</source>
         <translation>Τοπική αποθήκευση</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="954"/>
+        <location filename="../src/preferences/preferences.ui" line="961"/>
         <source>Maximum pages in cache: </source>
         <translation>Μέγιστες σελίδες στην μνήμη cache: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="973"/>
+        <location filename="../src/preferences/preferences.ui" line="980"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1014"/>
+        <location filename="../src/preferences/preferences.ui" line="1021"/>
         <source>Allow storing network cache on disk</source>
         <translation>Να επιτρέπεται η αποθήκευση της μνήμης cache του δικτύου στον δίσκο</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1024"/>
+        <location filename="../src/preferences/preferences.ui" line="1031"/>
         <source>Maximum </source>
         <translation>Μέγιστη</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1031"/>
+        <location filename="../src/preferences/preferences.ui" line="1038"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1058"/>
+        <location filename="../src/preferences/preferences.ui" line="1065"/>
         <source>Allow storing web icons</source>
         <translation>Να επιτρέπεται η αποθήκευση εικονιδίων δικτύου</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1065"/>
+        <location filename="../src/preferences/preferences.ui" line="1072"/>
         <source>Allow saving history</source>
         <translation>Να επιτρέπεται η αποθήκευση ιστορικού</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1072"/>
+        <location filename="../src/preferences/preferences.ui" line="1079"/>
         <source>Delete history on close</source>
         <translation>Διαγραφή ιστορικού στο κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1121"/>
+        <location filename="../src/preferences/preferences.ui" line="1128"/>
         <source>Proxy Configuration</source>
         <translation>Ρυθμίσεις proxy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1130"/>
+        <location filename="../src/preferences/preferences.ui" line="1137"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1135"/>
+        <location filename="../src/preferences/preferences.ui" line="1142"/>
         <source>SOCKS5</source>
         <translation>SOCKSS</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1148"/>
+        <location filename="../src/preferences/preferences.ui" line="1155"/>
         <source>Port:</source>
         <translation>Θύρα:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1167"/>
+        <location filename="../src/preferences/preferences.ui" line="1174"/>
         <source>Username:</source>
         <translation>Όνομα χρήστη:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1177"/>
+        <location filename="../src/preferences/preferences.ui" line="1184"/>
         <source>Password:</source>
         <translation>Κωδικός:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1203"/>
+        <location filename="../src/preferences/preferences.ui" line="1210"/>
         <source>Don&apos;t use on:</source>
         <translation>Να μην χρησιμοποιείται σε:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1210"/>
+        <location filename="../src/preferences/preferences.ui" line="1217"/>
         <source>Manual configuration</source>
         <translation>Χειροκίνητη ρύθμιση</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1217"/>
+        <location filename="../src/preferences/preferences.ui" line="1224"/>
         <source>System proxy configuration</source>
         <translation>Ρύθμιση proxy συστήματος</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1224"/>
+        <location filename="../src/preferences/preferences.ui" line="1231"/>
         <source>Do not use proxy</source>
         <translation>Να μην χρησιμοποιείται proxy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1270"/>
+        <location filename="../src/preferences/preferences.ui" line="1277"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Οικογένειες γραμματοσειρών&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1283"/>
+        <location filename="../src/preferences/preferences.ui" line="1290"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1290"/>
+        <location filename="../src/preferences/preferences.ui" line="1297"/>
         <source>Fixed</source>
         <translation>Fixed</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1300"/>
+        <location filename="../src/preferences/preferences.ui" line="1307"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1310"/>
+        <location filename="../src/preferences/preferences.ui" line="1317"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1320"/>
+        <location filename="../src/preferences/preferences.ui" line="1327"/>
         <source>Cursive</source>
         <translation>Cursive</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1330"/>
+        <location filename="../src/preferences/preferences.ui" line="1337"/>
         <source>Default Font</source>
         <translation>Προεπιλεγμένη γραμματοσειρά</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1347"/>
+        <location filename="../src/preferences/preferences.ui" line="1354"/>
         <source>Fixed Font</source>
         <translation>Fixed Font</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1406"/>
+        <location filename="../src/preferences/preferences.ui" line="1413"/>
         <source>Fantasy</source>
         <translation>Fantasy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1413"/>
+        <location filename="../src/preferences/preferences.ui" line="1420"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Μεγέθη γραμματοσειρών&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1424"/>
+        <location filename="../src/preferences/preferences.ui" line="1431"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Τοποθεσία λήψεων&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1431"/>
+        <location filename="../src/preferences/preferences.ui" line="1438"/>
         <source>Ask everytime for download location</source>
         <translation>Ερώτηση για τοποθεσία λήψεων κάθε φορά</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1438"/>
+        <location filename="../src/preferences/preferences.ui" line="1445"/>
         <source>Use defined location: </source>
         <translation>Χρήση καθορισμένης τοποθεσίας: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1450"/>
-        <location filename="../src/preferences/preferences.ui" line="1952"/>
+        <location filename="../src/preferences/preferences.ui" line="1457"/>
+        <location filename="../src/preferences/preferences.ui" line="1959"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1501"/>
+        <location filename="../src/preferences/preferences.ui" line="1508"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Επιλογές λήψεων&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1508"/>
+        <location filename="../src/preferences/preferences.ui" line="1515"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Χρήση εγγενούς διαλόγου αρχείου συστήματος
 (μπορεί να ή να μην προκαλέσει προβλήματα με την λήψη ασφαλούς περιεχομένου SSL)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1516"/>
+        <location filename="../src/preferences/preferences.ui" line="1523"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Κλείσιμο διαχειριστή λήψεων όταν τελειώσουν οι λήψεις</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1527"/>
+        <location filename="../src/preferences/preferences.ui" line="1534"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Επιλογές αυτόματης συμπλήρωσης&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1534"/>
+        <location filename="../src/preferences/preferences.ui" line="1541"/>
         <source>Allow saving passwords from sites</source>
         <translation>Να επιτρέπεται η αποθήκευση κωδικών από σελίδες</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1604"/>
+        <location filename="../src/preferences/preferences.ui" line="1611"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1611"/>
+        <location filename="../src/preferences/preferences.ui" line="1618"/>
         <source>Filter Tracking Cookies</source>
         <translation>Φιλτράρισμα των cookies παρακολούθησης</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1618"/>
+        <location filename="../src/preferences/preferences.ui" line="1625"/>
         <source>Allow storing of cookies</source>
         <translation>Να επιτρέπεται η αποθήκευση των cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1625"/>
+        <location filename="../src/preferences/preferences.ui" line="1632"/>
         <source>Delete cookies on close</source>
         <translation>Διαγραφή των cookies στο κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1645"/>
+        <location filename="../src/preferences/preferences.ui" line="1652"/>
         <source>Match domain exactly</source>
         <translation>Ακριβές ταίριασμα του τομέα διεύθυνσης (domain)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1681"/>
+        <location filename="../src/preferences/preferences.ui" line="1688"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation>&lt;b&gt;Προσοχή:&lt;/b&gt; Ακριβές ταίριασμα domain και φιλτράρισμα των cookies παρακολούθησης μπορεί να οδηγήσουν κάποια cookies να απορρίπτονται από σελίδες. Αν έχετε προβλήματα με τα cookies, δοκιμάστε να απενεργοποιήσετε αυτή την επιλογή πρώτα!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1697"/>
+        <location filename="../src/preferences/preferences.ui" line="1704"/>
         <source>Cookies Manager</source>
         <translation>Διαχειριστής Cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1710"/>
+        <location filename="../src/preferences/preferences.ui" line="1717"/>
         <source>SSL Manager</source>
         <translation>Διαχειριστής SSL</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1723"/>
+        <location filename="../src/preferences/preferences.ui" line="1730"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ειδοποιήσεις&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1730"/>
+        <location filename="../src/preferences/preferences.ui" line="1737"/>
         <source>Use OSD Notifications</source>
         <translation>Χρήση ειδοποιήσεων OSD</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1740"/>
+        <location filename="../src/preferences/preferences.ui" line="1747"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Χρήση εγγενών ειδοποιήσεων συστήματος (μόνο σε Linux)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1747"/>
+        <location filename="../src/preferences/preferences.ui" line="1754"/>
         <source>Do not use Notifications</source>
         <translation>Να μην χρησιμοποιούνται ειδοποιήσεις</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1798"/>
+        <location filename="../src/preferences/preferences.ui" line="1805"/>
         <source>Expiration timeout:</source>
         <translation>Χρονικό όριο λήξης:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1811"/>
+        <location filename="../src/preferences/preferences.ui" line="1818"/>
         <source> seconds</source>
         <translation> δευτερόλεπτα</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1820"/>
+        <location filename="../src/preferences/preferences.ui" line="1827"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Σημείωση: &lt;/b&gt; Μπορείτε να αλλάξετε τη θέση των OSD ενημερώσεων σέρνοντας τo στην οθόνη.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1869"/>
+        <location filename="../src/preferences/preferences.ui" line="1876"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Γλώσσα&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1876"/>
+        <location filename="../src/preferences/preferences.ui" line="1883"/>
         <source>Available translations: </source>
         <translation>Διαθέσιμες μεταφράσεις: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1915"/>
+        <location filename="../src/preferences/preferences.ui" line="1922"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>Για να αλλάξετε γλώσσα, πρέπει να επανεκκινήσετε τον περιηγητή.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1935"/>
+        <location filename="../src/preferences/preferences.ui" line="1942"/>
         <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;StyleSheet CSS χρήστη&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1942"/>
+        <location filename="../src/preferences/preferences.ui" line="1949"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>StyleSheet που φορτώνεται αυτόματα με όλες τις σελίδες: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1961"/>
+        <location filename="../src/preferences/preferences.ui" line="1968"/>
         <source>Languages</source>
         <translation>Γλώσσες</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1983"/>
+        <location filename="../src/preferences/preferences.ui" line="1990"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Προτιμώμενη γλώσσα για ιστοσελίδες&lt;/b&gt;</translation>
     </message>
@@ -2567,58 +2572,58 @@
         <translation>Άλλα</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="420"/>
+        <location filename="../src/preferences/preferences.cpp" line="421"/>
         <source>OSD Notification</source>
         <translation>Ειδοποίηση OSD</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="421"/>
+        <location filename="../src/preferences/preferences.cpp" line="422"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Μετακινήστε το στην οθόνη για να το τοποθετήσετε όπου θέλετε.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="449"/>
+        <location filename="../src/preferences/preferences.cpp" line="450"/>
         <source>Choose download location...</source>
         <translation>Επιλογή τοποθεσίας λήψεων...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="463"/>
+        <location filename="../src/preferences/preferences.cpp" line="464"/>
         <source>Choose stylesheet location...</source>
         <translation>Επιλογή τοποθεσίας stylesheet...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="579"/>
+        <location filename="../src/preferences/preferences.cpp" line="580"/>
         <source>New Profile</source>
         <translation>Νέο προφίλ</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="579"/>
+        <location filename="../src/preferences/preferences.cpp" line="580"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Εισάγετε την ονομασία του νέου προφίλ:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="586"/>
-        <location filename="../src/preferences/preferences.cpp" line="590"/>
+        <location filename="../src/preferences/preferences.cpp" line="587"/>
+        <location filename="../src/preferences/preferences.cpp" line="591"/>
         <source>Error!</source>
         <translation>Σφάλμα!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="586"/>
+        <location filename="../src/preferences/preferences.cpp" line="587"/>
         <source>This profile already exists!</source>
         <translation>Αυτό το προφίλ υπάρχει ήδη!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="590"/>
+        <location filename="../src/preferences/preferences.cpp" line="591"/>
         <source>Cannot create profile directory!</source>
         <translation>Αδυναμία δημιουργίας καταλόγου προφίλ!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="604"/>
+        <location filename="../src/preferences/preferences.cpp" line="605"/>
         <source>Confirmation</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="605"/>
+        <location filename="../src/preferences/preferences.cpp" line="606"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Είστε σίγουροι ότι θέλετε να διαγράψετε μόνιμα το προφίλ &quot;%1&quot;; Η ενέργεια αυτή δεν μπορεί να αναιρεθεί!</translation>
     </message>
@@ -3689,27 +3694,27 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="247"/>
         <source>Search Engine Added</source>
         <translation>Η μηχανή αναζήτησης προστέθηκε</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="251"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="247"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Η μηχανή αναζήτησης &quot;%1&quot; προστέθηκε επιτυχώς.</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="258"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="254"/>
         <source>Search Engine is not valid!</source>
         <translation>Δεν είναι έγκυρη η μηχανή αναζήτησης!</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="259"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../src/opensearch/searchenginesmanager.cpp" line="259"/>
+        <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Σφάλμα κατά την προσθήκη μηχανής αναζήτησης &lt;br&gt;&lt;b&gt;Μήνυμα σφάλματος: &lt;/b&gt; %1</translation>
     </message>
@@ -4209,22 +4214,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Νέα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="217"/>
+        <location filename="../src/webview/tabwidget.cpp" line="218"/>
         <source>Loading...</source>
         <translation>Φόρτωση...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="221"/>
+        <location filename="../src/webview/tabwidget.cpp" line="222"/>
         <source>No Named Page</source>
         <translation>Ανώνυμη σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="238"/>
+        <location filename="../src/webview/tabwidget.cpp" line="239"/>
         <source>Actually you have %1 opened tabs</source>
         <translation>Πραγματικά έχετε %1 ανοιχτές καρτέλες</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="250"/>
+        <location filename="../src/webview/tabwidget.cpp" line="251"/>
         <location filename="../src/webview/tabwidget.h" line="75"/>
         <source>New tab</source>
         <translation>Νέα καρτέλα</translation>

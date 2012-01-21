@@ -2085,6 +2085,10 @@
         <source>Active profile:</source>
         <translation>Aktivovať profil:</translation>
     </message>
+    <message>
+        <source>Don&apos;t quit upon closing last tab</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
