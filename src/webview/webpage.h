@@ -24,7 +24,6 @@
 #include <QWebFrame>
 #include <QWebHistory>
 #include <QtNetwork/QtNetwork>
-#include <QDebug>
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QDesktopServices>
@@ -34,8 +33,9 @@
 #include <QFileSystemWatcher>
 
 class QupZilla;
-class WebView;
+class TabbedWebView;
 class SpeedDial;
+class NetworkManagerProxy;
 class WebPage : public QWebPage
 {
     Q_OBJECT
@@ -49,11 +49,15 @@ public:
         }
     };
 
-    WebPage(WebView* parent, QupZilla* mainClass);
-    void populateNetworkRequest(QNetworkRequest &request);
+    WebPage(QupZilla* mainClass);
     ~WebPage();
 
-    WebView* getView() { return m_view; }
+    QUrl url() const;
+
+    void setWebView(TabbedWebView* view);
+    void populateNetworkRequest(QNetworkRequest &request);
+
+    TabbedWebView* getView() { return m_view; }
     void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
 
@@ -64,8 +68,8 @@ public:
     void addAdBlockRule(const QString &filter, const QUrl &url);
     QList<AdBlockedEntry> adBlockedEntries() { return m_adBlockedEntries; }
 
-    QupZilla* qupzilla() { return p_QupZilla; }
     void scheduleAdjustPage();
+    bool isRunningLoop();
 
     static QString UserAgent;
     QString userAgentForUrl(const QUrl &url) const;
@@ -78,7 +82,7 @@ signals:
 protected slots:
     QWebPage* createWindow(QWebPage::WebWindowType type);
     void handleUnsupportedContent(QNetworkReply* url);
-//    void loadingStarted();
+
     void progress(int prog);
     void finished();
 
@@ -89,19 +93,21 @@ private slots:
 
     void watchedFileChanged(const QString &file);
     void printFrame(QWebFrame* frame);
+    void downloadRequested(const QNetworkRequest &request);
 
 private:
-    virtual bool supportsExtension(Extension extension) const { return (extension == ErrorPageExtension); }
+    virtual bool supportsExtension(Extension extension) const;
     virtual bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
-
     QString chooseFile(QWebFrame* originatingFrame, const QString &oldFile);
+
     static QString m_lastUploadLocation;
 
     QupZilla* p_QupZilla;
+    NetworkManagerProxy* m_networkProxy;
     QNetworkRequest m_lastRequest;
     QWebPage::NavigationType m_lastRequestType;
-    WebView* m_view;
+    TabbedWebView* m_view;
     SpeedDial* m_speedDial;
     QSslCertificate m_SslCert;
     QList<QSslCertificate> m_SslCerts;
@@ -113,7 +119,8 @@ private:
     bool m_blockAlerts;
     bool m_secureStatus;
     bool m_adjustingScheduled;
-//    bool m_isOpeningNextWindowAsNewTab;
+
+    bool m_isClosing;
 };
 
 #endif // WEBPAGE_H

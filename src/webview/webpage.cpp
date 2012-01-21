@@ -16,61 +16,94 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "webpage.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "tabwidget.h"
 #include "qupzilla.h"
 #include "downloadmanager.h"
 #include "webpluginfactory.h"
 #include "mainapplication.h"
+#ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
 #include "ui_jsalert.h"
 #include "ui_jsprompt.h"
+#endif
+#include "ui_closedialog.h"
 #include "widget.h"
 #include "globalfunctions.h"
 #include "pluginproxy.h"
 #include "speeddial.h"
+#include "popupwebpage.h"
+#include "popupwebview.h"
+#include "networkmanagerproxy.h"
 
 QString WebPage::UserAgent = "";
-
 QString WebPage::m_lastUploadLocation = QDir::homePath();
 
-WebPage::WebPage(WebView* parent, QupZilla* mainClass)
-    : QWebPage(parent)
+WebPage::WebPage(QupZilla* mainClass)
+    : QWebPage()
     , p_QupZilla(mainClass)
-    , m_view(parent)
+    , m_view(0)
     , m_speedDial(mApp->plugins()->speedDial())
     , m_fileWatcher(0)
     , m_runningLoop(0)
     , m_blockAlerts(false)
     , m_secureStatus(false)
-//    , m_isOpeningNextWindowAsNewTab(false)
+    , m_isClosing(false)
 {
+    m_networkProxy = new NetworkManagerProxy(this);
+    m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
+    m_networkProxy->setPage(this);
+    setNetworkAccessManager(m_networkProxy);
+
     setForwardUnsupportedContent(true);
     setPluginFactory(new WebPluginFactory(this));
     history()->setMaximumItemCount(20);
 
     connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), this, SLOT(handleUnsupportedContent(QNetworkReply*)));
-//    connect(this, SIGNAL(loadStarted()), this, SLOT(loadingStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(progress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(finished()));
-    connect(m_view, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
+    connect(this, SIGNAL(printRequested(QWebFrame*)), this, SLOT(printFrame(QWebFrame*)));
+    connect(this, SIGNAL(downloadRequested(QNetworkRequest)), this, SLOT(downloadRequested(QNetworkRequest)));
 
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
-    connect(this, SIGNAL(printRequested(QWebFrame*)), this, SLOT(printFrame(QWebFrame*)));
+}
 
-    m_runningLoop = 0;
+QUrl WebPage::url() const
+{
+    return mainFrame()->url();
+}
+
+void WebPage::setWebView(TabbedWebView* view)
+{
+    if (m_view == view) {
+        return;
+    }
+
+    if (m_view) {
+        delete m_view;
+        m_view = 0;
+    }
+
+    m_view = view;
+    m_view->setWebPage(this);
+
+    connect(m_view, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
 }
 
 void WebPage::scheduleAdjustPage()
 {
-    if (m_view->isLoading()) {
+    if (m_view && m_view->isLoading()) {
         m_adjustingScheduled = true;
     }
     else {
         mainFrame()->setZoomFactor(mainFrame()->zoomFactor() + 1);
         mainFrame()->setZoomFactor(mainFrame()->zoomFactor() - 1);
     }
+}
 
+bool WebPage::isRunningLoop()
+{
+    return m_runningLoop;
 }
 
 void WebPage::urlChanged(const QUrl &url)
@@ -101,19 +134,19 @@ void WebPage::finished()
         mainFrame()->setZoomFactor(mainFrame()->zoomFactor() - 1);
     }
 
-    if (mainFrame()->url().scheme() == "file") {
+    if (url().scheme() == "file") {
         if (!m_fileWatcher) {
             m_fileWatcher = new QFileSystemWatcher(this);
             connect(m_fileWatcher, SIGNAL(fileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
         }
 
-        QString filePath = mainFrame()->url().toLocalFile();
+        QString filePath = url().toLocalFile();
 
-        if (!m_fileWatcher->files().contains(filePath)) {
+        if (QFile::exists(filePath) && !m_fileWatcher->files().contains(filePath)) {
             m_fileWatcher->addPath(filePath);
         }
     }
-    else if (m_fileWatcher) {
+    else if (m_fileWatcher && !m_fileWatcher->files().isEmpty()) {
         m_fileWatcher->removePaths(m_fileWatcher->files());
     }
 
@@ -122,26 +155,24 @@ void WebPage::finished()
 
 void WebPage::watchedFileChanged(const QString &file)
 {
-    if (mainFrame()->url().toLocalFile() == file) {
+    if (url().toLocalFile() == file) {
         triggerAction(QWebPage::Reload);
     }
 }
 
 void WebPage::printFrame(QWebFrame* frame)
 {
-    p_QupZilla->printPage(frame);
-}
+    WebView* webView = qobject_cast<WebView*>(view());
+    if (!webView) {
+        return;
+    }
 
-//void WebPage::loadingStarted()
-//{
-//    m_adBlockedEntries.clear();
-//    m_blockAlerts = false;
-//    m_SslCert.clear();
-//}
+    webView->printPage(frame);
+}
 
 void WebPage::addJavaScriptObject()
 {
-    if (mainFrame()->url().toString() != "qupzilla:speeddial") {
+    if (url().toString() != "qupzilla:speeddial") {
         return;
     }
 
@@ -175,16 +206,23 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
     qDebug() << "WebPage::UnsupportedContent error" << reply->errorString();
 }
 
+void WebPage::downloadRequested(const QNetworkRequest &request)
+{
+    DownloadManager* dManager = mApp->downManager();
+    dManager->download(request, this);
+}
+
+
 void WebPage::setSSLCertificate(const QSslCertificate &cert)
 {
-//    if (cert != m_SslCert) -- crashing on linux :-|
+//    if (cert != m_SslCert)
     m_SslCert = cert;
 }
 
 QSslCertificate WebPage::sslCertificate()
 {
-    if (mainFrame()->url().scheme() == "https" &&
-            m_SslCert.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(mainFrame()->url().host()))) {
+    if (url().scheme() == "https" &&
+            m_SslCert.subjectInfo(QSslCertificate::CommonName).remove("*").contains(QRegExp(url().host()))) {
         return m_SslCert;
     }
     else {
@@ -203,8 +241,10 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
     }
 
     if (type == QWebPage::NavigationTypeFormResubmitted) {
-        bool result = javaScriptConfirm(frame, tr("To show this page, QupZilla must resend request which do it again \n"
-                                        "(like searching on making an shoping, which has been already done.)"));
+        QString message = tr("To show this page, QupZilla must resend request which do it again \n"
+                             "(like searching on making an shoping, which has been already done.)");
+        bool result = (QMessageBox::question(view(), tr("Resend request confirmation"),
+                                             message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes);
         if (!result) {
             return false;
         }
@@ -217,29 +257,21 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 void WebPage::populateNetworkRequest(QNetworkRequest &request)
 {
     WebPage* pagePointer = this;
-    WebView* webViewPointer = m_view;
 
     QVariant variant = qVariantFromValue((void*) pagePointer);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
     request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), m_lastRequestType);
-
-    variant = qVariantFromValue((void*) webViewPointer);
-    request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102), variant);
 }
 
 QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
 {
-//    if (m_isOpeningNextWindowAsNewTab)
-//        return 0;
-//    m_isOpeningNextWindowAsNewTab = false;
-//    qDebug() << type;
-//    QWebView* view = new QWebView();
-//    view->show();
-//    return view->page();
-
+#if 0
     Q_UNUSED(type);
     int index = p_QupZilla->tabWidget()->addView(QUrl(), TabWidget::CleanSelectedPage);
     return p_QupZilla->weView(index)->page();
+#endif
+
+    return new PopupWebPage(type, p_QupZilla);
 }
 
 void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
@@ -263,7 +295,7 @@ void WebPage::cleanBlockedObjects()
         }
 
         findingStrings.append(entry.url.toString());
-        QUrl mainFrameUrl = mainFrame()->url();
+        QUrl mainFrameUrl = url();
         if (entry.url.scheme() == mainFrameUrl.scheme() && entry.url.host() == mainFrameUrl.host()) {
             //May be relative url
             QString relativeUrl = qz_makeRelativeUrl(mainFrameUrl, entry.url).toString();
@@ -296,15 +328,44 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
     return UserAgent;
 }
 
+bool WebPage::supportsExtension(Extension extension) const
+{
+    Q_UNUSED(extension)
+
+    return true;
+}
+
 bool WebPage::extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output)
 {
     if (extension == ChooseMultipleFilesExtension) {
-        return QWebPage::extension(extension, option, output);
+        const QWebPage::ChooseMultipleFilesExtensionOption* exOption = static_cast<const QWebPage::ChooseMultipleFilesExtensionOption*>(option);
+        QWebPage::ChooseMultipleFilesExtensionReturn* exReturn = static_cast<QWebPage::ChooseMultipleFilesExtensionReturn*>(output);
+
+        if (!exOption || !exReturn) {
+            return QWebPage::extension(extension, option, output);
+        }
+
+        QString suggestedFileName;
+        if (!exOption->suggestedFileNames.isEmpty()) {
+            suggestedFileName = exOption->suggestedFileNames.first();
+        }
+
+        exReturn->fileNames = QFileDialog::getOpenFileNames(0, tr("Select files to upload..."), suggestedFileName);
+        return true;
     }
 
     const ErrorPageExtensionOption* exOption = static_cast<const QWebPage::ErrorPageExtensionOption*>(option);
     ErrorPageExtensionReturn* exReturn = static_cast<QWebPage::ErrorPageExtensionReturn*>(output);
+
+    if (!exOption || !exReturn) {
+        return QWebPage::extension(extension, option, output);
+    }
+
     WebPage* erPage = qobject_cast<WebPage*>(exOption->frame->page());
+
+    if (!erPage) {
+        return QWebPage::extension(extension, option, output);
+    }
 
     QString errorString;
     if (exOption->domain == QWebPage::QtNetwork) {
@@ -414,9 +475,16 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
 bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, const QString &defaultValue, QString* result)
 {
-    WebView* _view = qobject_cast<WebView*>(originatingFrame->page()->view());
+#ifndef NONBLOCK_JS_DIALOGS
+    return QWebPage::javaScriptPrompt(originatingFrame, msg, defaultValue, result);
+#else
+    if (m_runningLoop) {
+        return false;
+    }
 
-    ResizableFrame* widget = new ResizableFrame(_view->webTab());
+    WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
+    ResizableFrame* widget = new ResizableFrame(webView->overlayForJsAlert());
+
     widget->setObjectName("jsFrame");
     Ui_jsPrompt* ui = new Ui_jsPrompt();
     ui->setupUi(widget);
@@ -426,14 +494,14 @@ bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, 
     widget->resize(originatingFrame->page()->viewportSize());
     widget->show();
 
-    connect(_view, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
+    connect(webView, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
     connect(ui->lineEdit, SIGNAL(returnPressed()), ui->buttonBox->button(QDialogButtonBox::Ok), SLOT(animateClick()));
 
     QEventLoop eLoop;
     m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
 
-    if (eLoop.exec() == 1) {
+    if (eLoop.exec() == 1 || m_isClosing) {
         return result;
     }
     m_runningLoop = 0;
@@ -443,16 +511,24 @@ bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, 
     *result = x;
 
     delete widget;
-    _view->setFocus();
+    webView->setFocus();
 
     return _result;
+#endif
 }
 
 bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
 {
-    WebView* _view = qobject_cast<WebView*>(originatingFrame->page()->view());
+#ifndef NONBLOCK_JS_DIALOGS
+    return QWebPage::javaScriptConfirm(originatingFrame, msg);
+#else
+    if (m_runningLoop) {
+        return false;
+    }
 
-    ResizableFrame* widget = new ResizableFrame(_view->webTab());
+    WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
+    ResizableFrame* widget = new ResizableFrame(webView->overlayForJsAlert());
+
     widget->setObjectName("jsFrame");
     Ui_jsConfirm* ui = new Ui_jsConfirm();
     ui->setupUi(widget);
@@ -461,13 +537,13 @@ bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
     widget->resize(originatingFrame->page()->viewportSize());
     widget->show();
 
-    connect(_view, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
+    connect(webView, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
 
     QEventLoop eLoop;
     m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
 
-    if (eLoop.exec() == 1) {
+    if (eLoop.exec() == 1 || m_isClosing) {
         return false;
     }
     m_runningLoop = 0;
@@ -475,20 +551,36 @@ bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
     bool result = ui->buttonBox->clickedButtonRole() == QDialogButtonBox::AcceptRole;
 
     delete widget;
-    _view->setFocus();
+    webView->setFocus();
 
     return result;
+#endif
 }
 
 void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
 {
-    if (m_blockAlerts) {
+    if (m_blockAlerts || m_runningLoop) {
         return;
     }
 
-    WebView* _view = qobject_cast<WebView*>(originatingFrame->page()->view());
+#ifndef NONBLOCK_JS_DIALOGS
+    QDialog dialog(view());
+    Ui_CloseDialog* ui = new Ui_CloseDialog();
+    ui->setupUi(&dialog);
+    ui->buttonBox->setStandardButtons(QDialogButtonBox::Ok);
+    ui->dontAskAgain->setText(tr("Prevent this page from creating additional dialogs"));
+    ui->textLabel->setText(Qt::escape(msg));
+    ui->iconLabel->setPixmap(mApp->style()->standardPixmap(QStyle::SP_MessageBoxInformation));
+    dialog.setWindowTitle(tr("JavaScript alert - %1").arg(originatingFrame->url().host()));
+    dialog.exec();
 
-    ResizableFrame* widget = new ResizableFrame(_view->webTab());
+    if (ui->dontAskAgain->isChecked()) {
+        m_blockAlerts = true;
+    }
+#else
+    WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
+    ResizableFrame* widget = new ResizableFrame(webView->overlayForJsAlert());
+
     widget->setObjectName("jsFrame");
     Ui_jsAlert* ui = new Ui_jsAlert();
     ui->setupUi(widget);
@@ -497,13 +589,13 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     widget->resize(originatingFrame->page()->viewportSize());
     widget->show();
 
-    connect(_view, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
+    connect(webView, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
 
     QEventLoop eLoop;
     m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
 
-    if (eLoop.exec() == 1) {
+    if (eLoop.exec() == 1 || m_isClosing) {
         return;
     }
     m_runningLoop = 0;
@@ -512,7 +604,8 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
 
     delete widget;
 
-    _view->setFocus();
+    webView->setFocus();
+#endif
 }
 
 QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
@@ -535,12 +628,19 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
 
 void WebPage::disconnectObjects()
 {
+    if (m_runningLoop) {
+        m_runningLoop->exit(1);
+        m_runningLoop = 0;
+    }
+
     disconnect(this);
+    m_networkProxy->disconnectObjects();
 }
 
 WebPage::~WebPage()
 {
     if (m_runningLoop) {
         m_runningLoop->exit(1);
+        m_runningLoop = 0;
     }
 }
