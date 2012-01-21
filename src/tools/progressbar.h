@@ -40,7 +40,6 @@ protected:
 private:
     int m_value;
     int m_lastPaintedValue;
-
 };
 
 #endif // PROGRESSBAR_H

@@ -16,11 +16,12 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "firefoximporter.h"
+#include "bookmarksimportdialog.h"
 
 FirefoxImporter::FirefoxImporter(QObject* parent)
     : QObject(parent)
     , m_error(false)
-    , m_errorString(tr("No Error"))
+    , m_errorString(BookmarksImportDialog::tr("No Error"))
 {
 }
 
@@ -35,7 +36,7 @@ bool FirefoxImporter::openDatabase()
 
     if (!QFile::exists(m_path)) {
         m_error = true;
-        m_errorString = tr("File does not exists.");
+        m_errorString = BookmarksImportDialog::tr("File does not exists.");
         return false;
     }
     db.setDatabaseName(m_path);
@@ -43,7 +44,7 @@ bool FirefoxImporter::openDatabase()
 
     if (!open) {
         m_error = true;
-        m_errorString = tr("Unable to open database. Is Firefox running?");
+        m_errorString = BookmarksImportDialog::tr("Unable to open database. Is Firefox running?");
         return false;
     }
 

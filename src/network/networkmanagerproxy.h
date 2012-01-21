@@ -22,28 +22,23 @@
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
 
-class WebView;
 class WebPage;
 class NetworkManager;
 
 class NetworkManagerProxy : public QNetworkAccessManager
 {
-    Q_OBJECT
 public:
     explicit NetworkManagerProxy(QObject* parent = 0);
     ~NetworkManagerProxy();
 
-    void setView(WebView* view) { m_view = view; }
     void setPage(WebPage* page) { m_page = page; }
-
     void setPrimaryNetworkAccessManager(NetworkManager* manager);
+
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 
-protected:
-    virtual void populateNetworkRequest(QNetworkRequest &request);
+    void disconnectObjects();
 
 private:
-    WebView* m_view;
     WebPage* m_page;
     NetworkManager* m_manager;
 };

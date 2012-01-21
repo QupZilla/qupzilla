@@ -286,7 +286,7 @@ void ClickToFlash::showInfo()
     }
 
     widg->setMaximumHeight(500);
-    qz_centerWidgetToParent(widg, m_page->qupzilla());
+    qz_centerWidgetToParent(widg, m_page->view());
     widg->show();
 }
 

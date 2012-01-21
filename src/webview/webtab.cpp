@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "webtab.h"
 #include "qupzilla.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "webpage.h"
 #include "tabbar.h"
 #include "locationbar.h"
@@ -33,26 +33,27 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
 
-    m_view = new WebView(p_QupZilla, this);
-    m_view.data()->setLocationBar(locationBar);
-    m_layout->addWidget(m_view.data());
+    m_view = new TabbedWebView(p_QupZilla, this);
+    WebPage* page = new WebPage(p_QupZilla);
+    m_view->setWebPage(page);
+    m_layout->addWidget(m_view);
 
     setLayout(m_layout);
     setAutoFillBackground(true); // We don't want this transparent
 
-    connect(m_view.data(), SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
-    connect(m_view.data(), SIGNAL(iconChanged()), m_locationBar.data(), SLOT(siteIconChanged()));
-    connect(m_view.data(), SIGNAL(loadStarted()), m_locationBar.data(), SLOT(clearIcon()));
-    connect(m_view.data(), SIGNAL(loadFinished(bool)), m_locationBar.data(), SLOT(siteIconChanged()));
-    connect(m_view.data(), SIGNAL(showUrl(QUrl)), m_locationBar.data(), SLOT(showUrl(QUrl)));
-    connect(m_view.data(), SIGNAL(rssChanged(bool)), m_locationBar.data(), SLOT(showRSSIcon(bool)));
-    connect(m_view.data()->webPage(), SIGNAL(privacyChanged(bool)), m_locationBar.data(), SLOT(setPrivacy(bool)));
-    connect(m_locationBar.data(), SIGNAL(loadUrl(QUrl)), m_view.data(), SLOT(load(QUrl)));
+    connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
+    connect(m_view, SIGNAL(iconChanged()), m_locationBar.data(), SLOT(siteIconChanged()));
+    connect(m_view, SIGNAL(loadStarted()), m_locationBar.data(), SLOT(clearIcon()));
+    connect(m_view, SIGNAL(loadFinished(bool)), m_locationBar.data(), SLOT(siteIconChanged()));
+    connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar.data(), SLOT(showUrl(QUrl)));
+    connect(m_view, SIGNAL(rssChanged(bool)), m_locationBar.data(), SLOT(showRSSIcon(bool)));
+    connect(m_view->webPage(), SIGNAL(privacyChanged(bool)), m_locationBar.data(), SLOT(setPrivacy(bool)));
+    connect(m_locationBar.data(), SIGNAL(loadUrl(QUrl)), m_view, SLOT(load(QUrl)));
 }
 
-WebView* WebTab::view()
+TabbedWebView* WebTab::view()
 {
-    return m_view.data();
+    return m_view;
 }
 
 bool WebTab::isPinned()
@@ -97,7 +98,7 @@ void WebTab::showNotification(QWidget* notif)
 
 int WebTab::tabIndex()
 {
-    return m_view.data()->tabIndex();
+    return m_view->tabIndex();
 }
 
 void WebTab::pinTab(int index)
@@ -109,7 +110,7 @@ void WebTab::pinTab(int index)
 
     if (m_pinned) { //Unpin tab
         m_pinned = false;
-        tabWidget->setTabText(index, m_view.data()->title());
+        tabWidget->setTabText(index, m_view->title());
         tabWidget->getTabBar()->updateCloseButton(index);
     }
     else {   // Pin tab
@@ -126,14 +127,12 @@ void WebTab::disconnectObjects()
 {
     disconnect(this);
     disconnect(m_locationBar.data());
-    disconnect(m_view.data());
+    disconnect(m_view);
 }
 
 WebTab::~WebTab()
 {
-    if (m_locationBar.data()) {
+    if (m_locationBar) {
         delete m_locationBar.data();
     }
-
-    m_view.data()->deleteLater();
 }

@@ -433,7 +433,7 @@ void MainApplication::receiveAppMessage(QString message)
     QWidget* actWin = getWindow();
     if (message.startsWith("URL:")) {
         QString url(message.remove("URL:"));
-        addNewTab(WebView::guessUrlFromString(url));
+        addNewTab(QUrl::fromUserInput(url));
         actWin = getWindow();
     }
     else if (message.startsWith("ACTION:")) {

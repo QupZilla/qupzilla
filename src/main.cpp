@@ -30,8 +30,6 @@ int main(int argc, char* argv[])
     Q_INIT_RESOURCE(icons);
     Q_INIT_RESOURCE(html);
 
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
-
 #ifdef Q_WS_X11
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11
 #endif

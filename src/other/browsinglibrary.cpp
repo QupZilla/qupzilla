@@ -36,6 +36,7 @@ BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     , m_rssLoaded(false)
 {
     ui->setupUi(this);
+
     Settings settings;
     settings.beginGroup("BrowsingLibrary");
     resize(settings.value("size", QSize(760, 470)).toSize());

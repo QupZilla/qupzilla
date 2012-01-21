@@ -30,8 +30,6 @@ class DesktopNotification;
 
 class DesktopNotification : public QWidget
 {
-    Q_OBJECT
-
 public:
     explicit DesktopNotification(bool setPosition = false);
     void setPixmap(const QPixmap &icon) { m_icon = icon; }

@@ -25,13 +25,8 @@
 class LocationBar;
 class SiteIcon : public ToolButton
 {
-    Q_OBJECT
 public:
     explicit SiteIcon(LocationBar* parent);
-
-signals:
-
-public slots:
 
 private:
     void mousePressEvent(QMouseEvent* e);

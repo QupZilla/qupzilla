@@ -18,20 +18,14 @@
 #ifndef PROFILEUPDATER_H
 #define PROFILEUPDATER_H
 
-#include <QObject>
 #include <QDir>
 #include <iostream>
 
-class ProfileUpdater : public QObject
+class ProfileUpdater
 {
-    Q_OBJECT
 public:
     explicit ProfileUpdater(const QString &profilePath);
     void checkProfile();
-
-signals:
-
-public slots:
 
 private:
     void updateProfile(const QString &current, const QString &profile);

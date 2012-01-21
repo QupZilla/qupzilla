@@ -25,18 +25,12 @@
 #include <QTimer>
 #include <QTextStream>
 
-class QupZillaSchemeHandler : public QObject
+class QupZillaSchemeHandler
 {
-    Q_OBJECT
 public:
-    explicit QupZillaSchemeHandler(QObject* parent = 0);
+    explicit QupZillaSchemeHandler();
 
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
-
-signals:
-
-public slots:
-
 };
 
 class QupZillaSchemeReply : public QNetworkReply

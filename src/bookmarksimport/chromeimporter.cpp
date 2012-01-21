@@ -17,11 +17,12 @@
 * ============================================================ */
 #include "chromeimporter.h"
 #include "globalfunctions.h"
+#include "bookmarksimportdialog.h"
 
 ChromeImporter::ChromeImporter(QObject* parent)
     : QObject(parent)
     , m_error(false)
-    , m_errorString(tr("No Error"))
+    , m_errorString(BookmarksImportDialog::tr("No Error"))
 {
 }
 
@@ -36,7 +37,7 @@ bool ChromeImporter::openFile()
 
     if (!m_file.open(QFile::ReadOnly)) {
         m_error = true;
-        m_errorString = tr("Unable to open file.");
+        m_errorString = BookmarksImportDialog::tr("Unable to open file.");
         return false;
     }
 
@@ -81,7 +82,7 @@ QList<BookmarksModel::Bookmark> ChromeImporter::exportBookmarks()
         }
         else {
             m_error = true;
-            m_errorString = tr("Cannot evaluate JSON code.");
+            m_errorString = BookmarksImportDialog::tr("Cannot evaluate JSON code.");
         }
     }
 

@@ -2,8 +2,7 @@
 
 QSettings* Settings::m_settings = 0;
 
-Settings::Settings(QObject* parent)
-    : QObject(parent)
+Settings::Settings()
 {
 }
 

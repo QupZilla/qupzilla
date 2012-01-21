@@ -28,8 +28,12 @@ QString authorString(const QString &name, const QString &mail)
     return QString("%1 &lt;<a href=\"mailto:%2\">%2</a>&gt;").arg(name, mail);
 }
 
-QupZillaSchemeHandler::QupZillaSchemeHandler(QObject* parent)
-    : QObject(parent)
+QString authorString(const char* name, const QString &mail)
+{
+    return authorString(QString::fromUtf8(name), mail);
+}
+
+QupZillaSchemeHandler::QupZillaSchemeHandler()
 {
 }
 

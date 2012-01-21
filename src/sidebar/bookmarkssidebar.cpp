@@ -20,7 +20,7 @@
 #include "ui_bookmarkssidebar.h"
 #include "qupzilla.h"
 #include "iconprovider.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "bookmarkstoolbar.h"
 #include "tabwidget.h"
 #include "bookmarksmodel.h"

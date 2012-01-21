@@ -30,8 +30,6 @@ class CertificateInfoWidget;
 
 class CertificateInfoWidget : public QWidget
 {
-    Q_OBJECT
-
 public:
     explicit CertificateInfoWidget(const QSslCertificate &cert, QWidget* parent = 0);
     ~CertificateInfoWidget();

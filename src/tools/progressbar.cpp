@@ -22,8 +22,8 @@ ProgressBar::ProgressBar(QWidget* parent)
     , m_value(0)
     , m_lastPaintedValue(-1)
 {
-    setMinimumSize(QSize(130, 16));
-    setMaximumSize(QSize(150, 16));
+    setMinimumSize(130, 16);
+    setMaximumSize(150, 16);
 }
 
 void ProgressBar::setValue(int value)
@@ -51,8 +51,11 @@ void ProgressBar::initStyleOption(QStyleOptionProgressBar* option)
 void ProgressBar::paintEvent(QPaintEvent*)
 {
     QStylePainter paint(this);
+
     QStyleOptionProgressBarV2 opt;
     initStyleOption(&opt);
+
     paint.drawControl(QStyle::CE_ProgressBar, opt);
+
     m_lastPaintedValue = m_value;
 }

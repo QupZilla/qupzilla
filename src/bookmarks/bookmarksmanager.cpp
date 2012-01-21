@@ -19,7 +19,7 @@
 #include "bookmarksmanager.h"
 #include "ui_bookmarksmanager.h"
 #include "qupzilla.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "bookmarkstoolbar.h"
 #include "tabwidget.h"
 #include "bookmarksmodel.h"
@@ -191,7 +191,7 @@ void BookmarksManager::deleteItem()
 
 void BookmarksManager::addBookmark(WebView* view)
 {
-    insertBookmark(view->url(), view->title(), view->siteIcon());
+    insertBookmark(view->url(), view->title(), view->icon());
 }
 
 void BookmarksManager::moveBookmark()
@@ -617,12 +617,12 @@ void BookmarksManager::insertAllTabs()
     }
 
     foreach(WebTab * tab, getQupZilla()->tabWidget()->allTabs(false)) {
-        WebView* view = tab->view();
+        TabbedWebView* view = tab->view();
         if (view->url().isEmpty()) {
             continue;
         }
 
-        m_bookmarksModel->saveBookmark(view->url(), view->title(), view->siteIcon(), BookmarksModel::fromTranslatedFolder(combo->currentText()));
+        m_bookmarksModel->saveBookmark(view->url(), view->title(), view->icon(), BookmarksModel::fromTranslatedFolder(combo->currentText()));
     }
 
     delete dialog;

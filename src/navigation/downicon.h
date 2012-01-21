@@ -5,7 +5,6 @@
 
 class DownIcon : public ClickableLabel
 {
-    Q_OBJECT
 public:
     explicit DownIcon(QWidget* parent = 0);
 

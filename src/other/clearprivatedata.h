@@ -36,10 +36,6 @@ class ClearPrivateData : public QDialog
 public:
     explicit ClearPrivateData(QupZilla* mainClass, QWidget* parent = 0);
 
-signals:
-
-public slots:
-
 private slots:
     void historyClicked(bool state);
     void dialogAccepted();

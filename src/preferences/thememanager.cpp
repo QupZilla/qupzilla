@@ -33,6 +33,7 @@ ThemeManager::ThemeManager(QWidget* parent)
 {
     ui->setupUi(parent);
     ui->license->hide();
+
     Settings settings;
     settings.beginGroup("Themes");
     m_activeTheme = settings.value("activeTheme", DEFAULT_THEME_NAME).toString();

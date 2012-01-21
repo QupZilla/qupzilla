@@ -283,7 +283,7 @@ QString CertificateInfoWidget::clearCertSpecialSymbols(const QString &string)
 QString CertificateInfoWidget::showCertInfo(const QString &string)
 {
     if (string.isEmpty()) {
-        return tr("<not set in certificate>");
+        return QObject::tr("<not set in certificate>");
     }
     else {
         return clearCertSpecialSymbols(string);

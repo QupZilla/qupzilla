@@ -15,7 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "webpage.h"
 #include "qupzilla.h"
 #include "tabwidget.h"
@@ -197,12 +197,12 @@ void TabWidget::moveAddTabButton(int posX)
 void TabWidget::aboutToShowTabsMenu()
 {
     m_menuTabs->clear();
-    WebView* actView = weView();
+    TabbedWebView* actView = weView();
     if (!actView) {
         return;
     }
     for (int i = 0; i < count(); i++) {
-        WebView* view = weView(i);
+        TabbedWebView* view = weView(i);
         if (!view) {
             continue;
         }
@@ -211,7 +211,7 @@ void TabWidget::aboutToShowTabsMenu()
             action->setIcon(QIcon(":/icons/menu/dot.png"));
         }
         else {
-            action->setIcon(view->siteIcon());
+            action->setIcon(view->icon());
         }
         if (view->title().isEmpty()) {
             if (view->isLoading()) {
@@ -276,7 +276,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
         index = insertTab(position, new WebTab(p_QupZilla, locBar), "");
     }
 
-    WebView* webView = weView(index);
+    TabbedWebView* webView = weView(index);
     locBar->setWebView(webView);
 
     setTabText(index, title);
@@ -334,23 +334,24 @@ void TabWidget::closeTab(int index)
         index = currentIndex();
     }
 
-    if (count() == 1) {
-          if (m_dontQuitWithOneTab) {
-             weView(index)->load(m_urlOnNewTab);
-             weView(index)->page()->history()->clear();
-             return;
-          }
-          else {
-              p_QupZilla->close();
-              return;
-          }
-    }
-
-    WebView* webView = weView(index);
+    TabbedWebView* webView = weView(index);
     WebPage* webPage = webView->webPage();
     WebTab* webTab = webView->webTab();
+
     if (!webView || !webPage || !webTab) {
         return;
+    }
+
+    if (count() == 1) {
+        if (m_dontQuitWithOneTab) {
+            webView->load(m_urlOnNewTab);
+            webPage->history()->clear();
+            return;
+        }
+        else {
+            p_QupZilla->close();
+            return;
+        }
     }
 
     if (webTab->isPinned()) {
@@ -403,7 +404,7 @@ void TabWidget::currentTabChanged(int index)
     }
 
     m_isClosingToLastTabIndex = false;
-    WebView* webView = weView();
+    TabbedWebView* webView = weView();
     LocationBar* locBar = webView->webTab()->locationBar();
 
     if (m_locationBars->indexOf(locBar) != -1) {
@@ -518,7 +519,7 @@ void TabWidget::savePinnedTabs()
     QStringList tabs;
     QList<QByteArray> tabsHistory;
     for (int i = 0; i < count(); ++i) {
-        if (WebView* tab = weView(i)) {
+        if (TabbedWebView* tab = weView(i)) {
             WebTab* webTab = qobject_cast<WebTab*>(widget(i));
             if (!webTab || !webTab->isPinned()) {
                 continue;
@@ -598,7 +599,7 @@ QByteArray TabWidget::saveState()
     QStringList tabs;
     QList<QByteArray> tabsHistory;
     for (int i = 0; i < count(); ++i) {
-        if (WebView* tab = weView(i)) {
+        if (TabbedWebView* tab = weView(i)) {
             WebTab* webTab = qobject_cast<WebTab*>(widget(i));
             if (webTab && webTab->isPinned()) {
                 continue;

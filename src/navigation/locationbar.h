@@ -38,7 +38,7 @@ class LineEdit;
 class LocationCompleter;
 class ClickableLabel;
 class BookmarkIcon;
-class WebView;
+class TabbedWebView;
 class LocationBarSettings;
 class SiteIcon;
 class GoIcon;
@@ -54,14 +54,14 @@ public:
     explicit LocationBar(QupZilla* mainClass);
     ~LocationBar();
 
-    void setWebView(WebView* view) { m_webView = view; }
-    WebView* webView() { return m_webView; }
+    void setWebView(TabbedWebView* view) { m_webView = view; }
+    TabbedWebView* webView() { return m_webView; }
 
 signals:
     void loadUrl(const QUrl &url);
 
 public slots:
-    void showUrl(const QUrl &url, bool empty = true);
+    void showUrl(const QUrl &url);
     virtual void setText(const QString &text);
 
 private slots:
@@ -98,7 +98,7 @@ private:
     SiteIcon* m_siteIcon;
 
     QupZilla* p_QupZilla;
-    WebView* m_webView;
+    TabbedWebView* m_webView;
     LocationCompleter* m_locationCompleter;
     LocationBarSettings* m_locationBarSettings;
 

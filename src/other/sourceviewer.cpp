@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "sourceviewer.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "htmlhighlighter.h"
 #include "sourceviewersearch.h"
 #include "globalfunctions.h"
@@ -134,10 +134,15 @@ void SourceViewer::findText()
 
 void SourceViewer::reload()
 {
-    m_sourceEdit->clear();
-    m_sourceEdit->insertPlainText(m_frame->toHtml());
+    if (m_frame) {
+        m_sourceEdit->clear();
+        m_sourceEdit->insertPlainText(m_frame.data()->toHtml());
 
-    m_statusBar->showMessage(tr("Source reloaded"));
+        m_statusBar->showMessage(tr("Source reloaded"));
+    }
+    else {
+        m_statusBar->showMessage(tr("Cannot reload source. Page has been closed."));
+    }
 }
 
 void SourceViewer::setTextEditable()

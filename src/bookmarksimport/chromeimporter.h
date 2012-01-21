@@ -29,7 +29,6 @@
 
 class ChromeImporter : public QObject
 {
-    Q_OBJECT
 public:
     explicit ChromeImporter(QObject* parent = 0);
 
@@ -40,10 +39,6 @@ public:
 
     bool error() { return m_error; }
     QString errorString() { return m_errorString; }
-
-signals:
-
-public slots:
 
 private:
     QString m_path;

@@ -98,7 +98,7 @@ void DesktopNotificationsFactory::nativeNotificationPreview()
     args.append("qupzilla");
     args.append(m_uint);
     args.append(tmp.fileName());
-    args.append(tr("Native System Notification"));
+    args.append(QObject::tr("Native System Notification"));
     args.append("");
     args.append(QStringList());
     args.append(QVariantMap());

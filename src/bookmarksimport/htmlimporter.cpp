@@ -1,9 +1,10 @@
 #include "htmlimporter.h"
+#include "bookmarksimportdialog.h"
 
 HtmlImporter::HtmlImporter(QObject* parent)
     : QObject(parent)
     , m_error(false)
-    , m_errorString(tr("No Error"))
+    , m_errorString(BookmarksImportDialog::tr("No Error"))
 {
 }
 
@@ -18,7 +19,7 @@ bool HtmlImporter::openFile()
 
     if (!m_file.open(QFile::ReadOnly)) {
         m_error = true;
-        m_errorString = tr("Unable to open file.");
+        m_errorString = BookmarksImportDialog::tr("Unable to open file.");
         return false;
     }
 

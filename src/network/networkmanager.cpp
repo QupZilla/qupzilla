@@ -116,13 +116,11 @@ void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
         QNetworkRequest request = reply->request();
         QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
         WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-        v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102));
-        WebView* webView = static_cast<WebView*>(v.value<void*>());
-        if (!webPage || !webView) {
+        if (!webPage) {
             return;
         }
 
-        if (webView->url().host() == reply->url().host()) {
+        if (webPage->url().host() == reply->url().host()) {
             webPage->setSSLCertificate(cert);
         }
     }
@@ -186,7 +184,8 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     QString message = QString("<b>%1</b><p>%2</p>%3<p>%4</p>").arg(title, text1, certs, text2);
 
     if (!certs.isEmpty())  {
-        if (!webPage->javaScriptConfirm(webPage->mainFrame(), message)) {
+        if (QMessageBox::critical(webPage->view(), tr("SSL Certificate Error!"), message,
+                                  QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::No) {
             return;
         }
 

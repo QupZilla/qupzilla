@@ -19,7 +19,7 @@
 #include "tabwidget.h"
 #include "tabbar.h"
 #include "webpage.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "lineedit.h"
 #include "historymodel.h"
 #include "locationbar.h"
@@ -176,7 +176,7 @@ void QupZilla::postLaunch()
     }
 
     if (!m_startingUrl.isEmpty()) {
-        startUrl = WebView::guessUrlFromString(m_startingUrl.toString());
+        startUrl = QUrl::fromUserInput(m_startingUrl.toString());
         addTab = true;
     }
 
@@ -1021,15 +1021,6 @@ void QupZilla::loadAddress(const QUrl &url)
     locationBar()->setText(url.toEncoded());
 }
 
-void QupZilla::urlEnter()
-{
-    if (locationBar()->text().isEmpty()) {
-        return;
-    }
-    loadAddress(QUrl(WebView::guessUrlFromString(locationBar()->text())));
-    weView()->setFocus();
-}
-
 void QupZilla::showCookieManager()
 {
     CookieManager* m = mApp->cookieManager();
@@ -1082,7 +1073,7 @@ void QupZilla::showSource(QWebFrame* frame, const QString &selectedHtml)
 
 void QupZilla::showPageInfo()
 {
-    SiteInfo* info = new SiteInfo(this, this);
+    SiteInfo* info = new SiteInfo(weView(), this);
     info->setAttribute(Qt::WA_DeleteOnClose);
     info->show();
 }
@@ -1208,12 +1199,12 @@ void QupZilla::refreshHistory()
 
 void QupZilla::currentTabChanged()
 {
-    WebView* view = weView();
+    TabbedWebView* view = weView();
     if (!view) {
         return;
     }
 
-    setWindowTitle(view->title() + tr(" - QupZilla"));
+    setWindowTitle(tr("%1 - QupZilla").arg(view->title()));
     m_ipLabel->setText(view->getIp());
     view->setFocus();
 
@@ -1226,7 +1217,7 @@ void QupZilla::currentTabChanged()
 
 void QupZilla::updateLoadingActions()
 {
-    WebView* view = weView();
+    TabbedWebView* view = weView();
     if (!view) {
         return;
     }
@@ -1239,11 +1230,18 @@ void QupZilla::updateLoadingActions()
     m_actionReload->setEnabled(!isLoading);
 
     if (isLoading) {
-        m_progressBar->setValue(view->getLoading());
+        m_progressBar->setValue(view->loadProgress());
         m_navigationBar->showStopButton();
     }
     else {
         m_navigationBar->showReloadButton();
+    }
+}
+
+void QupZilla::addDeleteOnCloseWidget(QWidget* widget)
+{
+    if (!m_deleteOnCloseWidgets.contains(widget)) {
+        m_deleteOnCloseWidgets.append(widget);
     }
 }
 
@@ -1489,22 +1487,6 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
     }
 }
 
-void QupZilla::mousePressEvent(QMouseEvent* event)
-{
-    switch (event->button()) {
-    case Qt::XButton1:
-        weView()->back();
-        break;
-    case Qt::XButton2:
-        weView()->forward();
-        break;
-
-    default:
-        QMainWindow::mousePressEvent(event);
-        break;
-    }
-}
-
 void QupZilla::closeEvent(QCloseEvent* event)
 {
     if (mApp->isClosing()) {
@@ -1577,12 +1559,12 @@ bool QupZilla::quitApp()
     settings.endGroup();
 
     if (askOnClose && afterLaunch != 3 && m_tabWidget->count() > 1) {
-        QDialog* dialog = new QDialog(this);
+        QDialog dialog(this);
         Ui_CloseDialog* ui = new Ui_CloseDialog();
-        ui->setupUi(dialog);
+        ui->setupUi(&dialog);
         ui->textLabel->setText(tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit QupZilla?").arg(m_tabWidget->count()));
         ui->iconLabel->setPixmap(style()->standardPixmap(QStyle::SP_MessageBoxWarning));
-        if (dialog->exec() != QDialog::Accepted) {
+        if (dialog.exec() != QDialog::Accepted) {
             return false;
         }
         if (ui->dontAskAgain->isChecked()) {
@@ -1596,4 +1578,9 @@ bool QupZilla::quitApp()
 
 QupZilla::~QupZilla()
 {
+    foreach(const QWeakPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {
+        if (pointer) {
+            pointer.data()->deleteLater();
+        }
+    }
 }

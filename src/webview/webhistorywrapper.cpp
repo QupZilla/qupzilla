@@ -17,8 +17,7 @@
 * ============================================================ */
 #include "webhistorywrapper.h"
 
-WebHistoryWrapper::WebHistoryWrapper(QObject* parent)
-    : QObject(parent)
+WebHistoryWrapper::WebHistoryWrapper()
 {
 }
 
