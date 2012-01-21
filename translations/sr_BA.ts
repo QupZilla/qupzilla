@@ -1636,12 +1636,12 @@
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="256"/>
         <source>Paste And &amp;Go</source>
-        <translation type="unfinished"></translation>
+        <translation>Налијепи и &amp;иди</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="262"/>
         <source>Clear All</source>
-        <translation type="unfinished"></translation>
+        <translation>Очисти све</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="409"/>
@@ -2116,7 +2116,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="729"/>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Не напуштај по затварању посљедњег језичка</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="766"/>
@@ -2954,7 +2954,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="796"/>
         <source>Information about application</source>
-        <translation type="unfinished"></translation>
+        <translation>Подаци о програму</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="282"/>
@@ -3289,12 +3289,12 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Maximum pages in a row:</source>
-        <translation type="unfinished"></translation>
+        <translation>Највише брзих бирања у реду:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
         <source>Change size of pages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Промијени величину брзих бирања:</translation>
     </message>
     <message>
         <source>Max number of pages in a row:</source>
