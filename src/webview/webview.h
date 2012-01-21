@@ -19,167 +19,95 @@
 #define WEBVIEW_H
 
 #include <QWebView>
-#include <QDebug>
-#include <QTabWidget>
-#include <QContextMenuEvent>
-#include <QWebElement>
+#include <QWebFrame>
+#include <QWebElementCollection>
+#include <QTouchEvent>
 #include <QClipboard>
-#include <QLabel>
-#include <QProcess>
-#include <QWebInspector>
-#include <QDockWidget>
-#include <QWebPage>
-#include <QHostInfo>
+#include <QPrintPreviewDialog>
+#include <QFile>
 
-class QupZilla;
-class TabWidget;
-class WebPage;
-class NetworkManagerProxy;
-class WebTab;
-class LocationBar;
 class WebView : public QWebView
 {
     Q_OBJECT
 public:
-    explicit WebView(QupZilla* mainClass, WebTab* webTab);
-    ~WebView();
-    bool isLoading() { return m_isLoading;}
-    int getLoading() { return m_progress; }
+    explicit WebView(QWidget* parent = 0);
 
-    void zoomReset();
-    QUrl url() const;
+    QIcon icon() const;
     QString title() const;
-    void reload();
-    WebPage* webPage() const;
-    WebTab* webTab() const;
-    QString getIp() { return m_currentIp; }
-    QLabel* animationLoading(int index, bool addMovie);
-    QIcon siteIcon();
-    void addNotification(QWidget* notif);
-    bool hasRss() { return m_hasRss; }
-    void setMouseWheelEnabled(bool state) { m_mouseWheelEnabled = state; }
+    QUrl url() const;
 
+    bool isLoading() const;
+    int loadProgress() const;
+
+    void addNotification(QWidget* notif);
     bool eventFilter(QObject* obj, QEvent* event);
 
-    void setLocationBar(LocationBar* bar) { m_locationBar = bar; }
-    LocationBar* locationBar() { return m_locationBar; }
+    virtual QWidget* overlayForJsAlert() = 0;
 
-    static QUrl guessUrlFromString(const QString &string);
     static bool isUrlValid(const QUrl &url);
-    int tabIndex() const;
-
-    void disconnectObjects();
+    static QUrl guessUrlFromString(const QString &string);
 
 signals:
-    void showUrl(QUrl url);
-    void wantsCloseTab(int index);
-    void changed();
-    void ipChanged(QString ip);
-    void showNotification(QWidget* notif);
-    void viewportResized(QSize size);
-    void rssChanged(bool state);
+    void viewportResized(QSize);
+    void showNotification(QWidget*);
+    void iconChanged();
 
 public slots:
-    void load(const QUrl &url);
-    void titleChanged();
-
-    void stop();
-    void back();
-    void forward();
-    void slotReload();
-    void iconChanged();
-    void selectAll();
-    void closeTab();
-
     void zoomIn();
     void zoomOut();
+    void zoomReset();
 
-private slots:
-    void copyText();
+    void load(const QUrl &url);
+    void reload();
 
-    void trackMouse(bool state) { m_mouseTrack = state; }
-    void showImage();
-    void copyImageToClipboard();
-    void downloadImageToDisk();
-    void searchSelectedText();
-    void copyLinkToClipboard();
-    void loadStarted();
-    void downloadRequested(const QNetworkRequest &request);
-    void setProgress(int prog);
-    void loadFinished(bool state);
-    void linkClicked(const QUrl &url);
-    void urlChanged(const QUrl &url);
-    void linkHovered(const QString &link, const QString &title, const QString &content);
-    void openUrlInNewWindow();
-    void openUrlInNewTab();
-    void downloadLinkToDisk();
-    void sendLinkByMail();
-    void bookmarkLink();
-    void showSource();
-    void showSourceOfSelection();
-    void showSiteInfo();
-    void getFocus(const QUrl &urla);
-    void showInspector();
-    void stopAnimation();
-    void setIp(const QHostInfo &info);
-    void checkRss();
+    void back();
+    void forward();
+
+    void selectAll();
+    void printPage(QWebFrame* frame = 0);
+
+    virtual void closeView() = 0;
+
+protected slots:
+    void slotLoadStarted();
+    void slotLoadProgress(int progress);
+    void slotLoadFinished();
     void slotIconChanged();
 
-    // ClickedFrame
-    void loadClickedFrame();
-    void loadClickedFrameInNewTab();
-    void reloadClickedFrame();
-    void printClickedFrame();
-    void clickedFrameZoomIn();
-    void clickedFrameZoomOut();
-    void clickedFrameZoomReset();
-    void showClickedFrameSource();
+    // Context menu slots
+    void openUrlInNewWindow();
+    void sendLinkByMail();
+    void copyLinkToClipboard();
+    void downloadLinkToDisk();
+    void copyImageToClipboard();
+    void openActionUrl();
+    void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
+    void showSiteInfo();
+
+protected:
+    void wheelEvent(QWheelEvent* event);
+    void mousePressEvent(QMouseEvent* event);
+    void keyPressEvent(QKeyEvent* event);
+    void resizeEvent(QResizeEvent* event);
+
+    void setZoom(int zoom);
+    void applyZoom();
+    void copyText();
+    QUrl lastUrl();
 
 private:
-    void mousePressEvent(QMouseEvent* event);
-    void mouseReleaseEvent(QMouseEvent* event);
-    void contextMenuEvent(QContextMenuEvent* event);
-    void wheelEvent(QWheelEvent* event);
-    void mouseMoveEvent(QMouseEvent* event);
-    void resizeEvent(QResizeEvent* event);
-    void keyPressEvent(QKeyEvent* event);
-
-    TabWidget* tabWidget() const;
-    bool isCurrent();
-    void applyZoom();
-
-    QupZilla* p_QupZilla;
-
-    QString m_hoveredLink;
     QList<int> m_zoomLevels;
-    QUrl m_aboutToLoadUrl;
-    QUrl m_lastUrl;
-    QString m_currentIp;
-    QIcon m_siteIcon;
-    int m_progress;
     int m_currentZoom;
 
-    WebPage* m_page;
-    WebTab* m_webTab;
-    NetworkManagerProxy* m_networkProxy;
-    LocationBar* m_locationBar;
-    QMenu* m_menu;
-    QWebFrame* m_clickedFrame;
+    QIcon m_siteIcon;
+    QUrl m_siteIconUrl;
 
-    bool m_mouseTrack;
-    bool m_navigationVisible;
-    bool m_mouseWheelEnabled;
-    bool m_wantsClose;
     bool m_isLoading;
-
-    bool m_hasRss;
-    bool m_rssChecked;
+    int m_progress;
+    QUrl m_aboutToLoadUrl;
+    QUrl m_lastUrl;
 
     QList<QTouchEvent::TouchPoint> m_touchPoints;
-    //QTimer* m_loadingTimer;
-
-//    static QList<WebView*> s_deletedPointers;
-//    static bool isPointerValid(WebView* pointer);
 };
 
 #endif // WEBVIEW_H

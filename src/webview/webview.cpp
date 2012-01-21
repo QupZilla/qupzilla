@@ -16,378 +16,124 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "webview.h"
-#include "qupzilla.h"
 #include "webpage.h"
-#include "tabwidget.h"
-#include "historymodel.h"
-#include "locationbar.h"
-#include "downloadmanager.h"
-#include "networkmanager.h"
-#include "autofillmodel.h"
-#include "networkmanagerproxy.h"
-#include "networkmanager.h"
+#include "webhistorywrapper.h"
 #include "mainapplication.h"
-#include "tabbar.h"
-#include "pluginproxy.h"
+#include "globalfunctions.h"
 #include "iconprovider.h"
-#include "webtab.h"
-#include "statusbarmessage.h"
-#include "progressbar.h"
-#include "navigationbar.h"
+#include "historymodel.h"
+#include "autofillmodel.h"
+#include "downloadmanager.h"
+#include "sourceviewer.h"
+#include "siteinfo.h"
 #include "searchenginesmanager.h"
 
-WebView::WebView(QupZilla* mainClass, WebTab* webTab)
-    : QWebView(webTab)
-    , p_QupZilla(mainClass)
-    , m_aboutToLoadUrl(QUrl())
-    , m_lastUrl(QUrl())
-    , m_progress(0)
+WebView::WebView(QWidget* parent)
+    : QWebView(parent)
     , m_currentZoom(100)
-    , m_page(new WebPage(this, p_QupZilla))
-    , m_webTab(webTab)
-    , m_locationBar(0)
-    , m_menu(new QMenu(this))
-    , m_clickedFrame(0)
-    , m_mouseTrack(false)
-    , m_navigationVisible(false)
-    , m_mouseWheelEnabled(true)
-    , m_wantsClose(false)
     , m_isLoading(false)
-    , m_hasRss(false)
-    , m_rssChecked(false)
-//    , m_loadingTimer(0)
+    , m_progress(0)
 {
-    m_networkProxy = new NetworkManagerProxy(this);
-    m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
-    m_networkProxy->setPage(m_page);
-    m_networkProxy->setView(this);
-    m_page->setNetworkAccessManager(m_networkProxy);
-    m_page->setView(this);
-    setPage(m_page);
+    connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
+    connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
+    connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
 
-    connect(this, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
-    connect(this, SIGNAL(loadProgress(int)), this, SLOT(setProgress(int)));
-    connect(this, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished(bool)));
-
-    connect(this, SIGNAL(linkClicked(QUrl)), this, SLOT(linkClicked(QUrl)));
-    connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
-    connect(this, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
     connect(this, SIGNAL(iconChanged()), this, SLOT(slotIconChanged()));
-
-    connect(this, SIGNAL(statusBarMessage(QString)), p_QupZilla->statusBar(), SLOT(showMessage(QString)));
-
-    connect(page(), SIGNAL(linkHovered(QString, QString, QString)), this, SLOT(linkHovered(QString, QString, QString)));
-    connect(page(), SIGNAL(windowCloseRequested()), this, SLOT(closeTab()));
-    connect(page(), SIGNAL(downloadRequested(const QNetworkRequest &)), this, SLOT(downloadRequested(const QNetworkRequest &)));
-
-    connect(mApp->networkManager(), SIGNAL(finishLoading(bool)), this, SLOT(loadFinished(bool)));
-    connect(mApp->networkManager(), SIGNAL(wantsFocus(QUrl)), this, SLOT(getFocus(QUrl)));
-
-    connect(p_QupZilla, SIGNAL(setWebViewMouseTracking(bool)), this, SLOT(trackMouse(bool)));
-
-    // Tracking mouse also on tabs created in fullscreen
-    trackMouse(p_QupZilla->isFullScreen());
 
     // Zoom levels same as in firefox
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
-    // Set default zoom
-    m_currentZoom = mApp->defaultZoom();
-    applyZoom();
 
     qApp->installEventFilter(this);
 }
 
-void WebView::slotIconChanged()
-{
-    m_siteIcon = icon();
-
-    if (url().scheme() == "file" || url().scheme() == "qupzilla" || title().contains(tr("Failed loading page"))) {
-        return;
-    }
-
-    mApp->iconProvider()->saveIcon(this);
-
-    if (!m_isLoading) {
-        iconChanged();
-    }
-}
-
-void WebView::copyText()
-{
-    if (!selectedText().isEmpty()) {
-        QApplication::clipboard()->setText(selectedText());
-    }
-}
-
-WebPage* WebView::webPage() const
-{
-    return m_page;
-}
-
-void WebView::back()
-{
-    if (page())  {
-        emit ipChanged(m_currentIp);
-        p_QupZilla->navigationBar()->goBack();
-    }
-}
-
-void WebView::forward()
-{
-    if (page()) {
-        emit ipChanged(m_currentIp);
-        p_QupZilla->navigationBar()->goForward();
-    }
-}
-
-void WebView::slotReload()
-{
-    if (page()) {
-        emit ipChanged(m_currentIp);
-        page()->triggerAction(QWebPage::Reload);
-    }
-}
-
-WebTab* WebView::webTab() const
-{
-    return m_webTab;
-}
-
-bool WebView::isCurrent()
-{
-    if (!tabWidget()) {
-        return false;
-    }
-    WebTab* webTab = qobject_cast<WebTab*>(tabWidget()->widget(tabWidget()->currentIndex()));
-    if (!webTab) {
-        return false;
-    }
-
-    return (webTab->view() == this);
-}
-
-void WebView::urlChanged(const QUrl &url)
-{
-    if (isCurrent()) {
-        p_QupZilla->navigationBar()->refreshHistory();
-    }
-
-    if (m_lastUrl != url) {
-        emit changed();
-    }
-
-    emit showUrl(url);
-}
-
-void WebView::linkClicked(const QUrl &url)
-{
-    load(url);
-}
-
-void WebView::setProgress(int prog)
-{
-    m_progress = prog;
-
-    if (prog > 60) {
-        checkRss();
-    }
-
-    if (isCurrent()) {
-        p_QupZilla->updateLoadingActions();
-    }
-}
-
-void WebView::loadStarted()
-{
-    m_progress = 0;
-    m_isLoading = true;
-    m_rssChecked = false;
-    emit rssChanged(false);
-
-    animationLoading(tabIndex(), true);
-
-    if (title().isNull()) {
-        tabWidget()->setTabText(tabIndex(), tr("Loading..."));
-    }
-
-    m_currentIp.clear();
-
-//    if (m_loadingTimer)
-//        delete m_loadingTimer;
-//    m_loadingTimer = new QTimer();
-//    connect(m_loadingTimer, SIGNAL(timeout()), this, SLOT(stopAnimation()));
-//    m_loadingTimer->start(1000*20); //20 seconds timeout to automatically "stop" loading animation
-}
-
-void WebView::loadFinished(bool state)
-{
-    Q_UNUSED(state);
-
-    if (animationLoading(tabIndex(), false)->movie()) {
-        animationLoading(tabIndex(), false)->movie()->stop();
-    }
-
-    m_isLoading = false;
-
-    if (m_lastUrl != url()) {
-        mApp->history()->addHistoryEntry(this);
-    }
-
-    emit showUrl(url());
-
-    iconChanged();
-    m_lastUrl = url();
-
-    titleChanged();
-    mApp->autoFill()->completePage(this);
-    QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
-
-    if (isCurrent()) {
-        p_QupZilla->updateLoadingActions();
-    }
-
-    emit urlChanged(url());
-}
-
-QLabel* WebView::animationLoading(int index, bool addMovie)
-{
-    if (-1 == index) {
-        return 0;
-    }
-
-    QLabel* loadingAnimation = qobject_cast<QLabel*>(tabWidget()->getTabBar()->tabButton(index, QTabBar::LeftSide));
-    if (!loadingAnimation) {
-        loadingAnimation = new QLabel();
-    }
-    if (addMovie && !loadingAnimation->movie()) {
-        QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), loadingAnimation);
-        movie->setSpeed(70);
-        loadingAnimation->setMovie(movie);
-        movie->start();
-    }
-    else if (loadingAnimation->movie()) {
-        loadingAnimation->movie()->stop();
-    }
-
-    tabWidget()->getTabBar()->setTabButton(index, QTabBar::LeftSide, 0);
-    tabWidget()->getTabBar()->setTabButton(index, QTabBar::LeftSide, loadingAnimation);
-    return loadingAnimation;
-}
-
-void WebView::stopAnimation()
-{
-    //m_loadingTimer->stop();
-    QMovie* mov = animationLoading(tabIndex(), false)->movie();
-    if (mov) {
-        mov->stop();
-    }
-
-    iconChanged();
-}
-
-void WebView::setIp(const QHostInfo &info)
-{
-    if (info.addresses().isEmpty()) {
-        return;
-    }
-    m_currentIp = info.hostName() + " (" + info.addresses().at(0).toString() + ")";
-
-    if (isCurrent()) {
-        emit ipChanged(m_currentIp);
-    }
-}
-
-void WebView::titleChanged()
-{
-    QString title_ = title();
-    QString title2 = title_;
-    tabWidget()->setTabToolTip(tabIndex(), title2);
-
-    title2 += tr(" - QupZilla");
-    if (isCurrent()) {
-        p_QupZilla->setWindowTitle(title2);
-    }
-
-    tabWidget()->setTabText(tabIndex(), title_);
-}
-
-void WebView::iconChanged()
-{
-    if (m_isLoading) {
-        return;
-    }
-
-    QIcon icon_ = siteIcon();
-    if (!icon_.isNull()) {
-        animationLoading(tabIndex(), false)->setPixmap(icon_.pixmap(16, 16));
-    }
-    else {
-        animationLoading(tabIndex(), false)->setPixmap(IconProvider::fromTheme("text-plain").pixmap(16, 16));
-    }
-}
-
-QIcon WebView::siteIcon()
+QIcon WebView::icon() const
 {
     if (url().scheme() == "qupzilla") {
         return QIcon(":icons/qupzilla.png");
     }
 
-    if (!icon().isNull()) {
-        return icon();
+    if (!QWebView::icon().isNull()) {
+        return QWebView::icon();
     }
-    if (!m_siteIcon.isNull()) {
+
+    if (!m_siteIcon.isNull() && m_siteIconUrl.host() == url().host()) {
         return m_siteIcon;
     }
 
     return _iconForUrl(url());
 }
 
-void WebView::linkHovered(const QString &link, const QString &title, const QString &content)
+QString WebView::title() const
 {
-    Q_UNUSED(title)
-    Q_UNUSED(content)
+    QString title = QWebView::title();
 
-    if (isCurrent()) {
-        if (link != "") {
-            p_QupZilla->statusBarMessage()->showMessage(link);
-        }
-        else {
-            p_QupZilla->statusBarMessage()->clearMessage();
-        }
+    if (title.isEmpty()) {
+        title = url().toString(QUrl::RemoveFragment);
     }
-    m_hoveredLink = link;
+
+    if (title.isEmpty() || title == "about:blank") {
+        return tr("No Named Page");
+    }
+
+    return title;
 }
 
-TabWidget* WebView::tabWidget() const
+QUrl WebView::url() const
 {
-    QObject* widget = this->parent();
-    while (widget) {
-        if (TabWidget* tw = qobject_cast<TabWidget*>(widget)) {
-            return tw;
-        }
-        widget = widget->parent();
+    QUrl returnUrl = QWebView::url();
+
+    if (returnUrl.isEmpty()) {
+        returnUrl = m_aboutToLoadUrl;
     }
-    return 0;
+
+    return returnUrl;
 }
 
-// FIXME: Don't do this magic to get index of tab.
-// Implement setTabIndex() and call it from TabWidget (when creating and also from
-// tabMoved slot)
-int WebView::tabIndex() const
+void WebView::load(const QUrl &url)
 {
-    TabWidget* tabWid = tabWidget();
-    if (!tabWid) {
-        return -1;
+    if (url.scheme() == "javascript") {
+        page()->mainFrame()->evaluateJavaScript(url.toString());
+        return;
     }
 
-    int i = 0;
-    while (WebTab* wTab = qobject_cast<WebTab*>(tabWid->widget(i))) {
-        if (wTab && wTab->view() == this) {
-            break;
-        }
-        i++;
+    if (isUrlValid(url)) {
+        QWebView::load(url);
+        emit urlChanged(url);
+        m_aboutToLoadUrl = url;
+        return;
     }
-    return i;
+
+    QUrl searchUrl = mApp->searchEnginesManager()->searchUrl(url.toString());
+    QWebView::load(searchUrl);
+    emit urlChanged(searchUrl);
+    m_aboutToLoadUrl = searchUrl;
+}
+
+bool WebView::isLoading() const
+{
+    return m_isLoading;
+}
+
+int WebView::loadProgress() const
+{
+    return m_progress;
+}
+
+bool WebView::isUrlValid(const QUrl &url)
+{
+    if (url.scheme() == "data" || url.scheme() == "qrc" || url.scheme() == "mailto") {
+        return true;
+    }
+
+    if (url.scheme() == "qupzilla" || url.scheme() == "file") {
+        return !url.path().isEmpty();
+    }
+
+    if (url.isValid() && !url.host().isEmpty() && !url.scheme().isEmpty()) {
+        return true;
+    }
+
+    return false;
 }
 
 QUrl WebView::guessUrlFromString(const QString &string)
@@ -425,204 +171,118 @@ QUrl WebView::guessUrlFromString(const QString &string)
     return QUrl();
 }
 
-void WebView::checkRss()
-{
-    if (m_rssChecked) {
-        return;
-    }
-
-    m_rssChecked = true;
-    QWebFrame* frame = page()->mainFrame();
-    QWebElementCollection links = frame->findAllElements("link[type=\"application/rss+xml\"]");
-
-    m_hasRss = links.count() != 0;
-    emit rssChanged(m_hasRss);
-}
-
-void WebView::contextMenuEvent(QContextMenuEvent* event)
-{
-    m_menu->clear();
-
-    QWebFrame* frameAtPos = page()->frameAt(event->pos());
-    QWebHitTestResult r = page()->mainFrame()->hitTestContent(event->pos());
-
-    if (!r.linkUrl().isEmpty() && r.linkUrl().scheme() != "javascript") {
-        if (page()->selectedText() == r.linkText()) {
-            findText("");
-        }
-        m_menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInNewTab()))->setData(r.linkUrl());
-        m_menu->addAction(tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(r.linkUrl());
-        m_menu->addSeparator();
-        m_menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(r.linkUrl());
-        m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadLinkToDisk()))->setData(r.linkUrl());
-        m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(r.linkUrl());
-        m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(r.linkUrl());
-        m_menu->addSeparator();
-        if (!selectedText().isEmpty()) {
-            m_menu->addAction(pageAction(QWebPage::Copy));
-        }
-    }
-
-    if (!r.imageUrl().isEmpty()) {
-        if (!m_menu->isEmpty()) {
-            m_menu->addSeparator();
-        }
-        m_menu->addAction(tr("Show i&mage"), this, SLOT(showImage()))->setData(r.imageUrl());
-        m_menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(r.imageUrl());
-        m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(r.imageUrl());
-        m_menu->addSeparator();
-        m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadImageToDisk()))->setData(r.imageUrl());
-        m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(r.imageUrl());
-        m_menu->addSeparator();
-        //menu->addAction(tr("Block image"), this, SLOT(blockImage()))->setData(r.imageUrl().toString());
-        if (!selectedText().isEmpty()) {
-            m_menu->addAction(pageAction(QWebPage::Copy));
-        }
-    }
-
-    QWebElement element = r.element();
-    if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea" ||
-                              element.tagName().toLower() == "video" || element.tagName().toLower() == "audio")) {
-        if (m_menu->isEmpty()) {
-            page()->createStandardContextMenu()->popup(QCursor::pos());
-            return;
-        }
-    }
-
-    if (m_menu->isEmpty() && selectedText().isEmpty()) {
-        QAction* action = m_menu->addAction(tr("&Back"), this, SLOT(back()));
-        action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
-        action->setEnabled(history()->canGoBack());
-
-        action = m_menu->addAction(tr("&Forward"), this, SLOT(forward()));
-        action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
-        action->setEnabled(history()->canGoForward());
-
-        m_menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(slotReload()));
-        action = m_menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this, SLOT(stop()));
-        action->setEnabled(isLoading());
-        m_menu->addSeparator();
-
-        if (frameAtPos && page()->mainFrame() != frameAtPos) {
-            m_clickedFrame = frameAtPos;
-            QMenu* menu = new QMenu(tr("This frame"));
-            menu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
-            menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Show this frame in new &tab"), this, SLOT(loadClickedFrameInNewTab()));
-            menu->addSeparator();
-            menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
-            menu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
-            menu->addSeparator();
-            menu->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &in"), this, SLOT(clickedFrameZoomIn()));
-            menu->addAction(QIcon::fromTheme("zoom-out"), tr("&Zoom out"), this, SLOT(clickedFrameZoomOut()));
-            menu->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(clickedFrameZoomReset()));
-            menu->addSeparator();
-            menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce of frame"), this, SLOT(showClickedFrameSource()));
-
-            m_menu->addMenu(menu);
-        }
-
-        m_menu->addSeparator();
-        m_menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
-        m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadLinkToDisk()))->setData(url());
-        m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
-        m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendLinkByMail()))->setData(url());
-        m_menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), p_QupZilla, SLOT(printPage()));
-        m_menu->addSeparator();
-        m_menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
-        m_menu->addSeparator();
-        if (url().scheme() == "http" || url().scheme() == "https") {
-//             bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
-//                 if (result)
-            m_menu->addAction(tr("Validate page"), this, SLOT(openUrlInNewTab()))->setData("http://validator.w3.org/check?uri=" + url().toString());
-        }
-
-        m_menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
-        m_menu->addAction(tr("Show Web &Inspector"), this, SLOT(showInspector()));
-        m_menu->addSeparator();
-        m_menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()))->setData(url());
-    }
-
-    mApp->plugins()->populateWebViewMenu(m_menu, this, r);
-
-    if (!selectedText().isEmpty()) {
-        QString selectedText = page()->selectedText();
-
-        m_menu->addAction(pageAction(QWebPage::Copy));
-        m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
-        m_menu->addSeparator();
-
-        QString langCode = mApp->getActiveLanguage().left(2);
-        QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
-        m_menu->addAction(QIcon(":icons/menu/translate.png"), tr("Google Translate"), this, SLOT(openUrlInNewTab()))->setData(googleTranslateUrl);
-        m_menu->addAction(tr("Dictionary"), this, SLOT(openUrlInNewTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
-        m_menu->addSeparator();
-
-        QString selectedString = selectedText.trimmed();
-        if (!selectedString.contains(".")) {
-            // Try to add .com
-            selectedString.append(".com");
-        }
-        QUrl guessedUrl = QUrl::fromUserInput(selectedString);
-
-        if (isUrlValid(guessedUrl)) {
-            m_menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Go to &web address"), this, SLOT(openUrlInNewTab()))->setData(guessedUrl);
-        }
-
-        selectedText.truncate(20);
-
-        SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
-        m_menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
-    }
-
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
-//    still bugged? in 4.8 RC (it shows selection of webkit's internal source, not html from page)
-//    it may or may not be bug, but this implementation is useless for us
-//
-//    if (!selectedHtml().isEmpty())
-//        menu->addAction(tr("Show source of selection"), this, SLOT(showSourceOfSelection()));
-#endif
-
-    if (!m_menu->isEmpty()) {
-        //Prevent choosing first option with double rightclick
-        QPoint pos = QCursor::pos();
-        QPoint p(pos.x(), pos.y() + 1);
-        m_menu->popup(p);
-        return;
-    }
-
-    QWebView::contextMenuEvent(event);
-}
-
-void WebView::stop()
-{
-    if (page()) {
-        emit ipChanged(m_currentIp);
-        page()->triggerAction(QWebPage::Stop);
-        loadFinished(true);
-
-        if (m_locationBar->text().isEmpty()) {
-            setFocus();
-            emit urlChanged(url());
-        }
-    }
-}
-
 void WebView::addNotification(QWidget* notif)
 {
     emit showNotification(notif);
 }
 
-void WebView::openUrlInNewTab()
+void WebView::applyZoom()
 {
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        tabWidget()->addView(action->data().toUrl(), TabWidget::NewBackgroundTab);
+    setZoomFactor(qreal(m_currentZoom) / 100.0);
+}
+
+void WebView::zoomIn()
+{
+    int i = m_zoomLevels.indexOf(m_currentZoom);
+
+    if (i < m_zoomLevels.count() - 1) {
+        m_currentZoom = m_zoomLevels[i + 1];
     }
+
+    applyZoom();
+}
+
+void WebView::zoomOut()
+{
+    int i = m_zoomLevels.indexOf(m_currentZoom);
+
+    if (i > 0) {
+        m_currentZoom = m_zoomLevels[i - 1];
+    }
+
+    applyZoom();
+}
+
+void WebView::zoomReset()
+{
+    m_currentZoom = 100;
+    applyZoom();
+}
+
+void WebView::reload()
+{
+    if (QWebView::url().isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
+        load(m_aboutToLoadUrl);
+        return;
+    }
+
+    QWebView::reload();
+}
+
+void WebView::back()
+{
+    QWebHistory* history = page()->history();
+
+    if (WebHistoryWrapper::canGoBack(history)) {
+        WebHistoryWrapper::goBack(history);
+
+        emit urlChanged(url());
+        emit iconChanged();
+    }
+}
+
+void WebView::forward()
+{
+    QWebHistory* history = page()->history();
+
+    if (WebHistoryWrapper::canGoForward(history)) {
+        WebHistoryWrapper::goForward(history);
+
+        emit urlChanged(url());
+        emit iconChanged();
+    }
+}
+
+void WebView::selectAll()
+{
+    triggerPageAction(QWebPage::SelectAll);
+}
+
+void WebView::slotLoadStarted()
+{
+    m_isLoading = true;
+    m_progress = 0;
+}
+
+void WebView::slotLoadProgress(int progress)
+{
+    m_progress = progress;
+}
+
+void WebView::slotLoadFinished()
+{
+    m_isLoading = false;
+    m_progress = 100;
+
+    if (m_lastUrl != url()) {
+        mApp->history()->addHistoryEntry(this);
+    }
+
+    mApp->autoFill()->completePage(qobject_cast<WebPage*>(page()));
+
+    m_lastUrl = url();
+}
+
+void WebView::slotIconChanged()
+{
+    m_siteIcon = icon();
+    m_siteIconUrl = url();
 }
 
 void WebView::openUrlInNewWindow()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        mApp->makeNewWindow(false, action->data().toString());
+        mApp->makeNewWindow(false, action->data().toUrl());
     }
 }
 
@@ -640,23 +300,12 @@ void WebView::copyLinkToClipboard()
     }
 }
 
-void WebView::searchSelectedText()
-{
-    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
-    tabWidget()->addView(engine.url.replace("%s", selectedText()), TabWidget::NewBackgroundTab);
-}
-
-void WebView::selectAll()
-{
-    triggerPageAction(QWebPage::SelectAll);
-}
-
-void WebView::downloadImageToDisk()
+void WebView::downloadLinkToDisk()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         DownloadManager* dManager = mApp->downManager();
         QNetworkRequest request(action->data().toUrl());
-        dManager->download(request, m_page, false);
+        dManager->download(request, qobject_cast<WebPage*>(page()), false);
     }
 }
 
@@ -665,91 +314,56 @@ void WebView::copyImageToClipboard()
     triggerPageAction(QWebPage::CopyImageToClipboard);
 }
 
-void WebView::showImage()
+void WebView::openActionUrl()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        load(QUrl(action->data().toString()));
+        load(action->data().toUrl());
     }
 }
 
-void WebView::showSource()
+void WebView::showSource(QWebFrame* frame, const QString &selectedHtml)
 {
-    p_QupZilla->showSource();
-}
-
-void WebView::showSourceOfSelection()
-{
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
-    p_QupZilla->showSource(page()->mainFrame(), selectedHtml());
-#endif
-}
-
-void WebView::downloadLinkToDisk()
-{
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        QNetworkRequest request(action->data().toUrl());
-        DownloadManager* dManager = mApp->downManager();
-        dManager->download(request, m_page, false);
+    if (!frame) {
+        frame = page()->mainFrame();
     }
-}
 
-void WebView::downloadRequested(const QNetworkRequest &request)
-{
-    DownloadManager* dManager = mApp->downManager();
-    dManager->download(request, m_page);
-}
-
-void WebView::bookmarkLink()
-{
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        if (action->data().isNull()) {
-            p_QupZilla->bookmarkPage();
-        }
-        else {
-            p_QupZilla->addBookmark(action->data().toUrl(), title(), siteIcon());
-        }
-    }
-}
-
-void WebView::showInspector()
-{
-    p_QupZilla->showWebInspector();
+    SourceViewer* source = new SourceViewer(frame, selectedHtml);
+    qz_centerWidgetToParent(source, this);
+    source->show();
 }
 
 void WebView::showSiteInfo()
 {
-    p_QupZilla->showPageInfo();
+    SiteInfo* s = new SiteInfo(this, this);
+    s->show();
 }
 
-void WebView::applyZoom()
+void WebView::printPage(QWebFrame* frame)
 {
-    setZoomFactor(qreal(m_currentZoom) / 100.0);
-}
+    QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
+    dialog->resize(800, 750);
 
-void WebView::zoomIn()
-{
-    int i = m_zoomLevels.indexOf(m_currentZoom);
-
-    if (i < m_zoomLevels.count() - 1) {
-        m_currentZoom = m_zoomLevels[i + 1];
+    if (!frame) {
+        connect(dialog, SIGNAL(paintRequested(QPrinter*)), this, SLOT(print(QPrinter*)));
     }
-    applyZoom();
-}
-
-void WebView::zoomOut()
-{
-    int i = m_zoomLevels.indexOf(m_currentZoom);
-
-    if (i > 0) {
-        m_currentZoom = m_zoomLevels[i - 1];
+    else {
+        connect(dialog, SIGNAL(paintRequested(QPrinter*)), frame, SLOT(print(QPrinter*)));
     }
-    applyZoom();
+
+    dialog->exec();
+    dialog->deleteLater();
 }
 
-void WebView::zoomReset()
+void WebView::copyText()
 {
-    m_currentZoom = 100;
-    applyZoom();
+    if (!selectedText().isEmpty()) {
+        QApplication::clipboard()->setText(selectedText());
+    }
+}
+
+QUrl WebView::lastUrl()
+{
+    return m_lastUrl;
 }
 
 void WebView::wheelEvent(QWheelEvent* event)
@@ -766,156 +380,8 @@ void WebView::wheelEvent(QWheelEvent* event)
         event->accept();
         return;
     }
-    if (m_mouseWheelEnabled) {
-        QWebView::wheelEvent(event);
-    }
-}
 
-void WebView::getFocus(const QUrl &urla)
-{
-    if (urla == url()) {
-        tabWidget()->setCurrentWidget(this);
-    }
-}
-
-void WebView::closeTab()
-{
-    if (m_wantsClose) {
-        emit wantsCloseTab(tabIndex());
-    }
-    else {
-        m_wantsClose = true;
-        QTimer::singleShot(100, this, SLOT(closeTab()));
-    }
-}
-
-void WebView::load(const QUrl &url)
-{
-    if (url.scheme() == "javascript") {
-        page()->mainFrame()->evaluateJavaScript(url.toString());
-        return;
-    }
-
-    if (url.scheme() == "data" || url.scheme() == "qrc") {
-        QWebView::load(url);
-        emit urlChanged(url);
-        m_aboutToLoadUrl = url;
-        return;
-    }
-
-    if (isUrlValid(url)) {
-        QWebView::load(url);
-        emit urlChanged(url);
-        m_aboutToLoadUrl = url;
-        return;
-    }
-
-    if (QFile::exists(url.toLocalFile())) {
-        QWebView::load(url);
-        emit urlChanged(url);
-    }
-    else {
-        SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
-        QString urlString = engine.url.replace("%s", url.toString());
-        QWebView::load(QUrl(urlString));
-        emit urlChanged(url);
-    }
-}
-
-QUrl WebView::url() const
-{
-    QUrl ur = QWebView::url();
-    if (ur.isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
-        return m_aboutToLoadUrl;
-    }
-    return ur;
-}
-
-QString WebView::title() const
-{
-    QString title = QWebView::title();
-    if (title.isEmpty()) {
-        title = url().toString(QUrl::RemoveFragment);
-    }
-    if (title.isEmpty()) {
-        return tr("No Named Page");
-    }
-
-    return title;
-}
-
-void WebView::reload()
-{
-    if (QWebView::url().isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
-//        qDebug() << "loading about to load";
-        load(m_aboutToLoadUrl);
-        return;
-    }
-    QWebView::reload();
-}
-
-bool WebView::isUrlValid(const QUrl &url)
-{
-    if (url.scheme() == "qupzilla") {
-        return true;
-    }
-
-    if (url.isValid() && !url.host().isEmpty() && !url.scheme().isEmpty()) {
-        return true;
-    }
-    return false;
-}
-
-// ClickedFrame slots
-
-void WebView::loadClickedFrame()
-{
-    load(m_clickedFrame->url());
-}
-
-void WebView::loadClickedFrameInNewTab()
-{
-    p_QupZilla->tabWidget()->addView(m_clickedFrame->url());
-}
-
-void WebView::reloadClickedFrame()
-{
-    m_clickedFrame->load(m_clickedFrame->url());
-}
-
-void WebView::printClickedFrame()
-{
-    p_QupZilla->printPage(m_clickedFrame);
-}
-
-void WebView::clickedFrameZoomIn()
-{
-    qreal zFactor = m_clickedFrame->zoomFactor() + 0.1;
-    if (zFactor > 2.5) {
-        zFactor = 2.5;
-    }
-
-    m_clickedFrame->setZoomFactor(zFactor);
-}
-
-void WebView::clickedFrameZoomOut()
-{
-    qreal zFactor = m_clickedFrame->zoomFactor() - 0.1;
-    if (zFactor < 0.5) {
-        zFactor = 0.5;
-    }
-
-    m_clickedFrame->setZoomFactor(zFactor);
-}
-
-void WebView::clickedFrameZoomReset()
-{
-    m_clickedFrame->setZoomFactor(zoomFactor());
-}
-
-void WebView::showClickedFrameSource()
-{
-    p_QupZilla->showSource(m_clickedFrame);
+    QWebView::wheelEvent(event);
 }
 
 void WebView::mousePressEvent(QMouseEvent* event)
@@ -925,34 +391,16 @@ void WebView::mousePressEvent(QMouseEvent* event)
         back();
         event->accept();
         break;
+
     case Qt::XButton2:
         forward();
         event->accept();
         break;
-    case Qt::MiddleButton:
-        if (isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), TabWidget::NewBackgroundTab);
-            event->accept();
-            return;
-        }
-#ifdef Q_WS_WIN
-        else {
-            QWebView::mouseDoubleClickEvent(event);
-            return;
-        }
-#endif
-        break;
-    case Qt::LeftButton:
-        if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
-            tabWidget()->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), TabWidget::NewBackgroundTab);
-            event->accept();
-            return;
-        }
+
     default:
+        QWebView::mousePressEvent(event);
         break;
     }
-
-    QWebView::mousePressEvent(event);
 }
 
 void WebView::keyPressEvent(QKeyEvent* event)
@@ -984,30 +432,13 @@ void WebView::keyPressEvent(QKeyEvent* event)
 void WebView::resizeEvent(QResizeEvent* event)
 {
     QWebView::resizeEvent(event);
-    emit viewportResized(m_page->viewportSize());
+    emit viewportResized(page()->viewportSize());
 }
 
-void WebView::mouseReleaseEvent(QMouseEvent* event)
+void WebView::setZoom(int zoom)
 {
-    //Workaround for crash in mouseReleaseEvent when closing tab from javascript :/
-    if (!m_wantsClose) {
-        QWebView::mouseReleaseEvent(event);
-    }
-}
-
-void WebView::mouseMoveEvent(QMouseEvent* event)
-{
-    if (m_mouseTrack) {
-        if (m_navigationVisible) {
-            m_navigationVisible = false;
-            p_QupZilla->showNavigationWithFullscreen();
-        }
-        else if (event->y() < 5) {
-            m_navigationVisible = true;
-            p_QupZilla->showNavigationWithFullscreen();
-        }
-    }
-    QWebView::mouseMoveEvent(event);
+    m_currentZoom = zoom;
+    applyZoom();
 }
 
 ///
@@ -1088,12 +519,3 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
     return QWebView::eventFilter(obj, event);
 }
 
-void WebView::disconnectObjects()
-{
-    disconnect(this);
-    disconnect(p_QupZilla->statusBar());
-}
-
-WebView::~WebView()
-{
-}
