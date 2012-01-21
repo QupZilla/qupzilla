@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "cookiejar.h"
 #include "qupzilla.h"
+#include "mainapplication.h"
 #include "settings.h"
 //#define COOKIE_DEBUG
 

@@ -19,6 +19,7 @@
 #include "ui_siteinfowidget.h"
 #include "qupzilla.h"
 #include "webpage.h"
+#include "tabbedwebview.h"
 
 SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
     : QMenu(parent)

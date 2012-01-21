@@ -62,6 +62,7 @@
 #include "webhistorywrapper.h"
 #include "enhancedmenu.h"
 #include "settings.h"
+#include "webtab.h"
 
 const QString QupZilla::VERSION = "1.1.5";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
@@ -83,13 +84,13 @@ const QIcon QupZilla::qupzillaIcon()
     return i;
 }
 
-QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
+QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     : QMainWindow(0)
     , m_historyMenuChanged(true)
     , m_bookmarksMenuChanged(true)
     , m_isClosing(false)
     , m_startingUrl(startUrl)
-    , m_startBehaviour(behaviour)
+    , m_startBehaviour(type)
     , m_menuBookmarksAction(0)
 #ifdef Q_WS_MAC
     , m_macMenuBar(new QMenuBar())
@@ -110,14 +111,14 @@ QupZilla::QupZilla(StartBehaviour behaviour, QUrl startUrl)
     setupMenu();
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
-    connect(mApp, SIGNAL(message(MainApplication::MessageType, bool)), this, SLOT(receiveMessage(MainApplication::MessageType, bool)));
+    connect(mApp, SIGNAL(message(Qz::AppMessageType, bool)), this, SLOT(receiveMessage(Qz::AppMessageType, bool)));
 }
 
 void QupZilla::postLaunch()
 {
     loadSettings();
 
-    if (m_startBehaviour == FirstAppWindow) {
+    if (m_startBehaviour == Qz::BW_FirstAppWindow) {
         m_tabWidget->restorePinnedTabs();
     }
 
@@ -160,17 +161,17 @@ void QupZilla::postLaunch()
     }
 
     switch (m_startBehaviour) {
-    case FirstAppWindow:
+    case Qz::BW_FirstAppWindow:
         if (startingAfterCrash || (addTab && afterLaunch == 3)) {
             addTab = !mApp->restoreStateSlot(this);
         }
         break;
 
-    case NewWindow:
+    case Qz::BW_NewWindow:
         addTab = true;
         break;
 
-    case OtherRestoredWindow:
+    case Qz::BW_OtherRestoredWindow:
         addTab = false;
         break;
     }
@@ -181,7 +182,7 @@ void QupZilla::postLaunch()
     }
 
     if (addTab) {
-        int index = m_tabWidget->addView(startUrl, TabWidget::CleanPage);
+        int index = m_tabWidget->addView(startUrl, Qz::NT_CleanSelectedTab);
         m_tabWidget->setCurrentIndex(index);
 
         if (startUrl.isEmpty() || startUrl.toString() == "qupzilla:speeddial") {
@@ -189,7 +190,9 @@ void QupZilla::postLaunch()
         }
     }
 
-    if (m_tabWidget->getTabBar()->normalTabsCount() <= 0) { //Something went really wrong .. add one tab
+    if (m_tabWidget->getTabBar()->normalTabsCount() <= 0 &&
+            m_startBehaviour != Qz::BW_OtherRestoredWindow) {
+        //Something went really wrong .. add one tab
         m_tabWidget->addView(m_homepage);
     }
 
@@ -200,6 +203,16 @@ void QupZilla::postLaunch()
     setUpdatesEnabled(true);
 
     emit startingCompleted();
+}
+
+void QupZilla::goNext()
+{
+    weView()->forward();
+}
+
+void QupZilla::goBack()
+{
+    weView()->back();
 }
 
 void QupZilla::setupUi()
@@ -215,7 +228,7 @@ void QupZilla::setupUi()
     }
     else {
         setGeometry(settings.value("WindowGeometry", QRect(20, 20, 800, 550)).toRect());
-        if (m_startBehaviour == NewWindow) {
+        if (m_startBehaviour == Qz::BW_NewWindow) {
             // Moving window +40 x,y to be visible that this is new window
             QPoint p = pos();
             p.setX(p.x() + 40);
@@ -274,6 +287,26 @@ QMenuBar* QupZilla::menuBar() const
 #else
     return QMainWindow::menuBar();
 #endif
+}
+
+TabbedWebView* QupZilla::weView() const
+{
+    return weView(m_tabWidget->currentIndex());
+}
+
+TabbedWebView* QupZilla::weView(int index) const
+{
+    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
+    if (!webTab) {
+        return 0;
+    }
+
+    return webTab->view();
+}
+
+LocationBar* QupZilla::locationBar() const
+{
+    return qobject_cast<LocationBar*>(m_tabWidget->locationBars()->currentWidget());
 }
 
 void QupZilla::setupMenu()
@@ -561,34 +594,34 @@ void QupZilla::setWindowTitle(const QString &t)
     }
 }
 
-void QupZilla::receiveMessage(MainApplication::MessageType mes, bool state)
+void QupZilla::receiveMessage(Qz::AppMessageType mes, bool state)
 {
     switch (mes) {
-    case MainApplication::SetAdBlockIconEnabled:
+    case Qz::AM_SetAdBlockIconEnabled:
         m_adblockIcon->setEnabled(state);
         break;
 
-    case MainApplication::CheckPrivateBrowsing:
+    case Qz::AM_CheckPrivateBrowsing:
         m_privateBrowsing->setVisible(state);
         m_actionPrivateBrowsing->setChecked(state);
         weView()->titleChanged();
         break;
 
-    case MainApplication::ReloadSettings:
+    case Qz::AM_ReloadSettings:
         loadSettings();
         m_tabWidget->loadSettings();
         LocationBarSettings::instance()->loadSettings();
         break;
 
-    case MainApplication::HistoryStateChanged:
+    case Qz::AM_HistoryStateChanged:
         m_historyMenuChanged = true;
         break;
 
-    case MainApplication::BookmarksChanged:
+    case Qz::AM_BookmarksChanged:
         m_bookmarksMenuChanged = true;
         break;
 
-    case MainApplication::StartPrivateBrowsing:
+    case Qz::AM_StartPrivateBrowsing:
         startPrivate(state);
         break;
 
@@ -965,6 +998,11 @@ void QupZilla::bookmarkAllTabs()
     mApp->browsingLibrary()->bookmarksManager()->insertAllTabs();
 }
 
+void QupZilla::newWindow()
+{
+    mApp->makeNewWindow(Qz::BW_NewWindow);
+}
+
 void QupZilla::goHome()
 {
     loadAddress(m_homepage);
@@ -977,9 +1015,44 @@ void QupZilla::copy()
     }
 }
 
+void QupZilla::selectAll()
+{
+    weView()->selectAll();
+}
+
+void QupZilla::zoomIn()
+{
+    weView()->zoomIn();
+}
+
+void QupZilla::zoomOut()
+{
+    weView()->zoomOut();
+}
+
+void QupZilla::zoomReset()
+{
+    weView()->zoomReset();
+}
+
 void QupZilla::goHomeInNewTab()
 {
-    m_tabWidget->addView(m_homepage, TabWidget::NewSelectedTab);
+    m_tabWidget->addView(m_homepage, Qz::NT_SelectedTab);
+}
+
+void QupZilla::stop()
+{
+    weView()->stop();
+}
+
+void QupZilla::reload()
+{
+    weView()->reload();
+}
+
+void QupZilla::reloadByPassCache()
+{
+    weView()->triggerPageAction(QWebPage::ReloadAndBypassCache);
 }
 
 void QupZilla::loadActionUrl()
@@ -999,7 +1072,7 @@ void QupZilla::loadActionUrlInNewTab()
 void QupZilla::loadActionUrlInNewNotSelectedTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        m_tabWidget->addView(action->data().toUrl(), TabWidget::NewNotSelectedTab);
+        m_tabWidget->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
     }
 }
 
@@ -1011,7 +1084,7 @@ void QupZilla::loadFolderBookmarks(Menu* menu)
     }
 
     foreach(Bookmark b, mApp->bookmarksModel()->folderBookmarks(folder)) {
-        tabWidget()->addView(b.url, b.title, TabWidget::NewNotSelectedTab);
+        tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }
 
@@ -1249,6 +1322,11 @@ void QupZilla::aboutQupZilla()
 {
     AboutDialog about(this);
     about.exec();
+}
+
+void QupZilla::addTab()
+{
+    m_tabWidget->addView(QUrl(), Qz::NT_SelectedTab, true);
 }
 
 void QupZilla::webSearch()

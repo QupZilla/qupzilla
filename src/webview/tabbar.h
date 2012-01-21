@@ -24,6 +24,7 @@
 #include <QMenu>
 #include <QMouseEvent>
 #include <QStyle>
+#include <QApplication>
 
 class QupZilla;
 class TabWidget;

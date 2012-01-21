@@ -24,6 +24,7 @@
 #include <QBuffer>
 #include <QTimer>
 #include <QTextStream>
+#include <QTextDocument>
 
 class QupZillaSchemeHandler
 {

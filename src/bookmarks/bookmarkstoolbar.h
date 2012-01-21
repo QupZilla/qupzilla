@@ -24,6 +24,8 @@
 #include <QFormLayout>
 #include <QDialogButtonBox>
 #include <QDropEvent>
+#include <QLabel>
+#include <QLineEdit>
 
 #include "bookmarksmodel.h"
 

@@ -31,6 +31,8 @@
 #include "qtsingleapplication.h"
 #include "commandlineoptions.h"
 
+#include "qz_namespace.h"
+
 class QupZilla;
 class CookieManager;
 class BrowsingLibrary;
@@ -58,17 +60,13 @@ public:
     QString TRANSLATIONSDIR;
     QString THEMESDIR;
 
-    explicit MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv);
-
-    enum MessageType { SetAdBlockIconEnabled, CheckPrivateBrowsing, ReloadSettings,
-                       HistoryStateChanged, BookmarksChanged, StartPrivateBrowsing
-                     };
+    explicit MainApplication(const CommandLineOptions::ActionPairList &cmdActions, int &argc, char** argv);
 
     void connectDatabase();
     void loadSettings();
     void reloadSettings();
     bool restoreStateSlot(QupZilla* window);
-    QupZilla* makeNewWindow(bool tryRestore, const QUrl &startUrl = QUrl());
+    QupZilla* makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl = QUrl());
     void aboutToCloseWindow(QupZilla* window);
     bool isStateChanged();
 
@@ -109,13 +107,13 @@ public:
 public slots:
     bool saveStateSlot();
     void quitApplication();
-    void sendMessages(MainApplication::MessageType mes, bool state);
+    void sendMessages(Qz::AppMessageType mes, bool state);
     void receiveAppMessage(QString message);
     void setStateChanged();
     void addNewTab(const QUrl &url = QUrl());
 
 signals:
-    void message(MainApplication::MessageType mes, bool state);
+    void message(Qz::AppMessageType mes, bool state);
 
 private slots:
     void postLaunch();

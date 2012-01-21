@@ -465,14 +465,14 @@ void TabbedWebView::stop()
 void TabbedWebView::openUrlInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        m_tabWidget->addView(action->data().toUrl(), TabWidget::NewBackgroundTab);
+        m_tabWidget->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
     }
 }
 
 void TabbedWebView::searchSelectedText()
 {
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
-    m_tabWidget->addView(engine.url.replace("%s", selectedText()), TabWidget::NewBackgroundTab);
+    m_tabWidget->addView(engine.url.replace("%s", selectedText()), Qz::NT_NotSelectedTab);
 }
 
 void TabbedWebView::bookmarkLink()
@@ -578,7 +578,7 @@ void TabbedWebView::mousePressEvent(QMouseEvent* event)
     switch (event->button()) {
     case Qt::MiddleButton:
         if (isUrlValid(QUrl(m_hoveredLink))) {
-            m_tabWidget->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), TabWidget::NewBackgroundTab);
+            m_tabWidget->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), Qz::NT_NotSelectedTab);
             event->accept();
             return;
         }
@@ -592,7 +592,7 @@ void TabbedWebView::mousePressEvent(QMouseEvent* event)
 
     case Qt::LeftButton:
         if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
-            m_tabWidget->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), TabWidget::NewBackgroundTab);
+            m_tabWidget->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), Qz::NT_NotSelectedTab);
             event->accept();
             return;
         }

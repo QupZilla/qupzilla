@@ -259,13 +259,13 @@ void RSSManager::controlLoadFeed(QTreeWidgetItem* item)
     if (item->whatsThis(0).isEmpty()) {
         return;
     }
-    getQupZilla()->tabWidget()->addView(QUrl(item->whatsThis(0)), TabWidget::NewNotSelectedTab);
+    getQupZilla()->tabWidget()->addView(QUrl(item->whatsThis(0)), Qz::NT_NotSelectedTab);
 }
 
 void RSSManager::loadFeedInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        getQupZilla()->tabWidget()->addView(action->data().toUrl(), TabWidget::NewNotSelectedTab);
+        getQupZilla()->tabWidget()->addView(action->data().toUrl(), Qz::NT_NotSelectedTab);
     }
 }
 

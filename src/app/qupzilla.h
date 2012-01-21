@@ -41,14 +41,12 @@
 #include <QToolButton>
 #include <QWebInspector>
 #include <QWeakPointer>
+#include <QVBoxLayout>
 #include "qwebkitversion.h"
 
-#include "webtab.h"
-#include "tabbedwebview.h"
-#include "tabwidget.h"
-#include "mainapplication.h"
-#include "locationbar.h"
+#include "qz_namespace.h"
 
+class Menu;
 class TabWidget;
 class TabbedWebView;
 class LineEdit;
@@ -64,7 +62,7 @@ class StatusBarMessage;
 class NavigationBar;
 class ClickableLabel;
 class WebInspectorDockWidget;
-class Menu;
+class LocationBar;
 class QupZilla : public QMainWindow
 {
     Q_OBJECT
@@ -80,8 +78,7 @@ public:
 
     static const QIcon qupzillaIcon();
 
-    enum StartBehaviour { FirstAppWindow, OtherRestoredWindow, NewWindow };
-    explicit QupZilla(StartBehaviour behaviour = FirstAppWindow, QUrl startUrl = QUrl());
+    explicit QupZilla(Qz::BrowserWindow type, QUrl startUrl = QUrl());
     ~QupZilla();
 
     void refreshAddressBar();
@@ -98,9 +95,9 @@ public:
 
     virtual QMenuBar* menuBar() const;
 
-    inline TabbedWebView* weView() const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabWidget->currentIndex())); if (!webTab) return 0; return webTab->view(); }
-    inline TabbedWebView* weView(int index) const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index)); if (!webTab) return 0; return webTab->view(); }
-    inline LocationBar* locationBar() { return qobject_cast<LocationBar*>(m_tabWidget->locationBars()->currentWidget()); }
+    TabbedWebView* weView() const;
+    TabbedWebView* weView(int index) const;
+    LocationBar* locationBar() const;
     inline TabWidget* tabWidget() { return m_tabWidget; }
     inline BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
     inline StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
@@ -122,7 +119,7 @@ public:
 signals:
     void loadHistory();
     void startingCompleted();
-    void message(MainApplication::MessageType mes, bool state);
+    void message(Qz::AppMessageType mes, bool state);
     void setWebViewMouseTracking(bool state);
 
 public slots:
@@ -140,19 +137,19 @@ public slots:
     void showSource(QWebFrame* frame = 0, const QString &selectedHtml = "");
     void printPage(QWebFrame* frame = 0);
     void showPageInfo();
-    void receiveMessage(MainApplication::MessageType mes, bool state);
+    void receiveMessage(Qz::AppMessageType mes, bool state);
 
 private slots:
     void postLaunch();
-    void goNext() { weView()->forward(); }
-    void goBack() { weView()->back(); }
+    void goNext();
+    void goBack();
     void goHome();
     void goHomeInNewTab();
-    void stop() { weView()->stop(); }
-    void reload() { weView()->reload(); }
-    void reloadByPassCache() { weView()->page()->triggerAction(QWebPage::ReloadAndBypassCache); }
+    void stop();
+    void reload();
+    void reloadByPassCache();
     void aboutQupZilla();
-    void addTab() { m_tabWidget->addView(QUrl(), TabWidget::NewTab, true); }
+    void addTab();
     void savePageScreen();
 
     void aboutToShowFileMenu();
@@ -186,7 +183,7 @@ private slots:
 
     void refreshHistory();
     void bookmarkAllTabs();
-    void newWindow() { mApp->makeNewWindow(false); }
+    void newWindow();
 
     void openLocation();
     void openFile();
@@ -195,11 +192,11 @@ private slots:
     void webSearch();
 
     void copy();
-    void selectAll() { weView()->selectAll(); }
+    void selectAll();
 
-    void zoomIn() { weView()->zoomIn(); }
-    void zoomOut() { weView()->zoomOut(); }
-    void zoomReset() { weView()->zoomReset(); }
+    void zoomIn();
+    void zoomOut();
+    void zoomReset();
     void fullScreen(bool make);
     void startPrivate(bool state);
     void changeEncoding();
@@ -223,7 +220,7 @@ private:
     QUrl m_startingUrl;
     QUrl m_newtab;
     QUrl m_homepage;
-    StartBehaviour m_startBehaviour;
+    Qz::BrowserWindow m_startBehaviour;
 
     QVBoxLayout* m_mainLayout;
     QSplitter* m_mainSplitter;

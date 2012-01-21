@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "clearprivatedata.h"
 #include "qupzilla.h"
+#include "tabwidget.h"
 #include "cookiejar.h"
 #include "mainapplication.h"
 #include "networkmanager.h"

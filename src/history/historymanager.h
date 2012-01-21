@@ -21,6 +21,7 @@
 #include <QWidget>
 #include <QTreeWidgetItem>
 #include <QWeakPointer>
+#include <QClipboard>
 
 #include "historymodel.h"
 

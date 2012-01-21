@@ -17,12 +17,14 @@
 * ============================================================ */
 #include "bookmarkstoolbar.h"
 #include "qupzilla.h"
+#include "mainapplication.h"
 #include "bookmarksmodel.h"
 #include "iconprovider.h"
 #include "historymodel.h"
 #include "toolbutton.h"
 #include "databasewriter.h"
 #include "enhancedmenu.h"
+#include "tabwidget.h"
 
 BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -281,7 +283,7 @@ void BookmarksToolbar::loadFolderBookmarksInTabs()
     }
 
     foreach(Bookmark b, m_bookmarksModel->folderBookmarks(folder)) {
-        p_QupZilla->tabWidget()->addView(b.url, b.title, TabWidget::NewNotSelectedTab);
+        p_QupZilla->tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }
 

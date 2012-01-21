@@ -20,6 +20,7 @@
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "tabbar.h"
+#include "tabwidget.h"
 #include "locationbar.h"
 
 WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)

@@ -19,6 +19,8 @@
 #include "adblockmanager.h"
 #include "qupzilla.h"
 #include "webpage.h"
+#include "tabbedwebview.h"
+#include "tabwidget.h"
 
 AdBlockIcon::AdBlockIcon(QupZilla* mainClass, QWidget* parent)
     : ClickableLabel(parent)
@@ -57,7 +59,7 @@ void AdBlockIcon::showMenu(const QPoint &pos)
 
 void AdBlockIcon::learnAboutRules()
 {
-    p_QupZilla->tabWidget()->addView(QUrl("http://adblockplus.org/en/filters"), TabWidget::NewSelectedTab);
+    p_QupZilla->tabWidget()->addView(QUrl("http://adblockplus.org/en/filters"), Qz::NT_SelectedTab);
 }
 
 void AdBlockIcon::setEnabled(bool enabled)

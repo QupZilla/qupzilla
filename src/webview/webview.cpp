@@ -282,7 +282,7 @@ void WebView::slotIconChanged()
 void WebView::openUrlInNewWindow()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        mApp->makeNewWindow(false, action->data().toUrl());
+        mApp->makeNewWindow(Qz::BW_NewWindow, action->data().toUrl());
     }
 }
 

@@ -18,6 +18,7 @@
 #include "aboutdialog.h"
 #include "ui_aboutdialog.h"
 #include "qupzilla.h"
+#include "mainapplication.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "qtwin.h"

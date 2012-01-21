@@ -18,11 +18,14 @@
 #include "navigationbar.h"
 #include "toolbutton.h"
 #include "qupzilla.h"
+#include "mainapplication.h"
 #include "iconprovider.h"
 #include "websearchbar.h"
 #include "reloadstopbutton.h"
 #include "webhistorywrapper.h"
 #include "enhancedmenu.h"
+#include "tabwidget.h"
+#include "tabbedwebview.h"
 
 QString titleForUrl(QString title, const QUrl &url)
 {

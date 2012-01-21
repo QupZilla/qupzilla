@@ -332,16 +332,16 @@ void DownloadItem::goToDownloadPage()
     QupZilla* qz = mApp->getWindow();
 
     if (qz) {
-        qz->tabWidget()->addView(m_downloadPage, TabWidget::NewSelectedTab);
+        qz->tabWidget()->addView(m_downloadPage, Qz::NT_SelectedTab);
     }
     else {
-        mApp->makeNewWindow(true, m_downloadPage);
+        mApp->makeNewWindow(Qz::BW_NewWindow, m_downloadPage);
     }
 }
 
 void DownloadItem::copyDownloadLink()
 {
-    qApp->clipboard()->setText(m_downUrl.toString());
+    QApplication::clipboard()->setText(m_downUrl.toString());
 }
 
 void DownloadItem::clear()

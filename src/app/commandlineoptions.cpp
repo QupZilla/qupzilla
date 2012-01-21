@@ -25,6 +25,11 @@ CommandLineOptions::CommandLineOptions(int &argc, char** argv)
     parseActions();
 }
 
+CommandLineOptions::ActionPairList CommandLineOptions::getActions()
+{
+    return m_actions;
+}
+
 void CommandLineOptions::showHelp()
 {
     using namespace std;
@@ -64,7 +69,7 @@ void CommandLineOptions::parseActions()
         if (arg == "-h" || arg == "--help") {
             showHelp();
             ActionPair pair;
-            pair.action = ExitAction;
+            pair.action = Qz::CL_ExitAction;
             m_actions.append(pair);
             break;
         }
@@ -73,7 +78,7 @@ void CommandLineOptions::parseActions()
             cout << "QupZilla authors: " << endl;
             cout << "  nowrep <nowrep@gmail.com>" << endl;
             ActionPair pair;
-            pair.action = ExitAction;
+            pair.action = Qz::CL_ExitAction;
             m_actions.append(pair);
             break;
         }
@@ -86,7 +91,7 @@ void CommandLineOptions::parseActions()
                  << "(build " << QupZilla::BUILDTIME.toUtf8().data() << ")"
                  << endl;
             ActionPair pair;
-            pair.action = ExitAction;
+            pair.action = Qz::CL_ExitAction;
             m_actions.append(pair);
             break;
         }
@@ -96,42 +101,42 @@ void CommandLineOptions::parseActions()
             arg.remove("--profile=");
             cout << "starting with profile " << arg.toUtf8().data() << endl;
             ActionPair pair;
-            pair.action = StartWithProfile;
+            pair.action = Qz::CL_StartWithProfile;
             pair.text = arg;
             m_actions.append(pair);
         }
 
         if (arg.startsWith("-np") || arg.startsWith("--no-plugins")) {
             ActionPair pair;
-            pair.action = StartWithoutAddons;
+            pair.action = Qz::CL_StartWithoutAddons;
             pair.text = "";
             m_actions.append(pair);
         }
 
         if (arg.startsWith("-nt") || arg.startsWith("--new-tab")) {
             ActionPair pair;
-            pair.action = NewTab;
+            pair.action = Qz::CL_NewTab;
             pair.text = "";
             m_actions.append(pair);
         }
 
         if (arg.startsWith("-nw") || arg.startsWith("--new-window")) {
             ActionPair pair;
-            pair.action = NewWindow;
+            pair.action = Qz::CL_NewWindow;
             pair.text = "";
             m_actions.append(pair);
         }
 
         if (arg.startsWith("-dm") || arg.startsWith("--download-manager")) {
             ActionPair pair;
-            pair.action = ShowDownloadManager;
+            pair.action = Qz::CL_ShowDownloadManager;
             pair.text = "";
             m_actions.append(pair);
         }
 
         if (arg.startsWith("-pb") || arg.startsWith("--private-browsing")) {
             ActionPair pair;
-            pair.action = StartPrivateBrowsing;
+            pair.action = Qz::CL_StartPrivateBrowsing;
             pair.text = "";
             m_actions.append(pair);
         }
@@ -141,7 +146,7 @@ void CommandLineOptions::parseActions()
     if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-")) {
         cout << "starting with url " << url.toUtf8().data() << endl;
         ActionPair pair;
-        pair.action = OpenUrl;
+        pair.action = Qz::CL_OpenUrl;
         pair.text = url;
         m_actions.append(pair);
     }

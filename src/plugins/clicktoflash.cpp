@@ -48,6 +48,7 @@
 #include "webpage.h"
 #include "globalfunctions.h"
 #include "qupzilla.h"
+#include "tabbedwebview.h"
 
 QUrl ClickToFlash::acceptedUrl;
 QStringList ClickToFlash::acceptedArgNames;

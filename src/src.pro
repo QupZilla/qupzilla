@@ -323,7 +323,8 @@ HEADERS  += \
     popupwindow/popupwindow.h \
     popupwindow/popuplocationbar.h \
     webview/tabbedwebview.h \
-    webview/webview.h
+    webview/webview.h \
+    app/qz_namespace.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

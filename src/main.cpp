@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
         cmdActions = cmd.getActions();
         foreach(CommandLineOptions::ActionPair pair, cmdActions) {
             switch (pair.action) {
-            case CommandLineOptions::ExitAction:
+            case Qz::CL_ExitAction:
                 return 0;
                 break;
             default:

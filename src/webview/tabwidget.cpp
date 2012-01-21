@@ -171,6 +171,22 @@ void TabWidget::resizeEvent(QResizeEvent* e)
     QTabWidget::resizeEvent(e);
 }
 
+TabbedWebView *TabWidget::weView()
+{
+    return weView(currentIndex());
+}
+
+TabbedWebView *TabWidget::weView(int index)
+{
+    WebTab* webTab = qobject_cast<WebTab*>(widget(index));
+
+    if (!webTab) {
+        return 0;
+    }
+
+    return webTab->view();
+}
+
 void TabWidget::createKeyPressEvent(QKeyEvent* event)
 {
     QTabWidget::keyPressEvent(event);
@@ -246,20 +262,20 @@ void TabWidget::actionChangeIndex()
     }
 }
 
-int TabWidget::addView(const QUrl &url, OpenUrlIn openIn, bool selectLine)
+int TabWidget::addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine)
 {
-    return addView(url, tr("New tab"), openIn, selectLine);
+    return addView(url, tr("New tab"), openFlags, selectLine);
 }
 
-int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool selectLine, int position)
+int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position)
 {
     m_lastTabIndex = currentIndex();
 
-    if (url.isEmpty() && openIn != CleanPage && openIn != CleanSelectedPage) {
+    if (url.isEmpty() && !(openFlags & Qz::NT_CleanTab)) {
         url = m_urlOnNewTab;
     }
 
-    if (openIn == NewBackgroundTab) {
+    if (openFlags & Qz::NT_NotSelectedTab) {
         // If we are opening newBgTab from pinned tab, make sure it won't be
         // opened between other pinned tabs
         position = qMax(currentIndex() + 1, m_tabBar->pinnedTabsCount());
@@ -283,7 +299,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
     webView->animationLoading(index, true)->movie()->stop();
     webView->animationLoading(index, false)->setPixmap(_iconForUrl(url).pixmap(16, 16));
 
-    if (openIn == NewSelectedTab || openIn == CleanSelectedPage) {
+    if (openFlags & Qz::NT_SelectedTab) {
         setCurrentIndex(index);
     }
 
@@ -306,7 +322,7 @@ int TabWidget::addView(QUrl url, const QString &title, OpenUrlIn openIn, bool se
         p_QupZilla->locationBar()->setFocus();
     }
 
-    if (openIn == NewSelectedTab || openIn == CleanSelectedPage) {
+    if (openFlags & Qz::NT_SelectedTab) {
         m_isClosingToLastTabIndex = true;
         m_locationBars->setCurrentWidget(locBar);
     }
@@ -380,6 +396,11 @@ void TabWidget::closeTab(int index)
     webTab->deleteLater();
 }
 
+void TabWidget::reloadTab(int index)
+{
+     weView(index)->reload();
+}
+
 void TabWidget::showTabBar()
 {
     if (count() == 1 && m_hideTabBarWithOneTab) {
@@ -422,6 +443,21 @@ void TabWidget::reloadAllTabs()
     }
 }
 
+void TabWidget::stopTab(int index)
+{
+    weView(index)->stop();
+}
+
+void TabWidget::backTab(int index)
+{
+    weView(index)->back();
+}
+
+void TabWidget::forwardTab(int index)
+{
+    weView(index)->forward();
+}
+
 void TabWidget::closeAllButCurrent(int index)
 {
     WebTab* akt = qobject_cast<WebTab*>(widget(index));
@@ -441,7 +477,7 @@ int TabWidget::duplicateTab(int index)
     QDataStream tabHistoryStream(&history, QIODevice::WriteOnly);
     tabHistoryStream << *weView(index)->history();
 
-    int id = addView(url, tabText(index), TabWidget::NewNotSelectedTab);
+    int id = addView(url, tabText(index), Qz::NT_CleanNotSelectedTab);
     QDataStream historyStream(history);
     historyStream >> *weView(id)->history();
 
@@ -464,7 +500,7 @@ void TabWidget::restoreClosedTab()
         tab = m_closedTabsManager->getFirstClosedTab();
     }
 
-    int index = addView(QUrl(), tab.title, TabWidget::NewSelectedTab, false, tab.position);
+    int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab, false, tab.position);
     QDataStream historyStream(tab.history);
     historyStream >> *weView(index)->history();
 
@@ -479,7 +515,7 @@ void TabWidget::restoreAllClosedTabs()
 
     QList<ClosedTabsManager::Tab> closedTabs = m_closedTabsManager->allClosedTabs();
     foreach(ClosedTabsManager::Tab tab, closedTabs) {
-        int index = addView(QUrl(), tab.title);
+        int index = addView(QUrl(), tab.title, Qz::NT_CleanNotSelectedTab);
         QDataStream historyStream(tab.history);
         historyStream >> *weView(index)->history();
 
@@ -572,7 +608,7 @@ void TabWidget::restorePinnedTabs()
         QByteArray historyState = tabHistory.value(i);
         int addedIndex;
         if (!historyState.isEmpty()) {
-            addedIndex = addView(QUrl(), CleanPage);
+            addedIndex = addView(QUrl(), Qz::NT_CleanNotSelectedTab);
             QDataStream historyStream(historyState);
             historyStream >> *weView(addedIndex)->history();
             weView(addedIndex)->load(url);
@@ -648,7 +684,7 @@ bool TabWidget::restoreState(const QByteArray &state)
 
         QByteArray historyState = tabHistory.value(i);
         if (!historyState.isEmpty()) {
-            int index = addView(QUrl(), CleanPage);
+            int index = addView(QUrl(), Qz::NT_CleanNotSelectedTab);
             QDataStream historyStream(historyState);
             historyStream >> *weView(index)->history();
             weView(index)->load(url);

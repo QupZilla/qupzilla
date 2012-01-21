@@ -18,6 +18,8 @@
 #include "bookmarkicon.h"
 #include "mainapplication.h"
 #include "qupzilla.h"
+#include "tabbedwebview.h"
+#include "locationbar.h"
 #include "bookmarksmodel.h"
 #include "bookmarkswidget.h"
 
