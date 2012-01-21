@@ -25,7 +25,6 @@
 
 class OperaImporter : public QObject
 {
-    Q_OBJECT
 public:
     explicit OperaImporter(QObject* parent = 0);
 
@@ -36,10 +35,6 @@ public:
 
     bool error() { return m_error; }
     QString errorString() { return m_errorString; }
-
-signals:
-
-public slots:
 
 private:
     QString m_path;

@@ -24,8 +24,6 @@
 
 class DockTitleBarWidget : public QWidget, public Ui_DockTitleBarWidget
 {
-    Q_OBJECT
-
 public:
     explicit DockTitleBarWidget(const QString &title, QWidget* parent = 0);
     ~DockTitleBarWidget();

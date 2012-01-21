@@ -35,8 +35,6 @@ class AdBlockRule;
 class QWebPage;
 class AdBlockPage : public QObject
 {
-    Q_OBJECT
-
 public:
     AdBlockPage(QObject* parent = 0);
 

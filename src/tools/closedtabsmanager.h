@@ -24,7 +24,6 @@
 class WebView;
 class ClosedTabsManager : public QObject
 {
-    Q_OBJECT
 public:
     explicit ClosedTabsManager(QObject* parent = 0);
     struct Tab {
@@ -48,10 +47,6 @@ public:
     void clearList();
 
     QList<ClosedTabsManager::Tab> allClosedTabs() { return m_closedTabs; }
-
-signals:
-
-public slots:
 
 private:
     QList<ClosedTabsManager::Tab> m_closedTabs;

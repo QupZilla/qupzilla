@@ -30,8 +30,6 @@ class RSSNotification;
 class AnimatedWidget;
 class RSSNotification : public AnimatedWidget
 {
-    Q_OBJECT
-
 public:
     explicit RSSNotification(QString host, QWidget* parent = 0);
     ~RSSNotification();

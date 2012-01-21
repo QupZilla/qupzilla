@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "pagescreen.h"
 #include "ui_pagescreen.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "globalfunctions.h"
 
 PageScreen::PageScreen(WebView* view, QWidget* parent)

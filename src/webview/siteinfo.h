@@ -29,14 +29,14 @@ namespace Ui
 class SiteInfo;
 }
 
-class QupZilla;
+class WebView;
 class CertificateInfoWidget;
 class SiteInfo : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit SiteInfo(QupZilla* mainClass, QWidget* parent = 0);
+    explicit SiteInfo(WebView* view, QWidget* parent = 0);
     ~SiteInfo();
 
     static QString showCertInfo(const QString &string);
@@ -52,7 +52,6 @@ private slots:
 
 private:
     Ui::SiteInfo* ui;
-    QupZilla* p_QupZilla;
     CertificateInfoWidget* m_certWidget;
 
     QPixmap m_activePixmap;

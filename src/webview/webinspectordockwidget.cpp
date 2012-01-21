@@ -18,7 +18,7 @@
 #include "webinspectordockwidget.h"
 #include "docktitlebarwidget.h"
 #include "webpage.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "webtab.h"
 #include "qupzilla.h"
 

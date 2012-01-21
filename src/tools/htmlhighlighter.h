@@ -66,8 +66,6 @@ class QTextDocument;
 
 class HtmlHighlighter : public QSyntaxHighlighter
 {
-    Q_OBJECT
-
 public:
     HtmlHighlighter(QTextDocument* parent = 0);
 

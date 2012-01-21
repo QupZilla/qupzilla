@@ -52,8 +52,6 @@ class QNetworkRequest;
 class QNetworkReply;
 class AdBlockNetwork : public QObject
 {
-    Q_OBJECT
-
 public:
     AdBlockNetwork(QObject* parent = 0);
     QNetworkReply* block(const QNetworkRequest &request);

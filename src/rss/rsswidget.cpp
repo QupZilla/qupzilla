@@ -18,7 +18,7 @@
 #include "rsswidget.h"
 #include "ui_rsswidget.h"
 #include "mainapplication.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "rssmanager.h"
 #include "rssnotification.h"
 
@@ -107,7 +107,7 @@ void RSSWidget::addRss()
             title = button->toolTip();
         }
 
-        if (mApp->rssManager()->addRssFeed(urlString, title, m_view->siteIcon())) {
+        if (mApp->rssManager()->addRssFeed(urlString, title, m_view->icon())) {
             RSSNotification* notif = new RSSNotification(title, m_view);
             m_view->addNotification(notif);
             close();

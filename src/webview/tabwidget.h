@@ -26,11 +26,11 @@
 #include <QStackedWidget>
 #include <QTextDocument>
 
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "webtab.h"
 
 class QupZilla;
-class WebView;
+class TabbedWebView;
 class TabBar;
 class WebTab;
 class TabListButton;
@@ -98,8 +98,8 @@ private slots:
 
 private:
     void resizeEvent(QResizeEvent* e);
-    inline WebView* weView() { WebTab* webTab = qobject_cast<WebTab*>(widget(currentIndex())); if (!webTab) return 0; return webTab->view(); }
-    inline WebView* weView(int index) { WebTab* webTab = qobject_cast<WebTab*>(widget(index)); if (!webTab) return 0; return webTab->view(); }
+    inline TabbedWebView* weView() { WebTab* webTab = qobject_cast<WebTab*>(widget(currentIndex())); if (!webTab) return 0; return webTab->view(); }
+    inline TabbedWebView* weView(int index) { WebTab* webTab = qobject_cast<WebTab*>(widget(index)); if (!webTab) return 0; return webTab->view(); }
 
     bool m_hideTabBarWithOneTab;
     bool m_dontQuitWithOneTab;

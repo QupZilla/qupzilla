@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "searchtoolbar.h"
 #include "qupzilla.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "lineedit.h"
 #include "ui_searchtoolbar.h"
 #include "iconprovider.h"

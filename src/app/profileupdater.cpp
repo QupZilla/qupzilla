@@ -21,8 +21,7 @@
 #include "mainapplication.h"
 
 ProfileUpdater::ProfileUpdater(const QString &profilePath)
-    : QObject()
-    , m_profilePath(profilePath)
+    : m_profilePath(profilePath)
 {
 }
 

@@ -169,11 +169,14 @@ void DownloadManager::clearList()
 
 void DownloadManager::download(const QNetworkRequest &request, WebPage* page, bool askWhatToDo)
 {
+    if (!page) {
+        return;
+    }
+
     // Clearing web page info from request
     QNetworkRequest req = request;
     req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), 0);
     req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), 0);
-    req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102), 0);
 
     handleUnsupportedContent(m_networkManager->get(req), page, askWhatToDo);
 }

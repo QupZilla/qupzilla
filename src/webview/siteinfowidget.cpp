@@ -29,9 +29,10 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
     ui->setupUi(this);
 
     WebView* view = p_QupZilla->weView();
+    WebPage* webPage = qobject_cast<WebPage*>(view->page());
     QUrl url = view->url();
 
-    if (view->webPage()->sslCertificate().isValid()) {
+    if (webPage->sslCertificate().isValid()) {
         ui->secureLabel->setText(tr("Your connection to this site is <b>secured</b>."));
         ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/accept.png"));
     }

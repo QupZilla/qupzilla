@@ -24,16 +24,16 @@
 #include <QWebElement>
 
 class QupZilla;
-class WebView;
+class WebPage;
 class AutoFillModel : public QObject
 {
-    Q_OBJECT
 public:
     typedef QList<QPair<QString, QString> > QueryItems;
     typedef QPair<QString, QString> QueryItem;
 
     explicit AutoFillModel(QupZilla* mainClass, QObject* parent = 0);
-    void completePage(WebView* view);
+
+    void loadSettings();
 
     bool isStored(const QUrl &url);
     bool isStoringEnabled(const QUrl &url);
@@ -45,11 +45,7 @@ public:
     void addEntry(const QUrl &url, const QByteArray &data, const QString &user, const QString &pass);
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
-
-signals:
-
-public slots:
-    void loadSettings();
+    void completePage(WebPage* frame);
 
 private:
     bool dataContains(const QByteArray &data, const QString &attributeName);

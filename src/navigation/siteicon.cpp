@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "siteicon.h"
 #include "locationbar.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 
 SiteIcon::SiteIcon(LocationBar* parent)
     : ToolButton(parent)
@@ -26,7 +26,7 @@ SiteIcon::SiteIcon(LocationBar* parent)
     setObjectName("locationbar-siteicon");
     setToolButtonStyle(Qt::ToolButtonIconOnly);
     setCursor(Qt::ArrowCursor);
-    setToolTip(tr("Show information about this page"));
+    setToolTip(LocationBar::tr("Show information about this page"));
     setFocusPolicy(Qt::ClickFocus);
 }
 
@@ -44,6 +44,10 @@ void SiteIcon::mousePressEvent(QMouseEvent* e)
 
 void SiteIcon::mouseMoveEvent(QMouseEvent* e)
 {
+    if (!m_locationBar) {
+        return;
+    }
+
     int manhattanLength = (e->pos() - m_dragStartPosition).manhattanLength();
     if (manhattanLength <= QApplication::startDragDistance()) {
         ToolButton::mouseMoveEvent(e);

@@ -25,7 +25,6 @@
 class QupZilla;
 class CookieJar : public QNetworkCookieJar
 {
-    Q_OBJECT
 public:
     explicit CookieJar(QupZilla* mainClass, QObject* parent = 0);
 
@@ -40,10 +39,6 @@ public:
 
     void setAllowCookies(bool allow);
     void turnPrivateJar(bool state);
-
-signals:
-
-public slots:
 
 private:
     QupZilla* p_QupZilla;

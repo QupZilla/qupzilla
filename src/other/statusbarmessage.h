@@ -28,8 +28,6 @@ class TipLabel;
 
 class TipLabel : public SqueezeLabelV1
 {
-    Q_OBJECT
-
 public:
     TipLabel(QupZilla* parent);
 
@@ -45,16 +43,11 @@ private:
 
 class StatusBarMessage : public QObject
 {
-    Q_OBJECT
 public:
     explicit StatusBarMessage(QupZilla* mainClass);
 
     void showMessage(const QString &message);
     void clearMessage();
-
-signals:
-
-public slots:
 
 private:
     QupZilla* p_QupZilla;

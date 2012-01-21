@@ -38,6 +38,7 @@ TRANSLATIONS +=../translations/cs_CZ.ts\
                ../translations/pt_PT.ts\
                ../translations/sr_BA.ts\
                ../translations/sr_RS.ts\
+               ../translations/sv_SE.ts\
                ../translations/empty.ts\
 
 INCLUDEPATH += 3rdparty\
@@ -62,6 +63,7 @@ INCLUDEPATH += 3rdparty\
                desktopnotifications\
                opensearch\
                bookmarksimport\
+               popupwindow\
 
 SOURCES += main.cpp\
     3rdparty/qtwin.cpp \
@@ -88,7 +90,6 @@ SOURCES += main.cpp\
     preferences/preferences.cpp \
     rss/rssmanager.cpp \
     other/clearprivatedata.cpp \
-    webview/webview.cpp \
     webview/webpage.cpp \
     webview/tabwidget.cpp \
     webview/tabbar.cpp \
@@ -185,7 +186,13 @@ SOURCES += main.cpp\
     navigation/downicon.cpp \
     network/cabundleupdater.cpp \
     app/settings.cpp \
-    app/proxystyle.cpp
+    app/proxystyle.cpp \
+    popupwindow/popupwebpage.cpp \
+    webview/popupwebview.cpp \
+    popupwindow/popupwindow.cpp \
+    popupwindow/popuplocationbar.cpp \
+    webview/tabbedwebview.cpp \
+    webview/webview.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -212,7 +219,6 @@ HEADERS  += \
     preferences/preferences.h \
     rss/rssmanager.h \
     other/clearprivatedata.h \
-    webview/webview.h \
     webview/webpage.h \
     webview/tabwidget.h \
     webview/tabbar.h \
@@ -311,7 +317,13 @@ HEADERS  += \
     navigation/downicon.h \
     network/cabundleupdater.h \
     app/settings.h \
-    app/proxystyle.h
+    app/proxystyle.h \
+    popupwindow/popupwebpage.h \
+    webview/popupwebview.h \
+    popupwindow/popupwindow.h \
+    popupwindow/popuplocationbar.h \
+    webview/tabbedwebview.h \
+    webview/webview.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

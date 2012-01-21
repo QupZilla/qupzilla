@@ -29,7 +29,6 @@ namespace Ui
 class BookmarksSideBar;
 }
 
-class WebView;
 class QupZilla;
 class BookmarksModel;
 class BookmarksSideBar : public QWidget

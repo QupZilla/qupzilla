@@ -64,7 +64,6 @@ public:
     void disconnectObjects();
 
 signals:
-    void finishLoading(bool state);
     void wantsFocus(const QUrl &url);
     void sslDialogClosed();
 

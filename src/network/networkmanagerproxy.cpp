@@ -23,18 +23,10 @@
 
 NetworkManagerProxy::NetworkManagerProxy(QObject* parent)
     : QNetworkAccessManager(parent)
-    , m_view(0)
     , m_page(0)
     , m_manager(0)
 {
     setCookieJar(mApp->cookieJar());
-}
-
-void NetworkManagerProxy::populateNetworkRequest(QNetworkRequest &request)
-{
-    qDebug() << __FUNCTION__ << "called";
-    QVariant variant = qVariantFromValue((void*) m_page);
-    request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
 }
 
 void NetworkManagerProxy::setPrimaryNetworkAccessManager(NetworkManager* manager)
@@ -42,10 +34,10 @@ void NetworkManagerProxy::setPrimaryNetworkAccessManager(NetworkManager* manager
     Q_ASSERT(manager);
     m_manager = manager;
 
-    connect(this, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)), manager, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)));
-    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)), manager, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)));
-    connect(this, SIGNAL(finished(QNetworkReply*)), manager, SIGNAL(finished(QNetworkReply*)));
-    connect(this, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)), manager, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)));
+    connect(this, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)), m_manager, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)));
+    connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)), m_manager, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)));
+    connect(this, SIGNAL(finished(QNetworkReply*)), m_manager, SIGNAL(finished(QNetworkReply*)));
+    connect(this, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)), m_manager, SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)));
 }
 
 QNetworkReply* NetworkManagerProxy::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
@@ -58,6 +50,11 @@ QNetworkReply* NetworkManagerProxy::createRequest(QNetworkAccessManager::Operati
         return m_manager->createRequest(op, pageRequest, outgoingData);
     }
     return QNetworkAccessManager::createRequest(op, request, outgoingData);
+}
+
+void NetworkManagerProxy::disconnectObjects()
+{
+    disconnect(m_manager);
 }
 
 NetworkManagerProxy::~NetworkManagerProxy()

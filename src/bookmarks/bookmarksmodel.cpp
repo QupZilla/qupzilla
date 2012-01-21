@@ -18,7 +18,7 @@
 #include "bookmarksmodel.h"
 #include "settings.h"
 #include "mainapplication.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "iconprovider.h"
 #include "databasewriter.h"
 
@@ -156,7 +156,7 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
 
 bool BookmarksModel::saveBookmark(WebView* view, const QString &folder)
 {
-    return saveBookmark(view->url(), view->title(), view->siteIcon(), folder);
+    return saveBookmark(view->url(), view->title(), view->icon(), folder);
 }
 
 bool BookmarksModel::removeBookmark(int id)

@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "downloadfilehelper.h"
 #include "webpage.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "downloadoptionsdialog.h"
 #include "mainapplication.h"
 #include "qupzilla.h"
@@ -65,14 +65,15 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
 
     // Close Empty Tab
     if (m_webPage) {
-        if (!m_webPage->mainFrame()->url().isEmpty() && m_webPage->mainFrame()->url().toString() != "about:blank") {
-            m_downloadPage = m_webPage->mainFrame()->url();
+        WebView* view = qobject_cast<WebView*>(m_webPage->view());
+        if (!m_webPage->url().isEmpty() && m_webPage->url().toString() != "about:blank") {
+            m_downloadPage = m_webPage->url();
         }
         else if (m_webPage->history()->canGoBack()) {
             m_downloadPage = m_webPage->history()->backItem().url();
         }
-        else if (m_webPage->history()->count() == 0) {
-            m_webPage->getView()->closeTab();
+        else if (view && m_webPage->history()->count() == 0) {
+            view->closeView();
         }
     }
 

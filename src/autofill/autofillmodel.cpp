@@ -17,7 +17,9 @@
 * ============================================================ */
 #include "autofillmodel.h"
 #include "qupzilla.h"
-#include "webview.h"
+#include "webpage.h"
+#include "tabbedwebview.h"
+#include "popupwebview.h"
 #include "mainapplication.h"
 #include "autofillnotification.h"
 #include "databasewriter.h"
@@ -28,7 +30,7 @@ AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject* parent)
     , p_QupZilla(mainClass)
     , m_isStoring(false)
 {
-    QTimer::singleShot(0, this, SLOT(loadSettings()));
+    loadSettings();
 }
 
 void AutoFillModel::loadSettings()
@@ -46,6 +48,10 @@ bool AutoFillModel::isStored(const QUrl &url)
     }
 
     QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
     QSqlQuery query;
     query.exec("SELECT count(id) FROM autofill WHERE server='" + server + "'");
     query.next();
@@ -62,6 +68,10 @@ bool AutoFillModel::isStoringEnabled(const QUrl &url)
     }
 
     QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
     QSqlQuery query;
     query.exec("SELECT count(id) FROM autofill_exceptions WHERE server='" + server + "'");
     query.next();
@@ -74,6 +84,10 @@ bool AutoFillModel::isStoringEnabled(const QUrl &url)
 void AutoFillModel::blockStoringfor(const QUrl &url)
 {
     QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
     QSqlQuery query;
     query.prepare("INSERT INTO autofill_exceptions (server) VALUES (?)");
     query.addBindValue(server);
@@ -83,6 +97,10 @@ void AutoFillModel::blockStoringfor(const QUrl &url)
 QString AutoFillModel::getUsername(const QUrl &url)
 {
     QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
     QSqlQuery query;
     query.exec("SELECT username FROM autofill WHERE server='" + server + "'");
     query.next();
@@ -92,6 +110,10 @@ QString AutoFillModel::getUsername(const QUrl &url)
 QString AutoFillModel::getPassword(const QUrl &url)
 {
     QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
     QSqlQuery query;
     query.exec("SELECT password FROM autofill WHERE server='" + server + "'");
     query.next();
@@ -106,8 +128,14 @@ void AutoFillModel::addEntry(const QUrl &url, const QString &name, const QString
     if (query.next()) {
         return;
     }
+
+    QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
     query.prepare("INSERT INTO autofill (server, username, password) VALUES (?,?,?)");
-    query.bindValue(0, url.host());
+    query.bindValue(0, server);
     query.bindValue(1, name);
     query.bindValue(2, pass);
     mApp->dbWriter()->executeQuery(query);
@@ -122,31 +150,48 @@ void AutoFillModel::addEntry(const QUrl &url, const QByteArray &data, const QStr
         return;
     }
 
+    QString server = url.host();
+    if (server.isEmpty()) {
+        server = url.toString();
+    }
+
     query.prepare("INSERT INTO autofill (server, data, username, password) VALUES (?,?,?,?)");
-    query.bindValue(0, url.host());
+    query.bindValue(0, server);
     query.bindValue(1, data);
     query.bindValue(2, user);
     query.bindValue(3, pass);
     mApp->dbWriter()->executeQuery(query);
 }
 
-void AutoFillModel::completePage(WebView* view)
+void AutoFillModel::completePage(WebPage* page)
 {
-    if (!isStored(view->url())) {
+    if (!page) {
+        return;
+    }
+
+    QUrl pageUrl = page->url();
+    if (!isStored(pageUrl)) {
         return;
     }
 
     QWebElementCollection inputs;
     QList<QWebFrame*> frames;
-    frames.append(view->page()->mainFrame());
+    frames.append(page->mainFrame());
     while (!frames.isEmpty()) {
         QWebFrame* frame = frames.takeFirst();
         inputs.append(frame->findAllElements("input"));
         frames += frame->childFrames();
     }
 
+    QString server = pageUrl.host();
+    if (server.isEmpty()) {
+        server = pageUrl.toString();
+    }
+
     QSqlQuery query;
-    query.exec("SELECT data FROM autofill WHERE server='" + view->url().host() + "'");
+    query.prepare("SELECT data FROM autofill WHERE server=?");
+    query.addBindValue(server);
+    query.exec();
     query.next();
     QByteArray data = query.value(0).toByteArray();
     if (data.isEmpty()) {
@@ -183,10 +228,12 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     m_lastOutgoingData = outgoingData;
 
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-    QWebPage* webPage = static_cast<QWebPage*>(v.value<void*>());
-    v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 102));
-    WebView* webView = static_cast<WebView*>(v.value<void*>());
-    if (!webPage || !webView) {
+    WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
+    if (!webPage) {
+        return;
+    }
+    WebView* webView = qobject_cast<WebView*>(webPage->view());
+    if (!webView) {
         return;
     }
 
@@ -201,7 +248,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     QString usernameValue;
     QString passwordName;
     QString passwordValue;
-    QUrl siteUrl = webView->url();
+    QUrl siteUrl = webPage->url();
 
     if (!isStoringEnabled(siteUrl)) {
         return;

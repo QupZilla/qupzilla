@@ -4,11 +4,10 @@
 #include <QObject>
 #include <QSettings>
 
-class Settings : public QObject
+class Settings
 {
-    Q_OBJECT
 public:
-    explicit Settings(QObject* parent = 0);
+    explicit Settings();
     ~Settings();
 
     static void createSettings(const QString &fileName);

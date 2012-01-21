@@ -22,6 +22,7 @@
 
 #include "clickablelabel.h"
 #include "bookmarksmodel.h"
+
 class QupZilla;
 class BookmarksModel;
 class BookmarkIcon : public ClickableLabel
@@ -30,10 +31,6 @@ class BookmarkIcon : public ClickableLabel
 public:
     explicit BookmarkIcon(QupZilla* mainClass, QWidget* parent = 0);
     void checkBookmark(const QUrl &url);
-
-signals:
-
-public slots:
 
 private slots:
     void iconClicked();

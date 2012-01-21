@@ -36,7 +36,7 @@ void IconProvider::saveIcon(WebView* view)
     item.image = view->icon().pixmap(16, 16).toImage();
     item.url = view->url();
 
-    if (item.image.isNull()) {
+    if (item.image == QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage()) {
         return;
     }
 

@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "websearchbar.h"
 #include "qupzilla.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "webpage.h"
 #include "clickablelabel.h"
 #include "buttonwithmenu.h"
@@ -151,7 +151,7 @@ void WebSearchBar::searchInNewTab()
 void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
 {
     WebView* view = p_QupZilla->weView();
-    QWebFrame* frame = view->webPage()->mainFrame();
+    QWebFrame* frame = view->page()->mainFrame();
 
     QWebElementCollection elements = frame->documentElement().findAll(QLatin1String("link[rel=search]"));
     foreach(QWebElement element, elements) {

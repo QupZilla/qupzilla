@@ -203,6 +203,8 @@ void BookmarksToolbar::editBookmark()
 
     editUrl->setText(b.url.toString());
     editTitle->setText(b.title);
+    editUrl->setCursorPosition(0);
+    editTitle->setCursorPosition(0);
 
     dialog->setWindowTitle(tr("Edit Bookmark"));
     dialog->setMinimumSize(400, 100);

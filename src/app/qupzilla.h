@@ -44,13 +44,13 @@
 #include "qwebkitversion.h"
 
 #include "webtab.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "tabwidget.h"
 #include "mainapplication.h"
 #include "locationbar.h"
 
 class TabWidget;
-class WebView;
+class TabbedWebView;
 class LineEdit;
 class SearchToolBar;
 class BookmarksToolbar;
@@ -94,10 +94,12 @@ public:
     void currentTabChanged();
     void updateLoadingActions();
 
+    void addDeleteOnCloseWidget(QWidget* widget);
+
     virtual QMenuBar* menuBar() const;
 
-    inline WebView* weView() const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabWidget->currentIndex())); if (!webTab) return 0; return webTab->view(); }
-    inline WebView* weView(int index) const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index)); if (!webTab) return 0; return webTab->view(); }
+    inline TabbedWebView* weView() const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabWidget->currentIndex())); if (!webTab) return 0; return webTab->view(); }
+    inline TabbedWebView* weView(int index) const { WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index)); if (!webTab) return 0; return webTab->view(); }
     inline LocationBar* locationBar() { return qobject_cast<LocationBar*>(m_tabWidget->locationBars()->currentWidget()); }
     inline TabWidget* tabWidget() { return m_tabWidget; }
     inline BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
@@ -149,7 +151,6 @@ private slots:
     void stop() { weView()->stop(); }
     void reload() { weView()->reload(); }
     void reloadByPassCache() { weView()->page()->triggerAction(QWebPage::ReloadAndBypassCache); }
-    void urlEnter();
     void aboutQupZilla();
     void addTab() { m_tabWidget->addView(QUrl(), TabWidget::NewTab, true); }
     void savePageScreen();
@@ -208,7 +209,6 @@ private slots:
 private:
     void resizeEvent(QResizeEvent* event);
     void keyPressEvent(QKeyEvent* event);
-    void mousePressEvent(QMouseEvent* event);
     void closeEvent(QCloseEvent* event);
 
     void setupUi();
@@ -287,6 +287,8 @@ private:
     bool m_statusBarVisible;
     bool m_navigationVisible;
     bool m_bookmarksToolBarVisible;
+
+    QList<QWeakPointer<QWidget> > m_deleteOnCloseWidgets;
 };
 
 #endif // QUPZILLA_H

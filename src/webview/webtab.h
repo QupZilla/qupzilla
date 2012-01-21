@@ -21,7 +21,7 @@
 #include <QWidget>
 #include <QLayout>
 #include <QWeakPointer>
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "locationbar.h"
 
 class QupZilla;
@@ -32,7 +32,7 @@ class WebTab : public QWidget
 public:
     explicit WebTab(QupZilla* mainClass, LocationBar* locationBar);
     ~WebTab();
-    WebView* view();
+    TabbedWebView* view();
     bool isPinned();
     void pinTab(int index);
     void setPinned(bool state);
@@ -52,7 +52,7 @@ private:
     int tabIndex();
 
     QupZilla* p_QupZilla;
-    QWeakPointer<WebView> m_view;
+    TabbedWebView* m_view;
     QVBoxLayout* m_layout;
     QWeakPointer<LocationBar> m_locationBar;
 

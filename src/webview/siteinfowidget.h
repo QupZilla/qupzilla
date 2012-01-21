@@ -31,7 +31,6 @@ class QupZilla;
 class SiteInfoWidget : public QMenu
 {
     Q_OBJECT
-
 public:
     explicit SiteInfoWidget(QupZilla* mainClass, QWidget* parent = 0);
     ~SiteInfoWidget();

@@ -18,13 +18,11 @@
 #ifndef COMMANDLINEOPTIONS_H
 #define COMMANDLINEOPTIONS_H
 
-#include <QObject>
 #include <QPair>
 #include <iostream>
 
-class CommandLineOptions : public QObject
+class CommandLineOptions
 {
-    Q_OBJECT
 public:
     enum Action { NoAction, OpenUrl, StartWithProfile, StartWithoutAddons,
                   NewTab, NewWindow, ShowDownloadManager, StartPrivateBrowsing,

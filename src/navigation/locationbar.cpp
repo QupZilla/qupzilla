@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "locationbar.h"
 #include "qupzilla.h"
-#include "webview.h"
+#include "tabbedwebview.h"
 #include "rssmanager.h"
 #include "mainapplication.h"
 #include "locationcompleter.h"
@@ -70,7 +70,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
     connect(this, SIGNAL(textEdited(QString)), m_locationCompleter, SLOT(refreshCompleter(QString)));
-    connect(m_locationCompleter->popup(), SIGNAL(clicked(QModelIndex)), p_QupZilla, SLOT(urlEnter()));
+    connect(m_locationCompleter->popup(), SIGNAL(clicked(QModelIndex)), this, SLOT(urlEnter()));
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
@@ -191,9 +191,9 @@ void LocationBar::showRSSIcon(bool state)
     m_rssIcon->setVisible(state);
 }
 
-void LocationBar::showUrl(const QUrl &url, bool empty)
+void LocationBar::showUrl(const QUrl &url)
 {
-    if (hasFocus() || (url.isEmpty() && empty)) {
+    if (hasFocus() || url.isEmpty()) {
         return;
     }
 
@@ -206,16 +206,15 @@ void LocationBar::showUrl(const QUrl &url, bool empty)
     if (url.toEncoded() != text()) {
         setText(encodedUrl);
     }
+
     p_QupZilla->statusBarMessage()->clearMessage();
-
     hideGoButton();
-
     m_bookmarkIcon->checkBookmark(url);
 }
 
 void LocationBar::siteIconChanged()
 {
-    QIcon icon_ = m_webView->siteIcon();
+    QIcon icon_ = m_webView->icon();
 
     if (icon_.isNull()) {
         clearIcon();
@@ -375,7 +374,8 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
 {
     switch (event->key()) {
     case Qt::Key_Escape:
-        setText(m_webView->url().toEncoded());
+        m_webView->setFocus();
+        showUrl(m_webView->url());
         event->accept();
         break;
 

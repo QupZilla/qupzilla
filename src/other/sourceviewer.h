@@ -54,7 +54,7 @@ private slots:
 private:
     QBoxLayout* m_layout;
     QTextEdit* m_sourceEdit;
-    QWebFrame* m_frame;
+    QWeakPointer<QWebFrame> m_frame;
     QStatusBar* m_statusBar;
 };
 

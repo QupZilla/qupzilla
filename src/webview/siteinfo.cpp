@@ -17,9 +17,9 @@
 * ============================================================ */
 #include "siteinfo.h"
 #include "ui_siteinfo.h"
-#include "qupzilla.h"
 #include "webview.h"
 #include "webpage.h"
+#include "mainapplication.h"
 #include "downloaditem.h"
 #include "certificateinfowidget.h"
 #include "globalfunctions.h"
@@ -35,12 +35,12 @@ QString SiteInfo::showCertInfo(const QString &string)
     }
 }
 
-SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent)
+SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::SiteInfo)
-    , p_QupZilla(mainClass)
     , m_certWidget(0)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
     ui->listWidget->item(0)->setIcon(QIcon::fromTheme("document-properties", QIcon(":/icons/preferences/document-properties.png")));
@@ -48,16 +48,16 @@ SiteInfo::SiteInfo(QupZilla* mainClass, QWidget* parent)
     ui->listWidget->item(2)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
     ui->listWidget->item(0)->setSelected(true);
 
-    WebView* view = p_QupZilla->weView();
+    WebPage* webPage = qobject_cast<WebPage*>(view->page());
     QWebFrame* frame = view->page()->mainFrame();
     QString title = view->title();
-    QSslCertificate cert = view->webPage()->sslCertificate();
+    QSslCertificate cert = webPage->sslCertificate();
     m_baseUrl = view->url();
 
     //GENERAL
     ui->heading->setText(QString("<b>%1</b>:").arg(title));
     ui->siteAddress->setText(frame->baseUrl().toString());
-    ui->sizeLabel->setText(DownloadItem::fileSizeToString(view->webPage()->totalBytes()));
+    ui->sizeLabel->setText(DownloadItem::fileSizeToString(webPage->totalBytes()));
     QString encoding;
 
     //Meta

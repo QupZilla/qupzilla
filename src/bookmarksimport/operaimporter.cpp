@@ -16,11 +16,12 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "operaimporter.h"
+#include "bookmarksimportdialog.h"
 
 OperaImporter::OperaImporter(QObject* parent)
     : QObject(parent)
     , m_error(false)
-    , m_errorString(tr("No Error"))
+    , m_errorString(BookmarksImportDialog::tr("No Error"))
 {
 }
 
@@ -35,7 +36,7 @@ bool OperaImporter::openFile()
 
     if (!m_file.open(QFile::ReadOnly)) {
         m_error = true;
-        m_errorString = tr("Unable to open file.");
+        m_errorString = BookmarksImportDialog::tr("Unable to open file.");
         return false;
     }
 
