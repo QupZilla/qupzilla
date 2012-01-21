@@ -177,7 +177,7 @@ QString QupZillaSchemeReply::aboutPage()
 
     aPage.replace("%TITLE%", tr("About QupZilla"));
     aPage.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
-    aPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Informations about version"));
+    aPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
     aPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
     aPage.replace("%PATHS%", tr("Paths"));
     aPage.replace("%COPYRIGHT%", tr("Copyright"));
