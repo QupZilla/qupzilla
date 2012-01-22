@@ -380,11 +380,12 @@ QMenu *WebView::createMediaContextMenu(const QWebHitTestResult &hitTest)
     bool muted = m_mediaElement.evaluateJavaScript("this.muted").toBool();
     QUrl videoUrl = m_mediaElement.evaluateJavaScript("this.currentSrc").toUrl();
 
-    menu->addAction(paused ? tr("Un&pause") : tr("&Pause"), this, SLOT(pauseMedia()));
-    menu->addAction(muted ? tr("Un&mute") : tr("&Mute"), this, SLOT(muteMedia()));
+    menu->addAction(paused ? tr("&Play") : tr("&Pause"), this, SLOT(pauseMedia()))->setIcon(QIcon::fromTheme(paused ? "media-playback-start" : "media-playback-pause"));
+    menu->addAction(muted ? tr("Un&mute") : tr("&Mute"), this, SLOT(muteMedia()))->setIcon(QIcon::fromTheme(muted ? "audio-volume-muted" : "audio-volume-high"));
     menu->addSeparator();
-    menu->addAction(tr("Copy Media &Address"), this, SLOT(copyLinkToClipboard()))->setData(videoUrl);
-    menu->addAction(tr("&Download Media To Disk"), this, SLOT(downloadLinkToDisk()))->setData(videoUrl);
+    menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(videoUrl);
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(videoUrl);
+    menu->addAction(QIcon::fromTheme("download"), tr("&Download Media To Disk"), this, SLOT(downloadLinkToDisk()))->setData(videoUrl);
 
     return menu;
 }
