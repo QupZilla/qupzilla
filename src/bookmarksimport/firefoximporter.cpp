@@ -36,7 +36,7 @@ bool FirefoxImporter::openDatabase()
 
     if (!QFile::exists(m_path)) {
         m_error = true;
-        m_errorString = BookmarksImportDialog::tr("File does not exists.");
+        m_errorString = BookmarksImportDialog::tr("File does not exist.");
         return false;
     }
     db.setDatabaseName(m_path);
