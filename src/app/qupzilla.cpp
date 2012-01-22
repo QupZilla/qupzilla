@@ -1245,9 +1245,7 @@ void QupZilla::showStatusbar()
 
 void QupZilla::showWebInspector()
 {
-#ifdef Q_WS_WIN
-    weView()->triggerPageAction(QWebPage::InspectElement);
-#else
+#ifndef Q_WS_WIN
     if (m_webInspectorDock) {
         m_webInspectorDock.data()->setPage(weView()->webPage());
         m_webInspectorDock.data()->show();
