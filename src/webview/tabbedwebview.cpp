@@ -314,7 +314,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
             findText("");
         }
         m_menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInNewTab()))->setData(r.linkUrl());
-        m_menu->addAction(tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(r.linkUrl());
+        m_menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(r.linkUrl());
         m_menu->addSeparator();
         m_menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(r.linkUrl());
         m_menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadLinkToDisk()))->setData(r.linkUrl());
@@ -322,6 +322,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
         m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(r.linkUrl());
         m_menu->addSeparator();
         if (!selectedText().isEmpty()) {
+            pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
             m_menu->addAction(pageAction(QWebPage::Copy));
         }
     }
@@ -339,6 +340,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
         m_menu->addSeparator();
         //menu->addAction(tr("Block image"), this, SLOT(blockImage()))->setData(r.imageUrl().toString());
         if (!selectedText().isEmpty()) {
+            pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
             m_menu->addAction(pageAction(QWebPage::Copy));
         }
     }
@@ -416,6 +418,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
     if (!selectedText().isEmpty()) {
         QString selectedText = page()->selectedText();
 
+        pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
         m_menu->addAction(pageAction(QWebPage::Copy));
         m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
         m_menu->addSeparator();
@@ -423,7 +426,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
         QString langCode = mApp->getActiveLanguage().left(2);
         QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
         m_menu->addAction(QIcon(":icons/menu/translate.png"), tr("Google Translate"), this, SLOT(openUrlInNewTab()))->setData(googleTranslateUrl);
-        m_menu->addAction(tr("Dictionary"), this, SLOT(openUrlInNewTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
+        m_menu->addAction(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"), this, SLOT(openUrlInNewTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
         m_menu->addSeparator();
 
         QString selectedString = selectedText.trimmed();
