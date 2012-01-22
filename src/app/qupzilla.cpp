@@ -350,7 +350,7 @@ void QupZilla::setupMenu()
     m_menuFile->addSeparator();
     m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), this, SLOT(savePage()))->setShortcut(QKeySequence("Ctrl+S"));
     m_menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()));
-    m_menuFile->addAction(tr("Send Link..."), this, SLOT(sendLink()));
+    m_menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), this, SLOT(sendLink()));
     m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print"), this, SLOT(printPage()));
     m_menuFile->addSeparator();
     m_menuFile->addSeparator();
