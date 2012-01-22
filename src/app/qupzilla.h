@@ -178,6 +178,8 @@ private slots:
     void showNavigationToolbar();
     void showStatusbar();
     void showClearPrivateData();
+    void aboutToShowHistoryRecentMenu();
+    void aboutToShowHistoryMostMenu();
     void showPreferences();
     void showBookmarkImport();
 
@@ -233,6 +235,8 @@ private:
     Menu* m_menuBookmarks;
     Menu* m_menuHistory;
     QMenu* m_menuClosedTabs;
+    QMenu* m_menuHistoryRecent;
+    QMenu* m_menuHistoryMost;
     QMenu* m_menuEncoding;
     QAction* m_menuBookmarksAction;
 #ifdef Q_WS_MAC
