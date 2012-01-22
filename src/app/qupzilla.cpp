@@ -342,7 +342,7 @@ void QupZilla::setupMenu()
     m_menuFile = new QMenu(tr("&File"));
     m_menuFile->addAction(QIcon::fromTheme("window-new"), tr("&New Window"), this, SLOT(newWindow()))->setShortcut(QKeySequence("Ctrl+N"));
     m_menuFile->addAction(QIcon(":/icons/menu/popup.png"), tr("New Tab"), this, SLOT(addTab()))->setShortcut(QKeySequence("Ctrl+T"));
-    m_menuFile->addAction(tr("Open Location"), this, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
+    m_menuFile->addAction(QIcon::fromTheme("document-open-remote"), tr("Open Location"), this, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
     m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File"), this, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
     m_menuFile->addAction(tr("Close Tab"), m_tabWidget, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
     m_actionCloseWindow = m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), this, SLOT(close()));
@@ -350,7 +350,7 @@ void QupZilla::setupMenu()
     m_menuFile->addSeparator();
     m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), this, SLOT(savePage()))->setShortcut(QKeySequence("Ctrl+S"));
     m_menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()));
-    m_menuFile->addAction(tr("Send Link..."), this, SLOT(sendLink()));
+    m_menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), this, SLOT(sendLink()));
     m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print"), this, SLOT(printPage()));
     m_menuFile->addSeparator();
     m_menuFile->addSeparator();
