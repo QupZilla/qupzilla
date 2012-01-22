@@ -322,6 +322,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
         m_menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(r.linkUrl());
         m_menu->addSeparator();
         if (!selectedText().isEmpty()) {
+            pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
             m_menu->addAction(pageAction(QWebPage::Copy));
         }
     }
@@ -339,6 +340,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
         m_menu->addSeparator();
         //menu->addAction(tr("Block image"), this, SLOT(blockImage()))->setData(r.imageUrl().toString());
         if (!selectedText().isEmpty()) {
+            pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
             m_menu->addAction(pageAction(QWebPage::Copy));
         }
     }
@@ -416,6 +418,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
     if (!selectedText().isEmpty()) {
         QString selectedText = page()->selectedText();
 
+        pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
         m_menu->addAction(pageAction(QWebPage::Copy));
         m_menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
         m_menu->addSeparator();
