@@ -257,6 +257,7 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
     if (!m_pasteAndGoAction) {
         m_pasteAndGoAction = new QAction(QIcon::fromTheme("edit-paste"), tr("Paste And &Go"), this);
         m_pasteAndGoAction->setShortcut(QKeySequence("Ctrl+Shift+V"));
+        connect(m_pasteAndGoAction, SIGNAL(triggered()), this, SLOT(pasteAndGo()));
     }
 
     if (!m_clearAction) {
