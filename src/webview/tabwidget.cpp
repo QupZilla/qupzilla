@@ -360,8 +360,9 @@ void TabWidget::closeTab(int index)
 
     if (count() == 1) {
         if (m_dontQuitWithOneTab) {
-            webView->load(m_urlOnNewTab);
+            webView->setUrl(m_urlOnNewTab);
             webPage->history()->clear();
+            p_QupZilla->updateLoadingActions();
             return;
         }
         else {

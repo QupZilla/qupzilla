@@ -48,8 +48,6 @@ PopupWebPage::PopupWebPage(QWebPage::WebWindowType type, QupZilla* mainClass)
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished(bool)));
 
-    settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
-
     QTimer::singleShot(0, this, SLOT(checkBehaviour()));
 }
 

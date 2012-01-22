@@ -1090,6 +1090,7 @@ void QupZilla::loadFolderBookmarks(Menu* menu)
 
 void QupZilla::loadAddress(const QUrl &url)
 {
+    weView()->setFocus();
     weView()->load(url);
     locationBar()->setText(url.toEncoded());
 }

@@ -202,7 +202,7 @@ void LocationBar::showUrl(const QUrl &url)
 
     QString encodedUrl = url.toEncoded();
 
-    if (url.toString() == "qupzilla:speeddial") {
+    if (url.toString() == "qupzilla:speeddial" || url.toString() == "about:blank") {
         encodedUrl = "";
     }
 

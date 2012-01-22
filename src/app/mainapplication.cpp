@@ -356,6 +356,7 @@ void MainApplication::loadSettings()
 
     m_websettings->setUserStyleSheetUrl(userStyleSheet);
     m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::fromTheme("text-plain").pixmap(16, 16));
+    m_websettings->setWebGraphic(QWebSettings::MissingImageGraphic, QPixmap());
 
     // Allows to load files from qrc: scheme in qupzilla: pages
     QWebSecurityOrigin::addLocalScheme("qupzilla");
