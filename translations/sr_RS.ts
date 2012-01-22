@@ -483,13 +483,9 @@
         <translation>Не могу да обрадим ЈСОН фајл.</translation>
     </message>
     <message>
-        <source>File does not exists.</source>
-        <translation type="obsolete">Фајл не постоји.</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="39"/>
         <source>File does not exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Фајл не постоји.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="47"/>
@@ -4173,6 +4169,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Inspect Element</source>
         <translation>Провери елемент</translation>
     </message>
+</context>
 <context>
     <name>ThemeManager</name>
     <message>
