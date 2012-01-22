@@ -14,49 +14,49 @@
         <translation>作者</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="45"/>
-        <location filename="../src/other/aboutdialog.cpp" line="55"/>
+        <location filename="../src/other/aboutdialog.cpp" line="46"/>
+        <location filename="../src/other/aboutdialog.cpp" line="56"/>
         <source>Authors and Contributors</source>
         <translation>作者及贡献者</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="48"/>
-        <location filename="../src/other/aboutdialog.cpp" line="75"/>
+        <location filename="../src/other/aboutdialog.cpp" line="49"/>
+        <location filename="../src/other/aboutdialog.cpp" line="76"/>
         <source>&lt; About QupZilla</source>
         <translation>关于作者</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="58"/>
+        <location filename="../src/other/aboutdialog.cpp" line="59"/>
         <source>&lt;p&gt;&lt;b&gt;Application version %1&lt;/b&gt;&lt;br/&gt;</source>
         <translation>程序版本 %1</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="63"/>
+        <location filename="../src/other/aboutdialog.cpp" line="64"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>Webkit版本 %1</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="64"/>
+        <location filename="../src/other/aboutdialog.cpp" line="65"/>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="65"/>
+        <location filename="../src/other/aboutdialog.cpp" line="66"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="78"/>
+        <location filename="../src/other/aboutdialog.cpp" line="79"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="79"/>
+        <location filename="../src/other/aboutdialog.cpp" line="80"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>贡献人员 %1</translation>
     </message>
     <message>
-        <location filename="../src/other/aboutdialog.cpp" line="86"/>
+        <location filename="../src/other/aboutdialog.cpp" line="87"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>翻译人员 %1</translation>
     </message>
@@ -171,32 +171,32 @@
         <translation type="obsolete">AdBlock为你阻止网页上任何不需要的内容</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="29"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="31"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="39"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="41"/>
         <source>Show AdBlock &amp;Settings</source>
         <translation>显示AdBlock和设置 &amp;S</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="43"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="45"/>
         <source>No content blocked</source>
         <translation>没有内容受阻</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="46"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="48"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translation>封锁的网址（AdBlock的规则） - 单击“编辑规则”</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="49"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="51"/>
         <source>%1 with (%2)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="53"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="55"/>
         <source>Learn About Writing &amp;Rules</source>
         <translation>了解写作与规则 &amp;R</translation>
     </message>
@@ -335,13 +335,13 @@
 <context>
     <name>BookmarkIcon</name>
     <message>
-        <location filename="../src/bookmarks/bookmarkicon.cpp" line="31"/>
-        <location filename="../src/bookmarks/bookmarkicon.cpp" line="96"/>
+        <location filename="../src/bookmarks/bookmarkicon.cpp" line="33"/>
+        <location filename="../src/bookmarks/bookmarkicon.cpp" line="98"/>
         <source>Bookmark this Page</source>
         <translation>收藏本页</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkicon.cpp" line="88"/>
+        <location filename="../src/bookmarks/bookmarkicon.cpp" line="90"/>
         <source>Edit this bookmark</source>
         <translation>编辑此书签</translation>
     </message>
@@ -524,12 +524,12 @@
         <translation>导入书签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="218"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="219"/>
         <source>Add Subfolder</source>
         <translation>添加子文件夹</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="128"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="129"/>
         <source>Rename Folder</source>
         <translation>重命名文件夹</translation>
     </message>
@@ -544,27 +544,27 @@
         <translation>优化数据库</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="94"/>
         <source>Add new folder</source>
         <translation>添加新的文件夹</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="93"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="94"/>
         <source>Choose name for new bookmark folder: </source>
         <translation>选择新的书签文件夹名称：</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="103"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="104"/>
         <source>Add new subfolder</source>
         <translation>添加新的子文件夹</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="103"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="104"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
         <translation>选择新的子文件夹在书签工具栏的名称：</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="128"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="129"/>
         <source>Choose name for folder: </source>
         <translation>选择文件夹的名称：</translation>
     </message>
@@ -573,62 +573,62 @@
         <translation type="obsolete">新标签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="550"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="551"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
         <translation>&lt;b&gt;警告：&lt;/b&gt;您已经有了此页书签！</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="563"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="564"/>
         <source>Choose name and location of this bookmark.</source>
         <translation>选择书签的名称和位置.</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="239"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in actual &amp;tab</source>
         <translation>在当前标签中打开链接 &amp;tab</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="241"/>
         <source>Open link in &amp;new tab</source>
         <translation>在新标签中打开链接 &amp;new tab</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="244"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="245"/>
         <source>Move bookmark to &amp;folder</source>
         <translation>移动书签和文件夹 &amp;f</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="223"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="224"/>
         <source>Rename folder</source>
         <translation>重命名文件夹</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="224"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="225"/>
         <source>Remove folder</source>
         <translation>删除文件夹</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="256"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
         <source>Rename bookmark</source>
         <translation>重命名书签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="258"/>
         <source>Remove bookmark</source>
         <translation>删除书签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="567"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="568"/>
         <source>Add New Bookmark</source>
         <translation>添加新标签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="608"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="609"/>
         <source>Choose folder for bookmarks:</source>
         <translation>选择标签文件夹:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="609"/>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="610"/>
         <source>Bookmark All Tabs</source>
         <translation>为所有标签创建书签</translation>
     </message>
@@ -689,88 +689,88 @@
 <context>
     <name>BookmarksToolbar</name>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="62"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="64"/>
         <source>&amp;Bookmark Current Page</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="63"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="65"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="64"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="66"/>
         <source>&amp;Organize Bookmarks</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="66"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="68"/>
         <source>Hide Most &amp;Visited</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="66"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="68"/>
         <source>Show Most &amp;Visited</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="67"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="69"/>
         <source>&amp;Hide Toolbar</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="87"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
         <source>Move right</source>
         <translation>向右移动</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="88"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="90"/>
         <source>Move left</source>
         <translation>向左移动</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
         <source>Edit bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="93"/>
         <source>Remove bookmark</source>
         <translation>删除书签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="198"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
         <source>Edit bookmark: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="202"/>
         <source>Title: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="201"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="203"/>
         <source>Url: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="209"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="211"/>
         <source>Edit Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="512"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="514"/>
         <source>Most visited</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="513"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="515"/>
         <source>Sites you visited the most</source>
         <translation>您最常访问的网站</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="549"/>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="600"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="551"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="602"/>
         <source>Empty</source>
         <translation>空页面</translation>
     </message>
@@ -982,7 +982,7 @@
 <context>
     <name>ClickToFlash</name>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="125"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="126"/>
         <source>Object blocked by ClickToFlash</source>
         <translation>点击Flash封锁的对象</translation>
     </message>
@@ -991,37 +991,37 @@
         <translation type="obsolete">显示有关对象的更多信息</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="126"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="127"/>
         <source>Show more information about object</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="128"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="129"/>
         <source>Delete object</source>
         <translation>删除对象</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="129"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="130"/>
         <source>Add %1 to whitelist</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="268"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="269"/>
         <source>Flash Object</source>
         <translation>Flash对象</translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="271"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="272"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="271"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="272"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/plugins/clicktoflash.cpp" line="285"/>
+        <location filename="../src/plugins/clicktoflash.cpp" line="286"/>
         <source>No more information available.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1324,8 +1324,8 @@
     <name>DownloadManager</name>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="106"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="234"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="107"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="235"/>
         <source>Download Manager</source>
         <translation>下载管理</translation>
     </message>
@@ -1335,32 +1335,32 @@
         <translation>清除</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="138"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="139"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1%的%2文件(%3)%4剩余</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="141"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="142"/>
         <source>% - Download Manager</source>
         <translation>% - 下载管理</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="227"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="228"/>
         <source>Download Finished</source>
         <translation>下载完成</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="227"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="228"/>
         <source>All files have been successfully downloaded.</source>
         <translation>所有文件已成功下载.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="279"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="280"/>
         <source>Warning</source>
         <translation>注意</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="280"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="281"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>下载未完成确认退出吗？</translation>
     </message>
@@ -1498,45 +1498,45 @@
         <translation type="obsolete">新标签</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="99"/>
+        <location filename="../src/history/historymanager.cpp" line="101"/>
         <source>Open link in actual tab</source>
         <translation>在当前标签打开链接 </translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="100"/>
+        <location filename="../src/history/historymanager.cpp" line="102"/>
         <source>Open link in new tab</source>
         <translation>在新标签打开链接 </translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="102"/>
+        <location filename="../src/history/historymanager.cpp" line="104"/>
         <source>Copy address</source>
         <translation>复制地址</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="154"/>
-        <location filename="../src/history/historymanager.cpp" line="245"/>
+        <location filename="../src/history/historymanager.cpp" line="156"/>
+        <location filename="../src/history/historymanager.cpp" line="247"/>
         <source>Today</source>
         <translation>到今天</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="157"/>
-        <location filename="../src/history/historymanager.cpp" line="248"/>
+        <location filename="../src/history/historymanager.cpp" line="159"/>
+        <location filename="../src/history/historymanager.cpp" line="250"/>
         <source>This Week</source>
         <translation>本周</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="160"/>
-        <location filename="../src/history/historymanager.cpp" line="251"/>
+        <location filename="../src/history/historymanager.cpp" line="162"/>
+        <location filename="../src/history/historymanager.cpp" line="253"/>
         <source>This Month</source>
         <translation>本月</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="217"/>
+        <location filename="../src/history/historymanager.cpp" line="219"/>
         <source>Confirmation</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="218"/>
+        <location filename="../src/history/historymanager.cpp" line="220"/>
         <source>Are you sure to delete all history?</source>
         <translation>确定删除所有历史吗？</translation>
     </message>
@@ -1631,35 +1631,35 @@
         <translation type="obsolete">新标签</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="93"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
         <source>Open link in actual tab</source>
         <translation>在当前标签打开链接 </translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="94"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
         <source>Open link in new tab</source>
         <translation>在新标签打开链接 </translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="98"/>
         <source>Copy address</source>
         <translation>复制地址</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="113"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="216"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="115"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="218"/>
         <source>Today</source>
         <translation>到今天</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="116"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="219"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="118"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="221"/>
         <source>This Week</source>
         <translation>本周</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="119"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="222"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="121"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="224"/>
         <source>This Month</source>
         <translation>本月</translation>
     </message>
@@ -1678,27 +1678,27 @@
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="54"/>
+        <location filename="../src/navigation/locationbar.cpp" line="55"/>
         <source>Add RSS from this page...</source>
         <translation>从网页添加RSS...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="92"/>
+        <location filename="../src/navigation/locationbar.cpp" line="93"/>
         <source>Enter URL address or search on %1</source>
         <translation>输入URL地址或在%1上搜索</translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="255"/>
+        <location filename="../src/navigation/locationbar.cpp" line="258"/>
         <source>Paste And &amp;Go</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="261"/>
+        <location filename="../src/navigation/locationbar.cpp" line="263"/>
         <source>Clear All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigation/locationbar.cpp" line="409"/>
+        <location filename="../src/navigation/locationbar.cpp" line="420"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.co.uk</translation>
@@ -1712,12 +1712,12 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="812"/>
+        <location filename="../src/app/mainapplication.cpp" line="803"/>
         <source>Last session crashed</source>
         <translation>会话崩溃</translation>
     </message>
     <message>
-        <location filename="../src/app/mainapplication.cpp" line="813"/>
+        <location filename="../src/app/mainapplication.cpp" line="804"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>QupZilla上次结束时崩溃，我们非常遗憾。您要还原保存的状态吗？</translation>
     </message>
@@ -1725,44 +1725,44 @@
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="33"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="36"/>
         <source>No Named Page</source>
         <translation>无命名页面</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="54"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="57"/>
         <source>Back</source>
         <translation>后退</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="62"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="65"/>
         <source>Forward</source>
         <translation>前进</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="78"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="81"/>
         <source>Home</source>
         <translation>主页</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="85"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="88"/>
         <source>New Tab</source>
         <translation>新标签</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="98"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="101"/>
         <source>Main Menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="113"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="114"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="116"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="117"/>
         <source>Exit Fullscreen</source>
         <translation>退出全屏</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="200"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="236"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="203"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="239"/>
         <source>Clear history</source>
         <translation>清除历史</translation>
     </message>
@@ -1943,160 +1943,100 @@
 <context>
     <name>PopupWebView</name>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="60"/>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished">在新窗口中打开链接&amp;w</translation>
+        <translation type="obsolete">在新窗口中打开链接&amp;w</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="62"/>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished">链接另存为&amp;S...</translation>
+        <translation type="obsolete">链接另存为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="63"/>
         <source>Send link...</source>
-        <translation type="unfinished">发送链接...</translation>
+        <translation type="obsolete">发送链接...</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="64"/>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished">复制链接地址&amp;C</translation>
+        <translation type="obsolete">复制链接地址&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="75"/>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished">显示图像&amp;m</translation>
+        <translation type="obsolete">显示图像&amp;m</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="76"/>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished">复制图像&amp;a</translation>
+        <translation type="obsolete">复制图像&amp;a</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="77"/>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished">复制图像地址&amp;d</translation>
+        <translation type="obsolete">复制图像地址&amp;d</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="79"/>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished">图像另存为&amp;S...</translation>
+        <translation type="obsolete">图像另存为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="80"/>
         <source>Send image...</source>
-        <translation type="unfinished">发送图像...</translation>
+        <translation type="obsolete">发送图像...</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="98"/>
         <source>&amp;Back</source>
-        <translation type="unfinished">后退&amp;B</translation>
+        <translation type="obsolete">后退&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="102"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished">前进&amp;F</translation>
+        <translation type="obsolete">前进&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="106"/>
-        <location filename="../src/webview/popupwebview.cpp" line="116"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished">刷新&amp;R</translation>
+        <translation type="obsolete">刷新&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="107"/>
         <source>S&amp;top</source>
-        <translation type="unfinished">停止&amp;t</translation>
+        <translation type="obsolete">停止&amp;t</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="113"/>
         <source>This frame</source>
-        <translation type="unfinished">此帧</translation>
+        <translation type="obsolete">此帧</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="114"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished">仅显示此帧&amp;o</translation>
+        <translation type="obsolete">仅显示此帧&amp;o</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="117"/>
         <source>Print frame</source>
-        <translation type="unfinished">打印帧</translation>
+        <translation type="obsolete">打印帧</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="119"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished">放大&amp;i</translation>
+        <translation type="obsolete">放大&amp;i</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="120"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished">缩小&amp;Z</translation>
+        <translation type="obsolete">缩小&amp;Z</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="121"/>
         <source>Reset</source>
-        <translation type="unfinished">重置</translation>
+        <translation type="obsolete">重置</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="123"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished">显示帧源码&amp;u</translation>
+        <translation type="obsolete">显示帧源码&amp;u</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="129"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished">保存网页为&amp;S...</translation>
+        <translation type="obsolete">保存网页为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="130"/>
-        <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/popupwebview.cpp" line="131"/>
-        <source>Send page link...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/popupwebview.cpp" line="132"/>
-        <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/popupwebview.cpp" line="134"/>
         <source>Select &amp;all</source>
-        <translation type="unfinished">选取所有&amp;a</translation>
+        <translation type="obsolete">选取所有&amp;a</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="136"/>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished">显示源代码&amp;u</translation>
+        <translation type="obsolete">显示源代码&amp;u</translation>
     </message>
     <message>
-        <location filename="../src/webview/popupwebview.cpp" line="138"/>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished">显示有关网站的信息&amp;o</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/popupwebview.cpp" line="145"/>
-        <source>Send text...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/popupwebview.cpp" line="150"/>
-        <source>Google Translate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/popupwebview.cpp" line="151"/>
-        <source>Dictionary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/popupwebview.cpp" line="162"/>
-        <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">显示有关网站的信息&amp;o</translation>
     </message>
 </context>
 <context>
@@ -2242,7 +2182,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="429"/>
-        <location filename="../src/preferences/preferences.cpp" line="620"/>
+        <location filename="../src/preferences/preferences.cpp" line="621"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>注意：您不能删除活动配置文件。</translation>
     </message>
@@ -2774,58 +2714,58 @@
         <translation>外观</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="421"/>
+        <location filename="../src/preferences/preferences.cpp" line="422"/>
         <source>OSD Notification</source>
         <translation>OSD的通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="422"/>
+        <location filename="../src/preferences/preferences.cpp" line="423"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>在屏幕上拖动它到你想要的地方。</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="450"/>
+        <location filename="../src/preferences/preferences.cpp" line="451"/>
         <source>Choose download location...</source>
         <translation>选择下载位置... ...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="464"/>
+        <location filename="../src/preferences/preferences.cpp" line="465"/>
         <source>Choose stylesheet location...</source>
         <translation>选择样式表的位置...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="580"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
         <source>New Profile</source>
         <translation>新的配置文件</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="580"/>
+        <location filename="../src/preferences/preferences.cpp" line="581"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>输入新配置文件的名称：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="587"/>
-        <location filename="../src/preferences/preferences.cpp" line="591"/>
+        <location filename="../src/preferences/preferences.cpp" line="588"/>
+        <location filename="../src/preferences/preferences.cpp" line="592"/>
         <source>Error!</source>
         <translation>错误！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="587"/>
+        <location filename="../src/preferences/preferences.cpp" line="588"/>
         <source>This profile already exists!</source>
         <translation>此配置文件已经存在！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="591"/>
+        <location filename="../src/preferences/preferences.cpp" line="592"/>
         <source>Cannot create profile directory!</source>
         <translation>无法创建配置文件目录！</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="605"/>
+        <location filename="../src/preferences/preferences.cpp" line="606"/>
         <source>Confirmation</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="606"/>
+        <location filename="../src/preferences/preferences.cpp" line="607"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>您确定要永久删除“%1”个人资料吗？这将无法复原！</translation>
     </message>
@@ -2884,309 +2824,309 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="258"/>
+        <location filename="../src/app/qupzilla.cpp" line="271"/>
         <source>Private Browsing Enabled</source>
         <translation>启用隐私浏览</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="262"/>
+        <location filename="../src/app/qupzilla.cpp" line="275"/>
         <source>IP Address of current page</source>
         <translation>当前页面的IP地址</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="382"/>
+        <location filename="../src/app/qupzilla.cpp" line="415"/>
         <source>Bookmarks</source>
         <translation>书签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="386"/>
+        <location filename="../src/app/qupzilla.cpp" line="419"/>
         <source>History</source>
         <translation>历史</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="310"/>
+        <location filename="../src/app/qupzilla.cpp" line="343"/>
         <source>&amp;New Window</source>
         <translation>打开新窗口&amp;N</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="311"/>
+        <location filename="../src/app/qupzilla.cpp" line="344"/>
         <source>New Tab</source>
         <translation>新标签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="312"/>
+        <location filename="../src/app/qupzilla.cpp" line="345"/>
         <source>Open Location</source>
         <translation>打开位置</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="313"/>
+        <location filename="../src/app/qupzilla.cpp" line="346"/>
         <source>Open &amp;File</source>
         <translation>打开&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="314"/>
+        <location filename="../src/app/qupzilla.cpp" line="347"/>
         <source>Close Tab</source>
         <translation>关闭标签页</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="315"/>
+        <location filename="../src/app/qupzilla.cpp" line="348"/>
         <source>Close Window</source>
         <translation>关闭窗口</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="318"/>
+        <location filename="../src/app/qupzilla.cpp" line="351"/>
         <source>&amp;Save Page As...</source>
         <translation>保存页作为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="319"/>
+        <location filename="../src/app/qupzilla.cpp" line="352"/>
         <source>Save Page Screen</source>
         <translation>保存屏幕网页</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="320"/>
+        <location filename="../src/app/qupzilla.cpp" line="353"/>
         <source>Send Link...</source>
         <translation>发送链接...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="321"/>
+        <location filename="../src/app/qupzilla.cpp" line="354"/>
         <source>&amp;Print</source>
         <translation>打印&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="324"/>
+        <location filename="../src/app/qupzilla.cpp" line="357"/>
         <source>Import bookmarks...</source>
         <translation>导入书签...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="291"/>
+        <location filename="../src/app/qupzilla.cpp" line="324"/>
         <source>Quit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="335"/>
+        <location filename="../src/app/qupzilla.cpp" line="368"/>
         <source>&amp;Undo</source>
         <translation>撤消&amp;U</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="336"/>
+        <location filename="../src/app/qupzilla.cpp" line="369"/>
         <source>&amp;Redo</source>
         <translation>重做&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="338"/>
+        <location filename="../src/app/qupzilla.cpp" line="371"/>
         <source>&amp;Cut</source>
         <translation>剪切&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="339"/>
+        <location filename="../src/app/qupzilla.cpp" line="372"/>
         <source>C&amp;opy</source>
         <translation>复制&amp;o</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="340"/>
+        <location filename="../src/app/qupzilla.cpp" line="373"/>
         <source>&amp;Paste</source>
         <translation>粘贴&amp;p</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="341"/>
+        <location filename="../src/app/qupzilla.cpp" line="374"/>
         <source>&amp;Delete</source>
         <translation>删除&amp;D</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="343"/>
+        <location filename="../src/app/qupzilla.cpp" line="376"/>
         <source>Select &amp;All</source>
         <translation>选取所有&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="344"/>
+        <location filename="../src/app/qupzilla.cpp" line="377"/>
         <source>&amp;Find</source>
         <translation>查找&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="298"/>
+        <location filename="../src/app/qupzilla.cpp" line="331"/>
         <source>&amp;Tools</source>
         <translation>工具&amp;T</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="103"/>
+        <location filename="../src/app/qupzilla.cpp" line="104"/>
         <source>QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="299"/>
+        <location filename="../src/app/qupzilla.cpp" line="332"/>
         <source>&amp;Help</source>
         <translation>帮助&amp;H</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="300"/>
+        <location filename="../src/app/qupzilla.cpp" line="333"/>
         <source>&amp;Bookmarks</source>
         <translation>书签&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="301"/>
+        <location filename="../src/app/qupzilla.cpp" line="334"/>
         <source>Hi&amp;story</source>
         <translation>历史&amp;s</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="309"/>
+        <location filename="../src/app/qupzilla.cpp" line="342"/>
         <source>&amp;File</source>
         <translation>文件&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="334"/>
+        <location filename="../src/app/qupzilla.cpp" line="367"/>
         <source>&amp;Edit</source>
         <translation>编辑&amp;E</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="354"/>
+        <location filename="../src/app/qupzilla.cpp" line="387"/>
         <source>&amp;View</source>
         <translation>查看&amp;V</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="355"/>
+        <location filename="../src/app/qupzilla.cpp" line="388"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>导航工具栏&amp;N</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="358"/>
+        <location filename="../src/app/qupzilla.cpp" line="391"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>书签工具栏&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="361"/>
+        <location filename="../src/app/qupzilla.cpp" line="394"/>
         <source>Sta&amp;tus Bar</source>
         <translation>状态栏&amp;t</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="364"/>
+        <location filename="../src/app/qupzilla.cpp" line="397"/>
         <source>&amp;Menu Bar</source>
         <translation>菜单栏&amp;M</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="367"/>
+        <location filename="../src/app/qupzilla.cpp" line="400"/>
         <source>&amp;Fullscreen</source>
         <translation>全屏&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="371"/>
+        <location filename="../src/app/qupzilla.cpp" line="404"/>
         <source>&amp;Stop</source>
         <translation>停止&amp;S</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="374"/>
+        <location filename="../src/app/qupzilla.cpp" line="407"/>
         <source>&amp;Reload</source>
         <translation>刷新&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="377"/>
+        <location filename="../src/app/qupzilla.cpp" line="410"/>
         <source>Character &amp;Encoding</source>
         <translation>字符与编码&amp;E</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="391"/>
+        <location filename="../src/app/qupzilla.cpp" line="424"/>
         <source>Toolbars</source>
         <translation>工具栏</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="395"/>
+        <location filename="../src/app/qupzilla.cpp" line="428"/>
         <source>Sidebars</source>
         <translation>侧边栏</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="406"/>
+        <location filename="../src/app/qupzilla.cpp" line="439"/>
         <source>Zoom &amp;In</source>
         <translation>放大&amp;I</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="407"/>
+        <location filename="../src/app/qupzilla.cpp" line="440"/>
         <source>Zoom &amp;Out</source>
         <translation>缩小&amp;O</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="408"/>
+        <location filename="../src/app/qupzilla.cpp" line="441"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="412"/>
+        <location filename="../src/app/qupzilla.cpp" line="445"/>
         <source>&amp;Page Source</source>
         <translation>页面源代码&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="425"/>
+        <location filename="../src/app/qupzilla.cpp" line="458"/>
         <source>Closed Tabs</source>
         <translation>关闭标签页</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="431"/>
+        <location filename="../src/app/qupzilla.cpp" line="464"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>还原关闭的标签&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="557"/>
+        <location filename="../src/app/qupzilla.cpp" line="590"/>
         <source> (Private Browsing)</source>
         <translation>（私人浏览）</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="622"/>
+        <location filename="../src/app/qupzilla.cpp" line="655"/>
         <source>Bookmark &amp;This Page</source>
         <translation>收藏本页&amp;T</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="623"/>
+        <location filename="../src/app/qupzilla.cpp" line="656"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>收藏全部标签页&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="624"/>
+        <location filename="../src/app/qupzilla.cpp" line="657"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>组织书签&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="664"/>
-        <location filename="../src/app/qupzilla.cpp" line="692"/>
-        <location filename="../src/app/qupzilla.cpp" line="778"/>
+        <location filename="../src/app/qupzilla.cpp" line="697"/>
+        <location filename="../src/app/qupzilla.cpp" line="725"/>
+        <location filename="../src/app/qupzilla.cpp" line="811"/>
         <source>Empty</source>
         <translation>空页面</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="721"/>
+        <location filename="../src/app/qupzilla.cpp" line="754"/>
         <source>&amp;Back</source>
         <translation>后退&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="722"/>
+        <location filename="../src/app/qupzilla.cpp" line="755"/>
         <source>&amp;Forward</source>
         <translation>前进&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="723"/>
+        <location filename="../src/app/qupzilla.cpp" line="756"/>
         <source>&amp;Home</source>
         <translation>主页&amp;H</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="728"/>
+        <location filename="../src/app/qupzilla.cpp" line="761"/>
         <source>Show &amp;All History</source>
         <translation>显示所有历史页&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="781"/>
+        <location filename="../src/app/qupzilla.cpp" line="814"/>
         <source>Restore All Closed Tabs</source>
         <translation>还原关闭的标签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="782"/>
+        <location filename="../src/app/qupzilla.cpp" line="815"/>
         <source>Clear list</source>
         <translation>清除列表</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="792"/>
+        <location filename="../src/app/qupzilla.cpp" line="825"/>
         <source>About &amp;Qt</source>
         <translation>关于Qt&amp;Q</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="282"/>
+        <location filename="../src/app/qupzilla.cpp" line="315"/>
         <source>&amp;About QupZilla</source>
         <translation>关于QupZIlla&amp;A</translation>
     </message>
@@ -3195,117 +3135,117 @@
         <translation type="obsolete">软件信息</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="801"/>
+        <location filename="../src/app/qupzilla.cpp" line="834"/>
         <source>Report &amp;Issue</source>
         <translation>报告及发行&amp;I</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="807"/>
+        <location filename="../src/app/qupzilla.cpp" line="840"/>
         <source>&amp;Web Search</source>
         <translation>&amp;W网页搜索</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="808"/>
+        <location filename="../src/app/qupzilla.cpp" line="841"/>
         <source>Page &amp;Info</source>
         <translation>网页信息&amp;I</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="810"/>
+        <location filename="../src/app/qupzilla.cpp" line="843"/>
         <source>&amp;Download Manager</source>
         <translation>下载管理&amp;D</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="811"/>
+        <location filename="../src/app/qupzilla.cpp" line="844"/>
         <source>&amp;Cookies Manager</source>
         <translation>管理Cookies&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="812"/>
+        <location filename="../src/app/qupzilla.cpp" line="845"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="813"/>
+        <location filename="../src/app/qupzilla.cpp" line="846"/>
         <source>RSS &amp;Reader</source>
         <translation>RSS阅读器&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="814"/>
+        <location filename="../src/app/qupzilla.cpp" line="847"/>
         <source>Clear Recent &amp;History</source>
         <translation>清除最近的历史&amp;H</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="815"/>
+        <location filename="../src/app/qupzilla.cpp" line="848"/>
         <source>&amp;Private Browsing</source>
         <translation>隐私浏览&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1565"/>
+        <location filename="../src/app/qupzilla.cpp" line="1643"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>还有%1打开的标签和您的会话将不会被储存。你一定要退出吗？</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="286"/>
+        <location filename="../src/app/qupzilla.cpp" line="319"/>
         <source>Pr&amp;eferences</source>
         <translation>首选项&amp;e</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="796"/>
+        <location filename="../src/app/qupzilla.cpp" line="829"/>
         <source>Information about application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="889"/>
+        <location filename="../src/app/qupzilla.cpp" line="922"/>
         <source>Other</source>
         <translation>其他</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="899"/>
+        <location filename="../src/app/qupzilla.cpp" line="932"/>
         <source>Default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1207"/>
+        <location filename="../src/app/qupzilla.cpp" line="1280"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1279"/>
+        <location filename="../src/app/qupzilla.cpp" line="1357"/>
         <source>Open file...</source>
         <translation>打开文件...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1389"/>
+        <location filename="../src/app/qupzilla.cpp" line="1467"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>你确定要打开隐私浏览吗？</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1390"/>
+        <location filename="../src/app/qupzilla.cpp" line="1468"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>打开隐私浏览时，有关于您的隐私行动将被禁用：</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/app/qupzilla.cpp" line="1471"/>
         <source>Webpages are not added to the history.</source>
         <translation>网页不会添加到历史记录。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1394"/>
+        <location filename="../src/app/qupzilla.cpp" line="1472"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>当前的cookies无法被访问。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1395"/>
+        <location filename="../src/app/qupzilla.cpp" line="1473"/>
         <source>Your session is not stored.</source>
         <translation>不会存储您的会话。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1397"/>
+        <location filename="../src/app/qupzilla.cpp" line="1475"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>直到您关闭该窗口，你仍然可以单击后退和前进按钮，返回到你已经打开的网页.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1402"/>
+        <location filename="../src/app/qupzilla.cpp" line="1480"/>
         <source>Start Private Browsing</source>
         <translation>开始隐私浏览</translation>
     </message>
@@ -4138,38 +4078,38 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>更多...</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="36"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="37"/>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
         <translation>您连接到这个网站是&lt;b&gt;担保&lt;/ B&gt;。</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="40"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="41"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
         <translation>您连接到这个网站是&lt;b&gt;无担保&lt;/ B&gt;。</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="56"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="57"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
         <translation>你&lt;b&gt;从未&lt;/ B&gt;访问过此网站。</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="63"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="64"/>
         <source>first</source>
         <translation>第一</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="66"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="67"/>
         <source>second</source>
         <translation>第二</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="69"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="70"/>
         <source>third</source>
         <translation>第三</translation>
     </message>
     <message>
-        <location filename="../src/webview/siteinfowidget.cpp" line="52"/>
-        <location filename="../src/webview/siteinfowidget.cpp" line="71"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="53"/>
+        <location filename="../src/webview/siteinfowidget.cpp" line="72"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
         <translation>这是您的&lt;b&gt;%1&lt;/b&gt;此网站的访问。</translation>
     </message>
@@ -4434,23 +4374,23 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>新标签</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="218"/>
+        <location filename="../src/webview/tabwidget.cpp" line="234"/>
         <source>Loading...</source>
         <translation>载入中...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="222"/>
+        <location filename="../src/webview/tabwidget.cpp" line="238"/>
         <source>No Named Page</source>
         <translation>无命名页面</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="239"/>
+        <location filename="../src/webview/tabwidget.cpp" line="255"/>
         <source>Actually you have %1 opened tabs</source>
         <translation>你已有%1打开的标签</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="251"/>
-        <location filename="../src/webview/tabwidget.h" line="75"/>
+        <location filename="../src/webview/tabwidget.cpp" line="267"/>
+        <location filename="../src/webview/tabwidget.h" line="74"/>
         <source>New tab</source>
         <translation>新标签</translation>
     </message>
@@ -4458,210 +4398,144 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabbedWebView</name>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="89"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="88"/>
         <source>Failed loading page</source>
         <translation type="unfinished">载入页面失败</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="153"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="158"/>
         <source>Loading...</source>
         <translation type="unfinished">载入中...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="228"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="233"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="316"/>
-        <source>Open link in new &amp;tab</source>
-        <translation type="unfinished">在新标签中打开链接&amp;t</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="317"/>
-        <source>Open link in new &amp;window</source>
-        <translation type="unfinished">在新窗口中打开链接&amp;w</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="319"/>
-        <source>B&amp;ookmark link</source>
-        <translation type="unfinished">书签链接&amp;o</translation>
-    </message>
-    <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="320"/>
+        <source>Inspect Element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open link in new &amp;tab</source>
+        <translation type="obsolete">在新标签中打开链接&amp;t</translation>
+    </message>
+    <message>
+        <source>Open link in new &amp;window</source>
+        <translation type="obsolete">在新窗口中打开链接&amp;w</translation>
+    </message>
+    <message>
+        <source>B&amp;ookmark link</source>
+        <translation type="obsolete">书签链接&amp;o</translation>
+    </message>
+    <message>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished">链接另存为&amp;S...</translation>
+        <translation type="obsolete">链接另存为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="321"/>
         <source>Send link...</source>
-        <translation type="unfinished">发送链接...</translation>
+        <translation type="obsolete">发送链接...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="322"/>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished">复制链接地址&amp;C</translation>
+        <translation type="obsolete">复制链接地址&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="333"/>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished">显示图像&amp;m</translation>
+        <translation type="obsolete">显示图像&amp;m</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="334"/>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished">复制图像&amp;a</translation>
+        <translation type="obsolete">复制图像&amp;a</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="335"/>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished">复制图像地址&amp;d</translation>
+        <translation type="obsolete">复制图像地址&amp;d</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="337"/>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished">图像另存为&amp;S...</translation>
+        <translation type="obsolete">图像另存为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="338"/>
         <source>Send image...</source>
-        <translation type="unfinished">发送图像...</translation>
+        <translation type="obsolete">发送图像...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="356"/>
         <source>&amp;Back</source>
-        <translation type="unfinished">后退&amp;B</translation>
+        <translation type="obsolete">后退&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="360"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished">前进&amp;F</translation>
+        <translation type="obsolete">前进&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="364"/>
-        <location filename="../src/webview/tabbedwebview.cpp" line="375"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished">刷新&amp;R</translation>
+        <translation type="obsolete">刷新&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="365"/>
         <source>S&amp;top</source>
-        <translation type="unfinished">停止&amp;t</translation>
+        <translation type="obsolete">停止&amp;t</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="371"/>
         <source>This frame</source>
-        <translation type="unfinished">此帧</translation>
+        <translation type="obsolete">此帧</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="372"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished">仅显示此帧&amp;o</translation>
+        <translation type="obsolete">仅显示此帧&amp;o</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="373"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished">在新选项卡的显示帧&amp;t</translation>
+        <translation type="obsolete">在新选项卡的显示帧&amp;t</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="376"/>
         <source>Print frame</source>
-        <translation type="unfinished">打印帧</translation>
+        <translation type="obsolete">打印帧</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="378"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished">放大&amp;i</translation>
+        <translation type="obsolete">放大&amp;i</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="379"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished">缩小&amp;Z</translation>
+        <translation type="obsolete">缩小&amp;Z</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="380"/>
         <source>Reset</source>
-        <translation type="unfinished">重置</translation>
+        <translation type="obsolete">重置</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="382"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished">显示帧源码&amp;u</translation>
+        <translation type="obsolete">显示帧源码&amp;u</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="388"/>
         <source>Book&amp;mark page</source>
-        <translation type="unfinished">加入书签&amp;m</translation>
+        <translation type="obsolete">加入书签&amp;m</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="389"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished">保存网页为&amp;S...</translation>
+        <translation type="obsolete">保存网页为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="390"/>
-        <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="391"/>
-        <source>Send page link...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="392"/>
-        <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="394"/>
         <source>Select &amp;all</source>
-        <translation type="unfinished">选取所有&amp;a</translation>
+        <translation type="obsolete">选取所有&amp;a</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="399"/>
-        <source>Validate page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="402"/>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished">显示源代码&amp;u</translation>
+        <translation type="obsolete">显示源代码&amp;u</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="403"/>
         <source>Show Web &amp;Inspector</source>
-        <translation type="unfinished">显示Web及督察&amp;I</translation>
+        <translation type="obsolete">显示Web及督察&amp;I</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="405"/>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished">显示有关网站的信息&amp;o</translation>
+        <translation type="obsolete">显示有关网站的信息&amp;o</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="414"/>
-        <source>Send text...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="419"/>
-        <source>Google Translate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="420"/>
-        <source>Dictionary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="431"/>
-        <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="437"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished">使用 %2搜索&quot;%1 ..&quot; </translation>
+        <translation type="obsolete">使用 %2搜索&quot;%1 ..&quot; </translation>
     </message>
 </context>
 <context>
@@ -4746,7 +4620,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="246"/>
-        <source>Resend request confirmation</source>
+        <source>Confirm form resubmission</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4878,12 +4752,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebSearchBar</name>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="75"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="77"/>
         <source>Manage Search Engines</source>
         <translation>管理搜索引擎</translation>
     </message>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="171"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="173"/>
         <source>Add %1 ...</source>
         <translation>新增%1 ...</translation>
     </message>
@@ -4903,131 +4777,236 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="obsolete">新标签</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="606"/>
         <source>Open link in new &amp;tab</source>
-        <translation type="obsolete">在新标签中打开链接&amp;t</translation>
+        <translation type="unfinished">在新标签中打开链接&amp;t</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="607"/>
         <source>Open link in new &amp;window</source>
-        <translation type="obsolete">在新窗口中打开链接&amp;w</translation>
+        <translation type="unfinished">在新窗口中打开链接&amp;w</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="609"/>
         <source>B&amp;ookmark link</source>
-        <translation type="obsolete">书签链接&amp;o</translation>
+        <translation type="unfinished">书签链接&amp;o</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="610"/>
         <source>&amp;Save link as...</source>
-        <translation type="obsolete">链接另存为&amp;S...</translation>
+        <translation type="unfinished">链接另存为&amp;S...</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="611"/>
         <source>Send link...</source>
-        <translation type="obsolete">发送链接...</translation>
+        <translation type="unfinished">发送链接...</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="612"/>
         <source>&amp;Copy link address</source>
-        <translation type="obsolete">复制链接地址&amp;C</translation>
+        <translation type="unfinished">复制链接地址&amp;C</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="624"/>
         <source>Show i&amp;mage</source>
-        <translation type="obsolete">显示图像&amp;m</translation>
+        <translation type="unfinished">显示图像&amp;m</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="625"/>
         <source>Copy im&amp;age</source>
-        <translation type="obsolete">复制图像&amp;a</translation>
+        <translation type="unfinished">复制图像&amp;a</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="626"/>
         <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">复制图像地址&amp;d</translation>
+        <translation type="unfinished">复制图像地址&amp;d</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="628"/>
         <source>&amp;Save image as...</source>
-        <translation type="obsolete">图像另存为&amp;S...</translation>
+        <translation type="unfinished">图像另存为&amp;S...</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="629"/>
         <source>Send image...</source>
-        <translation type="obsolete">发送图像...</translation>
+        <translation type="unfinished">发送图像...</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="548"/>
         <source>&amp;Back</source>
-        <translation type="obsolete">后退&amp;B</translation>
+        <translation type="unfinished">后退&amp;B</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="552"/>
         <source>&amp;Forward</source>
-        <translation type="obsolete">前进&amp;F</translation>
+        <translation type="unfinished">前进&amp;F</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="556"/>
+        <location filename="../src/webview/webview.cpp" line="567"/>
         <source>&amp;Reload</source>
-        <translation type="obsolete">刷新&amp;R</translation>
+        <translation type="unfinished">刷新&amp;R</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="557"/>
         <source>S&amp;top</source>
-        <translation type="obsolete">停止&amp;t</translation>
+        <translation type="unfinished">停止&amp;t</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="563"/>
         <source>This frame</source>
-        <translation type="obsolete">此帧</translation>
+        <translation type="unfinished">此帧</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="564"/>
         <source>Show &amp;only this frame</source>
-        <translation type="obsolete">仅显示此帧&amp;o</translation>
+        <translation type="unfinished">仅显示此帧&amp;o</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="565"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="obsolete">在新选项卡的显示帧&amp;t</translation>
+        <translation type="unfinished">在新选项卡的显示帧&amp;t</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="568"/>
         <source>Print frame</source>
-        <translation type="obsolete">打印帧</translation>
+        <translation type="unfinished">打印帧</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="570"/>
         <source>Zoom &amp;in</source>
-        <translation type="obsolete">放大&amp;i</translation>
+        <translation type="unfinished">放大&amp;i</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="571"/>
         <source>&amp;Zoom out</source>
-        <translation type="obsolete">缩小&amp;Z</translation>
+        <translation type="unfinished">缩小&amp;Z</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="572"/>
         <source>Reset</source>
-        <translation type="obsolete">重置</translation>
+        <translation type="unfinished">重置</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="574"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">显示帧源码&amp;u</translation>
+        <translation type="unfinished">显示帧源码&amp;u</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="580"/>
         <source>Book&amp;mark page</source>
-        <translation type="obsolete">加入书签&amp;m</translation>
+        <translation type="unfinished">加入书签&amp;m</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="581"/>
         <source>&amp;Save page as...</source>
-        <translation type="obsolete">保存网页为&amp;S...</translation>
+        <translation type="unfinished">保存网页为&amp;S...</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="582"/>
+        <source>&amp;Copy page link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="583"/>
+        <source>Send page link...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="584"/>
+        <source>&amp;Print page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="648"/>
+        <source>Send text...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="653"/>
+        <source>Google Translate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="654"/>
+        <source>Dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="665"/>
+        <source>Go to &amp;web address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="687"/>
+        <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="687"/>
+        <source>&amp;Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="688"/>
+        <source>Un&amp;mute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="688"/>
+        <source>&amp;Mute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="690"/>
+        <source>&amp;Copy Media Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="691"/>
+        <source>&amp;Send Media Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="692"/>
+        <source>Save Media To &amp;Disk</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Send page...</source>
         <translation type="obsolete">发送网页...</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="586"/>
         <source>Select &amp;all</source>
-        <translation type="obsolete">选取所有&amp;a</translation>
+        <translation type="unfinished">选取所有&amp;a</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="591"/>
+        <source>Validate page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="594"/>
         <source>Show so&amp;urce code</source>
-        <translation type="obsolete">显示源代码&amp;u</translation>
+        <translation type="unfinished">显示源代码&amp;u</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="595"/>
         <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">显示有关网站的信息&amp;o</translation>
+        <translation type="unfinished">显示有关网站的信息&amp;o</translation>
     </message>
     <message>
         <source>Show Web &amp;Inspector</source>
         <translation type="obsolete">显示Web及督察&amp;I</translation>
     </message>
     <message>
+        <location filename="../src/webview/webview.cpp" line="671"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="obsolete">使用 %2搜索&quot;%1 ..&quot; </translation>
+        <translation type="unfinished">使用 %2搜索&quot;%1 ..&quot; </translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="75"/>
+        <location filename="../src/webview/webview.cpp" line="79"/>
         <source>No Named Page</source>
         <translation>无命名页面</translation>
     </message>

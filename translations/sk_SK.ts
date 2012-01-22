@@ -1558,127 +1558,99 @@
     <name>PopupWebView</name>
     <message>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished">Otvoriť odkaz v novom &amp;okne</translation>
+        <translation type="obsolete">Otvoriť odkaz v novom &amp;okne</translation>
     </message>
     <message>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished">&amp;Uložiť odkaz ako...</translation>
+        <translation type="obsolete">&amp;Uložiť odkaz ako...</translation>
     </message>
     <message>
         <source>Send link...</source>
-        <translation type="unfinished">Odoslať odkaz...</translation>
+        <translation type="obsolete">Odoslať odkaz...</translation>
     </message>
     <message>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished">&amp;Kopírovať adresu odkazu</translation>
+        <translation type="obsolete">&amp;Kopírovať adresu odkazu</translation>
     </message>
     <message>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished">Zobraziť o&amp;brázok</translation>
+        <translation type="obsolete">Zobraziť o&amp;brázok</translation>
     </message>
     <message>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished">Kopírov&amp;ať obrázok</translation>
+        <translation type="obsolete">Kopírov&amp;ať obrázok</translation>
     </message>
     <message>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished">Kopírovať a&amp;dresu obrázku</translation>
+        <translation type="obsolete">Kopírovať a&amp;dresu obrázku</translation>
     </message>
     <message>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished">&amp;Uložiť obrázok ako...</translation>
+        <translation type="obsolete">&amp;Uložiť obrázok ako...</translation>
     </message>
     <message>
         <source>Send image...</source>
-        <translation type="unfinished">Odoslať obrázok...</translation>
+        <translation type="obsolete">Odoslať obrázok...</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished">&amp;Späť</translation>
+        <translation type="obsolete">&amp;Späť</translation>
     </message>
     <message>
         <source>&amp;Forward</source>
-        <translation type="unfinished">&amp;Dopredu</translation>
+        <translation type="obsolete">&amp;Dopredu</translation>
     </message>
     <message>
         <source>&amp;Reload</source>
-        <translation type="unfinished">&amp;Obnoviť</translation>
+        <translation type="obsolete">&amp;Obnoviť</translation>
     </message>
     <message>
         <source>S&amp;top</source>
-        <translation type="unfinished">Zas&amp;taviť</translation>
+        <translation type="obsolete">Zas&amp;taviť</translation>
     </message>
     <message>
         <source>This frame</source>
-        <translation type="unfinished">Tento rám</translation>
+        <translation type="obsolete">Tento rám</translation>
     </message>
     <message>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished">Zobraziť &amp;len tento rám</translation>
+        <translation type="obsolete">Zobraziť &amp;len tento rám</translation>
     </message>
     <message>
         <source>Print frame</source>
-        <translation type="unfinished">Vytlačiť rám</translation>
+        <translation type="obsolete">Vytlačiť rám</translation>
     </message>
     <message>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished">Zoo&amp;m +</translation>
+        <translation type="obsolete">Zoo&amp;m +</translation>
     </message>
     <message>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished">Z&amp;oom -</translation>
+        <translation type="obsolete">Z&amp;oom -</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">Resetovať</translation>
+        <translation type="obsolete">Resetovať</translation>
     </message>
     <message>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished">Zobraziť &amp;zdrojový kód rámu</translation>
+        <translation type="obsolete">Zobraziť &amp;zdrojový kód rámu</translation>
     </message>
     <message>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished">Uložiť &amp;stránku ako...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Send page link...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Uložiť &amp;stránku ako...</translation>
     </message>
     <message>
         <source>Select &amp;all</source>
-        <translation type="unfinished">Vybr&amp;ať všetko</translation>
+        <translation type="obsolete">Vybr&amp;ať všetko</translation>
     </message>
     <message>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished">Zobraziť zdro&amp;jový kód</translation>
+        <translation type="obsolete">Zobraziť zdro&amp;jový kód</translation>
     </message>
     <message>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished">Z&amp;obraziť informácie o stránke</translation>
-    </message>
-    <message>
-        <source>Send text...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Google Translate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dictionary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Z&amp;obraziť informácie o stránke</translation>
     </message>
 </context>
 <context>
@@ -3594,155 +3566,127 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Open link in new &amp;tab</source>
-        <translation type="unfinished">Otvoriť odkaz na &amp;novej karte</translation>
+        <translation type="obsolete">Otvoriť odkaz na &amp;novej karte</translation>
     </message>
     <message>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished">Otvoriť odkaz v novom &amp;okne</translation>
+        <translation type="obsolete">Otvoriť odkaz v novom &amp;okne</translation>
     </message>
     <message>
         <source>B&amp;ookmark link</source>
-        <translation type="unfinished">Pridať &amp;odkaz do záložiek</translation>
+        <translation type="obsolete">Pridať &amp;odkaz do záložiek</translation>
     </message>
     <message>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished">&amp;Uložiť odkaz ako...</translation>
+        <translation type="obsolete">&amp;Uložiť odkaz ako...</translation>
     </message>
     <message>
         <source>Send link...</source>
-        <translation type="unfinished">Odoslať odkaz...</translation>
+        <translation type="obsolete">Odoslať odkaz...</translation>
     </message>
     <message>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished">&amp;Kopírovať adresu odkazu</translation>
+        <translation type="obsolete">&amp;Kopírovať adresu odkazu</translation>
     </message>
     <message>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished">Zobraziť o&amp;brázok</translation>
+        <translation type="obsolete">Zobraziť o&amp;brázok</translation>
     </message>
     <message>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished">Kopírov&amp;ať obrázok</translation>
+        <translation type="obsolete">Kopírov&amp;ať obrázok</translation>
     </message>
     <message>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished">Kopírovať a&amp;dresu obrázku</translation>
+        <translation type="obsolete">Kopírovať a&amp;dresu obrázku</translation>
     </message>
     <message>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished">&amp;Uložiť obrázok ako...</translation>
+        <translation type="obsolete">&amp;Uložiť obrázok ako...</translation>
     </message>
     <message>
         <source>Send image...</source>
-        <translation type="unfinished">Odoslať obrázok...</translation>
+        <translation type="obsolete">Odoslať obrázok...</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished">&amp;Späť</translation>
+        <translation type="obsolete">&amp;Späť</translation>
     </message>
     <message>
         <source>&amp;Forward</source>
-        <translation type="unfinished">&amp;Dopredu</translation>
+        <translation type="obsolete">&amp;Dopredu</translation>
     </message>
     <message>
         <source>&amp;Reload</source>
-        <translation type="unfinished">&amp;Obnoviť</translation>
+        <translation type="obsolete">&amp;Obnoviť</translation>
     </message>
     <message>
         <source>S&amp;top</source>
-        <translation type="unfinished">Zas&amp;taviť</translation>
+        <translation type="obsolete">Zas&amp;taviť</translation>
     </message>
     <message>
         <source>This frame</source>
-        <translation type="unfinished">Tento rám</translation>
+        <translation type="obsolete">Tento rám</translation>
     </message>
     <message>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished">Zobraziť &amp;len tento rám</translation>
+        <translation type="obsolete">Zobraziť &amp;len tento rám</translation>
     </message>
     <message>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished">Zobraziť tento rám na &amp;novom panely</translation>
+        <translation type="obsolete">Zobraziť tento rám na &amp;novom panely</translation>
     </message>
     <message>
         <source>Print frame</source>
-        <translation type="unfinished">Vytlačiť rám</translation>
+        <translation type="obsolete">Vytlačiť rám</translation>
     </message>
     <message>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished">Zoo&amp;m +</translation>
+        <translation type="obsolete">Zoo&amp;m +</translation>
     </message>
     <message>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished">Z&amp;oom -</translation>
+        <translation type="obsolete">Z&amp;oom -</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">Resetovať</translation>
+        <translation type="obsolete">Resetovať</translation>
     </message>
     <message>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished">Zobraziť &amp;zdrojový kód rámu</translation>
+        <translation type="obsolete">Zobraziť &amp;zdrojový kód rámu</translation>
     </message>
     <message>
         <source>Book&amp;mark page</source>
-        <translation type="unfinished">Pridať s&amp;tránku do záložiek</translation>
+        <translation type="obsolete">Pridať s&amp;tránku do záložiek</translation>
     </message>
     <message>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished">Uložiť &amp;stránku ako...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Send page link...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Uložiť &amp;stránku ako...</translation>
     </message>
     <message>
         <source>Select &amp;all</source>
-        <translation type="unfinished">Vybr&amp;ať všetko</translation>
-    </message>
-    <message>
-        <source>Validate page</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Vybr&amp;ať všetko</translation>
     </message>
     <message>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished">Zobraziť zdro&amp;jový kód</translation>
+        <translation type="obsolete">Zobraziť zdro&amp;jový kód</translation>
     </message>
     <message>
         <source>Show Web &amp;Inspector</source>
-        <translation type="unfinished">Zobraziť Web &amp;inšpektora</translation>
+        <translation type="obsolete">Zobraziť Web &amp;inšpektora</translation>
     </message>
     <message>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished">Z&amp;obraziť informácie o stránke</translation>
-    </message>
-    <message>
-        <source>Send text...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Google Translate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dictionary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Z&amp;obraziť informácie o stránke</translation>
     </message>
     <message>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished">Hľadať &quot;%1 ..&quot; s %2</translation>
+        <translation type="obsolete">Hľadať &quot;%1 ..&quot; s %2</translation>
+    </message>
+    <message>
+        <source>Inspect Element</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3906,15 +3850,15 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Resend request confirmation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Prevent this page from creating additional dialogs</source>
         <translation type="unfinished">Zabrániť tejto stránke vo vytváraní ďalších dialógov</translation>
     </message>
     <message>
         <source>JavaScript alert - %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm form resubmission</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3933,23 +3877,23 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <name>WebView</name>
     <message>
         <source>&amp;Back</source>
-        <translation type="obsolete">&amp;Späť</translation>
+        <translation type="unfinished">&amp;Späť</translation>
     </message>
     <message>
         <source>&amp;Save image as...</source>
-        <translation type="obsolete">&amp;Uložiť obrázok ako...</translation>
+        <translation type="unfinished">&amp;Uložiť obrázok ako...</translation>
     </message>
     <message>
         <source>S&amp;top</source>
-        <translation type="obsolete">Zas&amp;taviť</translation>
+        <translation type="unfinished">Zas&amp;taviť</translation>
     </message>
     <message>
         <source>&amp;Save link as...</source>
-        <translation type="obsolete">&amp;Uložiť odkaz ako...</translation>
+        <translation type="unfinished">&amp;Uložiť odkaz ako...</translation>
     </message>
     <message>
         <source>&amp;Copy link address</source>
-        <translation type="obsolete">&amp;Kopírovať adresu odkazu</translation>
+        <translation type="unfinished">&amp;Kopírovať adresu odkazu</translation>
     </message>
     <message>
         <source>Send page...</source>
@@ -3961,23 +3905,23 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>B&amp;ookmark link</source>
-        <translation type="obsolete">Pridať &amp;odkaz do záložiek</translation>
+        <translation type="unfinished">Pridať &amp;odkaz do záložiek</translation>
     </message>
     <message>
         <source>Copy im&amp;age</source>
-        <translation type="obsolete">Kopírov&amp;ať obrázok</translation>
+        <translation type="unfinished">Kopírov&amp;ať obrázok</translation>
     </message>
     <message>
         <source>Show i&amp;mage</source>
-        <translation type="obsolete">Zobraziť o&amp;brázok</translation>
+        <translation type="unfinished">Zobraziť o&amp;brázok</translation>
     </message>
     <message>
         <source>Send link...</source>
-        <translation type="obsolete">Odoslať odkaz...</translation>
+        <translation type="unfinished">Odoslať odkaz...</translation>
     </message>
     <message>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="obsolete">Hľadať &quot;%1 ..&quot; s %2</translation>
+        <translation type="unfinished">Hľadať &quot;%1 ..&quot; s %2</translation>
     </message>
     <message>
         <source>Show Web &amp;Inspector</source>
@@ -3985,15 +3929,15 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Open link in new &amp;window</source>
-        <translation type="obsolete">Otvoriť odkaz v novom &amp;okne</translation>
+        <translation type="unfinished">Otvoriť odkaz v novom &amp;okne</translation>
     </message>
     <message>
         <source>Select &amp;all</source>
-        <translation type="obsolete">Vybr&amp;ať všetko</translation>
+        <translation type="unfinished">Vybr&amp;ať všetko</translation>
     </message>
     <message>
         <source>Send image...</source>
-        <translation type="obsolete">Odoslať obrázok...</translation>
+        <translation type="unfinished">Odoslať obrázok...</translation>
     </message>
     <message>
         <source>Loading...</source>
@@ -4001,23 +3945,23 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>&amp;Save page as...</source>
-        <translation type="obsolete">Uložiť &amp;stránku ako...</translation>
+        <translation type="unfinished">Uložiť &amp;stránku ako...</translation>
     </message>
     <message>
         <source>&amp;Reload</source>
-        <translation type="obsolete">&amp;Obnoviť</translation>
+        <translation type="unfinished">&amp;Obnoviť</translation>
     </message>
     <message>
         <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">Z&amp;obraziť informácie o stránke</translation>
+        <translation type="unfinished">Z&amp;obraziť informácie o stránke</translation>
     </message>
     <message>
         <source>&amp;Forward</source>
-        <translation type="obsolete">&amp;Dopredu</translation>
+        <translation type="unfinished">&amp;Dopredu</translation>
     </message>
     <message>
         <source>Open link in new &amp;tab</source>
-        <translation type="obsolete">Otvoriť odkaz na &amp;novej karte</translation>
+        <translation type="unfinished">Otvoriť odkaz na &amp;novej karte</translation>
     </message>
     <message>
         <source>No Named Page</source>
@@ -4025,11 +3969,11 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Book&amp;mark page</source>
-        <translation type="obsolete">Pridať s&amp;tránku do záložiek</translation>
+        <translation type="unfinished">Pridať s&amp;tránku do záložiek</translation>
     </message>
     <message>
         <source>Show so&amp;urce code</source>
-        <translation type="obsolete">Zobraziť zdro&amp;jový kód</translation>
+        <translation type="unfinished">Zobraziť zdro&amp;jový kód</translation>
     </message>
     <message>
         <source>Failed loading page</source>
@@ -4037,39 +3981,99 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">Kopírovať a&amp;dresu obrázku</translation>
+        <translation type="unfinished">Kopírovať a&amp;dresu obrázku</translation>
     </message>
     <message>
         <source>This frame</source>
-        <translation type="obsolete">Tento rám</translation>
+        <translation type="unfinished">Tento rám</translation>
     </message>
     <message>
         <source>Show &amp;only this frame</source>
-        <translation type="obsolete">Zobraziť &amp;len tento rám</translation>
+        <translation type="unfinished">Zobraziť &amp;len tento rám</translation>
     </message>
     <message>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="obsolete">Zobraziť tento rám na &amp;novom panely</translation>
+        <translation type="unfinished">Zobraziť tento rám na &amp;novom panely</translation>
     </message>
     <message>
         <source>Print frame</source>
-        <translation type="obsolete">Vytlačiť rám</translation>
+        <translation type="unfinished">Vytlačiť rám</translation>
     </message>
     <message>
         <source>Zoom &amp;in</source>
-        <translation type="obsolete">Zoo&amp;m +</translation>
+        <translation type="unfinished">Zoo&amp;m +</translation>
     </message>
     <message>
         <source>&amp;Zoom out</source>
-        <translation type="obsolete">Z&amp;oom -</translation>
+        <translation type="unfinished">Z&amp;oom -</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="obsolete">Resetovať</translation>
+        <translation type="unfinished">Resetovať</translation>
     </message>
     <message>
         <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">Zobraziť &amp;zdrojový kód rámu</translation>
+        <translation type="unfinished">Zobraziť &amp;zdrojový kód rámu</translation>
+    </message>
+    <message>
+        <source>&amp;Copy page link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send page link...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Print page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Validate page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send text...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Google Translate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to &amp;web address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Un&amp;mute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Mute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Copy Media Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Send Media Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Media To &amp;Disk</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

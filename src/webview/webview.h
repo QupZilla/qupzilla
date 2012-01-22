@@ -83,6 +83,22 @@ protected slots:
     void openActionUrl();
     void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
     void showSiteInfo();
+    void searchSelectedText();
+    void bookmarkLink();
+    void showSourceOfSelection();
+
+
+    // Clicked frame actions
+    void loadClickedFrame();
+    void loadClickedFrameInNewTab();
+    void reloadClickedFrame();
+    void printClickedFrame();
+    void clickedFrameZoomIn();
+    void clickedFrameZoomOut();
+    void clickedFrameZoomReset();
+    void showClickedFrameSource();
+
+    virtual void openUrlInNewTab(const QUrl &url = QUrl()) = 0;
 
 protected:
     void wheelEvent(QWheelEvent* event);
@@ -97,12 +113,16 @@ protected:
 
     bool isMediaElement(const QWebElement &element);
 
-    QMenu* createMediaContextMenu(const QWebHitTestResult &hitTest);
+    void createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, const QPoint &pos);
+    void createPageContextMenu(QMenu* menu, const QPoint &pos);
+    void createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
+    void createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
+    void createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
+    void createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
 
 private slots:
     void pauseMedia();
     void muteMedia();
-    void controlsMedia();
 
 private:
     QList<int> m_zoomLevels;
@@ -117,6 +137,8 @@ private:
     QUrl m_lastUrl;
 
     QWebElement m_mediaElement;
+    QWebFrame* m_clickedFrame;
+    bool m_actionsHaveImages;
 
     QList<QTouchEvent::TouchPoint> m_touchPoints;
 };

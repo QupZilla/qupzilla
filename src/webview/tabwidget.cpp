@@ -171,12 +171,12 @@ void TabWidget::resizeEvent(QResizeEvent* e)
     QTabWidget::resizeEvent(e);
 }
 
-TabbedWebView *TabWidget::weView()
+TabbedWebView* TabWidget::weView()
 {
     return weView(currentIndex());
 }
 
-TabbedWebView *TabWidget::weView(int index)
+TabbedWebView* TabWidget::weView(int index)
 {
     WebTab* webTab = qobject_cast<WebTab*>(widget(index));
 
@@ -398,7 +398,7 @@ void TabWidget::closeTab(int index)
 
 void TabWidget::reloadTab(int index)
 {
-     weView(index)->reload();
+    weView(index)->reload();
 }
 
 void TabWidget::showTabBar()

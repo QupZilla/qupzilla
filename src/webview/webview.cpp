@@ -27,12 +27,16 @@
 #include "sourceviewer.h"
 #include "siteinfo.h"
 #include "searchenginesmanager.h"
+#include "browsinglibrary.h"
+#include "bookmarksmanager.h"
 
 WebView::WebView(QWidget* parent)
     : QWebView(parent)
     , m_currentZoom(100)
     , m_isLoading(false)
     , m_progress(0)
+    , m_clickedFrame(0)
+    , m_actionsHaveImages(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
@@ -338,6 +342,97 @@ void WebView::showSiteInfo()
     s->show();
 }
 
+void WebView::searchSelectedText()
+{
+    QUrl urlToLoad = mApp->searchEnginesManager()->searchUrl(selectedText());
+
+    openUrlInNewTab(urlToLoad);
+}
+
+void WebView::bookmarkLink()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        if (action->data().isNull()) {
+            mApp->browsingLibrary()->bookmarksManager()->addBookmark(this);
+        }
+        else {
+            mApp->browsingLibrary()->bookmarksManager()->insertBookmark(action->data().toUrl(), title(), icon());
+        }
+    }
+}
+
+void WebView::showSourceOfSelection()
+{
+#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+    showSource(page()->mainFrame(), selectedHtml());
+#endif
+}
+
+void WebView::loadClickedFrame()
+{
+    QUrl frameUrl = m_clickedFrame->url();
+    if (frameUrl.isEmpty()) {
+        frameUrl = m_clickedFrame->requestedUrl();
+    }
+
+    load(frameUrl);
+}
+
+void WebView::loadClickedFrameInNewTab()
+{
+    QUrl frameUrl = m_clickedFrame->url();
+    if (frameUrl.isEmpty()) {
+        frameUrl = m_clickedFrame->requestedUrl();
+    }
+
+    openUrlInNewTab(frameUrl);
+}
+
+void WebView::reloadClickedFrame()
+{
+    QUrl frameUrl = m_clickedFrame->url();
+    if (frameUrl.isEmpty()) {
+        frameUrl = m_clickedFrame->requestedUrl();
+    }
+
+    m_clickedFrame->load(frameUrl);
+}
+
+void WebView::printClickedFrame()
+{
+    printPage(m_clickedFrame);
+}
+
+void WebView::clickedFrameZoomIn()
+{
+    qreal zFactor = m_clickedFrame->zoomFactor() + 0.1;
+    if (zFactor > 2.5) {
+        zFactor = 2.5;
+    }
+
+    m_clickedFrame->setZoomFactor(zFactor);
+}
+
+void WebView::clickedFrameZoomOut()
+{
+    qreal zFactor = m_clickedFrame->zoomFactor() - 0.1;
+    if (zFactor < 0.5) {
+        zFactor = 0.5;
+    }
+
+    m_clickedFrame->setZoomFactor(zFactor);
+}
+
+void WebView::clickedFrameZoomReset()
+{
+    m_clickedFrame->setZoomFactor(zoomFactor());
+}
+
+void WebView::showClickedFrameSource()
+{
+    showSource(m_clickedFrame);
+}
+
 void WebView::printPage(QWebFrame* frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
@@ -371,23 +466,230 @@ bool WebView::isMediaElement(const QWebElement &element)
     return (element.tagName().toLower() == "video" || element.tagName().toLower() == "audio");
 }
 
-QMenu *WebView::createMediaContextMenu(const QWebHitTestResult &hitTest)
+void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, const QPoint &pos)
 {
-    QMenu* menu = new QMenu(this);
+    if (!m_actionsHaveImages) {
+        m_actionsHaveImages = true;
+
+        pageAction(QWebPage::Cut)->setIcon(QIcon::fromTheme("edit-cut"));
+        pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
+        pageAction(QWebPage::Paste)->setIcon(QIcon::fromTheme("edit-paste"));
+        pageAction(QWebPage::SelectAll)->setIcon(QIcon::fromTheme("edit-select-all"));
+    }
+
+    if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != "javascript") {
+        createLinkContextMenu(menu, hitTest);
+    }
+
+    if (!hitTest.imageUrl().isEmpty()) {
+        createImageContextMenu(menu, hitTest);
+    }
+
+    if (isMediaElement(hitTest.element())) {
+        createMediaContextMenu(menu, hitTest);
+    }
+
+    QWebElement element = hitTest.element();
+    if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea")) {
+        if (menu->isEmpty()) {
+            QMenu* pageMenu = page()->createStandardContextMenu();
+
+            int i = 0;
+            foreach(QAction* act, pageMenu->actions()) {
+                if (act->isSeparator()) {
+                    menu->addSeparator();
+                    continue;
+                }
+
+                // Hiding double Direction menu (bug in QtWebKit 2.2)
+                if (i == 0 && act->menu()) {
+                    act->setVisible(false);
+                }
+
+                menu->addAction(act);
+
+                ++i;
+            }
+
+            if (menu->actions().last() == pageAction(QWebPage::InspectElement)) {
+                // We have own Inspect Element action
+                menu->actions().last()->setVisible(false);
+            }
+
+            delete pageMenu;
+        }
+    }
+
+    if (!selectedText().isEmpty()) {
+        createSelectedTextContextMenu(menu, hitTest);
+    }
+
+    if (menu->isEmpty() && selectedText().isEmpty()) {
+        createPageContextMenu(menu, pos);
+    }
+
+
+
+#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+//    still bugged? in 4.8 RC (it shows selection of webkit's internal source, not html from page)
+//    it may or may not be bug, but this implementation is useless for us
+//
+//    if (!selectedHtml().isEmpty())
+//        menu->addAction(tr("Show source of selection"), this, SLOT(showSourceOfSelection()));
+#endif
+
+//    mApp->plugins()->populateWebViewMenu(m_menu, this, hitTest);
+}
+
+void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
+{
+    QWebFrame* frameAtPos = page()->frameAt(pos);
+
+    QAction* action = menu->addAction(tr("&Back"), this, SLOT(back()));
+    action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
+    action->setEnabled(history()->canGoBack());
+
+    action = menu->addAction(tr("&Forward"), this, SLOT(forward()));
+    action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
+    action->setEnabled(history()->canGoForward());
+
+    menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reload()));
+    action = menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this, SLOT(stop()));
+    action->setEnabled(isLoading());
+    menu->addSeparator();
+
+    if (frameAtPos && page()->mainFrame() != frameAtPos) {
+        m_clickedFrame = frameAtPos;
+        QMenu* frameMenu = new QMenu(tr("This frame"));
+        frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
+        frameMenu->addAction(QIcon(":/icons/menu/popup.png"), tr("Show this frame in new &tab"), this, SLOT(loadClickedFrameInNewTab()));
+        frameMenu->addSeparator();
+        frameMenu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reloadClickedFrame()));
+        frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
+        frameMenu->addSeparator();
+        frameMenu->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &in"), this, SLOT(clickedFrameZoomIn()));
+        frameMenu->addAction(QIcon::fromTheme("zoom-out"), tr("&Zoom out"), this, SLOT(clickedFrameZoomOut()));
+        frameMenu->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(clickedFrameZoomReset()));
+        frameMenu->addSeparator();
+        frameMenu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce of frame"), this, SLOT(showClickedFrameSource()));
+
+        menu->addMenu(frameMenu);
+    }
+
+    menu->addSeparator();
+    menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
+    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadLinkToDisk()))->setData(url());
+    menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendLinkByMail()))->setData(url());
+    menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printPage()));
+    menu->addSeparator();
+    menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
+    menu->addSeparator();
+    if (url().scheme() == "http" || url().scheme() == "https") {
+//             bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
+//                 if (result)
+        menu->addAction(tr("Validate page"), this, SLOT(openUrlInNewTab()))->setData("http://validator.w3.org/check?uri=" + url().toString());
+    }
+
+    menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
+    menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()));
+}
+
+void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
+{
+    // Workaround for QtWebKit <= 2.0 when selecting link text on right click
+    if (page()->selectedText() == hitTest.linkText()) {
+        findText("");
+    }
+
+    menu->addSeparator();
+    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInNewTab()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
+    menu->addSeparator();
+    menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadLinkToDisk()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.linkUrl());
+    menu->addSeparator();
+
+    if (!selectedText().isEmpty()) {
+        pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
+        menu->addAction(pageAction(QWebPage::Copy));
+    }
+}
+
+void WebView::createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
+{
+    menu->addSeparator();
+    menu->addAction(tr("Show i&mage"), this, SLOT(openActionUrl()))->setData(hitTest.imageUrl());
+    menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(hitTest.imageUrl());
+    menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
+    menu->addSeparator();
+    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadLinkToDisk()))->setData(hitTest.imageUrl());
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(hitTest.imageUrl());
+    menu->addSeparator();
+
+    if (!selectedText().isEmpty()) {
+        pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
+        menu->addAction(pageAction(QWebPage::Copy));
+    }
+}
+
+void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
+{
+    Q_UNUSED(hitTest)
+
+    QString selectedText = page()->selectedText();
+
+    menu->addSeparator();
+    if (!menu->actions().contains(pageAction(QWebPage::Copy))) {
+        menu->addAction(pageAction(QWebPage::Copy));
+    }
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
+    menu->addSeparator();
+
+    QString langCode = mApp->getActiveLanguage().left(2);
+    QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
+    menu->addAction(QIcon(":icons/menu/translate.png"), tr("Google Translate"), this, SLOT(openUrlInNewTab()))->setData(googleTranslateUrl);
+    menu->addAction(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"), this, SLOT(openUrlInNewTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
+    menu->addSeparator();
+
+    QString selectedString = selectedText.trimmed();
+    if (!selectedString.contains(".")) {
+        // Try to add .com
+        selectedString.append(".com");
+    }
+    QUrl guessedUrl = QUrl::fromUserInput(selectedString);
+
+    if (isUrlValid(guessedUrl)) {
+        menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Go to &web address"), this, SLOT(openUrlInNewTab()))->setData(guessedUrl);
+    }
+
+    selectedText.truncate(20);
+
+    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
+}
+
+void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
+{
     m_mediaElement = hitTest.element();
+
+    if (m_mediaElement.isNull()) {
+        return;
+    }
 
     bool paused = m_mediaElement.evaluateJavaScript("this.paused").toBool();
     bool muted = m_mediaElement.evaluateJavaScript("this.muted").toBool();
     QUrl videoUrl = m_mediaElement.evaluateJavaScript("this.currentSrc").toUrl();
 
+    menu->addSeparator();
     menu->addAction(paused ? tr("&Play") : tr("&Pause"), this, SLOT(pauseMedia()))->setIcon(QIcon::fromTheme(paused ? "media-playback-start" : "media-playback-pause"));
     menu->addAction(muted ? tr("Un&mute") : tr("&Mute"), this, SLOT(muteMedia()))->setIcon(QIcon::fromTheme(muted ? "audio-volume-muted" : "audio-volume-high"));
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(videoUrl);
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(videoUrl);
-    menu->addAction(QIcon::fromTheme("download"), tr("&Download Media To Disk"), this, SLOT(downloadLinkToDisk()))->setData(videoUrl);
-
-    return menu;
+    menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadLinkToDisk()))->setData(videoUrl);
 }
 
 void WebView::pauseMedia()
@@ -411,18 +713,6 @@ void WebView::muteMedia()
     }
     else {
         m_mediaElement.evaluateJavaScript("this.muted = true");
-    }
-}
-
-void WebView::controlsMedia()
-{
-    bool controls= m_mediaElement.evaluateJavaScript("this.controls").toBool();
-
-    if (controls) {
-        m_mediaElement.evaluateJavaScript("this.controls = false");
-    }
-    else {
-        m_mediaElement.evaluateJavaScript("this.controls = true");
     }
 }
 

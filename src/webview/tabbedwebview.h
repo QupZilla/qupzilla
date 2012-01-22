@@ -71,29 +71,17 @@ public slots:
 
 private slots:
     void trackMouse(bool state) { m_mouseTrack = state; }
-    void searchSelectedText();
     void slotLoadFinished();
     void urlChanged(const QUrl &url);
     void linkHovered(const QString &link, const QString &title, const QString &content);
-    void openUrlInNewTab();
-    void bookmarkLink();
-    void showSourceOfSelection();
     void getFocus(const QUrl &urla);
-    void showInspector();
     void stopAnimation();
     void setIp(const QHostInfo &info);
     void checkRss();
     void slotIconChanged();
 
-    // ClickedFrame
-    void loadClickedFrame();
-    void loadClickedFrameInNewTab();
-    void reloadClickedFrame();
-    void printClickedFrame();
-    void clickedFrameZoomIn();
-    void clickedFrameZoomOut();
-    void clickedFrameZoomReset();
-    void showClickedFrameSource();
+    void inspectElement();
+    void openUrlInNewTab(const QUrl &url = QUrl());
 
 private:
     void mousePressEvent(QMouseEvent* event);
@@ -111,7 +99,6 @@ private:
     WebPage* m_page;
     WebTab* m_webTab;
     QMenu* m_menu;
-    QWebFrame* m_clickedFrame;
 
     bool m_mouseTrack;
     bool m_navigationVisible;
