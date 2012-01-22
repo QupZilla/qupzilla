@@ -575,7 +575,7 @@ void BookmarksToolbar::dropEvent(QDropEvent* e)
 
     QString title = mime->text();
     QUrl url = mime->urls().at(0);
-    QIcon icon = mime->imageData().value<QIcon>();
+    QIcon icon = IconProvider::iconFromImage(qvariant_cast<QImage>(mime->imageData()));
 
     m_bookmarksModel->saveBookmark(url, title, icon, "bookmarksToolbar");
 }

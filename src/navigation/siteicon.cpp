@@ -58,7 +58,7 @@ void SiteIcon::mouseMoveEvent(QMouseEvent* e)
     QMimeData* mime = new QMimeData;
     mime->setUrls(QList<QUrl>() << m_locationBar->webView()->url());
     mime->setText(m_locationBar->webView()->title());
-    mime->setImageData(QVariant::fromValue(icon()));
+    mime->setImageData(icon().pixmap(16, 16).toImage());
 
     drag->setMimeData(mime);
     drag->setPixmap(icon().pixmap(16, 16));
