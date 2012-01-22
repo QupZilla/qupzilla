@@ -21,10 +21,13 @@
 #include <QWebView>
 #include <QWebFrame>
 #include <QWebElementCollection>
+#include <QWebHitTestResult>
 #include <QTouchEvent>
 #include <QClipboard>
 #include <QPrintPreviewDialog>
 #include <QFile>
+
+#include "qz_namespace.h"
 
 class WebView : public QWebView
 {
@@ -43,6 +46,7 @@ public:
     bool eventFilter(QObject* obj, QEvent* event);
 
     virtual QWidget* overlayForJsAlert() = 0;
+    virtual void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position) = 0;
 
     static bool isUrlValid(const QUrl &url);
     static QUrl guessUrlFromString(const QString &string);
@@ -86,6 +90,8 @@ protected slots:
     void searchSelectedText();
     void bookmarkLink();
     void showSourceOfSelection();
+    void openUrlInSelectedTab();
+    void openUrlInBackgroundTab();
 
 
     // Clicked frame actions
@@ -97,8 +103,6 @@ protected slots:
     void clickedFrameZoomOut();
     void clickedFrameZoomReset();
     void showClickedFrameSource();
-
-    virtual void openUrlInNewTab(const QUrl &url = QUrl()) = 0;
 
 protected:
     void wheelEvent(QWheelEvent* event);

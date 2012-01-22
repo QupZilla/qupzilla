@@ -41,18 +41,21 @@ QWidget* PopupWebView::overlayForJsAlert()
     return this;
 }
 
-void PopupWebView::closeView()
+void PopupWebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position)
 {
-    parentWidget()->close();
-}
+    Q_UNUSED(position)
 
-void PopupWebView::openUrlInNewTab(const QUrl &url)
-{
     QupZilla* window = mApp->getWindow();
 
     if (window) {
-        window->tabWidget()->addView(url, Qz::NT_NotSelectedTab);
+        window->tabWidget()->addView(url, Qz::NT_SelectedTab);
+        window->raise();
     }
+}
+
+void PopupWebView::closeView()
+{
+    parentWidget()->close();
 }
 
 void PopupWebView::contextMenuEvent(QContextMenuEvent* event)

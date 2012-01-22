@@ -388,11 +388,15 @@
     </message>
     <message>
         <source>File does not exists.</source>
-        <translation type="unfinished">Súbor neexistuje.</translation>
+        <translation type="obsolete">Súbor neexistuje.</translation>
     </message>
     <message>
         <source>Unable to open database. Is Firefox running?</source>
         <translation type="unfinished">Nepodarilo sa otvoriť databázu. Je Firefox zapnutý?</translation>
+    </message>
+    <message>
+        <source>File does not exist.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

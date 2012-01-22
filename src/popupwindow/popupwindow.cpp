@@ -19,6 +19,7 @@
 #include "popupwebview.h"
 #include "popupwebpage.h"
 #include "popuplocationbar.h"
+#include "globalfunctions.h"
 
 #include <QDebug>
 
@@ -57,7 +58,13 @@ PopupWindow::PopupWindow(PopupWebView* view)
 
     m_view->setFocus();
     titleChanged();
-    m_locationBar->showUrl(m_view->url());
+
+    QUrl urlToShow = m_view->url();
+    if (urlToShow.isEmpty()) {
+        urlToShow = m_view->page()->mainFrame()->requestedUrl();
+    }
+
+    m_locationBar->showUrl(urlToShow);
 }
 
 void PopupWindow::showNotification(QWidget* notif)
@@ -77,18 +84,27 @@ void PopupWindow::closeEvent(QCloseEvent* event)
         return;
     }
 
-    m_view->deleteLater();
     m_page->disconnectObjects();
+    m_view->deleteLater();
 
     event->accept();
 }
 
-void PopupWindow::setWindowGeometry(const QRect &rect)
+void PopupWindow::setWindowGeometry(const QRect &newRect)
 {
-    if (rect.isValid()) {
-        setGeometry(rect);
+    if (newRect.isValid()) {
+        QRect oldRect = rect();
+        setGeometry(newRect);
+
+        if (newRect.topLeft() == QPoint(0, 0) && oldRect.topLeft() == QPoint(0, 0)) {
+            qz_centerWidgetOnScreen(this);
+        }
     }
 }
+
+// From my testing, these 3 slots are never fired ... even
+// if they should be
+// So for now, we just do nothing here
 
 void PopupWindow::setStatusBarVisibility(bool visible)
 {

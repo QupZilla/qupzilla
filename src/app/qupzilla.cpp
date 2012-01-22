@@ -1615,6 +1615,12 @@ void QupZilla::disconnectObjects()
         tab->view()->disconnectObjects();
         tab->view()->webPage()->disconnectObjects();
     }
+
+    foreach(const QWeakPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {
+        if (pointer) {
+            pointer.data()->deleteLater();
+        }
+    }
 }
 
 bool QupZilla::quitApp()
@@ -1656,9 +1662,4 @@ bool QupZilla::quitApp()
 
 QupZilla::~QupZilla()
 {
-    foreach(const QWeakPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {
-        if (pointer) {
-            pointer.data()->deleteLater();
-        }
-    }
 }

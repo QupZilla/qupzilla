@@ -346,7 +346,7 @@ void WebView::searchSelectedText()
 {
     QUrl urlToLoad = mApp->searchEnginesManager()->searchUrl(selectedText());
 
-    openUrlInNewTab(urlToLoad);
+    openUrlInNewTab(urlToLoad, Qz::NT_SelectedTab);
 }
 
 void WebView::bookmarkLink()
@@ -368,6 +368,20 @@ void WebView::showSourceOfSelection()
 #endif
 }
 
+void WebView::openUrlInSelectedTab()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        openUrlInNewTab(action->data().toUrl(), Qz::NT_SelectedTab);
+    }
+}
+
+void WebView::openUrlInBackgroundTab()
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        openUrlInNewTab(action->data().toUrl(), Qz::NT_NotSelectedTab);
+    }
+}\
+
 void WebView::loadClickedFrame()
 {
     QUrl frameUrl = m_clickedFrame->url();
@@ -385,7 +399,7 @@ void WebView::loadClickedFrameInNewTab()
         frameUrl = m_clickedFrame->requestedUrl();
     }
 
-    openUrlInNewTab(frameUrl);
+    openUrlInNewTab(frameUrl, Qz::NT_SelectedTab);
 }
 
 void WebView::reloadClickedFrame()
@@ -588,7 +602,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     if (url().scheme() == "http" || url().scheme() == "https") {
 //             bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
 //                 if (result)
-        menu->addAction(tr("Validate page"), this, SLOT(openUrlInNewTab()))->setData("http://validator.w3.org/check?uri=" + url().toString());
+        menu->addAction(tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData("http://validator.w3.org/check?uri=" + url().toString());
     }
 
     menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
@@ -603,7 +617,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     }
 
     menu->addSeparator();
-    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInNewTab()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInBackgroundTab()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
     menu->addSeparator();
     menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());
@@ -650,8 +664,8 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
 
     QString langCode = mApp->getActiveLanguage().left(2);
     QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
-    menu->addAction(QIcon(":icons/menu/translate.png"), tr("Google Translate"), this, SLOT(openUrlInNewTab()))->setData(googleTranslateUrl);
-    menu->addAction(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"), this, SLOT(openUrlInNewTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
+    menu->addAction(QIcon(":icons/menu/translate.png"), tr("Google Translate"), this, SLOT(openUrlInSelectedTab()))->setData(googleTranslateUrl);
+    menu->addAction(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"), this, SLOT(openUrlInSelectedTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
     menu->addSeparator();
 
     QString selectedString = selectedText.trimmed();
@@ -662,7 +676,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     QUrl guessedUrl = QUrl::fromUserInput(selectedString);
 
     if (isUrlValid(guessedUrl)) {
-        menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Go to &web address"), this, SLOT(openUrlInNewTab()))->setData(guessedUrl);
+        menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Go to &web address"), this, SLOT(openUrlInSelectedTab()))->setData(guessedUrl);
     }
 
     selectedText.truncate(20);
@@ -747,10 +761,47 @@ void WebView::mousePressEvent(QMouseEvent* event)
         event->accept();
         break;
 
-    default:
-        QWebView::mousePressEvent(event);
+    case Qt::MiddleButton: {
+        QWebFrame* frame = page()->frameAt(event->pos());
+
+        if (frame) {
+            QUrl link = frame->hitTestContent(event->pos()).linkUrl();
+            if (isUrlValid(link)) {
+                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                event->accept();
+                return;
+            }
+        }
+#ifdef Q_WS_WIN
+        else {
+            // Creating auto scroll on Windows
+            QWebView::mouseDoubleClickEvent(event);
+            return;
+        }
+#endif
         break;
     }
+
+    case Qt::LeftButton: {
+        QWebFrame* frame = page()->frameAt(event->pos());
+
+        if (frame && event->modifiers() == Qt::ControlModifier) {
+            QUrl link = frame->hitTestContent(event->pos()).linkUrl();
+            if (isUrlValid(link)) {
+                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                event->accept();
+                return;
+            }
+        }
+
+        break;
+    }
+
+    default:
+        break;
+    }
+
+    QWebView::mousePressEvent(event);
 }
 
 void WebView::keyPressEvent(QKeyEvent* event)

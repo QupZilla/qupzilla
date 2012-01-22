@@ -81,10 +81,9 @@ private slots:
     void slotIconChanged();
 
     void inspectElement();
-    void openUrlInNewTab(const QUrl &url = QUrl());
+    void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position);
 
 private:
-    void mousePressEvent(QMouseEvent* event);
     void contextMenuEvent(QContextMenuEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
 

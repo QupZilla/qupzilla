@@ -16,14 +16,12 @@ public:
     PopupWebPage* webPage();
 
     QWidget* overlayForJsAlert();
+    void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position);
 
 signals:
 
 public slots:
     void closeView();
-
-private slots:
-    void openUrlInNewTab(const QUrl &url = QUrl());
 
 private:
     void contextMenuEvent(QContextMenuEvent* event);

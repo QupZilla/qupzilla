@@ -34,7 +34,7 @@ public:
 signals:
 
 public slots:
-    void setWindowGeometry(const QRect &rect);
+    void setWindowGeometry(const QRect &newRect);
     void setStatusBarVisibility(bool visible);
     void setMenuBarVisibility(bool visible);
     void setToolBarVisibility(bool visible);

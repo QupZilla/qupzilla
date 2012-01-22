@@ -336,18 +336,9 @@ void TabbedWebView::stop()
     slotLoadFinished();
 }
 
-void TabbedWebView::openUrlInNewTab(const QUrl &url)
+void TabbedWebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position)
 {
-    QUrl urlToLoad;
-
-    if (!url.isEmpty()) {
-        urlToLoad = url;
-    }
-    else if (QAction* action = qobject_cast<QAction*>(sender())) {
-        urlToLoad = action->data().toUrl();
-    }
-
-    m_tabWidget->addView(urlToLoad, Qz::NT_NotSelectedTab);
+    m_tabWidget->addView(url, position);
 }
 
 void TabbedWebView::getFocus(const QUrl &urla)
@@ -355,36 +346,6 @@ void TabbedWebView::getFocus(const QUrl &urla)
     if (urla == url()) {
         m_tabWidget->setCurrentWidget(m_webTab);
     }
-}
-
-void TabbedWebView::mousePressEvent(QMouseEvent* event)
-{
-    switch (event->button()) {
-    case Qt::MiddleButton:
-        if (isUrlValid(QUrl(m_hoveredLink))) {
-            m_tabWidget->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), Qz::NT_NotSelectedTab);
-            event->accept();
-            return;
-        }
-#ifdef Q_WS_WIN
-        else {
-            WebView::mouseDoubleClickEvent(event);
-            return;
-        }
-#endif
-        break;
-
-    case Qt::LeftButton:
-        if (event->modifiers() == Qt::ControlModifier && isUrlValid(QUrl(m_hoveredLink))) {
-            m_tabWidget->addView(QUrl::fromEncoded(m_hoveredLink.toUtf8()), Qz::NT_NotSelectedTab);
-            event->accept();
-            return;
-        }
-    default:
-        break;
-    }
-
-    WebView::mousePressEvent(event);
 }
 
 void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
