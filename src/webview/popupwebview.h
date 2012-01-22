@@ -23,12 +23,12 @@ public slots:
     void closeView();
 
 private slots:
+    void openUrlInNewTab(const QUrl &url = QUrl());
 
 private:
     void contextMenuEvent(QContextMenuEvent* event);
 
     PopupWebPage* m_page;
-    QWebFrame* m_clickedFrame;
     QMenu* m_menu;
 };
 

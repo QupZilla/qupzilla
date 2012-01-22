@@ -243,7 +243,7 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
     if (type == QWebPage::NavigationTypeFormResubmitted) {
         QString message = tr("To show this page, QupZilla must resend request which do it again \n"
                              "(like searching on making an shoping, which has been already done.)");
-        bool result = (QMessageBox::question(view(), tr("Resend request confirmation"),
+        bool result = (QMessageBox::question(view(), tr("Confirm form resubmission"),
                                              message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes);
         if (!result) {
             return false;
