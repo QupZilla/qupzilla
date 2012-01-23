@@ -1970,7 +1970,7 @@
     </message>
     <message>
         <source>Default Font</source>
-        <translation>Štandardné písmo</translation>
+        <translation type="obsolete">Štandardné písmo</translation>
     </message>
     <message>
         <source>New Profile</source>
@@ -2065,7 +2065,7 @@
     </message>
     <message>
         <source>Fixed Font</source>
-        <translation>Neproporcionálne písmo</translation>
+        <translation type="obsolete">Neproporcionálne písmo</translation>
     </message>
     <message>
         <source>Appearance</source>
@@ -2241,6 +2241,22 @@
     </message>
     <message>
         <source>Closed tabs list instead of opened in tab bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimum Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimum Logical Font Size</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

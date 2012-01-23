@@ -1338,41 +1338,7 @@
        <item row="7" column="2">
         <widget class="QFontComboBox" name="fontCursive"/>
        </item>
-       <item row="10" column="1">
-        <widget class="QLabel" name="label_32">
-         <property name="text">
-          <string>Default Font</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="2">
-        <widget class="QSpinBox" name="sizeDefault">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="1">
-        <widget class="QLabel" name="label_33">
-         <property name="text">
-          <string>Fixed Font</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="2">
-        <widget class="QSpinBox" name="sizeFixed">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-        </widget>
-       </item>
-       <item row="12" column="1">
+       <item row="17" column="1">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -1427,6 +1393,78 @@
           <string>&lt;b&gt;Font Sizes&lt;/b&gt;</string>
          </property>
         </widget>
+       </item>
+       <item row="11" column="1" colspan="2">
+        <layout class="QFormLayout" name="formLayout">
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_33">
+           <property name="text">
+            <string>Fixed Font Size</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_32">
+           <property name="text">
+            <string>Default Font Size</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="sizeDefault">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QSpinBox" name="sizeFixed">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_46">
+           <property name="text">
+            <string>Minimum Font Size</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_47">
+           <property name="text">
+            <string>Minimum Logical Font Size</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QSpinBox" name="sizeMinimum">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QSpinBox" name="sizeMinimumLogical">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -2045,8 +2083,6 @@
   <tabstop>fontSansSerif</tabstop>
   <tabstop>fontCursive</tabstop>
   <tabstop>fontFantasy</tabstop>
-  <tabstop>sizeDefault</tabstop>
-  <tabstop>sizeFixed</tabstop>
   <tabstop>askEverytime</tabstop>
   <tabstop>useDefined</tabstop>
   <tabstop>downLoc</tabstop>

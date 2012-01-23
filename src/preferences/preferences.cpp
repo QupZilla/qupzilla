@@ -295,6 +295,8 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     ui->sizeDefault->setValue(settings.value("DefaultFontSize", mApp->webSettings()->fontSize(QWebSettings::DefaultFontSize)).toInt());
     ui->sizeFixed->setValue(settings.value("FixedFontSize", mApp->webSettings()->fontSize(QWebSettings::DefaultFixedFontSize)).toInt());
+    ui->sizeMinimum->setValue(settings.value("MinimumFontSize", mApp->webSettings()->fontSize(QWebSettings::MinimumFontSize)).toInt());
+    ui->sizeMinimumLogical->setValue(settings.value("MinimumLogicalFontSize", mApp->webSettings()->fontSize(QWebSettings::MinimumLogicalFontSize)).toInt());
     settings.endGroup();
 
     //PLUGINS
@@ -710,6 +712,8 @@ void Preferences::saveSettings()
 
     settings.setValue("DefaultFontSize", ui->sizeDefault->value());
     settings.setValue("FixedFontSize", ui->sizeFixed->value());
+    settings.setValue("MinimumFontSize", ui->sizeMinimum->value());
+    settings.setValue("MinimumLogicalFontSize", ui->sizeMinimumLogical->value());
     settings.endGroup();
 
     //BROWSING

@@ -24,6 +24,20 @@
 #include "mainapplication.h"
 #include "proxystyle.h"
 
+#ifdef Q_WS_X11
+#include <signal.h>
+void sigpipe_handler(int s)
+{
+    // When using QtWebKit 2.2 and running QupZilla with gdb, I have experienced
+    // some SIGPIPEs so far (not with other versions, only with this).
+    // But every time, QupZilla was running fine after SIGPIPE, so we are catching
+    // this signal and ignoring it to prevent unneeded crash because of it.
+
+    Q_UNUSED(s)
+    std::cout << "QupZilla::Caught SIGPIPE!" << std::endl;
+}
+#endif
+
 int main(int argc, char* argv[])
 {
     Q_INIT_RESOURCE(data);
@@ -32,6 +46,8 @@ int main(int argc, char* argv[])
 
 #ifdef Q_WS_X11
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11
+
+    signal(SIGPIPE, sigpipe_handler);
 #endif
 
     QList<CommandLineOptions::ActionPair> cmdActions;
