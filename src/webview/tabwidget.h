@@ -84,6 +84,7 @@ public slots:
     void restoreClosedTab();
     void restoreAllClosedTabs();
     void clearClosedTabsList();
+    void aboutToShowClosedTabsMenu();
 
     void moveAddTabButton(int posX);
     void showButtons();
@@ -102,6 +103,7 @@ private:
 
     bool m_hideTabBarWithOneTab;
     bool m_dontQuitWithOneTab;
+    bool m_closedInsteadOpened;
     QUrl m_urlOnNewTab;
     QupZilla* p_QupZilla;
 

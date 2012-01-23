@@ -131,7 +131,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     m_menuTabs = new QMenu(this);
     m_buttonListTabs->setMenu(m_menuTabs);
     m_buttonListTabs->setPopupMode(QToolButton::InstantPopup);
-    m_buttonListTabs->setToolTip(tr("Show list of opened tabs"));
+    m_buttonListTabs->setToolTip(tr("List of tabs"));
     m_buttonListTabs->setAutoRaise(true);
     m_buttonListTabs->setFocusPolicy(Qt::NoFocus);
 
@@ -142,7 +142,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     m_buttonAddTab->setFocusPolicy(Qt::NoFocus);
 
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
-    connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowTabsMenu()));
+    connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
 
     loadSettings();
 }
@@ -153,6 +153,7 @@ void TabWidget::loadSettings()
     settings.beginGroup("Browser-Tabs-Settings");
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
     m_dontQuitWithOneTab = settings.value("dontQuitWithOneTab", false).toBool();
+    m_closedInsteadOpened = settings.value("closedInsteadOpenedTabs", false).toBool();
     settings.endGroup();
     settings.beginGroup("Web-URL-Settings");
     m_urlOnNewTab = settings.value("newTabUrl", "qupzilla:speeddial").toUrl();
@@ -533,6 +534,34 @@ void TabWidget::clearClosedTabsList()
 bool TabWidget::canRestoreTab()
 {
     return m_closedTabsManager->isClosedTabAvailable();
+}
+
+void TabWidget::aboutToShowClosedTabsMenu()
+{
+    if (!m_closedInsteadOpened) {
+       aboutToShowTabsMenu();
+    }
+    else {
+      m_menuTabs->clear();
+      int i = 0;
+      foreach(ClosedTabsManager::Tab tab, this->closedTabsManager()->allClosedTabs()) {
+          QString title = tab.title;
+          if (title.length() > 40) {
+              title.truncate(40);
+              title += "..";
+          }
+          m_menuTabs->addAction(_iconForUrl(tab.url), title, this, SLOT(restoreClosedTab()))->setData(i);
+          i++;
+      }
+      m_menuTabs->addSeparator();
+      if (i == 0) {
+          m_menuTabs->addAction(tr("Empty"))->setEnabled(false);
+      }
+      else {
+          m_menuTabs->addAction(tr("Restore All Closed Tabs"), this, SLOT(restoreAllClosedTabs()));
+          m_menuTabs->addAction(tr("Clear list"), this, SLOT(clearClosedTabsList()));
+      }
+    }
 }
 
 QList<WebTab*> TabWidget::allTabs(bool withPinned)
