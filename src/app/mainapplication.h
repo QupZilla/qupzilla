@@ -28,6 +28,10 @@
 #include <QWebSecurityOrigin>
 #include <iostream>
 
+#ifdef Q_WS_MAC
+#include <QFileOpenEvent>
+#endif
+
 #include "qtsingleapplication.h"
 #include "commandlineoptions.h"
 
