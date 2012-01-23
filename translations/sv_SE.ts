@@ -541,7 +541,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="94"/>
         <source>Choose name for new bookmark folder: </source>
-        <translation>Välj namn för den nya mappen</translation>
+        <translation>Välj namn för den nya mappen: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="104"/>
@@ -551,7 +551,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="104"/>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation>Välj namn för den nya undermappen i bokmärkesverktygsraden</translation>
+        <translation>Välj namn för den nya undermappen i bokmärkesverktygsraden: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="129"/>
