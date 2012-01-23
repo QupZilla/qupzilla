@@ -323,6 +323,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
         //Prevent choosing first option with double rightclick
         QPoint pos = QCursor::pos();
         QPoint p(pos.x(), pos.y() + 1);
+
         m_menu->popup(p);
         return;
     }

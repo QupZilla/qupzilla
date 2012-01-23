@@ -516,13 +516,15 @@ void TabWidget::restoreAllClosedTabs()
     }
 
     QList<ClosedTabsManager::Tab> closedTabs = m_closedTabsManager->allClosedTabs();
-    foreach(ClosedTabsManager::Tab tab, closedTabs) {
+
+    foreach(const ClosedTabsManager::Tab &tab, closedTabs) {
         int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab);
         QDataStream historyStream(tab.history);
         historyStream >> *weView(index)->history();
 
         weView(index)->load(tab.url);
     }
+
     m_closedTabsManager->clearList();
 }
 
@@ -544,7 +546,7 @@ void TabWidget::aboutToShowClosedTabsMenu()
     else {
       m_menuTabs->clear();
       int i = 0;
-      foreach(ClosedTabsManager::Tab tab, this->closedTabsManager()->allClosedTabs()) {
+      foreach(const ClosedTabsManager::Tab &tab, this->closedTabsManager()->allClosedTabs()) {
           QString title = tab.title;
           if (title.length() > 40) {
               title.truncate(40);

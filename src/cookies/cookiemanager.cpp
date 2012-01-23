@@ -73,7 +73,7 @@ void CookieManager::removeCookie()
 
     if (current->text(1).isEmpty()) {     //Remove whole cookie group
         QString domain = current->whatsThis(0);
-        foreach(QNetworkCookie cok, m_cookies) {
+        foreach(const QNetworkCookie &cok, m_cookies) {
             if (cok.domain() == domain || cok.domain()  ==  domain.mid(1)) {
                 m_cookies.removeOne(cok);
             }

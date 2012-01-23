@@ -134,7 +134,7 @@ void ButtonWithMenu::generateMenu()
 {
     m_menu->clear();
 
-    foreach(Item item, m_items) {
+    foreach(const Item &item, m_items) {
         QVariant variant;
         variant.setValue<Item>(item);
         m_menu->addAction(item.icon, item.text, this, SLOT(setCurrentItem()))->setData(variant);

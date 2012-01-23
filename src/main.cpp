@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
     if (argc > 1) {
         CommandLineOptions cmd(argc, argv);
         cmdActions = cmd.getActions();
-        foreach(CommandLineOptions::ActionPair pair, cmdActions) {
+        foreach(const CommandLineOptions::ActionPair &pair, cmdActions) {
             switch (pair.action) {
             case Qz::CL_ExitAction:
                 return 0;

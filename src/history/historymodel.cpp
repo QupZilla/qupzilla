@@ -29,7 +29,7 @@ HistoryModel::HistoryModel(QupZilla* mainClass)
 {
     loadSettings();
 
-    qRegisterMetaType<HistoryModel::HistoryEntry>("HistoryModel::HistoryEntry");
+    qRegisterMetaType<HistoryEntry>("HistoryEntry");
 
     QThread* t = new QThread(this);
     t->start();
@@ -173,7 +173,7 @@ bool HistoryModel::urlIsStored(const QString &url)
     return query.next();
 }
 
-QList<HistoryModel::HistoryEntry> HistoryModel::mostVisited(int count)
+QList<HistoryEntry> HistoryModel::mostVisited(int count)
 {
     QList<HistoryEntry> list;
     QSqlQuery query;

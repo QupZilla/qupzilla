@@ -40,7 +40,7 @@ void IconProvider::saveIcon(WebView* view)
         return;
     }
 
-    foreach(Icon ic, m_iconBuffer) {
+    foreach(const Icon &ic, m_iconBuffer) {
         if (ic.url == item.url && ic.image == item.image) {
             return;
         }
@@ -51,7 +51,7 @@ void IconProvider::saveIcon(WebView* view)
 
 QImage IconProvider::iconForUrl(const QUrl &url)
 {
-    foreach(Icon ic, m_iconBuffer) {
+    foreach(const Icon &ic, m_iconBuffer) {
         if (ic.url == url) {
             return ic.image;
         }
@@ -70,7 +70,7 @@ QImage IconProvider::iconForUrl(const QUrl &url)
 
 QImage IconProvider::iconForDomain(const QUrl &url)
 {
-    foreach(Icon ic, m_iconBuffer) {
+    foreach(const Icon &ic, m_iconBuffer) {
         if (ic.url.host() == url.host()) {
             return ic.image;
         }
@@ -87,7 +87,7 @@ QImage IconProvider::iconForDomain(const QUrl &url)
 
 void IconProvider::saveIconsToDatabase()
 {
-    foreach(Icon ic, m_iconBuffer) {
+    foreach(const Icon &ic, m_iconBuffer) {
         QSqlQuery query;
         query.prepare("SELECT id FROM icons WHERE url = ?");
         query.bindValue(0, ic.url.toEncoded(QUrl::RemoveFragment));

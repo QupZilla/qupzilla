@@ -38,9 +38,9 @@ HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent)
     connect(ui->search, SIGNAL(textEdited(QString)), ui->historyTree, SLOT(filterString(QString)));
 //    connect(ui->search, SIGNAL(textEdited(QString)), this, SLOT(search()));
 
-    connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryModel::HistoryEntry)), this, SLOT(historyEntryAdded(HistoryModel::HistoryEntry)));
-    connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryModel::HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryModel::HistoryEntry)));
-    connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryModel::HistoryEntry, HistoryModel::HistoryEntry)), this, SLOT(historyEntryEdited(HistoryModel::HistoryEntry, HistoryModel::HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryEntry)), this, SLOT(historyEntryAdded(HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryEntry, HistoryEntry)), this, SLOT(historyEntryEdited(HistoryEntry, HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyClear()), ui->historyTree, SLOT(clear()));
 
     QTimer::singleShot(0, this, SLOT(refreshTable()));
@@ -103,7 +103,7 @@ void HistorySideBar::contextMenuRequested(const QPoint &position)
     menu.exec(p);
 }
 
-void HistorySideBar::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
+void HistorySideBar::historyEntryAdded(const HistoryEntry &entry)
 {
     QDate todayDate = QDate::currentDate();
     QDate startOfWeekDate = todayDate.addDays(1 - todayDate.dayOfWeek());
@@ -146,7 +146,7 @@ void HistorySideBar::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
     ui->historyTree->prependToParentItem(parentItem, item);
 }
 
-void HistorySideBar::historyEntryDeleted(const HistoryModel::HistoryEntry &entry)
+void HistorySideBar::historyEntryDeleted(const HistoryEntry &entry)
 {
     QList<QTreeWidgetItem*> list = ui->historyTree->allItems();
     foreach(QTreeWidgetItem * item, list) {
@@ -161,7 +161,7 @@ void HistorySideBar::historyEntryDeleted(const HistoryModel::HistoryEntry &entry
     }
 }
 
-void HistorySideBar::historyEntryEdited(const HistoryModel::HistoryEntry &before, const HistoryModel::HistoryEntry &after)
+void HistorySideBar::historyEntryEdited(const HistoryEntry &before, const HistoryEntry &after)
 {
     historyEntryDeleted(before);
     historyEntryAdded(after);

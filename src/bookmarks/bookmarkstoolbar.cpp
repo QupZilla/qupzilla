@@ -282,7 +282,7 @@ void BookmarksToolbar::loadFolderBookmarksInTabs()
         return;
     }
 
-    foreach(Bookmark b, m_bookmarksModel->folderBookmarks(folder)) {
+    foreach(const Bookmark &b, m_bookmarksModel->folderBookmarks(folder)) {
         p_QupZilla->tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }
@@ -534,13 +534,14 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     menu->clear();
     QString folder = menu->title();
 
-    foreach(Bookmark b, m_bookmarksModel->folderBookmarks(folder)) {
-        if (b.title.length() > 40) {
-            b.title.truncate(40);
-            b.title += "..";
+    foreach(const Bookmark &b, m_bookmarksModel->folderBookmarks(folder)) {
+        QString title = b.title;
+        if (title.length() > 40) {
+            title.truncate(40);
+            title += "..";
         }
 
-        Action* act = new Action(IconProvider::iconFromImage(b.image), b.title);
+        Action* act = new Action(IconProvider::iconFromImage(b.image), title);
         act->setData(b.url);
         connect(act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
         connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));
@@ -548,7 +549,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     }
 
     if (menu->isEmpty()) {
-        menu->addAction(tr("Empty"));
+        menu->addAction(tr("Empty"))->setEnabled(false);
     }
 }
 
@@ -584,14 +585,15 @@ void BookmarksToolbar::refreshMostVisited()
 {
     m_menuMostVisited->clear();
 
-    QList<HistoryModel::HistoryEntry> mostList = m_historyModel->mostVisited(10);
-    foreach(HistoryModel::HistoryEntry entry, mostList) {
-        if (entry.title.length() > 40) {
-            entry.title.truncate(40);
-            entry.title += "..";
+    QList<HistoryEntry> mostList = m_historyModel->mostVisited(10);
+    foreach(const HistoryEntry &entry, mostList) {
+        QString title = entry.title;
+        if (title.length() > 40) {
+            title.truncate(40);
+            title += "..";
         }
 
-        Action* act = new Action(_iconForUrl(entry.url), entry.title);
+        Action* act = new Action(_iconForUrl(entry.url), title);
         act->setData(entry.url);
         connect(act, SIGNAL(triggered()), p_QupZilla, SLOT(loadActionUrl()));
         connect(act, SIGNAL(middleClicked()), p_QupZilla, SLOT(loadActionUrlInNewNotSelectedTab()));
@@ -599,6 +601,6 @@ void BookmarksToolbar::refreshMostVisited()
     }
 
     if (m_menuMostVisited->isEmpty()) {
-        m_menuMostVisited->addAction(tr("Empty"));
+        m_menuMostVisited->addAction(tr("Empty"))->setEnabled(false);
     }
 }

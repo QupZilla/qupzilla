@@ -121,7 +121,7 @@ void DownloadManager::timerEvent(QTimerEvent* event)
         }
 
         QTime remaining;
-        foreach(QTime time, remTimes) {
+        foreach(const QTime &time, remTimes) {
             if (time > remaining) {
                 remaining = time;
             }

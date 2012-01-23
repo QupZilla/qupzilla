@@ -154,7 +154,7 @@ QString SpeedDial::initialScript()
 
     QStringList entries = m_allPages.split("\";");
 
-    foreach(QString entry, entries) {
+    foreach(const QString &entry, entries) {
         if (entry.isEmpty()) {
             continue;
         }

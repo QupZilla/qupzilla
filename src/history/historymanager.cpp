@@ -43,9 +43,9 @@ HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
     connect(ui->clearAll, SIGNAL(clicked()), this, SLOT(clearHistory()));
     connect(ui->historyTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
 
-    connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryModel::HistoryEntry)), this, SLOT(historyEntryAdded(HistoryModel::HistoryEntry)));
-    connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryModel::HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryModel::HistoryEntry)));
-    connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryModel::HistoryEntry, HistoryModel::HistoryEntry)), this, SLOT(historyEntryEdited(HistoryModel::HistoryEntry, HistoryModel::HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryEntry)), this, SLOT(historyEntryAdded(HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryEntry)));
+    connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryEntry, HistoryEntry)), this, SLOT(historyEntryEdited(HistoryEntry, HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyClear()), ui->historyTree, SLOT(clear()));
 
     connect(ui->optimizeDb, SIGNAL(clicked(QPoint)), this, SLOT(optimizeDb()));
@@ -144,7 +144,7 @@ void HistoryManager::deleteItem()
     }
 }
 
-void HistoryManager::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
+void HistoryManager::historyEntryAdded(const HistoryEntry &entry)
 {
     QDate todayDate = QDate::currentDate();
     QDate startOfWeekDate = todayDate.addDays(1 - todayDate.dayOfWeek());
@@ -188,7 +188,7 @@ void HistoryManager::historyEntryAdded(const HistoryModel::HistoryEntry &entry)
     ui->historyTree->prependToParentItem(parentItem, item);
 }
 
-void HistoryManager::historyEntryDeleted(const HistoryModel::HistoryEntry &entry)
+void HistoryManager::historyEntryDeleted(const HistoryEntry &entry)
 {
     if (m_ignoredIds.contains(entry.id)) {
         m_ignoredIds.removeOne(entry.id);
@@ -208,7 +208,7 @@ void HistoryManager::historyEntryDeleted(const HistoryModel::HistoryEntry &entry
     }
 }
 
-void HistoryManager::historyEntryEdited(const HistoryModel::HistoryEntry &before, const HistoryModel::HistoryEntry &after)
+void HistoryManager::historyEntryEdited(const HistoryEntry &before, const HistoryEntry &after)
 {
     historyEntryDeleted(before);
     historyEntryAdded(after);

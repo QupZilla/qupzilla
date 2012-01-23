@@ -458,10 +458,10 @@ void QupZilla::setupMenu()
     m_menuClosedTabs = new QMenu(tr("Closed Tabs"));
     connect(m_menuClosedTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
 
-    m_menuHistoryRecent = new QMenu(tr("Recently Visited"));
+    m_menuHistoryRecent = new Menu(tr("Recently Visited"), m_menuHistory);
     connect(m_menuHistoryRecent, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryRecentMenu()));
 
-    m_menuHistoryMost = new QMenu(tr("Most Visited"));
+    m_menuHistoryMost = new Menu(tr("Most Visited"), m_menuHistory);
     connect(m_menuHistoryMost, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMostMenu()));
 
     aboutToShowToolsMenu();
@@ -700,7 +700,7 @@ void QupZilla::aboutToShowBookmarksMenu()
         menuBookmarks->addAction(act);
     }
     if (menuBookmarks->isEmpty()) {
-        menuBookmarks->addAction(tr("Empty"));
+        menuBookmarks->addAction(tr("Empty"))->setEnabled(false);
     }
     m_menuBookmarksAction = m_menuBookmarks->addMenu(menuBookmarks);
 
@@ -728,7 +728,7 @@ void QupZilla::aboutToShowBookmarksMenu()
             tempFolder->addAction(act);
         }
         if (tempFolder->isEmpty()) {
-            tempFolder->addAction(tr("Empty"));
+            tempFolder->addAction(tr("Empty"))->setEnabled(false);
         }
         m_menuBookmarks->addMenu(tempFolder);
     }
@@ -786,7 +786,7 @@ void QupZilla::aboutToShowClosedTabsMenu()
 {
     m_menuClosedTabs->clear();
     int i = 0;
-    foreach(ClosedTabsManager::Tab tab, m_tabWidget->closedTabsManager()->allClosedTabs()) {
+    foreach(const ClosedTabsManager::Tab &tab, m_tabWidget->closedTabsManager()->allClosedTabs()) {
         QString title = tab.title;
         if (title.length() > 40) {
             title.truncate(40);
@@ -809,24 +809,23 @@ void QupZilla::aboutToShowHistoryRecentMenu()
 {
     m_menuHistoryRecent->clear();
     QSqlQuery query;
-    if (query.isNull(false)) {
-        query.exec("SELECT title, url FROM history ORDER BY date DESC LIMIT 15");
-        while (query.next()) {
-            QUrl url = query.value(1).toUrl();
-            QString title = query.value(0).toString();
-            if (title.length() > 40) {
-                title.truncate(40);
-                title += "..";
-            }
-
-            Action* act = new Action(_iconForUrl(url), title);
-            act->setData(url);
-            connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
-            connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
-            m_menuHistoryRecent->addAction(act);
+    query.exec("SELECT title, url FROM history ORDER BY date DESC LIMIT 15");
+    while (query.next()) {
+        QUrl url = query.value(1).toUrl();
+        QString title = query.value(0).toString();
+        if (title.length() > 40) {
+            title.truncate(40);
+            title += "..";
         }
+
+        Action* act = new Action(_iconForUrl(url), title);
+        act->setData(url);
+        connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
+        m_menuHistoryRecent->addAction(act);
     }
-    else {
+
+    if (m_menuHistoryRecent->isEmpty()) {
         m_menuHistoryRecent->addAction(tr("Empty"))->setEnabled(false);
     }
 }
@@ -834,25 +833,24 @@ void QupZilla::aboutToShowHistoryRecentMenu()
 void QupZilla::aboutToShowHistoryMostMenu()
 {
     m_menuHistoryMost->clear();
-    QSqlQuery query;
-    if (query.isNull(false)) {
-        query.exec("SELECT title, url FROM history ORDER BY count DESC LIMIT 15");
-        while (query.next()) {
-            QUrl url = query.value(1).toUrl();
-            QString title = query.value(0).toString();
-            if (title.length() > 40) {
-                title.truncate(40);
-                title += "..";
-            }
 
-            Action* act = new Action(_iconForUrl(url), title);
-            act->setData(url);
-            connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
-            connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
-            m_menuHistoryMost->addAction(act);
+    QList<HistoryEntry> mostList = mApp->history()->mostVisited(10);
+
+    foreach(const HistoryEntry &entry, mostList) {
+        QString title = entry.title;
+        if (title.length() > 40) {
+            title.truncate(40);
+            title += "..";
         }
+
+        Action* act = new Action(_iconForUrl(entry.url), title);
+        act->setData(entry.url);
+        connect(act, SIGNAL(triggered()), this, SLOT(loadActionUrl()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(loadActionUrlInNewNotSelectedTab()));
+        m_menuHistoryMost->addAction(act);
     }
-    else {
+
+    if (m_menuHistoryMost->isEmpty()){
         m_menuHistoryMost->addAction(tr("Empty"))->setEnabled(false);
     }
 }
@@ -966,7 +964,7 @@ void QupZilla::aboutToShowEncodingMenu()
     qSort(available);
     QString activeCodec = mApp->webSettings()->defaultTextEncoding();
 
-    foreach(QByteArray name, available) {
+    foreach(const QByteArray &name, available) {
         if (QTextCodec::codecForName(name)->aliases().contains(name)) {
             continue;
         }
@@ -1124,7 +1122,7 @@ void QupZilla::loadFolderBookmarks(Menu* menu)
         return;
     }
 
-    foreach(Bookmark b, mApp->bookmarksModel()->folderBookmarks(folder)) {
+    foreach(const Bookmark &b, mApp->bookmarksModel()->folderBookmarks(folder)) {
         tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }

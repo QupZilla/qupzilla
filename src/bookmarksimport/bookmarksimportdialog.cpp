@@ -93,7 +93,7 @@ void BookmarksImportDialog::startFetchingIcons()
     ui->progressBar->setMaximum(m_exportedBookmarks.count());
 
     int i = 0;
-    foreach(BookmarksModel::Bookmark b, m_exportedBookmarks) {
+    foreach(const Bookmark &b, m_exportedBookmarks) {
         QTreeWidgetItem* item = new QTreeWidgetItem();
         item->setText(0, b.title);
         item->setIcon(0, QWebSettings::globalSettings()->webGraphic(QWebSettings::DefaultFrameIconGraphic));
@@ -163,7 +163,7 @@ void BookmarksImportDialog::iconFetched(const QIcon &icon)
     foreach(QTreeWidgetItem * item, items) {
         item->setIcon(0, icon);
 
-        foreach(BookmarksModel::Bookmark b, m_exportedBookmarks) {
+        foreach(Bookmark b, m_exportedBookmarks) {
             if (b.url == url) {
                 m_exportedBookmarks.removeOne(b);
                 b.image = icon.pixmap(16, 16).toImage();
@@ -263,7 +263,7 @@ void BookmarksImportDialog::addExportedBookmarks()
         model->createFolder(m_exportedBookmarks.at(0).folder);
     }
 
-    foreach(BookmarksModel::Bookmark b, m_exportedBookmarks) {
+    foreach(const Bookmark &b, m_exportedBookmarks) {
         model->saveBookmark(b.url, b.title, IconProvider::iconFromImage(b.image), b.folder);
     }
 

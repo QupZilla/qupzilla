@@ -538,11 +538,9 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         createSelectedTextContextMenu(menu, hitTest);
     }
 
-    if (menu->isEmpty() && selectedText().isEmpty()) {
+    if (menu->isEmpty()) {
         createPageContextMenu(menu, pos);
     }
-
-
 
 #if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
 //    still bugged? in 4.8 RC (it shows selection of webkit's internal source, not html from page)
@@ -859,8 +857,11 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
             event->type() == QEvent::MouseMove) {
 
         QMouseEvent* ev = static_cast<QMouseEvent*>(event);
-        if (ev->type() == QEvent::MouseMove
-                && !(ev->buttons() & Qt::LeftButton)) {
+        if (ev->type() == QEvent::MouseMove && !(ev->buttons() & Qt::LeftButton)) {
+            return false;
+        }
+
+        if (ev->type() == QEvent::MouseButtonPress && ev->buttons() & Qt::RightButton) {
             return false;
         }
 

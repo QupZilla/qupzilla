@@ -78,7 +78,7 @@ SearchEngine SearchEnginesManager::engineForShortcut(const QString &shortcut)
         return returnEngine;
     }
 
-    foreach(Engine en, m_allEngines) {
+    foreach(const Engine &en, m_allEngines) {
         if (en.shortcut == shortcut) {
             returnEngine = en;
             break;
@@ -326,7 +326,7 @@ void SearchEnginesManager::saveSettings()
     QSqlQuery query;
     query.exec("DELETE FROM search_engines");
 
-    foreach(Engine en, m_allEngines) {
+    foreach(const Engine &en, m_allEngines) {
         query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters) VALUES (?, ?, ?, ?, ?, ?)");
         query.bindValue(0, en.name);
         query.bindValue(1, IconProvider::iconToBase64(en.icon));

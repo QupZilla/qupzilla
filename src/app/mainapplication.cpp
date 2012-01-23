@@ -120,7 +120,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     QString startProfile;
 
     if (argc > 1) {
-        foreach(CommandLineOptions::ActionPair pair, cmdActions) {
+        foreach(const CommandLineOptions::ActionPair &pair, cmdActions) {
             switch (pair.action) {
             case Qz::CL_StartWithoutAddons:
                 noAddons = true;
@@ -158,7 +158,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     }
 
     if (isRunning()) {
-        foreach(QString message, messages) {
+        foreach(const QString &message, messages) {
             sendMessage(message);
         }
         m_isExited = true;

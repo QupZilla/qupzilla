@@ -159,7 +159,7 @@ void SearchEnginesDialog::reloadEngines()
 {
     ui->treeWidget->clear();
 
-    foreach(SearchEngine en, m_manager->allEngines()) {
+    foreach(const SearchEngine &en, m_manager->allEngines()) {
         QTreeWidgetItem* item = new QTreeWidgetItem();
         item->setIcon(0, en.icon);
         item->setText(0, en.name);

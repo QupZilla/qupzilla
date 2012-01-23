@@ -107,7 +107,7 @@ void WebSearchBar::setupEngines()
 
     m_boxSearchType->clearItems();
 
-    foreach(SearchEngine en, m_searchManager->allEngines()) {
+    foreach(const SearchEngine &en, m_searchManager->allEngines()) {
         ButtonWithMenu::Item item;
         item.icon = en.icon;
         item.text = en.name;
@@ -156,7 +156,7 @@ void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
     QWebFrame* frame = view->page()->mainFrame();
 
     QWebElementCollection elements = frame->documentElement().findAll(QLatin1String("link[rel=search]"));
-    foreach(QWebElement element, elements) {
+    foreach(const QWebElement &element, elements) {
         if (element.attribute("type") != "application/opensearchdescription+xml") {
             continue;
         }

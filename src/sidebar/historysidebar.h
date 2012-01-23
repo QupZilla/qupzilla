@@ -51,9 +51,9 @@ private slots:
 
     void copyAddress();
 
-    void historyEntryAdded(const HistoryModel::HistoryEntry &entry);
-    void historyEntryDeleted(const HistoryModel::HistoryEntry &entry);
-    void historyEntryEdited(const HistoryModel::HistoryEntry &before, const HistoryModel::HistoryEntry &after);
+    void historyEntryAdded(const HistoryEntry &entry);
+    void historyEntryDeleted(const HistoryEntry &entry);
+    void historyEntryEdited(const HistoryEntry &before, const HistoryEntry &after);
 
 private:
     Ui::HistorySideBar* ui;

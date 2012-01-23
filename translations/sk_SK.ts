@@ -2239,6 +2239,10 @@
         <source>Don&apos;t quit upon closing last tab</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Closed tabs list instead of opened in tab bar</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2631,6 +2635,14 @@
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
         <translation type="unfinished">Úspešne ste pridali RSS odberl &quot;%1&quot;.</translation>
+    </message>
+    <message>
+        <source>Recently Visited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Most Visited</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3543,7 +3555,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Show list of opened tabs</source>
-        <translation>Zobraziť zoznam otvorených kariet</translation>
+        <translation type="obsolete">Zobraziť zoznam otvorených kariet</translation>
     </message>
     <message>
         <source>Loading...</source>
@@ -3552,6 +3564,22 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>No Named Page</source>
         <translation>Nepomenovaná tránka</translation>
+    </message>
+    <message>
+        <source>List of tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore All Closed Tabs</source>
+        <translation type="unfinished">Obnoviť všetky zatvorené karty</translation>
+    </message>
+    <message>
+        <source>Clear list</source>
+        <translation type="unfinished">Vyčistiť zoznam</translation>
     </message>
 </context>
 <context>

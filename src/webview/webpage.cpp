@@ -289,7 +289,7 @@ void WebPage::cleanBlockedObjects()
 {
     QStringList findingStrings;
 
-    foreach(AdBlockedEntry entry, m_adBlockedEntries) {
+    foreach(const AdBlockedEntry &entry, m_adBlockedEntries) {
         if (entry.url.toString().endsWith(".js")) {
             continue;
         }
@@ -308,10 +308,14 @@ void WebPage::cleanBlockedObjects()
 
     QWebElement docElement = mainFrame()->documentElement();
     QWebElementCollection elements;
-    foreach(QString s, findingStrings)
-    elements.append(docElement.findAll("*[src=\"" + s + "\"]"));
-    foreach(QWebElement element, elements)
-    element.setAttribute("style", "display:none;");
+
+    foreach(const QString &s, findingStrings) {
+        elements.append(docElement.findAll("*[src=\"" + s + "\"]"));
+    }
+
+    foreach(QWebElement element, elements) {
+        element.setStyleProperty("visibility", "hidden");
+    }
 }
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
@@ -410,12 +414,14 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
                     QWebElementCollection elements;
                     elements.append(docElement.findAll("iframe"));
+
                     foreach(QWebElement element, elements) {
                         QString src = element.attribute("src");
                         if (exOption->url.toString().contains(src)) {
-                            element.setAttribute("style", "display:none;");
+                            element.setStyleProperty("visibility", "hidden");
                         }
                     }
+
                     return false;
                 }
                 else {   //The whole page is blocked

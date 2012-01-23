@@ -41,7 +41,8 @@ ThemeManager::ThemeManager(QWidget* parent)
 
     QDir themeDir(mApp->THEMESDIR);
     QStringList list = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
-    foreach(QString name, list) {
+
+    foreach(const QString &name, list) {
         Theme themeInfo = parseTheme(name);
         if (!themeInfo.isValid) {
             continue;

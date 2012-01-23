@@ -46,7 +46,7 @@ void AdBlockIcon::showMenu(const QPoint &pos)
     }
     else {
         menu.addAction(tr("Blocked URL (AdBlock Rule) - click to edit rule"))->setEnabled(false);
-        foreach(WebPage::AdBlockedEntry entry, entries) {
+        foreach(const WebPage::AdBlockedEntry &entry, entries) {
             QString address = entry.url.toString().right(55);
             menu.addAction(tr("%1 with (%2)").arg(address, entry.rule), manager, SLOT(showRule()))->setData(entry.rule);
         }

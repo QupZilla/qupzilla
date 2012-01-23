@@ -75,12 +75,14 @@ void SSLManager::refreshCAList()
     ui->caList->setUpdatesEnabled(false);
     ui->caList->clear();
     m_caCerts = QSslSocket::defaultCaCertificates();
-    foreach(QSslCertificate cert, m_caCerts) {
+
+    foreach(const QSslCertificate &cert, m_caCerts) {
         QListWidgetItem* item = new QListWidgetItem(ui->caList);
         item->setText(CertificateInfoWidget::certificateItemText(cert));
         item->setWhatsThis(QString::number(m_caCerts.indexOf(cert)));
         ui->caList->addItem(item);
     }
+
     ui->caList->setCurrentRow(0);
     ui->caList->setUpdatesEnabled(true);
 }
@@ -90,20 +92,23 @@ void SSLManager::refreshLocalList()
     ui->localList->setUpdatesEnabled(false);
     ui->localList->clear();
     m_localCerts = mApp->networkManager()->getLocalCertificates();
-    foreach(QSslCertificate cert, m_localCerts) {
+
+    foreach(const QSslCertificate &cert, m_localCerts) {
         QListWidgetItem* item = new QListWidgetItem(ui->localList);
         item->setText(CertificateInfoWidget::certificateItemText(cert));
         item->setWhatsThis(QString::number(m_localCerts.indexOf(cert)));
         ui->localList->addItem(item);
     }
+
     ui->localList->setCurrentRow(0);
     ui->localList->setUpdatesEnabled(true);
 }
 
 void SSLManager::refreshPaths()
 {
-    foreach(QString path, mApp->networkManager()->certificatePaths())
-    ui->pathList->addItem(path);
+    foreach(const QString &path, mApp->networkManager()->certificatePaths()) {
+        ui->pathList->addItem(path);
+    }
 }
 
 void SSLManager::showCaCertInfo()

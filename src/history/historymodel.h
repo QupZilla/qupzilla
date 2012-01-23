@@ -53,7 +53,7 @@ public:
 
     bool urlIsStored(const QString &url);
 
-    QList<HistoryModel::HistoryEntry> mostVisited(int count);
+    QList<HistoryEntry> mostVisited(int count);
 
     bool clearHistory();
     bool optimizeHistory();
@@ -67,9 +67,9 @@ private slots:
     void slotDeleteHistoryEntry(int index);
 
 signals:
-    void historyEntryAdded(HistoryModel::HistoryEntry entry);
-    void historyEntryDeleted(HistoryModel::HistoryEntry entry);
-    void historyEntryEdited(HistoryModel::HistoryEntry before, HistoryModel::HistoryEntry after);
+    void historyEntryAdded(HistoryEntry entry);
+    void historyEntryDeleted(HistoryEntry entry);
+    void historyEntryEdited(HistoryEntry before, HistoryEntry after);
     //WARNING: Incomplete HistoryEntry structs are passed to historyEntryEdited!
     void historyClear();
 
@@ -80,5 +80,7 @@ private:
     bool m_isSaving;
     QupZilla* p_QupZilla;
 };
+
+typedef HistoryModel::HistoryEntry HistoryEntry;
 
 #endif // HISTORYMODEL_H
