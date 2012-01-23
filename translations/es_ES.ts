@@ -480,19 +480,19 @@
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="7"/>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="24"/>
         <source>No Error</source>
-        <translation type="unfinished">Ningún error</translation>
+        <translation>Ningún error</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="40"/>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="22"/>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="39"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished">No se puede abrir el archivo.</translation>
+        <translation>No se puede abrir el archivo.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="85"/>
         <source>Cannot evaluate JSON code.</source>
-        <translation type="unfinished">No se puede evaluar el código JSON.</translation>
+        <translation>No se puede evaluar el código JSON.</translation>
     </message>
     <message>
         <source>File does not exists.</source>
@@ -501,12 +501,12 @@
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="39"/>
         <source>File does not exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>El archivo no existe.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="47"/>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation type="unfinished">No se puede abrir la base de datos. ¿Está ejecutándose Firefox?</translation>
+        <translation>No se puede abrir la base de datos. ¿Está ejecutándose Firefox?</translation>
     </message>
 </context>
 <context>
@@ -739,7 +739,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
         <source>Edit bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar marcador</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="93"/>
@@ -749,22 +749,22 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
         <source>Edit bookmark: </source>
-        <translation type="unfinished"></translation>
+        <translation>Editar marcador:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="202"/>
         <source>Title: </source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="203"/>
         <source>Url: </source>
-        <translation type="unfinished"></translation>
+        <translation>Dirección:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="211"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar marcador</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="514"/>
@@ -1001,7 +1001,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="127"/>
         <source>Show more information about object</source>
-        <translation type="unfinished"></translation>
+        <translation>Ver más información del objeto</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="129"/>
@@ -1031,7 +1031,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="285"/>
         <source>No more information available.</source>
-        <translation type="unfinished"></translation>
+        <translation>No hay más información disponible.</translation>
     </message>
     <message>
         <source>No more informations available.</source>
@@ -1700,12 +1700,12 @@
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="258"/>
         <source>Paste And &amp;Go</source>
-        <translation type="unfinished"></translation>
+        <translation>Pegar e &amp;ir</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="264"/>
         <source>Clear All</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpiar todo</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="421"/>
@@ -1716,7 +1716,7 @@
     <message>
         <location filename="../src/navigation/siteicon.cpp" line="29"/>
         <source>Show information about this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Ver información de la página</translation>
     </message>
 </context>
 <context>
@@ -2078,7 +2078,7 @@
     <message>
         <location filename="../src/popupwindow/popupwindow.cpp" line="126"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
 </context>
 <context>
@@ -2411,7 +2411,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="729"/>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation type="unfinished"></translation>
+        <translation>No salir al cerrar la última pestaña</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="736"/>
@@ -2837,12 +2837,12 @@
     <message>
         <location filename="../src/tools/certificateinfowidget.cpp" line="286"/>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;no establecido en el certificado&gt;</translation>
     </message>
     <message>
         <location filename="../src/desktopnotifications/desktopnotificationsfactory.cpp" line="101"/>
         <source>Native System Notification</source>
-        <translation type="unfinished">Sistema de notificación nativo</translation>
+        <translation>Sistema de notificación nativo</translation>
     </message>
 </context>
 <context>
@@ -2978,7 +2978,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="104"/>
         <source>QupZilla</source>
-        <translation type="unfinished">QupZilla</translation>
+        <translation>QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="367"/>
@@ -3197,7 +3197,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1318"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="315"/>
@@ -3266,7 +3266,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="868"/>
         <source>Information about application</source>
-        <translation type="unfinished"></translation>
+        <translation>Información acerca de la aplicación</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="961"/>
@@ -3325,7 +3325,7 @@
     <message>
         <location filename="../src/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="unfinished">Ha añadido satisfactoriamente el feed RSS &quot;%1&quot;.</translation>
+        <translation>Ha añadido satisfactoriamente el feed RSS &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -3508,57 +3508,57 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Speed Dial settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración de speed dial</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Placement: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ubicación:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="267"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
         <source>Cover</source>
-        <translation type="unfinished"></translation>
+        <translation>Cubierta</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustar</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Fit Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustar horizontalmente</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
         <source>Fit Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustar verticalmente</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="272"/>
         <source>Use background image</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar imágen de fondo</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="273"/>
         <source>Select image</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar imágen</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="274"/>
         <source>Maximum pages in a row:</source>
-        <translation type="unfinished"></translation>
+        <translation>Páginas máximas por fila:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="275"/>
         <source>Change size of pages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar el tamaño de las páginas:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="256"/>
@@ -3593,7 +3593,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="184"/>
         <source>Information about version</source>
-        <translation type="unfinished"></translation>
+        <translation>Información acerca de la versión</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="255"/>
@@ -4311,7 +4311,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="144"/>
         <source>Cannot reload source. Page has been closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>No se puede recargar la fuente. La página ha sido cerrada.</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="152"/>
@@ -4347,7 +4347,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="225"/>
         <source>Select image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar imágen...</translation>
     </message>
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="262"/>
@@ -4490,22 +4490,22 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="88"/>
         <source>Failed loading page</source>
-        <translation type="unfinished">Falló la carga de la página</translation>
+        <translation>Falló la carga de la página</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="158"/>
         <source>Loading...</source>
-        <translation type="unfinished">Cargando...</translation>
+        <translation>Cargando...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="233"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="320"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Inspeccionar elemento</translation>
     </message>
     <message>
         <source>Open link in new &amp;tab</source>
@@ -4689,12 +4689,12 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/navigation/reloadstopbutton.cpp" line="28"/>
         <source>Stop</source>
-        <translation type="unfinished">Detener</translation>
+        <translation>Detener</translation>
     </message>
     <message>
         <location filename="../src/navigation/reloadstopbutton.cpp" line="36"/>
         <source>Reload</source>
-        <translation type="unfinished">Recargar</translation>
+        <translation>Recargar</translation>
     </message>
 </context>
 <context>
@@ -4740,12 +4740,12 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webpage.cpp" line="246"/>
         <source>Confirm form resubmission</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmar el reenvío del formulario</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="357"/>
         <source>Select files to upload...</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar archivos para subir...</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="378"/>
@@ -4855,12 +4855,12 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webpage.cpp" line="577"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished">Prevenir que esta página cree diálogos adicionales</translation>
+        <translation>Prevenir que esta página cree diálogos adicionales</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="580"/>
         <source>JavaScript alert - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Alerta JavaScript - %1</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="626"/>
@@ -4894,42 +4894,42 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webview.cpp" line="594"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished">Cop&amp;iar el enlace de la página</translation>
+        <translation>Cop&amp;iar el enlace de la página</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="595"/>
         <source>Send page link...</source>
-        <translation type="unfinished">Enviar enlace de la página...</translation>
+        <translation>Enviar enlace de la página...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="596"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished">&amp;Imprimir página</translation>
+        <translation>&amp;Imprimir página</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="603"/>
         <source>Validate page</source>
-        <translation type="unfinished">Validar página</translation>
+        <translation>Validar página</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="660"/>
         <source>Send text...</source>
-        <translation type="unfinished">Enviar texto...</translation>
+        <translation>Enviar texto...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="665"/>
         <source>Google Translate</source>
-        <translation type="unfinished">Traductor de Google</translation>
+        <translation>Traductor de Google</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="666"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Diccionario</translation>
+        <translation>Diccionario</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="677"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished">Ir a &amp;dirección web</translation>
+        <translation>Ir a &amp;dirección web</translation>
     </message>
     <message>
         <source>New tab</source>
@@ -4938,163 +4938,163 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webview.cpp" line="618"/>
         <source>Open link in new &amp;tab</source>
-        <translation type="unfinished">Abrir enlace en una nueva &amp;pestaña</translation>
+        <translation>Abrir enlace en una nueva &amp;pestaña</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="619"/>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished">Abrir enlace en una nueva &amp;ventana</translation>
+        <translation>Abrir enlace en una nueva &amp;ventana</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="621"/>
         <source>B&amp;ookmark link</source>
-        <translation type="unfinished">Añadir enlace a &amp;marcadores</translation>
+        <translation>Añadir enlace a &amp;marcadores</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="622"/>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished">&amp;Guardar enlace como...</translation>
+        <translation>&amp;Guardar enlace como...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="623"/>
         <source>Send link...</source>
-        <translation type="unfinished">Enviar enlace...</translation>
+        <translation>Enviar enlace...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="624"/>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished">Copi&amp;ar la ruta del enlace</translation>
+        <translation>Copi&amp;ar la ruta del enlace</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="636"/>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished">Mostrar &amp;imágen</translation>
+        <translation>Mostrar &amp;imágen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="637"/>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished">Co&amp;piar imágen</translation>
+        <translation>Co&amp;piar imágen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="638"/>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished">C&amp;opiar la ruta de la imágen</translation>
+        <translation>C&amp;opiar la ruta de la imágen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="640"/>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished">&amp;Guardar imágen como...</translation>
+        <translation>&amp;Guardar imágen como...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="641"/>
         <source>Send image...</source>
-        <translation type="unfinished">Enviar imágen...</translation>
+        <translation>Enviar imágen...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="560"/>
         <source>&amp;Back</source>
-        <translation type="unfinished">&amp;Anterior</translation>
+        <translation>&amp;Anterior</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="564"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished">&amp;Siguiente</translation>
+        <translation>&amp;Siguiente</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="568"/>
         <location filename="../src/webview/webview.cpp" line="579"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished">&amp;Recargar</translation>
+        <translation>&amp;Recargar</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="569"/>
         <source>S&amp;top</source>
-        <translation type="unfinished">&amp;Detener</translation>
+        <translation>&amp;Detener</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="575"/>
         <source>This frame</source>
-        <translation type="unfinished">Este marco</translation>
+        <translation>Este marco</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="576"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished">M&amp;ostrar solamente este marco</translation>
+        <translation>M&amp;ostrar solamente este marco</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="577"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished">Mostrar este marco en una nueva &amp;pestaña</translation>
+        <translation>Mostrar este marco en una nueva &amp;pestaña</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="580"/>
         <source>Print frame</source>
-        <translation type="unfinished">Imprimir marco</translation>
+        <translation>Imprimir marco</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="582"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished">&amp;Aumentar tamaño</translation>
+        <translation>&amp;Aumentar tamaño</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="583"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished">&amp;Reducir tamaño</translation>
+        <translation>&amp;Reducir tamaño</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="584"/>
         <source>Reset</source>
-        <translation type="unfinished">Reiniciar tamaño</translation>
+        <translation>Reiniciar tamaño</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="586"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished">Mostrar código f&amp;uente del marco</translation>
+        <translation>Mostrar código f&amp;uente del marco</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="592"/>
         <source>Book&amp;mark page</source>
-        <translation type="unfinished">Añadir esta página a &amp;marcadores</translation>
+        <translation>Añadir esta página a &amp;marcadores</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="593"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished">&amp;Guardar como...</translation>
+        <translation>&amp;Guardar como...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="699"/>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Reproducir</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="699"/>
         <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pausa</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="700"/>
         <source>Un&amp;mute</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Activar sonido</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="700"/>
         <source>&amp;Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Desactivar sonido</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="702"/>
         <source>&amp;Copy Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Copi&amp;ar la ruta del contenido media</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="703"/>
         <source>&amp;Send Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Enviar la ruta del contenido media</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="704"/>
         <source>Save Media To &amp;Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar el contenido media al &amp;disco</translation>
     </message>
     <message>
         <source>Send page...</source>
@@ -5103,17 +5103,17 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webview.cpp" line="598"/>
         <source>Select &amp;all</source>
-        <translation type="unfinished">Seleccionar &amp;todo</translation>
+        <translation>Seleccionar &amp;todo</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="606"/>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished">Ver código &amp;fuente de la página</translation>
+        <translation>Ver código &amp;fuente de la página</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="607"/>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished">Ver &amp;información de la página</translation>
+        <translation>Ver &amp;información de la página</translation>
     </message>
     <message>
         <source>Show Web &amp;Inspector</source>
@@ -5122,7 +5122,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/webview.cpp" line="683"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished">Buscar &quot;%1 ..&quot; con %2</translation>
+        <translation>Buscar &quot;%1 ..&quot; con %2</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="79"/>
