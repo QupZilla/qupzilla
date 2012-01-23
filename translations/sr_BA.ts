@@ -2090,7 +2090,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="736"/>
         <source>Closed tabs list instead of opened in tab bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Списак затворених умјесто списка отворених језичака на траци језичака</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="773"/>
@@ -2871,12 +2871,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="461"/>
         <source>Recently Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Недавно посјећено</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="464"/>
         <source>Most Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Најпосјећеније</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="470"/>
@@ -4133,13 +4133,9 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabWidget</name>
     <message>
-        <source>Show list of opened tabs</source>
-        <translation type="obsolete">Прикажи списак отворених језичака</translation>
-    </message>
-    <message>
         <location filename="../src/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Списак језичака</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="141"/>
@@ -4170,17 +4166,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="560"/>
         <source>Empty</source>
-        <translation type="unfinished">Празно</translation>
+        <translation>Празно</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="563"/>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished">Врати све затворене језичке</translation>
+        <translation>Врати све затворене језичке</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="564"/>
         <source>Clear list</source>
-        <translation type="unfinished">Очисти списак</translation>
+        <translation>Очисти списак</translation>
     </message>
 </context>
 <context>
