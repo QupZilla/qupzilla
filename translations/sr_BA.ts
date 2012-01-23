@@ -2286,14 +2286,6 @@
         <translation>Курзивни</translation>
     </message>
     <message>
-        <source>Default Font</source>
-        <translation type="obsolete">Подразумијевани</translation>
-    </message>
-    <message>
-        <source>Fixed Font</source>
-        <translation type="obsolete">Фиксни фонт</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="1386"/>
         <source>Fantasy</source>
         <translation>Фантазијски</translation>
@@ -2306,22 +2298,22 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1402"/>
         <source>Fixed Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Фиксни фонт</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1409"/>
         <source>Default Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Подразумијевани фонт</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1436"/>
         <source>Minimum Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Најмања величина</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1443"/>
         <source>Minimum Logical Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Најмања могућа величина</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1476"/>
