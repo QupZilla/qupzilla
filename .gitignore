@@ -16,3 +16,4 @@ bin/plugins/libExamplePlugin.so
 bin/core
 qupzilla.sh
 git_revision
+bin/qupzilla.exe
