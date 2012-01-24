@@ -802,7 +802,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
         if (frame) {
             QUrl link = frame->hitTestContent(event->pos()).linkUrl();
             if (m_clickedUrl == link && isUrlValid(link)) {
-                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                openUrlInNewTab(link, WebViewSettings::newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
                 event->accept();
                 return;
             }
