@@ -29,6 +29,7 @@
 #include "navigationbar.h"
 #include "iconprovider.h"
 #include "searchenginesmanager.h"
+#include "enhancedmenu.h"
 
 TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     : WebView(webTab)
@@ -36,7 +37,7 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     , m_tabWidget(p_QupZilla->tabWidget())
     , m_page(0)
     , m_webTab(webTab)
-    , m_menu(new QMenu(this))
+    , m_menu(new Menu(this))
     , m_mouseTrack(false)
     , m_navigationVisible(false)
     , m_hasRss(false)

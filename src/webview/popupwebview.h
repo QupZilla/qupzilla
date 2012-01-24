@@ -6,6 +6,7 @@
 #include "webview.h"
 
 class PopupWebPage;
+class Menu;
 class PopupWebView : public WebView
 {
     Q_OBJECT
@@ -27,7 +28,7 @@ private:
     void contextMenuEvent(QContextMenuEvent* event);
 
     PopupWebPage* m_page;
-    QMenu* m_menu;
+    Menu* m_menu;
 };
 
 #endif // POPUPWEBVIEW_H

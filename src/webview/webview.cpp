@@ -31,6 +31,7 @@
 #include "bookmarksmanager.h"
 #include "settings.h"
 #include "webviewsettings.h"
+#include "enhancedmenu.h"
 
 WebView::WebView(QWidget* parent)
     : QWebView(parent)
@@ -642,7 +643,11 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
 void WebView::createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 {
     menu->addSeparator();
-    menu->addAction(tr("Show i&mage"), this, SLOT(openActionUrl()))->setData(hitTest.imageUrl());
+    Action* act = new Action(tr("Show i&mage"));
+    act->setData(hitTest.imageUrl());
+    connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
+    connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+    menu->addAction(act);
     menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(hitTest.imageUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
     menu->addSeparator();

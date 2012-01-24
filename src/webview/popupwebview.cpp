@@ -4,11 +4,12 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "iconprovider.h"
+#include "enhancedmenu.h"
 
 PopupWebView::PopupWebView(QWidget* parent)
     : WebView(parent)
     , m_page(0)
-    , m_menu(new QMenu(this))
+    , m_menu(new Menu(this))
 {
 }
 

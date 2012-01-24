@@ -30,6 +30,7 @@ class QupZilla;
 class TabWidget;
 class WebPage;
 class WebTab;
+class Menu;
 class TabbedWebView : public WebView
 {
     Q_OBJECT
@@ -97,7 +98,7 @@ private:
 
     WebPage* m_page;
     WebTab* m_webTab;
-    QMenu* m_menu;
+    Menu* m_menu;
 
     bool m_mouseTrack;
     bool m_navigationVisible;
