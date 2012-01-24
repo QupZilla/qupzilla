@@ -39,7 +39,6 @@ class LocationCompleter;
 class ClickableLabel;
 class BookmarkIcon;
 class TabbedWebView;
-class LocationBarSettings;
 class SiteIcon;
 class GoIcon;
 class RssIcon;
@@ -100,7 +99,6 @@ private:
     QupZilla* p_QupZilla;
     TabbedWebView* m_webView;
     LocationCompleter* m_locationCompleter;
-    LocationBarSettings* m_locationBarSettings;
 
     QMenu* m_menu;
     QAction* m_pasteAndGoAction;

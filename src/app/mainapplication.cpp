@@ -44,6 +44,8 @@
 #include "speeddial.h"
 #include "webpage.h"
 #include "settings.h"
+#include "locationbarsettings.h"
+#include "webviewsettings.h"
 
 #ifdef Q_WS_WIN
 #define DEFAULT_CHECK_UPDATES true
@@ -316,7 +318,6 @@ void MainApplication::loadSettings()
     int maxCachedPages = settings.value("maximumCachedPages", 3).toInt();
     int scrollingLines = settings.value("wheelScrollLines", wheelScrollLines()).toInt();
     QUrl userStyleSheet = QUrl::fromLocalFile(settings.value("userStyleSheet", "").toString());
-    m_defaultZoom = settings.value("DefaultZoom", 100).toInt();
     WebPage::UserAgent = settings.value("UserAgent", "").toString();
     settings.endGroup();
 
@@ -373,6 +374,9 @@ void MainApplication::loadSettings()
     if (m_downloadManager) {
         m_downloadManager->loadSettings();
     }
+
+    LocationBarSettings::loadSettings();
+    WebViewSettings::loadSettings();
 }
 
 void MainApplication::reloadSettings()

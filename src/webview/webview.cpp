@@ -30,6 +30,7 @@
 #include "browsinglibrary.h"
 #include "bookmarksmanager.h"
 #include "settings.h"
+#include "webviewsettings.h"
 
 WebView::WebView(QWidget* parent)
     : QWebView(parent)
@@ -39,8 +40,6 @@ WebView::WebView(QWidget* parent)
     , m_clickedFrame(0)
     , m_actionsHaveImages(false)
 {
-    loadSettings();
-
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
@@ -51,14 +50,6 @@ WebView::WebView(QWidget* parent)
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
 
     qApp->installEventFilter(this);
-}
-
-void WebView::loadSettings()
-{
-    Settings settings;
-    settings.beginGroup("Browser-Tabs-Settings");
-    m_newTabAfterActive = settings.value("newTabAfterActive", true).toBool();
-    settings.endGroup();
 }
 
 QIcon WebView::icon() const
@@ -102,6 +93,13 @@ QUrl WebView::url() const
     }
 
     return returnUrl;
+}
+
+void WebView::setPage(QWebPage *page)
+{
+    QWebView::setPage(page);
+
+    setZoom(WebViewSettings::defaultZoom);
 }
 
 void WebView::load(const QUrl &url)
@@ -389,7 +387,7 @@ void WebView::openUrlInSelectedTab()
 void WebView::openUrlInBackgroundTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        openUrlInNewTab(action->data().toUrl(), m_newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
+        openUrlInNewTab(action->data().toUrl(), WebViewSettings::newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
     }
 }
 
@@ -819,7 +817,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
             QUrl link = frame->hitTestContent(event->pos()).linkUrl();
             if (m_clickedUrl == link && event->modifiers() == Qt::ControlModifier) {
                 if (isUrlValid(link)) {
-                    openUrlInNewTab(link, m_newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
+                    openUrlInNewTab(link, WebViewSettings::newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
                     event->accept();
                     return;
                 }

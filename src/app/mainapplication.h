@@ -82,7 +82,6 @@ public:
     inline int windowCount() { return m_mainWindows.count(); }
 
     bool checkSettingsDir();
-    int defaultZoom() { return m_defaultZoom; }
 
     void togglePrivateBrowsingMode(bool state);
 
@@ -155,7 +154,6 @@ private:
     QString m_activeProfil;
     QString m_activeLanguage;
     QString m_activeThemePath;
-    int m_defaultZoom;
 
     bool m_isClosing;
     bool m_isStateChanged;

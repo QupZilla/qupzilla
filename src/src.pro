@@ -192,7 +192,8 @@ SOURCES += main.cpp\
     popupwindow/popupwindow.cpp \
     popupwindow/popuplocationbar.cpp \
     webview/tabbedwebview.cpp \
-    webview/webview.cpp
+    webview/webview.cpp \
+    webview/webviewsettings.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -324,7 +325,8 @@ HEADERS  += \
     popupwindow/popuplocationbar.h \
     webview/tabbedwebview.h \
     webview/webview.h \
-    app/qz_namespace.h
+    app/qz_namespace.h \
+    webview/webviewsettings.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

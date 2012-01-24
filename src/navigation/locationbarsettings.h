@@ -23,15 +23,10 @@ class LocationBarSettings
 public:
     LocationBarSettings();
 
-    static LocationBarSettings* instance();
-
     static void loadSettings();
     static bool selectAllOnDoubleClick;
     static bool selectAllOnClick;
     static bool addCountryWithAlt;
-
-private:
-    static LocationBarSettings* s_instance;
 };
 
 #endif // LOCATIONBARSETTINGS_H

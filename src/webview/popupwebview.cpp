@@ -26,9 +26,6 @@ void PopupWebView::setWebPage(PopupWebPage* page)
     m_page = page;
     m_page->setParent(this);
     setPage(m_page);
-
-    // Set default zoom
-    setZoom(mApp->defaultZoom());
 }
 
 PopupWebPage* PopupWebView::webPage()

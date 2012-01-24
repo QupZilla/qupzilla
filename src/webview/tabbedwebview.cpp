@@ -78,9 +78,6 @@ void TabbedWebView::setWebPage(WebPage* page)
 
     connect(m_page, SIGNAL(linkHovered(QString, QString, QString)), this, SLOT(linkHovered(QString, QString, QString)));
     connect(m_page, SIGNAL(windowCloseRequested()), this, SLOT(closeView()));
-
-    // Set default zoom
-    setZoom(mApp->defaultZoom());
 }
 
 void TabbedWebView::slotIconChanged()

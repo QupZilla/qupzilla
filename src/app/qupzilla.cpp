@@ -52,7 +52,6 @@
 #include "adblockicon.h"
 #include "closedtabsmanager.h"
 #include "statusbarmessage.h"
-#include "locationbarsettings.h"
 #include "browsinglibrary.h"
 #include "navigationbar.h"
 #include "pagescreen.h"
@@ -616,7 +615,6 @@ void QupZilla::receiveMessage(Qz::AppMessageType mes, bool state)
     case Qz::AM_ReloadSettings:
         loadSettings();
         m_tabWidget->loadSettings();
-        LocationBarSettings::instance()->loadSettings();
         break;
 
     case Qz::AM_HistoryStateChanged:

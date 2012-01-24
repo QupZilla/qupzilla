@@ -41,7 +41,6 @@ LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit()
     , p_QupZilla(mainClass)
     , m_webView(0)
-    , m_locationBarSettings(LocationBarSettings::instance())
     , m_menu(new QMenu(this))
     , m_pasteAndGoAction(0)
     , m_clearAction(0)
@@ -355,7 +354,7 @@ void LocationBar::focusOutEvent(QFocusEvent* e)
 
 void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton && m_locationBarSettings->selectAllOnDoubleClick) {
+    if (event->button() == Qt::LeftButton && LocationBarSettings::selectAllOnDoubleClick) {
         selectAll();
     }
     else {
@@ -365,7 +364,7 @@ void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)
 
 void LocationBar::mousePressEvent(QMouseEvent* event)
 {
-    if (cursorPosition() == 0 && m_locationBarSettings->selectAllOnClick) {
+    if (cursorPosition() == 0 && LocationBarSettings::selectAllOnClick) {
         selectAll();
         return;
     }
@@ -420,7 +419,7 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
 {
     QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
 
-    if (event->key() == Qt::Key_Alt && m_holdingAlt && m_locationBarSettings->addCountryWithAlt &&
+    if (event->key() == Qt::Key_Alt && m_holdingAlt && LocationBarSettings::addCountryWithAlt &&
             !text().endsWith(localDomain) && !text().endsWith("/")) {
         setText(text().append(localDomain));
     }

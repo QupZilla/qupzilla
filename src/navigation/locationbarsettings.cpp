@@ -19,7 +19,6 @@
 #include "mainapplication.h"
 #include "settings.h"
 
-LocationBarSettings* LocationBarSettings::s_instance = 0;
 bool LocationBarSettings::selectAllOnDoubleClick = false;
 bool LocationBarSettings::selectAllOnClick = false;
 bool LocationBarSettings::addCountryWithAlt = false;
@@ -27,14 +26,6 @@ bool LocationBarSettings::addCountryWithAlt = false;
 LocationBarSettings::LocationBarSettings()
 {
     loadSettings();
-}
-
-LocationBarSettings* LocationBarSettings::instance()
-{
-    if (!s_instance) {
-        s_instance = new LocationBarSettings();
-    }
-    return s_instance;
 }
 
 void LocationBarSettings::loadSettings()
