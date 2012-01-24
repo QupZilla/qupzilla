@@ -2261,7 +2261,7 @@
     </message>
     <message>
         <source>Open new tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvoriť nové panely za aktívnym panelom</translation>
     </message>
 </context>
 <context>
@@ -3926,11 +3926,11 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Paste And &amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Prilepiť a &amp;hľadať</translation>
     </message>
     <message>
         <source>Clear All</source>
-        <translation type="unfinished">Všetko vymazať</translation>
+        <translation>Všetko vymazať</translation>
     </message>
 </context>
 <context>
