@@ -517,7 +517,7 @@ void TabWidget::restoreAllClosedTabs()
 
     QList<ClosedTabsManager::Tab> closedTabs = m_closedTabsManager->allClosedTabs();
 
-    foreach(const ClosedTabsManager::Tab &tab, closedTabs) {
+    foreach(const ClosedTabsManager::Tab & tab, closedTabs) {
         int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab);
         QDataStream historyStream(tab.history);
         historyStream >> *weView(index)->history();
@@ -541,28 +541,28 @@ bool TabWidget::canRestoreTab()
 void TabWidget::aboutToShowClosedTabsMenu()
 {
     if (!m_closedInsteadOpened) {
-       aboutToShowTabsMenu();
+        aboutToShowTabsMenu();
     }
     else {
-      m_menuTabs->clear();
-      int i = 0;
-      foreach(const ClosedTabsManager::Tab &tab, this->closedTabsManager()->allClosedTabs()) {
-          QString title = tab.title;
-          if (title.length() > 40) {
-              title.truncate(40);
-              title += "..";
-          }
-          m_menuTabs->addAction(_iconForUrl(tab.url), title, this, SLOT(restoreClosedTab()))->setData(i);
-          i++;
-      }
-      m_menuTabs->addSeparator();
-      if (i == 0) {
-          m_menuTabs->addAction(tr("Empty"))->setEnabled(false);
-      }
-      else {
-          m_menuTabs->addAction(tr("Restore All Closed Tabs"), this, SLOT(restoreAllClosedTabs()));
-          m_menuTabs->addAction(tr("Clear list"), this, SLOT(clearClosedTabsList()));
-      }
+        m_menuTabs->clear();
+        int i = 0;
+        foreach(const ClosedTabsManager::Tab & tab, this->closedTabsManager()->allClosedTabs()) {
+            QString title = tab.title;
+            if (title.length() > 40) {
+                title.truncate(40);
+                title += "..";
+            }
+            m_menuTabs->addAction(_iconForUrl(tab.url), title, this, SLOT(restoreClosedTab()))->setData(i);
+            i++;
+        }
+        m_menuTabs->addSeparator();
+        if (i == 0) {
+            m_menuTabs->addAction(tr("Empty"))->setEnabled(false);
+        }
+        else {
+            m_menuTabs->addAction(tr("Restore All Closed Tabs"), this, SLOT(restoreAllClosedTabs()));
+            m_menuTabs->addAction(tr("Clear list"), this, SLOT(clearClosedTabsList()));
+        }
     }
 }
 

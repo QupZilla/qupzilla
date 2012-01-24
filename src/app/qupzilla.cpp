@@ -786,7 +786,7 @@ void QupZilla::aboutToShowClosedTabsMenu()
 {
     m_menuClosedTabs->clear();
     int i = 0;
-    foreach(const ClosedTabsManager::Tab &tab, m_tabWidget->closedTabsManager()->allClosedTabs()) {
+    foreach(const ClosedTabsManager::Tab & tab, m_tabWidget->closedTabsManager()->allClosedTabs()) {
         QString title = tab.title;
         if (title.length() > 40) {
             title.truncate(40);
@@ -836,7 +836,7 @@ void QupZilla::aboutToShowHistoryMostMenu()
 
     QList<HistoryEntry> mostList = mApp->history()->mostVisited(10);
 
-    foreach(const HistoryEntry &entry, mostList) {
+    foreach(const HistoryEntry & entry, mostList) {
         QString title = entry.title;
         if (title.length() > 40) {
             title.truncate(40);
@@ -850,7 +850,7 @@ void QupZilla::aboutToShowHistoryMostMenu()
         m_menuHistoryMost->addAction(act);
     }
 
-    if (m_menuHistoryMost->isEmpty()){
+    if (m_menuHistoryMost->isEmpty()) {
         m_menuHistoryMost->addAction(tr("Empty"))->setEnabled(false);
     }
 }
@@ -964,7 +964,7 @@ void QupZilla::aboutToShowEncodingMenu()
     qSort(available);
     QString activeCodec = mApp->webSettings()->defaultTextEncoding();
 
-    foreach(const QByteArray &name, available) {
+    foreach(const QByteArray & name, available) {
         if (QTextCodec::codecForName(name)->aliases().contains(name)) {
             continue;
         }
@@ -1122,7 +1122,7 @@ void QupZilla::loadFolderBookmarks(Menu* menu)
         return;
     }
 
-    foreach(const Bookmark &b, mApp->bookmarksModel()->folderBookmarks(folder)) {
+    foreach(const Bookmark & b, mApp->bookmarksModel()->folderBookmarks(folder)) {
         tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }

@@ -282,7 +282,7 @@ void BookmarksToolbar::loadFolderBookmarksInTabs()
         return;
     }
 
-    foreach(const Bookmark &b, m_bookmarksModel->folderBookmarks(folder)) {
+    foreach(const Bookmark & b, m_bookmarksModel->folderBookmarks(folder)) {
         p_QupZilla->tabWidget()->addView(b.url, b.title, Qz::NT_NotSelectedTab);
     }
 }
@@ -534,7 +534,7 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     menu->clear();
     QString folder = menu->title();
 
-    foreach(const Bookmark &b, m_bookmarksModel->folderBookmarks(folder)) {
+    foreach(const Bookmark & b, m_bookmarksModel->folderBookmarks(folder)) {
         QString title = b.title;
         if (title.length() > 40) {
             title.truncate(40);
@@ -586,7 +586,7 @@ void BookmarksToolbar::refreshMostVisited()
     m_menuMostVisited->clear();
 
     QList<HistoryEntry> mostList = m_historyModel->mostVisited(10);
-    foreach(const HistoryEntry &entry, mostList) {
+    foreach(const HistoryEntry & entry, mostList) {
         QString title = entry.title;
         if (title.length() > 40) {
             title.truncate(40);

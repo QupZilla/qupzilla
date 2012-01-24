@@ -108,6 +108,7 @@ protected slots:
 protected:
     void wheelEvent(QWheelEvent* event);
     void mousePressEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);
     void resizeEvent(QResizeEvent* event);
 
@@ -143,6 +144,7 @@ private:
 
     QWebElement m_mediaElement;
     QWebFrame* m_clickedFrame;
+    QUrl m_clickedUrl;
     bool m_actionsHaveImages;
     bool m_newTabAfterActive;
 

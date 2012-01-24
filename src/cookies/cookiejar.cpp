@@ -53,7 +53,7 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
 
     QList<QNetworkCookie> newList = cookieList;
 
-    foreach(const QNetworkCookie &cok, newList) {
+    foreach(const QNetworkCookie & cok, newList) {
         if (m_allowCookiesFromDomain && !QString("." + url.host()).contains(cok.domain().remove("www."))) {
 #ifdef COOKIE_DEBUG
             qDebug() << "purged for domain mismatch" << cok;

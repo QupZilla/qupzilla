@@ -323,7 +323,7 @@ void QtWin::populateFrequentSites(IObjectCollection* collection, const QString &
 {
     HistoryModel* historyModel = mApp->history();
     QList<HistoryEntry> mostList = historyModel->mostVisited(6);
-    foreach(const HistoryEntry &entry, mostList)
+    foreach(const HistoryEntry & entry, mostList)
     collection->AddObject(CreateShellLink(entry.title, entry.url.toString(), appPath, " " + entry.url.toEncoded(), appPath, 1));
 
     collection->AddObject(CreateShellLink("", "", "", "", "", 0)); //Spacer

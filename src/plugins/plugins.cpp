@@ -54,7 +54,7 @@ void Plugins::loadPlugins()
 
     QDir pluginsDir = QDir(mApp->PLUGINSDIR);
 
-    foreach(const QString &fileName, pluginsDir.entryList(QDir::Files)) {
+    foreach(const QString & fileName, pluginsDir.entryList(QDir::Files)) {
         m_availablePluginFileNames.append(fileName);
 
         if (!m_allowedPluginFileNames.contains(fileName)) {

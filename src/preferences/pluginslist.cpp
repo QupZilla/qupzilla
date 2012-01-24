@@ -56,7 +56,7 @@ PluginsList::PluginsList(QWidget* parent)
     QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
     ui->allowClick2Flash->setChecked(settings.value("Enable", true).toBool());
     settings.endGroup();
-    foreach(const QString &site, whitelist) {
+    foreach(const QString & site, whitelist) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->whitelist);
         item->setText(0, site);
     }
@@ -126,7 +126,7 @@ void PluginsList::refresh()
 
     QStringList availablePlugins = mApp->plugins()->getAvailablePlugins();
     QStringList allowedPlugins = mApp->plugins()->getAllowedPlugins();
-    foreach(const QString &fileName, availablePlugins) {
+    foreach(const QString & fileName, availablePlugins) {
         PluginInterface* plugin = mApp->plugins()->getPlugin(fileName);
         if (!plugin) {
             continue;

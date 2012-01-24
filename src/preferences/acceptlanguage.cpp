@@ -78,7 +78,7 @@ AcceptLanguage::AcceptLanguage(QWidget* parent)
     settings.beginGroup("Language");
     QStringList langs = settings.value("acceptLanguage", defaultLanguage()).toStringList();
 
-    foreach(const QString &code, langs) {
+    foreach(const QString & code, langs) {
         QString code_ = code;
         QLocale loc = QLocale(code_.replace("-", "_"));
         QString label;

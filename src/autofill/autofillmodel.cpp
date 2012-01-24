@@ -265,7 +265,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
         frames += frame->childFrames();
     }
 
-    foreach(const QWebElement &formElement, allForms) {
+    foreach(const QWebElement & formElement, allForms) {
         foreach(const QWebElement &inputElement, formElement.findAll("input[type=\"password\"]")) {
             passwordName = inputElement.attribute("name");
             passwordValue = getValueFromData(outgoingData, inputElement);

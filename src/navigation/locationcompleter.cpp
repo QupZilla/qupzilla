@@ -58,7 +58,7 @@ QStringList LocationCompleter::splitPath(const QString &path) const
             titleSearching = true;
         }
         QString prefix = url.mid(0, url.indexOf(path));
-        foreach(const QString &string, returned) {
+        foreach(const QString & string, returned) {
             if (titleSearching) {
                 returned2.append(url);
             }
@@ -69,7 +69,7 @@ QStringList LocationCompleter::splitPath(const QString &path) const
         return returned2;
     }
     else {
-        foreach(const QString &string, returned)
+        foreach(const QString & string, returned)
         returned2.append("http://www.google.com/search?client=qupzilla&q=" + string);
         return returned2;
     }

@@ -27,7 +27,7 @@ QList<QWebHistoryItem> WebHistoryWrapper::forwardItems(int maxItems, QWebHistory
     QUrl lastUrl = history->currentItem().url();
 
     int count = 0;
-    foreach(const QWebHistoryItem &item, history->forwardItems(maxItems + 5)) {
+    foreach(const QWebHistoryItem & item, history->forwardItems(maxItems + 5)) {
         if (item.url() == lastUrl || count == maxItems) {
             continue;
         }

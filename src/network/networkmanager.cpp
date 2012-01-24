@@ -138,7 +138,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     }
 
     int errorsIgnored = 0;
-    foreach(const QSslError &error, errors) {
+    foreach(const QSslError & error, errors) {
         if (m_ignoredCerts.contains(error.certificate())) {
             ++errorsIgnored;
         }
@@ -160,7 +160,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
 
     QString certs;
 
-    foreach(const QSslError &error, errors) {
+    foreach(const QSslError & error, errors) {
         if (m_localCerts.contains(error.certificate())) {
             continue;
         }
@@ -189,7 +189,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
             return;
         }
 
-        foreach(const QSslError &error, errors) {
+        foreach(const QSslError & error, errors) {
             if (!m_localCerts.contains(error.certificate())) {
                 addLocalCertificate(error.certificate());
             }
@@ -414,7 +414,7 @@ void NetworkManager::loadCertificates()
 
     //CA Certificates
     m_caCerts = QSslSocket::defaultCaCertificates();
-    foreach(const QString &path, m_certPaths) {
+    foreach(const QString & path, m_certPaths) {
 #ifdef Q_WS_WIN
         // Used from Qt 4.7.4 qsslcertificate.cpp and modified because QSslCertificate::fromPath
         // is kind of a bugged on Windows, it does work only with full path to cert file

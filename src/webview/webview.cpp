@@ -520,7 +520,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
             QMenu* pageMenu = page()->createStandardContextMenu();
 
             int i = 0;
-            foreach(QAction* act, pageMenu->actions()) {
+            foreach(QAction * act, pageMenu->actions()) {
                 if (act->isSeparator()) {
                     menu->addSeparator();
                     continue;
@@ -771,35 +771,58 @@ void WebView::mousePressEvent(QMouseEvent* event)
         break;
 
     case Qt::MiddleButton: {
-        QWebFrame* frame = page()->frameAt(event->pos());
-
-        if (frame) {
-            QUrl link = frame->hitTestContent(event->pos()).linkUrl();
-            if (isUrlValid(link)) {
-                openUrlInNewTab(link, m_newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
-                event->accept();
-                return;
-            }
-        }
 #ifdef Q_WS_WIN
-        else {
+        QWebFrame* frame = page()->frameAt(event->pos());
+        if (frame && frame->hitTestContent(event->pos()).linkUrl().isEmpty()) {
             // Creating auto scroll on Windows
+            m_clickedUrl = QUrl();
             QWebView::mouseDoubleClickEvent(event);
             return;
         }
 #endif
+    }
+
+    case Qt::LeftButton: {
+        QWebFrame* frame = page()->frameAt(event->pos());
+        if (frame) {
+            m_clickedUrl = frame->hitTestContent(event->pos()).linkUrl();
+        }
+    }
+
+    default:
+        break;
+    }
+
+    QWebView::mousePressEvent(event);
+}
+
+void WebView::mouseReleaseEvent(QMouseEvent* event)
+{
+    switch (event->button()) {
+    case Qt::MiddleButton: {
+        QWebFrame* frame = page()->frameAt(event->pos());
+        if (frame) {
+            QUrl link = frame->hitTestContent(event->pos()).linkUrl();
+            if (m_clickedUrl == link && isUrlValid(link)) {
+                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                event->accept();
+                return;
+            }
+        }
+
         break;
     }
 
     case Qt::LeftButton: {
         QWebFrame* frame = page()->frameAt(event->pos());
-
-        if (frame && event->modifiers() == Qt::ControlModifier) {
+        if (frame) {
             QUrl link = frame->hitTestContent(event->pos()).linkUrl();
-            if (isUrlValid(link)) {
-                openUrlInNewTab(link, m_newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
-                event->accept();
-                return;
+            if (m_clickedUrl == link && event->modifiers() == Qt::ControlModifier) {
+                if (isUrlValid(link)) {
+                    openUrlInNewTab(link, m_newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
+                    event->accept();
+                    return;
+                }
             }
         }
 
@@ -810,7 +833,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         break;
     }
 
-    QWebView::mousePressEvent(event);
+    QWebView::mouseReleaseEvent(event);
 }
 
 void WebView::keyPressEvent(QKeyEvent* event)

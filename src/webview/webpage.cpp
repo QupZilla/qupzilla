@@ -289,7 +289,7 @@ void WebPage::cleanBlockedObjects()
 {
     QStringList findingStrings;
 
-    foreach(const AdBlockedEntry &entry, m_adBlockedEntries) {
+    foreach(const AdBlockedEntry & entry, m_adBlockedEntries) {
         if (entry.url.toString().endsWith(".js")) {
             continue;
         }
@@ -309,7 +309,7 @@ void WebPage::cleanBlockedObjects()
     QWebElement docElement = mainFrame()->documentElement();
     QWebElementCollection elements;
 
-    foreach(const QString &s, findingStrings) {
+    foreach(const QString & s, findingStrings) {
         elements.append(docElement.findAll("*[src=\"" + s + "\"]"));
     }
 
