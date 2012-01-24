@@ -83,9 +83,9 @@ private:
     SearchEnginesManager* m_searchManager;
     QWeakPointer<SearchEnginesDialog> m_searchDialog;
 
-    QAction* m_pasteAndGoAction;
     QMenu* m_menu;
-
+    QAction* m_pasteAndGoAction;
+    QAction* m_clearAction;
 };
 
 #endif // WEBSEARCHBAR_H

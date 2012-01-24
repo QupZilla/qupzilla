@@ -32,6 +32,7 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     , p_QupZilla(mainClass)
     , m_menu(new QMenu(this))
     , m_pasteAndGoAction(0)
+    , m_clearAction(0)
 {
     setObjectName("websearchbar");
     m_buttonSearch = new ClickableLabel(this);
@@ -195,9 +196,14 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
     Q_UNUSED(event)
 
     if (!m_pasteAndGoAction) {
-        m_pasteAndGoAction = new QAction(tr("Paste And &Go"), this);
-//         m_pasteAndGoAction->setShortcut(QKeySequence("Ctrl+Shift+V"));
+        m_pasteAndGoAction = new QAction(QIcon::fromTheme("edit-paste"), tr("Paste And &Search"), this);
+        m_pasteAndGoAction->setShortcut(QKeySequence("Ctrl+Shift+V"));
         connect(m_pasteAndGoAction, SIGNAL(triggered()), this, SLOT(pasteAndGo()));
+    }
+
+    if (!m_clearAction) {
+        m_clearAction = new QAction(QIcon::fromTheme("edit-clear"), tr("Clear All"), this);
+        connect(m_clearAction, SIGNAL(triggered()), this, SLOT(clear()));
     }
 
     QMenu* tempMenu = createStandardContextMenu();
@@ -209,8 +215,32 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
         tempMenu->removeAction(act);
         m_menu->addAction(act);
 
-        if (i == 5) {
+        switch (i) {
+        case 0:
+            act->setIcon(QIcon::fromTheme("edit-undo"));
+            break;
+        case 1:
+            act->setIcon(QIcon::fromTheme("edit-redo"));
+            break;
+        case 3:
+            act->setIcon(QIcon::fromTheme("edit-cut"));
+            break;
+        case 4:
+            act->setIcon(QIcon::fromTheme("edit-copy"));
+            break;
+        case 5:
+            act->setIcon(QIcon::fromTheme("edit-paste"));
+            m_menu->addAction(act);
             m_menu->addAction(m_pasteAndGoAction);
+            break;
+        case 6:
+            act->setIcon(QIcon::fromTheme("edit-delete"));
+            m_menu->addAction(act);
+            m_menu->addAction(m_clearAction);
+            break;
+        case 8:
+            act->setIcon(QIcon::fromTheme("edit-select-all"));
+            break;
         }
         ++i;
     }
