@@ -520,7 +520,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
             QMenu* pageMenu = page()->createStandardContextMenu();
 
             int i = 0;
-            foreach(QAction * act, pageMenu->actions()) {
+            foreach(QAction* act, pageMenu->actions()) {
                 if (act->isSeparator()) {
                     menu->addSeparator();
                     continue;

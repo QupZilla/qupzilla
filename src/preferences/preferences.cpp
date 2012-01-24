@@ -160,7 +160,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->startProfile->addItem(actProfileName);
     QDir profilesDir(mApp->PROFILEDIR + "profiles/");
     QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-    foreach(const QString & name, list_) {
+    foreach(const QString &name, list_) {
         if (actProfileName == name) {
             continue;
         }
@@ -346,7 +346,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     QDir lanDir(mApp->TRANSLATIONSDIR);
     QStringList list = lanDir.entryList(QStringList("*.qm"));
-    foreach(const QString & name, list) {
+    foreach(const QString &name, list) {
         if (name.startsWith("qt_") || name == activeLanguage) {
             continue;
         }
