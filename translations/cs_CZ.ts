@@ -177,7 +177,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="31"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation>AdBlock blokuje nevyžádaný obsah na stánkách</translation>
+        <translation>AdBlock blokuje nevyžádaný obsah na stránkách</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="41"/>
