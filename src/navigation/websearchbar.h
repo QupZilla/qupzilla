@@ -59,6 +59,7 @@ private slots:
     void addSuggestions(const QStringList &list);
 
     void addEngineFromAction();
+    void pasteAndGo();
 
 private:
     void focusInEvent(QFocusEvent* e);
@@ -67,6 +68,7 @@ private:
     void keyPressEvent(QKeyEvent* event);
 
     void completeMenuWithAvailableEngines(QMenu* menu);
+    void contextMenuEvent(QContextMenuEvent* event);
 
     QCompleter* m_completer;
     QStringListModel* m_completerModel;
@@ -80,6 +82,10 @@ private:
     ButtonWithMenu* m_boxSearchType;
     SearchEnginesManager* m_searchManager;
     QWeakPointer<SearchEnginesDialog> m_searchDialog;
+
+    QMenu* m_menu;
+    QAction* m_pasteAndGoAction;
+    QAction* m_clearAction;
 };
 
 #endif // WEBSEARCHBAR_H
