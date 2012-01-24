@@ -2095,7 +2095,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="743"/>
         <source>Open new tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Отварај нове језичке послије активног</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="780"/>
@@ -4440,12 +4440,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="199"/>
         <source>Paste And &amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Налијепи и &amp;тражи</translation>
     </message>
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="205"/>
         <source>Clear All</source>
-        <translation type="unfinished">Очисти све</translation>
+        <translation>Очисти све</translation>
     </message>
 </context>
 <context>
