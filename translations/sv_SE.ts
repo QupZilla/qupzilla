@@ -17,7 +17,7 @@
         <location filename="../src/other/aboutdialog.cpp" line="46"/>
         <location filename="../src/other/aboutdialog.cpp" line="56"/>
         <source>Authors and Contributors</source>
-        <translation>Utvecklare och bidragande</translation>
+        <translation>Utvecklare och bidragare</translation>
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="49"/>
@@ -33,7 +33,7 @@
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="64"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>&lt;b&gt;Webkitversion %1&lt;/b&gt;&lt;/p&gt;</translation>
+        <translation>&lt;b&gt;Webkit-version %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="65"/>
@@ -105,7 +105,7 @@
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="20"/>
         <source>Enable AdBlock</source>
-        <translation>Aktivera AdBlock</translation>
+        <translation>Aktivera reklamblockering</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="39"/>
@@ -174,7 +174,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="41"/>
         <source>Show AdBlock &amp;Settings</source>
-        <translation>Visa AdBlock &amp;Inställningar</translation>
+        <translation>Visa AdBlock &amp;inställningar</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="45"/>
@@ -194,7 +194,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="55"/>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Lär dig hur man skriver &amp;regler</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>New tab</source>
@@ -488,12 +488,12 @@
     </message>
     <message>
         <source>File does not exists.</source>
-        <translation type="obsolete">Filen finns inte.</translation>
+        <translation type="obsolete">Filen existerar inte.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="39"/>
         <source>File does not exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Filen finns inte.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="47"/>
@@ -756,7 +756,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="211"/>
         <source>Edit Bookmark</source>
-        <translation>Redigera bokmärke</translation>
+        <translation>Redigera bokmärk</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="514"/>
@@ -869,7 +869,7 @@
         <location filename="../src/tools/certificateinfowidget.ui" line="58"/>
         <location filename="../src/tools/certificateinfowidget.ui" line="133"/>
         <source>Organizational Unit (OU):</source>
-        <translation>Organisationsenhet (OE):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="75"/>
@@ -884,7 +884,7 @@
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="150"/>
         <source>&lt;b&gt;Validity&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Giltighet&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Validitet&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="157"/>
@@ -989,7 +989,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="127"/>
         <source>Show more information about object</source>
-        <translation>Visa mer information om objekt</translation>
+        <translation>Visa mer informatiaon om objekt</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="129"/>
@@ -1431,7 +1431,7 @@
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="58"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation>&lt;b&gt;Observera:&lt;/b&gt; &quot;%s&quot; i url&apos;en representerar söksträngen</translation>
+        <translation>&lt;b&gt;Observera: &lt;/b&gt;%s iurl&apos;en representerar söksträngen </translation>
     </message>
     <message>
         <location filename="../src/opensearch/editsearchengine.ui" line="97"/>
@@ -1900,12 +1900,12 @@
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="114"/>
         <source>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Klicka-För-Flash-tillägg&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Klicka-för-Flash-tillägg&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="121"/>
         <source>Click To Flash is a plugin which blocks auto loading of Flash content at page. You can always load it manually by clicking on the Flash play icon.</source>
-        <translation>Klicka-För-Flash är ett tillägg som blockerar automatisk laddning av Flash-objekt på en sida. Du kan alltid ladda dessa manuellt genom att klicka på Flash-ikonen.</translation>
+        <translation>Klicka-för-Flash är ett tillägg som blockerar Flash-innehåll på sidor. Du kan alltid hämta dessa manuellt genom att klicka på Flash-ikonen.</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="134"/>
@@ -1925,17 +1925,17 @@
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="171"/>
         <source>Allow Click To Flash</source>
-        <translation>Tillåt Klicka-För-Flash</translation>
+        <translation>Tillåt Klicka-för-Flash</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.cpp" line="68"/>
         <source>Add site to whitelist</source>
-        <translation>Lägg till sida i vitlista</translation>
+        <translation>Lägg till sida i vitlistan</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.cpp" line="68"/>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation>Servere utan http:// (tex. youtube.com)</translation>
+        <translation>Server utan http:// (tex. youtube.com)</translation>
     </message>
 </context>
 <context>
@@ -1946,7 +1946,7 @@
     </message>
     <message>
         <source>&amp;Save link as...</source>
-        <translation type="obsolete">&amp;Spara länkmål som...</translation>
+        <translation type="obsolete">&amp;Spara länk som...</translation>
     </message>
     <message>
         <source>Send link...</source>
@@ -2030,7 +2030,7 @@
     </message>
     <message>
         <source>Send page link...</source>
-        <translation type="obsolete">Skicka sidans länk...</translation>
+        <translation type="obsolete">Skicka länk till sida...</translation>
     </message>
     <message>
         <source>&amp;Print page</source>
@@ -2046,7 +2046,7 @@
     </message>
     <message>
         <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">Visa &amp;information om sidan</translation>
+        <translation type="obsolete">Visa &amp;information om denna sida</translation>
     </message>
     <message>
         <source>Send text...</source>
@@ -2093,7 +2093,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="215"/>
         <source>After launch: </source>
-        <translation>Efter start:</translation>
+        <translation>Vid start:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="223"/>
@@ -2167,7 +2167,7 @@
         <location filename="../src/preferences/preferences.ui" line="429"/>
         <location filename="../src/preferences/preferences.cpp" line="625"/>
         <source>Note: You cannot delete active profile.</source>
-        <translation>Obs: Du kan inte ta bort aktiv profil.</translation>
+        <translation>Observera: Du kan inte ta bort aktiv profil.</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="439"/>
@@ -2202,7 +2202,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="526"/>
         <source>Show Navigation ToolBar on start</source>
-        <translation>Visa Navigeringsverktygsraden vid start</translation>
+        <translation>Visa navigeringsverktygsraden vid start</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="548"/>
@@ -2307,12 +2307,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="729"/>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation>Avsluta inte när sista fliken stängs</translation>
+        <translation>Avsluta inte när den sista fliken stängs</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="736"/>
         <source>Closed tabs list instead of opened in tab bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista över stängda flikar istället för öppna i flikraden</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="743"/>
@@ -2354,7 +2354,7 @@
         <location filename="../src/preferences/preferences.ui" line="839"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
-        <translation>Skriv ut bakgrundselement</translation>
+        <translation>Skriv ut elements bakgrunder</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="846"/>
@@ -2366,7 +2366,7 @@
         <location filename="../src/preferences/preferences.ui" line="853"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
-        <translation>Aktivera XSS-auditering</translation>
+        <translation>Tillått XSS-auditering</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="877"/>
@@ -2406,12 +2406,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1035"/>
         <source>Allow storing network cache on disk</source>
-        <translation>Tillåt att nätverkscache sparas på hårddisken</translation>
+        <translation>Tillåt att nätverkscache lagras på hårddisken</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1045"/>
         <source>Maximum </source>
-        <translation>Maximalt</translation>
+        <translation>Maximal</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1052"/>
@@ -2421,7 +2421,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1079"/>
         <source>Allow storing web icons</source>
-        <translation>Tillåt att ikoner sparas</translation>
+        <translation>Tillåt att webbikoner lagras</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1086"/>
@@ -2486,7 +2486,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1291"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Typsnitt&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Teckensnittsfamilerj&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1304"/>
@@ -2515,7 +2515,7 @@
     </message>
     <message>
         <source>Default Font</source>
-        <translation type="obsolete">Standardtypsnitt</translation>
+        <translation type="obsolete">Standardteckensnitt</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1393"/>
@@ -2525,7 +2525,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1400"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Typsnittsstorlek&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Teckensnittsstorlek&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1409"/>
@@ -2535,17 +2535,17 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1416"/>
         <source>Default Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardtypsnittsstorlek</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1443"/>
         <source>Minimum Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Minsta typsnittsstorlek</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1450"/>
         <source>Minimum Logical Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Minsta logiska typsnittsstorlek</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1483"/>
@@ -2555,7 +2555,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1490"/>
         <source>Ask everytime for download location</source>
-        <translation>Fråga varje gång för nedladdningsdestination</translation>
+        <translation>Fråga efter nedladdningsdestination varje gång</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1497"/>
@@ -2593,7 +2593,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1593"/>
         <source>Allow saving passwords from sites</source>
-        <translation>Tillåt att lösenord sparas</translation>
+        <translation>Tillåt att lösenord lagras på sidor</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1663"/>
@@ -2608,7 +2608,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1677"/>
         <source>Allow storing of cookies</source>
-        <translation>Tillåt att kakor sparas</translation>
+        <translation>Tillåt lagring av kakor</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1684"/>
@@ -2623,7 +2623,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1740"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;Varning:&lt;/b&gt;Alternativen &quot;Matcha domännamn exakt&quot; och &quot;Filtrera spårarkakor&quot; kan leda till att vissa kakor nekas att tas emot från sidor. Om du har problem med kakor, prova att inaktivera dessa alternativ först!</translation>
+        <translation>&lt;b&gt;Varning:&lt;/b&gt;Alternativen Matcha domännamn exakt och Filtrera spårningskakor kan leda till att vissa kakor från vissa sidor kan blockeras. Om du har problem med kakor, prov att inaktivera dessa alternativ först! </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1756"/>
@@ -2668,7 +2668,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1879"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
-        <translation>&lt;b&gt;Obs:&lt;/b&gt;Du kan ändra notifikationernas placering genom att dra runt dem på skärmen.</translation>
+        <translation>&lt;b&gt;Observera:&lt;/b&gt;Du kan ändra notifikationernas placering genom att dra runt dem på skärmen.</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1928"/>
@@ -2728,7 +2728,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="123"/>
         <source>Fonts</source>
-        <translation>Typsnitt</translation>
+        <translation>Teckensnitt</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="131"/>
@@ -2804,7 +2804,7 @@
     <message>
         <location filename="../src/preferences/preferences.cpp" line="596"/>
         <source>Cannot create profile directory!</source>
-        <translation>Kan ej skapa profilmapp!</translation>
+        <translation>Kan inte skapa profilensökväg!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="610"/>
@@ -2825,14 +2825,14 @@
         <translation>Denna fil är inte en OpenSearch1.1 fil.</translation>
     </message>
     <message>
-        <location filename="../src/tools/certificateinfowidget.cpp" line="286"/>
-        <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/desktopnotifications/desktopnotificationsfactory.cpp" line="101"/>
         <source>Native System Notification</source>
         <translation>Systemets egna notifikationer</translation>
+    </message>
+    <message>
+        <location filename="../src/tools/certificateinfowidget.cpp" line="286"/>
+        <source>&lt;not set in certificate&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2877,7 +2877,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="270"/>
         <source>Private Browsing Enabled</source>
-        <translation>Privat surf aktiverat</translation>
+        <translation>Privat surfning aktiverat</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="274"/>
@@ -3062,12 +3062,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="406"/>
         <source>&amp;Reload</source>
-        <translation>&amp;Läs om</translation>
+        <translation>&amp;Hämta om</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="409"/>
         <source>Character &amp;Encoding</source>
-        <translation>Teckenkodning</translation>
+        <translation>&amp;Teckenkodning</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="414"/>
@@ -3117,12 +3117,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="460"/>
         <source>Recently Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Senast besökta</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="463"/>
         <source>Most Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Mest besökta</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="469"/>
@@ -3132,7 +3132,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="595"/>
         <source> (Private Browsing)</source>
-        <translation>(Privat surf)</translation>
+        <translation>(Privat surfning)</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="659"/>
@@ -3250,7 +3250,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="885"/>
         <source>&amp;Private Browsing</source>
-        <translation>&amp;Privat surf</translation>
+        <translation>&amp;Privat surfning</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="959"/>
@@ -3280,7 +3280,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1504"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>När privat surf aktiveras stängs vissa  integritetsrelaterade funktioner av:</translation>
+        <translation>När privat surfning aktiveras stängs vissa  integritetsrelaterade funktioner av:</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1507"/>
@@ -3305,7 +3305,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1516"/>
         <source>Start Private Browsing</source>
-        <translation>Aktivera privat surf</translation>
+        <translation>Aktivera privat surfning</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1685"/>
@@ -3560,7 +3560,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="140"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation>E-post är valfritt&lt;br/&gt;&lt;b&gt;Obs:&lt;/b&gt;Använd endast Engelska.</translation>
+        <translation>E-post är valfritt&lt;br/&gt;&lt;b&gt;Observera:&lt;/b&gt;Använd endast Engelska.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="134"/>
@@ -3580,7 +3580,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="255"/>
         <source>Reload</source>
-        <translation>Ladda om</translation>
+        <translation>Hämta om</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="260"/>
@@ -3614,7 +3614,7 @@
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="43"/>
         <source>Reload</source>
-        <translation>Ladda om</translation>
+        <translation>Hämta om</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="54"/>
@@ -3651,8 +3651,8 @@
         <location filename="../src/rss/rssmanager.cpp" line="118"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
-        <translation>Du har inga RSS-flöden.-br/&gt;
-Lägg till flöden med RSS-ikonen i navigeringsraden på sidor som tillhandahåller flöden.</translation>
+        <translation>Du har inga RSS-flöden.&lt;br/&gt;
+Lägg till flöden med RSS-ikonen i navigeringsraden från sidor som tillhandahåller flöden.</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
@@ -3757,7 +3757,7 @@ Lägg till flöden med RSS-ikonen i navigeringsraden på sidor som tillhandahål
     </message>
     <message>
         <source>Reload</source>
-        <translation type="obsolete">Ladda om</translation>
+        <translation type="obsolete">Hämta om</translation>
     </message>
 </context>
 <context>
@@ -3781,7 +3781,7 @@ Lägg till flöden med RSS-ikonen i navigeringsraden på sidor som tillhandahål
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="57"/>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
-        <translation>Detta är en lista på CA Authorities-certifikat lagrade i förinställda och användarspecificerade sökvägar.</translation>
+        <translation>Detta är en lista på CA Authorities-certifikat lagrade i systemets standardsökväg och användarspecificerade sökvägar.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="68"/>
@@ -3797,7 +3797,7 @@ Lägg till flöden med RSS-ikonen i navigeringsraden på sidor som tillhandahål
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="108"/>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
-        <translation>Detta är en lista på lokala certifikat sparade i din användarprofil. Den innehåller också certifikat som erhållit ett undantag.</translation>
+        <translation>Detta är en lista på lokala certifikat lagrade i din användarprofil. Den innehåller också alla certifikat som erhållit ett undantag.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="119"/>
@@ -3812,12 +3812,12 @@ Lägg till flöden med RSS-ikonen i navigeringsraden på sidor som tillhandahål
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="159"/>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
-        <translation>Om CA Authorities-certifikat inte laddades automatiskt från systemet kan du manuellt specificera var certifikaten finns lagrade.</translation>
+        <translation>Om CA Authorities-certifikat inte laddades automatiskt kan du  manuellt ställa in var certifikaten finns lagrade.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="171"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation>&lt;b&gt;Obs:&lt;/b&gt;Denna inställningen är en hög säkerhetsrisk!</translation>
+        <translation>&lt;b&gt;Observera:&lt;/b&gt; Denna inställningen är en hög säkerhetsrisk!</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="210"/>
@@ -3829,7 +3829,7 @@ Lägg till flöden med RSS-ikonen i navigeringsraden på sidor som tillhandahål
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Alla certifikat måste ha .crt-suffix.
-Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla startas om, för att ta del av ändringarna.</translation>
+Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla startas om för att ändringarna ska ha effekt.</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.cpp" line="55"/>
@@ -3925,7 +3925,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation>Fel när sökmotor lades till&lt;br&gt;&lt;b&gt;Felmeddelande:&lt;/b&gt;%1</translation>
+        <translation>Fel när sökmotor lades till&lt;br&gt;&lt;b&gt;Felmeddelande&lt;/b&gt;%!</translation>
     </message>
 </context>
 <context>
@@ -3984,7 +3984,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/siteinfo.ui" line="14"/>
         <source>Site Info</source>
-        <translation>Sidinfo</translation>
+        <translation>Sidinformation</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.ui" line="80"/>
@@ -4079,7 +4079,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="129"/>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Din anslutning till denna sidan är osäkrad!&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Din anslutning till denna sidan är osäker!&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/webview/siteinfo.cpp" line="147"/>
@@ -4227,7 +4227,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="72"/>
         <source>Select All</source>
-        <translation>Välj allt</translation>
+        <translation>Markera allt</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="73"/>
@@ -4248,7 +4248,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="79"/>
         <source>Reload</source>
-        <translation>Ladda om</translation>
+        <translation>Hämta om</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="81"/>
@@ -4293,7 +4293,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="144"/>
         <source>Cannot reload source. Page has been closed.</source>
-        <translation>Kan inte hämta om källkoden, sidan har stängts.</translation>
+        <translation>Kan inte hämta om källa, sidan har stängts.</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="152"/>
@@ -4362,7 +4362,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/tabbar.cpp" line="122"/>
         <source>Un&amp;pin Tab</source>
-        <translation>Av&amp;nåla flik</translation>
+        <translation>Av%nåla flik</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="122"/>
@@ -4423,7 +4423,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Fliklista</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="141"/>
@@ -4454,17 +4454,17 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="560"/>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Tom</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="563"/>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished">Återställ alla stängda flikar</translation>
+        <translation>Återställ alla stängda flikar</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="564"/>
         <source>Clear list</source>
-        <translation type="unfinished">Rensa lista</translation>
+        <translation>Rensa lista</translation>
     </message>
 </context>
 <context>
@@ -4487,7 +4487,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="317"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Granska element</translation>
     </message>
     <message>
         <source>Open link in new &amp;tab</source>
@@ -4503,7 +4503,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     </message>
     <message>
         <source>&amp;Save link as...</source>
-        <translation type="obsolete">&amp;Spara länkmål som...</translation>
+        <translation type="obsolete">&amp;Spara länk som...</translation>
     </message>
     <message>
         <source>Send link...</source>
@@ -4595,7 +4595,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     </message>
     <message>
         <source>Send page link...</source>
-        <translation type="obsolete">Skicka sidans länk...</translation>
+        <translation type="obsolete">Skicka länk till sida...</translation>
     </message>
     <message>
         <source>&amp;Print page</source>
@@ -4615,11 +4615,11 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     </message>
     <message>
         <source>Show Web &amp;Inspector</source>
-        <translation type="obsolete">Visa &amp;webbinspektören</translation>
+        <translation type="obsolete">Visa webbinspektören</translation>
     </message>
     <message>
         <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">Visa &amp;information om sidan</translation>
+        <translation type="obsolete">Visa &amp;information om denna sida</translation>
     </message>
     <message>
         <source>Send text...</source>
@@ -4707,7 +4707,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
         <location filename="../src/webview/webinspectordockwidget.cpp" line="29"/>
         <location filename="../src/webview/webinspectordockwidget.cpp" line="32"/>
         <source>Web Inspector</source>
-        <translation>Webbinspektör</translation>
+        <translation>Webinspektör</translation>
     </message>
 </context>
 <context>
@@ -4800,7 +4800,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/webpage.cpp" line="445"/>
         <source>Content Access Denied</source>
-        <translation>Åtkomst till innehåll nekades</translation>
+        <translation>Innehållsåtkomst nekad</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="453"/>
@@ -4825,12 +4825,12 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/webpage.cpp" line="474"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
-        <translation>Om du inte kan hämta några sidor alls, kontrollera datorns nätverksanslutning.</translation>
+        <translation>Om du inte kan hämta några sidor alls, kontrollera din dators nätverksanslutning.</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="475"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
-        <translation>Om din dator eller ditt nätverk är skyddat av en brandvägg eller proxy, kontrollera att QupZilla tillåts att nå webben.</translation>
+        <translation>Om din dator eller ditt nätverk är skyddat av en brandvägg eller proxy, kontrollera att QupZilla är tillåten att komma åt webben.</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="476"/>
@@ -4840,7 +4840,7 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/webpage.cpp" line="577"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation>Förhindra denna sida från att skapa fler dialogrutor</translation>
+        <translation>Förhindra att denna sidan skapar fler dialogrutor</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="580"/>
@@ -4889,37 +4889,42 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/webview.cpp" line="603"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished">&amp;Kopiera sidlänk</translation>
+        <translation>&amp;Kopiera sidlänk</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="604"/>
         <source>Send page link...</source>
-        <translation type="unfinished">Skicka länk till sida...</translation>
+        <translation>Skicka sidans länk...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="605"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished">&amp;Skriv ut sida</translation>
+        <translation>&amp;Skriv ut sida</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="612"/>
+        <source>Validate page</source>
+        <translation>Validera sida</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="669"/>
         <source>Send text...</source>
-        <translation type="unfinished">Skicka text...</translation>
+        <translation>Skicka text...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="674"/>
         <source>Google Translate</source>
-        <translation type="unfinished">Google Översätt</translation>
+        <translation>Google Översätt</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="675"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Ordlista</translation>
+        <translation>Ordlista</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="686"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished">Gå till &amp;webadress</translation>
+        <translation>Gå till &amp;webadress</translation>
     </message>
     <message>
         <source>New tab</source>
@@ -4928,163 +4933,153 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/webview.cpp" line="627"/>
         <source>Open link in new &amp;tab</source>
-        <translation type="unfinished">Öppna länk i ny &amp;flik</translation>
+        <translation>Öppna länk i ny &amp;flik</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="628"/>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished">Öppna länk i nytt &amp;fönster</translation>
+        <translation>Öppna länk i nytt &amp;fönster</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="630"/>
         <source>B&amp;ookmark link</source>
-        <translation type="unfinished">Bokmärk &amp;länk</translation>
+        <translation>Bokmärk &amp;länk</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="631"/>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished">&amp;Spara länk som...</translation>
+        <translation>&amp;Spara länk som...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="632"/>
         <source>Send link...</source>
-        <translation type="unfinished">Skicka länk...</translation>
+        <translation>Skicka länk...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="633"/>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished">&amp;Kopiera länkadress</translation>
+        <translation>&amp;Kopiera länkadress</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="645"/>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished">Visa &amp;bild</translation>
+        <translation>Visa &amp;bild</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="646"/>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished">Kopiera &amp;bild</translation>
+        <translation>Kopiera &amp;bild</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="647"/>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished">Kopiera bild&amp;adress</translation>
+        <translation>Kopiera bild&amp;adress</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="649"/>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished">&amp;Spara bild som...</translation>
+        <translation>&amp;Spara bild som...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="650"/>
         <source>Send image...</source>
-        <translation type="unfinished">Skicka bild...</translation>
+        <translation>Skicka bild...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="569"/>
         <source>&amp;Back</source>
-        <translation type="unfinished">&amp;Bakåt</translation>
+        <translation>&amp;Bakåt</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="573"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished">&amp;Framåt</translation>
+        <translation>&amp;Framåt</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="577"/>
         <location filename="../src/webview/webview.cpp" line="588"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished">&amp;Hämta om</translation>
+        <translation>&amp;Hämta om</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="578"/>
         <source>S&amp;top</source>
-        <translation type="unfinished">&amp;Stopp</translation>
+        <translation>&amp;Stopp</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="584"/>
         <source>This frame</source>
-        <translation type="unfinished">Denna ram</translation>
+        <translation>Denna ram</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="585"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished">Visa &amp;endast denna ramen</translation>
+        <translation>Visa &amp;endast denna ramen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="586"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished">Visa denna ramen i ny &amp;flik</translation>
+        <translation>Visa denna ramen i ny &amp;flik</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="589"/>
         <source>Print frame</source>
-        <translation type="unfinished">Skriv ut ram</translation>
+        <translation>Skriv ut ram</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="591"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished">Zooma &amp;in</translation>
+        <translation>Zooma &amp;in</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="592"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished">Zooma &amp;ut</translation>
+        <translation>Zooma &amp;ut</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="593"/>
         <source>Reset</source>
-        <translation type="unfinished">Återställ</translation>
+        <translation>Återställ</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="595"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished">Visa ramens &amp;källa</translation>
+        <translation>Visa ramens &amp;källa</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="601"/>
         <source>Book&amp;mark page</source>
-        <translation type="unfinished">Bok&amp;märk sida</translation>
+        <translation>Bok&amp;märk sida</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="602"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished">&amp;Spara sida som...</translation>
+        <translation>&amp;Spara sida som...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="607"/>
         <source>Select &amp;all</source>
-        <translation type="unfinished">Välj &amp;allt</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webview.cpp" line="612"/>
-        <source>Validate page</source>
-        <translation type="unfinished">Validera sida</translation>
+        <translation>Markera &amp;allt</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="615"/>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished">Visa &amp;källkod</translation>
+        <translation>Visa &amp;källkod</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="616"/>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished">Visa &amp;information om denna sida</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webview.cpp" line="692"/>
-        <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished">Sök efter&quot;%1 ..&quot;på %2  </translation>
+        <translation>Visa &amp;information om denna sida</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="708"/>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Spela upp</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="708"/>
         <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Paus</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="709"/>
@@ -5094,22 +5089,31 @@ Efter att certifikatsökvägar lagts till eller tagits bort måste QupZilla star
     <message>
         <location filename="../src/webview/webview.cpp" line="709"/>
         <source>&amp;Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tysta</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="711"/>
         <source>&amp;Copy Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopiera medieadress</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="712"/>
         <source>&amp;Send Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Skicka medieadress</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="713"/>
         <source>Save Media To &amp;Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara media till &amp;hårddisk</translation>
+    </message>
+    <message>
+        <source>Show Web &amp;Inspector</source>
+        <translation type="obsolete">Visa webbinspektören</translation>
+    </message>
+    <message>
+        <location filename="../src/webview/webview.cpp" line="692"/>
+        <source>Search &quot;%1 ..&quot; with %2</source>
+        <translation>Sök efter&quot;%1 ..&quot;på %2  </translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="81"/>
