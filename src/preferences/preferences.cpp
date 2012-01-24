@@ -160,7 +160,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->startProfile->addItem(actProfileName);
     QDir profilesDir(mApp->PROFILEDIR + "profiles/");
     QStringList list_ = profilesDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-    foreach(const QString &name, list_) {
+    foreach(const QString & name, list_) {
         if (actProfileName == name) {
             continue;
         }
@@ -192,6 +192,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->makeMovable->setChecked(settings.value("makeTabsMovable", true).toBool());
     ui->hideTabsOnTab->setChecked(settings.value("hideTabsWithOneTab", false).toBool());
     ui->activateLastTab->setChecked(settings.value("ActivateLastTabWhenClosingActual", false).toBool());
+    ui->openNewTabAfterActive->setChecked(settings.value("newTabAfterActive", true).toBool());
     ui->dontQuitOnTab->setChecked(settings.value("dontQuitWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     ui->closedInsteadOpened->setChecked(settings.value("closedInsteadOpenedTabs", false).toBool());
@@ -345,7 +346,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     QDir lanDir(mApp->TRANSLATIONSDIR);
     QStringList list = lanDir.entryList(QStringList("*.qm"));
-    foreach(const QString &name, list) {
+    foreach(const QString & name, list) {
         if (name.startsWith("qt_") || name == activeLanguage) {
             continue;
         }
@@ -685,6 +686,7 @@ void Preferences::saveSettings()
     settings.setValue("makeTabsMovable", ui->makeMovable->isChecked());
     settings.setValue("hideTabsWithOneTab", ui->hideTabsOnTab->isChecked());
     settings.setValue("ActivateLastTabWhenClosingActual", ui->activateLastTab->isChecked());
+    settings.setValue("newTabAfterActive", ui->openNewTabAfterActive->isChecked());
     settings.setValue("dontQuitWithOneTab", ui->dontQuitOnTab->isChecked());
     settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.setValue("closedInsteadOpenedTabs", ui->closedInsteadOpened->isChecked());

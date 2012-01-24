@@ -39,6 +39,7 @@ public:
     QString title() const;
     QUrl url() const;
 
+    void loadSettings();
     bool isLoading() const;
     int loadProgress() const;
 
@@ -143,6 +144,7 @@ private:
     QWebElement m_mediaElement;
     QWebFrame* m_clickedFrame;
     bool m_actionsHaveImages;
+    bool m_newTabAfterActive;
 
     QList<QTouchEvent::TouchPoint> m_touchPoints;
 };

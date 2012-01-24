@@ -29,6 +29,7 @@
 #include "searchenginesmanager.h"
 #include "browsinglibrary.h"
 #include "bookmarksmanager.h"
+#include "settings.h"
 
 WebView::WebView(QWidget* parent)
     : QWebView(parent)
@@ -38,6 +39,8 @@ WebView::WebView(QWidget* parent)
     , m_clickedFrame(0)
     , m_actionsHaveImages(false)
 {
+    loadSettings();
+
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
@@ -48,6 +51,14 @@ WebView::WebView(QWidget* parent)
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
 
     qApp->installEventFilter(this);
+}
+
+void WebView::loadSettings()
+{
+    Settings settings;
+    settings.beginGroup("Browser-Tabs-Settings");
+    m_newTabAfterActive = settings.value("newTabAfterActive", true).toBool();
+    settings.endGroup();
 }
 
 QIcon WebView::icon() const
@@ -378,9 +389,9 @@ void WebView::openUrlInSelectedTab()
 void WebView::openUrlInBackgroundTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        openUrlInNewTab(action->data().toUrl(), Qz::NT_NotSelectedTab);
+        openUrlInNewTab(action->data().toUrl(), m_newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
     }
-}\
+}
 
 void WebView::loadClickedFrame()
 {
@@ -509,7 +520,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
             QMenu* pageMenu = page()->createStandardContextMenu();
 
             int i = 0;
-            foreach(QAction* act, pageMenu->actions()) {
+            foreach(QAction * act, pageMenu->actions()) {
                 if (act->isSeparator()) {
                     menu->addSeparator();
                     continue;
@@ -765,7 +776,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         if (frame) {
             QUrl link = frame->hitTestContent(event->pos()).linkUrl();
             if (isUrlValid(link)) {
-                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                openUrlInNewTab(link, m_newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
                 event->accept();
                 return;
             }
@@ -786,7 +797,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         if (frame && event->modifiers() == Qt::ControlModifier) {
             QUrl link = frame->hitTestContent(event->pos()).linkUrl();
             if (isUrlValid(link)) {
-                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                openUrlInNewTab(link, m_newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
                 event->accept();
                 return;
             }
