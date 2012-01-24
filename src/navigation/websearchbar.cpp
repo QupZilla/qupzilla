@@ -30,6 +30,8 @@
 WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     : LineEdit(parent)
     , p_QupZilla(mainClass)
+    , m_menu(new QMenu(this))
+    , m_pasteAndGoAction(0)
 {
     setObjectName("websearchbar");
     m_buttonSearch = new ClickableLabel(this);
@@ -179,6 +181,48 @@ void WebSearchBar::addEngineFromAction()
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         m_searchManager->addEngine(action->data().toUrl());
     }
+}
+
+void WebSearchBar::pasteAndGo()
+{
+    clear();
+    paste();
+    search();
+}
+
+void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
+{
+    Q_UNUSED(event)
+
+    if (!m_pasteAndGoAction) {
+        m_pasteAndGoAction = new QAction(tr("Paste And &Go"), this);
+//         m_pasteAndGoAction->setShortcut(QKeySequence("Ctrl+Shift+V"));
+        connect(m_pasteAndGoAction, SIGNAL(triggered()), this, SLOT(pasteAndGo()));
+    }
+
+    QMenu* tempMenu = createStandardContextMenu();
+    m_menu->clear();
+
+    int i = 0;
+    foreach(QAction* act, tempMenu->actions()) {
+        act->setParent(m_menu);
+        tempMenu->removeAction(act);
+        m_menu->addAction(act);
+
+        if (i == 5) {
+            m_menu->addAction(m_pasteAndGoAction);
+        }
+        ++i;
+    }
+
+    delete tempMenu;
+
+    m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());
+
+    //Prevent choosing first option with double rightclick
+    QPoint pos = QCursor::pos();
+    QPoint p(pos.x(), pos.y() + 1);
+    m_menu->popup(p);
 }
 
 void WebSearchBar::focusOutEvent(QFocusEvent* e)
