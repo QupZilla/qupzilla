@@ -2259,6 +2259,10 @@
         <source>Minimum Logical Font Size</source>
         <translation>Minimálna logická veľkosť</translation>
     </message>
+    <message>
+        <source>Open new tabs after active tab</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3919,6 +3923,14 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Manage Search Engines</source>
         <translation>Spravovať vyhľadávače</translation>
+    </message>
+    <message>
+        <source>Paste And &amp;Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear All</source>
+        <translation type="unfinished">Všetko vymazať</translation>
     </message>
 </context>
 <context>

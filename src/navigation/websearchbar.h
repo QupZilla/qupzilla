@@ -85,7 +85,7 @@ private:
 
     QMenu* m_menu;
     QAction* m_pasteAndGoAction;
-
+    QAction* m_clearAction;
 };
 
 #endif // WEBSEARCHBAR_H
