@@ -98,7 +98,7 @@ void HistoryManager::contextMenuRequested(const QPoint &position)
     }
 
     QMenu menu;
-    menu.addAction(tr("Open link in actual tab"), getQupZilla(), SLOT(loadActionUrl()))->setData(link);
+    menu.addAction(tr("Open link in current tab"), getQupZilla(), SLOT(loadActionUrl()))->setData(link);
     menu.addAction(tr("Open link in new tab"), this, SLOT(loadInNewTab()))->setData(link);
     menu.addSeparator();
     menu.addAction(tr("Copy address"), this, SLOT(copyUrl()))->setData(link);

@@ -253,9 +253,9 @@
           <widget class="QLineEdit" name="homepage"/>
          </item>
          <item>
-          <widget class="QToolButton" name="useActualBut">
+          <widget class="QToolButton" name="useCurrentBut">
            <property name="text">
-            <string>Use actual</string>
+            <string>Use current</string>
            </property>
           </widget>
          </item>
@@ -401,9 +401,9 @@
            <widget class="QLineEdit" name="newTabUrl"/>
           </item>
           <item>
-           <widget class="QToolButton" name="newTabUseActual">
+           <widget class="QToolButton" name="newTabUseCurrent">
             <property name="text">
-             <string>Use actual</string>
+             <string>Use current</string>
             </property>
            </widget>
           </item>
@@ -2053,10 +2053,10 @@
   <tabstop>buttonBox</tabstop>
   <tabstop>afterLaunch</tabstop>
   <tabstop>homepage</tabstop>
-  <tabstop>useActualBut</tabstop>
+  <tabstop>useCurrentBut</tabstop>
   <tabstop>newTab</tabstop>
   <tabstop>newTabUrl</tabstop>
-  <tabstop>newTabUseActual</tabstop>
+  <tabstop>newTabUseCurrent</tabstop>
   <tabstop>checkUpdates</tabstop>
   <tabstop>startProfile</tabstop>
   <tabstop>createProfile</tabstop>

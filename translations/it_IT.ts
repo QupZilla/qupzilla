@@ -581,9 +581,8 @@
         <translation type="obsolete">Nuova scheda</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in actual &amp;tab</source>
-        <translation>Apri link nella &amp;scheda corrente</translation>
+        <translation type="obsolete">Apri link nella &amp;scheda corrente</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="241"/>
@@ -614,6 +613,11 @@
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="225"/>
         <source>Remove folder</source>
         <translation>Rimuovi cartella</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
+        <source>Open link in current &amp;tab</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
@@ -674,9 +678,13 @@
         <translation type="obsolete">Nuova Scheda</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
         <source>Open link in actual &amp;tab</source>
-        <translation>Apri il collegamento nella &amp;scheda attuale</translation>
+        <translation type="obsolete">Apri il collegamento nella &amp;scheda attuale</translation>
+    </message>
+    <message>
+        <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
+        <source>Open link in current &amp;tab</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="111"/>
@@ -1508,9 +1516,13 @@
         <translation type="obsolete">Nuova Scheda</translation>
     </message>
     <message>
-        <location filename="../src/history/historymanager.cpp" line="101"/>
         <source>Open link in actual tab</source>
-        <translation>Apri collegamento nella scheda attuale</translation>
+        <translation type="obsolete">Apri collegamento nella scheda attuale</translation>
+    </message>
+    <message>
+        <location filename="../src/history/historymanager.cpp" line="101"/>
+        <source>Open link in current tab</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
@@ -1641,9 +1653,13 @@
         <translation type="obsolete">Nuova Scheda</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
         <source>Open link in actual tab</source>
-        <translation>Apri collegamento nella scheda attuale</translation>
+        <translation type="obsolete">Apri collegamento nella scheda attuale</translation>
+    </message>
+    <message>
+        <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
+        <source>Open link in current tab</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
@@ -2157,10 +2173,8 @@
         <translation>Pagina Iniziale: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="258"/>
-        <location filename="../src/preferences/preferences.ui" line="406"/>
         <source>Use actual</source>
-        <translation>Usa attuale</translation>
+        <translation type="obsolete">Usa attuale</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="267"/>
@@ -2370,6 +2384,12 @@
         <location filename="../src/preferences/preferences.ui" line="285"/>
         <source>Open speed dial</source>
         <translation>Apri speed dial</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="258"/>
+        <location filename="../src/preferences/preferences.ui" line="406"/>
+        <source>Use current</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="446"/>
@@ -3693,8 +3713,12 @@ Si prega di aggiungere l&apos;icona RSS nella barra di navigazione su un sito ch
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="234"/>
+        <source>Open link in current tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open link in actual tab</source>
-        <translation>Apri link nella scheda attuale</translation>
+        <translation type="obsolete">Apri link nella scheda attuale</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="235"/>
@@ -4472,22 +4496,22 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
 <context>
     <name>TabbedWebView</name>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="85"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="86"/>
         <source>Failed loading page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="155"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="156"/>
         <source>Loading...</source>
         <translation type="unfinished">Caricamento...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="230"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="231"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="317"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="318"/>
         <source>Inspect Element</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4863,198 +4887,198 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation type="obsolete">Nuova scheda</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="627"/>
+        <location filename="../src/webview/webview.cpp" line="628"/>
         <source>Open link in new &amp;tab</source>
         <translation type="unfinished">Apri il link in una nuova &amp;scheda</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="628"/>
+        <location filename="../src/webview/webview.cpp" line="629"/>
         <source>Open link in new &amp;window</source>
         <translation type="unfinished">Apri il link in una nuova &amp;finestra</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="630"/>
+        <location filename="../src/webview/webview.cpp" line="631"/>
         <source>B&amp;ookmark link</source>
         <translation type="unfinished">&amp;Aggiungi il link ai segnalibri</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="631"/>
+        <location filename="../src/webview/webview.cpp" line="632"/>
         <source>&amp;Save link as...</source>
         <translation type="unfinished">&amp;Salva il link come...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="632"/>
+        <location filename="../src/webview/webview.cpp" line="633"/>
         <source>Send link...</source>
         <translation type="unfinished">Invia link...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="633"/>
+        <location filename="../src/webview/webview.cpp" line="634"/>
         <source>&amp;Copy link address</source>
         <translation type="unfinished">&amp;Copia indirizzo link</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="645"/>
+        <location filename="../src/webview/webview.cpp" line="646"/>
         <source>Show i&amp;mage</source>
         <translation type="unfinished">Mostra imma&amp;gine</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="646"/>
+        <location filename="../src/webview/webview.cpp" line="651"/>
         <source>Copy im&amp;age</source>
         <translation type="unfinished">Copia im&amp;magine</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="647"/>
+        <location filename="../src/webview/webview.cpp" line="652"/>
         <source>Copy image ad&amp;dress</source>
         <translation type="unfinished">Copia indiri&amp;zzo immagine</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="649"/>
+        <location filename="../src/webview/webview.cpp" line="654"/>
         <source>&amp;Save image as...</source>
         <translation type="unfinished">Sa&amp;lva immagine come...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="650"/>
+        <location filename="../src/webview/webview.cpp" line="655"/>
         <source>Send image...</source>
         <translation type="unfinished">Invia immagine...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="569"/>
+        <location filename="../src/webview/webview.cpp" line="570"/>
         <source>&amp;Back</source>
         <translation type="unfinished">&amp;Indietro</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="573"/>
+        <location filename="../src/webview/webview.cpp" line="574"/>
         <source>&amp;Forward</source>
         <translation type="unfinished">&amp;Avanti</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="577"/>
-        <location filename="../src/webview/webview.cpp" line="588"/>
+        <location filename="../src/webview/webview.cpp" line="578"/>
+        <location filename="../src/webview/webview.cpp" line="589"/>
         <source>&amp;Reload</source>
         <translation type="unfinished">&amp;Ricarica</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="578"/>
+        <location filename="../src/webview/webview.cpp" line="579"/>
         <source>S&amp;top</source>
         <translation type="unfinished">S&amp;top</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="584"/>
+        <location filename="../src/webview/webview.cpp" line="585"/>
         <source>This frame</source>
         <translation type="unfinished">Questa cornice</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="585"/>
+        <location filename="../src/webview/webview.cpp" line="586"/>
         <source>Show &amp;only this frame</source>
         <translation type="unfinished">Mostra s&amp;olo questa cornice</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="586"/>
+        <location filename="../src/webview/webview.cpp" line="587"/>
         <source>Show this frame in new &amp;tab</source>
         <translation type="unfinished">Mostra questa cornice in una nuova &amp;scheda</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="589"/>
+        <location filename="../src/webview/webview.cpp" line="590"/>
         <source>Print frame</source>
         <translation type="unfinished">Stampa cornice</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="591"/>
+        <location filename="../src/webview/webview.cpp" line="592"/>
         <source>Zoom &amp;in</source>
         <translation type="unfinished">&amp;Ingrandisci</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="592"/>
+        <location filename="../src/webview/webview.cpp" line="593"/>
         <source>&amp;Zoom out</source>
         <translation type="unfinished">&amp;Riduci</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="593"/>
+        <location filename="../src/webview/webview.cpp" line="594"/>
         <source>Reset</source>
         <translation type="unfinished">Ripristina</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="595"/>
+        <location filename="../src/webview/webview.cpp" line="596"/>
         <source>Show so&amp;urce of frame</source>
         <translation type="unfinished">Mostra sor&amp;gente della cornice</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="601"/>
+        <location filename="../src/webview/webview.cpp" line="602"/>
         <source>Book&amp;mark page</source>
         <translation type="unfinished">Aggi&amp;ungi la pagina ai Segnalibri</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="602"/>
+        <location filename="../src/webview/webview.cpp" line="603"/>
         <source>&amp;Save page as...</source>
         <translation type="unfinished">Sa&amp;lva pagina come...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="603"/>
+        <location filename="../src/webview/webview.cpp" line="604"/>
         <source>&amp;Copy page link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="604"/>
+        <location filename="../src/webview/webview.cpp" line="605"/>
         <source>Send page link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="605"/>
+        <location filename="../src/webview/webview.cpp" line="606"/>
         <source>&amp;Print page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="669"/>
+        <location filename="../src/webview/webview.cpp" line="674"/>
         <source>Send text...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="674"/>
+        <location filename="../src/webview/webview.cpp" line="679"/>
         <source>Google Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="675"/>
+        <location filename="../src/webview/webview.cpp" line="680"/>
         <source>Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="686"/>
+        <location filename="../src/webview/webview.cpp" line="691"/>
         <source>Go to &amp;web address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="708"/>
+        <location filename="../src/webview/webview.cpp" line="713"/>
         <source>&amp;Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="708"/>
+        <location filename="../src/webview/webview.cpp" line="713"/>
         <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="709"/>
+        <location filename="../src/webview/webview.cpp" line="714"/>
         <source>Un&amp;mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="709"/>
+        <location filename="../src/webview/webview.cpp" line="714"/>
         <source>&amp;Mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="711"/>
+        <location filename="../src/webview/webview.cpp" line="716"/>
         <source>&amp;Copy Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="712"/>
+        <location filename="../src/webview/webview.cpp" line="717"/>
         <source>&amp;Send Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="713"/>
+        <location filename="../src/webview/webview.cpp" line="718"/>
         <source>Save Media To &amp;Disk</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5063,22 +5087,22 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation type="obsolete">Invia pagina...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="607"/>
+        <location filename="../src/webview/webview.cpp" line="608"/>
         <source>Select &amp;all</source>
         <translation type="unfinished">Seleziona &amp;tutto</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="612"/>
+        <location filename="../src/webview/webview.cpp" line="613"/>
         <source>Validate page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="615"/>
+        <location filename="../src/webview/webview.cpp" line="616"/>
         <source>Show so&amp;urce code</source>
         <translation type="unfinished">Mostra codice so&amp;rgente</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="616"/>
+        <location filename="../src/webview/webview.cpp" line="617"/>
         <source>Show info ab&amp;out site</source>
         <translation type="unfinished">Mostra info su&amp;l sito</translation>
     </message>
@@ -5087,12 +5111,12 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation type="obsolete">Mostra Is&amp;pettore Web</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="692"/>
+        <location filename="../src/webview/webview.cpp" line="697"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation type="unfinished">Cerca &quot;%1 ..&quot; con %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="81"/>
+        <location filename="../src/webview/webview.cpp" line="82"/>
         <source>No Named Page</source>
         <translation>Pagina senza nome</translation>
     </message>

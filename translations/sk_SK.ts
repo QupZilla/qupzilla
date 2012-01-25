@@ -407,7 +407,7 @@
     </message>
     <message>
         <source>Open link in actual &amp;tab</source>
-        <translation>Otvoriť odkaz na ak&amp;tuálnej karte</translation>
+        <translation type="obsolete">Otvoriť odkaz na ak&amp;tuálnej karte</translation>
     </message>
     <message>
         <source>Title</source>
@@ -505,6 +505,10 @@
         <source>Choose name and location of this bookmark.</source>
         <translation>Zvoľte názov a umiestnenie záložky.</translation>
     </message>
+    <message>
+        <source>Open link in current &amp;tab</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -525,7 +529,7 @@
     <name>BookmarksSideBar</name>
     <message>
         <source>Open link in actual &amp;tab</source>
-        <translation>Otvoriť odkaz na &amp;aktuálnej karte</translation>
+        <translation type="obsolete">Otvoriť odkaz na &amp;aktuálnej karte</translation>
     </message>
     <message>
         <source>Copy address</source>
@@ -546,6 +550,10 @@
     <message>
         <source>&amp;Delete</source>
         <translation>O&amp;dstrániť</translation>
+    </message>
+    <message>
+        <source>Open link in current &amp;tab</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1192,7 +1200,7 @@
     </message>
     <message>
         <source>Open link in actual tab</source>
-        <translation>Otvoriť odkaz v aktuálnej karte</translation>
+        <translation type="obsolete">Otvoriť odkaz v aktuálnej karte</translation>
     </message>
     <message>
         <source>Are you sure to delete all history?</source>
@@ -1233,6 +1241,10 @@
     <message>
         <source>Copy address</source>
         <translation>Kopírovať adresu</translation>
+    </message>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1310,7 +1322,7 @@
     </message>
     <message>
         <source>Open link in actual tab</source>
-        <translation>Otvoriť odkaz v aktuálnej karte</translation>
+        <translation type="obsolete">Otvoriť odkaz v aktuálnej karte</translation>
     </message>
     <message>
         <source>Copy address</source>
@@ -1331,6 +1343,10 @@
     <message>
         <source>Search...</source>
         <translation>Hľadať...</translation>
+    </message>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1905,7 +1921,7 @@
     </message>
     <message>
         <source>Use actual</source>
-        <translation>Použiť aktuálnu</translation>
+        <translation type="obsolete">Použiť aktuálnu</translation>
     </message>
     <message>
         <source>Allow JAVA</source>
@@ -2262,6 +2278,10 @@
     <message>
         <source>Open new tabs after active tab</source>
         <translation>Otvoriť nové panely za aktívnym panelom</translation>
+    </message>
+    <message>
+        <source>Use current</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2912,7 +2932,7 @@
     </message>
     <message>
         <source>Open link in actual tab</source>
-        <translation>Otvoriť odkaz na aktuálnej karte</translation>
+        <translation type="obsolete">Otvoriť odkaz na aktuálnej karte</translation>
     </message>
     <message>
         <source>Edit RSS Feed</source>
@@ -2991,6 +3011,10 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     <message>
         <source>New feed</source>
         <translation>Nový kanál</translation>
+    </message>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

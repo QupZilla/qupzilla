@@ -143,8 +143,8 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         ui->newTabFrame->setVisible(true);
     }
     connect(ui->newTab, SIGNAL(currentIndexChanged(int)), this, SLOT(newTabChanged()));
-    connect(ui->useActualBut, SIGNAL(clicked()), this, SLOT(useActualHomepage()));
-    connect(ui->newTabUseActual, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
+    connect(ui->useCurrentBut, SIGNAL(clicked()), this, SLOT(useActualHomepage()));
+    connect(ui->newTabUseCurrent, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
 
     //PROFILES
     m_actProfileName = mApp->getActiveProfilPath();

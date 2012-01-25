@@ -32,6 +32,11 @@ IconProvider::IconProvider(QObject* parent)
 
 void IconProvider::saveIcon(WebView* view)
 {
+    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
+        // Don't save icons in private mode.
+        return;
+    }
+
     Icon item;
     item.image = view->icon().pixmap(16, 16).toImage();
     item.url = view->url();
