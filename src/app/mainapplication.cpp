@@ -499,7 +499,7 @@ bool MainApplication::event(QEvent* e)
 {
     switch (e->type()) {
     case QEvent::FileOpen: {
-        QString fileName = static_cast<QFileOpenEvent*>(event)->file();
+        QString fileName = static_cast<QFileOpenEvent*>(e)->file();
         addNewTab(QUrl::fromLocalFile(fileName));
         return true;
     }
