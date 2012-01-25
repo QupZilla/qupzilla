@@ -184,7 +184,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="48"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
-        <translation></translation>
+        <translation>Blockerad Url (AdBlock-regel) - klicka för att redigera regel</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="51"/>
@@ -194,7 +194,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="55"/>
         <source>Learn About Writing &amp;Rules</source>
-        <translation type="unfinished"></translation>
+        <translation>Lär dig hur man skriver &amp;regler</translation>
     </message>
     <message>
         <source>New tab</source>
@@ -589,7 +589,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna länk i nuvarande &amp;flik</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="241"/>
@@ -676,7 +676,7 @@
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna länk i nuvarande &amp;flik</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="111"/>
@@ -865,7 +865,8 @@
         <location filename="../src/tools/certificateinfowidget.ui" line="24"/>
         <location filename="../src/tools/certificateinfowidget.ui" line="99"/>
         <source>Common Name (CN):</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Vad menas med Common? Och vad att göra med förkortningen?</translatorcomment>
+        <translation>Namn (CN):</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="41"/>
@@ -877,7 +878,7 @@
         <location filename="../src/tools/certificateinfowidget.ui" line="58"/>
         <location filename="../src/tools/certificateinfowidget.ui" line="133"/>
         <source>Organizational Unit (OU):</source>
-        <translation type="unfinished"></translation>
+        <translation>Organisationsenhet (OU):</translation>
     </message>
     <message>
         <location filename="../src/tools/certificateinfowidget.ui" line="75"/>
@@ -965,7 +966,7 @@
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="111"/>
         <source>Earlier Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidigare idag</translation>
     </message>
     <message>
         <source>Later Today</source>
@@ -1514,7 +1515,7 @@
     <message>
         <location filename="../src/history/historymanager.cpp" line="101"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna länk i nuvarande flik</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
@@ -1651,7 +1652,7 @@
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna länk i nuvarande flik</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
@@ -2321,7 +2322,7 @@
         <location filename="../src/preferences/preferences.ui" line="258"/>
         <location filename="../src/preferences/preferences.ui" line="406"/>
         <source>Use current</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd nuvarande</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="446"/>
@@ -2341,7 +2342,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="743"/>
         <source>Open new tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna nya flikar efter den aktiva fliken</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="780"/>
@@ -2520,7 +2521,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1311"/>
         <source>Fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>Fast</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1321"/>
@@ -2554,7 +2555,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1409"/>
         <source>Fixed Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Fast typsnittsstorlek</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1416"/>
@@ -2682,7 +2683,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1857"/>
         <source>Expiration timeout:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiden löper ut:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1870"/>
@@ -2712,12 +2713,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1994"/>
         <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Användarens CSS-stilblad</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="2001"/>
         <source>StyleSheet automatically loaded with all websites: </source>
-        <translation type="unfinished"></translation>
+        <translation>Stilblad som automatiskt laddas med alla webbsidor: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="2020"/>
@@ -2802,7 +2803,7 @@
     <message>
         <location filename="../src/preferences/preferences.cpp" line="469"/>
         <source>Choose stylesheet location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj stilbladets plats...</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="585"/>
@@ -3171,7 +3172,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="661"/>
         <source>Organize &amp;Bookmarks</source>
-        <translation>Organisera bokmärken</translation>
+        <translation>Organisera &amp;bokmärken</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="701"/>
@@ -3234,7 +3235,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="871"/>
         <source>Report &amp;Issue</source>
-        <translation>Rapportera problem</translation>
+        <translation>Rapportera &amp;problem</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="877"/>
@@ -3244,7 +3245,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="878"/>
         <source>Page &amp;Info</source>
-        <translation>Sidinformation</translation>
+        <translation>Sid&amp;information</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="880"/>
@@ -3534,17 +3535,17 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Passa in</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Fit Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Passa in bredd</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
         <source>Fit Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Passa in höjd</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="272"/>
@@ -3716,7 +3717,7 @@ Lägg till flöden med RSS-ikonen i navigeringsraden från sidor som tillhandah�
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="234"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna länk i nuvarande flik</translation>
     </message>
     <message>
         <source>Open link in actual tab</source>
@@ -3984,7 +3985,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/webview/searchtoolbar.ui" line="98"/>
         <source>Case sensitive</source>
-        <translation type="unfinished"></translation>
+        <translation>Skiftlägeskänslig</translation>
     </message>
 </context>
 <context>
@@ -4286,7 +4287,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="82"/>
         <source>Word Wrap</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordinslagning</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="105"/>
@@ -4331,7 +4332,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="159"/>
         <source>Word Wrap changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordinslag ändrad</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="164"/>
@@ -4390,7 +4391,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/webview/tabbar.cpp" line="122"/>
         <source>Un&amp;pin Tab</source>
-        <translation>Av%nåla flik</translation>
+        <translation>Av&amp;nåla flik</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="122"/>
@@ -4471,7 +4472,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="256"/>
         <source>Actually you have %1 opened tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>För tillfället har du %1 öppna flikar</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="268"/>
@@ -4873,7 +4874,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/webview/webpage.cpp" line="580"/>
         <source>JavaScript alert - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Javaskriptvarning - %1</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="626"/>
@@ -4896,7 +4897,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="199"/>
         <source>Paste And &amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Klistra in och &amp;sök</translation>
     </message>
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="205"/>

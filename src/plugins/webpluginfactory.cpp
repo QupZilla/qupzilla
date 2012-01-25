@@ -83,8 +83,9 @@ WebPage* WebPluginFactory::parentPage()
 
 QList<QWebPluginFactory::Plugin> WebPluginFactory::plugins() const
 {
-    QList<QWebPluginFactory::Plugin> plugins;
-    return plugins;
+//    QList<QWebPluginFactory::Plugin> plugins;
+//    return plugins;
+
 //    QWebPluginFactory::Plugin plugin;
 //    plugin.name = QLatin1String("ClickToFlashPlugin");               //   Mmmm, it should return this,
 //    QWebPluginFactory::MimeType mimeType;                            //   but with WebKit 533.3, click2flash
@@ -93,4 +94,16 @@ QList<QWebPluginFactory::Plugin> WebPluginFactory::plugins() const
 //    plugin.mimeTypes.append(mimeType);                               //   On some pages it also force to load non-flash
 //    plugins.append(plugin);                                          //   content -> in most cases advertisements.
 //    return plugins;                                                  //   Not bad to have it hidden :-)
+
+    QList<QWebPluginFactory::Plugin> plugins;
+    QWebPluginFactory::Plugin plugin;
+    QWebPluginFactory::MimeType mimeType;
+
+    mimeType.fileExtensions << QLatin1String("swf");
+    mimeType.name = "application/x-shockwave-flash";
+
+    plugin.name = "ClickToFlashPlugin";
+    plugin.mimeTypes.append(mimeType);
+    plugins.append(plugin);
+    return plugins;
 }

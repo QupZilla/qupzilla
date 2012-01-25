@@ -7,21 +7,21 @@ $header_description = "Navegador Web";
 $menu_home = "Inicio";
 $menu_screenshots = "Capturas de pantalla";
 $menu_download = "Descargar";
-$menu_faq = "FAQ";
+$menu_reportbug = "Informar de un fallo";
 $menu_about = "Contribuir";
 $footer_site = "www.qupzilla.com";
-$translated_by = "Página traducida por Jorge Sevilla"; // "Page translated by <translator's name>"
+$translated_by = ""; // "Página traducida por Jorge Sevilla"
 
 //Home Page
 $actual_version = "Versión actual";
-$actual_version_text = "La versión actual es de ". $qupzilla_version_date .
-					   " y es la versión " . $qupzilla_version . ". Lista de cambios. <br/>¡No dude en <a href=\"download\">descargar</a> ahora mismo!";
+$actual_version_text = "La versión actual es del ". $qupzilla_version_date .
+					   " y es la versión " . $qupzilla_version . ". Novedades en la lista de cambios. <br/>¡No dude en <a href=\"download\">descargarla</a> ahora mismo!";
 $actual_version_button = "DESCARGAR";
 $older_versions = "Lista de cambios";
-$older_versions_text = "¿Desea saber qué ha cambiado desde aquella versión hasta esta? <br/>Puede encontrarlo todo en la <a>lista de cambios</a> de github!";
+$older_versions_text = "¿Desea saber qué ha cambiado desde la anterior versión hasta la actual? <br/>¡Puede encontrarlo todo en la <a>lista de cambios</a> de github!";
 $older_versions_button = "Lista de cambios";
 $reportbug = "Informar de un fallo";
-$reportbug_text = "¿Ha encontrado un fallo o únicamente tiene una sugerencia para <a>mejorar</a> QupZilla?<br/>
+$reportbug_text = "¿Ha encontrado un fallo o tiene una sugerencia para <a>mejorar</a> QupZilla?<br/>
                   Por favor, abra un informe en el seguimiento de fallos de github.";
 $reportbug_button = "Informar ahora";
 $technology = "Tecnología";
@@ -34,9 +34,9 @@ $library_header = "Biblioteca unificada";
 $library_text = "QupZilla unifica los marcadores, el historial y el lector rss en una sola ventana organizada. ¡No a la múltiples ventanas, QupZilla utiliza sólo una!<br/>
 Con el lector rss integrado, puede estar al día de sus sitios favoritos. QupZilla también puede importar los marcadores desde otros navegadores.";
 $adblock_header = "Bloqueador de publicidad integrado";
-$adblock_text = "¿Está cansado de sitios web repletos de publicidad? ¿Consumen éstos su ancho de banda y su tiempo? Lo único que necesita con QupZilla es actualizar Easylist o quizás añadir sus propias reglas para empezar a navegar libre de publicidad.";
+$adblock_text = "¿Está cansado de sitios web repletos de publicidad? ¿Consumen éstos su ancho de banda y su tiempo? Lo único que necesita con QupZilla es actualizar Easylist o añadir sus propias reglas para empezar a navegar libre de publicidad.";
 $speeddial_header = "Marcación rápida";
-$speeddial_text = "¡Esta popular extensión está finalmente disponible para los usuarios de QupZilla! Puede acceder a sus páginas favoritas tan rápido como desee al abrir una pestaña nueva. No es necesario decir que soporta completamente arrastrar&amp;soltar y la carga de miniaturas de las páginas.";
+$speeddial_text = "¡Esta popular extensión está finalmente disponible para los usuarios de QupZilla! Puede acceder a sus páginas favoritas tan rápido como desee al abrir una pestaña nueva. No es necesario decir que soporta arrastrar y soltar, además de mostrar las miniaturas de las páginas.";
 $devnews_header = "Noticias de desarrollo";
 $feed_loading = "Cargando...";
 
@@ -45,8 +45,8 @@ $other_linux = "Otro Linux";
 $source_code = "Código fuente";
 $choose_os = "Por favor, eliga su sistema operativo";
 $windows_text = "Los instaladores de Windows 32bit y 64bit pueden descargarse haciendo click en los enlaces de abajo";
-$ubuntu_text = "Los usuarios de Ubuntu Oneiric, Natty y Maverick pueden instalar QupZilla ejecutando estos comandos";
-$for_development_version = "para la versión en desarrollo:";
+$ubuntu_text = "Los usuarios de Oneiric, Natty y Maverick pueden instalar QupZilla ejecutando estos comandos:";
+$for_development_version = "Para la versión en desarrollo:";
 $packages_text = "Paquetes de 32bit y 64bit";
 $tarballs_text = "Archivos tar precompilados en 32bit y 64bit";
 $can_be_downloaded = "pueden descargarse haciendo click en los enlaces de abajo";

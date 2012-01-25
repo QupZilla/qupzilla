@@ -218,8 +218,8 @@ QString QupZillaSchemeReply::aboutPage()
                   authorString("Ján Ďanovský", "dagsoftware@yahoo.com") + " (Slovak)<br/>" +
                   authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>" +
                   authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
-                  authorString("Federico Fabiani", "federico.fabiani85@gmail.com") + " (Italy)<br/>" +
-                  authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italy)<br/>" +
+                  authorString("Federico Fabiani", "federico.fabiani85@gmail.com") + " (Italian)<br/>" +
+                  authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italian)<br/>" +
                   authorString("Jorge Sevilla", "jsevi@ozu.es") + " (Spanish)<br/>" +
                   authorString("Michał Szymanowski", "tylkobuba@gmail.com") + " (Polish)<br/>" +
                   authorString("Mariusz Fik", "fisiu@opensuse.org") + " (Polish)<br/>" +
