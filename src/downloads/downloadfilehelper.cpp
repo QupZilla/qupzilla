@@ -96,6 +96,10 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
         if (m_timer) {
             delete m_timer;
         }
+
+        m_reply->abort();
+        m_reply->deleteLater();
+
         return;
         break;
     case 1: //Open

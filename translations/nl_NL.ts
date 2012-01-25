@@ -976,8 +976,12 @@
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="111"/>
+        <source>Earlier Today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Later Today</source>
-        <translation>Later vandaag</translation>
+        <translation type="obsolete">Later vandaag</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="116"/>

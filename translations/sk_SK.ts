@@ -759,7 +759,7 @@
     </message>
     <message>
         <source>Later Today</source>
-        <translation>Dnes</translation>
+        <translation type="obsolete">Dnes</translation>
     </message>
     <message>
         <source>Clear cookies from Adobe Flash Player</source>
@@ -792,6 +792,10 @@
     <message>
         <source>Choose what you want to delete:</source>
         <translation>Vyberte, čo chcete vymazať:</translation>
+    </message>
+    <message>
+        <source>Earlier Today</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

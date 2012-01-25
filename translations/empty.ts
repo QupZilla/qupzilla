@@ -925,7 +925,7 @@
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="111"/>
-        <source>Later Today</source>
+        <source>Earlier Today</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -607,7 +607,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir enlace en la &amp;pestaña actual</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="241"/>
@@ -684,7 +684,7 @@
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir enlace en la &amp;pestaña actual</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="111"/>
@@ -976,8 +976,12 @@
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="111"/>
-        <source>Later Today</source>
+        <source>Earlier Today</source>
         <translation>Hoy</translation>
+    </message>
+    <message>
+        <source>Later Today</source>
+        <translation type="obsolete">Hoy</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="116"/>
@@ -1522,7 +1526,7 @@
     <message>
         <location filename="../src/history/historymanager.cpp" line="101"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir enlace en la pestaña actual</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
@@ -1659,7 +1663,7 @@
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir enlace en la pestaña actual</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
@@ -2411,7 +2415,7 @@
         <location filename="../src/preferences/preferences.ui" line="258"/>
         <location filename="../src/preferences/preferences.ui" line="406"/>
         <source>Use current</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar actual</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="446"/>
@@ -2436,12 +2440,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="736"/>
         <source>Closed tabs list instead of opened in tab bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista de pestañas cerradas en lugar de las abiertas en la barra de pestañas</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="743"/>
         <source>Open new tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir pestañas nuevas junto a la pestaña activa</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="853"/>
@@ -2615,22 +2619,22 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1409"/>
         <source>Fixed Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño de la fuente fija</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1416"/>
         <source>Default Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño de la fuente predeterminada</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1443"/>
         <source>Minimum Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño mínimo de la fuente</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1450"/>
         <source>Minimum Logical Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño mínimo de la fuente lógica</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1483"/>
@@ -3143,12 +3147,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="460"/>
         <source>Recently Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Visitadas recientemente</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="463"/>
         <source>Most Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Las más visitadas</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="469"/>
@@ -3735,7 +3739,7 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="234"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir enlace en la pestaña actual</translation>
     </message>
     <message>
         <source>Open link in actual tab</source>
@@ -4470,7 +4474,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista de pestañas</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="141"/>
@@ -4501,17 +4505,17 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="560"/>
         <source>Empty</source>
-        <translation type="unfinished">Vacío</translation>
+        <translation>Vacío</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="563"/>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished">Restaurar todas las pestañas cerradas</translation>
+        <translation>Restaurar todas las pestañas cerradas</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="564"/>
         <source>Clear list</source>
-        <translation type="unfinished">Limpiar lista</translation>
+        <translation>Limpiar lista</translation>
     </message>
 </context>
 <context>
@@ -4912,12 +4916,12 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="199"/>
         <source>Paste And &amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Pegar y &amp;buscar</translation>
     </message>
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="205"/>
         <source>Clear All</source>
-        <translation type="unfinished">Limpiar todo</translation>
+        <translation>Limpiar todo</translation>
     </message>
 </context>
 <context>

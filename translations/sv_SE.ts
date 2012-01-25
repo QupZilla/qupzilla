@@ -964,8 +964,12 @@
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="111"/>
+        <source>Earlier Today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Later Today</source>
-        <translation>Senare idag</translation>
+        <translation type="obsolete">Senare idag</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="116"/>
@@ -2481,7 +2485,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1198"/>
         <source>Password:</source>
-        <translation>Lösenord</translation>
+        <translation>Lösenord:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1224"/>
@@ -3949,7 +3953,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/opensearch/searchenginesmanager.cpp" line="255"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation>Fel när sökmotor lades till&lt;br&gt;&lt;b&gt;Felmeddelande&lt;/b&gt;%!</translation>
+        <translation>Fel när sökmotor lades till&lt;br&gt;&lt;b&gt;Felmeddelande&lt;/b&gt;%1</translation>
     </message>
 </context>
 <context>
@@ -4839,7 +4843,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/webview/webpage.cpp" line="472"/>
         <source>QupZilla can&apos;t load page from %1.</source>
-        <translation>QupZilla kan inte hämta sidan från %1</translation>
+        <translation>QupZilla kan inte hämta sidan från %1.</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="473"/>
@@ -4897,7 +4901,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="205"/>
         <source>Clear All</source>
-        <translation type="unfinished">Rensa allt</translation>
+        <translation>Rensa allt</translation>
     </message>
 </context>
 <context>

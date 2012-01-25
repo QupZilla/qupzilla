@@ -7,7 +7,7 @@ $header_description = "Nowoczesna Przeglądarka";
 $menu_home = "Home";
 $menu_screenshots = "Zrzuty";
 $menu_download = "Pobierz";
-$menu_reportbug = "Zgłoś Błąd";
+$menu_faq = "FAQ";
 $menu_about = "Przyczyń się";
 $footer_site = "www.qupzilla.com";
 

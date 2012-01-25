@@ -980,8 +980,12 @@
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="111"/>
+        <source>Earlier Today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Later Today</source>
-        <translation>Dnes</translation>
+        <translation type="obsolete">Dnes</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="116"/>

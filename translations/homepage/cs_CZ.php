@@ -7,7 +7,7 @@ $header_description = "Webový prohlížeč";
 $menu_home = "Domů";
 $menu_screenshots = "Screenshoty";
 $menu_download = "Download";
-$menu_reportbug = "Nahlásit chybu";
+$menu_faq = "FAQ";
 $menu_about = "Zapojte se";
 $footer_site = "www.qupzilla.com";
 
@@ -20,8 +20,7 @@ $older_versions = "Changelog";
 $older_versions_text = "Zajímá Vás co nového se stalo od této verze po tuto? <br/><br/>Kompletní <a>changelogu</a> všech verzí lze nalézt  na githubu!";
 $older_versions_button = "Changelog";
 $reportbug = "Nahlásit chybu";
-$reportbug_text = "Pokud jste našli chybu nebo máte pouze nápad jak <a>vylepšit</a>
-		           QupZillu, právě toto místo je pro Vás!<br/> Vaše připomínka či bug se bude řešit co nejdříve to bude možné!";
+$reportbug_text = "Pokud jste našli chybu nebo máte pouze nápad na <a>vylepšení</a>, právě toto místo je pro Vás!<br/> Vaše problém se bude řešit co nejdříve to bude možné!";
 $reportbug_button = "Nahlásit";
 $technology = "Technologie";
 $technology_text = "QupZilla je moderní webový prohlížeč založený na jádře WebKitu a frameworku Qt. WebKit zaručí <a>rychlé</a> zobrazení stránek a Qt funkčnost na všech

@@ -108,7 +108,7 @@
     <widget class="QComboBox" name="historyLength">
      <item>
       <property name="text">
-       <string>Later Today</string>
+       <string>Earlier Today</string>
       </property>
      </item>
      <item>
