@@ -9,7 +9,6 @@ public:
     static void loadSettings();
 
     static int defaultZoom;
-    static bool newTabAfterActive;
 };
 
 #endif // WEBVIEWSETTINGS_H

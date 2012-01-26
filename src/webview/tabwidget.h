@@ -104,6 +104,7 @@ private:
     bool m_hideTabBarWithOneTab;
     bool m_dontQuitWithOneTab;
     bool m_closedInsteadOpened;
+    bool m_newTabAfterActive;
     QUrl m_urlOnNewTab;
     QupZilla* p_QupZilla;
 

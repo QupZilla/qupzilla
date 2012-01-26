@@ -388,7 +388,7 @@ void WebView::openUrlInSelectedTab()
 void WebView::openUrlInBackgroundTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        openUrlInNewTab(action->data().toUrl(), WebViewSettings::newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
+        openUrlInNewTab(action->data().toUrl(), Qz::NT_NotSelectedTab);
     }
 }
 
@@ -807,7 +807,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
         if (frame) {
             QUrl link = frame->hitTestContent(event->pos()).linkUrl();
             if (m_clickedUrl == link && isUrlValid(link)) {
-                openUrlInNewTab(link, WebViewSettings::newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
+                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
                 event->accept();
                 return;
             }
@@ -822,7 +822,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
             QUrl link = frame->hitTestContent(event->pos()).linkUrl();
             if (m_clickedUrl == link && event->modifiers() == Qt::ControlModifier) {
                 if (isUrlValid(link)) {
-                    openUrlInNewTab(link, WebViewSettings::newTabAfterActive ? Qz::NT_NotSelectedTab : Qz::NT_CleanTab);
+                    openUrlInNewTab(link, Qz::NT_NotSelectedTab);
                     event->accept();
                     return;
                 }

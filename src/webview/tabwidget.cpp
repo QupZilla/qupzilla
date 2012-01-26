@@ -154,6 +154,8 @@ void TabWidget::loadSettings()
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
     m_dontQuitWithOneTab = settings.value("dontQuitWithOneTab", false).toBool();
     m_closedInsteadOpened = settings.value("closedInsteadOpenedTabs", false).toBool();
+    m_newTabAfterActive = settings.value("newTabAfterActive", true).toBool();
+
     settings.endGroup();
     settings.beginGroup("Web-URL-Settings");
     m_urlOnNewTab = settings.value("newTabUrl", "qupzilla:speeddial").toUrl();
@@ -276,7 +278,7 @@ int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionF
         url = m_urlOnNewTab;
     }
 
-    if (openFlags & Qz::NT_NotSelectedTab) {
+    if (m_newTabAfterActive) {
         // If we are opening newBgTab from pinned tab, make sure it won't be
         // opened between other pinned tabs
         position = qMax(currentIndex() + 1, m_tabBar->pinnedTabsCount());
@@ -325,7 +327,7 @@ int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionF
 
     if (openFlags & Qz::NT_SelectedTab) {
         m_isClosingToLastTabIndex = true;
-        m_locationBars->setCurrentWidget(locBar);
+//        m_locationBars->setCurrentWidget(locBar);
     }
 
     return index;
