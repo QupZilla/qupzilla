@@ -774,8 +774,8 @@ void WebView::mousePressEvent(QMouseEvent* event)
         break;
 
     case Qt::MiddleButton: {
-#ifdef Q_WS_WIN
         QWebFrame* frame = page()->frameAt(event->pos());
+#ifdef Q_WS_WIN
         if (frame && frame->hitTestContent(event->pos()).linkUrl().isEmpty()) {
             // Creating auto scroll on Windows
             m_clickedUrl = QUrl();
@@ -783,7 +783,6 @@ void WebView::mousePressEvent(QMouseEvent* event)
             return;
         }
 #endif
-        QWebFrame* frame = page()->frameAt(event->pos());
         if (frame) {
             m_clickedUrl = frame->hitTestContent(event->pos()).linkUrl();
         }

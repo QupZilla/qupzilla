@@ -507,7 +507,7 @@
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvoriť odkaz v &amp;aktuálnom panely</translation>
     </message>
 </context>
 <context>
@@ -553,7 +553,7 @@
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvoriť odkaz v &amp;aktuálnom panely</translation>
     </message>
 </context>
 <context>
@@ -795,7 +795,7 @@
     </message>
     <message>
         <source>Earlier Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Dnes</translation>
     </message>
 </context>
 <context>
@@ -1248,7 +1248,7 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvoriť odkaz v aktuálnom panely</translation>
     </message>
 </context>
 <context>
@@ -1350,7 +1350,7 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvoriť odkaz v aktuálnom panely</translation>
     </message>
 </context>
 <context>
@@ -2285,31 +2285,31 @@
     </message>
     <message>
         <source>Use current</source>
-        <translation type="unfinished"></translation>
+        <translation>Použiť aktuálnu</translation>
     </message>
     <message>
         <source>Allow HTML5 local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Povoliť HTML 5 lokálne úložisko</translation>
     </message>
     <message>
         <source>Delete local storage on close</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmazať lokálne úložisko pri ukončení prehliadača</translation>
     </message>
     <message>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrovať sledovacie cookies</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Upozornenie:&lt;/b&gt; Možnosť požadovať presnú zhodu domény a filtrovania sledovacích cookies môžu viesť k odmietnutiu niektorých cookies. Pokiaľ máte problémy s cookies, skuste najskôr tieto možnosti zakázať!</translation>
     </message>
     <message>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;SSL Certifikáty&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Upraviť CA Certifikáty v správcovi SSL</translation>
     </message>
 </context>
 <context>
@@ -3042,7 +3042,7 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvoriť odkaz v aktuálnom panely</translation>
     </message>
 </context>
 <context>
