@@ -60,6 +60,7 @@ private slots:
     void allowJavaScriptChanged(bool stat);
     void saveHistoryChanged(bool stat);
     void saveCookiesChanged(bool stat);
+    void allowHtml5storageChanged(bool stat);
     void downLocChanged(bool state);
     void allowCacheChanged(bool state);
     void showPassManager(bool state);

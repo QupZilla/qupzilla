@@ -71,6 +71,38 @@ void qz_centerWidgetToParent(QWidget* w, QWidget* parent)
     w->move(p);
 }
 
+bool qz_removeFile(const QString &fullFileName)
+{
+    QFile f(fullFileName);
+    if (f.exists()) {
+        return f.remove();
+    }
+    else {
+        return false;
+    }
+}
+
+void qz_removeDir(const QString &d)
+{
+    QDir dir(d);
+    if (dir.exists()) {
+        const QFileInfoList list = dir.entryInfoList();
+        QFileInfo fi;
+        for (int l = 0; l < list.size(); l++) {
+            fi = list.at(l);
+            if (fi.isDir() && fi.fileName() != "." && fi.fileName() != "..") {
+                qz_removeDir(fi.absoluteFilePath());
+            }
+            else if (fi.isFile()) {
+                qz_removeFile(fi.absoluteFilePath());
+            }
+
+        }
+        dir.rmdir(d);
+    }
+}
+
+
 QString qz_samePartOfStrings(const QString &one, const QString &other)
 {
     int i = 0;

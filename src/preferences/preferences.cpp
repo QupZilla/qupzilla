@@ -50,37 +50,6 @@
 #define DEFAULT_USE_NATIVE_DIALOG true
 #endif
 
-bool removeFile(const QString &fullFileName)
-{
-    QFile f(fullFileName);
-    if (f.exists()) {
-        return f.remove();
-    }
-    else {
-        return false;
-    }
-}
-
-void removeDir(const QString &d)
-{
-    QDir dir(d);
-    if (dir.exists()) {
-        const QFileInfoList list = dir.entryInfoList();
-        QFileInfo fi;
-        for (int l = 0; l < list.size(); l++) {
-            fi = list.at(l);
-            if (fi.isDir() && fi.fileName() != "." && fi.fileName() != "..") {
-                removeDir(fi.absoluteFilePath());
-            }
-            else if (fi.isFile()) {
-                removeFile(fi.absoluteFilePath());
-            }
-
-        }
-        dir.rmdir(d);
-    }
-}
-
 Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::Preferences)
@@ -247,13 +216,17 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //PRIVACY
     //Web storage
-    ui->storeIcons->setChecked(settings.value("allowPersistentStorage", true).toBool());
-    ui->saveHistory->setChecked(mApp->history()->isSaving());
+    ui->saveHistory->setChecked(settings.value("allowHistory", true).toBool());
     ui->deleteHistoryOnClose->setChecked(settings.value("deleteHistoryOnClose", false).toBool());
     if (!ui->saveHistory->isChecked()) {
         ui->deleteHistoryOnClose->setEnabled(false);
     }
     connect(ui->saveHistory, SIGNAL(toggled(bool)), this, SLOT(saveHistoryChanged(bool)));
+
+    ui->html5storage->setChecked(settings.value("HTML5StorageEnabled", true).toBool());
+    ui->deleteHtml5storageOnClose->setChecked(settings.value("deleteHTML5StorageOnClose", false).toBool());
+    connect(ui->html5storage, SIGNAL(toggled(bool)), this, SLOT(allowHtml5storageChanged(bool)));
+
     //Cookies
     ui->saveCookies->setChecked(settings.value("allowCookies", true).toBool());
     if (!ui->saveCookies->isChecked()) {
@@ -514,6 +487,11 @@ void Preferences::saveCookiesChanged(bool stat)
     ui->deleteCookiesOnClose->setEnabled(stat);
 }
 
+void Preferences::allowHtml5storageChanged(bool stat)
+{
+    ui->deleteHtml5storageOnClose->setEnabled(stat);
+}
+
 void Preferences::showCookieManager()
 {
     CookieManager* m = new CookieManager();
@@ -524,7 +502,6 @@ void Preferences::showCookieManager()
 void Preferences::openSslManager()
 {
     SSLManager* m = new SSLManager(this);
-//    qz_centerWidgetToParent(m, this);
     m->show();
 }
 
@@ -613,7 +590,7 @@ void Preferences::deleteProfile()
         return;
     }
 
-    removeDir(mApp->PROFILEDIR + "profiles/" + name);
+    qz_removeDir(mApp->PROFILEDIR + "profiles/" + name);
     ui->startProfile->removeItem(ui->startProfile->currentIndex());
 }
 
@@ -748,8 +725,10 @@ void Preferences::saveSettings()
 
     //PRIVACY
     //Web storage
-    settings.setValue("allowPersistentStorage", ui->storeIcons->isChecked());
+    settings.setValue("allowHistory", ui->saveHistory->isChecked());
     settings.setValue("deleteHistoryOnClose", ui->deleteHistoryOnClose->isChecked());
+    settings.setValue("HTML5StorageEnabled", ui->html5storage->isChecked());
+    settings.setValue("deleteHTML5StorageOnClose", ui->deleteHtml5storageOnClose->isChecked());
 
     //Cookies
     settings.setValue("allowCookies", ui->saveCookies->isChecked());

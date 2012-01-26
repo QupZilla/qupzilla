@@ -1744,7 +1744,7 @@
     </message>
     <message>
         <source>Filter Tracking Cookies</source>
-        <translation>Filtrovať sledovacie cookies</translation>
+        <translation type="obsolete">Filtrovať sledovacie cookies</translation>
     </message>
     <message>
         <source>Enter the new profile&apos;s name:</source>
@@ -1833,7 +1833,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;Varovanie:&lt;/b&gt; Možnosti požadovanie presnej zhody domény a filtrovať sledovacie cookies môžu viesť k odmietnutiu niektorých cookies zo stránok. Ak máte problémy s cookies, skúste najprv zakázať tieto možnosti!</translation>
+        <translation type="obsolete">&lt;b&gt;Varovanie:&lt;/b&gt; Možnosti požadovanie presnej zhody domény a filtrovať sledovacie cookies môžu viesť k odmietnutiu niektorých cookies zo stránok. Ak máte problémy s cookies, skúste najprv zakázať tieto možnosti!</translation>
     </message>
     <message>
         <source>Proxy Configuration</source>
@@ -2285,6 +2285,30 @@
     </message>
     <message>
         <source>Use current</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow HTML5 local storage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete local storage on close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter tracking cookies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit CA certificates in SSL Manager</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

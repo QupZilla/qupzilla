@@ -315,12 +315,12 @@ void MainApplication::loadSettings()
     bool zoomTextOnly = settings.value("zoomTextOnly", false).toBool();
     bool printElBg = settings.value("PrintElementBackground", true).toBool();
     bool xssAuditing = settings.value("XSSAuditing", false).toBool();
+    bool html5storage = settings.value("HTML5StorageEnabled", true).toBool();
     int maxCachedPages = settings.value("maximumCachedPages", 3).toInt();
     int scrollingLines = settings.value("wheelScrollLines", wheelScrollLines()).toInt();
     QUrl userStyleSheet = QUrl::fromLocalFile(settings.value("userStyleSheet", "").toString());
     WebPage::UserAgent = settings.value("UserAgent", "").toString();
     settings.endGroup();
-
 
     m_websettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
     m_websettings->setAttribute(QWebSettings::PluginsEnabled, allowFlash);
@@ -334,6 +334,7 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::ZoomTextOnly, zoomTextOnly);
     m_websettings->setAttribute(QWebSettings::PrintElementBackgrounds, printElBg);
     m_websettings->setAttribute(QWebSettings::XSSAuditingEnabled, xssAuditing);
+    m_websettings->setAttribute(QWebSettings::LocalStorageEnabled, html5storage);
 #ifdef USE_WEBGL
     m_websettings->setAttribute(QWebSettings::WebGLEnabled, true);
     m_websettings->setAttribute(QWebSettings::AcceleratedCompositingEnabled, true);
@@ -599,14 +600,21 @@ void MainApplication::saveSettings()
     settings.setValue("isCrashed", false);
     settings.endGroup();
 
-    bool deleteCookies = settings.value("Web-Browser-Settings/deleteCookiesOnClose", false).toBool();
-    bool deleteHistory = settings.value("Web-Browser-Settings/deleteHistoryOnClose", false).toBool();
+    settings.beginGroup("Web-Browser-Settings");
+    bool deleteCookies = settings.value("deleteCookiesOnClose", false).toBool();
+    bool deleteHistory = settings.value("deleteHistoryOnClose", false).toBool();
+    bool deleteHtml5Storage = settings.value("deleteHTML5StorageOnClose", false).toBool();
+    settings.endGroup();
 
     if (deleteCookies) {
         m_cookiejar->clearCookies();
     }
     if (deleteHistory) {
         m_historymodel->clearHistory();
+    }
+    if (deleteHtml5Storage) {
+        qz_removeDir(m_activeProfil + "Databases");
+        qz_removeDir(m_activeProfil + "LocalStorage");
     }
 
     m_searchEnginesManager->saveSettings();

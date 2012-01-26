@@ -22,6 +22,7 @@
 #include <QPixmap>
 #include <QBuffer>
 #include <QFile>
+#include <QDir>
 #include <QWidget>
 #include <QApplication>
 #include <QDesktopWidget>
@@ -35,6 +36,9 @@ QByteArray qz_readAllFileContents(const QString &filename);
 
 void qz_centerWidgetOnScreen(QWidget* w);
 void qz_centerWidgetToParent(QWidget* w, QWidget* parent);
+
+bool qz_removeFile(const QString &fullFileName);
+void qz_removeDir(const QString &d);
 
 QString qz_samePartOfStrings(const QString &one, const QString &other);
 QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
