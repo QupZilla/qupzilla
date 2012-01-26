@@ -48,7 +48,7 @@
     <message>
         <location filename="../src/other/aboutdialog.cpp" line="79"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;Κύριος Προγραμματιστής:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
@@ -177,7 +177,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="31"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation type="unfinished"></translation>
+        <translation>Το AdBlock σας επιτρέπει να φράζετε  ανεπιθύμητο περιεχόμενο σε ιστοσελίδες</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="41"/>
@@ -480,19 +480,19 @@
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="7"/>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="24"/>
         <source>No Error</source>
-        <translation type="unfinished">Κανένα σφάλμα</translation>
+        <translation>Κανένα σφάλμα</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="40"/>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="22"/>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="39"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished">Αδυναμία ανοίγματος αρχείου.</translation>
+        <translation>Αδυναμία ανοίγματος αρχείου.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="85"/>
         <source>Cannot evaluate JSON code.</source>
-        <translation type="unfinished">Αδυναμία εκτέλεσης κώδικα JSON.</translation>
+        <translation>Αδυναμία εκτέλεσης κώδικα JSON.</translation>
     </message>
     <message>
         <source>File does not exists.</source>
@@ -501,12 +501,12 @@
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="39"/>
         <source>File does not exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το αρχείο δεν υπάρχει.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="47"/>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation type="unfinished">Αδυναμία ανοίγματος βάσης δεδομένων. Τρέχει το Firefox;</translation>
+        <translation>Αδυναμία ανοίγματος βάσης δεδομένων. Τρέχει ο Firefox;</translation>
     </message>
 </context>
 <context>
@@ -597,7 +597,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Ά&amp;νοιγμα συνδέσμου στην τρέχουσα καρτέλα</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="241"/>
@@ -684,7 +684,7 @@
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Ά&amp;νοιγμα συνδέσμου στην τρέχουσα καρτέλα</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="111"/>
@@ -747,7 +747,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
         <source>Edit bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Επεξεργασία σελιδοδείκτη</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="93"/>
@@ -757,22 +757,22 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
         <source>Edit bookmark: </source>
-        <translation type="unfinished"></translation>
+        <translation>Επεξεργασία σελιδοδείκτη: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="202"/>
         <source>Title: </source>
-        <translation type="unfinished"></translation>
+        <translation>Τίτλος: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="203"/>
         <source>Url: </source>
-        <translation type="unfinished"></translation>
+        <translation>Url: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="211"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Επεξεργασία σελιδοδείκτη</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="514"/>
@@ -977,7 +977,7 @@
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="111"/>
         <source>Earlier Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Νωρίτερα σήμερα</translation>
     </message>
     <message>
         <source>Later Today</source>
@@ -1013,7 +1013,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="127"/>
         <source>Show more information about object</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση περισσότερων πληροφοριών για το αντικείμενο</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="129"/>
@@ -1043,7 +1043,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="285"/>
         <source>No more information available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν υπάρχουν παραπάνω πληροφορίες.</translation>
     </message>
     <message>
         <source>No more informations available.</source>
@@ -1527,7 +1527,7 @@
     <message>
         <location filename="../src/history/historymanager.cpp" line="101"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα συνδέσμου στην τρέχουσα καρτέλα</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
@@ -1664,7 +1664,7 @@
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα συνδέσμου στην τρέχουσα καρτέλα</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
@@ -1721,12 +1721,12 @@
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="257"/>
         <source>Paste And &amp;Go</source>
-        <translation type="unfinished"></translation>
+        <translation>Επικόλληση και &amp;μετάβαση</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="263"/>
         <source>Clear All</source>
-        <translation type="unfinished"></translation>
+        <translation>Εκκαθάριση όλων</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="424"/>
@@ -1737,7 +1737,7 @@
     <message>
         <location filename="../src/navigation/siteicon.cpp" line="29"/>
         <source>Show information about this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση πληροφοριών για αυτή τη σελίδα</translation>
     </message>
 </context>
 <context>
@@ -2075,7 +2075,7 @@
     <message>
         <location filename="../src/popupwindow/popupwindow.cpp" line="126"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 QupZilla</translation>
     </message>
 </context>
 <context>
@@ -2310,7 +2310,7 @@
         <location filename="../src/preferences/preferences.ui" line="258"/>
         <location filename="../src/preferences/preferences.ui" line="406"/>
         <source>Use current</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρήση τρέχουσας</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="446"/>
@@ -2320,17 +2320,17 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="729"/>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Να μην γίνεται έξοδος κατά το κλείσιμο της τελευταίας καρτέλας</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="736"/>
         <source>Closed tabs list instead of opened in tab bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Λίστα κλεισμένων καρτελών αντί για ανοιχτών στην μπάρα καρτελών</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="743"/>
         <source>Open new tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα νέων καρτελών μετά την τρέχουσα καρτέλα</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="780"/>
@@ -2448,12 +2448,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1116"/>
         <source>Allow HTML5 local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Να επιτρέπεται η τοπική αποθήκευση HTML5</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1123"/>
         <source>Delete local storage on close</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαγραφή τοπικής αποθήκευσης κατά το κλείσιμο</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1159"/>
@@ -2518,7 +2518,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1328"/>
         <source>Fixed</source>
-        <translation>Fixed</translation>
+        <translation>Σταθερό</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1338"/>
@@ -2538,12 +2538,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1687"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Φιλτράρισμα των cookies παρακολούθησης</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1731"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Προσοχή:&lt;/b&gt; Ακριβές ταίριασμα domain και φιλτράρισμα των cookies παρακολούθησης μπορεί να οδηγήσουν κάποια cookies να απορρίπτονται από σελίδες. Αν έχετε προβλήματα με τα cookies, δοκιμάστε να απενεργοποιήσετε αυτή την επιλογή πρώτα!</translation>
     </message>
     <message>
         <source>Default Font</source>
@@ -2566,22 +2566,22 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1426"/>
         <source>Fixed Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Σταθερο μέγεθος γραμματοσειράς</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1433"/>
         <source>Default Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Προεπιλεγμένο μέγεθος γραμματοσειράς</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1460"/>
         <source>Minimum Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Ελάχιστο μέγεθος γραμματοσειράς</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1467"/>
         <source>Minimum Logical Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Ελάχιστο λογικό μέγεθος γραμματοσειράς</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1500"/>
@@ -2667,7 +2667,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1770"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Πιστοποιητικά SSL&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1783"/>
@@ -2677,7 +2677,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1790"/>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Επεξεργασία αρχών πιστοποίησης CA στον διαχειριστή SSL</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1835"/>
@@ -2871,12 +2871,12 @@
     <message>
         <location filename="../src/tools/certificateinfowidget.cpp" line="286"/>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished">&lt;δεν ορίστηκε στο πιστοποιητικό&gt;</translation>
+        <translation>&lt;δεν ορίστηκε στο πιστοποιητικό&gt;</translation>
     </message>
     <message>
         <location filename="../src/desktopnotifications/desktopnotificationsfactory.cpp" line="101"/>
         <source>Native System Notification</source>
-        <translation type="unfinished">Εγγενές σύστημα ενημερώσεων</translation>
+        <translation>Εγγενές σύστημα ενημερώσεων</translation>
     </message>
 </context>
 <context>
@@ -3066,7 +3066,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="103"/>
         <source>QupZilla</source>
-        <translation type="unfinished">QupZilla</translation>
+        <translation>QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="380"/>
@@ -3161,12 +3161,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="460"/>
         <source>Recently Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Επισκεφτήκατε πρόσφατα</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="463"/>
         <source>Most Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Επισκεφτήκατε περισσότερο</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="480"/>
@@ -3240,12 +3240,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="851"/>
         <source>Information about application</source>
-        <translation type="unfinished"></translation>
+        <translation>Πληροφορίες για την εφαρμογή</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1305"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="311"/>
@@ -3359,7 +3359,7 @@
     <message>
         <location filename="../src/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="unfinished">Προσθέσατε επιτυχώς την ροή RSS &quot;%1&quot;.</translation>
+        <translation>Προσθέσατε επιτυχώς την ροή RSS &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -3542,57 +3542,57 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="260"/>
         <source>Speed Dial settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις γρήγορης κλήσης</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="261"/>
         <source>Placement: </source>
-        <translation type="unfinished"></translation>
+        <translation>Τοποθέτηση: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="262"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτόματα</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="263"/>
         <source>Cover</source>
-        <translation type="unfinished"></translation>
+        <translation>Κάλυψη</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="264"/>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσαρμογή</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Fit Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσαρμογή στο πλάτος</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Fit Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσαρμογή στο Ύψος</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="267"/>
         <source>Use background image</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρήση εικόνας παρασκηνίου</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
         <source>Select image</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογή εικόνας</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
         <source>Maximum pages in a row:</source>
-        <translation type="unfinished"></translation>
+        <translation>Μέγιστες σελίδες στην σειρά:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Change size of pages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Αλλαγή μεγέθους σελιδών:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
@@ -3617,17 +3617,17 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="129"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Αν αντιμετωπίζετε προβλήματα με το QupZilla, παρακαλώ δοκιμάστε να απενεργοποιήσετε όλα τα πρόσθετα πρώτα. &lt;br/&gt;Αν αυτό δεν βοηθήσει, τότε παρακαλώ συμπληρώστε αυτή τη φόρμα: </translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"></translation>
+        <translation>Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία!</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="179"/>
         <source>Information about version</source>
-        <translation type="unfinished"></translation>
+        <translation>Πληροφορίες έκδοσης</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="250"/>
@@ -3671,7 +3671,7 @@
     <message>
         <location filename="../src/rss/rssmanager.ui" line="54"/>
         <source>Add feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη ροής</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="64"/>
@@ -3709,17 +3709,17 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
         <source>Add new feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη νέας ροής</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="140"/>
         <source>Please enter URL of new feed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Παρακαλώ συμπληρώστε το URL της νέας ροής:</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="146"/>
         <source>New feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Νέα ροή</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="183"/>
@@ -3744,7 +3744,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="234"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα συνδέσμου στην τρέχουσα καρτέλα</translation>
     </message>
     <message>
         <source>Open link in actual tab</source>
@@ -4349,7 +4349,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="144"/>
         <source>Cannot reload source. Page has been closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αδυναμία επαναφόρτωσης πηγής. Η σελίδα έκλεισε.</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="152"/>
@@ -4385,7 +4385,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="225"/>
         <source>Select image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογή εικόνας...</translation>
     </message>
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="262"/>
@@ -4479,7 +4479,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Λίστα καρτελών</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="141"/>
@@ -4510,17 +4510,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="562"/>
         <source>Empty</source>
-        <translation type="unfinished">Άδειο</translation>
+        <translation>Άδειο</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="565"/>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished">Επαναφορά όλων των κλεισμένων καρτελών</translation>
+        <translation>Επαναφορά όλων των κλεισμένων καρτελών</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="566"/>
         <source>Clear list</source>
-        <translation type="unfinished">Εκκαθάριση λίστας</translation>
+        <translation>Εκκαθάριση λίστας</translation>
     </message>
 </context>
 <context>
@@ -4528,22 +4528,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="86"/>
         <source>Failed loading page</source>
-        <translation type="unfinished">Αποτυχία φόρτωσης σελίδας</translation>
+        <translation>Αποτυχία φόρτωσης σελίδας</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="156"/>
         <source>Loading...</source>
-        <translation type="unfinished">Φόρτωση...</translation>
+        <translation>Φόρτωση...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="231"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 QupZilla</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="318"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιθεώρηση στοιχείου</translation>
     </message>
     <message>
         <source>Open link in new &amp;tab</source>
@@ -4699,12 +4699,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/navigation/reloadstopbutton.cpp" line="28"/>
         <source>Stop</source>
-        <translation type="unfinished">Διακοπή</translation>
+        <translation>Διακοπή</translation>
     </message>
     <message>
         <location filename="../src/navigation/reloadstopbutton.cpp" line="36"/>
         <source>Reload</source>
-        <translation type="unfinished">Ανανέωση</translation>
+        <translation>Ανανέωση</translation>
     </message>
 </context>
 <context>
@@ -4750,12 +4750,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="246"/>
         <source>Confirm form resubmission</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιβεβαίωση νέας υποβολής φόρμας</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="357"/>
         <source>Select files to upload...</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογή αρχείων για μεταφόρτωση...</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="378"/>
@@ -4785,32 +4785,32 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="393"/>
         <source>Temporary network failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσωρινή αποτυχία δικτύου</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="396"/>
         <source>Proxy connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Αρνήθηκε η σύνδεση με τον μεσολαβητή</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="399"/>
         <source>Proxy host name not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν  βρέθηκε το όνομα του κεντρικού μεσολαβητή</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="402"/>
         <source>Proxy connection timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Έληξε η σύνδεση με τον μεσολαβητή</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="405"/>
         <source>Proxy authentication required</source>
-        <translation type="unfinished"></translation>
+        <translation>Απαιτειται εξουσιοδότηση μεσολαβητή</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="408"/>
         <source>Content not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Το περιεχόμενο δεν βρέθηκε</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="434"/>
@@ -4865,12 +4865,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="577"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished">Να εμποδιστεί αυτή η σελίδα να δημιουργεί επιπλέον διαλόγους</translation>
+        <translation>Να εμποδιστεί αυτή η σελίδα να δημιουργεί επιπλέον διαλόγους</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="580"/>
         <source>JavaScript alert - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ειδοποίηση JavaScript - %1</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="626"/>
@@ -4893,12 +4893,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="199"/>
         <source>Paste And &amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Επικόλληση και &amp;αναζήτηση</translation>
     </message>
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="205"/>
         <source>Clear All</source>
-        <translation type="unfinished"></translation>
+        <translation>Εκκαθάριση όλων</translation>
     </message>
 </context>
 <context>
@@ -4918,198 +4918,198 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="628"/>
         <source>Open link in new &amp;tab</source>
-        <translation type="unfinished">Άνοιγμα συνδέσμου σε νέα καρ&amp;τέλα</translation>
+        <translation>Άνοιγμα συνδέσμου σε νέα καρ&amp;τέλα</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="629"/>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished">Άνοιγμα συνδέσμου σε νέο &amp;παράθυρο</translation>
+        <translation>Άνοιγμα συνδέσμου σε νέο &amp;παράθυρο</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="631"/>
         <source>B&amp;ookmark link</source>
-        <translation type="unfinished">Ο σύνδεσμος ως σελιδο&amp;δείκτης</translation>
+        <translation>Ο σύνδεσμος ως σελιδο&amp;δείκτης</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="632"/>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished">Απο&amp;θήκευση συνδέσμου ως...</translation>
+        <translation>Απο&amp;θήκευση συνδέσμου ως...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="633"/>
         <source>Send link...</source>
-        <translation type="unfinished">Αποστολή συνδέσμου...</translation>
+        <translation>Αποστολή συνδέσμου...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="634"/>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished">Α&amp;ντιγραφή διεύθυνσης συνδέσμου</translation>
+        <translation>Α&amp;ντιγραφή διεύθυνσης συνδέσμου</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="646"/>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished">Εμφάνιση &amp;εικόνας</translation>
+        <translation>Εμφάνιση &amp;εικόνας</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="651"/>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished">Αντιγραφή ει&amp;κόνας</translation>
+        <translation>Αντιγραφή ει&amp;κόνας</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="652"/>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished">Αντιγραφή διεύ&amp;θυνσης εικόνας</translation>
+        <translation>Αντιγραφή διεύ&amp;θυνσης εικόνας</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="654"/>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished">Απο&amp;θήκευση εικόνας ως...</translation>
+        <translation>Απο&amp;θήκευση εικόνας ως...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="655"/>
         <source>Send image...</source>
-        <translation type="unfinished">Αποστολή εικόνας...</translation>
+        <translation>Αποστολή εικόνας...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="570"/>
         <source>&amp;Back</source>
-        <translation type="unfinished">&amp;Πίσω</translation>
+        <translation>&amp;Πίσω</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="574"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished">&amp;Μπροστά</translation>
+        <translation>&amp;Μπροστά</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="578"/>
         <location filename="../src/webview/webview.cpp" line="589"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished">&amp;Ανανέωση</translation>
+        <translation>&amp;Ανανέωση</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="579"/>
         <source>S&amp;top</source>
-        <translation type="unfinished">&amp;Διακοπή</translation>
+        <translation>&amp;Διακοπή</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="585"/>
         <source>This frame</source>
-        <translation type="unfinished">Αυτό το πλαίσιο</translation>
+        <translation>Αυτό το πλαίσιο</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="586"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished">Εμφάνιση &amp;μόνο αυτού του πλαισίου</translation>
+        <translation>Εμφάνιση &amp;μόνο αυτού του πλαισίου</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="587"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished">Εμφάνιση αυτού του πλαισίου σε νέα &amp;καρτέλα</translation>
+        <translation>Εμφάνιση αυτού του πλαισίου σε νέα &amp;καρτέλα</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="590"/>
         <source>Print frame</source>
-        <translation type="unfinished">Εκτύπωση πλαισίου</translation>
+        <translation>Εκτύπωση πλαισίου</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="592"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished">Ε&amp;στίαση</translation>
+        <translation>Ε&amp;στίαση</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="593"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished">Σμίκρ&amp;υνση</translation>
+        <translation>Σμίκρ&amp;υνση</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="594"/>
         <source>Reset</source>
-        <translation type="unfinished">Επαναφορά</translation>
+        <translation>Επαναφορά</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="596"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished">Εμφάνιση πη&amp;γαίου του πλαισίου</translation>
+        <translation>Εμφάνιση πη&amp;γαίου του πλαισίου</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="602"/>
         <source>Book&amp;mark page</source>
-        <translation type="unfinished">Η σελίδα ως &amp;σελιδοδείκτης</translation>
+        <translation>Η σελίδα ως &amp;σελιδοδείκτης</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="603"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished">Αποθήκευση σε&amp;λίδας ως...</translation>
+        <translation>Αποθήκευση σε&amp;λίδας ως...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="604"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
+        <translation>Α&amp;ντιγραφή συνδέσμου σελίδας</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="605"/>
         <source>Send page link...</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποστολή συνδέσμου σελίδας...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="606"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation>Ε&amp;κτύπωση σελίδας</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="674"/>
         <source>Send text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποστολή κειμένου...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="679"/>
         <source>Google Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση Google</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="680"/>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Λεξικό</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="691"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάβαση στην διεύθυνση &amp;διαδικτύου</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="713"/>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Αναπαραγωγή</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="713"/>
         <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Πάυση</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="714"/>
         <source>Un&amp;mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Ά&amp;ρση σίγασης</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="714"/>
         <source>&amp;Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Σίγαση</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="716"/>
         <source>&amp;Copy Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Α&amp;ντιγραφή διεύθυνσης πολυμέσου</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="717"/>
         <source>&amp;Send Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Α&amp;ποστολή διεύθυνσης πολυμέσων</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="718"/>
         <source>Save Media To &amp;Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση πολυμέσου στον &amp;δίσκο</translation>
     </message>
     <message>
         <source>Send page...</source>
@@ -5118,22 +5118,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="608"/>
         <source>Select &amp;all</source>
-        <translation type="unfinished">Επι&amp;λογή όλων</translation>
+        <translation>Επι&amp;λογή όλων</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="613"/>
         <source>Validate page</source>
-        <translation type="unfinished"></translation>
+        <translation>Επικύρωση σελίδας</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="616"/>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished">Εμφάνιση πη&amp;γαίου κώδικα</translation>
+        <translation>Εμφάνιση πη&amp;γαίου κώδικα</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="617"/>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished">Εμφάνιση πληρο&amp;φοριών για την σελίδα</translation>
+        <translation>Εμφάνιση πληρο&amp;φοριών για την σελίδα</translation>
     </message>
     <message>
         <source>Show Web &amp;Inspector</source>
@@ -5142,7 +5142,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="697"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished">Αναζήτηση &quot;%1&quot; με %2</translation>
+        <translation>Αναζήτηση &quot;%1&quot; με %2</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="82"/>

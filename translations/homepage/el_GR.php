@@ -10,21 +10,21 @@ $menu_download = "Λήψη";
 $menu_faq = "FAQ";
 $menu_about = "Συμμετοχή";
 $footer_site = "www.qupzilla.com";
-$translated_by = "Τσιβίκης Βασίλης";
+$translated_by = "Μετάφραση από: Τσιβίκη Βασίλη";
 
 //Home Page
-$actual_version = "Τρέχουσα έκδοση";
+$actual_version = "ΤΡΕΧΟΥΣΑ ΕΚΔΟΣΗ";
 $actual_version_text = "Η τρέχουσα έκδοση είναι από τις ". $qupzilla_version_date .
 					   " και είναι η έκδοση " . $qupzilla_version . ". Αλλαγές στο αρχείο καταγραφής αλλαγών. <br/>Μην διστάζετε και <a href=\"download\">κάντε λήψη</a> τώρα!";
-$actual_version_button = "ΛΉΨΗ";
-$older_versions = "Αλλαγές";
+$actual_version_button = "ΛΗΨΗ";
+$older_versions = "ΑΛΛΑΓΕΣ";
 $older_versions_text = "Θέλατε ποτέ να μάθετε τι άλλαξε από την προηγούμενη έκδοση; <br/>Μπορείτε να βρείτε τα πάντα στο <a>αρχείο καταγραφής αλλαγών</a> στο github!";
-$older_versions_button = "Αλλαγές";
-$reportbug = "Αναφορά προβλήματος";
+$older_versions_button = "ΑΛΛΑΓΕΣ";
+$reportbug = "ΑΝΑΦΟΡΑ";
 $reportbug_text = "Βρήκατε κάποιο bug ή μήπως έχετε να κάνετε κάποια πρόταση για την <a>βελτίωση</a> του QupZilla;<br/>
                   Παρακαλώ ανοίξτε ένα issue στο ιχνηλάτη προβλημάτων του github.";
-$reportbug_button = "Αναφορά τώρα";
-$technology = "Τεχνολογία";
+$reportbug_button = "ΑΝΑΦΟΡΑ ΤΩΡΑ";
+$technology = "ΤΕΧΝΟΛΟΓΙΑ";
 $technology_text = "Ο QupZilla είναι ένας μοντέρνος περιηγητής ιστού βασισμένος στον WebKit core και το Qt Framework. Το WebKit εγγυάται <a>γρήγορη</a> 
                     περιήγηση και το Qt διαθεσιμότητα σε όλες τις μεγάλες πλατφόρμες.";
 $technology_button = "WebKit &amp; Qt";
@@ -65,12 +65,9 @@ $getting_source_text2 = "και μετά μπορείτε να αρχίσετε 
 $translating = "Μεταφράζοντας σε άλλες γλώσσες";
 $translating_text = "Άλλος τρόπος για να συνεισφέρετε είναι να προσθέσετε ή να βελτιώσετε μια τρέχουσα μετάφραση. Αν θέλετε να προσθέσετε μια νέα γλώσσα, μπορείτε να δημιουργήσετε νέα αρχεία μετάφρασης χειροκίνητα, ή μπορείτε να επικοινωνήσετε μαζί μου, και θα το κάνω για σας. Μπορείτε να μου στείλετε τις μεταφράσεις σας ξανά μέσω e-mail ή στο github.";
 $translating_moreinfo = "Περισσότερες πληροφορίες περί μετάφρασης <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>εδώ</a> [wiki στο github]";
-$creators = "Who creates QupZilla?";
-$creators_text = "The project owner, maintainer and main developer is Czech student <b>David Rosca</b> (nowrep).<br/>
-Apart from coding, others are contributing also by making translations or supporting QupZilla. Full list of contributors can be found <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>here</a> [at github].<br/><br/>You can also join IRC channel <b>#qupzilla</b> at irc.freenode.net to chat with poeple involved in QupZilla.";
-// You can delete these (commented) lines after you translate $creators and $creators_text
-//$contributors = "Contributors";
-//$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
+$creators = "Ποιός είναι ο δημιουργός του QupZilla;";
+$creators_text = "Ο ιδιοκτήτης του έργου, συντηρητής και κύριος προγραμματιστής είναι ο Τσέχος φοιτητής <b>David Rosca</b> (nowrep).<br/>
+Πέρα από τον κώδικα, άλλοι συνεισφέρουν επίσης κάνοντας μεταφράσεις και υποστηρίζοντας το QupZilla. Μια πλήρης λίστα με τους συνεισφέροντες μπορεί να βρεθεί <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>εδώ</a> [στο github].<br/><br/>Μπορείτε επίσης να μπείτε στο κανάλι του IRC <b>#qupzilla</b> στο irc.freenode.net για να συνομιλήσετε με κόσμο που εμπλέκεται με το QupZilla.";
 $share_with_friends = "Μοιραστείτε με φίλους!";
 $share_with_friends_text = "Σας αρέσει το QupZilla; Τότε μοιραστείτε το με τους φίλους σας!"
 ?>
