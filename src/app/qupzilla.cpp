@@ -127,7 +127,7 @@ void QupZilla::postLaunch()
     for (int i = 0; i < qApp->arguments().count(); i++) {
         QString arg = arguments.at(i);
         if (arg.startsWith("-url=")) {
-            m_tabWidget->addView(QUrl(arg.replace("-url=", "")));
+            m_tabWidget->addView(QUrl(arg.replace("-url=", "")), Qz::NT_SelectedTabAtTheEnd);
             addTab = false;
         }
     }
@@ -181,8 +181,7 @@ void QupZilla::postLaunch()
     }
 
     if (addTab) {
-        int index = m_tabWidget->addView(startUrl, Qz::NT_CleanSelectedTab);
-        m_tabWidget->setCurrentIndex(index);
+        m_tabWidget->addView(startUrl, Qz::NT_SelectedTabAtTheEnd);
 
         if (startUrl.isEmpty() || startUrl.toString() == "qupzilla:speeddial") {
             locationBar()->setFocus();
@@ -191,7 +190,7 @@ void QupZilla::postLaunch()
 
     if (m_tabWidget->getTabBar()->normalTabsCount() <= 0 && m_startBehaviour != Qz::BW_OtherRestoredWindow) {
         //Something went really wrong .. add one tab
-        m_tabWidget->addView(m_homepage);
+        m_tabWidget->addView(m_homepage, Qz::NT_SelectedTabAtTheEnd);
     }
 
     aboutToShowBookmarksMenu();
@@ -1351,7 +1350,7 @@ void QupZilla::aboutQupZilla()
 
 void QupZilla::addTab()
 {
-    m_tabWidget->addView(QUrl(), Qz::NT_SelectedTab, true);
+    m_tabWidget->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd, true);
 }
 
 void QupZilla::webSearch()

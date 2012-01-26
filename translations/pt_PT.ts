@@ -2475,12 +2475,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1116"/>
         <source>Allow HTML5 local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir armazenamento local HTML5</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1123"/>
         <source>Delete local storage on close</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar armazenamento local ao fechar</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1159"/>
@@ -2565,12 +2565,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1687"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrar cookies de rastreio</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1731"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Aviso:&lt;/b&gt; as opções Coincidente com domínio e Filtrar cookies de rastreio podem recusar alguns cookies das páginas visitados. Se ocorrem problemas, tente desativar estas opções!</translation>
     </message>
     <message>
         <source>Default Font</source>
@@ -2694,7 +2694,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1770"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Certificados SSL&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1783"/>
@@ -2704,7 +2704,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1790"/>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar certificados no gestor SSL</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1835"/>

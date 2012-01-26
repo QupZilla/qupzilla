@@ -255,7 +255,7 @@ void MainApplication::postLaunch()
     }
 
     if (m_postLaunchActions.contains(OpenNewTab)) {
-        getWindow()->tabWidget()->addView();
+        getWindow()->tabWidget()->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd);
     }
 }
 
@@ -479,7 +479,7 @@ void MainApplication::addNewTab(const QUrl &url)
     if (!getWindow()) {
         return;
     }
-    getWindow()->tabWidget()->addView(url);
+    getWindow()->tabWidget()->addView(url, Qz::NT_SelectedTabAtTheEnd);
 }
 
 QupZilla* MainApplication::makeNewWindow(Qz::BrowserWindow type, const QUrl &startUrl)

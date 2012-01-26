@@ -553,14 +553,14 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
     }
 
 #if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
-//    still bugged? in 4.8 RC (it shows selection of webkit's internal source, not html from page)
-//    it may or may not be bug, but this implementation is useless for us
-//
-//    if (!selectedHtml().isEmpty())
-//        menu->addAction(tr("Show source of selection"), this, SLOT(showSourceOfSelection()));
+    //    still bugged? in 4.8 RC (it shows selection of webkit's internal source, not html from page)
+    //    it may or may not be bug, but this implementation is useless for us
+    //
+    //    if (!selectedHtml().isEmpty())
+    //        menu->addAction(tr("Show source of selection"), this, SLOT(showSourceOfSelection()));
 #endif
 
-//    mApp->plugins()->populateWebViewMenu(m_menu, this, hitTest);
+    //    mApp->plugins()->populateWebViewMenu(m_menu, this, hitTest);
 }
 
 void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
@@ -608,8 +608,8 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
     menu->addSeparator();
     if (url().scheme() == "http" || url().scheme() == "https") {
-//             bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
-//                 if (result)
+        //             bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
+        //                 if (result)
         menu->addAction(tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData("http://validator.w3.org/check?uri=" + url().toString());
     }
 
@@ -783,12 +783,21 @@ void WebView::mousePressEvent(QMouseEvent* event)
             return;
         }
 #endif
+        QWebFrame* frame = page()->frameAt(event->pos());
+        if (frame) {
+            m_clickedUrl = frame->hitTestContent(event->pos()).linkUrl();
+        }
     }
 
     case Qt::LeftButton: {
         QWebFrame* frame = page()->frameAt(event->pos());
         if (frame) {
-            m_clickedUrl = frame->hitTestContent(event->pos()).linkUrl();
+            QUrl link = frame->hitTestContent(event->pos()).linkUrl();
+            if (event->modifiers() == Qt::ControlModifier && isUrlValid(link)) {
+                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                event->accept();
+                return;
+            }
         }
     }
 
@@ -810,22 +819,6 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
                 openUrlInNewTab(link, Qz::NT_NotSelectedTab);
                 event->accept();
                 return;
-            }
-        }
-
-        break;
-    }
-
-    case Qt::LeftButton: {
-        QWebFrame* frame = page()->frameAt(event->pos());
-        if (frame) {
-            QUrl link = frame->hitTestContent(event->pos()).linkUrl();
-            if (m_clickedUrl == link && event->modifiers() == Qt::ControlModifier) {
-                if (isUrlValid(link)) {
-                    openUrlInNewTab(link, Qz::NT_NotSelectedTab);
-                    event->accept();
-                    return;
-                }
             }
         }
 
@@ -905,7 +898,7 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
         QTouchEvent::TouchPoint touchPoint;
         touchPoint.setState(Qt::TouchPointMoved);
         if ((ev->type() == QEvent::MouseButtonPress
-                || ev->type() == QEvent::MouseButtonDblClick)) {
+             || ev->type() == QEvent::MouseButtonDblClick)) {
             touchPoint.setState(Qt::TouchPointPressed);
         }
         else if (ev->type() == QEvent::MouseButtonRelease) {

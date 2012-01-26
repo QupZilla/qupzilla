@@ -265,12 +265,6 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
 
 QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
 {
-#if 0
-    Q_UNUSED(type);
-    int index = p_QupZilla->tabWidget()->addView(QUrl(), TabWidget::CleanSelectedPage);
-    return p_QupZilla->weView(index)->page();
-#endif
-
     return new PopupWebPage(type, p_QupZilla);
 }
 

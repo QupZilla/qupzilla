@@ -37,7 +37,10 @@ enum NewTabPositionFlag {
     NT_SelectedTab = 1,
     NT_NotSelectedTab = 2,
     NT_CleanTab = 4,
+    NT_TabAtTheEnd = 8,
 
+    NT_SelectedTabAtTheEnd = NT_SelectedTab | NT_TabAtTheEnd,
+    NT_NotSelectedTabAtTheEnd = NT_NotSelectedTab | NT_TabAtTheEnd,
     NT_CleanSelectedTab = NT_CleanTab | NT_SelectedTab,
     NT_CleanNotSelectedTab = NT_CleanTab | NT_NotSelectedTab
 };
