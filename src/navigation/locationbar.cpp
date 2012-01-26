@@ -350,6 +350,10 @@ void LocationBar::focusOutEvent(QFocusEvent* e)
 
     setCursorPosition(0);
     hideGoButton();
+
+    if (text().trimmed().isEmpty()) {
+        clear();
+    }
 }
 
 void LocationBar::mouseDoubleClickEvent(QMouseEvent* event)

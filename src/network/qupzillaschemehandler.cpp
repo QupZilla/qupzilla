@@ -23,14 +23,9 @@
 #include "speeddial.h"
 #include "pluginproxy.h"
 
-QString authorString(const QString &name, const QString &mail)
-{
-    return QString("%1 &lt;<a href=\"mailto:%2\">%2</a>&gt;").arg(name, mail);
-}
-
 QString authorString(const char* name, const QString &mail)
 {
-    return authorString(QString::fromUtf8(name), mail);
+    return QString("%1 &lt;<a href=\"mailto:%2\">%2</a>&gt;").arg(QString::fromUtf8(name), mail);
 }
 
 QupZillaSchemeHandler::QupZillaSchemeHandler()
@@ -202,7 +197,7 @@ QString QupZillaSchemeReply::aboutPage()
                   QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Plugins"), mApp->PLUGINSDIR) +
                   QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
     aPage.replace("%MAIN-DEVELOPER%", tr("Main developer"));
-    aPage.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR, "nowrep@gmail.com"));
+    aPage.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR.toUtf8(), "nowrep@gmail.com"));
     aPage.replace("%CONTRIBUTORS%", tr("Contributors"));
     aPage.replace("%CONTRIBUTORS-TEXT%",
                   authorString("Mladen Pejaković", "pejakm@gmail.com") + "<br/>" +

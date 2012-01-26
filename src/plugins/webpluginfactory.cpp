@@ -99,7 +99,7 @@ QList<QWebPluginFactory::Plugin> WebPluginFactory::plugins() const
     QWebPluginFactory::Plugin plugin;
     QWebPluginFactory::MimeType mimeType;
 
-    mimeType.fileExtensions << QLatin1String("swf");
+    mimeType.fileExtensions << "swf";
     mimeType.name = "application/x-shockwave-flash";
 
     plugin.name = "ClickToFlashPlugin";

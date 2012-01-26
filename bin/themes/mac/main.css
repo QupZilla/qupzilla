@@ -116,8 +116,7 @@
     border-width:4;
     color:black;
     padding-left: 35px;
-    padding-bottom: 1px;
-    padding-top: 0px;
+    padding-top: -2px;
     qproperty-fixedheight: 23;
 }
 
@@ -194,8 +193,7 @@
     border-image: url(images/lineedit-bg.png);
     border-width: 4;
     padding-left: 35px;
-    padding-bottom: 1px;
-    padding-top: 0px;
+    padding-top: -2px;
     color:black;
     qproperty-fixedheight: 23;
 }

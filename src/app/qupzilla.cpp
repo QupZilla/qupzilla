@@ -189,14 +189,11 @@ void QupZilla::postLaunch()
         }
     }
 
-    if (m_tabWidget->getTabBar()->normalTabsCount() <= 0 &&
-            m_startBehaviour != Qz::BW_OtherRestoredWindow) {
+    if (m_tabWidget->getTabBar()->normalTabsCount() <= 0 && m_startBehaviour != Qz::BW_OtherRestoredWindow) {
         //Something went really wrong .. add one tab
         m_tabWidget->addView(m_homepage);
     }
 
-    aboutToShowHistoryMenu(false);
-    aboutToHideHistoryMenu();
     aboutToShowBookmarksMenu();
 
     setUpdatesEnabled(true);
@@ -330,9 +327,6 @@ void QupZilla::setupMenu()
     m_menuTools = new QMenu(tr("&Tools"));
     m_menuHelp = new QMenu(tr("&Help"));
     m_menuBookmarks = new Menu(tr("&Bookmarks"));
-    m_menuHistory = new Menu(tr("Hi&story"));
-    connect(m_menuHistory, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMenu()));
-    connect(m_menuHistory, SIGNAL(aboutToHide()), this, SLOT(aboutToHideHistoryMenu()));
     connect(m_menuBookmarks, SIGNAL(aboutToShow()), this, SLOT(aboutToShowBookmarksMenu()));
     connect(m_menuBookmarks, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(loadFolderBookmarks(Menu*)));
     connect(m_menuHelp, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHelpMenu()));
@@ -393,9 +387,11 @@ void QupZilla::setupMenu()
     m_actionShowStatusbar = new QAction(tr("Sta&tus Bar"), this);
     m_actionShowStatusbar->setCheckable(true);
     connect(m_actionShowStatusbar, SIGNAL(triggered(bool)), this, SLOT(showStatusbar()));
+#ifndef Q_WS_MAC
     m_actionShowMenubar = new QAction(tr("&Menu Bar"), this);
     m_actionShowMenubar->setCheckable(true);
     connect(m_actionShowMenubar, SIGNAL(triggered(bool)), this, SLOT(showMenubar()));
+#endif
     m_actionShowFullScreen = new QAction(tr("&Fullscreen"), this);
     m_actionShowFullScreen->setCheckable(true);
     m_actionShowFullScreen->setShortcut(QKeySequence("F11"));
@@ -421,7 +417,9 @@ void QupZilla::setupMenu()
     connect(m_actionShowHistorySideBar, SIGNAL(triggered()), this, SLOT(showHistorySideBar()));
 
     QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
+#ifndef Q_WS_MAC
     toolbarsMenu->addAction(m_actionShowMenubar);
+#endif
     toolbarsMenu->addAction(m_actionShowToolbar);
     toolbarsMenu->addAction(m_actionShowBookmarksToolbar);
     QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
@@ -447,12 +445,14 @@ void QupZilla::setupMenu()
     connect(m_menuView, SIGNAL(aboutToShow()), this, SLOT(aboutToShowViewMenu()));
     connect(m_menuView, SIGNAL(aboutToHide()), this, SLOT(aboutToHideViewMenu()));
 
-    menuBar()->addMenu(m_menuHistory);
-    menuBar()->addMenu(m_menuBookmarks);
-    menuBar()->addMenu(m_menuTools);
-    menuBar()->addMenu(m_menuHelp);
-
-    menuBar()->setContextMenuPolicy(Qt::CustomContextMenu);
+    m_menuHistory = new Menu(tr("Hi&story"));
+    m_menuHistory->addAction(IconProvider::standardIcon(QStyle::SP_ArrowBack), tr("&Back"), this, SLOT(goBack()))->setShortcut(QKeySequence("Ctrl+Left"));
+    m_menuHistory->addAction(IconProvider::standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
+    m_menuHistory->addAction(IconProvider::fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
+    m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), this, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+Shift+H"));
+    m_menuHistory->addSeparator();
+    connect(m_menuHistory, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMenu()));
+    connect(m_menuHistory, SIGNAL(aboutToHide()), this, SLOT(aboutToHideHistoryMenu()));
 
     m_menuClosedTabs = new QMenu(tr("Closed Tabs"));
     connect(m_menuClosedTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
@@ -462,6 +462,17 @@ void QupZilla::setupMenu()
 
     m_menuHistoryMost = new Menu(tr("Most Visited"), m_menuHistory);
     connect(m_menuHistoryMost, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryMostMenu()));
+
+    m_menuHistory->addMenu(m_menuHistoryRecent);
+    m_menuHistory->addMenu(m_menuHistoryMost);
+    m_menuHistory->addMenu(m_menuClosedTabs);
+
+    menuBar()->addMenu(m_menuHistory);
+    menuBar()->addMenu(m_menuBookmarks);
+    menuBar()->addMenu(m_menuTools);
+    menuBar()->addMenu(m_menuHelp);
+
+    menuBar()->setContextMenuPolicy(Qt::CustomContextMenu);
 
     aboutToShowToolsMenu();
     aboutToShowHelpMenu();
@@ -494,6 +505,7 @@ void QupZilla::setupMenu()
         addAction(action);
     }
 
+#ifndef Q_WS_MAC
     m_superMenu->addMenu(m_menuFile);
     m_superMenu->addMenu(m_menuEdit);
     m_superMenu->addMenu(m_menuView);
@@ -501,6 +513,7 @@ void QupZilla::setupMenu()
     m_superMenu->addMenu(m_menuBookmarks);
     m_superMenu->addMenu(m_menuTools);
     m_superMenu->addMenu(m_menuHelp);
+#endif
 }
 
 void QupZilla::loadSettings()
@@ -540,7 +553,9 @@ void QupZilla::loadSettings()
     m_navigationBar->setVisible(showNavigationToolbar);
     menuBar()->setVisible(showMenuBar);
 
+#ifndef Q_WS_MAC
     m_navigationBar->buttonSuperMenu()->setVisible(!showMenuBar);
+#endif
     m_navigationBar->buttonHome()->setVisible(showHomeIcon);
     m_navigationBar->buttonBack()->setVisible(showBackForwardIcons);
     m_navigationBar->buttonNext()->setVisible(showBackForwardIcons);
@@ -734,48 +749,18 @@ void QupZilla::aboutToShowBookmarksMenu()
     m_menuBookmarksAction->setVisible(m_bookmarksToolbar->isVisible());
 }
 
-void QupZilla::aboutToShowHistoryMenu(bool loadHistory)
+void QupZilla::aboutToShowHistoryMenu()
 {
     if (!weView()) {
         return;
     }
 
-    if (!m_historyMenuChanged) {
-        if (!m_menuHistory || m_menuHistory->actions().count() < 3) {
-            return;
-        }
-
-        m_menuHistory->actions().at(0)->setEnabled(WebHistoryWrapper::canGoBack(weView()->history()));
-        m_menuHistory->actions().at(1)->setEnabled(WebHistoryWrapper::canGoForward(weView()->history()));
-        return;
-    }
-    m_historyMenuChanged = false;
-    if (!loadHistory) {
-        m_historyMenuChanged = true;
-    }
-
-    m_menuHistory->clear();
-    m_menuHistory->addAction(IconProvider::standardIcon(QStyle::SP_ArrowBack), tr("&Back"), this, SLOT(goBack()))->setShortcut(QKeySequence("Ctrl+Left"));
-    m_menuHistory->addAction(IconProvider::standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goNext()))->setShortcut(QKeySequence("Ctrl+Right"));
-    m_menuHistory->addAction(IconProvider::fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()))->setShortcut(QKeySequence("Alt+Home"));
-
     m_menuHistory->actions().at(0)->setEnabled(WebHistoryWrapper::canGoBack(weView()->history()));
     m_menuHistory->actions().at(1)->setEnabled(WebHistoryWrapper::canGoForward(weView()->history()));
-
-    m_menuHistory->addAction(QIcon(":/icons/menu/history.png"), tr("Show &All History"), this, SLOT(showHistoryManager()))->setShortcut(QKeySequence("Ctrl+Shift+H"));
-    m_menuHistory->addSeparator();
-
-    m_menuHistory->addMenu(m_menuHistoryRecent);
-    m_menuHistory->addMenu(m_menuHistoryMost);
-    m_menuHistory->addMenu(m_menuClosedTabs);
 }
 
 void QupZilla::aboutToHideHistoryMenu()
 {
-    if (!m_menuHistory || m_menuHistory->actions().count() < 3) {
-        return;
-    }
-
     m_menuHistory->actions().at(0)->setEnabled(true);
     m_menuHistory->actions().at(1)->setEnabled(true);
 }
@@ -902,7 +887,9 @@ void QupZilla::aboutToShowViewMenu()
     }
 
     m_actionShowToolbar->setChecked(m_navigationBar->isVisible());
+#ifndef Q_WS_MAC
     m_actionShowMenubar->setChecked(menuBar()->isVisible());
+#endif
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
 
@@ -1260,6 +1247,7 @@ void QupZilla::showNavigationToolbar()
 
 void QupZilla::showMenubar()
 {
+#ifndef Q_WS_MAC
     if (!m_navigationBar->isVisible() && !m_actionShowMenubar->isChecked()) {
         showNavigationToolbar();
     }
@@ -1269,6 +1257,7 @@ void QupZilla::showMenubar()
 
     Settings settings;
     settings.setValue("Browser-View-Settings/showMenubar", menuBar()->isVisible());
+#endif
 }
 
 void QupZilla::showStatusbar()

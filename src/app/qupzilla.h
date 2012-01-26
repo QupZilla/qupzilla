@@ -154,7 +154,7 @@ private slots:
 
     void aboutToShowFileMenu();
     void aboutToHideFileMenu();
-    void aboutToShowHistoryMenu(bool loadHistory = true);
+    void aboutToShowHistoryMenu();
     void aboutToHideHistoryMenu();
     void aboutToShowClosedTabsMenu();
     void aboutToShowBookmarksMenu();
@@ -251,7 +251,9 @@ private:
     QAction* m_actionShowToolbar;
     QAction* m_actionShowBookmarksToolbar;
     QAction* m_actionShowStatusbar;
+#ifndef Q_WS_MAC
     QAction* m_actionShowMenubar;
+#endif
     QAction* m_actionShowFullScreen;
     QAction* m_actionShowBookmarksSideBar;
     QAction* m_actionShowHistorySideBar;
