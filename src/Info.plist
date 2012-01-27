@@ -15,6 +15,7 @@
     <key>CFBundleIdentifier</key>
     <string>com.qupzilla.QupZilla</string>
     
+    <key>CFBundleDocumentTypes</key>
     <array>
       <dict>
         <key>CFBundleTypeExtensions</key>
@@ -43,8 +44,5 @@
     <string>QupZilla</string>
     <key>CFBundleDisplayName</key>
     <string>QupZilla</string>
-    
-    <key>NOTE</key>
-    <string>QupZilla Web Browser</string>
 </dict>
 </plist>

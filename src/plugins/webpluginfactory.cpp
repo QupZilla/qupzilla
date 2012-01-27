@@ -21,9 +21,9 @@
 #include "pluginproxy.h"
 #include "webpage.h"
 
-WebPluginFactory::WebPluginFactory(QObject* parent)
-    : QWebPluginFactory(parent)
-    , m_page(0)
+WebPluginFactory::WebPluginFactory(WebPage* page)
+    : QWebPluginFactory(page)
+    , m_page(page)
 {
 }
 
@@ -56,29 +56,19 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
         return 0;
     }
 
-    WebPluginFactory* factory = const_cast<WebPluginFactory*>(this);
-    if (!factory) {
-        return 0;
-    }
+//    WebPluginFactory* factory = const_cast<WebPluginFactory*>(this);
+//    if (!factory) {
+//        return 0;
+//    }
 
-    WebPage* page = factory->parentPage();
-    if (!page) {
-        return 0;
-    }
+//    WebPage* page = factory->parentPage();
+//    if (!page) {
+//        return 0;
+//    }
 
 
-    ClickToFlash* ctf = new ClickToFlash(url, argumentNames, argumentValues, page);
+    ClickToFlash* ctf = new ClickToFlash(url, argumentNames, argumentValues, m_page);
     return ctf;
-}
-
-WebPage* WebPluginFactory::parentPage()
-{
-    if (m_page) {
-        return m_page;
-    }
-
-    WebPage* page = qobject_cast<WebPage*> (parent());
-    return page;
 }
 
 QList<QWebPluginFactory::Plugin> WebPluginFactory::plugins() const

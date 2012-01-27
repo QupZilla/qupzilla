@@ -71,18 +71,6 @@ const QString QupZilla::WWWADDRESS = "http://www.qupzilla.com";
 const QString QupZilla::WIKIADDRESS = "https://github.com/nowrep/QupZilla/wiki";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
-const QIcon QupZilla::qupzillaIcon()
-{
-    QIcon i;
-    i.addFile(":icons/exeicons/qupzilla16.png");
-    i.addFile(":icons/exeicons/qupzilla32.png");
-    i.addFile(":icons/exeicons/qupzilla48.png");
-    i.addFile(":icons/exeicons/qupzilla64.png");
-    i.addFile(":icons/exeicons/qupzilla128.png");
-    i.addFile(":icons/exeicons/qupzilla256.png");
-    return i;
-}
-
 QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     : QMainWindow(0)
     , m_historyMenuChanged(true)

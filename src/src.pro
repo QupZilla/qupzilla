@@ -396,7 +396,7 @@ mac {
 
     bundle_target.files += ../bin/locale
     bundle_target.files += ../bin/themes
-    bundle_target.path = Resources
+    bundle_target.path = Contents/Resources
 
     QMAKE_BUNDLE_DATA += bundle_target
 }
@@ -433,22 +433,22 @@ mac {
     target3.files = ../linux/pixmaps/qupzilla.png
     target3.path = $$icon_folder
 
-    ico16.files = ../linux/hicolor/16x16/qupzilla.png
+    ico16.files = ../linux/hicolor/16x16/apps/qupzilla.png
     ico16.path = $$hicolor_folder/16x16/apps
 
-    ico32.files = ../linux/hicolor/32x32/qupzilla.png
+    ico32.files = ../linux/hicolor/32x32/apps/qupzilla.png
     ico32.path = $$hicolor_folder/32x32/apps
 
-    ico48.files = ../linux/hicolor/48x48/qupzilla.png
+    ico48.files = ../linux/hicolor/48x48/apps/qupzilla.png
     ico48.path = $$hicolor_folder/48x48/apps
 
-    ico64.files = ../linux/hicolor/64x64/qupzilla.png
+    ico64.files = ../linux/hicolor/64x64/apps/qupzilla.png
     ico64.path = $$hicolor_folder/64x64/apps
 
-    ico128.files = ../linux/hicolor/128x128/qupzilla.png
+    ico128.files = ../linux/hicolor/128x128/apps/qupzilla.png
     ico128.path = $$hicolor_folder/128x128/apps
 
-    ico256.files = ../linux/hicolor/256x256/qupzilla.png
+    ico256.files = ../linux/hicolor/256x256/apps/qupzilla.png
     ico256.path = $$hicolor_folder/256x256/apps
 
     INSTALLS += target target1 target2 target3

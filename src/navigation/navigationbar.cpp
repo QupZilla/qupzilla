@@ -95,6 +95,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_menuForward = new Menu(this);
     m_buttonNext->setMenu(m_menuForward);
 
+#ifndef Q_WS_MAC
     m_supMenu = new ToolButton(this);
     m_supMenu->setObjectName("navigation-button-supermenu");
     m_supMenu->setPopupMode(QToolButton::InstantPopup);
@@ -102,6 +103,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_supMenu->setAutoRaise(true);
 //    m_supMenu->setVisible(false);
     m_supMenu->setMenu(p_QupZilla->superMenu());
+#endif
 
     m_searchLine = new WebSearchBar(p_QupZilla);
 

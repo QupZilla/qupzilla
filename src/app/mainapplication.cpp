@@ -101,7 +101,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
 #endif
 
 #ifdef Q_WS_MAC
-    DATADIR.append("Resources/");
+    DATADIR.append("../Resources/");
 #endif
 
 #ifdef PORTABLE_BUILD
@@ -115,7 +115,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     THEMESDIR = DATADIR + "themes/";
 
     setOverrideCursor(Qt::WaitCursor);
-    setWindowIcon(QupZilla::qupzillaIcon());
+    setWindowIcon(QIcon(":icons/exeicons/qupzilla-window.png"));
     bool noAddons = false;
     QUrl startUrl("");
     QStringList messages;

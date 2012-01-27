@@ -76,8 +76,6 @@ public:
     static const QString WIKIADDRESS;
     static const QString WEBKITVERSION;
 
-    static const QIcon qupzillaIcon();
-
     explicit QupZilla(Qz::BrowserWindow type, QUrl startUrl = QUrl());
     ~QupZilla();
 

@@ -43,12 +43,6 @@
         <file>icons/other/bighistory.png</file>
         <file>icons/menu/dot.png</file>
         <file>icons/preferences/style-default.png</file>
-        <file>icons/exeicons/qupzilla16.png</file>
-        <file>icons/exeicons/qupzilla32.png</file>
-        <file>icons/exeicons/qupzilla48.png</file>
-        <file>icons/exeicons/qupzilla64.png</file>
-        <file>icons/exeicons/qupzilla128.png</file>
-        <file>icons/exeicons/qupzilla256.png</file>
         <file>icons/faenza/user-bookmarks.png</file>
         <file>icons/other/adblock-disabled.png</file>
         <file>icons/menu/search-icon.png</file>
@@ -68,5 +62,6 @@
         <file>icons/browsers/html.png</file>
         <file>icons/menu/translate.png</file>
         <file>icons/menu/duck.png</file>
+        <file>icons/exeicons/qupzilla-window.png</file>
     </qresource>
 </RCC>

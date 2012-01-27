@@ -121,6 +121,7 @@
     border-width:4;
     color:black;
     padding-left: 28px;
+    padding-top: -2px;
     qproperty-fixedheight: 27;
 }
 
@@ -199,6 +200,7 @@
     border-width:4;
     color:black;
     padding-left: 35px;
+    padding-top: -2px;
     qproperty-fixedheight: 27;
 }
 

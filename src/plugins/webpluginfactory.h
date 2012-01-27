@@ -25,13 +25,11 @@ class WebPage;
 class WebPluginFactory : public QWebPluginFactory
 {
 public:
-    WebPluginFactory(QObject* parent);
+    WebPluginFactory(WebPage *page);
     virtual QObject* create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const;
     QList<QWebPluginFactory::Plugin> plugins() const;
 
 private:
-    WebPage* parentPage();
-
     WebPage* m_page;
 
 };
