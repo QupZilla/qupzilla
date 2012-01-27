@@ -70,6 +70,7 @@ void NetworkManager::loadSettings()
         setCache(m_diskCache);
     }
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
+    m_sendReferer = settings.value("SendReferer", true).toBool();
     settings.endGroup();
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
 
@@ -305,6 +306,10 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
     if (m_doNotTrack) {
         req.setRawHeader("DNT", "1");
+    }
+
+    if (!m_sendReferer) {
+        req.setRawHeader("Referer", "");
     }
 
     req.setRawHeader("Accept-Language", m_acceptLanguage);

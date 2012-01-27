@@ -56,6 +56,7 @@ private slots:
     void openSslManager();
     void showAcceptLanguage();
     void chooseUserStyleClicked();
+    void deleteHtml5storage();
 
     void allowJavaScriptChanged(bool stat);
     void saveHistoryChanged(bool stat);

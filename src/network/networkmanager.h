@@ -90,6 +90,7 @@ private:
 
     bool m_ignoreAllWarnings;
     bool m_doNotTrack;
+    bool m_sendReferer;
 };
 
 #endif // NETWORKMANAGER_H

@@ -1941,7 +1941,7 @@
     </message>
     <message>
         <source>Load images</source>
-        <translation>Načítať obrázky</translation>
+        <translation type="obsolete">Načítať obrázky</translation>
     </message>
     <message>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
@@ -2169,7 +2169,7 @@
     </message>
     <message>
         <source>Block PopUp windows</source>
-        <translation>Blokovať vyskakovacie okná</translation>
+        <translation type="obsolete">Blokovať vyskakovacie okná</translation>
     </message>
     <message>
         <source>General</source>
@@ -2310,6 +2310,26 @@
     <message>
         <source>Edit CA certificates in SSL Manager</source>
         <translation>Upraviť CA Certifikáty v správcovi SSL</translation>
+    </message>
+    <message>
+        <source>Delete now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Other&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send Referer header to servers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block popup windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleted</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

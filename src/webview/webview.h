@@ -39,7 +39,7 @@ public:
     QString title() const;
     QUrl url() const;
 
-    void setPage(QWebPage *page);
+    void setPage(QWebPage* page);
 
     bool isLoading() const;
     int loadProgress() const;

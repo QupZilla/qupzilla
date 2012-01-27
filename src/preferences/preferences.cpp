@@ -177,16 +177,12 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     settings.beginGroup("Web-Browser-Settings");
     ui->allowPlugins->setChecked(settings.value("allowFlash", true).toBool());
     ui->allowJavaScript->setChecked(settings.value("allowJavaScript", true).toBool());
-    ui->blockPopup->setChecked(!settings.value("allowJavaScriptOpenWindow", false).toBool());
     ui->allowJava->setChecked(settings.value("allowJava", true).toBool());
-    ui->loadImages->setChecked(settings.value("autoLoadImages", true).toBool());
     ui->allowDNSPrefetch->setChecked(settings.value("DNS-Prefetch", false).toBool());
-    ui->jscanAccessClipboard->setChecked(settings.value("JavaScriptCanAccessClipboard", true).toBool());
     ui->linksInFocusChain->setChecked(settings.value("IncludeLinkInFocusChain", false).toBool());
     ui->zoomTextOnly->setChecked(settings.value("zoomTextOnly", false).toBool());
     ui->printEBackground->setChecked(settings.value("PrintElementBackground", true).toBool());
     ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
-    ui->doNotTrack->setChecked(settings.value("DoNotTrack", false).toBool());
     ui->defaultZoom->setValue(settings.value("DefaultZoom", 100).toInt());
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
 
@@ -223,9 +219,16 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     }
     connect(ui->saveHistory, SIGNAL(toggled(bool)), this, SLOT(saveHistoryChanged(bool)));
 
+    // Html5Storage
     ui->html5storage->setChecked(settings.value("HTML5StorageEnabled", true).toBool());
     ui->deleteHtml5storageOnClose->setChecked(settings.value("deleteHTML5StorageOnClose", false).toBool());
     connect(ui->html5storage, SIGNAL(toggled(bool)), this, SLOT(allowHtml5storageChanged(bool)));
+    // Other
+    ui->blockPopup->setChecked(!settings.value("allowJavaScriptOpenWindow", false).toBool());
+    ui->jscanAccessClipboard->setChecked(settings.value("JavaScriptCanAccessClipboard", true).toBool());
+    ui->doNotTrack->setChecked(settings.value("DoNotTrack", false).toBool());
+    ui->sendReferer->setChecked(settings.value("SendReferer", true).toBool());
+
 
     //Cookies
     ui->saveCookies->setChecked(settings.value("allowCookies", true).toBool());
@@ -360,6 +363,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->cookieManagerBut, SIGNAL(clicked()), this, SLOT(showCookieManager()));
     connect(ui->sslManagerButton, SIGNAL(clicked()), this, SLOT(openSslManager()));
     connect(ui->preferredLanguages, SIGNAL(clicked()), this, SLOT(showAcceptLanguage()));
+    connect(ui->deleteHtml5storage, SIGNAL(clicked()), this, SLOT(deleteHtml5storage()));
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
@@ -444,6 +448,16 @@ void Preferences::chooseUserStyleClicked()
         return;
     }
     ui->userStyleSheet->setText(file);
+}
+
+void Preferences::deleteHtml5storage()
+{
+    QString activeProfil = mApp->getActiveProfilPath();
+    qz_removeDir(activeProfil + "Databases");
+    qz_removeDir(activeProfil + "LocalStorage");
+
+    ui->deleteHtml5storage->setText(tr("Deleted"));
+    ui->deleteHtml5storage->setEnabled(false);
 }
 
 void Preferences::newTabChanged()
@@ -701,7 +715,6 @@ void Preferences::saveSettings()
     settings.setValue("allowJavaScript", ui->allowJavaScript->isChecked());
     settings.setValue("allowJavaScriptOpenWindow", !ui->blockPopup->isChecked());
     settings.setValue("allowJava", ui->allowJava->isChecked());
-    settings.setValue("autoLoadImages", ui->loadImages->isChecked());
     settings.setValue("DNS-Prefetch", ui->allowDNSPrefetch->isChecked());
     settings.setValue("JavaScriptCanAccessClipboard", ui->jscanAccessClipboard->isChecked());
     settings.setValue("IncludeLinkInFocusChain", ui->linksInFocusChain->isChecked());
@@ -729,6 +742,7 @@ void Preferences::saveSettings()
     settings.setValue("deleteHistoryOnClose", ui->deleteHistoryOnClose->isChecked());
     settings.setValue("HTML5StorageEnabled", ui->html5storage->isChecked());
     settings.setValue("deleteHTML5StorageOnClose", ui->deleteHtml5storageOnClose->isChecked());
+    settings.setValue("SendReferer", ui->sendReferer->isChecked());
 
     //Cookies
     settings.setValue("allowCookies", ui->saveCookies->isChecked());

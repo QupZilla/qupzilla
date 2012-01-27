@@ -307,8 +307,6 @@ void MainApplication::loadSettings()
     bool allowJavaScript = settings.value("allowJavaScript", true).toBool();
     bool allowJavaScriptOpenWindow = settings.value("allowJavaScriptOpenWindow", false).toBool();
     bool allowJava = settings.value("allowJava", true).toBool();
-    bool allowPersistentStorage = settings.value("allowPersistentStorage", true).toBool();
-    bool allowImages = settings.value("autoLoadImages", true).toBool();
     bool dnsPrefetch = settings.value("DNS-Prefetch", false).toBool();
     bool jsClipboard = settings.value("JavaScriptCanAccessClipboard", true).toBool();
     bool linkInFocuschain = settings.value("IncludeLinkInFocusChain", false).toBool();
@@ -322,16 +320,12 @@ void MainApplication::loadSettings()
     WebPage::UserAgent = settings.value("UserAgent", "").toString();
     settings.endGroup();
 
-    if (allowPersistentStorage) {
-        m_websettings->enablePersistentStorage(m_activeProfil);
-    }
-
+    m_websettings->enablePersistentStorage(m_activeProfil);
     m_websettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
     m_websettings->setAttribute(QWebSettings::PluginsEnabled, allowFlash);
     m_websettings->setAttribute(QWebSettings::JavascriptEnabled, allowJavaScript);
     m_websettings->setAttribute(QWebSettings::JavascriptCanOpenWindows, allowJavaScriptOpenWindow);
     m_websettings->setAttribute(QWebSettings::JavaEnabled, allowJava);
-    m_websettings->setAttribute(QWebSettings::AutoLoadImages, allowImages);
     m_websettings->setAttribute(QWebSettings::DnsPrefetchEnabled, dnsPrefetch);
     m_websettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, jsClipboard);
     m_websettings->setAttribute(QWebSettings::LinksIncludedInFocusChain, linkInFocuschain);
