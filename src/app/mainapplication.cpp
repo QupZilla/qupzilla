@@ -322,6 +322,10 @@ void MainApplication::loadSettings()
     WebPage::UserAgent = settings.value("UserAgent", "").toString();
     settings.endGroup();
 
+    if (allowPersistentStorage) {
+        m_websettings->enablePersistentStorage(m_activeProfil);
+    }
+
     m_websettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
     m_websettings->setAttribute(QWebSettings::PluginsEnabled, allowFlash);
     m_websettings->setAttribute(QWebSettings::JavascriptEnabled, allowJavaScript);
@@ -365,9 +369,6 @@ void MainApplication::loadSettings()
     // Allows to load files from qrc: scheme in qupzilla: pages
     QWebSecurityOrigin::addLocalScheme("qupzilla");
 
-    if (allowPersistentStorage) {
-        m_websettings->enablePersistentStorage(m_activeProfil);
-    }
     m_websettings->setMaximumPagesInCache(maxCachedPages);
 
     setWheelScrollLines(scrollingLines);
