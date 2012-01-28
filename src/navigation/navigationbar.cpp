@@ -125,7 +125,9 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_layout->addWidget(m_buttonHome);
     m_layout->addWidget(m_buttonAddTab);
     m_layout->addWidget(m_navigationSplitter);
+#ifndef Q_WS_MAC
     m_layout->addWidget(m_supMenu);
+#endif
     m_layout->addWidget(m_exitFullscreen);
 
     connect(m_menuBack, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryBackMenu()));
