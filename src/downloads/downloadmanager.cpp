@@ -72,6 +72,10 @@ void DownloadManager::loadSettings()
     m_lastDownloadPath = settings.value("lastDownloadPath", QDir::homePath() + "/").toString();
     m_closeOnFinish = settings.value("CloseManagerOnFinish", false).toBool();
     m_useNativeDialog = settings.value("useNativeDialog", DEFAULT_USE_NATIVE_DIALOG).toBool();
+
+    m_useExternalManager = settings.value("UseExternalManager", false).toBool();
+    m_externalExecutable = settings.value("ExternalManagerExecutable", "").toString();
+    m_externalArguments = settings.value("ExternalManagerArguments", "").toString();
     settings.endGroup();
 }
 
@@ -86,6 +90,19 @@ void DownloadManager::resizeEvent(QResizeEvent* e)
 {
     QWidget::resizeEvent(e);
     emit resized(size());
+}
+
+void DownloadManager::startExternalManager(const QUrl &url)
+{
+    QStringList arguments = m_externalArguments.split(" ");
+    arguments << url.toString();
+
+    bool success = QProcess::startDetached(m_externalExecutable, arguments);
+
+    if (!success) {
+        QString info = "<ul><li><b>" + tr("Executable: ") + "</b>" + m_externalExecutable + "</li><li><b>" + tr("Arguments: ") + "</b>" + arguments.join(" ") + "</li></ul>";
+        QMessageBox::critical(this, tr("Cannot start external download manager"), tr("Cannot start external download manager! %1").arg(info));
+    }
 }
 
 #ifdef W7TASKBAR
@@ -185,6 +202,13 @@ void DownloadManager::download(const QNetworkRequest &request, WebPage* page, bo
 void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool askWhatToDo)
 {
     if (reply->url().scheme() == "qupzilla") {
+        return;
+    }
+
+    if (m_useExternalManager) {
+        startExternalManager(reply->url());
+        reply->abort();
+        reply->deleteLater();
         return;
     }
 

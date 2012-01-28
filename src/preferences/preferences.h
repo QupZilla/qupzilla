@@ -57,6 +57,7 @@ private slots:
     void showAcceptLanguage();
     void chooseUserStyleClicked();
     void deleteHtml5storage();
+    void chooseExternalDownloadManager();
 
     void allowJavaScriptChanged(bool stat);
     void saveHistoryChanged(bool stat);
@@ -68,6 +69,7 @@ private slots:
     void setManualProxyConfigurationEnabled(bool state);
     void cacheValueChanged(int value);
     void pageCacheValueChanged(int value);
+    void useExternalDownManagerChanged(bool state);
 
     void createProfile();
     void deleteProfile();

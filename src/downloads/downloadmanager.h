@@ -31,6 +31,7 @@
 #include <QTimer>
 #include <QNetworkReply>
 #include <QListWidgetItem>
+#include <QProcess>
 
 #include "ecwin7.h"
 
@@ -86,6 +87,8 @@ private:
     void closeEvent(QCloseEvent* e);
     void resizeEvent(QResizeEvent* e);
 
+    void startExternalManager(const QUrl &url);
+
     Ui::DownloadManager* ui;
     NetworkManager* m_networkManager;
     QBasicTimer m_timer;
@@ -95,6 +98,10 @@ private:
     bool m_useNativeDialog;
     bool m_isClosing;
     bool m_closeOnFinish;
+
+    bool m_useExternalManager;
+    QString m_externalExecutable;
+    QString m_externalArguments;
 
     DownloadOption m_lastDownloadOption;
 };

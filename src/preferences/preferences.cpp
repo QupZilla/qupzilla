@@ -256,9 +256,16 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     else {
         ui->useDefined->setChecked(true);
     }
+    ui->useExternalDownManager->setChecked(settings.value("UseExternalManager", false).toBool());
+    ui->externalDownExecutable->setText(settings.value("ExternalManagerExecutable", "").toString());
+    ui->externalDownArguments->setText(settings.value("ExternalManagerArguments", "").toString());
+
+    connect(ui->useExternalDownManager, SIGNAL(toggled(bool)), this, SLOT(useExternalDownManagerChanged(bool)));
     connect(ui->useDefined, SIGNAL(toggled(bool)), this, SLOT(downLocChanged(bool)));
     connect(ui->downButt, SIGNAL(clicked()), this, SLOT(chooseDownPath()));
+    connect(ui->chooseExternalDown, SIGNAL(clicked()), this, SLOT(chooseExternalDownloadManager()));
     downLocChanged(ui->useDefined->isChecked());
+    useExternalDownManagerChanged(ui->useExternalDownManager->isChecked());
     settings.endGroup();
 
     //FONTS
@@ -460,6 +467,16 @@ void Preferences::deleteHtml5storage()
     ui->deleteHtml5storage->setEnabled(false);
 }
 
+void Preferences::chooseExternalDownloadManager()
+{
+    QString path = QFileDialog::getOpenFileName(p_QupZilla, tr("Choose executable location..."), QDir::homePath());
+    if (path.isEmpty()) {
+        return;
+    }
+
+    ui->externalDownExecutable->setText(path);
+}
+
 void Preferences::newTabChanged()
 {
     if (ui->newTab->currentIndex() == 3) {
@@ -543,6 +560,13 @@ void Preferences::cacheValueChanged(int value)
 void Preferences::pageCacheValueChanged(int value)
 {
     ui->pageCacheLabel->setText(QString::number(value));
+}
+
+void Preferences::useExternalDownManagerChanged(bool state)
+{
+    ui->externalDownExecutable->setEnabled(state);
+    ui->externalDownArguments->setEnabled(state);
+    ui->chooseExternalDown->setEnabled(state);
 }
 
 void Preferences::showPassManager(bool state)
@@ -693,6 +717,9 @@ void Preferences::saveSettings()
     }
     settings.setValue("CloseManagerOnFinish", ui->closeDownManOnFinish->isChecked());
     settings.setValue("useNativeDialog", ui->downlaodNativeSystemDialog->isChecked());
+    settings.setValue("UseExternalManager", ui->useExternalDownManager->isChecked());
+    settings.setValue("ExternalManagerExecutable", ui->externalDownExecutable->text());
+    settings.setValue("ExternalManagerArguments", ui->externalDownArguments->text());
     settings.endGroup();
 
     //FONTS

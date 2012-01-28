@@ -1102,6 +1102,22 @@
         <source>All files have been successfully downloaded.</source>
         <translation>Všetky súbory boli úspešne stiahnuté.</translation>
     </message>
+    <message>
+        <source>Executable: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external download manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external download manager! %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadOptionsDialog</name>
@@ -2329,6 +2345,26 @@
     </message>
     <message>
         <source>Deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use external download manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Executable:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arguments:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose executable location...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
