@@ -128,6 +128,9 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     }
 
     QImage image = icon.pixmap(16, 16).toImage();
+    if (image.isNull()) {
+        image = QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage();
+    }
 
     QSqlQuery query;
     query.prepare("INSERT INTO bookmarks (url, title, folder, icon) VALUES (?,?,?,?)");

@@ -68,6 +68,7 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* pa
 void QupZillaSchemeReply::loadPage()
 {
     QTextStream stream(&m_buffer);
+    stream.setCodec("UTF-8");
 
     if (m_pageName == "about") {
         stream << aboutPage();

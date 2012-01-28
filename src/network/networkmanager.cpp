@@ -317,9 +317,9 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     //SchemeHandlers
     if (req.url().scheme() == "qupzilla") {
         reply = m_qupzillaSchemeHandler->createRequest(op, req, outgoingData);
-    }
-    if (reply) {
-        return reply;
+        if (reply) {
+            return reply;
+        }
     }
 
     req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);

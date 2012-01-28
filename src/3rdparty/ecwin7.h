@@ -24,7 +24,7 @@
 #include <QWidget>
 
 // Windows only data definitions
-#ifdef W7API
+#ifdef W7TASKBAR
 
 #include <windows.h>
 #include <initguid.h>
@@ -67,6 +67,6 @@ private:
     HICON mOverlayIcon;
 };
 // Windows only data definitions - END
-#endif
+#endif // W7TASKBAR
 
 #endif // ECWIN7_H

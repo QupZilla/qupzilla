@@ -20,6 +20,7 @@
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 #include "squeezelabelv1.h"
+#include "mainapplication.h"
 
 TipLabel::TipLabel(QupZilla* parent)
     : SqueezeLabelV1(parent)
@@ -94,7 +95,11 @@ void StatusBarMessage::showMessage(const QString &message)
     if (p_QupZilla->statusBar()->isVisible()) {
         p_QupZilla->statusBar()->showMessage(message);
     }
+#ifdef Q_WS_WIN
+    else if (mApp->activeWindow() == p_QupZilla) {
+#else
     else {
+#endif
         WebView* view = p_QupZilla->weView();
         QWebFrame* mainFrame = view->page()->mainFrame();
 

@@ -19,7 +19,7 @@ UI_DIR = ../build
 #DEFINES += USE_WEBGL
 #DEFINES += KDE
 #DEFINES += PORTABLE_BUILD
-#win32:DEFINES += W7API
+win32:DEFINES += W7API
 
 ##It won't compile on windows with this define. Some bug in qtsingleapp / qvector template
 !win32: !CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT

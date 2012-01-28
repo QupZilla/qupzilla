@@ -63,7 +63,7 @@ public:
 public slots:
     void show();
 
-#ifdef W7API
+#ifdef W7TASKBAR
 protected:
     virtual bool winEvent(MSG* message, long* result);
 #endif
@@ -79,7 +79,7 @@ signals:
     void resized(QSize);
 
 private:
-#ifdef W7API
+#ifdef W7TASKBAR
     EcWin7 win7;
 #endif
     void timerEvent(QTimerEvent* event);

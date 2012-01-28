@@ -77,6 +77,10 @@ void SSLManager::refreshCAList()
     m_caCerts = QSslSocket::defaultCaCertificates();
 
     foreach(const QSslCertificate & cert, m_caCerts) {
+        if (m_localCerts.contains(cert)) {
+            continue;
+        }
+
         QListWidgetItem* item = new QListWidgetItem(ui->caList);
         item->setText(CertificateInfoWidget::certificateItemText(cert));
         item->setWhatsThis(QString::number(m_caCerts.indexOf(cert)));

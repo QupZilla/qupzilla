@@ -71,7 +71,7 @@ void DownloadItem::startDownloading()
 {
     QUrl locationHeader = m_reply->header(QNetworkRequest::LocationHeader).toUrl();
     if (locationHeader.isValid()) {
-        m_reply->close();
+        m_reply->abort();
         m_reply->deleteLater();
 
         m_reply = mApp->networkManager()->get(QNetworkRequest(locationHeader));

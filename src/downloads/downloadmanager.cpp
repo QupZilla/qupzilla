@@ -57,7 +57,7 @@ DownloadManager::DownloadManager(QWidget* parent)
 
     loadSettings();
 
-#ifdef W7API
+#ifdef W7TASKBAR
     if (QtWin::isRunningWindows7()) {
         win7.init(this->winId());
     }
@@ -88,7 +88,7 @@ void DownloadManager::resizeEvent(QResizeEvent* e)
     emit resized(size());
 }
 
-#ifdef W7API
+#ifdef W7TASKBAR
 bool DownloadManager::winEvent(MSG* message, long* result)
 {
     return win7.winEvent(message, result);
@@ -140,7 +140,7 @@ void DownloadManager::timerEvent(QTimerEvent* event)
                                 DownloadItem::currentSpeedToString(speed),
                                 DownloadItem::remaingTimeToString(remaining)));
         setWindowTitle(QString::number(progress) + tr("% - Download Manager"));
-#ifdef W7API
+#ifdef W7TASKBAR
         if (QtWin::isRunningWindows7()) {
             win7.setProgressValue(progress, 100);
             win7.setProgressState(win7.Normal);
@@ -233,7 +233,7 @@ void DownloadManager::downloadFinished(bool success)
         }
         ui->speedLabel->clear();
         setWindowTitle(tr("Download Manager"));
-#ifdef W7API
+#ifdef W7TASKBAR
         if (QtWin::isRunningWindows7()) {
             win7.setProgressValue(0, 100);
             win7.setProgressState(win7.NoProgress);
