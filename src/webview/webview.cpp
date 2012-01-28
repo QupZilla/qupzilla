@@ -774,6 +774,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         break;
 
     case Qt::MiddleButton: {
+        qDebug("Middle mouse press");
         QWebFrame* frame = page()->frameAt(event->pos());
 #ifdef Q_WS_WIN
         if (frame && frame->hitTestContent(event->pos()).linkUrl().isEmpty()) {
@@ -785,10 +786,16 @@ void WebView::mousePressEvent(QMouseEvent* event)
 #endif
         if (frame) {
             m_clickedUrl = frame->hitTestContent(event->pos()).linkUrl();
+            if (!m_clickedUrl.isEmpty()) {
+                return;
+            }
         }
+
+        break;
     }
 
     case Qt::LeftButton: {
+        qDebug("Left mouse press");
         QWebFrame* frame = page()->frameAt(event->pos());
         if (frame) {
             QUrl link = frame->hitTestContent(event->pos()).linkUrl();
@@ -811,6 +818,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
 {
     switch (event->button()) {
     case Qt::MiddleButton: {
+        qDebug("Middle release");
         QWebFrame* frame = page()->frameAt(event->pos());
         if (frame) {
             QUrl link = frame->hitTestContent(event->pos()).linkUrl();
