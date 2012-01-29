@@ -53,6 +53,7 @@ public slots:
     Q_INVOKABLE void removeImageForUrl(const QString &url);
 
     Q_INVOKABLE QString getOpenFileName();
+    Q_INVOKABLE QString urlFromUserInput(const QString &url);
     Q_INVOKABLE void setBackgroundImage(const QString &image);
     Q_INVOKABLE void setBackgroundImageSize(const QString &size);
     Q_INVOKABLE void setPagesInRow(int count);

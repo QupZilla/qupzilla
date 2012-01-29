@@ -129,7 +129,7 @@ function boxEdited() {
     var box = document.getElementById('quickdial').getElementsByTagName('div')[editingId];
     var a = box.getElementsByTagName('a')[0];
     var originalUrl = a.getAttribute('href');
-    setBoxUrl(editingId, $('#formUrl').attr("value"));
+    setBoxUrl(editingId, speeddial.urlFromUserInput($('#formUrl').attr("value")));
     setBoxTitle(editingId, $('#formTitle').attr("value"));
     var changedUrl = a.getAttribute('href');
     var fetchTitleChecked = document.getElementById('fetchTitle').checked;

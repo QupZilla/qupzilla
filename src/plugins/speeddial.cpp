@@ -204,7 +204,7 @@ void SpeedDial::loadThumbnail(const QString &url, bool loadTitle)
     }
 
     PageThumbnailer* thumbnailer = new PageThumbnailer(this);
-    thumbnailer->setUrl(QUrl::fromUserInput(url));
+    thumbnailer->setUrl(url);
     thumbnailer->setLoadTitle(loadTitle);
     connect(thumbnailer, SIGNAL(thumbnailCreated(QPixmap)), this, SLOT(thumbnailCreated(QPixmap)));
 
@@ -223,6 +223,11 @@ void SpeedDial::removeImageForUrl(const QString &url)
 QString SpeedDial::getOpenFileName()
 {
     return QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), "(*.png *.jpg *.jpeg *.bmp *.gif *.tiff)");
+}
+
+QString SpeedDial::urlFromUserInput(const QString &url)
+{
+    return QUrl::fromUserInput(url).toString();
 }
 
 void SpeedDial::setBackgroundImage(const QString &image)
