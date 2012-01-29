@@ -37,6 +37,7 @@ WebInspectorDockWidget::WebInspectorDockWidget(QupZilla* mainClass)
 void WebInspectorDockWidget::close()
 {
     p_QupZilla->weView()->webTab()->setInspectorVisible(false);
+    p_QupZilla->weView()->setFocus();
 
     hide();
 }

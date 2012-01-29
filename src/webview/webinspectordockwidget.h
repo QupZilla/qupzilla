@@ -30,8 +30,7 @@ public:
     explicit WebInspector(QWidget* parent) : QWebInspector(parent) { }
 
 private:
-    void hideEvent(QHideEvent *)
-    {
+    void hideEvent(QHideEvent*) {
         // Prevent re-initializing QWebInspector after changing tab / virtual desktop
     }
 };

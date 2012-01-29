@@ -2155,6 +2155,16 @@
         <translation>Предохватање ДНС уноса</translation>
     </message>
     <message>
+        <location filename="../src/preferences/preferences.ui" line="1071"/>
+        <source>Allow local storage of HTML5 web content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1078"/>
+        <source>Delete locally stored HTML5 web content on close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/preferences/preferences.ui" line="1833"/>
         <source>JavaScript can access clipboard</source>
         <translation>Јаваскрипта може приступити клипборду</translation>
@@ -2251,16 +2261,6 @@
         <location filename="../src/preferences/preferences.ui" line="1048"/>
         <source>Delete history on close</source>
         <translation>Обриши историјат по затварању</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="1071"/>
-        <source>Allow HTML5 local storage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="1078"/>
-        <source>Delete local storage on close</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1104"/>
@@ -3089,7 +3089,7 @@
         <translation>Подаци о програму</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1292"/>
+        <location filename="../src/app/qupzilla.cpp" line="1289"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -3154,47 +3154,47 @@
         <translation>Подразумевано</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1369"/>
+        <location filename="../src/app/qupzilla.cpp" line="1366"/>
         <source>Open file...</source>
         <translation>Отвори фајл...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1479"/>
+        <location filename="../src/app/qupzilla.cpp" line="1476"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Желите ли заиста да укључите приватно прегледање?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1480"/>
+        <location filename="../src/app/qupzilla.cpp" line="1477"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Када је приватно прегледање укључено неке радње које се тичу ваше приватности су онемогућене:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1483"/>
+        <location filename="../src/app/qupzilla.cpp" line="1480"/>
         <source>Webpages are not added to the history.</source>
         <translation>Веб странице нису додане у историјат.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1484"/>
+        <location filename="../src/app/qupzilla.cpp" line="1481"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Текућим колачићима није могућ приступ.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1485"/>
+        <location filename="../src/app/qupzilla.cpp" line="1482"/>
         <source>Your session is not stored.</source>
         <translation>Ваша сесија није сачувана.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1487"/>
+        <location filename="../src/app/qupzilla.cpp" line="1484"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Док год не затворите прозор можете користити дугмад Напред и Назад да се вратите на странице које сте отварали.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1492"/>
+        <location filename="../src/app/qupzilla.cpp" line="1489"/>
         <source>Start Private Browsing</source>
         <translation>Покретање приватног прегледања</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1661"/>
+        <location filename="../src/app/qupzilla.cpp" line="1658"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Још увек имате %1 отворених језичака а ваша сесија неће бити сачувана. Желите ли заиста да напустите Капзилу?</translation>
     </message>
@@ -4192,7 +4192,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Изабери слику...</translation>
     </message>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="262"/>
+        <location filename="../src/plugins/speeddial.cpp" line="267"/>
         <source>Unable to load</source>
         <translation>Не могу да учитам</translation>
     </message>
@@ -4585,223 +4585,223 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Нема именоване странице</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="570"/>
+        <location filename="../src/webview/webview.cpp" line="572"/>
         <source>&amp;Back</source>
         <translation>На&amp;зад</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="574"/>
+        <location filename="../src/webview/webview.cpp" line="576"/>
         <source>&amp;Forward</source>
         <translation>На&amp;пред</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="578"/>
-        <location filename="../src/webview/webview.cpp" line="589"/>
+        <location filename="../src/webview/webview.cpp" line="580"/>
+        <location filename="../src/webview/webview.cpp" line="591"/>
         <source>&amp;Reload</source>
         <translation>&amp;Учитај поново</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="579"/>
+        <location filename="../src/webview/webview.cpp" line="581"/>
         <source>S&amp;top</source>
         <translation>Заус&amp;тави</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="585"/>
+        <location filename="../src/webview/webview.cpp" line="587"/>
         <source>This frame</source>
         <translation>Оквир</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="586"/>
+        <location filename="../src/webview/webview.cpp" line="588"/>
         <source>Show &amp;only this frame</source>
         <translation>П&amp;рикажи само овај оквир</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="587"/>
+        <location filename="../src/webview/webview.cpp" line="589"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Прикажи овај оквир у новом &amp;језичку</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="590"/>
+        <location filename="../src/webview/webview.cpp" line="592"/>
         <source>Print frame</source>
         <translation>Штампај оквир</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="592"/>
+        <location filename="../src/webview/webview.cpp" line="594"/>
         <source>Zoom &amp;in</source>
         <translation>У&amp;величај</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="593"/>
+        <location filename="../src/webview/webview.cpp" line="595"/>
         <source>&amp;Zoom out</source>
         <translation>У&amp;мањи</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="594"/>
+        <location filename="../src/webview/webview.cpp" line="596"/>
         <source>Reset</source>
         <translation>Стварна величина</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="596"/>
+        <location filename="../src/webview/webview.cpp" line="598"/>
         <source>Show so&amp;urce of frame</source>
         <translation>Прикажи извор о&amp;квира</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="602"/>
+        <location filename="../src/webview/webview.cpp" line="604"/>
         <source>Book&amp;mark page</source>
         <translation>&amp;Обележи страницу</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="603"/>
+        <location filename="../src/webview/webview.cpp" line="605"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Сачувај страницу као...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="604"/>
+        <location filename="../src/webview/webview.cpp" line="606"/>
         <source>&amp;Copy page link</source>
         <translation>&amp;Копирај везу странице</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="605"/>
+        <location filename="../src/webview/webview.cpp" line="607"/>
         <source>Send page link...</source>
         <translation>Пошаљи везу странице...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="606"/>
+        <location filename="../src/webview/webview.cpp" line="608"/>
         <source>&amp;Print page</source>
         <translation>&amp;Штампај страницу</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="608"/>
+        <location filename="../src/webview/webview.cpp" line="610"/>
         <source>Select &amp;all</source>
         <translation>Из&amp;абери све</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="613"/>
+        <location filename="../src/webview/webview.cpp" line="615"/>
         <source>Validate page</source>
         <translation>Провера кôда</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="616"/>
+        <location filename="../src/webview/webview.cpp" line="618"/>
         <source>Show so&amp;urce code</source>
         <translation>Прикажи &amp;изворни кôд</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="617"/>
+        <location filename="../src/webview/webview.cpp" line="619"/>
         <source>Show info ab&amp;out site</source>
         <translation>По&amp;даци о сајту</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="628"/>
+        <location filename="../src/webview/webview.cpp" line="630"/>
         <source>Open link in new &amp;tab</source>
         <translation>Отвори везу у новом &amp;језичку</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="629"/>
+        <location filename="../src/webview/webview.cpp" line="631"/>
         <source>Open link in new &amp;window</source>
         <translation>Отвори везу у новом &amp;прозору</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="631"/>
+        <location filename="../src/webview/webview.cpp" line="633"/>
         <source>B&amp;ookmark link</source>
         <translation>&amp;Обележи везу</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="632"/>
+        <location filename="../src/webview/webview.cpp" line="634"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Сачувај везу као...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="633"/>
+        <location filename="../src/webview/webview.cpp" line="635"/>
         <source>Send link...</source>
         <translation>Пошаљи везу...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="634"/>
+        <location filename="../src/webview/webview.cpp" line="636"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Копирај адресу везе</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="646"/>
+        <location filename="../src/webview/webview.cpp" line="648"/>
         <source>Show i&amp;mage</source>
         <translation>П&amp;рикажи слику</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="651"/>
+        <location filename="../src/webview/webview.cpp" line="653"/>
         <source>Copy im&amp;age</source>
         <translation>К&amp;опирај слику</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="652"/>
+        <location filename="../src/webview/webview.cpp" line="654"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Копирај &amp;адресу слике</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="654"/>
+        <location filename="../src/webview/webview.cpp" line="656"/>
         <source>&amp;Save image as...</source>
         <translation>Сачувај с&amp;лику као...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="655"/>
+        <location filename="../src/webview/webview.cpp" line="657"/>
         <source>Send image...</source>
         <translation>Пошаљи слику...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="674"/>
+        <location filename="../src/webview/webview.cpp" line="676"/>
         <source>Send text...</source>
         <translation>Пошаљи текст...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="679"/>
+        <location filename="../src/webview/webview.cpp" line="681"/>
         <source>Google Translate</source>
         <translation>Гуглов преводилац</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="680"/>
+        <location filename="../src/webview/webview.cpp" line="682"/>
         <source>Dictionary</source>
         <translation>Речник</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="691"/>
+        <location filename="../src/webview/webview.cpp" line="693"/>
         <source>Go to &amp;web address</source>
         <translation>Иди на &amp;веб адресу</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="697"/>
+        <location filename="../src/webview/webview.cpp" line="699"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Тражи „%1“ на %2</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="713"/>
+        <location filename="../src/webview/webview.cpp" line="715"/>
         <source>&amp;Play</source>
         <translation>&amp;Пусти</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="713"/>
+        <location filename="../src/webview/webview.cpp" line="715"/>
         <source>&amp;Pause</source>
         <translation>&amp;Паузирај</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="714"/>
+        <location filename="../src/webview/webview.cpp" line="716"/>
         <source>Un&amp;mute</source>
         <translation>Вра&amp;ти звук</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="714"/>
+        <location filename="../src/webview/webview.cpp" line="716"/>
         <source>&amp;Mute</source>
         <translation>У&amp;тишај</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="716"/>
+        <location filename="../src/webview/webview.cpp" line="718"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Копирај адресу медија</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="717"/>
+        <location filename="../src/webview/webview.cpp" line="719"/>
         <source>&amp;Send Media Address</source>
         <translation>П&amp;ошаљи адресу медија</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="718"/>
+        <location filename="../src/webview/webview.cpp" line="720"/>
         <source>Save Media To &amp;Disk</source>
         <translation>&amp;Сачувај медиј на диск</translation>
     </message>

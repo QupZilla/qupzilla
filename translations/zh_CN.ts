@@ -2367,6 +2367,16 @@
         <translation>允许DNS预取</translation>
     </message>
     <message>
+        <location filename="../src/preferences/preferences.ui" line="1071"/>
+        <source>Allow local storage of HTML5 web content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/preferences.ui" line="1078"/>
+        <source>Delete locally stored HTML5 web content on close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/preferences/preferences.ui" line="1833"/>
         <source>JavaScript can access clipboard</source>
         <translation>JavaScript可访问剪贴板</translation>
@@ -2505,16 +2515,6 @@
         <location filename="../src/preferences/preferences.ui" line="1048"/>
         <source>Delete history on close</source>
         <translation>删除近来的历史记录</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="1071"/>
-        <source>Allow HTML5 local storage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="1078"/>
-        <source>Delete local storage on close</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1104"/>
@@ -3345,7 +3345,7 @@
         <translation>隐私浏览&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1661"/>
+        <location filename="../src/app/qupzilla.cpp" line="1658"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>还有%1打开的标签和您的会话将不会被储存。你一定要退出吗？</translation>
     </message>
@@ -3370,47 +3370,47 @@
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1292"/>
+        <location filename="../src/app/qupzilla.cpp" line="1289"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1369"/>
+        <location filename="../src/app/qupzilla.cpp" line="1366"/>
         <source>Open file...</source>
         <translation>打开文件...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1479"/>
+        <location filename="../src/app/qupzilla.cpp" line="1476"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>你确定要打开隐私浏览吗？</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1480"/>
+        <location filename="../src/app/qupzilla.cpp" line="1477"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>打开隐私浏览时，有关于您的隐私行动将被禁用：</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1483"/>
+        <location filename="../src/app/qupzilla.cpp" line="1480"/>
         <source>Webpages are not added to the history.</source>
         <translation>网页不会添加到历史记录。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1484"/>
+        <location filename="../src/app/qupzilla.cpp" line="1481"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>当前的cookies无法被访问。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1485"/>
+        <location filename="../src/app/qupzilla.cpp" line="1482"/>
         <source>Your session is not stored.</source>
         <translation>不会存储您的会话。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1487"/>
+        <location filename="../src/app/qupzilla.cpp" line="1484"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>直到您关闭该窗口，你仍然可以单击后退和前进按钮，返回到你已经打开的网页.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1492"/>
+        <location filename="../src/app/qupzilla.cpp" line="1489"/>
         <source>Start Private Browsing</source>
         <translation>开始隐私浏览</translation>
     </message>
@@ -4448,7 +4448,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="262"/>
+        <location filename="../src/plugins/speeddial.cpp" line="267"/>
         <source>Unable to load</source>
         <translation>无法加载</translation>
     </message>
@@ -4979,198 +4979,198 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="obsolete">新标签</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="628"/>
+        <location filename="../src/webview/webview.cpp" line="630"/>
         <source>Open link in new &amp;tab</source>
         <translation type="unfinished">在新标签中打开链接&amp;t</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="629"/>
+        <location filename="../src/webview/webview.cpp" line="631"/>
         <source>Open link in new &amp;window</source>
         <translation type="unfinished">在新窗口中打开链接&amp;w</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="631"/>
+        <location filename="../src/webview/webview.cpp" line="633"/>
         <source>B&amp;ookmark link</source>
         <translation type="unfinished">书签链接&amp;o</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="632"/>
+        <location filename="../src/webview/webview.cpp" line="634"/>
         <source>&amp;Save link as...</source>
         <translation type="unfinished">链接另存为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="633"/>
+        <location filename="../src/webview/webview.cpp" line="635"/>
         <source>Send link...</source>
         <translation type="unfinished">发送链接...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="634"/>
+        <location filename="../src/webview/webview.cpp" line="636"/>
         <source>&amp;Copy link address</source>
         <translation type="unfinished">复制链接地址&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="646"/>
+        <location filename="../src/webview/webview.cpp" line="648"/>
         <source>Show i&amp;mage</source>
         <translation type="unfinished">显示图像&amp;m</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="651"/>
+        <location filename="../src/webview/webview.cpp" line="653"/>
         <source>Copy im&amp;age</source>
         <translation type="unfinished">复制图像&amp;a</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="652"/>
+        <location filename="../src/webview/webview.cpp" line="654"/>
         <source>Copy image ad&amp;dress</source>
         <translation type="unfinished">复制图像地址&amp;d</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="654"/>
+        <location filename="../src/webview/webview.cpp" line="656"/>
         <source>&amp;Save image as...</source>
         <translation type="unfinished">图像另存为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="655"/>
+        <location filename="../src/webview/webview.cpp" line="657"/>
         <source>Send image...</source>
         <translation type="unfinished">发送图像...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="570"/>
+        <location filename="../src/webview/webview.cpp" line="572"/>
         <source>&amp;Back</source>
         <translation type="unfinished">后退&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="574"/>
+        <location filename="../src/webview/webview.cpp" line="576"/>
         <source>&amp;Forward</source>
         <translation type="unfinished">前进&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="578"/>
-        <location filename="../src/webview/webview.cpp" line="589"/>
+        <location filename="../src/webview/webview.cpp" line="580"/>
+        <location filename="../src/webview/webview.cpp" line="591"/>
         <source>&amp;Reload</source>
         <translation type="unfinished">刷新&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="579"/>
+        <location filename="../src/webview/webview.cpp" line="581"/>
         <source>S&amp;top</source>
         <translation type="unfinished">停止&amp;t</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="585"/>
+        <location filename="../src/webview/webview.cpp" line="587"/>
         <source>This frame</source>
         <translation type="unfinished">此帧</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="586"/>
+        <location filename="../src/webview/webview.cpp" line="588"/>
         <source>Show &amp;only this frame</source>
         <translation type="unfinished">仅显示此帧&amp;o</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="587"/>
+        <location filename="../src/webview/webview.cpp" line="589"/>
         <source>Show this frame in new &amp;tab</source>
         <translation type="unfinished">在新选项卡的显示帧&amp;t</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="590"/>
+        <location filename="../src/webview/webview.cpp" line="592"/>
         <source>Print frame</source>
         <translation type="unfinished">打印帧</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="592"/>
+        <location filename="../src/webview/webview.cpp" line="594"/>
         <source>Zoom &amp;in</source>
         <translation type="unfinished">放大&amp;i</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="593"/>
+        <location filename="../src/webview/webview.cpp" line="595"/>
         <source>&amp;Zoom out</source>
         <translation type="unfinished">缩小&amp;Z</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="594"/>
+        <location filename="../src/webview/webview.cpp" line="596"/>
         <source>Reset</source>
         <translation type="unfinished">重置</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="596"/>
+        <location filename="../src/webview/webview.cpp" line="598"/>
         <source>Show so&amp;urce of frame</source>
         <translation type="unfinished">显示帧源码&amp;u</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="602"/>
+        <location filename="../src/webview/webview.cpp" line="604"/>
         <source>Book&amp;mark page</source>
         <translation type="unfinished">加入书签&amp;m</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="603"/>
+        <location filename="../src/webview/webview.cpp" line="605"/>
         <source>&amp;Save page as...</source>
         <translation type="unfinished">保存网页为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="604"/>
+        <location filename="../src/webview/webview.cpp" line="606"/>
         <source>&amp;Copy page link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="605"/>
+        <location filename="../src/webview/webview.cpp" line="607"/>
         <source>Send page link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="606"/>
+        <location filename="../src/webview/webview.cpp" line="608"/>
         <source>&amp;Print page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="674"/>
+        <location filename="../src/webview/webview.cpp" line="676"/>
         <source>Send text...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="679"/>
+        <location filename="../src/webview/webview.cpp" line="681"/>
         <source>Google Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="680"/>
+        <location filename="../src/webview/webview.cpp" line="682"/>
         <source>Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="691"/>
+        <location filename="../src/webview/webview.cpp" line="693"/>
         <source>Go to &amp;web address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="713"/>
+        <location filename="../src/webview/webview.cpp" line="715"/>
         <source>&amp;Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="713"/>
+        <location filename="../src/webview/webview.cpp" line="715"/>
         <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="714"/>
+        <location filename="../src/webview/webview.cpp" line="716"/>
         <source>Un&amp;mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="714"/>
+        <location filename="../src/webview/webview.cpp" line="716"/>
         <source>&amp;Mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="716"/>
+        <location filename="../src/webview/webview.cpp" line="718"/>
         <source>&amp;Copy Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="717"/>
+        <location filename="../src/webview/webview.cpp" line="719"/>
         <source>&amp;Send Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="718"/>
+        <location filename="../src/webview/webview.cpp" line="720"/>
         <source>Save Media To &amp;Disk</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5179,22 +5179,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="obsolete">发送网页...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="608"/>
+        <location filename="../src/webview/webview.cpp" line="610"/>
         <source>Select &amp;all</source>
         <translation type="unfinished">选取所有&amp;a</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="613"/>
+        <location filename="../src/webview/webview.cpp" line="615"/>
         <source>Validate page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="616"/>
+        <location filename="../src/webview/webview.cpp" line="618"/>
         <source>Show so&amp;urce code</source>
         <translation type="unfinished">显示源代码&amp;u</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="617"/>
+        <location filename="../src/webview/webview.cpp" line="619"/>
         <source>Show info ab&amp;out site</source>
         <translation type="unfinished">显示有关网站的信息&amp;o</translation>
     </message>
@@ -5203,7 +5203,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="obsolete">显示Web及督察&amp;I</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="697"/>
+        <location filename="../src/webview/webview.cpp" line="699"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation type="unfinished">使用 %2搜索&quot;%1 ..&quot; </translation>
     </message>

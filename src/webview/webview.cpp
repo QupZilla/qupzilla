@@ -106,7 +106,9 @@ void WebView::setPage(QWebPage* page)
 void WebView::load(const QUrl &url)
 {
     if (url.scheme() == "javascript") {
-        page()->mainFrame()->evaluateJavaScript(url.toString());
+        // Getting scriptSource from PercentEncoding to properly load bookmarklets
+        QString scriptSource = QUrl::fromPercentEncoding(url.toString().mid(11).toUtf8());
+        page()->mainFrame()->evaluateJavaScript(scriptSource);
         return;
     }
 

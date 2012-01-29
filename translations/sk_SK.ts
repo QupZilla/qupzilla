@@ -2305,11 +2305,11 @@
     </message>
     <message>
         <source>Allow HTML5 local storage</source>
-        <translation>Povoliť HTML 5 lokálne úložisko</translation>
+        <translation type="obsolete">Povoliť HTML 5 lokálne úložisko</translation>
     </message>
     <message>
         <source>Delete local storage on close</source>
-        <translation>Zmazať lokálne úložisko pri ukončení prehliadača</translation>
+        <translation type="obsolete">Zmazať lokálne úložisko pri ukončení prehliadača</translation>
     </message>
     <message>
         <source>Filter tracking cookies</source>
@@ -2365,6 +2365,14 @@
     </message>
     <message>
         <source>Choose executable location...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow local storage of HTML5 web content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete locally stored HTML5 web content on close</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
