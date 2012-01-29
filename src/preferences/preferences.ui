@@ -1068,14 +1068,14 @@
              <item row="3" column="0" colspan="3">
               <widget class="QCheckBox" name="html5storage">
                <property name="text">
-                <string>Allow HTML5 local storage</string>
+                <string>Allow local storage of HTML5 content</string>
                </property>
               </widget>
              </item>
              <item row="4" column="1">
               <widget class="QCheckBox" name="deleteHtml5storageOnClose">
                <property name="text">
-                <string>Delete local storage on close</string>
+                <string>Delete locally stored HTML5 content on close</string>
                </property>
               </widget>
              </item>
