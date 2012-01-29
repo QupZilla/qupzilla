@@ -36,10 +36,6 @@ WebInspectorDockWidget::WebInspectorDockWidget(QupZilla* mainClass)
 
 void WebInspectorDockWidget::close()
 {
-    if (qWebKitVersion() == "533.3") {
-        delete m_inspector.data();
-    }
-
     p_QupZilla->weView()->webTab()->setInspectorVisible(false);
 
     hide();
@@ -47,14 +43,19 @@ void WebInspectorDockWidget::close()
 
 void WebInspectorDockWidget::show()
 {
-    if (!m_inspector) {
-        m_inspector = new QWebInspector(this);
-        m_inspector.data()->setPage(p_QupZilla->weView()->page());
-        setWidget(m_inspector.data());
+    QWebPage* page = p_QupZilla->weView()->page();
+    QWeakPointer<WebInspector> inspector = m_inspectors[page];
+
+    if (!inspector) {
+        inspector = new WebInspector(this);
+        inspector.data()->setPage(p_QupZilla->weView()->page());
+
+        m_inspectors[page] = inspector;
     }
 
-    if (m_inspector.data()->page() != p_QupZilla->weView()->page()) {
-        m_inspector.data()->setPage(p_QupZilla->weView()->page());
+    if (m_currentInspector != inspector) {
+        setWidget(inspector.data());
+        m_currentInspector = inspector;
     }
 
     p_QupZilla->weView()->webTab()->setInspectorVisible(true);

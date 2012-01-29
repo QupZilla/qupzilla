@@ -1258,9 +1258,7 @@ void QupZilla::showStatusbar()
 
 void QupZilla::showWebInspector()
 {
-#ifndef Q_WS_WIN
     if (m_webInspectorDock) {
-        m_webInspectorDock.data()->setPage(weView()->webPage());
         m_webInspectorDock.data()->show();
         return;
     }
@@ -1268,7 +1266,6 @@ void QupZilla::showWebInspector()
     m_webInspectorDock = new WebInspectorDockWidget(this);
     connect(m_tabWidget, SIGNAL(currentChanged(int)), m_webInspectorDock.data(), SLOT(tabChanged()));
     addDockWidget(Qt::BottomDockWidgetArea, m_webInspectorDock.data());
-#endif
 }
 
 void QupZilla::showBookmarkImport()

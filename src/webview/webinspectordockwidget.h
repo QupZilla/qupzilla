@@ -22,8 +22,20 @@
 #include <QWebInspector>
 #include <QPair>
 #include <QWeakPointer>
+#include <QHash>
 
-class WebPage;
+class WebInspector : public QWebInspector
+{
+public:
+    explicit WebInspector(QWidget* parent) : QWebInspector(parent) { }
+
+private:
+    void hideEvent(QHideEvent *)
+    {
+        // Prevent re-initializing QWebInspector after changing tab / virtual desktop
+    }
+};
+
 class QupZilla;
 class WebInspectorDockWidget : public QDockWidget
 {
@@ -31,8 +43,6 @@ class WebInspectorDockWidget : public QDockWidget
 public:
     explicit WebInspectorDockWidget(QupZilla* mainClass);
     ~WebInspectorDockWidget();
-
-    void setPage(WebPage* page) { m_page = page; }
 
 signals:
 
@@ -44,8 +54,9 @@ public slots:
 
 private:
     QupZilla* p_QupZilla;
-    QWeakPointer<QWebInspector> m_inspector;
-    WebPage* m_page;
+    QHash<QWebPage*, QWeakPointer<WebInspector> > m_inspectors;
+
+    QWeakPointer<WebInspector> m_currentInspector;
 };
 
 #endif // WEBINSPECTORDOCKWIDGET_H
