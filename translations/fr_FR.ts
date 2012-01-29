@@ -1202,7 +1202,7 @@
         <translation>Enregistrer le fichier sous...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="221"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="232"/>
         <source>NoNameDownload</source>
         <translation>Téléchargement sans nom</translation>
     </message>
@@ -1814,8 +1814,8 @@ n&apos;a pas été trouvé!</translation>
         <translation>Sortir du plein écran</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="205"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="241"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="207"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="243"/>
         <source>Clear history</source>
         <translation>Supprimer l&apos;historique</translation>
     </message>
@@ -4567,8 +4567,12 @@ Après avoir ajouté ou retiré un certificat, il est nécessaire de redémarrer
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="258"/>
+        <source>Currently you have %1 opened tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Actually you have %1 opened tabs</source>
-        <translation>Il y a actuellement %1 onglet(s) ouvert(s)</translation>
+        <translation type="obsolete">Il y a actuellement %1 onglet(s) ouvert(s)</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="270"/>

@@ -255,7 +255,7 @@ void TabWidget::aboutToShowTabsMenu()
         m_menuTabs->addAction(action);
     }
     m_menuTabs->addSeparator();
-    m_menuTabs->addAction(tr("Actually you have %1 opened tabs").arg(count()))->setEnabled(false);
+    m_menuTabs->addAction(tr("Currently you have %1 opened tabs").arg(count()))->setEnabled(false);
 }
 
 void TabWidget::actionChangeIndex()

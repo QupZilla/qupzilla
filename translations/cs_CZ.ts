@@ -1204,7 +1204,7 @@
         <translation>Uložit soubor jako...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="221"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="232"/>
         <source>NoNameDownload</source>
         <translation>BezNazvu</translation>
     </message>
@@ -1816,8 +1816,8 @@ nebyl nalezen!</translation>
         <translation>Zrušit celou obrazovku</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="205"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="241"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="207"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="243"/>
         <source>Clear history</source>
         <translation>Smazat historii</translation>
     </message>
@@ -4605,8 +4605,12 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="258"/>
-        <source>Actually you have %1 opened tabs</source>
+        <source>Currently you have %1 opened tabs</source>
         <translation>Dohromady máte otevřeno %1 panelů</translation>
+    </message>
+    <message>
+        <source>Actually you have %1 opened tabs</source>
+        <translation type="obsolete">Dohromady máte otevřeno %1 panelů</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="270"/>

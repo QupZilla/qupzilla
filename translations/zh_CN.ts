@@ -1195,7 +1195,7 @@
         <translation>另存为...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="221"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="232"/>
         <source>NoNameDownload</source>
         <translation>无命名下载</translation>
     </message>
@@ -1805,8 +1805,8 @@
         <translation>退出全屏</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="205"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="241"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="207"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="243"/>
         <source>Clear history</source>
         <translation>清除历史</translation>
     </message>
@@ -4558,8 +4558,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="258"/>
+        <source>Currently you have %1 opened tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Actually you have %1 opened tabs</source>
-        <translation>你已有%1打开的标签</translation>
+        <translation type="obsolete">你已有%1打开的标签</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="270"/>

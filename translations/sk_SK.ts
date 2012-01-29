@@ -3679,7 +3679,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Actually you have %1 opened tabs</source>
-        <translation>Momentálne máte otvorených %1 kariet</translation>
+        <translation type="obsolete">Momentálne máte otvorených %1 kariet</translation>
     </message>
     <message>
         <source>Show list of opened tabs</source>
@@ -3708,6 +3708,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Clear list</source>
         <translation>Vyčistiť zoznam</translation>
+    </message>
+    <message>
+        <source>Currently you have %1 opened tabs</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

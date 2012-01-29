@@ -1199,7 +1199,7 @@
         <translation>Αποθήκευση αρχείου ως...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="221"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="232"/>
         <source>NoNameDownload</source>
         <translatorcomment>?</translatorcomment>
         <translation>NoNameDownload</translation>
@@ -1812,8 +1812,8 @@
         <translation>Έξοδος από την λειτουργία πλήρους οθόνης</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="205"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="241"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="207"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="243"/>
         <source>Clear history</source>
         <translation>Εκκαθάριση ιστορικού</translation>
     </message>
@@ -4567,8 +4567,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="258"/>
+        <source>Currently you have %1 opened tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Actually you have %1 opened tabs</source>
-        <translation>Πραγματικά έχετε %1 ανοιχτές καρτέλες</translation>
+        <translation type="obsolete">Πραγματικά έχετε %1 ανοιχτές καρτέλες</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="270"/>

@@ -1188,7 +1188,7 @@
         <translation>Spara fil som...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="221"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="232"/>
         <source>NoNameDownload</source>
         <translation>Namnlös nedladdning</translation>
     </message>
@@ -1800,8 +1800,8 @@
         <translation>Avsluta fullskärm</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="205"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="241"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="207"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="243"/>
         <source>Clear history</source>
         <translation>Rensa historik</translation>
     </message>
@@ -4568,8 +4568,12 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="258"/>
+        <source>Currently you have %1 opened tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Actually you have %1 opened tabs</source>
-        <translation>För tillfället har du %1 öppna flikar</translation>
+        <translation type="obsolete">För tillfället har du %1 öppna flikar</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="270"/>

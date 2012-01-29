@@ -1202,7 +1202,7 @@
         <translation>Datei speichern als...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="221"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="232"/>
         <source>NoNameDownload</source>
         <translation>NoNameDownload</translation>
     </message>
@@ -1814,8 +1814,8 @@
         <translation>Vollbildmodus beenden</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="205"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="241"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="207"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="243"/>
         <source>Clear history</source>
         <translation>Verlauf löschen</translation>
     </message>
@@ -4605,8 +4605,12 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="258"/>
+        <source>Currently you have %1 opened tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Actually you have %1 opened tabs</source>
-        <translation>Aktuell sind %1 Tabs geöffnet</translation>
+        <translation type="obsolete">Aktuell sind %1 Tabs geöffnet</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="270"/>

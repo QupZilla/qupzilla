@@ -480,19 +480,19 @@
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="7"/>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="24"/>
         <source>No Error</source>
-        <translation type="unfinished">Geen fout</translation>
+        <translation>Geen fout</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="40"/>
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="22"/>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="39"/>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan bestand niet openen.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="85"/>
         <source>Cannot evaluate JSON code.</source>
-        <translation type="unfinished">Kan JSON-code niet evalueren.</translation>
+        <translation>Kan JSON-code niet evalueren.</translation>
     </message>
     <message>
         <source>File does not exists.</source>
@@ -501,12 +501,12 @@
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="39"/>
         <source>File does not exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestand bestaat niet.</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="47"/>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation type="unfinished">Database kan niet worden geopend. Is Firefox actief?</translation>
+        <translation>Database kan niet worden geopend. Is Firefox actief?</translation>
     </message>
 </context>
 <context>
@@ -607,7 +607,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Open link in huidige &amp;tab</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="241"/>
@@ -684,12 +684,12 @@
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Open link in huidig &amp;tabblad</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="111"/>
         <source>Open link in &amp;new tab</source>
-        <translation>Open link in &amp;nieuwe tabblad</translation>
+        <translation>Open link in &amp;nieuw tabblad</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="112"/>
@@ -977,7 +977,7 @@
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="111"/>
         <source>Earlier Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Eerder vandaag</translation>
     </message>
     <message>
         <source>Later Today</source>
@@ -1013,7 +1013,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="127"/>
         <source>Show more information about object</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon meer informatie over object</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="129"/>
@@ -1043,7 +1043,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="285"/>
         <source>No more information available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen verdere informatie beschikbaar.</translation>
     </message>
     <message>
         <source>No more informations available.</source>
@@ -1200,7 +1200,7 @@
         <translation>Bestand opslaan als...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="221"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="232"/>
         <source>NoNameDownload</source>
         <translation>GeenNaamVoorDownload</translation>
     </message>
@@ -1348,22 +1348,22 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
         <source>Executable: </source>
-        <translation type="unfinished"></translation>
+        <translation>Uitvoerbaar: </translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
         <source>Arguments: </source>
-        <translation type="unfinished"></translation>
+        <translation>Argumenten: </translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="104"/>
         <source>Cannot start external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan externe downloadmanager niet starten</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="104"/>
         <source>Cannot start external download manager! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan externe downloadmanager niet starten! %1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="156"/>
@@ -1547,7 +1547,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/history/historymanager.cpp" line="101"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Open link in huidig tabblad</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
@@ -1684,7 +1684,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Open link in huidig tabblad</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
@@ -1741,12 +1741,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="257"/>
         <source>Paste And &amp;Go</source>
-        <translation type="unfinished"></translation>
+        <translation>Plak en &amp;ga</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="263"/>
         <source>Clear All</source>
-        <translation type="unfinished"></translation>
+        <translation>Wis alles</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="424"/>
@@ -1757,7 +1757,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/navigation/siteicon.cpp" line="29"/>
         <source>Show information about this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon informatie over deze pagina</translation>
     </message>
 </context>
 <context>
@@ -1812,8 +1812,8 @@ werd niet gevonden!</translation>
         <translation>Verlaat volledig scherm</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="205"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="241"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="207"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="243"/>
         <source>Clear history</source>
         <translation>Verwijder geschiedenis</translation>
     </message>
@@ -2115,7 +2115,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/popupwindow/popupwindow.cpp" line="126"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
 </context>
 <context>
@@ -2386,7 +2386,7 @@ werd niet gevonden!</translation>
         <location filename="../src/preferences/preferences.ui" line="258"/>
         <location filename="../src/preferences/preferences.ui" line="406"/>
         <source>Use current</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik huidig</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="439"/>
@@ -2426,17 +2426,17 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="729"/>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluit niet af na sluiten van laatste tabblad</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="736"/>
         <source>Closed tabs list instead of opened in tab bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Gesloten tabbladenlijst i.p.v. openen in tabbladbalk</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="743"/>
         <source>Open new tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Open nieuwe tabbladen achter actief tabblad</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="773"/>
@@ -2477,17 +2477,17 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1071"/>
         <source>Allow HTML5 local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Sta HTML5-lokale opslag toe</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1078"/>
         <source>Delete local storage on close</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijder lokale opslag bij afsluiten</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1104"/>
         <source>Delete now</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijder nu</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1127"/>
@@ -2545,22 +2545,22 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1394"/>
         <source>Fixed Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Vastgezette lettergrootte</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1401"/>
         <source>Default Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Standaard lettergrootte</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1428"/>
         <source>Minimum Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimale lettergrootte</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1435"/>
         <source>Minimum Logical Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimale logische lettergrootte</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1468"/>
@@ -2604,57 +2604,57 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1554"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Externe downloadmanager&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1561"/>
         <source>Use external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik externe downloadmanager</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1573"/>
         <source>Executable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitvoerbaar:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1580"/>
         <source>Arguments:</source>
-        <translation type="unfinished"></translation>
+        <translation>Argumenten:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1707"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter opsporingscookies</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1751"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Waarschuwing:&lt;/b&gt; Exact overeenkomen met domein en filter opsporingscookies kan leiden tot weigering van cookies door sites. Indien u problemen heeft met cookies, probeer dan deze opties eerst uit te schakelen!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1790"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;SSL-certificaten&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1810"/>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerk CA-certificaten in SSL-beheerder</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1840"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Overig&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1854"/>
         <source>Send Referer header to servers</source>
-        <translation type="unfinished"></translation>
+        <translation>Verstuur refereerkop naar servers</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1861"/>
         <source>Block popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokkeer popup-vensters</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1874"/>
@@ -2907,12 +2907,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="466"/>
         <source>Deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderd</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="472"/>
         <source>Choose executable location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies uitvoerbaar bestands-locatie...</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="600"/>
@@ -2961,12 +2961,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/tools/certificateinfowidget.cpp" line="286"/>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished">&lt;niet aangegeven in certificaat&gt;</translation>
+        <translation>&lt;niet aangegeven in certificaat&gt;</translation>
     </message>
     <message>
         <location filename="../src/desktopnotifications/desktopnotificationsfactory.cpp" line="101"/>
         <source>Native System Notification</source>
-        <translation type="unfinished">Natieve systeemmelding</translation>
+        <translation>Natieve systeemmelding</translation>
     </message>
 </context>
 <context>
@@ -3172,17 +3172,17 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="447"/>
         <source>Recently Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Onlangs bezocht</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="450"/>
         <source>Most Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Meest bezocht</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="838"/>
         <source>Information about application</source>
-        <translation type="unfinished"></translation>
+        <translation>Informatie over programma</translation>
     </message>
     <message>
         <source> - QupZilla</source>
@@ -3261,7 +3261,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1292"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1484"/>
@@ -3453,7 +3453,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="unfinished">U heeft succesvol RSS-feed &quot;%1&quot; toegevoegd.</translation>
+        <translation>U heeft succesvol RSS-feed &quot;%1&quot; toegevoegd.</translation>
     </message>
 </context>
 <context>
@@ -3681,12 +3681,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Maximum pages in a row:</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximaal pagina´s in een rij:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
         <source>Change size of pages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Verander grootte van pagina´s:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
@@ -3721,7 +3721,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="180"/>
         <source>Information about version</source>
-        <translation type="unfinished"></translation>
+        <translation>Informatie over versie</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
@@ -3838,7 +3838,7 @@ Voeg enkele toe via het RSS-icoon op de navigatiewerkbalk op een site die feeds 
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="234"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Open link in huidig tabblad</translation>
     </message>
     <message>
         <source>Open link in actual tab</source>
@@ -4444,7 +4444,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="144"/>
         <source>Cannot reload source. Page has been closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan bron niet herladen; pagina is gesloten.</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="152"/>
@@ -4574,7 +4574,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Lijst van tabbladen</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="141"/>
@@ -4593,8 +4593,12 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="258"/>
-        <source>Actually you have %1 opened tabs</source>
+        <source>Currently you have %1 opened tabs</source>
         <translation>Eigenlijk heeft U %1 geopende tabbladen</translation>
+    </message>
+    <message>
+        <source>Actually you have %1 opened tabs</source>
+        <translation type="obsolete">Eigenlijk heeft U %1 geopende tabbladen</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="270"/>
@@ -4605,17 +4609,17 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="562"/>
         <source>Empty</source>
-        <translation type="unfinished">Leeg</translation>
+        <translation>Leeg</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="565"/>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished">Herstel alle gesloten tabbladen</translation>
+        <translation>Herstel alle gesloten tabbladen</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="566"/>
         <source>Clear list</source>
-        <translation type="unfinished">Wis lijst</translation>
+        <translation>Wis lijst</translation>
     </message>
 </context>
 <context>
@@ -4623,22 +4627,22 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="86"/>
         <source>Failed loading page</source>
-        <translation type="unfinished">Mislukt om pagina te laden</translation>
+        <translation>Mislukt om pagina te laden</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="156"/>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Aan het laden...</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="231"/>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="318"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Inspecteer element</translation>
     </message>
     <message>
         <source>Open link in new &amp;tab</source>
@@ -4818,12 +4822,12 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/navigation/reloadstopbutton.cpp" line="28"/>
         <source>Stop</source>
-        <translation type="unfinished">Stop</translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <location filename="../src/navigation/reloadstopbutton.cpp" line="36"/>
         <source>Reload</source>
-        <translation type="unfinished">Herlaad</translation>
+        <translation>Herlaad</translation>
     </message>
 </context>
 <context>
@@ -4869,12 +4873,12 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webpage.cpp" line="246"/>
         <source>Confirm form resubmission</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevestig herindiening forumlier</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="351"/>
         <source>Select files to upload...</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer bestanden om te uploaden...</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="372"/>
@@ -4984,12 +4988,12 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webpage.cpp" line="571"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished">Voorkom dat deze pagina extra dialoogvensters aanmaakt</translation>
+        <translation>Voorkom dat deze pagina extra dialoogvensters aanmaakt</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="574"/>
         <source>JavaScript alert - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>JavaScript-waarschuwing - %1</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="620"/>
@@ -5012,12 +5016,12 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="199"/>
         <source>Paste And &amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Plak en &amp;zoek</translation>
     </message>
     <message>
         <location filename="../src/navigation/websearchbar.cpp" line="205"/>
         <source>Clear All</source>
-        <translation type="unfinished"></translation>
+        <translation>Wis alles</translation>
     </message>
 </context>
 <context>
@@ -5033,147 +5037,147 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webview.cpp" line="628"/>
         <source>Open link in new &amp;tab</source>
-        <translation type="unfinished">Open link in nieuw &amp;tabblad</translation>
+        <translation>Open link in nieuw &amp;tabblad</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="629"/>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished">Open link in nieuw &amp;venster</translation>
+        <translation>Open link in nieuw &amp;venster</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="631"/>
         <source>B&amp;ookmark link</source>
-        <translation type="unfinished">B&amp;ladwijzer link</translation>
+        <translation>B&amp;ladwijzer link</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="632"/>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished">&amp;Sla link op als...</translation>
+        <translation>&amp;Sla link op als...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="634"/>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished">&amp;Kopieer linkadres</translation>
+        <translation>&amp;Kopieer linkadres</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="646"/>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished">Toon af&amp;beelding</translation>
+        <translation>Toon af&amp;beelding</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="651"/>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished">&amp;Kopieer afbeelding</translation>
+        <translation>&amp;Kopieer afbeelding</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="652"/>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished">Kopieer af&amp;beeldingsadres</translation>
+        <translation>Kopieer af&amp;beeldingsadres</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="579"/>
         <source>S&amp;top</source>
-        <translation type="unfinished">&amp;Stop</translation>
+        <translation>&amp;Stop</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="585"/>
         <source>This frame</source>
-        <translation type="unfinished">Dit frame</translation>
+        <translation>Dit frame</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="586"/>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished">Toon &amp;alleen dit frame</translation>
+        <translation>Toon &amp;alleen dit frame</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="587"/>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished">Toon dit frame in nieuw &amp;tabblad</translation>
+        <translation>Toon dit frame in nieuw &amp;tabblad</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="590"/>
         <source>Print frame</source>
-        <translation type="unfinished">Druk frame af</translation>
+        <translation>Druk frame af</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="592"/>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished">Zoom &amp;in</translation>
+        <translation>Zoom &amp;in</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="593"/>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished">&amp;Zoom uit</translation>
+        <translation>&amp;Zoom uit</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="594"/>
         <source>Reset</source>
-        <translation type="unfinished">Zet terug</translation>
+        <translation>Zet terug</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="596"/>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished">Toon &amp;bron van frame</translation>
+        <translation>Toon &amp;bron van frame</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="604"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished">&amp;Kopieer paginalink</translation>
+        <translation>&amp;Kopieer paginalink</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="605"/>
         <source>Send page link...</source>
-        <translation type="unfinished">Verstuur paginalink...</translation>
+        <translation>Verstuur paginalink...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="606"/>
         <source>&amp;Print page</source>
-        <translation type="unfinished">&amp;Print pagina</translation>
+        <translation>&amp;Print pagina</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="613"/>
         <source>Validate page</source>
-        <translation type="unfinished">Valideer pagina</translation>
+        <translation>Valideer pagina</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="617"/>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished">Toon info &amp;over site</translation>
+        <translation>Toon info &amp;over site</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="713"/>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Speel af</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="713"/>
         <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pauzeer</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="714"/>
         <source>Un&amp;mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Ont&amp;demp</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="714"/>
         <source>&amp;Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Demp</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="716"/>
         <source>&amp;Copy Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopieer media-adres</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="717"/>
         <source>&amp;Send Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verstuur media-adres</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="718"/>
         <source>Save Media To &amp;Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Sla media op naar &amp;schijf</translation>
     </message>
     <message>
         <source>Show Web &amp;Inspector</source>
@@ -5182,7 +5186,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webview.cpp" line="654"/>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished">&amp;Sla afbeelding op als...</translation>
+        <translation>&amp;Sla afbeelding op als...</translation>
     </message>
     <message>
         <source>Failed loading page</source>
@@ -5191,63 +5195,63 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webview.cpp" line="570"/>
         <source>&amp;Back</source>
-        <translation type="unfinished">&amp;Terug</translation>
+        <translation>&amp;Terug</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="574"/>
         <source>&amp;Forward</source>
-        <translation type="unfinished">&amp;Vooruit</translation>
+        <translation>&amp;Vooruit</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="578"/>
         <location filename="../src/webview/webview.cpp" line="589"/>
         <source>&amp;Reload</source>
-        <translation type="unfinished">&amp;Herlaad</translation>
+        <translation>&amp;Herlaad</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="602"/>
         <source>Book&amp;mark page</source>
-        <translation type="unfinished">&amp;Bladwijzer pagina</translation>
+        <translation>&amp;Bladwijzer pagina</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="603"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished">&amp;Sla pagina op als...</translation>
+        <translation>&amp;Sla pagina op als...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="608"/>
         <source>Select &amp;all</source>
-        <translation type="unfinished">&amp;Selecteer alles</translation>
+        <translation>&amp;Selecteer alles</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="616"/>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished">&amp;Toon broncode</translation>
+        <translation>&amp;Toon broncode</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="674"/>
         <source>Send text...</source>
-        <translation type="unfinished">Verstuur tekst...</translation>
+        <translation>Verstuur tekst...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="679"/>
         <source>Google Translate</source>
-        <translation type="unfinished">Google Vertalen</translation>
+        <translation>Google Vertalen</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="680"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Woordenboek</translation>
+        <translation>Woordenboek</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="691"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished">Ga naar &amp;webadres</translation>
+        <translation>Ga naar &amp;webadres</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="697"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished">Zoek &quot;%1 ..&quot; met %2</translation>
+        <translation>Zoek &quot;%1 ..&quot; met %2</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="82"/>
@@ -5261,12 +5265,12 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/webview/webview.cpp" line="633"/>
         <source>Send link...</source>
-        <translation type="unfinished">Verstuur link...</translation>
+        <translation>Verstuur link...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="655"/>
         <source>Send image...</source>
-        <translation type="unfinished">Verstuur afbeelding...</translation>
+        <translation>Verstuur afbeelding...</translation>
     </message>
     <message>
         <source>Send page...</source>

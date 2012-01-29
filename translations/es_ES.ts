@@ -1199,7 +1199,7 @@
         <translation>Guardar archivo como...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="221"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="232"/>
         <source>NoNameDownload</source>
         <translation>DescargaSinNombre</translation>
     </message>
@@ -1811,8 +1811,8 @@
         <translation>Salir de pantalla completa</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="205"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="241"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="207"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="243"/>
         <source>Clear history</source>
         <translation>Limpiar historial</translation>
     </message>
@@ -4590,8 +4590,12 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="258"/>
+        <source>Currently you have %1 opened tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Actually you have %1 opened tabs</source>
-        <translation>Actualmente tiene %1 pestañas abiertas</translation>
+        <translation type="obsolete">Actualmente tiene %1 pestañas abiertas</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="270"/>
