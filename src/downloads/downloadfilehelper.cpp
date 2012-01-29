@@ -122,8 +122,19 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
                 QFileDialog* dialog = new QFileDialog(mApp->getWindow());
                 dialog->setAttribute(Qt::WA_DeleteOnClose);
                 dialog->setWindowTitle(tr("Save file as..."));
+                dialog->setAcceptMode(QFileDialog::AcceptSave);
                 dialog->setDirectory(m_lastDownloadPath);
                 dialog->selectFile(m_h_fileName);
+
+                QList<QUrl> urls;
+                urls << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation))
+                     << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DesktopLocation))
+                     << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation))
+                     << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::PicturesLocation))
+                     << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::MusicLocation))
+                     << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::MoviesLocation));
+                dialog->setSidebarUrls(urls);
+
                 dialog->show();
                 connect(dialog, SIGNAL(fileSelected(QString)), this, SLOT(fileNameChoosed(QString)));
             }

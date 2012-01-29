@@ -278,7 +278,7 @@ int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionF
         url = m_urlOnNewTab;
     }
 
-    if (m_newTabAfterActive && !(openFlags & Qz::NT_TabAtTheEnd)) {
+    if (position == -1 && m_newTabAfterActive && !(openFlags & Qz::NT_TabAtTheEnd)) {
         // If we are opening newBgTab from pinned tab, make sure it won't be
         // opened between other pinned tabs
         position = qMax(currentIndex() + 1, m_tabBar->pinnedTabsCount());
