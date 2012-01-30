@@ -1104,19 +1104,19 @@
     </message>
     <message>
         <source>Executable: </source>
-        <translation type="unfinished"></translation>
+        <translation>Program: </translation>
     </message>
     <message>
         <source>Arguments: </source>
-        <translation type="unfinished"></translation>
+        <translation>Argumenty: </translation>
     </message>
     <message>
         <source>Cannot start external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodarilo sa spustiť externého správcu sťahovania</translation>
     </message>
     <message>
         <source>Cannot start external download manager! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodarilo sa spustiť externého správcu sťahovania! %1</translation>
     </message>
 </context>
 <context>
@@ -2329,51 +2329,51 @@
     </message>
     <message>
         <source>Delete now</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazať teraz</translation>
     </message>
     <message>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Ostatné&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Send Referer header to servers</source>
-        <translation type="unfinished"></translation>
+        <translation>Posielať serverom Referer hlavičku</translation>
     </message>
     <message>
         <source>Block popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokovať vyskakovacie okná</translation>
     </message>
     <message>
         <source>Deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazaný</translation>
     </message>
     <message>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Externý správca sťahovania&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Use external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Používať externého správcu sťahovania</translation>
     </message>
     <message>
         <source>Executable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Program:</translation>
     </message>
     <message>
         <source>Arguments:</source>
-        <translation type="unfinished"></translation>
+        <translation>Argumenty:</translation>
     </message>
     <message>
         <source>Choose executable location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľte cestu k programu...</translation>
     </message>
     <message>
         <source>Allow local storage of HTML5 web content</source>
-        <translation type="unfinished"></translation>
+        <translation>Povoliť HTML 5 lokálne úložisko</translation>
     </message>
     <message>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmazať lokálne úložisko pri zatváraní prehliadača</translation>
     </message>
 </context>
 <context>
@@ -3719,7 +3719,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Currently you have %1 opened tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Momentálne máte otvorených %1 panelov</translation>
     </message>
 </context>
 <context>
