@@ -8,6 +8,7 @@ Mladen Pejaković      <pejakm@gmail.com>              (webview context menu imp
 Bryan M Dunsmore      <dunsmoreb@gmail.com>           (opening background tabs, closing window when closing last tab)
 Mariusz Fik           <fisiu@opensuse.org>            (fixed tab order in preferences dialog)
 Daniele Cocca         <jmc@chakra-project.org>        (close tabs with middle click, initial work on speed dial)
+Giuseppe Calà         <jiveaxe@gmail.com>             (fixed loading of bookmarklets)
 Jan Rajnoha           <honza.rajny@hotmail.com>       (QupZilla icon)
 
 Translators:

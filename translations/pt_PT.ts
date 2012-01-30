@@ -1359,22 +1359,22 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
         <source>Executable: </source>
-        <translation type="unfinished"></translation>
+        <translation>Executável: </translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
         <source>Arguments: </source>
-        <translation type="unfinished"></translation>
+        <translation>Argumentos: </translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="104"/>
         <source>Cannot start external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de iniciar o gestor de transferências externo</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="104"/>
         <source>Cannot start external download manager! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de iniciar o gestor de transferências externo! %1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="156"/>
@@ -2395,12 +2395,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1071"/>
         <source>Allow local storage of HTML5 web content</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir armazenamento local de conteúdo HTML5</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1078"/>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar conteúdo HTML5 ao fechar o navegador</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1833"/>
@@ -2511,7 +2511,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1104"/>
         <source>Delete now</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar agora</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1127"/>
@@ -2596,22 +2596,22 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1554"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Gestor de transferências externo&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1561"/>
         <source>Use external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizar gestor de transferências externo</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1573"/>
         <source>Executable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Executável:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1580"/>
         <source>Arguments:</source>
-        <translation type="unfinished"></translation>
+        <translation>Argumentos:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1707"/>
@@ -2761,17 +2761,17 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1840"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Outros&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1854"/>
         <source>Send Referer header to servers</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar endereço para os servidores</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1861"/>
         <source>Block popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloquear janelas emergentes</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1874"/>
@@ -2921,12 +2921,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="466"/>
         <source>Deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminado</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="472"/>
         <source>Choose executable location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolha a localização do executável...</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="600"/>

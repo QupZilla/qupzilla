@@ -1359,22 +1359,22 @@
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
         <source>Executable: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ejecutable:</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
         <source>Arguments: </source>
-        <translation type="unfinished"></translation>
+        <translation>Argumentos:</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="104"/>
         <source>Cannot start external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>No se puede iniciar el gestor de descargas externo</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="104"/>
         <source>Cannot start external download manager! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>¡No se puede iniciar el gestor de descargas externo! %1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="156"/>
@@ -1823,7 +1823,7 @@
         <location filename="../src/network/networkmanager.cpp" line="159"/>
         <location filename="../src/network/networkmanager.cpp" line="188"/>
         <source>SSL Certificate Error!</source>
-        <translation>¡Error del certificad SSL!</translation>
+        <translation>¡Error del certificado SSL!</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="174"/>
@@ -2399,12 +2399,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1071"/>
         <source>Allow local storage of HTML5 web content</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir el almacenamiento local de contenido de red HTML5</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1078"/>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation type="unfinished"></translation>
+        <translation>Borrar el contenido de red HTML5 almacenado localmente al cerrar</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1833"/>
@@ -2549,7 +2549,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1104"/>
         <source>Delete now</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar ahora</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1127"/>
@@ -2634,32 +2634,32 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1554"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Gestor de descargas externo&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1561"/>
         <source>Use external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizar un gestor de descargas externo</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1573"/>
         <source>Executable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ejecutable:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1580"/>
         <source>Arguments:</source>
-        <translation type="unfinished"></translation>
+        <translation>Argumentos:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1707"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrar cookies de rastreo</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1751"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Aviso:&lt;/b&gt; Las opciones Coincidir con el dominio exacto y Filtrar cookies de rastreo pueden ocasionar que se denieguen algunas cookies de los sitios. ¡Si tiene problemas con las cookies, intente deshabilitar estas opciones primero!</translation>
     </message>
     <message>
         <source>Default Font</source>
@@ -2784,7 +2784,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1790"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Certificados SSL&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1803"/>
@@ -2794,22 +2794,22 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1810"/>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar los certificados CA en el gestor de SSL</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1840"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Otros&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1854"/>
         <source>Send Referer header to servers</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar el encabezado del referencial a los servidores</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1861"/>
         <source>Block popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloquear ventanas emergentes</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1874"/>
@@ -2909,12 +2909,12 @@
     <message>
         <location filename="../src/preferences/preferences.cpp" line="466"/>
         <source>Deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminado</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="472"/>
         <source>Choose executable location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccione la ubicación del ejecutable...</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="600"/>
@@ -4591,7 +4591,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="258"/>
         <source>Currently you have %1 opened tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualmente tiene %1 pestañas abiertas</translation>
     </message>
     <message>
         <source>Actually you have %1 opened tabs</source>

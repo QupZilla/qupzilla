@@ -14,7 +14,7 @@ MOC_DIR = ../build
 RCC_DIR = ../build
 UI_DIR = ../build
 
-# Please read BUILD informations #
+# Please read BUILD information #
 #DEFINES += NO_SYSTEM_DATAPATH
 #DEFINES += USE_WEBGL
 #DEFINES += KDE

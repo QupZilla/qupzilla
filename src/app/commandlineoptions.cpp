@@ -53,7 +53,7 @@ void CommandLineOptions::showHelp()
                        " QupZilla is a new, fast and secure web browser\n"
                        " based on WebKit core (http://webkit.org) and\n"
                        " written in Qt Framework (http://qt.nokia.com) \n\n"
-                       " For more informations please visit wiki at \n"
+                       " For more information please visit wiki at \n"
                        " https://github.com/nowrep/QupZilla/wiki \n";
 
     cout << help << " > " << QupZilla::WWWADDRESS.toUtf8().data() << endl;

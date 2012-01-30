@@ -835,7 +835,7 @@ void QupZilla::aboutToShowHelpMenu()
     m_menuHelp->addAction(m_actionAbout);
     m_menuHelp->addSeparator();
 #endif
-    QAction* infoAction = new QAction(QIcon(":/icons/menu/informations.png"), tr("Information about application"), m_menuHelp);
+    QAction* infoAction = new QAction(tr("Information about application"), m_menuHelp);
     infoAction->setData(QUrl("qupzilla:about"));
     infoAction->setShortcut(QKeySequence(QKeySequence::HelpContents));
     connect(infoAction, SIGNAL(triggered()), this, SLOT(loadActionUrlInNewTab()));
@@ -1103,7 +1103,6 @@ void QupZilla::loadAddress(const QUrl &url)
 {
     weView()->setFocus();
     weView()->load(url);
-    locationBar()->setText(url.toEncoded());
 }
 
 void QupZilla::showCookieManager()
@@ -1561,11 +1560,13 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
         if (event->modifiers() == Qt::ControlModifier) {
             m_tabWidget->createKeyPressEvent(event);
         }
+        QMainWindow::keyPressEvent(event);
         break;
     case Qt::Key_Backtab:
         if (event->modifiers() == (Qt::ControlModifier + Qt::ShiftModifier)) {
             m_tabWidget->createKeyPressEvent(event);
         }
+        QMainWindow::keyPressEvent(event);
         break;
 
     default:
