@@ -1444,6 +1444,7 @@ void QupZilla::sendLink()
 void QupZilla::printPage(QWebFrame* frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
+    dialog->setWindowTitle(tr("Print..."));
     dialog->resize(800, 750);
 
     if (!frame) {
