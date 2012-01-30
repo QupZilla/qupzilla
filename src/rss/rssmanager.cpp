@@ -333,10 +333,10 @@ void RSSManager::finished()
             if (xml.name() == "item") {
                 linkString = xml.attributes().value("rss:about").toString();
             }
-            currentTag = xml.name().toString();
+            currentTag = xml.qualifiedName().toString();
         }
         else if (xml.isEndElement()) {
-            if (xml.name() == "item") {
+            if (xml.qualifiedName() == "item") {
                 QTreeWidgetItem* item = new QTreeWidgetItem;
                 item->setText(0, titleString);
                 item->setWhatsThis(0, linkString);
