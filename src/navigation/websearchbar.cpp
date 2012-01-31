@@ -309,6 +309,8 @@ void WebSearchBar::keyPressEvent(QKeyEvent* event)
         break;
 
     default:
-        LineEdit::keyPressEvent(event);
+        break;
     }
+    
+    LineEdit::keyPressEvent(event);
 }
