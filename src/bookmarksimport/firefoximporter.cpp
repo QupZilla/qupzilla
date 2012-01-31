@@ -68,9 +68,9 @@ QList<BookmarksModel::Bookmark> FirefoxImporter::exportBookmarks()
             continue;
         }
 
-        QString url = query2.value(0).toString();
+        QUrl url = query2.value(0).toUrl();
 
-        if (title.isEmpty() || url.isEmpty() || url.startsWith("place:")) {
+        if (title.isEmpty() || url.isEmpty() || url.scheme() == "place" || url.scheme() == "about") {
             continue;
         }
 

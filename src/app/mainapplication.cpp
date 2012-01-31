@@ -146,7 +146,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
                 m_postLaunchActions.append(PrivateBrowsing);
                 break;
             case Qz::CL_OpenUrl:
-                startUrl = pair.text;
+                startUrl = QUrl::fromEncoded(pair.text.toUtf8());
                 messages.append("URL:" + startUrl.toString());
                 break;
             default:

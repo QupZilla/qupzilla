@@ -21,6 +21,8 @@ UI_DIR = ../build
 #DEFINES += PORTABLE_BUILD
 win32:DEFINES += W7API
 
+DEFINES += QT_NO_URL_CAST_FROM_STRING
+
 ##It won't compile on windows with this define. Some bug in qtsingleapp / qvector template
 !win32: !CONFIG(debug, debug|release): DEFINES += QT_NO_DEBUG_OUTPUT
 

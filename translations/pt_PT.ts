@@ -3103,9 +3103,8 @@ não foi encontrado!</translation>
         <translation>Enviar ligação...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="334"/>
         <source>&amp;Print</source>
-        <translation>Im&amp;primir</translation>
+        <translation type="obsolete">Im&amp;primir</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="337"/>
@@ -3171,6 +3170,11 @@ não foi encontrado!</translation>
         <location filename="../src/app/qupzilla.cpp" line="91"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="334"/>
+        <source>&amp;Print...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="367"/>
@@ -3347,7 +3351,7 @@ não foi encontrado!</translation>
         <translation>Informações da aplicação</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1289"/>
+        <location filename="../src/app/qupzilla.cpp" line="1288"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -3420,47 +3424,47 @@ não foi encontrado!</translation>
         <translation type="obsolete"> - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1366"/>
+        <location filename="../src/app/qupzilla.cpp" line="1365"/>
         <source>Open file...</source>
         <translation>Abrir ficheiro...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1476"/>
+        <location filename="../src/app/qupzilla.cpp" line="1475"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Tem a certeza que pretende ativar a navegação privada?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1477"/>
+        <location filename="../src/app/qupzilla.cpp" line="1476"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Se a navegação privada estiver ativa, alguns elementos de privacidade estarão inativos:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1480"/>
+        <location filename="../src/app/qupzilla.cpp" line="1479"/>
         <source>Webpages are not added to the history.</source>
         <translation>As páginas web não são adicionadas ao histórico.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1481"/>
+        <location filename="../src/app/qupzilla.cpp" line="1480"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Os cookies atuais não estarão acessíveis.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1482"/>
+        <location filename="../src/app/qupzilla.cpp" line="1481"/>
         <source>Your session is not stored.</source>
         <translation>A sua sessão não pode ser gravada.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1484"/>
+        <location filename="../src/app/qupzilla.cpp" line="1483"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>No entanto, enquanto não fechar a janela pode utilizar os botões Recuar e Avançar para voltar às páginas abertas anteriormente.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1489"/>
+        <location filename="../src/app/qupzilla.cpp" line="1488"/>
         <source>Start Private Browsing</source>
         <translation>Iniciar navegação privada</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1658"/>
+        <location filename="../src/app/qupzilla.cpp" line="1659"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Ainda existe(m) %1 separador(es) aberto(s) e a sessão não será gravada. Tem a certeza que pretende sair?</translation>
     </message>

@@ -2506,7 +2506,7 @@
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation>&amp;Tlačiť</translation>
+        <translation type="obsolete">&amp;Tlačiť</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
@@ -2775,6 +2775,10 @@
     <message>
         <source>Most Visited</source>
         <translation>Najnavštevovanejšie</translation>
+    </message>
+    <message>
+        <source>&amp;Print...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

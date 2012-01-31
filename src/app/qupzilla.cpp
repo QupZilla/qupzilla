@@ -331,7 +331,7 @@ void QupZilla::setupMenu()
     m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), this, SLOT(savePage()))->setShortcut(QKeySequence("Ctrl+S"));
     m_menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()));
     m_menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), this, SLOT(sendLink()));
-    m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print"), this, SLOT(printPage()));
+    m_menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), this, SLOT(printPage()));
     m_menuFile->addSeparator();
     m_menuFile->addSeparator();
     m_menuFile->addAction(tr("Import bookmarks..."), this, SLOT(showBookmarkImport()));
@@ -1444,7 +1444,6 @@ void QupZilla::sendLink()
 void QupZilla::printPage(QWebFrame* frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
-    dialog->setWindowTitle(tr("Print..."));
     dialog->resize(800, 750);
 
     if (!frame) {

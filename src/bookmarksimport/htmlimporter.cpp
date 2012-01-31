@@ -48,9 +48,9 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
 
         rx2.setPattern("href=\"(.*)\"");
         rx2.indexIn(string);
-        QString url = rx2.cap(1);
+        QUrl url = QUrl::fromEncoded(rx2.cap(1).toUtf8());
 
-        if (name.isEmpty() || url.isEmpty() || url.startsWith("place:") || url.startsWith("about:")) {
+        if (name.isEmpty() || url.isEmpty() || url.scheme() == "place" || url.scheme() == "about") {
             continue;
         }
 

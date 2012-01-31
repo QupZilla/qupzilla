@@ -189,7 +189,7 @@ void HistorySideBar::search()
         item->setText(0, fitem->text(0));
         item->setText(1, fitem->text(1));
         item->setWhatsThis(1, fitem->whatsThis(1));
-        item->setIcon(0, _iconForUrl(fitem->text(1)));
+        item->setIcon(0, _iconForUrl(QUrl::fromEncoded(fitem->text(1).toUtf8())));
         foundItems.append(item);
     }
     ui->historyTree->clear();

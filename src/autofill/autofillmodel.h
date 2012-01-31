@@ -28,8 +28,8 @@ class WebPage;
 class AutoFillModel : public QObject
 {
 public:
-    typedef QList<QPair<QString, QString> > QueryItems;
     typedef QPair<QString, QString> QueryItem;
+    typedef QList<QPair<QString, QString> > QueryItems;
 
     explicit AutoFillModel(QupZilla* mainClass, QObject* parent = 0);
 

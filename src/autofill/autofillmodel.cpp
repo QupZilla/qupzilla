@@ -198,12 +198,19 @@ void AutoFillModel::completePage(WebPage* page)
         return;
     }
 
-    QList<QPair<QString, QString> > arguments = QUrl::fromEncoded(QByteArray("http://bla.com/?" + data)).queryItems();
+    // Why not to use encodedQueryItems = QByteArrays ?
+    // Because we need to filter "+" characters that must be spaces
+    // (not real "+" characters "%2B")
+
+    QueryItems arguments = QUrl::fromEncoded("http://bla.com/?" + data).queryItems();
     for (int i = 0; i < arguments.count(); i++) {
-        QString key = QUrl::fromEncoded(arguments.at(i).first.toUtf8()).toString();
-        QString value = QUrl::fromEncoded(arguments.at(i).second.toUtf8()).toString();
-        //key.replace("+"," ");
-        //value.replace("+"," ");
+        QString key = arguments.at(i).first;
+        QString value = arguments.at(i).second;
+        key.replace("+", " ");
+        value.replace("+", " ");
+
+        key = QUrl::fromEncoded(key.toUtf8()).toString();
+        value = QUrl::fromEncoded(value.toUtf8()).toString();
 
         for (int i = 0; i < inputs.count(); i++) {
             QWebElement element = inputs.at(i);

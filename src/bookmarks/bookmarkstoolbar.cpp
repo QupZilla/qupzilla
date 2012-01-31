@@ -215,7 +215,7 @@ void BookmarksToolbar::editBookmark()
         return;
     }
 
-    QString url = editUrl->text();
+    QUrl url = QUrl::fromEncoded(editUrl->text().toUtf8());
     QString title = editTitle->text();
 
     if (url.isEmpty() || title.isEmpty()) {

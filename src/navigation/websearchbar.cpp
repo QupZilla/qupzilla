@@ -163,7 +163,7 @@ void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
         if (element.attribute("type") != "application/opensearchdescription+xml") {
             continue;
         }
-        QString url = view->url().resolved(element.attribute("href")).toString();
+        QUrl url = view->url().resolved(QUrl::fromEncoded(element.attribute("href").toUtf8()));
         QString title = element.attribute("title");
 
         if (url.isEmpty()) {
@@ -311,6 +311,6 @@ void WebSearchBar::keyPressEvent(QKeyEvent* event)
     default:
         break;
     }
-    
+
     LineEdit::keyPressEvent(event);
 }

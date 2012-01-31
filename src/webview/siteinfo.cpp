@@ -190,7 +190,7 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
     if (!item) {
         return;
     }
-    QUrl imageUrl = item->text(1);
+    QUrl imageUrl = QUrl::fromEncoded(item->text(1).toUtf8());
     if (imageUrl.isRelative()) {
         imageUrl = m_baseUrl.resolved(imageUrl);
     }

@@ -104,7 +104,7 @@ QUrl LocationBar::createUrl()
 
         SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);
         if (!en.name.isEmpty()) {
-            urlToLoad = en.url.replace("%s", searchedString);
+            urlToLoad = QUrl::fromEncoded(en.url.replace("%s", searchedString).toUtf8());
         }
     }
 
@@ -114,7 +114,7 @@ QUrl LocationBar::createUrl()
             urlToLoad = guessedUrl;
         }
         else {
-            urlToLoad = text();
+            urlToLoad = QUrl::fromEncoded(text().toUtf8());
         }
     }
 

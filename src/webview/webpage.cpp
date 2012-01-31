@@ -431,7 +431,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
                     errString.replace("%RULE%", tr("Blocked by rule <i>%1</i>").arg(rule));
 
-                    exReturn->baseUrl = exOption->url.toString();
+                    exReturn->baseUrl = exOption->url;
                     exReturn->content = errString.toUtf8();
                     return true;
                 }
@@ -450,7 +450,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         return false;    // Downloads
     }
 
-    QString loadedUrl = exOption->url.toString();
+    QUrl loadedUrl = exOption->url;
     exReturn->baseUrl = loadedUrl;
 
     QFile file(":/html/errorPage.html");
@@ -463,7 +463,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     errString.replace("%BOX-BORDER%", "qrc:html/box-border.png");
 
     errString.replace("%HEADING%", errorString);
-    errString.replace("%HEADING2%", tr("QupZilla can't load page from %1.").arg(QUrl(loadedUrl).host()));
+    errString.replace("%HEADING2%", tr("QupZilla can't load page from %1.").arg(loadedUrl.host()));
     errString.replace("%LI-1%", tr("Check the address for typing errors such as <b>ww.</b>example.com instead of <b>www.</b>example.com"));
     errString.replace("%LI-2%", tr("If you are unable to load any pages, check your computer's network connection."));
     errString.replace("%LI-3%", tr("If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web."));

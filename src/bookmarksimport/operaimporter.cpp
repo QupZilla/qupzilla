@@ -65,7 +65,7 @@ QList<BookmarksModel::Bookmark> OperaImporter::exportBookmarks()
 
         rx2.setPattern("URL=(.*)\\n");
         rx2.indexIn(string);
-        QString url = rx2.cap(1);
+        QUrl url = QUrl::fromEncoded(rx2.cap(1).toUtf8());
 
         if (name.isEmpty() || url.isEmpty()) {
             continue;

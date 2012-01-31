@@ -67,7 +67,7 @@ QList<BookmarksModel::Bookmark> ChromeImporter::exportBookmarks()
         if (scriptEngine->canEvaluate(parsedString)) {
             QScriptValue object = scriptEngine->evaluate(parsedString);
             QString name = object.property("name").toString();
-            QString url = object.property("url").toString();
+            QUrl url = QUrl::fromEncoded(object.property("url").toString().toUtf8());
 
             if (name.isEmpty() || url.isEmpty()) {
                 continue;

@@ -55,7 +55,7 @@ void SearchEnginesDialog::addEngine()
     engine.name = dialog.name();
     engine.url = dialog.url();
     engine.shortcut = dialog.shortcut();
-    engine.icon = SearchEnginesManager::iconForSearchEngine(dialog.url());
+    engine.icon = SearchEnginesManager::iconForSearchEngine(QUrl::fromEncoded(dialog.url().toUtf8()));
 
     if (engine.name.isEmpty() || engine.url.isEmpty()) {
         return;

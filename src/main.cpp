@@ -40,6 +40,7 @@ void sigpipe_handler(int s)
 
 int main(int argc, char* argv[])
 {
+
     Q_INIT_RESOURCE(data);
     Q_INIT_RESOURCE(icons);
     Q_INIT_RESOURCE(html);
@@ -49,6 +50,8 @@ int main(int argc, char* argv[])
 
     signal(SIGPIPE, sigpipe_handler);
 #endif
+
+//    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
     QList<CommandLineOptions::ActionPair> cmdActions;
 
