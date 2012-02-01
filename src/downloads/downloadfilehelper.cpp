@@ -154,6 +154,8 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
 
     if (m_userFileName.isEmpty()) {
         m_reply->abort();
+        m_reply->deleteLater();
+
         if (m_timer) {
             delete m_timer;
         }

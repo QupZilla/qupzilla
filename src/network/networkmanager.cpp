@@ -247,9 +247,10 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
         save->setVisible(false);
     }
 
-    if (!dialog->exec() == QDialog::Accepted) {
+    if (dialog->exec() != QDialog::Accepted) {
         return;
     }
+
     auth->setUser(user->text());
     auth->setPassword(pass->text());
 
@@ -287,9 +288,10 @@ void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthentica
     formLa->addRow(passLab, pass);
     formLa->addWidget(box);
 
-    if (!dialog->exec() == QDialog::Accepted) {
+    if (dialog->exec() != QDialog::Accepted) {
         return;
     }
+
     auth->setUser(user->text());
     auth->setPassword(pass->text());
 }

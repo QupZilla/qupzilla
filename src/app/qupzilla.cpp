@@ -188,16 +188,6 @@ void QupZilla::postLaunch()
     emit startingCompleted();
 }
 
-void QupZilla::goNext()
-{
-    weView()->forward();
-}
-
-void QupZilla::goBack()
-{
-    weView()->back();
-}
-
 void QupZilla::setupUi()
 {
     int locationBarWidth;
@@ -263,35 +253,6 @@ void QupZilla::setupUi()
     statusBar()->insertPermanentWidget(3, m_adblockIcon);
 }
 
-QMenuBar* QupZilla::menuBar() const
-{
-#ifdef Q_WS_MAC
-    return m_macMenuBar;
-#else
-    return QMainWindow::menuBar();
-#endif
-}
-
-TabbedWebView* QupZilla::weView() const
-{
-    return weView(m_tabWidget->currentIndex());
-}
-
-TabbedWebView* QupZilla::weView(int index) const
-{
-    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
-    if (!webTab) {
-        return 0;
-    }
-
-    return webTab->view();
-}
-
-LocationBar* QupZilla::locationBar() const
-{
-    return qobject_cast<LocationBar*>(m_tabWidget->locationBars()->currentWidget());
-}
-
 void QupZilla::setupMenu()
 {
     // Standard actions - needed on Mac to be placed correctly in "application" menu
@@ -318,7 +279,7 @@ void QupZilla::setupMenu()
     m_menuFile->addAction(QIcon::fromTheme("document-open-remote"), tr("Open Location"), this, SLOT(openLocation()))->setShortcut(QKeySequence("Ctrl+L"));
     m_menuFile->addAction(QIcon::fromTheme("document-open"), tr("Open &File"), this, SLOT(openFile()))->setShortcut(QKeySequence("Ctrl+O"));
     m_menuFile->addAction(tr("Close Tab"), m_tabWidget, SLOT(closeTab()))->setShortcut(QKeySequence("Ctrl+W"));
-    m_actionCloseWindow = m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), this, SLOT(close()));
+    m_actionCloseWindow = m_menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close Window"), this, SLOT(closeWindow()));
     m_actionCloseWindow->setShortcut(QKeySequence("Ctrl+Shift+W"));
     m_menuFile->addSeparator();
     m_menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), this, SLOT(savePage()))->setShortcut(QKeySequence("Ctrl+S"));
@@ -647,6 +608,45 @@ void QupZilla::loadSettings()
 
         m_usingTransparentBackground = true;
     }
+}
+
+void QupZilla::goNext()
+{
+    weView()->forward();
+}
+
+void QupZilla::goBack()
+{
+    weView()->back();
+}
+
+QMenuBar* QupZilla::menuBar() const
+{
+#ifdef Q_WS_MAC
+    return m_macMenuBar;
+#else
+    return QMainWindow::menuBar();
+#endif
+}
+
+TabbedWebView* QupZilla::weView() const
+{
+    return weView(m_tabWidget->currentIndex());
+}
+
+TabbedWebView* QupZilla::weView(int index) const
+{
+    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
+    if (!webTab) {
+        return 0;
+    }
+
+    return webTab->view();
+}
+
+LocationBar* QupZilla::locationBar() const
+{
+    return qobject_cast<LocationBar*>(m_tabWidget->locationBars()->currentWidget());
 }
 
 void QupZilla::setWindowTitle(const QString &t)
@@ -1656,6 +1656,13 @@ void QupZilla::disconnectObjects()
         if (pointer) {
             pointer.data()->deleteLater();
         }
+    }
+}
+
+void QupZilla::closeWindow()
+{
+    if (mApp->windowCount() > 1) {
+        close();
     }
 }
 

@@ -852,9 +852,6 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
 
             QupZilla* window = new QupZilla(Qz::BW_OtherRestoredWindow);
             m_mainWindows.append(window);
-            QEventLoop eLoop;
-            connect(window, SIGNAL(startingCompleted()), &eLoop, SLOT(quit()));
-            eLoop.exec();
 
             window->tabWidget()->restoreState(tabState);
             window->restoreState(qMainWindowState);

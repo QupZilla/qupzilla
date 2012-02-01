@@ -203,6 +203,7 @@ private slots:
     void startPrivate(bool state);
     void changeEncoding();
 
+    void closeWindow();
     bool quitApp();
 
 private:
