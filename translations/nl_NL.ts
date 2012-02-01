@@ -2732,12 +2732,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1071"/>
         <source>Allow local storage of HTML5 web content</source>
-        <translation type="unfinished"></translation>
+        <translation>Sta lokale opslag van HTML5-webinhoud toe</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1078"/>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijder lokaal opgeslagen HTML5-webinhoud na afsluiten</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1136"/>
@@ -3188,7 +3188,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="476"/>
         <source>Web In&amp;spector</source>
-        <translation type="unfinished"></translation>
+        <translation>Web-in&amp;specteur</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="501"/>
@@ -3262,7 +3262,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="327"/>
         <source>&amp;Print...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Print...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="941"/>
