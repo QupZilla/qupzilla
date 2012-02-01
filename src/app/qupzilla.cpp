@@ -1682,7 +1682,7 @@ bool QupZilla::quitApp()
     // Workaround on OS/2 where geometry() is returning bad Y axis (+ 20 pixels)
     QRect windowGeometry = geometry();
     windowGeometry.setY(windowGeometry.y() - 20);
-    settings.setValue("WindowGeometry", geometry());
+    settings.setValue("WindowGeometry", windowGeometry);
 #else
     settings.setValue("WindowGeometry", geometry());
 #endif

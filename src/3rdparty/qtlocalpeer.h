@@ -49,7 +49,7 @@
 #include <QtNetwork/QLocalSocket>
 #include <QtCore/QDir>
 
-#ifdef Q_OS_HAIKU
+#if defined(Q_OS_HAIKU) || defined(Q_OS_OS2)
 #include <unistd.h>
 #endif
 
