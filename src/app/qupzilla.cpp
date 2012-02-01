@@ -200,7 +200,10 @@ void QupZilla::setupUi()
         setWindowState(Qt::WindowMaximized);
     }
     else {
-        setGeometry(settings.value("WindowGeometry", QRect(20, 20, 800, 550)).toRect());
+        if (!restoreGeometry(settings.value("WindowGeometry").toByteArray())) {
+            setGeometry(QRect(20, 20, 800, 550));
+        }
+
         if (m_startBehaviour == Qz::BW_NewWindow) {
             // Moving window +40 x,y to be visible that this is new window
             QPoint p = pos();
@@ -1678,14 +1681,7 @@ bool QupZilla::quitApp()
 
     settings.beginGroup("Browser-View-Settings");
     settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
-#ifdef Q_OS_OS2
-    // Workaround on OS/2 where geometry() is returning bad Y axis (+ 20 pixels)
-    QRect windowGeometry = geometry();
-    windowGeometry.setY(windowGeometry.y() - 20);
-    settings.setValue("WindowGeometry", windowGeometry);
-#else
-    settings.setValue("WindowGeometry", geometry());
-#endif
+    settings.setValue("WindowGeometry", saveGeometry());
     settings.setValue("LocationBarWidth", m_navigationBar->splitter()->sizes().at(0));
     settings.setValue("WebSearchBarWidth", m_navigationBar->splitter()->sizes().at(1));
     settings.setValue("SideBarWidth", m_sideBarWidth);
