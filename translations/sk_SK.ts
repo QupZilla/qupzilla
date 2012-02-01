@@ -2778,11 +2778,11 @@
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tlačiť...</translation>
     </message>
     <message>
         <source>Web In&amp;spector</source>
-        <translation type="unfinished"></translation>
+        <translation>Web In&amp;špektor</translation>
     </message>
 </context>
 <context>
