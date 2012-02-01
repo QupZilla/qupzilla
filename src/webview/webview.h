@@ -115,7 +115,6 @@ protected:
 
     void setZoom(int zoom);
     void applyZoom();
-    void copyText();
     QUrl lastUrl();
 
     bool isMediaElement(const QWebElement &element);

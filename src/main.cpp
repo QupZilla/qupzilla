@@ -51,8 +51,6 @@ int main(int argc, char* argv[])
     signal(SIGPIPE, sigpipe_handler);
 #endif
 
-//    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
-
     QList<CommandLineOptions::ActionPair> cmdActions;
 
     if (argc > 1) {

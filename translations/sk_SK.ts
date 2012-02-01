@@ -2654,7 +2654,7 @@
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Odstrániť</translation>
+        <translation type="obsolete">&amp;Odstrániť</translation>
     </message>
     <message>
         <source>Default</source>
@@ -2778,6 +2778,10 @@
     </message>
     <message>
         <source>&amp;Print...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Web In&amp;spector</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

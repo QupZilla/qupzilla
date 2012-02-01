@@ -156,10 +156,7 @@ private slots:
     void aboutToHideHistoryMenu();
     void aboutToShowClosedTabsMenu();
     void aboutToShowBookmarksMenu();
-    void aboutToShowToolsMenu();
-    void aboutToShowHelpMenu();
     void aboutToShowViewMenu();
-    void aboutToHideViewMenu();
     void aboutToShowEditMenu();
     void aboutToHideEditMenu();
     void aboutToShowEncodingMenu();
@@ -191,8 +188,13 @@ private slots:
     void sendLink();
     void webSearch();
 
-    void copy();
-    void selectAll();
+    // Edit menu actions
+    void editUndo();
+    void editRedo();
+    void editCut();
+    void editCopy();
+    void editPaste();
+    void editSelectAll();
 
     void zoomIn();
     void zoomOut();

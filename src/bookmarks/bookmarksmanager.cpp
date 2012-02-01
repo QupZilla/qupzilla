@@ -151,7 +151,7 @@ void BookmarksManager::itemChanged(QTreeWidgetItem* item)
     }
 
     QString name = item->text(0);
-    QUrl url = QUrl(item->text(1));
+    QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
     int id = item->whatsThis(1).toInt();
 
     ui->bookmarksTree->deleteItem(item);

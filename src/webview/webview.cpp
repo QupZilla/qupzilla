@@ -475,13 +475,6 @@ void WebView::printPage(QWebFrame* frame)
     dialog->deleteLater();
 }
 
-void WebView::copyText()
-{
-    if (!selectedText().isEmpty()) {
-        QApplication::clipboard()->setText(selectedText());
-    }
-}
-
 QUrl WebView::lastUrl()
 {
     return m_lastUrl;
@@ -690,7 +683,11 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     QUrl guessedUrl = QUrl::fromUserInput(selectedString);
 
     if (isUrlValid(guessedUrl)) {
-        menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Go to &web address"), this, SLOT(openUrlInSelectedTab()))->setData(guessedUrl);
+        Action* act = new Action(tr("Go to &web address"));
+        act->setData(guessedUrl);
+        connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+        menu->addAction(act);
     }
 
     selectedText.truncate(20);
@@ -843,7 +840,7 @@ void WebView::keyPressEvent(QKeyEvent* event)
     switch (event->key()) {
     case Qt::Key_C:
         if (event->modifiers() == Qt::ControlModifier) {
-            copyText();
+            triggerPageAction(QWebPage::Copy);
             event->accept();
             return;
         }
