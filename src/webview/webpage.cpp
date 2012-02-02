@@ -390,7 +390,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             errorString = tr("Proxy connection refused");
             break;
         case QNetworkReply::ProxyNotFoundError:
-            errorString = tr("Proxy host name not found");
+            errorString = tr("Proxy server not found");
             break;
         case QNetworkReply::ProxyTimeoutError:
             errorString = tr("Proxy connection timed out");

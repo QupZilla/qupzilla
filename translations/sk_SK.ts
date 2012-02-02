@@ -4011,7 +4011,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Proxy host name not found</source>
-        <translation>Nenájdený proxy host</translation>
+        <translation type="obsolete">Nenájdený proxy host</translation>
     </message>
     <message>
         <source>Proxy connection timed out</source>
@@ -4040,6 +4040,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Confirm form resubmission</source>
         <translation>Potvrdenie opätovného zaslania formuláru</translation>
+    </message>
+    <message>
+        <source>Proxy server not found</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
