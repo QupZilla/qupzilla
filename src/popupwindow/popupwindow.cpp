@@ -65,6 +65,10 @@ PopupWindow::PopupWindow(PopupWebView* view)
     }
 
     m_locationBar->showUrl(urlToShow);
+
+    // Ensuring correct sizes for widgets in layout are calculated even
+    // before calling QWidget::show()
+    m_layout->activate();
 }
 
 void PopupWindow::showNotification(QWidget* notif)
@@ -94,7 +98,12 @@ void PopupWindow::setWindowGeometry(const QRect &newRect)
 {
     if (newRect.isValid()) {
         QRect oldRect = rect();
-        setGeometry(newRect);
+        move(newRect.topLeft());
+
+        QSize newSize = newRect.size();
+        int additionalHeight = height() - m_view->height();
+        newSize.setHeight(newSize.height() + additionalHeight);
+        resize(newSize);
 
         if (newRect.topLeft() == QPoint(0, 0) && oldRect.topLeft() == QPoint(0, 0)) {
             qz_centerWidgetOnScreen(this);

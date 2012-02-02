@@ -550,7 +550,7 @@ void QupZilla::loadSettings()
     bool showAddTab = settings.value("showAddTabButton", false).toBool();
     bool makeTransparent = settings.value("useTransparentBackground", false).toBool();
     m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
-    m_webViewWidth = settings.value("WebViewWidth", 390).toInt();
+    m_webViewWidth = settings.value("WebViewWidth", 2000).toInt();
     QString activeSideBar = settings.value("SideBar", "None").toString();
     settings.endGroup();
     bool adBlockEnabled = settings.value("AdBlock/enabled", true).toBool();
