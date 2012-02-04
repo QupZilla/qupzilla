@@ -26,14 +26,17 @@ DesktopNotification::DesktopNotification(bool setPosition)
     , m_timer(new QTimer(this))
 {
     ui->setupUi(this);
-    setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
     Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint;
 #ifdef Q_WS_WIN
     flags |= Qt::ToolTip;
 #endif
     setWindowFlags(flags);
+
+#ifndef Q_OS_OS2
+    setAttribute(Qt::WA_TranslucentBackground);
     setWindowOpacity(0.9);
+#endif
 
     m_timer->setSingleShot(true);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(close()));
@@ -60,16 +63,20 @@ void DesktopNotification::show()
 
 void DesktopNotification::enterEvent(QEvent*)
 {
+#ifndef Q_OS_OS2
     if (!m_settingPosition) {
         setWindowOpacity(0.5);
     }
+#endif
 }
 
 void DesktopNotification::leaveEvent(QEvent*)
 {
+#ifndef Q_OS_OS2
     if (!m_settingPosition) {
         setWindowOpacity(0.9);
     }
+#endif
 }
 
 void DesktopNotification::mousePressEvent(QMouseEvent* e)
