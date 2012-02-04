@@ -58,7 +58,7 @@ AdBlockNetwork::AdBlockNetwork(QObject* parent)
 QNetworkReply* AdBlockNetwork::block(const QNetworkRequest &request)
 {
     QUrl url = request.url();
-    if (url.scheme() == "data") {
+    if (url.scheme() == "data" || url.scheme() == "qrc" || url.scheme() == "file" || url.scheme() == "qupzilla") {
         return 0;
     }
 

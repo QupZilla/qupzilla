@@ -3003,7 +3003,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/3rdparty/qtwin.cpp" line="351"/>
         <source>Opens a new window if browser is running</source>
-        <translation>Abrir uma nova janela se o navegador estiver aberto</translation>
+        <translation>Abre uma nova janela se o navegador estiver aberto</translation>
     </message>
     <message>
         <location filename="../src/3rdparty/qtwin.cpp" line="355"/>
@@ -3278,7 +3278,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="440"/>
         <source>Web In&amp;spector</source>
-        <translation type="unfinished"></translation>
+        <translation>In&amp;spetor web</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="489"/>
@@ -3470,7 +3470,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1695"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation>Ainda existe(m) %1 separador(es) aberto(s) e a sessão não será gravada. Tem a certeza que pretende sair?</translation>
+        <translation>Ainda existem %1 separadores abertos e a sessão não será gravada. Tem a certeza que pretende sair?</translation>
     </message>
     <message>
         <location filename="../src/rss/rssnotification.cpp" line="31"/>
@@ -4951,7 +4951,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/webview/webpage.cpp" line="393"/>
         <source>Proxy server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Servidor proxy não encontrado</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="396"/>
