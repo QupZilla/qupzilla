@@ -3199,7 +3199,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="440"/>
         <source>Web In&amp;spector</source>
-        <translation type="unfinished"></translation>
+        <translation>Web In&amp;spector</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="465"/>
@@ -3273,7 +3273,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="291"/>
         <source>&amp;Print...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Drucken...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="944"/>
@@ -4958,7 +4958,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/webview/webpage.cpp" line="393"/>
         <source>Proxy server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy nicht gefunden</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="396"/>
