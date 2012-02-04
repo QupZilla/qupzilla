@@ -560,6 +560,7 @@ void BookmarksManager::insertBookmark(const QUrl &url, const QString &title, con
     while (query.next()) {
         combo->addItem(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString());
     }
+    combo->setCurrentIndex(combo->findText(BookmarksModel::toTranslatedFolder(m_bookmarksModel->lastFolder())));
 
     label->setText(tr("Choose name and location of this bookmark."));
     edit->setText(title);
@@ -605,6 +606,7 @@ void BookmarksManager::insertAllTabs()
     while (query.next()) {
         combo->addItem(style()->standardIcon(QStyle::SP_DirIcon), query.value(0).toString());
     }
+    combo->setCurrentIndex(combo->findText(BookmarksModel::toTranslatedFolder(m_bookmarksModel->lastFolder())));
 
     label->setText(tr("Choose folder for bookmarks:"));
     dialog->setWindowTitle(tr("Bookmark All Tabs"));

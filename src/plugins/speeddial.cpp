@@ -152,20 +152,20 @@ QString SpeedDial::initialScript()
     m_regenerateScript = false;
     m_initialScript.clear();
 
-    QStringList entries = m_allPages.split("\";");
+    const QStringList &entries = m_allPages.split("\";");
 
     foreach(const QString & entry, entries) {
         if (entry.isEmpty()) {
             continue;
         }
 
-        QStringList tmp = entry.split("\"|");
+        const QStringList &tmp = entry.split("\"|");
         if (tmp.count() != 2) {
             continue;
         }
 
-        QString url = tmp.at(0).mid(5);
-        QString title = tmp.at(1).mid(7);
+        const QString &url = tmp.at(0).mid(5);
+        const QString &title = tmp.at(1).mid(7);
 
         QString imgSource = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 

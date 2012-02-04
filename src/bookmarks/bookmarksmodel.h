@@ -60,13 +60,16 @@ public:
     inline bool isShowingMostVisited() { return m_showMostVisited; }
     void setShowingMostVisited(bool state);
 
+    QString lastFolder() { return m_lastFolder; }
+    void setLastFolder(const QString &folder);
+
     bool isBookmarked(const QUrl &url);
     int bookmarkId(const QUrl &url);
     int bookmarkId(const QUrl &url, const QString &title, const QString &folder);
     Bookmark getBookmark(int id);
 
     bool saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder = "unsorted");
-    bool saveBookmark(WebView* view, const QString &folder = "unsorted");
+    bool saveBookmark(WebView* view, QString folder = QString());
 
     bool removeBookmark(int id);
     bool removeBookmark(const QUrl &url);
@@ -105,6 +108,7 @@ public slots:
 
 private:
     bool m_showMostVisited;
+    QString m_lastFolder;
 };
 
 typedef BookmarksModel::Bookmark Bookmark;

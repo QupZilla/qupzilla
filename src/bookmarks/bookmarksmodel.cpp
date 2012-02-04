@@ -36,18 +36,28 @@ BookmarksModel::BookmarksModel(QObject* parent)
 void BookmarksModel::loadSettings()
 {
     Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
+    settings.beginGroup("Bookmarks");
     m_showMostVisited = settings.value("showMostVisited", true).toBool();
+    m_lastFolder = settings.value("LastFolder", "unsorted").toString();
     settings.endGroup();
 }
 
 void BookmarksModel::setShowingMostVisited(bool state)
 {
     Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
+    settings.beginGroup("Bookmarks");
     settings.setValue("showMostVisited", state);
     settings.endGroup();
     m_showMostVisited = state;
+}
+
+void BookmarksModel::setLastFolder(const QString &folder)
+{
+    Settings settings;
+    settings.beginGroup("Bookmarks");
+    settings.setValue("lastFolder", folder);
+    settings.endGroup();
+    m_lastFolder = folder;
 }
 
 bool BookmarksModel::isBookmarked(const QUrl &url)
@@ -152,13 +162,19 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     bookmark.image = image;
     bookmark.inSubfolder = isSubfolder(bookmark.folder);
 
+    setLastFolder(folder);
+
     emit bookmarkAdded(bookmark);
     mApp->sendMessages(Qz::AM_BookmarksChanged, true);
     return true;
 }
 
-bool BookmarksModel::saveBookmark(WebView* view, const QString &folder)
+bool BookmarksModel::saveBookmark(WebView* view, QString folder)
 {
+    if (folder.isEmpty()) {
+        folder = m_lastFolder;
+    }
+
     return saveBookmark(view->url(), view->title(), view->icon(), folder);
 }
 
