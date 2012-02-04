@@ -110,6 +110,7 @@ bool WebPage::isRunningLoop()
 void WebPage::urlChanged(const QUrl &url)
 {
     Q_UNUSED(url)
+
     m_adBlockedEntries.clear();
     m_blockAlerts = false;
 }
@@ -117,6 +118,7 @@ void WebPage::urlChanged(const QUrl &url)
 void WebPage::progress(int prog)
 {
     Q_UNUSED(prog)
+
     bool secStatus = sslCertificate().isValid();
 
     if (secStatus != m_secureStatus) {
@@ -141,7 +143,7 @@ void WebPage::finished()
             connect(m_fileWatcher, SIGNAL(fileChanged(QString)), this, SLOT(watchedFileChanged(QString)));
         }
 
-        QString filePath = url().toLocalFile();
+        const QString &filePath = url().toLocalFile();
 
         if (QFile::exists(filePath) && !m_fileWatcher->files().contains(filePath)) {
             m_fileWatcher->addPath(filePath);
@@ -186,7 +188,8 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
     if (!reply) {
         return;
     }
-    QUrl url = reply->url();
+
+    const QUrl &url = reply->url();
 
     switch (reply->error()) {
     case QNetworkReply::NoError:
@@ -204,6 +207,7 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
     default:
         break;
     }
+
     qDebug() << "WebPage::UnsupportedContent error" << reply->errorString();
 }
 
@@ -235,7 +239,8 @@ bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &r
 {
     m_lastRequest = request;
     m_lastRequestType = type;
-    QString scheme = request.url().scheme();
+    const QString &scheme = request.url().scheme();
+
     if (scheme == "mailto" || scheme == "ftp") {
         QDesktopServices::openUrl(request.url());
         return false;
@@ -290,7 +295,8 @@ void WebPage::cleanBlockedObjects()
         }
 
         findingStrings.append(entry.url.toString());
-        QUrl mainFrameUrl = url();
+        const QUrl &mainFrameUrl = url();
+
         if (entry.url.scheme() == mainFrameUrl.scheme() && entry.url.host() == mainFrameUrl.host()) {
             //May be relative url
             QString relativeUrl = qz_makeRelativeUrl(mainFrameUrl, entry.url).toString();
@@ -301,7 +307,7 @@ void WebPage::cleanBlockedObjects()
         }
     }
 
-    QWebElement docElement = mainFrame()->documentElement();
+    const QWebElement &docElement = mainFrame()->documentElement();
     QWebElementCollection elements;
 
     foreach(const QString & s, findingStrings) {
@@ -460,7 +466,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         return false;    // Downloads
     }
 
-    QUrl loadedUrl = exOption->url;
+    const QUrl &loadedUrl = exOption->url;
     exReturn->baseUrl = loadedUrl;
 
     QFile file(":/html/errorPage.html");
@@ -581,6 +587,7 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     ui->dontAskAgain->setText(tr("Prevent this page from creating additional dialogs"));
     ui->textLabel->setText(Qt::escape(msg));
     ui->iconLabel->setPixmap(mApp->style()->standardPixmap(QStyle::SP_MessageBoxInformation));
+    ui->buttonBox->setFocus();
     dialog.setWindowTitle(tr("JavaScript alert - %1").arg(originatingFrame->url().host()));
     dialog.exec();
 
@@ -621,13 +628,15 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
 QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
 {
     QString suggFileName;
+
     if (oldFile.isEmpty()) {
         suggFileName = m_lastUploadLocation;
     }
     else {
         suggFileName = oldFile;
     }
-    QString fileName = QFileDialog::getOpenFileName(originatingFrame->page()->view(), tr("Choose file..."), suggFileName);
+
+    const QString &fileName = QFileDialog::getOpenFileName(originatingFrame->page()->view(), tr("Choose file..."), suggFileName);
 
     if (!fileName.isEmpty()) {
         m_lastUploadLocation = fileName;

@@ -119,7 +119,7 @@ void WebView::load(const QUrl &url)
         return;
     }
 
-    QUrl searchUrl = mApp->searchEnginesManager()->searchUrl(url.toString());
+    const QUrl &searchUrl = mApp->searchEnginesManager()->searchUrl(url.toString());
     QWebView::load(searchUrl);
     emit urlChanged(searchUrl);
     m_aboutToLoadUrl = searchUrl;
@@ -137,15 +137,16 @@ int WebView::loadProgress() const
 
 bool WebView::isUrlValid(const QUrl &url)
 {
-    if (url.scheme() == "data" || url.scheme() == "qrc" || url.scheme() == "mailto") {
+    const QString &urlScheme = url.scheme();
+    if (urlScheme == "data" || urlScheme == "qrc" || urlScheme == "mailto") {
         return true;
     }
 
-    if (url.scheme() == "qupzilla" || url.scheme() == "file") {
+    if (urlScheme == "qupzilla" || urlScheme == "file") {
         return !url.path().isEmpty();
     }
 
-    if (url.isValid() && !url.host().isEmpty() && !url.scheme().isEmpty()) {
+    if (url.isValid() && !url.host().isEmpty() && !urlScheme.isEmpty()) {
         return true;
     }
 
@@ -305,7 +306,8 @@ void WebView::openUrlInNewWindow()
 void WebView::sendLinkByMail()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        QDesktopServices::openUrl(QUrl("mailto:?body=" + action->data().toString()));
+        const QUrl &url = QUrl::fromEncoded("mailto:?body=" + QUrl::toPercentEncoding(action->data().toUrl().toEncoded()));
+        QDesktopServices::openUrl(url);
     }
 }
 
@@ -356,7 +358,7 @@ void WebView::showSiteInfo()
 
 void WebView::searchSelectedText()
 {
-    QUrl urlToLoad = mApp->searchEnginesManager()->searchUrl(selectedText());
+    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(selectedText());
 
     openUrlInNewTab(urlToLoad, Qz::NT_SelectedTab);
 }
@@ -793,7 +795,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
     case Qt::LeftButton: {
         QWebFrame* frame = page()->frameAt(event->pos());
         if (frame) {
-            QUrl link = frame->hitTestContent(event->pos()).linkUrl();
+            const QUrl &link = frame->hitTestContent(event->pos()).linkUrl();
             if (event->modifiers() == Qt::ControlModifier && isUrlValid(link)) {
                 openUrlInNewTab(link, Qz::NT_NotSelectedTab);
                 event->accept();
@@ -815,7 +817,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
     case Qt::MiddleButton: {
         QWebFrame* frame = page()->frameAt(event->pos());
         if (frame) {
-            QUrl link = frame->hitTestContent(event->pos()).linkUrl();
+            const QUrl &link = frame->hitTestContent(event->pos()).linkUrl();
             if (m_clickedUrl == link && isUrlValid(link)) {
                 openUrlInNewTab(link, Qz::NT_NotSelectedTab);
                 event->accept();

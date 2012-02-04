@@ -365,8 +365,6 @@ void TabWidget::closeTab(int index)
     if (count() == 1) {
         if (m_dontQuitWithOneTab) {
             webView->setUrl(m_urlOnNewTab);
-            webPage->history()->clear();
-            p_QupZilla->updateLoadingActions();
             return;
         }
         else {
@@ -420,6 +418,7 @@ void TabWidget::tabMoved(int before, int after)
 {
     Q_UNUSED(before)
     Q_UNUSED(after)
+
     m_isClosingToLastTabIndex = false;
 }
 
@@ -477,7 +476,7 @@ void TabWidget::closeAllButCurrent(int index)
 
 int TabWidget::duplicateTab(int index)
 {
-    QUrl url = weView(index)->url();
+    const QUrl &url = weView(index)->url();
     QByteArray history;
     QDataStream tabHistoryStream(&history, QIODevice::WriteOnly);
     tabHistoryStream << *weView(index)->history();
@@ -518,7 +517,7 @@ void TabWidget::restoreAllClosedTabs()
         return;
     }
 
-    QList<ClosedTabsManager::Tab> closedTabs = m_closedTabsManager->allClosedTabs();
+    const QList<ClosedTabsManager::Tab> &closedTabs = m_closedTabsManager->allClosedTabs();
 
     foreach(const ClosedTabsManager::Tab & tab, closedTabs) {
         int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab);
@@ -572,6 +571,7 @@ void TabWidget::aboutToShowClosedTabsMenu()
 QList<WebTab*> TabWidget::allTabs(bool withPinned)
 {
     QList<WebTab*> allTabs;
+
     for (int i = 0; i < count(); i++) {
         WebTab* tab = qobject_cast<WebTab*>(widget(i));
         if (!tab || (!withPinned && tab->isPinned())) {

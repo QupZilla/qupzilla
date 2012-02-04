@@ -66,6 +66,9 @@ void TabBar::loadSettings()
     if (settings.value("ActivateLastTabWhenClosingActual", false).toBool()) {
         setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
     }
+    else {
+        setSelectionBehaviorOnRemove(QTabBar::SelectRightTab);
+    }
 
     settings.endGroup();
 }
@@ -142,9 +145,10 @@ void TabBar::contextMenuRequested(const QPoint &position)
     }
 
     //Prevent choosing first option with double rightclick
-    QPoint pos = QCursor::pos();
+    const QPoint &pos = QCursor::pos();
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
+
     p_QupZilla->actionRestoreTab()->setEnabled(true);
 }
 
@@ -172,7 +176,7 @@ QSize TabBar::tabSizeHint(int index) const
         else {
             int maxWidthForTab = availableWidth / normalTabsCount;
             tabBar->m_normalTabWidth = maxWidthForTab;
-            //Fill any empty space (gotten from rounding) with last tab
+            //Fill any empty space (we've got from rounding) with last tab
             if (index == count() - 1) {
                 tabBar->m_lastTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
                 tabBar->m_adjustingLastTab = true;
@@ -271,7 +275,12 @@ void TabBar::closeCurrentTab()
 
 void TabBar::bookmarkTab()
 {
-    p_QupZilla->addBookmark(p_QupZilla->weView(m_clickedTab)->url(), p_QupZilla->weView(m_clickedTab)->title(), p_QupZilla->weView(m_clickedTab)->icon());
+    TabbedWebView* view = p_QupZilla->weView(m_clickedTab);
+    if (!view) {
+        return;
+    }
+
+    p_QupZilla->addBookmark(view->url(), view->title(), view->icon());
 }
 
 void TabBar::pinTab()

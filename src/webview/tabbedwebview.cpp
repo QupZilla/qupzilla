@@ -84,7 +84,9 @@ void TabbedWebView::setWebPage(WebPage* page)
 
 void TabbedWebView::slotIconChanged()
 {
-    if (url().scheme() == "file" || url().scheme() == "qupzilla" || title().contains(tr("Failed loading page"))) {
+    const QString &urlScheme = url().scheme();
+
+    if (urlScheme == "file" || urlScheme == "qupzilla" || title().contains(tr("Failed loading page"))) {
         return;
     }
 
@@ -225,7 +227,7 @@ void TabbedWebView::setIp(const QHostInfo &info)
 
 void TabbedWebView::titleChanged()
 {
-    QString t = title();
+    const QString &t = title();
     m_tabWidget->setTabToolTip(tabIndex(), t);
 
     if (isCurrent()) {
@@ -299,7 +301,7 @@ void TabbedWebView::checkRss()
 
     m_rssChecked = true;
     QWebFrame* frame = page()->mainFrame();
-    QWebElementCollection links = frame->findAllElements("link[type=\"application/rss+xml\"]");
+    const QWebElementCollection &links = frame->findAllElements("link[type=\"application/rss+xml\"]");
 
     m_hasRss = links.count() != 0;
     emit rssChanged(m_hasRss);
@@ -309,7 +311,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
 {
     m_menu->clear();
 
-    QWebHitTestResult hitTest = page()->mainFrame()->hitTestContent(event->pos());
+    const QWebHitTestResult &hitTest = page()->mainFrame()->hitTestContent(event->pos());
 
     createContextMenu(m_menu, hitTest, event->pos());
 
@@ -322,7 +324,7 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
 
     if (!m_menu->isEmpty()) {
         //Prevent choosing first option with double rightclick
-        QPoint pos = QCursor::pos();
+        const QPoint &pos = QCursor::pos();
         QPoint p(pos.x(), pos.y() + 1);
 
         m_menu->popup(p);

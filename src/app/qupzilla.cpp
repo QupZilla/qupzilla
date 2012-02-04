@@ -111,11 +111,11 @@ void QupZilla::postLaunch()
 
     //Open tab from command line argument
     bool addTab = true;
-    QStringList arguments = qApp->arguments();
+    const QStringList &arguments = qApp->arguments();
     for (int i = 0; i < qApp->arguments().count(); i++) {
         QString arg = arguments.at(i);
         if (arg.startsWith("-url=")) {
-            m_tabWidget->addView(QUrl(arg.replace("-url=", "")), Qz::NT_SelectedTabAtTheEnd);
+            m_tabWidget->addView(QUrl(arg.remove("-url=")), Qz::NT_SelectedTabAtTheEnd);
             addTab = false;
         }
     }
@@ -551,7 +551,7 @@ void QupZilla::loadSettings()
     bool makeTransparent = settings.value("useTransparentBackground", false).toBool();
     m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
     m_webViewWidth = settings.value("WebViewWidth", 2000).toInt();
-    QString activeSideBar = settings.value("SideBar", "None").toString();
+    const QString &activeSideBar = settings.value("SideBar", "None").toString();
     settings.endGroup();
     bool adBlockEnabled = settings.value("AdBlock/enabled", true).toBool();
 
@@ -731,8 +731,8 @@ void QupZilla::aboutToShowBookmarksMenu()
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksMenu'");
     while (query.next()) {
         QString title = query.value(0).toString();
-        QUrl url = query.value(1).toUrl();
-        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray()));
+        const QUrl &url = query.value(1).toUrl();
+        const QIcon &icon = IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         if (title.length() > 40) {
             title.truncate(40);
             title += "..";
@@ -751,8 +751,8 @@ void QupZilla::aboutToShowBookmarksMenu()
     query.exec("SELECT title, url, icon FROM bookmarks WHERE folder='bookmarksToolbar'");
     while (query.next()) {
         QString title = query.value(0).toString();
-        QUrl url = query.value(1).toUrl();
-        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray()));
+        const QUrl &url = query.value(1).toUrl();
+        const QIcon &icon = IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         if (title.length() > 40) {
             title.truncate(40);
             title += "..";
@@ -771,16 +771,18 @@ void QupZilla::aboutToShowBookmarksMenu()
 
     query.exec("SELECT name FROM folders");
     while (query.next()) {
-        QString folderName = query.value(0).toString();
+        const QString &folderName = query.value(0).toString();
         Menu* tempFolder = new Menu(folderName, m_menuBookmarks);
         tempFolder->setIcon(QIcon(style()->standardIcon(QStyle::SP_DirOpenIcon)));
 
         QSqlQuery query2;
-        query2.exec("SELECT title, url, icon FROM bookmarks WHERE folder='" + folderName + "'");
+        query2.prepare("SELECT title, url, icon FROM bookmarks WHERE folder=?");
+        query2.addBindValue(folderName);
+        query2.exec();
         while (query2.next()) {
             QString title = query2.value(0).toString();
-            QUrl url = query2.value(1).toUrl();
-            QIcon icon = IconProvider::iconFromImage(QImage::fromData(query2.value(2).toByteArray()));
+            const QUrl &url = query2.value(1).toUrl();
+            const QIcon &icon = IconProvider::iconFromImage(QImage::fromData(query2.value(2).toByteArray()));
             if (title.length() > 40) {
                 title.truncate(40);
                 title += "..";
@@ -846,7 +848,7 @@ void QupZilla::aboutToShowHistoryRecentMenu()
     QSqlQuery query;
     query.exec("SELECT title, url FROM history ORDER BY date DESC LIMIT 15");
     while (query.next()) {
-        QUrl url = query.value(1).toUrl();
+        const QUrl &url = query.value(1).toUrl();
         QString title = query.value(0).toString();
         if (title.length() > 40) {
             title.truncate(40);
@@ -869,7 +871,7 @@ void QupZilla::aboutToShowHistoryMostMenu()
 {
     m_menuHistoryMost->clear();
 
-    QList<HistoryEntry> mostList = mApp->history()->mostVisited(10);
+    const QList<HistoryEntry> &mostList = mApp->history()->mostVisited(10);
 
     foreach(const HistoryEntry & entry, mostList) {
         QString title = entry.title;
@@ -945,7 +947,7 @@ void QupZilla::aboutToShowEncodingMenu()
 
     QList<QByteArray> available = QTextCodec::availableCodecs();
     qSort(available);
-    QString activeCodec = mApp->webSettings()->defaultTextEncoding();
+    const QString &activeCodec = mApp->webSettings()->defaultTextEncoding();
 
     foreach(const QByteArray & name, available) {
         if (QTextCodec::codecForName(name)->aliases().contains(name)) {
@@ -1118,7 +1120,7 @@ void QupZilla::loadActionUrlInNewNotSelectedTab()
 
 void QupZilla::loadFolderBookmarks(Menu* menu)
 {
-    QString folder = BookmarksModel::fromTranslatedFolder(menu->title());
+    const QString &folder = BookmarksModel::fromTranslatedFolder(menu->title());
     if (folder.isEmpty()) {
         return;
     }
@@ -1396,7 +1398,7 @@ void QupZilla::searchOnPage()
 
 void QupZilla::openFile()
 {
-    QString filePath = QFileDialog::getOpenFileName(this, tr("Open file..."), QDir::homePath(), "(*.html *.htm *.jpg *.png)");
+    const QString &filePath = QFileDialog::getOpenFileName(this, tr("Open file..."), QDir::homePath(), "(*.html *.htm *.jpg *.png)");
     if (!filePath.isEmpty()) {
         loadAddress(QUrl::fromLocalFile(filePath));
     }
@@ -1471,7 +1473,7 @@ void QupZilla::savePage()
 
 void QupZilla::sendLink()
 {
-    QUrl url = QUrl("mailto:?body=" + weView()->url().toString());
+    const QUrl &url = QUrl::fromEncoded("mailto:?body=" + QUrl::toPercentEncoding(weView()->url().toEncoded()));
     QDesktopServices::openUrl(url);
 }
 

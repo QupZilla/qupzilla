@@ -60,13 +60,13 @@ void PopupWebView::contextMenuEvent(QContextMenuEvent* event)
 {
     m_menu->clear();
 
-    QWebHitTestResult hitTest = page()->mainFrame()->hitTestContent(event->pos());
+    const QWebHitTestResult &hitTest = page()->mainFrame()->hitTestContent(event->pos());
 
     createContextMenu(m_menu, hitTest, event->pos());
 
     if (!m_menu->isEmpty()) {
         //Prevent choosing first option with double rightclick
-        QPoint pos = QCursor::pos();
+        const QPoint &pos = QCursor::pos();
         QPoint p(pos.x(), pos.y() + 1);
         m_menu->popup(p);
         return;
