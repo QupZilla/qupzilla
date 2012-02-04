@@ -20,6 +20,7 @@
 
 #include <QObject>
 #include <QUrl>
+#include <QWebHistory>
 
 class WebView;
 class ClosedTabsManager : public QObject

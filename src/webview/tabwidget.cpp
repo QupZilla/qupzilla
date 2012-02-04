@@ -243,6 +243,7 @@ void TabWidget::aboutToShowTabsMenu()
         }
         else {
             QString title = view->title();
+            title.replace("&", "&&");
             if (title.length() > 40) {
                 title.truncate(40);
                 title += "..";
@@ -336,7 +337,7 @@ int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionF
 void TabWidget::setTabText(int index, const QString &text)
 {
     QString newtext = text;
-    newtext.remove("&"); // Avoid Alt+letter shortcuts
+    newtext.replace("&", "&&"); // Avoid Alt+letter shortcuts
 
     if (WebTab* webTab = qobject_cast<WebTab*>(p_QupZilla->tabWidget()->widget(index))) {
         if (webTab->isPinned()) {

@@ -35,6 +35,7 @@
 #include "popupwebpage.h"
 #include "popupwebview.h"
 #include "networkmanagerproxy.h"
+#include "adblockicon.h"
 
 QString WebPage::UserAgent = "";
 QString WebPage::m_lastUploadLocation = QDir::homePath();
@@ -433,6 +434,15 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
                     exReturn->baseUrl = exOption->url;
                     exReturn->content = errString.toUtf8();
+
+                    if (PopupWebPage* popupPage = qobject_cast<PopupWebPage*>(exOption->frame->page())) {
+                        WebView* view = qobject_cast<WebView*>(popupPage->view());
+                        if (view) {
+                            // Closing blocked popup
+                            p_QupZilla->adBlockIcon()->popupBlocked(rule, exOption->url);
+                            view->closeView();
+                        }
+                    }
                     return true;
                 }
             }

@@ -554,8 +554,6 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
     //    if (!selectedHtml().isEmpty())
     //        menu->addAction(tr("Show source of selection"), this, SLOT(showSourceOfSelection()));
 #endif
-
-    //    mApp->plugins()->populateWebViewMenu(m_menu, this, hitTest);
 }
 
 void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)

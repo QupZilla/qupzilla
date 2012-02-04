@@ -230,6 +230,7 @@ void DownloadManager::itemCreated(QListWidgetItem* item, DownloadItem* downItem)
 
     ui->list->setItemWidget(item, downItem);
     item->setSizeHint(downItem->sizeHint());
+    downItem->show();
 
     show();
     raise();

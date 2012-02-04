@@ -175,32 +175,53 @@
         <translation type="obsolete">AdBlock permette di bloccare ogni contenuto indesiderato nelle pagine</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="31"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="37"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="41"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="50"/>
+        <source>Blocked popup window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/adblock/adblockicon.cpp" line="50"/>
+        <source>AdBlock blocked unwanted popup window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/adblock/adblockicon.cpp" line="69"/>
+        <source>AdBlock</source>
+        <translation type="unfinished">AdBlock</translation>
+    </message>
+    <message>
+        <location filename="../src/adblock/adblockicon.cpp" line="92"/>
         <source>Show AdBlock &amp;Settings</source>
         <translation>Mostra &amp;Impostazioni di AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="45"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="95"/>
+        <source>Blocked Popup Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/adblock/adblockicon.cpp" line="106"/>
         <source>No content blocked</source>
         <translation>Nessuno contenuto bloccato</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="48"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="109"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translation>URL bloccato (Regola di AdBlock) - clicca per modificare la regola</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="51"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="99"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="112"/>
         <source>%1 with (%2)</source>
         <translation>%1 con (%2)</translation>
     </message>
     <message>
-        <location filename="../src/adblock/adblockicon.cpp" line="55"/>
+        <location filename="../src/adblock/adblockicon.cpp" line="116"/>
         <source>Learn About Writing &amp;Rules</source>
         <translation>Scopri Come Scrivere &amp;Regole</translation>
     </message>
@@ -1193,13 +1214,13 @@
 <context>
     <name>DownloadFileHelper</name>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="119"/>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="124"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="131"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="136"/>
         <source>Save file as...</source>
         <translation>Salva come...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="234"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="246"/>
         <source>NoNameDownload</source>
         <translation>DownloadSenzaNome</translation>
     </message>
@@ -1347,7 +1368,7 @@
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="20"/>
         <location filename="../src/downloads/downloadmanager.cpp" line="124"/>
-        <location filename="../src/downloads/downloadmanager.cpp" line="259"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="260"/>
         <source>Download Manager</source>
         <translation>Gestore download</translation>
     </message>
@@ -1387,22 +1408,22 @@
         <translation>% - Gestore Download</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="252"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="253"/>
         <source>Download Finished</source>
         <translation>Download completato</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="252"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="253"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Tutti i file sono stati scaricati con successo.</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="304"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="305"/>
         <source>Warning</source>
         <translation>Attenzione</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadmanager.cpp" line="305"/>
+        <location filename="../src/downloads/downloadmanager.cpp" line="306"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Sei sicuro di voler uscire? Tutti i download incompleti saranno cancellati!</translation>
     </message>
@@ -1445,7 +1466,7 @@
         <translation>Salva File</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadoptionsdialog.cpp" line="30"/>
+        <location filename="../src/downloads/downloadoptionsdialog.cpp" line="31"/>
         <source>Opening %1</source>
         <translation>Apertura %1</translation>
     </message>
@@ -3269,7 +3290,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1695"/>
+        <location filename="../src/app/qupzilla.cpp" line="1700"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Ci sono ancora %1 delle schede aperte e la sessione non sarà salvata. Sei sicuro di voler uscire da QupZilla?</translation>
     </message>
@@ -3387,47 +3408,47 @@
         <translation>Predefinito</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1317"/>
+        <location filename="../src/app/qupzilla.cpp" line="1322"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1394"/>
+        <location filename="../src/app/qupzilla.cpp" line="1399"/>
         <source>Open file...</source>
         <translation>Apri file...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1504"/>
+        <location filename="../src/app/qupzilla.cpp" line="1509"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Sei sicuro di voler avviare la navigazione anonima?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1505"/>
+        <location filename="../src/app/qupzilla.cpp" line="1510"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Quando la navigazione anonima è attiva, alcune azioni riguardanti la tua privacy potrebbero essere disabilitate:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1508"/>
+        <location filename="../src/app/qupzilla.cpp" line="1513"/>
         <source>Webpages are not added to the history.</source>
         <translation>Le pagine web non vengono aggiunte alla cronologia.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1509"/>
+        <location filename="../src/app/qupzilla.cpp" line="1514"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Non si può accedere ai cookie correnti.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1510"/>
+        <location filename="../src/app/qupzilla.cpp" line="1515"/>
         <source>Your session is not stored.</source>
         <translation>La Sessione non è memorizzata.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1512"/>
+        <location filename="../src/app/qupzilla.cpp" line="1517"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Fino alla chiusura della finestra è sempre possibile fare clic sui pulsanti Avanti e Indietro per tornare alla pagine web che hai aperto.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1517"/>
+        <location filename="../src/app/qupzilla.cpp" line="1522"/>
         <source>Start Private Browsing</source>
         <translation>Avvia navigazione anonima</translation>
     </message>
@@ -4576,7 +4597,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation>Pagina senza nome</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="258"/>
+        <location filename="../src/webview/tabwidget.cpp" line="259"/>
         <source>Currently you have %1 opened tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4585,23 +4606,23 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation type="obsolete">Attualmente hai %1 schede aperte</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="270"/>
+        <location filename="../src/webview/tabwidget.cpp" line="271"/>
         <location filename="../src/webview/tabwidget.h" line="74"/>
         <source>New tab</source>
         <translation>Nuova scheda</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="562"/>
+        <location filename="../src/webview/tabwidget.cpp" line="563"/>
         <source>Empty</source>
         <translation type="unfinished">Vuoto</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="565"/>
+        <location filename="../src/webview/tabwidget.cpp" line="566"/>
         <source>Restore All Closed Tabs</source>
         <translation type="unfinished">Ripristina tutte le schede chiuse</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabwidget.cpp" line="566"/>
+        <location filename="../src/webview/tabwidget.cpp" line="567"/>
         <source>Clear list</source>
         <translation type="unfinished">Pulisci lista</translation>
     </message>
@@ -4609,22 +4630,22 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
 <context>
     <name>TabbedWebView</name>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="86"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="87"/>
         <source>Failed loading page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="156"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="157"/>
         <source>Loading...</source>
         <translation type="unfinished">Caricamento...</translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="231"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="232"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/tabbedwebview.cpp" line="318"/>
+        <location filename="../src/webview/tabbedwebview.cpp" line="321"/>
         <source>Inspect Element</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4820,7 +4841,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="244"/>
+        <location filename="../src/webview/webpage.cpp" line="245"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translatorcomment>I don&apos;t know what you mean for &quot;shoping&quot;</translatorcomment>
@@ -4832,132 +4853,132 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation type="obsolete">Nuova scheda</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="246"/>
+        <location filename="../src/webview/webpage.cpp" line="247"/>
         <source>Confirm form resubmission</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="351"/>
+        <location filename="../src/webview/webpage.cpp" line="352"/>
         <source>Select files to upload...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="372"/>
+        <location filename="../src/webview/webpage.cpp" line="373"/>
         <source>Server refused the connection</source>
         <translation>Il Server ha rifiutato la connessione</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="375"/>
+        <location filename="../src/webview/webpage.cpp" line="376"/>
         <source>Server closed the connection</source>
         <translation>Il Server ha chiuso la connessione</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="378"/>
+        <location filename="../src/webview/webpage.cpp" line="379"/>
         <source>Server not found</source>
         <translation>Server non trovato</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="381"/>
+        <location filename="../src/webview/webpage.cpp" line="382"/>
         <source>Connection timed out</source>
         <translation>Connessione scaduta</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="384"/>
+        <location filename="../src/webview/webpage.cpp" line="385"/>
         <source>Untrusted connection</source>
         <translation>Connessione non attendibile</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="387"/>
+        <location filename="../src/webview/webpage.cpp" line="388"/>
         <source>Temporary network failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="390"/>
+        <location filename="../src/webview/webpage.cpp" line="391"/>
         <source>Proxy connection refused</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="393"/>
+        <location filename="../src/webview/webpage.cpp" line="394"/>
         <source>Proxy server not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="396"/>
+        <location filename="../src/webview/webpage.cpp" line="397"/>
         <source>Proxy connection timed out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="399"/>
+        <location filename="../src/webview/webpage.cpp" line="400"/>
         <source>Proxy authentication required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="402"/>
+        <location filename="../src/webview/webpage.cpp" line="403"/>
         <source>Content not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="428"/>
+        <location filename="../src/webview/webpage.cpp" line="429"/>
         <source>AdBlocked Content</source>
         <translation>Contenuto bloccato (AdBlock)</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="432"/>
+        <location filename="../src/webview/webpage.cpp" line="433"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Bloccato dalla regola &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="439"/>
+        <location filename="../src/webview/webpage.cpp" line="449"/>
         <source>Content Access Denied</source>
         <translation>Accesso al contenuto negato</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="447"/>
+        <location filename="../src/webview/webpage.cpp" line="457"/>
         <source>Error code %1</source>
         <translation>Errore codice %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="459"/>
+        <location filename="../src/webview/webpage.cpp" line="469"/>
         <source>Failed loading page</source>
         <translation>Caricamento pagina fallito</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="466"/>
+        <location filename="../src/webview/webpage.cpp" line="476"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla non può caricare la pagina da %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="467"/>
+        <location filename="../src/webview/webpage.cpp" line="477"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Controllare l&apos;indirizzo per errori di battitura come &lt;b&gt;ww.&lt;/b&gt;esempio.com invece di &lt;b&gt;www.&lt;/b&gt;esempio.com</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="468"/>
+        <location filename="../src/webview/webpage.cpp" line="478"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Se non si riesce a caricare nessuna pagina, controllare la connessione di rete del compiuter.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="469"/>
+        <location filename="../src/webview/webpage.cpp" line="479"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Se il tuo computer o la rete sono protetti da un firewall o un proxy, assicurati che QupZilla sia autorizzato ad accedere al Web.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="470"/>
+        <location filename="../src/webview/webpage.cpp" line="480"/>
         <source>Try Again</source>
         <translation>Prova di nuovo</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="571"/>
+        <location filename="../src/webview/webpage.cpp" line="581"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation type="unfinished">Evita che questa pagina crei finestre di dialogo aggiuntive</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="574"/>
+        <location filename="../src/webview/webpage.cpp" line="584"/>
         <source>JavaScript alert - %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="620"/>
+        <location filename="../src/webview/webpage.cpp" line="630"/>
         <source>Choose file...</source>
         <translation>Scegli il file...</translation>
     </message>
@@ -5000,198 +5021,198 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation type="obsolete">Nuova scheda</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="623"/>
+        <location filename="../src/webview/webview.cpp" line="621"/>
         <source>Open link in new &amp;tab</source>
         <translation type="unfinished">Apri il link in una nuova &amp;scheda</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="624"/>
+        <location filename="../src/webview/webview.cpp" line="622"/>
         <source>Open link in new &amp;window</source>
         <translation type="unfinished">Apri il link in una nuova &amp;finestra</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="626"/>
+        <location filename="../src/webview/webview.cpp" line="624"/>
         <source>B&amp;ookmark link</source>
         <translation type="unfinished">&amp;Aggiungi il link ai segnalibri</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="627"/>
+        <location filename="../src/webview/webview.cpp" line="625"/>
         <source>&amp;Save link as...</source>
         <translation type="unfinished">&amp;Salva il link come...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="628"/>
+        <location filename="../src/webview/webview.cpp" line="626"/>
         <source>Send link...</source>
         <translation type="unfinished">Invia link...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="629"/>
+        <location filename="../src/webview/webview.cpp" line="627"/>
         <source>&amp;Copy link address</source>
         <translation type="unfinished">&amp;Copia indirizzo link</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="641"/>
+        <location filename="../src/webview/webview.cpp" line="639"/>
         <source>Show i&amp;mage</source>
         <translation type="unfinished">Mostra imma&amp;gine</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="646"/>
+        <location filename="../src/webview/webview.cpp" line="644"/>
         <source>Copy im&amp;age</source>
         <translation type="unfinished">Copia im&amp;magine</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="647"/>
+        <location filename="../src/webview/webview.cpp" line="645"/>
         <source>Copy image ad&amp;dress</source>
         <translation type="unfinished">Copia indiri&amp;zzo immagine</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="649"/>
+        <location filename="../src/webview/webview.cpp" line="647"/>
         <source>&amp;Save image as...</source>
         <translation type="unfinished">Sa&amp;lva immagine come...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="650"/>
+        <location filename="../src/webview/webview.cpp" line="648"/>
         <source>Send image...</source>
         <translation type="unfinished">Invia immagine...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="565"/>
+        <location filename="../src/webview/webview.cpp" line="563"/>
         <source>&amp;Back</source>
         <translation type="unfinished">&amp;Indietro</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="569"/>
+        <location filename="../src/webview/webview.cpp" line="567"/>
         <source>&amp;Forward</source>
         <translation type="unfinished">&amp;Avanti</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="573"/>
-        <location filename="../src/webview/webview.cpp" line="584"/>
+        <location filename="../src/webview/webview.cpp" line="571"/>
+        <location filename="../src/webview/webview.cpp" line="582"/>
         <source>&amp;Reload</source>
         <translation type="unfinished">&amp;Ricarica</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="574"/>
+        <location filename="../src/webview/webview.cpp" line="572"/>
         <source>S&amp;top</source>
         <translation type="unfinished">S&amp;top</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="580"/>
+        <location filename="../src/webview/webview.cpp" line="578"/>
         <source>This frame</source>
         <translation type="unfinished">Questa cornice</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="581"/>
+        <location filename="../src/webview/webview.cpp" line="579"/>
         <source>Show &amp;only this frame</source>
         <translation type="unfinished">Mostra s&amp;olo questa cornice</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="582"/>
+        <location filename="../src/webview/webview.cpp" line="580"/>
         <source>Show this frame in new &amp;tab</source>
         <translation type="unfinished">Mostra questa cornice in una nuova &amp;scheda</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="585"/>
+        <location filename="../src/webview/webview.cpp" line="583"/>
         <source>Print frame</source>
         <translation type="unfinished">Stampa cornice</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="587"/>
+        <location filename="../src/webview/webview.cpp" line="585"/>
         <source>Zoom &amp;in</source>
         <translation type="unfinished">&amp;Ingrandisci</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="588"/>
+        <location filename="../src/webview/webview.cpp" line="586"/>
         <source>&amp;Zoom out</source>
         <translation type="unfinished">&amp;Riduci</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="589"/>
+        <location filename="../src/webview/webview.cpp" line="587"/>
         <source>Reset</source>
         <translation type="unfinished">Ripristina</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="591"/>
+        <location filename="../src/webview/webview.cpp" line="589"/>
         <source>Show so&amp;urce of frame</source>
         <translation type="unfinished">Mostra sor&amp;gente della cornice</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="597"/>
+        <location filename="../src/webview/webview.cpp" line="595"/>
         <source>Book&amp;mark page</source>
         <translation type="unfinished">Aggi&amp;ungi la pagina ai Segnalibri</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="598"/>
+        <location filename="../src/webview/webview.cpp" line="596"/>
         <source>&amp;Save page as...</source>
         <translation type="unfinished">Sa&amp;lva pagina come...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="599"/>
+        <location filename="../src/webview/webview.cpp" line="597"/>
         <source>&amp;Copy page link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="600"/>
+        <location filename="../src/webview/webview.cpp" line="598"/>
         <source>Send page link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="601"/>
+        <location filename="../src/webview/webview.cpp" line="599"/>
         <source>&amp;Print page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="669"/>
+        <location filename="../src/webview/webview.cpp" line="667"/>
         <source>Send text...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="674"/>
+        <location filename="../src/webview/webview.cpp" line="672"/>
         <source>Google Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="675"/>
+        <location filename="../src/webview/webview.cpp" line="673"/>
         <source>Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="686"/>
+        <location filename="../src/webview/webview.cpp" line="684"/>
         <source>Go to &amp;web address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="712"/>
+        <location filename="../src/webview/webview.cpp" line="710"/>
         <source>&amp;Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="712"/>
+        <location filename="../src/webview/webview.cpp" line="710"/>
         <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="713"/>
+        <location filename="../src/webview/webview.cpp" line="711"/>
         <source>Un&amp;mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="713"/>
+        <location filename="../src/webview/webview.cpp" line="711"/>
         <source>&amp;Mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="715"/>
+        <location filename="../src/webview/webview.cpp" line="713"/>
         <source>&amp;Copy Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="716"/>
+        <location filename="../src/webview/webview.cpp" line="714"/>
         <source>&amp;Send Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="717"/>
+        <location filename="../src/webview/webview.cpp" line="715"/>
         <source>Save Media To &amp;Disk</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5200,22 +5221,22 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation type="obsolete">Invia pagina...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="603"/>
+        <location filename="../src/webview/webview.cpp" line="601"/>
         <source>Select &amp;all</source>
         <translation type="unfinished">Seleziona &amp;tutto</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="608"/>
+        <location filename="../src/webview/webview.cpp" line="606"/>
         <source>Validate page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="611"/>
+        <location filename="../src/webview/webview.cpp" line="609"/>
         <source>Show so&amp;urce code</source>
         <translation type="unfinished">Mostra codice so&amp;rgente</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="612"/>
+        <location filename="../src/webview/webview.cpp" line="610"/>
         <source>Show info ab&amp;out site</source>
         <translation type="unfinished">Mostra info su&amp;l sito</translation>
     </message>
@@ -5224,7 +5245,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
         <translation type="obsolete">Mostra Is&amp;pettore Web</translation>
     </message>
     <message>
-        <location filename="../src/webview/webview.cpp" line="696"/>
+        <location filename="../src/webview/webview.cpp" line="694"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation type="unfinished">Cerca &quot;%1 ..&quot; con %2</translation>
     </message>

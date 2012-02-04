@@ -91,4 +91,3 @@ QNetworkReply* AdBlockNetwork::block(const QNetworkRequest &request)
     }
     return 0;
 }
-

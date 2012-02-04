@@ -21,6 +21,7 @@
 DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPixmap &fileIcon, const QString &mimeType, const QUrl &url, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::DownloadOptionsDialog)
+    , m_signalEmited(false)
 {
     ui->setupUi(this);
     ui->fileName->setText("<b>" + fileName + "</b>");
@@ -62,10 +63,16 @@ void DownloadOptionsDialog::emitDialogFinished(int status)
             status =  2;
         }
     }
+
+    m_signalEmited = true;
     emit dialogFinished(status);
 }
 
 DownloadOptionsDialog::~DownloadOptionsDialog()
 {
+    if (!m_signalEmited) {
+        emit dialogFinished(-1);
+    }
+
     delete ui;
 }

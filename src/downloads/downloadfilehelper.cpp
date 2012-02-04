@@ -109,6 +109,18 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
     case 2: //Save
         m_lastDownloadOption = DownloadManager::SaveFile;
         break;
+
+    default:
+        qWarning() << "DownloadFileHelper::optionsDialogAccepted invalid return value!";
+        if (m_timer) {
+            delete m_timer;
+        }
+
+        m_reply->abort();
+        m_reply->deleteLater();
+        return;
+
+        break;
     }
 
     m_manager->setLastDownloadOption(m_lastDownloadOption);

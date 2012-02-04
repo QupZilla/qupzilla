@@ -718,7 +718,7 @@ void QupZilla::aboutToShowBookmarksMenu()
     }
     m_bookmarksMenuChanged = false;
 
-    while( m_menuBookmarks->actions().count() != 4) {
+    while (m_menuBookmarks->actions().count() != 4) {
         QAction* act = m_menuBookmarks->actions().at(4);
         if (act->menu()) {
             act->menu()->clear();
@@ -1284,10 +1284,15 @@ void QupZilla::showStatusbar()
     settings.setValue("Browser-View-Settings/showStatusbar", !status);
 }
 
-void QupZilla::showWebInspector()
+void QupZilla::showWebInspector(bool toggle)
 {
     if (m_webInspectorDock) {
-        m_webInspectorDock.data()->show();
+        if (toggle) {
+            m_webInspectorDock.data()->setVisible(!m_webInspectorDock.data()->isVisible());
+        }
+        else  {
+            m_webInspectorDock.data()->show();
+        }
         return;
     }
 

@@ -168,6 +168,22 @@
         <source>AdBlock lets you block unwanted content on web pages</source>
         <translation>AdBlock blokuje nevyžiadaný obsah na stránkach</translation>
     </message>
+    <message>
+        <source>Blocked popup window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock blocked unwanted popup window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock</source>
+        <translation type="unfinished">AdBlock</translation>
+    </message>
+    <message>
+        <source>Blocked Popup Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddAcceptLanguage</name>

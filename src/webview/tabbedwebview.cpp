@@ -30,6 +30,7 @@
 #include "iconprovider.h"
 #include "searchenginesmanager.h"
 #include "enhancedmenu.h"
+#include "adblockicon.h"
 
 TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     : WebView(webTab)
@@ -94,7 +95,7 @@ void TabbedWebView::slotIconChanged()
 
 void TabbedWebView::inspectElement()
 {
-    p_QupZilla->showWebInspector();
+    p_QupZilla->showWebInspector(false);
     triggerPageAction(QWebPage::InspectElement);
 }
 
@@ -312,7 +313,9 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
 
     createContextMenu(m_menu, hitTest, event->pos());
 
+    m_menu->addSeparator();
     mApp->plugins()->populateWebViewMenu(m_menu, this, hitTest);
+    m_menu->addAction(p_QupZilla->adBlockIcon()->menuAction());
 
     m_menu->addSeparator();
     m_menu->addAction(tr("Inspect Element"), this, SLOT(inspectElement()));

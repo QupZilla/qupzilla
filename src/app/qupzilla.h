@@ -105,6 +105,7 @@ public:
     inline QString activeProfil() { return m_activeProfil; }
     inline QString activeLanguage() { return m_activeLanguage; }
     inline QLabel* ipLabel() { return m_ipLabel; }
+    inline AdBlockIcon* adBlockIcon() { return m_adblockIcon; }
     inline QColor menuTextColor() { return m_menuTextColor; }
     inline QMenu* menuHelp() { return m_menuHelp; }
     inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
@@ -123,7 +124,7 @@ signals:
 public slots:
     void setWindowTitle(const QString &t);
 
-    void showWebInspector();
+    void showWebInspector(bool toggle = true);
     void showBookmarksToolbar();
     void loadActionUrl();
     void loadActionUrlInNewTab();

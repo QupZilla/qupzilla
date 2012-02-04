@@ -47,6 +47,7 @@ signals:
 
 private:
     Ui::DownloadOptionsDialog* ui;
+    bool m_signalEmited;
 };
 
 #endif // DOWNLOADOPTIONSDIALOG_H

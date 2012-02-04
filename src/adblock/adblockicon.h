@@ -31,18 +31,30 @@ public:
     explicit AdBlockIcon(QupZilla* mainClass, QWidget* parent = 0);
     ~AdBlockIcon();
 
+    void popupBlocked(const QString &rule, const QUrl &url);
+    QAction* menuAction();
+
 signals:
 
 public slots:
     void setEnabled(bool enabled);
+    void createMenu(QMenu* menu = 0);
 
 private slots:
     void showMenu(const QPoint &pos);
     void learnAboutRules();
 
+    void animateIcon();
+    void stopAnimation();
+
 private:
     QupZilla* p_QupZilla;
+    QAction* m_menuAction;
 
+    QList<QPair<QString, QUrl> > m_blockedPopups;
+    QTimer* m_flashTimer;
+    int m_timerTicks;
+    bool m_enabled;
 };
 
 #endif // ADBLOCKICON_H

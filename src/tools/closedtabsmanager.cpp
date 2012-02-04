@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "closedtabsmanager.h"
 #include "webview.h"
-#include "qwebhistory.h"
+#include "mainapplication.h"
 
 ClosedTabsManager::ClosedTabsManager(QObject* parent)
     : QObject(parent)
@@ -26,7 +26,8 @@ ClosedTabsManager::ClosedTabsManager(QObject* parent)
 
 void ClosedTabsManager::saveView(WebView* view, int position)
 {
-    if (view->url().isEmpty() && view->history()->items().count() == 0) {
+    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) ||
+            (view->url().isEmpty() && view->history()->items().count() == 0)) {
         return;
     }
 
