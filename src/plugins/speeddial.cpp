@@ -35,20 +35,21 @@ void SpeedDial::loadSettings()
 
     Settings settings;
     settings.beginGroup("SpeedDial");
-    m_allPages = settings.value("pages", "").toString();
+    QString allPages = settings.value("pages", "").toString();
     m_backgroundImage = settings.value("background", "").toString();
     m_backgroundImageSize = settings.value("backsize", "auto").toString();
     m_maxPagesInRow = settings.value("pagesrow", 4).toInt();
     m_sizeOfSpeedDials = settings.value("sdsize", 231).toInt();
     settings.endGroup();
 
-    if (m_allPages.isEmpty()) {
-        m_allPages = "url:\"http://www.google.com\"|title:\"Google\";"
-                     "url:\"http://www.qupzilla.com\"|title:\"QupZilla\";"
-                     "url:\"http://blog.qupzilla.com\"|title:\"QupZilla Blog\";"
-                     "url:\"https://github.com/nowrep/QupZilla\"|title:\"QupZilla GitHub\";"
-                     "url:\"http://facebook.com\"|title:\"Facebook\";";
+    if (allPages.isEmpty()) {
+        allPages = "url:\"http://www.google.com\"|title:\"Google\";"
+                   "url:\"http://www.qupzilla.com\"|title:\"QupZilla\";"
+                   "url:\"http://blog.qupzilla.com\"|title:\"QupZilla Blog\";"
+                   "url:\"https://github.com/nowrep/QupZilla\"|title:\"QupZilla GitHub\";"
+                   "url:\"http://facebook.com\"|title:\"Facebook\";";
     }
+    changed(allPages);
 
     m_thumbnailsDir = mApp->getActiveProfilPath() + "thumbnails/";
 
@@ -60,18 +61,40 @@ void SpeedDial::loadSettings()
 
 void SpeedDial::saveSettings()
 {
-    if (m_allPages.isEmpty()) {
+    if (m_webPages.isEmpty()) {
         return;
     }
 
     Settings settings;
     settings.beginGroup("SpeedDial");
-    settings.setValue("pages", m_allPages);
+    settings.setValue("pages", generateAllPages());
     settings.setValue("background", m_backgroundImage);
     settings.setValue("backsize", m_backgroundImageSize);
     settings.setValue("pagesrow", m_maxPagesInRow);
     settings.setValue("sdsize", m_sizeOfSpeedDials);
     settings.endGroup();
+}
+
+SpeedDial::Page SpeedDial::pageForUrl(const QUrl &url)
+{
+    const QString &urlString = url.toString();
+
+    foreach(const Page & page, m_webPages) {
+        if (page.url == urlString) {
+            return page;
+        }
+    }
+
+    return Page();
+}
+
+QUrl SpeedDial::urlForShortcut(int key)
+{
+    if (key < 0 || m_webPages.count() <= key) {
+        return QUrl();
+    }
+
+    return QUrl::fromEncoded(m_webPages.at(key).url.toUtf8());
 }
 
 void SpeedDial::addWebFrame(QWebFrame* frame)
@@ -87,20 +110,35 @@ void SpeedDial::addPage(const QUrl &url, const QString &title)
         return;
     }
 
-    QString sitePair = QString("url:\"%1\"|title:\"%2\";").arg(url.toString(), title);
+    Page page;
+    page.title = title;
+    page.url = url.toString();
 
-    m_allPages.append(sitePair);
+    m_webPages.append(page);
+    m_regenerateScript = true;
 
-    for (int i = 0; i < m_webFrames.count(); i++) {
-        QWebFrame* frame = m_webFrames.at(i).data();
-        if (!frame) {
-            m_webFrames.removeAt(i);
-            i--;
-            continue;
-        }
-
+    foreach(QWebFrame * frame, cleanFrames()) {
         frame->page()->triggerAction(QWebPage::Reload);
     }
+
+    emit pagesChanged();
+}
+
+void SpeedDial::removePage(const Page &page)
+{
+    if (page.url.isEmpty()) {
+        return;
+    }
+
+    removeImageForUrl(page.url);
+    m_webPages.removeAll(page);
+    m_regenerateScript = true;
+
+    foreach(QWebFrame * frame, cleanFrames()) {
+        frame->page()->triggerAction(QWebPage::Reload);
+    }
+
+    emit pagesChanged();
 }
 
 int SpeedDial::pagesInRow()
@@ -152,28 +190,14 @@ QString SpeedDial::initialScript()
     m_regenerateScript = false;
     m_initialScript.clear();
 
-    const QStringList &entries = m_allPages.split("\";");
-
-    foreach(const QString & entry, entries) {
-        if (entry.isEmpty()) {
-            continue;
-        }
-
-        const QStringList &tmp = entry.split("\"|");
-        if (tmp.count() != 2) {
-            continue;
-        }
-
-        const QString &url = tmp.at(0).mid(5);
-        const QString &title = tmp.at(1).mid(7);
-
-        QString imgSource = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
+    foreach(const Page & page, m_webPages) {
+        QString imgSource = m_thumbnailsDir + QCryptographicHash::hash(page.url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
         if (!QFile(imgSource).exists()) {
-            loadThumbnail(url);
+            loadThumbnail(page.url);
             imgSource = "qrc:html/loading.gif";
 
-            if (url.isEmpty()) {
+            if (page.url.isEmpty()) {
                 imgSource = "";
             }
         }
@@ -181,7 +205,7 @@ QString SpeedDial::initialScript()
             imgSource = QUrl::fromLocalFile(imgSource).toString();
         }
 
-        m_initialScript.append(QString("addBox('%1', '%2', '%3');\n").arg(url, title, imgSource));
+        m_initialScript.append(QString("addBox('%1', '%2', '%3');\n").arg(page.url, page.title, imgSource));
     }
 
     return m_initialScript;
@@ -193,8 +217,28 @@ void SpeedDial::changed(const QString &allPages)
         return;
     }
 
-    m_allPages = allPages;
+    const QStringList &entries = allPages.split("\";");
+    m_webPages.clear();
+
+    foreach(const QString & entry, entries) {
+        if (entry.isEmpty()) {
+            continue;
+        }
+
+        const QStringList &tmp = entry.split("\"|");
+        if (tmp.count() != 2) {
+            continue;
+        }
+
+        Page page;
+        page.url = tmp.at(0).mid(5);
+        page.title = tmp.at(1).mid(7);
+
+        m_webPages.append(page);
+    }
+
     m_regenerateScript = true;
+    emit pagesChanged();
 }
 
 void SpeedDial::loadThumbnail(const QString &url, bool loadTitle)
@@ -277,14 +321,8 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
 
     m_regenerateScript = true;
 
-    for (int i = 0; i < m_webFrames.count(); i++) {
-        QWebFrame* frame = m_webFrames.at(i).data();
-        if (!frame) {
-            m_webFrames.removeAt(i);
-            i--;
-            continue;
-        }
-
+    cleanFrames();
+    foreach(QWebFrame * frame, cleanFrames()) {
         frame->evaluateJavaScript(QString("setImageToUrl('%1', '%2');").arg(url, fileName));
         if (loadTitle) {
             frame->evaluateJavaScript(QString("setTitleToUrl('%1', '%2');").arg(url, title));
@@ -292,4 +330,33 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
     }
 
     thumbnailer->deleteLater();
+}
+
+QList<QWebFrame*> SpeedDial::cleanFrames()
+{
+    QList<QWebFrame*> list;
+
+    for (int i = 0; i < m_webFrames.count(); i++) {
+        QWebFrame* frame = m_webFrames.at(i).data();
+        if (!frame || frame->url().toString() != "qupzilla:speeddial") {
+            m_webFrames.removeAt(i);
+            i--;
+            continue;
+        }
+        list.append(frame);
+    }
+
+    return list;
+}
+
+QString SpeedDial::generateAllPages()
+{
+    QString allPages;
+
+    foreach(const Page & page, m_webPages) {
+        const QString &string = QString("url:\"%1\"|title:\"%2\";").arg(page.url, page.title);
+        allPages.append(string);
+    }
+
+    return allPages;
 }

@@ -669,6 +669,30 @@
         <source>Folder:</source>
         <translation>Priečinok:</translation>
     </message>
+    <message>
+        <source>Add into Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add into Speed Dial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished">Upraviť záložku</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from Speed Dial</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BrowsingLibrary</name>

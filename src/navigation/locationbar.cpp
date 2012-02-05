@@ -412,6 +412,23 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         default:
             urlEnter();
         }
+
+    case Qt::Key_0:
+    case Qt::Key_1:
+    case Qt::Key_2:
+    case Qt::Key_3:
+    case Qt::Key_4:
+    case Qt::Key_5:
+    case Qt::Key_6:
+    case Qt::Key_7:
+    case Qt::Key_8:
+    case Qt::Key_9:
+        if (event->modifiers() & Qt::AltModifier || event->modifiers() & Qt::ControlModifier) {
+            event->ignore();
+            return;
+        }
+        break;
+
     default:
         m_holdingAlt = false;
     }

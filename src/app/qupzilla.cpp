@@ -1547,68 +1547,104 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
         weView()->back();
         event->accept();
         break;
+
     case Qt::Key_Forward:
         weView()->forward();
         event->accept();
         break;
+
     case Qt::Key_Stop:
         weView()->stop();
         event->accept();
         break;
+
     case Qt::Key_Refresh:
         weView()->reload();
         event->accept();
         break;
+
     case Qt::Key_HomePage:
         goHome();
         event->accept();
         break;
+
     case Qt::Key_Favorites:
         showBookmarksManager();
         event->accept();
         break;
+
     case Qt::Key_Search:
         searchOnPage();
         event->accept();
         break;
+
     case Qt::Key_F6:
     case Qt::Key_OpenUrl:
         openLocation();
         event->accept();
         break;
+
     case Qt::Key_History:
         showHistoryManager();
         event->accept();
         break;
+
     case Qt::Key_AddFavorite:
         bookmarkPage();
         event->accept();
         break;
+
     case Qt::Key_News:
         showRSSManager();
         event->accept();
         break;
+
     case Qt::Key_Tools:
         showPreferences();
         event->accept();
         break;
+
     case Qt::Key_Tab:
         if (event->modifiers() == Qt::ControlModifier) {
             m_tabWidget->createKeyPressEvent(event);
         }
-        QMainWindow::keyPressEvent(event);
         break;
+
     case Qt::Key_Backtab:
         if (event->modifiers() == (Qt::ControlModifier + Qt::ShiftModifier)) {
             m_tabWidget->createKeyPressEvent(event);
         }
-        QMainWindow::keyPressEvent(event);
         break;
 
+    case Qt::Key_0:
+    case Qt::Key_1:
+    case Qt::Key_2:
+    case Qt::Key_3:
+    case Qt::Key_4:
+    case Qt::Key_5:
+    case Qt::Key_6:
+    case Qt::Key_7:
+    case Qt::Key_8:
+        qDebug() << event->modifiers();
+        if (event->modifiers() & Qt::AltModifier) {
+            m_tabWidget->setCurrentIndex(event->text().toInt() - 1);
+            event->accept();
+        }
+        break;
+
+    case Qt::Key_9:
+        if (event->modifiers() & Qt::AltModifier) {
+            m_tabWidget->setCurrentIndex(m_tabWidget->count() - 1);
+            event->accept();
+        }
+
     default:
-        QMainWindow::keyPressEvent(event);
         return;
     }
+
+    qDebug("event");
+
+    QMainWindow::keyPressEvent(event);
 }
 
 void QupZilla::closeEvent(QCloseEvent* event)

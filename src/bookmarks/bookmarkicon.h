@@ -23,6 +23,7 @@
 #include "clickablelabel.h"
 #include "bookmarksmodel.h"
 
+class SpeedDial;
 class QupZilla;
 class BookmarksModel;
 class BookmarkIcon : public ClickableLabel
@@ -30,12 +31,13 @@ class BookmarkIcon : public ClickableLabel
     Q_OBJECT
 public:
     explicit BookmarkIcon(QupZilla* mainClass, QWidget* parent = 0);
-    void checkBookmark(const QUrl &url);
+    void checkBookmark(const QUrl &url, bool forceCheck = false);
 
 private slots:
     void iconClicked();
     void bookmarkAdded(const BookmarksModel::Bookmark &bookmark);
     void bookmarkDeleted(const BookmarksModel::Bookmark &bookmark);
+    void speedDialChanged();
 
 private:
     void mousePressEvent(QMouseEvent* ev);
@@ -45,6 +47,7 @@ private:
 
     QupZilla* p_QupZilla;
     BookmarksModel* m_bookmarksModel;
+    SpeedDial* m_speedDial;
 
     QUrl m_lastUrl;
 

@@ -52,7 +52,7 @@ PageThumbnailer::PageThumbnailer(QObject* parent)
     m_page->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
     m_page->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
 
-    // HD Ready :-D
+    // HD Ready -,-
     // Every page should fit in this resolution
     m_page->setViewportSize(QSize(1280, 720));
 }

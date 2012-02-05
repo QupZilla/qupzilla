@@ -29,18 +29,21 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QToolTip>
+#include <QUrl>
 
 namespace Ui
 {
 class BookmarksWidget;
 }
 
+class WebView;
+class SpeedDial;
 class BookmarksModel;
 class BookmarksWidget : public QMenu
 {
     Q_OBJECT
 public:
-    explicit BookmarksWidget(int bookmarkId, QWidget* parent = 0);
+    explicit BookmarksWidget(WebView *view, QWidget* parent = 0);
     ~BookmarksWidget();
     void showAt(QWidget* _parent);
 
@@ -53,12 +56,19 @@ private slots:
     void removeBookmark();
     void saveBookmark();
 
+    void addBookmark();
+    void toggleSpeedDial();
+
 private:
     void loadBookmark();
 
     Ui::BookmarksWidget* ui;
+    QUrl m_url;
     int m_bookmarkId;
+
+    WebView* m_view;
     BookmarksModel* m_bookmarksModel;
+    SpeedDial* m_speedDial;
 };
 
 #endif // BOOKMARKSWIDGET_H

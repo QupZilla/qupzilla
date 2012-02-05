@@ -31,13 +31,27 @@ class SpeedDial : public QObject
 {
     Q_OBJECT
 public:
+    struct Page {
+        QString title;
+        QString url;
+
+        bool operator==(const Page &other) {
+            return (this->title == other.title &&
+                    this->url == other.url);
+        }
+    };
+
     explicit SpeedDial(QObject* parent = 0);
 
     void loadSettings();
     void saveSettings();
 
+    Page pageForUrl(const QUrl &url);
+    QUrl urlForShortcut(int key);
+
     void addWebFrame(QWebFrame* frame);
     void addPage(const QUrl &url, const QString &title);
+    void removePage(const Page &page);
 
     int pagesInRow();
     int sdSize();
@@ -46,6 +60,7 @@ public:
     QString initialScript();
 
 signals:
+    void pagesChanged();
 
 public slots:
     Q_INVOKABLE void changed(const QString &allPages);
@@ -63,8 +78,10 @@ private slots:
     void thumbnailCreated(const QPixmap &image);
 
 private:
+    QList<QWebFrame*> cleanFrames();
+    QString generateAllPages();
+
     QString m_initialScript;
-    QString m_allPages;
     QString m_thumbnailsDir;
     QString m_backgroundImage;
     QString m_backgroundImageSize;
@@ -72,6 +89,7 @@ private:
     int m_sizeOfSpeedDials;
 
     QList<QWeakPointer<QWebFrame> > m_webFrames;
+    QList<Page> m_webPages;
 
     bool m_loaded;
     bool m_regenerateScript;
