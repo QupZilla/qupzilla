@@ -5212,7 +5212,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>No Named Page</source>
         <translation>未命名頁面</translation>
     </message>
-</context>
+</context> 
 <context>
     <name>jsAlert</name>
     <message>
