@@ -20,6 +20,8 @@
 #include "pagethumbnailer.h"
 #include "settings.h"
 
+#define ENSURE_LOADED if (!m_loaded) loadSettings();
+
 SpeedDial::SpeedDial(QObject* parent)
     : QObject(parent)
     , m_maxPagesInRow(4)
@@ -61,6 +63,8 @@ void SpeedDial::loadSettings()
 
 void SpeedDial::saveSettings()
 {
+    ENSURE_LOADED;
+
     if (m_webPages.isEmpty()) {
         return;
     }
@@ -77,6 +81,8 @@ void SpeedDial::saveSettings()
 
 SpeedDial::Page SpeedDial::pageForUrl(const QUrl &url)
 {
+    ENSURE_LOADED;
+
     const QString &urlString = url.toString();
 
     foreach(const Page & page, m_webPages) {
@@ -90,6 +96,8 @@ SpeedDial::Page SpeedDial::pageForUrl(const QUrl &url)
 
 QUrl SpeedDial::urlForShortcut(int key)
 {
+    ENSURE_LOADED;
+
     if (key < 0 || m_webPages.count() <= key) {
         return QUrl();
     }
@@ -106,6 +114,8 @@ void SpeedDial::addWebFrame(QWebFrame* frame)
 
 void SpeedDial::addPage(const QUrl &url, const QString &title)
 {
+    ENSURE_LOADED;
+
     if (url.isEmpty()) {
         return;
     }
@@ -126,6 +136,8 @@ void SpeedDial::addPage(const QUrl &url, const QString &title)
 
 void SpeedDial::removePage(const Page &page)
 {
+    ENSURE_LOADED;
+
     if (page.url.isEmpty()) {
         return;
     }
@@ -143,45 +155,35 @@ void SpeedDial::removePage(const Page &page)
 
 int SpeedDial::pagesInRow()
 {
-    if (!m_loaded) {
-        loadSettings();
-    }
+    ENSURE_LOADED;
 
     return m_maxPagesInRow;
 }
 
 int SpeedDial::sdSize()
 {
-    if (!m_loaded) {
-        loadSettings();
-    }
+    ENSURE_LOADED;
 
     return m_sizeOfSpeedDials;
 }
 
 QString SpeedDial::backgroundImage()
 {
-    if (!m_loaded) {
-        loadSettings();
-    }
+    ENSURE_LOADED;
 
     return m_backgroundImage;
 }
 
 QString SpeedDial::backgroundImageSize()
 {
-    if (!m_loaded) {
-        loadSettings();
-    }
+    ENSURE_LOADED;
 
     return m_backgroundImageSize;
 }
 
 QString SpeedDial::initialScript()
 {
-    if (!m_loaded) {
-        loadSettings();
-    }
+    ENSURE_LOADED;
 
     if (!m_regenerateScript) {
         return m_initialScript;

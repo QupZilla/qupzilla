@@ -62,6 +62,7 @@
 #include "enhancedmenu.h"
 #include "settings.h"
 #include "webtab.h"
+#include "speeddial.h"
 
 const QString QupZilla::VERSION = "1.1.5";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
@@ -1542,6 +1543,8 @@ void QupZilla::resizeEvent(QResizeEvent* event)
 
 void QupZilla::keyPressEvent(QKeyEvent* event)
 {
+    int number = -1;
+
     switch (event->key()) {
     case Qt::Key_Back:
         weView()->back();
@@ -1616,33 +1619,54 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
         }
         break;
 
-    case Qt::Key_0:
     case Qt::Key_1:
+        number = 1;
+        break;
     case Qt::Key_2:
+        number = 2;
+        break;
     case Qt::Key_3:
+        number = 3;
+        break;
     case Qt::Key_4:
+        number = 4;
+        break;
     case Qt::Key_5:
+        number = 5;
+        break;
     case Qt::Key_6:
+        number = 6;
+        break;
     case Qt::Key_7:
+        number = 7;
+        break;
     case Qt::Key_8:
-        qDebug() << event->modifiers();
-        if (event->modifiers() & Qt::AltModifier) {
-            m_tabWidget->setCurrentIndex(event->text().toInt() - 1);
-            event->accept();
-        }
+        number = 8;
+        break;
+    case Qt::Key_9:
+        number = 9;
         break;
 
-    case Qt::Key_9:
-        if (event->modifiers() & Qt::AltModifier) {
-            m_tabWidget->setCurrentIndex(m_tabWidget->count() - 1);
-            event->accept();
-        }
-
     default:
-        return;
+        break;
     }
 
-    qDebug("event");
+    if (number != -1) {
+        if (event->modifiers() & Qt::AltModifier) {
+            if (number == 9) {
+                number = m_tabWidget->count();
+            }
+            m_tabWidget->setCurrentIndex(number - 1);
+            return;
+        }
+        if (event->modifiers() & Qt::ControlModifier) {
+            const QUrl &url = mApp->plugins()->speedDial()->urlForShortcut(number - 1);
+            if (url.isValid()) {
+                loadAddress(url);
+                return;
+            }
+        }
+    }
 
     QMainWindow::keyPressEvent(event);
 }

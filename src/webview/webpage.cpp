@@ -575,25 +575,29 @@ bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
 
 void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
 {
+    Q_UNUSED(originatingFrame)
+
     if (m_blockAlerts || m_runningLoop) {
         return;
     }
 
 #ifndef NONBLOCK_JS_DIALOGS
-    QDialog dialog(view());
+    QDialog* dialog = new QDialog(view());
     Ui_CloseDialog* ui = new Ui_CloseDialog();
-    ui->setupUi(&dialog);
+    ui->setupUi(dialog);
     ui->buttonBox->setStandardButtons(QDialogButtonBox::Ok);
     ui->dontAskAgain->setText(tr("Prevent this page from creating additional dialogs"));
     ui->textLabel->setText(Qt::escape(msg));
     ui->iconLabel->setPixmap(mApp->style()->standardPixmap(QStyle::SP_MessageBoxInformation));
     ui->buttonBox->setFocus();
-    dialog.setWindowTitle(tr("JavaScript alert - %1").arg(originatingFrame->url().host()));
-    dialog.exec();
+    dialog->setWindowTitle(tr("JavaScript alert - %1").arg(url().host()));
+    dialog->exec();
 
     if (ui->dontAskAgain->isChecked()) {
         m_blockAlerts = true;
     }
+
+    delete dialog;
 #else
     WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
     ResizableFrame* widget = new ResizableFrame(webView->overlayForJsAlert());
