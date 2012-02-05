@@ -198,7 +198,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="55"/>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>瞭解編輯 &amp;的規則</translation>
+        <translation>瞭解編輯的規則&amp;R</translation>
     </message>
     <message>
         <source>New tab</source>
@@ -695,7 +695,7 @@
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="114"/>
         <source>&amp;Delete</source>
-        <translation>&amp;移除</translation>
+        <translation>移除&amp;D</translation>
     </message>
 </context>
 <context>
@@ -703,7 +703,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="64"/>
         <source>&amp;Bookmark Current Page</source>
-        <translation>&amp;將此頁加入書籤</translation>
+        <translation>將此頁加入書籤&amp;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="65"/>
@@ -713,22 +713,22 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="66"/>
         <source>&amp;Organize Bookmarks</source>
-        <translation>&amp;管理書籤</translation>
+        <translation>管理書籤&amp;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="68"/>
         <source>Hide Most &amp;Visited</source>
-        <translation>隱藏最多&amp;瀏覽</translation>
+        <translation>隱藏最多瀏覽&amp;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="68"/>
         <source>Show Most &amp;Visited</source>
-        <translation>顯示最多&amp;瀏覽</translation>
+        <translation>顯示最多瀏覽&amp;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="69"/>
         <source>&amp;Hide Toolbar</source>
-        <translation>&amp;隱藏工具列</translation>
+        <translation>隱藏工具列&amp;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
@@ -1734,7 +1734,7 @@
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="257"/>
         <source>Paste And &amp;Go</source>
-        <translation>貼上並&amp;前往</translation>
+        <translation>貼上並前往&amp;G</translation>
     </message>
     <message>
         <location filename="../src/navigation/locationbar.cpp" line="263"/>
@@ -5152,12 +5152,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="716"/>
         <source>Un&amp;mute</source>
-        <translation>&amp;取消靜音</translation>
+        <translation>取消靜音&amp;m</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="716"/>
         <source>&amp;Mute</source>
-        <translation>&amp;靜音</translation>
+        <translation>靜音&amp;M</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="718"/>
@@ -5167,7 +5167,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="719"/>
         <source>&amp;Send Media Address</source>
-        <translation>&amp;傳送此多媒體位址</translation>
+        <translation>傳送此多媒體位址&amp;S</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="720"/>
@@ -5212,7 +5212,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>No Named Page</source>
         <translation>未命名頁面</translation>
     </message>
-</context> 
+</context>
 <context>
     <name>jsAlert</name>
     <message>
