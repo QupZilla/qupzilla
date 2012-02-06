@@ -43,7 +43,7 @@ class BookmarksWidget : public QMenu
 {
     Q_OBJECT
 public:
-    explicit BookmarksWidget(WebView *view, QWidget* parent = 0);
+    explicit BookmarksWidget(WebView* view, QWidget* parent = 0);
     ~BookmarksWidget();
     void showAt(QWidget* _parent);
 

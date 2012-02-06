@@ -245,7 +245,7 @@
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="40"/>
-        <location filename="../src/preferences/autofillmanager.ui" line="128"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="148"/>
         <source>Server</source>
         <translation>сајт</translation>
     </message>
@@ -266,57 +266,103 @@
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="67"/>
-        <location filename="../src/preferences/autofillmanager.ui" line="138"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="158"/>
         <source>Remove</source>
         <translation>Уклони</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="74"/>
-        <location filename="../src/preferences/autofillmanager.ui" line="145"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="165"/>
         <source>Remove All</source>
         <translation>Уклони све</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="111"/>
-        <location filename="../src/preferences/autofillmanager.cpp" line="75"/>
-        <location filename="../src/preferences/autofillmanager.cpp" line="83"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="104"/>
+        <source>Import/Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.ui" line="131"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="82"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="90"/>
         <source>Show Passwords</source>
         <translation>Прикажи лозинке</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="121"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="141"/>
         <source>Exceptions</source>
         <translation>Изузеци</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="83"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="38"/>
+        <source>Import Passwords from File...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="39"/>
+        <source>Export Passwords to File...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="90"/>
         <source>Are you sure that you want to show all passwords?</source>
         <translation>Желите ли заиста да прикажете све лозинке?</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="97"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="104"/>
         <source>Hide Passwords</source>
         <translation>Сакриј лозинке</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="115"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="122"/>
         <source>Confirmation</source>
         <translation>Потврда</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="116"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="123"/>
         <source>Are you sure to delete all passwords on your computer?</source>
         <translation>Желите ли заиста да обришете све лозинке са вашег рачунара?</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="134"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="141"/>
         <source>Edit password</source>
         <translation>Уреди лозинку</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="134"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="141"/>
         <source>Change password:</source>
         <translation>Измени лозинку:</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="195"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="215"/>
+        <source>Choose file...</source>
+        <translation type="unfinished">Изабери фајл...</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="202"/>
+        <source>Cannot read file!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
+        <source>Successfuly imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
+        <source>Error while importing!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="222"/>
+        <source>Cannot write to file!</source>
+        <translation type="unfinished">Не могу да упишем у фајл!</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="229"/>
+        <source>Successfuly exported</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2819,82 +2865,82 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="247"/>
+        <location filename="../src/app/qupzilla.cpp" line="248"/>
         <source>Private Browsing Enabled</source>
         <translation>Приватно прегледање је омогућено</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="251"/>
+        <location filename="../src/app/qupzilla.cpp" line="252"/>
         <source>IP Address of current page</source>
         <translation>ИП адреса текуће странице</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="432"/>
+        <location filename="../src/app/qupzilla.cpp" line="433"/>
         <source>&amp;Tools</source>
         <translation>Ала&amp;тке</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="457"/>
+        <location filename="../src/app/qupzilla.cpp" line="458"/>
         <source>&amp;Help</source>
         <translation>По&amp;моћ</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="420"/>
+        <location filename="../src/app/qupzilla.cpp" line="421"/>
         <source>&amp;Bookmarks</source>
         <translation>&amp;Обележивачи</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="395"/>
+        <location filename="../src/app/qupzilla.cpp" line="396"/>
         <source>Hi&amp;story</source>
         <translation>&amp;Историјат</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="279"/>
+        <location filename="../src/app/qupzilla.cpp" line="280"/>
         <source>&amp;File</source>
         <translation>&amp;Фајл</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="280"/>
+        <location filename="../src/app/qupzilla.cpp" line="281"/>
         <source>&amp;New Window</source>
         <translation>&amp;Нови прозор</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="281"/>
+        <location filename="../src/app/qupzilla.cpp" line="282"/>
         <source>New Tab</source>
         <translation>Нови језичак</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="282"/>
+        <location filename="../src/app/qupzilla.cpp" line="283"/>
         <source>Open Location</source>
         <translation>Отвори локацију</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="283"/>
+        <location filename="../src/app/qupzilla.cpp" line="284"/>
         <source>Open &amp;File</source>
         <translation>Отвори &amp;фајл</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="284"/>
+        <location filename="../src/app/qupzilla.cpp" line="285"/>
         <source>Close Tab</source>
         <translation>Затвори језичак</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="285"/>
+        <location filename="../src/app/qupzilla.cpp" line="286"/>
         <source>Close Window</source>
         <translation>Затвори прозор</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="288"/>
+        <location filename="../src/app/qupzilla.cpp" line="289"/>
         <source>&amp;Save Page As...</source>
         <translation>&amp;Сачувај страницу као...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="289"/>
+        <location filename="../src/app/qupzilla.cpp" line="290"/>
         <source>Save Page Screen</source>
         <translation>Сачувај снимак странице</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="290"/>
+        <location filename="../src/app/qupzilla.cpp" line="291"/>
         <source>Send Link...</source>
         <translation>Пошаљи везу...</translation>
     </message>
@@ -2903,42 +2949,42 @@
         <translation type="obsolete">&amp;Штампај</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="294"/>
+        <location filename="../src/app/qupzilla.cpp" line="295"/>
         <source>Import bookmarks...</source>
         <translation>Увези обележиваче...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="271"/>
+        <location filename="../src/app/qupzilla.cpp" line="272"/>
         <source>Quit</source>
         <translation>Напусти</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="306"/>
+        <location filename="../src/app/qupzilla.cpp" line="307"/>
         <source>&amp;Edit</source>
         <translation>&amp;Уреди</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="307"/>
+        <location filename="../src/app/qupzilla.cpp" line="308"/>
         <source>&amp;Undo</source>
         <translation>&amp;Опозови</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="308"/>
+        <location filename="../src/app/qupzilla.cpp" line="309"/>
         <source>&amp;Redo</source>
         <translation>&amp;Понови</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="310"/>
+        <location filename="../src/app/qupzilla.cpp" line="311"/>
         <source>&amp;Cut</source>
         <translation>&amp;Исеци</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="311"/>
+        <location filename="../src/app/qupzilla.cpp" line="312"/>
         <source>C&amp;opy</source>
         <translation>&amp;Копирај</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="312"/>
+        <location filename="../src/app/qupzilla.cpp" line="313"/>
         <source>&amp;Paste</source>
         <translation>&amp;Налепи</translation>
     </message>
@@ -2947,316 +2993,316 @@
         <translation type="obsolete">О&amp;бриши</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="314"/>
+        <location filename="../src/app/qupzilla.cpp" line="315"/>
         <source>Select &amp;All</source>
         <translation>Изабери &amp;све</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="315"/>
+        <location filename="../src/app/qupzilla.cpp" line="316"/>
         <source>&amp;Find</source>
         <translation>Н&amp;ађи</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="266"/>
+        <location filename="../src/app/qupzilla.cpp" line="267"/>
         <source>Pr&amp;eferences</source>
         <translation>По&amp;дешавање</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="91"/>
+        <location filename="../src/app/qupzilla.cpp" line="92"/>
         <source>QupZilla</source>
         <translation>Капзила</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="291"/>
+        <location filename="../src/app/qupzilla.cpp" line="292"/>
         <source>&amp;Print...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="326"/>
+        <location filename="../src/app/qupzilla.cpp" line="327"/>
         <source>&amp;View</source>
         <translation>&amp;Приказ</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="327"/>
+        <location filename="../src/app/qupzilla.cpp" line="328"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Трака &amp;навигације</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="330"/>
+        <location filename="../src/app/qupzilla.cpp" line="331"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Трака &amp;обележивача</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="333"/>
+        <location filename="../src/app/qupzilla.cpp" line="334"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Трака &amp;стања</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="337"/>
+        <location filename="../src/app/qupzilla.cpp" line="338"/>
         <source>&amp;Menu Bar</source>
         <translation>Трака &amp;менија</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="341"/>
+        <location filename="../src/app/qupzilla.cpp" line="342"/>
         <source>&amp;Fullscreen</source>
         <translation>&amp;Цио екран</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="345"/>
+        <location filename="../src/app/qupzilla.cpp" line="346"/>
         <source>&amp;Stop</source>
         <translation>&amp;Заустави</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="348"/>
+        <location filename="../src/app/qupzilla.cpp" line="349"/>
         <source>&amp;Reload</source>
         <translation>&amp;Учитај поново</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="351"/>
+        <location filename="../src/app/qupzilla.cpp" line="352"/>
         <source>Character &amp;Encoding</source>
         <translation>&amp;Кодирање знакова</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="356"/>
+        <location filename="../src/app/qupzilla.cpp" line="357"/>
         <source>Bookmarks</source>
         <translation>Обележивачи</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="360"/>
+        <location filename="../src/app/qupzilla.cpp" line="361"/>
         <source>History</source>
         <translation>Историјат</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="365"/>
+        <location filename="../src/app/qupzilla.cpp" line="366"/>
         <source>Toolbars</source>
         <translation>Траке алатки</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="371"/>
+        <location filename="../src/app/qupzilla.cpp" line="372"/>
         <source>Sidebars</source>
         <translation>Бочне траке</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="382"/>
+        <location filename="../src/app/qupzilla.cpp" line="383"/>
         <source>Zoom &amp;In</source>
         <translation>У&amp;величај</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="383"/>
+        <location filename="../src/app/qupzilla.cpp" line="384"/>
         <source>Zoom &amp;Out</source>
         <translation>У&amp;мањи</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="384"/>
+        <location filename="../src/app/qupzilla.cpp" line="385"/>
         <source>Reset</source>
         <translation>Стварна величина</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="388"/>
+        <location filename="../src/app/qupzilla.cpp" line="389"/>
         <source>&amp;Page Source</source>
         <translation>&amp;Извор странице</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="404"/>
+        <location filename="../src/app/qupzilla.cpp" line="405"/>
         <source>Closed Tabs</source>
         <translation>Затворени језичци</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="407"/>
+        <location filename="../src/app/qupzilla.cpp" line="408"/>
         <source>Recently Visited</source>
         <translation>Недавно посећено</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="410"/>
+        <location filename="../src/app/qupzilla.cpp" line="411"/>
         <source>Most Visited</source>
         <translation>Најпосећеније</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="440"/>
+        <location filename="../src/app/qupzilla.cpp" line="441"/>
         <source>Web In&amp;spector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="489"/>
+        <location filename="../src/app/qupzilla.cpp" line="490"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>&amp;Врати затворени језичак</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="658"/>
+        <location filename="../src/app/qupzilla.cpp" line="659"/>
         <source> (Private Browsing)</source>
         <translation> (приватно прегледање)</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="421"/>
+        <location filename="../src/app/qupzilla.cpp" line="422"/>
         <source>Bookmark &amp;This Page</source>
         <translation>Обележи овај &amp;језичак</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="422"/>
+        <location filename="../src/app/qupzilla.cpp" line="423"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Обележи &amp;све језичке</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="423"/>
+        <location filename="../src/app/qupzilla.cpp" line="424"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>&amp;Организуј обележиваче</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="768"/>
-        <location filename="../src/app/qupzilla.cpp" line="798"/>
-        <location filename="../src/app/qupzilla.cpp" line="837"/>
-        <location filename="../src/app/qupzilla.cpp" line="866"/>
-        <location filename="../src/app/qupzilla.cpp" line="891"/>
+        <location filename="../src/app/qupzilla.cpp" line="769"/>
+        <location filename="../src/app/qupzilla.cpp" line="799"/>
+        <location filename="../src/app/qupzilla.cpp" line="838"/>
+        <location filename="../src/app/qupzilla.cpp" line="867"/>
+        <location filename="../src/app/qupzilla.cpp" line="892"/>
         <source>Empty</source>
         <translation>Празно</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="396"/>
+        <location filename="../src/app/qupzilla.cpp" line="397"/>
         <source>&amp;Back</source>
         <translation>На&amp;зад</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="397"/>
+        <location filename="../src/app/qupzilla.cpp" line="398"/>
         <source>&amp;Forward</source>
         <translation>На&amp;пред</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="398"/>
+        <location filename="../src/app/qupzilla.cpp" line="399"/>
         <source>&amp;Home</source>
         <translation>&amp;Домаћа</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="399"/>
+        <location filename="../src/app/qupzilla.cpp" line="400"/>
         <source>Show &amp;All History</source>
         <translation>Прикажи &amp;сав историјат</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="840"/>
+        <location filename="../src/app/qupzilla.cpp" line="841"/>
         <source>Restore All Closed Tabs</source>
         <translation>Врати све затворене језичке</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="841"/>
+        <location filename="../src/app/qupzilla.cpp" line="842"/>
         <source>Clear list</source>
         <translation>Очисти списак</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="461"/>
+        <location filename="../src/app/qupzilla.cpp" line="462"/>
         <source>About &amp;Qt</source>
         <translation>О &amp;Кјуту</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="465"/>
+        <location filename="../src/app/qupzilla.cpp" line="466"/>
         <source>Information about application</source>
         <translation>Подаци о програму</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1324"/>
+        <location filename="../src/app/qupzilla.cpp" line="1325"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="262"/>
+        <location filename="../src/app/qupzilla.cpp" line="263"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp;О Капзили</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="470"/>
+        <location filename="../src/app/qupzilla.cpp" line="471"/>
         <source>Report &amp;Issue</source>
         <translation>&amp;Пријави проблем</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="433"/>
+        <location filename="../src/app/qupzilla.cpp" line="434"/>
         <source>&amp;Web Search</source>
         <translation>Претрага &amp;веба</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="434"/>
+        <location filename="../src/app/qupzilla.cpp" line="435"/>
         <source>Page &amp;Info</source>
         <translation>&amp;Инфо странице</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="436"/>
+        <location filename="../src/app/qupzilla.cpp" line="437"/>
         <source>&amp;Download Manager</source>
         <translation>Менаџер &amp;преузимања</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="437"/>
+        <location filename="../src/app/qupzilla.cpp" line="438"/>
         <source>&amp;Cookies Manager</source>
         <translation>Менаџер &amp;колачића</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="438"/>
+        <location filename="../src/app/qupzilla.cpp" line="439"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;Адблок</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="439"/>
+        <location filename="../src/app/qupzilla.cpp" line="440"/>
         <source>RSS &amp;Reader</source>
         <translation>Читач РСС &amp;довода</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="441"/>
+        <location filename="../src/app/qupzilla.cpp" line="442"/>
         <source>Clear Recent &amp;History</source>
         <translation>&amp;Очисти приватне податке</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="442"/>
+        <location filename="../src/app/qupzilla.cpp" line="443"/>
         <source>&amp;Private Browsing</source>
         <translation>П&amp;риватно прегледање</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="946"/>
+        <location filename="../src/app/qupzilla.cpp" line="947"/>
         <source>Other</source>
         <translation>Остало</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="956"/>
+        <location filename="../src/app/qupzilla.cpp" line="957"/>
         <source>Default</source>
         <translation>Подразумевано</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1401"/>
+        <location filename="../src/app/qupzilla.cpp" line="1402"/>
         <source>Open file...</source>
         <translation>Отвори фајл...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1511"/>
+        <location filename="../src/app/qupzilla.cpp" line="1512"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Желите ли заиста да укључите приватно прегледање?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1512"/>
+        <location filename="../src/app/qupzilla.cpp" line="1513"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Када је приватно прегледање укључено неке радње које се тичу ваше приватности су онемогућене:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1515"/>
+        <location filename="../src/app/qupzilla.cpp" line="1516"/>
         <source>Webpages are not added to the history.</source>
         <translation>Веб странице нису додане у историјат.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1516"/>
+        <location filename="../src/app/qupzilla.cpp" line="1517"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Текућим колачићима није могућ приступ.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1517"/>
+        <location filename="../src/app/qupzilla.cpp" line="1518"/>
         <source>Your session is not stored.</source>
         <translation>Ваша сесија није сачувана.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1519"/>
+        <location filename="../src/app/qupzilla.cpp" line="1520"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Док год не затворите прозор можете користити дугмад Напред и Назад да се вратите на странице које сте отварали.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1524"/>
+        <location filename="../src/app/qupzilla.cpp" line="1525"/>
         <source>Start Private Browsing</source>
         <translation>Покретање приватног прегледања</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1738"/>
+        <location filename="../src/app/qupzilla.cpp" line="1762"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Још увек имате %1 отворених језичака а ваша сесија неће бити сачувана. Желите ли заиста да напустите Капзилу?</translation>
     </message>
@@ -4249,12 +4295,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="269"/>
+        <location filename="../src/plugins/speeddial.cpp" line="271"/>
         <source>Select image...</source>
         <translation>Изабери слику...</translation>
     </message>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="311"/>
+        <location filename="../src/plugins/speeddial.cpp" line="313"/>
         <source>Unable to load</source>
         <translation>Не могу да учитам</translation>
     </message>
@@ -4605,17 +4651,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Покушај поново</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="587"/>
+        <location filename="../src/webview/webpage.cpp" line="589"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Не дозволи овој страници да прави још дијалога</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="591"/>
+        <location filename="../src/webview/webpage.cpp" line="593"/>
         <source>JavaScript alert - %1</source>
         <translation>Јаваскрипт упозорење - %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="639"/>
+        <location filename="../src/webview/webpage.cpp" line="643"/>
         <source>Choose file...</source>
         <translation>Изабери фајл...</translation>
     </message>

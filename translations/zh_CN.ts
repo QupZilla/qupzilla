@@ -253,7 +253,7 @@
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="40"/>
-        <location filename="../src/preferences/autofillmanager.ui" line="128"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="148"/>
         <source>Server</source>
         <translation>服务器</translation>
     </message>
@@ -269,7 +269,7 @@
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="67"/>
-        <location filename="../src/preferences/autofillmanager.ui" line="138"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="158"/>
         <source>Remove</source>
         <translation>删除</translation>
     </message>
@@ -280,51 +280,97 @@
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="74"/>
-        <location filename="../src/preferences/autofillmanager.ui" line="145"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="165"/>
         <source>Remove All</source>
         <translation>全部删除</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="111"/>
-        <location filename="../src/preferences/autofillmanager.cpp" line="75"/>
-        <location filename="../src/preferences/autofillmanager.cpp" line="83"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="104"/>
+        <source>Import/Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.ui" line="131"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="82"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="90"/>
         <source>Show Passwords</source>
         <translation>显示密码</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.ui" line="121"/>
+        <location filename="../src/preferences/autofillmanager.ui" line="141"/>
         <source>Exceptions</source>
         <translation>例外</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="83"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="38"/>
+        <source>Import Passwords from File...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="39"/>
+        <source>Export Passwords to File...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="90"/>
         <source>Are you sure that you want to show all passwords?</source>
         <translation>确定要显示所有密码？</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="97"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="104"/>
         <source>Hide Passwords</source>
         <translation>隐藏密码</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="115"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="122"/>
         <source>Confirmation</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="116"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="123"/>
         <source>Are you sure to delete all passwords on your computer?</source>
         <translation>你确定要删除计算机上的所有密码吗？</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="134"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="141"/>
         <source>Edit password</source>
         <translation>编辑密码</translation>
     </message>
     <message>
-        <location filename="../src/preferences/autofillmanager.cpp" line="134"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="141"/>
         <source>Change password:</source>
         <translation>改变密码：</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="195"/>
+        <location filename="../src/preferences/autofillmanager.cpp" line="215"/>
+        <source>Choose file...</source>
+        <translation type="unfinished">选择文件...</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="202"/>
+        <source>Cannot read file!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
+        <source>Successfuly imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
+        <source>Error while importing!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="222"/>
+        <source>Cannot write to file!</source>
+        <translation type="unfinished">无法写入文件！</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences/autofillmanager.cpp" line="229"/>
+        <source>Successfuly exported</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3031,67 +3077,67 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="247"/>
+        <location filename="../src/app/qupzilla.cpp" line="248"/>
         <source>Private Browsing Enabled</source>
         <translation>启用隐私浏览</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="251"/>
+        <location filename="../src/app/qupzilla.cpp" line="252"/>
         <source>IP Address of current page</source>
         <translation>当前页面的IP地址</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="356"/>
+        <location filename="../src/app/qupzilla.cpp" line="357"/>
         <source>Bookmarks</source>
         <translation>书签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="360"/>
+        <location filename="../src/app/qupzilla.cpp" line="361"/>
         <source>History</source>
         <translation>历史</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="280"/>
+        <location filename="../src/app/qupzilla.cpp" line="281"/>
         <source>&amp;New Window</source>
         <translation>打开新窗口&amp;N</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="281"/>
+        <location filename="../src/app/qupzilla.cpp" line="282"/>
         <source>New Tab</source>
         <translation>新标签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="282"/>
+        <location filename="../src/app/qupzilla.cpp" line="283"/>
         <source>Open Location</source>
         <translation>打开位置</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="283"/>
+        <location filename="../src/app/qupzilla.cpp" line="284"/>
         <source>Open &amp;File</source>
         <translation>打开&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="284"/>
+        <location filename="../src/app/qupzilla.cpp" line="285"/>
         <source>Close Tab</source>
         <translation>关闭标签页</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="285"/>
+        <location filename="../src/app/qupzilla.cpp" line="286"/>
         <source>Close Window</source>
         <translation>关闭窗口</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="288"/>
+        <location filename="../src/app/qupzilla.cpp" line="289"/>
         <source>&amp;Save Page As...</source>
         <translation>保存页作为&amp;S...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="289"/>
+        <location filename="../src/app/qupzilla.cpp" line="290"/>
         <source>Save Page Screen</source>
         <translation>保存屏幕网页</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="290"/>
+        <location filename="../src/app/qupzilla.cpp" line="291"/>
         <source>Send Link...</source>
         <translation>发送链接...</translation>
     </message>
@@ -3100,37 +3146,37 @@
         <translation type="obsolete">打印&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="294"/>
+        <location filename="../src/app/qupzilla.cpp" line="295"/>
         <source>Import bookmarks...</source>
         <translation>导入书签...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="271"/>
+        <location filename="../src/app/qupzilla.cpp" line="272"/>
         <source>Quit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="307"/>
+        <location filename="../src/app/qupzilla.cpp" line="308"/>
         <source>&amp;Undo</source>
         <translation>撤消&amp;U</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="308"/>
+        <location filename="../src/app/qupzilla.cpp" line="309"/>
         <source>&amp;Redo</source>
         <translation>重做&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="310"/>
+        <location filename="../src/app/qupzilla.cpp" line="311"/>
         <source>&amp;Cut</source>
         <translation>剪切&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="311"/>
+        <location filename="../src/app/qupzilla.cpp" line="312"/>
         <source>C&amp;opy</source>
         <translation>复制&amp;o</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="312"/>
+        <location filename="../src/app/qupzilla.cpp" line="313"/>
         <source>&amp;Paste</source>
         <translation>粘贴&amp;p</translation>
     </message>
@@ -3139,221 +3185,221 @@
         <translation type="obsolete">删除&amp;D</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="314"/>
+        <location filename="../src/app/qupzilla.cpp" line="315"/>
         <source>Select &amp;All</source>
         <translation>选取所有&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="315"/>
+        <location filename="../src/app/qupzilla.cpp" line="316"/>
         <source>&amp;Find</source>
         <translation>查找&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="432"/>
+        <location filename="../src/app/qupzilla.cpp" line="433"/>
         <source>&amp;Tools</source>
         <translation>工具&amp;T</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="91"/>
+        <location filename="../src/app/qupzilla.cpp" line="92"/>
         <source>QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="457"/>
+        <location filename="../src/app/qupzilla.cpp" line="458"/>
         <source>&amp;Help</source>
         <translation>帮助&amp;H</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="420"/>
+        <location filename="../src/app/qupzilla.cpp" line="421"/>
         <source>&amp;Bookmarks</source>
         <translation>书签&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="395"/>
+        <location filename="../src/app/qupzilla.cpp" line="396"/>
         <source>Hi&amp;story</source>
         <translation>历史&amp;s</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="279"/>
+        <location filename="../src/app/qupzilla.cpp" line="280"/>
         <source>&amp;File</source>
         <translation>文件&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="291"/>
+        <location filename="../src/app/qupzilla.cpp" line="292"/>
         <source>&amp;Print...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="306"/>
+        <location filename="../src/app/qupzilla.cpp" line="307"/>
         <source>&amp;Edit</source>
         <translation>编辑&amp;E</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="326"/>
+        <location filename="../src/app/qupzilla.cpp" line="327"/>
         <source>&amp;View</source>
         <translation>查看&amp;V</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="327"/>
+        <location filename="../src/app/qupzilla.cpp" line="328"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>导航工具栏&amp;N</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="330"/>
+        <location filename="../src/app/qupzilla.cpp" line="331"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>书签工具栏&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="333"/>
+        <location filename="../src/app/qupzilla.cpp" line="334"/>
         <source>Sta&amp;tus Bar</source>
         <translation>状态栏&amp;t</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="337"/>
+        <location filename="../src/app/qupzilla.cpp" line="338"/>
         <source>&amp;Menu Bar</source>
         <translation>菜单栏&amp;M</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="341"/>
+        <location filename="../src/app/qupzilla.cpp" line="342"/>
         <source>&amp;Fullscreen</source>
         <translation>全屏&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="345"/>
+        <location filename="../src/app/qupzilla.cpp" line="346"/>
         <source>&amp;Stop</source>
         <translation>停止&amp;S</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="348"/>
+        <location filename="../src/app/qupzilla.cpp" line="349"/>
         <source>&amp;Reload</source>
         <translation>刷新&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="351"/>
+        <location filename="../src/app/qupzilla.cpp" line="352"/>
         <source>Character &amp;Encoding</source>
         <translation>字符与编码&amp;E</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="365"/>
+        <location filename="../src/app/qupzilla.cpp" line="366"/>
         <source>Toolbars</source>
         <translation>工具栏</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="371"/>
+        <location filename="../src/app/qupzilla.cpp" line="372"/>
         <source>Sidebars</source>
         <translation>侧边栏</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="382"/>
+        <location filename="../src/app/qupzilla.cpp" line="383"/>
         <source>Zoom &amp;In</source>
         <translation>放大&amp;I</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="383"/>
+        <location filename="../src/app/qupzilla.cpp" line="384"/>
         <source>Zoom &amp;Out</source>
         <translation>缩小&amp;O</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="384"/>
+        <location filename="../src/app/qupzilla.cpp" line="385"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="388"/>
+        <location filename="../src/app/qupzilla.cpp" line="389"/>
         <source>&amp;Page Source</source>
         <translation>页面源代码&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="404"/>
+        <location filename="../src/app/qupzilla.cpp" line="405"/>
         <source>Closed Tabs</source>
         <translation>关闭标签页</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="407"/>
+        <location filename="../src/app/qupzilla.cpp" line="408"/>
         <source>Recently Visited</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="410"/>
+        <location filename="../src/app/qupzilla.cpp" line="411"/>
         <source>Most Visited</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="440"/>
+        <location filename="../src/app/qupzilla.cpp" line="441"/>
         <source>Web In&amp;spector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="489"/>
+        <location filename="../src/app/qupzilla.cpp" line="490"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>还原关闭的标签&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="658"/>
+        <location filename="../src/app/qupzilla.cpp" line="659"/>
         <source> (Private Browsing)</source>
         <translation>（私人浏览）</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="421"/>
+        <location filename="../src/app/qupzilla.cpp" line="422"/>
         <source>Bookmark &amp;This Page</source>
         <translation>收藏本页&amp;T</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="422"/>
+        <location filename="../src/app/qupzilla.cpp" line="423"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>收藏全部标签页&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="423"/>
+        <location filename="../src/app/qupzilla.cpp" line="424"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>组织书签&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="768"/>
-        <location filename="../src/app/qupzilla.cpp" line="798"/>
-        <location filename="../src/app/qupzilla.cpp" line="837"/>
-        <location filename="../src/app/qupzilla.cpp" line="866"/>
-        <location filename="../src/app/qupzilla.cpp" line="891"/>
+        <location filename="../src/app/qupzilla.cpp" line="769"/>
+        <location filename="../src/app/qupzilla.cpp" line="799"/>
+        <location filename="../src/app/qupzilla.cpp" line="838"/>
+        <location filename="../src/app/qupzilla.cpp" line="867"/>
+        <location filename="../src/app/qupzilla.cpp" line="892"/>
         <source>Empty</source>
         <translation>空页面</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="396"/>
+        <location filename="../src/app/qupzilla.cpp" line="397"/>
         <source>&amp;Back</source>
         <translation>后退&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="397"/>
+        <location filename="../src/app/qupzilla.cpp" line="398"/>
         <source>&amp;Forward</source>
         <translation>前进&amp;F</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="398"/>
+        <location filename="../src/app/qupzilla.cpp" line="399"/>
         <source>&amp;Home</source>
         <translation>主页&amp;H</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="399"/>
+        <location filename="../src/app/qupzilla.cpp" line="400"/>
         <source>Show &amp;All History</source>
         <translation>显示所有历史页&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="840"/>
+        <location filename="../src/app/qupzilla.cpp" line="841"/>
         <source>Restore All Closed Tabs</source>
         <translation>还原关闭的标签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="841"/>
+        <location filename="../src/app/qupzilla.cpp" line="842"/>
         <source>Clear list</source>
         <translation>清除列表</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="461"/>
+        <location filename="../src/app/qupzilla.cpp" line="462"/>
         <source>About &amp;Qt</source>
         <translation>关于Qt&amp;Q</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="262"/>
+        <location filename="../src/app/qupzilla.cpp" line="263"/>
         <source>&amp;About QupZilla</source>
         <translation>关于QupZIlla&amp;A</translation>
     </message>
@@ -3362,117 +3408,117 @@
         <translation type="obsolete">软件信息</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="470"/>
+        <location filename="../src/app/qupzilla.cpp" line="471"/>
         <source>Report &amp;Issue</source>
         <translation>报告及发行&amp;I</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="433"/>
+        <location filename="../src/app/qupzilla.cpp" line="434"/>
         <source>&amp;Web Search</source>
         <translation>&amp;W网页搜索</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="434"/>
+        <location filename="../src/app/qupzilla.cpp" line="435"/>
         <source>Page &amp;Info</source>
         <translation>网页信息&amp;I</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="436"/>
+        <location filename="../src/app/qupzilla.cpp" line="437"/>
         <source>&amp;Download Manager</source>
         <translation>下载管理&amp;D</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="437"/>
+        <location filename="../src/app/qupzilla.cpp" line="438"/>
         <source>&amp;Cookies Manager</source>
         <translation>管理Cookies&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="438"/>
+        <location filename="../src/app/qupzilla.cpp" line="439"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="439"/>
+        <location filename="../src/app/qupzilla.cpp" line="440"/>
         <source>RSS &amp;Reader</source>
         <translation>RSS阅读器&amp;R</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="441"/>
+        <location filename="../src/app/qupzilla.cpp" line="442"/>
         <source>Clear Recent &amp;History</source>
         <translation>清除最近的历史&amp;H</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="442"/>
+        <location filename="../src/app/qupzilla.cpp" line="443"/>
         <source>&amp;Private Browsing</source>
         <translation>隐私浏览&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1738"/>
+        <location filename="../src/app/qupzilla.cpp" line="1762"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>还有%1打开的标签和您的会话将不会被储存。你一定要退出吗？</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="266"/>
+        <location filename="../src/app/qupzilla.cpp" line="267"/>
         <source>Pr&amp;eferences</source>
         <translation>首选项&amp;e</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="465"/>
+        <location filename="../src/app/qupzilla.cpp" line="466"/>
         <source>Information about application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="946"/>
+        <location filename="../src/app/qupzilla.cpp" line="947"/>
         <source>Other</source>
         <translation>其他</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="956"/>
+        <location filename="../src/app/qupzilla.cpp" line="957"/>
         <source>Default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1324"/>
+        <location filename="../src/app/qupzilla.cpp" line="1325"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1401"/>
+        <location filename="../src/app/qupzilla.cpp" line="1402"/>
         <source>Open file...</source>
         <translation>打开文件...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1511"/>
+        <location filename="../src/app/qupzilla.cpp" line="1512"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>你确定要打开隐私浏览吗？</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1512"/>
+        <location filename="../src/app/qupzilla.cpp" line="1513"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>打开隐私浏览时，有关于您的隐私行动将被禁用：</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1515"/>
+        <location filename="../src/app/qupzilla.cpp" line="1516"/>
         <source>Webpages are not added to the history.</source>
         <translation>网页不会添加到历史记录。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1516"/>
+        <location filename="../src/app/qupzilla.cpp" line="1517"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>当前的cookies无法被访问。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1517"/>
+        <location filename="../src/app/qupzilla.cpp" line="1518"/>
         <source>Your session is not stored.</source>
         <translation>不会存储您的会话。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1519"/>
+        <location filename="../src/app/qupzilla.cpp" line="1520"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>直到您关闭该窗口，你仍然可以单击后退和前进按钮，返回到你已经打开的网页.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1524"/>
+        <location filename="../src/app/qupzilla.cpp" line="1525"/>
         <source>Start Private Browsing</source>
         <translation>开始隐私浏览</translation>
     </message>
@@ -4505,12 +4551,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="269"/>
+        <location filename="../src/plugins/speeddial.cpp" line="271"/>
         <source>Select image...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plugins/speeddial.cpp" line="311"/>
+        <location filename="../src/plugins/speeddial.cpp" line="313"/>
         <source>Unable to load</source>
         <translation>无法加载</translation>
     </message>
@@ -4988,17 +5034,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>再试一次</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="587"/>
+        <location filename="../src/webview/webpage.cpp" line="589"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation type="unfinished">创建附加的对话，防止此页</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="591"/>
+        <location filename="../src/webview/webpage.cpp" line="593"/>
         <source>JavaScript alert - %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="639"/>
+        <location filename="../src/webview/webpage.cpp" line="643"/>
         <source>Choose file...</source>
         <translation>选择文件...</translation>
     </message>

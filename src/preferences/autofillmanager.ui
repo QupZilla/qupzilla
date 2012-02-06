@@ -93,6 +93,26 @@
        <item row="1" column="0" colspan="2">
         <layout class="QHBoxLayout" name="showPasswordsLayout">
          <item>
+          <widget class="QToolButton" name="importExport">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Import/Export</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="importExportLabel">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
           <spacer name="horizontalSpacer">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>

@@ -22,6 +22,8 @@
 #include <QUrl>
 #include <QNetworkRequest>
 #include <QWebElement>
+#include <QXmlStreamWriter>
+#include <QXmlStreamReader>
 
 class QupZilla;
 class WebPage;
@@ -46,6 +48,9 @@ public:
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
     void completePage(WebPage* frame);
+
+    static QByteArray exportPasswords();
+    static bool importPasswords(const QByteArray &data);
 
 private:
     bool dataContains(const QByteArray &data, const QString &attributeName);

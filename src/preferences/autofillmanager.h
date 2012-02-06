@@ -27,6 +27,9 @@
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QUrl>
+#include <QMenu>
+#include <QFileDialog>
+#include <QFile>
 
 namespace Ui
 {
@@ -53,6 +56,9 @@ private slots:
 
     void removeExcept();
     void removeAllExcept();
+
+    void importPasswords();
+    void exportPasswords();
 
 private:
     Ui::AutoFillManager* ui;

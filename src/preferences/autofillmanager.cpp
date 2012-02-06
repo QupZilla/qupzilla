@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "autofillmanager.h"
+#include "autofillmodel.h"
 #include "ui_autofillmanager.h"
 
 AutoFillManager::AutoFillManager(QWidget* parent)
@@ -32,6 +33,12 @@ AutoFillManager::AutoFillManager(QWidget* parent)
 
     connect(ui->removeExcept, SIGNAL(clicked()), this, SLOT(removeExcept()));
     connect(ui->removeAllExcept, SIGNAL(clicked()), this, SLOT(removeAllExcept()));
+
+    QMenu* menu = new QMenu(this);
+    menu->addAction(tr("Import Passwords from File..."), this, SLOT(importPasswords()));
+    menu->addAction(tr("Export Passwords to File..."), this, SLOT(exportPasswords()));
+    ui->importExport->setMenu(menu);
+    ui->importExport->setPopupMode(QToolButton::InstantPopup);
 
     QTimer::singleShot(0, this, SLOT(loadPasswords()));
 }
@@ -181,6 +188,45 @@ void AutoFillManager::removeAllExcept()
 void AutoFillManager::showExceptions()
 {
     ui->tabWidget->setCurrentIndex(1);
+}
+
+void AutoFillManager::importPasswords()
+{
+    const QString &fileName = QFileDialog::getOpenFileName(this, tr("Choose file..."), QDir::homePath() + "/passwords.xml", "*.xml");
+    if (fileName.isEmpty()) {
+        return;
+    }
+
+    QFile file(fileName);
+    if (!file.open(QFile::ReadOnly)) {
+        ui->importExportLabel->setText(tr("Cannot read file!"));
+        return;
+    }
+
+    bool status = AutoFillModel::importPasswords(file.readAll());
+    file.close();
+
+    ui->importExportLabel->setText(status ? tr("Successfuly imported") : tr("Error while importing!"));
+    loadPasswords();
+}
+
+void AutoFillManager::exportPasswords()
+{
+    const QString &fileName = QFileDialog::getSaveFileName(this, tr("Choose file..."), QDir::homePath() + "/passwords.xml", "*.xml");
+    if (fileName.isEmpty()) {
+        return;
+    }
+
+    QFile file(fileName);
+    if (!file.open(QFile::WriteOnly)) {
+        ui->importExportLabel->setText(tr("Cannot write to file!"));
+        return;
+    }
+
+    file.write(AutoFillModel::exportPasswords());
+    file.close();
+
+    ui->importExportLabel->setText(tr("Successfuly exported"));
 }
 
 AutoFillManager::~AutoFillManager()

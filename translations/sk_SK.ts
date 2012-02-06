@@ -262,6 +262,42 @@
         <source>Change password:</source>
         <translation>Zmeniť heslo:</translation>
     </message>
+    <message>
+        <source>Import/Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Passwords from File...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export Passwords to File...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot read file!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfuly imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot write to file!</source>
+        <translation type="unfinished">Nedá sa zapisovať do súboru!</translation>
+    </message>
+    <message>
+        <source>Successfuly exported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error while importing!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AutoFillNotification</name>

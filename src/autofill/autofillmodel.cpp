@@ -343,3 +343,122 @@ bool AutoFillModel::dataContains(const QByteArray &data, const QString &attribut
 
     return false;
 }
+
+QByteArray AutoFillModel::exportPasswords()
+{
+    QByteArray output;
+
+    QXmlStreamWriter stream(&output);
+    stream.setCodec("UTF-8");
+    stream.setAutoFormatting(true);
+
+    stream.writeStartDocument();
+    stream.writeStartElement("passwords");
+    stream.writeAttribute("version", "1.0");
+
+    QSqlQuery query;
+    query.exec("SELECT server, username, password, data FROM autofill");
+    while (query.next()) {
+        stream.writeStartElement("entry");
+        stream.writeTextElement("server", query.value(0).toString());
+        stream.writeTextElement("username", query.value(1).toString());
+        stream.writeTextElement("password", query.value(2).toString());
+        stream.writeTextElement("data", query.value(3).toString());
+        stream.writeEndElement();
+    }
+
+    query.exec("SELECT server FROM autofill_exceptions");
+    while (query.next()) {
+        stream.writeStartElement("exception");
+        stream.writeTextElement("server", query.value(0).toString());
+        stream.writeEndElement();
+    }
+
+    stream.writeEndElement();
+    stream.writeEndDocument();
+
+    return output;
+}
+
+bool AutoFillModel::importPasswords(const QByteArray &data)
+{
+    QXmlStreamReader xml(data);
+
+    while (!xml.atEnd()) {
+        xml.readNext();
+
+        if (xml.isStartElement()) {
+            if (xml.name() == "entry") {
+                QString server;
+                QString username;
+                QString password;
+                QByteArray data;
+
+                while (xml.readNext()) {
+                    if (xml.name() == "server") {
+                        server = xml.readElementText();
+                    }
+                    else if (xml.name() == "username") {
+                        username = xml.readElementText();
+                    }
+                    else if (xml.name() == "password") {
+                        password = xml.readElementText();
+                    }
+                    else if (xml.name() == "data") {
+                        data = xml.readElementText().toUtf8();
+                    }
+
+                    if (xml.isEndElement() && xml.name() == "entry") {
+                        break;
+                    }
+                }
+
+                if (!server.isEmpty() && !password.isEmpty() && !data.isEmpty()) {
+                    QSqlQuery query;
+                    query.prepare("SELECT id FROM autofill WHERE server=? AND password=? AND data=?");
+                    query.addBindValue(server);
+                    query.addBindValue(password);
+                    query.addBindValue(data);
+                    query.exec();
+
+                    if (!query.next()) {
+                        query.prepare("INSERT INTO autofill (server, username, password, data) VALUES (?,?,?,?)");
+                        query.addBindValue(server);
+                        query.addBindValue(username);
+                        query.addBindValue(password);
+                        query.addBindValue(data);
+                        query.exec();
+                    }
+                }
+            }
+            else if (xml.name() == "exception") {
+                QString server;
+
+                while (xml.readNext()) {
+                    if (xml.name() == "server") {
+                        server = xml.readElementText();
+                    }
+
+                    if (xml.isEndElement() && xml.name() == "exception") {
+                        break;
+                    }
+                }
+
+                if (!server.isEmpty()) {
+                    QSqlQuery query;
+                    query.prepare("SELECT id FROM autofill_exceptions WHERE server=?");
+                    query.addBindValue(server);
+                    query.exec();
+
+                    if (!query.next()) {
+                        query.prepare("INSERT INTO autofill_exceptions (server) VALUES (?)");
+                        query.addBindValue(server);
+                        query.exec();
+                    }
+                }
+            }
+        }
+    }
+
+    return xml.hasError();
+}
