@@ -46,7 +46,7 @@ BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
     }
 
     const SpeedDial::Page &page = m_speedDial->pageForUrl(m_url);
-    ui->speeddialButton->setText(page.url.isEmpty() ? tr("Add into Speed Dial") : tr("Remove from Speed Dial"));
+    ui->speeddialButton->setText(page.url.isEmpty() ? tr("Add to Speed Dial") : tr("Remove from Speed Dial"));
 
 #ifndef KDE
     // Use light color for QLabels even with Ubuntu Ambiance theme
@@ -115,7 +115,7 @@ void BookmarksWidget::toggleSpeedDial()
     }
     else {
         m_speedDial->removePage(page);
-        ui->speeddialButton->setText(tr("Add into Speed Dial"));
+        ui->speeddialButton->setText(tr("Add to Speed Dial"));
 
     }
 }

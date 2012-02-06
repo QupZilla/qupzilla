@@ -206,7 +206,7 @@ void AutoFillManager::importPasswords()
     bool status = AutoFillModel::importPasswords(file.readAll());
     file.close();
 
-    ui->importExportLabel->setText(status ? tr("Successfuly imported") : tr("Error while importing!"));
+    ui->importExportLabel->setText(status ? tr("Successfully imported") : tr("Error while importing!"));
     loadPasswords();
 }
 
@@ -226,7 +226,7 @@ void AutoFillManager::exportPasswords()
     file.write(AutoFillModel::exportPasswords());
     file.close();
 
-    ui->importExportLabel->setText(tr("Successfuly exported"));
+    ui->importExportLabel->setText(tr("Successfully exported"));
 }
 
 AutoFillManager::~AutoFillManager()

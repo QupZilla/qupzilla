@@ -192,7 +192,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="69"/>
         <source>AdBlock</source>
-        <translation type="unfinished">AdBlock</translation>
+        <translation>AdBlock</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="92"/>
@@ -253,6 +253,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="27"/>
         <source>Passwords</source>
+        <translatorcomment>/src/preferences/autofillmanager.cpp</translatorcomment>
         <translation>Passwörter</translation>
     </message>
     <message>
@@ -349,7 +350,7 @@
         <location filename="../src/preferences/autofillmanager.cpp" line="195"/>
         <location filename="../src/preferences/autofillmanager.cpp" line="215"/>
         <source>Choose file...</source>
-        <translation type="unfinished">Datei wählen...</translation>
+        <translation>Datei wählen...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="202"/>
@@ -369,7 +370,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="222"/>
         <source>Cannot write to file!</source>
-        <translation type="unfinished">Datei kann nicht gespeichert werden!</translation>
+        <translation>Datei kann nicht gespeichert werden!</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="229"/>
@@ -911,7 +912,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished">Lesezeichen bearbeiten</translation>
+        <translation>Lesezeichen bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="45"/>
