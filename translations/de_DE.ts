@@ -182,12 +182,12 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="50"/>
         <source>Blocked popup window</source>
-        <translation type="unfinished"></translation>
+        <translation>Geblocktes PopUp Fenster</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="50"/>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock hat ein unerwünschtes PopUp Fenster geblockt.</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="69"/>
@@ -202,7 +202,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="95"/>
         <source>Blocked Popup Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Geblocktes PopUp Fenster</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="106"/>
@@ -292,7 +292,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="104"/>
         <source>Import/Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Import/Export</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="131"/>
@@ -309,12 +309,12 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="38"/>
         <source>Import Passwords from File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Passwörter von Datei importieren...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="39"/>
         <source>Export Passwords to File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Passwörter in Datei exportieren...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="90"/>
@@ -355,22 +355,22 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="202"/>
         <source>Cannot read file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei kann nicht gelesen werden!</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="229"/>
         <source>Successfully exported</source>
-        <translation type="unfinished"></translation>
+        <translation>Export erfolgreich abgeschlossen</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
         <source>Error while importing!</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Import aufgetreten!</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
         <source>Successfully imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Import erfolgreich abgeschlossen</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="222"/>
@@ -895,17 +895,17 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="160"/>
         <source>Add into Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu Lesezeichen hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="167"/>
         <source>Add into Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu Speed Dial hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="196"/>
         <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Lesezeichen hinzufügen&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
@@ -915,19 +915,19 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="45"/>
         <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Lesezeichen bearbeiten&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="113"/>
         <source>Remove from Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Aus Speed Dial entfernen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="118"/>
         <source>Add to Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu Speed Dial hinzufügen</translation>
     </message>
 </context>
 <context>
@@ -2654,7 +2654,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="2141"/>
         <source>Change browser identification:</source>
-        <translation type="unfinished"></translation>
+        <translation>Browser Identifizierung ändern:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="822"/>
