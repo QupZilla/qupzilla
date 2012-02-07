@@ -2,7 +2,7 @@
 // Header + Footer
 $site_title = "QupZilla - Ελαφρύς πολυπλατφορμικός περιηγητής ιστού";
 $qupzilla = "QupZilla";
-$header_description = "Περιηγητής ιστού";
+$header_description = "ΠΕΡΙΗΓΗΤΗΣ ΙΣΤΟΥ";
 
 $menu_home = "Αρχική";
 $menu_screenshots = "Στιγμιότυπα ";
@@ -21,8 +21,8 @@ $older_versions = "ΑΛΛΑΓΕΣ";
 $older_versions_text = "Θέλατε ποτέ να μάθετε τι άλλαξε από την προηγούμενη έκδοση; <br/>Μπορείτε να βρείτε τα πάντα στο <a>αρχείο καταγραφής αλλαγών</a> στο github!";
 $older_versions_button = "ΑΛΛΑΓΕΣ";
 $reportbug = "ΑΝΑΦΟΡΑ";
-$reportbug_text = "Βρήκατε κάποιο bug ή μήπως έχετε να κάνετε κάποια πρόταση για την <a>βελτίωση</a> του QupZilla;<br/>
-                  Παρακαλώ ανοίξτε ένα issue στο ιχνηλάτη προβλημάτων του github.";
+$reportbug_text = "Βρήκατε κάποιο bug ή μήπως έχετε να κάνετε κάποια πρόταση για τη <a>βελτίωση</a> του QupZilla;<br/>
+                  Παρακαλώ ανοίξτε ένα issue στον ιχνηλάτη προβλημάτων του github.";
 $reportbug_button = "ΑΝΑΦΟΡΑ ΤΩΡΑ";
 $technology = "ΤΕΧΝΟΛΟΓΙΑ";
 $technology_text = "Ο QupZilla είναι ένας μοντέρνος περιηγητής ιστού βασισμένος στον WebKit core και το Qt Framework. Το WebKit εγγυάται <a>γρήγορη</a> 
