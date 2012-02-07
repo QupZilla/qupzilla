@@ -359,7 +359,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="229"/>
         <source>Successfully exported</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιτυχής εξαγωγή</translation>
     </message>
     <message>
         <source>Successfuly imported</source>
@@ -373,7 +373,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
         <source>Successfully imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιτυχής εισαγωγή</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="222"/>
@@ -933,7 +933,7 @@
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="118"/>
         <source>Add to Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη στην γρήγορη κλήση</translation>
     </message>
 </context>
 <context>
@@ -2411,7 +2411,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="2141"/>
         <source>Change browser identification:</source>
-        <translation type="unfinished"></translation>
+        <translation>Αλλαγή αναγνωριστικού περιηγητή:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="695"/>
