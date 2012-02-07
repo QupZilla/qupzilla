@@ -19,6 +19,7 @@
 #include "globalfunctions.h"
 #include "qupzilla.h"
 #include "mainapplication.h"
+#include "tabbedwebview.h"
 #include "webpage.h"
 #include "speeddial.h"
 #include "pluginproxy.h"
@@ -165,70 +166,75 @@ QString QupZillaSchemeReply::aboutPage()
 {
     static QString aPage;
 
-    if (!aPage.isEmpty()) {
-        return aPage;
+    if (aPage.isEmpty()) {
+        aPage.append(qz_readAllFileContents(":html/about.html"));
+        aPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+        aPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
+        aPage.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
+        aPage.replace("%COPYRIGHT-INCLUDE%", Qt::escape(qz_readAllFileContents(":html/copyright")));
+
+        aPage.replace("%TITLE%", tr("About QupZilla"));
+        aPage.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
+        aPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
+        aPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
+        aPage.replace("%PATHS%", tr("Paths"));
+        aPage.replace("%COPYRIGHT%", tr("Copyright"));
+
+        aPage.replace("%VERSION-INFO%",
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), QupZilla::VERSION
+#ifdef GIT_REVISION
+                              + " (" + GIT_REVISION + ")"
+#endif
+                                                          ) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
+        aPage.replace("%PATHS-TEXT%",
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->getActiveProfilPath()) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->getActiveProfilPath() + "settings.ini") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), mApp->getActiveProfilPath() + "session.dat") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), mApp->getActiveProfilPath() + "pinnedtabs.dat") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), mApp->DATADIR) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Plugins"), mApp->PLUGINSDIR) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
+        aPage.replace("%MAIN-DEVELOPER%", tr("Main developer"));
+        aPage.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR.toUtf8(), "nowrep@gmail.com"));
+        aPage.replace("%CONTRIBUTORS%", tr("Contributors"));
+        aPage.replace("%CONTRIBUTORS-TEXT%",
+                      authorString("Mladen Pejaković", "pejakm@gmail.com") + "<br/>" +
+                      authorString("Bryan M Dunsmore", "dunsmoreb@gmail.com") + "<br/>" +
+                      authorString("Mariusz Fik", "fisiu@opensuse.org") + "<br/>" +
+                      authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +
+                      authorString("Daniele Cocca", "jmc@chakra-project.org")
+                     );
+        aPage.replace("%TRANSLATORS%", tr("Translators"));
+        aPage.replace("%TRANSLATORS-TEXT%",
+                      authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
+                      authorString("Peter Vacula", "pvacula1989@gmail.com") + " (Slovak)<br/>" +
+                      authorString("Ján Ďanovský", "dagsoftware@yahoo.com") + " (Slovak)<br/>" +
+                      authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>" +
+                      authorString("Federico Fabiani", "federico.fabiani85@gmail.com") + " (Italian)<br/>" +
+                      authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italian)<br/>" +
+                      authorString("Jorge Sevilla", "jsevi@ozu.es") + " (Spanish)<br/>" +
+                      authorString("Michał Szymanowski", "tylkobuba@gmail.com") + " (Polish)<br/>" +
+                      authorString("Mariusz Fik", "fisiu@opensuse.org") + " (Polish)<br/>" +
+                      authorString("Jérôme Giry", "baikalink@hotmail.fr") + " (French)<br/>" +
+                      authorString("Nicolas Ourceau", "lamessen@hotmail.fr") + " (French)<br/>" +
+                      authorString("Vasilis Tsivikis", "vasitsiv.dev@gmail.com") + " (Greek)<br/>" +
+                      authorString("Alexander Maslov", "it@delta-z.ru") + " (Russian)<br/>" +
+                      authorString("Oleg Brezhnev", "oleg-423@yandex.ru") + " (Russian)<br/>" +
+                      authorString("Sérgio Marques", "smarquespt@gmail.com") + " (Portuguese)<br/>" +
+                      authorString("Mladen Pejaković", "pejakm@gmail.com") + " (Serbian)<br/>" +
+                      authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
+                      authorString("Wu Cheng-Hong", "stu2731652@gmail.com") + " (Traditional Chinese)"
+                     );
     }
 
-    aPage.append(qz_readAllFileContents(":html/about.html"));
-    aPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
-    aPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
-    aPage.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
-    aPage.replace("%COPYRIGHT-INCLUDE%", Qt::escape(qz_readAllFileContents(":html/copyright")));
+    QString page = aPage;
+    page.replace("%USER-AGENT%", mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()));
 
-    aPage.replace("%TITLE%", tr("About QupZilla"));
-    aPage.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
-    aPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
-    aPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
-    aPage.replace("%PATHS%", tr("Paths"));
-    aPage.replace("%COPYRIGHT%", tr("Copyright"));
-
-    aPage.replace("%VERSION-INFO%",
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), QupZilla::VERSION) +
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
-    aPage.replace("%USER-AGENT%", WebPage::UserAgent);
-    aPage.replace("%PATHS-TEXT%",
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->getActiveProfilPath()) +
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->getActiveProfilPath() + "settings.ini") +
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), mApp->getActiveProfilPath() + "session.dat") +
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), mApp->getActiveProfilPath() + "pinnedtabs.dat") +
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), mApp->DATADIR) +
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Plugins"), mApp->PLUGINSDIR) +
-                  QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
-    aPage.replace("%MAIN-DEVELOPER%", tr("Main developer"));
-    aPage.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR.toUtf8(), "nowrep@gmail.com"));
-    aPage.replace("%CONTRIBUTORS%", tr("Contributors"));
-    aPage.replace("%CONTRIBUTORS-TEXT%",
-                  authorString("Mladen Pejaković", "pejakm@gmail.com") + "<br/>" +
-                  authorString("Bryan M Dunsmore", "dunsmoreb@gmail.com") + "<br/>" +
-                  authorString("Mariusz Fik", "fisiu@opensuse.org") + "<br/>" +
-                  authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +
-                  authorString("Daniele Cocca", "jmc@chakra-project.org")
-                 );
-    aPage.replace("%TRANSLATORS%", tr("Translators"));
-    aPage.replace("%TRANSLATORS-TEXT%",
-                  authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
-                  authorString("Peter Vacula", "pvacula1989@gmail.com") + " (Slovak)<br/>" +
-                  authorString("Ján Ďanovský", "dagsoftware@yahoo.com") + " (Slovak)<br/>" +
-                  authorString("Jonathan Hooverman", "jonathan.hooverman@gmail.com") + " (German)<br/>" +
-                  authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
-                  authorString("Federico Fabiani", "federico.fabiani85@gmail.com") + " (Italian)<br/>" +
-                  authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italian)<br/>" +
-                  authorString("Jorge Sevilla", "jsevi@ozu.es") + " (Spanish)<br/>" +
-                  authorString("Michał Szymanowski", "tylkobuba@gmail.com") + " (Polish)<br/>" +
-                  authorString("Mariusz Fik", "fisiu@opensuse.org") + " (Polish)<br/>" +
-                  authorString("Jérôme Giry", "baikalink@hotmail.fr") + " (French)<br/>" +
-                  authorString("Nicolas Ourceau", "lamessen@hotmail.fr") + " (French)<br/>" +
-                  authorString("Vasilis Tsivikis", "vasitsiv.dev@gmail.com") + " (Greek)<br/>" +
-                  authorString("Alexander Maslov", "it@delta-z.ru") + " (Russian)<br/>" +
-                  authorString("Oleg Brezhnev", "oleg-423@yandex.ru") + " (Russian)<br/>" +
-                  authorString("Sérgio Marques", "smarquespt@gmail.com") + " (Portuguese)<br/>" +
-                  authorString("Mladen Pejaković", "pejakm@gmail.com") + " (Serbian)"
-                 );
-
-    return aPage;
+    return page;
 }
 
 QString QupZillaSchemeReply::speeddialPage()

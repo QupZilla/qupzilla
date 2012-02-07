@@ -317,7 +317,7 @@ void MainApplication::loadSettings()
     int maxCachedPages = settings.value("maximumCachedPages", 3).toInt();
     int scrollingLines = settings.value("wheelScrollLines", wheelScrollLines()).toInt();
     QUrl userStyleSheet = QUrl::fromLocalFile(settings.value("userStyleSheet", "").toString());
-    WebPage::UserAgent = settings.value("UserAgent", "").toString();
+    WebPage::setUserAgent(settings.value("UserAgent", "").toString());
     settings.endGroup();
 
     m_websettings->enablePersistentStorage(m_activeProfil);

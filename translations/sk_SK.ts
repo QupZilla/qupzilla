@@ -283,19 +283,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Successfuly imported</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cannot write to file!</source>
         <translation type="unfinished">Nedá sa zapisovať do súboru!</translation>
     </message>
     <message>
-        <source>Successfuly exported</source>
+        <source>Error while importing!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error while importing!</source>
+        <source>Successfully imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully exported</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -727,6 +727,10 @@
     </message>
     <message>
         <source>Remove from Speed Dial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to Speed Dial</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1897,7 +1901,7 @@
     </message>
     <message>
         <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Používateľský CSS štýl&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Používateľský CSS štýl&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Activate last tab when closing active tab</source>
@@ -2450,6 +2454,10 @@
     <message>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Zmazať lokálne úložisko pri zatváraní prehliadača</translation>
+    </message>
+    <message>
+        <source>Change browser identification:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

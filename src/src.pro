@@ -31,6 +31,7 @@ TRANSLATIONS +=../translations/cs_CZ.ts\
                ../translations/de_DE.ts\
                ../translations/nl_NL.ts\
                ../translations/zh_CN.ts\
+               ../translations/zh_TW.ts\
                ../translations/it_IT.ts\
                ../translations/pl_PL.ts\
                ../translations/es_ES.ts\

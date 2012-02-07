@@ -46,8 +46,8 @@ public:
 private slots:
     void saveSettings();
     void buttonClicked(QAbstractButton* button);
-
     void showStackedPage(QListWidgetItem* item);
+
     void newTabChanged();
     void chooseDownPath();
     void showCookieManager();
@@ -59,17 +59,19 @@ private slots:
     void deleteHtml5storage();
     void chooseExternalDownloadManager();
 
-    void allowJavaScriptChanged(bool stat);
-    void saveHistoryChanged(bool stat);
-    void saveCookiesChanged(bool stat);
-    void allowHtml5storageChanged(bool stat);
+    void allowJavaScriptChanged(bool state);
+    void saveHistoryChanged(bool state);
+    void saveCookiesChanged(bool state);
+    void allowHtml5storageChanged(bool state);
     void downLocChanged(bool state);
     void allowCacheChanged(bool state);
     void showPassManager(bool state);
     void setManualProxyConfigurationEnabled(bool state);
+    void useExternalDownManagerChanged(bool state);
+    void changeUserAgentChanged(bool state);
+
     void cacheValueChanged(int value);
     void pageCacheValueChanged(int value);
-    void useExternalDownManagerChanged(bool state);
 
     void createProfile();
     void deleteProfile();

@@ -37,8 +37,8 @@
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
 
-QString WebPage::UserAgent = "";
 QString WebPage::m_lastUploadLocation = QDir::homePath();
+QString WebPage::m_userAgent = QString();
 
 WebPage::WebPage(QupZilla* mainClass)
     : QWebPage()
@@ -105,6 +105,16 @@ void WebPage::scheduleAdjustPage()
 bool WebPage::isRunningLoop()
 {
     return m_runningLoop;
+}
+
+void WebPage::setUserAgent(const QString &agent)
+{
+    if (!agent.isEmpty()) {
+        m_userAgent = QString("%1 (QupZilla %2)").arg(agent, QupZilla::VERSION);
+    }
+    else {
+        m_userAgent = agent;
+    }
 }
 
 void WebPage::urlChanged(const QUrl &url)
@@ -321,16 +331,16 @@ void WebPage::cleanBlockedObjects()
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
 {
-    if (UserAgent.isEmpty()) {
-        UserAgent = QWebPage::userAgentForUrl(url);
+    if (m_userAgent.isEmpty()) {
+        m_userAgent = QWebPage::userAgentForUrl(url);
 #ifdef Q_WS_MAC
 #ifdef __i386__ || __x86_64__
-        UserAgent.replace("PPC Mac OS X", "Intel Mac OS X");
+        m_userAgent.replace("PPC Mac OS X", "Intel Mac OS X");
 #endif
 #endif
     }
 
-    return UserAgent;
+    return m_userAgent;
 }
 
 bool WebPage::supportsExtension(Extension extension) const

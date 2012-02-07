@@ -1108,7 +1108,7 @@ void QupZilla::loadActionUrl()
 void QupZilla::loadActionUrlInNewTab()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        m_tabWidget->addView(action->data().toUrl());
+        m_tabWidget->addView(action->data().toUrl(), Qz::NT_SelectedTabAtTheEnd);
     }
 }
 

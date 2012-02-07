@@ -30,14 +30,14 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
+
     ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
-
     ui->next->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
-
     ui->previous->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
 
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(findNext()));
+    connect(ui->lineEdit, SIGNAL(returnPressed()), this, SLOT(findNext()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(findNext()));
     connect(ui->previous, SIGNAL(clicked()), this, SLOT(findPrevious()));
     connect(ui->highligh, SIGNAL(clicked()), this, SLOT(highlightChanged()));
@@ -61,7 +61,9 @@ QLineEdit* SearchToolBar::searchLine()
 
 void SearchToolBar::hide()
 {
+    searchText("");
     p_QupZilla->weView()->setFocus();
+
     AnimatedWidget::hide();
 }
 

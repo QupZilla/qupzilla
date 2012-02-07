@@ -229,6 +229,29 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->doNotTrack->setChecked(settings.value("DoNotTrack", false).toBool());
     ui->sendReferer->setChecked(settings.value("SendReferer", true).toBool());
 
+    // UserAgent
+    const QString &os = qz_buildSystem();
+    QStringList items;
+    items << QString("Opera/9.80 (%1) Presto/2.10.229 Version/11.61").arg(os)
+          << QString("Mozilla/5.0 (%1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7").arg(os)
+          << QString("Mozilla/5.0 (%1) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1").arg(os)
+          << QString("Mozilla/5.0 (%1; rv:9.0.1) Gecko/20100101 Firefox/9.0.1").arg(os);
+
+    const QString &savedUserAgent = settings.value("UserAgent", "").toString();
+    ui->changeUserAgent->setChecked(!savedUserAgent.isEmpty());
+    ui->userAgentCombo->addItems(items);
+
+    int index = ui->userAgentCombo->findText(savedUserAgent);
+    if (index >= 0) {
+        ui->userAgentCombo->setCurrentIndex(index);
+    }
+    else {
+        ui->userAgentCombo->lineEdit()->setText(savedUserAgent);
+    }
+
+    ui->userAgentCombo->lineEdit()->setCursorPosition(0);
+    connect(ui->changeUserAgent, SIGNAL(toggled(bool)), this, SLOT(changeUserAgentChanged(bool)));
+    changeUserAgentChanged(ui->changeUserAgent->isChecked());
 
     //Cookies
     ui->saveCookies->setChecked(settings.value("allowCookies", true).toBool());
@@ -341,6 +364,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         QString language = QLocale::languageToString(locale.language());
         ui->languages->addItem(language + ", " + country + " (" + loc + ")", name);
     }
+
     //Proxy Config
     settings.beginGroup("Web-Proxy");
     NetworkProxyFactory::ProxyPreference proxyPreference = NetworkProxyFactory::ProxyPreference(settings.value("UseProxy", NetworkProxyFactory::SystemProxy).toInt());
@@ -503,9 +527,9 @@ void Preferences::setManualProxyConfigurationEnabled(bool state)
     ui->proxyExceptions->setEnabled(state);
 }
 
-void Preferences::allowJavaScriptChanged(bool stat)
+void Preferences::allowJavaScriptChanged(bool state)
 {
-    ui->blockPopup->setEnabled(stat);
+    ui->blockPopup->setEnabled(state);
 }
 
 void Preferences::saveHistoryChanged(bool stat)
@@ -513,9 +537,9 @@ void Preferences::saveHistoryChanged(bool stat)
     ui->deleteHistoryOnClose->setEnabled(stat);
 }
 
-void Preferences::saveCookiesChanged(bool stat)
+void Preferences::saveCookiesChanged(bool state)
 {
-    ui->deleteCookiesOnClose->setEnabled(stat);
+    ui->deleteCookiesOnClose->setEnabled(state);
 }
 
 void Preferences::allowHtml5storageChanged(bool stat)
@@ -567,6 +591,11 @@ void Preferences::useExternalDownManagerChanged(bool state)
     ui->externalDownExecutable->setEnabled(state);
     ui->externalDownArguments->setEnabled(state);
     ui->chooseExternalDown->setEnabled(state);
+}
+
+void Preferences::changeUserAgentChanged(bool state)
+{
+    ui->userAgentCombo->setEnabled(state);
 }
 
 void Preferences::showPassManager(bool state)
@@ -752,6 +781,7 @@ void Preferences::saveSettings()
     settings.setValue("CheckUpdates", ui->checkUpdates->isChecked());
     settings.setValue("DefaultZoom", ui->defaultZoom->value());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
+    settings.setValue("UserAgent", ui->changeUserAgent->isChecked() ? ui->userAgentCombo->currentText() : "");
 
     //Cache
     settings.setValue("maximumCachedPages", ui->pagesInCache->value());

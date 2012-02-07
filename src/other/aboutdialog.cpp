@@ -89,7 +89,6 @@ void AboutDialog::showAuthors()
                                          "Peter Vacula (Slovakia)<br/>"
                                          "Ján Ďanovský (Slovakia)<br/>"
                                          "Jonathan Hooverman (German)<br/>"
-                                         "Unink-Lio (Chinese)<br/>"
                                          "Federico Fabiani (Italian)<br/>"
                                          "Francesco Marinucci (Italian)<br/>"
                                          "Jorge Sevilla (Spanish)<br/>"
@@ -101,7 +100,9 @@ void AboutDialog::showAuthors()
                                          "Alexander Maslov (Russian)<br/>"
                                          "Oleg Brezhnev (Russian)<br/>"
                                          "Sérgio Marques (Portuguese)<br/>"
-                                         "Mladen Pejaković (Serbian)")
+                                         "Mladen Pejaković (Serbian)<br/>"
+                                         "Unink-Lio (Chinese)<br/>"
+                                         "Wu Cheng-Hong (Trad. Chinese)")
                              ));
         m_authorsHtml.append("</div>");
     }

@@ -71,7 +71,7 @@ public:
     void scheduleAdjustPage();
     bool isRunningLoop();
 
-    static QString UserAgent;
+    static void setUserAgent(const QString &agent);
     QString userAgentForUrl(const QUrl &url) const;
 
     void disconnectObjects();
@@ -102,6 +102,7 @@ private:
     QString chooseFile(QWebFrame* originatingFrame, const QString &oldFile);
 
     static QString m_lastUploadLocation;
+    static QString m_userAgent;
 
     QupZilla* p_QupZilla;
     NetworkManagerProxy* m_networkProxy;
