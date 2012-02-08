@@ -174,17 +174,17 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="50"/>
         <source>Blocked popup window</source>
-        <translation type="unfinished"></translation>
+        <translation>Блокиран искачући прозор</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="50"/>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation type="unfinished"></translation>
+        <translation>Адблок је блокирао нежељени искачући прозор.</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="69"/>
         <source>AdBlock</source>
-        <translation type="unfinished">Адблок</translation>
+        <translation>Адблок</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="92"/>
@@ -194,7 +194,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="95"/>
         <source>Blocked Popup Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Блокирани искачући прозори</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="106"/>
@@ -279,7 +279,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="104"/>
         <source>Import/Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Увоз/извоз</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="131"/>
@@ -296,12 +296,12 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="38"/>
         <source>Import Passwords from File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Увези лозинке из фајла...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="39"/>
         <source>Export Passwords to File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Извези лозинке у фајл...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="90"/>
@@ -337,32 +337,32 @@
         <location filename="../src/preferences/autofillmanager.cpp" line="195"/>
         <location filename="../src/preferences/autofillmanager.cpp" line="215"/>
         <source>Choose file...</source>
-        <translation type="unfinished">Изабери фајл...</translation>
+        <translation>Изабери фајл...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="202"/>
         <source>Cannot read file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не могу да очитам фајл!</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="229"/>
         <source>Successfully exported</source>
-        <translation type="unfinished"></translation>
+        <translation>Успјешно извезено</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
         <source>Error while importing!</source>
-        <translation type="unfinished"></translation>
+        <translation>Грешка приликом увоза!</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
         <source>Successfully imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Успјешно увезено</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="222"/>
         <source>Cannot write to file!</source>
-        <translation type="unfinished">Не могу да упишем у фајл!</translation>
+        <translation>Не могу да упишем у фајл!</translation>
     </message>
 </context>
 <context>
@@ -640,7 +640,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Отвори везу у &amp;текућем језичку</translation>
     </message>
     <message>
         <source>Open link in actual &amp;tab</source>
@@ -727,7 +727,7 @@
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Отвори везу у &amp;текућем језичку</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="111"/>
@@ -869,39 +869,39 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="160"/>
         <source>Add into Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Додај у обиљеживаче</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="167"/>
         <source>Add into Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Додај на брзо бирање</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="196"/>
         <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Додај обиљеживач&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished">Уређивање обиљеживача</translation>
+        <translation>Уређивање обиљеживача</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="45"/>
         <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Уреди обиљеживач&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="113"/>
         <source>Remove from Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Уклони са брзог бирања</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="118"/>
         <source>Add to Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Додај на брзо бирање</translation>
     </message>
 </context>
 <context>
@@ -1038,7 +1038,7 @@
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="111"/>
         <source>Earlier Today</source>
-        <translation type="unfinished"></translation>
+        <translation>раније данас</translation>
     </message>
     <message>
         <source>Later Today</source>
@@ -1401,22 +1401,22 @@
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
         <source>Executable: </source>
-        <translation type="unfinished"></translation>
+        <translation>Извршна: </translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
         <source>Arguments: </source>
-        <translation type="unfinished"></translation>
+        <translation>Аргументи: </translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="104"/>
         <source>Cannot start external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Не могу да покренем спољашњи менаџер преузимања</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="104"/>
         <source>Cannot start external download manager! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не могу да покренем спољашњи менаџер преузимања! %1</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="156"/>
@@ -1569,7 +1569,7 @@
     <message>
         <location filename="../src/history/historymanager.cpp" line="101"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Отвори везу у текућем језичку</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="102"/>
@@ -1702,7 +1702,7 @@
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Отвори везу у текућем језичку</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
@@ -2222,7 +2222,7 @@
         <location filename="../src/preferences/preferences.ui" line="258"/>
         <location filename="../src/preferences/preferences.ui" line="406"/>
         <source>Use current</source>
-        <translation type="unfinished"></translation>
+        <translation>Користи текућу</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="446"/>
@@ -2261,12 +2261,13 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1071"/>
         <source>Allow local storage of HTML5 web content</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Дозволи локално смештање ХТМЛ5 веб садржаја</translatorcomment>
+        <translation>Дозволи локално смјештање ХТМЛ5 веб садржаја</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1078"/>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation type="unfinished"></translation>
+        <translation>Обриши локални ХТМЛ5 веб садржај по затварању</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1833"/>
@@ -2369,7 +2370,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1104"/>
         <source>Delete now</source>
-        <translation type="unfinished"></translation>
+        <translation>Обриши сада</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1127"/>
@@ -2523,22 +2524,22 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1554"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Спољашњи менаџер преузимања&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1561"/>
         <source>Use external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Користи спољашњи менаџер преузимања</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1573"/>
         <source>Executable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Извршна:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1580"/>
         <source>Arguments:</source>
-        <translation type="unfinished"></translation>
+        <translation>Аргументи:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1623"/>
@@ -2558,17 +2559,17 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1707"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Пречишћај колачиће пратиоце</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1751"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Упозорење:&lt;/b&gt; Тачно поклапање домена и пречишћање колачића пратиоца може довести до одбијања неких колачића са сајтова. Ако имате проблема са колачићима, искључите ове опције!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="2141"/>
         <source>Change browser identification:</source>
-        <translation type="unfinished"></translation>
+        <translation>Промијени идентификацију прегледача:</translation>
     </message>
     <message>
         <source>Filter Tracking Cookies</source>
@@ -2601,7 +2602,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1790"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;ССЛ сертификати&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1803"/>
@@ -2611,23 +2612,23 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1810"/>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Уредите сертификате издавача у ССЛ менаџеру</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1840"/>
         <location filename="../src/preferences/preferences.ui" line="2073"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Разно&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1854"/>
         <source>Send Referer header to servers</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаљи заглавље пратиоца серверима</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1861"/>
         <source>Block popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Блокирај искачуће прозоре</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1874"/>
@@ -2776,12 +2777,12 @@
     <message>
         <location filename="../src/preferences/preferences.cpp" line="490"/>
         <source>Deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Обрисано</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="496"/>
         <source>Choose executable location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Одабир локације извршног фајла...</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="629"/>
@@ -3024,7 +3025,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="292"/>
         <source>&amp;Print...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Штампај...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="327"/>
@@ -3129,7 +3130,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="441"/>
         <source>Web In&amp;spector</source>
-        <translation type="unfinished"></translation>
+        <translation>Веб и&amp;нспектор</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="490"/>
@@ -3691,7 +3692,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="234"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Отвори везу у текућем језичку</translation>
     </message>
     <message>
         <source>Open link in actual tab</source>
@@ -4412,7 +4413,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="259"/>
         <source>Currently you have %1 opened tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Имате %1 отворених језичака</translation>
     </message>
     <message>
         <source>Actually you have %1 opened tabs</source>
@@ -4592,7 +4593,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="410"/>
         <source>Proxy server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер проксија није нађен</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="413"/>
