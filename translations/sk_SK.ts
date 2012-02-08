@@ -170,19 +170,19 @@
     </message>
     <message>
         <source>Blocked popup window</source>
-        <translation type="unfinished"></translation>
+        <translation>Zablokované vyskakovacie okno</translation>
     </message>
     <message>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock zablokoval nevyžiadané vyskakovacie okno.</translation>
     </message>
     <message>
         <source>AdBlock</source>
-        <translation type="unfinished">AdBlock</translation>
+        <translation>AdBlock</translation>
     </message>
     <message>
         <source>Blocked Popup Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Zablokované vyskakovacie okná</translation>
     </message>
 </context>
 <context>
@@ -264,39 +264,39 @@
     </message>
     <message>
         <source>Import/Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Import/Export</translation>
     </message>
     <message>
         <source>Import Passwords from File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Imporotovať heslo zo súboru...</translation>
     </message>
     <message>
         <source>Export Passwords to File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportovať heslo zo súboru...</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľte súbor...</translation>
     </message>
     <message>
         <source>Cannot read file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie je možné čítať zo súboru!</translation>
     </message>
     <message>
         <source>Cannot write to file!</source>
-        <translation type="unfinished">Nedá sa zapisovať do súboru!</translation>
+        <translation>Nie je možný zápis do súboru!</translation>
     </message>
     <message>
         <source>Error while importing!</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba počas importovania!</translation>
     </message>
     <message>
         <source>Successfully imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Importovanie prebehlo úspešne</translation>
     </message>
     <message>
         <source>Successfully exported</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportovanie prebehlo úspešne</translation>
     </message>
 </context>
 <context>
@@ -707,31 +707,31 @@
     </message>
     <message>
         <source>Add into Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať do záložiek</translation>
     </message>
     <message>
         <source>Add into Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať do rychlej voľby</translation>
     </message>
     <message>
         <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Pridať záložku&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished">Upraviť záložku</translation>
+        <translation>Upraviť záložku</translation>
     </message>
     <message>
         <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Upraviť záložku&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť z rýchlej voľby</translation>
     </message>
     <message>
         <source>Add to Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať do rychlej voľby</translation>
     </message>
 </context>
 <context>
@@ -2457,7 +2457,7 @@
     </message>
     <message>
         <source>Change browser identification:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmeniť identifikáciu prehliadača:</translation>
     </message>
 </context>
 <context>
@@ -4127,7 +4127,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Proxy server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy server nenájdený</translation>
     </message>
 </context>
 <context>
