@@ -110,7 +110,6 @@ public:
     inline QMenu* menuHelp() { return m_menuHelp; }
     inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
     inline QAction* actionReload() { return m_actionReload; }
-    inline QAction* actionStop() { return m_actionStop; }
     inline QMenu* superMenu() { return m_superMenu; }
 
     inline bool isClosing() { return m_isClosing; }

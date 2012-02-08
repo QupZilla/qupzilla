@@ -134,8 +134,10 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     connect(m_menuForward, SIGNAL(aboutToShow()), this, SLOT(aboutToShowHistoryNextMenu()));
     connect(m_buttonBack, SIGNAL(clicked()), this, SLOT(goBack()));
     connect(m_buttonBack, SIGNAL(middleMouseClicked()), this, SLOT(goBackInNewTab()));
+    connect(m_buttonBack, SIGNAL(controlClicked()), this, SLOT(goBackInNewTab()));
     connect(m_buttonNext, SIGNAL(clicked()), this, SLOT(goForward()));
     connect(m_buttonNext, SIGNAL(middleMouseClicked()), this, SLOT(goForwardInNewTab()));
+    connect(m_buttonNext, SIGNAL(controlClicked()), this, SLOT(goForwardInNewTab()));
 
     connect(m_reloadStop->buttonStop(), SIGNAL(clicked()), p_QupZilla, SLOT(stop()));
     connect(m_reloadStop->buttonReload(), SIGNAL(clicked()), p_QupZilla, SLOT(reload()));

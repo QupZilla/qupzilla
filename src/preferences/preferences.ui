@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>754</width>
-    <height>500</height>
+    <width>829</width>
+    <height>484</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -292,24 +292,24 @@
          </item>
         </widget>
        </item>
-       <item row="7" column="0" colspan="2">
+       <item row="6" column="0" colspan="2">
         <widget class="QLabel" name="label_4">
          <property name="text">
           <string>&lt;b&gt;Profiles&lt;/b&gt;</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
+       <item row="8" column="1">
         <widget class="QLabel" name="label_5">
          <property name="text">
           <string>Startup profile:</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="2">
+       <item row="8" column="2">
         <widget class="QComboBox" name="startProfile"/>
        </item>
-       <item row="10" column="2" colspan="2">
+       <item row="9" column="1" colspan="3">
         <widget class="QFrame" name="frame">
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -331,17 +331,14 @@
            <number>0</number>
           </property>
           <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+           <widget class="QLabel" name="cannotDeleteActiveProfileLabel">
+            <property name="text">
+             <string>Note: You cannot delete active profile.</string>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
-           </spacer>
+           </widget>
           </item>
           <item>
            <widget class="QPushButton" name="createProfile">
@@ -375,7 +372,7 @@
          </layout>
         </widget>
        </item>
-       <item row="12" column="1">
+       <item row="16" column="1">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -410,29 +407,6 @@
          </layout>
         </widget>
        </item>
-       <item row="6" column="0">
-        <spacer name="verticalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="11" column="1" colspan="2">
-        <widget class="QLabel" name="cannotDeleteActiveProfileLabel">
-         <property name="text">
-          <string>Note: You cannot delete active profile.</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
        <item row="5" column="1" colspan="2">
         <widget class="QCheckBox" name="checkUpdates">
          <property name="text">
@@ -440,19 +414,59 @@
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
+       <item row="7" column="1">
         <widget class="QLabel" name="label_45">
          <property name="text">
           <string>Active profile:</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="2">
+       <item row="7" column="2">
         <widget class="QLabel" name="activeProfile">
          <property name="text">
           <string/>
          </property>
         </widget>
+       </item>
+       <item row="15" column="1" colspan="2">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>In order to change language, you must restart browser.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0" colspan="3">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>&lt;b&gt;Language&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <widget class="QLabel" name="label_16">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Available translations: </string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="12" column="2">
+        <widget class="QComboBox" name="languages"/>
        </item>
       </layout>
      </widget>
@@ -2014,77 +2028,24 @@
      </widget>
      <widget class="QWidget" name="stackedWidgetPage7">
       <layout class="QGridLayout" name="gridLayout_13">
-       <item row="0" column="0" colspan="4">
-        <widget class="QLabel" name="label_11">
-         <property name="text">
-          <string>&lt;b&gt;Language&lt;/b&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1" colspan="2">
-        <widget class="QLabel" name="label_16">
-         <property name="text">
-          <string>Available translations: </string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <spacer name="horizontalSpacer_24">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="1">
-        <widget class="QComboBox" name="languages"/>
-       </item>
-       <item row="2" column="3">
-        <spacer name="horizontalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="1" colspan="2">
-        <widget class="QLabel" name="label_17">
-         <property name="text">
-          <string>In order to change language, you must restart browser.</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0" colspan="4">
+       <item row="7" column="0" colspan="4">
         <widget class="QLabel" name="label_9">
          <property name="text">
           <string>&lt;b&gt;Other&lt;/b&gt;</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="0" colspan="4">
+       <item row="8" column="0" colspan="4">
         <widget class="QLabel" name="label_15">
          <property name="text">
           <string>StyleSheet automatically loaded with all websites: </string>
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
+       <item row="9" column="1">
         <widget class="QLineEdit" name="userStyleSheet"/>
        </item>
-       <item row="10" column="2">
+       <item row="9" column="2">
         <widget class="QToolButton" name="chooseUserStylesheet">
          <property name="text">
           <string>...</string>
@@ -2122,27 +2083,14 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="0">
-        <spacer name="verticalSpacer_13">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="11" column="0" colspan="2">
+       <item row="10" column="0" colspan="2">
         <widget class="QCheckBox" name="changeUserAgent">
          <property name="text">
           <string>Change browser identification:</string>
          </property>
         </widget>
        </item>
-       <item row="12" column="1" colspan="2">
+       <item row="11" column="1" colspan="2">
         <widget class="QComboBox" name="userAgentCombo">
          <property name="maximumSize">
           <size>
@@ -2155,7 +2103,7 @@
          </property>
         </widget>
        </item>
-       <item row="13" column="0">
+       <item row="12" column="0">
         <spacer name="verticalSpacer_15">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -2164,6 +2112,35 @@
           <size>
            <width>20</width>
            <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="0">
+        <spacer name="horizontalSpacer_24">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="3">
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
           </size>
          </property>
         </spacer>
@@ -2219,7 +2196,6 @@
   <tabstop>useNativeSystemNotifications</tabstop>
   <tabstop>doNotUseNotifications</tabstop>
   <tabstop>notificationTimeout</tabstop>
-  <tabstop>languages</tabstop>
   <tabstop>preferredLanguages</tabstop>
   <tabstop>userStyleSheet</tabstop>
   <tabstop>chooseUserStylesheet</tabstop>
