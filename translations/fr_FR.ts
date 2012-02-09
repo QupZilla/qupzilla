@@ -183,17 +183,17 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="50"/>
         <source>Blocked popup window</source>
-        <translation type="unfinished"></translation>
+        <translation>Pop-up bloqué</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="50"/>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock a bloqué un pop-up non souhaité.</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="69"/>
         <source>AdBlock</source>
-        <translation type="unfinished">AdBlock</translation>
+        <translation>AdBlock</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="92"/>
@@ -204,7 +204,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="95"/>
         <source>Blocked Popup Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Pop-up bloqués</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="106"/>
@@ -294,7 +294,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="104"/>
         <source>Import/Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer/Exporter</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="131"/>
@@ -311,12 +311,12 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="38"/>
         <source>Import Passwords from File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer les mots de passe...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="39"/>
         <source>Export Passwords to File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Exporter les mots de passe...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="90"/>
@@ -352,32 +352,32 @@
         <location filename="../src/preferences/autofillmanager.cpp" line="195"/>
         <location filename="../src/preferences/autofillmanager.cpp" line="215"/>
         <source>Choose file...</source>
-        <translation type="unfinished">Choisir un fichier...</translation>
+        <translation>Choisir un fichier...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="202"/>
         <source>Cannot read file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Lecture du fichier impossible!</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="229"/>
         <source>Successfully exported</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportation réussie</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
         <source>Error while importing!</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur dans l&apos;importation!</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
         <source>Successfully imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Importation réussie</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="222"/>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ecriture du fichier impossible!</translation>
     </message>
 </context>
 <context>
@@ -896,39 +896,39 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="160"/>
         <source>Add into Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter aux marque-pages</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="167"/>
         <source>Add into Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter à Speed Dial</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="196"/>
         <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Ajouter un marque-page&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished">Modifier le marque-page</translation>
+        <translation>Modifier le marque-page</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="45"/>
         <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Modifier le marque-page&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="113"/>
         <source>Remove from Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer de Speed Dial</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="118"/>
         <source>Add to Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter à Speed Dial</translation>
     </message>
 </context>
 <context>
@@ -1425,7 +1425,9 @@
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Désolé, le fichier 
+%1 
+n&apos;a pas été trouvé!</translation>
     </message>
     <message>
         <source>New tab</source>
@@ -1435,14 +1437,6 @@
         <location filename="../src/downloads/downloaditem.cpp" line="362"/>
         <source>Not found</source>
         <translation>Non trouvé</translation>
-    </message>
-    <message>
-        <source>Sorry, the file 
- %1 
- was not found!</source>
-        <translation type="obsolete">Désolé, le fichier 
-%1 
-n&apos;a pas été trouvé!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="378"/>
@@ -2679,7 +2673,7 @@ n&apos;a pas été trouvé!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1573"/>
         <source>Executable:</source>
-        <translation type="unfinished">Application:</translation>
+        <translation>Application:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1580"/>
@@ -2699,7 +2693,7 @@ n&apos;a pas été trouvé!</translation>
     <message>
         <location filename="../src/preferences/preferences.ui" line="2141"/>
         <source>Change browser identification:</source>
-        <translation type="unfinished"></translation>
+        <translation>Changer l&apos;identité du navigateur:</translation>
     </message>
     <message>
         <source>Default Font</source>
@@ -3251,7 +3245,7 @@ n&apos;a pas été trouvé!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="292"/>
         <source>&amp;Print...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Imprimer...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="327"/>
@@ -3356,7 +3350,7 @@ n&apos;a pas été trouvé!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="441"/>
         <source>Web In&amp;spector</source>
-        <translation type="unfinished"></translation>
+        <translation>Web In&amp;spector</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="490"/>
@@ -4991,7 +4985,7 @@ Après avoir ajouté ou retiré un certificat, il est nécessaire de redémarrer
     <message>
         <location filename="../src/webview/webpage.cpp" line="410"/>
         <source>Proxy server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Le serveur proxy n&apos;a pas été trouvé</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="413"/>
@@ -5270,7 +5264,7 @@ Après avoir ajouté ou retiré un certificat, il est nécessaire de redémarrer
     <message>
         <location filename="../src/webview/webview.cpp" line="686"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished">Suivre le &amp;lien</translation>
+        <translation>Suivre le &amp;lien</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="712"/>
