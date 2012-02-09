@@ -839,7 +839,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="137"/>
         <source>Edit This Bookmark</source>
-        <translation>Уреди овај обиљеживач</translation>
+        <translation>Уређивање обиљеживача</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="107"/>
@@ -884,7 +884,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
         <source>Edit Bookmark</source>
-        <translation>Уређивање обиљеживача</translation>
+        <translation>Уреди обиљеживач</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="45"/>
