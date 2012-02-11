@@ -222,7 +222,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Jérôme Giry", "baikalink@hotmail.fr") + " (French)<br/>" +
                       authorString("Nicolas Ourceau", "lamessen@hotmail.fr") + " (French)<br/>" +
                       authorString("Vasilis Tsivikis", "vasitsiv.dev@gmail.com") + " (Greek)<br/>" +
-                      authorString("Alexander Maslov", "it@delta-z.ru") + " (Russian)<br/>" +
+                      authorString("Rustam Salakhutdinov", "salahutd@gmail.com") + " (Russian)<br/>" +
                       authorString("Oleg Brezhnev", "oleg-423@yandex.ru") + " (Russian)<br/>" +
                       authorString("Sérgio Marques", "smarquespt@gmail.com") + " (Portuguese)<br/>" +
                       authorString("Mladen Pejaković", "pejakm@gmail.com") + " (Serbian)<br/>" +
