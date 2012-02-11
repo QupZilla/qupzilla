@@ -24,6 +24,7 @@ DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPix
     , m_signalEmited(false)
 {
     ui->setupUi(this);
+
     ui->fileName->setText("<b>" + fileName + "</b>");
     ui->fileIcon->setPixmap(fileIcon);
     ui->fileType->setText(mimeType);

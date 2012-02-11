@@ -64,6 +64,11 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
     m_fileIcon = m_iconProvider->icon(tempInfo).pixmap(30, 30);
     QString mimeType = m_iconProvider->type(tempInfo);
 
+    qint64 size = m_reply->header(QNetworkRequest::ContentLengthHeader).toLongLong();
+    if (size > 0) {
+        mimeType.append(QString(" (%1)").arg(DownloadItem::fileSizeToString(size)));
+    }
+
     // Close Empty Tab
     if (m_webPage) {
         WebView* view = qobject_cast<WebView*>(m_webPage->view());
