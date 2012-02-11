@@ -56,9 +56,10 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
     m_h_fileName = getFileName(reply);
     m_reply = reply;
 
-    QFileInfo info(reply->url().toString());
+    QFileInfo info(m_h_fileName);
     QTemporaryFile tempFile("XXXXXX." + info.suffix());
     tempFile.open();
+    tempFile.write(m_reply->peek(1024 * 1024));
     QFileInfo tempInfo(tempFile.fileName());
     m_fileIcon = m_iconProvider->icon(tempInfo).pixmap(30, 30);
     QString mimeType = m_iconProvider->type(tempInfo);

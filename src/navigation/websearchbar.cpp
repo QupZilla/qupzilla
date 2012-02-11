@@ -139,6 +139,10 @@ void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
     m_openSearchEngine->setSuggestionsParameters(m_activeEngine.suggestionsParameters);
 
     m_searchManager->setActiveEngine(m_activeEngine);
+
+    if (!text().isEmpty()) {
+        search();
+    }
 }
 
 void WebSearchBar::search()
