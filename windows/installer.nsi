@@ -36,8 +36,9 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "German"
 !insertmacro MUI_LANGUAGE "Greek"
 !insertmacro MUI_LANGUAGE "Portuguese"
-
+!insertmacro MUI_LANGUAGE "Italian"
 !insertmacro MUI_LANGUAGE "French"
+
 !insertmacro MUI_LANGUAGE "Korean"
 !insertmacro MUI_LANGUAGE "Russian"
 !insertmacro MUI_LANGUAGE "Spanish"
@@ -91,7 +92,7 @@ Section !$(TITLE_SecMain) SecMain
   File "codecs\qjpcodecs4.dll"
   File "codecs\qkrcodecs4.dll"
   File "codecs\qtwcodecs4.dll"
-  
+
   SetOutPath "$INSTDIR\iconengines"
   File "iconengines\qsvgicon4.dll"
 
@@ -102,9 +103,9 @@ SectionEnd
 
 SectionGroup $(TITLE_SecThemes) SecThemes
   Section Default SecDefault
-  SectionIn RO  
+  SectionIn RO
   SetOutPath "$INSTDIR\themes\windows"
-  File "themes\windows\*"  
+  File "themes\windows\*"
   SetOutPath "$INSTDIR\themes\windows\images"
   File "themes\windows\images\*"
   SectionEnd
@@ -115,7 +116,7 @@ SectionGroup $(TITLE_SecThemes) SecThemes
   SetOutPath "$INSTDIR\themes\chrome\images"
   File "themes\chrome\images\*"
   SectionEnd
-  
+
   Section Mac SecMac
   SetOutPath "$INSTDIR\themes\mac"
   File "themes\mac\*"
@@ -134,7 +135,7 @@ SectionGroupEnd
 
 SectionGroup $(TITLE_SecTranslations) SecTranslations
   Section "English"
-  SectionIn RO  
+  SectionIn RO
   SectionEnd
 
   Section "Czech"
@@ -142,7 +143,7 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\cs_CZ.qm"
   File "locale\qt_cs.qm"
   SectionEnd
-  
+
   Section "Slovak"
   SetOutPath "$INSTDIR\locale"
   File "locale\sk_SK.qm"
@@ -184,31 +185,31 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\es_ES.qm"
   File "locale\qt_es.qm"
   SectionEnd
-  
+
   Section "Greek"
   SetOutPath "$INSTDIR\locale"
   File "locale\el_GR.qm"
   File "locale\qt_el.qm"
   SectionEnd
-  
+
   Section "French"
   SetOutPath "$INSTDIR\locale"
   File "locale\fr_FR.qm"
   File "locale\qt_fr.qm"
   SectionEnd
-  
+
   Section "Russian"
   SetOutPath "$INSTDIR\locale"
   File "locale\ru_RU.qm"
   File "locale\qt_ru.qm"
   SectionEnd
-  
+
   Section "Portuguese"
   SetOutPath "$INSTDIR\locale"
   File "locale\pt_PT.qm"
   File "locale\qt_pt.qm"
   SectionEnd
-  
+
   Section "Serbian"
   SetOutPath "$INSTDIR\locale"
   File "locale\sr_BA.qm"
@@ -243,7 +244,7 @@ SectionEnd
 
 Section $(TITLE_SecDesktop) SecDesktop
   SetOutPath "$INSTDIR"
-  CreateShortCut "$DESKTOP\QupZilla.lnk" "$INSTDIR\qupzilla.exe" "" 
+  CreateShortCut "$DESKTOP\QupZilla.lnk" "$INSTDIR\qupzilla.exe" ""
 SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
@@ -290,28 +291,30 @@ SectionEnd
 BrandingText "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer"
 
 Function .onInit
-	;Language selection dialog
+        ;Language selection dialog
 
-	Push ""
+        Push ""
     Push ${LANG_ENGLISH}
-	Push English
-	Push ${LANG_GERMAN}
-	Push German
-	Push ${LANG_CZECH}
-	Push Czech
-	Push ${LANG_SLOVAK}
-	Push Slovak
-	Push ${LANG_DUTCH}
-	Push Dutch
-	Push ${LANG_GREEK}
-	Push Greek
-	Push ${LANG_PORTUGUESE}
-	Push Portuguese
-	Push A ; A means auto count languages
-	       ; for the auto count to work the first empty push (Push "") must remain
-	LangDLL::LangDialog "Installer Language" "Please select the language of the installer"
+        Push English
+        Push ${LANG_GERMAN}
+        Push German
+        Push ${LANG_CZECH}
+        Push Czech
+        Push ${LANG_SLOVAK}
+        Push Slovak
+        Push ${LANG_DUTCH}
+        Push Dutch
+        Push ${LANG_GREEK}
+        Push Greek
+        Push ${LANG_PORTUGUESE}
+        Push Portuguese
+        Push ${LANG_ITALIAN}
+        Push Italian
+        Push A ; A means auto count languages
+               ; for the auto count to work the first empty push (Push "") must remain
+        LangDLL::LangDialog "Installer Language" "Please select the language of the installer"
 
-	Pop $LANGUAGE
-	StrCmp $LANGUAGE "cancel" 0 +2
-		Abort
+        Pop $LANGUAGE
+        StrCmp $LANGUAGE "cancel" 0 +2
+                Abort
 FunctionEnd

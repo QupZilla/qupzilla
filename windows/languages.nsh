@@ -158,6 +158,26 @@ LangString DESC_SecDesktop ${LANG_FRENCH} "Ajouter une icône sur le bureau."
 LangString DESC_SecExtensions ${LANG_FRENCH} "Associer QupZilla aux fichiers .htm et .html"
 LangString DESC_SecThemes ${LANG_FRENCH} "Thèmes supplémentaires pour QupZilla"
 
+;;;;Italian
+LangString TITLE_SecMain ${LANG_ITALIAN} "Componenti principali"
+LangString TITLE_SecTranslations ${LANG_ITALIAN} "Traduzioni"
+LangString TITLE_SecPlugins ${LANG_ITALIAN} "Plugins"
+LangString TITLE_SecExamplePlugin ${LANG_ITALIAN} "Plugin di esempio"
+LangString TITLE_SecDesktop ${LANG_ITALIAN} "Icona Desktop"
+LangString TITLE_SecExtensions ${LANG_ITALIAN} "Associazione file"
+LangString TITLE_SecThemes ${LANG_ITALIAN} "Temi"
+
+LangString FILE_Htm ${LANG_ITALIAN} "File HTM"
+LangString FILE_Html ${LANG_ITALIAN} "File HTML"
+;
+LangString DESC_SecMain ${LANG_ITALIAN} "Componenti principali dell'applicazione."
+LangString DESC_SecTranslations ${LANG_ITALIAN} "Altre traduzioni disponibili per l'installazione. Quella predefinita è l'Inglese."
+LangString DESC_SecPlugins ${LANG_ITALIAN} "Altri plugins disponibili per l'installazione."
+LangString DESC_SecExamplePlugin ${LANG_ITALIAN} "Inutile plugin d'esempio."
+LangString DESC_SecDesktop ${LANG_ITALIAN} "Aggiunge il lanciatore al desktop."
+LangString DESC_SecExtensions ${LANG_ITALIAN} "Associa QupZilla ai file .htm and .html"
+LangString DESC_SecThemes ${LANG_ITALIAN} "Temi aggiuntivi per QupZilla"
+
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
