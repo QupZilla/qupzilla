@@ -203,14 +203,21 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 
     switch (reply->error()) {
     case QNetworkReply::NoError:
-        if (!reply->rawHeader("Content-Disposition").isEmpty()) {
+        if (reply->header(QNetworkRequest::ContentTypeHeader).isValid()) {
+            QString requestUrl = reply->request().url().toString(QUrl::RemoveFragment | QUrl::RemoveQuery);
+            if (requestUrl.endsWith(".swf")) {
+                QWebElement docElement = mainFrame()->documentElement();
+                QWebElement object = docElement.findFirst(QString("object[src=\"%1\"]").arg(requestUrl));
+                QWebElement embed = docElement.findFirst(QString("embed[src=\"%1\"]").arg(requestUrl));
+
+                if (!object.isNull() || !embed.isNull()) {
+                    qDebug() << "WebPage::UnsupportedContent" << url << "Attempt to download flash object on site!";
+                    reply->deleteLater();
+                    return;
+                }
+            }
             DownloadManager* dManager = mApp->downManager();
             dManager->handleUnsupportedContent(reply, this);
-            return;
-        }
-        else {
-            qDebug() << "WebPage::UnsupportedContent" << url << "Attempt to download request without Content-Disposition header!";
-            reply->deleteLater();
             return;
         }
 

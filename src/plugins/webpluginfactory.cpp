@@ -31,7 +31,12 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
 {
     QString mime = mimeType.trimmed(); //Fixing bad behaviour when mimeType contains spaces
     if (mime.isEmpty()) {
-        return 0;
+        if (url.toString().endsWith(".swf")) {
+            mime = "application/x-shockwave-flash";
+        }
+        else {
+            return 0;
+        }
     }
 
     if (mime != "application/x-shockwave-flash") {
