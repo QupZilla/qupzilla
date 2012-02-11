@@ -203,22 +203,29 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 
     switch (reply->error()) {
     case QNetworkReply::NoError:
-        if (reply->header(QNetworkRequest::ContentTypeHeader).isValid()) {
+        if (!reply->rawHeader("Content-Disposition").isEmpty()) {
             DownloadManager* dManager = mApp->downManager();
             dManager->handleUnsupportedContent(reply, this);
             return;
         }
-        break;
+        else {
+            qDebug() << "WebPage::UnsupportedContent" << url << "Attempt to download request without Content-Disposition header!";
+            reply->deleteLater();
+            return;
+        }
+
     case QNetworkReply::ProtocolUnknownError:
-        qDebug() << url << "ProtocolUnknowError";
+        qDebug() << "WebPage::UnsupportedContent" << url << "ProtocolUnknowError";
         QDesktopServices::openUrl(url);
+        reply->deleteLater();
         return;
-        break;
+
     default:
         break;
     }
 
-    qDebug() << "WebPage::UnsupportedContent error" << reply->errorString();
+    qDebug() << "WebPage::UnsupportedContent error" << url << reply->errorString();
+    reply->deleteLater();
 }
 
 void WebPage::downloadRequested(const QNetworkRequest &request)

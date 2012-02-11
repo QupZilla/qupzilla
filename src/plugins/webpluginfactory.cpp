@@ -56,44 +56,24 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
         return 0;
     }
 
-//    WebPluginFactory* factory = const_cast<WebPluginFactory*>(this);
-//    if (!factory) {
-//        return 0;
-//    }
-
-//    WebPage* page = factory->parentPage();
-//    if (!page) {
-//        return 0;
-//    }
-
-
     ClickToFlash* ctf = new ClickToFlash(url, argumentNames, argumentValues, m_page);
     return ctf;
 }
 
 QList<QWebPluginFactory::Plugin> WebPluginFactory::plugins() const
 {
-//    QList<QWebPluginFactory::Plugin> plugins;
-//    return plugins;
-
-//    QWebPluginFactory::Plugin plugin;
-//    plugin.name = QLatin1String("ClickToFlashPlugin");               //   Mmmm, it should return this,
-//    QWebPluginFactory::MimeType mimeType;                            //   but with WebKit 533.3, click2flash
-//    mimeType.fileExtensions << QLatin1String("swf");                 //   fails on some pages, like youtube.com
-//    mimeType.name = QLatin1String("application/x-shockwave-flash");  //   so we will return empty QList
-//    plugin.mimeTypes.append(mimeType);                               //   On some pages it also force to load non-flash
-//    plugins.append(plugin);                                          //   content -> in most cases advertisements.
-//    return plugins;                                                  //   Not bad to have it hidden :-)
-
-    QList<QWebPluginFactory::Plugin> plugins;
-    QWebPluginFactory::Plugin plugin;
-    QWebPluginFactory::MimeType mimeType;
-
-    mimeType.fileExtensions << "swf";
-    mimeType.name = "application/x-shockwave-flash";
-
-    plugin.name = "ClickToFlashPlugin";
-    plugin.mimeTypes.append(mimeType);
-    plugins.append(plugin);
+    QList<Plugin> plugins;
     return plugins;
+
+//    QList<QWebPluginFactory::Plugin> plugins;
+//    QWebPluginFactory::Plugin plugin;
+//    QWebPluginFactory::MimeType mimeType;
+
+//    mimeType.fileExtensions << "swf";
+//    mimeType.name = "application/x-shockwave-flash";
+
+//    plugin.name = "ClickToFlashPlugin";
+//    plugin.mimeTypes.append(mimeType);
+//    plugins.append(plugin);
+//    return plugins;
 }
