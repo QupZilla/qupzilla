@@ -97,7 +97,7 @@ void AboutDialog::showAuthors()
                                          "Jérôme Giry (French)<br/>"
                                          "Nicolas Ourceau (French)<br/>"
                                          "Vasilis Tsivikis (Greek)<br/>"
-                                         "Alexander Maslov (Russian)<br/>"
+                                         "Rustam Salakhutdinov (Russian)<br/>"
                                          "Oleg Brezhnev (Russian)<br/>"
                                          "Sérgio Marques (Portuguese)<br/>"
                                          "Mladen Pejaković (Serbian)<br/>"

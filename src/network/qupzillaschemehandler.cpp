@@ -278,10 +278,12 @@ QString QupZillaSchemeReply::speeddialPage()
     }
 
     QString page = dPage;
-    page.replace("%INITIAL-SCRIPT%", mApp->plugins()->speedDial()->initialScript());
-    page.replace("%IMG_BACKGROUND%", mApp->plugins()->speedDial()->backgroundImage());
-    page.replace("%B_SIZE%", mApp->plugins()->speedDial()->backgroundImageSize());
-    page.replace("%ROW-PAGES%", QString::number(mApp->plugins()->speedDial()->pagesInRow()));
-    page.replace("%SD-SIZE%", QString::number(mApp->plugins()->speedDial()->sdSize()));
+    SpeedDial* dial = mApp->plugins()->speedDial();
+
+    page.replace("%INITIAL-SCRIPT%", dial->initialScript());
+    page.replace("%IMG_BACKGROUND%", dial->backgroundImage());
+    page.replace("%B_SIZE%", dial->backgroundImageSize());
+    page.replace("%ROW-PAGES%", QString::number(dial->pagesInRow()));
+    page.replace("%SD-SIZE%", QString::number(dial->sdSize()));
     return page;
 }
