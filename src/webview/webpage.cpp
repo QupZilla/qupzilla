@@ -223,7 +223,13 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
 
     case QNetworkReply::ProtocolUnknownError:
         qDebug() << "WebPage::UnsupportedContent" << url << "ProtocolUnknowError";
-        QDesktopServices::openUrl(url);
+
+        // We are not going to end in endless new tab opening loop in case
+        // user has QupZilla as default provider for http / https urls
+        if (!url.scheme().startsWith("http")) {
+            QDesktopServices::openUrl(url);
+        }
+
         reply->deleteLater();
         return;
 
