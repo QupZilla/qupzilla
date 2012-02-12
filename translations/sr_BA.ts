@@ -1620,7 +1620,7 @@
     <message>
         <location filename="../src/history/historymodel.cpp" line="78"/>
         <source>No Named Page</source>
-        <translation>Нема именоване странице</translation>
+        <translation>Неименована страница</translation>
     </message>
     <message>
         <location filename="../src/history/historymodel.cpp" line="223"/>
@@ -1785,7 +1785,7 @@
     <message>
         <location filename="../src/navigation/navigationbar.cpp" line="36"/>
         <source>No Named Page</source>
-        <translation>Нема именоване странице</translation>
+        <translation>Неименована страница</translation>
     </message>
     <message>
         <location filename="../src/navigation/navigationbar.cpp" line="57"/>
@@ -4704,7 +4704,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="82"/>
         <source>No Named Page</source>
-        <translation>Нема именоване странице</translation>
+        <translation>Неименована страница</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="565"/>
