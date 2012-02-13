@@ -23,6 +23,8 @@
 #include "webpage.h"
 #include "speeddial.h"
 #include "pluginproxy.h"
+#include "plugininterface.h"
+#include "settings.h"
 
 QString authorString(const char* name, const QString &mail)
 {
@@ -53,7 +55,7 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* pa
     setUrl(req.url());
 
     m_pageName = req.url().path();
-    if (m_pageName == "about" || m_pageName == "reportbug" || m_pageName == "start" || m_pageName == "speeddial") {
+    if (m_pageName == "about" || m_pageName == "reportbug" || m_pageName == "start" || m_pageName == "speeddial" || m_pageName == "config") {
         m_buffer.open(QIODevice::ReadWrite);
         setError(QNetworkReply::NoError, tr("No Error"));
 
@@ -82,6 +84,9 @@ void QupZillaSchemeReply::loadPage()
     }
     else if (m_pageName == "speeddial") {
         stream << speeddialPage();
+    }
+    else if (m_pageName == "config") {
+        stream << configPage();
     }
 
     stream.flush();
@@ -286,4 +291,73 @@ QString QupZillaSchemeReply::speeddialPage()
     page.replace("%ROW-PAGES%", QString::number(dial->pagesInRow()));
     page.replace("%SD-SIZE%", QString::number(dial->sdSize()));
     return page;
+}
+
+
+QString QupZillaSchemeReply::configPage()
+{
+    static QString cPage;
+
+    if (cPage.isEmpty()) {
+        cPage.append(qz_readAllFileContents(":html/config.html"));
+        cPage.replace("%FAVICON%", "qrc:icons/qupzilla.png");
+        cPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
+        cPage.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
+
+        cPage.replace("%TITLE%", tr("QupZilla Configuration Information"));
+        cPage.replace("%CONFIG%", tr("Configuration Information"));
+        cPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
+        cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about Qupzilla's current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports."));
+        cPage.replace("%PREFS%", tr("Preferences"));
+        cPage.replace("%OPTION%", tr("Option"));
+        cPage.replace("%VALUE%", tr("Value"));
+        cPage.replace("%PLUGINS%", tr("Plugins"));
+        cPage.replace("%PL-NAME%", tr("Name"));
+        cPage.replace("%PL-VER%", tr("Version"));
+        cPage.replace("%PL-AUTH%", tr("Author"));
+        cPage.replace("%PL-DESC%", tr("Description"));
+
+        cPage.replace("%VERSION-INFO%",
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), QupZilla::VERSION
+#ifdef GIT_REVISION
+                              + " (" + GIT_REVISION + ")"
+#endif
+                                                          ) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
+
+        QString allGroupsString;
+        QSettings* settings = Settings::globalSettings();
+        foreach (const QString &group, settings->childGroups()) {
+          QString groupString = QString("<tr><th colspan=\"2\">%1</th></tr>").arg(group);
+          settings->beginGroup(group);
+
+          foreach (const QString &key, settings->childKeys()) {
+        groupString.append(QString("<tr><td>%1</td><td>%2</td></tr>").arg(key, settings->value(key).toString()));
+        }
+
+        settings->endGroup();
+
+        allGroupsString.append(groupString);
+        }
+
+        cPage.replace("%PREFS-INFO%", allGroupsString);
+
+//       getPluginsList());
+    QString pluginsString;
+    QStringList availablePlugins = mApp->plugins()->getAvailablePlugins();
+    QStringList allowedPlugins = mApp->plugins()->getAllowedPlugins();
+    foreach(const QString & fileName, availablePlugins) {
+        PluginInterface* plugin = mApp->plugins()->getPlugin(fileName);
+        if (!plugin) {
+            continue;
+        }
+       pluginsString.append(QString("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td></tr>").arg(plugin->pluginName(), plugin->pluginVersion(), plugin->pluginAuthor().replace("<", "&lt;"), plugin->pluginDescription()));
+ }
+
+cPage.replace("%PLUGINS-INFO%", pluginsString);
+
+    }
+    return cPage;
 }
