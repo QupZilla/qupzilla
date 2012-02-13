@@ -22,8 +22,6 @@
 #include "mainapplication.h"
 #include "globalfunctions.h"
 
-//TODO: Refactor whole cookie manager tree
-
 CookieManager::CookieManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::CookieManager)
@@ -43,8 +41,10 @@ CookieManager::CookieManager(QWidget* parent)
 
     ui->search->setInactiveText(tr("Search"));
     ui->cookieTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
-
     ui->cookieTree->sortItems(0, Qt::AscendingOrder);
+
+    QShortcut* removeShortcut = new QShortcut(QKeySequence("Del"), this);
+    connect(removeShortcut, SIGNAL(activated()), this, SLOT(removeCookie()));
 }
 
 void CookieManager::removeAll()
@@ -55,8 +55,8 @@ void CookieManager::removeAll()
         return;
     }
 
-    m_cookies.clear();
-    mApp->cookieJar()->setAllCookies(m_cookies);
+    QList<QNetworkCookie> emptyList;
+    mApp->cookieJar()->setAllCookies(emptyList);
     ui->cookieTree->clear();
 }
 
@@ -67,29 +67,30 @@ void CookieManager::removeCookie()
         return;
     }
 
+    QList<QNetworkCookie> allCookies = mApp->cookieJar()->getAllCookies();
+
     int indexToNavigate = -1;
 
     if (current->text(1).isEmpty()) {     //Remove whole cookie group
         QString domain = current->whatsThis(0);
-        foreach(const QNetworkCookie & cok, m_cookies) {
-            if (cok.domain() == domain || cok.domain()  ==  domain.mid(1)) {
-                m_cookies.removeOne(cok);
+        foreach(const QNetworkCookie & cookie, allCookies) {
+            if (cookie.domain() == domain || cookie.domain()  ==  domain.mid(1)) {
+                allCookies.removeOne(cookie);
             }
         }
 
         indexToNavigate = ui->cookieTree->indexOfTopLevelItem(current) - 1;
-
         ui->cookieTree->deleteItem(current);
     }
     else {
-        indexToNavigate = ui->cookieTree->indexOfTopLevelItem(current->parent());
-        int index = current->whatsThis(1).toInt();
-        m_cookies.removeAt(index);
+        const QNetworkCookie &cookie = qvariant_cast<QNetworkCookie>(current->data(0, Qt::UserRole + 10));
+        allCookies.removeOne(cookie);
 
+        indexToNavigate = ui->cookieTree->indexOfTopLevelItem(current->parent());
         ui->cookieTree->deleteItem(current);
     }
 
-    mApp->cookieJar()->setAllCookies(m_cookies);
+    mApp->cookieJar()->setAllCookies(allCookies);
 
     if (indexToNavigate > 0 && ui->cookieTree->topLevelItemCount() >= indexToNavigate) {
         QTreeWidgetItem* scrollItem = ui->cookieTree->topLevelItem(indexToNavigate);
@@ -119,71 +120,61 @@ void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem
         ui->secure->setText(tr("<cookie not selected>"));
         ui->expiration->setText(tr("<cookie not selected>"));
 
-        // Changing Text on QPushButton also removes shortcut?
         ui->removeOne->setText(tr("Remove cookies"));
-        ui->removeOne->setShortcut(QKeySequence("Del"));
         return;
     }
 
-    // Changing Text on QPushButton also removes shortcut?
+    const QNetworkCookie &cookie = qvariant_cast<QNetworkCookie>(current->data(0, Qt::UserRole + 10));
+
+    ui->name->setText(cookie.name());
+    ui->value->setText(cookie.value());
+    ui->server->setText(cookie.domain());
+    ui->path->setText(cookie.path());
+    cookie.isSecure() ? ui->secure->setText(tr("Secure only")) : ui->secure->setText(tr("All connections"));
+    cookie.isSessionCookie() ? ui->expiration->setText(tr("Session cookie")) : ui->expiration->setText(QDateTime(cookie.expirationDate()).toString("hh:mm:ss dddd d. MMMM yyyy"));
+
     ui->removeOne->setText(tr("Remove cookie"));
-    ui->removeOne->setShortcut(QKeySequence("Del"));
-
-    int index = current->whatsThis(1).toInt();
-    QNetworkCookie cok = m_cookies.at(index);
-
-    ui->name->setText(cok.name());
-    ui->value->setText(cok.value());
-    ui->server->setText(cok.domain());
-    ui->path->setText(cok.path());
-    cok.isSecure() ? ui->secure->setText(tr("Secure only")) : ui->secure->setText(tr("All connections"));
-    cok.isSessionCookie() ? ui->expiration->setText(tr("Session cookie")) : ui->expiration->setText(QDateTime(cok.expirationDate()).toString("hh:mm:ss dddd d. MMMM yyyy"));
-
 }
 
-void CookieManager::refreshTable(bool refreshCookieJar)
+void CookieManager::refreshTable()
 {
-    m_refreshCookieJar = refreshCookieJar;
-
     QTimer::singleShot(0, this, SLOT(slotRefreshTable()));
 }
 
 void CookieManager::slotRefreshTable()
 {
-    if (m_refreshCookieJar) {
-        m_cookies = mApp->cookieJar()->getAllCookies();
-    }
+    const QList<QNetworkCookie>& allCookies = mApp->cookieJar()->getAllCookies();
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
     ui->cookieTree->clear();
 
     int counter = 0;
-    QString cookServer;
-    for (int i = 0; i < m_cookies.count(); ++i) {
-        QNetworkCookie cok = m_cookies.at(i);
+    QString cookieDomain;
+    for (int i = 0; i < allCookies.count(); ++i) {
+        const QNetworkCookie& cookie = allCookies.at(i);
         QTreeWidgetItem* item;
 
-        cookServer = cok.domain();
-        if (cookServer.startsWith(".")) {
-            cookServer = cookServer.mid(1);
+        cookieDomain = cookie.domain();
+        if (cookieDomain.startsWith(".")) {
+            cookieDomain = cookieDomain.mid(1);
         }
 
-        QList<QTreeWidgetItem*> findParent = ui->cookieTree->findItems(cookServer, 0);
+        const QList<QTreeWidgetItem*>& findParent = ui->cookieTree->findItems(cookieDomain, 0);
         if (findParent.count() == 1) {
             item = new QTreeWidgetItem(findParent.at(0));
         }
         else {
             QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->cookieTree);
-            newParent->setText(0, cookServer);
+            newParent->setText(0, cookieDomain);
             newParent->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
-            newParent->setWhatsThis(0, cok.domain());
+            newParent->setWhatsThis(0, cookie.domain());
             ui->cookieTree->addTopLevelItem(newParent);
             item = new QTreeWidgetItem(newParent);
         }
 
-        item->setText(0, "." + cookServer);
-        item->setText(1, cok.name());
-        item->setWhatsThis(1, QString::number(i));
+        item->setText(0, "." + cookieDomain);
+        item->setText(1, cookie.name());
+        item->setData(0, Qt::UserRole + 10, qVariantFromValue(cookie));
         ui->cookieTree->addTopLevelItem(item);
 
         ++counter;

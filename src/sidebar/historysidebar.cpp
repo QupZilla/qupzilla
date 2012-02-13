@@ -178,10 +178,10 @@ void HistorySideBar::slotRefreshTable()
 
     int counter = 0;
     while (query.next()) {
-        QString title = query.value(0).toString();
-        QUrl url = query.value(1).toUrl();
+        const QString &title = query.value(0).toString();
+        const QUrl &url = query.value(1).toUrl();
         int id = query.value(2).toInt();
-        QDate date = QDateTime::fromMSecsSinceEpoch(query.value(3).toLongLong()).date();
+        const QDate &date = QDateTime::fromMSecsSinceEpoch(query.value(3).toLongLong()).date();
         QString localDate;
 
         if (date == todayDate) {
@@ -198,7 +198,7 @@ void HistorySideBar::slotRefreshTable()
         }
 
         QTreeWidgetItem* item;
-        QList<QTreeWidgetItem*> findParent = ui->historyTree->findItems(localDate, 0);
+        const QList<QTreeWidgetItem*>& findParent = ui->historyTree->findItems(localDate, 0);
         if (findParent.count() == 1) {
             item = new QTreeWidgetItem(findParent.at(0));
         }

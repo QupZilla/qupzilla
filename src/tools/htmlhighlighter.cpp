@@ -65,7 +65,7 @@ HtmlHighlighter::HtmlHighlighter(QTextDocument* parent)
     tagFormat.setForeground(Qt::darkBlue);
     tagFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
-    keywordPatterns << "</?(\[A-Za-z:0-9]{1,20})/?(>| )?" << ">" << "(<!DOCTYPE html>|<!DOCTYPE html PUBLIC)";
+    keywordPatterns << "</?([A-Za-z:0-9]{1,20})/?(>| )?" << ">" << "(<!DOCTYPE html>|<!DOCTYPE html PUBLIC)";
     foreach(const QString & pattern, keywordPatterns) {
         rule.pattern = QRegExp(pattern);
         rule.format = tagFormat;

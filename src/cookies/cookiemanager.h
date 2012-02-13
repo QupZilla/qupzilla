@@ -22,6 +22,7 @@
 #include <QTimer>
 #include <QNetworkCookie>
 #include <QTreeWidgetItem>
+#include <QShortcut>
 
 namespace Ui
 {
@@ -37,7 +38,7 @@ public:
     explicit CookieManager(QWidget* parent = 0);
     ~CookieManager();
 
-    void refreshTable(bool refreshCookieJar = true);
+    void refreshTable();
 
 private slots:
     void currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* parent);
@@ -50,7 +51,6 @@ private slots:
 private:
     Ui::CookieManager* ui;
 
-    QList<QNetworkCookie> m_cookies;
     bool m_refreshCookieJar;
 };
 
