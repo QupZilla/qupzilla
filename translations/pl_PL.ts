@@ -49,7 +49,7 @@
         <location filename="../src/other/aboutdialog.cpp" line="79"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translatorcomment>a może deweloper?</translatorcomment>
-        <translation type="unfinished">&lt;p&gt;&lt;b&gt;Główny programista:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;b&gt;Główny programista:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
@@ -815,7 +815,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
         <source>Edit bookmark</source>
-        <translation type="unfinished">Edytuj zakładki</translation>
+        <translation>Edytuj zakładkę</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="93"/>
@@ -825,22 +825,22 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
         <source>Edit bookmark: </source>
-        <translation type="unfinished">Edytuj zakładkę: </translation>
+        <translation>Edytuj zakładkę: </translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="202"/>
         <source>Title: </source>
-        <translation type="unfinished">Tytuł:</translation>
+        <translation>Tytuł:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="203"/>
         <source>Url: </source>
-        <translation type="unfinished">Adres:</translation>
+        <translation>Adres:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="211"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished">Edytuj zakładkę</translation>
+        <translation>Edytuj zakładkę</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="514"/>
@@ -909,12 +909,12 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished">Edytuj zakładkę</translation>
+        <translation>Edytuj zakładkę</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="45"/>
         <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Edycja zakładki&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Edycja zakładki&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
@@ -1062,7 +1062,7 @@
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="47"/>
         <source>Clear cache</source>
-        <translation>Usuń cache</translation>
+        <translation>Wyczyść pamięć podręczną</translation>
     </message>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="57"/>
@@ -1452,12 +1452,12 @@
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
         <source>Executable: </source>
-        <translation type="unfinished">Aplikacja: </translation>
+        <translation>Program: </translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="103"/>
         <source>Arguments: </source>
-        <translation type="unfinished">Argumenty: </translation>
+        <translation>Argumenty: </translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="104"/>
@@ -1497,8 +1497,7 @@
     <message>
         <location filename="../src/downloads/downloadmanager.cpp" line="306"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
-        <translatorcomment>fixme ;)</translatorcomment>
-        <translation type="unfinished">Czy na pewno chcesz zamknąć? Wszystkie pobierane pliki będą anulowane!</translation>
+        <translation>Czy na pewno chcesz zamknąć? Wszystkie pobierane pliki będą anulowane!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloadmanager.ui" line="20"/>
@@ -1944,7 +1943,8 @@
     <message>
         <location filename="../src/network/networkmanager.cpp" line="178"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;Ważna do: &lt;/b&gt;</translation>
+        <translatorcomment>chodzi o certyfikat</translatorcomment>
+        <translation>&lt;b&gt;Ważny do: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="180"/>
@@ -2367,7 +2367,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="990"/>
         <source>Allow storing network cache on disk</source>
-        <translation>Pozwól na składowanie cache sieciowe na dysku</translation>
+        <translation>Włącz pamięć podręczną dysku</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1700"/>
@@ -2452,7 +2452,7 @@
         <location filename="../src/preferences/preferences.ui" line="1078"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translatorcomment>FIXME</translatorcomment>
-        <translation type="unfinished">Wyczyść magazym lokalny z zawartością HTML5 przy zamykaniu</translation>
+        <translation>Wyczyść magazym lokalny z zawartością HTML5 przy zamykaniu</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1104"/>
@@ -2467,7 +2467,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1482"/>
         <source>Use defined location: </source>
-        <translation>Użyj zdefiniowanej lokacji: </translation>
+        <translation>Użyj określonej lokalizacji: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1494"/>
@@ -2489,12 +2489,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1573"/>
         <source>Executable:</source>
-        <translation type="unfinished">Aplikacja:</translation>
+        <translation>Program:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1580"/>
         <source>Arguments:</source>
-        <translation type="unfinished">Argumenty:</translation>
+        <translation>Argumenty:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1707"/>
@@ -2504,33 +2504,33 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1751"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Uwaga:&lt;/b&gt; Włączenie opcji dokładnego dopasowania domeny i filtrowania śledzącego ciasteczka może doprowadzić do blokowania niektórych ciasteczek. Jeśli wystąpią z nimi problemy, spróbuj wyłączyć te opcje!</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1790"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Certyfikaty SSL&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1810"/>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj certyfikaty CA w menedżerze SSL</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1840"/>
         <location filename="../src/preferences/preferences.ui" line="2073"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Inne&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1854"/>
         <source>Send Referer header to servers</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysyłaj nagłówek odsyłający do serwerów</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1861"/>
         <source>Block popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokuj wyskakujące okna</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="2099"/>
@@ -2545,7 +2545,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="2141"/>
         <source>Change browser identification:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmień identyfikację przeglądarki:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="99"/>
@@ -2574,7 +2574,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="930"/>
         <source>Maximum pages in cache: </source>
-        <translation>Maksymalna ilość stron w cache:</translation>
+        <translation>Maksymalna ilość stron w pamięci podręcznej:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="139"/>
@@ -2620,7 +2620,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="722"/>
         <source>Activate last tab when closing active tab</source>
-        <translation>Aktywuj ostatnią kartę podczas zamykania aktywnej karty</translation>
+        <translation>Aktywuj poprzednią kartę podczas zamykania aktywnej karty</translation>
     </message>
     <message>
         <source>Block PopUp windows</source>
@@ -2640,8 +2640,7 @@
         <location filename="../src/preferences/preferences.ui" line="808"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
-        <translatorcomment>fixme :)</translatorcomment>
-        <translation type="unfinished">Odnośniki w kolejce skupienia</translation>
+        <translation>Odnośniki w kolejce skupienia</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="815"/>
@@ -2663,7 +2662,7 @@
         <location filename="../src/preferences/preferences.ui" line="258"/>
         <location filename="../src/preferences/preferences.ui" line="406"/>
         <source>Use current</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyj bieżącej</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="439"/>
@@ -2703,17 +2702,17 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="729"/>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie zamykaj przeglądarki po zamknięciu ostatniej karty</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="736"/>
         <source>Closed tabs list instead of opened in tab bar</source>
-        <translation type="unfinished"></translation>
+        <translation>W liście kart wyświetlaj zamknięte zamiast otwarych</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="743"/>
         <source>Open new tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwieraj nowe karty tuż za kartą aktywną</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="773"/>
@@ -2754,7 +2753,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1223"/>
         <source>System proxy configuration</source>
-        <translation>Automatyczne Ustawienia</translation>
+        <translation>Ustawienia systemowe</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1276"/>
@@ -2807,22 +2806,22 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1394"/>
         <source>Fixed Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozmiar czcionki proporcjonalnej</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1401"/>
         <source>Default Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozmiar czcionki domyślnej</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1428"/>
         <source>Minimum Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimalny rozmiar czcionki</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1435"/>
         <source>Minimum Logical Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimalny logiczny rozmiar czcionki</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1468"/>
@@ -2858,12 +2857,12 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1721"/>
         <source>Delete cookies on close</source>
-        <translation>Usuń ciasteczka w momencie zamknięcia przeglądarki</translation>
+        <translation>Usuń ciasteczka przy zamykaniu przeglądarki</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1728"/>
         <source>Match domain exactly</source>
-        <translation>Dopasowuj domeny dokładnie</translation>
+        <translation>Dokładnie dopasowuj domeny</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
@@ -2956,7 +2955,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1209"/>
         <source>Don&apos;t use on:</source>
-        <translation>Nie używaj na:</translation>
+        <translation>Nie używaj dla:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1034"/>
@@ -2971,7 +2970,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1048"/>
         <source>Delete history on close</source>
-        <translation>Usuń historię w momencie zamykania przeglądarki</translation>
+        <translation>Usuń historię przy zamykaniu przeglądarki</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="171"/>
@@ -3027,12 +3026,12 @@
     <message>
         <location filename="../src/preferences/preferences.cpp" line="490"/>
         <source>Deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyczyszczono</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="496"/>
         <source>Choose executable location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz program...</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.cpp" line="629"/>
@@ -3779,7 +3778,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Cover</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmieść</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
@@ -3814,8 +3813,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="277"/>
         <source>Change size of pages:</source>
-        <translatorcomment>FIXME: a może miniatury?</translatorcomment>
-        <translation type="unfinished">Zmień rozmiar stron:</translation>
+        <translation>Zmień rozmiar miniatur:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="258"/>
@@ -4702,7 +4700,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
-        <translation type="unfinished">Lista kart</translation>
+        <translation>Lista kart</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="141"/>
@@ -4722,7 +4720,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="259"/>
         <source>Currently you have %1 opened tabs</source>
-        <translation type="unfinished">Aktualnie otwartych kart: %1</translation>
+        <translation>Aktualnie otwartych kart: %1</translation>
     </message>
     <message>
         <source>Actually you have %1 opened tabs</source>
@@ -4737,7 +4735,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="562"/>
         <source>Empty</source>
-        <translation type="unfinished">Pusta</translation>
+        <translation>Pusta</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="565"/>
@@ -5014,7 +5012,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/webview/webpage.cpp" line="368"/>
         <source>Select files to upload...</source>
-        <translation type="unfinished">Wybierz pliki do wysłania...</translation>
+        <translation>Wybierz pliki do wysłania...</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="389"/>
@@ -5128,7 +5126,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/webview/webpage.cpp" line="599"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished">Zapobiegaj otwieraniu dodatkowych okien dialogowych na tej stronie</translation>
+        <translation>Zapobiegaj otwieraniu dodatkowych okien dialogowych na tej stronie</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="603"/>
@@ -5297,27 +5295,27 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/webview/webview.cpp" line="713"/>
         <source>Un&amp;mute</source>
-        <translation type="unfinished">Wyłącz &amp;wyciszenie</translation>
+        <translation>Włącz &amp;dźwięk</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="713"/>
         <source>&amp;Mute</source>
-        <translation type="unfinished">Włącz &amp;wyciszenie</translation>
+        <translation>&amp;Wycisz</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="715"/>
         <source>&amp;Copy Media Address</source>
-        <translation type="unfinished">&amp;Kopiuj adres medium</translation>
+        <translation>&amp;Kopiuj adres filmu wideo</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="716"/>
         <source>&amp;Send Media Address</source>
-        <translation type="unfinished">&amp;Wyślij adres medium</translation>
+        <translation>&amp;Wyślij adres filmu wideo</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="717"/>
         <source>Save Media To &amp;Disk</source>
-        <translation type="unfinished">&amp;Zapisz medium na dysk</translation>
+        <translation>&amp;Zapisz film wideo na dysk</translation>
     </message>
     <message>
         <source>Show Web &amp;Inspector</source>
