@@ -27,6 +27,7 @@
 CookieManager::CookieManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::CookieManager)
+    , m_refreshCookieJar(true)
 {
     setWindowModality(Qt::WindowModal);
 
@@ -39,14 +40,11 @@ CookieManager::CookieManager(QWidget* parent)
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(hide()));
     connect(ui->search, SIGNAL(returnPressed()), this, SLOT(search()));
     connect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
-//    connect(ui->search, SIGNAL(cursorPositionChanged(int, int)), this, SLOT(search()));
 
     ui->search->setInactiveText(tr("Search"));
     ui->cookieTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
 
     ui->cookieTree->sortItems(0, Qt::AscendingOrder);
-
-//    QTimer::singleShot(0, this, SLOT(refreshTable()));
 }
 
 void CookieManager::removeAll()
@@ -80,20 +78,25 @@ void CookieManager::removeCookie()
         }
 
         indexToNavigate = ui->cookieTree->indexOfTopLevelItem(current) - 1;
+
+        ui->cookieTree->deleteItem(current);
     }
     else {
         indexToNavigate = ui->cookieTree->indexOfTopLevelItem(current->parent());
         int index = current->whatsThis(1).toInt();
         m_cookies.removeAt(index);
+
+        ui->cookieTree->deleteItem(current);
     }
 
     mApp->cookieJar()->setAllCookies(m_cookies);
 
-    refreshTable(false);
     if (indexToNavigate > 0 && ui->cookieTree->topLevelItemCount() >= indexToNavigate) {
         QTreeWidgetItem* scrollItem = ui->cookieTree->topLevelItem(indexToNavigate);
-        ui->cookieTree->setCurrentItem(scrollItem);
-        ui->cookieTree->scrollToItem(scrollItem);
+        if (scrollItem) {
+            ui->cookieTree->setCurrentItem(scrollItem);
+            ui->cookieTree->scrollToItem(scrollItem);
+        }
     }
 
     if (!ui->search->text().isEmpty()) {
@@ -140,15 +143,23 @@ void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem
 
 void CookieManager::refreshTable(bool refreshCookieJar)
 {
-    if (refreshCookieJar) {
+    m_refreshCookieJar = refreshCookieJar;
+
+    QTimer::singleShot(0, this, SLOT(slotRefreshTable()));
+}
+
+void CookieManager::slotRefreshTable()
+{
+    if (m_refreshCookieJar) {
         m_cookies = mApp->cookieJar()->getAllCookies();
     }
 
-    ui->cookieTree->setUpdatesEnabled(false);
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     ui->cookieTree->clear();
 
+    int counter = 0;
     QString cookServer;
-    for (int i = 0; i < m_cookies.count(); i++) {
+    for (int i = 0; i < m_cookies.count(); ++i) {
         QNetworkCookie cok = m_cookies.at(i);
         QTreeWidgetItem* item;
 
@@ -174,9 +185,15 @@ void CookieManager::refreshTable(bool refreshCookieJar)
         item->setText(1, cok.name());
         item->setWhatsThis(1, QString::number(i));
         ui->cookieTree->addTopLevelItem(item);
+
+        ++counter;
+        if (counter > 50) {
+            QApplication::processEvents();
+            counter = 0;
+        }
     }
 
-    ui->cookieTree->setUpdatesEnabled(true);
+    QApplication::restoreOverrideCursor();
 }
 
 void CookieManager::search()

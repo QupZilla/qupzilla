@@ -37,7 +37,6 @@ public:
     explicit CookieManager(QWidget* parent = 0);
     ~CookieManager();
 
-public slots:
     void refreshTable(bool refreshCookieJar = true);
 
 private slots:
@@ -46,10 +45,13 @@ private slots:
     void removeAll();
     void search();
 
+    void slotRefreshTable();
+
 private:
     Ui::CookieManager* ui;
 
     QList<QNetworkCookie> m_cookies;
+    bool m_refreshCookieJar;
 };
 
 #endif // COOKIEMANAGER_H

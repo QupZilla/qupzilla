@@ -40,14 +40,15 @@ public:
     ~HistoryManager();
 
     void setMainWindow(QupZilla* window);
+    void refreshTable();
 
 public slots:
-    void refreshTable();
     void search(const QString &searchText);
 
 private slots:
     void optimizeDb();
     void itemDoubleClicked(QTreeWidgetItem* item);
+    void slotRefreshTable();
 
     void deleteItem();
     void clearHistory();

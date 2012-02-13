@@ -39,17 +39,14 @@ public:
     explicit HistorySideBar(QupZilla* mainClass, QWidget* parent = 0);
     ~HistorySideBar();
 
-public slots:
-    void refreshTable();
-
 private slots:
-    void search();
     void itemDoubleClicked(QTreeWidgetItem* item);
     void contextMenuRequested(const QPoint &position);
     void loadInNewTab();
     void itemControlClicked(QTreeWidgetItem* item);
-
     void copyAddress();
+
+    void slotRefreshTable();
 
     void historyEntryAdded(const HistoryEntry &entry);
     void historyEntryDeleted(const HistoryEntry &entry);

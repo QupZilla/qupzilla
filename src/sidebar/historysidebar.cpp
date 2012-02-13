@@ -36,14 +36,13 @@ HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent)
 
     connect(ui->historyTree, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(ui->search, SIGNAL(textEdited(QString)), ui->historyTree, SLOT(filterString(QString)));
-//    connect(ui->search, SIGNAL(textEdited(QString)), this, SLOT(search()));
 
     connect(m_historyModel, SIGNAL(historyEntryAdded(HistoryEntry)), this, SLOT(historyEntryAdded(HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyEntryDeleted(HistoryEntry)), this, SLOT(historyEntryDeleted(HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyEntryEdited(HistoryEntry, HistoryEntry)), this, SLOT(historyEntryEdited(HistoryEntry, HistoryEntry)));
     connect(m_historyModel, SIGNAL(historyClear()), ui->historyTree, SLOT(clear()));
 
-    QTimer::singleShot(0, this, SLOT(refreshTable()));
+    QTimer::singleShot(0, this, SLOT(slotRefreshTable()));
 }
 
 void HistorySideBar::itemDoubleClicked(QTreeWidgetItem* item)
@@ -167,39 +166,9 @@ void HistorySideBar::historyEntryEdited(const HistoryEntry &before, const Histor
     historyEntryAdded(after);
 }
 
-void HistorySideBar::search()
+void HistorySideBar::slotRefreshTable()
 {
-    QString searchText = ui->search->text();
-    refreshTable();
-
-    if (searchText.isEmpty()) {
-        return;
-    }
-
-    ui->historyTree->setUpdatesEnabled(false);
-
-    QList<QTreeWidgetItem*> items = ui->historyTree->findItems("*" + searchText + "*", Qt::MatchRecursive | Qt::MatchWildcard);
-
-    QList<QTreeWidgetItem*> foundItems;
-    foreach(QTreeWidgetItem * fitem, items) {
-        if (fitem->text(1).isEmpty()) {
-            continue;
-        }
-        QTreeWidgetItem* item = new QTreeWidgetItem();
-        item->setText(0, fitem->text(0));
-        item->setText(1, fitem->text(1));
-        item->setWhatsThis(1, fitem->whatsThis(1));
-        item->setIcon(0, _iconForUrl(QUrl::fromEncoded(fitem->text(1).toUtf8())));
-        foundItems.append(item);
-    }
-    ui->historyTree->clear();
-    ui->historyTree->addTopLevelItems(foundItems);
-    ui->historyTree->setUpdatesEnabled(true);
-}
-
-void HistorySideBar::refreshTable()
-{
-    ui->historyTree->setUpdatesEnabled(false);
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     ui->historyTree->clear();
 
     QDate todayDate = QDate::currentDate();
@@ -207,6 +176,7 @@ void HistorySideBar::refreshTable()
     QSqlQuery query;
     query.exec("SELECT title, url, id, date FROM history ORDER BY date DESC");
 
+    int counter = 0;
     while (query.next()) {
         QString title = query.value(0).toString();
         QUrl url = query.value(1).toUrl();
@@ -247,9 +217,15 @@ void HistorySideBar::refreshTable()
         item->setWhatsThis(1, QString::number(id));
         item->setIcon(0, _iconForUrl(url));
         ui->historyTree->addTopLevelItem(item);
+
+        ++counter;
+        if (counter > 200) {
+            QApplication::processEvents();
+            counter = 0;
+        }
     }
 
-    ui->historyTree->setUpdatesEnabled(true);
+    QApplication::restoreOverrideCursor();
 }
 
 HistorySideBar::~HistorySideBar()

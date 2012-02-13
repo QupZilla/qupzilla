@@ -228,7 +228,12 @@ void HistoryManager::clearHistory()
 
 void HistoryManager::refreshTable()
 {
-    ui->historyTree->setUpdatesEnabled(false);
+    QTimer::singleShot(0, this, SLOT(slotRefreshTable()));
+}
+
+void HistoryManager::slotRefreshTable()
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     ui->historyTree->clear();
 
     QDate todayDate = QDate::currentDate();
@@ -236,6 +241,7 @@ void HistoryManager::refreshTable()
     QSqlQuery query;
     query.exec("SELECT title, url, id, date FROM history ORDER BY date DESC");
 
+    int counter = 0;
     while (query.next()) {
         QString title = query.value(0).toString();
         QUrl url = query.value(1).toUrl();
@@ -277,9 +283,15 @@ void HistoryManager::refreshTable()
         item->setWhatsThis(1, QString::number(id));
         item->setIcon(0, _iconForUrl(url));
         ui->historyTree->addTopLevelItem(item);
+
+        ++counter;
+        if (counter > 200) {
+            QApplication::processEvents();
+            counter = 0;
+        }
     }
 
-    ui->historyTree->setUpdatesEnabled(true);
+    QApplication::restoreOverrideCursor();
 }
 
 void HistoryManager::search(const QString &searchText)
