@@ -167,10 +167,6 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <source>AdBlock lets you block unwanted content on web-pages</source>
-        <translation type="obsolete">AdBlock可以幫你封鎖網頁上不想要的內容</translation>
-    </message>
-    <message>
         <location filename="../src/adblock/adblockicon.cpp" line="37"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
         <translation>AdBlock可以幫你封鎖網頁上不想要的內容</translation>
@@ -220,10 +216,6 @@
         <location filename="../src/adblock/adblockicon.cpp" line="116"/>
         <source>Learn About Writing &amp;Rules</source>
         <translation>瞭解編輯的規則&amp;R</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">新增分頁</translation>
     </message>
 </context>
 <context>
@@ -558,10 +550,6 @@
         <translation>無法評估JSON代碼。</translation>
     </message>
     <message>
-        <source>File does not exists.</source>
-        <translation type="obsolete">此檔案不存在。</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="39"/>
         <source>File does not exist.</source>
         <translation>此檔案不存在。</translation>
@@ -645,10 +633,6 @@
         <translation type="unfinished">在此分頁開啟連結 &amp;tab</translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">新增分頁</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="551"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
         <translation>&lt;b&gt;警告：&lt;/b&gt;你已經擁有此書籤了！</translation>
@@ -657,10 +641,6 @@
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="565"/>
         <source>Choose name and location of this bookmark.</source>
         <translation>選擇書籤的名稱與位置。</translation>
-    </message>
-    <message>
-        <source>Open link in actual &amp;tab</source>
-        <translation type="obsolete">在此分頁開啟連結 &amp;tab</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="241"/>
@@ -681,10 +661,6 @@
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="225"/>
         <source>Remove folder</source>
         <translation>移除資料夾</translation>
-    </message>
-    <message>
-        <source>Open link in current </source>
-        <translation type="obsolete">在此分頁開啟 &amp;tab</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="257"/>
@@ -739,14 +715,6 @@
         <location filename="../src/sidebar/bookmarkssidebar.ui" line="32"/>
         <source>Search...</source>
         <translation>搜尋...</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">新增分頁</translation>
-    </message>
-    <message>
-        <source>Open link in actual &amp;tab</source>
-        <translation type="obsolete">在此分頁開啟連結 &amp;tab</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
@@ -1016,25 +984,6 @@
         <source>Expires On:</source>
         <translation>匯入：</translation>
     </message>
-    <message>
-        <source>&lt;not set in certificate&gt;</source>
-        <translation type="obsolete">&lt;沒有設定憑證&gt;</translation>
-    </message>
-</context>
-<context>
-    <name>ChromeImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">沒有錯誤</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">無法開啟檔案。</translation>
-    </message>
-    <message>
-        <source>Cannot evaluate JSON code.</source>
-        <translation type="obsolete">無法評估JSON代碼。</translation>
-    </message>
 </context>
 <context>
     <name>ClearPrivateData</name>
@@ -1084,10 +1033,6 @@
         <translation>今天以前</translation>
     </message>
     <message>
-        <source>Later Today</source>
-        <translation type="obsolete">到今天</translation>
-    </message>
-    <message>
         <location filename="../src/other/clearprivatedata.ui" line="116"/>
         <source>Week</source>
         <translation>這禮拜</translation>
@@ -1109,10 +1054,6 @@
         <location filename="../src/plugins/clicktoflash.cpp" line="126"/>
         <source>Object blocked by ClickToFlash</source>
         <translation>選擇Flash封鎖的物件</translation>
-    </message>
-    <message>
-        <source>Show more informations about object</source>
-        <translation type="obsolete">顯示有關物件的更多資訊</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="127"/>
@@ -1148,10 +1089,6 @@
         <location filename="../src/plugins/clicktoflash.cpp" line="285"/>
         <source>No more information available.</source>
         <translation>沒有提供其他資訊。</translation>
-    </message>
-    <message>
-        <source>No more informations available.</source>
-        <translation type="obsolete">沒有提供更多資訊。</translation>
     </message>
 </context>
 <context>
@@ -1231,12 +1168,12 @@
         <location filename="../src/cookies/cookiemanager.ui" line="168"/>
         <location filename="../src/cookies/cookiemanager.ui" line="178"/>
         <location filename="../src/cookies/cookiemanager.ui" line="188"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="112"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="113"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="114"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="115"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="116"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="117"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="118"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="119"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="120"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="121"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation></translation>
     </message>
@@ -1247,63 +1184,56 @@
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="220"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="126"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
         <source>Remove cookie</source>
         <translation>移除cookies</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="44"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="42"/>
         <source>Search</source>
         <translation>搜尋</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="54"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="52"/>
         <source>Confirmation</source>
         <translation>確認</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="55"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="53"/>
         <source>Are you sure to delete all cookies on your computer?</source>
         <translation>確定要刪除電腦上所有的cookies?</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="120"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="123"/>
         <source>Remove cookies</source>
         <translation>移除cookies</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="133"/>
         <source>Secure only</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="133"/>
         <source>All connections</source>
         <translation>所有連結</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="137"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="134"/>
         <source>Session cookie</source>
         <translation></translation>
     </message>
 </context>
 <context>
-    <name>DesktopNotificationsFactory</name>
-    <message>
-        <source>Native System Notification</source>
-        <translation type="obsolete">本機系統通知</translation>
-    </message>
-</context>
-<context>
     <name>DownloadFileHelper</name>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="131"/>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="136"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="137"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="142"/>
         <source>Save file as...</source>
         <translation>另存為...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="246"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="252"/>
         <source>NoNameDownload</source>
         <translation>未命名下載</translation>
     </message>
@@ -1416,10 +1346,6 @@
         <location filename="../src/downloads/downloaditem.cpp" line="324"/>
         <source>Error</source>
         <translation>錯誤</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">新分頁</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="362"/>
@@ -1547,7 +1473,7 @@
         <translation>儲存</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadoptionsdialog.cpp" line="31"/>
+        <location filename="../src/downloads/downloadoptionsdialog.cpp" line="32"/>
         <source>Opening %1</source>
         <translation>開啟%1</translation>
     </message>
@@ -1591,21 +1517,6 @@
     </message>
 </context>
 <context>
-    <name>FirefoxImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">沒有錯誤</translation>
-    </message>
-    <message>
-        <source>File does not exists.</source>
-        <translation type="obsolete">檔案不存在。</translation>
-    </message>
-    <message>
-        <source>Unable to open database. Is Firefox running?</source>
-        <translation type="obsolete">無法開啟資料庫。請關閉Firefox。</translation>
-    </message>
-</context>
-<context>
     <name>HistoryManager</name>
     <message>
         <location filename="../src/history/historymanager.ui" line="14"/>
@@ -1638,14 +1549,6 @@
         <translation>最佳化數據庫</translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
-    <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">在此分頁開啟連結 </translation>
-    </message>
-    <message>
         <location filename="../src/history/historymanager.cpp" line="101"/>
         <source>Open link in current tab</source>
         <translation>在此分頁開啟連結</translation>
@@ -1662,19 +1565,19 @@
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="156"/>
-        <location filename="../src/history/historymanager.cpp" line="247"/>
+        <location filename="../src/history/historymanager.cpp" line="253"/>
         <source>Today</source>
         <translation>到今天</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="159"/>
-        <location filename="../src/history/historymanager.cpp" line="250"/>
+        <location filename="../src/history/historymanager.cpp" line="256"/>
         <source>This Week</source>
         <translation>這禮拜</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="162"/>
-        <location filename="../src/history/historymanager.cpp" line="253"/>
+        <location filename="../src/history/historymanager.cpp" line="259"/>
         <source>This Month</source>
         <translation>這個月</translation>
     </message>
@@ -1775,56 +1678,37 @@
         <translation>標題</translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
-    <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">在此分頁開啟連結</translation>
-    </message>
-    <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="94"/>
         <source>Open link in current tab</source>
         <translation>在此分頁開啟連結</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
         <source>Open link in new tab</source>
         <translation>在心分頁開啟連結</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="98"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="97"/>
         <source>Copy address</source>
         <translation>複製位址</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="115"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="218"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="114"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="188"/>
         <source>Today</source>
         <translation>到今天</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="118"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="221"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="117"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="191"/>
         <source>This Week</source>
         <translation>這禮拜</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="121"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="224"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="120"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="194"/>
         <source>This Month</source>
         <translation>這個月</translation>
-    </message>
-</context>
-<context>
-    <name>HtmlImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">沒有錯誤</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">無法開啟檔案。</translation>
     </message>
 </context>
 <context>
@@ -1913,8 +1797,8 @@
         <translation>離開全螢幕</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="207"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="243"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="209"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="245"/>
         <source>Clear history</source>
         <translation>清除記錄</translation>
     </message>
@@ -1993,17 +1877,6 @@
         <location filename="../src/network/networkmanager.cpp" line="285"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>正在遊代理要求使用者名稱及密碼%1.</translation>
-    </message>
-</context>
-<context>
-    <name>OperaImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">沒有錯誤</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">無法開啟檔案。</translation>
     </message>
 </context>
 <context>
@@ -2093,105 +1966,6 @@
     </message>
 </context>
 <context>
-    <name>PopupWebView</name>
-    <message>
-        <source>Open link in new &amp;window</source>
-        <translation type="obsolete">在新視窗開起連結&amp;w</translation>
-    </message>
-    <message>
-        <source>&amp;Save link as...</source>
-        <translation type="obsolete">另存連結為&amp;S...</translation>
-    </message>
-    <message>
-        <source>Send link...</source>
-        <translation type="obsolete">傳送連結...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy link address</source>
-        <translation type="obsolete">複製連結位址&amp;C</translation>
-    </message>
-    <message>
-        <source>Show i&amp;mage</source>
-        <translation type="obsolete">顯示圖片&amp;m</translation>
-    </message>
-    <message>
-        <source>Copy im&amp;age</source>
-        <translation type="obsolete">複製圖片&amp;a</translation>
-    </message>
-    <message>
-        <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">複製圖片位址&amp;d</translation>
-    </message>
-    <message>
-        <source>&amp;Save image as...</source>
-        <translation type="obsolete">另存圖片為&amp;S...</translation>
-    </message>
-    <message>
-        <source>Send image...</source>
-        <translation type="obsolete">傳送圖片...</translation>
-    </message>
-    <message>
-        <source>&amp;Back</source>
-        <translation type="obsolete">上一頁&amp;B</translation>
-    </message>
-    <message>
-        <source>&amp;Forward</source>
-        <translation type="obsolete">下一頁&amp;F</translation>
-    </message>
-    <message>
-        <source>&amp;Reload</source>
-        <translation type="obsolete">重新整理&amp;R</translation>
-    </message>
-    <message>
-        <source>S&amp;top</source>
-        <translation type="obsolete">終止&amp;t</translation>
-    </message>
-    <message>
-        <source>This frame</source>
-        <translation type="obsolete">這個框架</translation>
-    </message>
-    <message>
-        <source>Show &amp;only this frame</source>
-        <translation type="obsolete">僅顯示此框架&amp;o</translation>
-    </message>
-    <message>
-        <source>Print frame</source>
-        <translation type="obsolete">列印框架</translation>
-    </message>
-    <message>
-        <source>Zoom &amp;in</source>
-        <translation type="obsolete">放大&amp;i</translation>
-    </message>
-    <message>
-        <source>&amp;Zoom out</source>
-        <translation type="obsolete">縮小&amp;Z</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="obsolete">重置</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">顯示此框架的原始碼&amp;u</translation>
-    </message>
-    <message>
-        <source>&amp;Save page as...</source>
-        <translation type="obsolete">儲存網頁為&amp;S...</translation>
-    </message>
-    <message>
-        <source>Select &amp;all</source>
-        <translation type="obsolete">全選&amp;a</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce code</source>
-        <translation type="obsolete">顯示原始碼&amp;u</translation>
-    </message>
-    <message>
-        <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">網頁相關訊息&amp;o</translation>
-    </message>
-</context>
-<context>
     <name>PopupWindow</name>
     <message>
         <location filename="../src/popupwindow/popupwindow.cpp" line="135"/>
@@ -2257,10 +2031,6 @@
         <translation>其他</translation>
     </message>
     <message>
-        <source>&lt;b&gt;General&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;通用&lt;/b&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="37"/>
         <source>QupZilla</source>
         <translation></translation>
@@ -2292,10 +2062,6 @@
         <translation>首頁：</translation>
     </message>
     <message>
-        <source>Use actual</source>
-        <translation type="obsolete">套用</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="267"/>
         <source>On new tab: </source>
         <translation>在新分頁：</translation>
@@ -2321,132 +2087,128 @@
         <translation>啟動配置文件...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="355"/>
+        <location filename="../src/preferences/preferences.ui" line="352"/>
         <source>Create New</source>
         <translation>新增</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="371"/>
+        <location filename="../src/preferences/preferences.ui" line="368"/>
         <source>Delete</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="429"/>
+        <location filename="../src/preferences/preferences.ui" line="336"/>
         <location filename="../src/preferences/preferences.cpp" line="669"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>注意：您不能刪除正在運行的配置文件。</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="439"/>
+        <location filename="../src/preferences/preferences.ui" line="413"/>
         <source>Check for updates on start</source>
         <translation>啟動時檢查更新</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="468"/>
+        <location filename="../src/preferences/preferences.ui" line="482"/>
         <source>Themes</source>
         <translation>主題</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="481"/>
+        <location filename="../src/preferences/preferences.ui" line="495"/>
         <source>Advanced options</source>
         <translation>進階選項</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="487"/>
+        <location filename="../src/preferences/preferences.ui" line="501"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;B&gt;瀏覽器視窗&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="512"/>
+        <location filename="../src/preferences/preferences.ui" line="526"/>
         <source>Show StatusBar on start</source>
         <translation>顯示狀態列</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="519"/>
+        <location filename="../src/preferences/preferences.ui" line="533"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>顯示書籤工具列</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="526"/>
+        <location filename="../src/preferences/preferences.ui" line="540"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>顯示引導工具列</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="548"/>
+        <location filename="../src/preferences/preferences.ui" line="562"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation>&lt;B&gt;引導工具列&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="555"/>
+        <location filename="../src/preferences/preferences.ui" line="569"/>
         <source>Show Home button</source>
         <translation>顯示首頁鍵</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="562"/>
+        <location filename="../src/preferences/preferences.ui" line="576"/>
         <source>Show Back / Forward buttons</source>
         <translation>顯示上/下一頁鍵</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="569"/>
+        <location filename="../src/preferences/preferences.ui" line="583"/>
         <source>Show Add Tab button</source>
         <translation>顯示新增分頁鍵</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="576"/>
+        <location filename="../src/preferences/preferences.ui" line="590"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
         <translation>&lt;B&gt;背景&lt;b/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="596"/>
+        <location filename="../src/preferences/preferences.ui" line="610"/>
         <source>Use transparent background</source>
         <translation>使用透明背景</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="611"/>
+        <location filename="../src/preferences/preferences.ui" line="625"/>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
         <translation>&lt;B&gt;分頁行為&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="634"/>
+        <location filename="../src/preferences/preferences.ui" line="648"/>
         <source>Make tabs movable</source>
         <translation>可移動式分頁</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="648"/>
+        <location filename="../src/preferences/preferences.ui" line="662"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
         <translation>&lt;b&gt;位址欄的行為&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="681"/>
+        <location filename="../src/preferences/preferences.ui" line="695"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>點兩下位址欄全選文字</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="688"/>
+        <location filename="../src/preferences/preferences.ui" line="702"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>按ALT鍵增加.co.uk</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="722"/>
+        <location filename="../src/preferences/preferences.ui" line="736"/>
         <source>Activate last tab when closing active tab</source>
         <translation>關閉分頁時啟動最後一個分頁</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="695"/>
+        <location filename="../src/preferences/preferences.ui" line="709"/>
         <source>Ask when closing multiple tabs</source>
         <translation>關閉多個分頁時總是詢問</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="758"/>
+        <location filename="../src/preferences/preferences.ui" line="772"/>
         <source>Web Configuration</source>
         <translation>Web設置</translation>
     </message>
     <message>
-        <source>Load images</source>
-        <translation type="obsolete">開啟圖片</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="780"/>
+        <location filename="../src/preferences/preferences.ui" line="794"/>
         <source>Allow JAVA</source>
         <translation>允許Java</translation>
     </message>
@@ -2456,57 +2218,53 @@
         <translation>啟動後：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="773"/>
+        <location filename="../src/preferences/preferences.ui" line="787"/>
         <source>Allow JavaScript</source>
         <translation>允許JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="766"/>
+        <location filename="../src/preferences/preferences.ui" line="780"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>允許外掛（Flash外掛）</translation>
     </message>
     <message>
-        <source>Block PopUp windows</source>
-        <translation type="obsolete">封鎖彈出視窗</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="787"/>
+        <location filename="../src/preferences/preferences.ui" line="801"/>
         <source>Allow DNS Prefetch</source>
         <translation>允許DNS預取</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1071"/>
+        <location filename="../src/preferences/preferences.ui" line="1085"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>允許儲存HTML5網頁內容到本地電腦</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1078"/>
+        <location filename="../src/preferences/preferences.ui" line="1092"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>關閉時刪除本地的HTML5網頁內容</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1833"/>
+        <location filename="../src/preferences/preferences.ui" line="1847"/>
         <source>JavaScript can access clipboard</source>
         <translation>JavaScript可以讀取剪貼區</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1847"/>
+        <location filename="../src/preferences/preferences.ui" line="1861"/>
         <source>Send Do Not Track header to servers</source>
         <translation>傳送不跟蹤標頭到伺服器</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="815"/>
+        <location filename="../src/preferences/preferences.ui" line="829"/>
         <source>Zoom text only</source>
         <translation>僅縮放文字</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="808"/>
+        <location filename="../src/preferences/preferences.ui" line="822"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>包括聚焦連結中的位址</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="801"/>
+        <location filename="../src/preferences/preferences.ui" line="815"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>列印元素的背景</translation>
@@ -2519,448 +2277,428 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="258"/>
-        <location filename="../src/preferences/preferences.ui" line="406"/>
+        <location filename="../src/preferences/preferences.ui" line="403"/>
         <source>Use current</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="446"/>
+        <location filename="../src/preferences/preferences.ui" line="420"/>
         <source>Active profile:</source>
         <translation>啟動配置：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="641"/>
+        <location filename="../src/preferences/preferences.ui" line="655"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>當只有一個分頁時隱藏分頁</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="702"/>
+        <location filename="../src/preferences/preferences.ui" line="716"/>
         <source>Select all text by clicking in address bar</source>
         <translation>當按下位址欄時全選文字</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="729"/>
+        <location filename="../src/preferences/preferences.ui" line="743"/>
         <source>Don&apos;t quit upon closing last tab</source>
         <translation>當關閉最後一個分頁時不要離開</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="736"/>
+        <location filename="../src/preferences/preferences.ui" line="750"/>
         <source>Closed tabs list instead of opened in tab bar</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="743"/>
+        <location filename="../src/preferences/preferences.ui" line="757"/>
         <source>Open new tabs after active tab</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="794"/>
+        <location filename="../src/preferences/preferences.ui" line="808"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>啟動的XSS統計</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="839"/>
+        <location filename="../src/preferences/preferences.ui" line="853"/>
         <source>Mouse wheel scrolls</source>
         <translation>滾動滑鼠滾輪</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="859"/>
+        <location filename="../src/preferences/preferences.ui" line="873"/>
         <source>lines on page</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="870"/>
+        <location filename="../src/preferences/preferences.ui" line="884"/>
         <source>Default zoom on pages: </source>
         <translation>預設網頁縮放：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="822"/>
+        <location filename="../src/preferences/preferences.ui" line="836"/>
         <source>Ask when entering Private Browsing mode</source>
         <translation>進入私密瀏覽時詢問</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="922"/>
+        <location filename="../src/preferences/preferences.ui" line="936"/>
         <source>Local Storage</source>
         <translation>本地儲存</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="930"/>
+        <location filename="../src/preferences/preferences.ui" line="944"/>
         <source>Maximum pages in cache: </source>
         <translation>快取中的最大頁面:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="949"/>
+        <location filename="../src/preferences/preferences.ui" line="963"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="990"/>
+        <location filename="../src/preferences/preferences.ui" line="1004"/>
         <source>Allow storing network cache on disk</source>
         <translation>允許在磁碟上儲存網路快取</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1000"/>
+        <location filename="../src/preferences/preferences.ui" line="1014"/>
         <source>Maximum </source>
         <translation>最大</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1007"/>
+        <location filename="../src/preferences/preferences.ui" line="1021"/>
         <source>50 MB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1034"/>
+        <location filename="../src/preferences/preferences.ui" line="1048"/>
         <source>Allow storing web icons</source>
         <translation>允許儲存網路圖示</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1041"/>
+        <location filename="../src/preferences/preferences.ui" line="1055"/>
         <source>Allow saving history</source>
         <translation>允許保留記錄</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1048"/>
+        <location filename="../src/preferences/preferences.ui" line="1062"/>
         <source>Delete history on close</source>
         <translation>刪除最近的瀏覽記錄</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1104"/>
+        <location filename="../src/preferences/preferences.ui" line="1118"/>
         <source>Delete now</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1127"/>
+        <location filename="../src/preferences/preferences.ui" line="1141"/>
         <source>Proxy Configuration</source>
         <translation>代理配置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1136"/>
+        <location filename="../src/preferences/preferences.ui" line="1150"/>
         <source>HTTP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1141"/>
+        <location filename="../src/preferences/preferences.ui" line="1155"/>
         <source>SOCKS5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1154"/>
+        <location filename="../src/preferences/preferences.ui" line="1168"/>
         <source>Port:</source>
         <translation>端口：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1173"/>
+        <location filename="../src/preferences/preferences.ui" line="1187"/>
         <source>Username:</source>
         <translation>使用者名稱：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1183"/>
+        <location filename="../src/preferences/preferences.ui" line="1197"/>
         <source>Password:</source>
         <translation>密碼：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1209"/>
+        <location filename="../src/preferences/preferences.ui" line="1223"/>
         <source>Don&apos;t use on:</source>
         <translation>不要使用：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1216"/>
+        <location filename="../src/preferences/preferences.ui" line="1230"/>
         <source>Manual configuration</source>
         <translation>手動設置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1223"/>
+        <location filename="../src/preferences/preferences.ui" line="1237"/>
         <source>System proxy configuration</source>
         <translation>系統代理設置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1230"/>
+        <location filename="../src/preferences/preferences.ui" line="1244"/>
         <source>Do not use proxy</source>
         <translation>不使用代理</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1276"/>
+        <location filename="../src/preferences/preferences.ui" line="1290"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;字型家族&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1289"/>
+        <location filename="../src/preferences/preferences.ui" line="1303"/>
         <source>Standard</source>
         <translation>標準字體</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1296"/>
+        <location filename="../src/preferences/preferences.ui" line="1310"/>
         <source>Fixed</source>
         <translation>等寬字體</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1306"/>
+        <location filename="../src/preferences/preferences.ui" line="1320"/>
         <source>Serif</source>
         <translation>襯線字體</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1316"/>
+        <location filename="../src/preferences/preferences.ui" line="1330"/>
         <source>Sans Serif</source>
         <translation>無襯線字體</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1326"/>
+        <location filename="../src/preferences/preferences.ui" line="1340"/>
         <source>Cursive</source>
         <translation>手寫字體</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1554"/>
+        <location filename="../src/preferences/preferences.ui" line="1568"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>外部下載管理</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1561"/>
+        <location filename="../src/preferences/preferences.ui" line="1575"/>
         <source>Use external download manager</source>
         <translation>使用外部下載管理</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1573"/>
+        <location filename="../src/preferences/preferences.ui" line="1587"/>
         <source>Executable:</source>
         <translation>可執行的：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1580"/>
+        <location filename="../src/preferences/preferences.ui" line="1594"/>
         <source>Arguments:</source>
         <translation>衝突：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1707"/>
+        <location filename="../src/preferences/preferences.ui" line="1721"/>
         <source>Filter tracking cookies</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1751"/>
+        <location filename="../src/preferences/preferences.ui" line="1765"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2141"/>
+        <location filename="../src/preferences/preferences.ui" line="2089"/>
         <source>Change browser identification:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Default Font</source>
-        <translation type="obsolete">預設字體</translation>
-    </message>
-    <message>
-        <source>Fixed Font</source>
-        <translation type="obsolete">等寬字體</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="1378"/>
+        <location filename="../src/preferences/preferences.ui" line="1392"/>
         <source>Fantasy</source>
         <translation>幻想字體</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1385"/>
+        <location filename="../src/preferences/preferences.ui" line="1399"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;字體大小&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1394"/>
+        <location filename="../src/preferences/preferences.ui" line="1408"/>
         <source>Fixed Font Size</source>
         <translation>等寬字體大小</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1401"/>
+        <location filename="../src/preferences/preferences.ui" line="1415"/>
         <source>Default Font Size</source>
         <translation>預設字體大小</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1428"/>
+        <location filename="../src/preferences/preferences.ui" line="1442"/>
         <source>Minimum Font Size</source>
         <translation>最小字體大小</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1435"/>
+        <location filename="../src/preferences/preferences.ui" line="1449"/>
         <source>Minimum Logical Font Size</source>
         <translation>最小邏輯字體大小</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1468"/>
+        <location filename="../src/preferences/preferences.ui" line="1482"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;下載位置&lt;/ b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1475"/>
+        <location filename="../src/preferences/preferences.ui" line="1489"/>
         <source>Ask everytime for download location</source>
         <translation>總是詢問下載位置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1482"/>
+        <location filename="../src/preferences/preferences.ui" line="1496"/>
         <source>Use defined location: </source>
         <translation>自訂下載位置：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1494"/>
-        <location filename="../src/preferences/preferences.ui" line="1595"/>
-        <location filename="../src/preferences/preferences.ui" line="2090"/>
+        <location filename="../src/preferences/preferences.ui" line="1508"/>
+        <location filename="../src/preferences/preferences.ui" line="1609"/>
+        <location filename="../src/preferences/preferences.ui" line="2051"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1532"/>
+        <location filename="../src/preferences/preferences.ui" line="1546"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;下載選項&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1539"/>
+        <location filename="../src/preferences/preferences.ui" line="1553"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>使用本地系統檔案對話框
 (可能會導致SSL下載保護內容的問題)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1547"/>
+        <location filename="../src/preferences/preferences.ui" line="1561"/>
         <source>Close download manager when downloading finishes</source>
         <translation>下載完畢後關閉下載管理員</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1623"/>
+        <location filename="../src/preferences/preferences.ui" line="1637"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;B&gt;自動填充選項&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1630"/>
+        <location filename="../src/preferences/preferences.ui" line="1644"/>
         <source>Allow saving passwords from sites</source>
         <translation>允許儲存網站密碼</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1700"/>
+        <location filename="../src/preferences/preferences.ui" line="1714"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Filter Tracking Cookies</source>
-        <translation type="obsolete">追蹤cookies</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="1714"/>
+        <location filename="../src/preferences/preferences.ui" line="1728"/>
         <source>Allow storing of cookies</source>
         <translation>允許儲存cookie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1721"/>
+        <location filename="../src/preferences/preferences.ui" line="1735"/>
         <source>Delete cookies on close</source>
         <translation>關閉後刪除cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1728"/>
+        <location filename="../src/preferences/preferences.ui" line="1742"/>
         <source>Match domain exactly</source>
         <translation>網域完全匹配</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="obsolete">&lt;b&gt;警告：&lt;/ B&gt;匹配網域完全和過濾器追蹤Cookie選項可能會導致拒絕網站的一些cookies，如果您的cookies有問題，請禁用此選項！</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="1767"/>
+        <location filename="../src/preferences/preferences.ui" line="1781"/>
         <source>Cookies Manager</source>
         <translation>管理Cookies</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1790"/>
+        <location filename="../src/preferences/preferences.ui" line="1804"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL 憑證&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1803"/>
+        <location filename="../src/preferences/preferences.ui" line="1817"/>
         <source>SSL Manager</source>
         <translation>管理SSL</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1810"/>
+        <location filename="../src/preferences/preferences.ui" line="1824"/>
         <source>Edit CA certificates in SSL Manager</source>
         <translation>在SSL管理原理編輯CA憑證</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1840"/>
-        <location filename="../src/preferences/preferences.ui" line="2073"/>
+        <location filename="../src/preferences/preferences.ui" line="1854"/>
+        <location filename="../src/preferences/preferences.ui" line="2034"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;其他&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1854"/>
+        <location filename="../src/preferences/preferences.ui" line="1868"/>
         <source>Send Referer header to servers</source>
         <translation>傳送偏好的標頭到伺服器</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1861"/>
+        <location filename="../src/preferences/preferences.ui" line="1875"/>
         <source>Block popup windows</source>
         <translation>封鎖彈出式視窗</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1874"/>
+        <location filename="../src/preferences/preferences.ui" line="1888"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;通知&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1881"/>
+        <location filename="../src/preferences/preferences.ui" line="1895"/>
         <source>Use OSD Notifications</source>
         <translation>使用OSD的通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1891"/>
+        <location filename="../src/preferences/preferences.ui" line="1905"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>使用系統通知(僅限Linux)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1898"/>
+        <location filename="../src/preferences/preferences.ui" line="1912"/>
         <source>Do not use Notifications</source>
         <translation>不要使用通知</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1949"/>
+        <location filename="../src/preferences/preferences.ui" line="1963"/>
         <source>Expiration timeout:</source>
         <translation>期限：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1962"/>
+        <location filename="../src/preferences/preferences.ui" line="1976"/>
         <source> seconds</source>
         <translation>秒</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1971"/>
+        <location filename="../src/preferences/preferences.ui" line="1985"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;注意：&lt;/ b&gt;您可以在螢幕上拖曳以改變OSD通知位置</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2020"/>
+        <location filename="../src/preferences/preferences.ui" line="441"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;語言&lt;/ B&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2027"/>
+        <location filename="../src/preferences/preferences.ui" line="462"/>
         <source>Available translations: </source>
         <translation>可用的翻譯：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2066"/>
+        <location filename="../src/preferences/preferences.ui" line="434"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>要改變語言，您必須重新開啟瀏覽器。</translation>
     </message>
     <message>
-        <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;使用者自訂CSS樣式表&lt;/ B&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="2080"/>
+        <location filename="../src/preferences/preferences.ui" line="2041"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>所有的網站套用樣式表：</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2099"/>
+        <location filename="../src/preferences/preferences.ui" line="2060"/>
         <source>Languages</source>
         <translation>語言</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2121"/>
+        <location filename="../src/preferences/preferences.ui" line="2082"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;網站優先的語言&lt;/ B&gt;</translation>
     </message>
@@ -3155,10 +2893,6 @@
         <translation>傳送連結...</translation>
     </message>
     <message>
-        <source>&amp;Print</source>
-        <translation type="obsolete">列印&amp;P</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="295"/>
         <source>Import bookmarks...</source>
         <translation>匯入書籤...</translation>
@@ -3192,10 +2926,6 @@
         <location filename="../src/app/qupzilla.cpp" line="313"/>
         <source>&amp;Paste</source>
         <translation>貼上&amp;p</translation>
-    </message>
-    <message>
-        <source>&amp;Delete</source>
-        <translation type="obsolete">刪除&amp;D</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="315"/>
@@ -3417,10 +3147,6 @@
         <translation>關於QupZIlla&amp;A</translation>
     </message>
     <message>
-        <source>Informations about application</source>
-        <translation type="obsolete">軟體訊息</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="471"/>
         <source>Report &amp;Issue</source>
         <translation>報告及發行&amp;I</translation>
@@ -3536,10 +3262,6 @@
         <translation>開始私密瀏覽</translation>
     </message>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
-    <message>
         <location filename="../src/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
         <translation>您已經成功加入RSS feed&quot;%1&quot;。</translation>
@@ -3556,10 +3278,6 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="64"/>
         <source>Not Found</source>
         <translation>未找到</translation>
-    </message>
-    <message>
-        <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
-        <translation type="obsolete">如果您的QupZilla遇到問題，請先嘗試禁用所有外掛， &lt;br/&gt;如果沒有幫助，那麼請填寫此表格：</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="133"/>
@@ -3588,10 +3306,6 @@
         <translation>提交</translation>
     </message>
     <message>
-        <source>Please fill all required fields!</source>
-        <translation type="obsolete">請填寫所有必填欄位！</translation>
-    </message>
-    <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="156"/>
         <source>Start Page</source>
         <translation>起始頁</translation>
@@ -3612,10 +3326,6 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="177"/>
         <source>About QupZilla</source>
         <translation>關於 QupZilla</translation>
-    </message>
-    <message>
-        <source>Informations about version</source>
-        <translation type="obsolete">版本訊息</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="179"/>
@@ -3929,17 +3639,9 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation>在新分頁開啟連結</translation>
     </message>
     <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">在當前分頁開啟連結</translation>
-    </message>
-    <message>
         <location filename="../src/rss/rssmanager.cpp" line="235"/>
         <source>Open link in new tab</source>
         <translation>在新分頁開啟連結</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">新分頁</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="363"/>
@@ -3964,10 +3666,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <source>Open RSS Manager</source>
         <translation>開啟RSS管理</translation>
     </message>
-    <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="obsolete">您已經成功新增&quot;%1&quot;RSS Feed。</translation>
-    </message>
 </context>
 <context>
     <name>RSSWidget</name>
@@ -3985,17 +3683,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <location filename="../src/rss/rsswidget.cpp" line="55"/>
         <source>Add</source>
         <translation>新增</translation>
-    </message>
-</context>
-<context>
-    <name>ReloadStopButton</name>
-    <message>
-        <source>Stop</source>
-        <translation type="obsolete">終止</translation>
-    </message>
-    <message>
-        <source>Reload</source>
-        <translation type="obsolete">重新整理</translation>
     </message>
 </context>
 <context>
@@ -4168,7 +3855,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SearchToolBar</name>
     <message>
-        <location filename="../src/webview/searchtoolbar.cpp" line="134"/>
+        <location filename="../src/webview/searchtoolbar.cpp" line="132"/>
         <source>No results found.</source>
         <translation>無搜尋結果。</translation>
     </message>
@@ -4207,13 +3894,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/sidebar/sidebar.cpp" line="55"/>
         <source>History</source>
         <translation>記錄</translation>
-    </message>
-</context>
-<context>
-    <name>SiteIcon</name>
-    <message>
-        <source>Show informations about this page</source>
-        <translation type="obsolete">顯示此頁訊息</translation>
     </message>
 </context>
 <context>
@@ -4646,17 +4326,9 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Restore &amp;Closed Tab</source>
         <translation>還原關閉的分頁&amp;C</translation>
     </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
 </context>
 <context>
     <name>TabWidget</name>
-    <message>
-        <source>Show list of opened tabs</source>
-        <translation type="obsolete">顯示開啟的分頁列表</translation>
-    </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
@@ -4681,10 +4353,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/tabwidget.cpp" line="259"/>
         <source>Currently you have %1 opened tabs</source>
         <translation>現在您有%1個開啟分頁</translation>
-    </message>
-    <message>
-        <source>Actually you have %1 opened tabs</source>
-        <translation type="obsolete">您已經有%1個開起分頁</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="271"/>
@@ -4729,126 +4397,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/tabbedwebview.cpp" line="323"/>
         <source>Inspect Element</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>Open link in new &amp;tab</source>
-        <translation type="obsolete">在新分頁中開啟連結&amp;t</translation>
-    </message>
-    <message>
-        <source>Open link in new &amp;window</source>
-        <translation type="obsolete">在新視窗中開啟連結&amp;w</translation>
-    </message>
-    <message>
-        <source>B&amp;ookmark link</source>
-        <translation type="obsolete">書籤連結&amp;o</translation>
-    </message>
-    <message>
-        <source>&amp;Save link as...</source>
-        <translation type="obsolete">另存連結為&amp;S...</translation>
-    </message>
-    <message>
-        <source>Send link...</source>
-        <translation type="obsolete">發送連結...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy link address</source>
-        <translation type="obsolete">複製連結位址&amp;C</translation>
-    </message>
-    <message>
-        <source>Show i&amp;mage</source>
-        <translation type="obsolete">顯示圖片&amp;m</translation>
-    </message>
-    <message>
-        <source>Copy im&amp;age</source>
-        <translation type="obsolete">複製圖片&amp;a</translation>
-    </message>
-    <message>
-        <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">複製圖片位址&amp;d</translation>
-    </message>
-    <message>
-        <source>&amp;Save image as...</source>
-        <translation type="obsolete">圖片另存為&amp;S...</translation>
-    </message>
-    <message>
-        <source>Send image...</source>
-        <translation type="obsolete">傳送圖片...</translation>
-    </message>
-    <message>
-        <source>&amp;Back</source>
-        <translation type="obsolete">上一頁&amp;B</translation>
-    </message>
-    <message>
-        <source>&amp;Forward</source>
-        <translation type="obsolete">下一頁&amp;F</translation>
-    </message>
-    <message>
-        <source>&amp;Reload</source>
-        <translation type="obsolete">重新整理&amp;R</translation>
-    </message>
-    <message>
-        <source>S&amp;top</source>
-        <translation type="obsolete">終止&amp;t</translation>
-    </message>
-    <message>
-        <source>This frame</source>
-        <translation type="obsolete">這個框架</translation>
-    </message>
-    <message>
-        <source>Show &amp;only this frame</source>
-        <translation type="obsolete">僅顯示此框架&amp;o</translation>
-    </message>
-    <message>
-        <source>Show this frame in new &amp;tab</source>
-        <translation type="obsolete">在新分頁中開啟此框架&amp;t</translation>
-    </message>
-    <message>
-        <source>Print frame</source>
-        <translation type="obsolete">列印此框架</translation>
-    </message>
-    <message>
-        <source>Zoom &amp;in</source>
-        <translation type="obsolete">放大&amp;i</translation>
-    </message>
-    <message>
-        <source>&amp;Zoom out</source>
-        <translation type="obsolete">縮小&amp;Z</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="obsolete">重置</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">顯示此框架的原始碼&amp;u</translation>
-    </message>
-    <message>
-        <source>Book&amp;mark page</source>
-        <translation type="obsolete">加入書籤&amp;m</translation>
-    </message>
-    <message>
-        <source>&amp;Save page as...</source>
-        <translation type="obsolete">另存網頁為&amp;S...</translation>
-    </message>
-    <message>
-        <source>Select &amp;all</source>
-        <translation type="obsolete">全選&amp;a</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce code</source>
-        <translation type="obsolete">顯示原始碼&amp;u</translation>
-    </message>
-    <message>
-        <source>Show Web &amp;Inspector</source>
-        <translation type="obsolete">顯示Web檢查工具&amp;I</translation>
-    </message>
-    <message>
-        <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">顯示有關網頁的訊息&amp;o</translation>
-    </message>
-    <message>
-        <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="obsolete">使用 %2搜尋&quot;%1 ..&quot; </translation>
     </message>
 </context>
 <context>
@@ -4922,146 +4470,138 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="260"/>
+        <location filename="../src/webview/webpage.cpp" line="280"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>為顯示此頁QupZilla需重新發送請求</translation>
     </message>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webpage.cpp" line="262"/>
+        <location filename="../src/webview/webpage.cpp" line="282"/>
         <source>Confirm form resubmission</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="368"/>
+        <location filename="../src/webview/webpage.cpp" line="388"/>
         <source>Select files to upload...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="389"/>
+        <location filename="../src/webview/webpage.cpp" line="409"/>
         <source>Server refused the connection</source>
         <translation>伺服器拒絕連結</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="392"/>
+        <location filename="../src/webview/webpage.cpp" line="412"/>
         <source>Server closed the connection</source>
         <translation>伺服器關閉了連結</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="395"/>
+        <location filename="../src/webview/webpage.cpp" line="415"/>
         <source>Server not found</source>
         <translation>找不到伺服器</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="398"/>
+        <location filename="../src/webview/webpage.cpp" line="418"/>
         <source>Connection timed out</source>
         <translation>連線逾時</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="401"/>
+        <location filename="../src/webview/webpage.cpp" line="421"/>
         <source>Untrusted connection</source>
         <translation>不受信任的連結</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="404"/>
+        <location filename="../src/webview/webpage.cpp" line="424"/>
         <source>Temporary network failure</source>
         <translation>網路連線暫時失敗</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="407"/>
+        <location filename="../src/webview/webpage.cpp" line="427"/>
         <source>Proxy connection refused</source>
         <translation>代理主機拒絕連結</translation>
     </message>
     <message>
-        <source>Proxy host name not found</source>
-        <translation type="obsolete">找不到代理主機名稱</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webpage.cpp" line="410"/>
+        <location filename="../src/webview/webpage.cpp" line="430"/>
         <source>Proxy server not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="413"/>
+        <location filename="../src/webview/webpage.cpp" line="433"/>
         <source>Proxy connection timed out</source>
         <translation>代理主機連線逾時</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="416"/>
+        <location filename="../src/webview/webpage.cpp" line="436"/>
         <source>Proxy authentication required</source>
         <translation>代理主機認證需求</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="419"/>
+        <location filename="../src/webview/webpage.cpp" line="439"/>
         <source>Content not found</source>
         <translation>找不到內容</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="445"/>
+        <location filename="../src/webview/webpage.cpp" line="465"/>
         <source>AdBlocked Content</source>
         <translation>AdBlocked內容</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="449"/>
+        <location filename="../src/webview/webpage.cpp" line="469"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>阻止規則 &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="465"/>
+        <location filename="../src/webview/webpage.cpp" line="485"/>
         <source>Content Access Denied</source>
         <translation>讀取內容被拒</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="473"/>
+        <location filename="../src/webview/webpage.cpp" line="493"/>
         <source>Error code %1</source>
         <translation>錯誤代碼為%1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="485"/>
+        <location filename="../src/webview/webpage.cpp" line="505"/>
         <source>Failed loading page</source>
         <translation>讀取頁面失敗</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="492"/>
+        <location filename="../src/webview/webpage.cpp" line="512"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla不法讀取%1頁。</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="493"/>
+        <location filename="../src/webview/webpage.cpp" line="513"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>檢查輸入錯誤位址，如&lt;b&gt; WW&lt;/b&gt; example.com，而不是&lt;B&gt; WWW。&lt;/b&gt; example.com</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="494"/>
+        <location filename="../src/webview/webpage.cpp" line="514"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>如果無法讀取任何頁面，請檢查您的電腦的網路連接。</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="495"/>
+        <location filename="../src/webview/webpage.cpp" line="515"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>如果您的電腦或網路受到防火牆或代理的保護，確認QupZilla可以讀取網頁。</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="496"/>
+        <location filename="../src/webview/webpage.cpp" line="516"/>
         <source>Try Again</source>
         <translation>重試</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="599"/>
+        <location filename="../src/webview/webpage.cpp" line="619"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>創見附加的對話，防止此頁</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="603"/>
+        <location filename="../src/webview/webpage.cpp" line="623"/>
         <source>JavaScript alert - %1</source>
         <translation>JavaScript 警告 - %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="653"/>
+        <location filename="../src/webview/webpage.cpp" line="673"/>
         <source>Choose file...</source>
         <translation>選擇檔案...</translation>
     </message>
@@ -5074,35 +4614,23 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>管理搜尋引擎</translation>
     </message>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="176"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="180"/>
         <source>Add %1 ...</source>
         <translation>新增%1 ...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="199"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="203"/>
         <source>Paste And &amp;Search</source>
         <translation>貼上並且 &amp;搜尋</translation>
     </message>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="205"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="209"/>
         <source>Clear All</source>
         <translation>全部清楚</translation>
     </message>
 </context>
 <context>
     <name>WebView</name>
-    <message>
-        <source>Failed loading page</source>
-        <translation type="obsolete">讀取頁面失敗</translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation type="obsolete">讀取中...</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="623"/>
         <source>Open link in new &amp;tab</source>
@@ -5300,10 +4828,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>儲存此多媒體</translation>
     </message>
     <message>
-        <source>Send page...</source>
-        <translation type="obsolete">傳送網頁...</translation>
-    </message>
-    <message>
         <location filename="../src/webview/webview.cpp" line="603"/>
         <source>Select &amp;all</source>
         <translation>全選&amp;a</translation>
@@ -5322,10 +4846,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/webview/webview.cpp" line="612"/>
         <source>Show info ab&amp;out site</source>
         <translation>顯示有關網站的訊息&amp;o</translation>
-    </message>
-    <message>
-        <source>Show Web &amp;Inspector</source>
-        <translation type="obsolete">顯示網頁及檢查&amp;I</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="696"/>

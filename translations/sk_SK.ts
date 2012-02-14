@@ -4,10 +4,6 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>&lt;p&gt;&lt;b&gt;Main developers:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;&lt;b&gt;Hlavní vývojári:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>&lt;b&gt;Verzia WebKitu %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
@@ -141,10 +137,6 @@
         <translation>Zobraziť na&amp;stavenia AdBlocku</translation>
     </message>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">Nová karta</translation>
-    </message>
-    <message>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translation>Blokovaná URL (AdBlock pravidlo) - kliknutím upravíte pravidlo</translation>
     </message>
@@ -159,10 +151,6 @@
     <message>
         <source>Learn About Writing &amp;Rules</source>
         <translation>Zistiť viac o písaní p&amp;ravidiel</translation>
-    </message>
-    <message>
-        <source>AdBlock lets you block unwanted content on web-pages</source>
-        <translation type="obsolete">AdBlock vám umožňuje blokovať nechcený obsah na stránkach</translation>
     </message>
     <message>
         <source>AdBlock lets you block unwanted content on web pages</source>
@@ -439,10 +427,6 @@
         <translation>Nie je možné spustiť JSON kód.</translation>
     </message>
     <message>
-        <source>File does not exists.</source>
-        <translation type="obsolete">Súbor neexistuje.</translation>
-    </message>
-    <message>
         <source>Unable to open database. Is Firefox running?</source>
         <translation>Nepodarilo sa otvoriť databázu. Je Firefox zapnutý?</translation>
     </message>
@@ -456,10 +440,6 @@
     <message>
         <source>Url</source>
         <translation>Adresa</translation>
-    </message>
-    <message>
-        <source>Open link in actual &amp;tab</source>
-        <translation type="obsolete">Otvoriť odkaz na ak&amp;tuálnej karte</translation>
     </message>
     <message>
         <source>Title</source>
@@ -496,10 +476,6 @@
     <message>
         <source>Import Bookmarks</source>
         <translation>Import záložiek</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Add Folder</source>
@@ -580,16 +556,8 @@
 <context>
     <name>BookmarksSideBar</name>
     <message>
-        <source>Open link in actual &amp;tab</source>
-        <translation type="obsolete">Otvoriť odkaz na &amp;aktuálnej karte</translation>
-    </message>
-    <message>
         <source>Copy address</source>
         <translation>Kopírovať adresu</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Open link in &amp;new tab</source>
@@ -788,10 +756,6 @@
         <translation>&lt;b&gt;Vydané pre&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>&lt;not set in certificate&gt;</source>
-        <translation type="obsolete">&lt;nie je súčasťou certifikátu&gt;</translation>
-    </message>
-    <message>
         <source>Organizational Unit (OU):</source>
         <translation>Organizačná jednotka (OU):</translation>
     </message>
@@ -809,21 +773,6 @@
     </message>
 </context>
 <context>
-    <name>ChromeImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Žiadna chyba</translation>
-    </message>
-    <message>
-        <source>Cannot evaluate JSON code.</source>
-        <translation type="obsolete">Nie je možné spustiť JSON kód.</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">Nepodarilo sa otvoriť súbor.</translation>
-    </message>
-</context>
-<context>
     <name>ClearPrivateData</name>
     <message>
         <source>All</source>
@@ -836,10 +785,6 @@
     <message>
         <source>Month</source>
         <translation>Mesiac</translation>
-    </message>
-    <message>
-        <source>Later Today</source>
-        <translation type="obsolete">Dnes</translation>
     </message>
     <message>
         <source>Clear cookies from Adobe Flash Player</source>
@@ -887,14 +832,6 @@
     <message>
         <source>Flash Object</source>
         <translation>Flash objekt</translation>
-    </message>
-    <message>
-        <source>No more informations available.</source>
-        <translation type="obsolete">Žiadne ďalšie dostupné informácie.</translation>
-    </message>
-    <message>
-        <source>Show more informations about object</source>
-        <translation type="obsolete">Zobraziť viac informácií o objekte</translation>
     </message>
     <message>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
@@ -1020,13 +957,6 @@
     </message>
 </context>
 <context>
-    <name>DesktopNotificationsFactory</name>
-    <message>
-        <source>Native System Notification</source>
-        <translation type="obsolete">Nativné systémové oznámenie</translation>
-    </message>
-</context>
-<context>
     <name>DownloadFileHelper</name>
     <message>
         <source>NoNameDownload</source>
@@ -1074,10 +1004,6 @@
     <message>
         <source>Open Folder</source>
         <translation>Otvoriť priečinok</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Sorry, the file 
@@ -1266,21 +1192,6 @@
     </message>
 </context>
 <context>
-    <name>FirefoxImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Žiadna chyba</translation>
-    </message>
-    <message>
-        <source>Unable to open database. Is Firefox running?</source>
-        <translation type="obsolete">Nepodarilo sa otvoriť databázu. Je Firefox zapnutý?</translation>
-    </message>
-    <message>
-        <source>File does not exists.</source>
-        <translation type="obsolete">Súbor neexistuje.</translation>
-    </message>
-</context>
-<context>
     <name>HistoryManager</name>
     <message>
         <source>Url</source>
@@ -1299,20 +1210,12 @@
         <translation>Dnes</translation>
     </message>
     <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">Otvoriť odkaz v aktuálnej karte</translation>
-    </message>
-    <message>
         <source>Are you sure to delete all history?</source>
         <translation>Ste si istý, že chcete vymazať celú históriu?</translation>
     </message>
     <message>
         <source>Delete</source>
         <translation>Vymazať</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>This Month</source>
@@ -1421,16 +1324,8 @@
         <translation>Dnes</translation>
     </message>
     <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">Otvoriť odkaz v aktuálnej karte</translation>
-    </message>
-    <message>
         <source>Copy address</source>
         <translation>Kopírovať adresu</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>This Month</source>
@@ -1447,17 +1342,6 @@
     <message>
         <source>Open link in current tab</source>
         <translation>Otvoriť odkaz v aktuálnom panely</translation>
-    </message>
-</context>
-<context>
-    <name>HtmlImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Žiadna chyba</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">Nepodarilo sa otvoriť súbor.</translation>
     </message>
 </context>
 <context>
@@ -1594,17 +1478,6 @@
     </message>
 </context>
 <context>
-    <name>OperaImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Žiadna chyba</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">Nepodarilo sa otvoriť súbor.</translation>
-    </message>
-</context>
-<context>
     <name>PageScreen</name>
     <message>
         <source>Page Screen</source>
@@ -1675,105 +1548,6 @@
     </message>
 </context>
 <context>
-    <name>PopupWebView</name>
-    <message>
-        <source>Open link in new &amp;window</source>
-        <translation type="obsolete">Otvoriť odkaz v novom &amp;okne</translation>
-    </message>
-    <message>
-        <source>&amp;Save link as...</source>
-        <translation type="obsolete">&amp;Uložiť odkaz ako...</translation>
-    </message>
-    <message>
-        <source>Send link...</source>
-        <translation type="obsolete">Odoslať odkaz...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy link address</source>
-        <translation type="obsolete">&amp;Kopírovať adresu odkazu</translation>
-    </message>
-    <message>
-        <source>Show i&amp;mage</source>
-        <translation type="obsolete">Zobraziť o&amp;brázok</translation>
-    </message>
-    <message>
-        <source>Copy im&amp;age</source>
-        <translation type="obsolete">Kopírov&amp;ať obrázok</translation>
-    </message>
-    <message>
-        <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">Kopírovať a&amp;dresu obrázku</translation>
-    </message>
-    <message>
-        <source>&amp;Save image as...</source>
-        <translation type="obsolete">&amp;Uložiť obrázok ako...</translation>
-    </message>
-    <message>
-        <source>Send image...</source>
-        <translation type="obsolete">Odoslať obrázok...</translation>
-    </message>
-    <message>
-        <source>&amp;Back</source>
-        <translation type="obsolete">&amp;Späť</translation>
-    </message>
-    <message>
-        <source>&amp;Forward</source>
-        <translation type="obsolete">&amp;Dopredu</translation>
-    </message>
-    <message>
-        <source>&amp;Reload</source>
-        <translation type="obsolete">&amp;Obnoviť</translation>
-    </message>
-    <message>
-        <source>S&amp;top</source>
-        <translation type="obsolete">Zas&amp;taviť</translation>
-    </message>
-    <message>
-        <source>This frame</source>
-        <translation type="obsolete">Tento rám</translation>
-    </message>
-    <message>
-        <source>Show &amp;only this frame</source>
-        <translation type="obsolete">Zobraziť &amp;len tento rám</translation>
-    </message>
-    <message>
-        <source>Print frame</source>
-        <translation type="obsolete">Vytlačiť rám</translation>
-    </message>
-    <message>
-        <source>Zoom &amp;in</source>
-        <translation type="obsolete">Zoo&amp;m +</translation>
-    </message>
-    <message>
-        <source>&amp;Zoom out</source>
-        <translation type="obsolete">Z&amp;oom -</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="obsolete">Resetovať</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">Zobraziť &amp;zdrojový kód rámu</translation>
-    </message>
-    <message>
-        <source>&amp;Save page as...</source>
-        <translation type="obsolete">Uložiť &amp;stránku ako...</translation>
-    </message>
-    <message>
-        <source>Select &amp;all</source>
-        <translation type="obsolete">Vybr&amp;ať všetko</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce code</source>
-        <translation type="obsolete">Zobraziť zdro&amp;jový kód</translation>
-    </message>
-    <message>
-        <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">Z&amp;obraziť informácie o stránke</translation>
-    </message>
-</context>
-<context>
     <name>PopupWindow</name>
     <message>
         <source>%1 - QupZilla</source>
@@ -1839,10 +1613,6 @@
         <translation>Serif</translation>
     </message>
     <message>
-        <source>Filter Tracking Cookies</source>
-        <translation type="obsolete">Filtrovať sledovacie cookies</translation>
-    </message>
-    <message>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Zadajte názov nového profilu:</translation>
     </message>
@@ -1900,10 +1670,6 @@
         <translation>Otvoriť prázdnu stránku</translation>
     </message>
     <message>
-        <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Používateľský CSS štýl&lt;/b&gt;</translation>
-    </message>
-    <message>
         <source>Activate last tab when closing active tab</source>
         <translation>Aktivovať naposledy pozeranú kartu po zavretí aktuálnej</translation>
     </message>
@@ -1926,10 +1692,6 @@
     <message>
         <source>JavaScript can access clipboard</source>
         <translation>Povoliť JavaScriptu prístup do schránky</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="obsolete">&lt;b&gt;Varovanie:&lt;/b&gt; Možnosti požadovanie presnej zhody domény a filtrovať sledovacie cookies môžu viesť k odmietnutiu niektorých cookies zo stránok. Ak máte problémy s cookies, skúste najprv zakázať tieto možnosti!</translation>
     </message>
     <message>
         <source>Proxy Configuration</source>
@@ -2020,10 +1782,6 @@
         <translation>Vždy sa opýtať kam súbor uložiť</translation>
     </message>
     <message>
-        <source>Use actual</source>
-        <translation type="obsolete">Použiť aktuálnu</translation>
-    </message>
-    <message>
         <source>Allow JAVA</source>
         <translation>Povoliť JAVU</translation>
     </message>
@@ -2034,10 +1792,6 @@
     <message>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Možnosti sťahovania&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Load images</source>
-        <translation type="obsolete">Načítať obrázky</translation>
     </message>
     <message>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
@@ -2083,10 +1837,6 @@
     <message>
         <source>Privacy</source>
         <translation>Súkromie</translation>
-    </message>
-    <message>
-        <source>Default Font</source>
-        <translation type="obsolete">Štandardné písmo</translation>
     </message>
     <message>
         <source>New Profile</source>
@@ -2180,10 +1930,6 @@
         <translation>Označovať odkazy tabulátorom</translation>
     </message>
     <message>
-        <source>Fixed Font</source>
-        <translation type="obsolete">Neproporcionálne písmo</translation>
-    </message>
-    <message>
         <source>Appearance</source>
         <translation>Vzhľad</translation>
     </message>
@@ -2264,10 +2010,6 @@
         <translation>Použiť OSD oznámenia</translation>
     </message>
     <message>
-        <source>Block PopUp windows</source>
-        <translation type="obsolete">Blokovať vyskakovacie okná</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Všeobecné</translation>
     </message>
@@ -2282,10 +2024,6 @@
     <message>
         <source>Advanced options</source>
         <translation>Pokročilé nastavenia</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;General&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Všeobecné&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Downloads</source>
@@ -2382,14 +2120,6 @@
     <message>
         <source>Use current</source>
         <translation>Použiť aktuálnu</translation>
-    </message>
-    <message>
-        <source>Allow HTML5 local storage</source>
-        <translation type="obsolete">Povoliť HTML 5 lokálne úložisko</translation>
-    </message>
-    <message>
-        <source>Delete local storage on close</source>
-        <translation type="obsolete">Zmazať lokálne úložisko pri ukončení prehliadača</translation>
     </message>
     <message>
         <source>Filter tracking cookies</source>
@@ -2589,10 +2319,6 @@
         <translation>&amp;Prilepiť</translation>
     </message>
     <message>
-        <source>&amp;Print</source>
-        <translation type="obsolete">&amp;Tlačiť</translation>
-    </message>
-    <message>
         <source>&amp;Tools</source>
         <translation>&amp;Nástroje</translation>
     </message>
@@ -2615,10 +2341,6 @@
     <message>
         <source>New Tab</source>
         <translation>Nová karta</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Organize &amp;Bookmarks</source>
@@ -2721,10 +2443,6 @@
         <translation>Nastav&amp;enia</translation>
     </message>
     <message>
-        <source>Informations about application</source>
-        <translation type="obsolete">Informácie o programe</translation>
-    </message>
-    <message>
         <source>Your session is not stored.</source>
         <translation>Vaša relácia nie je uložená.</translation>
     </message>
@@ -2735,10 +2453,6 @@
     <message>
         <source>Report &amp;Issue</source>
         <translation>Nahlásiť &amp;problém</translation>
-    </message>
-    <message>
-        <source>&amp;Delete</source>
-        <translation type="obsolete">&amp;Odstrániť</translation>
     </message>
     <message>
         <source>Default</source>
@@ -2924,16 +2638,8 @@
         <translation>Váš E-mail</translation>
     </message>
     <message>
-        <source>Please fill all required fields!</source>
-        <translation type="obsolete">Prosím vyplňte všetky povinné políčka!</translation>
-    </message>
-    <message>
         <source>Main developer</source>
         <translation>Hlavný vývojár</translation>
-    </message>
-    <message>
-        <source>Informations about version</source>
-        <translation type="obsolete">Informácie o verzii</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -3028,10 +2734,6 @@
         <translation>Výsledky vyhľadávania poskytované Googleom</translation>
     </message>
     <message>
-        <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
-        <translation type="obsolete">Ak máte problémy pri používaní QupZilly, prosím skúste najprv zakázať všetky pluginy. &lt;br/&gt; Ak to nepomúže, potom prosím vyplňte tento formulár: </translation>
-    </message>
-    <message>
         <source>Apply</source>
         <translation>Uložiť</translation>
     </message>
@@ -3115,16 +2817,8 @@
         <translation>Upraviť odber</translation>
     </message>
     <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">Otvoriť odkaz na aktuálnej karte</translation>
-    </message>
-    <message>
         <source>Edit RSS Feed</source>
         <translation>Upraviť RSS odber</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Nová karta</translation>
     </message>
     <message>
         <source>Reload</source>
@@ -3207,10 +2901,6 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
         <source>Open RSS Manager</source>
         <translation>Otvoriť správcu RSS</translation>
     </message>
-    <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="obsolete">Úspešne ste pridali RSS odberl &quot;%1&quot;.</translation>
-    </message>
 </context>
 <context>
     <name>RSSWidget</name>
@@ -3225,17 +2915,6 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     <message>
         <source>Untitled feed</source>
         <translation>Kanál bez názvu</translation>
-    </message>
-</context>
-<context>
-    <name>ReloadStopButton</name>
-    <message>
-        <source>Stop</source>
-        <translation type="obsolete">Zastaviť</translation>
-    </message>
-    <message>
-        <source>Reload</source>
-        <translation type="obsolete">Obnoviť</translation>
     </message>
 </context>
 <context>
@@ -3408,13 +3087,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>History</source>
         <translation>História</translation>
-    </message>
-</context>
-<context>
-    <name>SiteIcon</name>
-    <message>
-        <source>Show informations about this page</source>
-        <translation type="obsolete">Zobraziť informácie o tejto stránke</translation>
     </message>
 </context>
 <context>
@@ -3727,10 +3399,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>&amp;Nová karta</translation>
     </message>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">Nová karta</translation>
-    </message>
-    <message>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Obnoviť kartu</translation>
     </message>
@@ -3778,14 +3446,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>Nová karta</translation>
     </message>
     <message>
-        <source>Actually you have %1 opened tabs</source>
-        <translation type="obsolete">Momentálne máte otvorených %1 kariet</translation>
-    </message>
-    <message>
-        <source>Show list of opened tabs</source>
-        <translation type="obsolete">Zobraziť zoznam otvorených kariet</translation>
-    </message>
-    <message>
         <source>Loading...</source>
         <translation>Načítaba sa...</translation>
     </message>
@@ -3827,126 +3487,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
-    </message>
-    <message>
-        <source>Open link in new &amp;tab</source>
-        <translation type="obsolete">Otvoriť odkaz na &amp;novej karte</translation>
-    </message>
-    <message>
-        <source>Open link in new &amp;window</source>
-        <translation type="obsolete">Otvoriť odkaz v novom &amp;okne</translation>
-    </message>
-    <message>
-        <source>B&amp;ookmark link</source>
-        <translation type="obsolete">Pridať &amp;odkaz do záložiek</translation>
-    </message>
-    <message>
-        <source>&amp;Save link as...</source>
-        <translation type="obsolete">&amp;Uložiť odkaz ako...</translation>
-    </message>
-    <message>
-        <source>Send link...</source>
-        <translation type="obsolete">Odoslať odkaz...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy link address</source>
-        <translation type="obsolete">&amp;Kopírovať adresu odkazu</translation>
-    </message>
-    <message>
-        <source>Show i&amp;mage</source>
-        <translation type="obsolete">Zobraziť o&amp;brázok</translation>
-    </message>
-    <message>
-        <source>Copy im&amp;age</source>
-        <translation type="obsolete">Kopírov&amp;ať obrázok</translation>
-    </message>
-    <message>
-        <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">Kopírovať a&amp;dresu obrázku</translation>
-    </message>
-    <message>
-        <source>&amp;Save image as...</source>
-        <translation type="obsolete">&amp;Uložiť obrázok ako...</translation>
-    </message>
-    <message>
-        <source>Send image...</source>
-        <translation type="obsolete">Odoslať obrázok...</translation>
-    </message>
-    <message>
-        <source>&amp;Back</source>
-        <translation type="obsolete">&amp;Späť</translation>
-    </message>
-    <message>
-        <source>&amp;Forward</source>
-        <translation type="obsolete">&amp;Dopredu</translation>
-    </message>
-    <message>
-        <source>&amp;Reload</source>
-        <translation type="obsolete">&amp;Obnoviť</translation>
-    </message>
-    <message>
-        <source>S&amp;top</source>
-        <translation type="obsolete">Zas&amp;taviť</translation>
-    </message>
-    <message>
-        <source>This frame</source>
-        <translation type="obsolete">Tento rám</translation>
-    </message>
-    <message>
-        <source>Show &amp;only this frame</source>
-        <translation type="obsolete">Zobraziť &amp;len tento rám</translation>
-    </message>
-    <message>
-        <source>Show this frame in new &amp;tab</source>
-        <translation type="obsolete">Zobraziť tento rám na &amp;novom panely</translation>
-    </message>
-    <message>
-        <source>Print frame</source>
-        <translation type="obsolete">Vytlačiť rám</translation>
-    </message>
-    <message>
-        <source>Zoom &amp;in</source>
-        <translation type="obsolete">Zoo&amp;m +</translation>
-    </message>
-    <message>
-        <source>&amp;Zoom out</source>
-        <translation type="obsolete">Z&amp;oom -</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="obsolete">Resetovať</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">Zobraziť &amp;zdrojový kód rámu</translation>
-    </message>
-    <message>
-        <source>Book&amp;mark page</source>
-        <translation type="obsolete">Pridať s&amp;tránku do záložiek</translation>
-    </message>
-    <message>
-        <source>&amp;Save page as...</source>
-        <translation type="obsolete">Uložiť &amp;stránku ako...</translation>
-    </message>
-    <message>
-        <source>Select &amp;all</source>
-        <translation type="obsolete">Vybr&amp;ať všetko</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce code</source>
-        <translation type="obsolete">Zobraziť zdro&amp;jový kód</translation>
-    </message>
-    <message>
-        <source>Show Web &amp;Inspector</source>
-        <translation type="obsolete">Zobraziť Web &amp;inšpektora</translation>
-    </message>
-    <message>
-        <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">Z&amp;obraziť informácie o stránke</translation>
-    </message>
-    <message>
-        <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="obsolete">Hľadať &quot;%1 ..&quot; s %2</translation>
     </message>
     <message>
         <source>Inspect Element</source>
@@ -4028,10 +3568,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>Ak sa vám nezobrazujú žiadne stránky, skontrolujte sieťové pripojenie vášho počítača.</translation>
     </message>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">Nová karta</translation>
-    </message>
-    <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Blokované pravidlom &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
@@ -4092,10 +3628,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Proxy connection refused</source>
         <translation>Proxy server odmietol spojenie</translation>
-    </message>
-    <message>
-        <source>Proxy host name not found</source>
-        <translation type="obsolete">Nenájdený proxy host</translation>
     </message>
     <message>
         <source>Proxy connection timed out</source>
@@ -4172,14 +3704,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>&amp;Kopírovať adresu odkazu</translation>
     </message>
     <message>
-        <source>Send page...</source>
-        <translation type="obsolete">Odoslať stránku...</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Nová karta</translation>
-    </message>
-    <message>
         <source>B&amp;ookmark link</source>
         <translation>Pridať &amp;odkaz do záložiek</translation>
     </message>
@@ -4200,10 +3724,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>Hľadať &quot;%1 ..&quot; s %2</translation>
     </message>
     <message>
-        <source>Show Web &amp;Inspector</source>
-        <translation type="obsolete">Zobraziť Web &amp;inšpektora</translation>
-    </message>
-    <message>
         <source>Open link in new &amp;window</source>
         <translation>Otvoriť odkaz v novom &amp;okne</translation>
     </message>
@@ -4214,10 +3734,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Send image...</source>
         <translation>Odoslať obrázok...</translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation type="obsolete">Načítava sa...</translation>
     </message>
     <message>
         <source>&amp;Save page as...</source>
@@ -4250,10 +3766,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Show so&amp;urce code</source>
         <translation>Zobraziť zdro&amp;jový kód</translation>
-    </message>
-    <message>
-        <source>Failed loading page</source>
-        <translation type="obsolete">Zlyhalo načítanie stránky</translation>
     </message>
     <message>
         <source>Copy image ad&amp;dress</source>
