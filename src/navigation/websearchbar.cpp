@@ -249,7 +249,7 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
         ++i;
     }
 
-    delete tempMenu;
+    tempMenu->deleteLater();
 
     m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());
 
