@@ -67,6 +67,5 @@ $creators = "Kdo vytváří QupZillu?";
 $creators_text = "Správcem projektu a hlavním vývojářem je český student <b>David Rosca</b> (nowrep).<br/>
 Ostatní kromě programování také přispívají překládáním a podporováním QupZilly. Celý seznam přispěvatelů lze najít <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>zde</a> [na githubu].<br/><br/>Také se můžete připojit na IRC kanál <b>#qupzilla</b> na irc.freenode.net a komunikovat s lidmi zapojenými do QupZilly.";
 $share_with_friends = "Sdílet s přáteli!";
-$share_with_friends_text = "Máte rádi QupZillu? Sdílejte ji tedy s Vašimi přáteli!"
-
+$share_with_friends_text = "Máte rádi QupZillu? Sdílejte ji tedy s Vašimi přáteli!";
 ?>

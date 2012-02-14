@@ -217,10 +217,6 @@
         <source>Learn About Writing &amp;Rules</source>
         <translation>Lär dig hur man skriver &amp;regler</translation>
     </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Ny flik</translation>
-    </message>
 </context>
 <context>
     <name>AddAcceptLanguage</name>
@@ -554,10 +550,6 @@
         <translation>Kan ej utvärdera JSON-kod.</translation>
     </message>
     <message>
-        <source>File does not exists.</source>
-        <translation type="obsolete">Filen existerar inte.</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="39"/>
         <source>File does not exist.</source>
         <translation>Filen finns inte.</translation>
@@ -631,10 +623,6 @@
         <translation>Välj namn för mapp:</translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Ny flik</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="219"/>
         <source>Add Subfolder</source>
         <translation>Lägg till undermapp</translation>
@@ -648,10 +636,6 @@
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="225"/>
         <source>Remove folder</source>
         <translation>Ta bort mapp</translation>
-    </message>
-    <message>
-        <source>Open link in actual &amp;tab</source>
-        <translation type="obsolete">Öppna länk i nuvarande &amp;flik</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
@@ -731,14 +715,6 @@
         <location filename="../src/sidebar/bookmarkssidebar.ui" line="32"/>
         <source>Search...</source>
         <translation>Sök...</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Ny flik</translation>
-    </message>
-    <message>
-        <source>Open link in actual &amp;tab</source>
-        <translation type="obsolete">Öppna länk i nuvarande &amp;flik</translation>
     </message>
     <message>
         <location filename="../src/sidebar/bookmarkssidebar.cpp" line="110"/>
@@ -1011,21 +987,6 @@
     </message>
 </context>
 <context>
-    <name>ChromeImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Inga fel</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">Kan ej öppna fil.</translation>
-    </message>
-    <message>
-        <source>Cannot evaluate JSON code.</source>
-        <translation type="obsolete">Kan ej utvärdera JSON-kod.</translation>
-    </message>
-</context>
-<context>
     <name>ClearPrivateData</name>
     <message>
         <location filename="../src/other/clearprivatedata.ui" line="14"/>
@@ -1073,10 +1034,6 @@
         <translation>Tidigare idag</translation>
     </message>
     <message>
-        <source>Later Today</source>
-        <translation type="obsolete">Senare idag</translation>
-    </message>
-    <message>
         <location filename="../src/other/clearprivatedata.ui" line="116"/>
         <source>Week</source>
         <translation>Vecka</translation>
@@ -1098,10 +1055,6 @@
         <location filename="../src/plugins/clicktoflash.cpp" line="126"/>
         <source>Object blocked by ClickToFlash</source>
         <translation>Objekt blockerat av ClickToFlash</translation>
-    </message>
-    <message>
-        <source>Show more informations about object</source>
-        <translation type="obsolete">Visa mer information om objekt</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="127"/>
@@ -1137,10 +1090,6 @@
         <location filename="../src/plugins/clicktoflash.cpp" line="285"/>
         <source>No more information available.</source>
         <translation>Ingen mer information tillgänglig.</translation>
-    </message>
-    <message>
-        <source>No more informations available.</source>
-        <translation type="obsolete">Ingen mer information tillgänglig.</translation>
     </message>
 </context>
 <context>
@@ -1220,12 +1169,12 @@
         <location filename="../src/cookies/cookiemanager.ui" line="168"/>
         <location filename="../src/cookies/cookiemanager.ui" line="178"/>
         <location filename="../src/cookies/cookiemanager.ui" line="188"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="112"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="113"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="114"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="115"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="116"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="117"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="118"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="119"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="120"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="121"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation>&lt;ingen kaka vald&gt;</translation>
     </message>
@@ -1236,63 +1185,56 @@
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="220"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="126"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
         <source>Remove cookie</source>
         <translation>Ta bort kakor</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="44"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="42"/>
         <source>Search</source>
         <translation>Sök</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="54"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="52"/>
         <source>Confirmation</source>
         <translation>Bekräftelse</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="55"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="53"/>
         <source>Are you sure to delete all cookies on your computer?</source>
         <translation>Är du säker på att du vill ta bort alla kakor från din dator?</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="120"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="123"/>
         <source>Remove cookies</source>
         <translation>Ta bort kakor</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="133"/>
         <source>Secure only</source>
         <translation>Endast säkra</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="133"/>
         <source>All connections</source>
         <translation>Alla anslutningar</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="137"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="134"/>
         <source>Session cookie</source>
         <translation>Sessionskaka</translation>
     </message>
 </context>
 <context>
-    <name>DesktopNotificationsFactory</name>
-    <message>
-        <source>Native System Notification</source>
-        <translation type="obsolete">Systemets egna notifikationer</translation>
-    </message>
-</context>
-<context>
     <name>DownloadFileHelper</name>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="131"/>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="136"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="137"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="142"/>
         <source>Save file as...</source>
         <translation>Spara fil som...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="246"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="252"/>
         <source>NoNameDownload</source>
         <translation>Namnlös nedladdning</translation>
     </message>
@@ -1405,10 +1347,6 @@
         <location filename="../src/downloads/downloaditem.cpp" line="324"/>
         <source>Error</source>
         <translation>Fel</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Ny flik</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="362"/>
@@ -1538,7 +1476,7 @@
         <translation>Spara fil</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadoptionsdialog.cpp" line="31"/>
+        <location filename="../src/downloads/downloadoptionsdialog.cpp" line="32"/>
         <source>Opening %1</source>
         <translation>Öppnar %1</translation>
     </message>
@@ -1582,21 +1520,6 @@
     </message>
 </context>
 <context>
-    <name>FirefoxImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Inga fel</translation>
-    </message>
-    <message>
-        <source>File does not exists.</source>
-        <translation type="obsolete">Filen existerar inte.</translation>
-    </message>
-    <message>
-        <source>Unable to open database. Is Firefox running?</source>
-        <translation type="obsolete">Kan inte öppna databasen. Är Firefox igång?</translation>
-    </message>
-</context>
-<context>
     <name>HistoryManager</name>
     <message>
         <location filename="../src/history/historymanager.ui" line="14"/>
@@ -1629,14 +1552,6 @@
         <translation>Optimera databas</translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Ny flik</translation>
-    </message>
-    <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">Öppna länk i nuvarande flik</translation>
-    </message>
-    <message>
         <location filename="../src/history/historymanager.cpp" line="101"/>
         <source>Open link in current tab</source>
         <translation>Öppna länk i nuvarande flik</translation>
@@ -1653,19 +1568,19 @@
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="156"/>
-        <location filename="../src/history/historymanager.cpp" line="247"/>
+        <location filename="../src/history/historymanager.cpp" line="253"/>
         <source>Today</source>
         <translation>Idag</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="159"/>
-        <location filename="../src/history/historymanager.cpp" line="250"/>
+        <location filename="../src/history/historymanager.cpp" line="256"/>
         <source>This Week</source>
         <translation>Denna veckan</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="162"/>
-        <location filename="../src/history/historymanager.cpp" line="253"/>
+        <location filename="../src/history/historymanager.cpp" line="259"/>
         <source>This Month</source>
         <translation>Denna månaden</translation>
     </message>
@@ -1766,56 +1681,37 @@
         <translation>Titel</translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Ny flik</translation>
-    </message>
-    <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">Öppna länk i nuvarande flik</translation>
-    </message>
-    <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="94"/>
         <source>Open link in current tab</source>
         <translation>Öppna länk i nuvarande flik</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="96"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="95"/>
         <source>Open link in new tab</source>
         <translation>Öppna länk i ny flik</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="98"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="97"/>
         <source>Copy address</source>
         <translation>Kopiera adress</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="115"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="218"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="114"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="188"/>
         <source>Today</source>
         <translation>Idag</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="118"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="221"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="117"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="191"/>
         <source>This Week</source>
         <translation>Denna veckan</translation>
     </message>
     <message>
-        <location filename="../src/sidebar/historysidebar.cpp" line="121"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="224"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="120"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="194"/>
         <source>This Month</source>
         <translation>Denna månaden</translation>
-    </message>
-</context>
-<context>
-    <name>HtmlImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Inga fel</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">Kan ej öppna fil.</translation>
     </message>
 </context>
 <context>
@@ -1904,8 +1800,8 @@
         <translation>Avsluta fullskärm</translation>
     </message>
     <message>
-        <location filename="../src/navigation/navigationbar.cpp" line="207"/>
-        <location filename="../src/navigation/navigationbar.cpp" line="243"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="209"/>
+        <location filename="../src/navigation/navigationbar.cpp" line="245"/>
         <source>Clear history</source>
         <translation>Rensa historik</translation>
     </message>
@@ -1984,17 +1880,6 @@
         <location filename="../src/network/networkmanager.cpp" line="285"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Ett användarnamn och lösenord efterfrågas av proxyn %1. </translation>
-    </message>
-</context>
-<context>
-    <name>OperaImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">Inga fel</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">Kan ej öppna fil.</translation>
     </message>
 </context>
 <context>
@@ -2084,133 +1969,6 @@
     </message>
 </context>
 <context>
-    <name>PopupWebView</name>
-    <message>
-        <source>Open link in new &amp;window</source>
-        <translation type="obsolete">Öppna länk i nytt &amp;fönster</translation>
-    </message>
-    <message>
-        <source>&amp;Save link as...</source>
-        <translation type="obsolete">&amp;Spara länk som...</translation>
-    </message>
-    <message>
-        <source>Send link...</source>
-        <translation type="obsolete">Skicka länk...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy link address</source>
-        <translation type="obsolete">&amp;Kopiera länkadress</translation>
-    </message>
-    <message>
-        <source>Show i&amp;mage</source>
-        <translation type="obsolete">Visa &amp;bild</translation>
-    </message>
-    <message>
-        <source>Copy im&amp;age</source>
-        <translation type="obsolete">Kopiera &amp;bild</translation>
-    </message>
-    <message>
-        <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">Kopiera bild&amp;adress</translation>
-    </message>
-    <message>
-        <source>&amp;Save image as...</source>
-        <translation type="obsolete">&amp;Spara bild som...</translation>
-    </message>
-    <message>
-        <source>Send image...</source>
-        <translation type="obsolete">Skicka bild...</translation>
-    </message>
-    <message>
-        <source>&amp;Back</source>
-        <translation type="obsolete">&amp;Bakåt</translation>
-    </message>
-    <message>
-        <source>&amp;Forward</source>
-        <translation type="obsolete">&amp;Framåt</translation>
-    </message>
-    <message>
-        <source>&amp;Reload</source>
-        <translation type="obsolete">&amp;Hämta om</translation>
-    </message>
-    <message>
-        <source>S&amp;top</source>
-        <translation type="obsolete">&amp;Stopp</translation>
-    </message>
-    <message>
-        <source>This frame</source>
-        <translation type="obsolete">Denna ram</translation>
-    </message>
-    <message>
-        <source>Show &amp;only this frame</source>
-        <translation type="obsolete">Visa &amp;endast denna ramen</translation>
-    </message>
-    <message>
-        <source>Print frame</source>
-        <translation type="obsolete">Skriv ut ram</translation>
-    </message>
-    <message>
-        <source>Zoom &amp;in</source>
-        <translation type="obsolete">Zooma &amp;in</translation>
-    </message>
-    <message>
-        <source>&amp;Zoom out</source>
-        <translation type="obsolete">Zooma &amp;ut</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="obsolete">Återställ</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">Visa ramens &amp;källa</translation>
-    </message>
-    <message>
-        <source>&amp;Save page as...</source>
-        <translation type="obsolete">&amp;Spara sida som...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy page link</source>
-        <translation type="obsolete">&amp;Kopiera sidlänk</translation>
-    </message>
-    <message>
-        <source>Send page link...</source>
-        <translation type="obsolete">Skicka länk till sida...</translation>
-    </message>
-    <message>
-        <source>&amp;Print page</source>
-        <translation type="obsolete">&amp;Skriv ut sida</translation>
-    </message>
-    <message>
-        <source>Select &amp;all</source>
-        <translation type="obsolete">Markera &amp;allt</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce code</source>
-        <translation type="obsolete">Visa &amp;källkod</translation>
-    </message>
-    <message>
-        <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">Visa &amp;information om denna sida</translation>
-    </message>
-    <message>
-        <source>Send text...</source>
-        <translation type="obsolete">Skicka text...</translation>
-    </message>
-    <message>
-        <source>Google Translate</source>
-        <translation type="obsolete">Google Översätt</translation>
-    </message>
-    <message>
-        <source>Dictionary</source>
-        <translation type="obsolete">Ordlista</translation>
-    </message>
-    <message>
-        <source>Go to &amp;web address</source>
-        <translation type="obsolete">Gå till &amp;webadress</translation>
-    </message>
-</context>
-<context>
     <name>PopupWindow</name>
     <message>
         <location filename="../src/popupwindow/popupwindow.cpp" line="135"/>
@@ -2268,10 +2026,6 @@
         <translation>Hemsida:</translation>
     </message>
     <message>
-        <source>Use actual</source>
-        <translation type="obsolete">Använd nuvarande</translation>
-    </message>
-    <message>
         <location filename="../src/preferences/preferences.ui" line="267"/>
         <source>On new tab: </source>
         <translation>På ny flik:</translation>
@@ -2297,632 +2051,608 @@
         <translation>Uppstartsprofil:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="355"/>
+        <location filename="../src/preferences/preferences.ui" line="352"/>
         <source>Create New</source>
         <translation>Skapa ny</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="371"/>
+        <location filename="../src/preferences/preferences.ui" line="368"/>
         <source>Delete</source>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="429"/>
+        <location filename="../src/preferences/preferences.ui" line="336"/>
         <location filename="../src/preferences/preferences.cpp" line="669"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Observera: Du kan inte ta bort aktiv profil.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="439"/>
+        <location filename="../src/preferences/preferences.ui" line="413"/>
         <source>Check for updates on start</source>
         <translation>Leta efter uppdateringar vid start</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="468"/>
+        <location filename="../src/preferences/preferences.ui" line="482"/>
         <source>Themes</source>
         <translation>Teman</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="481"/>
+        <location filename="../src/preferences/preferences.ui" line="495"/>
         <source>Advanced options</source>
         <translation>Avancerade alternativ</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="487"/>
+        <location filename="../src/preferences/preferences.ui" line="501"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;b&gt;Webbläsarfönster&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="512"/>
+        <location filename="../src/preferences/preferences.ui" line="526"/>
         <source>Show StatusBar on start</source>
         <translation>Visa statusrad vid start</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="519"/>
+        <location filename="../src/preferences/preferences.ui" line="533"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>Visa bokmärkesverktygsraden vid start</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="526"/>
+        <location filename="../src/preferences/preferences.ui" line="540"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>Visa navigeringsverktygsraden vid start</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="548"/>
+        <location filename="../src/preferences/preferences.ui" line="562"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation>&lt;b&gt;Navigeringsverktygsrad&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="555"/>
+        <location filename="../src/preferences/preferences.ui" line="569"/>
         <source>Show Home button</source>
         <translation>Visa Hem-knapp</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="562"/>
+        <location filename="../src/preferences/preferences.ui" line="576"/>
         <source>Show Back / Forward buttons</source>
         <translation>Visa Framåt/Bakåt-knappar</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="569"/>
+        <location filename="../src/preferences/preferences.ui" line="583"/>
         <source>Show Add Tab button</source>
         <translation>Visa Ny Flik-knapp</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="576"/>
+        <location filename="../src/preferences/preferences.ui" line="590"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
         <translation>&lt;b&gt;Bakgrund&lt;b/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="596"/>
+        <location filename="../src/preferences/preferences.ui" line="610"/>
         <source>Use transparent background</source>
         <translation>Använd genomskinlig bakgrund</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="611"/>
+        <location filename="../src/preferences/preferences.ui" line="625"/>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
         <translation>&lt;b&gt;Flikbeteende&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="634"/>
+        <location filename="../src/preferences/preferences.ui" line="648"/>
         <source>Make tabs movable</source>
         <translation>Gör flikar flyttbara</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="641"/>
+        <location filename="../src/preferences/preferences.ui" line="655"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>Göm flikar när endast en är öppen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="648"/>
+        <location filename="../src/preferences/preferences.ui" line="662"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
         <translation>&lt;b&gt;Adressradens beteende&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="681"/>
+        <location filename="../src/preferences/preferences.ui" line="695"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>Markera all text vid dubbelklick i adressraden</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="688"/>
+        <location filename="../src/preferences/preferences.ui" line="702"/>
         <source>Add .co.uk domain by pressing ALT key</source>
         <translation>Lägg till .se genom att trycka på ALT-knappen</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="722"/>
+        <location filename="../src/preferences/preferences.ui" line="736"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Visa senaste flik när den aktiva fliken stängs</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="695"/>
+        <location filename="../src/preferences/preferences.ui" line="709"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Fråga när flera flikar stängs</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="702"/>
+        <location filename="../src/preferences/preferences.ui" line="716"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Markera all text vid enkelklick i adressraden</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="758"/>
+        <location filename="../src/preferences/preferences.ui" line="772"/>
         <source>Web Configuration</source>
         <translation>Webbinställningar</translation>
     </message>
     <message>
-        <source>Load images</source>
-        <translation type="obsolete">Ladda bilder</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="780"/>
+        <location filename="../src/preferences/preferences.ui" line="794"/>
         <source>Allow JAVA</source>
         <translation>Tillåt JAVA</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="773"/>
+        <location filename="../src/preferences/preferences.ui" line="787"/>
         <source>Allow JavaScript</source>
         <translation>Tillåt Javaskript</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="258"/>
-        <location filename="../src/preferences/preferences.ui" line="406"/>
+        <location filename="../src/preferences/preferences.ui" line="403"/>
         <source>Use current</source>
         <translation>Använd nuvarande</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="446"/>
+        <location filename="../src/preferences/preferences.ui" line="420"/>
         <source>Active profile:</source>
         <translation>Aktiv profil:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="729"/>
+        <location filename="../src/preferences/preferences.ui" line="743"/>
         <source>Don&apos;t quit upon closing last tab</source>
         <translation>Avsluta inte när den sista fliken stängs</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="736"/>
+        <location filename="../src/preferences/preferences.ui" line="750"/>
         <source>Closed tabs list instead of opened in tab bar</source>
         <translation>Lista över stängda flikar istället för öppna i flikraden</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="743"/>
+        <location filename="../src/preferences/preferences.ui" line="757"/>
         <source>Open new tabs after active tab</source>
         <translation>Öppna nya flikar efter den aktiva fliken</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="766"/>
+        <location filename="../src/preferences/preferences.ui" line="780"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>Tillåt insticksmoduler (Flash)</translation>
     </message>
     <message>
-        <source>Block PopUp windows</source>
-        <translation type="obsolete">Blockera PopUp-fönster</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="787"/>
+        <location filename="../src/preferences/preferences.ui" line="801"/>
         <source>Allow DNS Prefetch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1071"/>
+        <location filename="../src/preferences/preferences.ui" line="1085"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>Tillåt lokal lagring av HTML5-innehåll</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1078"/>
+        <location filename="../src/preferences/preferences.ui" line="1092"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Ta bort lokalt sparade HTML5-data vid avslut</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1833"/>
+        <location filename="../src/preferences/preferences.ui" line="1847"/>
         <source>JavaScript can access clipboard</source>
         <translatorcomment>Klippbord?</translatorcomment>
         <translation>Javaskript kan komma åt klippbordet</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1847"/>
+        <location filename="../src/preferences/preferences.ui" line="1861"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Skicka Do Not Track-instruktioner till servrar</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="815"/>
+        <location filename="../src/preferences/preferences.ui" line="829"/>
         <source>Zoom text only</source>
         <translation>Zooma endast text</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="801"/>
+        <location filename="../src/preferences/preferences.ui" line="815"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>Skriv ut elements bakgrunder</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="808"/>
+        <location filename="../src/preferences/preferences.ui" line="822"/>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
         <translation>Inkludera länkar i fokuskedjan</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="794"/>
+        <location filename="../src/preferences/preferences.ui" line="808"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>Tillått XSS-auditering</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="839"/>
+        <location filename="../src/preferences/preferences.ui" line="853"/>
         <source>Mouse wheel scrolls</source>
         <translation>Mushjulet skrollar</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="859"/>
+        <location filename="../src/preferences/preferences.ui" line="873"/>
         <source>lines on page</source>
         <translation>rader på sidan</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="870"/>
+        <location filename="../src/preferences/preferences.ui" line="884"/>
         <source>Default zoom on pages: </source>
         <translation>Standardzoom på sidor:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="822"/>
+        <location filename="../src/preferences/preferences.ui" line="836"/>
         <source>Ask when entering Private Browsing mode</source>
         <translation>Fråga när privat läge aktiveras</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="922"/>
+        <location filename="../src/preferences/preferences.ui" line="936"/>
         <source>Local Storage</source>
         <translation>Lokal lagring</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="930"/>
+        <location filename="../src/preferences/preferences.ui" line="944"/>
         <source>Maximum pages in cache: </source>
         <translation>Maximalt antal sidor i cache:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="949"/>
+        <location filename="../src/preferences/preferences.ui" line="963"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="990"/>
+        <location filename="../src/preferences/preferences.ui" line="1004"/>
         <source>Allow storing network cache on disk</source>
         <translation>Tillåt att nätverkscache lagras på hårddisken</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1000"/>
+        <location filename="../src/preferences/preferences.ui" line="1014"/>
         <source>Maximum </source>
         <translation>Maximal</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1007"/>
+        <location filename="../src/preferences/preferences.ui" line="1021"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1034"/>
+        <location filename="../src/preferences/preferences.ui" line="1048"/>
         <source>Allow storing web icons</source>
         <translation>Tillåt att webbikoner lagras</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1041"/>
+        <location filename="../src/preferences/preferences.ui" line="1055"/>
         <source>Allow saving history</source>
         <translation>Tillåt att historik sparas</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1048"/>
+        <location filename="../src/preferences/preferences.ui" line="1062"/>
         <source>Delete history on close</source>
         <translation>Ta bort historik vid avslut</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1104"/>
+        <location filename="../src/preferences/preferences.ui" line="1118"/>
         <source>Delete now</source>
         <translation>Ta bort nu</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1127"/>
+        <location filename="../src/preferences/preferences.ui" line="1141"/>
         <source>Proxy Configuration</source>
         <translation>Proxyinställningar</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1136"/>
+        <location filename="../src/preferences/preferences.ui" line="1150"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1141"/>
+        <location filename="../src/preferences/preferences.ui" line="1155"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1154"/>
+        <location filename="../src/preferences/preferences.ui" line="1168"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1173"/>
+        <location filename="../src/preferences/preferences.ui" line="1187"/>
         <source>Username:</source>
         <translation>Användarnamn:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1183"/>
+        <location filename="../src/preferences/preferences.ui" line="1197"/>
         <source>Password:</source>
         <translation>Lösenord:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1209"/>
+        <location filename="../src/preferences/preferences.ui" line="1223"/>
         <source>Don&apos;t use on:</source>
         <translation>Använd inte på:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1216"/>
+        <location filename="../src/preferences/preferences.ui" line="1230"/>
         <source>Manual configuration</source>
         <translation>Manuell inställning</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1223"/>
+        <location filename="../src/preferences/preferences.ui" line="1237"/>
         <source>System proxy configuration</source>
         <translation>Global proxyinställning</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1230"/>
+        <location filename="../src/preferences/preferences.ui" line="1244"/>
         <source>Do not use proxy</source>
         <translation>Använd inte proxy</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1276"/>
+        <location filename="../src/preferences/preferences.ui" line="1290"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Teckensnittsfamilerj&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1289"/>
+        <location filename="../src/preferences/preferences.ui" line="1303"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1296"/>
+        <location filename="../src/preferences/preferences.ui" line="1310"/>
         <source>Fixed</source>
         <translation>Fast</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1306"/>
+        <location filename="../src/preferences/preferences.ui" line="1320"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1316"/>
+        <location filename="../src/preferences/preferences.ui" line="1330"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1326"/>
+        <location filename="../src/preferences/preferences.ui" line="1340"/>
         <source>Cursive</source>
         <translation>Kursiv</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1554"/>
+        <location filename="../src/preferences/preferences.ui" line="1568"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Extern nedladdningshanterare&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1561"/>
+        <location filename="../src/preferences/preferences.ui" line="1575"/>
         <source>Use external download manager</source>
         <translation>Använd extern nedladdningshanterare</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1573"/>
+        <location filename="../src/preferences/preferences.ui" line="1587"/>
         <source>Executable:</source>
         <translation>Körbar fil:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1580"/>
+        <location filename="../src/preferences/preferences.ui" line="1594"/>
         <source>Arguments:</source>
         <translation>Argument:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1707"/>
+        <location filename="../src/preferences/preferences.ui" line="1721"/>
         <source>Filter tracking cookies</source>
         <translation>Filtrera spårningskakor</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1751"/>
+        <location filename="../src/preferences/preferences.ui" line="1765"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2141"/>
+        <location filename="../src/preferences/preferences.ui" line="2089"/>
         <source>Change browser identification:</source>
         <translation>Ändra webbläsaridentifiering:</translation>
     </message>
     <message>
-        <source>Default Font</source>
-        <translation type="obsolete">Standardteckensnitt</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="1378"/>
+        <location filename="../src/preferences/preferences.ui" line="1392"/>
         <source>Fantasy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1385"/>
+        <location filename="../src/preferences/preferences.ui" line="1399"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Teckensnittsstorlek&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1394"/>
+        <location filename="../src/preferences/preferences.ui" line="1408"/>
         <source>Fixed Font Size</source>
         <translation>Fast typsnittsstorlek</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1401"/>
+        <location filename="../src/preferences/preferences.ui" line="1415"/>
         <source>Default Font Size</source>
         <translation>Standardtypsnittsstorlek</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1428"/>
+        <location filename="../src/preferences/preferences.ui" line="1442"/>
         <source>Minimum Font Size</source>
         <translation>Minsta typsnittsstorlek</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1435"/>
+        <location filename="../src/preferences/preferences.ui" line="1449"/>
         <source>Minimum Logical Font Size</source>
         <translation>Minsta logiska typsnittsstorlek</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1468"/>
+        <location filename="../src/preferences/preferences.ui" line="1482"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nedladdningsdestination&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1475"/>
+        <location filename="../src/preferences/preferences.ui" line="1489"/>
         <source>Ask everytime for download location</source>
         <translation>Fråga efter nedladdningsdestination varje gång</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1482"/>
+        <location filename="../src/preferences/preferences.ui" line="1496"/>
         <source>Use defined location: </source>
         <translation>Använd förinställd destination:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1494"/>
-        <location filename="../src/preferences/preferences.ui" line="1595"/>
-        <location filename="../src/preferences/preferences.ui" line="2090"/>
+        <location filename="../src/preferences/preferences.ui" line="1508"/>
+        <location filename="../src/preferences/preferences.ui" line="1609"/>
+        <location filename="../src/preferences/preferences.ui" line="2051"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1532"/>
+        <location filename="../src/preferences/preferences.ui" line="1546"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nedladdningsinställningar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1539"/>
+        <location filename="../src/preferences/preferences.ui" line="1553"/>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
         <translation>Använd systemets egna filhanterare 
 (skapar eventuellt problem vid nedladdning av SSL-säkrat material)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1547"/>
+        <location filename="../src/preferences/preferences.ui" line="1561"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Stäng nedladdningshanterare när alla nedladdningar avslutas</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1623"/>
+        <location filename="../src/preferences/preferences.ui" line="1637"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Autofyll-alternativ&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1630"/>
+        <location filename="../src/preferences/preferences.ui" line="1644"/>
         <source>Allow saving passwords from sites</source>
         <translation>Tillåt att lösenord lagras på sidor</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1700"/>
+        <location filename="../src/preferences/preferences.ui" line="1714"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Kakor&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Filter Tracking Cookies</source>
-        <translation type="obsolete">Filtrera spårningskakor</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="1714"/>
+        <location filename="../src/preferences/preferences.ui" line="1728"/>
         <source>Allow storing of cookies</source>
         <translation>Tillåt lagring av kakor</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1721"/>
+        <location filename="../src/preferences/preferences.ui" line="1735"/>
         <source>Delete cookies on close</source>
         <translation>Ta bort kakor vid avslut</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1728"/>
+        <location filename="../src/preferences/preferences.ui" line="1742"/>
         <source>Match domain exactly</source>
         <translation>Matcha domännamn exakt</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="obsolete">&lt;b&gt;Varning:&lt;/b&gt;Alternativen Matcha domännamn exakt och Filtrera spårningskakor kan leda till att vissa kakor från vissa sidor kan blockeras. Om du har problem med kakor, prov att inaktivera dessa alternativ först! </translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="1767"/>
+        <location filename="../src/preferences/preferences.ui" line="1781"/>
         <source>Cookies Manager</source>
         <translation>Kakhanterare</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1790"/>
+        <location filename="../src/preferences/preferences.ui" line="1804"/>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL-certifikat&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1803"/>
+        <location filename="../src/preferences/preferences.ui" line="1817"/>
         <source>SSL Manager</source>
         <translation>SSL-hanterare</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1810"/>
+        <location filename="../src/preferences/preferences.ui" line="1824"/>
         <source>Edit CA certificates in SSL Manager</source>
         <translation>Redigera CA-certifikat i SSL-hanterare</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1840"/>
-        <location filename="../src/preferences/preferences.ui" line="2073"/>
+        <location filename="../src/preferences/preferences.ui" line="1854"/>
+        <location filename="../src/preferences/preferences.ui" line="2034"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1854"/>
+        <location filename="../src/preferences/preferences.ui" line="1868"/>
         <source>Send Referer header to servers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1861"/>
+        <location filename="../src/preferences/preferences.ui" line="1875"/>
         <source>Block popup windows</source>
         <translation>Blockera popup-fönster</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1874"/>
+        <location filename="../src/preferences/preferences.ui" line="1888"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Notifikationer&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1881"/>
+        <location filename="../src/preferences/preferences.ui" line="1895"/>
         <source>Use OSD Notifications</source>
         <translation>Använd OSD-notifikationer</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1891"/>
+        <location filename="../src/preferences/preferences.ui" line="1905"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Använd systemets egna notifikationssystem (endast Linux)</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1898"/>
+        <location filename="../src/preferences/preferences.ui" line="1912"/>
         <source>Do not use Notifications</source>
         <translation>Använd inte notifikationer</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1949"/>
+        <location filename="../src/preferences/preferences.ui" line="1963"/>
         <source>Expiration timeout:</source>
         <translation>Tiden löper ut:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1962"/>
+        <location filename="../src/preferences/preferences.ui" line="1976"/>
         <source> seconds</source>
         <translation>sekunder</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="1971"/>
+        <location filename="../src/preferences/preferences.ui" line="1985"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Observera:&lt;/b&gt;Du kan ändra notifikationernas placering genom att dra runt dem på skärmen.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2020"/>
+        <location filename="../src/preferences/preferences.ui" line="441"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Språk&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2027"/>
+        <location filename="../src/preferences/preferences.ui" line="462"/>
         <source>Available translations: </source>
         <translation>Tillgängliga översätningar:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2066"/>
+        <location filename="../src/preferences/preferences.ui" line="434"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>För att byta språk måste du starta om webbläsaren.</translation>
     </message>
     <message>
-        <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Användarens CSS-stilblad</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences/preferences.ui" line="2080"/>
+        <location filename="../src/preferences/preferences.ui" line="2041"/>
         <source>StyleSheet automatically loaded with all websites: </source>
         <translation>Stilblad som automatiskt laddas med alla webbsidor: </translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2099"/>
+        <location filename="../src/preferences/preferences.ui" line="2060"/>
         <source>Languages</source>
         <translation>Språk</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.ui" line="2121"/>
+        <location filename="../src/preferences/preferences.ui" line="2082"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Föredraget språk för hemsidor&lt;/b&gt;</translation>
     </message>
@@ -3102,10 +2832,6 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">Ny flik</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="248"/>
         <source>Private Browsing Enabled</source>
         <translation>Privat surfning aktiverat</translation>
@@ -3186,10 +2912,6 @@
         <translation>Skicka länk...</translation>
     </message>
     <message>
-        <source>&amp;Print</source>
-        <translation type="obsolete">&amp;Skriv ut</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="295"/>
         <source>Import bookmarks...</source>
         <translation>Importera bokmärken...</translation>
@@ -3228,10 +2950,6 @@
         <location filename="../src/app/qupzilla.cpp" line="313"/>
         <source>&amp;Paste</source>
         <translation>K&amp;listra in</translation>
-    </message>
-    <message>
-        <source>&amp;Delete</source>
-        <translation type="obsolete">&amp;Ta bort</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="315"/>
@@ -3443,10 +3161,6 @@
         <translation>&amp;Om QupZilla</translation>
     </message>
     <message>
-        <source>Informations about application</source>
-        <translation type="obsolete">Information om programmet</translation>
-    </message>
-    <message>
         <location filename="../src/app/qupzilla.cpp" line="471"/>
         <source>Report &amp;Issue</source>
         <translation>Rapportera &amp;problem</translation>
@@ -3616,10 +3330,6 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="177"/>
         <source>About QupZilla</source>
         <translation>Om QupZilla</translation>
-    </message>
-    <message>
-        <source>Informations about version</source>
-        <translation type="obsolete">Information om version</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="179"/>
@@ -3934,17 +3644,9 @@ Lägg till flöden med RSS-ikonen i navigeringsraden från sidor som tillhandah�
         <translation>Öppna länk i nuvarande flik</translation>
     </message>
     <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">Öppna länk i nuvarande flik</translation>
-    </message>
-    <message>
         <location filename="../src/rss/rssmanager.cpp" line="235"/>
         <source>Open link in new tab</source>
         <translation>Öppna länk i ny flik</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">Ny flik</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="363"/>
@@ -3969,10 +3671,6 @@ Lägg till flöden med RSS-ikonen i navigeringsraden från sidor som tillhandah�
         <source>Open RSS Manager</source>
         <translation>Öppna RSS-hanterare</translation>
     </message>
-    <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="obsolete">Du har lagt till flödet &quot;%1&quot;. </translation>
-    </message>
 </context>
 <context>
     <name>RSSWidget</name>
@@ -3990,17 +3688,6 @@ Lägg till flöden med RSS-ikonen i navigeringsraden från sidor som tillhandah�
         <location filename="../src/rss/rsswidget.cpp" line="55"/>
         <source>Add</source>
         <translation>Lägg till</translation>
-    </message>
-</context>
-<context>
-    <name>ReloadStopButton</name>
-    <message>
-        <source>Stop</source>
-        <translation type="obsolete">Stopp</translation>
-    </message>
-    <message>
-        <source>Reload</source>
-        <translation type="obsolete">Hämta om</translation>
     </message>
 </context>
 <context>
@@ -4174,7 +3861,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
 <context>
     <name>SearchToolBar</name>
     <message>
-        <location filename="../src/webview/searchtoolbar.cpp" line="134"/>
+        <location filename="../src/webview/searchtoolbar.cpp" line="132"/>
         <source>No results found.</source>
         <translation>Inga resultat hittade.</translation>
     </message>
@@ -4213,13 +3900,6 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
         <location filename="../src/sidebar/sidebar.cpp" line="55"/>
         <source>History</source>
         <translation>Historik</translation>
-    </message>
-</context>
-<context>
-    <name>SiteIcon</name>
-    <message>
-        <source>Show informations about this page</source>
-        <translation type="obsolete">Visa information om denna sidan</translation>
     </message>
 </context>
 <context>
@@ -4652,17 +4332,9 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
         <source>Restore &amp;Closed Tab</source>
         <translation>Återställ &amp;stängd flik</translation>
     </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Ny flik</translation>
-    </message>
 </context>
 <context>
     <name>TabWidget</name>
-    <message>
-        <source>Show list of opened tabs</source>
-        <translation type="obsolete">Visa lista med öppna flikar</translation>
-    </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
@@ -4687,10 +4359,6 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
         <location filename="../src/webview/tabwidget.cpp" line="259"/>
         <source>Currently you have %1 opened tabs</source>
         <translation>Du har för närvarande %1 öppna flikar</translation>
-    </message>
-    <message>
-        <source>Actually you have %1 opened tabs</source>
-        <translation type="obsolete">För tillfället har du %1 öppna flikar</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="271"/>
@@ -4735,158 +4403,6 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
         <location filename="../src/webview/tabbedwebview.cpp" line="323"/>
         <source>Inspect Element</source>
         <translation>Granska element</translation>
-    </message>
-    <message>
-        <source>Open link in new &amp;tab</source>
-        <translation type="obsolete">Öppna länk i ny &amp;flik</translation>
-    </message>
-    <message>
-        <source>Open link in new &amp;window</source>
-        <translation type="obsolete">Öppna länk i nytt &amp;fönster</translation>
-    </message>
-    <message>
-        <source>B&amp;ookmark link</source>
-        <translation type="obsolete">Bokmärk &amp;länk</translation>
-    </message>
-    <message>
-        <source>&amp;Save link as...</source>
-        <translation type="obsolete">&amp;Spara länk som...</translation>
-    </message>
-    <message>
-        <source>Send link...</source>
-        <translation type="obsolete">Skicka länk...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy link address</source>
-        <translation type="obsolete">&amp;Kopiera länkadress</translation>
-    </message>
-    <message>
-        <source>Show i&amp;mage</source>
-        <translation type="obsolete">Visa &amp;bild</translation>
-    </message>
-    <message>
-        <source>Copy im&amp;age</source>
-        <translation type="obsolete">Kopiera &amp;bild</translation>
-    </message>
-    <message>
-        <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">Kopiera bild&amp;adress</translation>
-    </message>
-    <message>
-        <source>&amp;Save image as...</source>
-        <translation type="obsolete">&amp;Spara bild som...</translation>
-    </message>
-    <message>
-        <source>Send image...</source>
-        <translation type="obsolete">Skicka bild...</translation>
-    </message>
-    <message>
-        <source>&amp;Back</source>
-        <translation type="obsolete">&amp;Bakåt</translation>
-    </message>
-    <message>
-        <source>&amp;Forward</source>
-        <translation type="obsolete">&amp;Framåt</translation>
-    </message>
-    <message>
-        <source>&amp;Reload</source>
-        <translation type="obsolete">&amp;Hämta om</translation>
-    </message>
-    <message>
-        <source>S&amp;top</source>
-        <translation type="obsolete">&amp;Stopp</translation>
-    </message>
-    <message>
-        <source>This frame</source>
-        <translation type="obsolete">Denna ram</translation>
-    </message>
-    <message>
-        <source>Show &amp;only this frame</source>
-        <translation type="obsolete">Visa &amp;endast denna ramen</translation>
-    </message>
-    <message>
-        <source>Show this frame in new &amp;tab</source>
-        <translation type="obsolete">Visa denna ramen i ny &amp;flik</translation>
-    </message>
-    <message>
-        <source>Print frame</source>
-        <translation type="obsolete">Skriv ut ram</translation>
-    </message>
-    <message>
-        <source>Zoom &amp;in</source>
-        <translation type="obsolete">Zooma &amp;in</translation>
-    </message>
-    <message>
-        <source>&amp;Zoom out</source>
-        <translation type="obsolete">Zooma &amp;ut</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="obsolete">Återställ</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">Visa ramens &amp;källa</translation>
-    </message>
-    <message>
-        <source>Book&amp;mark page</source>
-        <translation type="obsolete">Bok&amp;märk sida</translation>
-    </message>
-    <message>
-        <source>&amp;Save page as...</source>
-        <translation type="obsolete">&amp;Spara sida som...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy page link</source>
-        <translation type="obsolete">&amp;Kopiera sidlänk</translation>
-    </message>
-    <message>
-        <source>Send page link...</source>
-        <translation type="obsolete">Skicka länk till sida...</translation>
-    </message>
-    <message>
-        <source>&amp;Print page</source>
-        <translation type="obsolete">&amp;Skriv ut sida</translation>
-    </message>
-    <message>
-        <source>Select &amp;all</source>
-        <translation type="obsolete">Markera &amp;allt</translation>
-    </message>
-    <message>
-        <source>Validate page</source>
-        <translation type="obsolete">Validera sida</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce code</source>
-        <translation type="obsolete">Visa &amp;källkod</translation>
-    </message>
-    <message>
-        <source>Show Web &amp;Inspector</source>
-        <translation type="obsolete">Visa webbinspektören</translation>
-    </message>
-    <message>
-        <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">Visa &amp;information om denna sida</translation>
-    </message>
-    <message>
-        <source>Send text...</source>
-        <translation type="obsolete">Skicka text...</translation>
-    </message>
-    <message>
-        <source>Google Translate</source>
-        <translation type="obsolete">Google Översätt</translation>
-    </message>
-    <message>
-        <source>Dictionary</source>
-        <translation type="obsolete">Ordlista</translation>
-    </message>
-    <message>
-        <source>Go to &amp;web address</source>
-        <translation type="obsolete">Gå till &amp;webadress</translation>
-    </message>
-    <message>
-        <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="obsolete">Sök efter&quot;%1 ..&quot;på %2  </translation>
     </message>
 </context>
 <context>
@@ -4960,146 +4476,138 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="260"/>
+        <location filename="../src/webview/webpage.cpp" line="280"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">Ny flik</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webpage.cpp" line="262"/>
+        <location filename="../src/webview/webpage.cpp" line="282"/>
         <source>Confirm form resubmission</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="368"/>
+        <location filename="../src/webview/webpage.cpp" line="388"/>
         <source>Select files to upload...</source>
         <translation>Välj filer att ladda upp...</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="389"/>
+        <location filename="../src/webview/webpage.cpp" line="409"/>
         <source>Server refused the connection</source>
         <translation>Servern vägrade ansluta</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="392"/>
+        <location filename="../src/webview/webpage.cpp" line="412"/>
         <source>Server closed the connection</source>
         <translation>Servern avbröt anslutningen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="395"/>
+        <location filename="../src/webview/webpage.cpp" line="415"/>
         <source>Server not found</source>
         <translation>Servern hittades inte</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="398"/>
+        <location filename="../src/webview/webpage.cpp" line="418"/>
         <source>Connection timed out</source>
         <translation>Anslutningen upphörde</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="401"/>
+        <location filename="../src/webview/webpage.cpp" line="421"/>
         <source>Untrusted connection</source>
         <translation>Osäker anslutning</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="404"/>
+        <location filename="../src/webview/webpage.cpp" line="424"/>
         <source>Temporary network failure</source>
         <translation>Temporärt nätverksfel</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="407"/>
+        <location filename="../src/webview/webpage.cpp" line="427"/>
         <source>Proxy connection refused</source>
         <translation>Proxyanslutning vägrad</translation>
     </message>
     <message>
-        <source>Proxy host name not found</source>
-        <translation type="obsolete">Proxyvärdnamn hittades inte</translation>
-    </message>
-    <message>
-        <location filename="../src/webview/webpage.cpp" line="410"/>
+        <location filename="../src/webview/webpage.cpp" line="430"/>
         <source>Proxy server not found</source>
         <translation>Proxyserver ej hittad</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="413"/>
+        <location filename="../src/webview/webpage.cpp" line="433"/>
         <source>Proxy connection timed out</source>
         <translation>Proxyanslutning upphörde</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="416"/>
+        <location filename="../src/webview/webpage.cpp" line="436"/>
         <source>Proxy authentication required</source>
         <translation>Proxyautentisering krävs</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="419"/>
+        <location filename="../src/webview/webpage.cpp" line="439"/>
         <source>Content not found</source>
         <translation>Innehåll hittades inte</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="445"/>
+        <location filename="../src/webview/webpage.cpp" line="465"/>
         <source>AdBlocked Content</source>
         <translation>Reklamblockerat innehåll</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="449"/>
+        <location filename="../src/webview/webpage.cpp" line="469"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Blockart av regeln &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="465"/>
+        <location filename="../src/webview/webpage.cpp" line="485"/>
         <source>Content Access Denied</source>
         <translation>Innehållsåtkomst nekad</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="473"/>
+        <location filename="../src/webview/webpage.cpp" line="493"/>
         <source>Error code %1</source>
         <translation>Felkod %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="485"/>
+        <location filename="../src/webview/webpage.cpp" line="505"/>
         <source>Failed loading page</source>
         <translation>Misslyckades med att hämta sidan</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="492"/>
+        <location filename="../src/webview/webpage.cpp" line="512"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla kan inte hämta sidan från %1.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="493"/>
+        <location filename="../src/webview/webpage.cpp" line="513"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Kontrollera adressen efter stavfel såsom &lt;b&gt;ww.&lt;/b&gt;exempel.se istället för &lt;b&gt;www.&lt;/b&gt;exempel.se</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="494"/>
+        <location filename="../src/webview/webpage.cpp" line="514"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Om du inte kan hämta några sidor alls, kontrollera din dators nätverksanslutning.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="495"/>
+        <location filename="../src/webview/webpage.cpp" line="515"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Om din dator eller ditt nätverk är skyddat av en brandvägg eller proxy, kontrollera att QupZilla är tillåten att komma åt webben.</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="496"/>
+        <location filename="../src/webview/webpage.cpp" line="516"/>
         <source>Try Again</source>
         <translation>Försök igen</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="599"/>
+        <location filename="../src/webview/webpage.cpp" line="619"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Förhindra att denna sidan skapar fler dialogrutor</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="603"/>
+        <location filename="../src/webview/webpage.cpp" line="623"/>
         <source>JavaScript alert - %1</source>
         <translation>Javaskriptvarning - %1</translation>
     </message>
     <message>
-        <location filename="../src/webview/webpage.cpp" line="653"/>
+        <location filename="../src/webview/webpage.cpp" line="673"/>
         <source>Choose file...</source>
         <translation>Välj fil...</translation>
     </message>
@@ -5112,31 +4620,23 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
         <translation>Hantera sökmotorer</translation>
     </message>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="176"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="180"/>
         <source>Add %1 ...</source>
         <translation>Lägg till %1...</translation>
     </message>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="199"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="203"/>
         <source>Paste And &amp;Search</source>
         <translation>Klistra in och &amp;sök</translation>
     </message>
     <message>
-        <location filename="../src/navigation/websearchbar.cpp" line="205"/>
+        <location filename="../src/navigation/websearchbar.cpp" line="209"/>
         <source>Clear All</source>
         <translation>Rensa allt</translation>
     </message>
 </context>
 <context>
     <name>WebView</name>
-    <message>
-        <source>Failed loading page</source>
-        <translation type="obsolete">Misslyckades med att hämta sidan</translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation type="obsolete">Hämtar...</translation>
-    </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="599"/>
         <source>&amp;Copy page link</source>
@@ -5176,10 +4676,6 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
         <location filename="../src/webview/webview.cpp" line="686"/>
         <source>Go to &amp;web address</source>
         <translation>Gå till &amp;webadress</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">Ny flik</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="623"/>
@@ -5356,10 +4852,6 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
         <location filename="../src/webview/webview.cpp" line="717"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Spara media till &amp;hårddisk</translation>
-    </message>
-    <message>
-        <source>Show Web &amp;Inspector</source>
-        <translation type="obsolete">Visa webbinspektören</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="696"/>

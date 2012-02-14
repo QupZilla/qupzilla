@@ -64,5 +64,5 @@ $translating_moreinfo = "Pode encontrar mais informações sobre o processo de t
 $creators = "Quem é o programador do QupZilla?";
 $creators_text = "O criador e programador principal do Qupzilla é um estudante Checo de nome <b>David Rosca</b> (nowrep).<br/>Para além do programador principal, outras pessoas ajudam no desenvolvimento, tradução e apoio ao QupZilla. Pode encontrar a lista de contributos <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>aqui</a> [no github].<br/><br/>Você também pode ajudar. Aceda ao canal IRC do <b>#qupzilla</b> em irc.freenode.net e converse com as pessoas envolvidas no desenvolvimento do QupZilla.";
 $share_with_friends = "Partilhar com os amigos!";
-$share_with_friends_text = "Gosta do QupZilla? Então, partilhe-o com os seus amigos!"
+$share_with_friends_text = "Gosta do QupZilla? Então, partilhe-o com os seus amigos!";
 ?>

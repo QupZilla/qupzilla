@@ -70,5 +70,5 @@ Apart from coding, others are contributing also by making translations or suppor
 //$contributors = "Contributors";
 //$contributors_text = "Full list of contributors can be found on <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>github</a>.<br/>You can also join IRC channel #qupzilla at irc.freenode.net.";
 $share_with_friends = "Podziel się ze znajomymi!";
-$share_with_friends_text = "Lubisz QupZille? W takim razie podziel się nią ze swoimi znajomymi!"
+$share_with_friends_text = "Lubisz QupZille? W takim razie podziel się nią ze swoimi znajomymi!";
 ?>
