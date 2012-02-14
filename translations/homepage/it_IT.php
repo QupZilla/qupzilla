@@ -69,5 +69,5 @@ $creators = "Chi crea QupZilla?";
 $creators_text = "Il proprietario, mantenitore e sviluppatore principale del progetto è lo studente Ceco <b>David Rosca</b> (nowrep).<br/>
 Oltre alla programmazione, anche altre persone contribuiscono a QupZilla, traducendolo o supportandolo. La lista completa dei collaboratori può essere trovata <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>qui</a> [su github].<br/><br/>Puoi anche collegarti al canale IRC <b>#qupzilla</b> su irc.freenode.net per parlare con le persone coinvolte in QupZilla.";
 $share_with_friends = "Dillo ai tuoi amici!";
-$share_with_friends_text = "Ti piace QupZilla? Allora condividilo con i tuoi amici!"
+$share_with_friends_text = "Ti piace QupZilla? Allora condividilo con i tuoi amici!";
 ?>

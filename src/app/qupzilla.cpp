@@ -64,7 +64,7 @@
 #include "webtab.h"
 #include "speeddial.h"
 
-const QString QupZilla::VERSION = "1.1.5";
+const QString QupZilla::VERSION = "1.1.8";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2012";
