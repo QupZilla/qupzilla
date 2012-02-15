@@ -100,12 +100,12 @@
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="14"/>
         <source>AdBlock Configuration</source>
-        <translation>AdBlock設定</translation>
+        <translation>廣告封鎖設定</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="20"/>
         <source>Enable AdBlock</source>
-        <translation>允許 AdBlock</translation>
+        <translation>允許廣告封鎖</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="39"/>
@@ -131,7 +131,7 @@
     <message>
         <location filename="../src/adblock/adblockdialog.ui" line="114"/>
         <source>AdBlock</source>
-        <translation></translation>
+        <translation>廣告封鎖</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="101"/>
@@ -168,17 +168,17 @@
     <name>AdBlockIcon</name>
     <message>
         <source>AdBlock lets you block unwanted content on web-pages</source>
-        <translation>AdBlock可以幫你封鎖網頁上不想要的內容</translation>
+        <translation>廣告封鎖可以幫你封鎖網頁上不想要的內容</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="31"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation>AdBlock可以幫你封鎖網頁上不想要的內容</translation>
+        <translation>廣告封鎖可以幫你封鎖網頁上不想要的內容</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="41"/>
         <source>Show AdBlock &amp;Settings</source>
-        <translation>顯示AdBlock的設定 (&amp;S)</translation>
+        <translation>顯示廣告封鎖的設定 (&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="45"/>
@@ -3327,7 +3327,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="854"/>
         <source>&amp;AdBlock</source>
-        <translation>AdBlock(&amp;A)</translation>
+        <translation>廣告封鎖(&amp;A)</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="855"/>
@@ -3373,6 +3373,11 @@
         <location filename="../src/app/qupzilla.cpp" line="1289"/>
         <source>%1 - QupZilla</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="292"/>
+        <source>&amp;Print...</source>
+        <translation>列印...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1366"/>
@@ -4607,7 +4612,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabbedwebview.cpp" line="318"/>
         <source>Inspect Element</source>
-        <translation></translation>
+        <translation>檢查元素</translation>
     </message>
     <message>
         <source>Open link in new &amp;tab</source>
@@ -4878,7 +4883,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="428"/>
         <source>AdBlocked Content</source>
-        <translation>AdBlocked內容</translation>
+        <translation>封鎖廣告內容內容</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="432"/>
