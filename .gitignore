@@ -13,7 +13,9 @@ src-*
 bin/qupzilla
 bin/plugins/libExamplePlugin.so
 *.autosave
+*~
 bin/core
 qupzilla.sh
 git_revision
 bin/qupzilla.exe
+Thumbs.db
