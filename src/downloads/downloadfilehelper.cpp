@@ -238,11 +238,14 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
             reg.indexIn(value);
             path = QUrl::fromPercentEncoding(reg.cap(1).toUtf8()).trimmed();
         }
-        else if (value.contains("filename=\"")) {
-            QRegExp reg("filename=\"(.*)\"");
-            reg.setMinimal(true);
+        else if (value.contains("filename=")) {
+            QRegExp reg("filename=([^;]*)");
             reg.indexIn(value);
             path = reg.cap(1).trimmed();
+
+            if (path.startsWith("\"") && path.endsWith("\"")) {
+                path = path.mid(1, path.length() - 2);
+            }
         }
     }
     if (path.isEmpty()) {
