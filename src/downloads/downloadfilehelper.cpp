@@ -231,13 +231,18 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
     QString path;
     if (reply->hasRawHeader("Content-Disposition")) {
         QString value = QString::fromLatin1(reply->rawHeader("Content-Disposition"));
-        int pos = value.indexOf("filename=");
-        if (pos != -1) {
-            QString name = value.mid(pos + 9);
-            if (name.startsWith('"') && name.endsWith('"')) {
-                name = name.mid(1, name.size() - 2);
-            }
-            path = name;
+
+        // We try to use UTF-8 encoded filename first if present
+        if (value.contains("filename*=UTF-8")) {
+            QRegExp reg("filename\\*=UTF-8''([^;]*)");
+            reg.indexIn(value);
+            path = QUrl::fromPercentEncoding(reg.cap(1).toUtf8()).trimmed();
+        }
+        else if (value.contains("filename=\"")) {
+            QRegExp reg("filename=\"(.*)\"");
+            reg.setMinimal(true);
+            reg.indexIn(value);
+            path = reg.cap(1).trimmed();
         }
     }
     if (path.isEmpty()) {
@@ -257,10 +262,7 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
     }
 
     QString name = baseName + endName;
-    if (name.startsWith("\"")) {
-        name = name.mid(1);
-    }
-    if (name.endsWith("\";")) {
+    if (name.contains("\"")) {
         name.remove("\";");
     }
 
