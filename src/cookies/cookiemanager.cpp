@@ -151,7 +151,7 @@ void CookieManager::slotRefreshTable()
     int counter = 0;
     QString cookieDomain;
     for (int i = 0; i < allCookies.count(); ++i) {
-        const QNetworkCookie& cookie = allCookies.at(i);
+        const QNetworkCookie &cookie = allCookies.at(i);
         QTreeWidgetItem* item;
 
         cookieDomain = cookie.domain();

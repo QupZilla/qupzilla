@@ -12,11 +12,6 @@
 }
 
 /*MainWindow*/
-#mainwindow-menubar:item
-{
-    color: black;
-}
-
 #statusbar-ip-label
 {
     padding-right: 5px;
@@ -115,7 +110,6 @@
 #locationbar
 {
     border-width:4;
-    color:black;
     padding-left: 22px;
     padding-top: -2px;
     qproperty-fixedheight: 27;
@@ -187,7 +181,6 @@
 #websearchbar
 {
     border-width:4;
-    color:black;
     padding-left: 30px;
     padding-top: -2px;
     qproperty-fixedheight: 27;
