@@ -199,14 +199,14 @@ void LocationBar::showUrl(const QUrl &url)
         return;
     }
 
-    QString encodedUrl = url.toEncoded();
+    QString stringUrl = url.toString();
 
-    if (url.toString() == "qupzilla:speeddial" || url.toString() == "about:blank") {
-        encodedUrl = "";
+    if (stringUrl == "qupzilla:speeddial" || stringUrl == "about:blank") {
+        stringUrl = "";
     }
 
     if (url.toEncoded() != text()) {
-        setText(encodedUrl);
+        setText(stringUrl);
     }
 
     p_QupZilla->statusBarMessage()->clearMessage();
@@ -303,7 +303,7 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
         ++i;
     }
 
-    delete tempMenu;
+    tempMenu->deleteLater();
 
     m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());
 

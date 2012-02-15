@@ -62,7 +62,7 @@ void PopupLocationBar::setView(PopupWebView* view)
 
 void PopupLocationBar::showUrl(const QUrl &url)
 {
-    setText(url.toEncoded());
+    setText(url.toString());
     setCursorPosition(0);
 }
 
