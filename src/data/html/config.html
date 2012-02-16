@@ -18,6 +18,7 @@ table.tbl {width: 100%;margin: 15px 0;border-radius: 4px;padding: 0px;border: 2p
 .tbl th[colspan="2"] {text-align: center;background: #ddd;font-style:normal;}
 .tbl td{border-radius: 2px;border: 1px solid #aaa;text-align: center;padding:1px 3px;}
 .tbl td:first-child{background: #eee;text-align: left;padding:1px 3px 1px 5px;}
+.no-available-plugins{background: white !important; text-align: center !important;}
 .tbl td:nth-of-type(2){color: black;max-width: 400px;max-height: 50px;overflow:auto;}
 </style>
 </head>
@@ -29,6 +30,25 @@ table.tbl {width: 100%;margin: 15px 0;border-radius: 4px;padding: 0px;border: 2p
  <dl>
   %VERSION-INFO%
  </dl>
+ 
+ <h2>%BROWSER-IDENTIFICATION%</h2>
+ <p>%USER-AGENT%</p>
+ 
+ <h2>%PATHS%</h2>
+ <dl>
+  %PATHS-TEXT%
+ </dl>
+ 
+ <h2>%PLUGINS%</h2>
+
+  <table class="tbl">
+    <thead>
+      <tr><th>%PL-NAME%</th><th>%PL-VER%</th><th>%PL-AUTH%</th><th>%PL-DESC%</th></tr>
+    </thead>
+    <tbody>
+      %PLUGINS-INFO%
+    </tbody>
+  </table>
 
 <h2>%PREFS%</h2>
 
@@ -38,17 +58,6 @@ table.tbl {width: 100%;margin: 15px 0;border-radius: 4px;padding: 0px;border: 2p
     </thead>
     <tbody>
       %PREFS-INFO%
-    </tbody>
-  </table>
-
-<h2>%PLUGINS%</h2>
-
-  <table class="tbl">
-    <thead>
-      <tr><th>%PL-NAME%</th><th>%PL-VER%</th><th>%PL-AUTH%</th><th>%PL-DESC%</th></tr>
-    </thead>
-    <tbody>
-      %PLUGINS-INFO%
     </tbody>
   </table>
 

@@ -181,28 +181,15 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.replace("%TITLE%", tr("About QupZilla"));
         aPage.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
         aPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
-        aPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
-        aPage.replace("%PATHS%", tr("Paths"));
         aPage.replace("%COPYRIGHT%", tr("Copyright"));
 
         aPage.replace("%VERSION-INFO%",
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), QupZilla::VERSION
-#ifdef GIT_REVISION
-                              + " (" + GIT_REVISION + ")"
-#endif
-                                                          ) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
-        aPage.replace("%PATHS-TEXT%",
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->getActiveProfilPath()) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->getActiveProfilPath() + "settings.ini") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), mApp->getActiveProfilPath() + "session.dat") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), mApp->getActiveProfilPath() + "pinnedtabs.dat") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), mApp->DATADIR) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Plugins"), mApp->PLUGINSDIR) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
+                                                   #ifdef GIT_REVISION
+                                                           + " (" + GIT_REVISION + ")"
+                                                   #endif
+                                                           ) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION));
         aPage.replace("%MAIN-DEVELOPER%", tr("Main developer"));
         aPage.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR.toUtf8(), "nowrep@gmail.com"));
         aPage.replace("%CONTRIBUTORS%", tr("Contributors"));
@@ -212,7 +199,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Mariusz Fik", "fisiu@opensuse.org") + "<br/>" +
                       authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +
                       authorString("Daniele Cocca", "jmc@chakra-project.org")
-                     );
+                      );
         aPage.replace("%TRANSLATORS%", tr("Translators"));
         aPage.replace("%TRANSLATORS-TEXT%",
                       authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
@@ -233,13 +220,10 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Mladen Pejaković", "pejakm@gmail.com") + " (Serbian)<br/>" +
                       authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
                       authorString("Wu Cheng-Hong", "stu2731652@gmail.com") + " (Traditional Chinese)"
-                     );
+                      );
     }
 
-    QString page = aPage;
-    page.replace("%USER-AGENT%", mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()));
-
-    return page;
+    return aPage;
 }
 
 QString QupZillaSchemeReply::speeddialPage()
@@ -304,10 +288,12 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace("%BOX-BORDER%", "qrc:html/box-border.png");
         cPage.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
 
-        cPage.replace("%TITLE%", tr("QupZilla Configuration Information"));
+        cPage.replace("%TITLE%", tr("Configuration Information"));
         cPage.replace("%CONFIG%", tr("Configuration Information"));
         cPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
         cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about Qupzilla's current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports."));
+        cPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
+        cPage.replace("%PATHS%", tr("Paths"));
         cPage.replace("%PREFS%", tr("Preferences"));
         cPage.replace("%OPTION%", tr("Option"));
         cPage.replace("%VALUE%", tr("Value"));
@@ -317,47 +303,90 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace("%PL-AUTH%", tr("Author"));
         cPage.replace("%PL-DESC%", tr("Description"));
 
+        cPage.replace("%PATHS-TEXT%",
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->getActiveProfilPath()) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->getActiveProfilPath() + "settings.ini") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), mApp->getActiveProfilPath() + "session.dat") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), mApp->getActiveProfilPath() + "pinnedtabs.dat") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), mApp->DATADIR) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Plugins"), mApp->PLUGINSDIR) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
+
+        cPage.replace("%USER-AGENT%", mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()));
+
+
         cPage.replace("%VERSION-INFO%",
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), QupZilla::VERSION
-#ifdef GIT_REVISION
-                              + " (" + GIT_REVISION + ")"
-#endif
-                                                          ) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Application version"), QupZilla::VERSION
+                                                   #ifdef GIT_REVISION
+                                                           + " (" + GIT_REVISION + ")"
+                                                   #endif
+                                                           ) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
 
-        QString allGroupsString;
-        QSettings* settings = Settings::globalSettings();
-        foreach (const QString &group, settings->childGroups()) {
-          QString groupString = QString("<tr><th colspan=\"2\">%1</th></tr>").arg(group);
-          settings->beginGroup(group);
+        QString pluginsString;
+        QStringList availablePlugins = mApp->plugins()->getAvailablePlugins();
 
-          foreach (const QString &key, settings->childKeys()) {
-        groupString.append(QString("<tr><td>%1</td><td>%2</td></tr>").arg(key, settings->value(key).toString()));
+        foreach(const QString & fileName, availablePlugins) {
+            PluginInterface* plugin = mApp->plugins()->getPlugin(fileName);
+            if (!plugin) {
+                continue;
+            }
+            pluginsString.append(QString("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td></tr>").arg(
+                                     plugin->pluginName(), plugin->pluginVersion(),
+                                     Qt::escape(plugin->pluginAuthor()), plugin->pluginDescription()));
         }
 
-        settings->endGroup();
+        if (pluginsString.isEmpty()) {
+            pluginsString = QString("<tr><td colspan=4 class=\"no-available-plugins\">%1</td></tr>").arg(tr("No available plugins."));
+        }
 
-        allGroupsString.append(groupString);
+        cPage.replace("%PLUGINS-INFO%", pluginsString);
+
+        QString allGroupsString;
+        QSettings* settings = Settings::globalSettings();
+        foreach(const QString & group, settings->childGroups()) {
+            QString groupString = QString("<tr><th colspan=\"2\">%1</th></tr>").arg(group);
+            settings->beginGroup(group);
+
+            foreach(const QString & key, settings->childKeys()) {
+                const QVariant &keyValue = settings->value(key);
+                QString keyString;
+
+                switch (keyValue.type()) {
+                case QVariant::ByteArray:
+                    keyString = "QByteArray";
+                    break;
+
+                case QVariant::Point: {
+                    const QPoint point = keyValue.toPoint();
+                    keyString = QString("QPoint(%1, %2)").arg(QString::number(point.x()), QString::number(point.y()));
+                    break;
+                }
+
+                case QVariant::StringList:
+                    keyString = keyValue.toStringList().join(",");
+                    break;
+
+                default:
+                        keyString = keyValue.toString();
+                }
+
+                if (keyString.isEmpty()) {
+                    keyString = "\"empty\"";
+                }
+
+                groupString.append(QString("<tr><td>%1</td><td>%2</td></tr>").arg(key, Qt::escape(keyString)));
+            }
+
+            settings->endGroup();
+            allGroupsString.append(groupString);
         }
 
         cPage.replace("%PREFS-INFO%", allGroupsString);
-
-//       getPluginsList());
-    QString pluginsString;
-    QStringList availablePlugins = mApp->plugins()->getAvailablePlugins();
-    QStringList allowedPlugins = mApp->plugins()->getAllowedPlugins();
-    foreach(const QString & fileName, availablePlugins) {
-        PluginInterface* plugin = mApp->plugins()->getPlugin(fileName);
-        if (!plugin) {
-            continue;
-        }
-       pluginsString.append(QString("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td></tr>").arg(plugin->pluginName(), plugin->pluginVersion(), plugin->pluginAuthor().replace("<", "&lt;"), plugin->pluginDescription()));
- }
-
-cPage.replace("%PLUGINS-INFO%", pluginsString);
-
     }
     return cPage;
 }
