@@ -134,7 +134,7 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace("%TYPE%", tr("Issue type"));
     bPage.replace("%DESCRIPTION%", tr("Issue description"));
     bPage.replace("%SEND%", tr("Send"));
-    bPage.replace("%E-MAIL-OPTIONAL%", tr("E-mail is optional<br/><b>Note: </b>Please use English language only."));
+    bPage.replace("%E-MAIL-OPTIONAL%", tr("E-mail is optional<br/><b>Note: </b>Please read how to make a bug report <a href=%1>here</a> first.").arg("https://github.com/nowrep/QupZilla/wiki/Bug-Reports target=_blank"));
     bPage.replace("%FIELDS-ARE-REQUIRED%", tr("Please fill out all required fields!"));
 
     return bPage;
