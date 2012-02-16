@@ -829,49 +829,51 @@
 <context>
     <name>BookmarksWidget</name>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="137"/>
         <source>Edit This Bookmark</source>
-        <translation>Bewerk deze bladwijzer</translation>
+        <translation type="obsolete">Bewerk deze bladwijzer</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="107"/>
         <source>Remove Bookmark</source>
-        <translation>Verwijder bladwijzer</translation>
+        <translation type="obsolete">Verwijder bladwijzer</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="114"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="55"/>
         <source>Name:</source>
         <translation>Naam:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="94"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="48"/>
         <source>Folder:</source>
         <translation>Map:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="72"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="79"/>
+        <source>Remove</source>
+        <translation type="unfinished">Verwijder</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="105"/>
         <source>Save</source>
         <translation>Sla op</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="85"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="118"/>
         <source>Close</source>
         <translation>Sluit</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="160"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="143"/>
         <source>Add into Bookmarks</source>
         <translation>Voeg aan Bladwijzers toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="167"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="150"/>
         <source>Add into Speed Dial</source>
         <translation>Voeg aan Snelkiezer toe</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="196"/>
         <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Voeg bladwijzer toe&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Voeg bladwijzer toe&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
@@ -879,19 +881,18 @@
         <translation>Bewerk bladwijzer</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="45"/>
         <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Bewerk bladwijzer&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Bewerk bladwijzer&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
-        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="113"/>
+        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="48"/>
+        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="111"/>
         <source>Remove from Speed Dial</source>
         <translation>Verwijder uit Snelkiezer</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
-        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="118"/>
+        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="48"/>
+        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="116"/>
         <source>Add to Speed Dial</source>
         <translation>Voeg toe aan Snelkiezer</translation>
     </message>
@@ -1234,7 +1235,7 @@
         <translation>Bestand opslaan als...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="252"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="260"/>
         <source>NoNameDownload</source>
         <translation>GeenNaamVoorDownload</translation>
     </message>
@@ -3007,7 +3008,12 @@ werd niet gevonden!</translation>
         <translation>Informatie over programma</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1762"/>
+        <location filename="../src/app/qupzilla.cpp" line="471"/>
+        <source>Configuration Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="1763"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>U heeft nog steeds %1 geopende tabs en uw sessie zal niet worden opgeslagen. Weet u zeker dat u wilt afsluiten?</translation>
     </message>
@@ -3072,32 +3078,32 @@ werd niet gevonden!</translation>
         <translation>&amp;Print...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="947"/>
+        <location filename="../src/app/qupzilla.cpp" line="948"/>
         <source>Other</source>
         <translation>Overig</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="957"/>
+        <location filename="../src/app/qupzilla.cpp" line="958"/>
         <source>Default</source>
         <translation>Standaard</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1325"/>
+        <location filename="../src/app/qupzilla.cpp" line="1326"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1517"/>
+        <location filename="../src/app/qupzilla.cpp" line="1518"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Huidige cookies kunnen niet worden benaderd.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1518"/>
+        <location filename="../src/app/qupzilla.cpp" line="1519"/>
         <source>Your session is not stored.</source>
         <translation>Uw sessie is niet bewaard.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1525"/>
+        <location filename="../src/app/qupzilla.cpp" line="1526"/>
         <source>Start Private Browsing</source>
         <translation>Start incognito browsen</translation>
     </message>
@@ -3107,16 +3113,16 @@ werd niet gevonden!</translation>
         <translation>Incognito browsen ingeschakeld</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="490"/>
+        <location filename="../src/app/qupzilla.cpp" line="491"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Herstel &amp;gesloten tabblad</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="769"/>
-        <location filename="../src/app/qupzilla.cpp" line="799"/>
-        <location filename="../src/app/qupzilla.cpp" line="838"/>
-        <location filename="../src/app/qupzilla.cpp" line="867"/>
-        <location filename="../src/app/qupzilla.cpp" line="892"/>
+        <location filename="../src/app/qupzilla.cpp" line="770"/>
+        <location filename="../src/app/qupzilla.cpp" line="800"/>
+        <location filename="../src/app/qupzilla.cpp" line="839"/>
+        <location filename="../src/app/qupzilla.cpp" line="868"/>
+        <location filename="../src/app/qupzilla.cpp" line="893"/>
         <source>Empty</source>
         <translation>Leeg</translation>
     </message>
@@ -3166,17 +3172,17 @@ werd niet gevonden!</translation>
         <translation>Sla schermafbeelding op</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="659"/>
+        <location filename="../src/app/qupzilla.cpp" line="660"/>
         <source> (Private Browsing)</source>
         <translation> (Incognito browsen)</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="841"/>
+        <location filename="../src/app/qupzilla.cpp" line="842"/>
         <source>Restore All Closed Tabs</source>
         <translation>Herstel alle gesloten tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="842"/>
+        <location filename="../src/app/qupzilla.cpp" line="843"/>
         <source>Clear list</source>
         <translation>Wis lijst</translation>
     </message>
@@ -3191,7 +3197,7 @@ werd niet gevonden!</translation>
         <translation>&amp;Over QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="471"/>
+        <location filename="../src/app/qupzilla.cpp" line="472"/>
         <source>Report &amp;Issue</source>
         <translation>Rapporteer &amp;probleem</translation>
     </message>
@@ -3241,27 +3247,27 @@ werd niet gevonden!</translation>
         <translation>&amp;Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1402"/>
+        <location filename="../src/app/qupzilla.cpp" line="1403"/>
         <source>Open file...</source>
         <translation>Open bestand...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1512"/>
+        <location filename="../src/app/qupzilla.cpp" line="1513"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Weet u zeker dat u incognito browsen wilt inschakelen?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1513"/>
+        <location filename="../src/app/qupzilla.cpp" line="1514"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Wanneer incognito browsen is ingeschakeld, zullen sommige acties aangaande uw privacy uitgeschakeld worden:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1516"/>
+        <location filename="../src/app/qupzilla.cpp" line="1517"/>
         <source>Webpages are not added to the history.</source>
         <translation>Webpagina&apos;s worden niet toegevoegd aan uw geschiedenis.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1520"/>
+        <location filename="../src/app/qupzilla.cpp" line="1521"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Totdat u dit venster afsluit, kunt nog steeds op de Terug en Vooruit-knoppen klikken om terug naar de webpagina&apos;s te gaan die u hebt geopend.</translation>
     </message>
@@ -3274,275 +3280,339 @@ werd niet gevonden!</translation>
 <context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="58"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="60"/>
         <source>No Error</source>
         <translation>Geen fout</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="64"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="66"/>
         <source>Not Found</source>
         <translation>Niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="133"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="138"/>
         <source>Your E-mail</source>
         <translation>Uw e-mailadres</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="134"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="139"/>
         <source>Issue type</source>
         <translation>Probleemtype</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="129"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="134"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="135"/>
         <source>Report Issue</source>
         <translation>Rapporteer probleem</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="135"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="140"/>
         <source>Issue description</source>
         <translation>Probleembeschrijving</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="141"/>
         <source>Send</source>
         <translation>Verzenden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="156"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="161"/>
         <source>Start Page</source>
         <translation>Startpagina</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="157"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="162"/>
         <source>Google Search</source>
         <translation>Google Zoeken</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="158"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="163"/>
         <source>Search results provided by Google</source>
         <translation>Zoekresultaten gebracht door Google</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="160"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="176"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="177"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="165"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="181"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="182"/>
         <source>About QupZilla</source>
         <translation>Over QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="179"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="291"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="292"/>
+        <source>Configuration Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="295"/>
         <source>Browser Identification</source>
         <translation>Browser-identificatie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="180"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="296"/>
         <source>Paths</source>
         <translation>Paden</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="181"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="184"/>
         <source>Copyright</source>
         <translation>Copyright</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="184"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="187"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="302"/>
         <source>Version</source>
         <translation>Versie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="189"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="192"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="326"/>
         <source>WebKit version</source>
         <translation>WebKit-versie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="190"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="320"/>
+        <source>Application version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="325"/>
+        <source>Qt version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="327"/>
         <source>Build time</source>
         <translation>Bouwtijd</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="191"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="328"/>
         <source>Platform</source>
         <translation>Platform</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="193"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="307"/>
         <source>Profile</source>
         <translation>Profiel</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="194"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="297"/>
+        <source>Preferences</source>
+        <translation type="unfinished">Instellingen</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="298"/>
+        <source>Option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="299"/>
+        <source>Value</source>
+        <translation type="unfinished">Waarde</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="301"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="303"/>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="304"/>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="308"/>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="195"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="309"/>
         <source>Saved session</source>
         <translation>Opgeslagen sessie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="196"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="310"/>
         <source>Pinned tabs</source>
         <translation>Vastgepinde tabbladen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="197"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="311"/>
         <source>Data</source>
         <translation>Data</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="198"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="312"/>
         <source>Themes</source>
         <translation>Thema&apos;s</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="199"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="300"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="313"/>
         <source>Plugins</source>
         <translation>Plugins</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="200"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="314"/>
         <source>Translations</source>
         <translation>Vertalingen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="201"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="193"/>
         <source>Main developer</source>
         <translation>Hoofdontwikkelaar</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="203"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="142"/>
+        <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="195"/>
         <source>Contributors</source>
         <translation>Bijdragers</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="211"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="203"/>
         <source>Translators</source>
         <translation>Vertalers</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Speed Dial</source>
         <translation>Speed Dial</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Add New Page</source>
         <translation>Voeg nieuwe pagina toe</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="264"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
         <source>Apply</source>
         <translation>Pas toe</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="267"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="256"/>
         <source>Speed Dial settings</source>
         <translation>Snelkiezer-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="257"/>
         <source>Placement: </source>
         <translation>Plaatsing: </translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="258"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="259"/>
         <source>Cover</source>
         <translation>Overlappend</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="260"/>
         <source>Fit</source>
         <translation>Passend</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="272"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="261"/>
         <source>Fit Width</source>
         <translation>Pas in breedte</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="273"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="262"/>
         <source>Fit Height</source>
         <translation>Pas in hoogte</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="274"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="263"/>
         <source>Use background image</source>
         <translation>Gebruik achtergrondafbeelding</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="275"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="264"/>
         <source>Select image</source>
         <translation>Selecteer afbeelding</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="276"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Maximum pages in a row:</source>
         <translation>Maximaal pagina´s in een rij:</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="277"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Change size of pages:</source>
         <translation>Verander grootte van pagina´s:</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="258"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="294"/>
+        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="344"/>
+        <source>No available plugins.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
         <source>Load title from page</source>
         <translation>Laad titel van pagina</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="255"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Edit</source>
         <translation>Bewerk</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="256"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Remove</source>
         <translation>Verwijder</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation>E-mailadres is optioneel&lt;br/&gt;&lt;b&gt;Noot:&lt;/b&gt;Gebruik alstublieft alleen Engels.</translation>
+        <translation type="obsolete">E-mailadres is optioneel&lt;br/&gt;&lt;b&gt;Noot:&lt;/b&gt;Gebruik alstublieft alleen Engels.</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="131"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation>Indien u problemen ervaart met QupZilla, probeer dan eerst alle plugins uit te schakelen. &lt;br/&gt;Mocht dit het niet oplossen, vul dan dit formulier in:</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="138"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="143"/>
         <source>Please fill out all required fields!</source>
         <translation>Vul alstublieft alle verplichte velden in!</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="178"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="183"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="293"/>
         <source>Information about version</source>
         <translation>Informatie over versie</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="257"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
         <source>Reload</source>
         <translation>Herlaad</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="262"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
         <source>Url</source>
         <translation>URL</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="263"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>Title</source>
         <translation>Titel</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="265"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
         <source>New Page</source>
         <translation>Nieuwe pagina</translation>
     </message>

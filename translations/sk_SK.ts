@@ -663,11 +663,11 @@
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation>Odstrániť záložku</translation>
+        <translation type="obsolete">Odstrániť záložku</translation>
     </message>
     <message>
         <source>Edit This Bookmark</source>
-        <translation>Upraviť túto záložku</translation>
+        <translation type="obsolete">Upraviť túto záložku</translation>
     </message>
     <message>
         <source>Folder:</source>
@@ -683,7 +683,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Pridať záložku&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Pridať záložku&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
@@ -691,7 +691,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Upraviť záložku&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Upraviť záložku&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
@@ -700,6 +700,10 @@
     <message>
         <source>Add to Speed Dial</source>
         <translation>Pridať do rychlej voľby</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2582,6 +2586,10 @@
         <source>Web In&amp;spector</source>
         <translation>Web In&amp;špektor</translation>
     </message>
+    <message>
+        <source>Configuration Information</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -2743,7 +2751,7 @@
     </message>
     <message>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation>E-mail je nepovinný&lt;br/&gt;&lt;b&gt;Poznámka: &lt;/b&gt;Používajte prosím len anglický jazyk.</translation>
+        <translation type="obsolete">E-mail je nepovinný&lt;br/&gt;&lt;b&gt;Poznámka: &lt;/b&gt;Používajte prosím len anglický jazyk.</translation>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
@@ -2800,6 +2808,54 @@
     <message>
         <source>Information about version</source>
         <translation>Informácie o verzii</translation>
+    </message>
+    <message>
+        <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configuration Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished">Nastavenia</translation>
+    </message>
+    <message>
+        <source>Option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Hodnota</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Qt version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No available plugins.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

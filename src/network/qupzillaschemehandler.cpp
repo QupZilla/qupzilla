@@ -291,7 +291,7 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace("%TITLE%", tr("Configuration Information"));
         cPage.replace("%CONFIG%", tr("Configuration Information"));
         cPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
-        cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about Qupzilla's current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports."));
+        cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about QupZilla's current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports."));
         cPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
         cPage.replace("%PATHS%", tr("Paths"));
         cPage.replace("%PREFS%", tr("Preferences"));
