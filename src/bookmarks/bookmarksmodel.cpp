@@ -38,6 +38,7 @@ void BookmarksModel::loadSettings()
     Settings settings;
     settings.beginGroup("Bookmarks");
     m_showMostVisited = settings.value("showMostVisited", true).toBool();
+    m_showOnlyIconsInToolbar = settings.value("showOnlyIconsInToolbar", false).toBool();
     m_lastFolder = settings.value("LastFolder", "unsorted").toString();
     settings.endGroup();
 }
@@ -49,6 +50,15 @@ void BookmarksModel::setShowingMostVisited(bool state)
     settings.setValue("showMostVisited", state);
     settings.endGroup();
     m_showMostVisited = state;
+}
+
+void BookmarksModel::setShowingOnlyIconsInToolbar(bool state)
+{
+    Settings settings;
+    settings.beginGroup("Bookmarks");
+    settings.setValue("showOnlyIconsInToolbar", state);
+    settings.endGroup();
+    m_showOnlyIconsInToolbar = state;
 }
 
 void BookmarksModel::setLastFolder(const QString &folder)

@@ -57,8 +57,12 @@ public:
     };
 
     void loadSettings();
-    inline bool isShowingMostVisited() { return m_showMostVisited; }
+
+    bool isShowingMostVisited() { return m_showMostVisited; }
     void setShowingMostVisited(bool state);
+
+    bool isShowingOnlyIconsInToolbar() { return m_showOnlyIconsInToolbar; }
+    void setShowingOnlyIconsInToolbar(bool state);
 
     QString lastFolder() { return m_lastFolder; }
     void setLastFolder(const QString &folder);
@@ -108,6 +112,7 @@ public slots:
 
 private:
     bool m_showMostVisited;
+    bool m_showOnlyIconsInToolbar;
     QString m_lastFolder;
 };
 

@@ -52,8 +52,8 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
 
     setMaximumWidth(p_QupZilla->width());
 
-//    QTimer::singleShot(0, this, SLOT(refreshBookmarks()));
     refreshBookmarks();
+    showOnlyIconsChanged();
 }
 
 void BookmarksToolbar::customContextMenuRequested(const QPoint &pos)
@@ -65,7 +65,17 @@ void BookmarksToolbar::customContextMenuRequested(const QPoint &pos)
     menu.addAction(tr("Bookmark &All Tabs"), p_QupZilla, SLOT(bookmarkAllTabs()));
     menu.addAction(IconProvider::fromTheme("user-bookmarks"), tr("&Organize Bookmarks"), p_QupZilla, SLOT(showBookmarksManager()));
     menu.addSeparator();
-    menu.addAction(m_bookmarksModel->isShowingMostVisited() ? tr("Hide Most &Visited") : tr("Show Most &Visited"), this, SLOT(showMostVisited()));
+    QAction act(tr("Show Most &Visited"), this);
+    act.setCheckable(true);
+    act.setChecked(m_bookmarksModel->isShowingMostVisited());
+    connect(&act, SIGNAL(triggered()), this, SLOT(showMostVisited()));
+    menu.addAction(&act);
+    QAction act2(tr("Show Only Icons"), this);
+    act2.setCheckable(true);
+    act2.setChecked(m_bookmarksModel->isShowingOnlyIconsInToolbar());
+    connect(&act2, SIGNAL(triggered()), this, SLOT(toggleShowOnlyIcons()));
+    menu.addAction(&act2);
+    menu.addSeparator();
     menu.addAction(tr("&Hide Toolbar"), this, SLOT(hidePanel()));
 
     //Prevent choosing first option with double rightclick
@@ -244,6 +254,12 @@ void BookmarksToolbar::removeButton()
 void BookmarksToolbar::hidePanel()
 {
     p_QupZilla->showBookmarksToolbar();
+}
+
+void BookmarksToolbar::toggleShowOnlyIcons()
+{
+    m_bookmarksModel->setShowingOnlyIconsInToolbar(!m_bookmarksModel->isShowingOnlyIconsInToolbar());
+    showOnlyIconsChanged();
 }
 
 void BookmarksToolbar::loadClickedBookmark()
@@ -563,6 +579,23 @@ void BookmarksToolbar::dragEnterEvent(QDragEnterEvent* e)
     }
 
     QWidget::dropEvent(e);
+}
+
+void BookmarksToolbar::showOnlyIconsChanged()
+{
+    Qt::ToolButtonStyle iconStyle = Qt::ToolButtonTextBesideIcon;
+    if (m_bookmarksModel->isShowingOnlyIconsInToolbar()) {
+        iconStyle = Qt::ToolButtonIconOnly;
+    }
+
+    for (int i = 0; i < m_layout->count(); ++i) {
+        ToolButton* button = qobject_cast<ToolButton*>(m_layout->itemAt(i)->widget());
+        if (!button) {
+            continue;
+        }
+
+        button->setToolButtonStyle(iconStyle);
+    }
 }
 
 void BookmarksToolbar::dropEvent(QDropEvent* e)

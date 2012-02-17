@@ -62,6 +62,7 @@ private slots:
     void removeButton();
 
     void hidePanel();
+    void toggleShowOnlyIcons();
 
     void addBookmark(const BookmarksModel::Bookmark &bookmark);
     void removeBookmark(const BookmarksModel::Bookmark &bookmark);
@@ -74,6 +75,7 @@ private:
     void dropEvent(QDropEvent* e);
     void dragEnterEvent(QDragEnterEvent* e);
 
+    void showOnlyIconsChanged();
     int indexOfLastBookmark();
 
     QupZilla* p_QupZilla;
