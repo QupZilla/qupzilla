@@ -21,5 +21,6 @@
         <file>html/qupzilla.ico</file>
         <file>html/broken-page.png</file>
         <file>html/setting.png</file>
+        <file>html/config.html</file>
     </qresource>
 </RCC>

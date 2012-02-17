@@ -13,6 +13,8 @@ public:
     static void createSettings(const QString &fileName);
     static void syncSettings();
 
+    static QSettings* globalSettings();
+
     void setValue(const QString &key, const QVariant &defaultValue = QVariant());
     QVariant value(const QString &key, const QVariant &defaultValue = QVariant());
 

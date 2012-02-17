@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>290</width>
-    <height>160</height>
+    <width>275</width>
+    <height>98</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -42,11 +42,44 @@
           <property name="margin">
            <number>0</number>
           </property>
-          <item row="4" column="1">
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Folder:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="folder"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="name"/>
+          </item>
+          <item row="3" column="0" colspan="2">
            <layout class="QHBoxLayout" name="horizontalLayout">
             <property name="spacing">
              <number>5</number>
             </property>
+            <item>
+             <widget class="QPushButton" name="removeBookmark">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Remove</string>
+              </property>
+             </widget>
+            </item>
             <item>
              <spacer name="horizontalSpacer">
               <property name="orientation">
@@ -88,56 +121,6 @@
             </item>
            </layout>
           </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Folder:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QPushButton" name="removeBookmark">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Remove Bookmark</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Name:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QComboBox" name="folder"/>
-          </item>
-          <item row="0" column="0" rowspan="2">
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="../data/icons.qrc">:/icons/other/bigstar.png</pixmap>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="name"/>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>Edit This Bookmark</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </widget>
         <widget class="QWidget" name="page_2">
@@ -154,49 +137,17 @@
           <property name="bottomMargin">
            <number>0</number>
           </property>
-          <item row="2" column="0">
+          <item row="0" column="0">
            <widget class="QPushButton" name="bookmarksButton">
             <property name="text">
              <string>Add into Bookmarks</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
+          <item row="1" column="0">
            <widget class="QPushButton" name="speeddialButton">
             <property name="text">
              <string>Add into Speed Dial</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="../data/icons.qrc">:/icons/other/bigstar.png</pixmap>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="mainLabel">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>&lt;b&gt;Add Bookmark&lt;/b&gt;</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>

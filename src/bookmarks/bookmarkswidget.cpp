@@ -42,7 +42,6 @@ BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
 
     if (m_bookmarksModel->isBookmarked(m_url)) {
         ui->bookmarksButton->setText(tr("Edit Bookmark"));
-        ui->mainLabel->setText(tr("<b>Edit Bookmark</b>"));
     }
 
     const SpeedDial::Page &page = m_speedDial->pageForUrl(m_url);
@@ -54,7 +53,6 @@ BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
     pal.setColor(QPalette::WindowText, QToolTip::palette().color(QPalette::ToolTipText));
     ui->label_2->setPalette(pal);
     ui->label_3->setPalette(pal);
-    ui->label_4->setPalette(pal);
 #endif
 }
 

@@ -468,6 +468,7 @@ void QupZilla::setupMenu()
     infoAction->setShortcut(QKeySequence(QKeySequence::HelpContents));
     connect(infoAction, SIGNAL(triggered()), this, SLOT(loadActionUrlInNewTab()));
     m_menuHelp->addAction(infoAction);
+    m_menuHelp->addAction(tr("Configuration Information"), this, SLOT(loadActionUrlInNewTab()))->setData(QUrl("qupzilla:config"));
     m_menuHelp->addAction(tr("Report &Issue"), this, SLOT(loadActionUrlInNewTab()))->setData(QUrl("qupzilla:reportbug"));
 
     /************

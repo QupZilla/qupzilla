@@ -36,6 +36,11 @@ void Settings::endGroup()
     m_settings->endGroup();
 }
 
+QSettings* Settings::globalSettings()
+{
+    return m_settings;
+}
+
 Settings::~Settings()
 {
     if (!m_settings->group().isEmpty()) {

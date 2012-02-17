@@ -829,49 +829,51 @@
 <context>
     <name>BookmarksWidget</name>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="137"/>
         <source>Edit This Bookmark</source>
-        <translation>编辑此书签</translation>
+        <translation type="obsolete">编辑此书签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="107"/>
         <source>Remove Bookmark</source>
-        <translation>删除书签</translation>
+        <translation type="obsolete">删除书签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="114"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="55"/>
         <source>Name:</source>
         <translation>名称:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="94"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="48"/>
         <source>Folder:</source>
         <translation>文件夹:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="72"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="79"/>
+        <source>Remove</source>
+        <translation type="unfinished">删除</translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="105"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="85"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="118"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="160"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="143"/>
         <source>Add into Bookmarks</source>
         <translation>插入到书签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="167"/>
+        <location filename="../src/bookmarks/bookmarkswidget.ui" line="150"/>
         <source>Add into Speed Dial</source>
         <translation>插入到快速拨号</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.ui" line="196"/>
         <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
-        <translation>&lt;b&gt;添加书签&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;添加书签&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
@@ -879,19 +881,18 @@
         <translation>编辑书签</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="45"/>
         <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation>&lt;b&gt;编辑书签&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;编辑书签&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
-        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="113"/>
+        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="48"/>
+        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="111"/>
         <source>Remove from Speed Dial</source>
         <translation>从快速拨号中删除</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="49"/>
-        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="118"/>
+        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="48"/>
+        <location filename="../src/bookmarks/bookmarkswidget.cpp" line="116"/>
         <source>Add to Speed Dial</source>
         <translation>添加到快速拨号</translation>
     </message>
@@ -1233,7 +1234,7 @@
         <translation>另存为...</translation>
     </message>
     <message>
-        <location filename="../src/downloads/downloadfilehelper.cpp" line="252"/>
+        <location filename="../src/downloads/downloadfilehelper.cpp" line="260"/>
         <source>NoNameDownload</source>
         <translation>无命名下载</translation>
     </message>
@@ -3073,12 +3074,17 @@
         <translation>在网络和&amp;spector</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="490"/>
+        <location filename="../src/app/qupzilla.cpp" line="471"/>
+        <source>Configuration Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/app/qupzilla.cpp" line="491"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>还原关闭的标签&amp;C</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="659"/>
+        <location filename="../src/app/qupzilla.cpp" line="660"/>
         <source> (Private Browsing)</source>
         <translation>（私人浏览）</translation>
     </message>
@@ -3098,11 +3104,11 @@
         <translation>组织书签&amp;B</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="769"/>
-        <location filename="../src/app/qupzilla.cpp" line="799"/>
-        <location filename="../src/app/qupzilla.cpp" line="838"/>
-        <location filename="../src/app/qupzilla.cpp" line="867"/>
-        <location filename="../src/app/qupzilla.cpp" line="892"/>
+        <location filename="../src/app/qupzilla.cpp" line="770"/>
+        <location filename="../src/app/qupzilla.cpp" line="800"/>
+        <location filename="../src/app/qupzilla.cpp" line="839"/>
+        <location filename="../src/app/qupzilla.cpp" line="868"/>
+        <location filename="../src/app/qupzilla.cpp" line="893"/>
         <source>Empty</source>
         <translation>空页面</translation>
     </message>
@@ -3127,12 +3133,12 @@
         <translation>显示所有历史页&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="841"/>
+        <location filename="../src/app/qupzilla.cpp" line="842"/>
         <source>Restore All Closed Tabs</source>
         <translation>还原关闭的标签</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="842"/>
+        <location filename="../src/app/qupzilla.cpp" line="843"/>
         <source>Clear list</source>
         <translation>清除列表</translation>
     </message>
@@ -3147,7 +3153,7 @@
         <translation>关于QupZIlla&amp;A</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="471"/>
+        <location filename="../src/app/qupzilla.cpp" line="472"/>
         <source>Report &amp;Issue</source>
         <translation>报告及发行&amp;I</translation>
     </message>
@@ -3192,7 +3198,7 @@
         <translation>隐私浏览&amp;P</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1762"/>
+        <location filename="../src/app/qupzilla.cpp" line="1763"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>还有%1打开的标签和您的会话将不会被储存.你一定要退出吗?</translation>
     </message>
@@ -3207,57 +3213,57 @@
         <translation>软件信息</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="947"/>
+        <location filename="../src/app/qupzilla.cpp" line="948"/>
         <source>Other</source>
         <translation>其他</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="957"/>
+        <location filename="../src/app/qupzilla.cpp" line="958"/>
         <source>Default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1325"/>
+        <location filename="../src/app/qupzilla.cpp" line="1326"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1402"/>
+        <location filename="../src/app/qupzilla.cpp" line="1403"/>
         <source>Open file...</source>
         <translation>打开文件...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1512"/>
+        <location filename="../src/app/qupzilla.cpp" line="1513"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>你确定要打开隐私浏览吗?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1513"/>
+        <location filename="../src/app/qupzilla.cpp" line="1514"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>打开隐私浏览时，有关于您的隐私行动将被禁用:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1516"/>
+        <location filename="../src/app/qupzilla.cpp" line="1517"/>
         <source>Webpages are not added to the history.</source>
         <translation>网页不会添加到历史记录。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1517"/>
+        <location filename="../src/app/qupzilla.cpp" line="1518"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>当前的cookies无法被访问。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1518"/>
+        <location filename="../src/app/qupzilla.cpp" line="1519"/>
         <source>Your session is not stored.</source>
         <translation>不会存储您的会话。</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1520"/>
+        <location filename="../src/app/qupzilla.cpp" line="1521"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>直到您关闭该窗口，你仍然可以单击后退和前进按钮，返回到你已经打开的网页.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1525"/>
+        <location filename="../src/app/qupzilla.cpp" line="1526"/>
         <source>Start Private Browsing</source>
         <translation>开始隐私浏览</translation>
     </message>
@@ -3270,275 +3276,339 @@
 <context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="58"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="60"/>
         <source>No Error</source>
         <translation>没有错误</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="64"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="66"/>
         <source>Not Found</source>
         <translation>未找到</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="133"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="138"/>
         <source>Your E-mail</source>
         <translation>您的电子信箱</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="134"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="139"/>
         <source>Issue type</source>
         <translation>问题类型</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="129"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="130"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="134"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="135"/>
         <source>Report Issue</source>
         <translation>报告问题</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="135"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="140"/>
         <source>Issue description</source>
         <translation>问题描述</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="141"/>
         <source>Send</source>
         <translation>发送</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="156"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="161"/>
         <source>Start Page</source>
         <translation>起始页</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="157"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="162"/>
         <source>Google Search</source>
         <translation>谷歌搜索</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="158"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="163"/>
         <source>Search results provided by Google</source>
         <translation>由Google提供的搜索结果</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="160"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="176"/>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="177"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="165"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="181"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="182"/>
         <source>About QupZilla</source>
         <translation>关于 QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="179"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="291"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="292"/>
+        <source>Configuration Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="295"/>
         <source>Browser Identification</source>
         <translation>浏览器标识</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="180"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="296"/>
         <source>Paths</source>
         <translation>路径</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="181"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="184"/>
         <source>Copyright</source>
         <translation>版权所有</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="184"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="187"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="302"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="189"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="192"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="326"/>
         <source>WebKit version</source>
         <translation>Webkit版本</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="190"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="320"/>
+        <source>Application version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="325"/>
+        <source>Qt version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="327"/>
         <source>Build time</source>
         <translation>构建时间</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="191"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="328"/>
         <source>Platform</source>
         <translation>平台</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="193"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="307"/>
         <source>Profile</source>
         <translation>配置文件</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="194"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="297"/>
+        <source>Preferences</source>
+        <translation type="unfinished">首选项</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="298"/>
+        <source>Option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="299"/>
+        <source>Value</source>
+        <translation type="unfinished">价值</translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="301"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="303"/>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="304"/>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="308"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="195"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="309"/>
         <source>Saved session</source>
         <translation>保存的会话</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="196"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="310"/>
         <source>Pinned tabs</source>
         <translation>固定选项卡</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="197"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="311"/>
         <source>Data</source>
         <translation>数据</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="198"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="312"/>
         <source>Themes</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="199"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="300"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="313"/>
         <source>Plugins</source>
         <translation>插件</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="200"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="314"/>
         <source>Translations</source>
         <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="201"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="193"/>
         <source>Main developer</source>
         <translation>主要开发者</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="203"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="142"/>
+        <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="195"/>
         <source>Contributors</source>
         <translation>贡献者</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="211"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="203"/>
         <source>Translators</source>
         <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="242"/>
         <source>Speed Dial</source>
         <translation>快速拨号</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="243"/>
         <source>Add New Page</source>
         <translation>添加新网页</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="264"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="253"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="267"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="256"/>
         <source>Speed Dial settings</source>
         <translation>快速拨号设置</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="268"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="257"/>
         <source>Placement: </source>
         <translation>放置:</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="269"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="258"/>
         <source>Auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="270"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="259"/>
         <source>Cover</source>
         <translation>覆盖</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="271"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="260"/>
         <source>Fit</source>
         <translation>适合</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="272"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="261"/>
         <source>Fit Width</source>
         <translation>适合宽度</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="273"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="262"/>
         <source>Fit Height</source>
         <translation>适合高度</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="274"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="263"/>
         <source>Use background image</source>
         <translation>使用背景</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="275"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="264"/>
         <source>Select image</source>
         <translation>选择图像</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="276"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="265"/>
         <source>Maximum pages in a row:</source>
         <translation>一排大的网页:</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="277"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Change size of pages:</source>
         <translation>改变页面大小:</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="258"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="294"/>
+        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="344"/>
+        <source>No available plugins.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
         <source>Load title from page</source>
         <translation>从网页载入标题</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="255"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="256"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Remove</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="137"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation>E-mail是可选的&lt;br/&gt;&lt;b&gt;注意：&lt;/b&gt;请只使用英语。</translation>
+        <translation type="obsolete">E-mail是可选的&lt;br/&gt;&lt;b&gt;注意：&lt;/b&gt;请只使用英语。</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="131"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation>如果你的QupZilla遇到问题，请首先尝试禁用所有插件. &lt;br/&gt;如果这不能解决问题，那么请填写这张表格:</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="138"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="143"/>
         <source>Please fill out all required fields!</source>
         <translation>请填写所有必填字段!</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="178"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="183"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="293"/>
         <source>Information about version</source>
         <translation>版本信息</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="257"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
         <source>Reload</source>
         <translation>刷新</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="262"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
         <source>Url</source>
         <translation>地址</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="263"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="252"/>
         <source>Title</source>
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../src/network/qupzillaschemehandler.cpp" line="265"/>
+        <location filename="../src/network/qupzillaschemehandler.cpp" line="254"/>
         <source>New Page</source>
         <translation>新网页</translation>
     </message>
