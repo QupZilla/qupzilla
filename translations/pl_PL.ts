@@ -692,20 +692,20 @@
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="441"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="458"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="451"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="468"/>
         <source>Bookmarks In Menu</source>
         <translation>Zakładki w menu</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="444"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="461"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="454"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="471"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Pasek zakładek</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="447"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="464"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="457"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="474"/>
         <source>Unsorted Bookmarks</source>
         <translation>Nieposortowane zakładki</translation>
     </message>
@@ -756,9 +756,8 @@
         <translation>&amp;Zarządzaj zakładkami</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="68"/>
         <source>Hide Most &amp;Visited</source>
-        <translation>Ukryj &amp;najczęściej odwiedzane</translation>
+        <translation type="obsolete">Ukryj &amp;najczęściej odwiedzane</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="68"/>
@@ -766,63 +765,68 @@
         <translation>Zobacz &amp;najczęściej odwiedzane</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="69"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="73"/>
+        <source>Show Only Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="79"/>
         <source>&amp;Hide Toolbar</source>
         <translation>Ukry&amp;j pasek</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="99"/>
         <source>Move right</source>
         <translation>Przesuń w prawo</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="90"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="100"/>
         <source>Move left</source>
         <translation>Przesuń w lewo</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="101"/>
         <source>Edit bookmark</source>
         <translation>Edytuj zakładkę</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="93"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="103"/>
         <source>Remove bookmark</source>
         <translation>Usuń zakładkę</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="210"/>
         <source>Edit bookmark: </source>
         <translation>Edytuj zakładkę: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="202"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="212"/>
         <source>Title: </source>
         <translation>Tytuł:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="203"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="213"/>
         <source>Url: </source>
         <translation>Adres:</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="211"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="221"/>
         <source>Edit Bookmark</source>
         <translation>Edytuj zakładkę</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="514"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="530"/>
         <source>Most visited</source>
         <translation>Najczęściej odwiedzane</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="515"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="531"/>
         <source>Sites you visited the most</source>
         <translation>Strony które często odwiedzasz</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="552"/>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="604"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="568"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="637"/>
         <source>Empty</source>
         <translation>Pusto</translation>
     </message>
@@ -1114,114 +1118,168 @@
         <translation>Ciasteczka</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="20"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="27"/>
+        <source>Stored Cookies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="33"/>
         <source>Find: </source>
         <translation>Znajdź:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="30"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="43"/>
         <source>These cookies are stored on your computer:</source>
         <translation>Ciasteczka przechowywane na komputerze:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="50"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="54"/>
         <source>Server</source>
         <translation>Serwer</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="55"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="59"/>
         <source>Cookie name</source>
         <translation>Nazwa ciasteczka</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="93"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="97"/>
         <source>Name:</source>
         <translation>Nazwa:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="103"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="107"/>
         <source>Value:</source>
         <translation>Wartość:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="110"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="114"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="203"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="223"/>
         <source>Server:</source>
         <translation>Serwer:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="117"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="121"/>
         <source>Path:</source>
         <translation>Ścieżka:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="124"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="128"/>
         <source>Secure:</source>
         <translation>Bezpieczne:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="131"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="135"/>
         <source>Expiration:</source>
         <translation>Wygasa:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="138"/>
-        <location filename="../src/cookies/cookiemanager.ui" line="148"/>
-        <location filename="../src/cookies/cookiemanager.ui" line="158"/>
-        <location filename="../src/cookies/cookiemanager.ui" line="168"/>
-        <location filename="../src/cookies/cookiemanager.ui" line="178"/>
-        <location filename="../src/cookies/cookiemanager.ui" line="188"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="142"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="152"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="162"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="172"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="182"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="192"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="112"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="113"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="114"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="115"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="116"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="117"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="118"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="119"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="120"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="121"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation>&lt;nie wybrano ciasteczka&gt;</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="213"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="217"/>
         <source>Remove all cookies</source>
         <translation>Usuń wszystkie ciasteczka</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="220"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="248"/>
+        <source>Cookie Filtering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="254"/>
+        <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="261"/>
+        <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="286"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="340"/>
+        <source>Add</source>
+        <translation type="unfinished">Dodaj</translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="293"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="347"/>
+        <source>Remove</source>
+        <translation type="unfinished">Usuń</translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="305"/>
+        <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="312"/>
+        <source>Cookies from these servers will NEVER be accepted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.cpp" line="132"/>
         <source>Remove cookie</source>
         <translation>Usuń ciasteczko</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="42"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="47"/>
         <source>Search</source>
         <translation>Szukaj</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="52"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="59"/>
         <source>Confirmation</source>
         <translation>Potwierdzenie</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="53"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="60"/>
         <source>Are you sure to delete all cookies on your computer?</source>
         <translation>Czy na pewno usunąć wszystkie ciasteczka z komputera?</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="123"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="203"/>
+        <source>Add to whitelist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.cpp" line="223"/>
+        <source>Add to blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="224"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="119"/>
         <source>Remove cookies</source>
         <translation>Usuń ciasteczka</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="133"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="129"/>
         <source>Secure only</source>
         <translation>Tylko bezpieczne</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="133"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="129"/>
         <source>All connections</source>
         <translation>Wszystkie połączenia</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="134"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="130"/>
         <source>Session cookie</source>
         <translation>Ciasteczko sesji</translation>
     </message>
@@ -1569,19 +1627,19 @@
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="156"/>
-        <location filename="../src/history/historymanager.cpp" line="253"/>
+        <location filename="../src/history/historymanager.cpp" line="254"/>
         <source>Today</source>
         <translation>Dziś</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="159"/>
-        <location filename="../src/history/historymanager.cpp" line="256"/>
+        <location filename="../src/history/historymanager.cpp" line="257"/>
         <source>This Week</source>
         <translation>W tym tygodniu</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="162"/>
-        <location filename="../src/history/historymanager.cpp" line="259"/>
+        <location filename="../src/history/historymanager.cpp" line="260"/>
         <source>This Month</source>
         <translation>W tym miesiącu</translation>
     </message>
@@ -1698,19 +1756,19 @@
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="114"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="188"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="189"/>
         <source>Today</source>
         <translation>Dzisiaj</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="117"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="191"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="192"/>
         <source>This Week</source>
         <translation>W tym tygodniu</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="120"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="194"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="195"/>
         <source>This Month</source>
         <translation>W tym miesiącu</translation>
     </message>
@@ -2338,7 +2396,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="336"/>
-        <location filename="../src/preferences/preferences.cpp" line="669"/>
+        <location filename="../src/preferences/preferences.cpp" line="673"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Notka: Nie można usunąć aktywnego profilu.</translation>
     </message>
@@ -2715,68 +2773,68 @@
         <translation>Aby zmienić język należy uruchomić ponownie przeglądarke.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="434"/>
+        <location filename="../src/preferences/preferences.cpp" line="436"/>
         <source>OSD Notification</source>
         <translation>Powiadomienia OSD</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="435"/>
+        <location filename="../src/preferences/preferences.cpp" line="437"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Przenieś to w miejsce które chcesz.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="463"/>
+        <location filename="../src/preferences/preferences.cpp" line="465"/>
         <source>Choose download location...</source>
         <translation>Wybierz miejsce pobierania...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="477"/>
+        <location filename="../src/preferences/preferences.cpp" line="479"/>
         <source>Choose stylesheet location...</source>
         <translation>Wybierz położenie stylu...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="490"/>
+        <location filename="../src/preferences/preferences.cpp" line="492"/>
         <source>Deleted</source>
         <translation>Wyczyszczono</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="496"/>
+        <location filename="../src/preferences/preferences.cpp" line="498"/>
         <source>Choose executable location...</source>
         <translation>Wybierz program...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="629"/>
+        <location filename="../src/preferences/preferences.cpp" line="633"/>
         <source>New Profile</source>
         <translation>Nowy profil</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="629"/>
+        <location filename="../src/preferences/preferences.cpp" line="633"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Wpisz nową nazwe profilu:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="636"/>
         <location filename="../src/preferences/preferences.cpp" line="640"/>
+        <location filename="../src/preferences/preferences.cpp" line="644"/>
         <source>Error!</source>
         <translation>Błąd!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="636"/>
+        <location filename="../src/preferences/preferences.cpp" line="640"/>
         <source>This profile already exists!</source>
         <translation>Taki profil już istnieje!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="640"/>
+        <location filename="../src/preferences/preferences.cpp" line="644"/>
         <source>Cannot create profile directory!</source>
         <translation>Nie można utworzyć katalogu profilu!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="654"/>
+        <location filename="../src/preferences/preferences.cpp" line="658"/>
         <source>Confirmation</source>
         <translation>Potwierdzenie</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="655"/>
+        <location filename="../src/preferences/preferences.cpp" line="659"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Czy jesteś pewny że chcesz usunąć profil &quot;%1&quot;? Akcji ten nie będzie można cofnąć!</translation>
     </message>
@@ -3010,7 +3068,7 @@
         <translation>Informacje o aplikacji</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1763"/>
+        <location filename="../src/app/qupzilla.cpp" line="1765"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Nadal jest otwarte %1 kart a twoja sesja nie zostanie zapisana. Czy napewno chcesz wyłączyć QupZillę?</translation>
     </message>
@@ -3095,22 +3153,22 @@
         <translation>Domyślne</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1326"/>
+        <location filename="../src/app/qupzilla.cpp" line="1328"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1518"/>
+        <location filename="../src/app/qupzilla.cpp" line="1520"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Aktualne ciasteczka nie są dostępne.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1519"/>
+        <location filename="../src/app/qupzilla.cpp" line="1521"/>
         <source>Your session is not stored.</source>
         <translation>Twoja sesja nie jest przechowywana.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1526"/>
+        <location filename="../src/app/qupzilla.cpp" line="1528"/>
         <source>Start Private Browsing</source>
         <translation>Uruchom tryb prywatny</translation>
     </message>
@@ -3249,27 +3307,27 @@
         <translation>Us&amp;tawienia</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1403"/>
+        <location filename="../src/app/qupzilla.cpp" line="1405"/>
         <source>Open file...</source>
         <translation>Otwórz plik...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1513"/>
+        <location filename="../src/app/qupzilla.cpp" line="1515"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Czy na pewno chcesz włączyć tryb prywatny?</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1514"/>
+        <location filename="../src/app/qupzilla.cpp" line="1516"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Kiedy tryb prywatny jest włączony, niektóre działania naruszające twoją prywatność będą wyłączone:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1517"/>
+        <location filename="../src/app/qupzilla.cpp" line="1519"/>
         <source>Webpages are not added to the history.</source>
         <translation>Strony internetowe nie są dodawane do historii.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1521"/>
+        <location filename="../src/app/qupzilla.cpp" line="1523"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Do zamknięcia okna, możesz używać Wstecz i Dalej aby powrócić do stron jakie miałeś otwarte.</translation>
     </message>
@@ -3834,12 +3892,12 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
         <translation>Ignoruj wszystkie ostrzeżenia SSL</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="55"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="54"/>
         <source>Choose path...</source>
         <translation>Wybierz ścieżkę...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="144"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="143"/>
         <source>Certificate Informations</source>
         <translation>Informacje o certyfikacie</translation>
     </message>

@@ -691,20 +691,20 @@
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="441"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="458"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="451"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="468"/>
         <source>Bookmarks In Menu</source>
         <translation>Σελιδοδείκτες στο μενού</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="444"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="461"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="454"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="471"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Σελιδοδείκτες στην εργαλειοθήκη</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="447"/>
-        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="464"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="457"/>
+        <location filename="../src/bookmarks/bookmarksmodel.cpp" line="474"/>
         <source>Unsorted Bookmarks</source>
         <translation>Αταξινόμητοι σελιδοδείκτες</translation>
     </message>
@@ -755,9 +755,8 @@
         <translation>&amp;Οργάνωση σελιδοδεικτών</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="68"/>
         <source>Hide Most &amp;Visited</source>
-        <translation>Απόκρυψη πιο &amp;δημοφιλών</translation>
+        <translation type="obsolete">Απόκρυψη πιο &amp;δημοφιλών</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="68"/>
@@ -765,63 +764,68 @@
         <translation>Εμφάνιση πιο &amp;δημοφιλών</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="69"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="73"/>
+        <source>Show Only Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="79"/>
         <source>&amp;Hide Toolbar</source>
         <translation>Από&amp;κρυψη εργαλειοθήκης</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="89"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="99"/>
         <source>Move right</source>
         <translation>Μετακίνηση δεξιά</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="90"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="100"/>
         <source>Move left</source>
         <translation>Μετακίνηση αριστερά</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="91"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="101"/>
         <source>Edit bookmark</source>
         <translation>Επεξεργασία σελιδοδείκτη</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="93"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="103"/>
         <source>Remove bookmark</source>
         <translation>Αφαίρεση σελιδοδείκτη</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="200"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="210"/>
         <source>Edit bookmark: </source>
         <translation>Επεξεργασία σελιδοδείκτη: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="202"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="212"/>
         <source>Title: </source>
         <translation>Τίτλος: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="203"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="213"/>
         <source>Url: </source>
         <translation>Url: </translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="211"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="221"/>
         <source>Edit Bookmark</source>
         <translation>Επεξεργασία σελιδοδείκτη</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="514"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="530"/>
         <source>Most visited</source>
         <translation>Πιο δημοφιλείς</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="515"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="531"/>
         <source>Sites you visited the most</source>
         <translation>Σελίδες που επισκεφτήκατε περισσότερο</translation>
     </message>
     <message>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="552"/>
-        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="604"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="568"/>
+        <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="637"/>
         <source>Empty</source>
         <translation>Άδειο</translation>
     </message>
@@ -1113,114 +1117,168 @@
         <translation>Cookies</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="20"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="27"/>
+        <source>Stored Cookies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="33"/>
         <source>Find: </source>
         <translation>Εύρεση:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="30"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="43"/>
         <source>These cookies are stored on your computer:</source>
         <translation>Αυτά τα cookies είναι αποθηκευμένα στον υπολογιστή σας:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="50"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="54"/>
         <source>Server</source>
         <translation>Διακομιστής</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="55"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="59"/>
         <source>Cookie name</source>
         <translation>Ονομασία cookie</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="93"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="97"/>
         <source>Name:</source>
         <translation>Ονομασία:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="103"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="107"/>
         <source>Value:</source>
         <translation>Τιμή:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="110"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="114"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="203"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="223"/>
         <source>Server:</source>
         <translation>Διακομιστής:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="117"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="121"/>
         <source>Path:</source>
         <translation>Διαδρομή:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="124"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="128"/>
         <source>Secure:</source>
         <translation>Ασφάλεια:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="131"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="135"/>
         <source>Expiration:</source>
         <translation>Λήξη:</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="138"/>
-        <location filename="../src/cookies/cookiemanager.ui" line="148"/>
-        <location filename="../src/cookies/cookiemanager.ui" line="158"/>
-        <location filename="../src/cookies/cookiemanager.ui" line="168"/>
-        <location filename="../src/cookies/cookiemanager.ui" line="178"/>
-        <location filename="../src/cookies/cookiemanager.ui" line="188"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="142"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="152"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="162"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="172"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="182"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="192"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="112"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="113"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="114"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="115"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="116"/>
         <location filename="../src/cookies/cookiemanager.cpp" line="117"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="118"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="119"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="120"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="121"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation>&lt;δεν επιλέχτηκε το cookie&gt;</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="213"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="217"/>
         <source>Remove all cookies</source>
         <translation>Αφαίρεση όλων των cookies</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.ui" line="220"/>
-        <location filename="../src/cookies/cookiemanager.cpp" line="136"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="248"/>
+        <source>Cookie Filtering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="254"/>
+        <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="261"/>
+        <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="286"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="340"/>
+        <source>Add</source>
+        <translation type="unfinished">Προσθήκη</translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="293"/>
+        <location filename="../src/cookies/cookiemanager.ui" line="347"/>
+        <source>Remove</source>
+        <translation type="unfinished">Αφαίρεση</translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="305"/>
+        <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="312"/>
+        <source>Cookies from these servers will NEVER be accepted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.cpp" line="132"/>
         <source>Remove cookie</source>
         <translation>Αφαίρεση cookie</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="42"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="47"/>
         <source>Search</source>
         <translation>Αναζήτηση</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="52"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="59"/>
         <source>Confirmation</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="53"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="60"/>
         <source>Are you sure to delete all cookies on your computer?</source>
         <translation>Είστε σίγουρος ότι θέλετε να διαγράψετε όλα τα cookies από τον υπολογιστή σας;</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="123"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="203"/>
+        <source>Add to whitelist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.cpp" line="223"/>
+        <source>Add to blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cookies/cookiemanager.ui" line="224"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="119"/>
         <source>Remove cookies</source>
         <translation>Αφαίρεση cookies</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="133"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="129"/>
         <source>Secure only</source>
         <translation>Μόνο ασφαλείς</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="133"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="129"/>
         <source>All connections</source>
         <translation>Όλες οι συνδέσεις</translation>
     </message>
     <message>
-        <location filename="../src/cookies/cookiemanager.cpp" line="134"/>
+        <location filename="../src/cookies/cookiemanager.cpp" line="130"/>
         <source>Session cookie</source>
         <translation>Cookies συνεδρίας</translation>
     </message>
@@ -1569,19 +1627,19 @@
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="156"/>
-        <location filename="../src/history/historymanager.cpp" line="253"/>
+        <location filename="../src/history/historymanager.cpp" line="254"/>
         <source>Today</source>
         <translation>Σήμερα</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="159"/>
-        <location filename="../src/history/historymanager.cpp" line="256"/>
+        <location filename="../src/history/historymanager.cpp" line="257"/>
         <source>This Week</source>
         <translation>Αυτή τη βδομάδα</translation>
     </message>
     <message>
         <location filename="../src/history/historymanager.cpp" line="162"/>
-        <location filename="../src/history/historymanager.cpp" line="259"/>
+        <location filename="../src/history/historymanager.cpp" line="260"/>
         <source>This Month</source>
         <translation>Αυτό το μήνα</translation>
     </message>
@@ -1698,19 +1756,19 @@
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="114"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="188"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="189"/>
         <source>Today</source>
         <translation>Σήμερα</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="117"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="191"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="192"/>
         <source>This Week</source>
         <translation>Αυτή τη βδομάδα</translation>
     </message>
     <message>
         <location filename="../src/sidebar/historysidebar.cpp" line="120"/>
-        <location filename="../src/sidebar/historysidebar.cpp" line="194"/>
+        <location filename="../src/sidebar/historysidebar.cpp" line="195"/>
         <source>This Month</source>
         <translation>Αυτό το μήνα</translation>
     </message>
@@ -2063,7 +2121,7 @@
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="336"/>
-        <location filename="../src/preferences/preferences.cpp" line="669"/>
+        <location filename="../src/preferences/preferences.cpp" line="673"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Σημείωση: Δεν μπορείτε να διαγράψετε το ενεργό προφίλ.</translation>
     </message>
@@ -2712,68 +2770,68 @@
         <translation>Άλλα</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="434"/>
+        <location filename="../src/preferences/preferences.cpp" line="436"/>
         <source>OSD Notification</source>
         <translation>Ειδοποίηση OSD</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="435"/>
+        <location filename="../src/preferences/preferences.cpp" line="437"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Μετακινήστε το στην οθόνη για να το τοποθετήσετε όπου θέλετε.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="463"/>
+        <location filename="../src/preferences/preferences.cpp" line="465"/>
         <source>Choose download location...</source>
         <translation>Επιλογή τοποθεσίας λήψεων...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="477"/>
+        <location filename="../src/preferences/preferences.cpp" line="479"/>
         <source>Choose stylesheet location...</source>
         <translation>Επιλογή τοποθεσίας stylesheet...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="490"/>
+        <location filename="../src/preferences/preferences.cpp" line="492"/>
         <source>Deleted</source>
         <translation>Διαγράφηκε</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="496"/>
+        <location filename="../src/preferences/preferences.cpp" line="498"/>
         <source>Choose executable location...</source>
         <translation>Επιλογή τοποθεσίας εκτελέσιμου...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="629"/>
+        <location filename="../src/preferences/preferences.cpp" line="633"/>
         <source>New Profile</source>
         <translation>Νέο προφίλ</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="629"/>
+        <location filename="../src/preferences/preferences.cpp" line="633"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Εισάγετε την ονομασία του νέου προφίλ:</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="636"/>
         <location filename="../src/preferences/preferences.cpp" line="640"/>
+        <location filename="../src/preferences/preferences.cpp" line="644"/>
         <source>Error!</source>
         <translation>Σφάλμα!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="636"/>
+        <location filename="../src/preferences/preferences.cpp" line="640"/>
         <source>This profile already exists!</source>
         <translation>Αυτό το προφίλ υπάρχει ήδη!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="640"/>
+        <location filename="../src/preferences/preferences.cpp" line="644"/>
         <source>Cannot create profile directory!</source>
         <translation>Αδυναμία δημιουργίας καταλόγου προφίλ!</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="654"/>
+        <location filename="../src/preferences/preferences.cpp" line="658"/>
         <source>Confirmation</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../src/preferences/preferences.cpp" line="655"/>
+        <location filename="../src/preferences/preferences.cpp" line="659"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Είστε σίγουροι ότι θέλετε να διαγράψετε μόνιμα το προφίλ &quot;%1&quot;; Η ενέργεια αυτή δεν μπορεί να αναιρεθεί!</translation>
     </message>
@@ -3161,7 +3219,7 @@
         <translation>Πληροφορίες για την εφαρμογή</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1326"/>
+        <location filename="../src/app/qupzilla.cpp" line="1328"/>
         <source>%1 - QupZilla</source>
         <translation>%1 QupZilla</translation>
     </message>
@@ -3226,47 +3284,47 @@
         <translation>Προεπιλεγμένο</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1403"/>
+        <location filename="../src/app/qupzilla.cpp" line="1405"/>
         <source>Open file...</source>
         <translation>Άνοιγμα αρχείου...</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1513"/>
+        <location filename="../src/app/qupzilla.cpp" line="1515"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Είστε σίγουροι ότι θέλετε να εκκινήσετε την ιδιωτική περιήγηση;</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1514"/>
+        <location filename="../src/app/qupzilla.cpp" line="1516"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Όταν η ιδιωτική περιήγηση είναι ενεργή, κάποιες ενέργειες που αφορούν το ιδιωτικό σας απόρρητο θα είναι απενεργοποιημένες:</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1517"/>
+        <location filename="../src/app/qupzilla.cpp" line="1519"/>
         <source>Webpages are not added to the history.</source>
         <translation>Οι ιστοσελίδες δεν προστίθενται στο ιστορικό.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1518"/>
+        <location filename="../src/app/qupzilla.cpp" line="1520"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Δεν υπάρχει πρόσβαση στα τρέχοντα cookies.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1519"/>
+        <location filename="../src/app/qupzilla.cpp" line="1521"/>
         <source>Your session is not stored.</source>
         <translation>Η συνεδρία σας δεν αποθηκεύεται.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1521"/>
+        <location filename="../src/app/qupzilla.cpp" line="1523"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Μέχρι να κλείσετε το παράθυρο, μπορείτε ακόμα να κάνετε κλικ στα κουμπιά Πίσω και Μπροστά για να επιστρέψετε στις σελίδες που ανοίξατε.</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1526"/>
+        <location filename="../src/app/qupzilla.cpp" line="1528"/>
         <source>Start Private Browsing</source>
         <translation>Έναρξη ιδιωτικής περιήγησης</translation>
     </message>
     <message>
-        <location filename="../src/app/qupzilla.cpp" line="1763"/>
+        <location filename="../src/app/qupzilla.cpp" line="1765"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Υπάρχουν ακόμα %1 ανοιχτές καρτέλες και η συνεδρία σας δεν θα αποθηκευτεί. Είστε σίγουρος ότι θέλετε να κλείσετε το QupZilla;</translation>
     </message>
@@ -3831,12 +3889,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 Μετά την προσθήκη ή αφαίρεση διαδρομών πιστοποιητικών, είναι απαραίτητο να επαννεκινήσετε το QupZilla προκειμένου να τεθούν σε ισχύ οι αλλαγές.</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="55"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="54"/>
         <source>Choose path...</source>
         <translation>Επιλογή διαδρομής...</translation>
     </message>
     <message>
-        <location filename="../src/preferences/sslmanager.cpp" line="144"/>
+        <location filename="../src/preferences/sslmanager.cpp" line="143"/>
         <source>Certificate Informations</source>
         <translation>Πληροφορίες πιστοποιητικού</translation>
     </message>

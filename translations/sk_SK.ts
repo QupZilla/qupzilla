@@ -592,7 +592,7 @@
     </message>
     <message>
         <source>Hide Most &amp;Visited</source>
-        <translation>Skryť najna&amp;vštevovanejšie</translation>
+        <translation type="obsolete">Skryť najna&amp;vštevovanejšie</translation>
     </message>
     <message>
         <source>Move right</source>
@@ -645,6 +645,10 @@
     <message>
         <source>Url: </source>
         <translation>Url: </translation>
+    </message>
+    <message>
+        <source>Show Only Icons</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -958,6 +962,46 @@
     <message>
         <source>Cookie name</source>
         <translation>Názov cookie</translation>
+    </message>
+    <message>
+        <source>Stored Cookies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cookie Filtering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Pridať</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cookies from these servers will NEVER be accepted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to whitelist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to blacklist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
