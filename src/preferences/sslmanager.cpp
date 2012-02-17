@@ -26,7 +26,6 @@ SSLManager::SSLManager(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::SSLManager)
 {
-//    setWindowModality(Qt::WindowModal);
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 

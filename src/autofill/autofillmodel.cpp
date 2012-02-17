@@ -218,6 +218,7 @@ void AutoFillModel::completePage(WebPage* page)
             if (element.attribute("type") != "text" && element.attribute("type") != "password" && element.attribute("type") != "") {
                 continue;
             }
+
             if (key == element.attribute("name")) {
                 element.setAttribute("value", value);
             }

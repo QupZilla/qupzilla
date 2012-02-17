@@ -177,6 +177,7 @@ void HistorySideBar::slotRefreshTable()
     query.exec("SELECT title, url, id, date FROM history ORDER BY date DESC");
 
     int counter = 0;
+    QHash<QString, QTreeWidgetItem*> hash;
     while (query.next()) {
         const QString &title = query.value(0).toString();
         const QUrl &url = query.value(1).toUrl();
@@ -198,15 +199,17 @@ void HistorySideBar::slotRefreshTable()
         }
 
         QTreeWidgetItem* item;
-        const QList<QTreeWidgetItem*>& findParent = ui->historyTree->findItems(localDate, 0);
-        if (findParent.count() == 1) {
-            item = new QTreeWidgetItem(findParent.at(0));
+        QTreeWidgetItem* findParent = hash[localDate];
+        if (findParent) {
+            item = new QTreeWidgetItem(findParent);
         }
         else {
             QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->historyTree);
             newParent->setText(0, localDate);
             newParent->setIcon(0, QIcon(":/icons/menu/history_entry.png"));
             ui->historyTree->addTopLevelItem(newParent);
+            hash[localDate] = newParent;
+
             item = new QTreeWidgetItem(newParent);
         }
 

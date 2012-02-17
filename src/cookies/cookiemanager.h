@@ -24,6 +24,7 @@
 #include <QTreeWidgetItem>
 #include <QShortcut>
 #include <QHash>
+#include <QInputDialog>
 
 namespace Ui
 {
@@ -45,11 +46,20 @@ private slots:
     void currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* parent);
     void removeCookie();
     void removeAll();
-    void search();
 
     void slotRefreshTable();
+    void slotRefreshFilters();
+
+    void addWhitelist();
+    void removeWhitelist();
+    void addBlacklist();
+    void removeBlacklist();
+
+    void deletePressed();
 
 private:
+    void closeEvent(QCloseEvent* e);
+
     Ui::CookieManager* ui;
 
     bool m_refreshCookieJar;

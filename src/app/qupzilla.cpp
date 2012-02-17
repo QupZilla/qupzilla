@@ -1142,7 +1142,9 @@ void QupZilla::showCookieManager()
 {
     CookieManager* m = mApp->cookieManager();
     m->refreshTable();
+
     m->show();
+    m->raise();
 }
 
 void QupZilla::showHistoryManager()

@@ -21,7 +21,27 @@
 #include "settings.h"
 //#define COOKIE_DEBUG
 
-//TODO: black/white listing
+bool containsDomain(QString string, QString domain)
+{
+    string.prepend(".");
+    if (domain.startsWith("www.")) {
+        domain = domain.mid(4);
+    }
+
+    return string.contains(domain);
+}
+
+bool listContainsDomain(const QStringList &list, const QString &domain)
+{
+    foreach(const QString & d, list) {
+        if (containsDomain(d, domain)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 CookieJar::CookieJar(QupZilla* mainClass, QObject* parent)
     : QNetworkCookieJar(parent)
     , p_QupZilla(mainClass)
@@ -33,11 +53,14 @@ CookieJar::CookieJar(QupZilla* mainClass, QObject* parent)
 void CookieJar::loadSettings()
 {
     Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
+    settings.beginGroup("Cookie-Settings");
     m_allowCookies = settings.value("allowCookies", true).toBool();
     m_allowCookiesFromDomain = settings.value("allowCookiesFromVisitedDomainOnly", false).toBool();
     m_filterTrackingCookie = settings.value("filterTrackingCookie", false).toBool();
     m_deleteOnClose = settings.value("deleteCookiesOnClose", false).toBool();
+    m_whitelist = settings.value("whitelist", QStringList()).toStringList();
+    m_blacklist = settings.value("blacklist", QStringList()).toStringList();
+    settings.endGroup();
 }
 
 void CookieJar::setAllowCookies(bool allow)
@@ -47,29 +70,42 @@ void CookieJar::setAllowCookies(bool allow)
 
 bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url)
 {
-    if (!m_allowCookies) {
-        return QNetworkCookieJar::setCookiesFromUrl(QList<QNetworkCookie>(), url);
-    }
-
     QList<QNetworkCookie> newList = cookieList;
 
-    foreach(const QNetworkCookie & cok, newList) {
-        if (m_allowCookiesFromDomain && !QString("." + url.host()).contains(cok.domain().remove("www."))) {
+    foreach(const QNetworkCookie & cookie, newList) {
+        if (!m_allowCookies && !listContainsDomain(m_whitelist, cookie.domain())) {
 #ifdef COOKIE_DEBUG
-            qDebug() << "purged for domain mismatch" << cok;
+            qDebug() << "not in whitelist" << cookie;
 #endif
-            newList.removeOne(cok);
+            newList.removeOne(cookie);
             continue;
         }
 
-        if (m_filterTrackingCookie && cok.name().startsWith("__utm")) {
+        if (m_allowCookies && listContainsDomain(m_blacklist, cookie.domain())) {
 #ifdef COOKIE_DEBUG
-            qDebug() << "purged as tracking " << cok;
+            qDebug() << "found in blacklist" << cookie;
 #endif
-            newList.removeOne(cok);
+            newList.removeOne(cookie);
+            continue;
+        }
+
+        if (m_allowCookiesFromDomain && !containsDomain(cookie.domain(), url.host())) {
+#ifdef COOKIE_DEBUG
+            qDebug() << "purged for domain mismatch" << cookie;
+#endif
+            newList.removeOne(cookie);
+            continue;
+        }
+
+        if (m_filterTrackingCookie && cookie.name().startsWith("__utm")) {
+#ifdef COOKIE_DEBUG
+            qDebug() << "purged as tracking " << cookie;
+#endif
+            newList.removeOne(cookie);
             continue;
         }
     }
+
     return QNetworkCookieJar::setCookiesFromUrl(newList, url);
 }
 
@@ -94,7 +130,12 @@ void CookieJar::saveCookies()
 
     stream << count;
     for (int i = 0; i < count; i++) {
-        stream << allCookies.at(i).toRawForm();
+        const QNetworkCookie &cookie = allCookies.at(i);
+
+        if (cookie.isSessionCookie()) {
+            continue;
+        }
+        stream << cookie.toRawForm();
     }
 
     file.close();
@@ -117,14 +158,17 @@ void CookieJar::restoreCookies()
     for (int i = 0; i < count; i++) {
         QByteArray rawForm;
         stream >> rawForm;
-        QNetworkCookie cok = QNetworkCookie::parseCookies(rawForm).at(0);
-        if (cok.expirationDate() < now) {
+        const QList<QNetworkCookie> &cookieList = QNetworkCookie::parseCookies(rawForm);
+        if (cookieList.isEmpty()) {
             continue;
         }
-        if (cok.isSessionCookie()) {
+
+        const QNetworkCookie &cookie = cookieList.at(0);
+
+        if (cookie.expirationDate() < now) {
             continue;
         }
-        restoredCookies.append(cok);
+        restoredCookies.append(cookie);
     }
 
     file.close();

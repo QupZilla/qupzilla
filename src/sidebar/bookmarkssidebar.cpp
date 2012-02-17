@@ -264,7 +264,6 @@ void BookmarksSideBar::refreshTable()
         item->setText(0, title);
         item->setText(1, url.toEncoded());
         item->setToolTip(0, url.toEncoded());
-//        item->setToolTip(1, url.toEncoded());
 
         item->setWhatsThis(0, QString::number(id));
         item->setIcon(0, icon);

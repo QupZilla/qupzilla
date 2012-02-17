@@ -21,6 +21,7 @@
 #include <QNetworkCookieJar>
 #include <QDebug>
 #include <QFile>
+#include <QStringList>
 
 class QupZilla;
 class CookieJar : public QNetworkCookieJar
@@ -46,6 +47,9 @@ private:
     bool m_filterTrackingCookie;
     bool m_allowCookiesFromDomain;
     bool m_deleteOnClose;
+
+    QStringList m_whitelist;
+    QStringList m_blacklist;
 
     QString m_activeProfil;
     QList<QNetworkCookie> m_tempList;

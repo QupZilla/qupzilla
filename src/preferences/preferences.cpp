@@ -253,7 +253,13 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->changeUserAgent, SIGNAL(toggled(bool)), this, SLOT(changeUserAgentChanged(bool)));
     changeUserAgentChanged(ui->changeUserAgent->isChecked());
 
+    //CSS Style
+    ui->userStyleSheet->setText(settings.value("userStyleSheet", "").toString());
+    connect(ui->chooseUserStylesheet, SIGNAL(clicked()), this, SLOT(chooseUserStyleClicked()));
+    settings.endGroup();
+
     //Cookies
+    settings.beginGroup("Cookie-Settings");
     ui->saveCookies->setChecked(settings.value("allowCookies", true).toBool());
     if (!ui->saveCookies->isChecked()) {
         ui->deleteCookiesOnClose->setEnabled(false);
@@ -262,10 +268,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->deleteCookiesOnClose->setChecked(settings.value("deleteCookiesOnClose", false).toBool());
     ui->matchExactly->setChecked(settings.value("allowCookiesFromVisitedDomainOnly", false).toBool());
     ui->filterTracking->setChecked(settings.value("filterTrackingCookie", false).toBool());
-
-    //CSS Style
-    ui->userStyleSheet->setText(settings.value("userStyleSheet", "").toString());
-    connect(ui->chooseUserStylesheet, SIGNAL(clicked()), this, SLOT(chooseUserStyleClicked()));
     settings.endGroup();
 
     //DOWNLOADS
@@ -549,9 +551,11 @@ void Preferences::allowHtml5storageChanged(bool stat)
 
 void Preferences::showCookieManager()
 {
-    CookieManager* m = new CookieManager();
+    CookieManager* m = mApp->cookieManager();
     m->refreshTable();
+
     m->show();
+    m->raise();
 }
 
 void Preferences::openSslManager()
@@ -800,8 +804,10 @@ void Preferences::saveSettings()
     settings.setValue("HTML5StorageEnabled", ui->html5storage->isChecked());
     settings.setValue("deleteHTML5StorageOnClose", ui->deleteHtml5storageOnClose->isChecked());
     settings.setValue("SendReferer", ui->sendReferer->isChecked());
+    settings.endGroup();
 
     //Cookies
+    settings.beginGroup("Cookie-Settings");
     settings.setValue("allowCookies", ui->saveCookies->isChecked());
     settings.setValue("deleteCookiesOnClose", ui->deleteCookiesOnClose->isChecked());
     settings.setValue("allowCookiesFromVisitedDomainOnly", ui->matchExactly->isChecked());

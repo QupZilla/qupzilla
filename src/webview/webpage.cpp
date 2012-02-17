@@ -221,18 +221,18 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
             return;
         }
 
-    case QNetworkReply::ProtocolUnknownError:
+    case QNetworkReply::ProtocolUnknownError: {
         qDebug() << "WebPage::UnsupportedContent" << url << "ProtocolUnknowError";
 
-        // We are not going to end in endless new tab opening loop in case
-        // user has QupZilla as default provider for http / https urls
-        if (!url.scheme().startsWith("http")) {
+        // We will open only known url schemes that we cannot handle
+        const QString &urlScheme = url.scheme();
+        if (urlScheme == "ftp" || urlScheme == "mailto") {
             QDesktopServices::openUrl(url);
         }
 
         reply->deleteLater();
         return;
-
+    }
     default:
         break;
     }
@@ -250,7 +250,7 @@ void WebPage::downloadRequested(const QNetworkRequest &request)
 
 void WebPage::setSSLCertificate(const QSslCertificate &cert)
 {
-//    if (cert != m_SslCert)
+    //    if (cert != m_SslCert)
     m_SslCert = cert;
 }
 

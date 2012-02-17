@@ -22,6 +22,7 @@
 #include <QTreeWidgetItem>
 #include <QWeakPointer>
 #include <QClipboard>
+#include <QHash>
 
 #include "historymodel.h"
 

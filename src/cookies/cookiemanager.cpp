@@ -21,30 +21,37 @@
 #include "cookiejar.h"
 #include "mainapplication.h"
 #include "globalfunctions.h"
+#include "settings.h"
 
 CookieManager::CookieManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::CookieManager)
     , m_refreshCookieJar(true)
 {
-    setWindowModality(Qt::WindowModal);
-
     ui->setupUi(this);
     qz_centerWidgetOnScreen(this);
 
+    // Stored Cookies
     connect(ui->cookieTree, SIGNAL(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)), this, SLOT(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)));
     connect(ui->removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));
     connect(ui->removeOne, SIGNAL(clicked()), this, SLOT(removeCookie()));
-    connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(hide()));
-    connect(ui->search, SIGNAL(returnPressed()), this, SLOT(search()));
+    connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
+    connect(ui->close2, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->search, SIGNAL(textChanged(QString)), ui->cookieTree, SLOT(filterString(QString)));
+    // Cookie Filtering
+    connect(ui->whiteAdd, SIGNAL(clicked()), this, SLOT(addWhitelist()));
+    connect(ui->whiteRemove, SIGNAL(clicked()), this, SLOT(removeWhitelist()));
+    connect(ui->blackAdd, SIGNAL(clicked()), this, SLOT(addBlacklist()));
+    connect(ui->blackRemove, SIGNAL(clicked()), this, SLOT(removeBlacklist()));
 
     ui->search->setInactiveText(tr("Search"));
     ui->cookieTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
     ui->cookieTree->sortItems(0, Qt::AscendingOrder);
+    ui->cookieTree->header()->setDefaultSectionSize(220);
+    ui->cookieTree->setFocus();
 
     QShortcut* removeShortcut = new QShortcut(QKeySequence("Del"), this);
-    connect(removeShortcut, SIGNAL(activated()), this, SLOT(removeCookie()));
+    connect(removeShortcut, SIGNAL(activated()), this, SLOT(deletePressed()));
 }
 
 void CookieManager::removeAll()
@@ -69,8 +76,6 @@ void CookieManager::removeCookie()
 
     QList<QNetworkCookie> allCookies = mApp->cookieJar()->getAllCookies();
 
-    int indexToNavigate = -1;
-
     if (current->text(1).isEmpty()) {     //Remove whole cookie group
         QString domain = current->whatsThis(0);
         foreach(const QNetworkCookie & cookie, allCookies) {
@@ -79,30 +84,21 @@ void CookieManager::removeCookie()
             }
         }
 
-        indexToNavigate = ui->cookieTree->indexOfTopLevelItem(current) - 1;
         ui->cookieTree->deleteItem(current);
     }
     else {
         const QNetworkCookie &cookie = qvariant_cast<QNetworkCookie>(current->data(0, Qt::UserRole + 10));
         allCookies.removeOne(cookie);
 
-        indexToNavigate = ui->cookieTree->indexOfTopLevelItem(current->parent());
+        QTreeWidgetItem* parentItem = current->parent();
         ui->cookieTree->deleteItem(current);
-    }
 
-    mApp->cookieJar()->setAllCookies(allCookies);
-
-    if (indexToNavigate > 0 && ui->cookieTree->topLevelItemCount() >= indexToNavigate) {
-        QTreeWidgetItem* scrollItem = ui->cookieTree->topLevelItem(indexToNavigate);
-        if (scrollItem) {
-            ui->cookieTree->setCurrentItem(scrollItem);
-            ui->cookieTree->scrollToItem(scrollItem);
+        if (parentItem->childCount() == 0) {
+            ui->cookieTree->deleteItem(parentItem);
         }
     }
 
-    if (!ui->search->text().isEmpty()) {
-        search();
-    }
+    mApp->cookieJar()->setAllCookies(allCookies);
 }
 
 void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* parent)
@@ -139,6 +135,7 @@ void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem
 void CookieManager::refreshTable()
 {
     QTimer::singleShot(0, this, SLOT(slotRefreshTable()));
+    QTimer::singleShot(0, this, SLOT(slotRefreshFilters()));
 }
 
 void CookieManager::slotRefreshTable()
@@ -189,34 +186,93 @@ void CookieManager::slotRefreshTable()
     QApplication::restoreOverrideCursor();
 }
 
-void CookieManager::search()
+void CookieManager::slotRefreshFilters()
 {
-    ui->cookieTree->filterString(ui->search->text());
-//    QString searchText = ui->search->text();
-//    if (searchText.isEmpty()) {
-//        refreshTable(false);
-//        return;
-//    }
+    Settings settings;
+    settings.beginGroup("Cookie-Settings");
+    QStringList whiteList = settings.value("whitelist", QStringList()).toStringList();
+    QStringList blackList = settings.value("blacklist", QStringList()).toStringList();
+    settings.endGroup();
 
-//    refreshTable(false);
-//    ui->cookieTree->setUpdatesEnabled(false);
+    ui->whiteList->addItems(whiteList);
+    ui->blackList->addItems(blackList);
+}
 
-//    QList<QTreeWidgetItem*> items = ui->cookieTree->findItems(".*"+searchText+"*", Qt::MatchRecursive | Qt::MatchWildcard);
+void CookieManager::addWhitelist()
+{
+    const QString &server = QInputDialog::getText(this, tr("Add to whitelist"), tr("Server:"));
+    if (server.isEmpty()) {
+        return;
+    }
 
-//    QList<QTreeWidgetItem*> foundItems;
-//    foreach(QTreeWidgetItem* fitem, items) {
-//        if (!fitem->text(0).startsWith("."))
-//            continue;
-//        QTreeWidgetItem* item = new QTreeWidgetItem();
-//        item->setText(0, fitem->text(0));
-//        item->setText(1, fitem->text(1));
-//        item->setWhatsThis(1, fitem->whatsThis(1));
-//        foundItems.append(item);
-//    }
+    ui->whiteList->addItem(server);
+}
 
-//    ui->cookieTree->clear();
-//    ui->cookieTree->addTopLevelItems(foundItems);
-//    ui->cookieTree->setUpdatesEnabled(true);
+void CookieManager::removeWhitelist()
+{
+    QListWidgetItem* current = ui->whiteList->currentItem();
+    if (!current) {
+        return;
+    }
+
+    delete current;
+}
+
+void CookieManager::addBlacklist()
+{
+    const QString &server = QInputDialog::getText(this, tr("Add to blacklist"), tr("Server:"));
+    if (server.isEmpty()) {
+        return;
+    }
+
+    ui->blackList->addItem(server);
+}
+
+void CookieManager::removeBlacklist()
+{
+    QListWidgetItem* current = ui->blackList->currentItem();
+    if (!current) {
+        return;
+    }
+
+    delete current;
+}
+
+void CookieManager::deletePressed()
+{
+    if (ui->cookieTree->hasFocus()) {
+        removeCookie();
+    }
+    else if (ui->whiteList->hasFocus()) {
+        removeWhitelist();
+    }
+    else if (ui->blackList->hasFocus()) {
+        removeBlacklist();
+    }
+}
+
+void CookieManager::closeEvent(QCloseEvent* e)
+{
+    QStringList whitelist;
+    QStringList blacklist;
+
+    for (int i = 0; i < ui->whiteList->count(); ++i) {
+        whitelist.append(ui->whiteList->item(i)->text());
+    }
+
+    for (int i = 0; i < ui->blackList->count(); ++i) {
+        blacklist.append(ui->blackList->item(i)->text());
+    }
+
+    Settings settings;
+    settings.beginGroup("Cookie-Settings");
+    settings.setValue("whitelist", whitelist);
+    settings.setValue("blacklist", blacklist);
+    settings.endGroup();
+
+    mApp->cookieJar()->loadSettings();
+
+    e->accept();
 }
 
 CookieManager::~CookieManager()
