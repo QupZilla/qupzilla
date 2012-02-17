@@ -149,19 +149,19 @@ void CookieManager::slotRefreshTable()
     ui->cookieTree->clear();
 
     int counter = 0;
-    QString cookieDomain;
+    QHash<QString, QTreeWidgetItem*> hash;
     for (int i = 0; i < allCookies.count(); ++i) {
         const QNetworkCookie &cookie = allCookies.at(i);
         QTreeWidgetItem* item;
 
-        cookieDomain = cookie.domain();
+        QString cookieDomain = cookie.domain();
         if (cookieDomain.startsWith(".")) {
             cookieDomain = cookieDomain.mid(1);
         }
 
-        const QList<QTreeWidgetItem*>& findParent = ui->cookieTree->findItems(cookieDomain, 0);
-        if (findParent.count() == 1) {
-            item = new QTreeWidgetItem(findParent.at(0));
+        QTreeWidgetItem* findParent = hash[cookieDomain];
+        if (findParent) {
+            item = new QTreeWidgetItem(findParent);
         }
         else {
             QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->cookieTree);
@@ -169,6 +169,8 @@ void CookieManager::slotRefreshTable()
             newParent->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
             newParent->setWhatsThis(0, cookie.domain());
             ui->cookieTree->addTopLevelItem(newParent);
+            hash[cookieDomain] = newParent;
+
             item = new QTreeWidgetItem(newParent);
         }
 
@@ -178,7 +180,7 @@ void CookieManager::slotRefreshTable()
         ui->cookieTree->addTopLevelItem(item);
 
         ++counter;
-        if (counter > 50) {
+        if (counter > 200) {
             QApplication::processEvents();
             counter = 0;
         }

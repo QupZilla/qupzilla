@@ -23,6 +23,7 @@
 #include <QNetworkCookie>
 #include <QTreeWidgetItem>
 #include <QShortcut>
+#include <QHash>
 
 namespace Ui
 {
