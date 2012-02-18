@@ -767,7 +767,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="73"/>
         <source>Show Only Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur Symbole anzeigen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="79"/>
@@ -854,7 +854,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="79"/>
         <source>Remove</source>
-        <translation type="unfinished">Entfernen</translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="105"/>
@@ -1120,7 +1120,7 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="27"/>
         <source>Stored Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Gespeicherte Cookies</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="33"/>
@@ -1198,39 +1198,39 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="248"/>
         <source>Cookie Filtering</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookie Filter</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="254"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookie Whitelist&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="261"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookies von diesen Webseiten IMMER akzeptieren (auch wenn das Speichern von Cookies deaktiviert ist)</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="286"/>
         <location filename="../src/cookies/cookiemanager.ui" line="340"/>
         <source>Add</source>
-        <translation type="unfinished">Hinzufügen</translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="293"/>
         <location filename="../src/cookies/cookiemanager.ui" line="347"/>
         <source>Remove</source>
-        <translation type="unfinished">Entfernen</translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="305"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookie Blacklist&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="312"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookies von diesen Webseiten NIEMALS akzeptieren</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="132"/>
@@ -1255,12 +1255,12 @@
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="203"/>
         <source>Add to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Zur Whitelist hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="223"/>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Zur Blacklist hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="224"/>
@@ -3069,7 +3069,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="471"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informationen zur Konfiguration</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1765"/>
@@ -3371,7 +3371,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="142"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"></translation>
+        <translation>E-Mail Adresse ist optional&lt;br/&gt;&lt;b&gt;Notiz: &lt;/b&gt;Hinweise zur Erstellung eines Fehlerberichts finden Sie &lt;a href=%1&gt;hier&lt;/a&gt; first.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="161"/>
@@ -3399,7 +3399,7 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="291"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="292"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informationen zur Konfiguration</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="295"/>
@@ -3414,7 +3414,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="344"/>
         <source>No available plugins.</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Plugins verfügbar.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="184"/>
@@ -3527,12 +3527,12 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="320"/>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla Version</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="325"/>
         <source>Qt version</source>
-        <translation type="unfinished"></translation>
+        <translation>Qt Version</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="327"/>
@@ -3552,37 +3552,37 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="294"/>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Seite enthält Informationen über die aktuelle Konfiguration von QupZilla, aktivierte Plugins, usw., die für die Ermittlung von Fehlerursachen relevant sind. Bitte fügen Sie diese Ihrem Fehlerbericht bei.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="297"/>
         <source>Preferences</source>
-        <translation type="unfinished">Einstellungen</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="298"/>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation>Option</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="299"/>
         <source>Value</source>
-        <translation type="unfinished">Wert</translation>
+        <translation>Wert</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="301"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Name</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="303"/>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="304"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschreibung</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="308"/>
