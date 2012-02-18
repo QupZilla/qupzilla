@@ -755,10 +755,6 @@
         <translation>&amp;Организуј обиљеживаче</translation>
     </message>
     <message>
-        <source>Hide Most &amp;Visited</source>
-        <translation type="obsolete">Сакриј &amp;најпосјећеније</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="68"/>
         <source>Show Most &amp;Visited</source>
         <translation>Прикажи &amp;најпосјећеније</translation>
@@ -766,7 +762,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="73"/>
         <source>Show Only Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи само иконе</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="79"/>
@@ -833,14 +829,6 @@
 <context>
     <name>BookmarksWidget</name>
     <message>
-        <source>Edit This Bookmark</source>
-        <translation type="obsolete">Уређивање обиљеживача</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation type="obsolete">Уклони обиљеживач</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="55"/>
         <source>Name:</source>
         <translation>Име:</translation>
@@ -853,7 +841,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="79"/>
         <source>Remove</source>
-        <translation type="unfinished">Уклони</translation>
+        <translation>Уклони</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="105"/>
@@ -876,17 +864,9 @@
         <translation>Додај на брзо бирање</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Додај обиљеживач&lt;/b&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
         <source>Edit Bookmark</source>
         <translation>Уреди обиљеживач</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Уреди обиљеживач&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="48"/>
@@ -1073,7 +1053,7 @@
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="130"/>
         <source>Add %1 to whitelist</source>
-        <translation>Додај %1 на бијелу листу</translation>
+        <translation>Додај %1 на списак дозвољених</translation>
     </message>
     <message>
         <location filename="../src/plugins/clicktoflash.cpp" line="268"/>
@@ -1119,7 +1099,7 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="27"/>
         <source>Stored Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Успремљени колачићи</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="33"/>
@@ -1197,39 +1177,39 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="248"/>
         <source>Cookie Filtering</source>
-        <translation type="unfinished"></translation>
+        <translation>Филтрирање колачића</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="254"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Списак дозвољених колачића&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="261"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation type="unfinished"></translation>
+        <translation>Колачићи са ових сервера ће УВИЈЕК бити прихватани (чак и ако искључите успремање колачића)</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="286"/>
         <location filename="../src/cookies/cookiemanager.ui" line="340"/>
         <source>Add</source>
-        <translation type="unfinished">Додај</translation>
+        <translation>Додај</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="293"/>
         <location filename="../src/cookies/cookiemanager.ui" line="347"/>
         <source>Remove</source>
-        <translation type="unfinished">Уклони</translation>
+        <translation>Уклони</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="305"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Списак недозвољених колачића&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="312"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Колачићи са ових сервера НИКАД неће бити прихватани</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="132"/>
@@ -1254,12 +1234,12 @@
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="203"/>
         <source>Add to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Додавање у дозвољене</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="223"/>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Додавање у недозвољене</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="224"/>
@@ -1998,7 +1978,7 @@
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="134"/>
         <source>Whitelist</source>
-        <translation>бијела листа</translation>
+        <translation>списак дозвољених</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.ui" line="142"/>
@@ -2018,7 +1998,7 @@
     <message>
         <location filename="../src/preferences/pluginslist.cpp" line="68"/>
         <source>Add site to whitelist</source>
-        <translation>Додавање сајта на бијелу листу</translation>
+        <translation>Додавање у дозвољене</translation>
     </message>
     <message>
         <location filename="../src/preferences/pluginslist.cpp" line="68"/>
@@ -3142,7 +3122,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="471"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Поставке програма</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="491"/>
@@ -3398,7 +3378,7 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="291"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="292"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Подаци о поставкама</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="295"/>
@@ -3430,12 +3410,12 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="320"/>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translation>Издање програма</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="325"/>
         <source>Qt version</source>
-        <translation type="unfinished"></translation>
+        <translation>Издање Кјут-а</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="327"/>
@@ -3455,32 +3435,32 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="297"/>
         <source>Preferences</source>
-        <translation type="unfinished">Подешавање</translation>
+        <translation>Подешавања</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="298"/>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation>Поставка</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="299"/>
         <source>Value</source>
-        <translation type="unfinished">вриједност</translation>
+        <translation>Вриједност</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="301"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="303"/>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Аутор</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="304"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Опис</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="308"/>
@@ -3526,7 +3506,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="142"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"></translation>
+        <translation>Е-адреса није обавезна&lt;br/&gt;&lt;b&gt;Напомена: &lt;/b&gt;Најприје &lt;a href=%1&gt;овдје&lt;/a&gt; прочитајте како направити извјештај о грешци.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="195"/>
@@ -3611,12 +3591,12 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="294"/>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ова страница садржи податке о текућим Капзилиним подешавањима, прикључцима, итд, све битне податке за рјешавање проблема. Укључите ове податке приликом слања извјештаја о грешкама.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="344"/>
         <source>No available plugins.</source>
-        <translation type="unfinished"></translation>
+        <translation>Нема учитаних прикључака.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
@@ -3632,10 +3612,6 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
         <source>Remove</source>
         <translation>Уклони</translation>
-    </message>
-    <message>
-        <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation type="obsolete">Е-адреса није обавезна&lt;br/&gt;&lt;b&gt;Напомена: &lt;/b&gt;Користите само енглески језик.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="136"/>
