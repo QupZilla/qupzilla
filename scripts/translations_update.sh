@@ -8,6 +8,7 @@ fi
 sed -i 's/include(3rdparty/##temp/g' ../src/src.pro
 
 lupdate $ARGUMENTS ../src/src.pro
+lupdate $ARGUMENTS ../src/src.pro -ts ../translations/empty.ts
 
 ## uncomment it now
 sed -i 's/##temp/include(3rdparty/g' ../src/src.pro
