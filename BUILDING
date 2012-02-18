@@ -22,11 +22,12 @@ Building plugins
 ----------------------------------------------------------------------------------
   
   To build plugins, it is neccessary to build QupZilla as static library first.
-  You will do this by running this command
+  You can do this by running this command
               
                qmake CONFIG+=build_plugins
                
-  and then build the whole project.
+  and then build the project.
+  You will now have the libqupzilla.a static library that you need to link to plugins.
 
 Microsoft Windows
 ----------------------------------------------------------------------------------
