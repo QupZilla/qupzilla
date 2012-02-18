@@ -140,14 +140,14 @@
           <item row="0" column="0">
            <widget class="QPushButton" name="bookmarksButton">
             <property name="text">
-             <string>Add into Bookmarks</string>
+             <string>Add to Bookmarks</string>
             </property>
            </widget>
           </item>
           <item row="1" column="0">
            <widget class="QPushButton" name="speeddialButton">
             <property name="text">
-             <string>Add into Speed Dial</string>
+             <string>Add to Speed Dial</string>
             </property>
            </widget>
           </item>
