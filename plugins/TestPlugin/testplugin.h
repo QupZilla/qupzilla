@@ -4,7 +4,8 @@
 //Include actual plugininterface.h for your version of QupZilla
 //This file is available to download at QupZilla website
 
-#include "../../src/plugins/plugininterface.h"
+#include "plugininterface.h"
+#include "historymodel.h"
 
 
 //For clean plugin directory, please build necessary files into

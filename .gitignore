@@ -1,9 +1,13 @@
 build
 DEBIAN
 tools_
-QupZilla-old-src.tar.gz
 *.deb
 *.pro.user
+*.autosave
+*~
+*.a
+*.qm
+!qt_*.qm
 headers*.tar.gz
 license_template
 Makefile*
@@ -12,8 +16,6 @@ search_*
 src-*
 bin/qupzilla
 bin/plugins/libExamplePlugin.so
-*.autosave
-*~
 bin/core
 qupzilla.sh
 git_revision
