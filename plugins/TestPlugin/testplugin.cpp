@@ -5,8 +5,6 @@ void TestPlugin::init(QString sPath)
     settingsPath = sPath;
     //This function is called right after plugin is loaded
     qDebug() << __FUNCTION__ << "called";
-
-    qDebug() << HistoryModel::titleCaseLocalizedMonth(4);
 }
 
 bool TestPlugin::testPlugin()

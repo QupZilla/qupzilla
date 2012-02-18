@@ -364,7 +364,7 @@ void TabWidget::closeTab(int index)
 
     if (count() == 1) {
         if (m_dontQuitWithOneTab) {
-            webView->setUrl(m_urlOnNewTab);
+            webView->load(m_urlOnNewTab);
             return;
         }
         else {
