@@ -28,14 +28,48 @@
 
 Plugins::Plugins(QObject* parent)
     : QObject(parent)
+    , m_pluginsLoaded(false)
 {
     loadSettings();
 }
 
+void Plugins::loadPlugin(Plugins::Plugin* plugin)
+{
+    if (plugin->isLoaded()) {
+        return;
+    }
+
+    plugin->pluginLoader->setFileName(plugin->fullPath);
+    PluginInterface* iPlugin = qobject_cast<PluginInterface*>(plugin->pluginLoader->instance());
+    if (!iPlugin) {
+        return;
+    }
+
+    m_availablePlugins.removeOne(*plugin);
+    plugin->instance = initPlugin(iPlugin, plugin->pluginLoader);
+    m_availablePlugins.append(*plugin);
+
+    refreshLoadedPlugins();
+}
+
+void Plugins::unloadPlugin(Plugins::Plugin *plugin)
+{
+    if (!plugin->isLoaded()) {
+        return;
+    }
+
+    plugin->instance->unload();
+    plugin->pluginLoader->unload();
+
+    m_availablePlugins.removeOne(*plugin);
+    plugin->instance = 0;
+    m_availablePlugins.append(*plugin);
+
+    refreshLoadedPlugins();
+}
+
 void Plugins::loadSettings()
 {
-    m_allowedPluginFileNames.clear();
-
     Settings settings;
     settings.beginGroup("Plugin-Settings");
     m_pluginsEnabled = settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool();
@@ -45,55 +79,76 @@ void Plugins::loadSettings()
 
 void Plugins::loadPlugins()
 {
-    if (!m_pluginsEnabled) {
+    if (!m_pluginsEnabled || m_pluginsLoaded) {
         return;
     }
 
-    m_availablePluginFileNames.clear();
-    loadedPlugins.clear();
+    m_pluginsLoaded = true;
 
-    QDir pluginsDir = QDir(mApp->PLUGINSDIR);
+    QStringList dirs;
+    dirs << mApp->PLUGINSDIR
+#ifdef Q_WS_X11
+         << "/usr/lib/qupzilla/"
+#endif
+         << mApp->PROFILEDIR + "plugins/";
 
-    foreach(const QString & fileName, pluginsDir.entryList(QDir::Files)) {
-        m_availablePluginFileNames.append(fileName);
-
-        if (!m_allowedPluginFileNames.contains(fileName)) {
-            continue;
-        }
-
-        QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
-        QObject* plugin = loader.instance();
-        if (plugin) {
-            PluginInterface* iPlugin = qobject_cast<PluginInterface*>(plugin);
-            iPlugin->init(mApp->getActiveProfilPath() + "plugins.ini");
-            if (!iPlugin->testPlugin()) {
-                loader.unload();
+    foreach(const QString & dir, dirs) {
+        QDir pluginsDir = QDir(dir);
+        foreach(const QString & fileName, pluginsDir.entryList(QDir::Files)) {
+            QPluginLoader* loader = new QPluginLoader(pluginsDir.absoluteFilePath(fileName));
+            PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
+            if (!iPlugin) {
                 continue;
             }
 
-            qApp->installTranslator(iPlugin->getTranslator(mApp->getActiveLanguage()));
-            loadedPlugins.append(iPlugin);
-            m_loadedPluginFileNames.append(fileName);
+            Plugin plugin;
+            plugin.fileName = fileName;
+            plugin.fullPath = pluginsDir.absoluteFilePath(fileName);
+            plugin.pluginSpec = iPlugin->pluginSpec();
+            plugin.pluginLoader = loader;
+            plugin.instance = 0;
+
+            if (m_allowedPluginFileNames.contains(fileName)) {
+                plugin.instance = initPlugin(iPlugin, loader);
+            }
+            else {
+                loader->unload();
+            }
+
+            m_availablePlugins.append(plugin);
         }
     }
 
-    std::cout << loadedPlugins.count() << " plugins loaded" << std::endl;
+    refreshLoadedPlugins();
+
+    std::cout << m_loadedPlugins.count() << " plugins loaded"  << std::endl;
 }
 
-PluginInterface* Plugins::getPlugin(QString pluginFileName)
+PluginInterface* Plugins::initPlugin(PluginInterface* interface, QPluginLoader* loader)
 {
-    QString path = mApp->PLUGINSDIR + pluginFileName;
-    if (!QFile::exists(path)) {
+    if (!interface) {
         return 0;
     }
-    QPluginLoader loader(path);
-    QObject* plugin = loader.instance();
 
-    if (plugin) {
-        PluginInterface* iPlugin = qobject_cast<PluginInterface*>(plugin);
-        return iPlugin;
-    }
-    else {
+    interface->init(mApp->getActiveProfilPath() + "plugins.ini");
+
+    if (!interface->testPlugin()) {
+        interface->unload();
+        loader->unload();
         return 0;
+    }
+
+    qApp->installTranslator(interface->getTranslator(mApp->getActiveLanguage()));
+    return interface;
+}
+
+void Plugins::refreshLoadedPlugins()
+{
+    m_loadedPlugins.clear();
+
+    foreach(const Plugin &plugin, m_availablePlugins) {
+        if (plugin.isLoaded()) {
+            m_loadedPlugins.append(plugin.instance);
+        }
     }
 }

@@ -35,17 +35,16 @@ PluginsList::PluginsList(QWidget* parent)
     ui->setupUi(this);
 
     //Application Extensions
-    refresh();
-    connect(ui->butSettings, SIGNAL(clicked()), this, SLOT(settingsClicked()));
-    connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
-    connect(ui->butLoad, SIGNAL(clicked()), this, SLOT(reloadPlugins()));
-    connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
-
     Settings settings;
     settings.beginGroup("Plugin-Settings");
     ui->allowAppPlugins->setChecked(settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool());
     settings.endGroup();
     allowAppPluginsChanged(ui->allowAppPlugins->isChecked());
+
+    connect(ui->butSettings, SIGNAL(clicked()), this, SLOT(settingsClicked()));
+    connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
+    connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
+    connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
     //WebKit Plugins
     connect(ui->add, SIGNAL(clicked()), this, SLOT(addWhitelist()));
@@ -60,6 +59,7 @@ PluginsList::PluginsList(QWidget* parent)
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->whitelist);
         item->setText(0, site);
     }
+
     allowC2FChanged(ui->allowClick2Flash->isChecked());
 }
 
@@ -87,12 +87,22 @@ void PluginsList::removeWhitelist()
 
 void PluginsList::save()
 {
+    QStringList allowedPlugins;
+    for (int i = 0; i < ui->list->count(); i++) {
+        QListWidgetItem* item = ui->list->item(i);
+
+        if (item->checkState() == Qt::Checked) {
+            const Plugins::Plugin &plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
+
+            allowedPlugins.append(plugin.fileName);
+        }
+    }
+
     Settings settings;
     settings.beginGroup("Plugin-Settings");
     settings.setValue("EnablePlugins", ui->allowAppPlugins->isChecked());
+    settings.setValue("AllowedPlugins", allowedPlugins);
     settings.endGroup();
-
-    reloadPlugins();
 }
 
 void PluginsList::allowAppPluginsChanged(bool state)
@@ -102,7 +112,14 @@ void PluginsList::allowAppPluginsChanged(bool state)
     settings.setValue("EnablePlugins", state);
     settings.endGroup();
 
-    ui->verticalFrame->setEnabled(state);
+    mApp->plugins()->loadSettings();
+    mApp->plugins()->loadPlugins();
+
+    ui->list->setEnabled(state);
+
+    if (state) {
+        refresh();
+    }
 }
 
 void PluginsList::allowC2FChanged(bool state)
@@ -123,32 +140,31 @@ void PluginsList::refresh()
 {
     ui->list->clear();
     ui->butSettings->setEnabled(false);
+    disconnect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
 
-    QStringList availablePlugins = mApp->plugins()->getAvailablePlugins();
-    QStringList allowedPlugins = mApp->plugins()->getAllowedPlugins();
-    foreach(const QString & fileName, availablePlugins) {
-        PluginInterface* plugin = mApp->plugins()->getPlugin(fileName);
-        if (!plugin) {
-            continue;
-        }
+    const QList<Plugins::Plugin> &allPlugins = mApp->plugins()->getAvailablePlugins();
+
+    foreach(const Plugins::Plugin & plugin, allPlugins) {
+        PluginSpec spec = plugin.pluginSpec;
 
         QListWidgetItem* item = new QListWidgetItem(ui->list);
-        item->setText("" + plugin->pluginName() + " (" + plugin->pluginVersion() + ") by " + plugin->pluginAuthor() + "\n"
-                      + plugin->pluginInfo() + "\n" + plugin->pluginDescription());
+        QString pluginInfo = tr("%1 (%2)\nAuthor: %3\n%4\n%5").arg(spec.name, spec.version, spec.author, spec.info, spec.description);
+        item->setText(pluginInfo);
 
-        QIcon icon = plugin->pluginIcon();
+        QIcon icon = spec.icon;
         if (icon.isNull()) {
             icon = QIcon(":/icons/preferences/extension.png");
         }
         item->setIcon(icon);
 
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-        item->setCheckState((allowedPlugins.contains(fileName)) ? Qt::Checked : Qt::Unchecked);
-        item->setWhatsThis(plugin->hasSettings() ? "1" : "0");
-        item->setToolTip(fileName);
+        item->setCheckState(plugin.isLoaded() ? Qt::Checked : Qt::Unchecked);
+        item->setData(Qt::UserRole + 10, qVariantFromValue(plugin));
 
         ui->list->addItem(item);
     }
+
+    connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
 }
 
 void PluginsList::currentChanged(QListWidgetItem* item)
@@ -157,50 +173,64 @@ void PluginsList::currentChanged(QListWidgetItem* item)
         return;
     }
 
-    QString has = item->whatsThis();
-    bool show;
-    if (has == "1") {
-        show = true;
+    const Plugins::Plugin &plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
+    bool showSettings = plugin.pluginSpec.hasSettings;
+
+    if (!plugin.isLoaded()) {
+        showSettings = false;
+    }
+
+    ui->butSettings->setEnabled(showSettings);
+}
+
+void PluginsList::itemChanged(QListWidgetItem *item)
+{
+    if (!item) {
+        return;
+    }
+
+    Plugins::Plugin plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
+
+    if (item->checkState() == Qt::Checked) {
+        mApp->plugins()->loadPlugin(&plugin);
     }
     else {
-        show = false;
+        mApp->plugins()->unloadPlugin(&plugin);
     }
 
-    if (item->checkState() == Qt::Unchecked) {
-        show = false;
+    disconnect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
+
+    if (item->checkState() == Qt::Checked && !plugin.isLoaded()) {
+        item->setCheckState(Qt::Unchecked);
+        QMessageBox::critical(this, tr("Error!"), tr("Cannot load plugin!"));
     }
 
-    ui->butSettings->setEnabled(show);
+    item->setData(Qt::UserRole + 10, qVariantFromValue(plugin));
+
+    connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
+
+
+    currentChanged(ui->list->currentItem());
 }
 
 void PluginsList::settingsClicked()
 {
-    if (!ui->list->currentItem()) {
+    QListWidgetItem* item = ui->list->currentItem();
+    if (!item) {
         return;
     }
 
-    QString name = ui->list->currentItem()->toolTip();
-    PluginInterface* plugin = mApp->plugins()->getPlugin(name);
-    plugin->showSettings();
-}
+    Plugins::Plugin plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
 
-void PluginsList::reloadPlugins()
-{
-    QStringList allowedPlugins;
-    for (int i = 0; i < ui->list->count(); i++) {
-        if (ui->list->item(i)->checkState() == Qt::Checked) {
-            allowedPlugins.append(ui->list->item(i)->toolTip());
-        }
+    if (!plugin.isLoaded()) {
+        mApp->plugins()->loadPlugin(&plugin);
+
+        item->setData(Qt::UserRole + 10, qVariantFromValue(plugin));
     }
-    Settings settings;
-    settings.beginGroup("Plugin-Settings");
-    settings.setValue("AllowedPlugins", allowedPlugins);
-    settings.endGroup();
 
-    mApp->plugins()->loadSettings();
-    mApp->plugins()->loadPlugins();
-
-    refresh();
+    if (plugin.isLoaded()) {
+        plugin.instance->showSettings(this);
+    }
 }
 
 PluginsList::~PluginsList()

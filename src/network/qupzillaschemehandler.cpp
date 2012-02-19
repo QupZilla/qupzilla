@@ -328,16 +328,12 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
 
         QString pluginsString;
-        QStringList availablePlugins = mApp->plugins()->getAvailablePlugins();
+        const QList<Plugins::Plugin> &availablePlugins = mApp->plugins()->getAvailablePlugins();
 
-        foreach(const QString & fileName, availablePlugins) {
-            PluginInterface* plugin = mApp->plugins()->getPlugin(fileName);
-            if (!plugin) {
-                continue;
-            }
+        foreach(const Plugins::Plugin & plugin, availablePlugins) {
+            PluginSpec spec = plugin.pluginSpec;
             pluginsString.append(QString("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td></tr>").arg(
-                                     plugin->pluginName(), plugin->pluginVersion(),
-                                     Qt::escape(plugin->pluginAuthor()), plugin->pluginDescription()));
+                                     spec.name, spec.version, Qt::escape(spec.author), spec.description));
         }
 
         if (pluginsString.isEmpty()) {

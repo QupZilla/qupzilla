@@ -22,34 +22,59 @@
 #include <QtPlugin>
 #include <QPluginLoader>
 #include <QDir>
+#include <QWeakPointer>
 
-#include <QTimer>
 #include <iostream>
+#include "plugininterface.h"
 
-class PluginInterface;
 class Plugins : public QObject
 {
     Q_OBJECT
 public:
+    struct Plugin {
+        QString fileName;
+        QString fullPath;
+        PluginSpec pluginSpec;
+        QPluginLoader* pluginLoader;
+        PluginInterface* instance;
+
+        bool isLoaded() const {
+            return instance;
+        }
+
+        bool operator==(const Plugin &other) {
+            return (this->fileName == other.fileName &&
+                    this->fullPath == other.fullPath &&
+                    this->pluginSpec == other.pluginSpec &&
+                    this->instance == other.instance);
+        }
+    };
+
     explicit Plugins(QObject* parent = 0);
 
-    QStringList getAvailablePlugins() { return m_availablePluginFileNames; }
-    QStringList getAllowedPlugins() { return m_allowedPluginFileNames; }
-    PluginInterface* getPlugin(QString pluginFileName);
-    //void setPluginsAllowed(bool state) { pluginsEnabled = state; qDebug() << state;}
+    QList<Plugin> getAvailablePlugins() { return m_availablePlugins; }
+
+    void loadPlugin(Plugin* plugin);
+    void unloadPlugin(Plugin *plugin);
 
 public slots:
     void loadSettings();
     void loadPlugins();
 
 protected:
-    QList<PluginInterface* > loadedPlugins;
+    QList<PluginInterface*> m_loadedPlugins;
 
 private:
-    QStringList m_availablePluginFileNames;
+    PluginInterface* initPlugin(PluginInterface* interface, QPluginLoader* loader);
+    void refreshLoadedPlugins();
+
+    QList<Plugin> m_availablePlugins;
     QStringList m_allowedPluginFileNames;
-    QStringList m_loadedPluginFileNames;
+
     bool m_pluginsEnabled;
+    bool m_pluginsLoaded;
 };
+
+Q_DECLARE_METATYPE(Plugins::Plugin)
 
 #endif // PLUGINLOADER_H

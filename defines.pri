@@ -3,6 +3,7 @@ OBJECTS_DIR = $$PWD/build
 MOC_DIR = $$PWD/build
 RCC_DIR = $$PWD/build
 UI_DIR = $$PWD/build
+VERSION = 1.1.8
 
 # Please read BUILD information #
 #DEFINES += NO_SYSTEM_DATAPATH
@@ -30,3 +31,18 @@ equals(d_use_webgl, "true") { DEFINES += USE_WEBGL }
 equals(d_w7api, "true") { DEFINES += W7API }
 equals(d_kde, "true") { DEFINES += KDE }
 equals(d_portable, "true") { DEFINES += PORTABLE_BUILD }
+
+!mac:unix {
+    d_prefix = $$(QUPZILLA_PREFIX)
+    data_folder = /usr/share/qupzilla
+
+    !equals(d_prefix, "") {
+        data_folder = "$$d_prefix"share/qupzilla
+    }
+
+    DEFINES += USE_DATADIR=\\\"""$$data_folder/"\\\""
+
+    #Git revision
+    rev = $$system(sh $$PWD/scripts/getrevision.sh)
+    !equals(rev, ""): DEFINES += GIT_REVISION=\\\"""$$rev"\\\""
+}

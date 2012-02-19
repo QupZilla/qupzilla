@@ -15,7 +15,8 @@ TestPlugin-build
 search_*
 src-*
 bin/qupzilla
-bin/plugins/libExamplePlugin.so
+*.so
+libqupzilla.*
 bin/core
 qupzilla.sh
 git_revision

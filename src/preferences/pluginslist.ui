@@ -79,23 +79,6 @@
               </property>
              </spacer>
             </item>
-            <item>
-             <widget class="QPushButton" name="butLoad">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Load Plugins</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../data/icons.qrc">
-                <normaloff>:/icons/faenza/reload.png</normaloff>:/icons/faenza/reload.png</iconset>
-              </property>
-             </widget>
-            </item>
            </layout>
           </item>
          </layout>

@@ -1,13 +1,14 @@
 QT += core gui webkit sql network script
 unix:QT += dbus
 TARGET = qupzilla
-TEMPLATE = app
+TEMPLATE = lib
 
 include(3rdparty/qtsingleapplication.pri)
 include(src.pri)
-include(../install.pri)
 include(../defines.pri)
-include(../translations.pri)
 
-message(Using following defines)
+SOURCES -= main.cpp
+
+message(========== Building libqupzilla ==========)
+message( Using following defines:)
 message($$DEFINES)

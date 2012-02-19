@@ -30,14 +30,14 @@ PluginProxy::PluginProxy()
 
 void PluginProxy::populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestResult r)
 {
-    if (!menu || !view || loadedPlugins.count() == 0) {
+    if (!menu || !view || m_loadedPlugins.count() == 0) {
         return;
     }
 
     menu->addSeparator();
     int count = menu->actions().count();
 
-    foreach(PluginInterface * iPlugin, loadedPlugins)
+    foreach(PluginInterface * iPlugin, m_loadedPlugins)
     iPlugin->populateWebViewMenu(menu, view, r);
 
     if (menu->actions().count() == count) {
@@ -47,13 +47,13 @@ void PluginProxy::populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestRe
 
 void PluginProxy::populateToolsMenu(QMenu* menu)
 {
-    if (!menu || loadedPlugins.count() == 0) {
+    if (!menu || m_loadedPlugins.count() == 0) {
         return;
     }
 
     int count = menu->actions().count();
 
-    foreach(PluginInterface * iPlugin, loadedPlugins)
+    foreach(PluginInterface * iPlugin, m_loadedPlugins)
     iPlugin->populateToolsMenu(menu);
 
     if (menu->actions().count() != count) {
@@ -63,13 +63,13 @@ void PluginProxy::populateToolsMenu(QMenu* menu)
 
 void PluginProxy::populateHelpMenu(QMenu* menu)
 {
-    if (!menu || loadedPlugins.count() == 0) {
+    if (!menu || m_loadedPlugins.count() == 0) {
         return;
     }
 
     int count = menu->actions().count();
 
-    foreach(PluginInterface * iPlugin, loadedPlugins)
+    foreach(PluginInterface * iPlugin, m_loadedPlugins)
     iPlugin->populateHelpMenu(menu);
 
     if (menu->actions().count() != count) {
@@ -80,7 +80,7 @@ void PluginProxy::populateHelpMenu(QMenu* menu)
 QNetworkReply* PluginProxy::createNetworkRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
 {
     QNetworkReply* reply = 0;
-    foreach(PluginInterface * iPlugin, loadedPlugins) {
+    foreach(PluginInterface * iPlugin, m_loadedPlugins) {
         reply = iPlugin->createNetworkRequest(op, request, outgoingData);
         if (reply) {
             break;

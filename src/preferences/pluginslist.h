@@ -21,6 +21,7 @@
 #include <QWidget>
 #include <QListWidgetItem>
 #include <QInputDialog>
+#include <QMessageBox>
 
 namespace Ui
 {
@@ -36,14 +37,13 @@ public:
     ~PluginsList();
     void save();
 
-public slots:
-    void reloadPlugins();
-
 private slots:
     //App extension
     void settingsClicked();
     void currentChanged(QListWidgetItem* item);
+    void itemChanged(QListWidgetItem* item);
     void allowAppPluginsChanged(bool state);
+
     //WebKit plugins
     void addWhitelist();
     void removeWhitelist();
@@ -51,6 +51,7 @@ private slots:
 
 private:
     void refresh();
+
     Ui::PluginsList* ui;
 };
 

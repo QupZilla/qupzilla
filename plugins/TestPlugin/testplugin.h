@@ -5,8 +5,6 @@
 //This file is available to download at QupZilla website
 
 #include "plugininterface.h"
-#include "historymodel.h"
-
 
 //For clean plugin directory, please build necessary files into
 //plugin in .qrc data files
@@ -15,6 +13,7 @@
 #include <QLabel>
 #include <QMessageBox>
 #include <QWebElement>
+#include <QHBoxLayout>
 
 class TestPlugin : public QObject, public PluginInterface
 {
@@ -22,25 +21,22 @@ class TestPlugin : public QObject, public PluginInterface
     Q_INTERFACES(PluginInterface)
 
 public:
-    QString pluginName() { return tr("Example Plugin"); }
-    QString pluginInfo() { return tr("Example minimal plugin"); }
-    QString pluginDescription() { return tr("Very simple minimal plugin example"); }
-    QString pluginVersion() { return "0.0.1"; }
-    QString pluginAuthor() { return "David Rosca <nowrep@gmail.com>"; }
-    void init(QString sPath);
+    PluginSpec pluginSpec();
+
+    void init(const QString &sPath);
+    void unload();
     bool testPlugin();
 
-    QTranslator* getTranslator(QString locale);
-    QIcon pluginIcon() { return QIcon(":/qupzilla.png"); }
-    bool hasSettings() { return true; }
-    void showSettings();
+    QTranslator* getTranslator(const QString &locale);
+    void showSettings(QWidget* parent = 0);
 
-    void populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestResult r);
+    void populateWebViewMenu(QMenu* menu, QWebView* view, const QWebHitTestResult &r);
     void populateHelpMenu(QMenu* menu);
     void populateToolsMenu(QMenu* menu);
 
 private slots:
     void actionSlot();
+
 private:
     QString settingsPath;
 };

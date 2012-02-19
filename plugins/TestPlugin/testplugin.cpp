@@ -1,10 +1,37 @@
 #include "testplugin.h"
+#include "qupzilla.h"
 
-void TestPlugin::init(QString sPath)
+PluginSpec TestPlugin::pluginSpec()
 {
-    settingsPath = sPath;
-    //This function is called right after plugin is loaded
+    PluginSpec spec;
+    spec.name = tr("Example Plugin");
+    spec.info = tr("Example minimal plugin");
+    spec.description = tr("Very simple minimal plugin example");
+    spec.version = "0.0.1";
+    spec.author = "David Rosca <nowrep@gmail.com>";
+    spec.icon = QIcon(":qupzilla.png");
+    spec.hasSettings = true;
+
+    return spec;
+}
+
+void TestPlugin::init(const QString &sPath)
+{
     qDebug() << __FUNCTION__ << "called";
+
+    // This function is called right after plugin is loaded
+    // it will be called even if we return false from testPlugin()
+    // so it is recommended not to call any QupZilla function here
+
+    settingsPath = sPath;
+}
+
+void TestPlugin::unload()
+{
+    qDebug() << __FUNCTION__ << "called";
+
+    // This function will be called when unloading plugin
+    // it will be also called if we return false from testPlugin()
 }
 
 bool TestPlugin::testPlugin()
@@ -13,29 +40,34 @@ bool TestPlugin::testPlugin()
     //There should be some testing if plugin is loaded correctly
     //If this function returns false, plugin is automatically unloaded
 
-    return true;
+    return (QupZilla::VERSION == "1.1.8");
 }
 
-QTranslator* TestPlugin::getTranslator(QString locale)
+QTranslator* TestPlugin::getTranslator(const QString &locale)
 {
     QTranslator* translator = new QTranslator();
     translator->load(":/" + locale);
     return translator;
 }
 
-void TestPlugin::showSettings()
+void TestPlugin::showSettings(QWidget *parent)
 {
-    QWidget* widget = new QWidget();
-    new QLabel("Example Plugin v0.0.1", widget);
-    widget->resize(200, 200);
-    widget->setAttribute(Qt::WA_DeleteOnClose);
-    widget->setWindowModality(Qt::WindowModal); //As the preferences window is modal too
-    widget->setWindowTitle("Example Plugin Settings");
-    widget->setWindowIcon(pluginIcon());
-    widget->show();
+    QDialog* dialog = new QDialog(parent);
+    QPushButton* b = new QPushButton("Example Plugin v0.0.1");
+
+    QHBoxLayout* l = new QHBoxLayout(dialog);
+    l->addWidget(b);
+    dialog->setLayout(l);
+
+    dialog->resize(200, 200);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->setWindowTitle("Example Plugin Settings");
+    dialog->setWindowIcon(QIcon(":/qupzilla.png"));
+
+    dialog->show();
 }
 
-void TestPlugin::populateWebViewMenu(QMenu* menu, QWebView* view, QWebHitTestResult r)
+void TestPlugin::populateWebViewMenu(QMenu* menu, QWebView* view, const QWebHitTestResult &r)
 {
     Q_UNUSED(view)
     QString title;

@@ -26,9 +26,9 @@ TEMPLATE = lib
 CONFIG += plugin
 DESTDIR = $$PWD/bin/plugins
 
-OBJECTS_DIR = $$TARGET-build
-MOC_DIR = $$TARGET-build
-RCC_DIR = $$TARGET-build
-UI_DIR = $$TARGET-build
+OBJECTS_DIR = build
+MOC_DIR = build
+RCC_DIR = build
+UI_DIR = build
 
-LIBS += $$PWD/plugins/libqupzilla/libqupzilla.a
+LIBS += -L $$PWD/bin -lqupzilla
