@@ -33,6 +33,13 @@ enum CommandLineAction {
     CL_ExitAction
 };
 
+enum ObjectName {
+    ON_WebView,
+    ON_TabWidget,
+    ON_TabBar,
+    ON_QupZilla
+};
+
 enum NewTabPositionFlag {
     NT_SelectedTab = 1,
     NT_NotSelectedTab = 2,
@@ -41,6 +48,7 @@ enum NewTabPositionFlag {
 
     NT_SelectedTabAtTheEnd = NT_SelectedTab | NT_TabAtTheEnd,
     NT_NotSelectedTabAtTheEnd = NT_NotSelectedTab | NT_TabAtTheEnd,
+    NT_CleanSelectedTabAtTheEnd = NT_SelectedTab | NT_TabAtTheEnd | NT_CleanTab,
     NT_CleanSelectedTab = NT_CleanTab | NT_SelectedTab,
     NT_CleanNotSelectedTab = NT_CleanTab | NT_NotSelectedTab
 };

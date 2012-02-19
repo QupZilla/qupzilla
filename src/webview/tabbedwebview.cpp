@@ -22,7 +22,6 @@
 #include "networkmanager.h"
 #include "mainapplication.h"
 #include "tabbar.h"
-#include "pluginproxy.h"
 #include "webtab.h"
 #include "statusbarmessage.h"
 #include "progressbar.h"
@@ -314,9 +313,6 @@ void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
     const QWebHitTestResult &hitTest = page()->mainFrame()->hitTestContent(event->pos());
 
     createContextMenu(m_menu, hitTest, event->pos());
-
-    m_menu->addSeparator();
-    mApp->plugins()->populateWebViewMenu(m_menu, this, hitTest);
     m_menu->addAction(p_QupZilla->adBlockIcon()->menuAction());
 
     m_menu->addSeparator();

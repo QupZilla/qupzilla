@@ -30,15 +30,14 @@ public:
     QTranslator* getTranslator(const QString &locale);
     void showSettings(QWidget* parent = 0);
 
-    void populateWebViewMenu(QMenu* menu, QWebView* view, const QWebHitTestResult &r);
-    void populateHelpMenu(QMenu* menu);
-    void populateToolsMenu(QMenu* menu);
+    void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r);
 
 private slots:
     void actionSlot();
 
 private:
-    QString settingsPath;
+    WebView* m_view;
+    QString m_settingsPath;
 };
 
 #endif // TESTPLUGIN_H

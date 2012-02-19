@@ -170,7 +170,7 @@ void QupZilla::postLaunch()
     }
 
     if (addTab) {
-        m_tabWidget->addView(startUrl, Qz::NT_SelectedTabAtTheEnd);
+        m_tabWidget->addView(startUrl, Qz::NT_CleanSelectedTabAtTheEnd);
 
         if (startUrl.isEmpty() || startUrl.toString() == "qupzilla:speeddial") {
             locationBar()->setFocus();
@@ -447,7 +447,6 @@ void QupZilla::setupMenu()
     connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), this, SLOT(startPrivate(bool)));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
-    mApp->plugins()->populateToolsMenu(m_menuTools);
 #if !defined(Q_WS_X11) && !defined(Q_WS_MAC)
     m_menuTools->addAction(m_actionPreferences);
 #endif
@@ -456,8 +455,6 @@ void QupZilla::setupMenu()
      * Help Menu *
      *************/
     m_menuHelp = new QMenu(tr("&Help"));
-    mApp->plugins()->populateHelpMenu(m_menuHelp);
-    m_menuHelp->addSeparator();
 #ifndef Q_WS_MAC
     m_menuHelp->addAction(QIcon(":/icons/menu/qt.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
     m_menuHelp->addAction(m_actionAbout);

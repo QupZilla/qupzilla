@@ -1,5 +1,6 @@
 #include "testplugin.h"
 #include "qupzilla.h"
+#include "webview.h"
 
 PluginSpec TestPlugin::pluginSpec()
 {
@@ -23,7 +24,8 @@ void TestPlugin::init(const QString &sPath)
     // it will be called even if we return false from testPlugin()
     // so it is recommended not to call any QupZilla function here
 
-    settingsPath = sPath;
+    m_settingsPath = sPath;
+    m_view = 0;
 }
 
 void TestPlugin::unload()
@@ -67,36 +69,30 @@ void TestPlugin::showSettings(QWidget *parent)
     dialog->show();
 }
 
-void TestPlugin::populateWebViewMenu(QMenu* menu, QWebView* view, const QWebHitTestResult &r)
+void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)
 {
-    Q_UNUSED(view)
+    m_view = view;
+
     QString title;
     if (!r.imageUrl().isEmpty()) {
         title += " on image";
     }
+
     if (!r.linkUrl().isEmpty()) {
         title += " on link";
     }
+
     QWebElement element = r.element();
     if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea")) {
         title += " on input";
     }
+
     menu->addAction(tr("My first plugin action") + title, this, SLOT(actionSlot()));
-}
-
-void TestPlugin::populateHelpMenu(QMenu* menu)
-{
-    menu->addAction(tr("My first plugin action"), this, SLOT(actionSlot()));
-}
-
-void TestPlugin::populateToolsMenu(QMenu* menu)
-{
-    menu->addAction(tr("My first plugin action"), this, SLOT(actionSlot()));
 }
 
 void TestPlugin::actionSlot()
 {
-    QMessageBox::information(0, tr("Hello"), tr("First plugin action works :-)"));
+    QMessageBox::information(m_view, tr("Hello"), tr("First plugin action works :-)"));
 }
 
 //Export plugin macro

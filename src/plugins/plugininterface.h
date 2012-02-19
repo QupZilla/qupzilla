@@ -26,6 +26,8 @@
 #include <QWebView>
 #include <QWebHitTestResult>
 
+#include "qz_namespace.h"
+
 struct PluginSpec {
     QString name;
     QString info;
@@ -44,6 +46,7 @@ struct PluginSpec {
     }
 };
 
+class WebView;
 class PluginInterface
 {
 public:
@@ -59,18 +62,10 @@ public:
     virtual QTranslator* getTranslator(const QString &locale) { Q_UNUSED(locale) return 0; }
     virtual void showSettings(QWidget* parent = 0) { Q_UNUSED(parent) }
 
-    virtual void populateToolsMenu(QMenu* menu) { Q_UNUSED(menu) }
-    virtual void populateHelpMenu(QMenu* menu) { Q_UNUSED(menu) }
-    virtual void populateWebViewMenu(QMenu* menu, QWebView* view, const QWebHitTestResult &r) { Q_UNUSED(menu) Q_UNUSED(view) Q_UNUSED(r) }
-
-    virtual void formSent(const QNetworkRequest &request, const QByteArray &outgoingData) { Q_UNUSED(request) Q_UNUSED(outgoingData)}
-    virtual void pageLoaded(QWebView* view) { Q_UNUSED(view) }
-    virtual void downloadRequested(QWidget* requestWidget) { Q_UNUSED(requestWidget) }
-    virtual QNetworkReply* createNetworkRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
-    { Q_UNUSED(op) Q_UNUSED(request) Q_UNUSED(outgoingData) return 0; }
+    virtual void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r) { Q_UNUSED(menu) Q_UNUSED(view) Q_UNUSED(r) }
+    virtual bool processEvent(const Qz::ObjectName &type, QObject* obj, QEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
 };
 
 Q_DECLARE_INTERFACE(PluginInterface, "QupZilla.Browser.PluginInterface/1.1")
-
 
 #endif // PLUGININTERFACE_H

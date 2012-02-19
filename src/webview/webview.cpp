@@ -32,6 +32,7 @@
 #include "settings.h"
 #include "webviewsettings.h"
 #include "enhancedmenu.h"
+#include "pluginproxy.h"
 
 WebView::WebView(QWidget* parent)
     : QWebView(parent)
@@ -549,6 +550,10 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         createPageContextMenu(menu, pos);
     }
 
+    menu->addSeparator();
+    mApp->plugins()->populateWebViewMenu(menu, this, hitTest);
+
+
 #if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
     //    still bugged? in 4.8 RC (it shows selection of webkit's internal source, not html from page)
     //    it may or may not be bug, but this implementation is useless for us
@@ -901,7 +906,7 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
         QTouchEvent::TouchPoint touchPoint;
         touchPoint.setState(Qt::TouchPointMoved);
         if ((ev->type() == QEvent::MouseButtonPress
-                || ev->type() == QEvent::MouseButtonDblClick)) {
+             || ev->type() == QEvent::MouseButtonDblClick)) {
             touchPoint.setState(Qt::TouchPointPressed);
         }
         else if (ev->type() == QEvent::MouseButtonRelease) {
