@@ -1,10 +1,10 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/testplugin">
         <file>cs_CZ.qm</file>
         <file>sk_SK.qm</file>
         <file>sr_BA.qm</file>
         <file>sr_RS.qm</file>
-		<file>de_DE.qm</file>
-		<file>el_GR.qm</file>
+        <file>de_DE.qm</file>
+        <file>el_GR.qm</file>
     </qresource>
 </RCC>

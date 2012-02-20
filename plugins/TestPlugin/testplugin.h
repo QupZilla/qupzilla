@@ -13,7 +13,7 @@
 #include <QLabel>
 #include <QMessageBox>
 #include <QWebElement>
-#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 class TestPlugin : public QObject, public PluginInterface
 {

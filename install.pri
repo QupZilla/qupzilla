@@ -4,7 +4,10 @@ mac {
 
     bundle_target.files += $$PWD/bin/locale
     bundle_target.files += $$PWD/bin/themes
+    bundle_target.files += $$PWD/bin/plugins
     bundle_target.path = Contents/Resources
+
+    bundle_target2.files += $$PWD/bin/
 
     QMAKE_BUNDLE_DATA += bundle_target
 }
@@ -31,6 +34,9 @@ mac {
 
     targetlib.files = $$PWD/bin/libqupzilla*
     targetlib.path = $$library_folder
+
+    targetplugins.files = $$PWD/bin/plugins/*.so
+    targetplugins.path = "$$library_folder"/qupzilla/
 
     target1.files += $$PWD/bin/locale
     target1.files += $$PWD/bin/themes
@@ -60,6 +66,6 @@ mac {
     ico256.files = $$PWD/linux/hicolor/256x256/apps/qupzilla.png
     ico256.path = $$hicolor_folder/256x256/apps
 
-    INSTALLS += target targetlib target1 target2 target3
+    INSTALLS += target targetlib targetplugins target1 target2 target3
     INSTALLS += ico16 ico32 ico48 ico64 ico128 ico256
 }

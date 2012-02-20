@@ -906,7 +906,7 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
         QTouchEvent::TouchPoint touchPoint;
         touchPoint.setState(Qt::TouchPointMoved);
         if ((ev->type() == QEvent::MouseButtonPress
-             || ev->type() == QEvent::MouseButtonDblClick)) {
+                || ev->type() == QEvent::MouseButtonDblClick)) {
             touchPoint.setState(Qt::TouchPointPressed);
         }
         else if (ev->type() == QEvent::MouseButtonRelease) {

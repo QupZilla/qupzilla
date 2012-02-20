@@ -4,34 +4,27 @@
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="testplugin.h" line="24"/>
-        <source>Example Plugin</source>
-        <translation>Пример прикључaк</translation>
+        <location filename="testplugin.cpp" line="59"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="testplugin.h" line="25"/>
-        <source>Example minimal plugin</source>
-        <translation>Пример минималног прикључка</translation>
+        <location filename="testplugin.cpp" line="70"/>
+        <source>Example Plugin Settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="testplugin.h" line="26"/>
-        <source>Very simple minimal plugin example</source>
-        <translation>Веома једноставан пример прикључка</translation>
-    </message>
-    <message>
-        <location filename="testplugin.cpp" line="52"/>
-        <location filename="testplugin.cpp" line="57"/>
-        <location filename="testplugin.cpp" line="62"/>
+        <location filename="testplugin.cpp" line="95"/>
         <source>My first plugin action</source>
         <translation>Моја прва радња прикључка</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="67"/>
+        <location filename="testplugin.cpp" line="100"/>
         <source>Hello</source>
         <translation>Здраво</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="67"/>
+        <location filename="testplugin.cpp" line="100"/>
         <source>First plugin action works :-)</source>
         <translation>Прва радња прикључка ради :-)</translation>
     </message>

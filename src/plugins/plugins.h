@@ -55,7 +55,7 @@ public:
     QList<Plugin> getAvailablePlugins() { return m_availablePlugins; }
 
     void loadPlugin(Plugin* plugin);
-    void unloadPlugin(Plugin *plugin);
+    void unloadPlugin(Plugin* plugin);
 
 public slots:
     void loadSettings();

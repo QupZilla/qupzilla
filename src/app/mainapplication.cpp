@@ -110,7 +110,6 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     PROFILEDIR = QDir::homePath() + "/.qupzilla/";
 #endif
 
-    PLUGINSDIR = DATADIR + "plugins/";
     TRANSLATIONSDIR = DATADIR + "locale/";
     THEMESDIR = DATADIR + "themes/";
 

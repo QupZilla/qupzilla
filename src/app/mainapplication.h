@@ -60,7 +60,6 @@ class MainApplication : public QtSingleApplication
 public:
     QString DATADIR;
     QString PROFILEDIR;
-    QString PLUGINSDIR;
     QString TRANSLATIONSDIR;
     QString THEMESDIR;
 

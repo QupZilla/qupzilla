@@ -5,9 +5,9 @@
 PluginSpec TestPlugin::pluginSpec()
 {
     PluginSpec spec;
-    spec.name = tr("Example Plugin");
-    spec.info = tr("Example minimal plugin");
-    spec.description = tr("Very simple minimal plugin example");
+    spec.name = "Example Plugin";
+    spec.info = "Example minimal plugin";
+    spec.description = "Very simple minimal plugin example";
     spec.version = "0.0.1";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QIcon(":qupzilla.png");
@@ -48,7 +48,7 @@ bool TestPlugin::testPlugin()
 QTranslator* TestPlugin::getTranslator(const QString &locale)
 {
     QTranslator* translator = new QTranslator();
-    translator->load(":/" + locale);
+    translator->load(":/testplugin/" + locale);
     return translator;
 }
 
@@ -56,15 +56,20 @@ void TestPlugin::showSettings(QWidget *parent)
 {
     QDialog* dialog = new QDialog(parent);
     QPushButton* b = new QPushButton("Example Plugin v0.0.1");
+    QPushButton* closeButton = new QPushButton(tr("Close"));
+    QLabel* label = new QLabel();
+    label->setPixmap(QPixmap(":icons/other/about.png"));
 
-    QHBoxLayout* l = new QHBoxLayout(dialog);
+    QVBoxLayout* l = new QVBoxLayout(dialog);
+    l->addWidget(label);
     l->addWidget(b);
+    l->addWidget(closeButton);
     dialog->setLayout(l);
 
-    dialog->resize(200, 200);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->setWindowTitle("Example Plugin Settings");
-    dialog->setWindowIcon(QIcon(":/qupzilla.png"));
+    dialog->setWindowTitle(tr("Example Plugin Settings"));
+    dialog->setWindowIcon(QIcon(":qupzilla.png"));
+    connect(closeButton, SIGNAL(clicked()), dialog, SLOT(close()));
 
     dialog->show();
 }

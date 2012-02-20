@@ -52,7 +52,7 @@ void Plugins::loadPlugin(Plugins::Plugin* plugin)
     refreshLoadedPlugins();
 }
 
-void Plugins::unloadPlugin(Plugins::Plugin *plugin)
+void Plugins::unloadPlugin(Plugins::Plugin* plugin)
 {
     if (!plugin->isLoaded()) {
         return;
@@ -86,7 +86,7 @@ void Plugins::loadPlugins()
     m_pluginsLoaded = true;
 
     QStringList dirs;
-    dirs << mApp->PLUGINSDIR
+    dirs << mApp->DATADIR + "plugins/"
 #ifdef Q_WS_X11
          << "/usr/lib/qupzilla/"
 #endif
@@ -146,7 +146,7 @@ void Plugins::refreshLoadedPlugins()
 {
     m_loadedPlugins.clear();
 
-    foreach(const Plugin &plugin, m_availablePlugins) {
+    foreach(const Plugin & plugin, m_availablePlugins) {
         if (plugin.isLoaded()) {
             m_loadedPlugins.append(plugin.instance);
         }

@@ -183,7 +183,7 @@ void PluginsList::currentChanged(QListWidgetItem* item)
     ui->butSettings->setEnabled(showSettings);
 }
 
-void PluginsList::itemChanged(QListWidgetItem *item)
+void PluginsList::itemChanged(QListWidgetItem* item)
 {
     if (!item) {
         return;

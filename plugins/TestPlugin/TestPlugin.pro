@@ -8,6 +8,14 @@ TARGET = ExamplePlugin
 
 SOURCES += testplugin.cpp
 HEADERS += testplugin.h
-RESOURCES += data.qrc
+RESOURCES += \
+    testplugin.qrc
+
+TRANSLATIONS += cs_CZ.ts\
+                sk_SK.ts\
+                sr_BA.ts\
+                sr_RS.ts\
+                de_DE.ts\
+                el_GR.ts\
 
 include(../../plugins.pri)
