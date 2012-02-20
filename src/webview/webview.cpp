@@ -511,8 +511,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         createMediaContextMenu(menu, hitTest);
     }
 
-    QWebElement element = hitTest.element();
-    if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea")) {
+    if (hitTest.isContentEditable()) {
         if (menu->isEmpty()) {
             QMenu* pageMenu = page()->createStandardContextMenu();
 
@@ -523,9 +522,12 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
                     continue;
                 }
 
-                // Hiding double Direction menu (bug in QtWebKit 2.2)
-                if (i == 0 && act->menu()) {
-                    act->setVisible(false);
+                // Hiding double Direction + Fonts menu (bug in QtWebKit 2.2)
+                if (i <= 1 && act->menu()) {
+                    if (act->menu()->actions().contains(pageAction(QWebPage::SetTextDirectionDefault)) ||
+                            act->menu()->actions().contains(pageAction(QWebPage::ToggleBold))) {
+                        act->setVisible(false);
+                    }
                 }
 
                 menu->addAction(act);

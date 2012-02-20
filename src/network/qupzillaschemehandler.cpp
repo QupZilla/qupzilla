@@ -185,10 +185,10 @@ QString QupZillaSchemeReply::aboutPage()
 
         aPage.replace("%VERSION-INFO%",
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), QupZilla::VERSION
-                                                   #ifdef GIT_REVISION
-                                                           + " (" + GIT_REVISION + ")"
-                                                   #endif
-                                                           ) +
+#ifdef GIT_REVISION
+                              + " (" + GIT_REVISION + ")"
+#endif
+                                                          ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION));
         aPage.replace("%MAIN-DEVELOPER%", tr("Main developer"));
         aPage.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR.toUtf8(), "nowrep@gmail.com"));
@@ -199,7 +199,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Mariusz Fik", "fisiu@opensuse.org") + "<br/>" +
                       authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +
                       authorString("Daniele Cocca", "jmc@chakra-project.org")
-                      );
+                     );
         aPage.replace("%TRANSLATORS%", tr("Translators"));
         aPage.replace("%TRANSLATORS-TEXT%",
                       authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
@@ -221,7 +221,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Mladen Pejaković", "pejakm@gmail.com") + " (Serbian)<br/>" +
                       authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
                       authorString("Wu Cheng-Hong", "stu2731652@gmail.com") + " (Traditional Chinese)"
-                      );
+                     );
     }
 
     return aPage;
@@ -316,10 +316,10 @@ QString QupZillaSchemeReply::configPage()
 
         cPage.replace("%VERSION-INFO%",
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Application version"), QupZilla::VERSION
-                                                   #ifdef GIT_REVISION
-                                                           + " (" + GIT_REVISION + ")"
-                                                   #endif
-                                                           ) +
+#ifdef GIT_REVISION
+                              + " (" + GIT_REVISION + ")"
+#endif
+                                                          ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +

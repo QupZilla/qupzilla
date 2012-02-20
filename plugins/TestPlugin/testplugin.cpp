@@ -87,8 +87,7 @@ void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTe
         title += " on link";
     }
 
-    QWebElement element = r.element();
-    if (!element.isNull() && (element.tagName().toLower() == "input" || element.tagName().toLower() == "textarea")) {
+    if (r.isContentEditable()) {
         title += " on input";
     }
 
