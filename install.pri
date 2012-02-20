@@ -13,27 +13,7 @@ mac {
 }
 
 !mac:unix {
-    d_prefix = $$(QUPZILLA_PREFIX)
-    binary_folder = /usr/bin
-    library_folder = /usr/lib
-    data_folder = /usr/share/qupzilla
-    launcher_folder = /usr/share/applications
-    icon_folder = /usr/share/pixmaps
-    hicolor_folder = /usr/share/icons/hicolor
-
-    !equals(d_prefix, "") {
-        binary_folder = "$$d_prefix"bin
-        library_folder = "$$d_prefix"lib
-        data_folder = "$$d_prefix"share/qupzilla
-        launcher_folder = "$$d_prefix"share/applications
-        icon_folder = "$$d_prefix"share/pixmaps
-        hicolor_folder = "$$d_prefix"share/icons/hicolor
-    }
-
     target.path = $$binary_folder
-
-    targetlib.files = $$PWD/bin/libqupzilla*
-    targetlib.path = $$library_folder
 
     target1.files += $$PWD/bin/locale
     target1.files += $$PWD/bin/themes
@@ -63,13 +43,6 @@ mac {
     ico256.files = $$PWD/linux/hicolor/256x256/apps/qupzilla.png
     ico256.path = $$hicolor_folder/256x256/apps
 
-    INSTALLS += target targetlib target1 target2 target3
+    INSTALLS += target target1 target2 target3
     INSTALLS += ico16 ico32 ico48 ico64 ico128 ico256
-
-    build_plugins {
-        targetplugins.files = $$PWD/bin/plugins/*.so
-        targetplugins.path = "$$library_folder"/qupzilla/
-
-        INSTALLS += targetplugins
-    }
 }

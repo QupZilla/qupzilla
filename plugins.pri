@@ -32,3 +32,11 @@ RCC_DIR = build
 UI_DIR = build
 
 LIBS += -L $$PWD/bin -lqupzilla
+
+include(defines.pri)
+
+!mac:unix {
+    target.path = $$library_folder/qupzilla
+
+    INSTALLS += target
+}

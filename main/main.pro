@@ -5,8 +5,8 @@ TARGET = qupzilla
 TEMPLATE = app
 LIBS += -L../bin -lqupzilla
 
-include(../install.pri)
 include(../defines.pri)
+include(../install.pri)
 include(../translations.pri)
 include(../src/3rdparty/qtsingleapplication.pri)
 

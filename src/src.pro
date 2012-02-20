@@ -9,6 +9,12 @@ include(../defines.pri)
 
 SOURCES -= main.cpp
 
+!mac:unix {
+    target.path = $$library_folder
+
+    INSTALLS += target
+}
+
 message(========== Building libqupzilla ==========)
 message( Using following defines:)
 message($$DEFINES)

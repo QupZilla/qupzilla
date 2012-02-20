@@ -34,10 +34,20 @@ equals(d_portable, "true") { DEFINES += PORTABLE_BUILD }
 
 !mac:unix {
     d_prefix = $$(QUPZILLA_PREFIX)
+    binary_folder = /usr/bin
+    library_folder = /usr/lib
     data_folder = /usr/share/qupzilla
+    launcher_folder = /usr/share/applications
+    icon_folder = /usr/share/pixmaps
+    hicolor_folder = /usr/share/icons/hicolor
 
     !equals(d_prefix, "") {
+        binary_folder = "$$d_prefix"bin
+        library_folder = "$$d_prefix"lib
         data_folder = "$$d_prefix"share/qupzilla
+        launcher_folder = "$$d_prefix"share/applications
+        icon_folder = "$$d_prefix"share/pixmaps
+        hicolor_folder = "$$d_prefix"share/icons/hicolor
     }
 
     DEFINES += USE_DATADIR=\\\"""$$data_folder/"\\\""
