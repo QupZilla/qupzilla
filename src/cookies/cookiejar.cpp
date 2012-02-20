@@ -23,6 +23,11 @@
 
 bool containsDomain(QString string, QString domain)
 {
+    if (string.isEmpty()) {
+        // Some cookies have empty domain() ... bug?
+        return true;
+    }
+
     string.prepend(".");
     if (domain.startsWith("www.")) {
         domain = domain.mid(4);
@@ -89,9 +94,9 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
             continue;
         }
 
-        if (m_allowCookiesFromDomain && !containsDomain(cookie.domain(), url.host())) {
+        if (m_allowCookiesFromDomain && !containsDomain(url.host(), cookie.domain())) {
 #ifdef COOKIE_DEBUG
-            qDebug() << "purged for domain mismatch" << cookie;
+            qDebug() << "purged for domain mismatch" << cookie << cookie.domain() << url.host();
 #endif
             newList.removeOne(cookie);
             continue;
