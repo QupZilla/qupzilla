@@ -85,24 +85,24 @@ void AboutDialog::showAuthors()
                                          "Daniele Cocca")
                              ));
         m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg(
-                                 QString::fromUtf8("Heimen Stoffels (Dutch)<br/>"
-                                         "Peter Vacula (Slovakia)<br/>"
-                                         "Ján Ďanovský (Slovakia)<br/>"
-                                         "Jonathan Hooverman (German)<br/>"
-                                         "Federico Fabiani (Italian)<br/>"
-                                         "Francesco Marinucci (Italian)<br/>"
-                                         "Jorge Sevilla (Spanish)<br/>"
-                                         "Michał Szymanowski (Polish)<br/>"
-                                         "Mariusz Fik (Polish)<br/>"
-                                         "Jérôme Giry (French)<br/>"
-                                         "Nicolas Ourceau (French)<br/>"
-                                         "Vasilis Tsivikis (Greek)<br/>"
-                                         "Rustam Salakhutdinov (Russian)<br/>"
-                                         "Oleg Brezhnev (Russian)<br/>"
-                                         "Sérgio Marques (Portuguese)<br/>"
-                                         "Mladen Pejaković (Serbian)<br/>"
-                                         "Unink-Lio (Chinese)<br/>"
-                                         "Wu Cheng-Hong (Trad. Chinese)")
+                                 QString::fromUtf8("Heimen Stoffels<br/>"
+                                         "Peter Vacula<br/>"
+                                         "Jonathan Hooverman<br/>"
+                                         "Federico Fabiani<br/>"
+                                         "Francesco Marinucci<br/>"
+                                         "Jorge Sevilla<br/>"
+                                         "Michał Szymanowski<br/>"
+                                         "Mariusz Fik<br/>"
+                                         "Jérôme Giry<br/>"
+                                         "Nicolas Ourceau<br/>"
+                                         "Vasilis Tsivikis<br/>"
+                                         "Rustam Salakhutdinov<br/>"
+                                         "Oleg Brezhnev<br/>"
+                                         "Sérgio Marques<br/>"
+                                         "Alexandre Carvalho<br/>"
+                                         "Mladen Pejaković<br/>"
+                                         "Unink-Lio<br/>"
+                                         "Wu Cheng-Hong")
                              ));
         m_authorsHtml.append("</div>");
     }

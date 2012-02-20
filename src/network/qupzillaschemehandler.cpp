@@ -185,10 +185,10 @@ QString QupZillaSchemeReply::aboutPage()
 
         aPage.replace("%VERSION-INFO%",
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"), QupZilla::VERSION
-#ifdef GIT_REVISION
-                              + " (" + GIT_REVISION + ")"
-#endif
-                                                          ) +
+                                                   #ifdef GIT_REVISION
+                                                           + " (" + GIT_REVISION + ")"
+                                                   #endif
+                                                           ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION));
         aPage.replace("%MAIN-DEVELOPER%", tr("Main developer"));
         aPage.replace("%MAIN-DEVELOPER-TEXT%", authorString(QupZilla::AUTHOR.toUtf8(), "nowrep@gmail.com"));
@@ -199,7 +199,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Mariusz Fik", "fisiu@opensuse.org") + "<br/>" +
                       authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +
                       authorString("Daniele Cocca", "jmc@chakra-project.org")
-                     );
+                      );
         aPage.replace("%TRANSLATORS%", tr("Translators"));
         aPage.replace("%TRANSLATORS-TEXT%",
                       authorString("Heimen Stoffels", "vistausss@gmail.com") + " (Dutch)<br/>" +
@@ -217,10 +217,11 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Rustam Salakhutdinov", "salahutd@gmail.com") + " (Russian)<br/>" +
                       authorString("Oleg Brezhnev", "oleg-423@yandex.ru") + " (Russian)<br/>" +
                       authorString("Sérgio Marques", "smarquespt@gmail.com") + " (Portuguese)<br/>" +
+                      authorString("Alexandre Carvalho", "alexandre05@live.com") + " (Brazilian Portuguese)<br/>" +
                       authorString("Mladen Pejaković", "pejakm@gmail.com") + " (Serbian)<br/>" +
                       authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
                       authorString("Wu Cheng-Hong", "stu2731652@gmail.com") + " (Traditional Chinese)"
-                     );
+                      );
     }
 
     return aPage;
@@ -274,6 +275,7 @@ QString QupZillaSchemeReply::speeddialPage()
     page.replace("%B_SIZE%", dial->backgroundImageSize());
     page.replace("%ROW-PAGES%", QString::number(dial->pagesInRow()));
     page.replace("%SD-SIZE%", QString::number(dial->sdSize()));
+
     return page;
 }
 
@@ -312,76 +314,77 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
 
-        cPage.replace("%USER-AGENT%", mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()));
-
-
         cPage.replace("%VERSION-INFO%",
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Application version"), QupZilla::VERSION
-#ifdef GIT_REVISION
-                              + " (" + GIT_REVISION + ")"
-#endif
-                                                          ) +
+                                                   #ifdef GIT_REVISION
+                                                           + " (" + GIT_REVISION + ")"
+                                                   #endif
+                                                           ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
+    }
 
-        QString pluginsString;
-        const QList<Plugins::Plugin> &availablePlugins = mApp->plugins()->getAvailablePlugins();
+    QString page = cPage;
+    page.replace("%USER-AGENT%", mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()));
 
-        foreach(const Plugins::Plugin & plugin, availablePlugins) {
-            PluginSpec spec = plugin.pluginSpec;
-            pluginsString.append(QString("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td></tr>").arg(
-                                     spec.name, spec.version, Qt::escape(spec.author), spec.description));
-        }
+    QString pluginsString;
+    const QList<Plugins::Plugin> &availablePlugins = mApp->plugins()->getAvailablePlugins();
 
-        if (pluginsString.isEmpty()) {
-            pluginsString = QString("<tr><td colspan=4 class=\"no-available-plugins\">%1</td></tr>").arg(tr("No available plugins."));
-        }
+    foreach(const Plugins::Plugin & plugin, availablePlugins) {
+        PluginSpec spec = plugin.pluginSpec;
+        pluginsString.append(QString("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td></tr>").arg(
+                                 spec.name, spec.version, Qt::escape(spec.author), spec.description));
+    }
 
-        cPage.replace("%PLUGINS-INFO%", pluginsString);
+    if (pluginsString.isEmpty()) {
+        pluginsString = QString("<tr><td colspan=4 class=\"no-available-plugins\">%1</td></tr>").arg(tr("No available plugins."));
+    }
 
-        QString allGroupsString;
-        QSettings* settings = Settings::globalSettings();
-        foreach(const QString & group, settings->childGroups()) {
-            QString groupString = QString("<tr><th colspan=\"2\">%1</th></tr>").arg(group);
-            settings->beginGroup(group);
+    page.replace("%PLUGINS-INFO%", pluginsString);
 
-            foreach(const QString & key, settings->childKeys()) {
-                const QVariant &keyValue = settings->value(key);
-                QString keyString;
+    QString allGroupsString;
+    QSettings* settings = Settings::globalSettings();
+    foreach(const QString & group, settings->childGroups()) {
+        QString groupString = QString("<tr><th colspan=\"2\">%1</th></tr>").arg(group);
+        settings->beginGroup(group);
 
-                switch (keyValue.type()) {
-                case QVariant::ByteArray:
-                    keyString = "QByteArray";
-                    break;
+        foreach(const QString & key, settings->childKeys()) {
+            const QVariant &keyValue = settings->value(key);
+            QString keyString;
 
-                case QVariant::Point: {
-                    const QPoint point = keyValue.toPoint();
-                    keyString = QString("QPoint(%1, %2)").arg(QString::number(point.x()), QString::number(point.y()));
-                    break;
-                }
+            switch (keyValue.type()) {
+            case QVariant::ByteArray:
+                keyString = "QByteArray";
+                break;
 
-                case QVariant::StringList:
-                    keyString = keyValue.toStringList().join(",");
-                    break;
-
-                default:
-                    keyString = keyValue.toString();
-                }
-
-                if (keyString.isEmpty()) {
-                    keyString = "\"empty\"";
-                }
-
-                groupString.append(QString("<tr><td>%1</td><td>%2</td></tr>").arg(key, Qt::escape(keyString)));
+            case QVariant::Point: {
+                const QPoint point = keyValue.toPoint();
+                keyString = QString("QPoint(%1, %2)").arg(QString::number(point.x()), QString::number(point.y()));
+                break;
             }
 
-            settings->endGroup();
-            allGroupsString.append(groupString);
+            case QVariant::StringList:
+                keyString = keyValue.toStringList().join(",");
+                break;
+
+            default:
+                keyString = keyValue.toString();
+            }
+
+            if (keyString.isEmpty()) {
+                keyString = "\"empty\"";
+            }
+
+            groupString.append(QString("<tr><td>%1</td><td>%2</td></tr>").arg(key, Qt::escape(keyString)));
         }
 
-        cPage.replace("%PREFS-INFO%", allGroupsString);
+        settings->endGroup();
+        allGroupsString.append(groupString);
     }
-    return cPage;
+
+    page.replace("%PREFS-INFO%", allGroupsString);
+
+    return page;
 }
