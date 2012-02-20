@@ -146,7 +146,7 @@
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="113"/>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyList已更新成功</translation>
+        <translation>EasyList已更新成功。</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockdialog.cpp" line="129"/>
@@ -178,17 +178,17 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="50"/>
         <source>Blocked popup window</source>
-        <translation type="unfinished"></translation>
+        <translation>封鎖彈出視窗</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="50"/>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation type="unfinished"></translation>
+        <translation>封鎖不想要的彈出視窗。</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="69"/>
         <source>AdBlock</source>
-        <translation type="unfinished">廣告封鎖</translation>
+        <translation>廣告封鎖</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="92"/>
@@ -198,7 +198,7 @@
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="95"/>
         <source>Blocked Popup Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>封鎖彈出視窗</translation>
     </message>
     <message>
         <location filename="../src/adblock/adblockicon.cpp" line="106"/>
@@ -287,7 +287,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="104"/>
         <source>Import/Export</source>
-        <translation type="unfinished"></translation>
+        <translation>匯入/匯出</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="131"/>
@@ -304,12 +304,12 @@
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="38"/>
         <source>Import Passwords from File...</source>
-        <translation type="unfinished"></translation>
+        <translation>從檔案匯入密碼...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="39"/>
         <source>Export Passwords to File...</source>
-        <translation type="unfinished"></translation>
+        <translation>將密碼匯出至檔案...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="90"/>
@@ -345,32 +345,32 @@
         <location filename="../src/preferences/autofillmanager.cpp" line="195"/>
         <location filename="../src/preferences/autofillmanager.cpp" line="215"/>
         <source>Choose file...</source>
-        <translation type="unfinished">選擇檔案...</translation>
+        <translation>選擇檔案...</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="202"/>
         <source>Cannot read file!</source>
-        <translation type="unfinished"></translation>
+        <translation>無法讀取檔案!</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
         <source>Successfully imported</source>
-        <translation type="unfinished"></translation>
+        <translation>成功匯入</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="209"/>
         <source>Error while importing!</source>
-        <translation type="unfinished"></translation>
+        <translation>匯入錯誤!</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="222"/>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>無法寫入檔案!</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.cpp" line="229"/>
         <source>Successfully exported</source>
-        <translation type="unfinished"></translation>
+        <translation>成功匯出</translation>
     </message>
 </context>
 <context>
@@ -510,7 +510,7 @@
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="313"/>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="328"/>
         <source>Please choose this file to begin importing bookmarks.</source>
-        <translation>請選擇檔案以開始匯入書籤</translation>
+        <translation>請選擇檔案以開始匯入書籤。</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="295"/>
@@ -535,7 +535,7 @@
     <message>
         <location filename="../src/bookmarksimport/bookmarksimportdialog.cpp" line="337"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation>選擇此資料夾，開始匯入書籤</translation>
+        <translation>選擇此資料夾，開始匯入書籤。</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="25"/>
@@ -550,7 +550,7 @@
         <location filename="../src/bookmarksimport/htmlimporter.cpp" line="22"/>
         <location filename="../src/bookmarksimport/operaimporter.cpp" line="39"/>
         <source>Unable to open file.</source>
-        <translation>無法打開資料夾。：</translation>
+        <translation>無法打開資料夾。</translation>
     </message>
     <message>
         <location filename="../src/bookmarksimport/chromeimporter.cpp" line="85"/>
@@ -569,7 +569,7 @@
     <message>
         <location filename="../src/bookmarksimport/firefoximporter.cpp" line="47"/>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation>無法打開資料庫。請關閉Firefox</translation>
+        <translation>無法打開資料庫。Firefox正在運行?</translation>
     </message>
 </context>
 <context>
@@ -642,7 +642,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarksmanager.cpp" line="240"/>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished">在此分頁開啟此連結 (&amp;tab)</translation>
+        <translation>在此分頁開啟此連結 (&amp;tab)</translation>
     </message>
     <message>
         <source>New Tab</source>
@@ -793,12 +793,12 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="68"/>
         <source>Show Most &amp;Visited</source>
-        <translation>顯示最多瀏覽&amp;</translation>
+        <translation>顯示最多瀏覽(&amp;V)</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="73"/>
         <source>Show Only Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>僅顯示圖示</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="79"/>
@@ -828,7 +828,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="210"/>
         <source>Edit bookmark: </source>
-        <translation>編輯書籤</translation>
+        <translation>編輯書籤:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="212"/>
@@ -885,7 +885,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="79"/>
         <source>Remove</source>
-        <translation type="unfinished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="105"/>
@@ -900,29 +900,29 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="143"/>
         <source>Add into Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>新增到書籤</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="150"/>
         <source>Add into Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>新增到快速播號</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished">書籤連結</translation>
+        <translation>編輯書籤</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="48"/>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="116"/>
         <source>Add to Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>新增到快速撥號</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="48"/>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="111"/>
         <source>Remove from Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>從快速撥號中移除</translation>
     </message>
 </context>
 <context>
@@ -1174,7 +1174,7 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="27"/>
         <source>Stored Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>儲存Cookies</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="33"/>
@@ -1184,7 +1184,7 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="43"/>
         <source>These cookies are stored on your computer:</source>
-        <translation>這些cookies儲存在你的電腦上。</translation>
+        <translation>這些cookies儲存在你的電腦上:</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="54"/>
@@ -1252,39 +1252,39 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="248"/>
         <source>Cookie Filtering</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookie過濾</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="254"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookie白名單&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="261"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation type="unfinished"></translation>
+        <translation>來自這些伺服器的Cookie總是接受(即使您關閉Cookie的存取)</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="286"/>
         <location filename="../src/cookies/cookiemanager.ui" line="340"/>
         <source>Add</source>
-        <translation type="unfinished">新增</translation>
+        <translation>新增</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="293"/>
         <location filename="../src/cookies/cookiemanager.ui" line="347"/>
         <source>Remove</source>
-        <translation type="unfinished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="305"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookie黑名單</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="312"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>來自這些伺服器的Cookie將不會被接受</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="132"/>
@@ -1309,12 +1309,12 @@
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="203"/>
         <source>Add to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>加到白名單</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="223"/>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>加到黑名單</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="224"/>
@@ -1482,7 +1482,7 @@
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation>抱歉，檔案%1未找到</translation>
+        <translation>抱歉，檔案%1未找到!</translation>
     </message>
     <message>
         <location filename="../src/downloads/downloaditem.cpp" line="378"/>
@@ -1976,7 +1976,7 @@
         <location filename="../src/network/networkmanager.cpp" line="159"/>
         <location filename="../src/network/networkmanager.cpp" line="188"/>
         <source>SSL Certificate Error!</source>
-        <translation>SSL憑證錯誤</translation>
+        <translation>SSL憑證錯誤!</translation>
     </message>
     <message>
         <location filename="../src/network/networkmanager.cpp" line="174"/>
@@ -2369,7 +2369,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="305"/>
         <source>Startup profile:</source>
-        <translation>啟動配置文件...</translation>
+        <translation>啟動配置文件:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="352"/>
@@ -2889,7 +2889,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="2089"/>
         <source>Change browser identification:</source>
-        <translation>使用者代理程式</translation>
+        <translation>使用者代理程式:</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1728"/>
@@ -3386,12 +3386,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="441"/>
         <source>Web In&amp;spector</source>
-        <translation type="unfinished"></translation>
+        <translation>網頁檢查(&amp;s)</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="471"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>設定資訊</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="491"/>
@@ -3455,7 +3455,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="843"/>
         <source>Clear list</source>
-        <translation>清除列表</translation>
+        <translation>清除清單</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="462"/>
@@ -3549,7 +3549,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="292"/>
         <source>&amp;Print...</source>
-        <translation>列印...</translation>
+        <translation>列印(&amp;P)...</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1405"/>
@@ -3574,7 +3574,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1520"/>
         <source>Current cookies cannot be accessed.</source>
-        <translation>當前的cookies無法被讀取</translation>
+        <translation>當前的cookies無法被讀取。</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1521"/>
@@ -3703,12 +3703,12 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="320"/>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translation>軟體版本</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="325"/>
         <source>Qt version</source>
-        <translation type="unfinished"></translation>
+        <translation>Qt版本</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="327"/>
@@ -3729,42 +3729,42 @@
         <location filename="../src/network/qupzillaschemehandler.cpp" line="291"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="292"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>設定資訊</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="294"/>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>此頁包含有關QupZilla現在的設定現在的設定、外掛等。進行錯誤回報時，請同時將這些相關訊息一起提交。</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="297"/>
         <source>Preferences</source>
-        <translation type="unfinished">偏好設定</translation>
+        <translation>偏好設定</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="298"/>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation>選項</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="299"/>
         <source>Value</source>
-        <translation type="unfinished">數值</translation>
+        <translation>數值</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="301"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="303"/>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>作者</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="304"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="308"/>
@@ -3810,7 +3810,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="142"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"></translation>
+        <translation>電子信箱的提交是可選的。&lt;b&gt;注意&lt;/b&gt;請先閱讀&lt;a href=%1&gt;&quot;如何提交錯誤&quot;&lt;/a&gt; 。</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="195"/>
@@ -3845,7 +3845,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="257"/>
         <source>Placement: </source>
-        <translation>佈局</translation>
+        <translation>佈局:</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="258"/>
@@ -3895,7 +3895,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="344"/>
         <source>No available plugins.</source>
-        <translation type="unfinished"></translation>
+        <translation>沒有可用外掛。</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>
@@ -4139,12 +4139,12 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="57"/>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
-        <translation>這是一個標準系統路靜和使用者指定路徑中的CA機構憑證列表。</translation>
+        <translation>這是一個標準系統路靜和使用者指定路徑中的CA機構憑證清單。</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="108"/>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
-        <translation>這是一個儲存在您的使用者設置文件的本地憑證列表。他也包含所有的憑證，以接收到一個異常。</translation>
+        <translation>這是一個儲存在您的使用者設置文件的本地憑證清單。他也包含所有的憑證，以接收到一個異常。</translation>
     </message>
     <message>
         <location filename="../src/preferences/sslmanager.ui" line="159"/>
@@ -4686,7 +4686,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="271"/>
         <source>Select image...</source>
-        <translation>選擇圖片</translation>
+        <translation>選擇圖片...</translation>
     </message>
     <message>
         <location filename="../src/plugins/speeddial.cpp" line="313"/>
@@ -4775,12 +4775,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>TabWidget</name>
     <message>
         <source>Show list of opened tabs</source>
-        <translation type="obsolete">顯示開啟的分頁列表</translation>
+        <translation type="obsolete">顯示開啟的分頁清單</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
-        <translation>分頁列表</translation>
+        <translation>分頁清單</translation>
     </message>
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="141"/>
@@ -4825,7 +4825,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/tabwidget.cpp" line="566"/>
         <source>Clear list</source>
-        <translation>清除列表</translation>
+        <translation>清除清單</translation>
     </message>
 </context>
 <context>
@@ -5103,7 +5103,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webpage.cpp" line="430"/>
         <source>Proxy server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到代理伺服器</translation>
     </message>
     <message>
         <location filename="../src/webview/webpage.cpp" line="433"/>
@@ -5357,7 +5357,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/webview/webview.cpp" line="600"/>
         <source>Send page link...</source>
-        <translation>傳送網頁連結</translation>
+        <translation>傳送網頁連結...</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="601"/>
