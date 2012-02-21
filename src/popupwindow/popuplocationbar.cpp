@@ -18,8 +18,7 @@
 #include "popuplocationbar.h"
 #include "popupwebview.h"
 #include "toolbutton.h"
-
-#include <QDebug>
+#include "globalfunctions.h"
 
 class PopupSiteIcon : public QWidget
 {
@@ -62,7 +61,7 @@ void PopupLocationBar::setView(PopupWebView* view)
 
 void PopupLocationBar::showUrl(const QUrl &url)
 {
-    setText(url.toString());
+    setText(qz_urlEncodeQueryString(url));
     setCursorPosition(0);
 }
 

@@ -148,6 +148,15 @@ QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
     return returnUrl;
 }
 
+QString qz_urlEncodeQueryString(const QUrl &url)
+{
+    QString returnString = url.toString(QUrl::RemoveQuery | QUrl::RemoveFragment);
+    returnString.append(url.encodedQuery());
+    returnString.append(url.encodedFragment());
+
+    return returnString;
+}
+
 QString qz_ensureUniqueFilename(const QString &pathToFile)
 {
     if (!QFile::exists(pathToFile)) {

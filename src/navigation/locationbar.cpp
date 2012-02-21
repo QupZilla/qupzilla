@@ -36,6 +36,7 @@
 #include "goicon.h"
 #include "rssicon.h"
 #include "downicon.h"
+#include "globalfunctions.h"
 
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit()
@@ -199,7 +200,7 @@ void LocationBar::showUrl(const QUrl &url)
         return;
     }
 
-    QString stringUrl = url.toString();
+    QString stringUrl = qz_urlEncodeQueryString(url);
 
     if (stringUrl == "qupzilla:speeddial" || stringUrl == "about:blank") {
         stringUrl = "";
