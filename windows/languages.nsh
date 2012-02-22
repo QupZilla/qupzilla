@@ -218,6 +218,26 @@ LangString DESC_SecDesktop ${LANG_SIMPCHINESE} "在桌面新建启动图标。"
 LangString DESC_SecExtensions ${LANG_SIMPCHINESE} "將 QupZilla 做為默認打開 .htm 以及 .html 文件的瀏覽器。"
 LangString DESC_SecThemes ${LANG_SIMPCHINESE} "其他的QupZilla皮肤。"
 
+;;;;Indonesian
+LangString TITLE_SecMain ${LANG_INDONESIA} "Komponen Utama"
+LangString TITLE_SecTranslations ${LANG_INDONESIA} "Terjemahan"
+LangString TITLE_SecPlugins ${LANG_INDONESIA} "Pengaya"
+LangString TITLE_SecExamplePlugin ${LANG_INDONESIA} "Contoh Pengaya"
+LangString TITLE_SecDesktop ${LANG_INDONESIA} "Icon Desktop"
+LangString TITLE_SecExtensions ${LANG_INDONESIA} "Asosiasi Berkas"
+LangString TITLE_SecThemes ${LANG_INDONESIA} "Tema"
+
+LangString FILE_Htm ${LANG_INDONESIA} "Berkas HTM"
+LangString FILE_Html ${LANG_INDONESIA} "Berkas HTML"
+;
+LangString DESC_SecMain ${LANG_INDONESIA} "Komponen utama aplikasi."
+LangString DESC_SecTranslations ${LANG_INDONESIA} "Tersedia terjemahan lain yang dapat diinstal. Default adalah bahasa Inggris."
+LangString DESC_SecPlugins ${LANG_INDONESIA} "Tersedia pengaya lain yang dapat diinstal."
+LangString DESC_SecExamplePlugin ${LANG_INDONESIA} "Contoh pengaya yang tidak digunakan."
+LangString DESC_SecDesktop ${LANG_INDONESIA} "Tambahkan peluncur ke desktop."
+LangString DESC_SecExtensions ${LANG_INDONESIA} "Asosiasikan QupZilla dengan berkas .htm dan .html"
+LangString DESC_SecThemes ${LANG_INDONESIA} "Tema tambahan untuk QupZilla"
+
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
