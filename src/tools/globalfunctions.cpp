@@ -151,8 +151,16 @@ QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl)
 QString qz_urlEncodeQueryString(const QUrl &url)
 {
     QString returnString = url.toString(QUrl::RemoveQuery | QUrl::RemoveFragment);
-    returnString.append(url.encodedQuery());
-    returnString.append(url.encodedFragment());
+
+    if (url.hasQuery()) {
+        returnString.append("?");
+        returnString.append(url.encodedQuery());
+    }
+
+    if (url.hasFragment()) {
+        returnString.append("#");
+        returnString.append(url.encodedFragment());
+    }
 
     return returnString;
 }

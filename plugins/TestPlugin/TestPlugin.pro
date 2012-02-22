@@ -17,5 +17,6 @@ TRANSLATIONS += cs_CZ.ts\
                 sr_RS.ts\
                 de_DE.ts\
                 el_GR.ts\
+                id_ID.ts\
 
 include(../../plugins.pri)

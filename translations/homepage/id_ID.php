@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Header + Footer
 $site_title = "QupZilla - Peramban multiplatform ringan";
 $qupzilla = "QupZilla";
