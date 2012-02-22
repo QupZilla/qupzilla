@@ -84,6 +84,7 @@ void AboutDialog::showAuthors()
                                          "Jan Rajnoha<br/>"
                                          "Daniele Cocca")
                              ));
+
         m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg(
                                  QString::fromUtf8("Heimen Stoffels<br/>"
                                          "Peter Vacula<br/>"
@@ -102,7 +103,8 @@ void AboutDialog::showAuthors()
                                          "Alexandre Carvalho<br/>"
                                          "Mladen Pejaković<br/>"
                                          "Unink-Lio<br/>"
-                                         "Wu Cheng-Hong")
+                                         "Wu Cheng-Hong<br/>"
+                                         "Widya Walesa")
                              ));
         m_authorsHtml.append("</div>");
     }

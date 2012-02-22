@@ -14,6 +14,7 @@ TRANSLATIONS += $$PWD/translations/cs_CZ.ts\
                 $$PWD/translations/sr_BA.ts\
                 $$PWD/translations/sr_RS.ts\
                 $$PWD/translations/sv_SE.ts\
+                $$PWD/translations/id_ID.ts\
 
 isEmpty(QMAKE_LRELEASE) {
     win32|os2:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\\lrelease.exe

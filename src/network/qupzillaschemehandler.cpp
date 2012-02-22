@@ -220,7 +220,8 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Alexandre Carvalho", "alexandre05@live.com") + " (Brazilian Portuguese)<br/>" +
                       authorString("Mladen Pejaković", "pejakm@gmail.com") + " (Serbian)<br/>" +
                       authorString("Unink-Lio", "unink4451@163.com") + " (Chinese)<br/>" +
-                      authorString("Wu Cheng-Hong", "stu2731652@gmail.com") + " (Traditional Chinese)"
+                      authorString("Wu Cheng-Hong", "stu2731652@gmail.com") + " (Traditional Chinese)<br/>" +
+                      authorString("Widya Walesa", "walecha99@gmail.com") + " (Indonesian)"
                      );
     }
 
