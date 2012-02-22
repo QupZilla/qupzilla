@@ -92,7 +92,7 @@
         <location filename="../src/preferences/acceptlanguage.cpp" line="87"/>
         <location filename="../src/preferences/acceptlanguage.cpp" line="148"/>
         <source>Personal [%1]</source>
-        <translation>Personal [%1]</translation>
+        <translation>Pribadi [%1]</translation>
     </message>
 </context>
 <context>
@@ -262,7 +262,7 @@
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="60"/>
         <source>Edit</source>
-        <translation>Ubah</translation>
+        <translation>Sunting</translation>
     </message>
     <message>
         <location filename="../src/preferences/autofillmanager.ui" line="67"/>
@@ -402,7 +402,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkicon.cpp" line="92"/>
         <source>Edit this bookmark</source>
-        <translation>Ubah bookmark ini</translation>
+        <translation>Sunting bookmark ini</translation>
     </message>
 </context>
 <context>
@@ -783,7 +783,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="101"/>
         <source>Edit bookmark</source>
-        <translation>Ubah bookmark</translation>
+        <translation>Sunting bookmark</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="103"/>
@@ -793,7 +793,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="210"/>
         <source>Edit bookmark: </source>
-        <translation>Ubah bookmark:</translation>
+        <translation>Sunting bookmark:</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="212"/>
@@ -808,7 +808,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="221"/>
         <source>Edit Bookmark</source>
-        <translation>Ubah Bookmark</translation>
+        <translation>Sunting Bookmark</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="530"/>
@@ -867,7 +867,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="44"/>
         <source>Edit Bookmark</source>
-        <translation>Ubah Bookmark</translation>
+        <translation>Sunting Bookmark</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.cpp" line="48"/>
@@ -887,7 +887,7 @@
     <message>
         <location filename="../src/other/browsinglibrary.ui" line="14"/>
         <source>Library</source>
-        <translation>Pustaka</translation>
+        <translation>Perpustakaan</translation>
     </message>
     <message>
         <location filename="../src/other/browsinglibrary.ui" line="79"/>
@@ -2614,7 +2614,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="1824"/>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>Ubah sertifikat CA di Manajer SSL</translation>
+        <translation>Sunting sertifikat CA di Manajer SSL</translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="1854"/>
@@ -2675,7 +2675,7 @@
     <message>
         <location filename="../src/preferences/preferences.ui" line="462"/>
         <source>Available translations: </source>
-        <translation>Translasi yang tersedia: </translation>
+        <translation>Terjemahan yang tersedia: </translation>
     </message>
     <message>
         <location filename="../src/preferences/preferences.ui" line="434"/>
@@ -2965,7 +2965,7 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="307"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Ubah</translation>
+        <translation>&amp;Sunting</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="308"/>
@@ -3050,12 +3050,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="346"/>
         <source>&amp;Stop</source>
-        <translation>&amp;Stop</translation>
+        <translation>&amp;Berhenti</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="349"/>
         <source>&amp;Reload</source>
-        <translation>&amp;Reload</translation>
+        <translation>&amp;Muat Ulang</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="352"/>
@@ -3164,12 +3164,12 @@
     <message>
         <location filename="../src/app/qupzilla.cpp" line="397"/>
         <source>&amp;Back</source>
-        <translation>&amp;Back</translation>
+        <translation>&amp;Mundur</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="398"/>
         <source>&amp;Forward</source>
-        <translation>&amp;Forward</translation>
+        <translation>&amp;Maju</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="399"/>
@@ -3499,7 +3499,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="314"/>
         <source>Translations</source>
-        <translation>Translasi</translation>
+        <translation>Terjemahan</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="193"/>
@@ -3609,7 +3609,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="244"/>
         <source>Edit</source>
-        <translation>Ubah</translation>
+        <translation>Sunting</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="245"/>
@@ -3635,7 +3635,7 @@
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="246"/>
         <source>Reload</source>
-        <translation>Reload</translation>
+        <translation>Muat Ulang</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="251"/>
@@ -3669,7 +3669,7 @@
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="43"/>
         <source>Reload</source>
-        <translation>Reload</translation>
+        <translation>Muat Ulang</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="54"/>
@@ -3679,7 +3679,7 @@
     <message>
         <location filename="../src/rss/rssmanager.ui" line="64"/>
         <source>Edit feed</source>
-        <translation>Ubah feed</translation>
+        <translation>Sunting feed</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.ui" line="74"/>
@@ -3742,7 +3742,7 @@ Silakan tambahi dengan menggunakan icon RSS di bilah navigasi bilamana situs men
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="192"/>
         <source>Edit RSS Feed</source>
-        <translation>Ubah RSS Feed</translation>
+        <translation>Sunting RSS Feed</translation>
     </message>
     <message>
         <location filename="../src/rss/rssmanager.cpp" line="234"/>
@@ -3898,7 +3898,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="36"/>
         <source>Edit</source>
-        <translation>Ubah</translation>
+        <translation>Sunting</translation>
     </message>
     <message>
         <location filename="../src/opensearch/searchenginesdialog.ui" line="56"/>
@@ -3933,7 +3933,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/opensearch/searchenginesdialog.cpp" line="95"/>
         <source>Edit Search Engine</source>
-        <translation>Ubah Mesin Pencari</translation>
+        <translation>Sunting Mesin Pencari</translation>
     </message>
 </context>
 <context>
@@ -4221,7 +4221,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="63"/>
         <source>Edit</source>
-        <translation>Ubah</translation>
+        <translation>Sunting</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="64"/>
@@ -4277,7 +4277,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="79"/>
         <source>Reload</source>
-        <translation>Reload</translation>
+        <translation>Muat Ulang</translation>
     </message>
     <message>
         <location filename="../src/other/sourceviewer.cpp" line="81"/>
@@ -4371,17 +4371,17 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/webview/tabbar.cpp" line="110"/>
         <source>&amp;New tab</source>
-        <translation></translation>
+        <translation>&amp;Tab Baru</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="118"/>
         <source>&amp;Stop Tab</source>
-        <translation></translation>
+        <translation>&amp;Hentikan Tab</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="121"/>
         <source>&amp;Reload Tab</source>
-        <translation></translation>
+        <translation>&amp;Muat Ulang Tab</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="124"/>
@@ -4401,7 +4401,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/webview/tabbar.cpp" line="127"/>
         <source>Re&amp;load All Tabs</source>
-        <translation></translation>
+        <translation>Muat &amp;Ulang Seluruh Tab</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="128"/>
@@ -4426,7 +4426,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/webview/tabbar.cpp" line="140"/>
         <source>Reloa&amp;d All Tabs</source>
-        <translation></translation>
+        <translation>Muat &amp;Ulang Seluruh Tab</translation>
     </message>
     <message>
         <location filename="../src/webview/tabbar.cpp" line="141"/>
@@ -4751,23 +4751,23 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/webview/webview.cpp" line="565"/>
         <source>&amp;Back</source>
-        <translation>&amp;Back</translation>
+        <translation>&amp;Mundur</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="569"/>
         <source>&amp;Forward</source>
-        <translation>&amp;Forward</translation>
+        <translation>&amp;Maju</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="573"/>
         <location filename="../src/webview/webview.cpp" line="584"/>
         <source>&amp;Reload</source>
-        <translation>&amp;Reload</translation>
+        <translation>&amp;Muat Ulang</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="574"/>
         <source>S&amp;top</source>
-        <translation>S&amp;top</translation>
+        <translation>Ber&amp;henti</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="580"/>
@@ -4917,7 +4917,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/webview/webview.cpp" line="674"/>
         <source>Google Translate</source>
-        <translation>Translasi Google</translation>
+        <translation>Terjemahan Google</translation>
     </message>
     <message>
         <location filename="../src/webview/webview.cpp" line="675"/>
