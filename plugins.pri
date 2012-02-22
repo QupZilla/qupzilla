@@ -1,3 +1,5 @@
+include(defines.pri)
+
 INCLUDEPATH += $$PWD/src/3rdparty\
                $$PWD/src/app\
                $$PWD/src/autofill\
@@ -24,7 +26,7 @@ INCLUDEPATH += $$PWD/src/3rdparty\
 
 TEMPLATE = lib
 CONFIG += plugin
-DESTDIR = $$PWD/bin/plugins
+DESTDIR = $$PWD/bin/plugins/
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -32,8 +34,6 @@ RCC_DIR = build
 UI_DIR = build
 
 LIBS += -L $$PWD/bin -lqupzilla
-
-include(defines.pri)
 
 !mac:unix {
     target.path = $$library_folder/qupzilla

@@ -27,6 +27,7 @@
 #include <iostream>
 #include "plugininterface.h"
 
+class SpeedDial;
 class Plugins : public QObject
 {
     Q_OBJECT
@@ -54,8 +55,20 @@ public:
 
     QList<Plugin> getAvailablePlugins() { return m_availablePlugins; }
 
-    void loadPlugin(Plugin* plugin);
+    bool loadPlugin(Plugin* plugin);
     void unloadPlugin(Plugin* plugin);
+
+    // CLick2Flash
+    void c2f_loadSettings();
+    void c2f_saveSettings();
+    void c2f_addWhitelist(QString page) { c2f_whitelist.append(page); }
+    void c2f_removeWhitelist(QString page) { c2f_whitelist.removeOne(page); }
+    void c2f_setEnabled(bool en) { c2f_enabled = en; }
+    bool c2f_isEnabled() { return c2f_enabled; }
+    QStringList c2f_getWhiteList() { return c2f_whitelist; }
+
+    // SpeedDial
+    SpeedDial* speedDial() { return m_speedDial; }
 
 public slots:
     void loadSettings();
@@ -73,6 +86,10 @@ private:
 
     bool m_pluginsEnabled;
     bool m_pluginsLoaded;
+
+    SpeedDial* m_speedDial;
+    QStringList c2f_whitelist;
+    bool c2f_enabled;
 };
 
 Q_DECLARE_METATYPE(Plugins::Plugin)

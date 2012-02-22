@@ -18,14 +18,62 @@
 #include "pluginproxy.h"
 #include "plugininterface.h"
 #include "mainapplication.h"
-#include "speeddial.h"
 #include "settings.h"
 
 PluginProxy::PluginProxy()
     : Plugins()
-    , m_speedDial(new SpeedDial(this))
 {
-    c2f_loadSettings();
+}
+
+void PluginProxy::unloadPlugin(Plugins::Plugin* plugin)
+{
+    m_mousePressHandlers.removeOne(plugin->instance);
+    m_mouseReleaseHandlers.removeOne(plugin->instance);
+    m_mouseMoveHandlers.removeOne(plugin->instance);
+
+    m_keyPressHandlers.removeOne(plugin->instance);
+    m_keyReleaseHandlers.removeOne(plugin->instance);
+
+    Plugins::unloadPlugin(plugin);
+}
+
+void PluginProxy::registerAppEventHandler(const PluginProxy::EventHandlerType &type, PluginInterface* obj)
+{
+    switch (type) {
+    case MousePressHandler:
+        if (!m_mousePressHandlers.contains(obj)) {
+            m_mousePressHandlers.append(obj);
+        }
+        break;
+
+    case MouseReleaseHandler:
+        if (!m_mouseReleaseHandlers.contains(obj)) {
+            m_mouseReleaseHandlers.append(obj);
+        }
+        break;
+
+    case MouseMoveHandler:
+        if (!m_mouseMoveHandlers.contains(obj)) {
+            m_mouseMoveHandlers.append(obj);
+        }
+        break;
+
+    case KeyPressHandler:
+        if (!m_keyPressHandlers.contains(obj)) {
+            m_keyPressHandlers.append(obj);
+        }
+        break;
+
+    case KeyReleaseHandler:
+        if (!m_keyReleaseHandlers.contains(obj)) {
+            m_keyReleaseHandlers.append(obj);
+        }
+        break;
+
+    default:
+        qWarning("PluginProxy::registerAppEventHandler registering unknown event handler type");
+        break;
+    }
 }
 
 void PluginProxy::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)
@@ -46,20 +94,68 @@ void PluginProxy::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitT
     }
 }
 
-void PluginProxy::c2f_loadSettings()
+bool PluginProxy::processMousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
 {
-    Settings settings;
-    settings.beginGroup("ClickToFlash");
-    c2f_whitelist = settings.value("whitelist", QStringList()).toStringList();
-    c2f_enabled = settings.value("Enabled", true).toBool();
-    settings.endGroup();
+    bool accepted = false;
+
+    foreach(PluginInterface * iPlugin, m_mousePressHandlers) {
+        if (iPlugin->mousePress(type, obj, event)) {
+            accepted = true;
+        }
+    }
+
+    return accepted;
 }
 
-void PluginProxy::c2f_saveSettings()
+bool PluginProxy::processMouseRelease(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
 {
-    Settings settings;
-    settings.beginGroup("ClickToFlash");
-    settings.setValue("whitelist", c2f_whitelist);
-    settings.setValue("Enabled", c2f_enabled);
-    settings.endGroup();
+    bool accepted = false;
+
+    foreach(PluginInterface * iPlugin, m_mouseReleaseHandlers) {
+        if (iPlugin->mouseRelease(type, obj, event)) {
+            accepted = true;
+        }
+    }
+
+    return accepted;
 }
+
+bool PluginProxy::processMouseMove(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
+{
+    bool accepted = false;
+
+    foreach(PluginInterface * iPlugin, m_mouseMoveHandlers) {
+        if (iPlugin->mouseMove(type, obj, event)) {
+            accepted = true;
+        }
+    }
+
+    return accepted;
+}
+
+bool PluginProxy::processKeyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event)
+{
+    bool accepted = false;
+
+    foreach(PluginInterface * iPlugin, m_keyPressHandlers) {
+        if (iPlugin->keyPress(type, obj, event)) {
+            accepted = true;
+        }
+    }
+
+    return accepted;
+}
+
+bool PluginProxy::processKeyRelease(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event)
+{
+    bool accepted = false;
+
+    foreach(PluginInterface * iPlugin, m_keyReleaseHandlers) {
+        if (iPlugin->keyRelease(type, obj, event)) {
+            accepted = true;
+        }
+    }
+
+    return accepted;
+}
+

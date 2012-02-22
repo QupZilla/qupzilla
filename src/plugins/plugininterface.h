@@ -63,7 +63,13 @@ public:
     virtual void showSettings(QWidget* parent = 0) { Q_UNUSED(parent) }
 
     virtual void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r) { Q_UNUSED(menu) Q_UNUSED(view) Q_UNUSED(r) }
-    virtual bool processEvent(const Qz::ObjectName &type, QObject* obj, QEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
+
+    virtual bool mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
+    virtual bool mouseRelease(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
+    virtual bool mouseMove(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
+
+    virtual bool keyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
+    virtual bool keyRelease(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
 };
 
 Q_DECLARE_INTERFACE(PluginInterface, "QupZilla.Browser.PluginInterface/1.1")

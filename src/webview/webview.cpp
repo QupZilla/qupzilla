@@ -768,6 +768,10 @@ void WebView::wheelEvent(QWheelEvent* event)
 
 void WebView::mousePressEvent(QMouseEvent* event)
 {
+    if (mApp->plugins()->processMousePress(Qz::ON_WebView, this, event)) {
+        return;
+    }
+
     switch (event->button()) {
     case Qt::XButton1:
         back();
@@ -820,6 +824,10 @@ void WebView::mousePressEvent(QMouseEvent* event)
 
 void WebView::mouseReleaseEvent(QMouseEvent* event)
 {
+    if (mApp->plugins()->processMouseRelease(Qz::ON_WebView, this, event)) {
+        return;
+    }
+
     switch (event->button()) {
     case Qt::MiddleButton: {
         QWebFrame* frame = page()->frameAt(event->pos());
@@ -842,8 +850,21 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
     QWebView::mouseReleaseEvent(event);
 }
 
+void WebView::mouseMoveEvent(QMouseEvent* event)
+{
+    if (mApp->plugins()->processMouseMove(Qz::ON_WebView, this, event)) {
+        return;
+    }
+
+    QWebView::mouseMoveEvent(event);
+}
+
 void WebView::keyPressEvent(QKeyEvent* event)
 {
+    if (mApp->plugins()->processKeyPress(Qz::ON_WebView, this, event)) {
+        return;
+    }
+
     switch (event->key()) {
     case Qt::Key_C:
         if (event->modifiers() == Qt::ControlModifier) {
@@ -866,6 +887,15 @@ void WebView::keyPressEvent(QKeyEvent* event)
     }
 
     QWebView::keyPressEvent(event);
+}
+
+void WebView::keyReleaseEvent(QKeyEvent* event)
+{
+    if (mApp->plugins()->processKeyRelease(Qz::ON_WebView, this, event)) {
+        return;
+    }
+
+    QWebView::keyReleaseEvent(event);
 }
 
 void WebView::resizeEvent(QResizeEvent* event)

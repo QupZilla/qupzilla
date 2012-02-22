@@ -1,6 +1,7 @@
 #include "testplugin.h"
 #include "qupzilla.h"
 #include "webview.h"
+#include "pluginproxy.h"
 
 PluginSpec TestPlugin::pluginSpec()
 {
@@ -26,6 +27,8 @@ void TestPlugin::init(const QString &sPath)
 
     m_settingsPath = sPath;
     m_view = 0;
+
+    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);
 }
 
 void TestPlugin::unload()
@@ -52,7 +55,7 @@ QTranslator* TestPlugin::getTranslator(const QString &locale)
     return translator;
 }
 
-void TestPlugin::showSettings(QWidget *parent)
+void TestPlugin::showSettings(QWidget* parent)
 {
     QDialog* dialog = new QDialog(parent);
     QPushButton* b = new QPushButton("Example Plugin v0.0.1");
@@ -92,6 +95,13 @@ void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTe
     }
 
     menu->addAction(tr("My first plugin action") + title, this, SLOT(actionSlot()));
+}
+
+bool TestPlugin::mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
+{
+    qDebug() << "mousePress" << type << obj << event;
+
+    return false;
 }
 
 void TestPlugin::actionSlot()

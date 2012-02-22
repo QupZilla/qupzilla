@@ -18,6 +18,7 @@
 #include "pluginproxy.h"
 #include "plugininterface.h"
 #include "mainapplication.h"
+#include "speeddial.h"
 #include "settings.h"
 
 #ifdef PORTABLE_BUILD
@@ -29,20 +30,21 @@
 Plugins::Plugins(QObject* parent)
     : QObject(parent)
     , m_pluginsLoaded(false)
+    , m_speedDial(new SpeedDial(this))
 {
     loadSettings();
 }
 
-void Plugins::loadPlugin(Plugins::Plugin* plugin)
+bool Plugins::loadPlugin(Plugins::Plugin* plugin)
 {
     if (plugin->isLoaded()) {
-        return;
+        return true;
     }
 
     plugin->pluginLoader->setFileName(plugin->fullPath);
     PluginInterface* iPlugin = qobject_cast<PluginInterface*>(plugin->pluginLoader->instance());
     if (!iPlugin) {
-        return;
+        return false;
     }
 
     m_availablePlugins.removeOne(*plugin);
@@ -50,6 +52,8 @@ void Plugins::loadPlugin(Plugins::Plugin* plugin)
     m_availablePlugins.append(*plugin);
 
     refreshLoadedPlugins();
+
+    return plugin->isLoaded();
 }
 
 void Plugins::unloadPlugin(Plugins::Plugin* plugin)
@@ -75,7 +79,28 @@ void Plugins::loadSettings()
     m_pluginsEnabled = settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool();
     m_allowedPluginFileNames = settings.value("AllowedPlugins", QStringList()).toStringList();
     settings.endGroup();
+
+    c2f_loadSettings();
 }
+
+void Plugins::c2f_loadSettings()
+{
+    Settings settings;
+    settings.beginGroup("ClickToFlash");
+    c2f_whitelist = settings.value("whitelist", QStringList()).toStringList();
+    c2f_enabled = settings.value("Enabled", true).toBool();
+    settings.endGroup();
+}
+
+void Plugins::c2f_saveSettings()
+{
+    Settings settings;
+    settings.beginGroup("ClickToFlash");
+    settings.setValue("whitelist", c2f_whitelist);
+    settings.setValue("Enabled", c2f_enabled);
+    settings.endGroup();
+}
+
 
 void Plugins::loadPlugins()
 {

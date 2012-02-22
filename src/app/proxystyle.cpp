@@ -8,7 +8,7 @@ ProxyStyle::ProxyStyle()
 int ProxyStyle::styleHint(StyleHint hint, const QStyleOption* option, const QWidget* widget, QStyleHintReturn* returnData) const
 {
     if (hint == QStyle::SH_Menu_Scrollable) {
-        return 1;
+        return int(true);
     }
 
     return QProxyStyle::styleHint(hint, option, widget, returnData);

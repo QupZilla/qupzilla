@@ -6,6 +6,7 @@ tools_
 *.autosave
 *~
 *.a
+*.orig
 *.qm
 !qt_*.qm
 headers*.tar.gz

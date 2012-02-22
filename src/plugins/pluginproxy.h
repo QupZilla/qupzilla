@@ -23,35 +23,39 @@
 #include <QWebView>
 #include <QWebHitTestResult>
 
+#include "mainapplication.h"
 #include "plugins.h"
 #include "qz_namespace.h"
 
-class SpeedDial;
 class PluginProxy : public Plugins
 {
 public:
+    enum EventHandlerType { MousePressHandler, MouseReleaseHandler, MouseMoveHandler, KeyPressHandler, KeyReleaseHandler };
+
     explicit PluginProxy();
 
-    // Application API
+    void unloadPlugin(Plugin* plugin);
+    void registerAppEventHandler(const EventHandlerType &type, PluginInterface* obj);
+
     void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r);
 
-    // CLick2Flash
-    void c2f_loadSettings();
-    void c2f_saveSettings();
-    void c2f_addWhitelist(QString page) { c2f_whitelist.append(page); }
-    void c2f_removeWhitelist(QString page) { c2f_whitelist.removeOne(page); }
-    void c2f_setEnabled(bool en) { c2f_enabled = en; }
-    bool c2f_isEnabled() { return c2f_enabled; }
-    QStringList c2f_getWhiteList() { return c2f_whitelist; }
+    bool processMousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
+    bool processMouseRelease(const Qz::ObjectName &object, QObject* obj, QMouseEvent* event);
+    bool processMouseMove(const Qz::ObjectName &object, QObject* obj, QMouseEvent* event);
 
-    // SpeedDial
-    SpeedDial* speedDial() { return m_speedDial; }
+    bool processKeyPress(const Qz::ObjectName &object, QObject* obj, QKeyEvent* event);
+    bool processKeyRelease(const Qz::ObjectName &object, QObject* obj, QKeyEvent* event);
 
 private:
-    QStringList c2f_whitelist;
-    bool c2f_enabled;
+    QList<PluginInterface*> m_mousePressHandlers;
+    QList<PluginInterface*> m_mouseReleaseHandlers;
+    QList<PluginInterface*> m_mouseMoveHandlers;
 
-    SpeedDial* m_speedDial;
+    QList<PluginInterface*> m_keyPressHandlers;
+    QList<PluginInterface*> m_keyReleaseHandlers;
+
 };
+
+#define QZ_REGISTER_EVENT_HANDLER(Type) mApp->plugins()->registerAppEventHandler(Type, this);
 
 #endif // PLUGINPROXY_H
