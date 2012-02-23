@@ -1,8 +1,8 @@
-DESTDIR = $$PWD/bin
-OBJECTS_DIR = $$PWD/build
-MOC_DIR = $$PWD/build
-RCC_DIR = $$PWD/build
-UI_DIR = $$PWD/build
+DESTDIR = $$PWD/../bin
+OBJECTS_DIR = $$PWD/../build
+MOC_DIR = $$PWD/../build
+RCC_DIR = $$PWD/../build
+UI_DIR = $$PWD/../build
 VERSION = 1.1.8
 
 # Please read BUILD information #
@@ -53,6 +53,16 @@ equals(d_portable, "true") { DEFINES += PORTABLE_BUILD }
     DEFINES += USE_DATADIR=\\\"""$$data_folder/"\\\""
 
     #Git revision
-    rev = $$system(sh $$PWD/scripts/getrevision.sh)
+    rev = $$system(sh $$PWD/../scripts/getrevision.sh)
     !equals(rev, ""): DEFINES += GIT_REVISION=\\\"""$$rev"\\\""
+}
+
+isEmpty(QMAKE_LRELEASE) {
+    win32|os2:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\\lrelease.exe
+    else:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]/lrelease
+    unix {
+        !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease-qt4 }
+    } else {
+        !exists($$QMAKE_LRELEASE) { QMAKE_LRELEASE = lrelease }
+    }
 }

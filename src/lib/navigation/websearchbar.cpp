@@ -45,7 +45,6 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
 
     addWidget(m_buttonSearch, LineEdit::RightSide);
 
-    connect(this, SIGNAL(returnPressed()), this, SLOT(search()));
     connect(m_buttonSearch, SIGNAL(clicked(QPoint)), this, SLOT(search()));
     connect(m_buttonSearch, SIGNAL(middleClicked(QPoint)), this, SLOT(searchInNewTab()));
     connect(m_boxSearchType, SIGNAL(activeItemChanged(ButtonWithMenu::Item)), this, SLOT(searchChanged(ButtonWithMenu::Item)));

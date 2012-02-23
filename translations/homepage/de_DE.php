@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Header + Footer
 $site_title = "QupZilla - Ein schlanker Web-Browser für Linux, MAC und Windows";
 $qupzilla = "QupZilla";

@@ -220,9 +220,6 @@ QString qz_buildSystem()
 #ifdef Q_OS_LINUX
     return "Linux";
 #endif
-#ifdef Q_OS_UNIX
-    return "Unix";
-#endif
 #ifdef Q_OS_BSD4
     return "BSD 4.4";
 #endif
@@ -264,5 +261,11 @@ QString qz_buildSystem()
 #endif
 #ifdef Q_OS_WIN32
     return "Windows";
+#endif
+#ifdef Q_OS_UNIX
+    return "Unix";
+#endif
+#ifdef Q_OS_HAIKU
+    return "Haiku";
 #endif
 }

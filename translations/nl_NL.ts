@@ -766,7 +766,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="73"/>
         <source>Show Only Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon alleen pictogrammen</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkstoolbar.cpp" line="79"/>
@@ -853,7 +853,7 @@
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="79"/>
         <source>Remove</source>
-        <translation type="unfinished">Verwijder</translation>
+        <translation>Verwijder</translation>
     </message>
     <message>
         <location filename="../src/bookmarks/bookmarkswidget.ui" line="105"/>
@@ -1120,7 +1120,7 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="27"/>
         <source>Stored Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Opgeslagen cookies</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="33"/>
@@ -1198,39 +1198,39 @@
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="248"/>
         <source>Cookie Filtering</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookie-filtering</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="254"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookies: witte lijst&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="261"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookies van deze servers zullen ALTIJD worden geaccepteerd (ook als u cookies opslaan uitgeschakeld heeft)</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="286"/>
         <location filename="../src/cookies/cookiemanager.ui" line="340"/>
         <source>Add</source>
-        <translation type="unfinished">Voeg toe</translation>
+        <translation>Voeg toe</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="293"/>
         <location filename="../src/cookies/cookiemanager.ui" line="347"/>
         <source>Remove</source>
-        <translation type="unfinished">Verwijder</translation>
+        <translation>Verwijder</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="305"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookies: zwarte lijst&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="312"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookies van deze servers zullen NOOIT worden geaccepteerd</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="132"/>
@@ -1255,12 +1255,12 @@
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="203"/>
         <source>Add to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg toe aan witte lijst</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.cpp" line="223"/>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg toe aan zwarte lijst</translation>
     </message>
     <message>
         <location filename="../src/cookies/cookiemanager.ui" line="224"/>
@@ -3068,7 +3068,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="471"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informatie over configuratie</translation>
     </message>
     <message>
         <location filename="../src/app/qupzilla.cpp" line="1765"/>
@@ -3399,7 +3399,7 @@ werd niet gevonden!</translation>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="291"/>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="292"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informatie over configuratie</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="295"/>
@@ -3431,12 +3431,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="320"/>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translation>Programma-versie</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="325"/>
         <source>Qt version</source>
-        <translation type="unfinished"></translation>
+        <translation>Qt-versie</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="327"/>
@@ -3456,32 +3456,32 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="297"/>
         <source>Preferences</source>
-        <translation type="unfinished">Instellingen</translation>
+        <translation>Instellingen</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="298"/>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation>Optie</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="299"/>
         <source>Value</source>
-        <translation type="unfinished">Waarde</translation>
+        <translation>Waarde</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="301"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Naam</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="303"/>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Auteur</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="304"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschrijving</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="308"/>
@@ -3527,7 +3527,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="142"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mail is optioneel&lt;br/&gt;&lt;b&gt;Noot: &lt;/b&gt;Lees alstublieft eerst hoe een bug-rapportage aan te maken&lt;a href=%1&gt;here&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="195"/>
@@ -3612,12 +3612,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="294"/>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze pagina bevast informatie over QupZilla&apos;s huidige configuratie, plugins, etc, alle relevante informatie voor probleemoplossing. Vermeld deze alstublieft bij het verzenden van bugrapportages.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="344"/>
         <source>No available plugins.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen beschikbare plugins.</translation>
     </message>
     <message>
         <location filename="../src/network/qupzillaschemehandler.cpp" line="247"/>

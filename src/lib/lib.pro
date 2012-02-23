@@ -1,29 +1,36 @@
-DEPENDPATH = $$PWD
-INCLUDEPATH += $$PWD/3rdparty\
-               $$PWD/app\
-               $$PWD/autofill\
-               $$PWD/bookmarks\
-               $$PWD/cookies\
-               $$PWD/downloads\
-               $$PWD/history\
-               $$PWD/navigation\
-               $$PWD/network\
-               $$PWD/other\
-               $$PWD/preferences\
-               $$PWD/rss\
-               $$PWD/tools\
-               $$PWD/utils\
-               $$PWD/webview\
-               $$PWD/plugins\
-               $$PWD/sidebar\
-               $$PWD/data\
-               $$PWD/adblock\
-               $$PWD/desktopnotifications\
-               $$PWD/opensearch\
-               $$PWD/bookmarksimport\
-               $$PWD/popupwindow\
+QT += core gui webkit sql network script
+unix:QT += dbus
+TARGET = qupzilla
+TEMPLATE = lib
 
-SOURCES += main.cpp\
+include(3rdparty/qtsingleapplication.pri)
+include(../defines.pri)
+
+INCLUDEPATH += 3rdparty\
+               app\
+               autofill\
+               bookmarks\
+               cookies\
+               downloads\
+               history\
+               navigation\
+               network\
+               other\
+               preferences\
+               rss\
+               tools\
+               utils\
+               webview\
+               plugins\
+               sidebar\
+               data\
+               adblock\
+               desktopnotifications\
+               opensearch\
+               bookmarksimport\
+               popupwindow\
+
+SOURCES += \
     3rdparty/qtwin.cpp \
     3rdparty/lineedit.cpp \
     app/qupzilla.cpp \
@@ -332,10 +339,12 @@ RESOURCES += \
     data/html.qrc \
     data/data.qrc
 
-OTHER_FILES += \
-    appicon.rc \
-    appicon_os2.rc \
-    Info.plist
+!mac:unix {
+    target.path = $$library_folder
 
-os2:RC_FILE = appicon_os2.rc
-win32:RC_FILE = appicon.rc
+    INSTALLS += target
+}
+
+message(========== Building libqupzilla ==========)
+message( Using following defines:)
+message($$DEFINES)

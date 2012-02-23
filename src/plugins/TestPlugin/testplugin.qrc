@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/testplugin">
+        <file>locale/cs_CZ.qm</file>
+        <file>locale/de_DE.qm</file>
+        <file>locale/el_GR.qm</file>
+        <file>locale/sk_SK.qm</file>
+        <file>locale/sr_BA.qm</file>
+        <file>locale/sr_RS.qm</file>
+        <file>locale/zh_CN.qm</file>
+        <file>locale/zh_TW.qm</file>
+    </qresource>
+</RCC>

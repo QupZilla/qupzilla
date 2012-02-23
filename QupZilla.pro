@@ -11,6 +11,4 @@ lessThan(QT_VERSION, 4.7) {
 }
 
 TEMPLATE = subdirs
-SUBDIRS = src main
-build_plugins: SUBDIRS += plugins
-CONFIG += ordered
+SUBDIRS = src

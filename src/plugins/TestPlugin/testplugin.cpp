@@ -51,7 +51,7 @@ bool TestPlugin::testPlugin()
 QTranslator* TestPlugin::getTranslator(const QString &locale)
 {
     QTranslator* translator = new QTranslator();
-    translator->load(":/testplugin/" + locale);
+    translator->load(":/testplugin/locale/" + locale);
     return translator;
 }
 
