@@ -648,7 +648,7 @@
     </message>
     <message>
         <source>Show Only Icons</source>
-        <translation>Zobraziť len ikony</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -707,7 +707,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation>Odstrániť</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -965,43 +965,43 @@
     </message>
     <message>
         <source>Stored Cookies</source>
-        <translation>Uložené cookies</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cookie Filtering</source>
-        <translation>Filtrovanie cookies</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Biela listina&lt;/b&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation>Cookies z týchto serverov budú VŽDY uložené (aj keď máte zakázané ukladanie cookies)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Pridať</translation>
+        <translation type="unfinished">Pridať</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Odstrániť</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Čieran listina&lt;/b&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation>Cookies z týchto serverov budú VŽDY odmietnuté</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add to whitelist</source>
-        <translation>Pridať do bielej listiny</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add to blacklist</source>
-        <translation>Pridať do čiernej listiny</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2632,7 +2632,7 @@
     </message>
     <message>
         <source>Configuration Information</source>
-        <translation>Informácie o konfigurácií</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2855,51 +2855,51 @@
     </message>
     <message>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation>E-mail je nepovinný&lt;br/&gt;&lt;b&gt;Poznámka: &lt;/b&gt;Prosím,najskôr si &lt;a  href=%1&gt;tu&lt;/a&gt; prečítajte ako nahlásiť chybu.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Configuration Information</source>
-        <translation>Informácie o konfigurácií</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation>Nastavenia</translation>
+        <translation type="unfinished">Nastavenia</translation>
     </message>
     <message>
         <source>Option</source>
-        <translation>Možnosť</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Value</source>
-        <translation>Hodnota</translation>
+        <translation type="unfinished">Hodnota</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Author</source>
-        <translation>Autor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Description</source>
-        <translation>Popis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Application version</source>
-        <translation>Verzia aplikácie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Qt version</source>
-        <translation>Verzia QT</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No available plugins.</source>
-        <translation>Žiadne dostupné doplnky.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation>Táto stránka obsahuje informácie o aktuálnej konfigurácií QupZilly, pluginov a všetkých dôležitých informáciach na riešenie problémov. Prosím, priložte tieto informácie k hlásenému problému.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
