@@ -53,7 +53,7 @@ equals(d_portable, "true") { DEFINES += PORTABLE_BUILD }
     DEFINES += USE_DATADIR=\\\"""$$data_folder/"\\\""
 
     #Git revision
-    rev = $$system(sh $$PWD/../scripts/getrevision.sh)
+    rev = $$system(cd ../ && sh $$PWD/../scripts/getrevision.sh)
     !equals(rev, ""): DEFINES += GIT_REVISION=\\\"""$$rev"\\\""
 }
 

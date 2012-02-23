@@ -31,11 +31,6 @@ format_sources
 
 echo "running astyle for *.h ..."
 format_headers
-
-echo "running astyle for plugins ..."
-cd ../plugins
-format_sources
-format_headers
        
 read -p "Press [ENTER] to close terminal"
 exit

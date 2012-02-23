@@ -16,8 +16,5 @@ echo "cppcheck..."
 cd ../src
 check_code
 
-cd ../plugins
-check_code
-
 read -p "Press [ENTER] to close terminal"
 exit
