@@ -271,6 +271,7 @@ DesktopNotification
 {
     background: transparent;
 }
+
 DesktopNotification #frame
 {
     border: 2px solid darkblue;

@@ -63,6 +63,12 @@ void SearchEnginesManager::loadSettings()
         en.shortcut = query.value(3).toString();
         en.suggestionsUrl = query.value(4).toString();
 
+        // TODO: Remove when releasing new version
+        //       and move into profile updater
+        if (en.name == "DuckDuckGo") {
+            en.url = "https://duckduckgo.com/?q=%s&t=qupzilla";
+        }
+
         m_allEngines.append(en);
     }
 
@@ -128,7 +134,7 @@ void SearchEnginesManager::restoreDefaults()
     Engine duck;
     duck.name = "DuckDuckGo";
     duck.icon = QIcon(":/icons/menu/duck.png");
-    duck.url = "https://duckduckgo.com/?q=%s";
+    duck.url = "https://duckduckgo.com/?q=%s&t=qupzilla";
     duck.shortcut = "d";
 
     addEngine(google, false);
