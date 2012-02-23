@@ -273,7 +273,7 @@ QString SpeedDial::getOpenFileName()
 
 QString SpeedDial::urlFromUserInput(const QString &url)
 {
-    return QUrl::fromUserInput(url).toString();
+    return QUrl::fromUserInput(url).toString().remove("'");
 }
 
 void SpeedDial::setBackgroundImage(const QString &image)
