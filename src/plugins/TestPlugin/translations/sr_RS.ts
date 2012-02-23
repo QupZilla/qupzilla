@@ -4,29 +4,29 @@
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="testplugin.cpp" line="59"/>
+        <location filename="../testplugin.cpp" line="62"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Затвори</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="70"/>
+        <location filename="../testplugin.cpp" line="73"/>
         <source>Example Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Подешавања пробног прикључка</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="95"/>
+        <location filename="../testplugin.cpp" line="97"/>
         <source>My first plugin action</source>
-        <translation>Моја прва радња прикључка</translation>
+        <translation>Радња мог првог прикључка</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="100"/>
+        <location filename="../testplugin.cpp" line="109"/>
         <source>Hello</source>
         <translation>Здраво</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="100"/>
+        <location filename="../testplugin.cpp" line="109"/>
         <source>First plugin action works :-)</source>
-        <translation>Прва радња прикључка ради :-)</translation>
+        <translation>Радња прикључка ради :-)</translation>
     </message>
 </context>
 </TS>
