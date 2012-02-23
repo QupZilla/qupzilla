@@ -7,7 +7,6 @@ LIBS += -L../../bin -lqupzilla
 
 include(../defines.pri)
 include(../install.pri)
-include(../../translations/translations.pri)
 
 INCLUDEPATH += ../lib/app\
                ../lib/3rdparty

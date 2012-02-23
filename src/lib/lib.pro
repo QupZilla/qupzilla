@@ -5,6 +5,7 @@ TEMPLATE = lib
 
 include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
+include(../../translations/translations.pri)
 
 INCLUDEPATH += 3rdparty\
                app\

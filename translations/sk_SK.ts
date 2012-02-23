@@ -679,11 +679,11 @@
     </message>
     <message>
         <source>Add into Bookmarks</source>
-        <translation>Pridať do záložiek</translation>
+        <translation type="obsolete">Pridať do záložiek</translation>
     </message>
     <message>
         <source>Add into Speed Dial</source>
-        <translation>Pridať do rychlej voľby</translation>
+        <translation type="obsolete">Pridať do rychlej voľby</translation>
     </message>
     <message>
         <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
@@ -708,6 +708,10 @@
     <message>
         <source>Remove</source>
         <translation>Odstrániť</translation>
+    </message>
+    <message>
+        <source>Add to Bookmarks</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1564,7 +1568,7 @@
     </message>
     <message>
         <source>Load Plugins</source>
-        <translation>Načítať plugin</translation>
+        <translation type="obsolete">Načítať plugin</translation>
     </message>
     <message>
         <source>Application Extensions</source>
@@ -1593,6 +1597,21 @@
     <message>
         <source>WebKit Plugins</source>
         <translation>WebKit pluginy</translation>
+    </message>
+    <message>
+        <source>%1 (%2)
+Author: %3
+%4
+%5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error!</source>
+        <translation type="unfinished">Chyba!</translation>
+    </message>
+    <message>
+        <source>Cannot load plugin!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
