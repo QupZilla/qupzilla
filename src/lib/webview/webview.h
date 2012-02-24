@@ -28,6 +28,7 @@
 #include <QFile>
 
 #include "qz_namespace.h"
+#include "searchenginesmanager.h"
 
 class WebView : public QWebView
 {
@@ -148,6 +149,8 @@ private:
     QWebFrame* m_clickedFrame;
     QUrl m_clickedUrl;
     bool m_actionsHaveImages;
+
+    SearchEnginesManager* m_searchManager;
 
     QList<QTouchEvent::TouchPoint> m_touchPoints;
 };
