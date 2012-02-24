@@ -4029,7 +4029,7 @@ Author: %3
         <location filename="../src/lib/rss/rssmanager.cpp" line="118"/>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
-        <translation>你沒有任何RSS頻道。</translation>
+        <translation>你沒有訂閱任何RSS頻道。</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="140"/>
