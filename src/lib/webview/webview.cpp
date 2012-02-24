@@ -685,9 +685,16 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
 
     QString langCode = mApp->getActiveLanguage().left(2);
     QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
-    menu->addAction(QIcon(":icons/menu/translate.png"), tr("Google Translate"), this, SLOT(openUrlInSelectedTab()))->setData(googleTranslateUrl);
-    menu->addAction(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"), this, SLOT(openUrlInSelectedTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
-    menu->addSeparator();
+    Action* gtwact = new Action(QIcon(":icons/menu/translate.png"), tr("Google Translate"));
+      gtwact->setData(googleTranslateUrl);
+      connect(gtwact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
+      connect(gtwact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+    menu->addAction(gtwact);
+    Action* dictact = new Action(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"));
+      dictact->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
+      connect(dictact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
+      connect(dictact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+    menu->addAction(dictact);
 
     QString selectedString = selectedText.trimmed();
     if (!selectedString.contains(".")) {
