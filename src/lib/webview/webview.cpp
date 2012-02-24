@@ -697,13 +697,14 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     QUrl guessedUrl = QUrl::fromUserInput(selectedString);
 
     if (isUrlValid(guessedUrl)) {
-        Action* act = new Action(tr("Go to &web address"));
+        Action* act = new Action(QIcon::fromTheme("document-open-remote"), tr("Go to &web address"));
         act->setData(guessedUrl);
         connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
         menu->addAction(act);
     }
 
+    menu->addSeparator();
     selectedText.truncate(20);
 
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
