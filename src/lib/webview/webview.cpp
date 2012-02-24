@@ -359,8 +359,15 @@ void WebView::showSiteInfo()
 
 void WebView::searchSelectedText()
 {
-    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(selectedText());
-
+    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    if (QAction* act = qobject_cast<QAction*>(sender())) {
+        if (act->data().isValid()) {
+            engine = qVariantValue<SearchEngine>(act->data());
+        }
+    }
+ 
+    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(engine, selectedText());
+ 
     openUrlInNewTab(urlToLoad, Qz::NT_SelectedTab);
 }
 
@@ -701,6 +708,12 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
 
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
     menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
+    QMenu* swMenu = new QMenu(tr("Search with..."));
+    m_searchManager = mApp->searchEnginesManager();
+    foreach(const SearchEngine & en, m_searchManager->allEngines()) {
+      swMenu->addAction(en.icon, en.name, this, SLOT(searchSelectedText()))->setData(qVariantFromValue(en));
+    }
+    menu->addMenu(swMenu);
 }
 
 void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
