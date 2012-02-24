@@ -4,7 +4,7 @@ mac {
 
     bundle_target.files += $$PWD/../bin/locale
     bundle_target.files += $$PWD/../bin/themes
-    build_plugins: bundle_target.files += $$PWD/../bin/plugins
+    bundle_target.files += $$PWD/../bin/plugins
     bundle_target.path = Contents/Resources
 
     QMAKE_BUNDLE_DATA += bundle_target

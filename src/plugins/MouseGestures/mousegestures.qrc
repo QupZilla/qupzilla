@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/mousegestures">
+        <file>data/icon.png</file>
+        <file>data/down.gif</file>
+        <file>data/down-left.gif</file>
+        <file>data/down-right.gif</file>
+        <file>data/down-up.gif</file>
+        <file>data/left.gif</file>
+        <file>data/right.gif</file>
+        <file>data/up.gif</file>
+        <file>data/up-down.gif</file>
+        <file>data/up-left.gif</file>
+        <file>data/up-right.gif</file>
+        <file>data/copyright</file>
+        <file>locale/cs_CZ.qm</file>
+    </qresource>
+</RCC>

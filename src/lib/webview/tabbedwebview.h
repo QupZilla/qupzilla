@@ -42,6 +42,7 @@ public:
 
     WebPage* webPage() const;
     WebTab* webTab() const;
+    TabWidget* tabWidget() const;
 
     QString getIp() const;
     QLabel* animationLoading(int index, bool addMovie);
@@ -69,6 +70,8 @@ public slots:
     void loadingProgress(int prog);
 
     void closeView();
+    void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position);
+    void openNewTab();
 
 private slots:
     void trackMouse(bool state) { m_mouseTrack = state; }
@@ -82,7 +85,6 @@ private slots:
     void slotIconChanged();
 
     void inspectElement();
-    void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position);
 
 private:
     void contextMenuEvent(QContextMenuEvent* event);

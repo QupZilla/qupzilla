@@ -3,6 +3,15 @@
 #include "webview.h"
 #include "pluginproxy.h"
 
+TestPlugin::TestPlugin()
+    : QObject()
+    , m_view(0)
+{
+    // Don't do anything expensive in constructor!
+    // It will be called even if user doesn't have
+    // plugin allowed
+}
+
 PluginSpec TestPlugin::pluginSpec()
 {
     PluginSpec spec;
@@ -26,7 +35,6 @@ void TestPlugin::init(const QString &sPath)
     // so it is recommended not to call any QupZilla function here
 
     m_settingsPath = sPath;
-    m_view = 0;
 
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);
 }

@@ -531,7 +531,6 @@ void QupZilla::loadSettings()
     //Url settings
     settings.beginGroup("Web-URL-Settings");
     m_homepage = settings.value("homepage", "qupzilla:start").toUrl();
-    m_newtab = settings.value("newTabUrl", "qupzilla:speeddial").toUrl();
     settings.endGroup();
 
     QWebSettings* websettings = mApp->webSettings();

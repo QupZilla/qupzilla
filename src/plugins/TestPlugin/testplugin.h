@@ -21,6 +21,7 @@ class TestPlugin : public QObject, public PluginInterface
     Q_INTERFACES(PluginInterface)
 
 public:
+    explicit TestPlugin();
     PluginSpec pluginSpec();
 
     void init(const QString &sPath);

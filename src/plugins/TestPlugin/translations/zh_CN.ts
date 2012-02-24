@@ -4,34 +4,27 @@
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="testplugin.h" line="24"/>
-        <source>Example Plugin</source>
-        <translation>示范应用扩展</translation>
+        <location filename="../testplugin.cpp" line="70"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="testplugin.h" line="25"/>
-        <source>Example minimal plugin</source>
-        <translation>用来做示范的小型应用扩展</translation>
+        <location filename="../testplugin.cpp" line="81"/>
+        <source>Example Plugin Settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="testplugin.h" line="26"/>
-        <source>Very simple minimal plugin example</source>
-        <translation>非常简单的应用括展示范</translation>
-    </message>
-    <message>
-        <location filename="testplugin.cpp" line="49"/>
-        <location filename="testplugin.cpp" line="54"/>
-        <location filename="testplugin.cpp" line="59"/>
+        <location filename="../testplugin.cpp" line="105"/>
         <source>My first plugin action</source>
         <translation>我的第一个动作应用扩展</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="64"/>
+        <location filename="../testplugin.cpp" line="117"/>
         <source>Hello</source>
         <translation>哈啰</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="64"/>
+        <location filename="../testplugin.cpp" line="117"/>
         <source>First plugin action works :-)</source>
         <translation>我的第一个动作应用扩展运行了:-)</translation>
     </message>

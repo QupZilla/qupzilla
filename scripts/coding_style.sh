@@ -11,7 +11,7 @@ function format_sources {
        --align-pointer=type --align-reference=name \
        `find -type f -name '*.cpp'`
        
-    rm */*.orig
+    find . -name "*.orig" -print0 | xargs -0 rm -rf
 }
 
 function format_headers {
@@ -22,7 +22,7 @@ function format_headers {
        --align-pointer=type --align-reference=name \
        `find -type f -name '*.h'`
        
-    rm */*.orig
+    find . -name "*.orig" -print0 | xargs -0 rm -rf
 }
 
 cd ../src

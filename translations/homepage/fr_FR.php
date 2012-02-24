@@ -2,7 +2,7 @@
 // Header + Footer
 $site_title = "QupZilla - Un navigateur web léger et multi-plateforme";
 $qupzilla = "QupZilla";
-$header_description = "Navigateur web"
+$header_description = "Navigateur web";
 
 $menu_home = "Accueil";
 $menu_screenshots = "Screenshots";
@@ -10,7 +10,7 @@ $menu_download = "Télécharger";
 $menu_faq = "FAQ";
 $menu_about = "Contribuer";
 $footer_site = "www.qupzilla.com";
-$translated_by = ""; // "Page traduite par eyome et lamessen"
+$translated_by = "Page traduite par Jérôme Giry et Nicolas Ourceau";
 
 //Home Page
 $actual_version = "Version actuelle";
@@ -25,7 +25,7 @@ $reportbug_text  = "Avez-vous trouvé un bug ou voulez vous simplement proposer u
                   Pour le rapporter, faites un rapport de bug sur GitHub.";
 $reportbug_button = "Rapporter";
 $technology = "Technologie";
-$technology_text  = "QupZilla est un navigateur web basé sur le moteur de rendu WebKit et sur le framework Qt. WebKit garantie une navigation <a>rapide</a> 
+$technology_text  = "QupZilla est un navigateur web basé sur le moteur de rendu WebKit et sur le framework Qt. WebKit garantie une navigation <a>rapide</a>
                     et Qt une disponibilité sur toutes les plateformes majeures.";
 $technology_button = "WebKit &amp; Qt";
 $looknfeel_header = "Style et comportements natifs";
@@ -57,7 +57,7 @@ $download_snapshot = "Télécharger la version actuelle";
 
 // Contribute Page
 $contribute_to = "Contribuer à QupZilla";
-$contribute_text  = "QupZilla est un projet Open Source, donc votre aide est la bienvenue ! Je serais très heureux d'inclure les patches que vous m'enverriez. Mais coder 
+$contribute_text  = "QupZilla est un projet Open Source, donc votre aide est la bienvenue ! Je serais très heureux d'inclure les patches que vous m'enverriez. Mais coder
                      n'est pas la seule manière d'aider : vous pouvez traduire QupZilla dans votre langue ou juste en parler à vos amis. Souvenez-vous, toutes les participations (mêmes petites) sont hautement appréciées";
 $getting_source = "Obtenir le fichier source";
 $getting_source_text1  = "La façon la plus simple d'obtenir les sources de QupZilla est de les cloner à partir du dépôt sur GitHub. Vous pouvez le faire en utilisant cette commande";

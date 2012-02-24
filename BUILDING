@@ -18,17 +18,6 @@ General
                
   QupZilla requires Qt (>=4.7.0) and QtWebKit (at least version included in Qt 4.7)
 
-Building plugins 
-----------------------------------------------------------------------------------
-  
-  To build plugins, it is neccessary to build QupZilla as static library first.
-  You can do this by running this command
-              
-               qmake CONFIG+=build_plugins
-               
-  and then build the project.
-  You will now have the libqupzilla.a static library that you need to link to plugins.
-
 Microsoft Windows
 ----------------------------------------------------------------------------------
 

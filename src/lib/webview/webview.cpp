@@ -359,7 +359,14 @@ void WebView::showSiteInfo()
 
 void WebView::searchSelectedText()
 {
-    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(selectedText());
+    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    if (QAction* act = qobject_cast<QAction*>(sender())) {
+        if (act->data().isValid()) {
+            engine = qVariantValue<SearchEngine>(act->data());
+        }
+    }
+
+    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(engine, selectedText());
 
     openUrlInNewTab(urlToLoad, Qz::NT_SelectedTab);
 }

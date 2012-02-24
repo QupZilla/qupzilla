@@ -1,5 +1,3 @@
 TEMPLATE = subdirs
-SUBDIRS = lib main
-build_plugins: SUBDIRS += plugins
-
+SUBDIRS = lib main plugins
 CONFIG += ordered

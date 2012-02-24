@@ -110,6 +110,11 @@ WebTab* TabbedWebView::webTab() const
     return m_webTab;
 }
 
+TabWidget* TabbedWebView::tabWidget() const
+{
+    return m_tabWidget;
+}
+
 QString TabbedWebView::getIp() const
 {
     return m_currentIp;
@@ -339,6 +344,11 @@ void TabbedWebView::stop()
 void TabbedWebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position)
 {
     m_tabWidget->addView(url, position);
+}
+
+void TabbedWebView::openNewTab()
+{
+    m_tabWidget->addView();
 }
 
 void TabbedWebView::getFocus(const QUrl &urla)

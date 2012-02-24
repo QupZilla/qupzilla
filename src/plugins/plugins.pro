@@ -1,2 +1,2 @@
 TEMPLATE = subdirs
-SUBDIRS  = TestPlugin
+SUBDIRS  = TestPlugin MouseGestures

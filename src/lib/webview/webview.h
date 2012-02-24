@@ -48,7 +48,6 @@ public:
     bool eventFilter(QObject* obj, QEvent* event);
 
     virtual QWidget* overlayForJsAlert() = 0;
-    virtual void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position) = 0;
 
     static bool isUrlValid(const QUrl &url);
     static QUrl guessUrlFromString(const QString &string);
@@ -73,6 +72,8 @@ public slots:
     void printPage(QWebFrame* frame = 0);
 
     virtual void closeView() = 0;
+    virtual void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position) = 0;
+    virtual void openNewTab() { }
 
 protected slots:
     void slotLoadStarted();

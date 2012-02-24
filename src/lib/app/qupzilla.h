@@ -113,6 +113,7 @@ public:
     inline QMenu* superMenu() { return m_superMenu; }
 
     inline bool isClosing() { return m_isClosing; }
+    inline QUrl homepageUrl() { return m_homepage; }
 
 signals:
     void loadHistory();
@@ -221,7 +222,6 @@ private:
     bool m_bookmarksMenuChanged;
     bool m_isClosing;
     QUrl m_startingUrl;
-    QUrl m_newtab;
     QUrl m_homepage;
     Qz::BrowserWindow m_startBehaviour;
 

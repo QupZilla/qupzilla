@@ -4,27 +4,27 @@
 <context>
     <name>TestPlugin</name>
     <message>
-        <location filename="testplugin.cpp" line="59"/>
+        <location filename="../testplugin.cpp" line="70"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="70"/>
+        <location filename="../testplugin.cpp" line="81"/>
         <source>Example Plugin Settings</source>
         <translation>Nastavení ukázkového doplňku</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="95"/>
+        <location filename="../testplugin.cpp" line="105"/>
         <source>My first plugin action</source>
         <translation>Moje první akce z doplňku</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="100"/>
+        <location filename="../testplugin.cpp" line="117"/>
         <source>Hello</source>
         <translation>Ahoj</translation>
     </message>
     <message>
-        <location filename="testplugin.cpp" line="100"/>
+        <location filename="../testplugin.cpp" line="117"/>
         <source>First plugin action works :-)</source>
         <translation>První akce funguje :-)</translation>
     </message>
