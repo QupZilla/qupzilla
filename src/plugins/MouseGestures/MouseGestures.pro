@@ -21,7 +21,9 @@ HEADERS = \
 
 RESOURCES = mousegestures.qrc
 
-TRANSLATIONS = translations/cs_CZ.ts
+TRANSLATIONS = translations/cs_CZ.ts \
+    translations/sr_BA.ts \
+    translations/sr_RS.ts
 
 include(../../plugins.pri)
 
