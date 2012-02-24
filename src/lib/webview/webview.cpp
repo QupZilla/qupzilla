@@ -359,8 +359,15 @@ void WebView::showSiteInfo()
 
 void WebView::searchSelectedText()
 {
-    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(selectedText());
-
+    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    if (QAction* act = qobject_cast<QAction*>(sender())) {
+        if (act->data().isValid()) {
+            engine = qVariantValue<SearchEngine>(act->data());
+        }
+    }
+ 
+    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(engine, selectedText());
+ 
     openUrlInNewTab(urlToLoad, Qz::NT_SelectedTab);
 }
 
@@ -678,9 +685,16 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
 
     QString langCode = mApp->getActiveLanguage().left(2);
     QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
-    menu->addAction(QIcon(":icons/menu/translate.png"), tr("Google Translate"), this, SLOT(openUrlInSelectedTab()))->setData(googleTranslateUrl);
-    menu->addAction(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"), this, SLOT(openUrlInSelectedTab()))->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
-    menu->addSeparator();
+    Action* gtwact = new Action(QIcon(":icons/menu/translate.png"), tr("Google Translate"));
+      gtwact->setData(googleTranslateUrl);
+      connect(gtwact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
+      connect(gtwact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+    menu->addAction(gtwact);
+    Action* dictact = new Action(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"));
+      dictact->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
+      connect(dictact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
+      connect(dictact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+    menu->addAction(dictact);
 
     QString selectedString = selectedText.trimmed();
     if (!selectedString.contains(".")) {
@@ -690,17 +704,24 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     QUrl guessedUrl = QUrl::fromUserInput(selectedString);
 
     if (isUrlValid(guessedUrl)) {
-        Action* act = new Action(tr("Go to &web address"));
+        Action* act = new Action(QIcon::fromTheme("document-open-remote"), tr("Go to &web address"));
         act->setData(guessedUrl);
         connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
         menu->addAction(act);
     }
 
+    menu->addSeparator();
     selectedText.truncate(20);
 
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
     menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
+    QMenu* swMenu = new QMenu(tr("Search with..."));
+    m_searchManager = mApp->searchEnginesManager();
+    foreach(const SearchEngine & en, m_searchManager->allEngines()) {
+      swMenu->addAction(en.icon, en.name, this, SLOT(searchSelectedText()))->setData(qVariantFromValue(en));
+    }
+    menu->addMenu(swMenu);
 }
 
 void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)

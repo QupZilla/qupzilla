@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 QT += network webkit sql
-TARGET = TestPlugin
+TARGET = ExamplePlugin
 
 SOURCES += testplugin.cpp
 HEADERS += testplugin.h
