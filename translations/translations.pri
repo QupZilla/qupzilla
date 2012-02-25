@@ -11,6 +11,7 @@ TRANSLATIONS += $$PWD/cs_CZ.ts\
                 $$PWD/el_GR.ts\
                 $$PWD/ru_RU.ts\
                 $$PWD/pt_PT.ts\
+                $$PWD/pt_BR.ts\
                 $$PWD/sr_BA.ts\
                 $$PWD/sr_RS.ts\
                 $$PWD/sv_SE.ts\
