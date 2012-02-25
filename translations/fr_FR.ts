@@ -1978,7 +1978,7 @@ n&apos;a pas été trouvé!</translation>
         <translation>Autoriser QupZilla à charger ses extensions</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="61"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="64"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
@@ -1987,65 +1987,57 @@ n&apos;a pas été trouvé!</translation>
         <translation type="obsolete">Charger les extensions</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="91"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="94"/>
         <source>WebKit Plugins</source>
         <translation>Extensions WebKit</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="97"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="100"/>
         <source>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</source>
         <translation>&lt;b&gt;Extension ClickToFlash&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="104"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="107"/>
         <source>Click To Flash is a plugin which blocks auto loading of Flash content at page. You can always load it manually by clicking on the Flash play icon.</source>
         <translation>ClickToFlash est une extension qui bloque le chargement automatique du contenu Flash de la page. Vous pouvez le charger manuellement en cliquant sur l&apos;icône lecture de Flash.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="117"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="120"/>
         <source>Whitelist</source>
         <translation>Liste blanche</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="125"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="128"/>
         <source>Add</source>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="132"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="135"/>
         <source>Remove</source>
         <translation>Retirer</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="154"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="157"/>
         <source>Allow Click To Flash</source>
         <translation>Autoriser ClickToFlash</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.cpp" line="68"/>
+        <location filename="../src/lib/preferences/pluginslist.cpp" line="71"/>
         <source>Add site to whitelist</source>
         <translation>Ajouter un site à la liste blanche</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.cpp" line="68"/>
+        <location filename="../src/lib/preferences/pluginslist.cpp" line="71"/>
         <source>Server without http:// (ex. youtube.com)</source>
         <translation>Adresse sans http:// (ex.youtube.com)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.cpp" line="151"/>
-        <source>%1 (%2)
-Author: %3
-%4
-%5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/pluginslist.cpp" line="205"/>
+        <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Error!</source>
         <translation type="unfinished">Erreur!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.cpp" line="205"/>
+        <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Cannot load plugin!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3173,7 +3165,7 @@ Author: %3
         <translation>Restaurer l&apos;onglet &amp;fermé</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="657"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="656"/>
         <source> (Private Browsing)</source>
         <translation>(Navigation Privée)</translation>
     </message>
@@ -3198,16 +3190,16 @@ Author: %3
         <translation>Informations à propos de l&apos;application</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1762"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1761"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Il y a toujours  %1 onglets d&apos;ouverts et votre session ne sera pas sauvegardée. Etes-vous sûr de vouloir quitter QupZilla?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="767"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="797"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="836"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="865"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="890"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="766"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="796"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="835"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="864"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="889"/>
         <source>Empty</source>
         <translation>Vide</translation>
     </message>
@@ -3232,12 +3224,12 @@ Author: %3
         <translation>Montrer tout l&apos;&amp;historique</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="839"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="838"/>
         <source>Restore All Closed Tabs</source>
         <translation>Restaurer tous les onglets fermés</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="840"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="839"/>
         <source>Clear list</source>
         <translation>Vider la liste</translation>
     </message>
@@ -3297,57 +3289,57 @@ Author: %3
         <translation>Navigation &amp;privée</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="945"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="944"/>
         <source>Other</source>
         <translation>Autre</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="955"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="954"/>
         <source>Default</source>
         <translation>Défaut</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1325"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1324"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1402"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1401"/>
         <source>Open file...</source>
         <translation>Ouvrir un fichier...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1512"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1511"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Voulez-vous démarrer une session en navigation privée?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1513"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1512"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Quand vous lancez la navigation privée, certains paramètres concernant votre vie privée seront désactivés:</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1516"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1515"/>
         <source>Webpages are not added to the history.</source>
         <translation>Les pages visitées ne sont pas ajoutées à l&apos;historique.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1517"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1516"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Impossible d&apos;accéder aux cookies en cours d&apos;utilisation.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1518"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1517"/>
         <source>Your session is not stored.</source>
         <translation>Votre session n&apos;est pas enregistrée.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1520"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1519"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Jusqu&apos;à ce que vous fermiez la fenêtre, vous pourrez toujours cliquer sur les boutons Précédent et Suivant pour retourner sur la page que vous avez ouvert.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1525"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1524"/>
         <source>Start Private Browsing</source>
         <translation>Commencer la navigation privée</translation>
     </message>
@@ -4541,17 +4533,17 @@ Après avoir ajouté ou retiré un certificat, il est nécessaire de redémarrer
         <translation>Echec de l&apos;actualisation de la page</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="158"/>
+        <location filename="../src/lib/webview/tabbedwebview.cpp" line="163"/>
         <source>Loading...</source>
         <translation>Chargement...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="233"/>
+        <location filename="../src/lib/webview/tabbedwebview.cpp" line="238"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbedwebview.cpp" line="319"/>
+        <location filename="../src/lib/webview/tabbedwebview.cpp" line="324"/>
         <source>Inspect Element</source>
         <translation>Inspecter cet élément</translation>
     </message>
@@ -4790,223 +4782,228 @@ Après avoir ajouté ou retiré un certificat, il est nécessaire de redémarrer
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="630"/>
+        <location filename="../src/lib/webview/webview.cpp" line="636"/>
         <source>Open link in new &amp;tab</source>
         <translation>Ouvrir le lien dans un nouvel &amp;onglet</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="631"/>
+        <location filename="../src/lib/webview/webview.cpp" line="637"/>
         <source>Open link in new &amp;window</source>
         <translation>Ouvrir le lien dans une nouvelle &amp;fenêtre</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="633"/>
+        <location filename="../src/lib/webview/webview.cpp" line="639"/>
         <source>B&amp;ookmark link</source>
         <translation>Lien du marque-&amp;page</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="634"/>
+        <location filename="../src/lib/webview/webview.cpp" line="640"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Enregistrer le lien sous...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="635"/>
+        <location filename="../src/lib/webview/webview.cpp" line="641"/>
         <source>Send link...</source>
         <translation>Envoyer le lien...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="636"/>
+        <location filename="../src/lib/webview/webview.cpp" line="642"/>
         <source>&amp;Copy link address</source>
         <translation>Copier l&apos;&amp;adresse du lien</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="648"/>
+        <location filename="../src/lib/webview/webview.cpp" line="654"/>
         <source>Show i&amp;mage</source>
         <translation>Montrer l&apos;i&amp;mage</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="653"/>
+        <location filename="../src/lib/webview/webview.cpp" line="659"/>
         <source>Copy im&amp;age</source>
         <translation>Copier l&apos;ima&amp;ge</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="654"/>
+        <location filename="../src/lib/webview/webview.cpp" line="660"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Copier l&apos;a&amp;dresse de l&apos;image</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="656"/>
+        <location filename="../src/lib/webview/webview.cpp" line="662"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Enregistrer l&apos;image sous...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="657"/>
+        <location filename="../src/lib/webview/webview.cpp" line="663"/>
         <source>Send image...</source>
         <translation>Envoyer l&apos;image...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="572"/>
+        <location filename="../src/lib/webview/webview.cpp" line="578"/>
         <source>&amp;Back</source>
         <translation>&amp;Retour</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="576"/>
+        <location filename="../src/lib/webview/webview.cpp" line="582"/>
         <source>&amp;Forward</source>
         <translation>&amp;Suivant</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="580"/>
-        <location filename="../src/lib/webview/webview.cpp" line="591"/>
+        <location filename="../src/lib/webview/webview.cpp" line="586"/>
+        <location filename="../src/lib/webview/webview.cpp" line="597"/>
         <source>&amp;Reload</source>
         <translation>&amp;Actualiser</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="581"/>
+        <location filename="../src/lib/webview/webview.cpp" line="587"/>
         <source>S&amp;top</source>
         <translation>&amp;Stop</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="587"/>
+        <location filename="../src/lib/webview/webview.cpp" line="593"/>
         <source>This frame</source>
         <translation>Ce cadre</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="588"/>
+        <location filename="../src/lib/webview/webview.cpp" line="594"/>
         <source>Show &amp;only this frame</source>
         <translation>Montrer uniquement ce &amp;cadre</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="589"/>
+        <location filename="../src/lib/webview/webview.cpp" line="595"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Montrer ce cadre dans un nouvel &amp;onglet</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="592"/>
+        <location filename="../src/lib/webview/webview.cpp" line="598"/>
         <source>Print frame</source>
         <translation>Imprimer le cadre</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="594"/>
+        <location filename="../src/lib/webview/webview.cpp" line="600"/>
         <source>Zoom &amp;in</source>
         <translation>Zoom &amp;plus</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="595"/>
+        <location filename="../src/lib/webview/webview.cpp" line="601"/>
         <source>&amp;Zoom out</source>
         <translation>Zoom &amp;moins</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="596"/>
+        <location filename="../src/lib/webview/webview.cpp" line="602"/>
         <source>Reset</source>
         <translation>Réinitialiser</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="598"/>
+        <location filename="../src/lib/webview/webview.cpp" line="604"/>
         <source>Show so&amp;urce of frame</source>
         <translation>Montrer le code so&amp;urce du cadre</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="604"/>
+        <location filename="../src/lib/webview/webview.cpp" line="610"/>
         <source>Book&amp;mark page</source>
         <translation>&amp;Marquer cette page</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="605"/>
+        <location filename="../src/lib/webview/webview.cpp" line="611"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Enregistrer la page sous...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="606"/>
+        <location filename="../src/lib/webview/webview.cpp" line="612"/>
         <source>&amp;Copy page link</source>
         <translation>Copier le lien de la &amp;page</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="607"/>
+        <location filename="../src/lib/webview/webview.cpp" line="613"/>
         <source>Send page link...</source>
         <translation>Envoyer le lien de la page...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="608"/>
+        <location filename="../src/lib/webview/webview.cpp" line="614"/>
         <source>&amp;Print page</source>
         <translation>&amp;Imprimer la page</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="676"/>
+        <location filename="../src/lib/webview/webview.cpp" line="682"/>
         <source>Send text...</source>
         <translation>Envoyer le texte...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="681"/>
+        <location filename="../src/lib/webview/webview.cpp" line="687"/>
         <source>Google Translate</source>
         <translation>Google traduction</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="682"/>
+        <location filename="../src/lib/webview/webview.cpp" line="692"/>
         <source>Dictionary</source>
         <translation>Dictionnaire</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="693"/>
+        <location filename="../src/lib/webview/webview.cpp" line="706"/>
         <source>Go to &amp;web address</source>
         <translation>Suivre le &amp;lien</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="719"/>
+        <location filename="../src/lib/webview/webview.cpp" line="718"/>
+        <source>Search with...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="739"/>
         <source>&amp;Play</source>
         <translation>&amp;Lecture</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="719"/>
+        <location filename="../src/lib/webview/webview.cpp" line="739"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pause</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="720"/>
+        <location filename="../src/lib/webview/webview.cpp" line="740"/>
         <source>Un&amp;mute</source>
         <translation>Non &amp;muet</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="720"/>
+        <location filename="../src/lib/webview/webview.cpp" line="740"/>
         <source>&amp;Mute</source>
         <translation>&amp;Muet</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="722"/>
+        <location filename="../src/lib/webview/webview.cpp" line="742"/>
         <source>&amp;Copy Media Address</source>
         <translation>Copier l&apos;adresse du &amp;média</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="723"/>
+        <location filename="../src/lib/webview/webview.cpp" line="743"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Envoyer l&apos;adresse du média</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="724"/>
+        <location filename="../src/lib/webview/webview.cpp" line="744"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Enregistrer le &amp;média</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="610"/>
+        <location filename="../src/lib/webview/webview.cpp" line="616"/>
         <source>Select &amp;all</source>
         <translation>T&amp;out Sélectionner</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="615"/>
+        <location filename="../src/lib/webview/webview.cpp" line="621"/>
         <source>Validate page</source>
         <translation>Valider le code de la page</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="618"/>
+        <location filename="../src/lib/webview/webview.cpp" line="624"/>
         <source>Show so&amp;urce code</source>
         <translation>Montrer le &amp;code source</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="619"/>
+        <location filename="../src/lib/webview/webview.cpp" line="625"/>
         <source>Show info ab&amp;out site</source>
         <translation>Informations à prop&amp;os du site</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="703"/>
+        <location filename="../src/lib/webview/webview.cpp" line="717"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Recherche de %1..&quot;avec %2</translation>
     </message>

@@ -1565,13 +1565,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 (%2)
-Author: %3
-%4
-%5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3938,6 +3931,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Save Media To &amp;Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search with...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

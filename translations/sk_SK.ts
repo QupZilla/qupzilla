@@ -1599,13 +1599,6 @@
         <translation>WebKit pluginy</translation>
     </message>
     <message>
-        <source>%1 (%2)
-Author: %3
-%4
-%5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Error!</source>
         <translation type="unfinished">Chyba!</translation>
     </message>
@@ -3981,6 +3974,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Save Media To &amp;Disk</source>
         <translation>&amp;Uložiť médium na disk</translation>
+    </message>
+    <message>
+        <source>Search with...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

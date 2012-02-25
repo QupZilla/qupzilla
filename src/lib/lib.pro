@@ -335,8 +335,7 @@ FORMS    += \
     preferences/addacceptlanguage.ui \
     opensearch/searchenginesdialog.ui \
     opensearch/editsearchengine.ui \
-    bookmarksimport/bookmarksimportdialog.ui \
-    preferences/pluginwidget.ui
+    bookmarksimport/bookmarksimportdialog.ui
 
 RESOURCES += \
     data/icons.qrc \

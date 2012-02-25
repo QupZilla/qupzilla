@@ -14,42 +14,47 @@
         <translation>&lt;h1&gt;Гестови миша&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="98"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="64"/>
+        <source>Press and hold the middle mouse button and move your mouse in the indicated directions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="111"/>
         <source>&lt;b&gt;Stop&lt;/b&gt;&lt;br/&gt;Stop loading page</source>
         <translation>&lt;b&gt;Заустави&lt;/b&gt;&lt;br/&gt;Заустави учитавање странице</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="112"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="125"/>
         <source>&lt;b&gt;New tab&lt;/b&gt;&lt;br/&gt;Open new tab</source>
         <translation>&lt;b&gt;Нови језичак&lt;/b&gt;&lt;br/&gt;Отвори нови језичак</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="126"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="139"/>
         <source>&lt;b&gt;Back&lt;/b&gt;&lt;br/&gt;Go back in history</source>
         <translation>&lt;b&gt;Назад&lt;/b&gt;&lt;br/&gt;Иди назад у историјату</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="140"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="153"/>
         <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
         <translation>&lt;b&gt;Напред&lt;/b&gt;&lt;br/&gt;Иди напред у историјату</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="160"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="173"/>
         <source>&lt;b&gt;Reload&lt;/b&gt;&lt;br/&gt;Reload page</source>
         <translation>&lt;b&gt;Поново учитај&lt;/b&gt;&lt;br/&gt;Поново учитај страницу</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="174"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="187"/>
         <source>&lt;b&gt;Close tab&lt;/b&gt;&lt;br/&gt;Close current tab</source>
         <translation>&lt;b&gt;Затвори језичак&lt;/b&gt;&lt;br/&gt;Затвори текући језичак</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="188"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="201"/>
         <source>&lt;b&gt;Home&lt;/b&gt;&lt;br/&gt;Go to homepage</source>
         <translation>&lt;b&gt;Домаћа&lt;/b&gt;&lt;br/&gt;Иди на домаћу страницу</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="212"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="225"/>
         <source>License</source>
         <translation>Лиценца</translation>
     </message>
