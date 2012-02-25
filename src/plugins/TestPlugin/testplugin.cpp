@@ -20,7 +20,7 @@ PluginSpec TestPlugin::pluginSpec()
     spec.description = "Very simple minimal plugin example";
     spec.version = "0.0.1";
     spec.author = "David Rosca <nowrep@gmail.com>";
-    spec.icon = QIcon(":qupzilla.png");
+    spec.icon = QPixmap(":qupzilla.png");
     spec.hasSettings = true;
 
     return spec;

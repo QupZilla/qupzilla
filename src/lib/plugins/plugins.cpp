@@ -101,7 +101,6 @@ void Plugins::c2f_saveSettings()
     settings.endGroup();
 }
 
-
 void Plugins::loadPlugins()
 {
     if (!m_pluginsEnabled || m_pluginsLoaded) {

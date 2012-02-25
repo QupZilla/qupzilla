@@ -1,2 +1,5 @@
 TEMPLATE = subdirs
-SUBDIRS  = TestPlugin MouseGestures
+SUBDIRS  = MouseGestures
+
+# TestPlugin only in debug build
+CONFIG(debug, debug|release): SUBDIRS += TestPlugin

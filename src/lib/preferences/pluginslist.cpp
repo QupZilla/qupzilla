@@ -151,7 +151,7 @@ void PluginsList::refresh()
         QString pluginInfo = tr("%1 (%2)\nAuthor: %3\n%4\n%5").arg(spec.name, spec.version, spec.author, spec.info, spec.description);
         item->setText(pluginInfo);
 
-        QIcon icon = spec.icon;
+        QIcon icon = QIcon(spec.icon);
         if (icon.isNull()) {
             icon = QIcon(":/icons/preferences/extension.png");
         }

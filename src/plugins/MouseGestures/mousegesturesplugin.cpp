@@ -17,7 +17,7 @@ PluginSpec MouseGesturesPlugin::pluginSpec()
     spec.description = "Provides support for navigating by mouse gestures through webpages";
     spec.version = "0.1.0";
     spec.author = "David Rosca <nowrep@gmail.com>";
-    spec.icon = QIcon(":/mousegestures/data/icon.png");
+    spec.icon = QPixmap(":/mousegestures/data/icon.png");
     spec.hasSettings = true;
 
     return spec;

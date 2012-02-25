@@ -34,7 +34,7 @@ struct PluginSpec {
     QString description;
     QString author;
     QString version;
-    QIcon icon;
+    QPixmap icon;
     bool hasSettings;
 
     bool operator==(const PluginSpec &other) {
