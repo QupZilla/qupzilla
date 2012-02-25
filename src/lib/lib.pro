@@ -159,7 +159,8 @@ SOURCES += \
     popupwindow/popuplocationbar.cpp \
     webview/tabbedwebview.cpp \
     webview/webview.cpp \
-    webview/webviewsettings.cpp
+    webview/webviewsettings.cpp \
+    preferences/pluginlistdelegate.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -292,7 +293,8 @@ HEADERS  += \
     webview/tabbedwebview.h \
     webview/webview.h \
     app/qz_namespace.h \
-    webview/webviewsettings.h
+    webview/webviewsettings.h \
+    preferences/pluginlistdelegate.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -333,7 +335,8 @@ FORMS    += \
     preferences/addacceptlanguage.ui \
     opensearch/searchenginesdialog.ui \
     opensearch/editsearchengine.ui \
-    bookmarksimport/bookmarksimportdialog.ui
+    bookmarksimport/bookmarksimportdialog.ui \
+    preferences/pluginwidget.ui
 
 RESOURCES += \
     data/icons.qrc \

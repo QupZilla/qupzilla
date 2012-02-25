@@ -685,14 +685,14 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     QString langCode = mApp->getActiveLanguage().left(2);
     QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
     Action* gtwact = new Action(QIcon(":icons/menu/translate.png"), tr("Google Translate"));
-      gtwact->setData(googleTranslateUrl);
-      connect(gtwact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
-      connect(gtwact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+    gtwact->setData(googleTranslateUrl);
+    connect(gtwact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
+    connect(gtwact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
     menu->addAction(gtwact);
     Action* dictact = new Action(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"));
-      dictact->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
-      connect(dictact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
-      connect(dictact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+    dictact->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
+    connect(dictact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
+    connect(dictact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
     menu->addAction(dictact);
 
     QString selectedString = selectedText.trimmed();
@@ -718,7 +718,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     QMenu* swMenu = new QMenu(tr("Search with..."));
     SearchEnginesManager* searchManager = mApp->searchEnginesManager();
     foreach(const SearchEngine & en, searchManager->allEngines()) {
-      swMenu->addAction(en.icon, en.name, this, SLOT(searchSelectedText()))->setData(qVariantFromValue(en));
+        swMenu->addAction(en.icon, en.name, this, SLOT(searchSelectedText()))->setData(qVariantFromValue(en));
     }
     menu->addMenu(swMenu);
 }

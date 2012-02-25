@@ -93,7 +93,7 @@ bool MouseGestureRecognizer::endGesture(int x, int y)
     int dx = x - d->positions.at(0).x;
     int dy = y - d->positions.at(0).y;
 
-    if (dx* dx + dy* dy < d->minimumMovement2) {
+    if (dx * dx + dy * dy < d->minimumMovement2) {
         return false;
     }
 

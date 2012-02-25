@@ -20,6 +20,7 @@
 #include "pluginproxy.h"
 #include "mainapplication.h"
 #include "plugininterface.h"
+#include "pluginlistdelegate.h"
 #include "settings.h"
 
 #ifdef PORTABLE_BUILD
@@ -45,6 +46,8 @@ PluginsList::PluginsList(QWidget* parent)
     connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
     connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
     connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
+
+    ui->list->setItemDelegateForColumn(0, new PluginListDelegate(ui->list));
 
     //WebKit Plugins
     connect(ui->add, SIGNAL(clicked()), this, SLOT(addWhitelist()));
@@ -148,8 +151,9 @@ void PluginsList::refresh()
         PluginSpec spec = plugin.pluginSpec;
 
         QListWidgetItem* item = new QListWidgetItem(ui->list);
-        QString pluginInfo = tr("%1 (%2)\nAuthor: %3\n%4\n%5").arg(spec.name, spec.version, spec.author, spec.info, spec.description);
+        QString pluginInfo = QString("<b>%1</b> %2 (%3)<br/>%4<br/>%5").arg(spec.name, spec.version, spec.author, spec.info, spec.description);
         item->setText(pluginInfo);
+
 
         QIcon icon = QIcon(spec.icon);
         if (icon.isNull()) {
