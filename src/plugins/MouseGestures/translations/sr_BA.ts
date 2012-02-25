@@ -16,7 +16,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="64"/>
         <source>Press and hold the middle mouse button and move your mouse in the indicated directions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Притисните и држите средњи тастер миша и помјерајте миша у наведеним смјеровима.</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="111"/>
