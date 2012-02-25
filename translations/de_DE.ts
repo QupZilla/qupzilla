@@ -869,7 +869,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="143"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu Lesezeichen hinzufügen</translation>
     </message>
     <message>
         <source>Add into Bookmarks</source>
@@ -2032,12 +2032,12 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Error!</source>
-        <translation type="unfinished">Fehler!</translation>
+        <translation>Fehler!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Cannot load plugin!</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugin kann nicht geladen werden!</translation>
     </message>
 </context>
 <context>
@@ -4893,7 +4893,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="718"/>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translation>Suche mit...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="739"/>
