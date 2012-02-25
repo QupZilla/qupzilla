@@ -189,7 +189,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="92"/>
         <source>Show AdBlock &amp;Settings</source>
-        <translation>Visa AdBlock &amp;inställningar</translation>
+        <translation>Visa AdBlock-&amp;inställningar</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="95"/>
@@ -766,7 +766,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="73"/>
         <source>Show Only Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa endast ikoner</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="79"/>
@@ -853,7 +853,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="79"/>
         <source>Remove</source>
-        <translation type="unfinished">Ta bort</translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="105"/>
@@ -868,7 +868,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="143"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till i Bokmärken</translation>
     </message>
     <message>
         <source>Add into Bookmarks</source>
@@ -1124,7 +1124,7 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="27"/>
         <source>Stored Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparade kakor</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="33"/>
@@ -1202,39 +1202,39 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="248"/>
         <source>Cookie Filtering</source>
-        <translation type="unfinished"></translation>
+        <translation>Kakfiltrering</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="254"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Kakvitlista&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="261"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kakor från dessa servrar kommer ALLTID att accepteras (även om du inaktiverat sparning av kakor)</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="286"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="340"/>
         <source>Add</source>
-        <translation type="unfinished">Lägg till</translation>
+        <translation>Lägg till</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="293"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="347"/>
         <source>Remove</source>
-        <translation type="unfinished">Ta bort</translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="305"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Kaksvartlista&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="312"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Kakor från dessa servrar kommer ALDRIG att accepteras</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="132"/>
@@ -1259,12 +1259,12 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="203"/>
         <source>Add to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till i vitlistan</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="223"/>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till i svartlistan</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="224"/>
@@ -2032,12 +2032,12 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Error!</source>
-        <translation type="unfinished">Fel!</translation>
+        <translation>Fel!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Cannot load plugin!</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan ej ladda insticksmodul!</translation>
     </message>
 </context>
 <context>
@@ -2297,7 +2297,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="798"/>
         <source>Allow DNS Prefetch</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillåt DNS-prefetch</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1082"/>
@@ -2466,7 +2466,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1287"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Teckensnittsfamilerj&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Typsnittsfamilerj&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1300"/>
@@ -2521,7 +2521,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1762"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Varning: &lt;/b&gt;Matcha domännamn exakt och Filtrera spårningskakor kan leda till att kakor från vissa sidor nekas. Om du har problem med kakor, prova att inaktivera dessa inställningar först!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2086"/>
@@ -2536,27 +2536,27 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1396"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Teckensnittsstorlek&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Typsnittsstorlek&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1405"/>
         <source>Fixed Font Size</source>
-        <translation>Fast typsnittsstorlek</translation>
+        <translation>Fast</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1412"/>
         <source>Default Font Size</source>
-        <translation>Standardtypsnittsstorlek</translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1439"/>
         <source>Minimum Font Size</source>
-        <translation>Minsta typsnittsstorlek</translation>
+        <translation>Minsta</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1446"/>
         <source>Minimum Logical Font Size</source>
-        <translation>Minsta logiska typsnittsstorlek</translation>
+        <translation>Minsta logiska</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1479"/>
@@ -2651,12 +2651,12 @@
         <location filename="../src/lib/preferences/preferences.ui" line="1851"/>
         <location filename="../src/lib/preferences/preferences.ui" line="2031"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Övrigt&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1865"/>
         <source>Send Referer header to servers</source>
-        <translation type="unfinished"></translation>
+        <translation>Skicka Referer header till servrar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1872"/>
@@ -2691,12 +2691,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1973"/>
         <source> seconds</source>
-        <translation>sekunder</translation>
+        <translation> sekunder</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1982"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
-        <translation>&lt;b&gt;Observera:&lt;/b&gt;Du kan ändra notifikationernas placering genom att dra runt dem på skärmen.</translation>
+        <translation>&lt;b&gt;Observera: &lt;/b&gt;Du kan ändra notifikationernas placering genom att dra runt dem på skärmen.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="425"/>
@@ -2751,7 +2751,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="123"/>
         <source>Fonts</source>
-        <translation>Teckensnitt</translation>
+        <translation>Typsnitt</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="131"/>
@@ -2811,7 +2811,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="498"/>
         <source>Choose executable location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj den körbara filens plats...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="633"/>
@@ -3156,7 +3156,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="468"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurationsinformation</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="488"/>
@@ -3412,7 +3412,7 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="294"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="295"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurationsinformation</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="298"/>
@@ -3444,12 +3444,12 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="319"/>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translation>Programversion</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="324"/>
         <source>Qt version</source>
-        <translation type="unfinished"></translation>
+        <translation>Qt-version</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="326"/>
@@ -3469,32 +3469,32 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="300"/>
         <source>Preferences</source>
-        <translation type="unfinished">Inställningar</translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="301"/>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativ</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="302"/>
         <source>Value</source>
-        <translation type="unfinished">Värde</translation>
+        <translation>Värde</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="304"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Namn</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="306"/>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Författare</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="307"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivning</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="311"/>
@@ -3539,7 +3539,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="142"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"></translation>
+        <translation>E-post är valfritt&lt;br/&gt;&lt;b&gt;Observera: &lt;/b&gt;Var vänlig och läs hur man skriver en buggrapport &lt;a href=%1&gt;här&lt;/a&gt; först.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="195"/>
@@ -3624,12 +3624,12 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="297"/>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Denna sida innehåller information om QupZillas nuvarande konfiguration, insticksmoduler etc, all information som är relevant för felsökning. Var vänlig och inkludera denna information i buggrapporter.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="343"/>
         <source>No available plugins.</source>
-        <translation type="unfinished"></translation>
+        <translation>Inga tillgängliga insticksmoduler.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="249"/>
@@ -4729,7 +4729,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="515"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
-        <translation>Om din dator eller ditt nätverk är skyddat av en brandvägg eller proxy, kontrollera att QupZilla är tillåten att komma åt webben.</translation>
+        <translation>Om din dator eller ditt nätverk är skyddat av en brandvägg eller proxy, kontrollera att QupZilla har tillåtelse att nå webben.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="516"/>
@@ -4785,7 +4785,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="613"/>
         <source>Send page link...</source>
-        <translation>Skicka sidans länk...</translation>
+        <translation>Skicka sidlänk...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="614"/>
@@ -4961,7 +4961,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="718"/>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök med...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="739"/>
