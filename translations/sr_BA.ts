@@ -856,15 +856,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="143"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add into Bookmarks</source>
-        <translation type="obsolete">Додај у обиљеживаче</translation>
-    </message>
-    <message>
-        <source>Add into Speed Dial</source>
-        <translation type="obsolete">Додај на брзо бирање</translation>
+        <translation>Додај у обиљеживаче</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="44"/>
@@ -1960,10 +1952,6 @@
         <translation>Подешавања</translation>
     </message>
     <message>
-        <source>Load Plugins</source>
-        <translation type="obsolete">Учитај прикључке</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="94"/>
         <source>WebKit Plugins</source>
         <translation>Вебкитови прикључци</translation>
@@ -2011,12 +1999,12 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Error!</source>
-        <translation type="unfinished">Грешка!</translation>
+        <translation>Грешка!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Cannot load plugin!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не могу да учитам прикључак!</translation>
     </message>
 </context>
 <context>
@@ -4947,7 +4935,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="718"/>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translation>Тражи на...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="739"/>
