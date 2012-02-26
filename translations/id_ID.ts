@@ -857,7 +857,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="143"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan ke Bookmark</translation>
     </message>
     <message>
         <source>Add into Bookmarks</source>
@@ -2012,12 +2012,12 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Error!</source>
-        <translation type="unfinished">Kesalahan!</translation>
+        <translation>Kesalahan!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Cannot load plugin!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak dapat memuat pengaya!</translation>
     </message>
 </context>
 <context>
@@ -4949,7 +4949,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="718"/>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translation>Cari dengan...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="739"/>
