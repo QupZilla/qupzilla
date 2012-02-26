@@ -167,10 +167,6 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <source>AdBlock lets you block unwanted content on web-pages</source>
-        <translation type="obsolete">廣告封鎖可以幫你封鎖網頁上不想要的內容</translation>
-    </message>
-    <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="37"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
         <translation>廣告封鎖可以幫你封鎖網頁上不想要的內容</translation>
@@ -220,10 +216,6 @@
         <location filename="../src/lib/adblock/adblockicon.cpp" line="116"/>
         <source>Learn About Writing &amp;Rules</source>
         <translation>瞭解編輯的規則(&amp;R)</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">新增分頁</translation>
     </message>
 </context>
 <context>
@@ -558,10 +550,6 @@
         <translation>無法評估JSON代碼。</translation>
     </message>
     <message>
-        <source>File does not exists.</source>
-        <translation type="obsolete">此檔案不存在。</translation>
-    </message>
-    <message>
         <location filename="../src/lib/bookmarksimport/firefoximporter.cpp" line="39"/>
         <source>File does not exist.</source>
         <translation>此檔案不存在。</translation>
@@ -645,10 +633,6 @@
         <translation>在此分頁開啟此連結 (&amp;tab)</translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">新增分頁</translation>
-    </message>
-    <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="551"/>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
         <translation>&lt;b&gt;警告：&lt;/b&gt;你已經擁有此書籤了!</translation>
@@ -657,10 +641,6 @@
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="565"/>
         <source>Choose name and location of this bookmark.</source>
         <translation>選擇書籤的名稱與位置。</translation>
-    </message>
-    <message>
-        <source>Open link in actual &amp;tab</source>
-        <translation type="obsolete">在此分頁開啟連結 (&amp;tab)</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="241"/>
@@ -681,10 +661,6 @@
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="225"/>
         <source>Remove folder</source>
         <translation>移除資料夾</translation>
-    </message>
-    <message>
-        <source>Open link in current </source>
-        <translation type="obsolete">在此分頁開啟此連結</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="257"/>
@@ -741,14 +717,6 @@
         <translation>搜尋...</translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">新增分頁</translation>
-    </message>
-    <message>
-        <source>Open link in actual &amp;tab</source>
-        <translation type="obsolete">在此分頁開啟此連結 (&amp;tab)</translation>
-    </message>
-    <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="110"/>
         <source>Open link in current &amp;tab</source>
         <translation>在此分頁開啟此連結 (&amp;tab)</translation>
@@ -785,10 +753,6 @@
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="66"/>
         <source>&amp;Organize Bookmarks</source>
         <translation>管理書籤(&amp;O)</translation>
-    </message>
-    <message>
-        <source>Hide Most &amp;Visited</source>
-        <translation type="obsolete">隱藏最多瀏覽&amp;</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="68"/>
@@ -865,14 +829,6 @@
 <context>
     <name>BookmarksWidget</name>
     <message>
-        <source>Edit This Bookmark</source>
-        <translation type="obsolete">編輯此書籤</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation type="obsolete">移除書籤</translation>
-    </message>
-    <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="55"/>
         <source>Name:</source>
         <translation>名稱:</translation>
@@ -901,14 +857,6 @@
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="143"/>
         <source>Add to Bookmarks</source>
         <translation>新增至書籤</translation>
-    </message>
-    <message>
-        <source>Add into Bookmarks</source>
-        <translation type="obsolete">新增到書籤</translation>
-    </message>
-    <message>
-        <source>Add into Speed Dial</source>
-        <translation type="obsolete">新增到快速播號</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="44"/>
@@ -1017,25 +965,6 @@
         <source>Expires On:</source>
         <translation>截止日期:</translation>
     </message>
-    <message>
-        <source>&lt;not set in certificate&gt;</source>
-        <translation type="obsolete">&lt;沒有設定憑證&gt;</translation>
-    </message>
-</context>
-<context>
-    <name>ChromeImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">沒有錯誤</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">無法開啟檔案。</translation>
-    </message>
-    <message>
-        <source>Cannot evaluate JSON code.</source>
-        <translation type="obsolete">無法評估JSON代碼。</translation>
-    </message>
 </context>
 <context>
     <name>ClearPrivateData</name>
@@ -1085,10 +1014,6 @@
         <translation>今天以前</translation>
     </message>
     <message>
-        <source>Later Today</source>
-        <translation type="obsolete">到今天</translation>
-    </message>
-    <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="116"/>
         <source>Week</source>
         <translation>這禮拜</translation>
@@ -1110,10 +1035,6 @@
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="126"/>
         <source>Object blocked by ClickToFlash</source>
         <translation>選擇Flash封鎖的物件</translation>
-    </message>
-    <message>
-        <source>Show more informations about object</source>
-        <translation type="obsolete">顯示有關物件的更多資訊</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="127"/>
@@ -1149,10 +1070,6 @@
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="285"/>
         <source>No more information available.</source>
         <translation>沒有提供其他資訊。</translation>
-    </message>
-    <message>
-        <source>No more informations available.</source>
-        <translation type="obsolete">沒有提供更多資訊。</translation>
     </message>
 </context>
 <context>
@@ -1343,13 +1260,6 @@
     </message>
 </context>
 <context>
-    <name>DesktopNotificationsFactory</name>
-    <message>
-        <source>Native System Notification</source>
-        <translation type="obsolete">本機系統通知</translation>
-    </message>
-</context>
-<context>
     <name>DownloadFileHelper</name>
     <message>
         <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="137"/>
@@ -1471,10 +1381,6 @@
         <location filename="../src/lib/downloads/downloaditem.cpp" line="324"/>
         <source>Error</source>
         <translation>錯誤</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">新分頁</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="362"/>
@@ -1632,7 +1538,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="58"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation>&lt;b&gt;注意：&lt;/b&gt;%URL中搜尋的字串</translation>
+        <translation type="unfinished">&lt;b&gt;注意：&lt;/b&gt;位址中的%s代表搜尋的字串</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="97"/>
@@ -1643,21 +1549,6 @@
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="84"/>
         <source>Choose icon...</source>
         <translation>選擇圖示...</translation>
-    </message>
-</context>
-<context>
-    <name>FirefoxImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">沒有錯誤</translation>
-    </message>
-    <message>
-        <source>File does not exists.</source>
-        <translation type="obsolete">檔案不存在。</translation>
-    </message>
-    <message>
-        <source>Unable to open database. Is Firefox running?</source>
-        <translation type="obsolete">無法開啟資料庫。請關閉Firefox。</translation>
     </message>
 </context>
 <context>
@@ -1691,14 +1582,6 @@
         <location filename="../src/lib/history/historymanager.ui" line="73"/>
         <source>Optimize Database</source>
         <translation>最佳化數據庫</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
-    <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">在此分頁開啟連結 </translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="101"/>
@@ -1830,14 +1713,6 @@
         <translation>標題</translation>
     </message>
     <message>
-        <source>New Tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
-    <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">在此分頁開啟連結</translation>
-    </message>
-    <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="94"/>
         <source>Open link in current tab</source>
         <translation>在此分頁開啟連結</translation>
@@ -1869,17 +1744,6 @@
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="195"/>
         <source>This Month</source>
         <translation>這個月</translation>
-    </message>
-</context>
-<context>
-    <name>HtmlImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">沒有錯誤</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">無法開啟檔案。</translation>
     </message>
 </context>
 <context>
@@ -2051,17 +1915,6 @@
     </message>
 </context>
 <context>
-    <name>OperaImporter</name>
-    <message>
-        <source>No Error</source>
-        <translation type="obsolete">沒有錯誤</translation>
-    </message>
-    <message>
-        <source>Unable to open file.</source>
-        <translation type="obsolete">無法開啟檔案。</translation>
-    </message>
-</context>
-<context>
     <name>PageScreen</name>
     <message>
         <location filename="../src/lib/other/pagescreen.ui" line="14"/>
@@ -2095,10 +1948,6 @@
         <location filename="../src/lib/preferences/pluginslist.ui" line="64"/>
         <source>Settings</source>
         <translation>設定</translation>
-    </message>
-    <message>
-        <source>Load Plugins</source>
-        <translation type="obsolete">匯入外掛</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="94"/>
@@ -2146,16 +1995,6 @@
         <translation>無http://伺服器（如youtube.com）</translation>
     </message>
     <message>
-        <source>%1 (%2)
-Author: %3
-%4
-%5</source>
-        <translation type="obsolete">%1 (%2)
-作者 %3
-%4
-%5</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Error!</source>
         <translation>錯誤!</translation>
@@ -2164,105 +2003,6 @@ Author: %3
         <location filename="../src/lib/preferences/pluginslist.cpp" line="209"/>
         <source>Cannot load plugin!</source>
         <translation>無法執行外掛!</translation>
-    </message>
-</context>
-<context>
-    <name>PopupWebView</name>
-    <message>
-        <source>Open link in new &amp;window</source>
-        <translation type="obsolete">在新視窗開起連結(&amp;w)</translation>
-    </message>
-    <message>
-        <source>&amp;Save link as...</source>
-        <translation type="obsolete">另存連結為(&amp;S)...</translation>
-    </message>
-    <message>
-        <source>Send link...</source>
-        <translation type="obsolete">傳送連結...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy link address</source>
-        <translation type="obsolete">複製連結位址(&amp;C)</translation>
-    </message>
-    <message>
-        <source>Show i&amp;mage</source>
-        <translation type="obsolete">顯示圖片(&amp;m)</translation>
-    </message>
-    <message>
-        <source>Copy im&amp;age</source>
-        <translation type="obsolete">複製圖片(&amp;a)</translation>
-    </message>
-    <message>
-        <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">複製圖片位址(&amp;d)</translation>
-    </message>
-    <message>
-        <source>&amp;Save image as...</source>
-        <translation type="obsolete">另存圖片為(&amp;S)...</translation>
-    </message>
-    <message>
-        <source>Send image...</source>
-        <translation type="obsolete">傳送圖片...</translation>
-    </message>
-    <message>
-        <source>&amp;Back</source>
-        <translation type="obsolete">上一頁(&amp;B)</translation>
-    </message>
-    <message>
-        <source>&amp;Forward</source>
-        <translation type="obsolete">下一頁(&amp;F)</translation>
-    </message>
-    <message>
-        <source>&amp;Reload</source>
-        <translation type="obsolete">重新整理(&amp;R)</translation>
-    </message>
-    <message>
-        <source>S&amp;top</source>
-        <translation type="obsolete">終止(&amp;t)</translation>
-    </message>
-    <message>
-        <source>This frame</source>
-        <translation type="obsolete">這個框架</translation>
-    </message>
-    <message>
-        <source>Show &amp;only this frame</source>
-        <translation type="obsolete">僅顯示此框架(&amp;o)</translation>
-    </message>
-    <message>
-        <source>Print frame</source>
-        <translation type="obsolete">列印框架</translation>
-    </message>
-    <message>
-        <source>Zoom &amp;in</source>
-        <translation type="obsolete">放大(&amp;i)</translation>
-    </message>
-    <message>
-        <source>&amp;Zoom out</source>
-        <translation type="obsolete">縮小(&amp;Z)</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="obsolete">重置</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">顯示此框架的原始碼(&amp;u)</translation>
-    </message>
-    <message>
-        <source>&amp;Save page as...</source>
-        <translation type="obsolete">儲存網頁為(&amp;S)...</translation>
-    </message>
-    <message>
-        <source>Select &amp;all</source>
-        <translation type="obsolete">全選(&amp;a)</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce code</source>
-        <translation type="obsolete">顯示原始碼(&amp;u)</translation>
-    </message>
-    <message>
-        <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">網頁相關訊息(&amp;o)</translation>
     </message>
 </context>
 <context>
@@ -2331,10 +2071,6 @@ Author: %3
         <translation>其他</translation>
     </message>
     <message>
-        <source>&lt;b&gt;General&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;通用&lt;/b&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="37"/>
         <source>QupZilla</source>
         <translation></translation>
@@ -2364,10 +2100,6 @@ Author: %3
         <location filename="../src/lib/preferences/preferences.ui" line="246"/>
         <source>Homepage: </source>
         <translation>首頁:</translation>
-    </message>
-    <message>
-        <source>Use actual</source>
-        <translation type="obsolete">套用</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="267"/>
@@ -2516,10 +2248,6 @@ Author: %3
         <translation>Web設置</translation>
     </message>
     <message>
-        <source>Load images</source>
-        <translation type="obsolete">開啟圖片</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
         <source>Allow JAVA</source>
         <translation>允許Java</translation>
@@ -2538,10 +2266,6 @@ Author: %3
         <location filename="../src/lib/preferences/preferences.ui" line="777"/>
         <source>Allow Plugins (Flash plugin)</source>
         <translation>允許外掛（Flash外掛）</translation>
-    </message>
-    <message>
-        <source>Block PopUp windows</source>
-        <translation type="obsolete">封鎖彈出視窗</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="798"/>
@@ -2814,14 +2538,6 @@ Author: %3
         <translation>&lt;b&gt;警告:&lt;/b&gt;追蹤濾鏡將會拒絕指定網域存取cookie，如果有問題，請先取消此選項!</translation>
     </message>
     <message>
-        <source>Default Font</source>
-        <translation type="obsolete">預設字體</translation>
-    </message>
-    <message>
-        <source>Fixed Font</source>
-        <translation type="obsolete">等寬字體</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1389"/>
         <source>Fantasy</source>
         <translation>幻想字體</translation>
@@ -2906,10 +2622,6 @@ Author: %3
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Filter Tracking Cookies</source>
-        <translation type="obsolete">追蹤cookies</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2086"/>
         <source>Change browser identification:</source>
         <translation>使用者代理程式:</translation>
@@ -2928,10 +2640,6 @@ Author: %3
         <location filename="../src/lib/preferences/preferences.ui" line="1739"/>
         <source>Match domain exactly</source>
         <translation>網域完全匹配</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and Filter Tracking Cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="obsolete">&lt;b&gt;警告：&lt;/ B&gt;匹配網域完全和過濾器追蹤Cookie選項可能會導致拒絕網站的一些cookies，如果您的cookies有問題，請禁用此選項！</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1778"/>
@@ -3018,10 +2726,6 @@ Author: %3
         <location filename="../src/lib/preferences/preferences.ui" line="418"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>要改變語言，您必須重新開啟瀏覽器。</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;User CSS StyleSheet&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;使用者自訂CSS樣式表&lt;/ B&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2038"/>
@@ -3229,10 +2933,6 @@ Author: %3
         <translation>傳送連結...</translation>
     </message>
     <message>
-        <source>&amp;Print</source>
-        <translation type="obsolete">列印(&amp;P)</translation>
-    </message>
-    <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="295"/>
         <source>Import bookmarks...</source>
         <translation>匯入書籤...</translation>
@@ -3266,10 +2966,6 @@ Author: %3
         <location filename="../src/lib/app/qupzilla.cpp" line="313"/>
         <source>&amp;Paste</source>
         <translation>貼上(&amp;p)</translation>
-    </message>
-    <message>
-        <source>&amp;Delete</source>
-        <translation type="obsolete">刪除(&amp;D)</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="315"/>
@@ -3491,10 +3187,6 @@ Author: %3
         <translation>關於QupZIlla(&amp;A)</translation>
     </message>
     <message>
-        <source>Informations about application</source>
-        <translation type="obsolete">軟體訊息</translation>
-    </message>
-    <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="469"/>
         <source>Report &amp;Issue</source>
         <translation>報告及發行(&amp;I)</translation>
@@ -3615,10 +3307,6 @@ Author: %3
         <translation>開始私密瀏覽</translation>
     </message>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
-    <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
         <translation>您已經成功加入RSS feed&quot;%1&quot;。</translation>
@@ -3635,10 +3323,6 @@ Author: %3
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="66"/>
         <source>Not Found</source>
         <translation>未找到</translation>
-    </message>
-    <message>
-        <source>If you are experiencing problems with QupZilla, please try first disable all plugins. &lt;br/&gt;If it won&apos;t help, then please fill this form: </source>
-        <translation type="obsolete">如果您的QupZilla遇到問題，請先嘗試禁用所有外掛， &lt;br/&gt;如果沒有幫助，那麼請填寫此表格：</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="138"/>
@@ -3667,10 +3351,6 @@ Author: %3
         <translation>提交</translation>
     </message>
     <message>
-        <source>Please fill all required fields!</source>
-        <translation type="obsolete">請填寫所有必填欄位！</translation>
-    </message>
-    <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="161"/>
         <source>Start Page</source>
         <translation>起始頁</translation>
@@ -3691,10 +3371,6 @@ Author: %3
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="182"/>
         <source>About QupZilla</source>
         <translation>關於 QupZilla</translation>
-    </message>
-    <message>
-        <source>Informations about version</source>
-        <translation type="obsolete">版本訊息</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="298"/>
@@ -3935,10 +3611,6 @@ Author: %3
         <translation>移除</translation>
     </message>
     <message>
-        <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation type="obsolete">E-mail為可選的&lt;br/&gt;&lt;b&gt;注意：&lt;/b&gt;請只使用英文。</translation>
-    </message>
-    <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="136"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation>如果您的QupZilla遇到問題，請先嘗試禁用所有外掛， &lt;br/&gt;如果沒有幫助，那麼請填寫此表格:</translation>
@@ -4071,17 +3743,9 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <translation>在新分頁開啟連結</translation>
     </message>
     <message>
-        <source>Open link in actual tab</source>
-        <translation type="obsolete">在當前分頁開啟連結</translation>
-    </message>
-    <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="235"/>
         <source>Open link in new tab</source>
         <translation>在新分頁開啟連結</translation>
-    </message>
-    <message>
-        <source>New Tab</source>
-        <translation type="obsolete">新分頁</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="363"/>
@@ -4106,10 +3770,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <source>Open RSS Manager</source>
         <translation>開啟RSS管理</translation>
     </message>
-    <message>
-        <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="obsolete">您已經成功新增&quot;%1&quot;RSS Feed。</translation>
-    </message>
 </context>
 <context>
     <name>RSSWidget</name>
@@ -4127,17 +3787,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
         <location filename="../src/lib/rss/rsswidget.cpp" line="55"/>
         <source>Add</source>
         <translation>新增</translation>
-    </message>
-</context>
-<context>
-    <name>ReloadStopButton</name>
-    <message>
-        <source>Stop</source>
-        <translation type="obsolete">終止</translation>
-    </message>
-    <message>
-        <source>Reload</source>
-        <translation type="obsolete">重新整理</translation>
     </message>
 </context>
 <context>
@@ -4349,13 +3998,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/sidebar/sidebar.cpp" line="55"/>
         <source>History</source>
         <translation>記錄</translation>
-    </message>
-</context>
-<context>
-    <name>SiteIcon</name>
-    <message>
-        <source>Show informations about this page</source>
-        <translation type="obsolete">顯示此頁訊息</translation>
     </message>
 </context>
 <context>
@@ -4695,7 +4337,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="42"/>
         <source>Search: </source>
-        <translation>搜尋：</translation>
+        <translation>搜尋:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="49"/>
@@ -4788,17 +4430,9 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Restore &amp;Closed Tab</source>
         <translation>還原關閉的分頁(&amp;C)</translation>
     </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
 </context>
 <context>
     <name>TabWidget</name>
-    <message>
-        <source>Show list of opened tabs</source>
-        <translation type="obsolete">顯示開啟的分頁清單</translation>
-    </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="134"/>
         <source>List of tabs</source>
@@ -4823,10 +4457,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/webview/tabwidget.cpp" line="259"/>
         <source>Currently you have %1 opened tabs</source>
         <translation>現在您有%1個開啟分頁</translation>
-    </message>
-    <message>
-        <source>Actually you have %1 opened tabs</source>
-        <translation type="obsolete">您已經有%1個開起分頁</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabwidget.cpp" line="271"/>
@@ -4871,126 +4501,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/webview/tabbedwebview.cpp" line="324"/>
         <source>Inspect Element</source>
         <translation>檢查元素</translation>
-    </message>
-    <message>
-        <source>Open link in new &amp;tab</source>
-        <translation type="obsolete">在新分頁中開啟連結(&amp;t)</translation>
-    </message>
-    <message>
-        <source>Open link in new &amp;window</source>
-        <translation type="obsolete">在新視窗中開啟連結(&amp;w)</translation>
-    </message>
-    <message>
-        <source>B&amp;ookmark link</source>
-        <translation type="obsolete">書籤連結(&amp;o)</translation>
-    </message>
-    <message>
-        <source>&amp;Save link as...</source>
-        <translation type="obsolete">另存連結為(&amp;S)...</translation>
-    </message>
-    <message>
-        <source>Send link...</source>
-        <translation type="obsolete">發送連結...</translation>
-    </message>
-    <message>
-        <source>&amp;Copy link address</source>
-        <translation type="obsolete">複製連結位址(&amp;C)</translation>
-    </message>
-    <message>
-        <source>Show i&amp;mage</source>
-        <translation type="obsolete">顯示圖片(&amp;m)</translation>
-    </message>
-    <message>
-        <source>Copy im&amp;age</source>
-        <translation type="obsolete">複製圖片(&amp;a)</translation>
-    </message>
-    <message>
-        <source>Copy image ad&amp;dress</source>
-        <translation type="obsolete">複製圖片位址(&amp;d)</translation>
-    </message>
-    <message>
-        <source>&amp;Save image as...</source>
-        <translation type="obsolete">圖片另存為(&amp;S)...</translation>
-    </message>
-    <message>
-        <source>Send image...</source>
-        <translation type="obsolete">傳送圖片...</translation>
-    </message>
-    <message>
-        <source>&amp;Back</source>
-        <translation type="obsolete">上一頁(&amp;B)</translation>
-    </message>
-    <message>
-        <source>&amp;Forward</source>
-        <translation type="obsolete">下一頁(&amp;F)</translation>
-    </message>
-    <message>
-        <source>&amp;Reload</source>
-        <translation type="obsolete">重新整理(&amp;R)</translation>
-    </message>
-    <message>
-        <source>S&amp;top</source>
-        <translation type="obsolete">終止(&amp;t)</translation>
-    </message>
-    <message>
-        <source>This frame</source>
-        <translation type="obsolete">這個框架</translation>
-    </message>
-    <message>
-        <source>Show &amp;only this frame</source>
-        <translation type="obsolete">僅顯示此框架(&amp;o)</translation>
-    </message>
-    <message>
-        <source>Show this frame in new &amp;tab</source>
-        <translation type="obsolete">在新分頁中開啟此框架(&amp;t)</translation>
-    </message>
-    <message>
-        <source>Print frame</source>
-        <translation type="obsolete">列印此框架</translation>
-    </message>
-    <message>
-        <source>Zoom &amp;in</source>
-        <translation type="obsolete">放大(&amp;i)</translation>
-    </message>
-    <message>
-        <source>&amp;Zoom out</source>
-        <translation type="obsolete">縮小(&amp;Z)</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="obsolete">重置</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce of frame</source>
-        <translation type="obsolete">顯示此框架的原始碼(&amp;u)</translation>
-    </message>
-    <message>
-        <source>Book&amp;mark page</source>
-        <translation type="obsolete">加入書籤(&amp;m)</translation>
-    </message>
-    <message>
-        <source>&amp;Save page as...</source>
-        <translation type="obsolete">另存網頁為(&amp;S)...</translation>
-    </message>
-    <message>
-        <source>Select &amp;all</source>
-        <translation type="obsolete">全選(&amp;a)</translation>
-    </message>
-    <message>
-        <source>Show so&amp;urce code</source>
-        <translation type="obsolete">顯示原始碼(&amp;u)</translation>
-    </message>
-    <message>
-        <source>Show Web &amp;Inspector</source>
-        <translation type="obsolete">顯示Web檢查工具(&amp;I)</translation>
-    </message>
-    <message>
-        <source>Show info ab&amp;out site</source>
-        <translation type="obsolete">顯示有關網頁的訊息(&amp;o)</translation>
-    </message>
-    <message>
-        <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="obsolete">使用 %2搜尋&quot;%1 ..&quot; </translation>
     </message>
 </context>
 <context>
@@ -5070,10 +4580,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>為顯示此頁QupZilla需重新發送請求</translation>
     </message>
     <message>
-        <source>New tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
-    <message>
         <location filename="../src/lib/webview/webpage.cpp" line="282"/>
         <source>Confirm form resubmission</source>
         <translation></translation>
@@ -5117,10 +4623,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/webview/webpage.cpp" line="427"/>
         <source>Proxy connection refused</source>
         <translation>代理主機拒絕連結</translation>
-    </message>
-    <message>
-        <source>Proxy host name not found</source>
-        <translation type="obsolete">找不到代理主機名稱</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="430"/>
@@ -5233,18 +4735,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 </context>
 <context>
     <name>WebView</name>
-    <message>
-        <source>Failed loading page</source>
-        <translation type="obsolete">讀取頁面失敗</translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation type="obsolete">讀取中...</translation>
-    </message>
-    <message>
-        <source>New tab</source>
-        <translation type="obsolete">新分頁</translation>
-    </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="636"/>
         <source>Open link in new &amp;tab</source>
@@ -5409,7 +4899,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="718"/>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translation>選擇使用搜尋引擎...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="739"/>
@@ -5447,10 +4937,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>儲存此多媒體(&amp;D)</translation>
     </message>
     <message>
-        <source>Send page...</source>
-        <translation type="obsolete">傳送網頁...</translation>
-    </message>
-    <message>
         <location filename="../src/lib/webview/webview.cpp" line="616"/>
         <source>Select &amp;all</source>
         <translation>全選(&amp;a)</translation>
@@ -5469,10 +4955,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/webview/webview.cpp" line="625"/>
         <source>Show info ab&amp;out site</source>
         <translation>顯示有關網站的訊息(&amp;o)</translation>
-    </message>
-    <message>
-        <source>Show Web &amp;Inspector</source>
-        <translation type="obsolete">顯示網頁及檢查(&amp;I)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="717"/>
