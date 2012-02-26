@@ -12,7 +12,7 @@ General
   Path section.
   
   You may want to build QupZilla with debugging symbols (for generating
-  backtrace of crash) as easily as adding one line to src/src.pro:
+  backtrace of crash) as easily as adding one line to src/defines.pri:
                
                CONFIG += debug
                
@@ -53,7 +53,7 @@ FreeBSD
 Available Defines
 ----------------------------------------------------------------------------------
 
-  You can set define directly in project file (src/src.pro)
+  You can set define directly in file (src/defines.pri)
   or set environment variable by
   
     $ export NAME="value"
