@@ -109,6 +109,7 @@ private:
     QupZilla* p_QupZilla;
 
     int m_lastTabIndex;
+    int m_lastBackgroundTabIndex;
     bool m_isClosingToLastTabIndex;
 
     TabBar* m_tabBar;

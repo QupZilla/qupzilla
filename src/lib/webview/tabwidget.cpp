@@ -101,6 +101,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     : QTabWidget(parent)
     , p_QupZilla(mainClass)
     , m_lastTabIndex(0)
+    , m_lastBackgroundTabIndex(-1)
     , m_isClosingToLastTabIndex(false)
     , m_closedTabsManager(new ClosedTabsManager(this))
     , m_locationBars(new QStackedWidget())
@@ -282,7 +283,12 @@ int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionF
     if (position == -1 && m_newTabAfterActive && !(openFlags & Qz::NT_TabAtTheEnd)) {
         // If we are opening newBgTab from pinned tab, make sure it won't be
         // opened between other pinned tabs
-        position = qMax(currentIndex() + 1, m_tabBar->pinnedTabsCount());
+        if (openFlags & Qz::NT_NotSelectedTab && m_lastBackgroundTabIndex != -1) {
+            position = m_lastBackgroundTabIndex + 1;
+        }
+        else {
+            position = qMax(currentIndex() + 1, m_tabBar->pinnedTabsCount());
+        }
     }
 
     LocationBar* locBar = new LocationBar(p_QupZilla);
@@ -306,6 +312,9 @@ int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionF
     if (openFlags & Qz::NT_SelectedTab) {
         setCurrentIndex(index);
     }
+    else {
+        m_lastBackgroundTabIndex = index;
+    }
 
     if (count() == 1 && m_hideTabBarWithOneTab) {
         tabBar()->setVisible(false);
@@ -328,24 +337,9 @@ int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionF
 
     if (openFlags & Qz::NT_SelectedTab) {
         m_isClosingToLastTabIndex = true;
-//        m_locationBars->setCurrentWidget(locBar);
     }
 
     return index;
-}
-
-void TabWidget::setTabText(int index, const QString &text)
-{
-    QString newtext = text;
-    newtext.replace("&", "&&"); // Avoid Alt+letter shortcuts
-
-    if (WebTab* webTab = qobject_cast<WebTab*>(p_QupZilla->tabWidget()->widget(index))) {
-        if (webTab->isPinned()) {
-            newtext = "";
-        }
-    }
-
-    QTabWidget::setTabText(index, newtext);
 }
 
 void TabWidget::closeTab(int index)
@@ -392,11 +386,56 @@ void TabWidget::closeTab(int index)
         tabBar()->setVisible(false);
     }
 
+    m_lastBackgroundTabIndex = -1;
+
     webPage->disconnectObjects();
     webView->disconnectObjects();
     webTab->disconnectObjects();
 
     webTab->deleteLater();
+}
+
+void TabWidget::currentTabChanged(int index)
+{
+    if (index < 0) {
+        return;
+    }
+
+    m_isClosingToLastTabIndex = false;
+    m_lastBackgroundTabIndex = -1;
+
+    TabbedWebView* webView = weView();
+    LocationBar* locBar = webView->webTab()->locationBar();
+
+    if (m_locationBars->indexOf(locBar) != -1) {
+        m_locationBars->setCurrentWidget(locBar);
+    }
+
+    p_QupZilla->currentTabChanged();
+    m_tabBar->updateCloseButton(index);
+}
+
+void TabWidget::tabMoved(int before, int after)
+{
+    Q_UNUSED(before)
+    Q_UNUSED(after)
+
+    m_isClosingToLastTabIndex = false;
+    m_lastBackgroundTabIndex = -1;
+}
+
+void TabWidget::setTabText(int index, const QString &text)
+{
+    QString newtext = text;
+    newtext.replace("&", "&&"); // Avoid Alt+letter shortcuts
+
+    if (WebTab* webTab = qobject_cast<WebTab*>(p_QupZilla->tabWidget()->widget(index))) {
+        if (webTab->isPinned()) {
+            newtext = "";
+        }
+    }
+
+    QTabWidget::setTabText(index, newtext);
 }
 
 void TabWidget::reloadTab(int index)
@@ -412,32 +451,6 @@ void TabWidget::showTabBar()
     else {
         tabBar()->show();
     }
-}
-
-void TabWidget::tabMoved(int before, int after)
-{
-    Q_UNUSED(before)
-    Q_UNUSED(after)
-
-    m_isClosingToLastTabIndex = false;
-}
-
-void TabWidget::currentTabChanged(int index)
-{
-    if (index < 0) {
-        return;
-    }
-
-    m_isClosingToLastTabIndex = false;
-    TabbedWebView* webView = weView();
-    LocationBar* locBar = webView->webTab()->locationBar();
-
-    if (m_locationBars->indexOf(locBar) != -1) {
-        m_locationBars->setCurrentWidget(locBar);
-    }
-
-    p_QupZilla->currentTabChanged();
-    m_tabBar->updateCloseButton(index);
 }
 
 void TabWidget::reloadAllTabs()
