@@ -1538,7 +1538,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="58"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation type="unfinished">&lt;b&gt;注意：&lt;/b&gt;位址中的%s代表搜尋的字串</translation>
+        <translation>&lt;b&gt;注意：&lt;/b&gt;位址中的%s代表搜尋的字串</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="97"/>
