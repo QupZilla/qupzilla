@@ -104,7 +104,8 @@ void AboutDialog::showAuthors()
                                          "Mladen Pejaković<br/>"
                                          "Unink-Lio<br/>"
                                          "Wu Cheng-Hong<br/>"
-                                         "Widya Walesa")
+                                         "Widya Walesa<br/>"
+                                         "Beqa Arabuli")
                              ));
         m_authorsHtml.append("</div>");
     }
