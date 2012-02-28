@@ -20,7 +20,6 @@
 ButtonWithMenu::ButtonWithMenu(QWidget* parent)
     : ToolButton(parent)
     , m_menu(new QMenu(this))
-    , m_currentItem(0)
 {
     setPopupMode(QToolButton::InstantPopup);
     setCursor(Qt::ArrowCursor);
@@ -41,15 +40,13 @@ void ButtonWithMenu::clearItems()
 {
     m_menu->clear();
     m_items.clear();
-
-    m_currentItem = 0;
 }
 
 void ButtonWithMenu::addItem(const Item &item)
 {
     m_items.append(item);
 
-    if (!m_currentItem) {
+    if (m_items.count() == 1) {
         setCurrentItem(item);
     }
 
@@ -77,29 +74,31 @@ void ButtonWithMenu::removeItem(const Item &item)
         return;
     }
 
-    if (*m_currentItem == item) {
+    if (m_currentItem == item) {
         setCurrentItem(m_items.first());
     }
 }
 
-void ButtonWithMenu::setCurrentItem(const Item &item)
+void ButtonWithMenu::setCurrentItem(const Item &item, bool emitSignal)
 {
     int index = m_items.indexOf(item);
-    if (index < 0) {
+    if (index < 0 || m_currentItem == item) {
         return;
     }
 
-    m_currentItem = const_cast<Item*>(&m_items.at(index));
+    m_currentItem = item;
 
-    setIcon(m_currentItem->icon);
-    setToolTip(m_currentItem->text);
+    setIcon(m_currentItem.icon);
+    setToolTip(m_currentItem.text);
 
-    emit activeItemChanged(*m_currentItem);
+    if (emitSignal) {
+        emit activeItemChanged(m_currentItem);
+    }
 }
 
 void ButtonWithMenu::wheelEvent(QWheelEvent* event)
 {
-    int currItemIndex = m_items.indexOf(*m_currentItem);
+    int currItemIndex = m_items.indexOf(m_currentItem);
     int itemsCount = m_items.count();
 
     if (itemsCount == 0) {
@@ -120,7 +119,7 @@ void ButtonWithMenu::wheelEvent(QWheelEvent* event)
     event->accept();
 }
 
-ButtonWithMenu::Item* ButtonWithMenu::currentItem()
+ButtonWithMenu::Item ButtonWithMenu::currentItem()
 {
     return m_currentItem;
 }

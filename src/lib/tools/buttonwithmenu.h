@@ -42,6 +42,16 @@ public:
         bool operator==(const Item &a) {
             return (a.text == text) && (a.icon.pixmap(16, 16).toImage() == icon.pixmap(16, 16).toImage());
         }
+
+        bool isEmpty() {
+            return (text.isEmpty() &&  icon.isNull());
+        }
+
+        void clear() {
+            text = QString();
+            icon = QIcon();
+            userData = QVariant();
+        }
     };
 
     explicit ButtonWithMenu(QWidget* parent = 0);
@@ -50,9 +60,9 @@ public:
     void addItem(const Item &item);
     void addItems(const QList<Item> &items);
     void removeItem(const Item &item);
-    void setCurrentItem(const Item &item);
+    void setCurrentItem(const Item &item, bool emitSignal = true);
 
-    Item* currentItem();
+    Item currentItem();
     QList<Item> allItems() { return m_items; }
     QMenu* menu() const;
 
@@ -73,8 +83,7 @@ private:
 
     QMenu* m_menu;
     QList<Item> m_items;
-    Item* m_currentItem;
-
+    Item m_currentItem;
 };
 
 Q_DECLARE_METATYPE(ButtonWithMenu::Item)

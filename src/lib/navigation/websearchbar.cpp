@@ -120,14 +120,16 @@ void WebSearchBar::setupEngines()
         m_boxSearchType->addItem(item);
 
         if (item.text == activeEngine) {
-            m_boxSearchType->setCurrentItem(item);
+            m_boxSearchType->setCurrentItem(item, false);
         }
     }
+
+    searchChanged(m_boxSearchType->currentItem(), false);
 
     connect(m_searchManager, SIGNAL(enginesChanged()), this, SLOT(setupEngines()));
 }
 
-void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
+void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item, bool reload)
 {
     setPlaceholderText(item.text);
     m_completerModel->setStringList(QStringList());
@@ -139,7 +141,7 @@ void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
 
     m_searchManager->setActiveEngine(m_activeEngine);
 
-    if (!text().isEmpty()) {
+    if (reload && !text().isEmpty()) {
         search();
     }
 }
@@ -261,7 +263,7 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
 void WebSearchBar::focusOutEvent(QFocusEvent* e)
 {
     if (text().isEmpty()) {
-        QString search = m_boxSearchType->currentItem()->text;
+        QString search = m_boxSearchType->currentItem().text;
         setPlaceholderText(search);
     }
     QLineEdit::focusOutEvent(e);

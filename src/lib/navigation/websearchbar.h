@@ -47,7 +47,7 @@ public:
     explicit WebSearchBar(QupZilla* mainClass, QWidget* parent = 0);
 
 private slots:
-    void searchChanged(const ButtonWithMenu::Item &item);
+    void searchChanged(const ButtonWithMenu::Item &item, bool reload = true);
     void setupEngines();
 
     void search();
