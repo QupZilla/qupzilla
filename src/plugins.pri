@@ -33,7 +33,7 @@ MOC_DIR = build
 RCC_DIR = build
 UI_DIR = build
 
-LIBS += -L $$PWD/../bin -lqupzilla
+LIBS += -L$$PWD/../bin -lqupzilla
 
 !mac:unix {
     target.path = $$library_folder/qupzilla
