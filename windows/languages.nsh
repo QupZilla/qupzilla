@@ -238,6 +238,26 @@ LangString DESC_SecDesktop ${LANG_INDONESIA} "Tambahkan peluncur ke desktop."
 LangString DESC_SecExtensions ${LANG_INDONESIA} "Asosiasikan QupZilla dengan berkas .htm dan .html"
 LangString DESC_SecThemes ${LANG_INDONESIA} "Tema tambahan untuk QupZilla"
 
+;;;;Georgian
+LangString TITLE_SecMain ${LANG_GEORGIAN} "მთავარი კომპონენტები"
+LangString TITLE_SecTranslations ${LANG_GEORGIAN} "თარგმანები"
+LangString TITLE_SecPlugins ${LANG_GEORGIAN} "მოდულები"
+LangString TITLE_SecExamplePlugin ${LANG_GEORGIAN} "მოდულის მაგალითი"
+LangString TITLE_SecDesktop ${LANG_GEORGIAN} "სამუშაო მაგიდის ხატულა"
+LangString TITLE_SecExtensions ${LANG_GEORGIAN} "ფაილებთან ასოცირება"
+LangString TITLE_SecThemes ${LANG_GEORGIAN} "თემები"
+
+LangString FILE_Htm ${LANG_GEORGIAN} "HTM ფაილი"
+LangString FILE_Html ${LANG_GEORGIAN} "HTML ფაილი"
+;
+LangString DESC_SecMain ${LANG_GEORGIAN} "პროგრამის მთავარი კომპონენტები."
+LangString DESC_SecTranslations ${LANG_GEORGIAN} "სხვა ენები რომელთა დაყენებაც შესაძლებელია. ნაგულისხმევი არის ინგლისური."
+LangString DESC_SecPlugins ${LANG_GEORGIAN} "სხვა მოდულები რომელთა დაყენებაც შესაძლებელია."
+LangString DESC_SecExamplePlugin ${LANG_GEORGIAN} "გამოუსადეგარი მოდული მაგალითისათვის."
+LangString DESC_SecDesktop ${LANG_GEORGIAN} "გამშვების დამატება სამუშაო მაგიდაზე."
+LangString DESC_SecExtensions ${LANG_GEORGIAN} "QupZilla-ს ასოცირება .htm და .html ფაილებთან"
+LangString DESC_SecThemes ${LANG_GEORGIAN} "დამატებითი თემები QupZilla-სთვის"
+
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
