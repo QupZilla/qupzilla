@@ -24,6 +24,9 @@
 #include "databasewriter.h"
 #include "settings.h"
 
+#include <QNetworkReply>
+#include <QMessageBox>
+
 #define ENSURE_LOADED if (!m_settingsLoaded) loadSettings();
 
 QIcon SearchEnginesManager::iconForSearchEngine(const QUrl &url)

@@ -22,6 +22,11 @@
 #include "iconprovider.h"
 #include "toolbutton.h"
 #include "settings.h"
+#include "tabbedwebview.h"
+
+#include <QMenu>
+#include <QApplication>
+#include <QTimer>
 
 #define MAXIMUM_TAB_WIDTH 250
 #define MINIMUM_TAB_WIDTH 50

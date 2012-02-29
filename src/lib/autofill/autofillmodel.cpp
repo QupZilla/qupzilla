@@ -25,6 +25,11 @@
 #include "databasewriter.h"
 #include "settings.h"
 
+#include <QXmlStreamWriter>
+#include <QXmlStreamReader>
+#include <QWebFrame>
+#include <QNetworkRequest>
+
 AutoFillModel::AutoFillModel(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
     , p_QupZilla(mainClass)

@@ -20,15 +20,13 @@
 
 #include <QObject>
 #include <QIcon>
-#include <QSqlQuery>
 #include <QList>
 #include <QVariant>
-#include <QNetworkReply>
-#include <QMessageBox>
 
+#include "qz_namespace.h"
 #include "opensearchengine.h"
 
-class SearchEnginesManager : public QObject
+class QT_QUPZILLA_EXPORT SearchEnginesManager : public QObject
 {
     Q_OBJECT
 public:

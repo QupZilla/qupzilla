@@ -34,6 +34,14 @@
 #include "enhancedmenu.h"
 #include "pluginproxy.h"
 
+#include <QDir>
+#include <QDesktopServices>
+#include <QNetworkRequest>
+#include <QWebHistory>
+#include <QWebFrame>
+#include <QClipboard>
+#include <QPrintPreviewDialog>
+
 WebView::WebView(QWidget* parent)
     : QWebView(parent)
     , m_currentZoom(100)

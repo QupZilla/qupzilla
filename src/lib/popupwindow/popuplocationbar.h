@@ -18,13 +18,15 @@
 #ifndef POPUPLOCATIONBAR_H
 #define POPUPLOCATIONBAR_H
 
-#include <QUrl>
-
+#include "qz_namespace.h"
 #include "lineedit.h"
+
+class QUrl;
 
 class PopupSiteIcon;
 class PopupWebView;
-class PopupLocationBar : public LineEdit
+
+class QT_QUPZILLA_EXPORT PopupLocationBar : public LineEdit
 {
     Q_OBJECT
     Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)

@@ -17,6 +17,17 @@
 * ============================================================ */
 #include "globalfunctions.h"
 
+#include <QByteArray>
+#include <QPixmap>
+#include <QBuffer>
+#include <QFile>
+#include <QDir>
+#include <QWidget>
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QUrl>
+#include <QIcon>
+
 QByteArray qz_pixmapToByteArray(const QPixmap &pix)
 {
     QByteArray bytes;

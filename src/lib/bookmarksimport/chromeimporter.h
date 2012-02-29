@@ -20,14 +20,11 @@
 
 #include <QObject>
 #include <QFile>
-#include <QScriptEngine>
-#include <QScriptValue>
-#include <QScriptValueIterator>
-#include <QRegExp>
 
+#include "qz_namespace.h"
 #include "bookmarksmodel.h"
 
-class ChromeImporter : public QObject
+class QT_QUPZILLA_EXPORT ChromeImporter : public QObject
 {
 public:
     explicit ChromeImporter(QObject* parent = 0);

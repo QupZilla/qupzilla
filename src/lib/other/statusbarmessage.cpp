@@ -22,6 +22,12 @@
 #include "squeezelabelv1.h"
 #include "mainapplication.h"
 
+#include <QStyleOptionFrame>
+#include <QStatusBar>
+#include <QToolTip>
+#include <QStylePainter>
+#include <QWebFrame>
+
 TipLabel::TipLabel(QupZilla* parent)
     : SqueezeLabelV1(parent)
     , p_QupZilla(parent)

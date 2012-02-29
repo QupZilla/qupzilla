@@ -20,6 +20,8 @@
 #ifndef OPENSEARCHENGINEDELEGATE_H
 #define OPENSEARCHENGINEDELEGATE_H
 
+#include "qz_namespace.h"
+
 #include <qnetworkaccessmanager.h>
 #include <qnetworkrequest.h>
 

@@ -18,9 +18,9 @@
 #ifndef DESKTOPNOTIFICATION_H
 #define DESKTOPNOTIFICATION_H
 
+#include "qz_namespace.h"
+
 #include <QWidget>
-#include <QTimer>
-#include <QMouseEvent>
 #include <QPixmap>
 
 namespace Ui
@@ -28,7 +28,7 @@ namespace Ui
 class DesktopNotification;
 }
 
-class DesktopNotification : public QWidget
+class QT_QUPZILLA_EXPORT DesktopNotification : public QWidget
 {
     Q_OBJECT
 

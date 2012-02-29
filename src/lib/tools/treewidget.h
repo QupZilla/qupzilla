@@ -18,11 +18,11 @@
 #ifndef BOOKMARKSTREEWIDGET_H
 #define BOOKMARKSTREEWIDGET_H
 
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-#include <QMouseEvent>
+#include "qz_namespace.h"
 
-class TreeWidget : public QTreeWidget
+#include <QTreeWidget>
+
+class QT_QUPZILLA_EXPORT TreeWidget : public QTreeWidget
 {
     Q_OBJECT
 public:

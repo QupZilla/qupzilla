@@ -27,6 +27,13 @@
 #include "searchenginesdialog.h"
 #include "networkmanager.h"
 
+#include <QCompleter>
+#include <QStringListModel>
+#include <QMenu>
+#include <QTimer>
+#include <QWebFrame>
+#include <QClipboard>
+
 WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     : LineEdit(parent)
     , p_QupZilla(mainClass)

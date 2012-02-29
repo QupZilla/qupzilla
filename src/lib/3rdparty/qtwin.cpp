@@ -71,7 +71,7 @@ static PtrDwmGetColorizationColor pDwmGetColorizationColor = 0;
  * DWM compositing state changes and updates the widget
  * flags correspondingly.
  */
-class WindowNotifier : public QWidget
+class QT_QUPZILLA_EXPORT WindowNotifier : public QWidget
 {
 public:
     WindowNotifier() {

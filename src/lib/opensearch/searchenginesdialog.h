@@ -18,6 +18,8 @@
 #ifndef SEARCHENGINESDIALOG_H
 #define SEARCHENGINESDIALOG_H
 
+#include "qz_namespace.h"
+
 #include <QDialog>
 
 namespace Ui
@@ -26,7 +28,7 @@ class SearchEnginesDialog;
 }
 
 class SearchEnginesManager;
-class SearchEnginesDialog : public QDialog
+class QT_QUPZILLA_EXPORT SearchEnginesDialog : public QDialog
 {
     Q_OBJECT
 

@@ -59,12 +59,13 @@
 #define HTMLHIGHLIGHTER_H
 
 #include <QSyntaxHighlighter>
-#include <QHash>
 #include <QTextCharFormat>
+
+#include "qz_namespace.h"
 
 class QTextDocument;
 
-class HtmlHighlighter : public QSyntaxHighlighter
+class QT_QUPZILLA_EXPORT HtmlHighlighter : public QSyntaxHighlighter
 {
 public:
     HtmlHighlighter(QTextDocument* parent = 0);

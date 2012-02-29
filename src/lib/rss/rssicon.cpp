@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "rssicon.h"
 
+#include <QMouseEvent>
+
 RssIcon::RssIcon(QWidget* parent)
     : ClickableLabel(parent)
 {

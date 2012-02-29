@@ -18,16 +18,11 @@
 #ifndef PLUGINPROXY_H
 #define PLUGINPROXY_H
 
-#include <QDebug>
-#include <QMenu>
-#include <QWebView>
-#include <QWebHitTestResult>
-
 #include "mainapplication.h"
 #include "plugins.h"
 #include "qz_namespace.h"
 
-class PluginProxy : public Plugins
+class QT_QUPZILLA_EXPORT PluginProxy : public Plugins
 {
 public:
     enum EventHandlerType { MousePressHandler, MouseReleaseHandler, MouseMoveHandler, KeyPressHandler, KeyReleaseHandler };

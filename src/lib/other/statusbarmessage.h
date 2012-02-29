@@ -19,14 +19,15 @@
 #define STATUSBARMESSAGE_H
 
 #include <QObject>
-#include <QToolTip>
+
+#include "qz_namespace.h"
 #include "squeezelabelv1.h"
 #include "animatedwidget.h"
 
 class QupZilla;
 class TipLabel;
 
-class TipLabel : public SqueezeLabelV1
+class QT_QUPZILLA_EXPORT TipLabel : public SqueezeLabelV1
 {
 public:
     TipLabel(QupZilla* parent);
@@ -41,7 +42,7 @@ private:
     bool m_connected;
 };
 
-class StatusBarMessage : public QObject
+class QT_QUPZILLA_EXPORT StatusBarMessage : public QObject
 {
 public:
     explicit StatusBarMessage(QupZilla* mainClass);

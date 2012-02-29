@@ -19,10 +19,8 @@
 #define CLEARPRIVATEDATA_H
 
 #include <QDialog>
-#include <QBoxLayout>
-#include <QDialogButtonBox>
-#include <QCheckBox>
-#include <QLabel>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
@@ -30,7 +28,7 @@ class ClearPrivateData;
 }
 
 class QupZilla;
-class ClearPrivateData : public QDialog
+class QT_QUPZILLA_EXPORT ClearPrivateData : public QDialog
 {
     Q_OBJECT
 public:

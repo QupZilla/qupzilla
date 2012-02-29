@@ -17,6 +17,9 @@
 * ============================================================ */
 #include "buttonwithmenu.h"
 
+#include <QMenu>
+#include <QWheelEvent>
+
 ButtonWithMenu::ButtonWithMenu(QWidget* parent)
     : ToolButton(parent)
     , m_menu(new QMenu(this))

@@ -23,6 +23,9 @@
 #include "pluginlistdelegate.h"
 #include "settings.h"
 
+#include <QInputDialog>
+#include <QMessageBox>
+
 #ifdef PORTABLE_BUILD
 #define DEFAULT_ENABLE_PLUGINS false
 #else

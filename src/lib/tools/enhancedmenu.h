@@ -19,11 +19,13 @@
 #define ENHANCEDMENU_H
 
 #include <QMenu>
-#include <QMouseEvent>
-#include <QStyle>
+
+#include "qz_namespace.h"
+
 
 class Action;
-class Menu : public QMenu
+
+class QT_QUPZILLA_EXPORT Menu : public QMenu
 {
     Q_OBJECT
 public:
@@ -40,7 +42,7 @@ private:
     void closeAllMenus();
 };
 
-class Action : public QAction
+class QT_QUPZILLA_EXPORT Action : public QAction
 {
     Q_OBJECT
 public:

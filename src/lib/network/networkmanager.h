@@ -18,27 +18,20 @@
 #ifndef NETWORKMANAGER_H
 #define NETWORKMANAGER_H
 
-#include <QNetworkAccessManager>
-#include <QDialogButtonBox>
-#include <QBoxLayout>
-#include <QLabel>
-#include <QLineEdit>
-#include <QUrl>
-#include <QFormLayout>
-#include <QCheckBox>
 #include <QSslError>
-#include <QNetworkDiskCache>
-#include <QSslSocket>
-#include <QSslConfiguration>
-#include <QTextDocument>
+#include <QStringList>
 
+#include "qz_namespace.h"
 #include "networkmanagerproxy.h"
+
+class QNetworkDiskCache;
 
 class QupZilla;
 class AdBlockNetwork;
 class NetworkProxyFactory;
 class QupZillaSchemeHandler;
-class NetworkManager : public NetworkManagerProxy
+
+class QT_QUPZILLA_EXPORT NetworkManager : public NetworkManagerProxy
 {
     Q_OBJECT
 public:

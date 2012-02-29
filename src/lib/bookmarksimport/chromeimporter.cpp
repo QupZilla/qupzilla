@@ -19,6 +19,11 @@
 #include "globalfunctions.h"
 #include "bookmarksimportdialog.h"
 
+#include <QScriptEngine>
+#include <QScriptValue>
+#include <QScriptValueIterator>
+#include <QRegExp>
+
 ChromeImporter::ChromeImporter(QObject* parent)
     : QObject(parent)
     , m_error(false)

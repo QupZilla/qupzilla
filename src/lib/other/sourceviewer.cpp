@@ -23,6 +23,15 @@
 #include "iconprovider.h"
 #include "enhancedmenu.h"
 
+#include <QBoxLayout>
+#include <QMenuBar>
+#include <QTextEdit>
+#include <QStatusBar>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QWebFrame>
+
 SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     : QWidget(0)
     , m_frame(frame)

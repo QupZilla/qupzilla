@@ -22,6 +22,8 @@
 #include "databasewriter.h"
 #include "settings.h"
 
+#include <QThread>
+
 HistoryModel::HistoryModel(QupZilla* mainClass)
     : QObject()
     , m_isSaving(true)

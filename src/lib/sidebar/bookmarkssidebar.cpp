@@ -25,6 +25,11 @@
 #include "tabwidget.h"
 #include "bookmarksmodel.h"
 
+#include <QMenu>
+#include <QTimer>
+#include <QClipboard>
+#include <QSqlQuery>
+
 BookmarksSideBar::BookmarksSideBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , m_isRefreshing(false)

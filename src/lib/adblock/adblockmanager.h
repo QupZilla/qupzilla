@@ -46,15 +46,18 @@
 #define ADBLOCKMANAGER_H
 
 #include <QObject>
-#include <QStringList>
 #include <QWeakPointer>
 
+#include "qz_namespace.h"
+
 class QUrl;
+
 class AdBlockDialog;
 class AdBlockNetwork;
 class AdBlockPage;
 class AdBlockSubscription;
-class AdBlockManager : public QObject
+
+class QT_QUPZILLA_EXPORT AdBlockManager : public QObject
 {
     Q_OBJECT
 

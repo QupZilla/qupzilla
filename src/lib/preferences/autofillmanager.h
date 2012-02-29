@@ -19,24 +19,15 @@
 #define AUTOFILLMANAGER_H
 
 #include <QWidget>
-#include <QTimer>
-#include <QtSql/QSqlDatabase>
-#include <QSqlQuery>
-#include <QTreeWidgetItem>
-#include <QDebug>
-#include <QMessageBox>
-#include <QInputDialog>
-#include <QUrl>
-#include <QMenu>
-#include <QFileDialog>
-#include <QFile>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
 class AutoFillManager;
 }
 
-class AutoFillManager : public QWidget
+class QT_QUPZILLA_EXPORT AutoFillManager : public QWidget
 {
     Q_OBJECT
 

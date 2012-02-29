@@ -19,16 +19,17 @@
 #define CERTIFICATEINFOWIDGET_H
 
 #include <QWidget>
-#include <QSslCertificate>
-#include <QDateTime>
-#include <QTextDocument>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
 class CertificateInfoWidget;
 }
 
-class CertificateInfoWidget : public QWidget
+class QSslCertificate;
+
+class QT_QUPZILLA_EXPORT CertificateInfoWidget : public QWidget
 {
 public:
     explicit CertificateInfoWidget(const QSslCertificate &cert, QWidget* parent = 0);

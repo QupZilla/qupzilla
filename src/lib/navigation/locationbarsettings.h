@@ -18,7 +18,9 @@
 #ifndef LOCATIONBARSETTINGS_H
 #define LOCATIONBARSETTINGS_H
 
-class LocationBarSettings
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT LocationBarSettings
 {
 public:
     LocationBarSettings();

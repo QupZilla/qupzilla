@@ -19,16 +19,17 @@
 #define PLUGINSLIST_H
 
 #include <QWidget>
-#include <QListWidgetItem>
-#include <QInputDialog>
-#include <QMessageBox>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
 class PluginsList;
 }
 
-class PluginsList : public QWidget
+class QListWidgetItem;
+
+class QT_QUPZILLA_EXPORT PluginsList : public QWidget
 {
     Q_OBJECT
 

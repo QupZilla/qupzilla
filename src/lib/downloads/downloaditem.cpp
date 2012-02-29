@@ -25,6 +25,15 @@
 #include "iconprovider.h"
 #include "networkmanager.h"
 
+#include <QMenu>
+#include <QClipboard>
+#include <QListWidgetItem>
+#include <QMouseEvent>
+#include <QTimer>
+#include <QFileInfo>
+#include <QMessageBox>
+#include <QDesktopServices>
+
 //#define DOWNMANAGER_DEBUG
 
 DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QString &path, const QString &fileName, const QPixmap &fileIcon, QTime* timer, bool openAfterFinishedDownload, const QUrl &downloadPage, DownloadManager* manager)

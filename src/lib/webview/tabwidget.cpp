@@ -32,7 +32,13 @@
 #include "websearchbar.h"
 #include "settings.h"
 
-class NewTabButton : public QToolButton
+#include <QStyleOptionToolButton>
+#include <QMovie>
+#include <QMenu>
+#include <QStackedWidget>
+#include <QWebHistory>
+
+class QT_QUPZILLA_EXPORT NewTabButton : public QToolButton
 {
 public:
     explicit NewTabButton(QWidget* parent) : QToolButton(parent) {
@@ -65,7 +71,7 @@ private:
 #endif
 };
 
-class TabListButton : public QToolButton
+class QT_QUPZILLA_EXPORT TabListButton : public QToolButton
 {
 public:
     explicit TabListButton(QWidget* parent) : QToolButton(parent) {
@@ -103,8 +109,8 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     , m_lastTabIndex(0)
     , m_lastBackgroundTabIndex(-1)
     , m_isClosingToLastTabIndex(false)
-    , m_closedTabsManager(new ClosedTabsManager(this))
-    , m_locationBars(new QStackedWidget())
+    , m_closedTabsManager(new ClosedTabsManager)
+    , m_locationBars(new QStackedWidget)
 {
     setObjectName("tabwidget");
     m_tabBar = new TabBar(p_QupZilla, this);
@@ -756,4 +762,5 @@ void TabWidget::disconnectObjects()
 
 TabWidget::~TabWidget()
 {
+    delete m_closedTabsManager;
 }

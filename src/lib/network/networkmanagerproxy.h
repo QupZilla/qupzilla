@@ -18,14 +18,14 @@
 #ifndef NETWORKMANAGERPROXY_H
 #define NETWORKMANAGERPROXY_H
 
-#include <QObject>
-#include <QNetworkRequest>
 #include <QNetworkAccessManager>
+
+#include "qz_namespace.h"
 
 class WebPage;
 class NetworkManager;
 
-class NetworkManagerProxy : public QNetworkAccessManager
+class QT_QUPZILLA_EXPORT NetworkManagerProxy : public QNetworkAccessManager
 {
 public:
     explicit NetworkManagerProxy(QObject* parent = 0);

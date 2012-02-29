@@ -18,12 +18,9 @@
 #ifndef RSSWIDGET_H
 #define RSSWIDGET_H
 
-#include <QWidget>
 #include <QMenu>
-#include <QPushButton>
-#include <QDebug>
-#include <QWebFrame>
-#include <QToolTip>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
@@ -31,7 +28,8 @@ class RSSWidget;
 }
 
 class WebView;
-class RSSWidget : public QMenu
+
+class QT_QUPZILLA_EXPORT RSSWidget : public QMenu
 {
     Q_OBJECT
 

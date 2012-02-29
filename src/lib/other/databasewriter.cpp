@@ -17,6 +17,9 @@
 * ============================================================ */
 #include "databasewriter.h"
 
+#include <QThread>
+#include <QTimer>
+
 DatabaseWriter::DatabaseWriter()
     : QObject()
 {

@@ -19,6 +19,10 @@
 #include "mainapplication.h"
 #include "networkmanagerproxy.h"
 
+#include <QWebPage>
+#include <QWebFrame>
+#include <QPainter>
+
 CleanPluginFactory::CleanPluginFactory(QObject* parent)
     : QWebPluginFactory(parent)
 {

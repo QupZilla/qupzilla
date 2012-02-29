@@ -26,9 +26,9 @@
 #include "autofillmanager.h"
 #include "mainapplication.h"
 #include "cookiemanager.h"
+#include "pluginproxy.h"
 #include "pluginslist.h"
 #include "qtwin.h"
-#include "pluginproxy.h"
 #include "sslmanager.h"
 #include "networkproxyfactory.h"
 #include "networkmanager.h"
@@ -41,6 +41,11 @@
 #include "autofillmodel.h"
 #include "settings.h"
 #include "tabbedwebview.h"
+
+#include <QSettings>
+#include <QInputDialog>
+#include <QFileDialog>
+#include <QMessageBox>
 
 #ifdef Q_WS_WIN
 #define DEFAULT_CHECK_UPDATES true

@@ -24,6 +24,9 @@
 #include "tabwidget.h"
 #include "desktopnotificationsfactory.h"
 
+#include <QMenu>
+#include <QTimer>
+
 AdBlockIcon::AdBlockIcon(QupZilla* mainClass, QWidget* parent)
     : ClickableLabel(parent)
     , p_QupZilla(mainClass)

@@ -16,11 +16,13 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "bookmarksmodel.h"
-#include "settings.h"
-#include "mainapplication.h"
 #include "tabbedwebview.h"
 #include "iconprovider.h"
 #include "databasewriter.h"
+#include "mainapplication.h"
+#include "settings.h"
+
+#include <QBuffer>
 
 // SQLite DB -> table bookmarks + folders
 // Unique in bookmarks table is id

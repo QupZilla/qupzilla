@@ -46,10 +46,14 @@
 #ifndef ADBLOCKRULE_H
 #define ADBLOCKRULE_H
 
-#include <qstringlist.h>
+#include <QObject>
+#include <QRegExp>
+#include <QStringList>
+
+#include "qz_namespace.h"
 
 class QUrl;
-class QRegExp;
+
 class AdBlockRule
 {
 

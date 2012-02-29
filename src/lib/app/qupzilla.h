@@ -19,32 +19,16 @@
 #define QUPZILLA_H
 
 #include <QMainWindow>
-#include <QMenuBar>
-#include <QTranslator>
-#include <QDesktopWidget>
-#include <QDebug>
 #include <QUrl>
-#include <QWebView>
-#include <QWebFrame>
-#include <QWebHistory>
-#include <QtNetwork/QtNetwork>
-#include <QtSql/QtSql>
-#include <QMessageBox>
-#include <QFile>
-#include <QMovie>
-#include <QDesktopServices>
-#include <QStatusBar>
-#include <QSplitter>
-#include <QPushButton>
-#include <QProgressBar>
-#include <QPrintPreviewDialog>
-#include <QToolButton>
-#include <QWebInspector>
-#include <QWeakPointer>
-#include <QVBoxLayout>
 #include "qwebkitversion.h"
 
 #include "qz_namespace.h"
+
+class QMenuBar;
+class QLabel;
+class QVBoxLayout;
+class QSplitter;
+class QWebFrame;
 
 class Menu;
 class TabWidget;
@@ -63,7 +47,7 @@ class NavigationBar;
 class ClickableLabel;
 class WebInspectorDockWidget;
 class LocationBar;
-class QupZilla : public QMainWindow
+class QT_QUPZILLA_EXPORT QupZilla : public QMainWindow
 {
     Q_OBJECT
 

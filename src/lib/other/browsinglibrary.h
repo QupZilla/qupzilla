@@ -19,8 +19,8 @@
 #define LIBRARY_H
 
 #include <QWidget>
-#include <QFileInfo>
-#include <QCloseEvent>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
@@ -31,7 +31,7 @@ class HistoryManager;
 class BookmarksManager;
 class RSSManager;
 class QupZilla;
-class BrowsingLibrary : public QWidget
+class QT_QUPZILLA_EXPORT BrowsingLibrary : public QWidget
 {
     Q_OBJECT
 

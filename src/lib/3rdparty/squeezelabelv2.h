@@ -1,6 +1,8 @@
 #ifndef SQUEEZELABELV2_H
 #define SQUEEZELABELV2_H
 
+#include "qz_namespace.h"
+
 /**
 * Copyright (c) 2009, Benjamin C. Meyer <ben@meyerhome.net>
 *
@@ -35,7 +37,7 @@
 A label that will squeeze the set text to fit within the size of the
 widget. The text will be elided in the middle.
 */
-class SqueezeLabelV2 : public QLabel
+class QT_QUPZILLA_EXPORT SqueezeLabelV2 : public QLabel
 {
     Q_OBJECT
 

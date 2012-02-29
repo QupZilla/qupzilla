@@ -19,11 +19,13 @@
 #define NOTIFICATION_H
 
 #include <QWidget>
-#include <QPropertyAnimation>
-#include <QParallelAnimationGroup>
-#include <QResizeEvent>
 
-class AnimatedWidget : public QWidget
+#include "qz_namespace.h"
+
+class QPropertyAnimation;
+class QParallelAnimationGroup;
+
+class QT_QUPZILLA_EXPORT AnimatedWidget : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)

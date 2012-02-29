@@ -20,6 +20,9 @@
 #include "mainapplication.h"
 #include "databasewriter.h"
 
+#include <QTimer>
+#include <QBuffer>
+
 IconProvider::IconProvider(QObject* parent)
     : QObject(parent)
 {

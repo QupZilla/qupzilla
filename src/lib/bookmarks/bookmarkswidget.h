@@ -18,18 +18,10 @@
 #ifndef BOOKMARKSWIDGET_H
 #define BOOKMARKSWIDGET_H
 
-#include <QMenu>
-#include <QFormLayout>
-#include <QLabel>
-#include <QPushButton>
-#include <QComboBox>
-#include <QLineEdit>
-#include <QMouseEvent>
-#include <QDebug>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QToolTip>
 #include <QUrl>
+#include <QMenu>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
@@ -39,7 +31,7 @@ class BookmarksWidget;
 class WebView;
 class SpeedDial;
 class BookmarksModel;
-class BookmarksWidget : public QMenu
+class QT_QUPZILLA_EXPORT BookmarksWidget : public QMenu
 {
     Q_OBJECT
 public:

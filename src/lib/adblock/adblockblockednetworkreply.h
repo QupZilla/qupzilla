@@ -46,10 +46,13 @@
 #ifndef ADBLOCKBLOCKEDNETWORKREPLY_H
 #define ADBLOCKBLOCKEDNETWORKREPLY_H
 
-#include <qnetworkreply.h>
+#include <QNetworkReply>
+
+#include "qz_namespace.h"
 
 class AdBlockRule;
-class AdBlockBlockedNetworkReply : public QNetworkReply
+
+class QT_QUPZILLA_EXPORT AdBlockBlockedNetworkReply : public QNetworkReply
 {
     Q_OBJECT
 

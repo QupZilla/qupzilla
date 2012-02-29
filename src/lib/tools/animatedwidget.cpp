@@ -16,7 +16,10 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "animatedwidget.h"
-#include <QDebug>
+
+#include <QPropertyAnimation>
+#include <QParallelAnimationGroup>
+#include <QResizeEvent>
 
 AnimatedWidget::AnimatedWidget(const Direction &direction, int duration, QWidget* parent)
     : QWidget(parent)

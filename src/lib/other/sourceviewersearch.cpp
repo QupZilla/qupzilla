@@ -20,6 +20,10 @@
 #include "sourceviewer.h"
 #include "iconprovider.h"
 
+#include <QTextEdit>
+#include <QShortcut>
+#include <QKeyEvent>
+
 SourceViewerSearch::SourceViewerSearch(SourceViewer* parent)
     : AnimatedWidget(AnimatedWidget::Up)
     , m_sourceViewer(parent)

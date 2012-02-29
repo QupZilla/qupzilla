@@ -18,12 +18,12 @@
 #ifndef SITEICON_H
 #define SITEICON_H
 
-#include <QApplication>
-
+#include "qz_namespace.h"
 #include "toolbutton.h"
 
 class LocationBar;
-class SiteIcon : public ToolButton
+
+class QT_QUPZILLA_EXPORT SiteIcon : public ToolButton
 {
 public:
     explicit SiteIcon(LocationBar* parent);

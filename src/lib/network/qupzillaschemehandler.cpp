@@ -26,6 +26,11 @@
 #include "plugininterface.h"
 #include "settings.h"
 
+#include <QTextDocument>
+#include <QTextStream>
+#include <QTimer>
+#include <QSettings>
+
 QString authorString(const char* name, const QString &mail)
 {
     return QString("%1 &lt;<a href=\"mailto:%2\">%2</a>&gt;").arg(QString::fromUtf8(name), mail);

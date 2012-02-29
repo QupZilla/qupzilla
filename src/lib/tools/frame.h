@@ -19,9 +19,10 @@
 #define FRAME_H
 
 #include <QFrame>
-#include <QMouseEvent>
 
-class Frame : public QFrame
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT Frame : public QFrame
 {
 public:
     explicit Frame(QWidget* parent = 0);

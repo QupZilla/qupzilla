@@ -18,13 +18,16 @@
 #ifndef ADBLOCKICON_H
 #define ADBLOCKICON_H
 
-#include <QObject>
-#include <QMenu>
 
+#include "qz_namespace.h"
 #include "clickablelabel.h"
 
+class QMenu;
+class QUrl;
+
 class QupZilla;
-class AdBlockIcon : public ClickableLabel
+
+class QT_QUPZILLA_EXPORT AdBlockIcon : public ClickableLabel
 {
     Q_OBJECT
 public:

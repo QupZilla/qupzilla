@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "frame.h"
 
+#include <QMouseEvent>
+
 Frame::Frame(QWidget* parent)
     : QFrame(parent)
 {

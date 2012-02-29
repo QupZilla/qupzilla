@@ -19,23 +19,22 @@
 #define BOOKMARKSMANAGER_H
 
 #include <QWidget>
-#include <QTreeWidgetItem>
-#include <QInputDialog>
 #include <QWeakPointer>
-#include <QDialogButtonBox>
-#include <QShortcut>
 
 #include "bookmarksmodel.h"
+#include "qz_namespace.h"
 
 namespace Ui
 {
 class BookmarksManager;
 }
 
+class QTreeWidgetItem;
+
 class WebView;
 class QupZilla;
 class BookmarksModel;
-class BookmarksManager : public QWidget
+class QT_QUPZILLA_EXPORT BookmarksManager : public QWidget
 {
     Q_OBJECT
 

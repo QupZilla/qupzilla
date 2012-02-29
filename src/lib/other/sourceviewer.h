@@ -19,26 +19,22 @@
 #define SOURCEVIEWER_H
 
 #include <QWidget>
-#include <QBoxLayout>
-#include <QTextEdit>
-#include <QApplication>
-#include <QMenu>
-#include <QMenuBar>
-#include <QWebPage>
-#include <QWebFrame>
-#include <QStyle>
-#include <QInputDialog>
-#include <QFileDialog>
-#include <QFile>
-#include <QMessageBox>
-#include <QStatusBar>
+#include <QWeakPointer>
 
-class SourceViewer : public QWidget
+#include "qz_namespace.h"
+
+class QTextEdit;
+class QBoxLayout;
+class QStatusBar;
+class QWebFrame;
+
+class QT_QUPZILLA_EXPORT SourceViewer : public QWidget
 {
     Q_OBJECT
 public:
     explicit SourceViewer(QWebFrame* frame, const QString &selectedHtml);
     QTextEdit* sourceEdit() { return m_sourceEdit; }
+
 signals:
 
 public slots:

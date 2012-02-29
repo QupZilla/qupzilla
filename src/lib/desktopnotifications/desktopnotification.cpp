@@ -18,6 +18,9 @@
 #include "desktopnotification.h"
 #include "ui_desktopnotification.h"
 
+#include <QTimer>
+#include <QMouseEvent>
+
 DesktopNotification::DesktopNotification(bool setPosition)
     : QWidget(0)
     , ui(new Ui::DesktopNotification)

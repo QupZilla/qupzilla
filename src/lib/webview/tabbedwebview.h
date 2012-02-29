@@ -18,20 +18,19 @@
 #ifndef TABBEDWEBVIEW_H
 #define TABBEDWEBVIEW_H
 
-#include <QDebug>
-#include <QTabWidget>
-#include <QContextMenuEvent>
-#include <QLabel>
-#include <QHostInfo>
-
+#include "qz_namespace.h"
 #include "webview.h"
+
+class QLabel;
+class QHostInfo;
 
 class QupZilla;
 class TabWidget;
 class WebPage;
 class WebTab;
 class Menu;
-class TabbedWebView : public WebView
+
+class QT_QUPZILLA_EXPORT TabbedWebView : public WebView
 {
     Q_OBJECT
 public:

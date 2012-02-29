@@ -64,6 +64,21 @@
 #include "webtab.h"
 #include "speeddial.h"
 
+#include <QSplitter>
+#include <QStatusBar>
+#include <QMenuBar>
+#include <QTimer>
+#include <QShortcut>
+#include <QStackedWidget>
+#include <QSqlQuery>
+#include <QTextCodec>
+#include <QFileDialog>
+#include <QNetworkRequest>
+#include <QDesktopServices>
+#include <QPrintPreviewDialog>
+#include <QWebFrame>
+#include <QMessageBox>
+
 const QString QupZilla::VERSION = "1.1.8";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";

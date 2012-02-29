@@ -19,16 +19,13 @@
 #define TABBAR_H
 
 #include <QTabBar>
-#include <QAction>
-#include <QDebug>
-#include <QMenu>
-#include <QMouseEvent>
-#include <QStyle>
-#include <QApplication>
+
+#include "qz_namespace.h"
 
 class QupZilla;
 class TabWidget;
-class TabBar : public QTabBar
+
+class QT_QUPZILLA_EXPORT TabBar : public QTabBar
 {
     Q_OBJECT
 public:

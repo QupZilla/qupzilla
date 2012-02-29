@@ -18,9 +18,10 @@
 #ifndef RSSICON_H
 #define RSSICON_H
 
+#include "qz_namespace.h"
 #include "clickablelabel.h"
 
-class RssIcon : public ClickableLabel
+class QT_QUPZILLA_EXPORT RssIcon : public ClickableLabel
 {
     Q_OBJECT
 public:

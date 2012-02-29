@@ -23,6 +23,11 @@
 #include "historymodel.h"
 #include "iconprovider.h"
 
+#include <QMenu>
+#include <QClipboard>
+#include <QTimer>
+#include <QSqlQuery>
+
 HistorySideBar::HistorySideBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::HistorySideBar)

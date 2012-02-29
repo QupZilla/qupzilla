@@ -19,11 +19,8 @@
 #define HISTORYSIDEBAR_H
 
 #include <QWidget>
-#include <QTreeWidgetItem>
-#include <QShortcut>
-#include <QClipboard>
-#include <QHash>
 
+#include "qz_namespace.h"
 #include "historymodel.h"
 
 namespace Ui
@@ -31,8 +28,11 @@ namespace Ui
 class HistorySideBar;
 }
 
+class QTreeWidgetItem;
+
 class QupZilla;
-class HistorySideBar : public QWidget
+
+class QT_QUPZILLA_EXPORT HistorySideBar : public QWidget
 {
     Q_OBJECT
 

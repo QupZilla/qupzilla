@@ -20,7 +20,7 @@
 #include "toolbutton.h"
 #include "globalfunctions.h"
 
-class PopupSiteIcon : public QWidget
+class QT_QUPZILLA_EXPORT PopupSiteIcon : public QWidget
 {
 public:
     explicit PopupSiteIcon(QWidget* parent = 0) : QWidget(parent) { }

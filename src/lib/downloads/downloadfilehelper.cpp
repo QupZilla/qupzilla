@@ -26,6 +26,14 @@
 #include "globalfunctions.h"
 #include "settings.h"
 
+#include <QFileIconProvider>
+#include <QListWidgetItem>
+#include <QTemporaryFile>
+#include <QWebHistory>
+#include <QDebug>
+#include <QFileDialog>
+#include <QDesktopServices>
+
 DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog, WebPage* page)
     : QObject()
     , m_lastDownloadOption(DownloadManager::SaveFile)

@@ -25,6 +25,8 @@
 #include "pluginproxy.h"
 #include "speeddial.h"
 
+#include <QStyle>
+
 BookmarkIcon::BookmarkIcon(QupZilla* mainClass, QWidget* parent)
     : ClickableLabel(parent)
     , p_QupZilla(mainClass)

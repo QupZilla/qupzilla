@@ -19,6 +19,8 @@
 #include "qupzilla.h"
 #include "mainapplication.h"
 #include "settings.h"
+
+#include <QDateTime>
 //#define COOKIE_DEBUG
 
 bool containsDomain(QString string, QString domain)

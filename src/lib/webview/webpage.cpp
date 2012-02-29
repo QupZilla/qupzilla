@@ -37,6 +37,18 @@
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
 
+#include <QTextDocument>
+#include <QDir>
+#include <QWebHistory>
+#include <QFileSystemWatcher>
+#include <QTimer>
+#include <QNetworkReply>
+#include <QDebug>
+#include <QDesktopServices>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QWebFrame>
+
 QString WebPage::m_lastUploadLocation = QDir::homePath();
 QString WebPage::m_userAgent = QString();
 
@@ -267,7 +279,6 @@ QSslCertificate WebPage::sslCertificate()
 
 bool WebPage::acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type)
 {
-    m_lastRequest = request;
     m_lastRequestType = type;
     const QString &scheme = request.url().scheme();
 

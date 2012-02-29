@@ -21,6 +21,7 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
+#include <QTimer>
 
 // Wrapper class to detect whether window is opened from JavaScript window.open method
 // It has to be done this way, because QtWebKit has really bad API when it comes to opening

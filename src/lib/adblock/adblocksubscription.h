@@ -46,20 +46,15 @@
 #ifndef ADBLOCKSUBSCRIPTION_H
 #define ADBLOCKSUBSCRIPTION_H
 
-#include "adblockrule.h"
-#include <QObject>
 #include <QList>
-#include <QDateTime>
-#include <QDebug>
-#include <QFile>
-#include <QNetworkReply>
-#include <QTextStream>
-#include <QFileInfo>
-#include <QTimer>
+
+#include "qz_namespace.h"
+#include "adblockrule.h"
 
 class QNetworkReply;
 class QUrl;
-class AdBlockSubscription : public QObject
+
+class QT_QUPZILLA_EXPORT AdBlockSubscription : public QObject
 {
     Q_OBJECT
 

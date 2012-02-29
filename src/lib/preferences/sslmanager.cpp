@@ -22,6 +22,9 @@
 #include "globalfunctions.h"
 #include "certificateinfowidget.h"
 
+#include <QFileDialog>
+#include <QSslSocket>
+
 SSLManager::SSLManager(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::SSLManager)

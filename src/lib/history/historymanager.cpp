@@ -25,6 +25,12 @@
 #include "globalfunctions.h"
 #include "tabwidget.h"
 
+#include <QMenu>
+#include <QMessageBox>
+#include <QClipboard>
+#include <QTimer>
+#include <QSqlQuery>
+
 HistoryManager::HistoryManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::HistoryManager)

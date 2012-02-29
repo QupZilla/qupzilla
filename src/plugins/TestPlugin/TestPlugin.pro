@@ -3,7 +3,7 @@
 # Project created by QtCreator 2011-02-13T10:23:13
 #
 #-------------------------------------------------
-QT += network webkit sql
+QT += network webkit
 TARGET = TestPlugin
 
 SOURCES += testplugin.cpp

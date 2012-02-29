@@ -18,10 +18,9 @@
 #ifndef SITEINFO_H
 #define SITEINFO_H
 
+#include "qz_namespace.h"
+
 #include <QDialog>
-#include <QListWidgetItem>
-#include <QTreeWidgetItem>
-#include <QGraphicsItem>
 #include <QUrl>
 
 namespace Ui
@@ -29,9 +28,13 @@ namespace Ui
 class SiteInfo;
 }
 
+class QListWidgetItem;
+class QTreeWidgetItem;
+
 class WebView;
 class CertificateInfoWidget;
-class SiteInfo : public QDialog
+
+class QT_QUPZILLA_EXPORT SiteInfo : public QDialog
 {
     Q_OBJECT
 

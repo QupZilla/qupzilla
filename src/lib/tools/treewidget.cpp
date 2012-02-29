@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "treewidget.h"
 
+#include <QMouseEvent>
+
 TreeWidget::TreeWidget(QWidget* parent)
     : QTreeWidget(parent)
     , m_refreshAllItemsNeeded(true)

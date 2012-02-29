@@ -29,11 +29,15 @@
 #ifndef ADBLOCKPAGE_H
 #define ADBLOCKPAGE_H
 
-#include <qobject.h>
+#include <QObject>
+
+#include "qz_namespace.h"
+
+class QWebPage;
 
 class AdBlockRule;
-class QWebPage;
-class AdBlockPage : public QObject
+
+class QT_QUPZILLA_EXPORT AdBlockPage : public QObject
 {
 public:
     AdBlockPage(QObject* parent = 0);

@@ -20,6 +20,9 @@
 #include "tabbedwebview.h"
 #include "globalfunctions.h"
 
+#include <QFileDialog>
+#include <QWebFrame>
+
 PageScreen::PageScreen(WebView* view, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::PageScreen)

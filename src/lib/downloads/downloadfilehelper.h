@@ -19,21 +19,20 @@
 #define DOWNLOADFILEHELPER_H
 
 #include <QObject>
-#include <QTime>
-#include <QNetworkReply>
 #include <QPixmap>
-#include <QListWidget>
-#include <QFileInfo>
-#include <QTemporaryFile>
-#include <QFileIconProvider>
-#include <QFileDialog>
+#include <QUrl>
 
+#include "qz_namespace.h"
 #include "downloadmanager.h"
+
+class QFileIconProvider;
+class QListWidget;
 
 class DownloadItem;
 class DownloadManager;
 class WebPage;
-class DownloadFileHelper : public QObject
+
+class QT_QUPZILLA_EXPORT DownloadFileHelper : public QObject
 {
     Q_OBJECT
 public:

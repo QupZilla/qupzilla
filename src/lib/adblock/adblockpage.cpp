@@ -25,20 +25,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
-
 #include "adblockpage.h"
-
 #include "adblockmanager.h"
 #include "adblocksubscription.h"
 #include "adblockrule.h"
 
-#if QT_VERSION >= 0x040600
-#include <qwebelement.h>
-#endif
-#include <qwebpage.h>
-#include <qwebframe.h>
-
-#include <qdebug.h>
+#include <QWebElement>
+#include <QWebPage>
+#include <QWebFrame>
 
 // #define ADBLOCKPAGE_DEBUG
 
@@ -89,7 +83,7 @@ void AdBlockPage::checkRule(const AdBlockRule* rule, QWebPage* page, const QStri
     }
 
     Q_UNUSED(page);
-#if QT_VERSION >= 0x040600
+
     QWebElement document = page->mainFrame()->documentElement();
     QWebElementCollection elements = document.findAll(selectorQuery);
 #if defined(ADBLOCKPAGE_DEBUG)
@@ -101,8 +95,6 @@ void AdBlockPage::checkRule(const AdBlockRule* rule, QWebPage* page, const QStri
         element.setStyleProperty(QLatin1String("visibility"), QLatin1String("hidden"));
         element.removeFromDocument();
     }
-
-#endif
 }
 
 void AdBlockPage::applyRulesToPage(QWebPage* page)
@@ -114,7 +106,7 @@ void AdBlockPage::applyRulesToPage(QWebPage* page)
     if (!manager->isEnabled()) {
         return;
     }
-#if QT_VERSION >= 0x040600
+
     QString host = page->mainFrame()->url().host();
     AdBlockSubscription* subscription = manager->subscription();
 
@@ -122,6 +114,5 @@ void AdBlockPage::applyRulesToPage(QWebPage* page)
     foreach(const AdBlockRule * rule, rules) {
         checkRule(rule, page, host);
     }
-#endif
 }
 

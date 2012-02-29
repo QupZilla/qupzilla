@@ -19,9 +19,12 @@
 #define BUTTONBOX_H
 
 #include <QDialogButtonBox>
-#include <QAbstractButton>
 
-class ButtonBox : public QDialogButtonBox
+#include "qz_namespace.h"
+
+class QAbstractButton;
+
+class QT_QUPZILLA_EXPORT ButtonBox : public QDialogButtonBox
 {
     Q_OBJECT
 public:

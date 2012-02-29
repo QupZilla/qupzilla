@@ -17,11 +17,10 @@
 * ============================================================ */
 #ifndef SOURCEVIEWERSEARCH_H
 #define SOURCEVIEWERSEARCH_H
-#include <QDebug>
-#include <QTextDocument>
-#include <QTextCursor>
-#include <QShortcut>
 
+#include <QTextDocument>
+
+#include "qz_namespace.h"
 #include "animatedwidget.h"
 
 namespace Ui
@@ -30,7 +29,8 @@ class SourceViewerSearch;
 }
 
 class SourceViewer;
-class SourceViewerSearch : public AnimatedWidget
+
+class QT_QUPZILLA_EXPORT SourceViewerSearch : public AnimatedWidget
 {
     Q_OBJECT
 public:

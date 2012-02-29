@@ -18,21 +18,9 @@
 #ifndef DOWNLOADMANAGER_H
 #define DOWNLOADMANAGER_H
 
-#include <QDialog>
-#include <QLabel>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-#include <QDebug>
-#include <QFile>
-#include <QDateTime>
-#include <QDesktopServices>
-#include <QCloseEvent>
-#include <QMessageBox>
-#include <QTimer>
-#include <QNetworkReply>
-#include <QListWidgetItem>
-#include <QProcess>
+#include <QBasicTimer>
 
+#include "qz_namespace.h"
 #include "ecwin7.h"
 
 namespace Ui
@@ -40,11 +28,17 @@ namespace Ui
 class DownloadManager;
 }
 
+class QNetworkReply;
+class QNetworkRequest;
+class QListWidgetItem;
+class QUrl;
+
 class DownloadItem;
 class EcWin7;
 class NetworkManager;
 class WebPage;
-class DownloadManager : public QWidget
+
+class QT_QUPZILLA_EXPORT DownloadManager : public QWidget
 {
     Q_OBJECT
 public:

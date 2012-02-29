@@ -19,9 +19,8 @@
 #define BOOKMARKSSIDEBAR_H
 
 #include <QWidget>
-#include <QTreeWidgetItem>
-#include <QInputDialog>
 
+#include "qz_namespace.h"
 #include "bookmarksmodel.h"
 
 namespace Ui
@@ -29,9 +28,12 @@ namespace Ui
 class BookmarksSideBar;
 }
 
+class QTreeWidgetItem;
+
 class QupZilla;
 class BookmarksModel;
-class BookmarksSideBar : public QWidget
+
+class QT_QUPZILLA_EXPORT BookmarksSideBar : public QWidget
 {
     Q_OBJECT
 

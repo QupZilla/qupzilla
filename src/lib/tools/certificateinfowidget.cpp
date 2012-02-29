@@ -19,6 +19,10 @@
 #include "ui_certificateinfowidget.h"
 #include "mainapplication.h"
 
+#include <QSslCertificate>
+#include <QTextDocument>
+#include <QDateTime>
+
 QString CertificateInfoWidget::certificateItemText(const QSslCertificate &cert)
 {
     QString commonName = cert.subjectInfo(QSslCertificate::CommonName);
@@ -39,7 +43,7 @@ QString CertificateInfoWidget::clearCertSpecialSymbols(const QString &string)
         return n;
     }
 
-    //Credits to http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/176679?help-en
+    // Credits to http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/176679?help-en
     n.replace("\\xC3\\x80", "A");
     n.replace("\\xC3\\x81", "A");
     n.replace("\\xC3\\x82", "A");

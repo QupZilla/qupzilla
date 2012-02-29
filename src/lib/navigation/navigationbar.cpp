@@ -27,6 +27,11 @@
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 
+#include <QSplitter>
+#include <QHBoxLayout>
+#include <QStackedWidget>
+#include <QWebHistory>
+
 QString titleForUrl(QString title, const QUrl &url)
 {
     if (title.isEmpty()) {

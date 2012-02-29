@@ -1,6 +1,12 @@
 #ifndef QZ_NAMESPACE_H
 #define QZ_NAMESPACE_H
 
+#ifdef QUPZILLA_SHAREDLIBRARY
+#define QT_QUPZILLA_EXPORT Q_DECL_EXPORT
+#else
+#define QT_QUPZILLA_EXPORT Q_DECL_IMPORT
+#endif
+
 #include <QFlags>
 
 namespace Qz

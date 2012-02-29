@@ -18,18 +18,19 @@
 #ifndef HISTORYMODEL_H
 #define HISTORYMODEL_H
 
-#include <QtSql/QSqlDatabase>
-#include <QSqlQuery>
+#include <QObject>
+#include <QList>
 #include <QDateTime>
-#include <QFile>
-#include <QIcon>
 #include <QUrl>
-#include <QThread>
+
+#include "qz_namespace.h"
+
+class QIcon;
 
 class QupZilla;
 class WebView;
-class QIcon;
-class HistoryModel : public QObject
+
+class QT_QUPZILLA_EXPORT HistoryModel : public QObject
 {
     Q_OBJECT
 public:

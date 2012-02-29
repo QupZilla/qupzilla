@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "enhancedmenu.h"
 
+#include <QMouseEvent>
+
 Menu::Menu(QWidget* parent)
     : QMenu(parent)
 {

@@ -19,28 +19,24 @@
 #define DOWNLOADITEM_H
 
 #include <QWidget>
-#include <QNetworkReply>
-#include <QNetworkRequest>
 #include <QFile>
-#include <QFileInfo>
-#include <QDesktopServices>
-#include <QFileDialog>
-#include <QFileIconProvider>
+#include <QBasicTimer>
+#include <QUrl>
+#include <QNetworkReply>
 #include <QTime>
-#include <QTimer>
-#include <QDebug>
-#include <QListWidgetItem>
-#include <QMenu>
-#include <QMessageBox>
-#include <QClipboard>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
 class DownloadItem;
 }
 
+class QListWidgetItem;
+
 class DownloadManager;
-class DownloadItem : public QWidget
+
+class QT_QUPZILLA_EXPORT DownloadItem : public QWidget
 {
     Q_OBJECT
 

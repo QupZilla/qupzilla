@@ -23,6 +23,9 @@
 #include "speeddial.h"
 #include "webview.h"
 
+#include <QToolTip>
+#include <QSqlQuery>
+
 BookmarksWidget::BookmarksWidget(WebView* view, QWidget* parent)
     : QMenu(parent)
     , ui(new Ui::BookmarksWidget)

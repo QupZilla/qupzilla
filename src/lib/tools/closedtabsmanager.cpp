@@ -19,8 +19,9 @@
 #include "webview.h"
 #include "mainapplication.h"
 
-ClosedTabsManager::ClosedTabsManager(QObject* parent)
-    : QObject(parent)
+#include <QWebHistory>
+
+ClosedTabsManager::ClosedTabsManager()
 {
 }
 

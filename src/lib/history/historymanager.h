@@ -19,11 +19,9 @@
 #define HISTORYMANAGER_H
 
 #include <QWidget>
-#include <QTreeWidgetItem>
 #include <QWeakPointer>
-#include <QClipboard>
-#include <QHash>
 
+#include "qz_namespace.h"
 #include "historymodel.h"
 
 namespace Ui
@@ -31,8 +29,11 @@ namespace Ui
 class HistoryManager;
 }
 
+class QTreeWidgetItem;
+
 class QupZilla;
-class HistoryManager : public QWidget
+
+class QT_QUPZILLA_EXPORT HistoryManager : public QWidget
 {
     Q_OBJECT
 

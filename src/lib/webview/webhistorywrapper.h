@@ -18,8 +18,12 @@
 #ifndef WEBHISTORYWRAPPER_H
 #define WEBHISTORYWRAPPER_H
 
-#include <QObject>
-#include <QWebHistory>
+#include <QList>
+
+#include "qz_namespace.h"
+
+class QWebHistory;
+class QWebHistoryItem;
 
 class WebHistoryWrapper
 {
@@ -36,7 +40,6 @@ public:
     static void goForward(QWebHistory* history);
 
     static int indexOfItem(const QList<QWebHistoryItem> &list, const QWebHistoryItem &item);
-
 };
 
 #endif // WEBHISTORYWRAPPER_H

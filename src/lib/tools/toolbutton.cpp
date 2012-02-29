@@ -17,6 +17,10 @@
 * ============================================================ */
 #include "toolbutton.h"
 
+#include <QMouseEvent>
+#include <QPainter>
+#include <QStyleOptionToolButton>
+
 ToolButton::ToolButton(QWidget* parent)
     : QToolButton(parent)
     , m_usingMultiIcon(false)

@@ -47,23 +47,15 @@
 #define ADBLOCKDIALOG_H
 
 #include <QDialog>
-#include <QDesktopServices>
-#include <QMenu>
-#include <QUrl>
-#include <QSortFilterProxyModel>
-#include <QDebug>
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-#include <QInputDialog>
-#include <QMessageBox>
-#include <QTimer>
 
+#include "qz_namespace.h"
 #include "ui_adblockdialog.h"
 
 class AdBlockModel;
 class AdBlockManager;
 class TreeSortFilterProxyModel;
-class AdBlockDialog : public QDialog, public Ui_AdBlockDialog
+
+class QT_QUPZILLA_EXPORT AdBlockDialog : public QDialog, public Ui_AdBlockDialog
 {
     Q_OBJECT
 

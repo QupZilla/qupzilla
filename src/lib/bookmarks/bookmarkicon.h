@@ -22,11 +22,12 @@
 
 #include "clickablelabel.h"
 #include "bookmarksmodel.h"
+#include "qz_namespace.h"
 
 class SpeedDial;
 class QupZilla;
-class BookmarksModel;
-class BookmarkIcon : public ClickableLabel
+
+class QT_QUPZILLA_EXPORT BookmarkIcon : public ClickableLabel
 {
     Q_OBJECT
 public:

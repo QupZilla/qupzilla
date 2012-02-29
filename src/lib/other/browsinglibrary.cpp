@@ -25,6 +25,10 @@
 #include "globalfunctions.h"
 #include "settings.h"
 
+#include <QMessageBox>
+#include <QCloseEvent>
+#include <QFileInfo>
+
 BrowsingLibrary::BrowsingLibrary(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::BrowsingLibrary)

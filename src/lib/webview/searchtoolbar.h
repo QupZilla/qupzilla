@@ -18,14 +18,9 @@
 #ifndef SEARCHTOOLBAR_H
 #define SEARCHTOOLBAR_H
 
-#include <QLineEdit>
-#include <QToolButton>
 #include <QWebPage>
-#include <QLabel>
-#include <QFlags>
-#include <QPropertyAnimation>
-#include <QShortcut>
 
+#include "qz_namespace.h"
 #include "animatedwidget.h"
 
 namespace Ui
@@ -33,9 +28,12 @@ namespace Ui
 class SearchToolbar;
 }
 
+class QLineEdit;
+
 class QupZilla;
 class LineEdit;
-class SearchToolBar : public AnimatedWidget
+
+class QT_QUPZILLA_EXPORT SearchToolBar : public AnimatedWidget
 {
     Q_OBJECT
 public:

@@ -18,13 +18,14 @@
 #ifndef WEBINSPECTORDOCKWIDGET_H
 #define WEBINSPECTORDOCKWIDGET_H
 
-#include <QDockWidget>
 #include <QWebInspector>
-#include <QPair>
+#include <QDockWidget>
 #include <QWeakPointer>
 #include <QHash>
 
-class WebInspector : public QWebInspector
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT WebInspector : public QWebInspector
 {
 public:
     explicit WebInspector(QWidget* parent) : QWebInspector(parent) { }
@@ -36,7 +37,7 @@ private:
 };
 
 class QupZilla;
-class WebInspectorDockWidget : public QDockWidget
+class QT_QUPZILLA_EXPORT WebInspectorDockWidget : public QDockWidget
 {
     Q_OBJECT
 public:

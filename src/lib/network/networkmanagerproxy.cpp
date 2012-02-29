@@ -21,6 +21,8 @@
 #include "cookiejar.h"
 #include "mainapplication.h"
 
+#include <QNetworkRequest>
+
 NetworkManagerProxy::NetworkManagerProxy(QObject* parent)
     : QNetworkAccessManager(parent)
     , m_page(0)

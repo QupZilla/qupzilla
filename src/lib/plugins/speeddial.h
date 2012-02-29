@@ -19,15 +19,17 @@
 #define SPEEDDIAL_H
 
 #include <QObject>
-#include <QCryptographicHash>
-#include <QDir>
-#include <QDebug>
-#include <QWebFrame>
 #include <QWeakPointer>
-#include <QFileDialog>
+
+#include "qz_namespace.h"
+
+class QUrl;
+class QWebFrame;
+class QPixmap;
 
 class PageThumbnailer;
-class SpeedDial : public QObject
+
+class QT_QUPZILLA_EXPORT SpeedDial : public QObject
 {
     Q_OBJECT
 public:

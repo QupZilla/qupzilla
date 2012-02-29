@@ -18,13 +18,17 @@
 #ifndef ICONFETCHER_H
 #define ICONFETCHER_H
 
+#include "qz_namespace.h"
+
 #include <QObject>
 #include <QIcon>
-#include <QUrl>
-#include <QNetworkAccessManager>
+
+class QNetworkAccessManager;
+class QUrl;
 
 class FollowRedirectReply;
-class IconFetcher : public QObject
+
+class QT_QUPZILLA_EXPORT IconFetcher : public QObject
 {
     Q_OBJECT
 public:

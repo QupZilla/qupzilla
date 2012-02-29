@@ -18,13 +18,11 @@
 #ifndef QUPZILLASCHEMEHANDLER_H
 #define QUPZILLASCHEMEHANDLER_H
 
-#include <QObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QBuffer>
-#include <QTimer>
-#include <QTextStream>
-#include <QTextDocument>
+
+#include "qz_namespace.h"
 
 class QupZillaSchemeHandler
 {
@@ -34,7 +32,7 @@ public:
     QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
 };
 
-class QupZillaSchemeReply : public QNetworkReply
+class QT_QUPZILLA_EXPORT QupZillaSchemeReply : public QNetworkReply
 {
     Q_OBJECT
 public:

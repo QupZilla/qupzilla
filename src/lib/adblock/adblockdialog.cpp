@@ -47,6 +47,10 @@
 #include "adblocksubscription.h"
 #include "mainapplication.h"
 
+#include <QMenu>
+#include <QMessageBox>
+#include <QInputDialog>
+
 AdBlockDialog::AdBlockDialog(QWidget* parent)
     : QDialog(parent)
     , m_itemChangingBlock(false)

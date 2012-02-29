@@ -30,6 +30,11 @@
 #include "downloadfilehelper.h"
 #include "settings.h"
 
+#include <QCloseEvent>
+#include <QDir>
+#include <QProcess>
+#include <QMessageBox>
+
 #ifdef Q_WS_WIN
 #define DEFAULT_USE_NATIVE_DIALOG false
 #else

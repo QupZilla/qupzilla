@@ -19,9 +19,10 @@
 #define LOCATIONPOPUP_H
 
 #include <QAbstractItemView>
-#include <QDebug>
 
-class LocationPopup : public QAbstractItemView
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT LocationPopup : public QAbstractItemView
 {
     Q_OBJECT
 public:

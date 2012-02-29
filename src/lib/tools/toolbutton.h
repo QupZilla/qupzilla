@@ -19,14 +19,14 @@
 #define TOOLBUTTON_H
 
 #include <QToolButton>
-#include <QPaintEvent>
-#include <QPainter>
-#include <QStyleOptionToolButton>
-#include <QMouseEvent>
+#include <QVariant>
 
-class ToolButton : public QToolButton
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT ToolButton : public QToolButton
 {
     Q_OBJECT
+
     Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)
     Q_PROPERTY(int fixedwidth READ width WRITE setFixedWidth)
     Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)

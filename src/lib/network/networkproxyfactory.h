@@ -19,10 +19,11 @@
 #define NETWORKPROXYFACTORY_H
 
 #include <QNetworkProxyFactory>
-#include <QUrl>
 #include <QStringList>
 
-class NetworkProxyFactory : public QNetworkProxyFactory
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT NetworkProxyFactory : public QNetworkProxyFactory
 {
 public:
     enum ProxyPreference { SystemProxy, NoProxy, DefinedProxy };

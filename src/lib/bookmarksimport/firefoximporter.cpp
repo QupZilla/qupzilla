@@ -18,6 +18,9 @@
 #include "firefoximporter.h"
 #include "bookmarksimportdialog.h"
 
+#include <QSqlQuery>
+#include <QSqlError>
+
 FirefoxImporter::FirefoxImporter(QObject* parent)
     : QObject(parent)
     , m_error(false)

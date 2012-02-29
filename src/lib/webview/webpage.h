@@ -18,25 +18,20 @@
 #ifndef WEBPAGE_H
 #define WEBPAGE_H
 
-#include <QDebug>
-#include <QUrl>
-#include <QWebView>
-#include <QWebFrame>
-#include <QWebHistory>
-#include <QtNetwork/QtNetwork>
-#include <QDesktopServices>
-#include <QMessageBox>
-#include <QDesktopServices>
-#include <QStyle>
-#include <QFileDialog>
-#include <QWebInspector>
-#include <QFileSystemWatcher>
+#include <QWebPage>
+#include <QSslCertificate>
+
+#include "qz_namespace.h"
+
+class QFileSystemWatcher;
+class QEventLoop;
 
 class QupZilla;
 class TabbedWebView;
 class SpeedDial;
 class NetworkManagerProxy;
-class WebPage : public QWebPage
+
+class QT_QUPZILLA_EXPORT WebPage : public QWebPage
 {
     Q_OBJECT
 public:
@@ -106,7 +101,6 @@ private:
 
     QupZilla* p_QupZilla;
     NetworkManagerProxy* m_networkProxy;
-    QNetworkRequest m_lastRequest;
     QWebPage::NavigationType m_lastRequestType;
     TabbedWebView* m_view;
     SpeedDial* m_speedDial;

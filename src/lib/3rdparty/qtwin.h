@@ -27,6 +27,8 @@
 #ifndef QTWIN_H
 #define QTWIN_H
 
+#include "qz_namespace.h"
+
 #include <QColor>
 #include <QWidget>
 #include <QSysInfo>
@@ -46,7 +48,7 @@ DEFINE_PROPERTYKEY(PKEY_AppUserModel_IsDestListSeparator, 0x9F4C2855, 0x9F79, 0x
 
 #endif
 class WindowNotifier;
-class QtWin : public QObject
+class QT_QUPZILLA_EXPORT QtWin : public QObject
 {
     Q_OBJECT
 public:

@@ -19,6 +19,8 @@
 #include "locationbar.h"
 #include "tabbedwebview.h"
 
+#include <QApplication>
+
 SiteIcon::SiteIcon(LocationBar* parent)
     : ToolButton(parent)
     , m_locationBar(parent)

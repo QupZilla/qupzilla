@@ -26,6 +26,10 @@
 #include "iconprovider.h"
 #include "networkmanager.h"
 
+#include <QWebSettings>
+#include <QMessageBox>
+#include <QFileDialog>
+
 BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::BookmarksImportDialog)

@@ -21,12 +21,14 @@
 #include <QDialog>
 #include <QLocale>
 
+#include "qz_namespace.h"
+
 namespace Ui
 {
 class AcceptLanguage;
 }
 
-class AcceptLanguage : public QDialog
+class QT_QUPZILLA_EXPORT AcceptLanguage : public QDialog
 {
     Q_OBJECT
 

@@ -19,13 +19,9 @@
 #define BOOKMARKSIMPORTDIALOG_H
 
 #include <QDialog>
-#include <QFileDialog>
-#include <QMessageBox>
 #include <QPair>
-#include <QWebPage>
-#include <QWebFrame>
-#include <QWebSettings>
 
+#include "qz_namespace.h"
 #include "bookmarksmodel.h"
 
 namespace Ui
@@ -34,7 +30,7 @@ class BookmarksImportDialog;
 }
 
 class IconFetcher;
-class BookmarksImportDialog : public QDialog
+class QT_QUPZILLA_EXPORT BookmarksImportDialog : public QDialog
 {
     Q_OBJECT
 

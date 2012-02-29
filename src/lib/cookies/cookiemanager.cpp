@@ -23,6 +23,13 @@
 #include "globalfunctions.h"
 #include "settings.h"
 
+#include <QMessageBox>
+#include <QDateTime>
+#include <QShortcut>
+#include <QTimer>
+#include <QInputDialog>
+#include <QCloseEvent>
+
 CookieManager::CookieManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::CookieManager)

@@ -19,14 +19,13 @@
 #define FIREFOXIMPORTER_H
 
 #include <QObject>
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
 #include <QFile>
+#include <QSqlDatabase>
 
+#include "qz_namespace.h"
 #include "bookmarksmodel.h"
 
-class FirefoxImporter : public QObject
+class QT_QUPZILLA_EXPORT FirefoxImporter : public QObject
 {
 public:
     explicit FirefoxImporter(QObject* parent = 0);

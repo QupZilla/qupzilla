@@ -18,8 +18,9 @@
 #ifndef PROFILEUPDATER_H
 #define PROFILEUPDATER_H
 
-#include <QDir>
-#include <iostream>
+#include <QString>
+
+#include "qz_namespace.h"
 
 class ProfileUpdater
 {

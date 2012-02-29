@@ -18,9 +18,9 @@
 #ifndef SITEINFOWIDGET_H
 #define SITEINFOWIDGET_H
 
-#include <QWidget>
 #include <QMenu>
-#include <QToolTip>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
@@ -28,7 +28,8 @@ class SiteInfoWidget;
 }
 
 class QupZilla;
-class SiteInfoWidget : public QMenu
+
+class QT_QUPZILLA_EXPORT SiteInfoWidget : public QMenu
 {
     Q_OBJECT
 public:

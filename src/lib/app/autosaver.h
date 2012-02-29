@@ -20,9 +20,10 @@
 
 #include <QObject>
 #include <QBasicTimer>
-#include <QDebug>
 
-class AutoSaver : public QObject
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT AutoSaver : public QObject
 {
     Q_OBJECT
 public:

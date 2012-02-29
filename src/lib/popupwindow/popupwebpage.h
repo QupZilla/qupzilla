@@ -18,10 +18,12 @@
 #ifndef POPUPWEBPAGE_H
 #define POPUPWEBPAGE_H
 
+#include "qz_namespace.h"
 #include "webpage.h"
 
 class QupZilla;
-class PopupWebPage : public WebPage
+
+class QT_QUPZILLA_EXPORT PopupWebPage : public WebPage
 {
     Q_OBJECT
 public:

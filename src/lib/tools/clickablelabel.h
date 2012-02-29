@@ -19,9 +19,12 @@
 #define CLICKABLELABEL_H
 
 #include <QLabel>
-#include <QMouseEvent>
 
-class ClickableLabel : public QLabel
+#include "qz_namespace.h"
+
+class QMouseEvent;
+
+class QT_QUPZILLA_EXPORT ClickableLabel : public QLabel
 {
     Q_OBJECT
     Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)

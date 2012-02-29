@@ -21,6 +21,8 @@
 #include "pluginproxy.h"
 #include "webpage.h"
 
+#include <QDebug>
+
 WebPluginFactory::WebPluginFactory(WebPage* page)
     : QWebPluginFactory(page)
     , m_page(page)

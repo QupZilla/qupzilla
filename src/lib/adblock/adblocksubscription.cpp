@@ -45,6 +45,11 @@
 #include "adblocksubscription.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
+
+#include <QFile>
+#include <QTimer>
+#include <QNetworkReply>
+#include <QDebug>
 // #define ADBLOCKSUBSCRIPTION_DEBUG
 
 AdBlockSubscription::AdBlockSubscription(QObject* parent)

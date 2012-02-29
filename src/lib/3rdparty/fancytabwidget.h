@@ -30,6 +30,8 @@
 #ifndef FANCYTABWIDGET_H
 #define FANCYTABWIDGET_H
 
+#include "qz_namespace.h"
+
 #include <QIcon>
 #include <QPropertyAnimation>
 #include <QProxyStyle>
@@ -50,7 +52,7 @@ namespace Core
 namespace Internal
 {
 
-class FancyTabProxyStyle : public QProxyStyle
+class QT_QUPZILLA_EXPORT FancyTabProxyStyle : public QProxyStyle
 {
     Q_OBJECT
 
@@ -65,7 +67,7 @@ protected:
     bool eventFilter(QObject* o, QEvent* e);
 };
 
-class FancyTab : public QWidget
+class QT_QUPZILLA_EXPORT FancyTab : public QWidget
 {
     Q_OBJECT
 
@@ -93,7 +95,7 @@ private:
     float m_fader;
 };
 
-class FancyTabBar : public QWidget
+class QT_QUPZILLA_EXPORT FancyTabBar : public QWidget
 {
     Q_OBJECT
 
@@ -142,7 +144,7 @@ private:
 
 };
 
-class FancyTabWidget : public QWidget
+class QT_QUPZILLA_EXPORT FancyTabWidget : public QWidget
 {
     Q_OBJECT
 

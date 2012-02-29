@@ -21,6 +21,9 @@
 #include "speeddial.h"
 #include "settings.h"
 
+#include <QPluginLoader>
+#include <QDir>
+
 #ifdef PORTABLE_BUILD
 #define DEFAULT_ENABLE_PLUGINS false
 #else

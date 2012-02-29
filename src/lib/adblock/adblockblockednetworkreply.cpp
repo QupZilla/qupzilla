@@ -44,11 +44,10 @@
  */
 
 #include "adblockblockednetworkreply.h"
-
 #include "adblockrule.h"
 
-#include <qnetworkrequest.h>
-#include <qtimer.h>
+#include <QNetworkRequest>
+#include <QTimer>
 
 AdBlockBlockedNetworkReply::AdBlockBlockedNetworkReply(const QNetworkRequest &request, const AdBlockRule* rule, QObject* parent)
     : QNetworkReply(parent)

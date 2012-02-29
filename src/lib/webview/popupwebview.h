@@ -1,13 +1,13 @@
 #ifndef POPUPWEBVIEW_H
 #define POPUPWEBVIEW_H
 
-#include <QMenu>
-
+#include "qz_namespace.h"
 #include "webview.h"
 
 class PopupWebPage;
 class Menu;
-class PopupWebView : public WebView
+
+class QT_QUPZILLA_EXPORT PopupWebView : public WebView
 {
     Q_OBJECT
 public:

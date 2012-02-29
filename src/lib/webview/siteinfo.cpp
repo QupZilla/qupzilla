@@ -25,6 +25,13 @@
 #include "globalfunctions.h"
 #include "iconprovider.h"
 
+#include <QMenu>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QNetworkDiskCache>
+#include <QWebFrame>
+#include <QClipboard>
+
 QString SiteInfo::showCertInfo(const QString &string)
 {
     if (string.isEmpty()) {

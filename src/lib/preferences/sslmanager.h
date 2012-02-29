@@ -19,19 +19,16 @@
 #define SSLMANAGER_H
 
 #include <QDialog>
-#include <QDebug>
-#include <QMessageBox>
 #include <QSslCertificate>
-#include <QDateTime>
-#include <QFileDialog>
-#include <QCloseEvent>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
 class SSLManager;
 }
 
-class SSLManager : public QDialog
+class QT_QUPZILLA_EXPORT SSLManager : public QDialog
 {
     Q_OBJECT
 

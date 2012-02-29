@@ -20,6 +20,13 @@
 #include "mainapplication.h"
 #include "settings.h"
 
+#include <QFile>
+#include <QDir>
+
+#ifdef Q_WS_X11
+#include <QDBusInterface>
+#endif
+
 DesktopNotificationsFactory::DesktopNotificationsFactory(QObject* parent)
     : QObject(parent)
     , m_uint(0)

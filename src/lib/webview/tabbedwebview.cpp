@@ -31,6 +31,11 @@
 #include "enhancedmenu.h"
 #include "adblockicon.h"
 
+#include <QMovie>
+#include <QStatusBar>
+#include <QHostInfo>
+#include <QWebFrame>
+
 TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     : WebView(webTab)
     , p_QupZilla(mainClass)

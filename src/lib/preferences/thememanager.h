@@ -19,17 +19,18 @@
 #define THEMEMANAGER_H
 
 #include <QWidget>
-#include <QDir>
-#include <QListWidgetItem>
+#include <QIcon>
 #include <QHash>
-#include <QTextBrowser>
+
+#include "qz_namespace.h"
+
 
 namespace Ui
 {
 class ThemeManager;
 }
 
-class ThemeManager : public QWidget
+class QT_QUPZILLA_EXPORT ThemeManager : public QWidget
 {
     Q_OBJECT
 

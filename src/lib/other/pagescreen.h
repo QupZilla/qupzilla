@@ -19,18 +19,19 @@
 #define PAGESCREEN_H
 
 #include <QDialog>
-#include <QWebFrame>
-#include <QDialogButtonBox>
-#include <QAbstractButton>
-#include <QFileDialog>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
 class PageScreen;
 }
 
+class QAbstractButton;
+
 class WebView;
-class PageScreen : public QDialog
+
+class QT_QUPZILLA_EXPORT PageScreen : public QDialog
 {
     Q_OBJECT
 

@@ -18,6 +18,8 @@
 #ifndef RSSMANAGER_H
 #define RSSMANAGER_H
 
+#include "qz_namespace.h"
+
 #include <QWidget>
 #include <QTreeWidget>
 #include <QUrl>
@@ -36,7 +38,7 @@ class RSSManager;
 class QupZilla;
 class FollowRedirectReply;
 class NetworkManager;
-class RSSManager : public QWidget
+class QT_QUPZILLA_EXPORT RSSManager : public QWidget
 {
     Q_OBJECT
 

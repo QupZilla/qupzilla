@@ -18,23 +18,20 @@
 #ifndef BOOKMARKSTOOLBAR_H
 #define BOOKMARKSTOOLBAR_H
 
-#include <QMenu>
-#include <QToolButton>
-#include <QHBoxLayout>
-#include <QFormLayout>
-#include <QDialogButtonBox>
-#include <QDropEvent>
-#include <QLabel>
-#include <QLineEdit>
+#include <QWidget>
 
+#include "qz_namespace.h"
 #include "bookmarksmodel.h"
+
+class QHBoxLayout;
 
 class QupZilla;
 class BookmarksModel;
 class HistoryModel;
 class ToolButton;
 class Menu;
-class BookmarksToolbar : public QWidget
+
+class QT_QUPZILLA_EXPORT BookmarksToolbar : public QWidget
 {
     Q_OBJECT
 public:

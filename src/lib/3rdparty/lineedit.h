@@ -1,5 +1,6 @@
 #ifndef LINEEDIT_H
 #define LINEEDIT_H
+
 /**
 * Copyright (c) 2008 - 2009, Benjamin C. Meyer <ben@meyerhome.net>
 *
@@ -29,6 +30,7 @@
 */
 
 #include <QLineEdit>
+#include "qz_namespace.h"
 
 class QHBoxLayout;
 
@@ -43,7 +45,7 @@ As widgets are added to the class they are inserted from the outside
 into the center of the widget.
 */
 class SideWidget;
-class LineEdit : public QLineEdit
+class QT_QUPZILLA_EXPORT LineEdit : public QLineEdit
 {
     Q_OBJECT
     Q_PROPERTY(QString inactiveText READ inactiveText WRITE setInactiveText)
@@ -89,7 +91,7 @@ private:
 };
 
 
-class SideWidget : public QWidget
+class QT_QUPZILLA_EXPORT SideWidget : public QWidget
 {
     Q_OBJECT
 

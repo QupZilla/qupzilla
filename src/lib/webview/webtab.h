@@ -19,14 +19,17 @@
 #define WEBTAB_H
 
 #include <QWidget>
-#include <QLayout>
 #include <QWeakPointer>
-#include "tabbedwebview.h"
-#include "locationbar.h"
+
+#include "qz_namespace.h"
+
+class QVBoxLayout;
 
 class QupZilla;
 class LocationBar;
-class WebTab : public QWidget
+class TabbedWebView;
+
+class QT_QUPZILLA_EXPORT WebTab : public QWidget
 {
     Q_OBJECT
 public:

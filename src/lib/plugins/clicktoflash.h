@@ -42,23 +42,20 @@
 #ifndef CLICKTOFLASH_H
 #define CLICKTOFLASH_H
 
+#include "qz_namespace.h"
+
 // Qt Includes
 #include <QUrl>
 #include <QWidget>
-#include <QHBoxLayout>
-#include <QToolButton>
 #include <QWebElement>
-#include <QWebFrame>
-#include <QWebView>
-#include <QDebug>
-#include <QFrame>
-#include <QAction>
-#include <QMenu>
-#include <QFormLayout>
 
-class QWebElement;
+class QToolButton;
+class QHBoxLayout;
+class QFrame;
+
 class WebPage;
-class ClickToFlash : public QWidget
+
+class QT_QUPZILLA_EXPORT ClickToFlash : public QWidget
 {
     Q_OBJECT
 

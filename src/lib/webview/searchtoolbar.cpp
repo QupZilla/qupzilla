@@ -22,6 +22,8 @@
 #include "ui_searchtoolbar.h"
 #include "iconprovider.h"
 
+#include <QShortcut>
+
 SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
     : AnimatedWidget(AnimatedWidget::Up, 300, parent)
     , ui(new Ui::SearchToolbar)

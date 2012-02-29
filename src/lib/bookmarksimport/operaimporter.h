@@ -21,9 +21,10 @@
 #include <QObject>
 #include <QFile>
 
+#include "qz_namespace.h"
 #include "bookmarksmodel.h"
 
-class OperaImporter : public QObject
+class QT_QUPZILLA_EXPORT OperaImporter : public QObject
 {
 public:
     explicit OperaImporter(QObject* parent = 0);

@@ -37,6 +37,8 @@
 #ifndef OPENSEARCHENGINE_H
 #define OPENSEARCHENGINE_H
 
+#include "qz_namespace.h"
+
 #include <qpair.h>
 #include <qimage.h>
 #include <qmap.h>
@@ -48,7 +50,7 @@ class QNetworkReply;
 class QScriptEngine;
 
 class OpenSearchEngineDelegate;
-class OpenSearchEngine : public QObject
+class QT_QUPZILLA_EXPORT OpenSearchEngine : public QObject
 {
     Q_OBJECT
 

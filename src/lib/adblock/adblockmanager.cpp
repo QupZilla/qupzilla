@@ -52,6 +52,8 @@
 #include "qupzilla.h"
 #include "settings.h"
 
+#include <QDateTime>
+
 AdBlockManager* AdBlockManager::s_adBlockManager = 0;
 
 AdBlockManager::AdBlockManager(QObject* parent)

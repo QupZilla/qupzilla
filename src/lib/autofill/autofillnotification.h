@@ -18,19 +18,18 @@
 #ifndef AUTOFILLWIDGET_H
 #define AUTOFILLWIDGET_H
 
-#include <QWidget>
 #include <QUrl>
-#include <QTimer>
-#include <QDebug>
 
+#include "qz_namespace.h"
 #include "animatedwidget.h"
 
 namespace Ui
 {
 class AutoFillWidget;
 }
+
 class AnimatedWidget;
-class AutoFillNotification : public AnimatedWidget
+class QT_QUPZILLA_EXPORT AutoFillNotification : public AnimatedWidget
 {
     Q_OBJECT
 

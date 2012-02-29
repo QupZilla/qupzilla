@@ -20,6 +20,11 @@
 #include "iconprovider.h"
 #include "mainapplication.h"
 
+#include <QStandardItemModel>
+#include <QTreeView>
+#include <QHeaderView>
+#include <QSqlQuery>
+
 LocationCompleter::LocationCompleter(QObject* parent)
     : QCompleter(parent)
 {

@@ -20,12 +20,14 @@
 
 #include <QDialog>
 
+#include "qz_namespace.h"
+
 namespace Ui
 {
 class AboutDialog;
 }
 
-class AboutDialog : public QDialog
+class QT_QUPZILLA_EXPORT AboutDialog : public QDialog
 {
     Q_OBJECT
 

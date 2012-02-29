@@ -19,15 +19,12 @@
 #define TABWIDGET_H
 
 #include <QTabWidget>
-#include <QTabBar>
-#include <QDateTime>
-#include <QToolButton>
-#include <QStylePainter>
-#include <QStackedWidget>
-#include <QTextDocument>
 #include <QUrl>
 
 #include "qz_namespace.h"
+
+class QStackedWidget;
+class QMenu;
 
 class QupZilla;
 class TabbedWebView;
@@ -37,7 +34,8 @@ class TabListButton;
 class NewTabButton;
 class ClosedTabsManager;
 class ToolButton;
-class TabWidget : public QTabWidget
+
+class QT_QUPZILLA_EXPORT TabWidget : public QTabWidget
 {
     Q_OBJECT
 public:

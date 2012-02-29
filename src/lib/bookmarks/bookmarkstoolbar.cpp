@@ -26,6 +26,16 @@
 #include "enhancedmenu.h"
 #include "tabwidget.h"
 
+#include <QDialog>
+#include <QIcon>
+#include <QHBoxLayout>
+#include <QFormLayout>
+#include <QLineEdit>
+#include <QLabel>
+#include <QDialogButtonBox>
+#include <QMimeData>
+#include <QDragEnterEvent>
+
 BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , p_QupZilla(mainClass)

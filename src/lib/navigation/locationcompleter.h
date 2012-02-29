@@ -19,16 +19,10 @@
 #define LOCATIONCOMPLETER_H
 
 #include <QCompleter>
-#include <QDebug>
-#include <QStringList>
-#include <QSqlQuery>
-#include <QTreeView>
-#include <QStandardItemModel>
-#include <QTimer>
-#include <QHeaderView>
-#include <QUrl>
 
-class LocationCompleter : public QCompleter
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT LocationCompleter : public QCompleter
 {
     Q_OBJECT
 public:

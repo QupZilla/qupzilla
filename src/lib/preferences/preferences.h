@@ -19,23 +19,25 @@
 #define PREFERENCES_H
 
 #include <QDialog>
-#include <QFileDialog>
-#include <QListWidgetItem>
-#include <QColorDialog>
-#include <QAbstractButton>
 #include <QWeakPointer>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
 class Preferences;
 }
 
+class QAbstractButton;
+class QListWidgetItem;
+
 class AutoFillManager;
 class QupZilla;
 class PluginsList;
 class DesktopNotification;
 class ThemeManager;
-class Preferences : public QDialog
+
+class QT_QUPZILLA_EXPORT Preferences : public QDialog
 {
     Q_OBJECT
 

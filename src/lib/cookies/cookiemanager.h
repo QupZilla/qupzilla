@@ -19,20 +19,19 @@
 #define COOKIEMANAGER_H
 
 #include <QWidget>
-#include <QTimer>
-#include <QNetworkCookie>
-#include <QTreeWidgetItem>
-#include <QShortcut>
-#include <QHash>
-#include <QInputDialog>
+
+#include "qz_namespace.h"
 
 namespace Ui
 {
 class CookieManager;
 }
 
+class QTreeWidgetItem;
+
 class QupZilla;
-class CookieManager : public QWidget
+
+class QT_QUPZILLA_EXPORT CookieManager : public QWidget
 {
     Q_OBJECT
 

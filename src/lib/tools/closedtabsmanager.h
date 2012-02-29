@@ -18,15 +18,15 @@
 #ifndef CLOSEDTABSMANAGER_H
 #define CLOSEDTABSMANAGER_H
 
-#include <QObject>
 #include <QUrl>
-#include <QWebHistory>
+
+#include "qz_namespace.h"
 
 class WebView;
-class ClosedTabsManager : public QObject
+
+class QT_QUPZILLA_EXPORT ClosedTabsManager
 {
 public:
-    explicit ClosedTabsManager(QObject* parent = 0);
     struct Tab {
         QUrl url;
         QByteArray history;
@@ -39,6 +39,8 @@ public:
                     a.position == position);
         }
     };
+
+    explicit ClosedTabsManager();
 
     void saveView(WebView* view, int position);
     ClosedTabsManager::Tab getFirstClosedTab();

@@ -23,13 +23,17 @@
 #define _bookmarksUnsorted BookmarksModel::toTranslatedFolder("unsorted")
 
 #include <QObject>
-#include <QVariant>
 #include <QUrl>
-#include <QIcon>
-#include <QSqlQuery>
+#include <QImage>
+#include <QVariant>
+
+#include "qz_namespace.h"
+
+class QIcon;
 
 class WebView;
-class BookmarksModel : public QObject
+
+class QT_QUPZILLA_EXPORT BookmarksModel : public QObject
 {
     Q_OBJECT
 public:

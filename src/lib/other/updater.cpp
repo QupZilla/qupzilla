@@ -21,6 +21,11 @@
 #include "tabwidget.h"
 #include "desktopnotificationsfactory.h"
 
+#include <QTimer>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+
 Updater::Updater(QupZilla* mainClass, QObject* parent)
     : QObject(parent)
     , p_QupZilla(mainClass)

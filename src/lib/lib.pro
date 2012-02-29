@@ -3,6 +3,8 @@ unix:QT += dbus
 TARGET = qupzilla
 TEMPLATE = lib
 
+DEFINES += QUPZILLA_SHAREDLIBRARY
+
 include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)

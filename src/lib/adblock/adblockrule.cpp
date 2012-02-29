@@ -45,12 +45,13 @@
  */
 
 #include "adblockrule.h"
-
 #include "adblocksubscription.h"
 
-#include <qdebug.h>
-#include <qregexp.h>
-#include <qurl.h>
+#include <QDebug>
+#include <QRegExp>
+#include <QUrl>
+#include <QString>
+#include <QStringList>
 
 // #define ADBLOCKRULE_DEBUG
 

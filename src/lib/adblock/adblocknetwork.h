@@ -48,9 +48,12 @@
 
 #include <QObject>
 
+#include "qz_namespace.h"
+
 class QNetworkRequest;
 class QNetworkReply;
-class AdBlockNetwork : public QObject
+
+class QT_QUPZILLA_EXPORT AdBlockNetwork : public QObject
 {
 public:
     AdBlockNetwork(QObject* parent = 0);

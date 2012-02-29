@@ -19,16 +19,18 @@
 #define NAVIGATIONBAR_H
 
 #include <QWidget>
-#include <QHBoxLayout>
-#include <QMenu>
-#include <QSplitter>
+
+#include "qz_namespace.h"
+
+class QHBoxLayout;
+class QSplitter;
 
 class ToolButton;
 class WebSearchBar;
 class QupZilla;
 class ReloadStopButton;
 class Menu;
-class NavigationBar : public QWidget
+class QT_QUPZILLA_EXPORT NavigationBar : public QWidget
 {
     Q_OBJECT
 public:

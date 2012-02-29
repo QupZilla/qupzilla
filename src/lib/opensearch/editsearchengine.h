@@ -18,15 +18,16 @@
 #ifndef EDITSEARCHENGINES_H
 #define EDITSEARCHENGINES_H
 
+#include "qz_namespace.h"
+
 #include <QDialog>
-#include <QFileDialog>
 
 namespace Ui
 {
 class EditSearchEngine;
 }
 
-class EditSearchEngine : public QDialog
+class QT_QUPZILLA_EXPORT EditSearchEngine : public QDialog
 {
     Q_OBJECT
 public:

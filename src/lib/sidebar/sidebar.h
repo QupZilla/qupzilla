@@ -19,11 +19,15 @@
 #define SIDEBAR_H
 
 #include <QWidget>
-#include <QVBoxLayout>
+
+#include "qz_namespace.h"
+
+class QVBoxLayout;
 
 class DockTitleBarWidget;
 class QupZilla;
-class SideBar : public QWidget
+
+class QT_QUPZILLA_EXPORT SideBar : public QWidget
 {
     Q_OBJECT
 public:

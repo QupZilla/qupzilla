@@ -22,6 +22,10 @@
 #include "rssmanager.h"
 #include "rssnotification.h"
 
+#include <QToolTip>
+#include <QPushButton>
+#include <QWebFrame>
+
 RSSWidget::RSSWidget(WebView* view, QWidget* parent)
     : QMenu(parent)
     , ui(new Ui::RSSWidget)

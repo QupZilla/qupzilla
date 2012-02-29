@@ -18,19 +18,9 @@
 #ifndef LOCATIONBAR_H
 #define LOCATIONBAR_H
 
-#include <QLabel>
-#include <QCompleter>
-#include <QStandardItemModel>
-#include <QTreeView>
-#include <QHeaderView>
-#include <QStandardItem>
 #include <QUrl>
-#include <QAction>
-#include <QToolButton>
-#include <QMenu>
-#include <QTableView>
-#include <QShortcut>
 
+#include "qz_namespace.h"
 #include "lineedit.h"
 
 class QupZilla;
@@ -42,7 +32,8 @@ class TabbedWebView;
 class SiteIcon;
 class GoIcon;
 class RssIcon;
-class LocationBar : public LineEdit
+
+class QT_QUPZILLA_EXPORT LocationBar : public LineEdit
 {
     Q_OBJECT
     Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)

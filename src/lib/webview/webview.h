@@ -19,17 +19,12 @@
 #define WEBVIEW_H
 
 #include <QWebView>
-#include <QWebFrame>
-#include <QWebElementCollection>
-#include <QWebHitTestResult>
+#include <QWebElement>
 #include <QTouchEvent>
-#include <QClipboard>
-#include <QPrintPreviewDialog>
-#include <QFile>
 
 #include "qz_namespace.h"
 
-class WebView : public QWebView
+class QT_QUPZILLA_EXPORT WebView : public QWebView
 {
     Q_OBJECT
 public:

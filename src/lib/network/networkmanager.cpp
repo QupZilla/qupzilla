@@ -32,6 +32,21 @@
 #include "cabundleupdater.h"
 #include "settings.h"
 
+#include <QFormLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QCheckBox>
+#include <QDialogButtonBox>
+#include <QTextDocument>
+#include <QNetworkDiskCache>
+#include <QDir>
+#include <QSslSocket>
+#include <QSslConfiguration>
+#include <QDateTime>
+#include <QMessageBox>
+#include <QAuthenticator>
+#include <QDirIterator>
+
 QString fileNameForCert(const QSslCertificate &cert)
 {
     QString certFileName = CertificateInfoWidget::certificateItemText(cert);

@@ -47,6 +47,18 @@
 #include "locationbarsettings.h"
 #include "webviewsettings.h"
 
+#ifdef Q_WS_MAC
+#include <QFileOpenEvent>
+#endif
+#include <QWebSecurityOrigin>
+#include <QNetworkDiskCache>
+#include <QDir>
+#include <QDesktopServices>
+#include <QSettings>
+#include <QTimer>
+#include <QTranslator>
+#include <QMessageBox>
+
 #ifdef Q_WS_WIN
 #define DEFAULT_CHECK_UPDATES true
 #else

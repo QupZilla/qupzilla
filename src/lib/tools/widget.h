@@ -21,7 +21,9 @@
 #include <QWidget>
 #include <QFrame>
 
-class Widget : public QWidget
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT Widget : public QWidget
 {
     Q_OBJECT
 public:
@@ -34,7 +36,7 @@ public slots:
 
 };
 
-class ResizableFrame : public QFrame
+class QT_QUPZILLA_EXPORT ResizableFrame : public QFrame
 {
     Q_OBJECT
 public:

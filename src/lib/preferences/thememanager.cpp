@@ -21,6 +21,9 @@
 #include "globalfunctions.h"
 #include "settings.h"
 
+#include <QTextBrowser>
+#include <QDir>
+
 #ifdef Q_WS_WIN
 #define DEFAULT_THEME_NAME "windows"
 #else

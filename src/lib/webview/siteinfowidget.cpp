@@ -21,6 +21,9 @@
 #include "webpage.h"
 #include "tabbedwebview.h"
 
+#include <QToolTip>
+#include <QSqlQuery>
+
 SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
     : QMenu(parent)
     , ui(new Ui::SiteInfoWidget)

@@ -18,17 +18,14 @@
 #ifndef WEBSEARCHBAR_H
 #define WEBSEARCHBAR_H
 
-#include <QWidget>
-#include <QPushButton>
-#include <QToolButton>
-#include <QMenu>
 #include <QWeakPointer>
-#include <QCompleter>
-#include <QStringListModel>
 
+#include "qz_namespace.h"
 #include "lineedit.h"
 #include "buttonwithmenu.h"
 #include "searchenginesmanager.h"
+
+class QStringListModel;
 
 class QupZilla;
 class LineEdit;
@@ -36,7 +33,8 @@ class ClickableLabel;
 class SearchEnginesManager;
 class SearchEnginesDialog;
 class OpenSearchEngine;
-class WebSearchBar : public LineEdit
+
+class QT_QUPZILLA_EXPORT WebSearchBar : public LineEdit
 {
     Q_OBJECT
     Q_PROPERTY(QSize fixedsize READ size WRITE setFixedSize)

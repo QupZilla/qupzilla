@@ -19,12 +19,16 @@
 #define PAGETHUMBNAILER_H
 
 #include <QObject>
-#include <QWebPage>
-#include <QWebFrame>
-#include <QPainter>
+#include <QSize>
+#include <QUrl>
 #include <QWebPluginFactory>
+#include <QPixmap>
 
-class CleanPluginFactory : public QWebPluginFactory
+#include "qz_namespace.h"
+
+class QWebPage;
+
+class QT_QUPZILLA_EXPORT CleanPluginFactory : public QWebPluginFactory
 {
     Q_OBJECT
 public:
@@ -34,7 +38,7 @@ public:
     QObject* create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const;
 };
 
-class PageThumbnailer : public QObject
+class QT_QUPZILLA_EXPORT PageThumbnailer : public QObject
 {
     Q_OBJECT
 public:

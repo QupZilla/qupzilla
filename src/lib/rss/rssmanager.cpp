@@ -28,6 +28,14 @@
 #include "databasewriter.h"
 #include "networkmanager.h"
 
+#include <QMenu>
+#include <QXmlStreamReader>
+#include <QXmlStreamWriter>
+#include <QWebSettings>
+#include <QMessageBox>
+#include <QNetworkReply>
+#include <QBuffer>
+
 RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::RSSManager)

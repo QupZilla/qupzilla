@@ -29,6 +29,13 @@
 #include "bookmarksimportdialog.h"
 #include "webtab.h"
 
+#include <QInputDialog>
+#include <QComboBox>
+#include <QDialogButtonBox>
+#include <QShortcut>
+#include <QMenu>
+#include <QSqlQuery>
+
 BookmarksManager::BookmarksManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , m_isRefreshing(false)

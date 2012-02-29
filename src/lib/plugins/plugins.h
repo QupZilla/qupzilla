@@ -19,16 +19,17 @@
 #define PLUGINLOADER_H
 
 #include <QObject>
-#include <QtPlugin>
-#include <QPluginLoader>
-#include <QDir>
+#include <QVariant>
 #include <QWeakPointer>
 
-#include <iostream>
+#include "qz_namespace.h"
 #include "plugininterface.h"
 
+class QPluginLoader;
+
 class SpeedDial;
-class Plugins : public QObject
+
+class QT_QUPZILLA_EXPORT Plugins : public QObject
 {
     Q_OBJECT
 public:

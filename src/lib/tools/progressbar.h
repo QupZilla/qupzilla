@@ -18,11 +18,13 @@
 #ifndef PROGRESSBAR_H
 #define PROGRESSBAR_H
 
-#include <QStylePainter>
-#include <QStyleOptionProgressBarV2>
-#include <QStyleOptionProgressBar>
+#include <QWidget>
 
-class ProgressBar : public QWidget
+#include "qz_namespace.h"
+
+class QStyleOptionProgressBar;
+
+class QT_QUPZILLA_EXPORT ProgressBar : public QWidget
 {
     Q_OBJECT
 public:

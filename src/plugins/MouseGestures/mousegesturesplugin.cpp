@@ -3,6 +3,8 @@
 #include "mousegestures.h"
 #include "qupzilla.h"
 
+#include <QTranslator>
+
 MouseGesturesPlugin::MouseGesturesPlugin()
     : QObject()
     , m_gestures(0)

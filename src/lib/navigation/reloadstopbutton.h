@@ -18,11 +18,10 @@
 #ifndef RELOADSTOPBUTTON_H
 #define RELOADSTOPBUTTON_H
 
-#include <QHBoxLayout>
-
+#include "qz_namespace.h"
 #include "toolbutton.h"
 
-class ReloadStopButton : public QWidget
+class QT_QUPZILLA_EXPORT ReloadStopButton : public QWidget
 {
 public:
     explicit ReloadStopButton(QWidget* parent = 0);

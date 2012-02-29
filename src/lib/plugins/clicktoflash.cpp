@@ -37,7 +37,6 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
 * ============================================================ */
-
 #include "clicktoflash.h"
 #include "clickablelabel.h"
 #include "mainapplication.h"
@@ -49,6 +48,13 @@
 #include "globalfunctions.h"
 #include "qupzilla.h"
 #include "tabbedwebview.h"
+
+#include <QHBoxLayout>
+#include <QToolButton>
+#include <QFormLayout>
+#include <QMenu>
+#include <QTimer>
+#include <QWebHitTestResult>
 
 QUrl ClickToFlash::acceptedUrl;
 QStringList ClickToFlash::acceptedArgNames;

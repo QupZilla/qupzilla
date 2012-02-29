@@ -18,6 +18,8 @@
 #include "editsearchengine.h"
 #include "ui_editsearchengine.h"
 
+#include <QFileDialog>
+
 EditSearchEngine::EditSearchEngine(const QString &title, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::EditSearchEngine)

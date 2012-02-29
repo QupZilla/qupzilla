@@ -18,14 +18,10 @@
 #ifndef BUTTONWITHMENU_H
 #define BUTTONWITHMENU_H
 
-#include <QToolButton>
-#include <QAction>
-#include <QMenu>
-#include <QWheelEvent>
-
 #include "toolbutton.h"
+#include "qz_namespace.h"
 
-class ButtonWithMenu : public ToolButton
+class QT_QUPZILLA_EXPORT ButtonWithMenu : public ToolButton
 {
     Q_OBJECT
 public:

@@ -6,6 +6,8 @@
 #include "iconprovider.h"
 #include "enhancedmenu.h"
 
+#include <QWebFrame>
+
 PopupWebView::PopupWebView(QWidget* parent)
     : WebView(parent)
     , m_page(0)

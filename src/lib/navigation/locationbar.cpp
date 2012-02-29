@@ -38,6 +38,8 @@
 #include "downicon.h"
 #include "globalfunctions.h"
 
+#include <QClipboard>
+
 LocationBar::LocationBar(QupZilla* mainClass)
     : LineEdit()
     , p_QupZilla(mainClass)

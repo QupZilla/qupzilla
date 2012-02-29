@@ -18,16 +18,18 @@
 #ifndef AUTOFILLMODEL_H
 #define AUTOFILLMODEL_H
 
-#include <QObject>
-#include <QUrl>
-#include <QNetworkRequest>
-#include <QWebElement>
-#include <QXmlStreamWriter>
-#include <QXmlStreamReader>
+#include <QPair>
+
+#include "qz_namespace.h"
+
+class QUrl;
+class QWebElement;
+class QNetworkRequest;
 
 class QupZilla;
 class WebPage;
-class AutoFillModel : public QObject
+
+class QT_QUPZILLA_EXPORT AutoFillModel : public QObject
 {
 public:
     typedef QPair<QString, QString> QueryItem;

@@ -19,12 +19,12 @@
 #define DATABASEWRITER_H
 
 #include <QObject>
-#include <QThread>
 #include <QSqlQuery>
 #include <QList>
-#include <QTimer>
 
-class DatabaseWriter : public QObject
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT DatabaseWriter : public QObject
 {
     Q_OBJECT
 public:

@@ -17,6 +17,9 @@
 * ============================================================ */
 #include "webhistorywrapper.h"
 
+#include <QUrl>
+#include <QWebHistory>
+
 WebHistoryWrapper::WebHistoryWrapper()
 {
 }

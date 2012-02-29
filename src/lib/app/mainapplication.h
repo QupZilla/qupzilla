@@ -20,22 +20,16 @@
 
 #define mApp MainApplication::getInstance()
 
-#include <QEvent>
+#include <QList>
 #include <QUrl>
-#include <QWebSettings>
 #include <QWeakPointer>
-#include <QNetworkDiskCache>
-#include <QWebSecurityOrigin>
-#include <iostream>
-
-#ifdef Q_WS_MAC
-#include <QFileOpenEvent>
-#endif
 
 #include "qtsingleapplication.h"
 #include "commandlineoptions.h"
-
 #include "qz_namespace.h"
+
+class QWebSettings;
+class QNetworkDiskCache;
 
 class QupZilla;
 class CookieManager;
@@ -53,7 +47,8 @@ class DesktopNotificationsFactory;
 class IconProvider;
 class SearchEnginesManager;
 class DatabaseWriter;
-class MainApplication : public QtSingleApplication
+
+class QT_QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
     Q_OBJECT
 

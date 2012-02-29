@@ -3,7 +3,9 @@
 
 #include <QProxyStyle>
 
-class ProxyStyle : public QProxyStyle
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT ProxyStyle : public QProxyStyle
 {
 public:
     explicit ProxyStyle();

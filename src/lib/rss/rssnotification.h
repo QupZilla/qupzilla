@@ -18,8 +18,7 @@
 #ifndef RSSNOTIFICATION_H
 #define RSSNOTIFICATION_H
 
-#include <QWidget>
-
+#include "qz_namespace.h"
 #include "animatedwidget.h"
 
 namespace Ui
@@ -28,7 +27,7 @@ class RSSNotification;
 }
 
 class AnimatedWidget;
-class RSSNotification : public AnimatedWidget
+class QT_QUPZILLA_EXPORT RSSNotification : public AnimatedWidget
 {
 public:
     explicit RSSNotification(QString host, QWidget* parent = 0);

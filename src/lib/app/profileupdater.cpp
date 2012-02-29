@@ -20,6 +20,10 @@
 #include "updater.h"
 #include "mainapplication.h"
 
+#include <QDir>
+#include <QSqlQuery>
+#include <iostream>
+
 ProfileUpdater::ProfileUpdater(const QString &profilePath)
     : m_profilePath(profilePath)
 {

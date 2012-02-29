@@ -20,6 +20,13 @@
 #include "pagethumbnailer.h"
 #include "settings.h"
 
+#include <QDir>
+#include <QCryptographicHash>
+#include <QFileDialog>
+#include <QDebug>
+#include <QWebFrame>
+#include <QWebPage>
+
 #define ENSURE_LOADED if (!m_loaded) loadSettings();
 
 SpeedDial::SpeedDial(QObject* parent)

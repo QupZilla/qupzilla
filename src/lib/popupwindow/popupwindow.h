@@ -19,13 +19,17 @@
 #define POPUPWINDOW_H
 
 #include <QWidget>
-#include <QVBoxLayout>
-#include <QStatusBar>
+
+#include "qz_namespace.h"
+
+class QVBoxLayout;
+class QStatusBar;
 
 class PopupWebView;
 class PopupWebPage;
 class PopupLocationBar;
-class PopupWindow : public QWidget
+
+class QT_QUPZILLA_EXPORT PopupWindow : public QWidget
 {
     Q_OBJECT
 public:

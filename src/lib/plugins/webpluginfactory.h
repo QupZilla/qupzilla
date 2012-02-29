@@ -19,10 +19,12 @@
 #define WEB_PLUGIN_FACTORY_H
 
 #include <QWebPluginFactory>
-#include <QDebug>
+
+#include "qz_namespace.h"
 
 class WebPage;
-class WebPluginFactory : public QWebPluginFactory
+
+class QT_QUPZILLA_EXPORT WebPluginFactory : public QWebPluginFactory
 {
 public:
     WebPluginFactory(WebPage* page);

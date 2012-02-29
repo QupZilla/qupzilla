@@ -23,6 +23,8 @@
 #include "tabwidget.h"
 #include "locationbar.h"
 
+#include <QVBoxLayout>
+
 WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     : QWidget()
     , p_QupZilla(mainClass)

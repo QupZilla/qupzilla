@@ -21,15 +21,18 @@
 #define _iconForUrl(url) IconProvider::iconFromImage(mApp->iconProvider()->iconForUrl(url))
 
 #include <QObject>
-#include <QIcon>
+#include <QImage>
 #include <QUrl>
-#include <QSqlQuery>
-#include <QBuffer>
-#include <QTimer>
 #include <QStyle>
 
+#include "qz_namespace.h"
+
+class QTimer;
+class QIcon;
+
 class WebView;
-class IconProvider : public QObject
+
+class QT_QUPZILLA_EXPORT IconProvider : public QObject
 {
     Q_OBJECT
 public:

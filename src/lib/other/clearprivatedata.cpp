@@ -25,6 +25,11 @@
 #include "ui_clearprivatedata.h"
 #include "iconprovider.h"
 
+#include <QWebSettings>
+#include <QNetworkDiskCache>
+#include <QDateTime>
+#include <QSqlQuery>
+
 ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)
     , p_QupZilla(mainClass)

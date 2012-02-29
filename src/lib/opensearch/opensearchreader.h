@@ -36,11 +36,13 @@
 #ifndef OPENSEARCHREADER_H
 #define OPENSEARCHREADER_H
 
+#include "qz_namespace.h"
+
 #include <qxmlstream.h>
 
 class OpenSearchEngine;
 
-class OpenSearchReader : public QXmlStreamReader
+class QT_QUPZILLA_EXPORT OpenSearchReader : public QXmlStreamReader
 {
 public:
     OpenSearchReader();

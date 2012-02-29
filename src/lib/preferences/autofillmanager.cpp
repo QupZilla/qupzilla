@@ -19,6 +19,14 @@
 #include "autofillmodel.h"
 #include "ui_autofillmanager.h"
 
+#include <QMenu>
+#include <QTimer>
+#include <QSqlQuery>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QUrl>
+#include <QFileDialog>
+
 AutoFillManager::AutoFillManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::AutoFillManager)

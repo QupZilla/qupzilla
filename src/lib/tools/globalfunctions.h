@@ -18,37 +18,32 @@
 #ifndef GLOBALFUNCTIONS_H
 #define GLOBALFUNCTIONS_H
 
-#include <QByteArray>
-#include <QPixmap>
-#include <QBuffer>
-#include <QFile>
-#include <QDir>
-#include <QWidget>
-#include <QApplication>
-#include <QDesktopWidget>
-#include <QUrl>
-#include <QIcon>
+#include "qz_namespace.h"
 
-QByteArray qz_pixmapToByteArray(const QPixmap &pix);
-QPixmap qz_pixmapFromByteArray(const QByteArray &data);
+class QPixmap;
+class QWidget;
+class QUrl;
 
-QByteArray qz_readAllFileContents(const QString &filename);
+QByteArray QT_QUPZILLA_EXPORT qz_pixmapToByteArray(const QPixmap &pix);
+QPixmap QT_QUPZILLA_EXPORT qz_pixmapFromByteArray(const QByteArray &data);
 
-void qz_centerWidgetOnScreen(QWidget* w);
-void qz_centerWidgetToParent(QWidget* w, QWidget* parent);
+QByteArray QT_QUPZILLA_EXPORT qz_readAllFileContents(const QString &filename);
 
-bool qz_removeFile(const QString &fullFileName);
-void qz_removeDir(const QString &d);
+void QT_QUPZILLA_EXPORT qz_centerWidgetOnScreen(QWidget* w);
+void QT_QUPZILLA_EXPORT qz_centerWidgetToParent(QWidget* w, QWidget* parent);
 
-QString qz_samePartOfStrings(const QString &one, const QString &other);
-QUrl qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
-QString qz_urlEncodeQueryString(const QUrl &url);
+bool QT_QUPZILLA_EXPORT qz_removeFile(const QString &fullFileName);
+void QT_QUPZILLA_EXPORT qz_removeDir(const QString &d);
 
-QString qz_ensureUniqueFilename(const QString &name);
-QString qz_getFileNameFromUrl(const QUrl &url);
+QString QT_QUPZILLA_EXPORT qz_samePartOfStrings(const QString &one, const QString &other);
+QUrl QT_QUPZILLA_EXPORT qz_makeRelativeUrl(const QUrl &baseUrl, const QUrl &rUrl);
+QString QT_QUPZILLA_EXPORT qz_urlEncodeQueryString(const QUrl &url);
 
-QString qz_filterCharsFromFilename(const QString &name);
+QString QT_QUPZILLA_EXPORT qz_ensureUniqueFilename(const QString &name);
+QString QT_QUPZILLA_EXPORT qz_getFileNameFromUrl(const QUrl &url);
 
-QString qz_buildSystem();
+QString QT_QUPZILLA_EXPORT qz_filterCharsFromFilename(const QString &name);
+
+QString QT_QUPZILLA_EXPORT qz_buildSystem();
 
 #endif // GLOBALFUNCTIONS_H

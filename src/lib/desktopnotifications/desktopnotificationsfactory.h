@@ -18,19 +18,17 @@
 #ifndef DESKTOPNOTIFICATIONSFACTORY_H
 #define DESKTOPNOTIFICATIONSFACTORY_H
 
+#include "qz_namespace.h"
+
 #include <QObject>
-#ifdef Q_WS_X11
-#include <QDBusInterface>
-#endif
-#include <QStringList>
 #include <QPoint>
-#include <QTimer>
 #include <QWeakPointer>
-#include <QDir>
-#include <QPixmap>
+
+class QPixmap;
 
 class DesktopNotification;
-class DesktopNotificationsFactory : public QObject
+
+class QT_QUPZILLA_EXPORT DesktopNotificationsFactory : public QObject
 {
 public:
     enum Type { DesktopNative, PopupWidget };

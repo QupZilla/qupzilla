@@ -19,9 +19,8 @@
 #define DOWNLOADOPTIONSDIALOG_H
 
 #include <QDialog>
-#include <QUrl>
-#include <QCloseEvent>
 
+#include "qz_namespace.h"
 #include "downloadmanager.h"
 
 namespace Ui
@@ -29,7 +28,7 @@ namespace Ui
 class DownloadOptionsDialog;
 }
 
-class DownloadOptionsDialog : public QDialog
+class QT_QUPZILLA_EXPORT DownloadOptionsDialog : public QDialog
 {
     Q_OBJECT
 

@@ -18,13 +18,15 @@
 #ifndef COOKIEJAR_H
 #define COOKIEJAR_H
 
-#include <QNetworkCookieJar>
-#include <QDebug>
+#include "qz_namespace.h"
+
 #include <QFile>
 #include <QStringList>
+#include <QNetworkCookieJar>
 
 class QupZilla;
-class CookieJar : public QNetworkCookieJar
+
+class QT_QUPZILLA_EXPORT CookieJar : public QNetworkCookieJar
 {
 public:
     explicit CookieJar(QupZilla* mainClass, QObject* parent = 0);

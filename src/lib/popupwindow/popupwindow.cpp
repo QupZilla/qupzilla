@@ -21,7 +21,9 @@
 #include "popuplocationbar.h"
 #include "globalfunctions.h"
 
-#include <QDebug>
+#include <QVBoxLayout>
+#include <QStatusBar>
+#include <QWebFrame>
 
 PopupWindow::PopupWindow(PopupWebView* view)
     : QWidget()

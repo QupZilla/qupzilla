@@ -19,12 +19,15 @@
 #define UPDATER_H
 
 #include <QObject>
-#include <QSystemTrayIcon>
-#include <QMenu>
-#include <QNetworkReply>
+
+#include "qz_namespace.h"
+
+class QNetworkReply;
+class QUrl;
 
 class QupZilla;
-class Updater : public QObject
+
+class QT_QUPZILLA_EXPORT Updater : public QObject
 {
     Q_OBJECT
 public:

@@ -20,6 +20,8 @@
 #include "mainapplication.h"
 #include "settings.h"
 
+#include <QMenu>
+
 PluginProxy::PluginProxy()
     : Plugins()
 {

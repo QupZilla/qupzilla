@@ -18,12 +18,8 @@
 #ifndef PLUGININTERFACE_H
 #define PLUGININTERFACE_H
 
+#include <QPixmap>
 #include <QtPlugin>
-#include <QIcon>
-#include <QTranslator>
-#include <QMenu>
-#include <QNetworkRequest>
-#include <QWebView>
 #include <QWebHitTestResult>
 
 #include "qz_namespace.h"
@@ -46,7 +42,14 @@ struct PluginSpec {
     }
 };
 
+class QTranslator;
+class QMenu;
+class QWebHitTestResult;
+class QMouseEvent;
+class QKeyEvent;
+
 class WebView;
+
 class PluginInterface
 {
 public:
