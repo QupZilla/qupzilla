@@ -40,10 +40,6 @@ void sigpipe_handler(int s)
 
 int main(int argc, char* argv[])
 {
-    Q_INIT_RESOURCE(data);
-    Q_INIT_RESOURCE(icons);
-    Q_INIT_RESOURCE(html);
-
 #ifdef Q_WS_X11
     QApplication::setGraphicsSystem("raster"); // Better overall performance on X11
 

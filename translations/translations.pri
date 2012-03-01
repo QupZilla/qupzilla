@@ -16,6 +16,7 @@ TRANSLATIONS += $$PWD/cs_CZ.ts\
                 $$PWD/sr_RS.ts\
                 $$PWD/sv_SE.ts\
                 $$PWD/id_ID.ts\
+                $$PWD/ka_GE.ts\
 
 include(../src/defines.pri)
 

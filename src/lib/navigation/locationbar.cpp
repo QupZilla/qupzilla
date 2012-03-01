@@ -168,7 +168,8 @@ void LocationBar::showMostVisited()
         // Workaround: If we show popup when text in locationbar is empty and then
         // move up and down in completer and then we leave completer -> completer will
         // set text in locationbar back to last "real" completion
-        keyPressEvent(new QKeyEvent(QEvent::KeyPress, Qt::Key_unknown, Qt::NoModifier, QString(" ")));
+        QKeyEvent event(QEvent::KeyPress, Qt::Key_unknown, Qt::NoModifier, QString(" "));
+        keyPressEvent(&event);
     }
     m_locationCompleter->showMostVisited();
 }
@@ -326,6 +327,8 @@ void LocationBar::dropEvent(QDropEvent* event)
             m_webView->setFocus();
             emit loadUrl(dropUrl);
 
+            QFocusEvent event(QFocusEvent::FocusOut);
+            QLineEdit::focusOutEvent(&event);
             return;
         }
     }
@@ -337,6 +340,8 @@ void LocationBar::dropEvent(QDropEvent* event)
             m_webView->setFocus();
             emit loadUrl(dropUrl);
 
+            QFocusEvent event(QFocusEvent::FocusOut);
+            QLineEdit::focusOutEvent(&event);
             return;
         }
 

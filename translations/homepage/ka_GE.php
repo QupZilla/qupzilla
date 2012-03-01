@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Header + Footer
 $site_title = "QupZilla - მარტივი მრავალპლატფორმული ბრაუზერი";
 $qupzilla = "QupZilla";
