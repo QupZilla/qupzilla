@@ -1,8 +1,8 @@
 ﻿<?php
 // Header + Footer
-$site_title = "QupZilla - Lightweight multiplatform browser";
+$site_title = "QupZilla - მარტივი მრავალპლატფორმული ბრაუზერი";
 $qupzilla = "QupZilla";
-$header_description = "Web Browser";
+$header_description = "ვებ ბრაუზერი";
 
 $menu_home = "მთავარი";
 $menu_screenshots = "სურათები";
