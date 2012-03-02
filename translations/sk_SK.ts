@@ -711,7 +711,7 @@
     </message>
     <message>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať do záložiek</translation>
     </message>
 </context>
 <context>
@@ -1600,11 +1600,11 @@
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Chyba!</translation>
+        <translation>Chyba!</translation>
     </message>
     <message>
         <source>Cannot load plugin!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nemožno načítať plugin!</translation>
     </message>
 </context>
 <context>
@@ -3977,7 +3977,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hľadať s...</translation>
     </message>
 </context>
 <context>
