@@ -46,6 +46,7 @@
 #include <QMessageBox>
 #include <QAuthenticator>
 #include <QDirIterator>
+#include <QDebug>
 
 QString fileNameForCert(const QSslCertificate &cert)
 {
