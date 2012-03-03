@@ -126,7 +126,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="83"/>
         <source>Update EasyList</source>
-        <translation>更新EasyList</translation>
+        <translation>更新建議名單</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="114"/>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="113"/>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyList已更新成功。</translation>
+        <translation>建議名單已更新成功。</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="129"/>
@@ -204,7 +204,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="109"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
-        <translation>封鎖的網址 (AdBlock的規則)-點擊以設定</translation>
+        <translation>封鎖的網址 (廣告封鎖的規則)-點擊以設定</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="99"/>
@@ -2078,7 +2078,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="192"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
-        <translation>&lt;B&gt;啟動&lt;/ B&gt;</translation>
+        <translation>&lt;B&gt;啟動中&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="223"/>
@@ -2160,7 +2160,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="498"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
-        <translation>&lt;B&gt;瀏覽器視窗&lt;/ B&gt;</translation>
+        <translation>&lt;B&gt;瀏覽器視窗&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="523"/>
@@ -2180,7 +2180,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="559"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
-        <translation>&lt;B&gt;引導工具列&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;引導工具列&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="566"/>
@@ -2210,7 +2210,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="622"/>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
-        <translation>&lt;B&gt;分頁行為&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;分頁行為&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="645"/>
@@ -2220,7 +2220,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="659"/>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
-        <translation>&lt;b&gt;位址欄的行為&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;位址欄的行為&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="692"/>
@@ -2390,7 +2390,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="960"/>
         <source>1</source>
-        <translation></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1001"/>
@@ -2570,7 +2570,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1479"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
-        <translation>&lt;b&gt;下載位置&lt;/ b&gt;</translation>
+        <translation>&lt;b&gt;下載位置&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1486"/>
@@ -2592,7 +2592,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1543"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
-        <translation>&lt;b&gt;下載選項&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;下載選項&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1550"/>
@@ -2609,7 +2609,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1634"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
-        <translation>&lt;B&gt;自動填充選項&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;自動填充選項&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1641"/>
@@ -2715,7 +2715,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="425"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
-        <translation>&lt;b&gt;語言&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;語言&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="446"/>
@@ -2740,7 +2740,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2079"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
-        <translation>&lt;b&gt;網站優先的語言&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;網站優先的語言&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="99"/>
@@ -2770,7 +2770,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="492"/>
         <source>Deleted</source>
-        <translation>以刪除</translation>
+        <translation>已刪除</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="498"/>
@@ -2796,7 +2796,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="640"/>
         <source>This profile already exists!</source>
-        <translation>此設置文件以存在!</translation>
+        <translation>此設置文件已存在!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="644"/>
@@ -2811,7 +2811,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="659"/>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation>您確定要永就移除&quot;%1&quot;個人資料嗎？浙江無法復原!</translation>
+        <translation>您確定要永就移除&quot;%1&quot;個人資料嗎？這將無法復原!</translation>
     </message>
 </context>
 <context>
@@ -4055,7 +4055,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="226"/>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
-        <translation>&lt;b&gt;安全訊息&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;安全訊息&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="246"/>
@@ -4075,7 +4075,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="323"/>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
-        <translation>&lt;b&gt;預覽&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;預覽&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="31"/>
@@ -4085,22 +4085,22 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="121"/>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
-        <translation>&lt;b&gt;連結是有加密的。&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;連結是有加密的。&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="122"/>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
-        <translation>&lt;B&gt;此頁的連結與此憑證的獲得：&lt;/ B&gt;</translation>
+        <translation>&lt;B&gt;此頁的連結與此憑證的獲得：&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="128"/>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
-        <translation>&lt;b&gt;連結沒有加密。&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;連結沒有加密。&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="129"/>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
-        <translation>&lt;b&gt;您連結到這個網頁不安全啊！&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;您連結到這個網頁不安全啊！&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="147"/>
@@ -4154,17 +4154,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="37"/>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
-        <translation>您連結的網站是&lt;b&gt;保證&lt;/ B&gt;。</translation>
+        <translation>您連結的網站是&lt;b&gt;保證&lt;/b&gt;。</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="41"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
-        <translation>您連結的網站是&lt;b&gt;沒有保證&lt;/ B&gt;。</translation>
+        <translation>您連結的網站是&lt;b&gt;沒有保證&lt;/b&gt;。</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="57"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
-        <translation>您&lt;b&gt;從未&lt;/ B&gt;瀏覽過此網站。</translation>
+        <translation>您&lt;b&gt;從未&lt;/b&gt;瀏覽過此網站。</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfowidget.cpp" line="64"/>
@@ -4508,17 +4508,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/preferences/thememanager.ui" line="35"/>
         <source>&lt;b&gt;Name:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;名稱：&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;名稱：&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/thememanager.ui" line="45"/>
         <source>&lt;b&gt;Author:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;作者：&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;作者：&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/thememanager.ui" line="68"/>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;描述：&lt;/ B&gt;</translation>
+        <translation>&lt;b&gt;描述：&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/thememanager.ui" line="112"/>
