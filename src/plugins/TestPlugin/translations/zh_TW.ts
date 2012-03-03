@@ -6,12 +6,12 @@
     <message>
         <location filename="../testplugin.cpp" line="70"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>關閉</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="81"/>
         <source>Example Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>範例外掛設定</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="105"/>
