@@ -352,7 +352,7 @@ void LocationBar::dropEvent(QDropEvent* event)
 void LocationBar::focusOutEvent(QFocusEvent* e)
 {
     QLineEdit::focusOutEvent(e);
-    if (!selectedText().isEmpty() && e->reason() != Qt::TabFocusReason) {
+    if (e->reason() == Qt::PopupFocusReason || (!selectedText().isEmpty() && e->reason() != Qt::TabFocusReason)) {
         return;
     }
 
@@ -411,15 +411,20 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         case Qt::ControlModifier:
             setText(text().append(".com"));
             urlEnter();
+            m_holdingAlt = false;
             break;
 
         case Qt::AltModifier:
             p_QupZilla->tabWidget()->addView(createUrl(), Qz::NT_NotSelectedTab);
+            m_holdingAlt = false;
             break;
 
         default:
             urlEnter();
+            m_holdingAlt = false;
         }
+
+        break;
 
     case Qt::Key_0:
     case Qt::Key_1:
@@ -433,6 +438,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
     case Qt::Key_9:
         if (event->modifiers() & Qt::AltModifier || event->modifiers() & Qt::ControlModifier) {
             event->ignore();
+            m_holdingAlt = false;
             return;
         }
         break;
@@ -450,7 +456,7 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
 
     if (event->key() == Qt::Key_Alt && m_holdingAlt && LocationBarSettings::addCountryWithAlt &&
             !text().endsWith(localDomain) && !text().endsWith("/")) {
-        setText(text().append(localDomain));
+        LineEdit::setText(text().append(localDomain));
     }
 
     LineEdit::keyReleaseEvent(event);

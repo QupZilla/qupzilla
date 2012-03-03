@@ -80,7 +80,7 @@ void MouseGestures::upGestured()
 
 void MouseGestures::downGestured()
 {
-    m_view->openNewTab();
+    m_view->openUrlInNewTab(QUrl(), Qz::NT_CleanSelectedTabAtTheEnd);
 }
 
 void MouseGestures::leftGestured()

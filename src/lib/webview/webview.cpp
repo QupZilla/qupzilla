@@ -585,11 +585,11 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
 
     QAction* action = menu->addAction(tr("&Back"), this, SLOT(back()));
     action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
-    action->setEnabled(history()->canGoBack());
+    action->setEnabled(WebHistoryWrapper::canGoBack(history()));
 
     action = menu->addAction(tr("&Forward"), this, SLOT(forward()));
     action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
-    action->setEnabled(history()->canGoForward());
+    action->setEnabled(WebHistoryWrapper::canGoForward(history()));
 
     menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reload()));
     action = menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this, SLOT(stop()));

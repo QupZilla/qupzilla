@@ -519,6 +519,9 @@ void QupZilla::setupMenu()
     QShortcut* forwardAction = new QShortcut(QKeySequence("Alt+Right"), this);
     connect(forwardAction, SIGNAL(activated()), this, SLOT(goNext()));
 
+    QShortcut* openLocationAction = new QShortcut(QKeySequence("Alt+D"), this);
+    connect(openLocationAction, SIGNAL(activated()), this, SLOT(openLocation()));
+
     // Make shortcuts available even in fullscreen (menu hidden)
     QList<QAction*> actions = menuBar()->actions();
     foreach(QAction * action, actions) {
