@@ -327,7 +327,7 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     }
 
     if (!m_sendReferer) {
-        req.setRawHeader("Referer", "");
+        req.setRawHeader("Referer", QByteArray());
     }
 
     req.setRawHeader("Accept-Language", m_acceptLanguage);
