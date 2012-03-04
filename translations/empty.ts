@@ -1367,6 +1367,13 @@
     </message>
 </context>
 <context>
+    <name>LicenseViewer</name>
+    <message>
+        <source>License Viewer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LocationBar</name>
     <message>
         <source>Add RSS from this page...</source>
@@ -2611,6 +2618,22 @@
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>HTML files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -3580,10 +3603,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>License Viewer</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

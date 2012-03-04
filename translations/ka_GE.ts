@@ -1369,6 +1369,13 @@
     </message>
 </context>
 <context>
+    <name>LicenseViewer</name>
+    <message>
+        <source>License Viewer</source>
+        <translation type="unfinished">ლიცენზიის მნახველი</translation>
+    </message>
+</context>
+<context>
     <name>LocationBar</name>
     <message>
         <source>Add RSS from this page...</source>
@@ -2614,6 +2621,22 @@
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
         <translation>თქვენ წარმატებით დაამატეთ RSS არხი &quot;%1&quot;.</translation>
     </message>
+    <message>
+        <source>HTML files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -3588,7 +3611,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>License Viewer</source>
-        <translation>ლიცენზიის მნახველი</translation>
+        <translation type="obsolete">ლიცენზიის მნახველი</translation>
     </message>
 </context>
 <context>
