@@ -1,6 +1,6 @@
 /* ============================================================
-* Mouse Gestures plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* QupZilla - WebKit based browser
+* Copyright (C) 2010-2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,29 +15,21 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "mousegesturessettingsdialog.h"
-#include "ui_mousegesturessettingsdialog.h"
 #include "licenseviewer.h"
+#include "globalfunctions.h"
 
-MouseGesturesSettingsDialog::MouseGesturesSettingsDialog(QWidget* parent)
-    : QDialog(parent)
-    , ui(new Ui::MouseGesturesSettingsDialog)
+LicenseViewer::LicenseViewer(QWidget *parent)
+    : QTextBrowser()
 {
-    ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
+    setWindowTitle(tr("License Viewer"));
 
-    connect(ui->licenseButton, SIGNAL(clicked()), this, SLOT(showLicense()));
+    resize(450, 500);
+
+    qz_centerWidgetToParent(this, parent);
 }
 
-MouseGesturesSettingsDialog::~MouseGesturesSettingsDialog()
+void LicenseViewer::setLicenseFile(const QString &fileName)
 {
-    delete ui;
-}
-
-void MouseGesturesSettingsDialog::showLicense()
-{
-    LicenseViewer* v = new LicenseViewer(this);
-    v->setLicenseFile(":mousegestures/data/copyright");
-
-    v->show();
+    setText(qz_readAllFileContents(fileName));
 }

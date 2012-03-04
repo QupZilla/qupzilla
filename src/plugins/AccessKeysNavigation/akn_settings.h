@@ -1,5 +1,5 @@
 /* ============================================================
-* Mouse Gestures plugin for QupZilla
+* Access Keys Navigation plugin for QupZilla
 * Copyright (C) 2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -15,35 +15,34 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef MOUSEGESTURESPLUGIN_H
-#define MOUSEGESTURESPLUGIN_H
+#ifndef AKN_SETTINGS_H
+#define AKN_SETTINGS_H
 
-#include "plugininterface.h"
+#include <QDialog>
 
-class MouseGestures;
-class MouseGesturesPlugin : public QObject, public PluginInterface
+namespace Ui {
+class AKN_Settings;
+}
+
+class AKN_Handler;
+
+class AKN_Settings : public QDialog
 {
     Q_OBJECT
-    Q_INTERFACES(PluginInterface)
 
 public:
-    MouseGesturesPlugin();
-    PluginSpec pluginSpec();
+    explicit AKN_Settings(AKN_Handler* handler, QWidget *parent = 0);
+    ~AKN_Settings();
 
-    void init(const QString &sPath);
-    void unload();
-    bool testPlugin();
-
-    QTranslator* getTranslator(const QString &locale);
-    void showSettings(QWidget* parent = 0);
-
-    bool mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
-    bool mouseRelease(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
-    bool mouseMove(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
+private slots:
+    void dialogAccepted();
+    void showLicence();
 
 private:
-    MouseGestures* m_gestures;
+    Ui::AKN_Settings *ui;
 
+    AKN_Handler* m_handler;
+    QString m_settingsPath;
 };
 
-#endif // MOUSEGESTURESPLUGIN_H
+#endif // AKN_SETTINGS_H

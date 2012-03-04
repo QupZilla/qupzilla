@@ -1,5 +1,5 @@
 /* ============================================================
-* Mouse Gestures plugin for QupZilla
+* Access Keys Navigation plugin for QupZilla
 * Copyright (C) 2012  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -15,19 +15,20 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef MOUSEGESTURESPLUGIN_H
-#define MOUSEGESTURESPLUGIN_H
+#ifndef AKN_PLUGIN_H
+#define AKN_PLUGIN_H
 
 #include "plugininterface.h"
 
-class MouseGestures;
-class MouseGesturesPlugin : public QObject, public PluginInterface
+class AKN_Handler;
+
+class AKN_Plugin : public QObject, public PluginInterface
 {
     Q_OBJECT
     Q_INTERFACES(PluginInterface)
 
 public:
-    MouseGesturesPlugin();
+    AKN_Plugin();
     PluginSpec pluginSpec();
 
     void init(const QString &sPath);
@@ -37,13 +38,10 @@ public:
     QTranslator* getTranslator(const QString &locale);
     void showSettings(QWidget* parent = 0);
 
-    bool mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
-    bool mouseRelease(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
-    bool mouseMove(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
+    bool keyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event);
 
 private:
-    MouseGestures* m_gestures;
-
+    AKN_Handler* m_handler;
 };
 
-#endif // MOUSEGESTURESPLUGIN_H
+#endif // AKN_PLUGIN_H
