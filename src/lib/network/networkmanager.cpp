@@ -323,7 +323,7 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     QNetworkReply* reply = 0;
 
     if (m_doNotTrack) {
-        req.setRawHeader("DNT", "1");
+        req.setRawHeader("DNT", QByteArray("1"));
     }
 
     if (!m_sendReferer) {

@@ -44,7 +44,7 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
 {
     setObjectName("bookmarksbar");
     m_layout = new QHBoxLayout();
-    m_layout->setContentsMargins(9, 3, 9, 3);
+    m_layout->setMargin(3);
     m_layout->setSpacing(0);
     setLayout(m_layout);
 
@@ -339,7 +339,7 @@ void BookmarksToolbar::subfolderAdded(const QString &name)
 {
     ToolButton* b = new ToolButton(this);
     b->setPopupMode(QToolButton::InstantPopup);
-    b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    b->setToolButtonStyle(m_toolButtonStyle);
     b->setIcon(style()->standardIcon(QStyle::SP_DirIcon));
     b->setText(name);
     connect(b, SIGNAL(middleMouseClicked()), this, SLOT(loadFolderBookmarksInTabs()));
@@ -404,7 +404,7 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     button->setText(title);
     button->setData(v);
     button->setIcon(IconProvider::iconFromImage(bookmark.image));
-    button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    button->setToolButtonStyle(m_toolButtonStyle);
     button->setToolTip(bookmark.url.toEncoded());
     button->setAutoRaise(true);
     button->setWhatsThis(bookmark.title);
@@ -504,7 +504,7 @@ void BookmarksToolbar::refreshBookmarks()
         button->setText(title);
         button->setData(v);
         button->setIcon(IconProvider::iconFromImage(bookmark.image));
-        button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        button->setToolButtonStyle(m_toolButtonStyle);
         button->setToolTip(bookmark.url.toEncoded());
         button->setWhatsThis(bookmark.title);
         button->setAutoRaise(true);
@@ -521,7 +521,7 @@ void BookmarksToolbar::refreshBookmarks()
     while (query.next()) {
         ToolButton* b = new ToolButton(this);
         b->setPopupMode(QToolButton::InstantPopup);
-        b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        b->setToolButtonStyle(m_toolButtonStyle);
         b->setIcon(style()->standardIcon(QStyle::SP_DirIcon));
         b->setText(query.value(0).toString());
         connect(b, SIGNAL(middleMouseClicked()), this, SLOT(loadFolderBookmarksInTabs()));
@@ -535,7 +535,7 @@ void BookmarksToolbar::refreshBookmarks()
 
     m_mostVis = new ToolButton(this);
     m_mostVis->setPopupMode(QToolButton::InstantPopup);
-    m_mostVis->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    m_mostVis->setToolButtonStyle(m_toolButtonStyle);
     m_mostVis->setIcon(style()->standardIcon(QStyle::SP_DirIcon));
     m_mostVis->setText(tr("Most visited"));
     m_mostVis->setToolTip(tr("Sites you visited the most"));
@@ -593,9 +593,9 @@ void BookmarksToolbar::dragEnterEvent(QDragEnterEvent* e)
 
 void BookmarksToolbar::showOnlyIconsChanged()
 {
-    Qt::ToolButtonStyle iconStyle = Qt::ToolButtonTextBesideIcon;
+    m_toolButtonStyle = Qt::ToolButtonTextBesideIcon;
     if (m_bookmarksModel->isShowingOnlyIconsInToolbar()) {
-        iconStyle = Qt::ToolButtonIconOnly;
+        m_toolButtonStyle = Qt::ToolButtonIconOnly;
     }
 
     for (int i = 0; i < m_layout->count(); ++i) {
@@ -604,7 +604,7 @@ void BookmarksToolbar::showOnlyIconsChanged()
             continue;
         }
 
-        button->setToolButtonStyle(iconStyle);
+        button->setToolButtonStyle(m_toolButtonStyle);
     }
 }
 
