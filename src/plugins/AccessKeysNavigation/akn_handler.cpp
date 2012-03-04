@@ -132,6 +132,7 @@ bool AKN_Handler::eventFilter(QObject* obj, QEvent* event)
     }
 
     switch (event->type()) {
+    case QEvent::Resize:
     case QEvent::FocusOut:
     case QEvent::Wheel:
         hideAccessKeys();

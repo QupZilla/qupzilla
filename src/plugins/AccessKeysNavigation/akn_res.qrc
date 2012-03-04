@@ -2,5 +2,6 @@
     <qresource prefix="/accesskeysnavigation">
         <file>data/icon.png</file>
         <file>data/copyright</file>
+        <file>locale/cs_CZ.qm</file>
     </qresource>
 </RCC>

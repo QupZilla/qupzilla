@@ -20,7 +20,9 @@
 
 #include <QTextBrowser>
 
-class LicenseViewer : public QTextBrowser
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT LicenseViewer : public QTextBrowser
 {
     Q_OBJECT
 
