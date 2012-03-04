@@ -21,7 +21,9 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
+
 #include <QTimer>
+#include <QStatusBar>
 
 // Wrapper class to detect whether window is opened from JavaScript window.open method
 // It has to be done this way, because QtWebKit has really bad API when it comes to opening
@@ -100,7 +102,7 @@ void PopupWebPage::checkBehaviour()
         PopupWebView* view = new PopupWebView;
         view->setWebPage(this);
 
-        PopupWindow* popup = new PopupWindow(view);
+        PopupWindow* popup = new PopupWindow(view, p_QupZilla->statusBar()->isVisible());
         popup->setWindowGeometry(m_geometry);
         popup->setMenuBarVisibility(m_menuBarVisible);
         popup->setStatusBarVisibility(m_statusBarVisible);

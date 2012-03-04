@@ -28,9 +28,9 @@
 #include <QStylePainter>
 #include <QWebFrame>
 
-TipLabel::TipLabel(QupZilla* parent)
+TipLabel::TipLabel(QWidget* parent)
     : SqueezeLabelV1(parent)
-    , p_QupZilla(parent)
+    , p_QupZilla(0)
     , m_connected(false)
 {
     setWindowFlags(Qt::ToolTip);
@@ -44,9 +44,14 @@ TipLabel::TipLabel(QupZilla* parent)
     qApp->installEventFilter(this);
 }
 
+void TipLabel::setMainWindow(QupZilla* main)
+{
+    p_QupZilla = main;
+}
+
 void TipLabel::show()
 {
-    if (!m_connected) {
+    if (p_QupZilla && !m_connected) {
         connect(p_QupZilla->tabWidget(), SIGNAL(currentChanged(int)), this, SLOT(hide()));
         m_connected = true;
     }
@@ -89,11 +94,10 @@ bool TipLabel::eventFilter(QObject* o, QEvent* e)
 }
 
 StatusBarMessage::StatusBarMessage(QupZilla* mainClass)
-    : QObject(mainClass)
-    , p_QupZilla(mainClass)
+    : p_QupZilla(mainClass)
     , m_statusBarText(new TipLabel(mainClass))
 {
-    m_statusBarText->setParent(p_QupZilla);
+    m_statusBarText->setMainWindow(p_QupZilla);
 }
 
 void StatusBarMessage::showMessage(const QString &message)
@@ -121,8 +125,8 @@ void StatusBarMessage::showMessage(const QString &message)
         }
 
         m_statusBarText->setText(message);
-        m_statusBarText->resize(m_statusBarText->sizeHint());
         m_statusBarText->setMaximumWidth(view->width() - verticalScrollSize);
+        m_statusBarText->resize(m_statusBarText->sizeHint());
 
         QPoint position;
         position.setY(view->height() - horizontalScrollSize - m_statusBarText->height());

@@ -27,13 +27,18 @@ class QStatusBar;
 
 class PopupWebView;
 class PopupWebPage;
+class PopupStatusBarMessage;
 class PopupLocationBar;
+class ProgressBar;
 
 class QT_QUPZILLA_EXPORT PopupWindow : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PopupWindow(PopupWebView* view);
+    explicit PopupWindow(PopupWebView* view, bool showStatusBar);
+
+    QStatusBar* statusBar();
+    PopupWebView* webView();
 
 signals:
 
@@ -46,12 +51,20 @@ public slots:
 private slots:
     void titleChanged();
     void showNotification(QWidget* notif);
+    void showStatusBarMessage(const QString &message);
+
+    void loadStarted();
+    void loadProgress(int value);
+    void loadFinished();
 
 private:
     void closeEvent(QCloseEvent* event);
+
     PopupWebView* m_view;
     PopupWebPage* m_page;
     PopupLocationBar* m_locationBar;
+    PopupStatusBarMessage* m_statusBarMessage;
+    ProgressBar* m_progressBar;
 
     QVBoxLayout* m_layout;
     QStatusBar* m_statusBar;

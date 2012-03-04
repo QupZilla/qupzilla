@@ -156,13 +156,14 @@ SOURCES += \
     app/settings.cpp \
     app/proxystyle.cpp \
     popupwindow/popupwebpage.cpp \
-    webview/popupwebview.cpp \
+    popupwindow/popupwebview.cpp \
     popupwindow/popupwindow.cpp \
     popupwindow/popuplocationbar.cpp \
     webview/tabbedwebview.cpp \
     webview/webview.cpp \
     webview/webviewsettings.cpp \
-    preferences/pluginlistdelegate.cpp
+    preferences/pluginlistdelegate.cpp \
+    popupwindow/popupstatusbarmessage.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -289,14 +290,15 @@ HEADERS  += \
     app/settings.h \
     app/proxystyle.h \
     popupwindow/popupwebpage.h \
-    webview/popupwebview.h \
+    popupwindow/popupwebview.h \
     popupwindow/popupwindow.h \
     popupwindow/popuplocationbar.h \
     webview/tabbedwebview.h \
     webview/webview.h \
     app/qz_namespace.h \
     webview/webviewsettings.h \
-    preferences/pluginlistdelegate.h
+    preferences/pluginlistdelegate.h \
+    popupwindow/popupstatusbarmessage.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

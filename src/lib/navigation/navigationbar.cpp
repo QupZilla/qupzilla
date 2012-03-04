@@ -106,7 +106,7 @@ NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     m_supMenu->setPopupMode(QToolButton::InstantPopup);
     m_supMenu->setToolTip(tr("Main Menu"));
     m_supMenu->setAutoRaise(true);
-//    m_supMenu->setVisible(false);
+    m_supMenu->setFocusPolicy(Qt::NoFocus);
     m_supMenu->setMenu(p_QupZilla->superMenu());
 #endif
 

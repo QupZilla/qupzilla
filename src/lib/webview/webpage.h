@@ -89,6 +89,7 @@ private slots:
     void watchedFileChanged(const QString &file);
     void printFrame(QWebFrame* frame);
     void downloadRequested(const QNetworkRequest &request);
+    void windowCloseRequested();
 
 private:
     virtual bool supportsExtension(Extension extension) const;

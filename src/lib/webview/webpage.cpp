@@ -77,6 +77,7 @@ WebPage::WebPage(QupZilla* mainClass)
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(finished()));
     connect(this, SIGNAL(printRequested(QWebFrame*)), this, SLOT(printFrame(QWebFrame*)));
     connect(this, SIGNAL(downloadRequested(QNetworkRequest)), this, SLOT(downloadRequested(QNetworkRequest)));
+    connect(this, SIGNAL(windowCloseRequested()), this, SLOT(windowCloseRequested()));
 
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
 }
@@ -105,12 +106,20 @@ void WebPage::setWebView(TabbedWebView* view)
 
 void WebPage::scheduleAdjustPage()
 {
-    if (m_view && m_view->isLoading()) {
+    WebView* webView = qobject_cast<WebView*>(view());
+    if (!webView) {
+        return;
+    }
+
+    if (webView->isLoading()) {
         m_adjustingScheduled = true;
     }
     else {
-        mainFrame()->setZoomFactor(mainFrame()->zoomFactor() + 1);
-        mainFrame()->setZoomFactor(mainFrame()->zoomFactor() - 1);
+        const QSize &originalSize = webView->size();
+        QSize newSize(originalSize.width() - 1, originalSize.height() - 1);
+
+        webView->resize(newSize);
+        webView->resize(originalSize);
     }
 }
 
@@ -257,6 +266,16 @@ void WebPage::downloadRequested(const QNetworkRequest &request)
 {
     DownloadManager* dManager = mApp->downManager();
     dManager->download(request, this);
+}
+
+void WebPage::windowCloseRequested()
+{
+    WebView* webView = qobject_cast<WebView*>(view());
+    if (!webView) {
+        return;
+    }
+
+    webView->closeView();
 }
 
 

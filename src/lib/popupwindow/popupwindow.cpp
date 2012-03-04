@@ -18,6 +18,8 @@
 #include "popupwindow.h"
 #include "popupwebview.h"
 #include "popupwebpage.h"
+#include "popupstatusbarmessage.h"
+#include "progressbar.h"
 #include "popuplocationbar.h"
 #include "globalfunctions.h"
 
@@ -25,7 +27,7 @@
 #include <QStatusBar>
 #include <QWebFrame>
 
-PopupWindow::PopupWindow(PopupWebView* view)
+PopupWindow::PopupWindow(PopupWebView* view, bool showStatusBar)
     : QWidget()
     , m_view(view)
     , m_page(view->webPage())
@@ -39,6 +41,13 @@ PopupWindow::PopupWindow(PopupWebView* view)
 
     m_statusBar = new QStatusBar(this);
     m_statusBar->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
+    m_statusBar->setVisible(showStatusBar);
+
+    m_progressBar = new ProgressBar(m_statusBar);
+    m_statusBar->addPermanentWidget(m_progressBar);
+    m_progressBar->hide();
+
+    m_statusBarMessage = new PopupStatusBarMessage(this);
 
     m_layout->addWidget(m_locationBar);
     m_layout->addWidget(m_view);
@@ -49,14 +58,16 @@ PopupWindow::PopupWindow(PopupWebView* view)
     connect(m_view, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
     connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar, SLOT(showUrl(QUrl)));
     connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(showIcon()));
-    connect(m_view, SIGNAL(statusBarMessage(QString)), m_statusBar, SLOT(showMessage(QString)));
+    connect(m_view, SIGNAL(statusBarMessage(QString)), this, SLOT(showStatusBarMessage(QString)));
+    connect(m_view, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
+    connect(m_view, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
+    connect(m_view, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
 
-    connect(m_page, SIGNAL(linkHovered(QString, QString, QString)), m_statusBar, SLOT(showMessage(QString)));
+    connect(m_page, SIGNAL(linkHovered(QString, QString, QString)), this, SLOT(showStatusBarMessage(QString)));
     connect(m_page, SIGNAL(geometryChangeRequested(QRect)), this, SLOT(setWindowGeometry(QRect)));
     connect(m_page, SIGNAL(statusBarVisibilityChangeRequested(bool)), this, SLOT(setStatusBarVisibility(bool)));
     connect(m_page, SIGNAL(menuBarVisibilityChangeRequested(bool)), this, SLOT(setMenuBarVisibility(bool)));
     connect(m_page, SIGNAL(toolBarVisibilityChangeRequested(bool)), this, SLOT(setToolBarVisibility(bool)));
-    connect(m_page, SIGNAL(windowCloseRequested()), this, SLOT(close()));
 
     m_view->setFocus();
     titleChanged();
@@ -73,6 +84,16 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_layout->activate();
 }
 
+QStatusBar* PopupWindow::statusBar()
+{
+    return m_statusBar;
+}
+
+PopupWebView* PopupWindow::webView()
+{
+    return m_view;
+}
+
 void PopupWindow::showNotification(QWidget* notif)
 {
     if (m_layout->count() > 3) {
@@ -81,6 +102,33 @@ void PopupWindow::showNotification(QWidget* notif)
 
     m_layout->insertWidget(1, notif);
     notif->show();
+}
+
+void PopupWindow::showStatusBarMessage(const QString &message)
+{
+    if (message.isEmpty()) {
+        m_statusBarMessage->clearMessage();
+    }
+    else {
+        m_statusBarMessage->showMessage(message);
+    }
+}
+
+void PopupWindow::loadStarted()
+{
+    m_progressBar->setValue(0);
+    m_progressBar->show();
+}
+
+void PopupWindow::loadProgress(int value)
+{
+    m_progressBar->show();
+    m_progressBar->setValue(value);
+}
+
+void PopupWindow::loadFinished()
+{
+    m_progressBar->hide();
 }
 
 void PopupWindow::closeEvent(QCloseEvent* event)
@@ -113,8 +161,8 @@ void PopupWindow::setWindowGeometry(const QRect &newRect)
     }
 }
 
-// From my testing, these 3 slots are never fired ... even
-// if they should be
+// From my testing, these 3 slots are always fired with false
+// visible argument (even if true should be passed)
 // So for now, we just do nothing here
 
 void PopupWindow::setStatusBarVisibility(bool visible)
@@ -136,5 +184,3 @@ void PopupWindow::titleChanged()
 {
     setWindowTitle(tr("%1 - QupZilla").arg(m_view->title()));
 }
-
-

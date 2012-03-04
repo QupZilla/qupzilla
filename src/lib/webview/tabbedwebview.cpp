@@ -83,7 +83,6 @@ void TabbedWebView::setWebPage(WebPage* page)
     setPage(m_page);
 
     connect(m_page, SIGNAL(linkHovered(QString, QString, QString)), this, SLOT(linkHovered(QString, QString, QString)));
-    connect(m_page, SIGNAL(windowCloseRequested()), this, SLOT(closeView()));
 }
 
 void TabbedWebView::slotIconChanged()

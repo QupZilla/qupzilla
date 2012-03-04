@@ -15,45 +15,25 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef STATUSBARMESSAGE_H
-#define STATUSBARMESSAGE_H
-
-#include <QObject>
+#ifndef POPUPSTATUSBARMESSAGE_H
+#define POPUPSTATUSBARMESSAGE_H
 
 #include "qz_namespace.h"
-#include "squeezelabelv1.h"
-#include "animatedwidget.h"
 
-class QupZilla;
+class PopupWindow;
+class TipLabel;
 
-class QT_QUPZILLA_EXPORT TipLabel : public SqueezeLabelV1
+class QT_QUPZILLA_EXPORT PopupStatusBarMessage
 {
 public:
-    TipLabel(QWidget* parent);
-
-    void setMainWindow(QupZilla* main);
-
-    bool eventFilter(QObject* o, QEvent* e);
-    void show();
-
-private:
-    void paintEvent(QPaintEvent* ev);
-
-    QupZilla* p_QupZilla;
-    bool m_connected;
-};
-
-class QT_QUPZILLA_EXPORT StatusBarMessage
-{
-public:
-    explicit StatusBarMessage(QupZilla* mainClass);
+    explicit PopupStatusBarMessage(PopupWindow* mainClass);
 
     void showMessage(const QString &message);
     void clearMessage();
 
 private:
-    QupZilla* p_QupZilla;
+    PopupWindow* m_popupWindow;
     TipLabel* m_statusBarText;
 };
 
-#endif // STATUSBARMESSAGE_H
+#endif // POPUPSTATUSBARMESSAGE_H

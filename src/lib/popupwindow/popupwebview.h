@@ -15,45 +15,37 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef STATUSBARMESSAGE_H
-#define STATUSBARMESSAGE_H
-
-#include <QObject>
+#ifndef POPUPWEBVIEW_H
+#define POPUPWEBVIEW_H
 
 #include "qz_namespace.h"
-#include "squeezelabelv1.h"
-#include "animatedwidget.h"
+#include "webview.h"
 
-class QupZilla;
+class PopupWebPage;
+class Menu;
 
-class QT_QUPZILLA_EXPORT TipLabel : public SqueezeLabelV1
+class QT_QUPZILLA_EXPORT PopupWebView : public WebView
 {
+    Q_OBJECT
 public:
-    TipLabel(QWidget* parent);
+    explicit PopupWebView(QWidget* parent = 0);
 
-    void setMainWindow(QupZilla* main);
+    void setWebPage(PopupWebPage* page);
+    PopupWebPage* webPage();
 
-    bool eventFilter(QObject* o, QEvent* e);
-    void show();
+    QWidget* overlayForJsAlert();
+    void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position);
+
+signals:
+
+public slots:
+    void closeView();
 
 private:
-    void paintEvent(QPaintEvent* ev);
+    void contextMenuEvent(QContextMenuEvent* event);
 
-    QupZilla* p_QupZilla;
-    bool m_connected;
+    PopupWebPage* m_page;
+    Menu* m_menu;
 };
 
-class QT_QUPZILLA_EXPORT StatusBarMessage
-{
-public:
-    explicit StatusBarMessage(QupZilla* mainClass);
-
-    void showMessage(const QString &message);
-    void clearMessage();
-
-private:
-    QupZilla* p_QupZilla;
-    TipLabel* m_statusBarText;
-};
-
-#endif // STATUSBARMESSAGE_H
+#endif // POPUPWEBVIEW_H
