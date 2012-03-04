@@ -3,5 +3,7 @@
         <file>data/icon.png</file>
         <file>data/copyright</file>
         <file>locale/cs_CZ.qm</file>
+        <file>locale/sr_BA.qm</file>
+        <file>locale/sr_RS.qm</file>
     </qresource>
 </RCC>

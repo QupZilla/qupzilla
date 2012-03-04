@@ -1753,7 +1753,7 @@
     <message>
         <location filename="../src/lib/other/licenseviewer.cpp" line="25"/>
         <source>License Viewer</source>
-        <translation type="unfinished">Прегледач лиценце</translation>
+        <translation>Прегледач лиценце</translation>
     </message>
 </context>
 <context>
@@ -3274,22 +3274,22 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>ХТМЛ фајлови</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Фајлови слика</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>Фајлови текста</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Сви фајлови</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1424"/>
@@ -4556,10 +4556,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/preferences/thememanager.ui" line="112"/>
         <source>License</source>
         <translation>Лиценца</translation>
-    </message>
-    <message>
-        <source>License Viewer</source>
-        <translation type="obsolete">Прегледач лиценце</translation>
     </message>
 </context>
 <context>
