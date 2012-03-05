@@ -25,6 +25,7 @@
 
 AKN_Plugin::AKN_Plugin()
     : QObject()
+    , m_handler(0)
 {
 }
 

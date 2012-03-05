@@ -83,6 +83,9 @@ private:
     void mouseMoveEvent(QMouseEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
+    void dragEnterEvent(QDragEnterEvent* event);
+    void dropEvent(QDropEvent* event);
+
     QSize tabSizeHint(int index) const;
 //    void tabInserted(int index);
 

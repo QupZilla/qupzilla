@@ -1548,6 +1548,7 @@ void QupZilla::startPrivate(bool state)
         QMessageBox::StandardButton button = QMessageBox::question(this, tr("Start Private Browsing"),
                                              message, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
         if (button != QMessageBox::Yes) {
+            m_actionPrivateBrowsing->setChecked(false);
             return;
         }
 

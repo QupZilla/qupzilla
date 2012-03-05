@@ -18,7 +18,7 @@
 #include "licenseviewer.h"
 #include "globalfunctions.h"
 
-LicenseViewer::LicenseViewer(QWidget *parent)
+LicenseViewer::LicenseViewer(QWidget* parent)
     : QTextBrowser()
 {
     setAttribute(Qt::WA_DeleteOnClose);

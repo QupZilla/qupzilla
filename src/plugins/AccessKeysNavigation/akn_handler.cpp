@@ -167,6 +167,10 @@ void AKN_Handler::handleAccessKey(QKeyEvent* event)
         return;
     }
 
+    if (!m_view) {
+        return;
+    }
+
     QChar key = text.at(0).toUpper();
 
     if (m_accessKeyNodes.contains(key)) {
@@ -196,6 +200,10 @@ void AKN_Handler::handleAccessKey(QKeyEvent* event)
 
 void AKN_Handler::showAccessKeys()
 {
+    if (!m_view) {
+        return;
+    }
+
     QWebPage* page = m_view->page();
 
     // Install event filter and connect loadStarted
@@ -284,7 +292,7 @@ void AKN_Handler::showAccessKeys()
 
 void AKN_Handler::hideAccessKeys()
 {
-    if (!m_accessKeyLabels.isEmpty()) {
+    if (!m_accessKeyLabels.isEmpty() && m_view) {
         for (int i = 0; i < m_accessKeyLabels.count(); ++i) {
             QLabel* label = m_accessKeyLabels[i];
             label->hide();

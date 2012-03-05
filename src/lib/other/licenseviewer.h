@@ -27,7 +27,7 @@ class QT_QUPZILLA_EXPORT LicenseViewer : public QTextBrowser
     Q_OBJECT
 
 public:
-    explicit LicenseViewer(QWidget *parent = 0);
+    explicit LicenseViewer(QWidget* parent = 0);
 
     void setLicenseFile(const QString &fileName);
 };

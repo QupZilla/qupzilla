@@ -24,7 +24,7 @@
 #include <QSettings>
 #include <QTextBrowser>
 
-AKN_Settings::AKN_Settings(AKN_Handler *handler, QWidget *parent)
+AKN_Settings::AKN_Settings(AKN_Handler* handler, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::AKN_Settings)
     , m_handler(handler)

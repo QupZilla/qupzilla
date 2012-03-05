@@ -21,6 +21,7 @@
 #include <QTabWidget>
 #include <QUrl>
 
+#include "toolbutton.h"
 #include "qz_namespace.h"
 
 class QStackedWidget;
@@ -29,11 +30,22 @@ class QMenu;
 class QupZilla;
 class TabbedWebView;
 class TabBar;
+class TabWidget;
 class WebTab;
-class TabListButton;
-class NewTabButton;
 class ClosedTabsManager;
-class ToolButton;
+
+class QT_QUPZILLA_EXPORT AddTabButton : public ToolButton
+{
+public:
+    explicit AddTabButton(TabWidget* tabWidget, TabBar* tabBar);
+
+private:
+    void dragEnterEvent(QDragEnterEvent* event);
+    void dropEvent(QDropEvent* event);
+
+    TabBar* m_tabBar;
+    TabWidget* m_tabWidget;
+};
 
 class QT_QUPZILLA_EXPORT TabWidget : public QTabWidget
 {
@@ -56,7 +68,7 @@ public:
     QList<WebTab*> allTabs(bool withPinned = true);
     QStackedWidget* locationBars() { return m_locationBars; }
     ToolButton* buttonListTabs() { return m_buttonListTabs; }
-    ToolButton* buttonAddTab() { return m_buttonAddTab; }
+    AddTabButton* buttonAddTab() { return m_buttonAddTab; }
 
     void createKeyPressEvent(QKeyEvent* event);
     void showTabBar();
@@ -114,7 +126,7 @@ private:
 
     QMenu* m_menuTabs;
     ToolButton* m_buttonListTabs;
-    ToolButton* m_buttonAddTab;
+    AddTabButton* m_buttonAddTab;
     ClosedTabsManager* m_closedTabsManager;
 
     QStackedWidget* m_locationBars;

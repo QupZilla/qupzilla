@@ -102,6 +102,12 @@ void BookmarkIcon::setBookmarkDisabled()
     setToolTip(tr("Bookmark this Page"));
 }
 
+void BookmarkIcon::contextMenuEvent(QContextMenuEvent* ev)
+{
+    // Prevent propagating to LocationBar
+    ev->accept();
+}
+
 void BookmarkIcon::mousePressEvent(QMouseEvent* ev)
 {
     ClickableLabel::mousePressEvent(ev);

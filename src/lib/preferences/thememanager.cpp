@@ -32,7 +32,7 @@
 #define DEFAULT_THEME_NAME "linux"
 #endif
 
-ThemeManager::ThemeManager(QWidget* parent, Preferences *preferences)
+ThemeManager::ThemeManager(QWidget* parent, Preferences* preferences)
     : QWidget()
     , ui(new Ui::ThemeManager)
     , m_preferences(preferences)

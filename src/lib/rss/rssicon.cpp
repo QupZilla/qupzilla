@@ -28,6 +28,12 @@ RssIcon::RssIcon(QWidget* parent)
     setVisible(false);
 }
 
+void RssIcon::contextMenuEvent(QContextMenuEvent* ev)
+{
+    // Prevent propagating to LocationBar
+    ev->accept();
+}
+
 void RssIcon::mousePressEvent(QMouseEvent* ev)
 {
     ClickableLabel::mousePressEvent(ev);

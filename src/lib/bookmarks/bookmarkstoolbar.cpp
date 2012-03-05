@@ -579,16 +579,32 @@ void BookmarksToolbar::aboutToShowFolderMenu()
     }
 }
 
+void BookmarksToolbar::dropEvent(QDropEvent* e)
+{
+    const QMimeData* mime = e->mimeData();
+
+    if (!mime->hasUrls() || !mime->hasText()) {
+        QWidget::dropEvent(e);
+        return;
+    }
+
+    QString title = mime->text();
+    QUrl url = mime->urls().at(0);
+    QIcon icon = IconProvider::iconFromImage(qvariant_cast<QImage>(mime->imageData()));
+
+    m_bookmarksModel->saveBookmark(url, title, icon, "bookmarksToolbar");
+}
+
 void BookmarksToolbar::dragEnterEvent(QDragEnterEvent* e)
 {
     const QMimeData* mime = e->mimeData();
 
-    if (mime->hasUrls() || mime->hasText()) {
+    if (mime->hasUrls() && mime->hasText()) {
         e->acceptProposedAction();
         return;
     }
 
-    QWidget::dropEvent(e);
+    QWidget::dragEnterEvent(e);
 }
 
 void BookmarksToolbar::showOnlyIconsChanged()
@@ -606,22 +622,6 @@ void BookmarksToolbar::showOnlyIconsChanged()
 
         button->setToolButtonStyle(m_toolButtonStyle);
     }
-}
-
-void BookmarksToolbar::dropEvent(QDropEvent* e)
-{
-    const QMimeData* mime = e->mimeData();
-
-    if (!mime->hasUrls() || !mime->hasText()) {
-        QWidget::dropEvent(e);
-        return;
-    }
-
-    QString title = mime->text();
-    QUrl url = mime->urls().at(0);
-    QIcon icon = IconProvider::iconFromImage(qvariant_cast<QImage>(mime->imageData()));
-
-    m_bookmarksModel->saveBookmark(url, title, icon, "bookmarksToolbar");
 }
 
 void BookmarksToolbar::refreshMostVisited()

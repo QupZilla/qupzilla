@@ -20,7 +20,8 @@
 
 #include <QDialog>
 
-namespace Ui {
+namespace Ui
+{
 class AKN_Settings;
 }
 
@@ -31,7 +32,7 @@ class AKN_Settings : public QDialog
     Q_OBJECT
 
 public:
-    explicit AKN_Settings(AKN_Handler* handler, QWidget *parent = 0);
+    explicit AKN_Settings(AKN_Handler* handler, QWidget* parent = 0);
     ~AKN_Settings();
 
 private slots:
@@ -39,7 +40,7 @@ private slots:
     void showLicence();
 
 private:
-    Ui::AKN_Settings *ui;
+    Ui::AKN_Settings* ui;
 
     AKN_Handler* m_handler;
     QString m_settingsPath;

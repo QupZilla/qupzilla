@@ -37,7 +37,7 @@ class QT_QUPZILLA_EXPORT ThemeManager : public QWidget
     Q_OBJECT
 
 public:
-    explicit ThemeManager(QWidget *parent, Preferences *preferences);
+    explicit ThemeManager(QWidget* parent, Preferences* preferences);
     ~ThemeManager();
 
     void save();

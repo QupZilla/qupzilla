@@ -57,6 +57,8 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setFocusPolicy(Qt::NoFocus);
     loadSettings();
 
+    setAcceptDrops(true);
+
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(m_tabWidget, SIGNAL(pinnedTabClosed()), this, SLOT(pinnedTabClosed()));
     connect(m_tabWidget, SIGNAL(pinnedTabAdded()), this, SLOT(pinnedTabAdded()));
@@ -384,6 +386,38 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     }
 
     QTabBar::mouseReleaseEvent(event);
+}
+
+void TabBar::dragEnterEvent(QDragEnterEvent* event)
+{
+    const QMimeData* mime = event->mimeData();
+
+    if (mime->hasUrls()) {
+        event->acceptProposedAction();
+        return;
+    }
+
+    QTabBar::dragEnterEvent(event);
+}
+
+void TabBar::dropEvent(QDropEvent* event)
+{
+    const QMimeData* mime = event->mimeData();
+
+    if (!mime->hasUrls()) {
+        QTabBar::dropEvent(event);
+        return;
+    }
+
+    int index = tabAt(event->pos());
+    if (index == -1) {
+        foreach(const QUrl & url, mime->urls()) {
+            m_tabWidget->addView(url, Qz::NT_SelectedTabAtTheEnd);
+        }
+    }
+    else {
+        p_QupZilla->weView(index)->load(mime->urls().first());
+    }
 }
 
 void TabBar::disconnectObjects()

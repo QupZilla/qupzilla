@@ -29,6 +29,7 @@ public:
     explicit SiteIcon(LocationBar* parent);
 
 private:
+    void contextMenuEvent(QContextMenuEvent* e);
     void mousePressEvent(QMouseEvent* e);
     void mouseMoveEvent(QMouseEvent* e);
 
