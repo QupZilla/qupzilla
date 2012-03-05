@@ -22,6 +22,15 @@
 
 #include <QFileDialog>
 #include <QWebFrame>
+#include <QTimer>
+#include <QMovie>
+#include <QtConcurrentRun>
+#include <QPushButton>
+
+QImage scale(QImage image)
+{
+    return image.scaled(QSize(470, 370), Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+}
 
 PageScreen::PageScreen(WebView* view, QWidget* parent)
     : QDialog(parent)
@@ -31,48 +40,50 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    createPixmap();
-    ui->label->setPixmap(m_pagePixmap);
+    QMovie* mov = new QMovie(":html/loading.gif");
+    ui->label->setMovie(mov);
+    mov->start();
 
-    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
+    connect(ui->buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(dialogAccepted()));
+    connect(ui->buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), this, SLOT(close()));
+
+    QTimer::singleShot(200, this, SLOT(createThumbnail()));
 }
 
-void PageScreen::buttonClicked(QAbstractButton* b)
+void PageScreen::dialogAccepted()
 {
-    QString path;
+    const QString &path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."), tr("screen.png"));
 
-    switch (ui->buttonBox->standardButton(b)) {
-    case QDialogButtonBox::Cancel:
+    if (!path.isEmpty()) {
+        m_pageImage.save(path);
         close();
-        break;
-
-    case QDialogButtonBox::Save:
-        path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."), tr("screen.png"));
-        if (!path.isEmpty()) {
-            m_pagePixmap.save(path);
-            close();
-        }
-        break;
-
-    default:
-        break;
     }
 }
 
-void PageScreen::createPixmap()
+void PageScreen::createThumbnail()
 {
     QWebPage* page = m_view->page();
     QSize originalSize = page->viewportSize();
     page->setViewportSize(page->mainFrame()->contentsSize());
 
-    QImage image(page->viewportSize(), QImage::Format_ARGB32);
-    QPainter painter(&image);
+    m_pageImage = QImage(page->viewportSize(), QImage::Format_ARGB32);
+    QPainter painter(&m_pageImage);
     page->mainFrame()->render(&painter);
     painter.end();
 
-    m_pagePixmap = QPixmap::fromImage(image);
-
     page->setViewportSize(originalSize);
+
+    m_imageScaling = new QFutureWatcher<QImage>(this);
+    connect(m_imageScaling, SIGNAL(finished()), SLOT(showImage()));
+
+    m_imageScaling->setFuture(QtConcurrent::run(scale, m_pageImage));
+}
+
+void PageScreen::showImage()
+{
+    delete ui->label->movie();
+
+    ui->label->setPixmap(QPixmap::fromImage(m_imageScaling->result()));
 }
 
 PageScreen::~PageScreen()

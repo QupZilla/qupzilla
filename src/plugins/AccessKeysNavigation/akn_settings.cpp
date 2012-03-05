@@ -42,11 +42,6 @@ AKN_Settings::AKN_Settings(AKN_Handler* handler, QWidget* parent)
     connect(this, SIGNAL(accepted()), this, SLOT(dialogAccepted()));
 }
 
-AKN_Settings::~AKN_Settings()
-{
-    delete ui;
-}
-
 void AKN_Settings::dialogAccepted()
 {
     QSettings settings(m_settingsPath, QSettings::IniFormat);
@@ -63,4 +58,9 @@ void AKN_Settings::showLicence()
     LicenseViewer* v = new LicenseViewer(this);
     v->setLicenseFile(":accesskeysnavigation/data/copyright");
     v->show();
+}
+
+AKN_Settings::~AKN_Settings()
+{
+    delete ui;
 }
