@@ -36,6 +36,7 @@
 #include <QMenu>
 #include <QStackedWidget>
 #include <QWebHistory>
+#include <QFile>
 
 AddTabButton::AddTabButton(TabWidget* tabWidget, TabBar* tabBar)
     : ToolButton(tabWidget)
