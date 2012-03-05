@@ -46,8 +46,6 @@ private slots:
 
     void dialogAccepted();
 
-    void buttonClicked(QAbstractButton* b);
-
 private:
     void createPixmap();
 

@@ -66,7 +66,7 @@ void PageScreen::createThumbnail()
     QSize originalSize = page->viewportSize();
     page->setViewportSize(page->mainFrame()->contentsSize());
 
-    m_pageImage = QImage(page->viewportSize(), QImage::Format_ARGB32);
+    m_pageImage = QImage(page->viewportSize(), QImage::Format_ARGB32_Premultiplied);
     QPainter painter(&m_pageImage);
     page->mainFrame()->render(&painter);
     painter.end();
