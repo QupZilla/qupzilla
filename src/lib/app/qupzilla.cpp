@@ -198,8 +198,9 @@ void QupZilla::postLaunch()
     }
 
     aboutToHideEditMenu();
-
     setUpdatesEnabled(true);
+
+    mApp->plugins()->emitMainWindowCreated(this);
 
     emit startingCompleted();
 }
@@ -1567,6 +1568,10 @@ void QupZilla::resizeEvent(QResizeEvent* event)
 
 void QupZilla::keyPressEvent(QKeyEvent* event)
 {
+    if (mApp->plugins()->processKeyPress(Qz::ON_QupZilla, this, event)) {
+        return;
+    }
+
     int number = -1;
 
     switch (event->key()) {
@@ -1695,6 +1700,15 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
     QMainWindow::keyPressEvent(event);
 }
 
+void QupZilla::keyReleaseEvent(QKeyEvent* event)
+{
+    if (mApp->plugins()->processKeyRelease(Qz::ON_QupZilla, this, event)) {
+        return;
+    }
+
+    QMainWindow::keyReleaseEvent(event);
+}
+
 void QupZilla::closeEvent(QCloseEvent* event)
 {
     if (mApp->isClosing()) {
@@ -1751,6 +1765,8 @@ void QupZilla::disconnectObjects()
             pointer.data()->deleteLater();
         }
     }
+
+    mApp->plugins()->emitMainWindowDeleted(this);
 }
 
 void QupZilla::closeWindow()

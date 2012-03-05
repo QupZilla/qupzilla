@@ -42,6 +42,12 @@ void PluginProxy::unloadPlugin(Plugins::Plugin* plugin)
 void PluginProxy::registerAppEventHandler(const PluginProxy::EventHandlerType &type, PluginInterface* obj)
 {
     switch (type) {
+    case MouseDoubleClickHandler:
+        if (!m_mouseDoubleClickHandlers.contains(obj)) {
+            m_mouseDoubleClickHandlers.append(obj);
+        }
+        break;
+
     case MousePressHandler:
         if (!m_mousePressHandlers.contains(obj)) {
             m_mousePressHandlers.append(obj);
@@ -94,6 +100,19 @@ void PluginProxy::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitT
     if (menu->actions().count() == count) {
         menu->removeAction(menu->actions().at(count - 1));
     }
+}
+
+bool PluginProxy::processMouseDoubleClick(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
+{
+    bool accepted = false;
+
+    foreach(PluginInterface * iPlugin, m_mouseDoubleClickHandlers) {
+        if (iPlugin->mouseDoubleClick(type, obj, event)) {
+            accepted = true;
+        }
+    }
+
+    return accepted;
 }
 
 bool PluginProxy::processMousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
@@ -159,5 +178,25 @@ bool PluginProxy::processKeyRelease(const Qz::ObjectName &type, QObject* obj, QK
     }
 
     return accepted;
+}
+
+void PluginProxy::emitWebViewCreated(WebView* view)
+{
+    emit webViewCreated(view);
+}
+
+void PluginProxy::emitWebViewDeleted(WebView* view)
+{
+    emit webViewDeleted(view);
+}
+
+void PluginProxy::emitMainWindowCreated(QupZilla* window)
+{
+    emit mainWindowCreated(window);
+}
+
+void PluginProxy::emitMainWindowDeleted(QupZilla* window)
+{
+    emit mainWindowDeleted(window);
 }
 

@@ -23,6 +23,8 @@
 #include "toolbutton.h"
 #include "settings.h"
 #include "tabbedwebview.h"
+#include "mainapplication.h"
+#include "pluginproxy.h"
 
 #include <QMenu>
 #include <QApplication>
@@ -330,8 +332,26 @@ int TabBar::normalTabsCount()
     return count() - m_pinnedTabsCount;
 }
 
+void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
+{
+    if (mApp->plugins()->processMouseDoubleClick(Qz::ON_TabBar, this, event)) {
+        return;
+    }
+
+    if (event->button() == Qt::LeftButton && tabAt(event->pos()) == -1) {
+        m_tabWidget->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd, true);
+        return;
+    }
+
+    QTabBar::mouseDoubleClickEvent(event);
+}
+
 void TabBar::mousePressEvent(QMouseEvent* event)
 {
+    if (mApp->plugins()->processMousePress(Qz::ON_TabBar, this, event)) {
+        return;
+    }
+
     if (event->buttons() & Qt::LeftButton && tabAt(event->pos()) != -1) {
         m_dragStartPosition = mapFromGlobal(event->globalPos());
     }
@@ -344,6 +364,10 @@ void TabBar::mousePressEvent(QMouseEvent* event)
 
 void TabBar::mouseMoveEvent(QMouseEvent* event)
 {
+    if (mApp->plugins()->processMouseMove(Qz::ON_TabBar, this, event)) {
+        return;
+    }
+
     if (!m_dragStartPosition.isNull() && m_tabWidget->buttonAddTab()->isVisible()) {
         int manhattanLength = (event->pos() - m_dragStartPosition).manhattanLength();
         if (manhattanLength > QApplication::startDragDistance()) {
@@ -354,18 +378,12 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
     QTabBar::mouseMoveEvent(event);
 }
 
-void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
+void TabBar::mouseReleaseEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton && tabAt(event->pos()) == -1) {
-        m_tabWidget->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd, true);
+    if (mApp->plugins()->processMouseRelease(Qz::ON_TabBar, this, event)) {
         return;
     }
 
-    QTabBar::mouseDoubleClickEvent(event);
-}
-
-void TabBar::mouseReleaseEvent(QMouseEvent* event)
-{
     if (m_tabWidget->buttonAddTab()->isHidden()) {
         QTimer::singleShot(500, m_tabWidget->buttonAddTab(), SLOT(show()));
     }

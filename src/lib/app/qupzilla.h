@@ -194,6 +194,7 @@ private slots:
 private:
     void resizeEvent(QResizeEvent* event);
     void keyPressEvent(QKeyEvent* event);
+    void keyReleaseEvent(QKeyEvent* event);
     void closeEvent(QCloseEvent* event);
 
     void setupUi();

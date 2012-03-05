@@ -43,6 +43,7 @@ public:
     bool eventFilter(QObject* obj, QEvent* event);
 
     virtual QWidget* overlayForJsAlert() = 0;
+    virtual void disconnectObjects();
 
     static bool isUrlValid(const QUrl &url);
     static QUrl guessUrlFromString(const QString &string);

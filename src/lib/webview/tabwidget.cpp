@@ -723,8 +723,8 @@ bool TabWidget::restoreState(const QByteArray &state)
 void TabWidget::disconnectObjects()
 {
     disconnect(this);
-    disconnect(p_QupZilla);
     disconnect(mApp);
+    disconnect(p_QupZilla);
     disconnect(p_QupZilla->ipLabel());
 }
 
