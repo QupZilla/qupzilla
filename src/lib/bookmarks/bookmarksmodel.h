@@ -68,6 +68,7 @@ public:
     bool isShowingOnlyIconsInToolbar() { return m_showOnlyIconsInToolbar; }
     void setShowingOnlyIconsInToolbar(bool state);
 
+    bool isFolder(const QString &name);
     QString lastFolder() { return m_lastFolder; }
     void setLastFolder(const QString &folder);
 

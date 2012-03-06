@@ -29,7 +29,11 @@ namespace Ui
 class BookmarksImportDialog;
 }
 
-class IconFetcher;
+class QTreeWidgetItem;
+class QThread;
+
+class BookmarksImportIconFetcher;
+
 class QT_QUPZILLA_EXPORT BookmarksImportDialog : public QDialog
 {
     Q_OBJECT
@@ -43,7 +47,7 @@ private slots:
     void setFile();
 
     void stopDownloading();
-    void iconFetched(const QIcon &icon);
+    void iconFetched(const QImage &image, QTreeWidgetItem* item);
     void loadFinished();
 
 private:
@@ -68,7 +72,8 @@ private:
 
     QList<BookmarksModel::Bookmark> m_exportedBookmarks;
 
-    QList<QPair<IconFetcher*, QUrl> > m_fetchers;
+    BookmarksImportIconFetcher* m_fetcher;
+    QThread* m_fetcherThread;
 };
 
 #endif // BOOKMARKSIMPORTDIALOG_H

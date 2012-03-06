@@ -76,7 +76,7 @@ QSize PluginListDelegate::sizeHint(const QStyleOptionViewItem &option, const QMo
 {
     const int textMargin = QApplication::style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
 
-    QSize size = QItemDelegate::sizeHint(option, index);
+    QSize size;
     size.setWidth(m_listWidget->width() - 10);
 
     // ( height of font * 3 = 3 lines )  + ( text margins ) + ( 2 free lines = every line is 3px )

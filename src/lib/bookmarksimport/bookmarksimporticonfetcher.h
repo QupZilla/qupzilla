@@ -15,50 +15,49 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef ICONFETCHER_H
-#define ICONFETCHER_H
+#ifndef BOOKMARKSIMPORTICONFETCHER_H
+#define BOOKMARKSIMPORTICONFETCHER_H
+
+#include <QObject>
+#include <QUrl>
+#include <QList>
 
 #include "qz_namespace.h"
 
-#include <QObject>
-#include <QIcon>
-#include <QVariant>
-#include <QUrl>
-
 class QNetworkAccessManager;
-class QUrl;
+class QTreeWidgetItem;
+class QImage;
 
-class FollowRedirectReply;
+class IconFetcher;
 
-class QT_QUPZILLA_EXPORT IconFetcher : public QObject
+class QT_QUPZILLA_EXPORT BookmarksImportIconFetcher : public QObject
 {
     Q_OBJECT
 public:
-    explicit IconFetcher(QObject* parent = 0);
-    void setNetworkAccessManager(QNetworkAccessManager* manager) { m_manager = manager; }
-    void fetchIcon(const QUrl &url);
+    struct Pair {
+        QUrl url;
+        QTreeWidgetItem* item;
+    };
 
-    void setData(const QVariant &data) { m_data = data; }
-    QVariant data() { return m_data; }
+    explicit BookmarksImportIconFetcher(QObject* parent = 0);
 
-    QUrl url() { return m_url; }
+    void addEntry(const QUrl &url, QTreeWidgetItem* item);
+    void startFetching();
 
 signals:
-    void iconFetched(QImage);
-    void finished();
-
-public slots:
+    void iconFetched(const QImage &image, QTreeWidgetItem* item);
+    void oneFinished();
 
 private slots:
-    void pageDownloaded();
-    void iconDownloaded();
+    void slotStartFetching();
+
+    void slotIconFetched(const QImage &image);
+    void slotFetcherFinished();
 
 private:
-    QNetworkAccessManager* m_manager;
-
-    QVariant m_data;
-    QUrl m_url;
+    QList<Pair> m_pairs;
+    QList<IconFetcher*> m_fetchers;
 
 };
 
-#endif // ICONFETCHER_H
+#endif // BOOKMARKSIMPORTICONFETCHER_H

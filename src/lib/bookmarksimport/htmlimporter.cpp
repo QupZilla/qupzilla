@@ -45,40 +45,91 @@ bool HtmlImporter::openFile()
     return true;
 }
 
+int qzMin(int a, int b)
+{
+    if (a > -1 && b > -1) {
+        return qMin(a, b);
+    }
+
+    if (a > -1) {
+        return a;
+    }
+    else {
+        return b;
+    }
+}
+
 QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
 {
     QList<BookmarksModel::Bookmark> list;
 
-    QString bookmarks = m_file.readAll();
+    QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
 
-    QRegExp rx("<a (.*)</a>", Qt::CaseInsensitive);
-    rx.setMinimal(true);
+    bookmarks = bookmarks.mid(0, bookmarks.lastIndexOf("</DL><p>"));
+    int start = bookmarks.indexOf("<DL><p>", Qt::CaseInsensitive);
 
-    int pos = 0;
-    while ((pos = rx.indexIn(bookmarks, pos)) != -1) {
-        QString string = rx.cap(0);
-        pos += rx.matchedLength();
+    QStringList folders("Html Import");
 
-        QRegExp rx2(">(.*)</a>", Qt::CaseInsensitive);
-        rx2.setMinimal(true);
-        rx2.indexIn(string);
-        QString name = rx2.cap(1);
+    while (start > 0) {
+        QString string = bookmarks.mid(start);
 
-        rx2.setPattern("href=\"(.*)\"");
-        rx2.indexIn(string);
-        QUrl url = QUrl::fromEncoded(rx2.cap(1).toUtf8());
+        int posOfFolder = string.indexOf("<DT><H3", Qt::CaseInsensitive);
+        int posOfEndFolder = string.indexOf("</DL><p>", Qt::CaseInsensitive);
+        int posOfLink = string.indexOf("<DT><A", Qt::CaseInsensitive);
 
-        if (name.isEmpty() || url.isEmpty() || url.scheme() == "place" || url.scheme() == "about") {
-            continue;
+        int nearest = qzMin(posOfLink, qzMin(posOfFolder, posOfEndFolder));
+        if (nearest == -1) {
+            break;
         }
 
-        BookmarksModel::Bookmark b;
-        b.folder = "Html Import";
-        b.title = name;
-        b.url = url;
+        if (nearest == posOfFolder) {
+            // Next is folder
+            QRegExp rx("<DT><H3(.*)>(.*)</H3>", Qt::CaseInsensitive);
+            rx.setMinimal(true);
+            rx.indexIn(string);
 
-        list.append(b);
+//            QString arguments = rx.cap(1);
+            QString folderName = rx.cap(2);
+
+            folders.append(folderName);
+
+            start += posOfFolder + rx.cap(0).size();
+        }
+        else if (nearest == posOfEndFolder) {
+            // Next is end of folder
+            folders.removeLast();
+
+            start += posOfEndFolder + 8;
+        }
+        else {
+            // Next is link
+            QRegExp rx("<DT><A(.*)>(.*)</A>", Qt::CaseInsensitive);
+            rx.setMinimal(true);
+            rx.indexIn(string);
+
+            QString arguments = rx.cap(1);
+            QString linkName = rx.cap(2);
+
+            QRegExp rx2("HREF=\"(.*)\"", Qt::CaseInsensitive);
+            rx2.setMinimal(true);
+            rx2.indexIn(arguments);
+
+            QUrl url = QUrl::fromEncoded(rx2.cap(1).toUtf8());
+
+            start += posOfLink + rx.cap(0).size();
+
+            if (linkName.isEmpty() || url.isEmpty() || url.scheme() == "place" || url.scheme() == "about") {
+                continue;
+            }
+
+            BookmarksModel::Bookmark b;
+            b.folder = folders.last();
+            b.title = linkName;
+            b.url = url;
+
+            list.append(b);
+        }
     }
 
     return list;
