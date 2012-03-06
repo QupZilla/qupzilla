@@ -50,8 +50,9 @@ public:
     bool hasRss() { return m_hasRss; }
 
     QWidget* overlayForJsAlert();
-
     void disconnectObjects();
+
+    void fakePageLoading(int progress);
 
 signals:
     void wantsCloseTab(int);

@@ -386,6 +386,13 @@ void TabbedWebView::disconnectObjects()
     WebView::disconnectObjects();
 }
 
+void TabbedWebView::fakePageLoading(int progress)
+{
+    WebView::slotLoadStarted();
+    slotLoadStarted();
+    loadingProgress(progress);
+}
+
 TabbedWebView::~TabbedWebView()
 {
 }

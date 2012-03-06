@@ -34,6 +34,19 @@
 #include <QWebFrame>
 #include <QClipboard>
 
+WebSearchBar_Button::WebSearchBar_Button(QWidget *parent)
+    : ClickableLabel(parent)
+{
+    setObjectName("websearchbar-searchbutton");
+    setCursor(QCursor(Qt::PointingHandCursor));
+    setFocusPolicy(Qt::ClickFocus);
+}
+
+void WebSearchBar_Button::contextMenuEvent(QContextMenuEvent *event)
+{
+    event->accept();
+}
+
 WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     : LineEdit(parent)
     , p_QupZilla(mainClass)
@@ -42,10 +55,8 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     , m_clearAction(0)
 {
     setObjectName("websearchbar");
-    m_buttonSearch = new ClickableLabel(this);
-    m_buttonSearch->setObjectName("websearchbar-searchbutton");
-    m_buttonSearch->setCursor(QCursor(Qt::PointingHandCursor));
-    m_buttonSearch->setFocusPolicy(Qt::ClickFocus);
+
+    m_buttonSearch = new WebSearchBar_Button(this);
 
     m_boxSearchType = new ButtonWithMenu(this);
     m_boxSearchType->setObjectName("websearchbar-searchprovider-comobobox");
