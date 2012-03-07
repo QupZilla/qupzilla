@@ -1782,7 +1782,7 @@
     <message>
         <location filename="../src/lib/other/licenseviewer.cpp" line="25"/>
         <source>License Viewer</source>
-        <translation type="unfinished">Lizenz anzeigen</translation>
+        <translation>Lizenz anzeigen</translation>
     </message>
 </context>
 <context>
@@ -3095,22 +3095,22 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML Dateien</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild-Dateien</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>Text-Dateien</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Dateien</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1785"/>
