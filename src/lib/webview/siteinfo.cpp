@@ -138,9 +138,12 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
     connect(ui->secDetailsButton, SIGNAL(clicked()), this, SLOT(securityDetailsClicked()));
+    connect(ui->saveButton, SIGNAL(clicked(QAbstractButton*)), this, SLOT(downloadImage()));
+
     connect(ui->treeImages, SIGNAL(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)), this, SLOT(showImagePreview(QTreeWidgetItem*)));
-    ui->treeImages->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->treeImages, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(imagesCustomContextMenuRequested(const QPoint &)));
+
+    ui->treeImages->setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
 void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)
@@ -154,7 +157,7 @@ void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)
     menu.addAction(QIcon::fromTheme("edit-copy"), tr("Copy Image Location"), this, SLOT(copyActionData()))->setData(item->text(1));
     menu.addAction(tr("Copy Image Name"), this, SLOT(copyActionData()))->setData(item->text(0));
     menu.addSeparator();
-    menu.addAction(QIcon::fromTheme("document-save"), tr("Save Image to Disk"), this, SLOT(downloadImage()))->setData(ui->treeImages->indexOfTopLevelItem(item));
+    menu.addAction(QIcon::fromTheme("document-save"), tr("Save Image to Disk"), this, SLOT(downloadImage()));
     menu.exec(QCursor::pos());
 }
 
@@ -167,28 +170,26 @@ void SiteInfo::copyActionData()
 
 void SiteInfo::downloadImage()
 {
-    if (QAction* action = qobject_cast<QAction*>(sender())) {
-        QTreeWidgetItem* item = ui->treeImages->topLevelItem(action->data().toInt());
-        if (!item) {
-            return;
-        }
+    QTreeWidgetItem* item = ui->treeImages->currentItem();
+    if (!item) {
+        return;
+    }
 
-        if (m_activePixmap.isNull()) {
-            QMessageBox::warning(this, tr("Error!"), tr("This preview is not available!"));
-            return;
-        }
+    if (m_activePixmap.isNull()) {
+        QMessageBox::warning(this, tr("Error!"), tr("This preview is not available!"));
+        return;
+    }
 
-        QString imageFileName = qz_getFileNameFromUrl(QUrl(item->text(1)));
+    QString imageFileName = qz_getFileNameFromUrl(QUrl(item->text(1)));
 
-        QString filePath = QFileDialog::getSaveFileName(this, tr("Save image..."), QDir::homePath() + "/" + imageFileName);
-        if (filePath.isEmpty()) {
-            return;
-        }
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Save image..."), QDir::homePath() + "/" + imageFileName);
+    if (filePath.isEmpty()) {
+        return;
+    }
 
-        if (!m_activePixmap.save(filePath)) {
-            QMessageBox::critical(this, tr("Error!"), tr("Cannot write to file!"));
-            return;
-        }
+    if (!m_activePixmap.save(filePath)) {
+        QMessageBox::critical(this, tr("Error!"), tr("Cannot write to file!"));
+        return;
     }
 }
 

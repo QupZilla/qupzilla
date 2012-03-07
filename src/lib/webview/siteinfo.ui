@@ -7,40 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>590</width>
-    <height>455</height>
+    <height>492</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Site Info</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="6" column="1">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="SqueezeLabelV2" name="heading">
-     <property name="maximumSize">
-      <size>
-       <width>550</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="textInteractionFlags">
-      <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
+   <item row="0" column="0">
     <widget class="QListWidget" name="listWidget">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -101,7 +75,23 @@
      </item>
     </widget>
    </item>
-   <item row="4" column="1">
+   <item row="1" column="0">
+    <widget class="SqueezeLabelV2" name="heading">
+     <property name="maximumSize">
+      <size>
+       <width>550</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
       <number>0</number>
@@ -279,35 +269,48 @@
       </layout>
      </widget>
      <widget class="QWidget" name="page_3">
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
         <widget class="QSplitter" name="splitter">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <widget class="QTreeWidget" name="treeImages">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="itemsExpandable">
-           <bool>false</bool>
-          </property>
-          <attribute name="headerMinimumSectionSize">
-           <number>200</number>
-          </attribute>
-          <column>
-           <property name="text">
-            <string>Image</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Image address</string>
-           </property>
-          </column>
+         <widget class="QWidget" name="verticalLayoutWidget">
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QTreeWidget" name="treeImages">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="itemsExpandable">
+              <bool>false</bool>
+             </property>
+             <attribute name="headerMinimumSectionSize">
+              <number>200</number>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>Image</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Image address</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDialogButtonBox" name="saveButton">
+             <property name="standardButtons">
+              <set>QDialogButtonBox::Save</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="layoutWidget">
           <layout class="QVBoxLayout" name="verticalLayout">
@@ -369,6 +372,16 @@
        </item>
       </layout>
      </widget>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok</set>
+     </property>
     </widget>
    </item>
   </layout>

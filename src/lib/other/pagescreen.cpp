@@ -27,15 +27,13 @@
 #include <QtConcurrentRun>
 #include <QPushButton>
 
-QImage scale(QImage image)
-{
-    return image.scaled(QSize(470, 370), Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
-}
-
 PageScreen::PageScreen(WebView* view, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::PageScreen)
     , m_view(view)
+    , m_imageScaling(0)
+    , m_horizontalScrollbarSize(0)
+    , m_verticalScrollbarSize(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
@@ -43,6 +41,8 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
     QMovie* mov = new QMovie(":html/loading.gif");
     ui->label->setMovie(mov);
     mov->start();
+
+    m_pageTitle = m_view->title();
 
     connect(ui->buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(dialogAccepted()));
     connect(ui->buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), this, SLOT(close()));
@@ -52,7 +52,8 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
 
 void PageScreen::dialogAccepted()
 {
-    const QString &path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."), tr("screen.png"));
+    const QString &path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."),
+                                                       QString("%1.png").arg(qz_filterCharsFromFilename(m_pageTitle)));
 
     if (!path.isEmpty()) {
         m_pageImage.save(path);
@@ -71,12 +72,28 @@ void PageScreen::createThumbnail()
     page->mainFrame()->render(&painter);
     painter.end();
 
+    m_verticalScrollbarSize = page->mainFrame()->scrollBarGeometry(Qt::Vertical).width();
+    m_horizontalScrollbarSize = page->mainFrame()->scrollBarGeometry(Qt::Horizontal).height();
+
     page->setViewportSize(originalSize);
 
     m_imageScaling = new QFutureWatcher<QImage>(this);
     connect(m_imageScaling, SIGNAL(finished()), SLOT(showImage()));
 
-    m_imageScaling->setFuture(QtConcurrent::run(scale, m_pageImage));
+    m_imageScaling->setFuture(QtConcurrent::run(this, &PageScreen::scaleImage));
+}
+
+QImage PageScreen::scaleImage()
+{
+    if (m_verticalScrollbarSize > 0 || m_horizontalScrollbarSize > 0) {
+        QRect newRect = m_pageImage.rect();
+        newRect.setWidth(newRect.width() - m_verticalScrollbarSize);
+        newRect.setHeight(newRect.height() - m_horizontalScrollbarSize);
+
+        m_pageImage = m_pageImage.copy(newRect);
+    }
+
+    return m_pageImage.scaledToWidth(450, Qt::SmoothTransformation);
 }
 
 void PageScreen::showImage()

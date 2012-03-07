@@ -171,7 +171,7 @@ void AKN_Handler::handleAccessKey(QKeyEvent* event)
         return;
     }
 
-    QChar key = text.at(0).toUpper();
+    QChar key = text.at(0);
 
     if (m_accessKeyNodes.contains(key)) {
         QWebElement element = m_accessKeyNodes[key];
@@ -225,6 +225,9 @@ void AKN_Handler::showAccessKeys()
         unusedKeys << QLatin1Char(c);
     }
     for (char c = '0'; c <= '9'; ++c) {
+        unusedKeys << QLatin1Char(c);
+    }
+    for (char c = 'a'; c <= 'z'; ++c) {
         unusedKeys << QLatin1Char(c);
     }
 

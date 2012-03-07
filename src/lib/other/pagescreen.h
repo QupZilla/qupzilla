@@ -40,6 +40,8 @@ public:
     explicit PageScreen(WebView* view, QWidget* parent);
     ~PageScreen();
 
+    QImage scaleImage();
+
 private slots:
     void createThumbnail();
     void showImage();
@@ -52,8 +54,11 @@ private:
     Ui::PageScreen* ui;
     WebView* m_view;
     QImage m_pageImage;
+    QString m_pageTitle;
 
     QFutureWatcher<QImage>* m_imageScaling;
+    int m_horizontalScrollbarSize;
+    int m_verticalScrollbarSize;
 };
 
 #endif // PAGESCREEN_H

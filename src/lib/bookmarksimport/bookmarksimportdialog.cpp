@@ -173,9 +173,10 @@ void BookmarksImportDialog::iconFetched(const QImage &image, QTreeWidgetItem* it
 
     Bookmark b = item->data(0, Qt::UserRole + 10).value<Bookmark>();
 
-    m_exportedBookmarks.removeOne(b);
-    b.image = image;
-    m_exportedBookmarks.append(b);
+    int index = m_exportedBookmarks.indexOf(b);
+    if (index != -1) {
+        m_exportedBookmarks[index].image = image;
+    }
 }
 
 bool BookmarksImportDialog::exportedOK()
