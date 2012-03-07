@@ -74,6 +74,8 @@ void PluginListDelegate::drawDisplay(QPainter* painter, const QStyleOptionViewIt
 
 QSize PluginListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    Q_UNUSED(index)
+
     const int textMargin = QApplication::style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
 
     QSize size;
