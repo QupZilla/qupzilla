@@ -78,6 +78,12 @@ void PluginProxy::registerAppEventHandler(const PluginProxy::EventHandlerType &t
         }
         break;
 
+    case WheelEventHandler:
+        if (!m_wheelEventHandlers.contains(obj)) {
+            m_wheelEventHandlers.append(obj);
+        }
+        break;
+
     default:
         qWarning("PluginProxy::registerAppEventHandler registering unknown event handler type");
         break;
@@ -147,6 +153,19 @@ bool PluginProxy::processMouseMove(const Qz::ObjectName &type, QObject* obj, QMo
 
     foreach(PluginInterface * iPlugin, m_mouseMoveHandlers) {
         if (iPlugin->mouseMove(type, obj, event)) {
+            accepted = true;
+        }
+    }
+
+    return accepted;
+}
+
+bool PluginProxy::processWheelEvent(const Qz::ObjectName &type, QObject *obj, QWheelEvent *event)
+{
+    bool accepted = false;
+
+    foreach(PluginInterface * iPlugin, m_wheelEventHandlers) {
+        if (iPlugin->wheelEvent(type, obj, event)) {
             accepted = true;
         }
     }

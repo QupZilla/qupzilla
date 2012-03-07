@@ -50,9 +50,12 @@ bool Plugins::loadPlugin(Plugins::Plugin* plugin)
         return false;
     }
 
-    m_availablePlugins.removeOne(*plugin);
-    plugin->instance = initPlugin(iPlugin, plugin->pluginLoader);
-    m_availablePlugins.append(*plugin);
+    int index = m_availablePlugins.indexOf(*plugin);
+    if (index == -1) {
+        return false;
+    }
+
+    m_availablePlugins[index].instance = initPlugin(iPlugin, plugin->pluginLoader);
 
     refreshLoadedPlugins();
 

@@ -780,6 +780,10 @@ void WebView::muteMedia()
 
 void WebView::wheelEvent(QWheelEvent* event)
 {
+    if (mApp->plugins()->processWheelEvent(Qz::ON_WebView, this, event)) {
+        return;
+    }
+
     if (event->modifiers() & Qt::ControlModifier) {
         int numDegrees = event->delta() / 8;
         int numSteps = numDegrees / 15;
