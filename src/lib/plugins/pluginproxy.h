@@ -28,7 +28,8 @@ class QT_QUPZILLA_EXPORT PluginProxy : public Plugins
 public:
     enum EventHandlerType { MouseDoubleClickHandler, MousePressHandler, MouseReleaseHandler,
                             MouseMoveHandler, KeyPressHandler, KeyReleaseHandler,
-                            WheelEventHandler};
+                            WheelEventHandler
+                          };
 
     explicit PluginProxy();
 

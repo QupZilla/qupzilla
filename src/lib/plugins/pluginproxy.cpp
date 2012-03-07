@@ -160,7 +160,7 @@ bool PluginProxy::processMouseMove(const Qz::ObjectName &type, QObject* obj, QMo
     return accepted;
 }
 
-bool PluginProxy::processWheelEvent(const Qz::ObjectName &type, QObject *obj, QWheelEvent *event)
+bool PluginProxy::processWheelEvent(const Qz::ObjectName &type, QObject* obj, QWheelEvent* event)
 {
     bool accepted = false;
 

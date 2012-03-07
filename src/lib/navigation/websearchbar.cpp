@@ -34,7 +34,7 @@
 #include <QWebFrame>
 #include <QClipboard>
 
-WebSearchBar_Button::WebSearchBar_Button(QWidget *parent)
+WebSearchBar_Button::WebSearchBar_Button(QWidget* parent)
     : ClickableLabel(parent)
 {
     setObjectName("websearchbar-searchbutton");
@@ -42,7 +42,7 @@ WebSearchBar_Button::WebSearchBar_Button(QWidget *parent)
     setFocusPolicy(Qt::ClickFocus);
 }
 
-void WebSearchBar_Button::contextMenuEvent(QContextMenuEvent *event)
+void WebSearchBar_Button::contextMenuEvent(QContextMenuEvent* event)
 {
     event->accept();
 }

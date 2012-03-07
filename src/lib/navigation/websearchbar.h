@@ -41,7 +41,7 @@ public:
     explicit WebSearchBar_Button(QWidget* parent = 0);
 
 private:
-    void contextMenuEvent(QContextMenuEvent *event);
+    void contextMenuEvent(QContextMenuEvent* event);
 };
 
 class QT_QUPZILLA_EXPORT WebSearchBar : public LineEdit
