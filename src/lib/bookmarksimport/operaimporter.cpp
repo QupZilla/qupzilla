@@ -47,7 +47,7 @@ QList<BookmarksModel::Bookmark> OperaImporter::exportBookmarks()
 {
     QList<BookmarksModel::Bookmark> list;
 
-    QString bookmarks = m_file.readAll();
+    QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
 
     QRegExp rx("#URL(.*)CREATED", Qt::CaseSensitive);

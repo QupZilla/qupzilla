@@ -19,6 +19,9 @@ HEADERS = \
     mousegesturesplugin.h \
     mousegesturessettingsdialog.h
 
+FORMS += \
+    mousegesturessettingsdialog.ui
+
 RESOURCES = mousegestures.qrc
 
 TRANSLATIONS = translations/cs_CZ.ts \
@@ -28,6 +31,3 @@ TRANSLATIONS = translations/cs_CZ.ts \
     translations/zh_TW.ts \
 
 include(../../plugins.pri)
-
-FORMS += \
-    mousegesturessettingsdialog.ui

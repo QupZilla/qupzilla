@@ -198,8 +198,9 @@ void QupZilla::postLaunch()
     }
 
     aboutToHideEditMenu();
-
     setUpdatesEnabled(true);
+
+    mApp->plugins()->emitMainWindowCreated(this);
 
     emit startingCompleted();
 }
@@ -1416,7 +1417,13 @@ void QupZilla::searchOnPage()
 
 void QupZilla::openFile()
 {
-    const QString &filePath = QFileDialog::getOpenFileName(this, tr("Open file..."), QDir::homePath(), "(*.html *.htm *.jpg *.png)");
+    const QString &fileTypes = QString("%1(*.html *.htm *.shtml *.shtm);;"
+                                       "%2(*.txt);;"
+                                       "%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg);;"
+                                       "%4(*.*)").arg(tr("HTML files"), tr("Image files"), tr("Text files"), tr("All files"));
+
+    const QString &filePath = QFileDialog::getOpenFileName(this, tr("Open file..."), QDir::homePath(), fileTypes);
+
     if (!filePath.isEmpty()) {
         loadAddress(QUrl::fromLocalFile(filePath));
     }
@@ -1542,6 +1549,7 @@ void QupZilla::startPrivate(bool state)
         QMessageBox::StandardButton button = QMessageBox::question(this, tr("Start Private Browsing"),
                                              message, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
         if (button != QMessageBox::Yes) {
+            m_actionPrivateBrowsing->setChecked(false);
             return;
         }
 
@@ -1560,6 +1568,10 @@ void QupZilla::resizeEvent(QResizeEvent* event)
 
 void QupZilla::keyPressEvent(QKeyEvent* event)
 {
+    if (mApp->plugins()->processKeyPress(Qz::ON_QupZilla, this, event)) {
+        return;
+    }
+
     int number = -1;
 
     switch (event->key()) {
@@ -1688,6 +1700,15 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
     QMainWindow::keyPressEvent(event);
 }
 
+void QupZilla::keyReleaseEvent(QKeyEvent* event)
+{
+    if (mApp->plugins()->processKeyRelease(Qz::ON_QupZilla, this, event)) {
+        return;
+    }
+
+    QMainWindow::keyReleaseEvent(event);
+}
+
 void QupZilla::closeEvent(QCloseEvent* event)
 {
     if (mApp->isClosing()) {
@@ -1744,6 +1765,8 @@ void QupZilla::disconnectObjects()
             pointer.data()->deleteLater();
         }
     }
+
+    mApp->plugins()->emitMainWindowDeleted(this);
 }
 
 void QupZilla::closeWindow()

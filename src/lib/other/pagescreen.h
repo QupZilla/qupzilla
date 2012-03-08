@@ -19,6 +19,7 @@
 #define PAGESCREEN_H
 
 #include <QDialog>
+#include <QFutureWatcher>
 
 #include "qz_namespace.h"
 
@@ -39,15 +40,25 @@ public:
     explicit PageScreen(WebView* view, QWidget* parent);
     ~PageScreen();
 
+    QImage scaleImage();
+
 private slots:
-    void buttonClicked(QAbstractButton* b);
+    void createThumbnail();
+    void showImage();
+
+    void dialogAccepted();
 
 private:
     void createPixmap();
 
     Ui::PageScreen* ui;
     WebView* m_view;
-    QPixmap m_pagePixmap;
+    QImage m_pageImage;
+    QString m_pageTitle;
+
+    QFutureWatcher<QImage>* m_imageScaling;
+    int m_horizontalScrollbarSize;
+    int m_verticalScrollbarSize;
 };
 
 #endif // PAGESCREEN_H

@@ -22,6 +22,8 @@
 
 #include <QObject>
 #include <QIcon>
+#include <QVariant>
+#include <QUrl>
 
 class QNetworkAccessManager;
 class QUrl;
@@ -36,8 +38,13 @@ public:
     void setNetworkAccessManager(QNetworkAccessManager* manager) { m_manager = manager; }
     void fetchIcon(const QUrl &url);
 
+    void setData(const QVariant &data) { m_data = data; }
+    QVariant data() { return m_data; }
+
+    QUrl url() { return m_url; }
+
 signals:
-    void iconFetched(QIcon);
+    void iconFetched(QImage);
     void finished();
 
 public slots:
@@ -48,6 +55,9 @@ private slots:
 
 private:
     QNetworkAccessManager* m_manager;
+
+    QVariant m_data;
+    QUrl m_url;
 
 };
 

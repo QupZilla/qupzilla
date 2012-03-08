@@ -118,7 +118,7 @@ void PageThumbnailer::createThumbnail(bool status)
 
     m_title = m_page->mainFrame()->title();
 
-    QImage image(m_page->viewportSize(), QImage::Format_ARGB32);
+    QImage image(m_page->viewportSize(), QImage::Format_ARGB32_Premultiplied);
     QPainter painter(&image);
     m_page->mainFrame()->render(&painter);
     painter.end();

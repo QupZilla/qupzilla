@@ -207,7 +207,8 @@ QString qz_getFileNameFromUrl(const QUrl &url)
         fileName = fileName.mid(pos);
         fileName.remove("/");
     }
-    return fileName;
+
+    return qz_filterCharsFromFilename(fileName);
 }
 
 QString qz_filterCharsFromFilename(const QString &name)

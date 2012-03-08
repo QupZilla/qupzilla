@@ -33,6 +33,8 @@ void IconFetcher::fetchIcon(const QUrl &url)
 
     FollowRedirectReply* reply = new FollowRedirectReply(url, m_manager);
     connect(reply, SIGNAL(finished()), this, SLOT(pageDownloaded()));
+
+    m_url = url;
 }
 
 void IconFetcher::pageDownloaded()
@@ -95,9 +97,8 @@ void IconFetcher::iconDownloaded()
     if (!response.isEmpty()) {
         QImage image;
         image.loadFromData(response);
-        QIcon icon = QIcon(QPixmap::fromImage(image));
-        if (!icon.isNull()) {
-            emit iconFetched(icon);
+        if (!image.isNull()) {
+            emit iconFetched(image);
         }
     }
 

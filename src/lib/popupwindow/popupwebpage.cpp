@@ -125,8 +125,7 @@ void PopupWebPage::checkBehaviour()
         TabbedWebView* view = p_QupZilla->weView(index);
         view->setWebPage(this);
         if (m_isLoading) {
-            view->slotLoadStarted();
-            view->loadingProgress(m_progress);
+            view->fakePageLoading(m_progress);
         }
     }
 }

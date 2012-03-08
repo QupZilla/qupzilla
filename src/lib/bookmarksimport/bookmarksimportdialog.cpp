@@ -22,18 +22,21 @@
 #include "operaimporter.h"
 #include "htmlimporter.h"
 #include "mainapplication.h"
-#include "iconfetcher.h"
+#include "bookmarksimporticonfetcher.h"
 #include "iconprovider.h"
 #include "networkmanager.h"
 
 #include <QWebSettings>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QThread>
 
 BookmarksImportDialog::BookmarksImportDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::BookmarksImportDialog)
     , m_currentPage(0)
+    , m_fetcher(0)
+    , m_fetcherThread(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
@@ -96,28 +99,53 @@ void BookmarksImportDialog::startFetchingIcons()
     ui->progressBar->setValue(0);
     ui->progressBar->setMaximum(m_exportedBookmarks.count());
 
-    int i = 0;
+    m_fetcherThread = new QThread();
+    m_fetcher = new BookmarksImportIconFetcher();
+    m_fetcher->moveToThread(m_fetcherThread);
+
+    QIcon defaultIcon = QIcon(QWebSettings::globalSettings()->webGraphic(QWebSettings::DefaultFrameIconGraphic));
+    QIcon folderIcon = style()->standardIcon(QStyle::SP_DirIcon);
+    QHash<QString, QTreeWidgetItem*> hash;
+
     foreach(const Bookmark & b, m_exportedBookmarks) {
-        QTreeWidgetItem* item = new QTreeWidgetItem();
+        QTreeWidgetItem* item;
+        QTreeWidgetItem* findParent = hash[b.folder];
+        if (findParent) {
+            item = new QTreeWidgetItem(findParent);
+        }
+        else {
+            QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->treeWidget);
+            newParent->setText(0, b.folder);
+            newParent->setIcon(0, folderIcon);
+            ui->treeWidget->addTopLevelItem(newParent);
+            hash[b.folder] = newParent;
+
+            item = new QTreeWidgetItem(newParent);
+        }
+
+        QVariant bookmarkVariant = qVariantFromValue(b);
         item->setText(0, b.title);
-        item->setIcon(0, QWebSettings::globalSettings()->webGraphic(QWebSettings::DefaultFrameIconGraphic));
+        if (b.image.isNull()) {
+            item->setIcon(0, defaultIcon);
+        }
+        else {
+            item->setIcon(0, QIcon(QPixmap::fromImage(b.image)));
+        }
         item->setText(1, b.url.toString());
-        item->setWhatsThis(0, QString::number(i));
+        item->setData(0, Qt::UserRole + 10, bookmarkVariant);
 
         ui->treeWidget->addTopLevelItem(item);
-        i++;
 
-        IconFetcher* fetcher = new IconFetcher(this);
-        fetcher->setNetworkAccessManager(mApp->networkManager());
-        connect(fetcher, SIGNAL(finished()), this, SLOT(loadFinished()));
-        connect(fetcher, SIGNAL(iconFetched(QIcon)), this, SLOT(iconFetched(QIcon)));
-        fetcher->fetchIcon(b.url);
-
-        QPair<IconFetcher*, QUrl> pair;
-        pair.first = fetcher;
-        pair.second = b.url;
-        m_fetchers.append(pair);
+        m_fetcher->addEntry(b.url, item);
     }
+
+    ui->treeWidget->expandAll();
+
+    connect(m_fetcher, SIGNAL(iconFetched(QImage, QTreeWidgetItem*)), this, SLOT(iconFetched(QImage, QTreeWidgetItem*)));
+    connect(m_fetcher, SIGNAL(oneFinished()), this, SLOT(loadFinished()));
+
+    m_fetcherThread->start();
+    m_fetcher->startFetching();
 }
 
 void BookmarksImportDialog::stopDownloading()
@@ -139,42 +167,15 @@ void BookmarksImportDialog::loadFinished()
     }
 }
 
-void BookmarksImportDialog::iconFetched(const QIcon &icon)
+void BookmarksImportDialog::iconFetched(const QImage &image, QTreeWidgetItem* item)
 {
-    IconFetcher* fetcher = qobject_cast<IconFetcher*>(sender());
-    if (!fetcher) {
-        return;
-    }
+    item->setIcon(0, QIcon(QPixmap::fromImage(image)));
 
-    QUrl url;
-    for (int i = 0; i < m_fetchers.count(); i++) {
-        QPair<IconFetcher*, QUrl> pair = m_fetchers.at(i);
-        if (pair.first == fetcher) {
-            url = pair.second;
-            break;
-        }
-    }
+    Bookmark b = item->data(0, Qt::UserRole + 10).value<Bookmark>();
 
-    if (url.isEmpty()) {
-        return;
-    }
-
-    QList<QTreeWidgetItem*> items = ui->treeWidget->findItems(url.toString(), Qt::MatchExactly, 1);
-    if (items.count() == 0) {
-        return;
-    }
-
-    foreach(QTreeWidgetItem * item, items) {
-        item->setIcon(0, icon);
-
-        foreach(Bookmark b, m_exportedBookmarks) {
-            if (b.url == url) {
-                m_exportedBookmarks.removeOne(b);
-                b.image = icon.pixmap(16, 16).toImage();
-                m_exportedBookmarks.append(b);
-                break;
-            }
-        }
+    int index = m_exportedBookmarks.indexOf(b);
+    if (index != -1) {
+        m_exportedBookmarks[index].image = image;
     }
 }
 
@@ -263,10 +264,6 @@ void BookmarksImportDialog::addExportedBookmarks()
 
     BookmarksModel* model = mApp->bookmarksModel();
 
-    if (m_exportedBookmarks.count() > 0) {
-        model->createFolder(m_exportedBookmarks.at(0).folder);
-    }
-
     foreach(const Bookmark & b, m_exportedBookmarks) {
         model->saveBookmark(b.url, b.title, IconProvider::iconFromImage(b.image), b.folder);
     }
@@ -349,13 +346,13 @@ void BookmarksImportDialog::setupBrowser(Browser browser)
 
 BookmarksImportDialog::~BookmarksImportDialog()
 {
-    if (m_fetchers.count() > 0) {
-        for (int i = 0; i < m_fetchers.count(); i++) {
-            tr("");
-            IconFetcher* fetcher = m_fetchers.at(i).first;
-            fetcher->deleteLater();
-        }
-    }
-
     delete ui;
+
+    if (m_fetcherThread) {
+        m_fetcherThread->exit();
+        m_fetcherThread->wait();
+
+        m_fetcherThread->deleteLater();
+        m_fetcher->deleteLater();
+    }
 }

@@ -27,6 +27,13 @@ GoIcon::GoIcon(QWidget* parent)
     setHidden(true);
 }
 
+void GoIcon::contextMenuEvent(QContextMenuEvent* ev)
+{
+    // Prevent propagating to LocationBar
+    ev->accept();
+}
+
+
 void GoIcon::mousePressEvent(QMouseEvent* ev)
 {
     ClickableLabel::mousePressEvent(ev);

@@ -146,7 +146,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     startProfileIndexChanged(ui->startProfile->currentText());
 
     //APPEREANCE
-    m_themesManager = new ThemeManager(ui->themesWidget);
+    m_themesManager = new ThemeManager(ui->themesWidget, this);
     settings.beginGroup("Browser-View-Settings");
     ui->showStatusbar->setChecked(settings.value("showStatusBar", true).toBool());
     ui->showBookmarksToolbar->setChecked(p_QupZilla->bookmarksToolbar()->isVisible());

@@ -15,11 +15,11 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
+#include "tabwidget.h"
+#include "tabbar.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "qupzilla.h"
-#include "tabwidget.h"
-#include "tabbar.h"
 #include "iconprovider.h"
 #include "mainapplication.h"
 #include "webtab.h"
@@ -27,7 +27,6 @@
 #include "closedtabsmanager.h"
 #include "progressbar.h"
 #include "navigationbar.h"
-#include "toolbutton.h"
 #include "locationbar.h"
 #include "websearchbar.h"
 #include "settings.h"
@@ -37,71 +36,45 @@
 #include <QMenu>
 #include <QStackedWidget>
 #include <QWebHistory>
+#include <QFile>
 
-class QT_QUPZILLA_EXPORT NewTabButton : public QToolButton
+AddTabButton::AddTabButton(TabWidget* tabWidget, TabBar* tabBar)
+    : ToolButton(tabWidget)
+    , m_tabBar(tabBar)
+    , m_tabWidget(tabWidget)
 {
-public:
-    explicit NewTabButton(QWidget* parent) : QToolButton(parent) {
-#ifndef Q_WS_WIN
-        setIcon(QIcon::fromTheme("list-add"));
-        setIconSize(QSize(16, 16));
-        setAutoRaise(true);
-#endif
-    }
-    QSize sizeHint() const {
-        QSize siz = QToolButton::sizeHint();
-        siz.setWidth(26);
-        return siz;
-    }
+    setObjectName("tabwidget-button-addtab");
+    setAutoRaise(true);
+    setFocusPolicy(Qt::NoFocus);
+    setAcceptDrops(true);
+    setToolTip(TabWidget::tr("New Tab"));
+}
 
-#ifdef Q_WS_WIN
-private:
-    void paintEvent(QPaintEvent*) {
-        QPainter p(this);
-        QStyleOptionTabV3 opt;
-        opt.init(this);
-        style()->drawControl(QStyle::CE_TabBarTab, &opt, &p, this);
-
-        QPixmap pix(":/icons/other/list-add.png");
-        QRect r = this->rect();
-        r.setHeight(r.height() + 3);
-        r.setWidth(r.width() + 3);
-        style()->drawItemPixmap(&p, r, Qt::AlignCenter, pix);
-    }
-#endif
-};
-
-class QT_QUPZILLA_EXPORT TabListButton : public QToolButton
+void AddTabButton::dragEnterEvent(QDragEnterEvent* event)
 {
-public:
-    explicit TabListButton(QWidget* parent) : QToolButton(parent) {
+    const QMimeData* mime = event->mimeData();
+
+    if (mime->hasUrls()) {
+        event->acceptProposedAction();
+        return;
     }
 
-    QSize sizeHint() const {
-        QSize siz = QToolButton::sizeHint();
-        siz.setWidth(20);
-        return siz;
+    ToolButton::dragEnterEvent(event);
+}
+
+void AddTabButton::dropEvent(QDropEvent* event)
+{
+    const QMimeData* mime = event->mimeData();
+
+    if (!mime->hasUrls()) {
+        ToolButton::dropEvent(event);
+        return;
     }
 
-private:
-    void paintEvent(QPaintEvent*) {
-        QPainter p(this);
-        QStyleOptionToolButton opt;
-        opt.init(this);
-        if (isDown()) {
-            opt.state |= QStyle::State_On;
-        }
-        if (opt.state & QStyle::State_MouseOver) {
-            opt.activeSubControls = QStyle::SC_ToolButton;
-        }
-        if (!isChecked() && !isDown()) {
-            opt.state |= QStyle::State_Raised;
-        }
-        opt.state |= QStyle::State_AutoRaise;
-
-        style()->drawComplexControl(QStyle::CC_ToolButton, &opt, &p, this);
+    foreach(const QUrl & url, mime->urls()) {
+        m_tabWidget->addView(url, Qz::NT_SelectedTabAtTheEnd);
     }
-};
+}
 
 TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     : QTabWidget(parent)
@@ -142,11 +115,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     m_buttonListTabs->setAutoRaise(true);
     m_buttonListTabs->setFocusPolicy(Qt::NoFocus);
 
-    m_buttonAddTab = new ToolButton(this);
-    m_buttonAddTab->setObjectName("tabwidget-button-addtab");
-    m_buttonAddTab->setAutoRaise(true);
-    m_buttonAddTab->setToolTip(tr("New Tab"));
-    m_buttonAddTab->setFocusPolicy(Qt::NoFocus);
+    m_buttonAddTab = new AddTabButton(this, m_tabBar);
 
     connect(m_buttonAddTab, SIGNAL(clicked()), p_QupZilla, SLOT(addTab()));
     connect(m_menuTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabsMenu()));
@@ -755,8 +724,8 @@ bool TabWidget::restoreState(const QByteArray &state)
 void TabWidget::disconnectObjects()
 {
     disconnect(this);
-    disconnect(p_QupZilla);
     disconnect(mApp);
+    disconnect(p_QupZilla);
     disconnect(p_QupZilla->ipLabel());
 }
 

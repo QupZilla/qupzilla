@@ -81,6 +81,8 @@ private:
     Menu* m_menuMostVisited;
     ToolButton* m_mostVis;
     QHBoxLayout* m_layout;
+
+    Qt::ToolButtonStyle m_toolButtonStyle;
 };
 
 #endif // BOOKMARKSTOOLBAR_H

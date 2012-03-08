@@ -9,7 +9,7 @@ qtsingleapplication-uselib:!qtsingleapplication-buildlib {
     HEADERS += $$PWD/qtsingleapplication.h $$PWD/qtlocalpeer.h
 }
 
-win32 {
+os2|win32 {
     contains(TEMPLATE, lib):contains(CONFIG, shared):DEFINES += QT_QTSINGLEAPPLICATION_EXPORT
     else:qtsingleapplication-uselib:DEFINES += QT_QTSINGLEAPPLICATION_IMPORT
 }

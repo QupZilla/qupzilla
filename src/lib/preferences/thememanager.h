@@ -30,12 +30,14 @@ namespace Ui
 class ThemeManager;
 }
 
+class Preferences;
+
 class QT_QUPZILLA_EXPORT ThemeManager : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ThemeManager(QWidget* parent);
+    explicit ThemeManager(QWidget* parent, Preferences* preferences);
     ~ThemeManager();
 
     void save();
@@ -58,6 +60,8 @@ private:
     Theme parseTheme(const QString &name);
 
     Ui::ThemeManager* ui;
+    Preferences* m_preferences;
+
     QString m_activeTheme;
     QHash<QString, Theme> m_themeHash;
 };

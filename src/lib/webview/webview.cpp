@@ -60,6 +60,8 @@ WebView::WebView(QWidget* parent)
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
 
     qApp->installEventFilter(this);
+
+    mApp->plugins()->emitWebViewCreated(this);
 }
 
 QIcon WebView::icon() const
@@ -778,6 +780,10 @@ void WebView::muteMedia()
 
 void WebView::wheelEvent(QWheelEvent* event)
 {
+    if (mApp->plugins()->processWheelEvent(Qz::ON_WebView, this, event)) {
+        return;
+    }
+
     if (event->modifiers() & Qt::ControlModifier) {
         int numDegrees = event->delta() / 8;
         int numSteps = numDegrees / 15;
@@ -1019,3 +1025,9 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
     return QWebView::eventFilter(obj, event);
 }
 
+void WebView::disconnectObjects()
+{
+    disconnect(this);
+
+    mApp->plugins()->emitWebViewDeleted(this);
+}

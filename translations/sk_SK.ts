@@ -1397,6 +1397,13 @@
     </message>
 </context>
 <context>
+    <name>LicenseViewer</name>
+    <message>
+        <source>License Viewer</source>
+        <translation type="unfinished">Prehliadač licencie</translation>
+    </message>
+</context>
+<context>
     <name>LocationBar</name>
     <message>
         <source>Add RSS from this page...</source>
@@ -2646,6 +2653,22 @@
         <source>Configuration Information</source>
         <translation>Informácie o konfigurácií</translation>
     </message>
+    <message>
+        <source>HTML files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -3621,7 +3644,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>License Viewer</source>
-        <translation>Prehliadač licencie</translation>
+        <translation type="obsolete">Prehliadač licencie</translation>
     </message>
     <message>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>

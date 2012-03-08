@@ -41,6 +41,7 @@ private slots:
     void speedDialChanged();
 
 private:
+    void contextMenuEvent(QContextMenuEvent* ev);
     void mousePressEvent(QMouseEvent* ev);
 
     void setBookmarkSaved();

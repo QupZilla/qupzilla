@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "pluginlistdelegate.h"
 
+#include <QPainter>
 #include <QListWidget>
 #include <QTextLayout>
 #include <QTextDocument>
@@ -31,6 +32,20 @@ PluginListDelegate::PluginListDelegate(QListWidget* parent)
 
 void PluginListDelegate::drawDisplay(QPainter* painter, const QStyleOptionViewItem &option, const QRect &rect, const QString &text) const
 {
+    QPalette::ColorGroup cg = option.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
+
+    if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) {
+        cg = QPalette::Inactive;
+    }
+
+    if (option.state & QStyle::State_Selected) {
+        painter->fillRect(rect, option.palette.brush(cg, QPalette::Highlight));
+        painter->setPen(option.palette.color(cg, QPalette::HighlightedText));
+    }
+    else {
+        painter->setPen(option.palette.color(cg, QPalette::Text));
+    }
+
     QTextDocument textDocument;
     textDocument.setHtml(text);
 
@@ -42,27 +57,32 @@ void PluginListDelegate::drawDisplay(QPainter* painter, const QStyleOptionViewIt
 
     textLayout.beginLayout();
     qreal height = 0;
-    while (1) {
-        QTextLine line = textLayout.createLine();
-        if (!line.isValid()) {
-            break;
-        }
+    QTextLine line = textLayout.createLine();
 
+    while (line.isValid()) {
         line.setLineWidth(textRect.width());
         height += 3;
         line.setPosition(QPoint(0, height));
         height += line.height();
-    }
-    textLayout.endLayout();
 
+        line = textLayout.createLine();
+    }
+
+    textLayout.endLayout();
     textLayout.draw(painter, QPointF(textRect.left(), textRect.top()));
 }
 
 QSize PluginListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QSize size = QItemDelegate::sizeHint(option, index);
-    size.setWidth(m_listWidget->width() - 5);
-    size.setHeight(option.fontMetrics.height() * 4);
+    Q_UNUSED(index)
+
+    const int textMargin = QApplication::style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
+
+    QSize size;
+    size.setWidth(m_listWidget->width() - 10);
+
+    // ( height of font * 3 = 3 lines )  + ( text margins ) + ( 2 free lines = every line is 3px )
+    size.setHeight((option.fontMetrics.height() * 3) + (textMargin * 2) + (2 * 3));
 
     return size;
 }

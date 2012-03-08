@@ -374,6 +374,7 @@ void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
             p_QupZilla->showNavigationWithFullscreen();
         }
     }
+
     WebView::mouseMoveEvent(event);
 }
 
@@ -381,6 +382,15 @@ void TabbedWebView::disconnectObjects()
 {
     disconnect(this);
     disconnect(p_QupZilla->statusBar());
+
+    WebView::disconnectObjects();
+}
+
+void TabbedWebView::fakePageLoading(int progress)
+{
+    WebView::slotLoadStarted();
+    slotLoadStarted();
+    loadingProgress(progress);
 }
 
 TabbedWebView::~TabbedWebView()

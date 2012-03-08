@@ -41,7 +41,6 @@ enum CommandLineAction {
 
 enum ObjectName {
     ON_WebView,
-    ON_TabWidget,
     ON_TabBar,
     ON_QupZilla
 };

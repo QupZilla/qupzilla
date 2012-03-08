@@ -63,6 +63,16 @@ void BookmarksModel::setShowingOnlyIconsInToolbar(bool state)
     m_showOnlyIconsInToolbar = state;
 }
 
+bool BookmarksModel::isFolder(const QString &name)
+{
+    QSqlQuery query;
+    query.prepare("SELECT name FROM folders WHERE name = ?");
+    query.bindValue(0, name);
+    query.exec();
+
+    return query.next();
+}
+
 void BookmarksModel::setLastFolder(const QString &folder)
 {
     Settings settings;
@@ -152,6 +162,10 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
     QImage image = icon.pixmap(16, 16).toImage();
     if (image.isNull()) {
         image = QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage();
+    }
+
+    if (!isFolder(folder)) {
+        createFolder(folder);
     }
 
     QSqlQuery query;
@@ -292,14 +306,11 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
 
 bool BookmarksModel::createFolder(const QString &name)
 {
-    QSqlQuery query;
-    query.prepare("SELECT name FROM folders WHERE name = ?");
-    query.bindValue(0, name);
-    query.exec();
-    if (query.next()) {
+    if (isFolder(name)) {
         return false;
     }
 
+    QSqlQuery query;
     query.prepare("INSERT INTO folders (name, subfolder) VALUES (?, 'no')");
     query.bindValue(0, name);
     if (!query.exec()) {
@@ -397,14 +408,11 @@ QList<Bookmark> BookmarksModel::folderBookmarks(const QString &name)
 
 bool BookmarksModel::createSubfolder(const QString &name)
 {
-    QSqlQuery query;
-    query.prepare("SELECT name FROM folders WHERE name = ?");
-    query.bindValue(0, name);
-    query.exec();
-    if (query.next()) {
+    if (isFolder(name)) {
         return false;
     }
 
+    QSqlQuery query;
     query.prepare("INSERT INTO folders (name, subfolder) VALUES (?, 'yes')");
     query.bindValue(0, name);
     if (!query.exec()) {

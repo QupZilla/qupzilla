@@ -24,8 +24,12 @@
 
 class QT_QUPZILLA_EXPORT PluginProxy : public Plugins
 {
+    Q_OBJECT
 public:
-    enum EventHandlerType { MousePressHandler, MouseReleaseHandler, MouseMoveHandler, KeyPressHandler, KeyReleaseHandler };
+    enum EventHandlerType { MouseDoubleClickHandler, MousePressHandler, MouseReleaseHandler,
+                            MouseMoveHandler, KeyPressHandler, KeyReleaseHandler,
+                            WheelEventHandler
+                          };
 
     explicit PluginProxy();
 
@@ -34,21 +38,39 @@ public:
 
     void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r);
 
+    bool processMouseDoubleClick(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
     bool processMousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
-    bool processMouseRelease(const Qz::ObjectName &object, QObject* obj, QMouseEvent* event);
-    bool processMouseMove(const Qz::ObjectName &object, QObject* obj, QMouseEvent* event);
+    bool processMouseRelease(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
+    bool processMouseMove(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
 
-    bool processKeyPress(const Qz::ObjectName &object, QObject* obj, QKeyEvent* event);
-    bool processKeyRelease(const Qz::ObjectName &object, QObject* obj, QKeyEvent* event);
+    bool processWheelEvent(const Qz::ObjectName &type, QObject* obj, QWheelEvent* event);
+
+    bool processKeyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event);
+    bool processKeyRelease(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event);
+
+    void emitWebViewCreated(WebView* view);
+    void emitWebViewDeleted(WebView* view);
+
+    void emitMainWindowCreated(QupZilla* window);
+    void emitMainWindowDeleted(QupZilla* window);
+
+signals:
+    void webViewCreated(WebView* view);
+    void webViewDeleted(WebView* view);
+
+    void mainWindowCreated(QupZilla* window);
+    void mainWindowDeleted(QupZilla* window);
 
 private:
+    QList<PluginInterface*> m_mouseDoubleClickHandlers;
     QList<PluginInterface*> m_mousePressHandlers;
     QList<PluginInterface*> m_mouseReleaseHandlers;
     QList<PluginInterface*> m_mouseMoveHandlers;
 
+    QList<PluginInterface*> m_wheelEventHandlers;
+
     QList<PluginInterface*> m_keyPressHandlers;
     QList<PluginInterface*> m_keyReleaseHandlers;
-
 };
 
 #define QZ_REGISTER_EVENT_HANDLER(Type) mApp->plugins()->registerAppEventHandler(Type, this);

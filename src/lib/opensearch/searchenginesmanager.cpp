@@ -159,15 +159,16 @@ void SearchEnginesManager::engineChangedImage()
     foreach(Engine e, m_allEngines) {
         if (e.name == engine->name() && e.url.contains(engine->searchUrl("%s").toString())
                 && !engine->image().isNull()) {
-            e.icon = QIcon(QPixmap::fromImage(engine->image()));
 
-            m_allEngines.removeOne(e);
-            m_allEngines.append(e);
+            int index = m_allEngines.indexOf(e);
+            if (index != -1) {
+                m_allEngines[index].icon = QIcon(QPixmap::fromImage(engine->image()));
 
-            emit enginesChanged();
+                emit enginesChanged();
 
-            delete engine;
-            break;
+                delete engine;
+                break;
+            }
         }
     }
 }

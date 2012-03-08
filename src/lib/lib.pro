@@ -163,7 +163,9 @@ SOURCES += \
     webview/webview.cpp \
     webview/webviewsettings.cpp \
     preferences/pluginlistdelegate.cpp \
-    popupwindow/popupstatusbarmessage.cpp
+    popupwindow/popupstatusbarmessage.cpp \
+    other/licenseviewer.cpp \
+    bookmarksimport/bookmarksimporticonfetcher.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -298,7 +300,9 @@ HEADERS  += \
     app/qz_namespace.h \
     webview/webviewsettings.h \
     preferences/pluginlistdelegate.h \
-    popupwindow/popupstatusbarmessage.h
+    popupwindow/popupstatusbarmessage.h \
+    other/licenseviewer.h \
+    bookmarksimport/bookmarksimporticonfetcher.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

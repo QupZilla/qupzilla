@@ -1397,6 +1397,13 @@ não foi encontrado!</translation>
     </message>
 </context>
 <context>
+    <name>LicenseViewer</name>
+    <message>
+        <source>License Viewer</source>
+        <translation type="unfinished">Visualizador de licença</translation>
+    </message>
+</context>
+<context>
     <name>LocationBar</name>
     <message>
         <source>Paste And &amp;Go</source>
@@ -2650,6 +2657,22 @@ não foi encontrado!</translation>
         <source>Configuration Information</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>HTML files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -3625,7 +3648,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>License Viewer</source>
-        <translation>Visualizador de licença</translation>
+        <translation type="obsolete">Visualizador de licença</translation>
     </message>
     <message>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>

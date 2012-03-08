@@ -20,6 +20,8 @@
 #include "mainapplication.h"
 #include "globalfunctions.h"
 #include "settings.h"
+#include "licenseviewer.h"
+#include "preferences.h"
 
 #include <QTextBrowser>
 #include <QDir>
@@ -30,9 +32,10 @@
 #define DEFAULT_THEME_NAME "linux"
 #endif
 
-ThemeManager::ThemeManager(QWidget* parent)
+ThemeManager::ThemeManager(QWidget* parent, Preferences* preferences)
     : QWidget()
     , ui(new Ui::ThemeManager)
+    , m_preferences(preferences)
 {
     ui->setupUi(parent);
     ui->license->hide();
@@ -78,14 +81,9 @@ void ThemeManager::showLicense()
 
     Theme currentTheme = m_themeHash[currentItem->data(Qt::UserRole).toString()];
 
-    QTextBrowser* b = new QTextBrowser();
-    b->setAttribute(Qt::WA_DeleteOnClose);
-    b->setWindowTitle(tr("License Viewer"));
-//    b->move(mapToGlobal(parent()->pos()));
-    b->resize(450, 500);
-    b->setText(currentTheme.license);
-    qz_centerWidgetOnScreen(b);
-    b->show();
+    LicenseViewer* v = new LicenseViewer(m_preferences);
+    v->setText(currentTheme.license);
+    v->show();
 }
 
 void ThemeManager::currentChanged()

@@ -22,57 +22,86 @@
 
 #include <QFileDialog>
 #include <QWebFrame>
+#include <QTimer>
+#include <QMovie>
+#include <QtConcurrentRun>
+#include <QPushButton>
 
 PageScreen::PageScreen(WebView* view, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::PageScreen)
     , m_view(view)
+    , m_imageScaling(0)
+    , m_horizontalScrollbarSize(0)
+    , m_verticalScrollbarSize(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    createPixmap();
-    ui->label->setPixmap(m_pagePixmap);
+    QMovie* mov = new QMovie(":html/loading.gif");
+    ui->label->setMovie(mov);
+    mov->start();
 
-    connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
+    m_pageTitle = m_view->title();
+
+    connect(ui->buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(dialogAccepted()));
+    connect(ui->buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), this, SLOT(close()));
+
+    QTimer::singleShot(200, this, SLOT(createThumbnail()));
 }
 
-void PageScreen::buttonClicked(QAbstractButton* b)
+void PageScreen::dialogAccepted()
 {
-    QString path;
+    const QString &path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."),
+                          QDir::homePath() + "/" + QString("%1.png").arg(qz_filterCharsFromFilename(m_pageTitle)));
 
-    switch (ui->buttonBox->standardButton(b)) {
-    case QDialogButtonBox::Cancel:
-        close();
-        break;
+    if (!path.isEmpty()) {
+        m_pageImage.save(path);
 
-    case QDialogButtonBox::Save:
-        path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."), tr("screen.png"));
-        if (!path.isEmpty()) {
-            m_pagePixmap.save(path);
-            close();
-        }
-        break;
-
-    default:
-        break;
+        QTimer::singleShot(0, this, SLOT(close()));
     }
 }
 
-void PageScreen::createPixmap()
+void PageScreen::createThumbnail()
 {
     QWebPage* page = m_view->page();
     QSize originalSize = page->viewportSize();
     page->setViewportSize(page->mainFrame()->contentsSize());
 
-    QImage image(page->viewportSize(), QImage::Format_ARGB32);
-    QPainter painter(&image);
+    m_pageImage = QImage(page->viewportSize(), QImage::Format_ARGB32_Premultiplied);
+    QPainter painter(&m_pageImage);
     page->mainFrame()->render(&painter);
     painter.end();
 
-    m_pagePixmap = QPixmap::fromImage(image);
+    m_verticalScrollbarSize = page->mainFrame()->scrollBarGeometry(Qt::Vertical).width();
+    m_horizontalScrollbarSize = page->mainFrame()->scrollBarGeometry(Qt::Horizontal).height();
 
     page->setViewportSize(originalSize);
+
+    m_imageScaling = new QFutureWatcher<QImage>(this);
+    connect(m_imageScaling, SIGNAL(finished()), SLOT(showImage()));
+
+    m_imageScaling->setFuture(QtConcurrent::run(this, &PageScreen::scaleImage));
+}
+
+QImage PageScreen::scaleImage()
+{
+    if (m_verticalScrollbarSize > 0 || m_horizontalScrollbarSize > 0) {
+        QRect newRect = m_pageImage.rect();
+        newRect.setWidth(newRect.width() - m_verticalScrollbarSize);
+        newRect.setHeight(newRect.height() - m_horizontalScrollbarSize);
+
+        m_pageImage = m_pageImage.copy(newRect);
+    }
+
+    return m_pageImage.scaledToWidth(450, Qt::SmoothTransformation);
+}
+
+void PageScreen::showImage()
+{
+    delete ui->label->movie();
+
+    ui->label->setPixmap(QPixmap::fromImage(m_imageScaling->result()));
 }
 
 PageScreen::~PageScreen()

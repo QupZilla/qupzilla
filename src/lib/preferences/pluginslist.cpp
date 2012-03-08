@@ -50,7 +50,7 @@ PluginsList::PluginsList(QWidget* parent)
     connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
     connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
-    ui->list->setItemDelegateForColumn(0, new PluginListDelegate(ui->list));
+    ui->list->setItemDelegate(new PluginListDelegate(ui->list));
 
     //WebKit Plugins
     connect(ui->add, SIGNAL(clicked()), this, SLOT(addWhitelist()));
@@ -154,7 +154,7 @@ void PluginsList::refresh()
         PluginSpec spec = plugin.pluginSpec;
 
         QListWidgetItem* item = new QListWidgetItem(ui->list);
-        QString pluginInfo = QString("<b>%1</b> %2 (%3)<br/>%4<br/>%5").arg(spec.name, spec.version, spec.author, spec.info, spec.description);
+        QString pluginInfo = QString("<b>%1</b> %2 (%3)<br/>\n%4<br/>\n%5\n").arg(spec.name, spec.version, spec.author, spec.info, spec.description);
         item->setText(pluginInfo);
 
 

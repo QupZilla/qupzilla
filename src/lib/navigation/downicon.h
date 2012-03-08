@@ -27,6 +27,7 @@ public:
     explicit DownIcon(QWidget* parent = 0);
 
 private:
+    void contextMenuEvent(QContextMenuEvent* ev);
     void mousePressEvent(QMouseEvent* ev);
 
 };

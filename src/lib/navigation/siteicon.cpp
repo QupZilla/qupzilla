@@ -32,21 +32,27 @@ SiteIcon::SiteIcon(LocationBar* parent)
     setFocusPolicy(Qt::ClickFocus);
 }
 
+void SiteIcon::contextMenuEvent(QContextMenuEvent* e)
+{
+    // Prevent propagating to LocationBar
+    e->accept();
+}
+
 void SiteIcon::mousePressEvent(QMouseEvent* e)
 {
     if (e->buttons() & Qt::LeftButton) {
         m_dragStartPosition = mapFromGlobal(e->globalPos());
     }
 
-    ToolButton::mousePressEvent(e);
-
     // Prevent propagating to LocationBar
     e->accept();
+
+    ToolButton::mousePressEvent(e);
 }
 
 void SiteIcon::mouseMoveEvent(QMouseEvent* e)
 {
-    if (!m_locationBar) {
+    if (!m_locationBar || !(e->buttons() & Qt::LeftButton)) {
         return;
     }
 

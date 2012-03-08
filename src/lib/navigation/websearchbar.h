@@ -24,6 +24,7 @@
 #include "lineedit.h"
 #include "buttonwithmenu.h"
 #include "searchenginesmanager.h"
+#include "clickablelabel.h"
 
 class QStringListModel;
 
@@ -33,6 +34,15 @@ class ClickableLabel;
 class SearchEnginesManager;
 class SearchEnginesDialog;
 class OpenSearchEngine;
+
+class QT_QUPZILLA_EXPORT WebSearchBar_Button : public ClickableLabel
+{
+public:
+    explicit WebSearchBar_Button(QWidget* parent = 0);
+
+private:
+    void contextMenuEvent(QContextMenuEvent* event);
+};
 
 class QT_QUPZILLA_EXPORT WebSearchBar : public LineEdit
 {
@@ -76,7 +86,7 @@ private:
 
     QupZilla* p_QupZilla;
 
-    ClickableLabel* m_buttonSearch;
+    WebSearchBar_Button* m_buttonSearch;
     ButtonWithMenu* m_boxSearchType;
     SearchEnginesManager* m_searchManager;
     QWeakPointer<SearchEnginesDialog> m_searchDialog;

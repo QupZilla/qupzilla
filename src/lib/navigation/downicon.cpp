@@ -26,6 +26,12 @@ DownIcon::DownIcon(QWidget* parent)
     setCursor(Qt::ArrowCursor);
 }
 
+void DownIcon::contextMenuEvent(QContextMenuEvent* ev)
+{
+    // Prevent propagating to LocationBar
+    ev->accept();
+}
+
 void DownIcon::mousePressEvent(QMouseEvent* ev)
 {
     ClickableLabel::mousePressEvent(ev);

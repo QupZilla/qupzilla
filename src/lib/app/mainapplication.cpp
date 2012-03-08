@@ -624,7 +624,6 @@ void MainApplication::saveSettings()
     }
 
     m_searchEnginesManager->saveSettings();
-    m_cookiejar->saveCookies();
     m_networkmanager->saveCertificates();
     m_plugins->c2f_saveSettings();
     m_plugins->speedDial()->saveSettings();
@@ -802,6 +801,9 @@ bool MainApplication::saveStateSlot()
     if (qupzilla_ && m_mainWindows.count() == 1) {
         qupzilla_->tabWidget()->savePinnedTabs();
     }
+
+    // Saving cookies
+    m_cookiejar->saveCookies();
 
     return true;
 }
