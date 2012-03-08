@@ -1751,7 +1751,7 @@
     <message>
         <location filename="../src/lib/other/licenseviewer.cpp" line="25"/>
         <source>License Viewer</source>
-        <translation type="unfinished">憑證查看</translation>
+        <translation>憑證查看</translation>
     </message>
 </context>
 <context>
@@ -3242,22 +3242,22 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>影像檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>文字檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>所有檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1785"/>
