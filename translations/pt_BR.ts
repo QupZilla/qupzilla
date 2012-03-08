@@ -1552,7 +1552,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>screen.png</source>
-        <translation>screen.png</translation>
+        <translation type="obsolete">screen.png</translation>
     </message>
 </context>
 <context>
@@ -2234,7 +2234,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Allow Plugins (Flash plugin)</source>
-        <translation>Permitir plugins (Flash)</translation>
+        <translation type="obsolete">Permitir plugins (Flash)</translation>
     </message>
     <message>
         <source>Select all text by clicking in address bar</source>
@@ -2259,6 +2259,10 @@ não foi encontrado!</translation>
     <message>
         <source>Allow storing of cookies</source>
         <translation>Permitir armazenamento de cookies</translation>
+    </message>
+    <message>
+        <source>Allow Netscape Plugins (Flash plugin)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4004,6 +4008,10 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Search with...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Search Engine</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

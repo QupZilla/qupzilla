@@ -1520,7 +1520,7 @@
     </message>
     <message>
         <source>screen.png</source>
-        <translation>screen.png</translation>
+        <translation type="obsolete">screen.png</translation>
     </message>
 </context>
 <context>
@@ -1829,7 +1829,7 @@
     </message>
     <message>
         <source>Allow Plugins (Flash plugin)</source>
-        <translation>მოდულების დაშვება (Flash მოდული)</translation>
+        <translation type="obsolete">მოდულების დაშვება (Flash მოდული)</translation>
     </message>
     <message>
         <source>Allow JavaScript</source>
@@ -2223,6 +2223,10 @@
     <message>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>დარწმუნებული ხართ რომ &quot;%1&quot; პროფილის სამუდამოდ წასლა გსურთ? ამ მოქმედების გაუქმება შეუძლებელია!</translation>
+    </message>
+    <message>
+        <source>Allow Netscape Plugins (Flash plugin)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3964,6 +3968,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Search with...</source>
         <translation>ძებნა...</translation>
+    </message>
+    <message>
+        <source>Create Search Engine</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

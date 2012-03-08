@@ -1516,10 +1516,6 @@
         <source>Save Page Screen...</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>screen.png</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>PluginsList</name>
@@ -1823,10 +1819,6 @@
     </message>
     <message>
         <source>Web Configuration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow Plugins (Flash plugin)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2219,6 +2211,10 @@
     </message>
     <message>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow Netscape Plugins (Flash plugin)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3954,6 +3950,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Search with...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Search Engine</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -213,6 +213,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     }
 
     QUrl actionUrl = QUrl::fromEncoded(formElement.attribute("action").toUtf8());
+
     if (actionUrl.isRelative()) {
         actionUrl = view->url().resolved(actionUrl);
     }

@@ -1548,7 +1548,7 @@
     </message>
     <message>
         <source>screen.png</source>
-        <translation>obrazstranky.png</translation>
+        <translation type="obsolete">obrazstranky.png</translation>
     </message>
 </context>
 <context>
@@ -2122,7 +2122,7 @@
     </message>
     <message>
         <source>Allow Plugins (Flash plugin)</source>
-        <translation>Povoliť pluginy (Flash plugin)</translation>
+        <translation type="obsolete">Povoliť pluginy (Flash plugin)</translation>
     </message>
     <message>
         <source>Select all text by clicking in address bar</source>
@@ -2255,6 +2255,10 @@
     <message>
         <source>Change browser identification:</source>
         <translation>Zmeniť identifikáciu prehliadača:</translation>
+    </message>
+    <message>
+        <source>Allow Netscape Plugins (Flash plugin)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4001,6 +4005,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Search with...</source>
         <translation>Hľadať s...</translation>
+    </message>
+    <message>
+        <source>Create Search Engine</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

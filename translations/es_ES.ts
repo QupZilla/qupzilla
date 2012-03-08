@@ -458,74 +458,74 @@
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="60"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="63"/>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
         <translation>&lt;b&gt;Importando desde %1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="94"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="97"/>
         <source>Finish</source>
         <translation>Terminar</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="128"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="138"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="156"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="166"/>
         <source>Please press Finish to complete importing process.</source>
         <translation>Por favor, presione Terminar para completar el proceso de importación.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="191"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="204"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="217"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="230"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="192"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="205"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="218"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="231"/>
         <source>Error!</source>
         <translation>¡Error!</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="243"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="244"/>
         <source>Choose directory...</source>
         <translation>Elegir directorio...</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="251"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="252"/>
         <source>Choose file...</source>
         <translation>Elegir archivo...</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="284"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="281"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
         <translation>Mozilla Firefox almacena sus marcadores en &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. Este archivo suele encontrarse en </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="286"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="301"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="317"/>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="332"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="283"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="298"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="314"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="329"/>
         <source>Please choose this file to begin importing bookmarks.</source>
         <translation>Elegir este archivo para empezar a importar marcadores.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="299"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="296"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
         <translation>Google Chrome almacena sus marcadores en el archivo de texto &lt;b&gt;Bookmarks&lt;/b&gt;. Este archivo suele encontrarse en </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="315"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="312"/>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
         <translation>Opera almacena sus marcadores en el archivo de texto &lt;b&gt;bookmarks.adr&lt;/b&gt;. Este archivo suele encontrarse en </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="330"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="327"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
         <translation>Puede importar marcadores desde cualquier navegador que soporte la exportación en HTML. El archivo suele tener estos sufijos</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="339"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="336"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
         <translation>Internet Explorer almacena sus marcadores en la carpeta&lt;b&gt;Favoritos&lt;/b&gt;. Esta carpeta suele encontrarse en </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="341"/>
+        <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="338"/>
         <source>Please choose this folder to begin importing bookmarks.</source>
         <translation>Elegir esta carpeta para empezar a importar marcadores.</translation>
     </message>
@@ -691,20 +691,20 @@
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="453"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="470"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="461"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="478"/>
         <source>Bookmarks In Menu</source>
         <translation>Marcadores en el menú</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="456"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="473"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="464"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="481"/>
         <source>Bookmarks In ToolBar</source>
         <translation>Barra de herramientas de marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="459"/>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="476"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="467"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="484"/>
         <source>Unsorted Bookmarks</source>
         <translation>Marcadores sin clasificar</translation>
     </message>
@@ -1296,7 +1296,7 @@
         <translation>Guardar archivo como...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="268"/>
+        <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="269"/>
         <source>NoNameDownload</source>
         <translation>DescargaSinNombre</translation>
     </message>
@@ -1304,119 +1304,119 @@
 <context>
     <name>DownloadItem</name>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="68"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="70"/>
         <source>Remaining time unavailable</source>
         <translation>Tiempo restante no disponible</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="133"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="142"/>
         <source>Done - %1</source>
         <translation>Hecho - %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="188"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="333"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="197"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="342"/>
         <source>Cancelled</source>
         <translation>Cancelado</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="194"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="203"/>
         <source>few seconds</source>
         <translation>pocos segundos</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="197"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="206"/>
         <source>seconds</source>
         <translation>segundos</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="200"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="209"/>
         <source>minutes</source>
         <translation>minutos</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="203"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="212"/>
         <source>hours</source>
         <translation>horas</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="210"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="219"/>
         <source>Unknown speed</source>
         <translation>Velocidad desconocida</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="230"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="269"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="239"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="278"/>
         <source>Unknown size</source>
         <translation>Tamaño desconocido</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="270"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="279"/>
         <source>%2 - unknown size (%3)</source>
         <translation>%2 - tamaño desconocido (%3)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="273"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="282"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
         <translation>Restante %1 - %2 de %3 (%4)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="293"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="302"/>
         <source>Cancelled - %1</source>
         <translation>Cancelado - %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="307"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="316"/>
         <source>Delete file</source>
         <translation>Eliminar archivo</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="307"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="316"/>
         <source>Do you want to also delete dowloaded file?</source>
         <translation>¿Desea eliminar también el archivo descargado?</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="323"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="332"/>
         <source>Open File</source>
         <translation>Abrir archivo</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="325"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="334"/>
         <source>Open Folder</source>
         <translation>Abrir carpeta</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="327"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="336"/>
         <source>Go to Download Page</source>
         <translation>Ir a la página de descarga</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="328"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="337"/>
         <source>Copy Download Link</source>
         <translation>Copiar enlace de descarga</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="330"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="339"/>
         <source>Cancel downloading</source>
         <translation>Cancelar descarga</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="331"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="340"/>
         <source>Clear</source>
         <translation>Limpiar</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="333"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="342"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="371"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="380"/>
         <source>Not found</source>
         <translation>No encontrado</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="371"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="380"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
@@ -1425,12 +1425,12 @@
  no ha sido encontrado!</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="387"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="396"/>
         <source>Error: Cannot write to file!</source>
         <translation>¡Error: no se puede escribir el archivo!</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="399"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="408"/>
         <source>Error: </source>
         <translation>Error:</translation>
     </message>
@@ -1576,7 +1576,7 @@
         <translation>Añadir desde archivo ...</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/editsearchengine.cpp" line="86"/>
+        <location filename="../src/lib/opensearch/editsearchengine.cpp" line="88"/>
         <source>Choose icon...</source>
         <translation>Elegir icono...</translation>
     </message>
@@ -1821,12 +1821,12 @@
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="824"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="826"/>
         <source>Last session crashed</source>
         <translation>La última sesión se cerró inesperadamente</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="825"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="827"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZilla se cerró inesperadamente :-(&lt;/b&gt;&lt;br/&gt;Lo sentimos, la última sesión de QupZilla terminó inesperadamente. ¿Le gustaría intentar restaurar la última sesión?</translation>
     </message>
@@ -1839,39 +1839,39 @@
         <translation>Página sin nombre</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="62"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="63"/>
         <source>Back</source>
         <translation>Anterior</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="70"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="71"/>
         <source>Forward</source>
         <translation>Siguiente</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="86"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="87"/>
         <source>Home</source>
         <translation>Inicio</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="93"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="94"/>
         <source>New Tab</source>
         <translation>Nueva pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="107"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="108"/>
         <source>Main Menu</source>
         <translation>Menú principal</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="123"/>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="124"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="125"/>
         <source>Exit Fullscreen</source>
         <translation>Salir de pantalla completa</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="214"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="250"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="215"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="251"/>
         <source>Clear history</source>
         <translation>Limpiar historial</translation>
     </message>
@@ -1960,14 +1960,13 @@
         <translation>Pantallazo de la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="50"/>
+        <location filename="../src/lib/other/pagescreen.cpp" line="55"/>
         <source>Save Page Screen...</source>
         <translation>Guardar pantallazo de la página...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/pagescreen.cpp" line="50"/>
         <source>screen.png</source>
-        <translation>pantallazo.png</translation>
+        <translation type="obsolete">pantallazo.png</translation>
     </message>
 </context>
 <context>
@@ -2305,9 +2304,8 @@
         <translation>Permitir JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="777"/>
         <source>Allow Plugins (Flash plugin)</source>
-        <translation>Permitir plugins (Flash plugin)</translation>
+        <translation type="obsolete">Permitir plugins (Flash plugin)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="798"/>
@@ -2418,6 +2416,11 @@
         <location filename="../src/lib/preferences/preferences.ui" line="833"/>
         <source>Ask when entering Private Browsing mode</source>
         <translation>Preguntar al iniciar el modo de navegación privada</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="777"/>
+        <source>Allow Netscape Plugins (Flash plugin)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="933"/>
@@ -2859,7 +2862,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/lib/opensearch/opensearchreader.cpp" line="107"/>
+        <location filename="../src/lib/opensearch/opensearchreader.cpp" line="108"/>
         <source>The file is not an OpenSearch 1.1 file.</source>
         <translation>Este archivo no es un archivo OpenSearch 1.1.</translation>
     </message>
@@ -2910,92 +2913,92 @@
 <context>
     <name>QupZilla</name>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="263"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="264"/>
         <source>Private Browsing Enabled</source>
         <translation>Navegación privada habilitada</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="267"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="268"/>
         <source>IP Address of current page</source>
         <translation>Dirección IP de la página actual</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="448"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="449"/>
         <source>&amp;Tools</source>
         <translation>He&amp;rramientas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="472"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="473"/>
         <source>&amp;Help</source>
         <translation>A&amp;yuda</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="436"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="437"/>
         <source>&amp;Bookmarks</source>
         <translation>&amp;Marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="411"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="412"/>
         <source>Hi&amp;story</source>
         <translation>&amp;Historial</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="295"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="296"/>
         <source>&amp;File</source>
         <translation>&amp;Archivo</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="296"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="297"/>
         <source>&amp;New Window</source>
         <translation>&amp;Nueva ventana</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="297"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="298"/>
         <source>New Tab</source>
         <translation>Nueva pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="298"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="299"/>
         <source>Open Location</source>
         <translation>Introducir dirección URL</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="299"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="300"/>
         <source>Open &amp;File</source>
         <translation>&amp;Abrir archivo</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="300"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="301"/>
         <source>Close Tab</source>
         <translation>Cerrar pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="301"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="302"/>
         <source>Close Window</source>
         <translation>Cerrar ventana</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="304"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="305"/>
         <source>&amp;Save Page As...</source>
         <translation>&amp;Guardar como...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="305"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="306"/>
         <source>Save Page Screen</source>
         <translation>Guardar pantallazo de la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="306"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="307"/>
         <source>Send Link...</source>
         <translation>Enviar enlace...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="310"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="311"/>
         <source>Import bookmarks...</source>
         <translation>Importar marcadores...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="287"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="288"/>
         <source>Quit</source>
         <translation>Salir</translation>
     </message>
@@ -3005,366 +3008,366 @@
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="307"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="308"/>
         <source>&amp;Print...</source>
         <translation>&amp;Imprimir...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="322"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="323"/>
         <source>&amp;Edit</source>
         <translation>&amp;Editar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="323"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="324"/>
         <source>&amp;Undo</source>
         <translation>&amp;Deshacer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="324"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="325"/>
         <source>&amp;Redo</source>
         <translation>&amp;Rehacer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="326"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="327"/>
         <source>&amp;Cut</source>
         <translation>&amp;Cortar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="327"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="328"/>
         <source>C&amp;opy</source>
         <translation>C&amp;opiar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="328"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="329"/>
         <source>&amp;Paste</source>
         <translation>&amp;Pegar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="330"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="331"/>
         <source>Select &amp;All</source>
         <translation>&amp;Seleccionar todo</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="331"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="332"/>
         <source>&amp;Find</source>
         <translation>&amp;Buscar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="342"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="343"/>
         <source>&amp;View</source>
         <translation>&amp;Ver</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="343"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="344"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Barra de herramientas de &amp;navegación</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="346"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="347"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Barra de herramientas de &amp;marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="349"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="350"/>
         <source>Sta&amp;tus Bar</source>
         <translation>&amp;Barra de estado</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="353"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="354"/>
         <source>&amp;Menu Bar</source>
         <translation>Barra de m&amp;enú</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="357"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="358"/>
         <source>&amp;Fullscreen</source>
         <translation>&amp;Pantalla completa</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="361"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="362"/>
         <source>&amp;Stop</source>
         <translation>&amp;Detener</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="364"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="365"/>
         <source>&amp;Reload</source>
         <translation>Re&amp;cargar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="367"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="368"/>
         <source>Character &amp;Encoding</source>
         <translation>&amp;Codificación de caracteres</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="372"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="373"/>
         <source>Bookmarks</source>
         <translation>Marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="376"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="377"/>
         <source>History</source>
         <translation>Historial</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="381"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="382"/>
         <source>Toolbars</source>
         <translation>Barras de herramientas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="387"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="388"/>
         <source>Sidebars</source>
         <translation>Panel lateral</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="398"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="399"/>
         <source>Zoom &amp;In</source>
         <translation>&amp;Aumentar tamaño</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="399"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="400"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Reducir tamaño</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="400"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="401"/>
         <source>Reset</source>
         <translation>Reiniciar tamaño</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="404"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="405"/>
         <source>&amp;Page Source</source>
         <translation>Código &amp;fuente de la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="420"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="421"/>
         <source>Closed Tabs</source>
         <translation>Pestañas cerradas recientemente</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="423"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="424"/>
         <source>Recently Visited</source>
         <translation>Visitadas recientemente</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="426"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="427"/>
         <source>Most Visited</source>
         <translation>Las más visitadas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="456"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="457"/>
         <source>Web In&amp;spector</source>
         <translation>Inspect&amp;or Web</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="483"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="484"/>
         <source>Configuration Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="503"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="504"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>&amp;Restaurar pestaña cerrada</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="674"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="675"/>
         <source> (Private Browsing)</source>
         <translation> (Navegación privada)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="437"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="438"/>
         <source>Bookmark &amp;This Page</source>
         <translation>&amp;Añadir esta página a marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="438"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="439"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Añadir &amp;todas las pestañas a marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="439"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="440"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>&amp;Organizar marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="784"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="814"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="853"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="882"/>
-        <location filename="../src/lib/app/qupzilla.cpp" line="907"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="785"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="815"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="854"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="883"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="908"/>
         <source>Empty</source>
         <translation>Vacío</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="412"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="413"/>
         <source>&amp;Back</source>
         <translation>&amp;Anterior</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="413"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="414"/>
         <source>&amp;Forward</source>
         <translation>&amp;Siguiente</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="414"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="415"/>
         <source>&amp;Home</source>
         <translation>&amp;Inicio</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="415"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="416"/>
         <source>Show &amp;All History</source>
         <translation>&amp;Mostrar todo el historial</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="856"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="857"/>
         <source>Restore All Closed Tabs</source>
         <translation>Restaurar todas las pestañas cerradas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="857"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="858"/>
         <source>Clear list</source>
         <translation>Limpiar lista</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="474"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="475"/>
         <source>About &amp;Qt</source>
         <translation>Acerca de &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1342"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1343"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="278"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="279"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp;Acerca de QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="484"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="485"/>
         <source>Report &amp;Issue</source>
         <translation>&amp;Informar de un fallo</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="449"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="450"/>
         <source>&amp;Web Search</source>
         <translation>&amp;Caja de búsqueda</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="450"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="451"/>
         <source>Page &amp;Info</source>
         <translation>&amp;Información de la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="452"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="453"/>
         <source>&amp;Download Manager</source>
         <translation>Gestor de &amp;descargas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="453"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="454"/>
         <source>&amp;Cookies Manager</source>
         <translation>Gestor de &amp;cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="454"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="455"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;Bloqueador de publicidad</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="455"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="456"/>
         <source>RSS &amp;Reader</source>
         <translation>Lector &amp;RSS</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="457"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="458"/>
         <source>Clear Recent &amp;History</source>
         <translation>&amp;Limpiar historial reciente</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="458"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="459"/>
         <source>&amp;Private Browsing</source>
         <translation>&amp;Navegación privada</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1785"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1802"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translation>Está a punto de cerrar %1 pestañas. ¿Está seguro de continuar?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="282"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="283"/>
         <source>Pr&amp;eferences</source>
         <translation>&amp;Preferencias</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="478"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="479"/>
         <source>Information about application</source>
         <translation>Información acerca de la aplicación</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="962"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="963"/>
         <source>Other</source>
         <translation>Otros</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="972"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="973"/>
         <source>Default</source>
         <translation>Predeterminado</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>HTML files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>Image files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>Text files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1422"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1424"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1425"/>
         <source>Open file...</source>
         <translation>Abrir archivo...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1535"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1536"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>¿Está seguro que desea habilitar la navegación privada?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1536"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1537"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Cuando la navegación privada está habilitada, algunas opciones relacionadas con su privacidad estarán deshabilitadas:</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1539"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1540"/>
         <source>Webpages are not added to the history.</source>
         <translation>Las páginas web no se añaden al historial.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1540"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1541"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Las cookies actuales no pueden ser accedidas.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1541"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1542"/>
         <source>Your session is not stored.</source>
         <translation>La sesión no será guardada.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1543"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1544"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Hasta que cierre la ventana, puede hacer click en los botones Anterior y Siguiente para regresar a las páginas web que haya abierto.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1548"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1549"/>
         <source>Start Private Browsing</source>
         <translation>Comenzar la navegación privada</translation>
     </message>
@@ -3986,12 +3989,13 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
         <translation>Palabra clave</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="47"/>
+        <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="46"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="244"/>
         <source>Add Search Engine</source>
         <translation>Añadir motor de búsqueda</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="95"/>
+        <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="94"/>
         <source>Edit Search Engine</source>
         <translation>Editar motor de búsqueda</translation>
     </message>
@@ -3999,27 +4003,27 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="256"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="325"/>
         <source>Search Engine Added</source>
         <translation>Motor de búsqueda añadido</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="256"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="325"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation>Motor de búsqueda &quot;%1&quot; ha sido añadido satisfactoriamente.</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="263"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="332"/>
         <source>Search Engine is not valid!</source>
         <translation>¡El motor de búsqueda no es válido!</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="264"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="333"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="264"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="333"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation>Error al añadir el motor de búsqueda &lt;br&gt;&lt;b&gt;Mensaje de error:&lt;/b&gt; %1</translation>
     </message>
@@ -4076,72 +4080,72 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
         <translation>Información del sitio</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="80"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="54"/>
         <source>General</source>
         <translation>General</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="88"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="62"/>
         <source>Media</source>
         <translation>Media</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="96"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="70"/>
         <source>Security</source>
         <translation>Seguridad</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="135"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="125"/>
         <source>Size:</source>
         <translation>Tamaño:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="180"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="170"/>
         <source>Site address:</source>
         <translation>Dirección del sitio:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="187"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="177"/>
         <source>Encoding:</source>
         <translation>Codificación:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="196"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="186"/>
         <source>Meta tags of site:</source>
         <translation>Meta etiquetas del sitio:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="207"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="197"/>
         <source>Tag</source>
         <translation>Etiqueta</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="212"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="202"/>
         <source>Value</source>
         <translation>Valor</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="226"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="216"/>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
         <translation>&lt;b&gt;Información de seguridad&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="246"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="236"/>
         <source>Details</source>
         <translation>Detalles</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="303"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="296"/>
         <source>Image</source>
         <translation>Imágen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="308"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="301"/>
         <source>Image address</source>
         <translation>Dirección de la imágen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="323"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="326"/>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
         <translation>&lt;b&gt;Vista previa&lt;/b&gt;</translation>
     </message>
@@ -4171,43 +4175,43 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
         <translation>&lt;b&gt;¡La conexión a esta página no es segura!&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="154"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="157"/>
         <source>Copy Image Location</source>
         <translation>Copiar la ubicación de la imágen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="155"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="158"/>
         <source>Copy Image Name</source>
         <translation>Copiar el nombre de la imágen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="157"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="160"/>
         <source>Save Image to Disk</source>
         <translation>Guardar imágen en el disco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="177"/>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="189"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="179"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="191"/>
         <source>Error!</source>
         <translation>¡Error!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="177"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="179"/>
         <source>This preview is not available!</source>
         <translation>¡La vista previa no está disponible!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="183"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="185"/>
         <source>Save image...</source>
         <translation>Guardar imágen...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="189"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="191"/>
         <source>Cannot write to file!</source>
         <translation>¡No se puede escribir el archivo!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.cpp" line="228"/>
+        <location filename="../src/lib/webview/siteinfo.cpp" line="229"/>
         <source>Preview not available</source>
         <translation>Vista previa no disponible</translation>
     </message>
@@ -4429,72 +4433,72 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="115"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="119"/>
         <source>&amp;New tab</source>
         <translation>&amp;Nueva pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="123"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="127"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Detener pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="126"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="130"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Recargar pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="129"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="133"/>
         <source>&amp;Duplicate Tab</source>
         <translation>Du&amp;plicar pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="130"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="134"/>
         <source>Un&amp;pin Tab</source>
         <translation>Eliminar pestaña &amp;fija</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="130"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="134"/>
         <source>&amp;Pin Tab</source>
         <translation>Pestaña &amp;fija</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="132"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="136"/>
         <source>Re&amp;load All Tabs</source>
         <translation>&amp;Recargar todas las pestañas</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="133"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="137"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>&amp;Añadir esta pestaña a marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="134"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="138"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Añadir &amp;todas las pestañas a marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="140"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="144"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Cerrar las &amp;otras pestañas</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="141"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="145"/>
         <source>Cl&amp;ose</source>
         <translation>&amp;Cerrar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="145"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="149"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Re&amp;cargar todas las pestañas</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="146"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="150"/>
         <source>Bookmark &amp;All Ta&amp;bs</source>
         <translation>Añadir &amp;todas las pestañas a marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabbar.cpp" line="148"/>
+        <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Restaurar &amp;pestaña cerrada</translation>
     </message>
@@ -4502,48 +4506,48 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="141"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="114"/>
         <source>List of tabs</source>
         <translation>Lista de pestañas</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="148"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="50"/>
         <source>New Tab</source>
         <translation>Nueva pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="244"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="213"/>
         <source>Loading...</source>
         <translation>Cargando...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="248"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="217"/>
         <source>No Named Page</source>
         <translation>Página sin nombre</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="266"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="235"/>
         <source>Currently you have %1 opened tabs</source>
         <translation>Actualmente tiene %1 pestañas abiertas</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="278"/>
-        <location filename="../src/lib/webview/tabwidget.h" line="72"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="247"/>
+        <location filename="../src/lib/webview/tabwidget.h" line="84"/>
         <source>New tab</source>
         <translation>Nueva pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="581"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="550"/>
         <source>Empty</source>
         <translation>Vacío</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="584"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="553"/>
         <source>Restore All Closed Tabs</source>
         <translation>Restaurar todas las pestañas cerradas</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="585"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="554"/>
         <source>Clear list</source>
         <translation>Limpiar lista</translation>
     </message>
@@ -4781,22 +4785,22 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
 <context>
     <name>WebSearchBar</name>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="86"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="98"/>
         <source>Manage Search Engines</source>
         <translation>Administrar motores de búsqueda</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="188"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="202"/>
         <source>Add %1 ...</source>
         <translation>Añadir %1 ...</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="211"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="225"/>
         <source>Paste And &amp;Search</source>
         <translation>Pegar y &amp;buscar</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/websearchbar.cpp" line="217"/>
+        <location filename="../src/lib/navigation/websearchbar.cpp" line="231"/>
         <source>Clear All</source>
         <translation>Limpiar todo</translation>
     </message>
@@ -4804,233 +4808,238 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="620"/>
+        <location filename="../src/lib/webview/webview.cpp" line="657"/>
         <source>&amp;Copy page link</source>
         <translation>Cop&amp;iar el enlace de la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="621"/>
+        <location filename="../src/lib/webview/webview.cpp" line="658"/>
         <source>Send page link...</source>
         <translation>Enviar enlace de la página...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="622"/>
+        <location filename="../src/lib/webview/webview.cpp" line="659"/>
         <source>&amp;Print page</source>
         <translation>&amp;Imprimir página</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="629"/>
+        <location filename="../src/lib/webview/webview.cpp" line="666"/>
         <source>Validate page</source>
         <translation>Validar página</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="690"/>
+        <location filename="../src/lib/webview/webview.cpp" line="727"/>
         <source>Send text...</source>
         <translation>Enviar texto...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="695"/>
+        <location filename="../src/lib/webview/webview.cpp" line="732"/>
         <source>Google Translate</source>
         <translation>Traductor de Google</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="700"/>
+        <location filename="../src/lib/webview/webview.cpp" line="737"/>
         <source>Dictionary</source>
         <translation>Diccionario</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="714"/>
+        <location filename="../src/lib/webview/webview.cpp" line="751"/>
         <source>Go to &amp;web address</source>
         <translation>Ir a &amp;dirección web</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="644"/>
+        <location filename="../src/lib/webview/webview.cpp" line="681"/>
         <source>Open link in new &amp;tab</source>
         <translation>Abrir enlace en una nueva &amp;pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="645"/>
+        <location filename="../src/lib/webview/webview.cpp" line="682"/>
         <source>Open link in new &amp;window</source>
         <translation>Abrir enlace en una nueva &amp;ventana</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="647"/>
+        <location filename="../src/lib/webview/webview.cpp" line="684"/>
         <source>B&amp;ookmark link</source>
         <translation>Añadir enlace a &amp;marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="648"/>
+        <location filename="../src/lib/webview/webview.cpp" line="685"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Guardar enlace como...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="649"/>
+        <location filename="../src/lib/webview/webview.cpp" line="686"/>
         <source>Send link...</source>
         <translation>Enviar enlace...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="650"/>
+        <location filename="../src/lib/webview/webview.cpp" line="687"/>
         <source>&amp;Copy link address</source>
         <translation>Copi&amp;ar la ruta del enlace</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="662"/>
+        <location filename="../src/lib/webview/webview.cpp" line="699"/>
         <source>Show i&amp;mage</source>
         <translation>Mostrar &amp;imágen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="667"/>
+        <location filename="../src/lib/webview/webview.cpp" line="704"/>
         <source>Copy im&amp;age</source>
         <translation>Co&amp;piar imágen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="668"/>
+        <location filename="../src/lib/webview/webview.cpp" line="705"/>
         <source>Copy image ad&amp;dress</source>
         <translation>C&amp;opiar la ruta de la imágen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="670"/>
+        <location filename="../src/lib/webview/webview.cpp" line="707"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Guardar imágen como...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="671"/>
+        <location filename="../src/lib/webview/webview.cpp" line="708"/>
         <source>Send image...</source>
         <translation>Enviar imágen...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="586"/>
+        <location filename="../src/lib/webview/webview.cpp" line="623"/>
         <source>&amp;Back</source>
         <translation>&amp;Anterior</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="590"/>
+        <location filename="../src/lib/webview/webview.cpp" line="527"/>
+        <source>Create Search Engine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webview.cpp" line="627"/>
         <source>&amp;Forward</source>
         <translation>&amp;Siguiente</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="594"/>
-        <location filename="../src/lib/webview/webview.cpp" line="605"/>
+        <location filename="../src/lib/webview/webview.cpp" line="631"/>
+        <location filename="../src/lib/webview/webview.cpp" line="642"/>
         <source>&amp;Reload</source>
         <translation>&amp;Recargar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="595"/>
+        <location filename="../src/lib/webview/webview.cpp" line="632"/>
         <source>S&amp;top</source>
         <translation>&amp;Detener</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="601"/>
+        <location filename="../src/lib/webview/webview.cpp" line="638"/>
         <source>This frame</source>
         <translation>Este marco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="602"/>
+        <location filename="../src/lib/webview/webview.cpp" line="639"/>
         <source>Show &amp;only this frame</source>
         <translation>M&amp;ostrar solamente este marco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="603"/>
+        <location filename="../src/lib/webview/webview.cpp" line="640"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Mostrar este marco en una nueva &amp;pestaña</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="606"/>
+        <location filename="../src/lib/webview/webview.cpp" line="643"/>
         <source>Print frame</source>
         <translation>Imprimir marco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="608"/>
+        <location filename="../src/lib/webview/webview.cpp" line="645"/>
         <source>Zoom &amp;in</source>
         <translation>&amp;Aumentar tamaño</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="609"/>
+        <location filename="../src/lib/webview/webview.cpp" line="646"/>
         <source>&amp;Zoom out</source>
         <translation>&amp;Reducir tamaño</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="610"/>
+        <location filename="../src/lib/webview/webview.cpp" line="647"/>
         <source>Reset</source>
         <translation>Reiniciar tamaño</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="612"/>
+        <location filename="../src/lib/webview/webview.cpp" line="649"/>
         <source>Show so&amp;urce of frame</source>
         <translation>Mostrar código f&amp;uente del marco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="618"/>
+        <location filename="../src/lib/webview/webview.cpp" line="655"/>
         <source>Book&amp;mark page</source>
         <translation>Añadir esta página a &amp;marcadores</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="619"/>
+        <location filename="../src/lib/webview/webview.cpp" line="656"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Guardar como...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="726"/>
+        <location filename="../src/lib/webview/webview.cpp" line="763"/>
         <source>Search with...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="747"/>
+        <location filename="../src/lib/webview/webview.cpp" line="784"/>
         <source>&amp;Play</source>
         <translation>&amp;Reproducir</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="747"/>
+        <location filename="../src/lib/webview/webview.cpp" line="784"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pausa</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="748"/>
+        <location filename="../src/lib/webview/webview.cpp" line="785"/>
         <source>Un&amp;mute</source>
         <translation>&amp;Activar sonido</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="748"/>
+        <location filename="../src/lib/webview/webview.cpp" line="785"/>
         <source>&amp;Mute</source>
         <translation>&amp;Desactivar sonido</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="750"/>
+        <location filename="../src/lib/webview/webview.cpp" line="787"/>
         <source>&amp;Copy Media Address</source>
         <translation>Copi&amp;ar la ruta del contenido media</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="751"/>
+        <location filename="../src/lib/webview/webview.cpp" line="788"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Enviar la ruta del contenido media</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="752"/>
+        <location filename="../src/lib/webview/webview.cpp" line="789"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Guardar el contenido media al &amp;disco</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="624"/>
+        <location filename="../src/lib/webview/webview.cpp" line="661"/>
         <source>Select &amp;all</source>
         <translation>Seleccionar &amp;todo</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="632"/>
+        <location filename="../src/lib/webview/webview.cpp" line="669"/>
         <source>Show so&amp;urce code</source>
         <translation>Ver código &amp;fuente de la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="633"/>
+        <location filename="../src/lib/webview/webview.cpp" line="670"/>
         <source>Show info ab&amp;out site</source>
         <translation>Ver &amp;información de la página</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="725"/>
+        <location filename="../src/lib/webview/webview.cpp" line="762"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Buscar &quot;%1 ..&quot; con %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="91"/>
+        <location filename="../src/lib/webview/webview.cpp" line="93"/>
         <source>No Named Page</source>
         <translation>Página en blanco</translation>
     </message>

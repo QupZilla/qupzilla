@@ -520,9 +520,10 @@ void WebView::checkForForm(QMenu *menu, const QWebElement &element)
         return;
     }
 
-    QString method = parentElement.hasAttribute("method") ? parentElement.attribute("method").toUpper() : "GET";
+    const QString &url = parentElement.attribute("action");
+    const QString &method = parentElement.hasAttribute("method") ? parentElement.attribute("method").toUpper() : "GET";
 
-    if (method == "GET") {
+    if (!url.isEmpty() && method == "GET") {
         menu->addAction(QIcon(":icons/menu/search-icon.png"), tr("Create Search Engine"), this, SLOT(createSearchEngine()));
 
         m_clickedElement = element;
@@ -588,10 +589,10 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
 
             delete pageMenu;
         }
-    }
 
-    if (hitTest.element().tagName().toLower() == "input") {
-        checkForForm(menu, hitTest.element());
+        if (hitTest.element().tagName().toLower() == "input") {
+            checkForForm(menu, hitTest.element());
+        }
     }
 
     if (!selectedText().isEmpty()) {

@@ -143,7 +143,7 @@ void CommandLineOptions::parseActions()
     }
 
     QString url(m_argv[m_argc - 1]);
-    if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-")) {
+    if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-") && url.contains(".")) {
         cout << "starting with url " << url.toUtf8().data() << endl;
         ActionPair pair;
         pair.action = Qz::CL_OpenUrl;

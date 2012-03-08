@@ -774,7 +774,7 @@
              <item>
               <widget class="QCheckBox" name="allowPlugins">
                <property name="text">
-                <string>Allow Plugins (Flash plugin)</string>
+                <string>Allow Netscape Plugins (Flash plugin)</string>
                </property>
               </widget>
              </item>
