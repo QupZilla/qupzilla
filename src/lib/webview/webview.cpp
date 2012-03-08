@@ -504,6 +504,36 @@ bool WebView::isMediaElement(const QWebElement &element)
     return (element.tagName().toLower() == "video" || element.tagName().toLower() == "audio");
 }
 
+void WebView::checkForForm(QMenu *menu, const QWebElement &element)
+{
+    QWebElement parentElement = element.parent();
+
+    while (!parentElement.isNull()) {
+        if (parentElement.tagName().toLower() == "form") {
+            break;
+        }
+
+        parentElement = parentElement.parent();
+    }
+
+    if (parentElement.isNull()) {
+        return;
+    }
+
+    QString method = parentElement.hasAttribute("method") ? parentElement.attribute("method").toUpper() : "GET";
+
+    if (method == "GET") {
+        menu->addAction(QIcon(":icons/menu/search-icon.png"), tr("Create Search Engine"), this, SLOT(createSearchEngine()));
+
+        m_clickedElement = element;
+    }
+}
+
+void WebView::createSearchEngine()
+{
+    mApp->searchEnginesManager()->addEngineFromForm(m_clickedElement, this);
+}
+
 void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, const QPoint &pos)
 {
     if (!m_actionsHaveImages) {
@@ -558,6 +588,10 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
 
             delete pageMenu;
         }
+    }
+
+    if (hitTest.element().tagName().toLower() == "input") {
+        checkForForm(menu, hitTest.element());
     }
 
     if (!selectedText().isEmpty()) {
@@ -735,15 +769,15 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
 
 void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 {
-    m_mediaElement = hitTest.element();
+    m_clickedElement = hitTest.element();
 
-    if (m_mediaElement.isNull()) {
+    if (m_clickedElement.isNull()) {
         return;
     }
 
-    bool paused = m_mediaElement.evaluateJavaScript("this.paused").toBool();
-    bool muted = m_mediaElement.evaluateJavaScript("this.muted").toBool();
-    QUrl videoUrl = m_mediaElement.evaluateJavaScript("this.currentSrc").toUrl();
+    bool paused = m_clickedElement.evaluateJavaScript("this.paused").toBool();
+    bool muted = m_clickedElement.evaluateJavaScript("this.muted").toBool();
+    QUrl videoUrl = m_clickedElement.evaluateJavaScript("this.currentSrc").toUrl();
 
     menu->addSeparator();
     menu->addAction(paused ? tr("&Play") : tr("&Pause"), this, SLOT(pauseMedia()))->setIcon(QIcon::fromTheme(paused ? "media-playback-start" : "media-playback-pause"));
@@ -756,25 +790,25 @@ void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
 
 void WebView::pauseMedia()
 {
-    bool paused = m_mediaElement.evaluateJavaScript("this.paused").toBool();
+    bool paused = m_clickedElement.evaluateJavaScript("this.paused").toBool();
 
     if (paused) {
-        m_mediaElement.evaluateJavaScript("this.play()");
+        m_clickedElement.evaluateJavaScript("this.play()");
     }
     else {
-        m_mediaElement.evaluateJavaScript("this.pause()");
+        m_clickedElement.evaluateJavaScript("this.pause()");
     }
 }
 
 void WebView::muteMedia()
 {
-    bool muted = m_mediaElement.evaluateJavaScript("this.muted").toBool();
+    bool muted = m_clickedElement.evaluateJavaScript("this.muted").toBool();
 
     if (muted) {
-        m_mediaElement.evaluateJavaScript("this.muted = false");
+        m_clickedElement.evaluateJavaScript("this.muted = false");
     }
     else {
-        m_mediaElement.evaluateJavaScript("this.muted = true");
+        m_clickedElement.evaluateJavaScript("this.muted = true");
     }
 }
 

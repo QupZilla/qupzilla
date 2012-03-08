@@ -92,6 +92,8 @@ protected slots:
     void openUrlInSelectedTab();
     void openUrlInBackgroundTab();
 
+    void createSearchEngine();
+
 
     // Clicked frame actions
     void loadClickedFrame();
@@ -117,6 +119,7 @@ protected:
     QUrl lastUrl();
 
     bool isMediaElement(const QWebElement &element);
+    void checkForForm(QMenu* menu, const QWebElement &element);
 
     void createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, const QPoint &pos);
     void createPageContextMenu(QMenu* menu, const QPoint &pos);
@@ -141,7 +144,7 @@ private:
     QUrl m_aboutToLoadUrl;
     QUrl m_lastUrl;
 
-    QWebElement m_mediaElement;
+    QWebElement m_clickedElement;
     QWebFrame* m_clickedFrame;
     QUrl m_clickedUrl;
     bool m_actionsHaveImages;

@@ -354,7 +354,7 @@ QString QupZillaSchemeReply::configPage()
     QString allGroupsString;
     QSettings* settings = Settings::globalSettings();
     foreach(const QString & group, settings->childGroups()) {
-        QString groupString = QString("<tr><th colspan=\"2\">%1</th></tr>").arg(group);
+        QString groupString = QString("<tr><th colspan=\"2\">[%1]</th></tr>").arg(group);
         settings->beginGroup(group);
 
         foreach(const QString & key, settings->childKeys()) {

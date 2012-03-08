@@ -13,7 +13,10 @@
         <file>data/up-right.gif</file>
         <file>data/copyright</file>
         <file>locale/cs_CZ.qm</file>
+        <file>locale/de_DE.qm</file>
+        <file>locale/sk_SK.qm</file>
         <file>locale/sr_BA.qm</file>
         <file>locale/sr_RS.qm</file>
+        <file>locale/zh_TW.qm</file>
     </qresource>
 </RCC>

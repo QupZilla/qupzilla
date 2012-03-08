@@ -16,6 +16,8 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "searchenginesmanager.h"
+#include "searchenginesdialog.h"
+#include "editsearchengine.h"
 #include "iconprovider.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
@@ -23,9 +25,11 @@
 #include "opensearchengine.h"
 #include "databasewriter.h"
 #include "settings.h"
+#include "webview.h"
 
 #include <QNetworkReply>
 #include <QMessageBox>
+#include <QWebElement>
 
 #define ENSURE_LOADED if (!m_settingsLoaded) loadSettings();
 
@@ -140,10 +144,10 @@ void SearchEnginesManager::restoreDefaults()
     duck.url = "https://duckduckgo.com/?q=%s&t=qupzilla";
     duck.shortcut = "d";
 
-    addEngine(google, false);
-    addEngine(wiki, false);
-    addEngine(yt, false);
-    addEngine(duck, false);
+    addEngine(google);
+    addEngine(wiki);
+    addEngine(yt);
+    addEngine(duck);
 
     emit enginesChanged();
 }
@@ -179,7 +183,7 @@ void SearchEnginesManager::editEngine(const Engine &before, const Engine &after)
     addEngine(after);
 }
 
-void SearchEnginesManager::addEngine(const Engine &engine, bool emitSignal)
+void SearchEnginesManager::addEngine(const Engine &engine)
 {
     ENSURE_LOADED;
 
@@ -189,9 +193,72 @@ void SearchEnginesManager::addEngine(const Engine &engine, bool emitSignal)
 
     m_allEngines.append(engine);
 
-    if (emitSignal) {
-        emit enginesChanged();
+    emit enginesChanged();
+}
+
+void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView* view)
+{
+    QWebElement formElement = element.parent();
+
+    while (!formElement.isNull()) {
+        if (formElement.tagName().toLower() == "form") {
+            break;
+        }
+
+        formElement = formElement.parent();
     }
+
+    if (formElement.isNull()) {
+        return;
+    }
+
+    QUrl actionUrl = QUrl::fromEncoded(formElement.attribute("action").toUtf8());
+    if (actionUrl.isRelative()) {
+        actionUrl = view->url().resolved(actionUrl);
+    }
+
+    actionUrl.addQueryItem(element.attribute("name"), "%s");
+
+    QList<QPair<QByteArray, QByteArray> > queryItems;
+    QWebElementCollection allInputs = formElement.findAll("input");
+    foreach (QWebElement e, allInputs) {
+        if (element == e || !e.hasAttribute("name")) {
+            continue;
+        }
+
+        QPair<QByteArray, QByteArray> item;
+        item.first = QUrl::toPercentEncoding(e.attribute("name").toUtf8());
+        item.second = QUrl::toPercentEncoding(e.evaluateJavaScript("this.value").toByteArray());
+
+        queryItems.append(item);
+    }
+
+    actionUrl.setEncodedQueryItems(queryItems + actionUrl.encodedQueryItems());
+
+    SearchEngine engine;
+    engine.name = view->title();
+    engine.icon = view->icon();
+    engine.url = actionUrl.toString();
+
+    EditSearchEngine dialog(SearchEnginesDialog::tr("Add Search Engine"), view);
+    dialog.setName(engine.name);
+    dialog.setIcon(engine.icon);
+    dialog.setUrl(engine.url);
+
+    if (dialog.exec() != QDialog::Accepted) {
+        return;
+    }
+
+    engine.name = dialog.name();
+    engine.icon = dialog.icon();
+    engine.url = dialog.url();
+    engine.shortcut = dialog.shortcut();
+
+    if (engine.name.isEmpty() || engine.url.isEmpty()) {
+        return;
+    }
+
+    addEngine(engine);
 }
 
 void SearchEnginesManager::addEngine(OpenSearchEngine* engine)

@@ -26,6 +26,10 @@
 #include "qz_namespace.h"
 #include "opensearchengine.h"
 
+class QWebElement;
+
+class WebView;
+
 class QT_QUPZILLA_EXPORT SearchEnginesManager : public QObject
 {
     Q_OBJECT
@@ -55,7 +59,9 @@ public:
 
     void addEngine(const QUrl &url);
     void addEngine(OpenSearchEngine* engine);
-    void addEngine(const Engine &engine, bool emitSignal = true);
+    void addEngine(const Engine &engine);
+
+    void addEngineFromForm(const QWebElement &element, WebView *view);
 
     void removeEngine(const Engine &engine);
 

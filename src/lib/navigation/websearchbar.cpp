@@ -53,6 +53,7 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     , m_menu(new QMenu(this))
     , m_pasteAndGoAction(0)
     , m_clearAction(0)
+    , m_reloadingEngines(false)
 {
     setObjectName("websearchbar");
 
@@ -118,6 +119,7 @@ void WebSearchBar::openSearchEnginesDialog()
 void WebSearchBar::setupEngines()
 {
     disconnect(m_searchManager, SIGNAL(enginesChanged()), this, SLOT(setupEngines()));
+    m_reloadingEngines = true;
 
     QString activeEngine = m_searchManager->startingEngineName();
 
@@ -142,12 +144,13 @@ void WebSearchBar::setupEngines()
         }
     }
 
-    searchChanged(m_boxSearchType->currentItem(), false);
+    searchChanged(m_boxSearchType->currentItem());
 
     connect(m_searchManager, SIGNAL(enginesChanged()), this, SLOT(setupEngines()));
+    m_reloadingEngines = false;
 }
 
-void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item, bool reload)
+void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
 {
     setPlaceholderText(item.text);
     m_completerModel->setStringList(QStringList());
@@ -159,7 +162,7 @@ void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item, bool reload)
 
     m_searchManager->setActiveEngine(m_activeEngine);
 
-    if (reload && !text().isEmpty()) {
+    if (!m_reloadingEngines && !text().isEmpty()) {
         search();
     }
 }

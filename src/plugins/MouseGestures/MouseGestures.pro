@@ -24,10 +24,12 @@ FORMS += \
 
 RESOURCES = mousegestures.qrc
 
-TRANSLATIONS = translations/cs_CZ.ts \
+TRANSLATIONS = \
+    translations/cs_CZ.ts \
+    translations/de_DE.ts \
+    translations/sk_SK.ts \
     translations/sr_BA.ts \
     translations/sr_RS.ts \
-    translations/de_DE.ts \
     translations/zh_TW.ts \
 
 include(../../plugins.pri)

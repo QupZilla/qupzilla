@@ -16,8 +16,11 @@ FORMS += \
 
 RESOURCES = akn_res.qrc
 
-TRANSLATIONS = translations/cs_CZ.ts \
+TRANSLATIONS = \
+    translations/cs_CZ.ts \
     translations/sr_BA.ts \
     translations/sr_RS.ts \
+    translations/de_DE.ts \
+    translations/zh_TW.ts \
 
 include(../../plugins.pri)

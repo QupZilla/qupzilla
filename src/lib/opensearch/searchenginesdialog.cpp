@@ -24,11 +24,10 @@
 SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::SearchEnginesDialog)
+    , m_manager(mApp->searchEnginesManager())
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
-
-    m_manager = mApp->searchEnginesManager();
 
     connect(ui->add, SIGNAL(clicked()), this, SLOT(addEngine()));
     connect(ui->remove, SIGNAL(clicked()), this, SLOT(removeEngine()));
