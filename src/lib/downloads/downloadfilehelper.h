@@ -68,6 +68,7 @@ private:
     QNetworkReply* m_reply;
     QPixmap m_fileIcon;
     QUrl m_downloadPage;
+    qint64 m_fileSize;
     bool m_openFileChoosed;
 
     QListWidget* m_listWidget;

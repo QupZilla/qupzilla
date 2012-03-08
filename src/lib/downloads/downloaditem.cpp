@@ -49,6 +49,8 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     , m_downloading(false)
     , m_openAfterFinish(openAfterFinishedDownload)
     , m_downloadStopped(false)
+    , m_received(0)
+    , m_total(0)
 {
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__ << item << reply << path << fileName;
@@ -74,6 +76,13 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     connect(manager, SIGNAL(resized(QSize)), this, SLOT(parentResized(QSize)));
 
     startDownloading();
+}
+
+void DownloadItem::setTotalSize(qint64 total)
+{
+    if (total > 0) {
+        m_total = total;
+    }
 }
 
 void DownloadItem::startDownloading()

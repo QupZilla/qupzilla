@@ -72,9 +72,9 @@ void DownloadFileHelper::handleUnsupportedContent(QNetworkReply* reply, bool ask
     m_fileIcon = m_iconProvider->icon(tempInfo).pixmap(30, 30);
     QString mimeType = m_iconProvider->type(tempInfo);
 
-    qint64 size = m_reply->header(QNetworkRequest::ContentLengthHeader).toLongLong();
-    if (size > 0) {
-        mimeType.append(QString(" (%1)").arg(DownloadItem::fileSizeToString(size)));
+    m_fileSize = m_reply->header(QNetworkRequest::ContentLengthHeader).toLongLong();
+    if (m_fileSize > 0) {
+        mimeType.append(QString(" (%1)").arg(DownloadItem::fileSizeToString(m_fileSize)));
     }
 
     // Close Empty Tab
@@ -226,6 +226,7 @@ void DownloadFileHelper::fileNameChoosed(const QString &name, bool fileNameAutoG
 
     QListWidgetItem* item = new QListWidgetItem(m_listWidget);
     DownloadItem* downItem = new DownloadItem(item, m_reply, m_path, m_fileName, m_fileIcon, m_timer, m_openFileChoosed, m_downloadPage, m_manager);
+    downItem->setTotalSize(m_fileSize);
 
     emit itemCreated(item, downItem);
 }

@@ -49,6 +49,8 @@ public:
     int progress();
     ~DownloadItem();
 
+    void setTotalSize(qint64 total);
+
     static QString remaingTimeToString(QTime time);
     static QString currentSpeedToString(double speed);
     static QString fileSizeToString(qint64 size);
