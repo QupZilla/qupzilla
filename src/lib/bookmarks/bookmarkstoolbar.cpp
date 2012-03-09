@@ -89,7 +89,7 @@ void BookmarksToolbar::customContextMenuRequested(const QPoint &pos)
     menu.addAction(tr("&Hide Toolbar"), this, SLOT(hidePanel()));
 
     //Prevent choosing first option with double rightclick
-    QPoint position = QCursor::pos();
+    QPoint position = mapToGlobal(pos);
     QPoint p(position.x(), position.y() + 1);
     menu.exec(p);
 }
@@ -113,7 +113,7 @@ void BookmarksToolbar::showBookmarkContextMenu(const QPoint &pos)
     menu.addAction(IconProvider::fromTheme("list-remove"), tr("Remove bookmark"), this, SLOT(removeButton()))->setData(buttonPointer);
 
     //Prevent choosing first option with double rightclick
-    QPoint position = QCursor::pos();
+    QPoint position = button->mapToGlobal(pos);
     QPoint p(position.x(), position.y() + 1);
     menu.exec(p);
 }

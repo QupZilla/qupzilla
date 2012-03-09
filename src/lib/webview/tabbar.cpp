@@ -154,7 +154,7 @@ void TabBar::contextMenuRequested(const QPoint &position)
     }
 
     //Prevent choosing first option with double rightclick
-    const QPoint &pos = QCursor::pos();
+    const QPoint &pos = mapToGlobal(position);
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 
