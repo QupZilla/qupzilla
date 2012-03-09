@@ -757,6 +757,8 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
 
     menu->addSeparator();
     selectedText.truncate(20);
+    // KDE is displaying new lines in menu actions ... weird -,-
+    selectedText.replace("\n", " ").replace("\t", "");
 
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
     menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
