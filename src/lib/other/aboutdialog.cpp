@@ -22,7 +22,7 @@
 #include "tabbedwebview.h"
 #include "webpage.h"
 #include "qtwin.h"
-
+#include <QDebug>
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog(parent),
       ui(new Ui::AboutDialog)
@@ -105,7 +105,8 @@ void AboutDialog::showAuthors()
                                          "Unink-Lio<br/>"
                                          "Wu Cheng-Hong<br/>"
                                          "Widya Walesa<br/>"
-                                         "Beqa Arabuli")
+                                         "Beqa Arabuli<br/>"
+                                         "Daiki Noda")
                              ));
         m_authorsHtml.append("</div>");
     }
