@@ -30,6 +30,8 @@ EditSearchEngine::EditSearchEngine(const QString &title, QWidget* parent)
     connect(ui->iconFromFile, SIGNAL(clicked()), this, SLOT(chooseIcon()));
 
     ui->buttonBox->setFocus();
+
+    setFixedHeight(sizeHint().height());
 }
 
 QString EditSearchEngine::name()

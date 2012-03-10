@@ -330,6 +330,9 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
+#ifdef QUPZILLA_DEBUG_BUILD
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Debugging symbols"), tr("Yes")) +
+#endif
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
     }
 

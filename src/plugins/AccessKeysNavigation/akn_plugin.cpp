@@ -35,7 +35,7 @@ PluginSpec AKN_Plugin::pluginSpec()
     spec.name = "Access Keys Navigation";
     spec.info = "Access keys navigation for QupZilla";
     spec.description = "Provides support for navigating in webpages by keyboard shortcuts";
-    spec.version = "0.1.0";
+    spec.version = "0.2.0";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":/accesskeysnavigation/data/icon.png");
     spec.hasSettings = true;
