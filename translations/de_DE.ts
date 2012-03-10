@@ -3462,7 +3462,7 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="340"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="341"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Deaktiviert</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="344"/>
@@ -3471,32 +3471,32 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="353"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="356"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Aktiviert&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="360"/>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>Debugging</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="361"/>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>WebGL Unterstützung</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="362"/>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7 API</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="363"/>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE Integration</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="364"/>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>Portable Version</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="380"/>
@@ -3644,7 +3644,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="307"/>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Compiler Flags</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="308"/>
