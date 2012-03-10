@@ -2338,7 +2338,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="777"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволи Нетскејпове прикључке (Флеш)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="933"/>
@@ -4775,7 +4775,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="527"/>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Направи мотор претраге</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="623"/>
