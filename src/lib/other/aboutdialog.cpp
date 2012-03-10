@@ -55,7 +55,7 @@ void AboutDialog::showAbout()
 {
     ui->authorsButton->setText(tr("Authors and Contributors"));
     if (m_aboutHtml.isEmpty()) {
-        m_aboutHtml.append("<div style='margin:10px;'>");
+        m_aboutHtml.append("<center><div style='margin:10px;'>");
         m_aboutHtml.append(tr("<p><b>Application version %1</b><br/>").arg(QupZilla::VERSION
 #ifdef GIT_REVISION
                            + " (" + GIT_REVISION + ")"
@@ -66,7 +66,7 @@ void AboutDialog::showAbout()
         m_aboutHtml.append(tr("<small>Build time: %1 </small></p>").arg(QupZilla::BUILDTIME));
         m_aboutHtml.append(QString("<p><a href=%1>%1</a></p>").arg(QupZilla::WWWADDRESS));
         m_aboutHtml.append("<p>" + mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()) + "</p>");
-        m_aboutHtml.append("</div>");
+        m_aboutHtml.append("</div></center>");
     }
     ui->textBrowser->setHtml(m_aboutHtml);
 }
@@ -75,7 +75,7 @@ void AboutDialog::showAuthors()
 {
     ui->authorsButton->setText(tr("< About QupZilla"));
     if (m_authorsHtml.isEmpty()) {
-        m_authorsHtml.append("<div style='margin:10px;'>");
+        m_authorsHtml.append("<center><div style='margin:10px;'>");
         m_authorsHtml.append(tr("<p><b>Main developer:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>"));
         m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg(
                                  QString::fromUtf8("Mladen Pejaković<br/>"
@@ -108,7 +108,7 @@ void AboutDialog::showAuthors()
                                          "Beqa Arabuli<br/>"
                                          "Daiki Noda")
                              ));
-        m_authorsHtml.append("</div>");
+        m_authorsHtml.append("</div></center>");
     }
     ui->textBrowser->setHtml(m_authorsHtml);
 }

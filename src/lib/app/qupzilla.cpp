@@ -1408,8 +1408,8 @@ void QupZilla::searchOnPage()
 void QupZilla::openFile()
 {
     const QString &fileTypes = QString("%1(*.html *.htm *.shtml *.shtm);;"
-                                       "%2(*.txt);;"
-                                       "%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg);;"
+                                       "%2(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff);;"
+                                       "%3(*.txt);;"
                                        "%4(*.*)").arg(tr("HTML files"), tr("Image files"), tr("Text files"), tr("All files"));
 
     const QString &filePath = QFileDialog::getOpenFileName(this, tr("Open file..."), QDir::homePath(), fileTypes);
