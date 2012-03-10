@@ -2469,7 +2469,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="777"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Netscape Plugins (Flash Plugin) erlauben</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="933"/>
@@ -4859,7 +4859,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="527"/>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchmaschine erstellen</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="638"/>
