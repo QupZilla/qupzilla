@@ -146,7 +146,7 @@ void HistoryModel::slotDeleteHistoryEntry(const QList<int> &list)
     QSqlDatabase db = QSqlDatabase::database();
     db.transaction();
 
-    foreach (int index, list) {
+    foreach(int index, list) {
         QSqlQuery query;
         query.prepare("SELECT id, count, date, url, title FROM history WHERE id=?");
         query.bindValue(0, index);

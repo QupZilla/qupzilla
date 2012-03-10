@@ -125,17 +125,6 @@ void QupZilla::postLaunch()
         m_tabWidget->restorePinnedTabs();
     }
 
-    //Open tab from command line argument
-    bool addTab = true;
-    const QStringList &arguments = qApp->arguments();
-    for (int i = 0; i < qApp->arguments().count(); i++) {
-        QString arg = arguments.at(i);
-        if (arg.startsWith("-url=")) {
-            m_tabWidget->addView(QUrl(arg.remove("-url=")), Qz::NT_SelectedTabAtTheEnd);
-            addTab = false;
-        }
-    }
-
     Settings settings;
     settings.beginGroup("Web-URL-Settings");
     int afterLaunch = settings.value("afterLaunch", 1).toInt();
@@ -144,6 +133,7 @@ void QupZilla::postLaunch()
     bool startingAfterCrash = settings.value("isCrashed", false).toBool();
     settings.endGroup();
 
+    bool addTab = true;
     QUrl startUrl;
     switch (afterLaunch) {
     case 0:

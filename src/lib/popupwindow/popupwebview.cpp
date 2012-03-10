@@ -58,14 +58,17 @@ QWidget* PopupWebView::overlayForJsAlert()
     return this;
 }
 
-void PopupWebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position)
+void PopupWebView::openUrlInNewTab(const QUrl &urla, Qz::NewTabPositionFlag position)
 {
     Q_UNUSED(position)
 
     QupZilla* window = mApp->getWindow();
 
     if (window) {
-        window->tabWidget()->addView(url, Qz::NT_SelectedTab);
+        QNetworkRequest req(urla);
+        req.setRawHeader("Referer", url().toEncoded());
+
+        window->tabWidget()->addView(req, Qz::NT_SelectedTab);
         window->raise();
     }
 }

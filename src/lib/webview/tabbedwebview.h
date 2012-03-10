@@ -70,7 +70,7 @@ public slots:
     void loadingProgress(int prog);
 
     void closeView();
-    void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position);
+    void openUrlInNewTab(const QUrl &urla, Qz::NewTabPositionFlag position);
     void openNewTab();
 
 private slots:

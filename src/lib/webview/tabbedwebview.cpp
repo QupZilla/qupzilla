@@ -345,14 +345,17 @@ void TabbedWebView::stop()
     slotLoadFinished();
 }
 
-void TabbedWebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlag position)
+void TabbedWebView::openUrlInNewTab(const QUrl &urla, Qz::NewTabPositionFlag position)
 {
-    m_tabWidget->addView(url, position);
+    QNetworkRequest req(urla);
+    req.setRawHeader("Referer", url().toEncoded());
+
+    m_tabWidget->addView(req, position);
 }
 
 void TabbedWebView::openNewTab()
 {
-    m_tabWidget->addView();
+    m_tabWidget->addView(QUrl());
 }
 
 void TabbedWebView::getFocus(const QUrl &urla)

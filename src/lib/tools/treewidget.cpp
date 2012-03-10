@@ -214,7 +214,7 @@ void TreeWidget::deleteItem(QTreeWidgetItem* item)
     delete item;
 }
 
-void TreeWidget::deleteItems(const QList<QTreeWidgetItem *> &items)
+void TreeWidget::deleteItems(const QList<QTreeWidgetItem*> &items)
 {
     m_refreshAllItemsNeeded = true;
 

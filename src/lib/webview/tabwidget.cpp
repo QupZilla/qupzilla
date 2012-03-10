@@ -244,11 +244,22 @@ void TabWidget::actionChangeIndex()
 
 int TabWidget::addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine)
 {
-    return addView(url, tr("New tab"), openFlags, selectLine);
+    return addView(QNetworkRequest(url), openFlags, selectLine);
 }
 
-int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position)
+int TabWidget::addView(const QNetworkRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine)
 {
+    return addView(req, tr("New tab"), openFlags, selectLine);
+}
+
+int TabWidget::addView(const QUrl &url, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position)
+{
+    return addView(QNetworkRequest(url), title, openFlags, selectLine, position);
+}
+
+int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position)
+{
+    QUrl url = req.url();
     m_lastTabIndex = currentIndex();
 
     if (url.isEmpty() && !(openFlags & Qz::NT_CleanTab)) {
@@ -303,7 +314,8 @@ int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionF
     connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid()) {
-        webView->load(url);
+        req.setUrl(url);
+        webView->load(req);
     }
 
     if (selectLine) {
@@ -469,7 +481,10 @@ int TabWidget::duplicateTab(int index)
     QDataStream tabHistoryStream(&history, QIODevice::WriteOnly);
     tabHistoryStream << *weView(index)->history();
 
-    int id = addView(url, tabText(index), Qz::NT_CleanNotSelectedTab);
+    QNetworkRequest req(url);
+    req.setRawHeader("Referer", url.toEncoded());
+
+    int id = addView(req, tabText(index), Qz::NT_CleanNotSelectedTab);
     QDataStream historyStream(history);
     historyStream >> *weView(id)->history();
 

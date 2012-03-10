@@ -20,6 +20,7 @@
 
 #include <QTabWidget>
 #include <QUrl>
+#include <QNetworkRequest>
 
 #include "toolbutton.h"
 #include "qz_namespace.h"
@@ -81,7 +82,11 @@ signals:
 
 public slots:
     int addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false);
-    int addView(QUrl url = QUrl(), const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1);
+    int addView(const QNetworkRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false);
+
+    int addView(const QUrl &url, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1);
+    int addView(QNetworkRequest req, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1);
+
     int duplicateTab(int index);
 
     void closeTab(int index = -1);
