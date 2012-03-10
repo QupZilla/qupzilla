@@ -86,7 +86,7 @@ Available Defines
                           (disabled by default)
                           
                           example:
-                          $ export NONBLOCK_JS_DIALOGS="true"                          
+                          $ export NONBLOCK_JS_DIALOGS="true"       
                           
                        
  Windows specific defines:

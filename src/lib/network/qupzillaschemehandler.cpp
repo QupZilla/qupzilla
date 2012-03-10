@@ -304,6 +304,7 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about QupZilla's current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports."));
         cPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
         cPage.replace("%PATHS%", tr("Paths"));
+        cPage.replace("%BUILD-CONFIG%", tr("Build Configuration"));
         cPage.replace("%PREFS%", tr("Preferences"));
         cPage.replace("%OPTION%", tr("Option"));
         cPage.replace("%VALUE%", tr("Value"));
@@ -312,15 +313,6 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace("%PL-VER%", tr("Version"));
         cPage.replace("%PL-AUTH%", tr("Author"));
         cPage.replace("%PL-DESC%", tr("Description"));
-
-        cPage.replace("%PATHS-TEXT%",
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->getActiveProfilPath()) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->getActiveProfilPath() + "settings.ini") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), mApp->getActiveProfilPath() + "session.dat") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), mApp->getActiveProfilPath() + "pinnedtabs.dat") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), mApp->DATADIR) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
 
         cPage.replace("%VERSION-INFO%",
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Application version"), QupZilla::VERSION
@@ -331,10 +323,45 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QupZilla::WEBKITVERSION) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), QupZilla::BUILDTIME) +
-#ifdef QUPZILLA_DEBUG_BUILD
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Debugging symbols"), tr("Yes")) +
-#endif
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
+
+        cPage.replace("%PATHS-TEXT%",
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->getActiveProfilPath()) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->getActiveProfilPath() + "settings.ini") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), mApp->getActiveProfilPath() + "session.dat") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), mApp->getActiveProfilPath() + "pinnedtabs.dat") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), mApp->DATADIR) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
+
+        QString debugBuild = tr("Disabled");
+        QString webGLEnabled = tr("Disabled");
+        QString w7APIEnabled = tr("Disabled");
+        QString KDEIntegration = tr("Disabled");
+        QString portableBuild = tr("Disabled");
+
+#ifdef QUPZILLA_DEBUG_BUILD
+        debugBuild = tr("<b>Enabled</b>");
+#endif
+#ifdef USE_WEBGL
+        webGLEnabled = tr("<b>Enabled</b>");
+#endif
+#if defined(Q_WS_WIN) && defined(W7API)
+        w7APIEnabled = tr("<b>Enabled</b>");
+#endif
+#if defined(Q_WS_X11) && defined(KDE)
+        KDEIntegration = tr("<b>Enabled</b>");
+#endif
+#ifdef PORTABLE_BUILD
+        portableBuild = tr("<b>Enabled</b>");
+#endif
+
+        cPage.replace("%BUILD-CONFIG-TEXT%",
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Debug build"), debugBuild) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebGL support"), webGLEnabled) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Windows 7 API"), w7APIEnabled) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("KDE integration"), KDEIntegration) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Portable build"), portableBuild));
     }
 
     QString page = cPage;
