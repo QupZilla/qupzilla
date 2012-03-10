@@ -61,7 +61,6 @@ int main(int argc, char* argv[])
     }
 
     MainApplication app(cmdActions, argc, argv);
-    app.setStyle(new ProxyStyle());
 
     if (app.isExited()) {
 //        Not showing any output, otherwise XFCE shows "Failed to execute default browser. I/O error" error
@@ -70,6 +69,8 @@ int main(int argc, char* argv[])
 //        }
         return 0;
     }
+
+    app.setStyle(new ProxyStyle());
 
     int result = app.exec();
     return result;
