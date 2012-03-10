@@ -2893,6 +2893,14 @@
         <source>No available plugins.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Debugging symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>

@@ -2940,6 +2940,14 @@
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
         <translation>Táto stránka obsahuje informácie o aktuálnej konfigurácií QupZilly, pluginov a všetkých dôležitých informáciach na riešenie problémov. Prosím, priložte tieto informácie k hlásenému problému.</translation>
     </message>
+    <message>
+        <source>Debugging symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
