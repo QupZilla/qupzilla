@@ -2945,11 +2945,35 @@ não foi encontrado!</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Debugging symbols</source>
+        <source>Build Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Yes</source>
+        <source>Disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debug build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebGL support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windows 7 API</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>KDE integration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Portable build</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

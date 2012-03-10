@@ -2296,19 +2296,19 @@
     <name>QtWin</name>
     <message>
         <source>Open new tab</source>
-        <translation>新規タブを開く</translation>
+        <translation>新しいタブを開く</translation>
     </message>
     <message>
         <source>Opens a new tab if browser is running</source>
-        <translation>ブラウザが起動中なら新規タブを開く</translation>
+        <translation>新しいタブを開く</translation>
     </message>
     <message>
         <source>Open new window</source>
-        <translation>新規ウィンドウを開く</translation>
+        <translation>新しいウィンドウを開く</translation>
     </message>
     <message>
         <source>Opens a new window if browser is running</source>
-        <translation>ブラウザが起動中なら新規ウィンドウを開く</translation>
+        <translation>新しいウィンドウを開く</translation>
     </message>
     <message>
         <source>Open download manager</source>
@@ -2316,7 +2316,7 @@
     </message>
     <message>
         <source>Opens a download manager if browser is running</source>
-        <translation>ブラウザが起動中ならダウンロードマネージャを開く</translation>
+        <translation>ダウンロードマネージャを開く</translation>
     </message>
 </context>
 <context>
@@ -2361,7 +2361,7 @@
     <message>
         <source>Open Location</source>
         <translatorcomment>わからない</translatorcomment>
-        <translation>あれ</translation>
+        <translation>アドレスバー</translation>
     </message>
     <message>
         <source>Open &amp;File</source>
@@ -2971,11 +2971,35 @@
         <translation>表示可能なプラグインはありません。</translation>
     </message>
     <message>
-        <source>Debugging symbols</source>
+        <source>Build Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Yes</source>
+        <source>Disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debug build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebGL support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windows 7 API</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>KDE integration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Portable build</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
