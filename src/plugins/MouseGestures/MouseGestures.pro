@@ -1,5 +1,6 @@
 QT += network webkit
 TARGET = MouseGestures
+os2: TARGET = MouseGes
 
 INCLUDEPATH = 3rdparty
 
@@ -27,6 +28,7 @@ RESOURCES = mousegestures.qrc
 TRANSLATIONS = \
     translations/cs_CZ.ts \
     translations/de_DE.ts \
+    translations/nl_NL.ts \
     translations/sk_SK.ts \
     translations/sr_BA.ts \
     translations/sr_RS.ts \

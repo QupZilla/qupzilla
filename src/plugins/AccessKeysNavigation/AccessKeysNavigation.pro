@@ -1,5 +1,6 @@
 QT += webkit
 TARGET = AccessKeysNavigation
+os2: TARGET  = AcKeyNav
 
 SOURCES = \
     akn_plugin.cpp \
@@ -18,9 +19,10 @@ RESOURCES = akn_res.qrc
 
 TRANSLATIONS = \
     translations/cs_CZ.ts \
+    translations/de_DE.ts \
+    translations/nl_NL.ts \
     translations/sr_BA.ts \
     translations/sr_RS.ts \
-    translations/de_DE.ts \
     translations/zh_TW.ts \
 
 include(../../plugins.pri)

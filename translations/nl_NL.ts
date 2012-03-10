@@ -868,7 +868,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="143"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg toe aan Bladwijzers</translation>
     </message>
     <message>
         <source>Add into Bookmarks</source>
@@ -1782,7 +1782,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/lib/other/licenseviewer.cpp" line="25"/>
         <source>License Viewer</source>
-        <translation type="unfinished">Liecentie-toner</translation>
+        <translation>Licentie-toner</translation>
     </message>
 </context>
 <context>
@@ -2039,12 +2039,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="212"/>
         <source>Error!</source>
-        <translation type="unfinished">Fout!</translation>
+        <translation>Fout!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="212"/>
         <source>Cannot load plugin!</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan plugin niet laden!</translation>
     </message>
 </context>
 <context>
@@ -2397,7 +2397,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="777"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Sta Netscape-plugins toe (Flash-plugin)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="933"/>
@@ -3097,22 +3097,22 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML-bestanden</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeeldingsbestanden</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekstbestanden</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle bestanden</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1802"/>
@@ -4858,7 +4858,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="527"/>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Creeer zoekmachine</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="638"/>
@@ -4928,7 +4928,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="763"/>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoek met...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="784"/>
