@@ -1242,6 +1242,10 @@ não foi encontrado!</translation>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
         <translation>&lt;b&gt;Observação: &lt;/b&gt;%s no url representa o texto procurado</translation>
     </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HistoryManager</name>
@@ -2262,6 +2266,10 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Allow Netscape Plugins (Flash plugin)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t load tabs until selected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3549,6 +3557,10 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <source>Unable to load</source>
         <translation>Não foi possível carregar</translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

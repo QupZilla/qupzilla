@@ -1212,6 +1212,10 @@
         <source>Choose icon...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HistoryManager</name>
@@ -2215,6 +2219,10 @@
     </message>
     <message>
         <source>Allow Netscape Plugins (Flash plugin)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t load tabs until selected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3495,6 +3503,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Unable to load</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

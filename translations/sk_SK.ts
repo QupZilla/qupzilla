@@ -1242,6 +1242,10 @@
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
         <translation>&lt;b&gt;Poznámka: &lt;/b&gt;%s v url reprezentuje hľadaný reťazec</translation>
     </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HistoryManager</name>
@@ -2258,6 +2262,10 @@
     </message>
     <message>
         <source>Allow Netscape Plugins (Flash plugin)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t load tabs until selected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3545,6 +3553,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Select image...</source>
         <translation>Zvoliť obrázok...</translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
