@@ -475,7 +475,7 @@ int TabWidget::duplicateTab(int index)
 
     int id = addView(req, tabText(index), Qz::NT_CleanNotSelectedTab);
     QDataStream historyStream(history);
-    historyStream >> *view->history();
+    historyStream >> *weTab(id)->history();
 
     return id;
 }

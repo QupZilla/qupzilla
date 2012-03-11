@@ -18,4 +18,3 @@ void WebViewSettings::loadSettings()
 
     settings.endGroup();
 }
-
