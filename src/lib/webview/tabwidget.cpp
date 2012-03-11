@@ -571,8 +571,6 @@ QList<WebTab*> TabWidget::allTabs(bool withPinned)
     return allTabs;
 }
 
-static const qint32 TabWidgetFileVersion = 0xaaf;
-
 void TabWidget::savePinnedTabs()
 {
     QByteArray data;
@@ -671,7 +669,6 @@ QByteArray TabWidget::saveState()
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
-    stream << TabWidgetFileVersion;
     stream << tabList.count();
 
     foreach(const WebTab::SavedTab & tab, tabList) {
@@ -690,16 +687,10 @@ bool TabWidget::restoreState(QByteArray &state)
         return false;
     }
 
-    qint32 fileVersion = 0;
     int tabListCount = 0;
     int currentTab = 0;
 
-    stream >> fileVersion;
     stream >> tabListCount;
-
-    if (fileVersion != TabWidgetFileVersion) {
-        return false;
-    }
 
     for (int i = 0; i < tabListCount; ++i) {
         WebTab::SavedTab tab;
