@@ -627,12 +627,11 @@ void BookmarksManager::insertAllTabs()
     }
 
     foreach(WebTab * tab, getQupZilla()->tabWidget()->allTabs(false)) {
-        TabbedWebView* view = tab->view();
-        if (view->url().isEmpty()) {
+        if (tab->url().isEmpty()) {
             continue;
         }
 
-        m_bookmarksModel->saveBookmark(view->url(), view->title(), view->icon(), BookmarksModel::fromTranslatedFolder(combo->currentText()));
+        m_bookmarksModel->saveBookmark(tab->url(), tab->title(), tab->icon(), BookmarksModel::fromTranslatedFolder(combo->currentText()));
     }
 
     delete dialog;

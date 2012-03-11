@@ -11,6 +11,7 @@ public:
     static void loadSettings();
 
     static int defaultZoom;
+    static bool loadTabsOnActivation;
 };
 
 #endif // WEBVIEWSETTINGS_H

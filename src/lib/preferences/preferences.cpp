@@ -101,6 +101,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     settings.endGroup();
     ui->afterLaunch->setCurrentIndex(afterLaunch);
     ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool());
+    ui->dontLoadTabsUntilSelected->setChecked(settings.value("Web-Browser-Settings/LoadTabsOnActivation", false).toBool());
 
     ui->newTabFrame->setVisible(false);
     if (m_newTabUrl.isEmpty()) {
@@ -788,6 +789,7 @@ void Preferences::saveSettings()
     settings.setValue("wheelScrollLines", ui->wheelScroll->value());
     settings.setValue("DoNotTrack", ui->doNotTrack->isChecked());
     settings.setValue("CheckUpdates", ui->checkUpdates->isChecked());
+    settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
     settings.setValue("DefaultZoom", ui->defaultZoom->value());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
     settings.setValue("UserAgent", ui->changeUserAgent->isChecked() ? ui->userAgentCombo->currentText() : "");

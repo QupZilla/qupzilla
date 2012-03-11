@@ -56,7 +56,7 @@ public:
     ~TabWidget();
 
     QByteArray saveState();
-    bool restoreState(const QByteArray &state);
+    bool restoreState(QByteArray &state);
     void savePinnedTabs();
     void restorePinnedTabs();
 
@@ -113,8 +113,9 @@ private slots:
 
 private:
     void resizeEvent(QResizeEvent* e);
-    inline TabbedWebView* weView();
-    inline TabbedWebView* weView(int index);
+
+    WebTab* weTab();
+    WebTab* weTab(int index);
 
     bool m_hideTabBarWithOneTab;
     bool m_dontQuitWithOneTab;

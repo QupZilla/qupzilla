@@ -22,8 +22,57 @@
 #include "tabbar.h"
 #include "tabwidget.h"
 #include "locationbar.h"
+#include "globalfunctions.h"
+#include "webviewsettings.h"
 
 #include <QVBoxLayout>
+#include <QWebHistory>
+#include <QLabel>
+
+WebTab::SavedTab::SavedTab(WebTab* webTab)
+{
+    if (webTab->isRestored()) {
+        WebView* view = webTab->view();
+
+        title = view->title();
+        url = view->url();
+        icon = view->icon();
+
+        QDataStream historyStream(&history, QIODevice::WriteOnly);
+        historyStream << *view->history();
+    }
+    else {
+        *this = webTab->savedTab();
+    }
+}
+
+void WebTab::SavedTab::clear()
+{
+    title.clear();
+    url.clear();
+    icon = QIcon();
+    history.clear();
+}
+
+QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
+{
+    stream << tab.title;
+    stream << tab.url;
+    stream << tab.icon;
+    stream << tab.history;
+
+    return stream;
+}
+
+QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
+{
+    stream >> tab.title;
+    stream >> tab.url;
+    stream >> tab.icon;
+    stream >> tab.history;
+
+    return stream;
+}
 
 WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     : QWidget()
@@ -54,12 +103,71 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     connect(m_locationBar.data(), SIGNAL(loadUrl(QUrl)), m_view, SLOT(load(QUrl)));
 }
 
-TabbedWebView* WebTab::view()
+TabbedWebView* WebTab::view() const
 {
     return m_view;
 }
 
-bool WebTab::isPinned()
+void WebTab::setCurrentTab()
+{
+    if (!isRestored()) {
+        p_restoreTab(m_savedTab);
+
+        m_savedTab.clear();
+    }
+}
+
+QUrl WebTab::url() const
+{
+    if (isRestored()) {
+        return m_view->url();
+    }
+    else {
+        return m_savedTab.url;
+    }
+}
+
+QString WebTab::title() const
+{
+    if (isRestored()) {
+        return m_view->title();
+    }
+    else {
+        return m_savedTab.title;
+    }
+}
+
+QIcon WebTab::icon() const
+{
+    if (isRestored()) {
+        return m_view->icon();
+    }
+    else {
+        return m_savedTab.icon;
+    }
+}
+
+QWebHistory* WebTab::history() const
+{
+    return m_view->history();
+}
+
+void WebTab::reload()
+{
+    m_view->reload();
+}
+
+void WebTab::stop()
+{
+    m_view->stop();
+}
+
+bool WebTab::isLoading() const
+{
+    return m_view->isLoading();
+}
+
+bool WebTab::isPinned() const
 {
     return m_pinned;
 }
@@ -74,12 +182,12 @@ void WebTab::setLocationBar(LocationBar* bar)
     m_locationBar = bar;
 }
 
-LocationBar* WebTab::locationBar()
+LocationBar* WebTab::locationBar() const
 {
     return m_locationBar.data();
 }
 
-bool WebTab::inspectorVisible()
+bool WebTab::inspectorVisible() const
 {
     return m_inspectorVisible;
 }
@@ -88,6 +196,45 @@ void WebTab::setInspectorVisible(bool v)
 {
     m_inspectorVisible = v;
 }
+
+WebTab::SavedTab WebTab::savedTab() const
+{
+    return m_savedTab;
+}
+
+bool WebTab::isRestored() const
+{
+    return m_savedTab.isEmpty();
+}
+
+void WebTab::restoreTab(const WebTab::SavedTab &tab)
+{
+    if (WebViewSettings::loadTabsOnActivation) {
+        m_savedTab = tab;
+        int index = tabIndex();
+
+        m_view->animationLoading(index, false)->setPixmap(tab.icon.pixmap(16, 16));
+        m_view->tabWidget()->setTabText(index, tab.title);
+        m_locationBar.data()->showUrl(tab.url);
+    }
+    else {
+        p_restoreTab(tab);
+    }
+}
+
+void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history)
+{
+    QDataStream historyStream(history);
+    historyStream >> *m_view->history();
+
+    m_view->load(url);
+}
+
+void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
+{
+    p_restoreTab(tab.url, tab.history);
+}
+
 
 void WebTab::showNotification(QWidget* notif)
 {
@@ -99,7 +246,7 @@ void WebTab::showNotification(QWidget* notif)
     notif->show();
 }
 
-int WebTab::tabIndex()
+int WebTab::tabIndex() const
 {
     return m_view->tabIndex();
 }
