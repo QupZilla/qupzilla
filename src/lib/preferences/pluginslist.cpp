@@ -25,6 +25,7 @@
 
 #include <QInputDialog>
 #include <QMessageBox>
+#include <QTimer>
 
 #ifdef PORTABLE_BUILD
 #define DEFAULT_ENABLE_PLUGINS false
@@ -41,9 +42,11 @@ PluginsList::PluginsList(QWidget* parent)
     //Application Extensions
     Settings settings;
     settings.beginGroup("Plugin-Settings");
-    ui->allowAppPlugins->setChecked(settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool());
+    bool appPluginsEnabled = settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool();
     settings.endGroup();
-    allowAppPluginsChanged(ui->allowAppPlugins->isChecked());
+
+    ui->allowAppPlugins->setChecked(appPluginsEnabled);
+    ui->list->setEnabled(appPluginsEnabled);
 
     connect(ui->butSettings, SIGNAL(clicked()), this, SLOT(settingsClicked()));
     connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
@@ -67,6 +70,10 @@ PluginsList::PluginsList(QWidget* parent)
     }
 
     allowC2FChanged(ui->allowClick2Flash->isChecked());
+
+    if (appPluginsEnabled) {
+        QTimer::singleShot(0, this, SLOT(refresh()));
+    }
 }
 
 void PluginsList::addWhitelist()
@@ -100,7 +107,7 @@ void PluginsList::save()
         if (item->checkState() == Qt::Checked) {
             const Plugins::Plugin &plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
 
-            allowedPlugins.append(plugin.fileName);
+            allowedPlugins.append(plugin.fullPath);
         }
     }
 
@@ -113,18 +120,19 @@ void PluginsList::save()
 
 void PluginsList::allowAppPluginsChanged(bool state)
 {
-    Settings settings;
-    settings.beginGroup("Plugin-Settings");
-    settings.setValue("EnablePlugins", state);
-    settings.endGroup();
-
-    mApp->plugins()->loadSettings();
-    mApp->plugins()->loadPlugins();
-
     ui->list->setEnabled(state);
 
     if (state) {
         refresh();
+    }
+    else {
+        for (int i = 0; i < ui->list->count(); i++) {
+            QListWidgetItem* item = ui->list->item(i);
+
+            if (item->checkState() == Qt::Checked) {
+                item->setCheckState(Qt::Unchecked);
+            }
+        }
     }
 }
 

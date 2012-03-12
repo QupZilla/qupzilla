@@ -23,6 +23,7 @@
 #include <QTextDocument>
 #include <QTextBlock>
 #include <QApplication>
+#include <QScrollBar>
 
 PluginListDelegate::PluginListDelegate(QListWidget* parent)
     : QItemDelegate(parent)
@@ -77,9 +78,10 @@ QSize PluginListDelegate::sizeHint(const QStyleOptionViewItem &option, const QMo
     Q_UNUSED(index)
 
     const int textMargin = QApplication::style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
+    const int scrollBarSize = m_listWidget->verticalScrollBar()->isVisible() ? m_listWidget->verticalScrollBar()->width() : 0;
 
     QSize size;
-    size.setWidth(m_listWidget->width() - 10);
+    size.setWidth(m_listWidget->width() - 10 - scrollBarSize);
 
     // ( height of font * 3 = 3 lines )  + ( text margins ) + ( 2 free lines = every line is 3px )
     size.setHeight((option.fontMetrics.height() * 3) + (textMargin * 2) + (2 * 3));

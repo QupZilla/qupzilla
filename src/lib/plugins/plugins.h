@@ -54,7 +54,7 @@ public:
 
     explicit Plugins(QObject* parent = 0);
 
-    QList<Plugin> getAvailablePlugins() { return m_availablePlugins; }
+    QList<Plugin> getAvailablePlugins();
 
     bool loadPlugin(Plugin* plugin);
     void unloadPlugin(Plugin* plugin);
@@ -80,10 +80,12 @@ protected:
 
 private:
     PluginInterface* initPlugin(PluginInterface* interface, QPluginLoader* loader);
+
     void refreshLoadedPlugins();
+    void loadAvailablePlugins();
 
     QList<Plugin> m_availablePlugins;
-    QStringList m_allowedPluginFileNames;
+    QStringList m_allowedPlugins;
 
     bool m_pluginsEnabled;
     bool m_pluginsLoaded;

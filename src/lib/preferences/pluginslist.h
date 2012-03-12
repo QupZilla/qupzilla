@@ -45,13 +45,14 @@ private slots:
     void itemChanged(QListWidgetItem* item);
     void allowAppPluginsChanged(bool state);
 
+    void refresh();
+
     //WebKit plugins
     void addWhitelist();
     void removeWhitelist();
     void allowC2FChanged(bool state);
 
-private:
-    void refresh();
+private:;
 
     Ui::PluginsList* ui;
 };

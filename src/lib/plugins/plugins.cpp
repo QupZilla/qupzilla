@@ -38,6 +38,13 @@ Plugins::Plugins(QObject* parent)
     loadSettings();
 }
 
+QList<Plugins::Plugin> Plugins::getAvailablePlugins()
+{
+    loadAvailablePlugins();
+
+    return m_availablePlugins;
+}
+
 bool Plugins::loadPlugin(Plugins::Plugin* plugin)
 {
     if (plugin->isLoaded()) {
@@ -52,7 +59,7 @@ bool Plugins::loadPlugin(Plugins::Plugin* plugin)
 
     m_availablePlugins.removeOne(*plugin);
     plugin->instance = initPlugin(iPlugin, plugin->pluginLoader);
-    m_availablePlugins.append(*plugin);
+    m_availablePlugins.prepend(*plugin);
 
     refreshLoadedPlugins();
 
@@ -80,7 +87,7 @@ void Plugins::loadSettings()
     Settings settings;
     settings.beginGroup("Plugin-Settings");
     m_pluginsEnabled = settings.value("EnablePlugins", DEFAULT_ENABLE_PLUGINS).toBool();
-    m_allowedPluginFileNames = settings.value("AllowedPlugins", QStringList()).toStringList();
+    m_allowedPlugins = settings.value("AllowedPlugins", QStringList()).toStringList();
     settings.endGroup();
 
     c2f_loadSettings();
@@ -106,7 +113,38 @@ void Plugins::c2f_saveSettings()
 
 void Plugins::loadPlugins()
 {
-    if (!m_pluginsEnabled || m_pluginsLoaded) {
+    if (!m_pluginsEnabled) {
+        return;
+    }
+
+    foreach(const QString & fullPath, m_allowedPlugins) {
+        QPluginLoader* loader = new QPluginLoader(fullPath);
+        PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
+        if (!iPlugin) {
+            continue;
+        }
+
+        Plugin plugin;
+        plugin.fullPath = fullPath;
+        plugin.pluginLoader = loader;
+        plugin.instance = initPlugin(iPlugin, loader);
+        plugin.pluginSpec = iPlugin->pluginSpec();
+
+        if (plugin.isLoaded()) {
+            m_loadedPlugins.append(plugin.instance);
+        }
+
+        m_availablePlugins.append(plugin);
+    }
+
+    refreshLoadedPlugins();
+
+    std::cout << "QupZilla: " << m_loadedPlugins.count() << " plugins loaded"  << std::endl;
+}
+
+void Plugins::loadAvailablePlugins()
+{
+    if (m_pluginsLoaded) {
         return;
     }
 
@@ -114,41 +152,36 @@ void Plugins::loadPlugins()
 
     QStringList dirs;
     dirs << mApp->DATADIR + "plugins/"
-#ifdef Q_WS_X11
+        #ifdef Q_WS_X11
          << "/usr/lib/qupzilla/"
-#endif
+        #endif
          << mApp->PROFILEDIR + "plugins/";
 
     foreach(const QString & dir, dirs) {
         QDir pluginsDir = QDir(dir);
         foreach(const QString & fileName, pluginsDir.entryList(QDir::Files)) {
-            QPluginLoader* loader = new QPluginLoader(pluginsDir.absoluteFilePath(fileName));
+            const QString absolutePath = pluginsDir.absoluteFilePath(fileName);
+            if (m_allowedPlugins.contains(absolutePath)) {
+                continue;
+            }
+
+            QPluginLoader* loader = new QPluginLoader(absolutePath);
             PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
             if (!iPlugin) {
                 continue;
             }
 
             Plugin plugin;
-            plugin.fileName = fileName;
-            plugin.fullPath = pluginsDir.absoluteFilePath(fileName);
+            plugin.fullPath = absolutePath;
             plugin.pluginSpec = iPlugin->pluginSpec();
             plugin.pluginLoader = loader;
             plugin.instance = 0;
 
-            if (m_allowedPluginFileNames.contains(fileName)) {
-                plugin.instance = initPlugin(iPlugin, loader);
-            }
-            else {
-                loader->unload();
-            }
+            loader->unload();
 
             m_availablePlugins.append(plugin);
         }
     }
-
-    refreshLoadedPlugins();
-
-    std::cout << m_loadedPlugins.count() << " plugins loaded"  << std::endl;
 }
 
 PluginInterface* Plugins::initPlugin(PluginInterface* interface, QPluginLoader* loader)
