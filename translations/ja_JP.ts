@@ -2665,7 +2665,7 @@
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translatorcomment>保留。意味はだいたいわかるが適訳見つからず。</translatorcomment>
+        <translatorcomment>保留。微妙</translatorcomment>
         <translation>Cookieが保存されない。</translation>
     </message>
     <message>
