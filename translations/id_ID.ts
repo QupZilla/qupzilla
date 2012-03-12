@@ -1762,7 +1762,7 @@
     <message>
         <location filename="../src/lib/other/licenseviewer.cpp" line="25"/>
         <source>License Viewer</source>
-        <translation type="unfinished">Penayang Lisensi</translation>
+        <translation>Penayang Lisensi</translation>
     </message>
 </context>
 <context>
@@ -2344,7 +2344,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="777"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ijinkan Pengaya Netscape (pengaya Flash)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="933"/>
@@ -3293,22 +3293,22 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas HTML</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas gambar</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas teks</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1423"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Semua berkas</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1425"/>
@@ -4794,7 +4794,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="527"/>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Buat Mesin Pencari</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="623"/>
