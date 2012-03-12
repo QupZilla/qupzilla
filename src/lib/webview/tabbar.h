@@ -49,8 +49,6 @@ public:
 signals:
     void reloadTab(int index);
     void stopTab(int index);
-    void backTab(int index);
-    void forwardTab(int index);
     void closeAllButCurrent(int index);
     void closeTab(int index);
     void duplicateTab(int index);
@@ -69,8 +67,6 @@ private slots:
     void contextMenuRequested(const QPoint &position);
     void reloadTab() { emit reloadTab(m_clickedTab); }
     void stopTab() { emit stopTab(m_clickedTab); }
-    void backTab() { emit backTab(m_clickedTab); }
-    void forwardTab() { emit forwardTab(m_clickedTab); }
     void closeAllButCurrent() { emit closeAllButCurrent(m_clickedTab); }
     void closeTab() { emit closeTab(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
