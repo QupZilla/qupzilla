@@ -93,8 +93,6 @@ public slots:
     void reloadTab(int index);
     void reloadAllTabs();
     void stopTab(int index);
-    void backTab(int index);
-    void forwardTab(int index);
     void closeAllButCurrent(int index);
     void restoreClosedTab();
     void restoreAllClosedTabs();

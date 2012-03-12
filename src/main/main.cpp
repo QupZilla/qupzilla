@@ -32,7 +32,7 @@ void sigpipe_handler(int s)
     // this signal and ignoring it to prevent unneeded crash because of it.
 
     Q_UNUSED(s)
-    std::cout << "QupZilla::Caught SIGPIPE!" << std::endl;
+    std::cout << "QupZilla: Caught SIGPIPE!" << std::endl;
 }
 #endif
 

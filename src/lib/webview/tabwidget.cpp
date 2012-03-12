@@ -93,8 +93,6 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     connect(this, SIGNAL(currentChanged(int)), p_QupZilla, SLOT(refreshHistory()));
 
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
-    connect(m_tabBar, SIGNAL(backTab(int)), this, SLOT(backTab(int)));
-    connect(m_tabBar, SIGNAL(forwardTab(int)), this, SLOT(forwardTab(int)));
     connect(m_tabBar, SIGNAL(reloadTab(int)), this, SLOT(reloadTab(int)));
     connect(m_tabBar, SIGNAL(stopTab(int)), this, SLOT(stopTab(int)));
     connect(m_tabBar, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
@@ -358,7 +356,7 @@ void TabWidget::closeTab(int index)
     disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     disconnect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
     //Save last tab url and history
-    m_closedTabsManager->saveView(webView, index);
+    m_closedTabsManager->saveView(webTab, index);
 
     if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
         setCurrentIndex(m_lastTabIndex);
@@ -463,19 +461,16 @@ void TabWidget::closeAllButCurrent(int index)
 
 int TabWidget::duplicateTab(int index)
 {
-    WebView* view = weTab(index)->view();
-    const QUrl &url = view->url();
+    WebTab* webTab = weTab(index);
 
-    QByteArray history;
-    QDataStream tabHistoryStream(&history, QIODevice::WriteOnly);
-    tabHistoryStream << *view->history();
+    const QUrl &url = webTab->url();
+    const QByteArray &history = webTab->historyData();
 
     QNetworkRequest req(url);
     req.setRawHeader("Referer", url.toEncoded());
 
     int id = addView(req, tabText(index), Qz::NT_CleanNotSelectedTab);
-    QDataStream historyStream(history);
-    historyStream >> *weTab(id)->history();
+    weTab(id)->setHistoryData(history);
 
     return id;
 }
@@ -579,29 +574,18 @@ void TabWidget::savePinnedTabs()
     QStringList tabs;
     QList<QByteArray> tabsHistory;
     for (int i = 0; i < count(); ++i) {
-        if (WebTab* tab = weTab(i)) {
-            if (!tab->isPinned()) {
-                continue;
-            }
+        WebTab* tab = weTab(i);
+        if (!tab || !tab->isPinned()) {
+            continue;
+        }
 
-            tabs.append(tab->url().toEncoded());
-            if (tab->history()->count() != 0) {
-                QByteArray tabHistory;
-                QDataStream tabHistoryStream(&tabHistory, QIODevice::WriteOnly);
-                tabHistoryStream << *tab->history();
-                tabsHistory.append(tabHistory);
-            }
-            else {
-                tabsHistory << QByteArray();
-            }
-        }
-        else {
-            tabs.append(QString::null);
-            tabsHistory.append(QByteArray());
-        }
+        tabs.append(tab->url().toEncoded());
+        tabsHistory.append(tab->historyData());
     }
+
     stream << tabs;
     stream << tabsHistory;
+
     QFile file(mApp->getActiveProfilPath() + "pinnedtabs.dat");
     file.open(QIODevice::WriteOnly);
     file.write(data);

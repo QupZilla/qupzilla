@@ -93,7 +93,7 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         return;
     }
 
-    std::cout << "incompatible profile version detected, overwriting profile data..." << std::endl;
+    std::cout << "QupZilla: Incompatible profile version detected, overwriting profile data..." << std::endl;
 
     copyDataToProfile();
 }
@@ -110,7 +110,7 @@ void ProfileUpdater::copyDataToProfile()
 
 void ProfileUpdater::update100b4()
 {
-    std::cout << "upgrading profile version from 1.0.0-b4..." << std::endl;
+    std::cout << "QupZilla: Upgrading profile version from 1.0.0-b4..." << std::endl;
     mApp->connectDatabase();
 
     QSqlQuery query;
@@ -120,7 +120,7 @@ void ProfileUpdater::update100b4()
 
 void ProfileUpdater::update100rc1()
 {
-    std::cout << "upgrading profile version from 1.0.0-rc1..." << std::endl;
+    std::cout << "QupZilla: Upgrading profile version from 1.0.0-rc1..." << std::endl;
     mApp->connectDatabase();
 
     QSqlQuery query;
@@ -134,7 +134,7 @@ void ProfileUpdater::update100rc1()
 
 void ProfileUpdater::update100()
 {
-    std::cout << "upgrading profile version from 1.0.0..." << std::endl;
+    std::cout << "QupZilla: Upgrading profile version from 1.0.0..." << std::endl;
     mApp->connectDatabase();
 
     QSqlQuery query;

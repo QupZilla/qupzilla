@@ -40,7 +40,7 @@
     </message>
     <message>
         <location filename="../akn_settings.ui" line="103"/>
-        <source>Licence</source>
+        <source>License</source>
         <translation>憑證</translation>
     </message>
 </context>

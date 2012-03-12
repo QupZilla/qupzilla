@@ -100,7 +100,7 @@
    <item row="2" column="0">
     <widget class="QPushButton" name="licence">
      <property name="text">
-      <string>Licence</string>
+      <string>License</string>
      </property>
     </widget>
    </item>

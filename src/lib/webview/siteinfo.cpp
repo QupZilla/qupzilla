@@ -59,7 +59,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     QWebFrame* frame = view->page()->mainFrame();
     QString title = view->title();
     QSslCertificate cert = webPage->sslCertificate();
-    m_baseUrl = view->url();
+    m_baseUrl = frame->baseUrl();
 
     //GENERAL
     ui->heading->setText(QString("<b>%1</b>:").arg(title));

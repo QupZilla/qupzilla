@@ -31,19 +31,10 @@
 
 WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
-    if (webTab->isRestored()) {
-        WebView* view = webTab->view();
-
-        title = view->title();
-        url = view->url();
-        icon = view->icon();
-
-        QDataStream historyStream(&history, QIODevice::WriteOnly);
-        historyStream << *view->history();
-    }
-    else {
-        *this = webTab->savedTab();
-    }
+    title = webTab->title();
+    url = webTab->url();
+    icon = webTab->icon();
+    history = webTab->historyData();
 }
 
 void WebTab::SavedTab::clear()
@@ -150,6 +141,26 @@ QIcon WebTab::icon() const
 QWebHistory* WebTab::history() const
 {
     return m_view->history();
+}
+
+void WebTab::setHistoryData(const QByteArray &data)
+{
+    QDataStream historyStream(data);
+    historyStream >> *m_view->history();
+}
+
+QByteArray WebTab::historyData() const
+{
+    if (isRestored()) {
+        QByteArray historyArray;
+        QDataStream historyStream(&historyArray, QIODevice::WriteOnly);
+        historyStream << *m_view->history();
+
+        return historyArray;
+    }
+    else {
+        return m_savedTab.history;
+    }
 }
 
 void WebTab::reload()

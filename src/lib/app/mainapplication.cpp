@@ -895,7 +895,7 @@ bool MainApplication::checkSettingsDir()
         return true;
     }
 
-    std::cout << "Creating new profile directory" << std::endl;
+    std::cout << "QupZilla: Creating new profile directory" << std::endl;
 
     QDir dir(PROFILEDIR);
 

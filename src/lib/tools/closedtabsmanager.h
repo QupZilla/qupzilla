@@ -22,7 +22,7 @@
 
 #include "qz_namespace.h"
 
-class WebView;
+class WebTab;
 
 class QT_QUPZILLA_EXPORT ClosedTabsManager
 {
@@ -42,7 +42,7 @@ public:
 
     explicit ClosedTabsManager();
 
-    void saveView(WebView* view, int position);
+    void saveView(WebTab *tab, int position);
     ClosedTabsManager::Tab getFirstClosedTab();
     ClosedTabsManager::Tab getTabAt(int index);
 

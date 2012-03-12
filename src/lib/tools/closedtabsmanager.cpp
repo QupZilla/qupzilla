@@ -16,30 +16,30 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "closedtabsmanager.h"
-#include "webview.h"
+#include "webtab.h"
 #include "mainapplication.h"
 
 #include <QWebHistory>
+#include <QWebSettings>
 
 ClosedTabsManager::ClosedTabsManager()
 {
 }
 
-void ClosedTabsManager::saveView(WebView* view, int position)
+void ClosedTabsManager::saveView(WebTab* tab, int position)
 {
     if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled) ||
-            (view->url().isEmpty() && view->history()->items().count() == 0)) {
+            (tab->url().isEmpty() && tab->history()->items().count() == 0)) {
         return;
     }
 
-    Tab tab;
-    tab.url = view->url();
-    tab.title = view->title();
-    tab.position = position;
-    QDataStream tabHistoryStream(&tab.history, QIODevice::WriteOnly);
-    tabHistoryStream << *view->history();
+    Tab closedTab;
+    closedTab.url = tab->url();
+    closedTab.title = tab->title();
+    closedTab.position = position;
+    closedTab.history = tab->historyData();
 
-    m_closedTabs.prepend(tab);
+    m_closedTabs.prepend(closedTab);
 }
 
 ClosedTabsManager::Tab ClosedTabsManager::getFirstClosedTab()
