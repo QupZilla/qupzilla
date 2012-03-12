@@ -125,17 +125,6 @@ void QupZilla::postLaunch()
         m_tabWidget->restorePinnedTabs();
     }
 
-    //Open tab from command line argument
-    bool addTab = true;
-    const QStringList &arguments = qApp->arguments();
-    for (int i = 0; i < qApp->arguments().count(); i++) {
-        QString arg = arguments.at(i);
-        if (arg.startsWith("-url=")) {
-            m_tabWidget->addView(QUrl(arg.remove("-url=")), Qz::NT_SelectedTabAtTheEnd);
-            addTab = false;
-        }
-    }
-
     Settings settings;
     settings.beginGroup("Web-URL-Settings");
     int afterLaunch = settings.value("afterLaunch", 1).toInt();
@@ -144,6 +133,7 @@ void QupZilla::postLaunch()
     bool startingAfterCrash = settings.value("isCrashed", false).toBool();
     settings.endGroup();
 
+    bool addTab = true;
     QUrl startUrl;
     switch (afterLaunch) {
     case 0:
@@ -1418,8 +1408,8 @@ void QupZilla::searchOnPage()
 void QupZilla::openFile()
 {
     const QString &fileTypes = QString("%1(*.html *.htm *.shtml *.shtm);;"
-                                       "%2(*.txt);;"
-                                       "%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg);;"
+                                       "%2(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff);;"
+                                       "%3(*.txt);;"
                                        "%4(*.*)").arg(tr("HTML files"), tr("Image files"), tr("Text files"), tr("All files"));
 
     const QString &filePath = QFileDialog::getOpenFileName(this, tr("Open file..."), QDir::homePath(), fileTypes);

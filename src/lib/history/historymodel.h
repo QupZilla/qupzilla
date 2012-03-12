@@ -50,6 +50,7 @@ public:
     void addHistoryEntry(const QUrl &url, QString title);
 
     void deleteHistoryEntry(int index);
+    void deleteHistoryEntry(const QList<int> &list);
     void deleteHistoryEntry(const QString &url, const QString &title);
 
     bool urlIsStored(const QString &url);
@@ -65,7 +66,7 @@ public:
 
 private slots:
     void slotAddHistoryEntry(const QUrl &url, QString title);
-    void slotDeleteHistoryEntry(int index);
+    void slotDeleteHistoryEntry(const QList<int> &list);
 
 signals:
     void historyEntryAdded(HistoryEntry entry);
@@ -75,7 +76,7 @@ signals:
     void historyClear();
 
     void signalAddHistoryEntry(QUrl url, QString title);
-    void signalDeleteHistoryEntry(int index);
+    void signalDeleteHistoryEntry(QList<int> list);
 
 private:
     bool m_isSaving;

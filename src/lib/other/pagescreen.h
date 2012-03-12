@@ -28,8 +28,6 @@ namespace Ui
 class PageScreen;
 }
 
-class QAbstractButton;
-
 class WebView;
 
 class QT_QUPZILLA_EXPORT PageScreen : public QDialog

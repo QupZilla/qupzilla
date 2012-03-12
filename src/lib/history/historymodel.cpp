@@ -19,10 +19,10 @@
 #include "tabbedwebview.h"
 #include "qupzilla.h"
 #include "iconprovider.h"
-#include "databasewriter.h"
 #include "settings.h"
 
-#include <QThread>
+#include <QSqlDatabase>
+#include <QSqlQuery>
 
 HistoryModel::HistoryModel(QupZilla* mainClass)
     : QObject()
@@ -31,14 +31,8 @@ HistoryModel::HistoryModel(QupZilla* mainClass)
 {
     loadSettings();
 
-    qRegisterMetaType<HistoryEntry>("HistoryEntry");
-
-    QThread* t = new QThread(this);
-    t->start();
-    moveToThread(t);
-
     connect(this, SIGNAL(signalAddHistoryEntry(QUrl, QString)), this, SLOT(slotAddHistoryEntry(QUrl, QString)));
-    connect(this, SIGNAL(signalDeleteHistoryEntry(int)), this, SLOT(slotDeleteHistoryEntry(int)));
+    connect(this, SIGNAL(signalDeleteHistoryEntry(QList<int>)), this, SLOT(slotDeleteHistoryEntry(QList<int>)));
 }
 
 void HistoryModel::loadSettings()
@@ -123,7 +117,15 @@ void HistoryModel::slotAddHistoryEntry(const QUrl &url, QString title)
 // DeleteHistoryEntry
 void HistoryModel::deleteHistoryEntry(int index)
 {
-    emit signalDeleteHistoryEntry(index);
+    QList<int> list;
+    list.append(index);
+
+    deleteHistoryEntry(list);
+}
+
+void HistoryModel::deleteHistoryEntry(const QList<int> &list)
+{
+    emit signalDeleteHistoryEntry(list);
 }
 
 void HistoryModel::deleteHistoryEntry(const QString &url, const QString &title)
@@ -138,32 +140,41 @@ void HistoryModel::deleteHistoryEntry(const QString &url, const QString &title)
         deleteHistoryEntry(id);
     }
 }
-
-void HistoryModel::slotDeleteHistoryEntry(int index)
+#include <QDebug>
+void HistoryModel::slotDeleteHistoryEntry(const QList<int> &list)
 {
-    QSqlQuery query;
-    query.prepare("SELECT id, count, date, url, title FROM history WHERE id=?");
-    query.bindValue(0, index);
-    query.exec();
-    if (!query.next()) {
-        return;
+    QSqlDatabase db = QSqlDatabase::database();
+    db.transaction();
+
+    foreach(int index, list) {
+        QSqlQuery query;
+        query.prepare("SELECT id, count, date, url, title FROM history WHERE id=?");
+        query.bindValue(0, index);
+        query.exec();
+        if (!query.next()) {
+            qDebug() << "invalid id" << index;
+            continue;
+        }
+
+        HistoryEntry entry;
+        entry.id = query.value(0).toInt();
+        entry.count = query.value(1).toInt();
+        entry.date = QDateTime::fromMSecsSinceEpoch(query.value(2).toLongLong());
+        entry.url = query.value(3).toUrl();
+        entry.title = query.value(4).toString();
+
+        query.prepare("DELETE FROM history WHERE id=?");
+        query.bindValue(0, index);
+        query.exec();
+
+        query.prepare("DELETE FROM icons WHERE url=?");
+        query.bindValue(0, entry.url.toEncoded(QUrl::RemoveFragment));
+        query.exec();
+
+        emit historyEntryDeleted(entry);
     }
 
-    HistoryEntry entry;
-    entry.id = query.value(0).toInt();
-    entry.count = query.value(1).toInt();
-    entry.date = QDateTime::fromMSecsSinceEpoch(query.value(2).toLongLong());
-    entry.url = query.value(3).toUrl();
-    entry.title = query.value(4).toString();
-
-    query.prepare("DELETE FROM history WHERE id=?");
-    query.bindValue(0, index);
-    query.exec();
-    query.prepare("DELETE FROM icons WHERE url=?");
-    query.bindValue(0, entry.url.toEncoded(QUrl::RemoveFragment));
-    query.exec();
-
-    emit historyEntryDeleted(entry);
+    db.commit();
 }
 
 bool HistoryModel::urlIsStored(const QString &url)

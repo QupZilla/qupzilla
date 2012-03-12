@@ -20,31 +20,73 @@
 
 #include <QWidget>
 #include <QWeakPointer>
+#include <QIcon>
+#include <QUrl>
 
 #include "qz_namespace.h"
 
 class QVBoxLayout;
+class QWebHistory;
 
 class QupZilla;
 class LocationBar;
+class WebView;
 class TabbedWebView;
 
 class QT_QUPZILLA_EXPORT WebTab : public QWidget
 {
     Q_OBJECT
 public:
+    struct SavedTab {
+        QString title;
+        QUrl url;
+        QIcon icon;
+        QByteArray history;
+
+        SavedTab() { }
+        SavedTab(WebTab* webTab);
+
+        bool isEmpty() const { return url.isEmpty(); }
+        void clear();
+
+        friend QT_QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const SavedTab &tab);
+        friend QT_QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, SavedTab &tab);
+    };
+
     explicit WebTab(QupZilla* mainClass, LocationBar* locationBar);
     ~WebTab();
-    TabbedWebView* view();
-    bool isPinned();
+
+    TabbedWebView* view() const;
+    void setCurrentTab();
+
+    QUrl url() const;
+    QString title() const;
+    QIcon icon() const;
+    QWebHistory* history() const;
+
+    void reload();
+    void stop();
+    bool isLoading() const;
+
+    bool isPinned() const;
     void pinTab(int index);
     void setPinned(bool state);
 
-    void setLocationBar(LocationBar* bar);
-    LocationBar* locationBar();
+    int tabIndex() const;
 
-    bool inspectorVisible();
+    void setLocationBar(LocationBar* bar);
+    LocationBar* locationBar() const;
+
+    bool inspectorVisible() const;
     void setInspectorVisible(bool v);
+
+    SavedTab savedTab() const;
+    bool isRestored() const;
+
+    void restoreTab(const SavedTab &tab);
+
+    void p_restoreTab(const SavedTab &tab);
+    void p_restoreTab(const QUrl &url, const QByteArray &history);
 
     void disconnectObjects();
 
@@ -52,12 +94,12 @@ private slots:
     void showNotification(QWidget* notif);
 
 private:
-    int tabIndex();
-
     QupZilla* p_QupZilla;
     TabbedWebView* m_view;
     QVBoxLayout* m_layout;
     QWeakPointer<LocationBar> m_locationBar;
+
+    SavedTab m_savedTab;
 
     bool m_pinned;
     bool m_inspectorVisible;

@@ -1242,6 +1242,10 @@ não foi encontrado!</translation>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
         <translation>&lt;b&gt;Observação: &lt;/b&gt;%s no url representa o texto procurado</translation>
     </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HistoryManager</name>
@@ -2264,6 +2268,10 @@ não foi encontrado!</translation>
         <source>Allow Netscape Plugins (Flash plugin)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Don&apos;t load tabs until selected</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2944,6 +2952,38 @@ não foi encontrado!</translation>
         <source>No available plugins.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Build Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debug build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebGL support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windows 7 API</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>KDE integration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Portable build</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3517,6 +3557,10 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <source>Unable to load</source>
         <translation>Não foi possível carregar</translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

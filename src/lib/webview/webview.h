@@ -36,6 +36,8 @@ public:
 
     void setPage(QWebPage* page);
 
+    void load(const QNetworkRequest &request, QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation, const QByteArray &body = QByteArray());
+
     bool isLoading() const;
     int loadProgress() const;
 

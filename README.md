@@ -45,7 +45,7 @@ Then you can start compiling by running this commands:
 
 After a successful compilation the executable binary can be found in the bin/ directory.
 
-To install QupZilla, you will have to run this command: (it may be neccessary to run it as root)
+To install QupZilla, you will have to run this command: (it may be necessary to run it as root)
 
     $ make install
     
@@ -53,7 +53,7 @@ Current version
 ----------------------------------------------------------------------------------------
 
 The current released version of QupZilla is 1.1.8. You can download precompiled packages
-and the sources from the download section.
+and the sources from the download section at [homepage](http://www.qupzilla.com/download).
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:
 

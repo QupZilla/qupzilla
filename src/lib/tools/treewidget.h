@@ -41,6 +41,7 @@ public:
     void insertTopLevelItems(int index, const QList<QTreeWidgetItem*> &items);
 
     void deleteItem(QTreeWidgetItem* item);
+    void deleteItems(const QList<QTreeWidgetItem*> &items);
 
 signals:
     void itemControlClicked(QTreeWidgetItem* item);

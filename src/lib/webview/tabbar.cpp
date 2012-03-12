@@ -289,7 +289,9 @@ void TabBar::bookmarkTab()
         return;
     }
 
-    p_QupZilla->addBookmark(view->url(), view->title(), view->icon());
+    WebTab* tab = view->webTab();
+
+    p_QupZilla->addBookmark(tab->url(), tab->title(), tab->icon());
 }
 
 void TabBar::pinTab()
@@ -434,7 +436,10 @@ void TabBar::dropEvent(QDropEvent* event)
         }
     }
     else {
-        p_QupZilla->weView(index)->load(mime->urls().first());
+        WebTab* tab = p_QupZilla->weView(index)->webTab();
+        if (tab->isRestored()) {
+            tab->view()->load(mime->urls().first());
+        }
     }
 }
 

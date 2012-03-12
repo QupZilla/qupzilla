@@ -206,11 +206,6 @@ void AKN_Handler::showAccessKeys()
 
     QWebPage* page = m_view->page();
 
-    // Install event filter and connect loadStarted
-    m_accessKeysVisible = true;
-    qApp->installEventFilter(this);
-    connect(m_view, SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
-
     QStringList supportedElement;
     supportedElement << QLatin1String("input")
                      << QLatin1String("a")
@@ -290,6 +285,13 @@ void AKN_Handler::showAccessKeys()
             unusedKeys.removeOne(accessKey);
             makeAccessKeyLabel(accessKey, element);
         }
+    }
+
+    // Install event filter and connect loadStarted
+    m_accessKeysVisible = !m_accessKeyLabels.isEmpty();
+    if (m_accessKeysVisible) {
+        qApp->installEventFilter(this);
+        connect(m_view, SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
     }
 }
 

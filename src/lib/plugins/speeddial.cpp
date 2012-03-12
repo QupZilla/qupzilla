@@ -275,7 +275,9 @@ void SpeedDial::removeImageForUrl(const QString &url)
 
 QString SpeedDial::getOpenFileName()
 {
-    return QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), "(*.png *.jpg *.jpeg *.bmp *.gif *.tiff)");
+    const QString &fileTypes = QString("%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff)").arg(tr("Image files"));
+
+    return QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), fileTypes);
 }
 
 QString SpeedDial::urlFromUserInput(const QString &url)

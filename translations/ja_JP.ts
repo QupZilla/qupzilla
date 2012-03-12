@@ -1,2221 +1,2279 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="ja_JP">
 <context>
     <name>AboutDialog</name>
     <message>
         <source>About QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaについて</translation>
     </message>
     <message>
         <source>Authors</source>
-        <translation type="unfinished"></translation>
+        <translation>著作者</translation>
     </message>
     <message>
         <source>Authors and Contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>著作者とコントリビューター</translation>
     </message>
     <message>
         <source>&lt; About QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt; QupZillaについて</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Application version %1&lt;/b&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;ソフトウェアのバージョン情報 %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;WebKitのバージョン情報 %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>そのまま</translatorcomment>
+        <translation>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt;このソフトウェアは以下の日時でビルドされました: %1 &lt;/small&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;開発者:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;コントリビューター:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&lt;b&gt;翻訳者:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>AcceptLanguage</name>
     <message>
         <source>Preferred Languages</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考</translatorcomment>
+        <translation>Webページの言語</translation>
     </message>
     <message>
         <source>Add...</source>
-        <translation type="unfinished"></translation>
+        <translation>追加...</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>上へ</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>下へ</translation>
     </message>
     <message>
         <source>Personal [%1]</source>
-        <translation type="unfinished"></translation>
+        <translation>個人設定 [%1]</translation>
     </message>
 </context>
 <context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Adblockの設定</translation>
     </message>
     <message>
         <source>Enable AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation>Adblockを有効にする</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>検索...</translation>
     </message>
     <message>
         <source>Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>ルール</translation>
     </message>
     <message>
         <source>Add Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>ルールを追加する</translation>
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyListのアップデート</translation>
     </message>
     <message>
         <source>AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation>Adblock</translation>
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>ルールの削除</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation type="unfinished"></translation>
+        <translation>更新の完了</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyListの更新に成功しました。</translation>
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタムルールの編集</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタムルールの追加</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいルールの追加:</translation>
     </message>
 </context>
 <context>
     <name>AdBlockIcon</name>
     <message>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlockはページ上の望ましくないコンテンツをブロックします</translation>
     </message>
     <message>
         <source>Blocked popup window</source>
-        <translation type="unfinished"></translation>
+        <translation>ポップアップがブロックされました</translation>
     </message>
     <message>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>AdBlockは意図しないポップアップをブロックしました。</translation>
     </message>
     <message>
         <source>AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock</translation>
     </message>
     <message>
         <source>Show AdBlock &amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlockの設定を表示する(&amp;S)</translation>
     </message>
     <message>
         <source>Blocked Popup Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>ポップアップがブロックされました</translation>
     </message>
     <message>
         <source>%1 with (%2)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>%1(%2)</translation>
     </message>
     <message>
         <source>No content blocked</source>
-        <translation type="unfinished"></translation>
+        <translation>ブロックされたコンテンツはありません</translation>
     </message>
     <message>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>ブロックされたURL(AdBlockのルール) -  クリックして編集</translation>
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation type="unfinished"></translation>
+        <translation>広告ブロックの書き方ついて(&amp;R)</translation>
     </message>
 </context>
 <context>
     <name>AddAcceptLanguage</name>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"></translation>
+        <translation>言語の追加</translation>
     </message>
     <message>
         <source>Choose preferred language for web sites</source>
-        <translation type="unfinished"></translation>
+        <translation>webページの言語を選択してください</translation>
     </message>
     <message>
         <source>Personal definition:</source>
-        <translation type="unfinished"></translation>
+        <translation>個人設定の追加:</translation>
     </message>
 </context>
 <context>
     <name>AutoFillManager</name>
     <message>
         <source>Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワード</translation>
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"></translation>
+        <translation>サーバー</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>ユーザー名</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワード</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>編集</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Remove All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべて削除</translation>
     </message>
     <message>
         <source>Import/Export</source>
-        <translation type="unfinished"></translation>
+        <translation>インポート/エクスポート</translation>
     </message>
     <message>
         <source>Show Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワードを表示する</translation>
     </message>
     <message>
         <source>Exceptions</source>
-        <translation type="unfinished"></translation>
+        <translation>例外</translation>
     </message>
     <message>
         <source>Import Passwords from File...</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワードをファイルからインポートする...</translation>
     </message>
     <message>
         <source>Export Passwords to File...</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワードをファイルにエクスポートする...</translation>
     </message>
     <message>
         <source>Are you sure that you want to show all passwords?</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのパスワードを表示させますか?</translation>
     </message>
     <message>
         <source>Hide Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワードを隠す</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>確認する</translation>
     </message>
     <message>
         <source>Are you sure to delete all passwords on your computer?</source>
-        <translation type="unfinished"></translation>
+        <translation>このコンピューターからすべてのパスワードを削除しますか?</translation>
     </message>
     <message>
         <source>Edit password</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワードの編集</translation>
     </message>
     <message>
         <source>Change password:</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワードの変更:</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの選択...</translation>
     </message>
     <message>
         <source>Cannot read file!</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの読み込みに失敗しました!</translation>
     </message>
     <message>
         <source>Successfully imported</source>
-        <translation type="unfinished"></translation>
+        <translation>インポートに成功しました</translation>
     </message>
     <message>
         <source>Error while importing!</source>
-        <translation type="unfinished"></translation>
+        <translation>インポート中にエラーが発生しました!</translation>
     </message>
     <message>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルに書き込めません!</translation>
     </message>
     <message>
         <source>Successfully exported</source>
-        <translation type="unfinished"></translation>
+        <translation>エクスポートに成功しました</translation>
     </message>
 </context>
 <context>
     <name>AutoFillNotification</name>
     <message>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Firefoｘのパクリ</translatorcomment>
+        <translation>Qupzillaに%2で使用する&lt;b&gt;%1&lt;/b&gt;のパスワードを記憶させますか?</translation>
     </message>
 </context>
 <context>
     <name>AutoFillWidget</name>
     <message>
         <source>Remember</source>
-        <translation type="unfinished"></translation>
+        <translation>記憶させる</translation>
     </message>
     <message>
         <source>Never For This Site</source>
-        <translation type="unfinished"></translation>
+        <translation>今後このサイトでパスワードは保存しない</translation>
     </message>
     <message>
         <source>Not Now</source>
-        <translation type="unfinished"></translation>
+        <translation>今は保存しない</translation>
     </message>
 </context>
 <context>
     <name>BookmarkIcon</name>
     <message>
         <source>Bookmark this Page</source>
-        <translation type="unfinished"></translation>
+        <translation>このページをブックマークする</translation>
     </message>
     <message>
         <source>Edit this bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>このブックマークを編集する</translation>
     </message>
 </context>
 <context>
     <name>BookmarksImportDialog</name>
     <message>
         <source>Import Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークのインポート</translation>
     </message>
     <message>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;ブックマークのインポート&lt;/b&gt;</translation>
     </message>
     <message>
         <source>From File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルから</translation>
     </message>
     <message>
         <source>Choose browser from which you want to import bookmarks:</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークをインポートしたいブラウザを選択してください:</translation>
     </message>
     <message>
         <source>Choose...</source>
-        <translation type="unfinished"></translation>
+        <translation>選択する...</translation>
     </message>
     <message>
         <source>Fetching icons, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンの読み込み中です,お待ちください...</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ名</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>次へ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;%1からインポートする&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"></translation>
+        <translation>終了</translation>
     </message>
     <message>
         <source>Please press Finish to complete importing process.</source>
-        <translation type="unfinished"></translation>
+        <translation>インポートに成功しました。終了を押してください。</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>エラーが発生しました!</translation>
     </message>
     <message>
         <source>Choose directory...</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダの選択...</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの選択...</translation>
     </message>
     <message>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>Mozilla Firefoxはブックマークを&lt;b&gt;places.sqlite&lt;/b&gt;SQLiteデータベースに保存します。このファイルは通常以下に保存されます</translation>
     </message>
     <message>
         <source>Please choose this file to begin importing bookmarks.</source>
-        <translation type="unfinished"></translation>
+        <translation>インポートを開始するにはこのファイルを選択してください。</translation>
     </message>
     <message>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Google Chromeはブックマークを&lt;b&gt;Bookmarks&lt;/b&gt;テキストファイルに保存します。このファイルは通常以下に保存されます</translation>
     </message>
     <message>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Operaはブックマークを&lt;b&gt;bookmarks.adr&lt;/b&gt;テキストファイルに保存します。このファイルは通常以下に保存されます</translation>
     </message>
     <message>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation type="unfinished"></translation>
+        <translation>HTMLによるお気に入り/ブックマークのエクスポートをブラウザがサポートしていればHTMLからインポートできます</translation>
     </message>
     <message>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Internet Explorerはブックマークを&lt;b&gt;Favorites&lt;/b&gt;フォルダに保存します。このファイルは通常以下に保存されます</translation>
     </message>
     <message>
         <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation type="unfinished"></translation>
+        <translation>インポートを開始するにはこのフォルダを選択してください。</translation>
     </message>
     <message>
         <source>No Error</source>
-        <translation type="unfinished"></translation>
+        <translation>エラーなし</translation>
     </message>
     <message>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを開けません。</translation>
     </message>
     <message>
         <source>Cannot evaluate JSON code.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>JSONコードの読み込みに失敗しました。</translation>
     </message>
     <message>
         <source>File does not exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルが存在しません。</translation>
     </message>
     <message>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation type="unfinished"></translation>
+        <translation>データベースが開けません。Firefoxが起動中ではありませんか?</translation>
     </message>
 </context>
 <context>
     <name>BookmarksManager</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマーク</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>ページ名</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Add Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダの追加</translation>
     </message>
     <message>
         <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
+        <translation>データベースの最適化</translation>
     </message>
     <message>
         <source>Import Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークのインポート</translation>
     </message>
     <message>
         <source>Add new folder</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいフォルダの作成</translation>
     </message>
     <message>
         <source>Choose name for new bookmark folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>新しいブックマークフォルダの名前を選択してください:</translation>
     </message>
     <message>
         <source>Add new subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいサブフォルダの追加</translation>
     </message>
     <message>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークツールナーのサブフォルダの名前を選択してください:</translation>
     </message>
     <message>
         <source>Rename Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダ名の変更</translation>
     </message>
     <message>
         <source>Choose name for folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダ名を選択してください:</translation>
     </message>
     <message>
         <source>Add Subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>サブフォルダの追加</translation>
     </message>
     <message>
         <source>Rename folder</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダ名の変更</translation>
     </message>
     <message>
         <source>Remove folder</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダの削除</translation>
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のタブでリンクを開く(&amp;T)</translation>
     </message>
     <message>
         <source>Open link in &amp;new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブでリンクを開く(&amp;N)</translation>
     </message>
     <message>
         <source>Move bookmark to &amp;folder</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークをフォルダに移動する(&amp;F)</translation>
     </message>
     <message>
         <source>Rename bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマーク名の編集</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークの削除</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;警告&lt;/b&gt;このページはすでにブックマークされています!</translation>
     </message>
     <message>
         <source>Choose name and location of this bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマーク名と場所を選択してください。</translation>
     </message>
     <message>
         <source>Add New Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいブックマークの追加</translation>
     </message>
     <message>
         <source>Choose folder for bookmarks:</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークフォルダの選択:</translation>
     </message>
     <message>
         <source>Bookmark All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのタブをブックマークする</translation>
     </message>
 </context>
 <context>
     <name>BookmarksModel</name>
     <message>
         <source>Bookmarks In Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークメニュー</translation>
     </message>
     <message>
         <source>Bookmarks In ToolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークツールバー</translation>
     </message>
     <message>
         <source>Unsorted Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>未整理のブックマーク</translation>
     </message>
 </context>
 <context>
     <name>BookmarksSideBar</name>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>検索...</translation>
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のタブでリンクを開く(&amp;T)</translation>
     </message>
     <message>
         <source>Open link in &amp;new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブでリンクを開く(&amp;N)</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>アドレスのコピー</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>削除(&amp;D)</translation>
     </message>
 </context>
 <context>
     <name>BookmarksToolbar</name>
     <message>
         <source>&amp;Bookmark Current Page</source>
-        <translation type="unfinished"></translation>
+        <translation>このページをブックマークする(&amp;B)</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのタブをブックマークする(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Organize Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークの管理(&amp;O)</translation>
     </message>
     <message>
         <source>Show Most &amp;Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>よく見るページの表示(&amp;V)</translation>
     </message>
     <message>
         <source>Show Only Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンのみ表示(ページ名を隠す)</translation>
     </message>
     <message>
         <source>&amp;Hide Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールバーを非表示(&amp;H)</translation>
     </message>
     <message>
         <source>Move right</source>
-        <translation type="unfinished"></translation>
+        <translation>右に移動</translation>
     </message>
     <message>
         <source>Move left</source>
-        <translation type="unfinished"></translation>
+        <translation>左に移動</translation>
     </message>
     <message>
         <source>Edit bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークの編集</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークの削除</translation>
     </message>
     <message>
         <source>Edit bookmark: </source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークの編集:</translation>
     </message>
     <message>
         <source>Title: </source>
-        <translation type="unfinished"></translation>
+        <translation>ページ名:</translation>
     </message>
     <message>
         <source>Url: </source>
-        <translation type="unfinished"></translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークの編集</translation>
     </message>
     <message>
         <source>Most visited</source>
-        <translation type="unfinished"></translation>
+        <translation>よく見るページ</translation>
     </message>
     <message>
         <source>Sites you visited the most</source>
-        <translation type="unfinished"></translation>
+        <translation>最もよく訪れるページ</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translation>該当なし</translation>
     </message>
 </context>
 <context>
     <name>BookmarksWidget</name>
     <message>
         <source>Folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダ:</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ名:</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークに追加</translation>
     </message>
     <message>
         <source>Add to Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Speed Dialに追加</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークの編集</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Speed Dialから削除</translation>
     </message>
 </context>
 <context>
     <name>BrowsingLibrary</name>
     <message>
         <source>Library</source>
-        <translation type="unfinished"></translation>
+        <translation>ライブラリ</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>検索...</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>履歴</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマーク</translation>
     </message>
     <message>
         <source>RSS</source>
-        <translation type="unfinished"></translation>
+        <translation>RSS</translation>
     </message>
     <message>
         <source>Database Optimized</source>
-        <translation type="unfinished"></translation>
+        <translation>データベースの最適化</translation>
     </message>
     <message>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"></translation>
+        <translation>データベースの最適化に成功しました。&lt;br/&gt;&lt;br/&gt;&lt;b&gt;最適化前 &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;最適化後 &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
     <name>CertificateInfoWidget</name>
     <message>
         <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;発行対象&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Common Name (CN):</source>
-        <translation type="unfinished"></translation>
+        <translation>一般名称(CN):</translation>
     </message>
     <message>
         <source>Organization (O):</source>
-        <translation type="unfinished"></translation>
+        <translation>組織(O):</translation>
     </message>
     <message>
         <source>Organizational Unit (OU):</source>
-        <translation type="unfinished"></translation>
+        <translation>部門(OU):</translation>
     </message>
     <message>
         <source>Serial Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>シリアル番号:</translation>
     </message>
     <message>
         <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;発行者&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Validity&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;有効期間&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Issued On:</source>
-        <translation type="unfinished"></translation>
+        <translation>発行期日:</translation>
     </message>
     <message>
         <source>Expires On:</source>
-        <translation type="unfinished"></translation>
+        <translation>有効期限:</translation>
     </message>
 </context>
 <context>
     <name>ClearPrivateData</name>
     <message>
         <source>Clear Recent History</source>
-        <translation type="unfinished"></translation>
+        <translation>最近の履歴を消去</translation>
     </message>
     <message>
         <source>Choose what you want to delete:</source>
-        <translation type="unfinished"></translation>
+        <translation>削除対象を選んでください:</translation>
     </message>
     <message>
         <source>Clear history</source>
-        <translation type="unfinished"></translation>
+        <translation>履歴の消去</translation>
     </message>
     <message>
         <source>Clear cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookieの削除</translation>
     </message>
     <message>
         <source>Clear cache</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留、クリアデリートリムーブの違いについて再考</translatorcomment>
+        <translation>キャッシュの削除</translation>
     </message>
     <message>
         <source>Clear icons</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンの削除</translation>
     </message>
     <message>
         <source>Clear cookies from Adobe Flash Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Flash PlayerのCookieの削除</translation>
     </message>
     <message>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;最近の履歴の消去&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Earlier Today</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>今日以前</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"></translation>
+        <translation>週</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"></translation>
+        <translation>月</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべて</translation>
     </message>
 </context>
 <context>
     <name>ClickToFlash</name>
     <message>
         <source>Object blocked by ClickToFlash</source>
-        <translation type="unfinished"></translation>
+        <translation>要素はClickToFlashによってブロックされています</translation>
     </message>
     <message>
         <source>Show more information about object</source>
-        <translation type="unfinished"></translation>
+        <translation>要素についての情報</translation>
     </message>
     <message>
         <source>Delete object</source>
-        <translation type="unfinished"></translation>
+        <translation>要素を削除する</translation>
     </message>
     <message>
         <source>Add %1 to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>%1をホワイトリストに追加する</translation>
     </message>
     <message>
         <source>Flash Object</source>
-        <translation type="unfinished"></translation>
+        <translation>Flash要素</translation>
     </message>
     <message>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>多分</translatorcomment>
+        <translation>属性</translation>
     </message>
     <message>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;値&lt;/b&gt;</translation>
     </message>
     <message>
         <source>No more information available.</source>
-        <translation type="unfinished"></translation>
+        <translation>これ以上の情報は取得できません。</translation>
     </message>
 </context>
 <context>
     <name>CloseDialog</name>
     <message>
         <source>There are still open tabs</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>まだ開いているタブがあります</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished"></translation>
+        <translation>次回からは表示しない</translation>
     </message>
 </context>
 <context>
     <name>CookieManager</name>
     <message>
         <source>Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookie</translation>
     </message>
     <message>
         <source>Stored Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>保存されたCookie</translation>
     </message>
     <message>
         <source>Find: </source>
-        <translation type="unfinished"></translation>
+        <translation>検索:</translation>
     </message>
     <message>
         <source>These cookies are stored on your computer:</source>
-        <translation type="unfinished"></translation>
+        <translation>これらのCookieがあなたのコンピューターに保存されています:</translation>
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"></translation>
+        <translation>サーバー</translation>
     </message>
     <message>
         <source>Cookie name</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookie名</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>名前:</translation>
     </message>
     <message>
         <source>Value:</source>
-        <translation type="unfinished"></translation>
+        <translation>値:</translation>
     </message>
     <message>
         <source>Server:</source>
-        <translation type="unfinished"></translation>
+        <translation>サーバー:</translation>
     </message>
     <message>
         <source>Path:</source>
-        <translation type="unfinished"></translation>
+        <translation>パス:</translation>
     </message>
     <message>
         <source>Secure:</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>送信制限:</translation>
     </message>
     <message>
         <source>Expiration:</source>
-        <translation type="unfinished"></translation>
+        <translation>有効期限:</translation>
     </message>
     <message>
         <source>&lt;cookie not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Cookieが選択されていません&gt;</translation>
     </message>
     <message>
         <source>Remove all cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのCookieを削除</translation>
     </message>
     <message>
         <source>Remove cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookieの削除</translation>
     </message>
     <message>
         <source>Cookie Filtering</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookieのフィルタリング</translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookieのホワイトリスト&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>このサーバーから送信されるCookieを常に許可します(Cookieの保存を無効にしていても許可します)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookieのブラックリスト&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>このサーバーから送信されるCookieを常に許可しません</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>検索</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>確認する</translation>
     </message>
     <message>
         <source>Are you sure to delete all cookies on your computer?</source>
-        <translation type="unfinished"></translation>
+        <translation>すべてのCookieを削除してよろしいですか?</translation>
     </message>
     <message>
         <source>Secure only</source>
-        <translation type="unfinished"></translation>
+        <translation>安全な接続のみ</translation>
     </message>
     <message>
         <source>All connections</source>
-        <translation type="unfinished"></translation>
+        <translation>全ての接続</translation>
     </message>
     <message>
         <source>Session cookie</source>
-        <translation type="unfinished"></translation>
+        <translation>セッションCookie</translation>
     </message>
     <message>
         <source>Remove cookie</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookieの削除</translation>
     </message>
     <message>
         <source>Add to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>ホワイトリストに追加する</translation>
     </message>
     <message>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>ブラックリストに追加する</translation>
     </message>
 </context>
 <context>
     <name>DownloadFileHelper</name>
     <message>
         <source>Save file as...</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けて保存...</translation>
     </message>
     <message>
         <source>NoNameDownload</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>なにいってんだかわからん。保留。</translatorcomment>
+        <translation>無題の保存</translation>
     </message>
 </context>
 <context>
     <name>DownloadItem</name>
     <message>
         <source>Remaining time unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>残り時間が計測不可です</translation>
     </message>
     <message>
         <source>Done - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>完了 - %1</translation>
     </message>
     <message>
         <source>Cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>中止</translation>
     </message>
     <message>
         <source>few seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>数秒</translation>
     </message>
     <message>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>秒</translation>
     </message>
     <message>
         <source>minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>分</translation>
     </message>
     <message>
         <source>hours</source>
-        <translation type="unfinished"></translation>
+        <translation>時間</translation>
     </message>
     <message>
         <source>Unknown speed</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロード速度が計測できません</translation>
     </message>
     <message>
         <source>Unknown size</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルサイズが計測できません</translation>
     </message>
     <message>
         <source>%2 - unknown size (%3)</source>
-        <translation type="unfinished"></translation>
+        <translation>%2 -  サイズ不明(%3)</translation>
     </message>
     <message>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>これは絶対に直す</translatorcomment>
+        <translation>残り %1 - %2 全体 %3 (%4)</translation>
     </message>
     <message>
         <source>Cancelled - %1</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ここらへん再考</translatorcomment>
+        <translation>中止 - %1</translation>
     </message>
     <message>
         <source>Delete file</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの削除</translation>
     </message>
     <message>
         <source>Do you want to also delete dowloaded file?</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの削除も行いますか?</translation>
     </message>
     <message>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを開く</translation>
     </message>
     <message>
         <source>Open Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダを開く</translation>
     </message>
     <message>
         <source>Go to Download Page</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウロードページへ移動</translation>
     </message>
     <message>
         <source>Copy Download Link</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロードリンクのコピー</translation>
     </message>
     <message>
         <source>Cancel downloading</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロードの中止</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>消去</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>エラー</translation>
     </message>
     <message>
         <source>Not found</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルが見つかりません</translation>
     </message>
     <message>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>ファイル名 %1は見つかりませんでした!</translation>
     </message>
     <message>
         <source>Error: Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>エラー:  ファイルに書き込めません!</translation>
     </message>
     <message>
         <source>Error: </source>
-        <translation type="unfinished"></translation>
+        <translation>エラー:</translation>
     </message>
 </context>
 <context>
     <name>DownloadManager</name>
     <message>
         <source>Download Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロードマネージャ</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>消去</translation>
     </message>
     <message>
         <source>Executable: </source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>実行可能:</translation>
     </message>
     <message>
         <source>Arguments: </source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>引数:</translation>
     </message>
     <message>
         <source>Cannot start external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>外部ダウンローダの起動に失敗しました</translation>
     </message>
     <message>
         <source>Cannot start external download manager! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>外部ダウンローダの起動に失敗しました! %1</translation>
     </message>
     <message>
         <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考(絶対)</translatorcomment>
+        <translation>%1% %2ファイル (%3) 残り%4</translation>
     </message>
     <message>
         <source>% - Download Manager</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>% - ダウンロードマネージャ</translation>
     </message>
     <message>
         <source>Download Finished</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロード完了</translation>
     </message>
     <message>
         <source>All files have been successfully downloaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのファイルのダウンロードに成功しました。</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>警告</translation>
     </message>
     <message>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>意訳</translatorcomment>
+        <translation>QupZillaを終了した場合、ダウンロードはキャンセルされます。終了してよろしいですか?</translation>
     </message>
 </context>
 <context>
     <name>DownloadOptionsDialog</name>
     <message>
         <source>Opening</source>
-        <translation type="unfinished"></translation>
+        <translation>開く</translation>
     </message>
     <message>
         <source>You have chosen to open</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルが開かれました</translation>
     </message>
     <message>
         <source>which is a:</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの種類:</translation>
     </message>
     <message>
         <source>from:</source>
-        <translation type="unfinished"></translation>
+        <translation>サイト:</translation>
     </message>
     <message>
         <source>What should QupZilla do with this file?</source>
-        <translation type="unfinished"></translation>
+        <translation>このファイルをどう処理しますか?</translation>
     </message>
     <message>
         <source>Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>開く...</translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>保存する</translation>
     </message>
     <message>
         <source>Opening %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1を開いています</translation>
     </message>
 </context>
 <context>
     <name>EditSearchEngine</name>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>名前:</translation>
     </message>
     <message>
         <source>Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <source>Shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカット:</translation>
     </message>
     <message>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコン:</translation>
     </message>
     <message>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;注意&lt;/b&gt;%sは検索文字列が挿入される個所です</translation>
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルから追加する...</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンを選択する...</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">画像ファイル</translation>
     </message>
 </context>
 <context>
     <name>HistoryManager</name>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Clear All History</source>
-        <translation type="unfinished"></translation>
+        <translation>すべての履歴の消去</translation>
     </message>
     <message>
         <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のタブでリンクを開く</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブでリンクを開く</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>アドレスのコピー</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>今日</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation type="unfinished"></translation>
+        <translation>今週</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation type="unfinished"></translation>
+        <translation>今月</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>確認する</translation>
     </message>
     <message>
         <source>Are you sure to delete all history?</source>
-        <translation type="unfinished"></translation>
+        <translation>すべての履歴を削除してよろしいですか?</translation>
     </message>
 </context>
 <context>
     <name>HistoryModel</name>
     <message>
         <source>Failed loading page</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの読み込みに失敗しました</translation>
     </message>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>無題</translation>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished"></translation>
+        <translation>1月</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished"></translation>
+        <translation>2月</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished"></translation>
+        <translation>3月</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished"></translation>
+        <translation>4月</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished"></translation>
+        <translation>5月</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished"></translation>
+        <translation>6月</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished"></translation>
+        <translation>7月</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished"></translation>
+        <translation>8月</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished"></translation>
+        <translation>9月</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished"></translation>
+        <translation>10月</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished"></translation>
+        <translation>11月</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished"></translation>
+        <translation>12月</translation>
     </message>
 </context>
 <context>
     <name>HistorySideBar</name>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>検索...</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ名</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のタブでリンクを開く</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブでリンクを開く</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>アドレスのコピー</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>今日</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation type="unfinished"></translation>
+        <translation>今週</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation type="unfinished"></translation>
+        <translation>今月</translation>
     </message>
 </context>
 <context>
     <name>LicenseViewer</name>
     <message>
         <source>License Viewer</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>謎、使ったことない</translatorcomment>
+        <translation>ライセンスビューワ</translation>
     </message>
 </context>
 <context>
     <name>LocationBar</name>
     <message>
         <source>Add RSS from this page...</source>
-        <translation type="unfinished"></translation>
+        <translation>このページのRSSフィードを追加する...</translation>
     </message>
     <message>
         <source>Enter URL address or search on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>URLの入力と%1による検索が利用できます</translation>
     </message>
     <message>
         <source>Paste And &amp;Go</source>
-        <translation type="unfinished"></translation>
+        <translation>貼り付けて移動(&amp;G)</translation>
     </message>
     <message>
         <source>Clear All</source>
-        <translation type="unfinished"></translation>
+        <translation>ロケーションバーを空にする</translation>
     </message>
     <message>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Append domain name on ALT + Enter = Should be different for every country</translatorcomment>
+        <translation>.co.jp</translation>
     </message>
     <message>
         <source>Show information about this page</source>
-        <translation type="unfinished"></translation>
+        <translation>このページの情報を表示</translation>
     </message>
 </context>
 <context>
     <name>MainApplication</name>
     <message>
         <source>Last session crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>前回のセッションがクラッシュしました</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>無題</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>戻る</translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>進む</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>ホーム</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブ</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>メインメニュー</translation>
     </message>
     <message>
         <source>Exit Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>全画面表示を終了する</translation>
     </message>
     <message>
         <source>Clear history</source>
-        <translation type="unfinished"></translation>
+        <translation>履歴の消去</translation>
     </message>
 </context>
 <context>
     <name>NetworkManager</name>
     <message>
         <source>SSL Certificate Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>SSLサーバ証明書にエラーがあります!</translation>
     </message>
     <message>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation type="unfinished"></translation>
+        <translation>あなたが接続しようとしているページのSSLサーバ証明書には以下の問題点があります:</translation>
     </message>
     <message>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>組織</translation>
     </message>
     <message>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>ドメイン名</translation>
     </message>
     <message>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>証明書の有効期間</translation>
     </message>
     <message>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>エラー</translation>
     </message>
     <message>
         <source>Would you like to make an exception for this certificate?</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>訳が適当すぎる</translatorcomment>
+        <translation>この証明書に対して例外を作成しますか?</translation>
     </message>
     <message>
         <source>Authorization required</source>
-        <translation type="unfinished"></translation>
+        <translation>認証が必要です</translation>
     </message>
     <message>
         <source>Username: </source>
-        <translation type="unfinished"></translation>
+        <translation>ユーザー名:</translation>
     </message>
     <message>
         <source>Password: </source>
-        <translation type="unfinished"></translation>
+        <translation>パスワード:</translation>
     </message>
     <message>
         <source>Save username and password on this site</source>
-        <translation type="unfinished"></translation>
+        <translation>このページのパスワードとキーワードを保存します</translation>
     </message>
     <message>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>%1がユーザー名とパスワードを要求しています。&lt;br&gt;&quot;%2&quot;</translation>
     </message>
     <message>
         <source>Proxy authorization required</source>
-        <translation type="unfinished"></translation>
+        <translation>プロキシ認証が必要です</translation>
     </message>
     <message>
         <source>A username and password are being requested by proxy %1. </source>
-        <translation type="unfinished"></translation>
+        <translation>%1プロキシがユーザー名とパスワードを要求しています。</translation>
     </message>
 </context>
 <context>
     <name>PageScreen</name>
     <message>
         <source>Page Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>ページのスクリーンショット</translation>
     </message>
     <message>
         <source>Save Page Screen...</source>
-        <translation type="unfinished"></translation>
+        <translation>ページのスクリーンショットを保存...</translation>
+    </message>
+    <message>
+        <source>screen.png</source>
+        <translation type="obsolete">スクリーンショット.png</translation>
     </message>
 </context>
 <context>
     <name>PluginsList</name>
     <message>
         <source>Application Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションの拡張機能</translation>
     </message>
     <message>
         <source>Allow Application Extensions to be loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションの拡張機能を有効にする</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>WebKit Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Webkitの拡張機能</translation>
     </message>
     <message>
         <source>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;クリックしてFlashプラグインを再生&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Click To Flash is a plugin which blocks auto loading of Flash content at page. You can always load it manually by clicking on the Flash play icon.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>考え直す</translatorcomment>
+        <translation>Click To FlashはFlashコンテンツが自動で読み込まれるのを防ぎます。Flashコンテンツはクリックされて初めて読み込まれるようになります。</translation>
     </message>
     <message>
         <source>Whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>ホワイトリスト</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Allow Click To Flash</source>
-        <translation type="unfinished"></translation>
+        <translation>Click to Flashを有効にする</translation>
     </message>
     <message>
         <source>Add site to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>ホワイトリストにサイトを追加する</translation>
     </message>
     <message>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考</translatorcomment>
+        <translation>http://なしで入力してください(ex. youtube.com)</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>エラーが発生しました!</translation>
     </message>
     <message>
         <source>Cannot load plugin!</source>
-        <translation type="unfinished"></translation>
+        <translation>プラグインが読み込めません!</translation>
     </message>
 </context>
 <context>
     <name>PopupWindow</name>
     <message>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
 </context>
 <context>
     <name>Preferences</name>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>一般</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>コレがいい気がする、再考</translatorcomment>
+        <translation>アピアランス</translation>
     </message>
     <message>
         <source>Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>タブ</translation>
     </message>
     <message>
         <source>Browsing</source>
-        <translation type="unfinished"></translation>
+        <translation>ブラウジング</translation>
     </message>
     <message>
         <source>Fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>フォント</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロード</translation>
     </message>
     <message>
         <source>Password Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワードマネージャ</translation>
     </message>
     <message>
         <source>Privacy</source>
-        <translation type="unfinished"></translation>
+        <translation>プライバシー</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>通知</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>拡張機能の方がいいかプラグインの方がいいか。要再考</translatorcomment>
+        <translation>拡張機能</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>その他</translation>
     </message>
     <message>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;起動時の設定&lt;/b&gt;</translation>
     </message>
     <message>
         <source>After launch: </source>
-        <translation type="unfinished"></translation>
+        <translation>起動後:</translation>
     </message>
     <message>
         <source>Open blank page</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>空白のページを表示する</translation>
     </message>
     <message>
         <source>Open homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームページを開く</translation>
     </message>
     <message>
         <source>Open speed dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Speed Dialを開く</translation>
     </message>
     <message>
         <source>Restore session</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考</translatorcomment>
+        <translation>前回のセッションを復元する</translation>
     </message>
     <message>
         <source>Homepage: </source>
-        <translation type="unfinished"></translation>
+        <translation>ホームページ:</translation>
     </message>
     <message>
         <source>Use current</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のページを設定</translation>
     </message>
     <message>
         <source>On new tab: </source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブ:</translation>
     </message>
     <message>
         <source>Open blank tab</source>
-        <translation type="unfinished"></translation>
+        <translation>空白のタブを開く</translation>
     </message>
     <message>
         <source>Open other page...</source>
-        <translation type="unfinished"></translation>
+        <translation>別のページを開く...</translation>
     </message>
     <message>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;プロファイル&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Startup profile:</source>
-        <translation type="unfinished"></translation>
+        <translation>起動時のプロファイル:</translation>
     </message>
     <message>
         <source>Note: You cannot delete active profile.</source>
-        <translation type="unfinished"></translation>
+        <translation>注意:現在使用中のプロファイルは削除できません。</translation>
     </message>
     <message>
         <source>Create New</source>
-        <translation type="unfinished"></translation>
+        <translation>新規作成</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Check for updates on start</source>
-        <translation type="unfinished"></translation>
+        <translation>起動時にアップデートを確認</translation>
     </message>
     <message>
         <source>Active profile:</source>
-        <translation type="unfinished"></translation>
+        <translation>現在使用中のプロファイル:</translation>
     </message>
     <message>
         <source>In order to change language, you must restart browser.</source>
-        <translation type="unfinished"></translation>
+        <translation>言語の変更を反映するにはQupZillaを再起動してください。</translation>
     </message>
     <message>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;言語&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Available translations: </source>
-        <translation type="unfinished"></translation>
+        <translation>使用可能な言語:</translation>
     </message>
     <message>
         <source>Themes</source>
-        <translation type="unfinished"></translation>
+        <translation>テーマ</translation>
     </message>
     <message>
         <source>Advanced options</source>
-        <translation type="unfinished"></translation>
+        <translation>詳細設定</translation>
     </message>
     <message>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;ブラウザウィンドウ&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Show StatusBar on start</source>
-        <translation type="unfinished"></translation>
+        <translation>ステータスバーを表示する</translation>
     </message>
     <message>
         <source>Show Bookmarks ToolBar on start</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークツールバーを表示する</translation>
     </message>
     <message>
         <source>Show Navigation ToolBar on start</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ここら再考のよちありか</translatorcomment>
+        <translation>ナビゲーションツールバーを表示する</translation>
     </message>
     <message>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;ナビゲーションツールバー&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Show Home button</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームボタンを表示する</translation>
     </message>
     <message>
         <source>Show Back / Forward buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>戻る/進むボタンを表示する</translation>
     </message>
     <message>
         <source>Show Add Tab button</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブボタンを表示する</translation>
     </message>
     <message>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>&lt;b&gt;バックグラウンド&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Use transparent background</source>
-        <translation type="unfinished"></translation>
+        <translation>バックグラウンドの透過</translation>
     </message>
     <message>
         <source>&lt;b&gt;Tabs behavior&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;タブの挙動&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Make tabs movable</source>
-        <translation type="unfinished"></translation>
+        <translation>タブを移動可能にする</translation>
     </message>
     <message>
         <source>Hide tabs when there is only one tab</source>
-        <translation type="unfinished"></translation>
+        <translation>タブが1つだけの時タブバーを非表示</translation>
     </message>
     <message>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;アドレスバーの設定&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Select all text by double clicking in address bar</source>
-        <translation type="unfinished"></translation>
+        <translation>ダブルクリックですべて選択</translation>
     </message>
     <message>
         <source>Add .co.uk domain by pressing ALT key</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>謎設定</translatorcomment>
+        <translation>Altキーを押して.co.jpを追加</translation>
     </message>
     <message>
         <source>Ask when closing multiple tabs</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>複数のタブを閉じるとき確認する</translation>
     </message>
     <message>
         <source>Select all text by clicking in address bar</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>クリックですべて選択</translation>
     </message>
     <message>
         <source>Activate last tab when closing active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>アクティブタブを閉じたとき直前のタブをアクティブにする</translation>
     </message>
     <message>
         <source>Don&apos;t quit upon closing last tab</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>最後のタブを閉じない</translation>
     </message>
     <message>
         <source>Closed tabs list instead of opened in tab bar</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>まちがってそう、再考</translatorcomment>
+        <translation>閉じたタブをタブバー上の元の位置で開く</translation>
     </message>
     <message>
         <source>Open new tabs after active tab</source>
-        <translation type="unfinished"></translation>
+        <translation>アクティブなタブの後ろに新しいタブを追加する</translation>
     </message>
     <message>
         <source>Web Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Web設定</translation>
+    </message>
+    <message>
+        <source>Allow Plugins (Flash plugin)</source>
+        <translation type="obsolete">プラグインを有効にする</translation>
     </message>
     <message>
         <source>Allow JavaScript</source>
-        <translation type="unfinished"></translation>
+        <translation>Javascriptを有効にする</translation>
     </message>
     <message>
         <source>Allow JAVA</source>
-        <translation type="unfinished"></translation>
+        <translation>JAVAを有効にする</translation>
     </message>
     <message>
         <source>Allow DNS Prefetch</source>
-        <translation type="unfinished"></translation>
+        <translation>DNSプリフェッチを有効にする</translation>
     </message>
     <message>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>XSS検知機能を有効にする</translation>
     </message>
     <message>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>コメント参照</translatorcomment>
+        <translation>バックグラウンドの画像や色も印刷する</translation>
     </message>
     <message>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
-        <translation type="unfinished"></translation>
+        <translatorcomment>コメント参照</translatorcomment>
+        <translation>フォーカスを移すときすべてのリンクを参照する</translation>
     </message>
     <message>
         <source>Zoom text only</source>
-        <translation type="unfinished"></translation>
+        <translation>テキストのみズーム</translation>
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation type="unfinished"></translation>
+        <translation>プライベートブラウジングモードを開始するとき確認する</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
-        <translation type="unfinished"></translation>
+        <translation>マウスホイールスクロール量</translation>
     </message>
     <message>
         <source>lines on page</source>
-        <translation type="unfinished"></translation>
+        <translation>行</translation>
     </message>
     <message>
         <source>Default zoom on pages: </source>
-        <translation type="unfinished"></translation>
+        <translation>既定のズーム率:</translation>
     </message>
     <message>
         <source>Local Storage</source>
-        <translation type="unfinished"></translation>
+        <translation>ローカルストレージ</translation>
     </message>
     <message>
         <source>Maximum pages in cache: </source>
-        <translation type="unfinished"></translation>
+        <translation>キャッシュするページの数:</translation>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>Allow storing network cache on disk</source>
-        <translation type="unfinished"></translation>
+        <translation>ネットワークをディスク上に保存する</translation>
     </message>
     <message>
         <source>Maximum </source>
-        <translation type="unfinished"></translation>
+        <translation>最大</translation>
     </message>
     <message>
         <source>50 MB</source>
-        <translation type="unfinished"></translation>
+        <translation>50 MB</translation>
     </message>
     <message>
         <source>Allow storing web icons</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンの保存を有効にする</translation>
     </message>
     <message>
         <source>Allow saving history</source>
-        <translation type="unfinished"></translation>
+        <translation>履歴の保存を有効にする</translation>
     </message>
     <message>
         <source>Delete history on close</source>
-        <translation type="unfinished"></translation>
+        <translation>終了時に履歴を削除する</translation>
     </message>
     <message>
         <source>Allow local storage of HTML5 web content</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML5コンテンツのlocal storageを許可する</translation>
     </message>
     <message>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation type="unfinished"></translation>
+        <translation>終了時にローカルに保存されたHTML5コンテンツを削除する</translation>
     </message>
     <message>
         <source>Delete now</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Proxy Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>プロキシ設定</translation>
     </message>
     <message>
         <source>HTTP</source>
-        <translation type="unfinished"></translation>
+        <translation>HTTP</translation>
     </message>
     <message>
         <source>SOCKS5</source>
-        <translation type="unfinished"></translation>
+        <translation>SOCKS5</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"></translation>
+        <translation>ポート番号:</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>ユーザー名:</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワード:</translation>
     </message>
     <message>
         <source>Don&apos;t use on:</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>プロキシを通さないページ:</translation>
     </message>
     <message>
         <source>Manual configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>手動設定</translation>
     </message>
     <message>
         <source>System proxy configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>システムの設定を使う</translation>
     </message>
     <message>
         <source>Do not use proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>プロキシを使用しない</translation>
     </message>
     <message>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;フォント設定&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>重要、再考</translatorcomment>
+        <translation>既定のフォント</translation>
     </message>
     <message>
         <source>Fixed</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考、Fixed、重要、プロポーショナルフォント？多分等幅</translatorcomment>
+        <translation>等幅フォント</translation>
     </message>
     <message>
         <source>Serif</source>
-        <translation type="unfinished"></translation>
+        <translation>明朝体(Serif)</translation>
     </message>
     <message>
         <source>Sans Serif</source>
-        <translation type="unfinished"></translation>
+        <translation>ゴシック体(Sans Serif)</translation>
     </message>
     <message>
         <source>Cursive</source>
-        <translation type="unfinished"></translation>
+        <translation>手書き風(cursive)</translation>
     </message>
     <message>
         <source>Fantasy</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>装飾(Fantasy)</translation>
     </message>
     <message>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;フォントサイズ&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Fixed Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>等幅フォントのサイズ</translation>
     </message>
     <message>
         <source>Default Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>既定のフォントのサイズ</translation>
     </message>
     <message>
         <source>Minimum Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>最小フォントサイズ</translation>
     </message>
     <message>
         <source>Minimum Logical Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>最小論理フォントサイズ</translation>
     </message>
     <message>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;ダウンロードの場所&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Ask everytime for download location</source>
-        <translation type="unfinished"></translation>
+        <translation>毎回尋ねる</translation>
     </message>
     <message>
         <source>Use defined location: </source>
-        <translation type="unfinished"></translation>
+        <translation>既定のダウンロード場所:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;ダウンロードのオプション&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Use native system file dialog
 (may or may not cause problems with downloading SSL secured content)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>ネイティブなファイルダイアログを使う
+(SSLでセキュアな状態にあるコンテンツのダウンロードに失敗することがあります)</translation>
     </message>
     <message>
         <source>Close download manager when downloading finishes</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロード終了時にダウンロードマネージャを閉じる</translation>
     </message>
     <message>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;外部ダウンローダの仕様&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Use external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>外部ダウンローダを使う</translation>
     </message>
     <message>
         <source>Executable:</source>
-        <translation type="unfinished"></translation>
+        <translation>実行するダウンローダを指定:</translation>
     </message>
     <message>
         <source>Arguments:</source>
-        <translation type="unfinished"></translation>
+        <translation>引数:</translation>
     </message>
     <message>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;オートフィルの設定&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Allow saving passwords from sites</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワードの保存を有効にする</translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookie&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>トラッキングCookieのフィルタリング</translation>
     </message>
     <message>
         <source>Allow storing of cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookieを許可する</translation>
     </message>
     <message>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"></translation>
+        <translation>終了時にCookieを削除する</translation>
     </message>
     <message>
         <source>Match domain exactly</source>
-        <translation type="unfinished"></translation>
+        <translation>ファーストパーティのCookieのみ許可</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;警告&lt;/b&gt;  ファーストパーティのCookieの許可やトラッキングCookieのフィルタリングは一部のCookieを拒否します。これによってCookie関連のトラブルが生じる場合はこのオプションを無効にしてください!</translation>
     </message>
     <message>
         <source>Cookies Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>cookieマネージャ</translation>
     </message>
     <message>
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;SSL証明書&lt;/b&gt;</translation>
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>SSLマネージャ</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>SSLマネージャ内の公開鍵証明書を編集する</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaxascriptがクリップボードにアクセスすることを許可</translation>
     </message>
     <message>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;その他&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Send Do Not Track header to servers</source>
-        <translation type="unfinished"></translation>
+        <translation>Do Not Trackヘッダをサーバーに送る</translation>
     </message>
     <message>
         <source>Send Referer header to servers</source>
-        <translation type="unfinished"></translation>
+        <translation>リファラの送信を許可</translation>
     </message>
     <message>
         <source>Block popup windows</source>
-        <translation type="unfinished"></translation>
+        <translation>ポップアップウィンドウのブロック</translation>
     </message>
     <message>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;通知&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Use OSD Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>OSD通知を使う</translation>
     </message>
     <message>
         <source>Use Native System Notifications (Linux only)</source>
-        <translation type="unfinished"></translation>
+        <translation>ネイティブの通知を使う(Linux OSのみ可)</translation>
     </message>
     <message>
         <source>Do not use Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>通知を表示しない</translation>
     </message>
     <message>
         <source>Expiration timeout:</source>
-        <translation type="unfinished"></translation>
+        <translation>通知の表示時間:</translation>
     </message>
     <message>
         <source> seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>秒</translation>
     </message>
     <message>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Tips&lt;/b&gt;OSD通知の表示位置はドラッグで変更できます。</translation>
     </message>
     <message>
         <source>StyleSheet automatically loaded with all websites: </source>
-        <translation type="unfinished"></translation>
+        <translation>すべてのページに適用するスタイルシート:</translation>
     </message>
     <message>
         <source>Languages</source>
-        <translation type="unfinished"></translation>
+        <translation>言語</translation>
     </message>
     <message>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;言語設定&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Change browser identification:</source>
-        <translation type="unfinished"></translation>
+        <translation>User Agentの変更:</translation>
     </message>
     <message>
         <source>OSD Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>OSD通知</translation>
     </message>
     <message>
         <source>Drag it on the screen to place it where you want.</source>
-        <translation type="unfinished"></translation>
+        <translation>好きな場所にドラッグしてください。</translation>
     </message>
     <message>
         <source>Choose download location...</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロード先の指定...</translation>
     </message>
     <message>
         <source>Choose stylesheet location...</source>
-        <translation type="unfinished"></translation>
+        <translation>スタイルシートの指定...</translation>
     </message>
     <message>
         <source>Deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>削除されました</translation>
     </message>
     <message>
         <source>Choose executable location...</source>
-        <translation type="unfinished"></translation>
+        <translation>外部ダウンローダの指定...</translation>
     </message>
     <message>
         <source>New Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいプロファイル</translation>
     </message>
     <message>
         <source>Enter the new profile&apos;s name:</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいプロファイルの名前を入力してください:</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>エラーが発生しました!</translation>
     </message>
     <message>
         <source>This profile already exists!</source>
-        <translation type="unfinished"></translation>
+        <translation>このプロファイルはすでに存在しています!</translation>
     </message>
     <message>
         <source>Cannot create profile directory!</source>
-        <translation type="unfinished"></translation>
+        <translation>プロファイルフォルダを作成できません!</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考</translatorcomment>
+        <translation>確認</translation>
     </message>
     <message>
         <source>Are you sure to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation type="unfinished"></translation>
+        <translation>本当にプロファイル&quot;%1”を削除してもよろしいですか？一度削除した場合復元はできません!</translation>
     </message>
     <message>
         <source>Allow Netscape Plugins (Flash plugin)</source>
@@ -2230,676 +2288,695 @@
     <name>QObject</name>
     <message>
         <source>Native System Notification</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考、ようわからん</translatorcomment>
+        <translation>システム準拠の通知</translation>
     </message>
     <message>
         <source>The file is not an OpenSearch 1.1 file.</source>
-        <translation type="unfinished"></translation>
+        <translation>このファイルはOpenSearch 1.1ファイルではありません。</translation>
     </message>
     <message>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;証明書が発行されていません&gt;</translation>
     </message>
 </context>
 <context>
     <name>QtWin</name>
     <message>
         <source>Open new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブを開く</translation>
     </message>
     <message>
         <source>Opens a new tab if browser is running</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブを開く</translation>
     </message>
     <message>
         <source>Open new window</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいウィンドウを開く</translation>
     </message>
     <message>
         <source>Opens a new window if browser is running</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいウィンドウを開く</translation>
     </message>
     <message>
         <source>Open download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロードマネージャを開く</translation>
     </message>
     <message>
         <source>Opens a download manager if browser is running</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロードマネージャを開く</translation>
     </message>
 </context>
 <context>
     <name>QupZilla</name>
     <message>
         <source>QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla</translation>
     </message>
     <message>
         <source>Private Browsing Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>プライベートブラウジングを有効にする</translation>
     </message>
     <message>
         <source>IP Address of current page</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のページのIPアドレス</translation>
     </message>
     <message>
         <source>&amp;About QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>Qupzillaについて(&amp;A)</translation>
     </message>
     <message>
         <source>Pr&amp;eferences</source>
-        <translation type="unfinished"></translation>
+        <translation>設定(&amp;P)</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>終了</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;New Window</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>新規ウィンドウを開く(&amp;N)</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブを開く</translation>
     </message>
     <message>
         <source>Open Location</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>わからない</translatorcomment>
+        <translation>アドレスバー</translation>
     </message>
     <message>
         <source>Open &amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを開く(&amp;F)</translation>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>タブを閉じる</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィンドウを閉じる</translation>
     </message>
     <message>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けてページを保存(&amp;S)...</translation>
     </message>
     <message>
         <source>Save Page Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>ページのスクリーンショットを保存</translation>
     </message>
     <message>
         <source>Send Link...</source>
-        <translation type="unfinished"></translation>
+        <translation>ページのURLをメールで送信する...</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの印刷(&amp;P)...</translation>
     </message>
     <message>
         <source>Import bookmarks...</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークのインポート...</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>編集(&amp;E)</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>元に戻す(&amp;Ｕ)</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>やり直す(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>切り取り(&amp;C)</translation>
     </message>
     <message>
         <source>C&amp;opy</source>
-        <translation type="unfinished"></translation>
+        <translation>コピー(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>貼り付け(&amp;P)</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべてを選択(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Find</source>
-        <translation type="unfinished"></translation>
+        <translation>検索(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>表示(&amp;V)</translation>
     </message>
     <message>
         <source>&amp;Navigation Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>ナビゲーションツールバー(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Bookmarks Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークツールバー(&amp;B)</translation>
     </message>
     <message>
         <source>Sta&amp;tus Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>ステータスバー(&amp;T)</translation>
     </message>
     <message>
         <source>&amp;Menu Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>メニューバー(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>全画面表示(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>中止(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>更新(&amp;R)</translation>
     </message>
     <message>
         <source>Character &amp;Encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>文字コードエンコーディング(&amp;E)</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマーク</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>履歴</translation>
     </message>
     <message>
         <source>Toolbars</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールバー</translation>
     </message>
     <message>
         <source>Sidebars</source>
-        <translation type="unfinished"></translation>
+        <translation>サイドバー</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの拡大(&amp;I)</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの縮小(&amp;O)</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>リセット</translation>
     </message>
     <message>
         <source>&amp;Page Source</source>
-        <translation type="unfinished"></translation>
+        <translation>ページのソースを表示(&amp;P)</translation>
     </message>
     <message>
         <source>Hi&amp;story</source>
-        <translation type="unfinished"></translation>
+        <translation>履歴(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished"></translation>
+        <translation>戻る(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>進む(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Home</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームを開く(&amp;H)</translation>
     </message>
     <message>
         <source>Show &amp;All History</source>
-        <translation type="unfinished"></translation>
+        <translation>全ての履歴を表示する(&amp;A)</translation>
     </message>
     <message>
         <source>Closed Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>最近閉じたタブ</translation>
     </message>
     <message>
         <source>Recently Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>最近訪れたページ</translation>
     </message>
     <message>
         <source>Most Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>よく見るページ</translation>
     </message>
     <message>
         <source>&amp;Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマーク(&amp;B)</translation>
     </message>
     <message>
         <source>Bookmark &amp;This Page</source>
-        <translation type="unfinished"></translation>
+        <translation>このページをブックマークする(&amp;B)</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのタブをブックマークする(&amp;A)</translation>
     </message>
     <message>
         <source>Organize &amp;Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマークの管理(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>ツール(&amp;T)</translation>
     </message>
     <message>
         <source>&amp;Web Search</source>
-        <translation type="unfinished"></translation>
+        <translation>web検索(&amp;W)</translation>
     </message>
     <message>
         <source>Page &amp;Info</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの情報を表示(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Download Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロードマネージャ(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Cookies Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>cookieマネージャ(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation>Adblock(&amp;A)</translation>
     </message>
     <message>
         <source>RSS &amp;Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>RSSリーダー(&amp;R)</translation>
     </message>
     <message>
         <source>Web In&amp;spector</source>
-        <translation type="unfinished"></translation>
+        <translation>Web開発(&amp;S)</translation>
     </message>
     <message>
         <source>Clear Recent &amp;History</source>
-        <translation type="unfinished"></translation>
+        <translation>最近の履歴を消去(&amp;H)</translation>
     </message>
     <message>
         <source>&amp;Private Browsing</source>
-        <translation type="unfinished"></translation>
+        <translation>プライベートブラウジング(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>ヘルプ(&amp;H)</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>Qtについて(&amp;Q)</translation>
     </message>
     <message>
         <source>Information about application</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションの情報</translation>
     </message>
     <message>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>あれをあれ</translation>
     </message>
     <message>
         <source>Report &amp;Issue</source>
-        <translation type="unfinished"></translation>
+        <translation>問題を報告する(&amp;I)</translation>
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>最近閉じたタブを開く(&amp;C)</translation>
     </message>
     <message>
         <source> (Private Browsing)</source>
-        <translation type="unfinished"></translation>
+        <translation>(プライベートブラウジング)</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>該当なし</translation>
     </message>
     <message>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じたタブをすべて開く</translation>
     </message>
     <message>
         <source>Clear list</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>一覧の消去</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>その他</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>既定</translation>
     </message>
     <message>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
     <message>
         <source>Open file...</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを開く...</translation>
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation type="unfinished"></translation>
+        <translation>プライベートブラウジングモードを開始しますか?</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation type="unfinished"></translation>
+        <translation>プライベートブラウジングモードが有効になるとプライバシー関連のいくつかの挙動が制限されます:</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの閲覧履歴が残らない。</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留。意味はだいたいわかるが適訳見つからず。</translatorcomment>
+        <translation>Cookieが保存されない。</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation type="unfinished"></translation>
+        <translation>セッションが保存されない。</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>意訳</translatorcomment>
+        <translation>履歴及びセッションは保存されませんがページ上で戻る進むは利用できます。</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation type="unfinished"></translation>
+        <translation>プライベートブラウジングを開始する</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>意訳。保留。</translatorcomment>
+        <translation>%1個のタブが開いています。セッションは保存されませんがQupZillaを終了しますか?</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>RSSフィード&quot;%1&quot;の追加に成功しました。</translation>
     </message>
     <message>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>HTMLファイル</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>画像ファイル</translation>
     </message>
     <message>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>テキストファイル</translation>
     </message>
     <message>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>すべてのファイル</translation>
     </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
     <message>
         <source>No Error</source>
-        <translation type="unfinished"></translation>
+        <translation>エラーなし</translation>
     </message>
     <message>
         <source>Not Found</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルが見つかりません</translation>
     </message>
     <message>
         <source>Report Issue</source>
-        <translation type="unfinished"></translation>
+        <translation>問題を報告する</translation>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaを使用中に問題が発生した場合はまずプラグインを無効にしてみてください。&lt;br/&gt;それでも問題が解決されない場合以下のフォームに書き込んでください:</translation>
     </message>
     <message>
         <source>Your E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mailアドレス</translation>
     </message>
     <message>
         <source>Issue type</source>
-        <translation type="unfinished"></translation>
+        <translation>問題の種類</translation>
     </message>
     <message>
         <source>Issue description</source>
-        <translation type="unfinished"></translation>
+        <translation>問題の細かな説明</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>送信</translation>
     </message>
     <message>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ようわからんので保留</translatorcomment>
+        <translation>E-mailアドレスの記入は必須ではありません。l&lt;br/&gt;&lt;b&gt;注意&lt;/b&gt;バグレポートの書き方についてご覧ください&lt;a href=%1&gt;こちらから&lt;/a&gt; first.</translation>
     </message>
     <message>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"></translation>
+        <translation>必須項目を記入して送信してください!</translation>
     </message>
     <message>
         <source>Start Page</source>
-        <translation type="unfinished"></translation>
+        <translation>スタートページ</translation>
     </message>
     <message>
         <source>Google Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Google検索</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation type="unfinished"></translation>
+        <translation>検索結果はGoogleから提供されます</translation>
     </message>
     <message>
         <source>About QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaについて</translation>
     </message>
     <message>
         <source>Information about version</source>
-        <translation type="unfinished"></translation>
+        <translation>バージョン情報</translation>
     </message>
     <message>
         <source>Copyright</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>バージョン</translation>
     </message>
     <message>
         <source>WebKit version</source>
-        <translation type="unfinished"></translation>
+        <translation>Webkitのバージョン</translation>
     </message>
     <message>
         <source>Main developer</source>
-        <translation type="unfinished"></translation>
+        <translation>開発者</translation>
     </message>
     <message>
         <source>Contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>コントリビューター</translation>
     </message>
     <message>
         <source>Translators</source>
-        <translation type="unfinished"></translation>
+        <translation>翻訳者</translation>
     </message>
     <message>
         <source>Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Speed Dial</translation>
     </message>
     <message>
         <source>Add New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいページを追加する</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>編集</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
     <message>
         <source>Load title from page</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ名を取得する</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ名</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>適用</translation>
     </message>
     <message>
         <source>New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいページ</translation>
     </message>
     <message>
         <source>Speed Dial settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Speed Dialの設定</translation>
     </message>
     <message>
         <source>Placement: </source>
-        <translation type="unfinished"></translation>
+        <translation>Speed Dialの配置:</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>自動</translation>
     </message>
     <message>
         <source>Cover</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>カバー</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>調整</translation>
     </message>
     <message>
         <source>Fit Width</source>
-        <translation type="unfinished"></translation>
+        <translation>横幅に合わせて調整</translation>
     </message>
     <message>
         <source>Fit Height</source>
-        <translation type="unfinished"></translation>
+        <translation>縦幅に合わせて調整</translation>
     </message>
     <message>
         <source>Use background image</source>
-        <translation type="unfinished"></translation>
+        <translation>背景画像を表示する</translation>
     </message>
     <message>
         <source>Select image</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の選択</translation>
     </message>
     <message>
         <source>Maximum pages in a row:</source>
-        <translation type="unfinished"></translation>
+        <translation>行数の指定:</translation>
     </message>
     <message>
         <source>Change size of pages:</source>
-        <translation type="unfinished"></translation>
+        <translation>サムネイルのサイズを変更する:</translation>
     </message>
     <message>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>設定情報</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>意訳</translatorcomment>
+        <translation>このページはQupZillaの現在の設定について表示しています。これらの情報はトラブルシューティングに非常に有用ですので、バグレポート送信の際にはこれらの情報を一緒に送信してください。</translation>
     </message>
     <message>
         <source>Browser Identification</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>意訳</translatorcomment>
+        <translation>User Agent</translation>
     </message>
     <message>
         <source>Paths</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留、パスってどうよ？</translatorcomment>
+        <translation>パス</translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>オプション</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>値</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>プラグイン</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名前</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>作成者</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>説明</translation>
     </message>
     <message>
         <source>Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>プロファイル</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Saved session</source>
-        <translation type="unfinished"></translation>
+        <translation>保存されたセッション</translation>
     </message>
     <message>
         <source>Pinned tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>ピン止めされたタブ</translation>
     </message>
     <message>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>データ</translation>
     </message>
     <message>
         <source>Themes</source>
-        <translation type="unfinished"></translation>
+        <translation>テーマ</translation>
     </message>
     <message>
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>翻訳</translation>
     </message>
     <message>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>比較検討、絶対する</translatorcomment>
+        <translation>アプリケーションバージョン</translation>
     </message>
     <message>
         <source>Qt version</source>
-        <translation type="unfinished"></translation>
+        <translation>Qtのバージョン</translation>
     </message>
     <message>
         <source>Build time</source>
-        <translation type="unfinished"></translation>
+        <translation>ビルド情報</translation>
     </message>
     <message>
         <source>Platform</source>
-        <translation type="unfinished"></translation>
+        <translation>プラットフォーム</translation>
     </message>
     <message>
         <source>No available plugins.</source>
-        <translation type="unfinished"></translation>
+        <translation>表示可能なプラグインはありません。</translation>
     </message>
     <message>
         <source>Build Configuration</source>
@@ -2938,745 +3015,763 @@
     <name>RSSManager</name>
     <message>
         <source>RSS Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>RSSリーダー</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translation>該当なし</translation>
     </message>
     <message>
         <source>Add feed</source>
-        <translation type="unfinished"></translation>
+        <translation>フィードの追加</translation>
     </message>
     <message>
         <source>Edit feed</source>
-        <translation type="unfinished"></translation>
+        <translation>フィードの編集</translation>
     </message>
     <message>
         <source>Delete feed</source>
-        <translation type="unfinished"></translation>
+        <translation>フィードの削除</translation>
     </message>
     <message>
         <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
+        <translation>データベースの最適化</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
     <message>
         <source>News</source>
-        <translation type="unfinished"></translation>
+        <translation>ニュース</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>読み込み中...</translation>
     </message>
     <message>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>意訳</translatorcomment>
+        <translation>RSSフィードがありません。&lt;br/&gt;RSSフィードが取得可能な場合ロケーションバーにRSSアイコンが表示されます。</translation>
     </message>
     <message>
         <source>Add new feed</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいフィードの追加</translation>
     </message>
     <message>
         <source>Please enter URL of new feed:</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいフィードのURLを入力してください:</translation>
     </message>
     <message>
         <source>New feed</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいフィード</translation>
     </message>
     <message>
         <source>Fill title and URL of a feed: </source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考</translatorcomment>
+        <translation>フィードのURLとタイトルを入力してください:</translation>
     </message>
     <message>
         <source>Feed title: </source>
-        <translation type="unfinished"></translation>
+        <translation>フィード名:</translation>
     </message>
     <message>
         <source>Feed URL: </source>
-        <translation type="unfinished"></translation>
+        <translation>フィードURL:</translation>
     </message>
     <message>
         <source>Edit RSS Feed</source>
-        <translation type="unfinished"></translation>
+        <translation>RSSフィードの編集</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のタブでリンクを開く</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブでリンクを開く</translation>
     </message>
     <message>
         <source>Error in fetching feed</source>
-        <translation type="unfinished"></translation>
+        <translation>フィード読み込みエラー</translation>
     </message>
     <message>
         <source>RSS feed duplicated</source>
-        <translation type="unfinished"></translation>
+        <translation>RSSフィードの重複</translation>
     </message>
     <message>
         <source>You already have this feed.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>このフィードはすでに登録されています。</translation>
     </message>
 </context>
 <context>
     <name>RSSNotification</name>
     <message>
         <source>Open RSS Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>RSSマネージャを開く</translation>
     </message>
 </context>
 <context>
     <name>RSSWidget</name>
     <message>
         <source>Add RSS Feeds from this site</source>
-        <translation type="unfinished"></translation>
+        <translation>このページのRSSフィードを追加する</translation>
     </message>
     <message>
         <source>Untitled feed</source>
-        <translation type="unfinished"></translation>
+        <translation>無題のフィード</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>追加する</translation>
     </message>
 </context>
 <context>
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>SSLマネージャ</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>公開鍵証明書</translation>
     </message>
     <message>
         <source>Show info</source>
-        <translation type="unfinished"></translation>
+        <translation>情報を表示する</translation>
     </message>
     <message>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考</translatorcomment>
+        <translation>一般的なシステムのパス、およびユーザー設定のパスにおける公開鍵証明書のリストです。</translation>
     </message>
     <message>
         <source>Local Certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>ローカル証明書</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
-        <translation type="unfinished"></translation>
+        <translation>あなたのユーザープロファイルに保存されているローカル証明書のリストです。これらのうちには例外的な証明書も含まれます。</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ここら辺直したい</translatorcomment>
+        <translation>公開鍵証明書が自動的に読み込まれない場合、証明書が保存されたパスを指定することでマニュアル読み込みが可能です。</translation>
     </message>
     <message>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;注意&lt;/b&gt;このオプションを有効にすることはセキュリティリスクを劇的に高めます!</translation>
     </message>
     <message>
         <source>Ignore all SSL Warnings</source>
-        <translation type="unfinished"></translation>
+        <translation>SSL証明書に関する警告を無視する</translation>
     </message>
     <message>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
-        <translation type="unfinished"></translation>
+        <translation>証明書は拡張子が.crxでなくてはいけません。
+証明書を追加、もしくは削除した場合は変更を反映させるためにQupZillaの再起動が必要です。</translation>
     </message>
     <message>
         <source>Choose path...</source>
-        <translation type="unfinished"></translation>
+        <translation>パスを選択する...</translation>
     </message>
     <message>
         <source>Certificate Informations</source>
-        <translation type="unfinished"></translation>
+        <translation>証明書情報</translation>
     </message>
 </context>
 <context>
     <name>SearchEnginesDialog</name>
     <message>
         <source>Manage Search Engines</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジンの管理</translation>
     </message>
     <message>
         <source>Add...</source>
-        <translation type="unfinished"></translation>
+        <translation>追加...</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>編集</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>上へ</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>下へ</translation>
     </message>
     <message>
         <source>Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジン</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <source>Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>既定</translation>
     </message>
     <message>
         <source>Add Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジンの追加</translation>
     </message>
     <message>
         <source>Edit Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジンの編集</translation>
     </message>
 </context>
 <context>
     <name>SearchEnginesManager</name>
     <message>
         <source>Search Engine Added</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジンの追加</translation>
     </message>
     <message>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジン&quot;%1&quot;を追加しました。</translation>
     </message>
     <message>
         <source>Search Engine is not valid!</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジンの指定が正しくありません!</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>エラー</translation>
     </message>
     <message>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジンの追加中にエラーが発生しました。&lt;br&gt;&lt;b&gt;エラーメッセージ&lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
     <name>SearchToolBar</name>
     <message>
         <source>No results found.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>該当なし。</translation>
     </message>
 </context>
 <context>
     <name>SearchToolbar</name>
     <message>
         <source>Search: </source>
-        <translation type="unfinished"></translation>
+        <translation>検索:</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>検索...</translation>
     </message>
     <message>
         <source>Highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>ハイライト</translation>
     </message>
     <message>
         <source>Case sensitive</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要再考</translatorcomment>
+        <translation>大文字と小文字を区別する</translation>
     </message>
 </context>
 <context>
     <name>SideBar</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>ブックマーク</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>履歴</translation>
     </message>
 </context>
 <context>
     <name>SiteInfo</name>
     <message>
         <source>Site Info</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ情報</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>一般</translation>
     </message>
     <message>
         <source>Media</source>
-        <translation type="unfinished"></translation>
+        <translation>メディア</translation>
     </message>
     <message>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>セキュリティ</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>サイズ:</translation>
     </message>
     <message>
         <source>Site address:</source>
-        <translation type="unfinished"></translation>
+        <translation>ページのURL:</translation>
     </message>
     <message>
         <source>Encoding:</source>
-        <translation type="unfinished"></translation>
+        <translation>文字コード:</translation>
     </message>
     <message>
         <source>Meta tags of site:</source>
-        <translation type="unfinished"></translation>
+        <translation>このページのMetaタグ:</translation>
     </message>
     <message>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation>タグ</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>値</translation>
     </message>
     <message>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;セキュリティ情報&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>詳細</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>画像</translation>
     </message>
     <message>
         <source>Image address</source>
-        <translation type="unfinished"></translation>
+        <translation>画像のURL</translation>
     </message>
     <message>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留。なんのこと？</translatorcomment>
+        <translation>&lt;b&gt;プレビュー&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;証明書が発行されていません&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;接続は暗号化されています。&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;接続の安全性は以下の証明書によって保障されています:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;接続は暗号化されていません。&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;このページへの接続は安全ではありません!&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Copy Image Location</source>
-        <translation type="unfinished"></translation>
+        <translation>画像のURLをコピー</translation>
     </message>
     <message>
         <source>Copy Image Name</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の名前をコピー</translation>
     </message>
     <message>
         <source>Save Image to Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の保存</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>エラーが発生しました!</translation>
     </message>
     <message>
         <source>This preview is not available!</source>
-        <translation type="unfinished"></translation>
+        <translation>この画像のプレビューに失敗しました!</translation>
     </message>
     <message>
         <source>Save image...</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の保存...</translation>
     </message>
     <message>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルに書き込めません!</translation>
     </message>
     <message>
         <source>Preview not available</source>
-        <translation type="unfinished"></translation>
+        <translation>この画像のプレビューはできません</translation>
     </message>
 </context>
 <context>
     <name>SiteInfoWidget</name>
     <message>
         <source>More...</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>意訳</translatorcomment>
+        <translation>表示...</translation>
     </message>
     <message>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>このページへの接続は安全性が保障されています。</translation>
     </message>
     <message>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>このページへの接続は安全性が保障されていません。</translation>
     </message>
     <message>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation type="unfinished"></translation>
+        <translation>このサイトに訪れるのは&lt;b&gt;%1&lt;/b&gt;回目です。</translation>
     </message>
     <message>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
-        <translation type="unfinished"></translation>
+        <translation>このサイトに訪れたのは初めてです。</translation>
     </message>
     <message>
         <source>first</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ここらへん謎</translatorcomment>
+        <translation>1</translation>
     </message>
     <message>
         <source>second</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>third</source>
-        <translation type="unfinished"></translation>
+        <translation>3</translation>
     </message>
 </context>
 <context>
     <name>SourceViewer</name>
     <message>
         <source>Source of </source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>ソース</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <source>Save as...</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けて保存...</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>編集</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>元に戻す</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>やり直す</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>切り取り</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>コピー</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>貼り付け</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Go to Line...</source>
-        <translation type="unfinished"></translation>
+        <translation>行数を指定して表示...</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>表示</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
     <message>
         <source>Editable</source>
-        <translation type="unfinished"></translation>
+        <translation>編集</translation>
     </message>
     <message>
         <source>Word Wrap</source>
-        <translation type="unfinished"></translation>
+        <translation>自動改行</translation>
     </message>
     <message>
         <source>Save file...</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを保存...</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>エラーが発生しました!</translation>
     </message>
     <message>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルに書き込めません!</translation>
     </message>
     <message>
         <source>Error writing to file</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルに書き込めません</translation>
     </message>
     <message>
         <source>Source successfully saved</source>
-        <translation type="unfinished"></translation>
+        <translation>ソースの保存に成功しました</translation>
     </message>
     <message>
         <source>Source reloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>ソースが更新されました</translation>
     </message>
     <message>
         <source>Cannot reload source. Page has been closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>ソースを更新できません。元ページが閉じられています。</translation>
     </message>
     <message>
         <source>Editable changed</source>
-        <translation type="unfinished"></translation>
+        <translation>編集の有効/無効状態が変更されました</translation>
     </message>
     <message>
         <source>Word Wrap changed</source>
-        <translation type="unfinished"></translation>
+        <translation>自動改行の有効/無効が変更されました</translation>
     </message>
     <message>
         <source>Enter line number</source>
-        <translation type="unfinished"></translation>
+        <translation>行数を入力してください</translation>
     </message>
 </context>
 <context>
     <name>SourceViewerSearch</name>
     <message>
         <source>Search: </source>
-        <translation type="unfinished"></translation>
+        <translation>検索:</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>検索...</translation>
     </message>
 </context>
 <context>
     <name>SpeedDial</name>
     <message>
         <source>Select image...</source>
-        <translation type="unfinished"></translation>
+        <translation>画像を選択する...</translation>
     </message>
     <message>
         <source>Unable to load</source>
-        <translation type="unfinished"></translation>
+        <translation>読み込み失敗</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">画像ファイル</translation>
     </message>
 </context>
 <context>
     <name>TabBar</name>
     <message>
         <source>&amp;New tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブを開く(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Stop Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>タブをの読み込みを中止する(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Reload Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のタブを更新する(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>タブの重複を解消する(&amp;D)</translation>
     </message>
     <message>
         <source>Un&amp;pin Tab</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>タブのピン止め解除(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Pin Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>タブのピン止め(&amp;P)</translation>
     </message>
     <message>
         <source>Re&amp;load All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのタブを更新する(&amp;L)</translation>
     </message>
     <message>
         <source>&amp;Bookmark This Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>このタブをブックマーク(&amp;B)</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのタブをブックマークする(&amp;A)</translation>
     </message>
     <message>
         <source>Close Ot&amp;her Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>他のタブを閉じる(&amp;H)</translation>
     </message>
     <message>
         <source>Cl&amp;ose</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のタブを閉じる(&amp;L)</translation>
     </message>
     <message>
         <source>Reloa&amp;d All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのタブを更新する(&amp;D)</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Ta&amp;bs</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのタブをブックマークする(&amp;A)</translation>
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>最近閉じたタブを開く(&amp;C)</translation>
     </message>
 </context>
 <context>
     <name>TabWidget</name>
     <message>
         <source>List of tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>タブの一覧</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブ</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>ロード中...</translation>
     </message>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>無題</translation>
     </message>
     <message>
         <source>Currently you have %1 opened tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>現在%1個のタブを開いています</translation>
     </message>
     <message>
         <source>New tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブ</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>該当なし</translation>
     </message>
     <message>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じたタブをすべて開く</translation>
     </message>
     <message>
         <source>Clear list</source>
-        <translation type="unfinished"></translation>
+        <translation>一覧の消去</translation>
     </message>
 </context>
 <context>
     <name>TabbedWebView</name>
     <message>
         <source>Failed loading page</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの読み込みに失敗しました</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>読み込み中...</translation>
     </message>
     <message>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>そのまま</translatorcomment>
+        <translation>%1 - QupZilla</translation>
     </message>
     <message>
         <source>Inspect Element</source>
-        <translation type="unfinished"></translation>
+        <translation>要素の調査</translation>
     </message>
 </context>
 <context>
     <name>ThemeManager</name>
     <message>
         <source>&lt;b&gt;Name:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;テーマ名:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Author:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>&lt;b&gt;作者:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;説明:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>ライセンス</translation>
     </message>
 </context>
 <context>
     <name>ToolButton</name>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>中止</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
 </context>
 <context>
     <name>Updater</name>
     <message>
         <source>Update available</source>
-        <translation type="unfinished"></translation>
+        <translation>アップデートがあります</translation>
     </message>
     <message>
         <source>New version of QupZilla is ready to download.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaの新しいバージョンのダウンロードができます。</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>アップデート</translation>
     </message>
 </context>
 <context>
     <name>WebInspectorDockWidget</name>
     <message>
         <source>Web Inspector</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>原文重視</translatorcomment>
+        <translation>Webインスペクター</translation>
     </message>
 </context>
 <context>
@@ -3684,317 +3779,332 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>このページを見るためにはQupZillaがもう一度リクエストを送信する必要があります。
+(検索、あるいはオンラインショッピングなどの場合リクエストはすでに一度送信されています)</translation>
     </message>
     <message>
         <source>Confirm form resubmission</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>たぶん間違ってる、要再考、誰かに聞く</translatorcomment>
+        <translation>フォームの再送信の確認</translation>
     </message>
     <message>
         <source>Select files to upload...</source>
-        <translation type="unfinished"></translation>
+        <translation>アップロードするファイルの選択...</translation>
     </message>
     <message>
         <source>Server refused the connection</source>
-        <translation type="unfinished"></translation>
+        <translation>サーバーに接続を拒否されました</translation>
     </message>
     <message>
         <source>Server closed the connection</source>
-        <translation type="unfinished"></translation>
+        <translation>サーバーは接続を切断しました</translation>
     </message>
     <message>
         <source>Server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>サーバーが見つかりません</translation>
     </message>
     <message>
         <source>Connection timed out</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考</translatorcomment>
+        <translation>接続のタイムアウト</translation>
     </message>
     <message>
         <source>Untrusted connection</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>わからん、最高</translatorcomment>
+        <translation>信頼できない接続</translation>
     </message>
     <message>
         <source>Temporary network failure</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考、ようわからん</translatorcomment>
+        <translation>一時的なネットワーク障害が発生しています</translation>
     </message>
     <message>
         <source>Proxy connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>プロキシ接続が拒否されました</translation>
     </message>
     <message>
         <source>Proxy server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>プロキシサーバが見つかりません</translation>
     </message>
     <message>
         <source>Proxy connection timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>プロキシ接続のタイムアウト</translation>
     </message>
     <message>
         <source>Proxy authentication required</source>
-        <translation type="unfinished"></translation>
+        <translation>プロキシ認証が必要です</translation>
     </message>
     <message>
         <source>Content not found</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>要素という言葉使いすぎ、要再考</translatorcomment>
+        <translation>コンテンツが見つかりません</translation>
     </message>
     <message>
         <source>AdBlocked Content</source>
-        <translation type="unfinished"></translation>
+        <translation>ブロックされたコンテンツ</translation>
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;i&gt;%1&lt;/i&gt;によってブロックされています</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
-        <translation type="unfinished"></translation>
+        <translation>コンテンツに接続できません</translation>
     </message>
     <message>
         <source>Error code %1</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ここはたぶんこのままでいい、要再考</translatorcomment>
+        <translation>Error code %1</translation>
     </message>
     <message>
         <source>Failed loading page</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの読み込みに失敗しました</translation>
     </message>
     <message>
         <source>QupZilla can&apos;t load page from %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaは%1からページを読み込むのに失敗しました。</translation>
     </message>
     <message>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考、内容ではなく文章</translatorcomment>
+        <translation>アドレスに入力ミスがないか確認してみてください。たとえば&lt;b&gt;www.&lt;/b&gt;example.comと打つべきところで&lt;b&gt;ww.&lt;/b&gt;example.comと入力していませんか</translation>
     </message>
     <message>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>もしもすべてのページが読み込めない場合、コンピューターの接続を確認してください。</translation>
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
-        <translation type="unfinished"></translation>
+        <translation>もしあなたのコンピューターの接続がファイアーウォールやプロキシで制限されているなら、QupZillaの接続を許可してください。</translation>
     </message>
     <message>
         <source>Try Again</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>再考、まったくわからん</translatorcomment>
+        <translation>もう一度試してください</translation>
     </message>
     <message>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished"></translation>
+        <translation>このページでこれ以上ダイアログを表示させない</translation>
     </message>
     <message>
         <source>JavaScript alert - %1</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>javascript alertで出てくる奴→警告、要再考。</translatorcomment>
+        <translation> 警告- %1</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの選択...</translation>
     </message>
 </context>
 <context>
     <name>WebSearchBar</name>
     <message>
         <source>Manage Search Engines</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジンの編集</translation>
     </message>
     <message>
         <source>Add %1 ...</source>
-        <translation type="unfinished"></translation>
+        <translation>%1を検索エンジンリストに追加する...</translation>
     </message>
     <message>
         <source>Paste And &amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation>貼り付けて検索(&amp;s)</translation>
     </message>
     <message>
         <source>Clear All</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>テスト</translatorcomment>
+        <translation>検索エンジンをあれする</translation>
     </message>
 </context>
 <context>
     <name>WebView</name>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>無題</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished"></translation>
+        <translation>戻る(&amp;b)</translation>
     </message>
     <message>
         <source>&amp;Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>進む(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>更新(&amp;R)</translation>
     </message>
     <message>
         <source>S&amp;top</source>
-        <translation type="unfinished"></translation>
+        <translation>中止(&amp;S)</translation>
     </message>
     <message>
         <source>This frame</source>
-        <translation type="unfinished"></translation>
+        <translation>このフレーム</translation>
     </message>
     <message>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished"></translation>
+        <translation>このフレームのみ表示(&amp;O)</translation>
     </message>
     <message>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブでこのフレームを開く(&amp;T)</translation>
     </message>
     <message>
         <source>Print frame</source>
-        <translation type="unfinished"></translation>
+        <translation>このフレームを印刷</translation>
     </message>
     <message>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの拡大(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの縮小(&amp;O)</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>リセット</translation>
     </message>
     <message>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished"></translation>
+        <translation>フレームのソースを表示(&amp;U)</translation>
     </message>
     <message>
         <source>Book&amp;mark page</source>
-        <translation type="unfinished"></translation>
+        <translation>このページをブックマーク(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けてページを保存(&amp;S)...</translation>
     </message>
     <message>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
+        <translation>ページのURLをコピー(&amp;C)</translation>
     </message>
     <message>
         <source>Send page link...</source>
-        <translation type="unfinished"></translation>
+        <translation>ページのURLをメールで送信...</translation>
     </message>
     <message>
         <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation>ページの印刷(&amp;P)</translation>
     </message>
     <message>
         <source>Select &amp;all</source>
-        <translation type="unfinished"></translation>
+        <translation>すべてを選択(&amp;A)</translation>
     </message>
     <message>
         <source>Validate page</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ここ適当</translatorcomment>
+        <translation>ページのW3C準拠チェック</translation>
     </message>
     <message>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished"></translation>
+        <translation>ソースの表示(&amp;U)</translation>
     </message>
     <message>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished"></translation>
+        <translation>このページの情報を表示(&amp;O)</translation>
     </message>
     <message>
         <source>Open link in new &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブでリンクを開く(&amp;T)</translation>
     </message>
     <message>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいウィンドウでリンクを開く(&amp;W)</translation>
     </message>
     <message>
         <source>B&amp;ookmark link</source>
-        <translation type="unfinished"></translation>
+        <translation>リンクをブックマーク(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けてリンクを保存(&amp;S)...</translation>
     </message>
     <message>
         <source>Send link...</source>
-        <translation type="unfinished"></translation>
+        <translation>リンクをメールで送信...</translation>
     </message>
     <message>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished"></translation>
+        <translation>リンクのURLをコピー(&amp;C)</translation>
     </message>
     <message>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留、候補他に多数あり</translatorcomment>
+        <translation>画像を表示(&amp;M)</translation>
     </message>
     <message>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished"></translation>
+        <translation>画像のコピー(&amp;D)</translation>
     </message>
     <message>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished"></translation>
+        <translation>画像のURLをコピー(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けて画像を保存(&amp;S)...</translation>
     </message>
     <message>
         <source>Send image...</source>
-        <translation type="unfinished"></translation>
+        <translation>画像をメールで送信...</translation>
     </message>
     <message>
         <source>Send text...</source>
-        <translation type="unfinished"></translation>
+        <translation>テキストをメールで送信...</translation>
     </message>
     <message>
         <source>Google Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>Google翻訳</translation>
     </message>
     <message>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>辞書</translation>
     </message>
     <message>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation>URLへ移動(&amp;W)</translation>
     </message>
     <message>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot;を%2で検索</translation>
     </message>
     <message>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>再生(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>一時停止(&amp;P)</translation>
     </message>
     <message>
         <source>Un&amp;mute</source>
-        <translation type="unfinished"></translation>
+        <translation>ミュート解除(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>ミュート(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;Copy Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>メディアのURLをコピー(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Send Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>メディアのアドレスを送る(&amp;S)</translation>
     </message>
     <message>
         <source>Save Media To &amp;Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>メディアの保存(&amp;D)</translation>
     </message>
     <message>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>検索...</translation>
     </message>
     <message>
         <source>Create Search Engine</source>
@@ -4005,7 +4115,8 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>jsAlert</name>
     <message>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>このページでこれ以上ダイアログを表示させない</translation>
     </message>
 </context>
 </TS>

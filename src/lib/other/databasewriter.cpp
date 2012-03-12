@@ -17,15 +17,11 @@
 * ============================================================ */
 #include "databasewriter.h"
 
-#include <QThread>
 #include <QTimer>
 
 DatabaseWriter::DatabaseWriter()
     : QObject()
 {
-    QThread* t = new QThread(this);
-    t->start();
-    moveToThread(t);
 }
 
 void DatabaseWriter::executeQuery(const QSqlQuery &query)

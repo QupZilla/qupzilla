@@ -3,6 +3,8 @@
         <file>locale/cs_CZ.qm</file>
         <file>locale/de_DE.qm</file>
         <file>locale/el_GR.qm</file>
+        <file>locale/id_ID.qm</file>
+        <file>locale/nl_NL.qm</file>
         <file>locale/sk_SK.qm</file>
         <file>locale/sr_BA.qm</file>
         <file>locale/sr_RS.qm</file>

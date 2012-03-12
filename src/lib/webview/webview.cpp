@@ -116,6 +116,13 @@ void WebView::setPage(QWebPage* page)
 
 void WebView::load(const QUrl &url)
 {
+    load(QNetworkRequest(url));
+}
+
+void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operation operation, const QByteArray &body)
+{
+    const QUrl &url = request.url();
+
     if (url.scheme() == "javascript") {
         // Getting scriptSource from PercentEncoding to properly load bookmarklets
         QString scriptSource = QUrl::fromPercentEncoding(url.toString().mid(11).toUtf8());
@@ -124,7 +131,7 @@ void WebView::load(const QUrl &url)
     }
 
     if (isUrlValid(url)) {
-        QWebView::load(url);
+        QWebView::load(request, operation, body);
         emit urlChanged(url);
         m_aboutToLoadUrl = url;
         return;
@@ -132,8 +139,10 @@ void WebView::load(const QUrl &url)
 
     const QUrl &searchUrl = mApp->searchEnginesManager()->searchUrl(url.toString());
     QWebView::load(searchUrl);
+
     emit urlChanged(searchUrl);
     m_aboutToLoadUrl = searchUrl;
+
 }
 
 bool WebView::isLoading() const
@@ -504,7 +513,7 @@ bool WebView::isMediaElement(const QWebElement &element)
     return (element.tagName().toLower() == "video" || element.tagName().toLower() == "audio");
 }
 
-void WebView::checkForForm(QMenu *menu, const QWebElement &element)
+void WebView::checkForForm(QMenu* menu, const QWebElement &element)
 {
     QWebElement parentElement = element.parent();
 

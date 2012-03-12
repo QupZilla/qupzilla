@@ -150,20 +150,14 @@ void TabWidget::resizeEvent(QResizeEvent* e)
     QTabWidget::resizeEvent(e);
 }
 
-TabbedWebView* TabWidget::weView()
+WebTab* TabWidget::weTab()
 {
-    return weView(currentIndex());
+    return weTab(currentIndex());
 }
 
-TabbedWebView* TabWidget::weView(int index)
+WebTab* TabWidget::weTab(int index)
 {
-    WebTab* webTab = qobject_cast<WebTab*>(widget(index));
-
-    if (!webTab) {
-        return 0;
-    }
-
-    return webTab->view();
+    return qobject_cast<WebTab*>(widget(index));
 }
 
 void TabWidget::createKeyPressEvent(QKeyEvent* event)
@@ -192,24 +186,24 @@ void TabWidget::moveAddTabButton(int posX)
 void TabWidget::aboutToShowTabsMenu()
 {
     m_menuTabs->clear();
-    TabbedWebView* actView = weView();
-    if (!actView) {
+    WebTab* actTab = weTab();
+    if (!actTab) {
         return;
     }
     for (int i = 0; i < count(); i++) {
-        TabbedWebView* view = weView(i);
-        if (!view) {
+        WebTab* tab = weTab(i);
+        if (!tab) {
             continue;
         }
         QAction* action = new QAction(this);
-        if (view == actView) {
+        if (tab == actTab) {
             action->setIcon(QIcon(":/icons/menu/dot.png"));
         }
         else {
-            action->setIcon(view->icon());
+            action->setIcon(tab->icon());
         }
-        if (view->title().isEmpty()) {
-            if (view->isLoading()) {
+        if (tab->title().isEmpty()) {
+            if (tab->isLoading()) {
                 action->setText(tr("Loading..."));
                 action->setIcon(QIcon(":/icons/other/progress.gif"));
             }
@@ -218,7 +212,7 @@ void TabWidget::aboutToShowTabsMenu()
             }
         }
         else {
-            QString title = view->title();
+            QString title = tab->title();
             title.replace("&", "&&");
             if (title.length() > 40) {
                 title.truncate(40);
@@ -244,11 +238,22 @@ void TabWidget::actionChangeIndex()
 
 int TabWidget::addView(const QUrl &url, const Qz::NewTabPositionFlags &openFlags, bool selectLine)
 {
-    return addView(url, tr("New tab"), openFlags, selectLine);
+    return addView(QNetworkRequest(url), openFlags, selectLine);
 }
 
-int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position)
+int TabWidget::addView(const QNetworkRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine)
 {
+    return addView(req, tr("New tab"), openFlags, selectLine);
+}
+
+int TabWidget::addView(const QUrl &url, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position)
+{
+    return addView(QNetworkRequest(url), title, openFlags, selectLine, position);
+}
+
+int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position)
+{
+    QUrl url = req.url();
     m_lastTabIndex = currentIndex();
 
     if (url.isEmpty() && !(openFlags & Qz::NT_CleanTab)) {
@@ -277,7 +282,7 @@ int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionF
         index = insertTab(position, new WebTab(p_QupZilla, locBar), "");
     }
 
-    TabbedWebView* webView = weView(index);
+    TabbedWebView* webView = weTab(index)->view();
     locBar->setWebView(webView);
 
     setTabText(index, title);
@@ -303,7 +308,8 @@ int TabWidget::addView(QUrl url, const QString &title, const Qz::NewTabPositionF
     connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid()) {
-        webView->load(url);
+        req.setUrl(url);
+        webView->load(req);
     }
 
     if (selectLine) {
@@ -323,13 +329,14 @@ void TabWidget::closeTab(int index)
         index = currentIndex();
     }
 
-    TabbedWebView* webView = weView(index);
-    WebPage* webPage = webView->webPage();
-    WebTab* webTab = webView->webTab();
 
-    if (!webView || !webPage || !webTab) {
+    WebTab* webTab = weTab(index);
+    if (!webTab) {
         return;
     }
+
+    TabbedWebView* webView = webTab->view();
+    WebPage* webPage = webView->webPage();
 
     if (count() == 1) {
         if (m_dontQuitWithOneTab) {
@@ -379,13 +386,14 @@ void TabWidget::currentTabChanged(int index)
     m_isClosingToLastTabIndex = false;
     m_lastBackgroundTabIndex = -1;
 
-    TabbedWebView* webView = weView();
-    LocationBar* locBar = webView->webTab()->locationBar();
+    WebTab* webTab = weTab(index);
+    LocationBar* locBar = webTab->locationBar();
 
     if (m_locationBars->indexOf(locBar) != -1) {
         m_locationBars->setCurrentWidget(locBar);
     }
 
+    webTab->setCurrentTab();
     p_QupZilla->currentTabChanged();
     m_tabBar->updateCloseButton(index);
 }
@@ -404,7 +412,7 @@ void TabWidget::setTabText(int index, const QString &text)
     QString newtext = text;
     newtext.replace("&", "&&"); // Avoid Alt+letter shortcuts
 
-    if (WebTab* webTab = qobject_cast<WebTab*>(p_QupZilla->tabWidget()->widget(index))) {
+    if (WebTab* webTab = weTab(index)) {
         if (webTab->isPinned()) {
             newtext = "";
         }
@@ -415,7 +423,7 @@ void TabWidget::setTabText(int index, const QString &text)
 
 void TabWidget::reloadTab(int index)
 {
-    weView(index)->reload();
+    weTab(index)->reload();
 }
 
 void TabWidget::showTabBar()
@@ -437,41 +445,37 @@ void TabWidget::reloadAllTabs()
 
 void TabWidget::stopTab(int index)
 {
-    weView(index)->stop();
-}
-
-void TabWidget::backTab(int index)
-{
-    weView(index)->back();
-}
-
-void TabWidget::forwardTab(int index)
-{
-    weView(index)->forward();
+    weTab(index)->stop();
 }
 
 void TabWidget::closeAllButCurrent(int index)
 {
-    WebTab* akt = qobject_cast<WebTab*>(widget(index));
+    WebTab* akt = weTab(index);
 
     foreach(WebTab * tab, allTabs(false)) {
-        if (akt == widget(tab->view()->tabIndex())) {
+        int tabIndex = tab->tabIndex();
+        if (akt == widget(tabIndex)) {
             continue;
         }
-        closeTab(tab->view()->tabIndex());
+        closeTab(tabIndex);
     }
 }
 
 int TabWidget::duplicateTab(int index)
 {
-    const QUrl &url = weView(index)->url();
+    WebView* view = weTab(index)->view();
+    const QUrl &url = view->url();
+
     QByteArray history;
     QDataStream tabHistoryStream(&history, QIODevice::WriteOnly);
-    tabHistoryStream << *weView(index)->history();
+    tabHistoryStream << *view->history();
 
-    int id = addView(url, tabText(index), Qz::NT_CleanNotSelectedTab);
+    QNetworkRequest req(url);
+    req.setRawHeader("Referer", url.toEncoded());
+
+    int id = addView(req, tabText(index), Qz::NT_CleanNotSelectedTab);
     QDataStream historyStream(history);
-    historyStream >> *weView(id)->history();
+    historyStream >> *weTab(id)->history();
 
     return id;
 }
@@ -493,10 +497,8 @@ void TabWidget::restoreClosedTab()
     }
 
     int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab, false, tab.position);
-    QDataStream historyStream(tab.history);
-    historyStream >> *weView(index)->history();
-
-    weView(index)->load(tab.url);
+    WebTab* webTab = weTab(index);
+    webTab->p_restoreTab(tab.url, tab.history);
 }
 
 void TabWidget::restoreAllClosedTabs()
@@ -509,10 +511,8 @@ void TabWidget::restoreAllClosedTabs()
 
     foreach(const ClosedTabsManager::Tab & tab, closedTabs) {
         int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab);
-        QDataStream historyStream(tab.history);
-        historyStream >> *weView(index)->history();
-
-        weView(index)->load(tab.url);
+        WebTab* webTab = weTab(index);
+        webTab->p_restoreTab(tab.url, tab.history);
     }
 
     m_closedTabsManager->clearList();
@@ -561,12 +561,13 @@ QList<WebTab*> TabWidget::allTabs(bool withPinned)
     QList<WebTab*> allTabs;
 
     for (int i = 0; i < count(); i++) {
-        WebTab* tab = qobject_cast<WebTab*>(widget(i));
+        WebTab* tab = weTab(i);
         if (!tab || (!withPinned && tab->isPinned())) {
             continue;
         }
         allTabs.append(tab);
     }
+
     return allTabs;
 }
 
@@ -578,9 +579,8 @@ void TabWidget::savePinnedTabs()
     QStringList tabs;
     QList<QByteArray> tabsHistory;
     for (int i = 0; i < count(); ++i) {
-        if (TabbedWebView* tab = weView(i)) {
-            WebTab* webTab = qobject_cast<WebTab*>(widget(i));
-            if (!webTab || !webTab->isPinned()) {
+        if (WebTab* tab = weTab(i)) {
+            if (!tab->isPinned()) {
                 continue;
             }
 
@@ -630,16 +630,18 @@ void TabWidget::restorePinnedTabs()
 
         QByteArray historyState = tabHistory.value(i);
         int addedIndex;
+
         if (!historyState.isEmpty()) {
             addedIndex = addView(QUrl(), Qz::NT_CleanSelectedTab);
-            QDataStream historyStream(historyState);
-            historyStream >> *weView(addedIndex)->history();
-            weView(addedIndex)->load(url);
+
+            weTab(i)->p_restoreTab(url, historyState);
         }
         else {
             addedIndex = addView(url);
         }
-        WebTab* webTab = qobject_cast<WebTab*>(widget(addedIndex));
+
+        WebTab* webTab = weTab(addedIndex);
+
         if (webTab) {
             webTab->setPinned(true);
             emit pinnedTabAdded();
@@ -652,72 +654,57 @@ void TabWidget::restorePinnedTabs()
 
 QByteArray TabWidget::saveState()
 {
+    QList<WebTab::SavedTab> tabList;
+
+    for (int i = 0; i < count(); ++i) {
+        WebTab* webTab = weTab(i);
+        if (!webTab || webTab->isPinned()) {
+            continue;
+        }
+
+        WebTab::SavedTab tab(webTab);
+        tabList.append(tab);
+    }
+
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
-    QStringList tabs;
-    QList<QByteArray> tabsHistory;
-    for (int i = 0; i < count(); ++i) {
-        if (TabbedWebView* tab = weView(i)) {
-            WebTab* webTab = qobject_cast<WebTab*>(widget(i));
-            if (webTab && webTab->isPinned()) {
-                continue;
-            }
+    stream << tabList.count();
 
-            tabs.append(tab->url().toEncoded());
-            if (tab->history()->count() != 0) {
-                QByteArray tabHistory;
-                QDataStream tabHistoryStream(&tabHistory, QIODevice::WriteOnly);
-                tabHistoryStream << *tab->history();
-                tabsHistory.append(tabHistory);
-            }
-            else {
-                tabsHistory << QByteArray();
-            }
-        }
-        else {
-            tabs.append(QString::null);
-            tabsHistory.append(QByteArray());
-        }
+    foreach(const WebTab::SavedTab & tab, tabList) {
+        stream << tab;
     }
-    stream << tabs;
+
     stream << currentIndex();
-    stream << tabsHistory;
 
     return data;
 }
 
-bool TabWidget::restoreState(const QByteArray &state)
+bool TabWidget::restoreState(QByteArray &state)
 {
-    QByteArray sd = state;
-    QDataStream stream(&sd, QIODevice::ReadOnly);
+    QDataStream stream(&state, QIODevice::ReadOnly);
     if (stream.atEnd()) {
         return false;
     }
 
-    QStringList openTabs;
-    int currentTab;
-    QList<QByteArray> tabHistory;
-    stream >> openTabs;
-    stream >> currentTab;
-    stream >> tabHistory;
+    int tabListCount = 0;
+    int currentTab = 0;
 
-    for (int i = 0; i < openTabs.count(); ++i) {
-        QUrl url = QUrl::fromEncoded(openTabs.at(i).toUtf8());
+    stream >> tabListCount;
 
-        QByteArray historyState = tabHistory.value(i);
-        if (!historyState.isEmpty()) {
-            int index = addView(QUrl(), Qz::NT_CleanSelectedTab);
-            QDataStream historyStream(historyState);
-            historyStream >> *weView(index)->history();
-            weView(index)->load(url);
-        }
-        else {
-            addView(url);
-        }
+    for (int i = 0; i < tabListCount; ++i) {
+        WebTab::SavedTab tab;
+        stream >> tab;
+
+        int index = addView(QUrl(), Qz::NT_CleanSelectedTab);
+        weTab(index)->restoreTab(tab);
     }
 
+    stream >> currentTab;
+
     setCurrentIndex(currentTab);
+    currentTabChanged(currentTab);
+
     return true;
 }
 

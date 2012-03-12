@@ -222,7 +222,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
 
     QList<QPair<QByteArray, QByteArray> > queryItems;
     QWebElementCollection allInputs = formElement.findAll("input");
-    foreach (QWebElement e, allInputs) {
+    foreach(QWebElement e, allInputs) {
         if (element == e || !e.hasAttribute("name")) {
             continue;
         }

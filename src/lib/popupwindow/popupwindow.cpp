@@ -81,6 +81,7 @@ PopupWindow::PopupWindow(PopupWebView* view, bool showStatusBar)
 
     // Ensuring correct sizes for widgets in layout are calculated even
     // before calling QWidget::show()
+    m_layout->invalidate();
     m_layout->activate();
 }
 

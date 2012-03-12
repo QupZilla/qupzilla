@@ -30,6 +30,8 @@ EditSearchEngine::EditSearchEngine(const QString &title, QWidget* parent)
     connect(ui->iconFromFile, SIGNAL(clicked()), this, SLOT(chooseIcon()));
 
     ui->buttonBox->setFocus();
+
+    setFixedHeight(sizeHint().height());
 }
 
 QString EditSearchEngine::name()
@@ -85,7 +87,9 @@ void EditSearchEngine::hideIconLabels()
 
 void EditSearchEngine::chooseIcon()
 {
-    QString path = QFileDialog::getOpenFileName(this, tr("Choose icon..."));
+    const QString &fileTypes = QString("%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff)").arg(tr("Image files"));
+
+    QString path = QFileDialog::getOpenFileName(this, tr("Choose icon..."), QDir::homePath(), fileTypes);
     if (path.isEmpty()) {
         return;
     }

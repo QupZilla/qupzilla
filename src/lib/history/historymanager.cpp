@@ -124,30 +124,45 @@ void HistoryManager::copyUrl()
 
 void HistoryManager::deleteItem()
 {
+    QList<int> list;
+
     foreach(QTreeWidgetItem * item, ui->historyTree->selectedItems()) {
         if (!item) {
-            return;
+            continue;
         }
 
         if (!item->parent()) {
+            QList<QTreeWidgetItem*> items;
+
             for (int i = 0; i < item->childCount(); i++) {
                 QTreeWidgetItem* children = item->child(i);
-                int id = children->whatsThis(1).toInt();
-                m_historyModel->deleteHistoryEntry(id);
+                if (children->isHidden()) {
+                    continue;
+                }
 
-                ui->historyTree->deleteItem(children);
+                int id = children->whatsThis(1).toInt();
+
+                list.append(id);
                 m_ignoredIds.append(id);
+                items.append(children);
             }
-            ui->historyTree->deleteItem(item);
+
+            if (item->childCount() == 0) {
+                items.append(item);
+            }
+            ui->historyTree->deleteItems(items);
         }
         else {
             int id = item->whatsThis(1).toInt();
-            m_historyModel->deleteHistoryEntry(id);
+
+            list.append(id);
+            m_ignoredIds.append(id);
 
             ui->historyTree->deleteItem(item);
-            m_ignoredIds.append(id);
         }
     }
+
+    m_historyModel->deleteHistoryEntry(list);
 }
 
 void HistoryManager::historyEntryAdded(const HistoryEntry &entry)
