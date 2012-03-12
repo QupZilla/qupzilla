@@ -1239,7 +1239,7 @@
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished">画像ファイル</translation>
+        <translation>画像ファイル</translation>
     </message>
 </context>
 <context>
@@ -2277,11 +2277,11 @@
     </message>
     <message>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Flashプラグインを有効にする</translation>
     </message>
     <message>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>タブを選択するまで読み込まない</translation>
     </message>
 </context>
 <context>
@@ -2606,7 +2606,7 @@
     <message>
         <source>Configuration Information</source>
         <translatorcomment>保留</translatorcomment>
-        <translation>あれをあれ</translation>
+        <translation>設定情報</translation>
     </message>
     <message>
         <source>Report &amp;Issue</source>
@@ -2980,35 +2980,35 @@
     </message>
     <message>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>ビルド設定</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>無効</translation>
     </message>
     <message>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;有効&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>デバッグビルド</translation>
     </message>
     <message>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>WebGLサポート</translation>
     </message>
     <message>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7 API</translation>
     </message>
     <message>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE integration</translation>
     </message>
     <message>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>Portable build</translation>
     </message>
 </context>
 <context>
@@ -3597,7 +3597,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished">画像ファイル</translation>
+        <translation>画像ファイル</translation>
     </message>
 </context>
 <context>
@@ -3914,7 +3914,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Clear All</source>
         <translatorcomment>テスト</translatorcomment>
-        <translation>検索エンジンをあれする</translation>
+        <translation>検索バーをクリア</translation>
     </message>
 </context>
 <context>
@@ -4108,7 +4108,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>検索エンジンの作成</translation>
     </message>
 </context>
 <context>
