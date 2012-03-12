@@ -43,7 +43,7 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="66"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
-        <translation>&lt;small&gt;Waktu pembuatan: %1 &lt;/small&gt;&lt;/p&gt;</translation>
+        <translation>&lt;small&gt;Waktu pembangunan: %1 &lt;/small&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="79"/>
@@ -1559,7 +1559,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="90"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas gambar</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="92"/>
@@ -1767,7 +1767,7 @@
     <message>
         <location filename="../src/lib/other/licenseviewer.cpp" line="25"/>
         <source>License Viewer</source>
-        <translation type="unfinished">Penayang Lisensi</translation>
+        <translation>Penayang Lisensi</translation>
     </message>
 </context>
 <context>
@@ -2349,12 +2349,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="471"/>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Jangan muat tab sebelum dipilih</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="784"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ijinkan Pengaya Netscape (pengaya Flash)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="940"/>
@@ -3303,22 +3303,22 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1413"/>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas HTML</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1413"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas gambar</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1413"/>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas teks</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1413"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Semua berkas</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1415"/>
@@ -3477,7 +3477,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="325"/>
         <source>Build time</source>
-        <translation>Waktu pembuatan</translation>
+        <translation>Waktu pembangunan</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="326"/>
@@ -3497,7 +3497,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="307"/>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurasi Pembangunan</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="309"/>
@@ -3661,7 +3661,7 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="340"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="341"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Dinonaktifkan</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="344"/>
@@ -3670,32 +3670,32 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="353"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="356"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Aktifkan&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="360"/>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>Pembangunan debug</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="361"/>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>Dukungan WebGL</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="362"/>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>API Windows 7</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="363"/>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>Integrasi KDE</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="364"/>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>Pembangunan portabel</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="380"/>
@@ -4460,7 +4460,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas gambar</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>
@@ -4858,7 +4858,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="536"/>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Buat Mesin Pencari</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="632"/>
