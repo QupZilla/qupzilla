@@ -2606,7 +2606,7 @@
     <message>
         <source>Configuration Information</source>
         <translatorcomment>保留</translatorcomment>
-        <translation>あれをあれ</translation>
+        <translation>設定情報</translation>
     </message>
     <message>
         <source>Report &amp;Issue</source>
@@ -2665,7 +2665,7 @@
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translatorcomment>保留。微妙</translatorcomment>
+        <translatorcomment>保留。意味はだいたいわかるが適訳見つからず。</translatorcomment>
         <translation>Cookieが保存されない。</translation>
     </message>
     <message>
@@ -3914,7 +3914,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Clear All</source>
         <translatorcomment>テスト</translatorcomment>
-        <translation>検索エンジンをあれする</translation>
+        <translation>検索バーをクリア</translation>
     </message>
 </context>
 <context>
