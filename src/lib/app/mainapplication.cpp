@@ -128,7 +128,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     setOverrideCursor(Qt::WaitCursor);
     setWindowIcon(QIcon(":icons/exeicons/qupzilla-window.png"));
     bool noAddons = false;
-    QUrl startUrl("");
+    QUrl startUrl;
     QStringList messages;
     QString startProfile;
 
@@ -178,9 +178,6 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
         return;
     }
 
-    connect(this, SIGNAL(messageReceived(QString)), this, SLOT(receiveAppMessage(QString)));
-    connect(this, SIGNAL(aboutToQuit()), this, SLOT(saveSettings()));
-
 #ifdef Q_WS_MAC
     setQuitOnLastWindowClosed(false);
 #else
@@ -222,34 +219,27 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     settings2.setValue("isRunning", true);
     settings2.endGroup();
 
-    QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, m_activeProfil);
-
     translateApp();
-    QWebHistoryInterface::setDefaultInterface(new WebHistoryInterface(this));
 
     QupZilla* qupzilla = new QupZilla(Qz::BW_FirstAppWindow, startUrl);
-    m_mainWindows.append(qupzilla);
-    connect(qupzilla, SIGNAL(message(Qz::AppMessageType, bool)), this, SLOT(sendMessages(Qz::AppMessageType, bool)));
     qupzilla->show();
+    m_mainWindows.append(qupzilla);
 
-    AutoSaver* saver = new AutoSaver();
-    connect(saver, SIGNAL(saveApp()), this, SLOT(saveStateSlot()));
+    connect(qupzilla, SIGNAL(message(Qz::AppMessageType, bool)), this, SLOT(sendMessages(Qz::AppMessageType, bool)));
+    connect(qupzilla, SIGNAL(startingCompleted()), this, SLOT(restoreCursor()));
 
     if (settings2.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool()) {
         m_updater = new Updater(qupzilla);
     }
 
-    if (noAddons) {
-        settings2.setValue("Plugin-Settings/AllowedPlugins", QStringList());
-        settings2.setValue("Plugin-Settings/EnablePlugins", false);
+    loadSettings();
+    networkManager()->loadCertificates();
+
+    if (!noAddons) {
+        plugins()->loadPlugins();
     }
 
-    networkManager()->loadCertificates();
-    plugins()->loadPlugins();
-    loadSettings();
-
     QTimer::singleShot(0, this, SLOT(postLaunch()));
-    QTimer::singleShot(2000, this, SLOT(restoreCursor()));
 #ifdef Q_WS_WIN
     QTimer::singleShot(10 * 1000, this, SLOT(setupJumpList()));
 #endif
@@ -268,6 +258,15 @@ void MainApplication::postLaunch()
     if (m_postLaunchActions.contains(OpenNewTab)) {
         getWindow()->tabWidget()->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd);
     }
+
+    AutoSaver* saver = new AutoSaver();
+    connect(saver, SIGNAL(saveApp()), this, SLOT(saveStateSlot()));
+
+    QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, m_activeProfil);
+    QWebHistoryInterface::setDefaultInterface(new WebHistoryInterface(this));
+
+    connect(this, SIGNAL(messageReceived(QString)), this, SLOT(receiveAppMessage(QString)));
+    connect(this, SIGNAL(aboutToQuit()), this, SLOT(saveSettings()));
 }
 
 void MainApplication::loadSettings()

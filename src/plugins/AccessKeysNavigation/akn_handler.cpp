@@ -65,6 +65,7 @@ Qt::Key keyFromCode(int code)
 AKN_Handler::AKN_Handler(const QString &sPath, QObject* parent)
     : QObject(parent)
     , m_view(0)
+    , m_accessKeysVisible(false)
     , m_settingsPath(sPath)
 {
     loadSettings();

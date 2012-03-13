@@ -276,19 +276,9 @@ void TabbedWebView::linkHovered(const QString &link, const QString &title, const
     m_hoveredLink = link;
 }
 
-// FIXME: Don't do this magic to get index of tab.
-// Implement setTabIndex() and call it from TabWidget (when creating and also from
-// tabMoved slot)
 int TabbedWebView::tabIndex() const
 {
-    int i = 0;
-    while (WebTab* wTab = qobject_cast<WebTab*>(m_tabWidget->widget(i))) {
-        if (wTab && wTab->view() == this) {
-            break;
-        }
-        i++;
-    }
-    return i;
+    return m_tabWidget->indexOf(m_webTab);
 }
 
 QWidget* TabbedWebView::overlayForJsAlert()

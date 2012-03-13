@@ -105,7 +105,6 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("QupZilla"));
-    setUpdatesEnabled(false);
 
     m_activeProfil = mApp->getActiveProfilPath();
     m_activeLanguage = mApp->getActiveLanguage();
@@ -188,10 +187,8 @@ void QupZilla::postLaunch()
     }
 
     aboutToHideEditMenu();
-    setUpdatesEnabled(true);
 
     mApp->plugins()->emitMainWindowCreated(this);
-
     emit startingCompleted();
 }
 

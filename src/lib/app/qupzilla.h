@@ -100,7 +100,6 @@ public:
     inline QUrl homepageUrl() { return m_homepage; }
 
 signals:
-    void loadHistory();
     void startingCompleted();
     void message(Qz::AppMessageType mes, bool state);
     void setWebViewMouseTracking(bool state);

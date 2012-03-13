@@ -139,7 +139,7 @@ void Plugins::loadPlugins()
 
     refreshLoadedPlugins();
 
-    std::cout << "QupZilla: " << m_loadedPlugins.count() << " plugins loaded"  << std::endl;
+    std::cout << "QupZilla: " << m_loadedPlugins.count() << " extensions loaded"  << std::endl;
 }
 
 void Plugins::loadAvailablePlugins()

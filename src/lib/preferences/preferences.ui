@@ -166,7 +166,7 @@
      </item>
      <item>
       <property name="text">
-       <string>Plugins</string>
+       <string>Extensions</string>
       </property>
       <property name="whatsThis">
        <string notr="true">9</string>
