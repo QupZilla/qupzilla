@@ -407,7 +407,6 @@ void BookmarksToolbar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     button->setToolButtonStyle(m_toolButtonStyle);
     button->setToolTip(bookmark.url.toEncoded());
     button->setAutoRaise(true);
-    button->setWhatsThis(bookmark.title);
     button->setContextMenuPolicy(Qt::CustomContextMenu);
 
     connect(button, SIGNAL(clicked()), this, SLOT(loadClickedBookmark()));
@@ -473,7 +472,6 @@ void BookmarksToolbar::bookmarkEdited(const BookmarksModel::Bookmark &before, co
                 button->setData(v);
                 button->setIcon(IconProvider::iconFromImage(after.image));
                 button->setToolTip(after.url.toEncoded());
-                button->setWhatsThis(after.title);
                 return;
             }
         }
@@ -506,7 +504,6 @@ void BookmarksToolbar::refreshBookmarks()
         button->setIcon(IconProvider::iconFromImage(bookmark.image));
         button->setToolButtonStyle(m_toolButtonStyle);
         button->setToolTip(bookmark.url.toEncoded());
-        button->setWhatsThis(bookmark.title);
         button->setAutoRaise(true);
         button->setContextMenuPolicy(Qt::CustomContextMenu);
 

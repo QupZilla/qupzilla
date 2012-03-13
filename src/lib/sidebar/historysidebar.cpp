@@ -145,7 +145,7 @@ void HistorySideBar::historyEntryAdded(const HistoryEntry &entry)
     item->setText(1, entry.url.toEncoded());
     item->setToolTip(0, entry.url.toEncoded());
 
-    item->setWhatsThis(1, QString::number(entry.id));
+    item->setData(0, Qt::UserRole + 10, entry.id);
     item->setIcon(0, _iconForUrl(entry.url));
     ui->historyTree->prependToParentItem(parentItem, item);
 }
@@ -157,7 +157,7 @@ void HistorySideBar::historyEntryDeleted(const HistoryEntry &entry)
         if (!item) {
             continue;
         }
-        if (item->whatsThis(1).toInt() != entry.id) {
+        if (item->data(0, Qt::UserRole + 10).toInt() != entry.id) {
             continue;
         }
         ui->historyTree->deleteItem(item);
@@ -222,7 +222,7 @@ void HistorySideBar::slotRefreshTable()
         item->setText(1, url.toEncoded());
         item->setToolTip(0, url.toEncoded());
 
-        item->setWhatsThis(1, QString::number(id));
+        item->setData(0, Qt::UserRole + 10, id);
         item->setIcon(0, _iconForUrl(url));
         ui->historyTree->addTopLevelItem(item);
 

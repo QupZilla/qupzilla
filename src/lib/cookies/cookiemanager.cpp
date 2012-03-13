@@ -84,9 +84,9 @@ void CookieManager::removeCookie()
     QList<QNetworkCookie> allCookies = mApp->cookieJar()->getAllCookies();
 
     if (current->text(1).isEmpty()) {     //Remove whole cookie group
-        QString domain = current->whatsThis(0);
+        const QString &domain = current->data(0, Qt::UserRole + 10).toString();
         foreach(const QNetworkCookie & cookie, allCookies) {
-            if (cookie.domain() == domain || cookie.domain()  ==  domain.mid(1)) {
+            if (cookie.domain() == domain || cookie.domain() == domain.mid(1)) {
                 allCookies.removeOne(cookie);
             }
         }
@@ -171,7 +171,7 @@ void CookieManager::slotRefreshTable()
             QTreeWidgetItem* newParent = new QTreeWidgetItem(ui->cookieTree);
             newParent->setText(0, cookieDomain);
             newParent->setIcon(0, style()->standardIcon(QStyle::SP_DirIcon));
-            newParent->setWhatsThis(0, cookie.domain());
+            newParent->setData(0, Qt::UserRole + 10, cookie.domain());
             ui->cookieTree->addTopLevelItem(newParent);
             hash[cookieDomain] = newParent;
 

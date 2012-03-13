@@ -417,8 +417,9 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     if (!item) {
         return;
     }
+
     ui->caption->setText("<b>" + item->text() + "</b>");
-    ui->stackedWidget->setCurrentIndex(item->whatsThis().toInt());
+    ui->stackedWidget->setCurrentIndex(ui->listWidget->currentRow());
 
     setNotificationPreviewVisible(ui->stackedWidget->currentIndex() == 8);
 }

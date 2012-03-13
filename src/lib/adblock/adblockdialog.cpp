@@ -91,7 +91,7 @@ void AdBlockDialog::deleteRule()
         return;
     }
 
-    int offset = item->whatsThis(0).toInt();
+    int offset = item->data(0, Qt::UserRole + 10).toInt();
     m_manager->subscription()->removeRule(offset);
     treeWidget->deleteItem(item);
     refresh();
@@ -156,7 +156,7 @@ void AdBlockDialog::refresh()
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(0, (rule.filter().startsWith("!")) ? Qt::Unchecked : Qt::Checked);
         item->setText(0, rule.filter());
-        item->setWhatsThis(0, QString::number(index - 1));
+        item->setData(0, Qt::UserRole + 10, index - 1);
         if (rule.filter().startsWith("!")) {
             item->setFont(0, italicFont);
         }
@@ -175,7 +175,7 @@ void AdBlockDialog::itemChanged(QTreeWidgetItem* item)
     m_itemChangingBlock = true;
 
     if (item->checkState(0) == Qt::Unchecked && !item->text(0).startsWith("!")) { //Disable rule
-        int offset = item->whatsThis(0).toInt();
+        int offset = item->data(0, Qt::UserRole + 10).toInt();
         QFont italicFont;
         italicFont.setItalic(true);
         item->setFont(0, italicFont);
@@ -186,7 +186,7 @@ void AdBlockDialog::itemChanged(QTreeWidgetItem* item)
 
     }
     else if (item->checkState(0) == Qt::Checked && item->text(0).startsWith("!")) {   //Enable rule
-        int offset = item->whatsThis(0).toInt();
+        int offset = item->data(0, Qt::UserRole + 10).toInt();
         item->setFont(0, QFont());
         QString newText = item->text(0).mid(1);
         item->setText(0, newText);
@@ -196,7 +196,7 @@ void AdBlockDialog::itemChanged(QTreeWidgetItem* item)
 
     }
     else {   //Custom rule has been changed
-        int offset = item->whatsThis(0).toInt();
+        int offset = item->data(0, Qt::UserRole + 10).toInt();
 
         AdBlockRule rul(item->text(0));
         m_manager->subscription()->replaceRule(rul, offset);
@@ -219,7 +219,7 @@ void AdBlockDialog::addCustomRule()
     m_itemChangingBlock = true;
     QTreeWidgetItem* item = new QTreeWidgetItem();
     item->setText(0, newRule);
-    item->setWhatsThis(0, QString::number(offset));
+    item->setData(0, Qt::UserRole + 10, offset);
     item->setFlags(item->flags() | Qt::ItemIsEditable);
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
     item->setCheckState(0, Qt::Checked);

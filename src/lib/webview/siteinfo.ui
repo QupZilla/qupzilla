@@ -53,24 +53,15 @@
       <property name="text">
        <string>General</string>
       </property>
-      <property name="whatsThis">
-       <string notr="true">0</string>
-      </property>
      </item>
      <item>
       <property name="text">
        <string>Media</string>
       </property>
-      <property name="whatsThis">
-       <string notr="true">1</string>
-      </property>
      </item>
      <item>
       <property name="text">
        <string>Security</string>
-      </property>
-      <property name="whatsThis">
-       <string notr="true">2</string>
       </property>
      </item>
     </widget>

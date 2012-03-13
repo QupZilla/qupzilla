@@ -97,7 +97,7 @@ void BookmarksSideBar::deleteItem()
         return;
     }
 
-    int id = item->whatsThis(0).toInt();
+    int id = item->data(0, Qt::UserRole + 10).toInt();
     m_bookmarksModel->removeBookmark(id);
 }
 
@@ -130,7 +130,7 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     QTreeWidgetItem* item = new QTreeWidgetItem();
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
-    item->setWhatsThis(0, QString::number(bookmark.id));
+    item->setData(0, Qt::UserRole + 10, bookmark.id);
     item->setIcon(0, IconProvider::iconFromImage(bookmark.image));
     item->setToolTip(0, bookmark.url.toEncoded());
 
@@ -153,7 +153,7 @@ void BookmarksSideBar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
             return;
         }
         QTreeWidgetItem* item = list.at(0);
-        if (item && item->whatsThis(0) == QString::number(bookmark.id)) {
+        if (item && item->data(0, Qt::UserRole + 10).toInt() == bookmark.id) {
             ui->bookmarksTree->deleteItem(item);
         }
     }
@@ -171,7 +171,7 @@ void BookmarksSideBar::removeBookmark(const BookmarksModel::Bookmark &bookmark)
             if (!item) {
                 continue;
             }
-            if (item->text(0) == bookmark.title  && item->whatsThis(0) == QString::number(bookmark.id)) {
+            if (item->text(0) == bookmark.title  && item->data(0, Qt::UserRole + 10).toInt() == bookmark.id) {
                 ui->bookmarksTree->deleteItem(item);
                 return;
             }
@@ -270,7 +270,7 @@ void BookmarksSideBar::refreshTable()
         item->setText(1, url.toEncoded());
         item->setToolTip(0, url.toEncoded());
 
-        item->setWhatsThis(0, QString::number(id));
+        item->setData(0, Qt::UserRole + 10, id);
         item->setIcon(0, icon);
         ui->bookmarksTree->addTopLevelItem(item);
     }

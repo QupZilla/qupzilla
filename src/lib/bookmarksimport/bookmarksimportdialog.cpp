@@ -103,7 +103,7 @@ void BookmarksImportDialog::startFetchingIcons()
     m_fetcher = new BookmarksImportIconFetcher();
     m_fetcher->moveToThread(m_fetcherThread);
 
-    QIcon defaultIcon = QIcon(QWebSettings::globalSettings()->webGraphic(QWebSettings::DefaultFrameIconGraphic));
+    QIcon defaultIcon = IconProvider::emptyWebIcon();
     QIcon folderIcon = style()->standardIcon(QStyle::SP_DirIcon);
     QHash<QString, QTreeWidgetItem*> hash;
 

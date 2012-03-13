@@ -284,8 +284,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     locBar->setWebView(webView);
 
     setTabText(index, title);
-    webView->animationLoading(index, true)->movie()->stop();
-    webView->animationLoading(index, false)->setPixmap(_iconForUrl(url).pixmap(16, 16));
+    setTabIcon(index, IconProvider::emptyWebIcon());
 
     if (openFlags & Qz::NT_SelectedTab) {
         setCurrentIndex(index);
@@ -403,6 +402,59 @@ void TabWidget::tabMoved(int before, int after)
 
     m_isClosingToLastTabIndex = false;
     m_lastBackgroundTabIndex = -1;
+}
+
+void TabWidget::startTabAnimation(int index)
+{
+    if (index == -1) {
+        return;
+    }
+
+    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, QTabBar::LeftSide));
+    if (!label) {
+        label = new QLabel();
+        m_tabBar->setTabButton(index, QTabBar::LeftSide, label);
+    }
+
+    if (label->movie()) {
+        label->movie()->start();
+        return;
+    }
+
+    QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), label);
+    movie->setSpeed(70);
+    movie->start();
+
+    label->setMovie(movie);
+}
+
+void TabWidget::stopTabAnimation(int index)
+{
+    if (index == -1) {
+        return;
+    }
+
+    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, QTabBar::LeftSide));
+
+    if (label && label->movie()) {
+        label->movie()->stop();
+    }
+}
+
+void TabWidget::setTabIcon(int index, const QIcon &icon)
+{
+    if (index == -1) {
+        return;
+    }
+
+    QLabel* label = qobject_cast<QLabel*>(m_tabBar->tabButton(index, QTabBar::LeftSide));
+    if (!label) {
+        label = new QLabel();
+        label->resize(16, 16);
+        m_tabBar->setTabButton(index, QTabBar::LeftSide, label);
+    }
+
+    label->setPixmap(icon.pixmap(16, 16));
 }
 
 void TabWidget::setTabText(int index, const QString &text)
@@ -664,9 +716,9 @@ QByteArray TabWidget::saveState()
     return data;
 }
 
-bool TabWidget::restoreState(QByteArray &state)
+bool TabWidget::restoreState(const QByteArray &state)
 {
-    QDataStream stream(&state, QIODevice::ReadOnly);
+    QDataStream stream(state);
     if (stream.atEnd()) {
         return false;
     }

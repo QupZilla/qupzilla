@@ -19,6 +19,7 @@
 #include "popupwebview.h"
 #include "toolbutton.h"
 #include "globalfunctions.h"
+#include "iconprovider.h"
 
 class QT_QUPZILLA_EXPORT PopupSiteIcon : public QWidget
 {
@@ -44,7 +45,7 @@ PopupLocationBar::PopupLocationBar(QWidget* parent)
     , m_view(0)
 {
     m_siteIcon = new PopupSiteIcon(this);
-    m_siteIcon->setIcon(QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic));
+    m_siteIcon->setIcon(IconProvider::emptyWebIcon());
     m_siteIcon->setFixedSize(20, 26);
 
     addWidget(m_siteIcon, LineEdit::LeftSide);

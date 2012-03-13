@@ -140,7 +140,7 @@ void HistoryManager::deleteItem()
                     continue;
                 }
 
-                int id = children->whatsThis(1).toInt();
+                int id = children->data(0, Qt::UserRole + 10).toInt();
 
                 list.append(id);
                 m_ignoredIds.append(id);
@@ -153,7 +153,7 @@ void HistoryManager::deleteItem()
             ui->historyTree->deleteItems(items);
         }
         else {
-            int id = item->whatsThis(1).toInt();
+            int id = item->data(0, Qt::UserRole + 10).toInt();
 
             list.append(id);
             m_ignoredIds.append(id);
@@ -204,7 +204,7 @@ void HistoryManager::historyEntryAdded(const HistoryEntry &entry)
     item->setToolTip(0, entry.title);
     item->setToolTip(1, entry.url.toEncoded());
 
-    item->setWhatsThis(1, QString::number(entry.id));
+    item->setData(0, Qt::UserRole + 10, entry.id);
     item->setIcon(0, _iconForUrl(entry.url));
     ui->historyTree->prependToParentItem(parentItem, item);
 }
@@ -221,7 +221,7 @@ void HistoryManager::historyEntryDeleted(const HistoryEntry &entry)
         if (!item) {
             continue;
         }
-        if (item->whatsThis(1).toInt() != entry.id) {
+        if (item->data(0, Qt::UserRole + 10).toInt() != entry.id) {
             continue;
         }
         ui->historyTree->deleteItem(item);
@@ -304,7 +304,7 @@ void HistoryManager::slotRefreshTable()
         item->setToolTip(0, title);
         item->setToolTip(1, url.toEncoded());
 
-        item->setWhatsThis(1, QString::number(id));
+        item->setData(0, Qt::UserRole + 10, id);
         item->setIcon(0, _iconForUrl(url));
         ui->historyTree->addTopLevelItem(item);
 
@@ -321,31 +321,6 @@ void HistoryManager::slotRefreshTable()
 void HistoryManager::search(const QString &searchText)
 {
     ui->historyTree->filterString(searchText);
-//    if (searchText.isEmpty()) {
-//        refreshTable();
-//        return;
-//    }
-
-//    refreshTable();
-//    ui->historyTree->setUpdatesEnabled(false);
-
-//    QList<QTreeWidgetItem*> items = ui->historyTree->findItems("*" + searchText + "*", Qt::MatchRecursive | Qt::MatchWildcard);
-
-//    QList<QTreeWidgetItem*> foundItems;
-//    foreach(QTreeWidgetItem * fitem, items) {
-//        if (fitem->text(1).isEmpty()) {
-//            continue;
-//        }
-//        QTreeWidgetItem* item = new QTreeWidgetItem();
-//        item->setText(0, fitem->text(0));
-//        item->setText(1, fitem->text(1));
-//        item->setWhatsThis(1, fitem->whatsThis(1));
-//        item->setIcon(0, _iconForUrl(fitem->text(1)));
-//        foundItems.append(item);
-//    }
-//    ui->historyTree->clear();
-//    ui->historyTree->addTopLevelItems(foundItems);
-//    ui->historyTree->setUpdatesEnabled(true);
 }
 
 void HistoryManager::optimizeDb()

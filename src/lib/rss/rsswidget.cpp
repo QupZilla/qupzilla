@@ -46,8 +46,8 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
     for (int i = 0; i < links.count(); i++) {
         QWebElement element = links.at(i);
         QString title = element.attribute("title");
-        QString href = element.attribute("href");
-        if (href.isEmpty()) {
+        const QUrl url = QUrl::fromEncoded(element.attribute("href").toUtf8());
+        if (url.isEmpty()) {
             continue;
         }
 
@@ -57,13 +57,14 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
 
         QPushButton* button = new QPushButton(this);
         button->setText(tr("Add"));
-        button->setWhatsThis(href);
         button->setToolTip(title);
+        button->setProperty("rss-url", url);
         QLabel* label = new QLabel(this);
 #ifndef KDE
         label->setPalette(pal);
 #endif
         label->setText(title);
+
         ui->gridLayout->addWidget(label, i, 0);
         ui->gridLayout->addWidget(button, i, 1);
         connect(button, SIGNAL(clicked()), this, SLOT(addRss()));
@@ -83,22 +84,12 @@ void RSSWidget::addRss()
         return;
     }
     if (QPushButton* button = qobject_cast<QPushButton*>(sender())) {
-        QUrl url = QUrl(button->whatsThis());
-        QString urlString = button->whatsThis();
-        if (url.host().isEmpty()) {
-            if (!urlString.startsWith("/")) {
-                urlString = "/" + urlString;
-            }
-            urlString = m_view->url().host() + urlString;
-            QUrl temp(urlString);
-            if (temp.scheme().isEmpty()) {
-                urlString = "http://" + urlString;
-            }
-            temp = QUrl(urlString);
-            if (temp.scheme().isEmpty() || temp.host().isEmpty()) {
-                return;
-            }
+        QUrl url = button->property("rss-url").toUrl();
+
+        if (url.isRelative()) {
+            url = m_view->page()->mainFrame()->baseUrl().resolved(url);
         }
+
         if (!url.isValid()) {
             return;
         }
@@ -111,7 +102,7 @@ void RSSWidget::addRss()
             title = button->toolTip();
         }
 
-        if (mApp->rssManager()->addRssFeed(urlString, title, m_view->icon())) {
+        if (mApp->rssManager()->addRssFeed(url, title, m_view->icon())) {
             RSSNotification* notif = new RSSNotification(title, m_view);
             m_view->addNotification(notif);
             close();

@@ -55,13 +55,19 @@ public:
     explicit TabWidget(QupZilla* mainclass, QWidget* parent = 0);
     ~TabWidget();
 
+    void loadSettings();
+
     QByteArray saveState();
-    bool restoreState(QByteArray &state);
+    bool restoreState(const QByteArray &state);
+
     void savePinnedTabs();
     void restorePinnedTabs();
 
+    void startTabAnimation(int index);
+    void stopTabAnimation(int index);
+
+    void setTabIcon(int index, const QIcon &icon);
     void setTabText(int index, const QString &text);
-    void loadSettings();
 
     inline TabBar* getTabBar() { return m_tabBar; }
     inline ClosedTabsManager* closedTabsManager() { return m_closedTabsManager; }

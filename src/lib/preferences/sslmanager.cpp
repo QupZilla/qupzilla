@@ -85,7 +85,7 @@ void SSLManager::refreshCAList()
 
         QListWidgetItem* item = new QListWidgetItem(ui->caList);
         item->setText(CertificateInfoWidget::certificateItemText(cert));
-        item->setWhatsThis(QString::number(m_caCerts.indexOf(cert)));
+        item->setData(Qt::UserRole + 10, m_caCerts.indexOf(cert));
         ui->caList->addItem(item);
     }
 
@@ -102,7 +102,7 @@ void SSLManager::refreshLocalList()
     foreach(const QSslCertificate & cert, m_localCerts) {
         QListWidgetItem* item = new QListWidgetItem(ui->localList);
         item->setText(CertificateInfoWidget::certificateItemText(cert));
-        item->setWhatsThis(QString::number(m_localCerts.indexOf(cert)));
+        item->setData(Qt::UserRole + 10, m_localCerts.indexOf(cert));
         ui->localList->addItem(item);
     }
 
@@ -124,7 +124,7 @@ void SSLManager::showCaCertInfo()
         return;
     }
 
-    QSslCertificate cert = m_caCerts.at(item->whatsThis().toInt());
+    QSslCertificate cert = m_caCerts.at(item->data(Qt::UserRole + 10).toInt());
     showCertificateInfo(cert);
 }
 
@@ -135,7 +135,7 @@ void SSLManager::showLocalCertInfo()
         return;
     }
 
-    QSslCertificate cert = m_localCerts.at(item->whatsThis().toInt());
+    QSslCertificate cert = m_localCerts.at(item->data(Qt::UserRole + 10).toInt());
     showCertificateInfo(cert);
 }
 
@@ -163,7 +163,7 @@ void SSLManager::deleteCertificate()
         return;
     }
 
-    QSslCertificate cert = m_localCerts.at(item->whatsThis().toInt());
+    QSslCertificate cert = m_localCerts.at(item->data(Qt::UserRole + 10).toInt());
     m_localCerts.removeOne(cert);
     mApp->networkManager()->removeLocalCertificate(cert);
     refreshLocalList();

@@ -46,7 +46,7 @@ public:
     explicit RSSManager(QupZilla* mainClass, QWidget* parent = 0);
     ~RSSManager();
 
-    bool addRssFeed(const QString &address, const QString &title, const QIcon &icon);
+    bool addRssFeed(const QUrl &url, const QString &title, const QIcon &icon);
     void setMainWindow(QupZilla* window);
 
 public slots:

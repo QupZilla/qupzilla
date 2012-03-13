@@ -53,16 +53,19 @@ AutoFillManager::AutoFillManager(QWidget* parent)
 
 void AutoFillManager::loadPasswords()
 {
+    ui->showPasswords->setText(tr("Show Passwords"));
+
     QSqlQuery query;
     query.exec("SELECT server, username, password, id FROM autofill");
     ui->treePass->clear();
+
     while (query.next()) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->treePass);
         item->setText(0, query.value(0).toString());
         item->setText(1, query.value(1).toString());
         item->setText(2, "*****");
-        item->setWhatsThis(0, query.value(3).toString());
-        item->setWhatsThis(1, query.value(2).toString());
+        item->setData(0, Qt::UserRole + 10, query.value(3).toString());
+        item->setData(0, Qt::UserRole + 11, query.value(2).toString());
         ui->treePass->addTopLevelItem(item);
     }
 
@@ -71,7 +74,7 @@ void AutoFillManager::loadPasswords()
     while (query.next()) {
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->treeExcept);
         item->setText(0, query.value(0).toString());
-        item->setWhatsThis(0, query.value(1).toString());
+        item->setData(0, Qt::UserRole + 10, query.value(1).toString());
         ui->treeExcept->addTopLevelItem(item);
     }
 }
@@ -106,7 +109,8 @@ void AutoFillManager::showPasswords()
         if (!item) {
             continue;
         }
-        item->setText(2, item->whatsThis(1));
+
+        item->setText(2, item->data(0, Qt::UserRole + 11).toString());
     }
 
     ui->showPasswords->setText(tr("Hide Passwords"));
@@ -118,7 +122,7 @@ void AutoFillManager::removePass()
     if (!curItem) {
         return;
     }
-    QString id = curItem->whatsThis(0);
+    QString id = curItem->data(0, Qt::UserRole + 10).toString();
     QSqlQuery query;
     query.exec("DELETE FROM autofill WHERE id=" + id);
 
@@ -146,12 +150,12 @@ void AutoFillManager::editPass()
         return;
     }
     bool ok;
-    QString text = QInputDialog::getText(this, tr("Edit password"), tr("Change password:"), QLineEdit::Normal, curItem->whatsThis(1), &ok);
+    QString text = QInputDialog::getText(this, tr("Edit password"), tr("Change password:"), QLineEdit::Normal, curItem->data(0, Qt::UserRole + 11).toString(), &ok);
 
     if (ok && !text.isEmpty()) {
         QSqlQuery query;
         query.prepare("SELECT data, password FROM autofill WHERE id=?");
-        query.addBindValue(curItem->whatsThis(0));
+        query.addBindValue(curItem->data(0, Qt::UserRole + 10).toString());
         query.exec();
         query.next();
 
@@ -162,13 +166,14 @@ void AutoFillManager::editPass()
         query.prepare("UPDATE autofill SET data=?, password=? WHERE id=?");
         query.bindValue(0, data);
         query.bindValue(1, text);
-        query.bindValue(2, curItem->whatsThis(0));
+        query.bindValue(2, curItem->data(0, Qt::UserRole + 10).toString());
         query.exec();
 
         if (m_passwordsShown) {
-            curItem->setText(1, text);
+            curItem->setText(2, text);
         }
-        curItem->setWhatsThis(1, text);
+
+        curItem->setData(0, Qt::UserRole + 11, text);
     }
 }
 
@@ -178,7 +183,7 @@ void AutoFillManager::removeExcept()
     if (!curItem) {
         return;
     }
-    QString id = curItem->whatsThis(0);
+    QString id = curItem->data(0, Qt::UserRole + 10).toString();
     QSqlQuery query;
     query.exec("DELETE FROM autofill_exceptions WHERE id=" + id);
 

@@ -136,7 +136,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
         ui->certLabel->setText(tr("<b>Your connection to this page is not secured!</b>"));
     }
 
-    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
+    connect(ui->listWidget, SIGNAL(currentRowChanged(int)), ui->stackedWidget, SLOT(setCurrentIndex(int)));
     connect(ui->secDetailsButton, SIGNAL(clicked()), this, SLOT(securityDetailsClicked()));
     connect(ui->saveButton, SIGNAL(clicked(QAbstractButton*)), this, SLOT(downloadImage()));
 
@@ -238,15 +238,6 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
 void SiteInfo::securityDetailsClicked()
 {
     ui->listWidget->setCurrentRow(2);
-}
-
-void SiteInfo::itemChanged(QListWidgetItem* item)
-{
-    if (!item) {
-        return;
-    }
-    int index = item->whatsThis().toInt();
-    ui->stackedWidget->setCurrentIndex(index);
 }
 
 SiteInfo::~SiteInfo()

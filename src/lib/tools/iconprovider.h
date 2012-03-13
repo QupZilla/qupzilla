@@ -54,6 +54,9 @@ public:
     static QPixmap standardPixmap(QStyle::StandardPixmap icon);
     static QIcon fromTheme(const QString &icon);
 
+    static QIcon emptyWebIcon();
+    static QImage emptyWebImage();
+
 signals:
 
 public slots:
@@ -67,6 +70,7 @@ private:
         QImage image;
     };
 
+    static QImage m_emptyWebImage;
     QList<Icon> m_iconBuffer;
 
 };

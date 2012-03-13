@@ -44,7 +44,6 @@ public:
     TabWidget* tabWidget() const;
 
     QString getIp() const;
-    QLabel* animationLoading(int index, bool addMovie);
 
     int tabIndex() const;
     bool hasRss() { return m_hasRss; }
@@ -79,7 +78,6 @@ private slots:
     void urlChanged(const QUrl &url);
     void linkHovered(const QString &link, const QString &title, const QString &content);
     void getFocus(const QUrl &urla);
-    void stopAnimation();
     void setIp(const QHostInfo &info);
     void checkRss();
     void slotIconChanged();

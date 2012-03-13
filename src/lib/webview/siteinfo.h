@@ -45,7 +45,6 @@ public:
     static QString showCertInfo(const QString &string);
 
 private slots:
-    void itemChanged(QListWidgetItem* item);
     void showImagePreview(QTreeWidgetItem* item);
     void securityDetailsClicked();
 

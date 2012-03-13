@@ -161,7 +161,7 @@ void TabbedWebView::slotLoadStarted()
     m_rssChecked = false;
     emit rssChanged(false);
 
-    animationLoading(tabIndex(), true);
+    m_tabWidget->startTabAnimation(tabIndex());
 
     if (title().isNull()) {
         m_tabWidget->setTabText(tabIndex(), tr("Loading..."));
@@ -172,10 +172,7 @@ void TabbedWebView::slotLoadStarted()
 
 void TabbedWebView::slotLoadFinished()
 {
-    QMovie* mov = animationLoading(tabIndex(), false)->movie();
-    if (mov) {
-        mov->stop();
-    }
+    m_tabWidget->stopTabAnimation(tabIndex());
 
     showIcon();
     QHostInfo::lookupHost(url().host(), this, SLOT(setIp(QHostInfo)));
@@ -183,41 +180,6 @@ void TabbedWebView::slotLoadFinished()
     if (isCurrent()) {
         p_QupZilla->updateLoadingActions();
     }
-}
-
-QLabel* TabbedWebView::animationLoading(int index, bool addMovie)
-{
-    if (index == -1) {
-        return 0;
-    }
-
-    QLabel* loadingAnimation = qobject_cast<QLabel*>(m_tabWidget->getTabBar()->tabButton(index, QTabBar::LeftSide));
-    if (!loadingAnimation) {
-        loadingAnimation = new QLabel();
-    }
-    if (addMovie && !loadingAnimation->movie()) {
-        QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), loadingAnimation);
-        movie->setSpeed(70);
-        loadingAnimation->setMovie(movie);
-        movie->start();
-    }
-    else if (loadingAnimation->movie()) {
-        loadingAnimation->movie()->stop();
-    }
-
-    m_tabWidget->getTabBar()->setTabButton(index, QTabBar::LeftSide, 0);
-    m_tabWidget->getTabBar()->setTabButton(index, QTabBar::LeftSide, loadingAnimation);
-    return loadingAnimation;
-}
-
-void TabbedWebView::stopAnimation()
-{
-    QMovie* mov = animationLoading(tabIndex(), false)->movie();
-    if (mov) {
-        mov->stop();
-    }
-
-    showIcon();
 }
 
 void TabbedWebView::setIp(const QHostInfo &info)
@@ -252,12 +214,11 @@ void TabbedWebView::showIcon()
     }
 
     QIcon icon_ = icon();
-    if (!icon_.isNull()) {
-        animationLoading(tabIndex(), false)->setPixmap(icon_.pixmap(16, 16));
+    if (icon_.isNull()) {
+        icon_ = IconProvider::emptyWebIcon();
     }
-    else {
-        animationLoading(tabIndex(), false)->setPixmap(IconProvider::fromTheme("text-plain").pixmap(16, 16));
-    }
+
+    m_tabWidget->setTabIcon(tabIndex(), icon_);
 }
 
 void TabbedWebView::linkHovered(const QString &link, const QString &title, const QString &content)

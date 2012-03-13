@@ -408,6 +408,15 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     QTabBar::mouseReleaseEvent(event);
 }
 
+void TabBar::wheelEvent(QWheelEvent *event)
+{
+    if (mApp->plugins()->processWheelEvent(Qz::ON_TabBar, this, event)) {
+        return;
+    }
+
+    QTabBar::wheelEvent(event);
+}
+
 void TabBar::dragEnterEvent(QDragEnterEvent* event)
 {
     const QMimeData* mime = event->mimeData();

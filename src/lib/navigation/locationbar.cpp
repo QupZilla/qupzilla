@@ -37,6 +37,7 @@
 #include "rssicon.h"
 #include "downicon.h"
 #include "globalfunctions.h"
+#include "iconprovider.h"
 
 #include <QClipboard>
 
@@ -232,7 +233,7 @@ void LocationBar::siteIconChanged()
 
 void LocationBar::clearIcon()
 {
-    m_siteIcon->setIcon(QIcon(QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic)));
+    m_siteIcon->setIcon(IconProvider::emptyWebIcon());
 }
 
 void LocationBar::setPrivacy(bool state)

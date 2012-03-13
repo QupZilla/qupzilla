@@ -23,6 +23,8 @@
 #include <QTimer>
 #include <QBuffer>
 
+QImage IconProvider::m_emptyWebImage;
+
 IconProvider::IconProvider(QObject* parent)
     : QObject(parent)
 {
@@ -44,7 +46,7 @@ void IconProvider::saveIcon(WebView* view)
     item.image = view->icon().pixmap(16, 16).toImage();
     item.url = view->url();
 
-    if (item.image == QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage()) {
+    if (item.image == IconProvider::emptyWebImage()) {
         return;
     }
 
@@ -73,7 +75,7 @@ QImage IconProvider::iconForUrl(const QUrl &url)
         return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage();
+    return IconProvider::emptyWebImage();
 }
 
 QImage IconProvider::iconForDomain(const QUrl &url)
@@ -210,8 +212,26 @@ QIcon IconProvider::fromTheme(const QString &icon)
     }
 }
 
+QIcon IconProvider::emptyWebIcon()
+{
+    return QPixmap::fromImage(m_emptyWebImage);
+}
+
+QImage IconProvider::emptyWebImage()
+{
+    if (m_emptyWebImage.isNull()) {
+        m_emptyWebImage = fromTheme("text-plain").pixmap(16, 16).toImage();
+    }
+
+    return m_emptyWebImage;
+}
+
 QIcon IconProvider::iconFromImage(const QImage &image)
 {
+    if (m_emptyWebImage.isNull()) {
+        m_emptyWebImage = fromTheme("text-plain").pixmap(16, 16).toImage();
+    }
+
     return QIcon(QPixmap::fromImage(image));
 }
 
@@ -228,7 +248,7 @@ QIcon IconProvider::iconFromBase64(const QByteArray &data)
     if (!image.isNull()) {
         return image;
     }
-    return QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic);
+    return IconProvider::emptyWebIcon();
 }
 
 QByteArray IconProvider::iconToBase64(const QIcon &icon)

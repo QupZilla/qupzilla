@@ -151,7 +151,7 @@ void RSSManager::addFeed()
         return;
     }
 
-    addRssFeed(url.toString(), tr("New feed"), _iconForUrl(url));
+    addRssFeed(url, tr("New feed"), _iconForUrl(url));
     refreshTable();
 }
 
@@ -253,10 +253,10 @@ void RSSManager::loadFeed(QTreeWidgetItem* item)
     if (!item) {
         return;
     }
-    if (item->whatsThis(0).isEmpty()) {
+    if (item->toolTip(0).isEmpty()) {
         return;
     }
-    getQupZilla()->loadAddress(QUrl(item->whatsThis(0)));
+    getQupZilla()->loadAddress(QUrl(item->toolTip(0)));
 }
 
 void RSSManager::controlLoadFeed(QTreeWidgetItem* item)
@@ -264,10 +264,10 @@ void RSSManager::controlLoadFeed(QTreeWidgetItem* item)
     if (!item) {
         return;
     }
-    if (item->whatsThis(0).isEmpty()) {
+    if (item->toolTip(0).isEmpty()) {
         return;
     }
-    getQupZilla()->tabWidget()->addView(QUrl(item->whatsThis(0)), Qz::NT_NotSelectedTab);
+    getQupZilla()->tabWidget()->addView(QUrl(item->toolTip(0)), Qz::NT_NotSelectedTab);
 }
 
 void RSSManager::loadFeedInNewTab()
@@ -347,7 +347,6 @@ void RSSManager::finished()
             if (xml.qualifiedName() == "item") {
                 QTreeWidgetItem* item = new QTreeWidgetItem;
                 item->setText(0, titleString);
-                item->setWhatsThis(0, linkString);
                 item->setIcon(0, QIcon(":/icons/other/feed.png"));
                 item->setToolTip(0, linkString);
                 treeWidget->addTopLevelItem(item);
@@ -373,22 +372,25 @@ void RSSManager::finished()
     }
 }
 
-bool RSSManager::addRssFeed(const QString &address, const QString &title, const QIcon &icon)
+bool RSSManager::addRssFeed(const QUrl &url, const QString &title, const QIcon &icon)
 {
-    if (address.isEmpty()) {
+    if (url.isEmpty()) {
         return false;
     }
     QSqlQuery query;
-    query.exec("SELECT id FROM rss WHERE address='" + address + "'");
+    query.prepare("SELECT id FROM rss WHERE address=?");
+    query.addBindValue(url);
+    query.exec();
+
     if (!query.next()) {
         QImage image = icon.pixmap(16, 16).toImage();
-        QByteArray iconData;
-        if (image == QWebSettings::webGraphic(QWebSettings::DefaultFrameIconGraphic).toImage()) {
+
+        if (image == IconProvider::emptyWebImage()) {
             image.load(":icons/other/feed.png");
         }
 
         query.prepare("INSERT INTO rss (address, title, icon) VALUES(?,?,?)");
-        query.bindValue(0, address);
+        query.bindValue(0, url);
         query.bindValue(1, title);
         QByteArray ba;
         QBuffer buffer(&ba);

@@ -159,7 +159,7 @@ void BookmarksManager::itemChanged(QTreeWidgetItem* item)
 
     QString name = item->text(0);
     QUrl url = QUrl::fromEncoded(item->text(1).toUtf8());
-    int id = item->whatsThis(1).toInt();
+    int id = item->data(0, Qt::UserRole + 10).toInt();
 
     ui->bookmarksTree->deleteItem(item);
     m_bookmarksModel->editBookmark(id, name, url, "");
@@ -193,7 +193,7 @@ void BookmarksManager::deleteItem()
         return;
     }
 
-    int id = item->whatsThis(1).toInt();
+    int id = item->data(0, Qt::UserRole + 10).toInt();
     m_bookmarksModel->removeBookmark(id);
 }
 
@@ -209,7 +209,9 @@ void BookmarksManager::moveBookmark()
         return;
     }
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        m_bookmarksModel->editBookmark(item->whatsThis(1).toInt(), item->text(0), QUrl(), action->data().toString());
+        int id = item->data(0, Qt::UserRole + 10).toInt();
+
+        m_bookmarksModel->editBookmark(id, item->text(0), QUrl(), action->data().toString());
     }
 }
 
@@ -323,7 +325,7 @@ void BookmarksManager::refreshTable()
         item->setToolTip(0, title);
         item->setToolTip(1, url.toEncoded());
 
-        item->setWhatsThis(1, QString::number(id));
+        item->setData(0, Qt::UserRole + 10, id);
         item->setIcon(0, icon);
         item->setFlags(item->flags() | Qt::ItemIsEditable);
         ui->bookmarksTree->addTopLevelItem(item);
@@ -351,7 +353,7 @@ void BookmarksManager::refreshTable()
             item->setToolTip(0, title);
             item->setToolTip(1, url.toEncoded());
 
-            item->setWhatsThis(1, QString::number(id));
+            item->setData(0, Qt::UserRole + 10, id);
             item->setIcon(0, icon);
             item->setFlags(item->flags() | Qt::ItemIsEditable);
         }
@@ -370,7 +372,7 @@ void BookmarksManager::addBookmark(const BookmarksModel::Bookmark &bookmark)
     QTreeWidgetItem* item = new QTreeWidgetItem();
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
-    item->setWhatsThis(1, QString::number(bookmark.id));
+    item->setData(0, Qt::UserRole + 10, bookmark.id);
     item->setIcon(0, IconProvider::iconFromImage(bookmark.image));
     item->setToolTip(0, bookmark.title);
     item->setToolTip(1, bookmark.url.toEncoded());
@@ -420,7 +422,10 @@ void BookmarksManager::removeBookmark(const BookmarksModel::Bookmark &bookmark)
             if (!item) {
                 continue;
             }
-            if (item->text(0) == bookmark.title  && item->whatsThis(1) == QString::number(bookmark.id)) {
+
+            int id = item->data(0, Qt::UserRole + 10).toInt();
+
+            if (item->text(0) == bookmark.title  && id == bookmark.id) {
                 ui->bookmarksTree->deleteItem(item);
                 return;
             }
@@ -432,7 +437,9 @@ void BookmarksManager::removeBookmark(const BookmarksModel::Bookmark &bookmark)
             return;
         }
         QTreeWidgetItem* item = list.at(0);
-        if (item && item->whatsThis(1) == QString::number(bookmark.id)) {
+        int id = item->data(0, Qt::UserRole + 10).toInt();
+
+        if (item && id == bookmark.id) {
             ui->bookmarksTree->deleteItem(item);
         }
     }
@@ -450,7 +457,10 @@ void BookmarksManager::removeBookmark(const BookmarksModel::Bookmark &bookmark)
             if (!item) {
                 continue;
             }
-            if (item->text(0) == bookmark.title  && item->whatsThis(1) == QString::number(bookmark.id)) {
+
+            int id = item->data(0, Qt::UserRole + 10).toInt();
+
+            if (item->text(0) == bookmark.title  && id == bookmark.id) {
                 ui->bookmarksTree->deleteItem(item);
                 return;
             }
