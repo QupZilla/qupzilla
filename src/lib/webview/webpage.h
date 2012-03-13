@@ -99,6 +99,7 @@ private:
 
     static QString m_lastUploadLocation;
     static QString m_userAgent;
+    static QUrl m_lastUnsupportedUrl;
 
     QupZilla* p_QupZilla;
     NetworkManagerProxy* m_networkProxy;

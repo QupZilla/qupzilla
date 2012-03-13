@@ -51,6 +51,7 @@
 
 QString WebPage::m_lastUploadLocation = QDir::homePath();
 QString WebPage::m_userAgent = QString();
+QUrl WebPage::m_lastUnsupportedUrl = QUrl();
 
 WebPage::WebPage(QupZilla* mainClass)
     : QWebPage()
@@ -245,9 +246,12 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
     case QNetworkReply::ProtocolUnknownError: {
         qDebug() << "WebPage::UnsupportedContent" << url << "ProtocolUnknowError";
 
-        // We will open only known url schemes that we cannot handle
-        const QString &urlScheme = url.scheme();
-        if (urlScheme == "ftp" || urlScheme == "mailto") {
+        // We will open last unsupported url only once
+        // (to prevent endless loop in case QDesktopServices::openUrl decide
+        // to open the url again in QupZilla )
+
+        if (m_lastUnsupportedUrl != url) {
+            m_lastUnsupportedUrl = url;
             QDesktopServices::openUrl(url);
         }
 
