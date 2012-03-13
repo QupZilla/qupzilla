@@ -367,7 +367,7 @@ void MainApplication::loadSettings()
     settings.endGroup();
 
     m_websettings->setUserStyleSheetUrl(userStyleSheet);
-    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::fromTheme("text-plain").pixmap(16, 16));
+    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::emptyWebIcon().pixmap(16, 16));
     m_websettings->setWebGraphic(QWebSettings::MissingImageGraphic, QPixmap());
 
     // Allows to load files from qrc: scheme in qupzilla: pages
@@ -841,7 +841,7 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
     QDataStream stream(&file);
 
     QByteArray tabState;
-    QByteArray qMainWindowState;
+    QByteArray windowState;
     int version;
     int windowCount;
 
@@ -852,21 +852,20 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
     }
     stream >> windowCount;
     stream >> tabState;
-    stream >> qMainWindowState;
+    stream >> windowState;
 
-    window->tabWidget()->restoreState(tabState);
-    window->restoreState(qMainWindowState);
+    window->restoreWindowState(windowState, tabState);
 
     if (windowCount > 1) {
         for (int i = 1; i < windowCount; i++) {
             stream >> tabState;
-            stream >> qMainWindowState;
+            stream >> windowState;
 
             QupZilla* window = new QupZilla(Qz::BW_OtherRestoredWindow);
             m_mainWindows.append(window);
 
-            window->tabWidget()->restoreState(tabState);
-            window->restoreState(qMainWindowState);
+            window->restoreWindowState(windowState, tabState);
+
             window->show();
         }
     }

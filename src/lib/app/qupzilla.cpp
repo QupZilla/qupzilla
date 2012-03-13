@@ -92,6 +92,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     , m_historyMenuChanged(true)
     , m_bookmarksMenuChanged(true)
     , m_isClosing(false)
+    , m_isStarting(false)
     , m_startingUrl(startUrl)
     , m_startBehaviour(type)
     , m_menuBookmarksAction(0)
@@ -106,6 +107,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("QupZilla"));
 
+    m_isStarting = true;
     m_activeProfil = mApp->getActiveProfilPath();
     m_activeLanguage = mApp->getActiveLanguage();
 
@@ -118,6 +120,8 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
 
 void QupZilla::postLaunch()
 {
+    setUpdatesEnabled(false);
+
     loadSettings();
 
     if (m_startBehaviour == Qz::BW_FirstAppWindow) {
@@ -190,6 +194,11 @@ void QupZilla::postLaunch()
 
     mApp->plugins()->emitMainWindowCreated(this);
     emit startingCompleted();
+
+    m_isStarting = false;
+    setWindowTitle(m_lastWindowTitle);
+
+    setUpdatesEnabled(true);
 }
 
 void QupZilla::setupUi()
@@ -544,7 +553,6 @@ void QupZilla::loadSettings()
 
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
-    m_menuTextColor = settings.value("menuTextColor", QColor(Qt::black)).value<QColor>();
     bool showStatusBar = settings.value("showStatusBar", true).toBool();
     bool showHomeIcon = settings.value("showHomeButton", true).toBool();
     bool showBackForwardIcons = settings.value("showBackForwardButtons", true).toBool();
@@ -658,12 +666,18 @@ LocationBar* QupZilla::locationBar() const
 
 void QupZilla::setWindowTitle(const QString &t)
 {
+    QString title = t;
+
     if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
-        QMainWindow::setWindowTitle(t + tr(" (Private Browsing)"));
+        title.append(tr(" (Private Browsing)"));
     }
-    else {
-        QMainWindow::setWindowTitle(t);
+
+    if (m_isStarting) {
+        m_lastWindowTitle = title;
+        return;
     }
+
+    QMainWindow::setWindowTitle(title);
 }
 
 void QupZilla::receiveMessage(Qz::AppMessageType mes, bool state)
@@ -1366,6 +1380,12 @@ void QupZilla::addDeleteOnCloseWidget(QWidget* widget)
     if (!m_deleteOnCloseWidgets.contains(widget)) {
         m_deleteOnCloseWidgets.append(widget);
     }
+}
+
+void QupZilla::restoreWindowState(const QByteArray &window, const QByteArray &tabs)
+{
+    QMainWindow::restoreState(window);
+    m_tabWidget->restoreState(tabs);
 }
 
 void QupZilla::aboutQupZilla()

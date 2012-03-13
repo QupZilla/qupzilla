@@ -63,9 +63,6 @@ public:
     explicit QupZilla(Qz::BrowserWindow type, QUrl startUrl = QUrl());
     ~QupZilla();
 
-    void refreshAddressBar();
-    void addBookmark(const QUrl &url, const QString &title, const QIcon &icon);
-    void installTranslator();
     void loadSettings();
     void showNavigationWithFullscreen();
     void saveSideBarWidth();
@@ -73,7 +70,10 @@ public:
     void currentTabChanged();
     void updateLoadingActions();
 
+    void addBookmark(const QUrl &url, const QString &title, const QIcon &icon);
     void addDeleteOnCloseWidget(QWidget* widget);
+
+    void restoreWindowState(const QByteArray &window, const QByteArray &tabs);
 
     virtual QMenuBar* menuBar() const;
 
@@ -90,7 +90,6 @@ public:
     inline QString activeLanguage() { return m_activeLanguage; }
     inline QLabel* ipLabel() { return m_ipLabel; }
     inline AdBlockIcon* adBlockIcon() { return m_adblockIcon; }
-    inline QColor menuTextColor() { return m_menuTextColor; }
     inline QMenu* menuHelp() { return m_menuHelp; }
     inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
     inline QAction* actionReload() { return m_actionReload; }
@@ -205,6 +204,7 @@ private:
     bool m_historyMenuChanged;
     bool m_bookmarksMenuChanged;
     bool m_isClosing;
+    bool m_isStarting;
     QUrl m_startingUrl;
     QUrl m_homepage;
     Qz::BrowserWindow m_startBehaviour;
@@ -263,7 +263,7 @@ private:
 
     QString m_activeProfil;
     QString m_activeLanguage;
-    QColor m_menuTextColor;
+    QString m_lastWindowTitle;
 
     int m_sideBarWidth;
     int m_webViewWidth;
