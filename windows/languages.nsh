@@ -1,4 +1,4 @@
-﻿;;;;English
+;;;;English
 LangString TITLE_SecMain ${LANG_ENGLISH} "Main Components"
 LangString TITLE_SecTranslations ${LANG_ENGLISH} "Translations"
 LangString TITLE_SecPlugins ${LANG_ENGLISH} "Plugins"
@@ -257,6 +257,27 @@ LangString DESC_SecExamplePlugin ${LANG_GEORGIAN} "გამოუსადე�
 LangString DESC_SecDesktop ${LANG_GEORGIAN} "გამშვების დამატება სამუშაო მაგიდაზე."
 LangString DESC_SecExtensions ${LANG_GEORGIAN} "QupZilla-ს ასოცირება .htm და .html ფაილებთან"
 LangString DESC_SecThemes ${LANG_GEORGIAN} "დამატებითი თემები QupZilla-სთვის"
+
+;;;;JAPANESE
+LangString TITLE_SecMain ${LANG_JAPANESE} "メインコンポーネント"
+LangString TITLE_SecTranslations ${LANG_JAPANESE} "翻訳ファイル"
+LangString TITLE_SecPlugins ${LANG_JAPANESE} "プラグイン(拡張機能)"
+LangString TITLE_SecExamplePlugin ${LANG_JAPANESE} "Example Plugin"
+LangString TITLE_SecDesktop ${LANG_JAPANESE} "デスクトップアイコン"
+LangString TITLE_SecExtensions ${LANG_JAPANESE} "ファイルの関連付け"
+LangString TITLE_SecThemes ${LANG_JAPANESE} "テーマ"
+
+LangString FILE_Htm ${LANG_JAPANESE} "HTMファイル"
+LangString FILE_Html ${LANG_JAPANESE} "HTMLファイル"
+;
+LangString DESC_SecMain ${LANG_JAPANESE} "アプリケーションのメインとなる部分です。"
+LangString DESC_SecTranslations ${LANG_JAPANESE} "他の言語でもQupZillaを使えるようになります。デフォルトでは英語です。"
+LangString DESC_SecPlugins ${LANG_JAPANESE} "プラグイン(拡張機能)を追加してダウンロードします"
+LangString DESC_SecExamplePlugin ${LANG_JAPANESE} "テスト用のプラグインです."
+LangString DESC_SecDesktop ${LANG_JAPANESE} "デスクトップにアイコンを作成します."
+LangString DESC_SecExtensions ${LANG_JAPANESE} "QupZillaにhtm、htmlファイルを関連付けます。"
+LangString DESC_SecThemes ${LANG_JAPANESE} "QupZillaのデフォルトテーマ以外のテーマをダウンロードします。"
+
 
 ;;;;;;;;;
 ;;;;;;;;;
