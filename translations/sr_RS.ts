@@ -431,7 +431,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="93"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Напомена:&lt;/b&gt; Тренутно само увоз из ХТМЛ фајла подржава и увожење фасцикли.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="135"/>
@@ -1556,7 +1556,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="90"/>
         <source>Image files</source>
-        <translation type="unfinished">Фајлови слика</translation>
+        <translation>Фајлови слика</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="92"/>
@@ -1802,17 +1802,6 @@
     </message>
 </context>
 <context>
-    <name>MainApplication</name>
-    <message>
-        <source>Last session crashed</source>
-        <translation type="obsolete">Претходна сесија се срушила</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="obsolete">&lt;b&gt;Капзила се срушила :-(&lt;/b&gt;&lt;br/&gt;Упс, претходна Капзилина сесија је неочекивано прекинута. Извњавамо се због овога. Желите ли да вратите посљедње сачувано стање?</translation>
-    </message>
-</context>
-<context>
     <name>NavigationBar</name>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="41"/>
@@ -1945,10 +1934,6 @@
         <source>Save Page Screen...</source>
         <translation>Сачувај снимак странице...</translation>
     </message>
-    <message>
-        <source>screen.png</source>
-        <translation type="obsolete">snimak.png</translation>
-    </message>
 </context>
 <context>
     <name>PluginsList</name>
@@ -2020,11 +2005,7 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="220"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot load plugin!</source>
-        <translation type="obsolete">Не могу да учитам прикључак!</translation>
+        <translation>Не могу да учитам проширење!</translation>
     </message>
 </context>
 <context>
@@ -2277,10 +2258,6 @@
         <translation>Отварај нове језичке после активног</translation>
     </message>
     <message>
-        <source>Allow Plugins (Flash plugin)</source>
-        <translation type="obsolete">Дозволи прикључке (Флеш)</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="778"/>
         <source>Allow DNS Prefetch</source>
         <translation>Предохватање ДНС уноса</translation>
@@ -2351,12 +2328,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="142"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Проширења</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="431"/>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Не учитавај језичке док не буду изабрани</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="757"/>
@@ -2774,10 +2751,6 @@
         <translation>Обавештења</translation>
     </message>
     <message>
-        <source>Plugins</source>
-        <translation type="obsolete">Прикључци</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="147"/>
         <source>Other</source>
         <translation>Остало</translation>
@@ -3045,12 +3018,12 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="160"/>
         <source>Last session crashed</source>
-        <translation type="unfinished">Претходна сесија се срушила</translation>
+        <translation>Претходна сесија се срушила</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="161"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;Капзила се срушила :-(&lt;/b&gt;&lt;br/&gt;Упс, претходна Капзилина сесија је неочекивано прекинута. Извњавамо се због овога. Желите ли да вратите посљедње сачувано стање?</translation>
+        <translation>&lt;b&gt;Капзила се срушила :-(&lt;/b&gt;&lt;br/&gt;Упс, претходна Капзилина сесија је неочекивано прекинута. Извњавамо се због овога. Желите ли да вратите посљедње сачувано стање?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="310"/>
@@ -3446,7 +3419,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="304"/>
         <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ова страница садржи податке о текућим Капзилиним подешавањима, све оно што је важно за решавање проблема. Укључите ове податке приликом слања извештаја о грешкама.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="305"/>
@@ -3508,7 +3481,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="307"/>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри компајлирања</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="309"/>
@@ -3523,7 +3496,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="311"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Проширења</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="312"/>
@@ -3566,10 +3539,6 @@
         <translation>Теме</translation>
     </message>
     <message>
-        <source>Plugins</source>
-        <translation type="obsolete">Прикључци</translation>
-    </message>
-    <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="335"/>
         <source>Translations</source>
         <translation>Преводи</translation>
@@ -3582,7 +3551,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="141"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ако имате проблема са Капзилом најпре покушајте да онемогућите проширења. &lt;br/&gt;Ако то не помогне, онда попуните овај формулар: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="147"/>
@@ -3672,11 +3641,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="380"/>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="obsolete">Ова страница садржи податке о текућим Капзилиним подешавањима, прикључцима, итд, све битне податке за решавање проблема. Укључите ове податке приликом слања извештаја о грешкама.</translation>
+        <translation>Нема доступних проширења.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="337"/>
@@ -3685,7 +3650,7 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="340"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="341"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>искључено</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="344"/>
@@ -3694,36 +3659,32 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="353"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="356"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;укључено&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="360"/>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>Проналажење грешака</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="361"/>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>ВебГЛ подршка</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="362"/>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Виндоуз 7 АПИ</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="363"/>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>Интеграција у КДЕ</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="364"/>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No available plugins.</source>
-        <translation type="obsolete">Нема учитаних прикључака.</translation>
+        <translation>Преносно издање</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="256"/>
@@ -3739,10 +3700,6 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="254"/>
         <source>Remove</source>
         <translation>Уклони</translation>
-    </message>
-    <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="obsolete">Ако имате проблема са Капзилом најпре покушајте да онемогућите прикључке. &lt;br/&gt;Ако то не помогне, онда попуните овај формулар: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="148"/>
@@ -4482,7 +4439,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
         <source>Image files</source>
-        <translation type="unfinished">Фајлови слика</translation>
+        <translation>Фајлови слика</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>
