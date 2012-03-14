@@ -23,7 +23,7 @@
         <location filename="../src/lib/other/aboutdialog.cpp" line="49"/>
         <location filename="../src/lib/other/aboutdialog.cpp" line="76"/>
         <source>&lt; About QupZilla</source>
-        <translation>關於作者</translation>
+        <translation>&lt; 關於QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="59"/>
@@ -53,12 +53,12 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="80"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation>貢獻團隊 %1</translation>
+        <translation>&lt;p&gt;&lt;b&gt;貢獻團隊:&lt;/b&gt;&lt;br/%1&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="88"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation>翻譯團隊 %1</translation>
+        <translation>&lt;p&gt;&lt;b&gt;翻譯團隊:&lt;/b&gt;&lt;/br&gt;%1&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1548,7 +1548,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="90"/>
         <source>Image files</source>
-        <translation type="unfinished">影像檔案</translation>
+        <translation>影像檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="92"/>
@@ -2387,12 +2387,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="471"/>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>選擇後才進行讀取動作</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="784"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>允許Netscape外掛(Flash外掛)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="940"/>
@@ -3475,7 +3475,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="307"/>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>建立設定</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="308"/>
@@ -3639,7 +3639,7 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="340"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="341"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>不允許</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="344"/>
@@ -3648,32 +3648,32 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="353"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="356"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;允許&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="360"/>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>除錯建立</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="361"/>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>WebGL支援</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="362"/>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7應用程式介面</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="363"/>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE介面</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="364"/>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>可攜版本建立</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="380"/>
@@ -4436,7 +4436,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
         <source>Image files</source>
-        <translation type="unfinished">影像檔案</translation>
+        <translation>影像檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>
@@ -4889,7 +4889,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="536"/>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>建立搜尋引擎</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="636"/>
