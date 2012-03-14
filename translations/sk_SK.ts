@@ -434,6 +434,10 @@
         <source>File does not exist.</source>
         <translation>Súbor neexistuje.</translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -1439,11 +1443,11 @@
     <name>MainApplication</name>
     <message>
         <source>Last session crashed</source>
-        <translation>Minulá relácia spadla</translation>
+        <translation type="obsolete">Minulá relácia spadla</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
+        <translation type="obsolete">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
     </message>
 </context>
 <context>
@@ -1615,7 +1619,11 @@
     </message>
     <message>
         <source>Cannot load plugin!</source>
-        <translation>Nemožno načítať plugin!</translation>
+        <translation type="obsolete">Nemožno načítať plugin!</translation>
+    </message>
+    <message>
+        <source>Cannot load extension!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1882,7 +1890,7 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation>Pluginy</translation>
+        <translation type="obsolete">Pluginy</translation>
     </message>
     <message>
         <source>Print element background</source>
@@ -2266,6 +2274,10 @@
     </message>
     <message>
         <source>Don&apos;t load tabs until selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2681,6 +2693,14 @@
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Last session crashed</source>
+        <translation type="unfinished">Minulá relácia spadla</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
+        <translation type="unfinished">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -2766,7 +2786,7 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation>Pluginy</translation>
+        <translation type="obsolete">Pluginy</translation>
     </message>
     <message>
         <source>Profile</source>
@@ -2846,7 +2866,7 @@
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>Pokiaľ máte problém s používaním QupZilly, zakážte všetky doplnky. &lt;br/&gt; Pokiaľ problém pretrváva, vyplňte tento formulár: </translation>
+        <translation type="obsolete">Pokiaľ máte problém s používaním QupZilly, zakážte všetky doplnky. &lt;br/&gt; Pokiaľ problém pretrváva, vyplňte tento formulár: </translation>
     </message>
     <message>
         <source>Please fill out all required fields!</source>
@@ -2942,11 +2962,11 @@
     </message>
     <message>
         <source>No available plugins.</source>
-        <translation>Žiadne dostupné doplnky.</translation>
+        <translation type="obsolete">Žiadne dostupné doplnky.</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation>Táto stránka obsahuje informácie o aktuálnej konfigurácií QupZilly, pluginov a všetkých dôležitých informáciach na riešenie problémov. Prosím, priložte tieto informácie k hlásenému problému.</translation>
+        <translation type="obsolete">Táto stránka obsahuje informácie o aktuálnej konfigurácií QupZilly, pluginov a všetkých dôležitých informáciach na riešenie problémov. Prosím, priložte tieto informácie k hlásenému problému.</translation>
     </message>
     <message>
         <source>Build Configuration</source>
@@ -2978,6 +2998,22 @@
     </message>
     <message>
         <source>Portable build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No available extensions.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

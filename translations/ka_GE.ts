@@ -434,6 +434,10 @@
         <source>Unable to open database. Is Firefox running?</source>
         <translation>მონაცემთა ბაზის გახსნა ვერ მოხერხდა. Firefox გაშვებულია?</translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -1411,11 +1415,11 @@
     <name>MainApplication</name>
     <message>
         <source>Last session crashed</source>
-        <translation>ბოლო სესია ავარიულად დაიხურა</translation>
+        <translation type="obsolete">ბოლო სესია ავარიულად დაიხურა</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>&lt;b&gt;QupZilla ავარიუალად დაიხურა :-(&lt;/b&gt;&lt;br/&gt;უი, QupZilla-ს ბოლო სესია მოულოდნელად შეწყდა. ბოდიშს გიხდით ამისათვის. გსურთ ბოლო შენახული მდგომარებოის აღდგენა ვცადოთ?</translation>
+        <translation type="obsolete">&lt;b&gt;QupZilla ავარიუალად დაიხურა :-(&lt;/b&gt;&lt;br/&gt;უი, QupZilla-ს ბოლო სესია მოულოდნელად შეწყდა. ბოდიშს გიხდით ამისათვის. გსურთ ბოლო შენახული მდგომარებოის აღდგენა ვცადოთ?</translation>
     </message>
 </context>
 <context>
@@ -1583,7 +1587,11 @@
     </message>
     <message>
         <source>Cannot load plugin!</source>
-        <translation>მოდულის ჩატვირთვა ვერ მოხერხდა!</translation>
+        <translation type="obsolete">მოდულის ჩატვირთვა ვერ მოხერხდა!</translation>
+    </message>
+    <message>
+        <source>Cannot load extension!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1641,7 +1649,7 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation>მოდულები</translation>
+        <translation type="obsolete">მოდულები</translation>
     </message>
     <message>
         <source>Other</source>
@@ -2236,6 +2244,10 @@
         <source>Don&apos;t load tabs until selected</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2649,6 +2661,14 @@
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Last session crashed</source>
+        <translation type="unfinished">ბოლო სესია ავარიულად დაიხურა</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
+        <translation type="unfinished">&lt;b&gt;QupZilla ავარიუალად დაიხურა :-(&lt;/b&gt;&lt;br/&gt;უი, QupZilla-ს ბოლო სესია მოულოდნელად შეწყდა. ბოდიშს გიხდით ამისათვის. გსურთ ბოლო შენახული მდგომარებოის აღდგენა ვცადოთ?</translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -2666,7 +2686,7 @@
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>თუ QupZilla-ს გამოყენებისას პრობლემები გაქვთ, გთხოვთ პირველ რიგში ყველა მოდულის გამორთვა ცადეთ. &lt;br/&gt;თუ ეს ვერ მოაგვარებს თქვენს პრობლემას, გთხოვთ შეავსეთ ეს ფორმა: </translation>
+        <translation type="obsolete">თუ QupZilla-ს გამოყენებისას პრობლემები გაქვთ, გთხოვთ პირველ რიგში ყველა მოდულის გამორთვა ცადეთ. &lt;br/&gt;თუ ეს ვერ მოაგვარებს თქვენს პრობლემას, გთხოვთ შეავსეთ ეს ფორმა: </translation>
     </message>
     <message>
         <source>Your E-mail</source>
@@ -2826,7 +2846,7 @@
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation>ეს გვერდი შეიცავს ინფორმაციას QupZilla-ს მიმდინარე კონფიგურაციის, მოდულების, ა.შ, და ყველა საჭირო ინფორმაციას პრობლემის აღმოფხვრის შესახებ. გთხოვთ მოაყოლეთ ეს ინფორმაცია შეცდომის გამოგზავნის დროს.</translation>
+        <translation type="obsolete">ეს გვერდი შეიცავს ინფორმაციას QupZilla-ს მიმდინარე კონფიგურაციის, მოდულების, ა.შ, და ყველა საჭირო ინფორმაციას პრობლემის აღმოფხვრის შესახებ. გთხოვთ მოაყოლეთ ეს ინფორმაცია შეცდომის გამოგზავნის დროს.</translation>
     </message>
     <message>
         <source>Browser Identification</source>
@@ -2850,7 +2870,7 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation>მოდულები</translation>
+        <translation type="obsolete">მოდულები</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2910,7 +2930,7 @@
     </message>
     <message>
         <source>No available plugins.</source>
-        <translation>ხელმისაწვდომი მოდულები არ არის.</translation>
+        <translation type="obsolete">ხელმისაწვდომი მოდულები არ არის.</translation>
     </message>
     <message>
         <source>Build Configuration</source>
@@ -2942,6 +2962,22 @@
     </message>
     <message>
         <source>Portable build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No available extensions.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

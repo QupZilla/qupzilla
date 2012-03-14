@@ -434,6 +434,10 @@
         <source>Unable to open database. Is Firefox running?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -1406,17 +1410,6 @@
     </message>
 </context>
 <context>
-    <name>MainApplication</name>
-    <message>
-        <source>Last session crashed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>NavigationBar</name>
     <message>
         <source>No Named Page</source>
@@ -1576,7 +1569,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cannot load plugin!</source>
+        <source>Cannot load extension!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1631,10 +1624,6 @@
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Plugins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2225,6 +2214,10 @@
         <source>Don&apos;t load tabs until selected</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2638,6 +2631,14 @@
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Last session crashed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -2651,10 +2652,6 @@
     </message>
     <message>
         <source>Report Issue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2814,10 +2811,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Browser Identification</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2835,10 +2828,6 @@
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Plugins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2898,10 +2887,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No available plugins.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Build Configuration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2931,6 +2916,22 @@
     </message>
     <message>
         <source>Portable build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No available extensions.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -442,6 +442,10 @@
         <source>Unable to open database. Is Firefox running?</source>
         <translation>データベースが開けません。Firefoxが起動中ではありませんか?</translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -1436,11 +1440,11 @@
     <name>MainApplication</name>
     <message>
         <source>Last session crashed</source>
-        <translation>前回のセッションがクラッシュしました</translation>
+        <translation type="obsolete">前回のセッションがクラッシュしました</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
+        <translation type="obsolete">&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
     </message>
 </context>
 <context>
@@ -1611,7 +1615,11 @@
     </message>
     <message>
         <source>Cannot load plugin!</source>
-        <translation>プラグインが読み込めません!</translation>
+        <translation type="obsolete">プラグインが読み込めません!</translation>
+    </message>
+    <message>
+        <source>Cannot load extension!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1671,7 +1679,7 @@
     <message>
         <source>Plugins</source>
         <translatorcomment>拡張機能の方がいいかプラグインの方がいいか。要再考</translatorcomment>
-        <translation>拡張機能</translation>
+        <translation type="obsolete">拡張機能</translation>
     </message>
     <message>
         <source>Other</source>
@@ -2283,6 +2291,10 @@
         <source>Don&apos;t load tabs until selected</source>
         <translation>タブを選択するまで読み込まない</translation>
     </message>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2707,6 +2719,14 @@
         <source>All files</source>
         <translation>すべてのファイル</translation>
     </message>
+    <message>
+        <source>Last session crashed</source>
+        <translation type="unfinished">前回のセッションがクラッシュしました</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
+        <translation type="unfinished">&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -2724,7 +2744,7 @@
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>QupZillaを使用中に問題が発生した場合はまずプラグインを無効にしてみてください。&lt;br/&gt;それでも問題が解決されない場合以下のフォームに書き込んでください:</translation>
+        <translation type="obsolete">QupZillaを使用中に問題が発生した場合はまずプラグインを無効にしてみてください。&lt;br/&gt;それでも問題が解決されない場合以下のフォームに書き込んでください:</translation>
     </message>
     <message>
         <source>Your E-mail</source>
@@ -2888,7 +2908,7 @@
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
         <translatorcomment>意訳</translatorcomment>
-        <translation>このページはQupZillaの現在の設定について表示しています。これらの情報はトラブルシューティングに非常に有用ですので、バグレポート送信の際にはこれらの情報を一緒に送信してください。</translation>
+        <translation type="obsolete">このページはQupZillaの現在の設定について表示しています。これらの情報はトラブルシューティングに非常に有用ですので、バグレポート送信の際にはこれらの情報を一緒に送信してください。</translation>
     </message>
     <message>
         <source>Browser Identification</source>
@@ -2915,7 +2935,7 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation>プラグイン</translation>
+        <translation type="obsolete">プラグイン</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2976,7 +2996,7 @@
     </message>
     <message>
         <source>No available plugins.</source>
-        <translation>表示可能なプラグインはありません。</translation>
+        <translation type="obsolete">表示可能なプラグインはありません。</translation>
     </message>
     <message>
         <source>Build Configuration</source>
@@ -3009,6 +3029,22 @@
     <message>
         <source>Portable build</source>
         <translation>Portable build</translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No available extensions.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

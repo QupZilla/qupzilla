@@ -434,6 +434,10 @@
         <source>Please press Finish to complete importing process.</source>
         <translation>Aperte o botão Terminar para concluir o processo.</translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -1443,11 +1447,11 @@ não foi encontrado!</translation>
     <name>MainApplication</name>
     <message>
         <source>Last session crashed</source>
-        <translation>O navegador foi fechado de forma incorreta</translation>
+        <translation type="obsolete">O navegador foi fechado de forma incorreta</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
+        <translation type="obsolete">&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
     </message>
 </context>
 <context>
@@ -1618,7 +1622,7 @@ não foi encontrado!</translation>
         <translation type="unfinished">Erro!</translation>
     </message>
     <message>
-        <source>Cannot load plugin!</source>
+        <source>Cannot load extension!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1922,7 +1926,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation>Plugins</translation>
+        <translation type="obsolete">Plugins</translation>
     </message>
     <message>
         <source>Minimum Logical Font Size</source>
@@ -2270,6 +2274,10 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Don&apos;t load tabs until selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2685,6 +2693,14 @@ não foi encontrado!</translation>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Last session crashed</source>
+        <translation type="unfinished">O navegador foi fechado de forma incorreta</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
+        <translation type="unfinished">&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
+    </message>
 </context>
 <context>
     <name>QupZillaSchemeReply</name>
@@ -2754,7 +2770,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>Caso esteja com problemas no QupZilla, tente desativar os plugins. &lt;br/&gt;Se os erros persistirem, preencha este formulário: </translation>
+        <translation type="obsolete">Caso esteja com problemas no QupZilla, tente desativar os plugins. &lt;br/&gt;Se os erros persistirem, preencha este formulário: </translation>
     </message>
     <message>
         <source>Report Issue</source>
@@ -2810,7 +2826,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation>Plugins</translation>
+        <translation type="obsolete">Plugins</translation>
     </message>
     <message>
         <source>Profile</source>
@@ -2913,10 +2929,6 @@ não foi encontrado!</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Preferences</source>
         <translation type="unfinished">Preferências</translation>
     </message>
@@ -2949,10 +2961,6 @@ não foi encontrado!</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No available plugins.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Build Configuration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2982,6 +2990,22 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Portable build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No available extensions.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
