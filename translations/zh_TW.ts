@@ -23,7 +23,7 @@
         <location filename="../src/lib/other/aboutdialog.cpp" line="49"/>
         <location filename="../src/lib/other/aboutdialog.cpp" line="76"/>
         <source>&lt; About QupZilla</source>
-        <translation>關於作者</translation>
+        <translation>&lt; 關於QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="59"/>
@@ -53,12 +53,12 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="80"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation>貢獻團隊 %1</translation>
+        <translation>&lt;p&gt;&lt;b&gt;貢獻團隊:&lt;/b&gt;&lt;br/%1&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="88"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation>翻譯團隊 %1</translation>
+        <translation>&lt;p&gt;&lt;b&gt;翻譯團隊:&lt;/b&gt;&lt;/br&gt;%1&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
