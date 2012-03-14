@@ -28,7 +28,7 @@ class QT_QUPZILLA_EXPORT DatabaseWriter : public QObject
 {
     Q_OBJECT
 public:
-    explicit DatabaseWriter();
+    explicit DatabaseWriter(QObject* parent = 0);
 
     void executeQuery(const QSqlQuery &query);
 

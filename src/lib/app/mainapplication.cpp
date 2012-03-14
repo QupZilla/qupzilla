@@ -57,7 +57,6 @@
 #include <QSettings>
 #include <QTimer>
 #include <QTranslator>
-#include <QMessageBox>
 
 #ifdef Q_WS_WIN
 #define DEFAULT_CHECK_UPDATES true
@@ -90,20 +89,19 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     , m_networkmanager(0)
     , m_cookiejar(0)
     , m_rssmanager(0)
-    , m_updater(0)
     , m_plugins(0)
     , m_bookmarksModel(0)
     , m_downloadManager(0)
     , m_autofill(0)
-    , m_networkCache(new QNetworkDiskCache)
+    , m_networkCache(new QNetworkDiskCache(this))
     , m_desktopNotifications(0)
     , m_iconProvider(new IconProvider(this))
     , m_searchEnginesManager(0)
-    , m_dbWriter(new DatabaseWriter())
+    , m_dbWriter(new DatabaseWriter(this))
     , m_isClosing(false)
     , m_isStateChanged(false)
-    , m_isExited(false)
     , m_isRestoring(false)
+    , m_startingAfterCrash(false)
     , m_databaseConnected(false)
 {
 #if defined(Q_WS_X11) && !defined(NO_SYSTEM_DATAPATH)
@@ -174,7 +172,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
         foreach(const QString & message, messages) {
             sendMessage(message);
         }
-        m_isExited = true;
+        m_isClosing = true;
         return;
     }
 
@@ -211,13 +209,10 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
 
     Settings::createSettings(m_activeProfil + "settings.ini");
 
-    Settings settings2;
-    settings2.beginGroup("SessionRestore");
-    if (settings2.value("isRunning", false).toBool()) {
-        settings2.setValue("isCrashed", true);
-    }
-    settings2.setValue("isRunning", true);
-    settings2.endGroup();
+    Settings settings;
+    m_startingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
+    bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool();
+    settings.setValue("SessionRestore/isRunning", true);
 
     translateApp();
 
@@ -228,15 +223,15 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     connect(qupzilla, SIGNAL(message(Qz::AppMessageType, bool)), this, SLOT(sendMessages(Qz::AppMessageType, bool)));
     connect(qupzilla, SIGNAL(startingCompleted()), this, SLOT(restoreCursor()));
 
-    if (settings2.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool()) {
-        m_updater = new Updater(qupzilla);
-    }
-
     loadSettings();
     networkManager()->loadCertificates();
 
     if (!noAddons) {
         plugins()->loadPlugins();
+    }
+
+    if (checkUpdates) {
+        new Updater(qupzilla);
     }
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
@@ -602,7 +597,6 @@ void MainApplication::saveSettings()
     Settings settings;
     settings.beginGroup("SessionRestore");
     settings.setValue("isRunning", false);
-    settings.setValue("isCrashed", false);
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
@@ -767,10 +761,6 @@ bool MainApplication::saveStateSlot()
         return false;
     }
 
-    Settings settings;
-    settings.beginGroup("SessionRestore");
-    settings.setValue("restoreSession", false);
-
     QFile file(m_activeProfil + "session.dat");
     file.open(QIODevice::WriteOnly);
     QDataStream stream(&file);
@@ -793,9 +783,6 @@ bool MainApplication::saveStateSlot()
     }
     file.close();
 
-    settings.setValue("restoreSession", true);
-    settings.endGroup();
-
     QupZilla* qupzilla_ = getWindow();
     if (qupzilla_ && m_mainWindows.count() == 1) {
         qupzilla_->tabWidget()->savePinnedTabs();
@@ -814,28 +801,12 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
     }
 
     m_isRestoring = true;
-    Settings settings;
-    int afterStart = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
-    settings.beginGroup("SessionRestore");
-    if (!settings.value("restoreSession", false).toBool()) {
-        m_isRestoring = false;
-        return false;
-    }
-    if (settings.value("isCrashed", false).toBool() && afterStart != 3) {
-        QMessageBox::StandardButton button = QMessageBox::warning(window, tr("Last session crashed"),
-                                             tr("<b>QupZilla crashed :-(</b><br/>Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?"),
-                                             QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
-        if (button != QMessageBox::Yes) {
-            m_isRestoring = false;
-            return false;
-        }
-    }
+
     if (!QFile::exists(m_activeProfil + "session.dat")) {
         m_isRestoring = false;
         return false;
     }
 
-    settings.setValue("isCrashed", false);
     QFile file(m_activeProfil + "session.dat");
     file.open(QIODevice::ReadOnly);
     QDataStream stream(&file);

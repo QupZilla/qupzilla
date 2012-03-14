@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
 
     MainApplication app(cmdActions, argc, argv);
 
-    if (app.isExited()) {
+    if (app.isClosing()) {
 //        Not showing any output, otherwise XFCE shows "Failed to execute default browser. I/O error" error
 //        if (argc == 1) {
 //            std::cout << "QupZilla already running - activating existing window" << std::endl;

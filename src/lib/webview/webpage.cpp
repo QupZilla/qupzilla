@@ -37,7 +37,6 @@
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
 
-#include <QTextDocument>
 #include <QDir>
 #include <QWebHistory>
 #include <QFileSystemWatcher>
@@ -651,7 +650,7 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     ui->setupUi(dialog);
     ui->buttonBox->setStandardButtons(QDialogButtonBox::Ok);
     ui->dontAskAgain->setText(tr("Prevent this page from creating additional dialogs"));
-    ui->textLabel->setText(Qt::escape(msg));
+    ui->textLabel->setText(msg);
     ui->iconLabel->setPixmap(mApp->style()->standardPixmap(QStyle::SP_MessageBoxInformation));
     ui->buttonBox->setFocus();
     dialog->setWindowTitle(tr("JavaScript alert - %1").arg(url().host()));

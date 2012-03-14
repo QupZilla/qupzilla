@@ -37,18 +37,18 @@ void CommandLineOptions::showHelp()
     const char* help = " Usage: qupzilla [options] URL  \n"
                        "\n"
                        " QupZilla options:\n"
-                       "    -h or --help                  print this message \n"
-                       "    -a or --authors               print QupZilla authors \n"
-                       "    -v or --version               print QupZilla version \n"
+                       "    -h or --help                        print this message \n"
+                       "    -a or --authors                     print QupZilla authors \n"
+                       "    -v or --version                     print QupZilla version \n"
                        "\n"
-                       "    -p or --profile=<profile>     start with specified profile \n"
-                       "    -np or --no-plugins           start without plugins \n"
+                       "    -p=PROFILE or --profile=PROFILE     start with specified profile \n"
+                       "    -ne or --no-extensions              start without extensions\n"
                        "\n"
                        " Options to control running QupZilla:\n"
-                       "    -nt or --new-tab              open new tab\n"
-                       "    -nw or --new-window           open new window\n"
-                       "    -pb or --private-browsing     start private browsing\n"
-                       "    -dm or --download-manager     show download manager\n"
+                       "    -nt or --new-tab                    open new tab\n"
+                       "    -nw or --new-window                 open new window\n"
+                       "    -pb or --private-browsing           start private browsing\n"
+                       "    -dm or --download-manager           show download manager\n"
                        "\n"
                        " QupZilla is a new, fast and secure web browser\n"
                        " based on WebKit core (http://webkit.org) and\n"
@@ -106,7 +106,7 @@ void CommandLineOptions::parseActions()
             m_actions.append(pair);
         }
 
-        if (arg.startsWith("-np") || arg.startsWith("--no-plugins")) {
+        if (arg.startsWith("-ne") || arg.startsWith("--no-extensions")) {
             ActionPair pair;
             pair.action = Qz::CL_StartWithoutAddons;
             pair.text = "";

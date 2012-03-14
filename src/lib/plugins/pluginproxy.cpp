@@ -92,19 +92,12 @@ void PluginProxy::registerAppEventHandler(const PluginProxy::EventHandlerType &t
 
 void PluginProxy::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)
 {
-    if (!menu || !view || m_loadedPlugins.count() == 0) {
+    if (!menu || !view) {
         return;
     }
 
-    menu->addSeparator();
-    int count = menu->actions().count();
-
     foreach(PluginInterface * iPlugin, m_loadedPlugins) {
         iPlugin->populateWebViewMenu(menu, view, r);
-    }
-
-    if (menu->actions().count() == count) {
-        menu->removeAction(menu->actions().at(count - 1));
     }
 }
 

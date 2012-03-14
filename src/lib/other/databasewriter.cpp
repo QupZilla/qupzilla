@@ -19,8 +19,8 @@
 
 #include <QTimer>
 
-DatabaseWriter::DatabaseWriter()
-    : QObject()
+DatabaseWriter::DatabaseWriter(QObject *parent)
+    : QObject(parent)
 {
 }
 

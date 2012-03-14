@@ -72,7 +72,7 @@ public:
     inline QString getActiveProfilPath() { return m_activeProfil; }
     inline QString getActiveLanguage() { return m_activeLanguage; }
     inline bool isClosing() { return m_isClosing; }
-    inline bool isExited() { return m_isExited; }
+    inline bool isStartingAfterCrash() { return m_startingAfterCrash; }
     inline int windowCount() { return m_mainWindows.count(); }
 
     bool checkSettingsDir();
@@ -132,7 +132,6 @@ private:
     NetworkManager* m_networkmanager;
     CookieJar* m_cookiejar;
     RSSManager* m_rssmanager;
-    Updater* m_updater;
     PluginProxy* m_plugins;
     BookmarksModel* m_bookmarksModel;
     DownloadManager* m_downloadManager;
@@ -151,8 +150,8 @@ private:
 
     bool m_isClosing;
     bool m_isStateChanged;
-    bool m_isExited;
     bool m_isRestoring;
+    bool m_startingAfterCrash;
 
     bool m_databaseConnected;
     QList<PostLaunchAction> m_postLaunchActions;

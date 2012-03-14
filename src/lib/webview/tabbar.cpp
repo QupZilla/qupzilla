@@ -310,8 +310,11 @@ void TabBar::pinTab()
         m_pinnedTabsCount--;
     }
 
-    // Adjust add tab button in proper position
-    tabSizeHint(count() - 1);
+    // We need to recalculate size of all tabs and repaint tabbar
+    // Unfortunately, Qt doesn't offer refresh() function as a public API
+
+    // So we are calling the lightest function that calls d->refresh()
+    setElideMode(elideMode());
 }
 
 void TabBar::pinnedTabClosed()

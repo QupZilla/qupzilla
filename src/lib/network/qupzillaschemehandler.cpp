@@ -139,7 +139,7 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace("%TITLE%", tr("Report Issue"));
     bPage.replace("%REPORT-ISSUE%", tr("Report Issue"));
     bPage.replace("%PLUGINS-TEXT%", tr("If you are experiencing problems with QupZilla, please try to disable"
-                                       " all plugins first. <br/>If this does not fix it, then please fill out this form: "));
+                                       " all extenions first. <br/>If this does not fix it, then please fill out this form: "));
     bPage.replace("%EMAIL%", tr("Your E-mail"));
     bPage.replace("%TYPE%", tr("Issue type"));
     bPage.replace("%DESCRIPTION%", tr("Issue description"));
@@ -301,14 +301,14 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace("%TITLE%", tr("Configuration Information"));
         cPage.replace("%CONFIG%", tr("Configuration Information"));
         cPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
-        cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about QupZilla's current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports."));
+        cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about QupZilla's current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports."));
         cPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
         cPage.replace("%PATHS%", tr("Paths"));
         cPage.replace("%BUILD-CONFIG%", tr("Build Configuration"));
         cPage.replace("%PREFS%", tr("Preferences"));
         cPage.replace("%OPTION%", tr("Option"));
         cPage.replace("%VALUE%", tr("Value"));
-        cPage.replace("%PLUGINS%", tr("Plugins"));
+        cPage.replace("%PLUGINS%", tr("Extensions"));
         cPage.replace("%PL-NAME%", tr("Name"));
         cPage.replace("%PL-VER%", tr("Version"));
         cPage.replace("%PL-AUTH%", tr("Author"));
@@ -377,7 +377,7 @@ QString QupZillaSchemeReply::configPage()
     }
 
     if (pluginsString.isEmpty()) {
-        pluginsString = QString("<tr><td colspan=4 class=\"no-available-plugins\">%1</td></tr>").arg(tr("No available plugins."));
+        pluginsString = QString("<tr><td colspan=4 class=\"no-available-plugins\">%1</td></tr>").arg(tr("No available extensions."));
     }
 
     page.replace("%PLUGINS-INFO%", pluginsString);

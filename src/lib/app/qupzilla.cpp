@@ -129,15 +129,10 @@ void QupZilla::postLaunch()
     }
 
     Settings settings;
-    settings.beginGroup("Web-URL-Settings");
-    int afterLaunch = settings.value("afterLaunch", 1).toInt();
-    settings.endGroup();
-    settings.beginGroup("SessionRestore");
-    bool startingAfterCrash = settings.value("isCrashed", false).toBool();
-    settings.endGroup();
-
+    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 1).toInt();
     bool addTab = true;
     QUrl startUrl;
+
     switch (afterLaunch) {
     case 0:
         startUrl = QUrl("");
@@ -158,8 +153,19 @@ void QupZilla::postLaunch()
 
     switch (m_startBehaviour) {
     case Qz::BW_FirstAppWindow:
-        if (startingAfterCrash || (addTab && afterLaunch == 3)) {
+        if (afterLaunch == 3) {
             addTab = !mApp->restoreStateSlot(this);
+        }
+        else if (mApp->isStartingAfterCrash()) {
+            QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Last session crashed"),
+                                                 tr("<b>QupZilla crashed :-(</b><br/>Oops, the last session "
+                                                    "of QupZilla was interrupted unexpectedly. We apologize "
+                                                    "for this. Would you like to try restoring the last "
+                                                    "saved state?"),
+                                                 QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+            if (button == QMessageBox::Yes) {
+                addTab = !mApp->restoreStateSlot(this);
+            }
         }
         break;
 
