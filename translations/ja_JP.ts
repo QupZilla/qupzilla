@@ -1266,7 +1266,7 @@
     </message>
     <message>
         <source>Optimize Database</source>
-        <translation></translation>
+        <translation>データベースの最適化</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
