@@ -23,17 +23,17 @@
         <location filename="../src/lib/other/aboutdialog.cpp" line="49"/>
         <location filename="../src/lib/other/aboutdialog.cpp" line="76"/>
         <source>&lt; About QupZilla</source>
-        <translation>關於作者</translation>
+        <translation>&lt; 關於QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="59"/>
         <source>&lt;p&gt;&lt;b&gt;Application version %1&lt;/b&gt;&lt;br/&gt;</source>
-        <translation>軟體版本 %1</translation>
+        <translation>&lt;p&gt;&lt;b&gt;軟體版本 %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="64"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>Webkit版本 %1</translation>
+        <translation>&lt;b&gt;Webkit版本 %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="65"/>
@@ -53,12 +53,12 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="80"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation>貢獻團隊 %1</translation>
+        <translation>&lt;p&gt;&lt;b&gt;貢獻團隊:&lt;/b&gt;&lt;br/%1&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="88"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation>翻譯團隊 %1</translation>
+        <translation>&lt;p&gt;&lt;b&gt;翻譯團隊:&lt;/b&gt;&lt;/br&gt;%1&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -92,7 +92,7 @@
         <location filename="../src/lib/preferences/acceptlanguage.cpp" line="87"/>
         <location filename="../src/lib/preferences/acceptlanguage.cpp" line="148"/>
         <source>Personal [%1]</source>
-        <translation>個人 【%1】</translation>
+        <translation>個人 [%1]</translation>
     </message>
 </context>
 <context>
@@ -1548,7 +1548,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="90"/>
         <source>Image files</source>
-        <translation type="unfinished">影像檔案</translation>
+        <translation>影像檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="92"/>
@@ -1803,7 +1803,7 @@
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="827"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>抱歉，QupZilla上次被不正常結束。您要還原上一次的狀態嗎?</translation>
+        <translation>&lt;b&gt;抱歉，QupZilla上次被不正常結束:-(&lt;/b&gt;&lt;br/&gt;您要還原上一次的狀態嗎?</translation>
     </message>
 </context>
 <context>
@@ -1862,17 +1862,17 @@
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="190"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
-        <translation>組織</translation>
+        <translation>&lt;b&gt;組織: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="192"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
-        <translation>域名</translation>
+        <translation>&lt;b&gt;域名: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="194"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation>截止日期</translation>
+        <translation>&lt;b&gt;截止日期: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="196"/>
@@ -2018,7 +2018,7 @@
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="186"/>
         <source>%1 - QupZilla</source>
-        <translation></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
 </context>
 <context>
@@ -2168,7 +2168,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="505"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
-        <translation>&lt;B&gt;瀏覽器視窗&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;瀏覽器視窗&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="530"/>
@@ -2208,7 +2208,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="594"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
-        <translation>&lt;B&gt;背景&lt;b/&gt;</translation>
+        <translation>&lt;b&gt;背景&lt;b/&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="614"/>
@@ -2269,10 +2269,6 @@
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
         <source>Allow JavaScript</source>
         <translation>允許JavaScript</translation>
-    </message>
-    <message>
-        <source>Allow Plugins (Flash plugin)</source>
-        <translation type="obsolete">允許外掛（Flash外掛）</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="805"/>
@@ -2387,12 +2383,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="471"/>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>選擇後才進行讀取動作</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="784"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>允許Netscape外掛(Flash外掛)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="940"/>
@@ -2527,7 +2523,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1572"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation>外部下載管理</translation>
+        <translation>&lt;b&gt;外部下載管理&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1579"/>
@@ -3475,7 +3471,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="307"/>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>建立設定</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="308"/>
@@ -3639,7 +3635,7 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="340"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="341"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>不允許</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="344"/>
@@ -3648,32 +3644,32 @@
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="353"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="356"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;允許&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="360"/>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>除錯建立</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="361"/>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>WebGL支援</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="362"/>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7應用程式介面</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="363"/>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE介面</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="364"/>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>可攜版本建立</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="380"/>
@@ -4436,7 +4432,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
         <source>Image files</source>
-        <translation type="unfinished">影像檔案</translation>
+        <translation>影像檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>
@@ -4616,10 +4612,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/preferences/thememanager.ui" line="112"/>
         <source>License</source>
         <translation>憑證</translation>
-    </message>
-    <message>
-        <source>License Viewer</source>
-        <translation type="obsolete">憑證查看</translation>
     </message>
 </context>
 <context>
@@ -4889,7 +4881,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="536"/>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>建立搜尋引擎</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="636"/>
