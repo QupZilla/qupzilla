@@ -28,12 +28,12 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="59"/>
         <source>&lt;p&gt;&lt;b&gt;Application version %1&lt;/b&gt;&lt;br/&gt;</source>
-        <translation>軟體版本 %1</translation>
+        <translation>&lt;p&gt;&lt;b&gt;軟體版本 %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="64"/>
         <source>&lt;b&gt;WebKit version %1&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>Webkit版本 %1</translation>
+        <translation>&lt;b&gt;Webkit版本 %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="65"/>
@@ -92,7 +92,7 @@
         <location filename="../src/lib/preferences/acceptlanguage.cpp" line="87"/>
         <location filename="../src/lib/preferences/acceptlanguage.cpp" line="148"/>
         <source>Personal [%1]</source>
-        <translation>個人 【%1】</translation>
+        <translation>個人 [%1]</translation>
     </message>
 </context>
 <context>
@@ -1803,7 +1803,7 @@
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="827"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>抱歉，QupZilla上次被不正常結束。您要還原上一次的狀態嗎?</translation>
+        <translation>&lt;b&gt;抱歉，QupZilla上次被不正常結束:-(&lt;/b&gt;&lt;br/&gt;您要還原上一次的狀態嗎?</translation>
     </message>
 </context>
 <context>
@@ -1862,17 +1862,17 @@
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="190"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
-        <translation>組織</translation>
+        <translation>&lt;b&gt;組織: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="192"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
-        <translation>域名</translation>
+        <translation>&lt;b&gt;域名: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="194"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation>截止日期</translation>
+        <translation>&lt;b&gt;截止日期: &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="196"/>
@@ -2018,7 +2018,7 @@
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="186"/>
         <source>%1 - QupZilla</source>
-        <translation></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
 </context>
 <context>
@@ -2168,7 +2168,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="505"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
-        <translation>&lt;B&gt;瀏覽器視窗&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;瀏覽器視窗&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="530"/>
@@ -2208,7 +2208,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="594"/>
         <source>&lt;b&gt;Background&lt;b/&gt;</source>
-        <translation>&lt;B&gt;背景&lt;b/&gt;</translation>
+        <translation>&lt;b&gt;背景&lt;b/&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="614"/>
@@ -2269,10 +2269,6 @@
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
         <source>Allow JavaScript</source>
         <translation>允許JavaScript</translation>
-    </message>
-    <message>
-        <source>Allow Plugins (Flash plugin)</source>
-        <translation type="obsolete">允許外掛（Flash外掛）</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="805"/>
@@ -2527,7 +2523,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1572"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation>外部下載管理</translation>
+        <translation>&lt;b&gt;外部下載管理&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1579"/>
@@ -4616,10 +4612,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/preferences/thememanager.ui" line="112"/>
         <source>License</source>
         <translation>憑證</translation>
-    </message>
-    <message>
-        <source>License Viewer</source>
-        <translation type="obsolete">憑證查看</translation>
     </message>
 </context>
 <context>
