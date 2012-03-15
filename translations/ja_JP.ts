@@ -444,7 +444,8 @@
     </message>
     <message>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>わからん</translatorcomment>
+        <translation>&lt;b&gt;注意&lt;/b&gt;現在はHTMLファイルとブックマークフォルダからのインポートのみ正常に動作します。</translation>
     </message>
 </context>
 <context>
@@ -1619,7 +1620,8 @@
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>保留</translatorcomment>
+        <translation>エクステンションが読み込めません!</translation>
     </message>
 </context>
 <context>
@@ -2293,7 +2295,8 @@
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>なにこれこわい</translatorcomment>
+        <translation>エクステンション</translation>
     </message>
 </context>
 <context>
@@ -2721,11 +2724,11 @@
     </message>
     <message>
         <source>Last session crashed</source>
-        <translation type="unfinished">前回のセッションがクラッシュしました</translation>
+        <translation>前回のセッションがクラッシュしました</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
+        <translation>&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
     </message>
 </context>
 <context>
@@ -3032,19 +3035,19 @@
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaを使用中に問題が発生した場合はまずエクステンションを無効にしてみてください。&lt;br/&gt;それでも問題が解決されない場合以下のフォームに書き込んでください:</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>このページはQupZillaの現在の設定について表示しています。これらの情報はトラブルシューティングに非常に有用ですので、バグレポート送信の際にはこれらの情報を一緒に送信してください。</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>エクステンション</translation>
     </message>
     <message>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>エクステンションが見つかりません。</translation>
     </message>
 </context>
 <context>

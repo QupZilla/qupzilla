@@ -1,6 +1,6 @@
 <?php
 // Header + Footer
-$site_title = "QupZilla - 軽量でマルチプラットフォームのブラウザ";
+$site_title = "QupZilla - 軽量でマルチプラットフォーム対応のブラウザ";
 $qupzilla = "QupZilla";
 $header_description = "Web Browser";
 
@@ -23,7 +23,7 @@ $older_versions_button = "Changelog";
 $reportbug = "問題を報告する";
 $reportbug_text = "あなたがバグを発見したりQupzillaがよりよく<a>発展</a>するアイデアを持っているなら<br/>
                   ぜひgithubのissue trackerにissueを投稿してください.";
-$reportbug_button = "REPORT NOw";
+$reportbug_button = "REPORT NOW";
 $technology = "テクノロジー";
 $technology_text = "QupZillaはレンダリングエンジンにwebkitを使い、Qt Frameworkを用いて開発された現代的なブラウザです。Webkitは<a>高速な<a/>ブラウジングを 
                     Qtはマルチプラットフォームでの動作を可能にします。";
