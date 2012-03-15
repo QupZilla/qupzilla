@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Authors and Contributors</source>
-        <translation>著作者とコントリビューター</translation>
+        <translation>著作者、コントリビューター</translation>
     </message>
     <message>
         <source>&lt; About QupZilla</source>
