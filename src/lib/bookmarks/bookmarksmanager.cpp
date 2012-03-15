@@ -439,7 +439,7 @@ void BookmarksManager::removeBookmark(const BookmarksModel::Bookmark &bookmark)
         QTreeWidgetItem* item = list.at(0);
         int id = item->data(0, Qt::UserRole + 10).toInt();
 
-        if (item && id == bookmark.id) {
+        if (id == bookmark.id) {
             ui->bookmarksTree->deleteItem(item);
         }
     }

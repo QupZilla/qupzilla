@@ -15,45 +15,37 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef CLOSEDTABSMANAGER_H
-#define CLOSEDTABSMANAGER_H
+#ifndef CHECKBOXDIALOG_H
+#define CHECKBOXDIALOG_H
 
-#include <QUrl>
+#include <QDialog>
+#include <QDialogButtonBox>
 
 #include "qz_namespace.h"
 
-class WebTab;
-
-class QT_QUPZILLA_EXPORT ClosedTabsManager
+namespace Ui
 {
+class CheckBoxDialog;
+}
+
+class QT_QUPZILLA_EXPORT CheckBoxDialog : public QDialog
+{
+    Q_OBJECT
 public:
-    struct Tab {
-        QUrl url;
-        QByteArray history;
-        QString title;
-        int position;
+    explicit CheckBoxDialog(const QDialogButtonBox::StandardButtons &buttons, QWidget* parent = 0);
 
-        bool operator==(const Tab &a) const {
-            return (a.url == url &&
-                    a.history == history &&
-                    a.position == position);
-        }
-    };
+    void setPixmap(const QPixmap &pixmap);
+    void setText(const QString &text);
+    void setCheckBoxText(const QString &text);
 
-    explicit ClosedTabsManager();
+    bool isChecked() const;
 
-    void saveView(WebTab* tab, int position);
-    ClosedTabsManager::Tab getFirstClosedTab();
-    ClosedTabsManager::Tab getTabAt(int index);
-
-    bool isClosedTabAvailable();
-    void clearList();
-
-    QList<ClosedTabsManager::Tab> allClosedTabs() { return m_closedTabs; }
+public slots:
+    int exec();
 
 private:
-    QList<ClosedTabsManager::Tab> m_closedTabs;
+    Ui::CheckBoxDialog* ui;
 
 };
 
-#endif // CLOSEDTABSMANAGER_H
+#endif // CHECKBOXDIALOG_H

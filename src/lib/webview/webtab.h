@@ -62,7 +62,7 @@ public:
     QUrl url() const;
     QString title() const;
     QIcon icon() const;
-    QWebHistory *history() const;
+    QWebHistory* history() const;
 
     void setHistoryData(const QByteArray &data);
     QByteArray historyData() const;

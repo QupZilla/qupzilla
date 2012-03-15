@@ -23,7 +23,8 @@
 
 #include "qz_namespace.h"
 
-class QTextEdit;
+class PlainEditWithLines;
+
 class QBoxLayout;
 class QStatusBar;
 class QWebFrame;
@@ -33,7 +34,7 @@ class QT_QUPZILLA_EXPORT SourceViewer : public QWidget
     Q_OBJECT
 public:
     explicit SourceViewer(QWebFrame* frame, const QString &selectedHtml);
-    QTextEdit* sourceEdit() { return m_sourceEdit; }
+    PlainEditWithLines* sourceEdit() { return m_sourceEdit; }
 
 signals:
 
@@ -49,7 +50,7 @@ private slots:
 
 private:
     QBoxLayout* m_layout;
-    QTextEdit* m_sourceEdit;
+    PlainEditWithLines* m_sourceEdit;
     QWeakPointer<QWebFrame> m_frame;
     QStatusBar* m_statusBar;
 };

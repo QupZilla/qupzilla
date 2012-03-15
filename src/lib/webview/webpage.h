@@ -91,6 +91,10 @@ private slots:
     void downloadRequested(const QNetworkRequest &request);
     void windowCloseRequested();
 
+#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+    void featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature);
+#endif
+
 private:
     virtual bool supportsExtension(Extension extension) const;
     virtual bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);

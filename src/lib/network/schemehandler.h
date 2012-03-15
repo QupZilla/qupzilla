@@ -15,45 +15,19 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef CLOSEDTABSMANAGER_H
-#define CLOSEDTABSMANAGER_H
+#ifndef SCHEMEHANDLER_H
+#define SCHEMEHANDLER_H
 
-#include <QUrl>
+#include <QNetworkAccessManager>
 
 #include "qz_namespace.h"
 
-class WebTab;
-
-class QT_QUPZILLA_EXPORT ClosedTabsManager
+class QT_QUPZILLA_EXPORT SchemeHandler
 {
 public:
-    struct Tab {
-        QUrl url;
-        QByteArray history;
-        QString title;
-        int position;
+    SchemeHandler();
 
-        bool operator==(const Tab &a) const {
-            return (a.url == url &&
-                    a.history == history &&
-                    a.position == position);
-        }
-    };
-
-    explicit ClosedTabsManager();
-
-    void saveView(WebTab* tab, int position);
-    ClosedTabsManager::Tab getFirstClosedTab();
-    ClosedTabsManager::Tab getTabAt(int index);
-
-    bool isClosedTabAvailable();
-    void clearList();
-
-    QList<ClosedTabsManager::Tab> allClosedTabs() { return m_closedTabs; }
-
-private:
-    QList<ClosedTabsManager::Tab> m_closedTabs;
-
+    virtual QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData) = 0;
 };
 
-#endif // CLOSEDTABSMANAGER_H
+#endif // SCHEMEHANDLER_H

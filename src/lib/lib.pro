@@ -165,7 +165,10 @@ SOURCES += \
     preferences/pluginlistdelegate.cpp \
     popupwindow/popupstatusbarmessage.cpp \
     other/licenseviewer.cpp \
-    bookmarksimport/bookmarksimporticonfetcher.cpp
+    bookmarksimport/bookmarksimporticonfetcher.cpp \
+    other/checkboxdialog.cpp \
+    network/schemehandler.cpp \
+    tools/plaineditwithlines.cpp
 
 HEADERS  += \
     3rdparty/qtwin.h \
@@ -302,7 +305,10 @@ HEADERS  += \
     preferences/pluginlistdelegate.h \
     popupwindow/popupstatusbarmessage.h \
     other/licenseviewer.h \
-    bookmarksimport/bookmarksimporticonfetcher.h
+    bookmarksimport/bookmarksimporticonfetcher.h \
+    other/checkboxdialog.h \
+    network/schemehandler.h \
+    tools/plaineditwithlines.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -325,7 +331,6 @@ FORMS    += \
     preferences/sslmanager.ui \
     other/clearprivatedata.ui \
     other/sourceviewersearch.ui \
-    other/closedialog.ui \
     adblock/adblockdialog.ui \
     tools/docktitlebarwidget.ui \
     sidebar/bookmarkssidebar.ui \
@@ -343,7 +348,8 @@ FORMS    += \
     preferences/addacceptlanguage.ui \
     opensearch/searchenginesdialog.ui \
     opensearch/editsearchengine.ui \
-    bookmarksimport/bookmarksimportdialog.ui
+    bookmarksimport/bookmarksimportdialog.ui \
+    other/checkboxdialog.ui
 
 RESOURCES += \
     data/icons.qrc \

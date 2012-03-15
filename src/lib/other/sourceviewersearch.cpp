@@ -19,8 +19,8 @@
 #include "ui_sourceviewersearch.h"
 #include "sourceviewer.h"
 #include "iconprovider.h"
+#include "plaineditwithlines.h"
 
-#include <QTextEdit>
 #include <QShortcut>
 #include <QKeyEvent>
 

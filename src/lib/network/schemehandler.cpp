@@ -15,28 +15,8 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "databasewriter.h"
+#include "schemehandler.h"
 
-#include <QTimer>
-
-DatabaseWriter::DatabaseWriter(QObject* parent)
-    : QObject(parent)
+SchemeHandler::SchemeHandler()
 {
-}
-
-void DatabaseWriter::executeQuery(const QSqlQuery &query)
-{
-    m_queries.append(query);
-
-    QTimer::singleShot(0, this, SLOT(execute()));
-}
-
-void DatabaseWriter::execute()
-{
-    if (m_queries.count() == 0) {
-        return;
-    }
-
-    QSqlQuery query = m_queries.takeLast();
-    query.exec();
 }

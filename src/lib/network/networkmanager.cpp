@@ -61,13 +61,14 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
     : NetworkManagerProxy(parent)
     , m_adblockNetwork(0)
     , p_QupZilla(mainClass)
-    , m_qupzillaSchemeHandler(new QupZillaSchemeHandler)
     , m_ignoreAllWarnings(false)
 {
     connect(this, SIGNAL(authenticationRequired(QNetworkReply*, QAuthenticator*)), this, SLOT(authentication(QNetworkReply*, QAuthenticator*)));
     connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator*)), this, SLOT(proxyAuthentication(QNetworkProxy, QAuthenticator*)));
     connect(this, SIGNAL(sslErrors(QNetworkReply*, QList<QSslError>)), this, SLOT(sslError(QNetworkReply*, QList<QSslError>)));
     connect(this, SIGNAL(finished(QNetworkReply*)), this, SLOT(setSSLConfiguration(QNetworkReply*)));
+
+    m_schemeHandlers["qupzilla"] = new QupZillaSchemeHandler;
 
     m_proxyFactory = new NetworkProxyFactory();
     setProxyFactory(m_proxyFactory);
@@ -322,6 +323,14 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     QNetworkRequest req = request;
     QNetworkReply* reply = 0;
 
+    //SchemeHandlers
+    if (m_schemeHandlers.contains(req.url().scheme())) {
+        reply = m_schemeHandlers[req.url().scheme()]->createRequest(op, req, outgoingData);
+        if (reply) {
+            return reply;
+        }
+    }
+
     if (m_doNotTrack) {
         req.setRawHeader("DNT", QByteArray("1"));
     }
@@ -331,14 +340,6 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
     }
 
     req.setRawHeader("Accept-Language", m_acceptLanguage);
-
-    //SchemeHandlers
-    if (req.url().scheme() == "qupzilla") {
-        reply = m_qupzillaSchemeHandler->createRequest(op, req, outgoingData);
-        if (reply) {
-            return reply;
-        }
-    }
 
     req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     if (req.attribute(QNetworkRequest::CacheLoadControlAttribute).toInt() == QNetworkRequest::PreferNetwork) {
@@ -416,6 +417,16 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     else {
         qWarning() << "NetworkManager::addLocalCertificate cannot write to file: " << fileName;
     }
+}
+
+bool NetworkManager::registerSchemeHandler(const QString &scheme, SchemeHandler* handler)
+{
+    if (m_schemeHandlers.contains(scheme)) {
+        return false;
+    }
+
+    m_schemeHandlers[scheme] = handler;
+    return true;
 }
 
 void NetworkManager::saveCertificates()

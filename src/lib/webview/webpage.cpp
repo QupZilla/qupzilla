@@ -27,7 +27,7 @@
 #include "ui_jsalert.h"
 #include "ui_jsprompt.h"
 #endif
-#include "ui_closedialog.h"
+#include "checkboxdialog.h"
 #include "widget.h"
 #include "globalfunctions.h"
 #include "pluginproxy.h"
@@ -43,6 +43,7 @@
 #include <QTimer>
 #include <QNetworkReply>
 #include <QDebug>
+#include <QStyle>
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -80,6 +81,10 @@ WebPage::WebPage(QupZilla* mainClass)
     connect(this, SIGNAL(windowCloseRequested()), this, SLOT(windowCloseRequested()));
 
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
+
+#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+    connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)), this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
+#endif
 }
 
 QUrl WebPage::url() const
@@ -281,6 +286,13 @@ void WebPage::windowCloseRequested()
     webView->closeView();
 }
 
+#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+void WebPage::featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature)
+{
+    // We should probably ask user here ... -,-
+    setFeaturePermission(frame, feature, PermissionGrantedByUser);
+}
+#endif
 
 void WebPage::setSSLCertificate(const QSslCertificate &cert)
 {
@@ -645,22 +657,20 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     }
 
 #ifndef NONBLOCK_JS_DIALOGS
-    QDialog* dialog = new QDialog(view());
-    Ui_CloseDialog* ui = new Ui_CloseDialog();
-    ui->setupUi(dialog);
-    ui->buttonBox->setStandardButtons(QDialogButtonBox::Ok);
-    ui->dontAskAgain->setText(tr("Prevent this page from creating additional dialogs"));
-    ui->textLabel->setText(msg);
-    ui->iconLabel->setPixmap(mApp->style()->standardPixmap(QStyle::SP_MessageBoxInformation));
-    ui->buttonBox->setFocus();
-    dialog->setWindowTitle(tr("JavaScript alert - %1").arg(url().host()));
-    dialog->exec();
-
-    if (ui->dontAskAgain->isChecked()) {
-        m_blockAlerts = true;
+    QString title = tr("JavaScript alert");
+    if (!url().host().isEmpty()) {
+        title.append(QString(" - %1").arg(url().host()));
     }
 
-    delete dialog;
+    CheckBoxDialog dialog(QDialogButtonBox::Ok, view());
+    dialog.setWindowTitle(title);
+    dialog.setText(msg);
+    dialog.setCheckBoxText(tr("Prevent this page from creating additional dialogs"));
+    dialog.setPixmap(mApp->style()->standardPixmap(QStyle::SP_MessageBoxInformation));
+    dialog.exec();
+
+    m_blockAlerts = dialog.isChecked();
+
 #else
     WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
     ResizableFrame* widget = new ResizableFrame(webView->overlayForJsAlert());

@@ -411,7 +411,7 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     QTabBar::mouseReleaseEvent(event);
 }
 
-void TabBar::wheelEvent(QWheelEvent *event)
+void TabBar::wheelEvent(QWheelEvent* event)
 {
     if (mApp->plugins()->processWheelEvent(Qz::ON_TabBar, this, event)) {
         return;

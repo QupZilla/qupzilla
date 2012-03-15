@@ -19,6 +19,7 @@
 #define PLUGINPROXY_H
 
 #include "mainapplication.h"
+#include "networkmanager.h"
 #include "plugins.h"
 #include "qz_namespace.h"
 
@@ -74,5 +75,6 @@ private:
 };
 
 #define QZ_REGISTER_EVENT_HANDLER(Type) mApp->plugins()->registerAppEventHandler(Type, this);
+#define QZ_REGISTER_SCHEME_HANDLER(Scheme, Object) mApp->networkManager()->registerSchemeHandler(Scheme, Object);
 
 #endif // PLUGINPROXY_H

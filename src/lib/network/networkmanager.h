@@ -30,6 +30,7 @@ class QupZilla;
 class AdBlockNetwork;
 class NetworkProxyFactory;
 class QupZillaSchemeHandler;
+class SchemeHandler;
 
 class QT_QUPZILLA_EXPORT NetworkManager : public NetworkManagerProxy
 {
@@ -54,6 +55,8 @@ public:
     void setIgnoreAllWarnings(bool state) { m_ignoreAllWarnings = state; }
     bool isIgnoringAllWarnings() { return m_ignoreAllWarnings; }
 
+    bool registerSchemeHandler(const QString &scheme, SchemeHandler* handler);
+
     void disconnectObjects();
 
 signals:
@@ -71,14 +74,13 @@ private:
     QupZilla* p_QupZilla;
     QNetworkDiskCache* m_diskCache;
     NetworkProxyFactory* m_proxyFactory;
-    QupZillaSchemeHandler* m_qupzillaSchemeHandler;
 
     QStringList m_certPaths;
     QList<QSslCertificate> m_caCerts;
     QList<QSslCertificate> m_localCerts;
-
     QList<QSslCertificate> m_ignoredCerts;
 
+    QHash<QString, SchemeHandler*> m_schemeHandlers;
     QByteArray m_acceptLanguage;
 
     bool m_ignoreAllWarnings;

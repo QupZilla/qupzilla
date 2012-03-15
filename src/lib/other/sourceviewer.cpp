@@ -22,10 +22,10 @@
 #include "globalfunctions.h"
 #include "iconprovider.h"
 #include "enhancedmenu.h"
+#include "plaineditwithlines.h"
 
 #include <QBoxLayout>
 #include <QMenuBar>
-#include <QTextEdit>
 #include <QStatusBar>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -39,7 +39,7 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("Source of ") + frame->url().toString());
     m_layout = new QBoxLayout(QBoxLayout::TopToBottom, this);
-    m_sourceEdit = new QTextEdit(this);
+    m_sourceEdit = new PlainEditWithLines(this);
     m_sourceEdit->setObjectName("sourceviewer-textedit");
 
     m_statusBar = new QStatusBar(this);
@@ -175,10 +175,5 @@ void SourceViewer::goToLine()
         return;
     }
 
-    m_sourceEdit->setUpdatesEnabled(false);
-    m_sourceEdit->moveCursor(QTextCursor::Start);
-    for (int i = 0; i < line; i++) {
-        m_sourceEdit->moveCursor(QTextCursor::Down);
-    }
-    m_sourceEdit->setUpdatesEnabled(true);
+    m_sourceEdit->goToLine(line);
 }

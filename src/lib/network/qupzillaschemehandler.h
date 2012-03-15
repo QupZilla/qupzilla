@@ -18,13 +18,13 @@
 #ifndef QUPZILLASCHEMEHANDLER_H
 #define QUPZILLASCHEMEHANDLER_H
 
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QBuffer>
 
+#include "schemehandler.h"
 #include "qz_namespace.h"
 
-class QupZillaSchemeHandler
+class QT_QUPZILLA_EXPORT QupZillaSchemeHandler : public SchemeHandler
 {
 public:
     explicit QupZillaSchemeHandler();

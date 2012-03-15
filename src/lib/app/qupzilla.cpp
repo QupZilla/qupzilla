@@ -42,7 +42,7 @@
 #include "aboutdialog.h"
 #include "pluginproxy.h"
 #include "qtwin.h"
-#include "ui_closedialog.h"
+#include "checkboxdialog.h"
 #include "adblockmanager.h"
 #include "clickablelabel.h"
 #include "docktitlebarwidget.h"
@@ -1809,15 +1809,15 @@ bool QupZilla::quitApp()
     settings.endGroup();
 
     if (askOnClose && afterLaunch != 3 && m_tabWidget->count() > 1) {
-        QDialog dialog(this);
-        Ui_CloseDialog* ui = new Ui_CloseDialog();
-        ui->setupUi(&dialog);
-        ui->textLabel->setText(tr("There are still %1 open tabs and your session won't be stored. Are you sure to quit QupZilla?").arg(m_tabWidget->count()));
-        ui->iconLabel->setPixmap(style()->standardPixmap(QStyle::SP_MessageBoxWarning));
+        CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, this);
+        dialog.setText(tr("There are still %1 open tabs and your session won't be stored. \nAre you sure to quit QupZilla?").arg(m_tabWidget->count()));
+        dialog.setCheckBoxText(tr("Don't ask again"));
+        dialog.setWindowTitle(tr("There are still open tabs"));
+        dialog.setPixmap(style()->standardPixmap(QStyle::SP_MessageBoxWarning));
         if (dialog.exec() != QDialog::Accepted) {
             return false;
         }
-        if (ui->dontAskAgain->isChecked()) {
+        if (dialog.isChecked()) {
             settings.setValue("Browser-Tabs-Settings/AskOnClosing", false);
         }
     }

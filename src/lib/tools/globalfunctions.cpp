@@ -173,6 +173,8 @@ QString qz_urlEncodeQueryString(const QUrl &url)
         returnString.append(url.encodedFragment());
     }
 
+    returnString.replace(" ", "%20");
+
     return returnString;
 }
 

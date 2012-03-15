@@ -60,7 +60,8 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* pa
     setUrl(req.url());
 
     m_pageName = req.url().path();
-    if (m_pageName == "about" || m_pageName == "reportbug" || m_pageName == "start" || m_pageName == "speeddial" || m_pageName == "config") {
+    if (m_pageName == "about" || m_pageName == "reportbug" || m_pageName == "start" ||
+            m_pageName == "speeddial" || m_pageName == "config") {
         m_buffer.open(QIODevice::ReadWrite);
         setError(QNetworkReply::NoError, tr("No Error"));
 
