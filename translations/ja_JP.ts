@@ -3047,7 +3047,7 @@
     </message>
     <message>
         <source>No available extensions.</source>
-        <translation>エクステンションがありません。</translation>
+        <translation>エクステンションが見つかりません。</translation>
     </message>
 </context>
 <context>
