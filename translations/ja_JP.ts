@@ -1423,7 +1423,7 @@
     </message>
     <message>
         <source>Clear All</source>
-        <translation>ロケーションバーを空にする</translation>
+        <translation>アドレスバーをクリア</translation>
     </message>
     <message>
         <source>.co.uk</source>
@@ -3089,7 +3089,7 @@
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translatorcomment>意訳</translatorcomment>
-        <translation>RSSフィードがありません。&lt;br/&gt;RSSフィードが取得可能な場合ロケーションバーにRSSアイコンが表示されます。</translation>
+        <translation>RSSフィードがありません。&lt;br/&gt;RSSフィードが取得可能な場合アドレスバーにRSSアイコンが表示されます。</translation>
     </message>
     <message>
         <source>Add new feed</source>
