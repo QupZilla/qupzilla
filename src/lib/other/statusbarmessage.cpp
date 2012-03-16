@@ -30,7 +30,6 @@
 
 TipLabel::TipLabel(QWidget* parent)
     : SqueezeLabelV1(parent)
-    , p_QupZilla(0)
     , m_connected(false)
 {
     setWindowFlags(Qt::ToolTip);
@@ -42,21 +41,6 @@ TipLabel::TipLabel(QWidget* parent)
     setMargin(3);
 
     qApp->installEventFilter(this);
-}
-
-void TipLabel::setMainWindow(QupZilla* main)
-{
-    p_QupZilla = main;
-}
-
-void TipLabel::show()
-{
-    if (p_QupZilla && !m_connected) {
-        connect(p_QupZilla->tabWidget(), SIGNAL(currentChanged(int)), this, SLOT(hide()));
-        m_connected = true;
-    }
-
-    SqueezeLabelV1::show();
 }
 
 void TipLabel::paintEvent(QPaintEvent* ev)
@@ -97,7 +81,6 @@ StatusBarMessage::StatusBarMessage(QupZilla* mainClass)
     : p_QupZilla(mainClass)
     , m_statusBarText(new TipLabel(mainClass))
 {
-    m_statusBarText->setMainWindow(p_QupZilla);
 }
 
 void StatusBarMessage::showMessage(const QString &message)
@@ -128,10 +111,8 @@ void StatusBarMessage::showMessage(const QString &message)
         m_statusBarText->setMaximumWidth(view->width() - verticalScrollSize);
         m_statusBarText->resize(m_statusBarText->sizeHint());
 
-        QPoint position;
-        position.setY(view->height() - horizontalScrollSize - m_statusBarText->height());
-
-        QRect statusRect = QRect(view->mapToGlobal(QPoint(0, position.y())), m_statusBarText->size());
+        QPoint position(0, view->height() - horizontalScrollSize - m_statusBarText->height());
+        const QRect &statusRect = QRect(view->mapToGlobal(QPoint(0, position.y())), m_statusBarText->size());
 
         if (statusRect.contains(QCursor::pos())) {
             position.setY(position.y() - m_statusBarText->height());

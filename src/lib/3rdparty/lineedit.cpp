@@ -162,7 +162,7 @@ void LineEdit::updateTextMargins()
     else {
         left = m_leftMargin;
     }
-    int right = textMargin(LineEdit::RightSide);
+    int right = textMargin(LineEdit::RightSide) + 3;
     int top = 0;
     int bottom = 0;
     setTextMargins(left, top, right, bottom);

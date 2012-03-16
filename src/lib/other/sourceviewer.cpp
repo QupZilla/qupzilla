@@ -31,12 +31,12 @@
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QWebFrame>
-
-#include <QTextEdit>
+#include <QTimer>
 
 SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     : QWidget(0)
     , m_frame(frame)
+    , m_selectedHtml(selectedHtml)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("Source of ") + frame->url().toString());
@@ -72,19 +72,24 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     menuBar->addMenu(menuFile);
 
     QMenu* menuEdit = new QMenu(tr("Edit"));
-    menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("Undo"), m_sourceEdit, SLOT(undo()))->setShortcut(QKeySequence("Ctrl+Z"));
-    menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("Redo"), m_sourceEdit, SLOT(redo()))->setShortcut(QKeySequence("Ctrl+Shift+Z"));
+    m_actionUndo = menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("Undo"), m_sourceEdit, SLOT(undo()));
+    m_actionRedo = menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("Redo"), m_sourceEdit, SLOT(redo()));
     menuEdit->addSeparator();
-    menuEdit->addAction(QIcon::fromTheme("edit-cut"), tr("Cut"), m_sourceEdit, SLOT(cut()))->setShortcut(QKeySequence("Ctrl+X"));
-    menuEdit->addAction(QIcon::fromTheme("edit-copy"), tr("Copy"), m_sourceEdit, SLOT(copy()))->setShortcut(QKeySequence("Ctrl+C"));
-    menuEdit->addAction(QIcon::fromTheme("edit-paste"), tr("Paste"), m_sourceEdit, SLOT(paste()))->setShortcut(QKeySequence("Ctrl+V"));
-    menuEdit->addAction(QIcon::fromTheme("edit-delete"), tr("Delete"))->setShortcut(QKeySequence("Del"));
+    m_actionCut = menuEdit->addAction(QIcon::fromTheme("edit-cut"), tr("Cut"), m_sourceEdit, SLOT(cut()));
+    m_actionCopy = menuEdit->addAction(QIcon::fromTheme("edit-copy"), tr("Copy"), m_sourceEdit, SLOT(copy()));
+    m_actionPaste = menuEdit->addAction(QIcon::fromTheme("edit-paste"), tr("Paste"), m_sourceEdit, SLOT(paste()));
     menuEdit->addSeparator();
     menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select All"), m_sourceEdit, SLOT(selectAll()))->setShortcut(QKeySequence("Ctrl+A"));
     menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("Find"), this, SLOT(findText()))->setShortcut(QKeySequence("Ctrl+F"));
     menuEdit->addSeparator();
     menuEdit->addAction(QIcon::fromTheme("go-jump"), tr("Go to Line..."), this, SLOT(goToLine()))->setShortcut(QKeySequence("Ctrl+L"));
     menuBar->addMenu(menuEdit);
+
+    m_actionUndo->setShortcut(QKeySequence("Ctrl+Z"));
+    m_actionRedo->setShortcut(QKeySequence("Ctrl+Shift+Z"));
+    m_actionCut->setShortcut(QKeySequence("Ctrl+X"));
+    m_actionCopy->setShortcut(QKeySequence("Ctrl+C"));
+    m_actionPaste->setShortcut(QKeySequence("Ctrl+V"));
 
     QMenu* menuView = new QMenu(tr("View"));
     menuView->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("Reload"), this, SLOT(reload()))->setShortcut(QKeySequence("F5"));
@@ -96,11 +101,48 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
 
     qz_centerWidgetToParent(this, frame->page()->view());
 
-    m_sourceEdit->setPlainText(frame->toHtml());
+    connect(m_sourceEdit, SIGNAL(copyAvailable(bool)), this, SLOT(copyAvailable(bool)));
+    connect(m_sourceEdit, SIGNAL(redoAvailable(bool)), this, SLOT(redoAvailable(bool)));
+    connect(m_sourceEdit, SIGNAL(undoAvailable(bool)), this, SLOT(undoAvailable(bool)));
+    connect(menuEdit, SIGNAL(aboutToShow()), this, SLOT(pasteAvailable()));
+
+    QTimer::singleShot(0, this, SLOT(loadSource()));
+}
+
+void SourceViewer::copyAvailable(bool yes)
+{
+    m_actionCopy->setEnabled(yes);
+    m_actionCut->setEnabled(yes);
+}
+
+void SourceViewer::redoAvailable(bool available)
+{
+    m_actionRedo->setEnabled(available);
+}
+
+void SourceViewer::undoAvailable(bool available)
+{
+    m_actionUndo->setEnabled(available);
+}
+
+void SourceViewer::pasteAvailable()
+{
+    m_actionPaste->setEnabled(m_sourceEdit->canPaste());
+}
+
+void SourceViewer::loadSource()
+{
+    m_actionUndo->setEnabled(false);
+    m_actionRedo->setEnabled(false);
+    m_actionCut->setEnabled(false);
+    m_actionCopy->setEnabled(false);
+    m_actionPaste->setEnabled(false);
+
+    m_sourceEdit->setPlainText(m_frame.data()->toHtml());
 
     //Highlight selectedHtml
-    if (!selectedHtml.isEmpty()) {
-        m_sourceEdit->find(selectedHtml, QTextDocument::FindWholeWords);
+    if (!m_selectedHtml.isEmpty()) {
+        m_sourceEdit->find(m_selectedHtml, QTextDocument::FindWholeWords);
     }
     else {
         m_sourceEdit->moveCursor(QTextCursor::Start);

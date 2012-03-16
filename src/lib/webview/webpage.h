@@ -95,6 +95,7 @@ private slots:
 #endif
 
 protected:
+    bool event(QEvent* event);
     QWebPage* createWindow(QWebPage::WebWindowType type);
 
 private:
