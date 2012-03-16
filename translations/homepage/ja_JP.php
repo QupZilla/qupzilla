@@ -18,17 +18,17 @@ $actual_version_text = "最新の更新は" . $qupzilla_version_date ."に行わ
 					   "最新版のバージョンは" . $qupzilla_version . "です。更新履歴をぜひご覧ください。<br/>QupZillaをぜひダウンロードしてください<a href=\"download\">こちら</a>からすぐにでもできます！";
 $actual_version_button = "DOWNLOAD";
 $older_versions = "更新履歴";
-$older_versions_text = "各バージョンごとの機能などの変遷を知りたいですか？<br/>それらの変遷はすべてgithubの<a>changelog</a>から参照できます。";
+$older_versions_text = "各バージョンごとの機能などの変遷、今までの開発の成果を知りたいですか？<br/>それらの変遷はすべてgithubの<a>changelog</a>から参照できます。";
 $older_versions_button = "Changelog";
 $reportbug = "問題を報告する";
 $reportbug_text = "あなたがバグを発見したりQupzillaがよりよく<a>発展</a>するアイデアを持っているなら<br/>
                   ぜひgithubのissue trackerにissueを投稿してください.";
 $reportbug_button = "REPORT NOW";
 $technology = "テクノロジー";
-$technology_text = "QupZillaはレンダリングエンジンにwebkitを使い、Qt Frameworkを用いて開発された現代的なブラウザです。Webkitは<a>高速な<a/>ブラウジングを 
+$technology_text = "QupZillaはレンダリングエンジンにwebkitを使い、Qt Frameworkを用いて開発された現代的なブラウザです。Webkitは<a>高速な</a>ブラウジングを 
                     Qtはマルチプラットフォームでの動作を可能にします。";
 $technology_button = "WebKit &amp; Qt";
-$looknfeel_header = "自然なUI、使い心地";
+$looknfeel_header = "自然なUIと使い心地";
 $looknfeel_text = "QupZillaはメジャーなLinuxデスクトップ環境で、ネイティブなUIを再現できます。アイコンもテーマに合わせたものとなっています。ネイティブUIが退屈、あるいは何らかの問題があると感じた時には様々なテーマを使用することもできます。";
 $library_header = "ライブラリ機能の統合";
 $library_text = "QupZillaはブックマーク、履歴、RSSリーダーを最適化された一つのウィンドウに表示させます。このライブラリがあればいくつもウィンドウを広げる必要はありません。QupZillaならたったひとつのウィンドウでいい。<br/>
