@@ -45,6 +45,7 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Swedish"
 !insertmacro MUI_LANGUAGE "Tradchinese"
 !insertmacro MUI_LANGUAGE "Simpchinese"
+!insertmacro MUI_LANGUAGE "Bahasa Indonesia"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
 

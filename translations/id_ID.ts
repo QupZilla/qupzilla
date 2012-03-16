@@ -431,7 +431,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="93"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Catatan:&lt;/b&gt; Saat ini hanya impor dari Berkas HTML dapat juga mengimpor map bookmark.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="135"/>
@@ -2033,7 +2033,7 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="220"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak dapat memuat ekstensi!</translation>
     </message>
     <message>
         <source>Cannot load plugin!</source>
@@ -2357,7 +2357,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="142"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekstensi</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="431"/>
@@ -3061,12 +3061,12 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="160"/>
         <source>Last session crashed</source>
-        <translation type="unfinished">Sesi terakhir rusak</translation>
+        <translation>Sesi terakhir rusak</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="161"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;Qupzilla rusak :-(&lt;/b&gt;&lt;br/&gt;Ups, sesi terakhir dari QupZilla telah diinterupsi secara mendadak. Kami minta maaf untuk hal ini. Apakah anda ingin mengembalikan kondisi terakhir yang tersimpan?</translation>
+        <translation>&lt;b&gt;Qupzilla rusak :-(&lt;/b&gt;&lt;br/&gt;Ups, sesi terakhir dari QupZilla telah diinterupsi secara mendadak. Kami minta maaf untuk hal ini. Apakah anda ingin mengembalikan kondisi terakhir yang tersimpan?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="310"/>
@@ -3462,7 +3462,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="304"/>
         <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Halaman ini memuat informasi tentang konfigurasi terakhir Qupzilla yang relevan untuk perbaikan. Harap mengikutsertakan informasi ini saat mengirimkan laporan kerusakan.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="305"/>
@@ -3539,7 +3539,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="311"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekstensi</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="312"/>
@@ -3598,7 +3598,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="141"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Jika anda mengalami permasalahan dengan QupZilla, nonaktifkan dahulu semua ekstensi. &lt;br/&gt;Jika hal ini tidak dapat membantu, silakan isi form berikut ini: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="147"/>
@@ -3688,7 +3688,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="380"/>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekstensi tidak tersedia.</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
