@@ -155,8 +155,8 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
                 m_postLaunchActions.append(PrivateBrowsing);
                 break;
             case Qz::CL_OpenUrl:
-                startUrl = QUrl::fromEncoded(pair.text.toUtf8());
-                messages.append("URL:" + startUrl.toString());
+                startUrl = QUrl(pair.text.toUtf8());
+                messages.append("URL:" + pair.text);
                 break;
             default:
                 break;
@@ -440,8 +440,8 @@ void MainApplication::receiveAppMessage(QString message)
 {
     QWidget* actWin = getWindow();
     if (message.startsWith("URL:")) {
-        QString url(message.remove("URL:"));
-        addNewTab(QUrl::fromUserInput(url));
+        QUrl url = QUrl::fromEncoded(message.mid(4).toUtf8());
+        addNewTab(url);
         actWin = getWindow();
     }
     else if (message.startsWith("ACTION:")) {

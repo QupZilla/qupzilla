@@ -131,9 +131,9 @@ private:
     int m_lastTabIndex;
     int m_lastBackgroundTabIndex;
     bool m_isClosingToLastTabIndex;
+    bool m_isRestoringState;
 
     TabBar* m_tabBar;
-
     QMenu* m_menuTabs;
     ToolButton* m_buttonListTabs;
     AddTabButton* m_buttonAddTab;

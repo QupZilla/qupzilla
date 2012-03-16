@@ -79,6 +79,9 @@ public:
     void lineNumberAreaPaintEvent(QPaintEvent* event);
     int lineNumberAreaWidth();
 
+    void setShowingCursor(bool show);
+    bool isShowingCursor() const;
+
     void setReadOnly(bool ro);
 
 public slots:
@@ -95,6 +98,7 @@ private slots:
 private:
     QWidget* m_lineNumberArea;
 
+    bool m_isShowingCursor;
     QPair<int, int> m_countCache;
 };
 

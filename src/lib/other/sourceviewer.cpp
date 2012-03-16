@@ -48,14 +48,13 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
 
     m_statusBar = new QStatusBar(this);
     m_statusBar->showMessage(frame->url().toString());
+
     QMenuBar* menuBar = new QMenuBar(this);
     m_layout->addWidget(m_sourceEdit);
     m_layout->addWidget(m_statusBar);
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
     m_layout->setMenuBar(menuBar);
-
-    resize(650, 600);
 
     QFont font;
     font.setFamily("Tahoma");
@@ -64,6 +63,9 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
 
     m_sourceEdit->setFont(font);
     new HtmlHighlighter(m_sourceEdit->document());
+
+    resize(650, 600);
+    qz_centerWidgetToParent(this, frame->page()->view());
 
     QMenu* menuFile = new QMenu(tr("File"));
     menuFile->addAction(QIcon::fromTheme("document-save"), tr("Save as..."), this, SLOT(save()))->setShortcut(QKeySequence("Ctrl+S"));
@@ -98,8 +100,6 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     menuView->addAction(tr("Word Wrap"), this, SLOT(setTextWordWrap()))->setCheckable(true);
     menuView->actions().at(3)->setChecked(true);
     menuBar->addMenu(menuView);
-
-    qz_centerWidgetToParent(this, frame->page()->view());
 
     connect(m_sourceEdit, SIGNAL(copyAvailable(bool)), this, SLOT(copyAvailable(bool)));
     connect(m_sourceEdit, SIGNAL(redoAvailable(bool)), this, SLOT(redoAvailable(bool)));
@@ -144,9 +144,8 @@ void SourceViewer::loadSource()
     if (!m_selectedHtml.isEmpty()) {
         m_sourceEdit->find(m_selectedHtml, QTextDocument::FindWholeWords);
     }
-    else {
-        m_sourceEdit->moveCursor(QTextCursor::Start);
-    }
+
+    m_sourceEdit->setShowingCursor(true);
 }
 
 void SourceViewer::save()

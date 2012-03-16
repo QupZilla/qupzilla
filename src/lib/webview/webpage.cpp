@@ -22,11 +22,6 @@
 #include "downloadmanager.h"
 #include "webpluginfactory.h"
 #include "mainapplication.h"
-#ifdef NONBLOCK_JS_DIALOGS
-#include "ui_jsconfirm.h"
-#include "ui_jsalert.h"
-#include "ui_jsprompt.h"
-#endif
 #include "checkboxdialog.h"
 #include "widget.h"
 #include "globalfunctions.h"
@@ -36,6 +31,14 @@
 #include "popupwebview.h"
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
+
+#ifdef NONBLOCK_JS_DIALOGS
+#include "ui_jsconfirm.h"
+#include "ui_jsalert.h"
+#include "ui_jsprompt.h"
+
+#include <QPushButton>
+#endif
 
 #include <QDir>
 #include <QWebHistory>

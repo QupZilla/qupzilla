@@ -145,6 +145,8 @@ void DownloadItem::finished()
     ui->frame->hide();
     m_outputFile.close();
 
+    m_reply->deleteLater();
+
     m_item->setSizeHint(sizeHint());
 #if QT_VERSION == 0x040700 // Workaround
     ui->button->show();
