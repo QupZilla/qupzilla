@@ -294,7 +294,7 @@ void WebPage::featurePermissionRequested(QWebFrame* frame, const QWebPage::Featu
 }
 #endif
 
-bool WebPage::event(QEvent *event)
+bool WebPage::event(QEvent* event)
 {
     if (event->type() == QEvent::Leave) {
         // QWebPagePrivate::leaveEvent():

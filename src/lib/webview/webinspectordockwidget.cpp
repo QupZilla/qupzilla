@@ -34,6 +34,16 @@ WebInspectorDockWidget::WebInspectorDockWidget(QupZilla* mainClass)
     show();
 }
 
+void WebInspectorDockWidget::toggleVisibility()
+{
+    if (isVisible()) {
+        close();
+    }
+    else {
+        show();
+    }
+}
+
 void WebInspectorDockWidget::close()
 {
     p_QupZilla->weView()->webTab()->setInspectorVisible(false);

@@ -58,10 +58,12 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* pa
     setOperation(QNetworkAccessManager::GetOperation);
     setRequest(req);
     setUrl(req.url());
-
     m_pageName = req.url().path();
-    if (m_pageName == "about" || m_pageName == "reportbug" || m_pageName == "start" ||
-            m_pageName == "speeddial" || m_pageName == "config") {
+
+    QStringList knownPages;
+    knownPages << "about" << "reportbug" << "start" << "speeddial" << "config";
+
+    if (knownPages.contains(m_pageName)) {
         m_buffer.open(QIODevice::ReadWrite);
         setError(QNetworkReply::NoError, tr("No Error"));
 

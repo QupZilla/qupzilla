@@ -1316,7 +1316,7 @@ void QupZilla::showWebInspector(bool toggle)
 {
     if (m_webInspectorDock) {
         if (toggle) {
-            m_webInspectorDock.data()->setVisible(!m_webInspectorDock.data()->isVisible());
+            m_webInspectorDock.data()->toggleVisibility();
         }
         else  {
             m_webInspectorDock.data()->show();

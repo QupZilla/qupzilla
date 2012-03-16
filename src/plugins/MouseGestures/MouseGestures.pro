@@ -28,6 +28,8 @@ RESOURCES = mousegestures.qrc
 TRANSLATIONS = \
     translations/cs_CZ.ts \
     translations/de_DE.ts \
+    translations/id_ID.ts \
+    translations/ja_JP.ts \
     translations/nl_NL.ts \
     translations/sk_SK.ts \
     translations/sr_BA.ts \

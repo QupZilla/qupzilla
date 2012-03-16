@@ -14,6 +14,8 @@
         <file>data/copyright</file>
         <file>locale/cs_CZ.qm</file>
         <file>locale/de_DE.qm</file>
+        <file>locale/id_ID.qm</file>
+        <file>locale/ja_JP.qm</file>
         <file>locale/nl_NL.qm</file>
         <file>locale/sk_SK.qm</file>
         <file>locale/sr_BA.qm</file>
