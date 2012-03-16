@@ -18,10 +18,10 @@
 #ifndef PLUGINPROXY_H
 #define PLUGINPROXY_H
 
-#include "mainapplication.h"
-#include "networkmanager.h"
 #include "plugins.h"
 #include "qz_namespace.h"
+
+class QupZilla;
 
 class QT_QUPZILLA_EXPORT PluginProxy : public Plugins
 {

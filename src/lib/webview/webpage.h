@@ -75,7 +75,6 @@ signals:
     void privacyChanged(bool status);
 
 protected slots:
-    QWebPage* createWindow(QWebPage::WebWindowType type);
     void handleUnsupportedContent(QNetworkReply* url);
 
     void progress(int prog);
@@ -91,9 +90,12 @@ private slots:
     void downloadRequested(const QNetworkRequest &request);
     void windowCloseRequested();
 
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+#ifdef USE_QTWEBKIT_2_2
     void featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature);
 #endif
+
+protected:
+    QWebPage* createWindow(QWebPage::WebWindowType type);
 
 private:
     virtual bool supportsExtension(Extension extension) const;

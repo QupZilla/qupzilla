@@ -32,6 +32,8 @@
 #include <QInputDialog>
 #include <QWebFrame>
 
+#include <QTextEdit>
+
 SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     : QWidget(0)
     , m_frame(frame)
@@ -41,6 +43,8 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     m_layout = new QBoxLayout(QBoxLayout::TopToBottom, this);
     m_sourceEdit = new PlainEditWithLines(this);
     m_sourceEdit->setObjectName("sourceviewer-textedit");
+    m_sourceEdit->setReadOnly(true);
+    m_sourceEdit->setUndoRedoEnabled(false);
 
     m_statusBar = new QStatusBar(this);
     m_statusBar->showMessage(frame->url().toString());
@@ -51,9 +55,7 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     m_layout->setSpacing(0);
     m_layout->setMenuBar(menuBar);
 
-    this->resize(650, 600);
-    m_sourceEdit->setReadOnly(true);
-    m_sourceEdit->moveCursor(QTextCursor::Start);
+    resize(650, 600);
 
     QFont font;
     font.setFamily("Tahoma");
@@ -94,18 +96,14 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
 
     qz_centerWidgetToParent(this, frame->page()->view());
 
-    m_sourceEdit->setUndoRedoEnabled(false);
-    m_sourceEdit->insertPlainText(frame->toHtml());
-    m_sourceEdit->setUndoRedoEnabled(true);
+    m_sourceEdit->setPlainText(frame->toHtml());
 
     //Highlight selectedHtml
     if (!selectedHtml.isEmpty()) {
         m_sourceEdit->find(selectedHtml, QTextDocument::FindWholeWords);
     }
     else {
-        QTextCursor cursor = m_sourceEdit->textCursor();
-        cursor.setPosition(0);
-        m_sourceEdit->setTextCursor(cursor);
+        m_sourceEdit->moveCursor(QTextCursor::Start);
     }
 }
 
@@ -145,7 +143,7 @@ void SourceViewer::reload()
 {
     if (m_frame) {
         m_sourceEdit->clear();
-        m_sourceEdit->insertPlainText(m_frame.data()->toHtml());
+        m_sourceEdit->setPlainText(m_frame.data()->toHtml());
 
         m_statusBar->showMessage(tr("Source reloaded"));
     }
@@ -157,6 +155,7 @@ void SourceViewer::reload()
 void SourceViewer::setTextEditable()
 {
     m_sourceEdit->setReadOnly(!m_sourceEdit->isReadOnly());
+    m_sourceEdit->setUndoRedoEnabled(true);
 
     m_statusBar->showMessage(tr("Editable changed"));
 }

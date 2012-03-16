@@ -82,7 +82,7 @@ WebPage::WebPage(QupZilla* mainClass)
 
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
 
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+#ifdef USE_QTWEBKIT_2_2
     connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)), this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
 #endif
 }
@@ -286,7 +286,7 @@ void WebPage::windowCloseRequested()
     webView->closeView();
 }
 
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+#ifdef USE_QTWEBKIT_2_2
 void WebPage::featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature)
 {
     // We should probably ask user here ... -,-

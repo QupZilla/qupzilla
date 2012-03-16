@@ -19,6 +19,7 @@
 #include "qupzilla.h"
 #include "webview.h"
 #include "pluginproxy.h"
+#include "mainapplication.h"
 
 #include <QTranslator>
 #include <QPushButton>

@@ -3,7 +3,7 @@
 # Project created by QtCreator 2011-02-13T10:23:13
 #
 #-------------------------------------------------
-QT += network webkit
+QT += webkit
 TARGET = TestPlugin
 # OS/2 allows only 8 chars in TARGET
 os2: TARGET = TestPlug

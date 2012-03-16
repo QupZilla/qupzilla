@@ -28,6 +28,7 @@ d_w7api = $$(W7API)
 d_kde = $$(KDE)
 d_portable = $$(PORTABLE_BUILD)
 d_nonblock_dialogs = $$(NONBLOCK_JS_DIALOGS)
+d_use_qtwebkit_2_2 = $$(USE_QTWEBKIT_2_2)
 
 equals(d_no_system_datapath, "true") { DEFINES += NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES += USE_WEBGL }
@@ -35,6 +36,7 @@ equals(d_w7api, "true") { DEFINES += W7API }
 equals(d_kde, "true") { DEFINES += KDE }
 equals(d_portable, "true") { DEFINES += PORTABLE_BUILD }
 equals(d_nonblock_dialogs, "true") { DEFINES += NONBLOCK_JS_DIALOGS }
+equals(d_use_qtwebkit_2_2, "true") { DEFINES += USE_QTWEBKIT_2_2 }
 
 !mac:unix {
     d_prefix = $$(QUPZILLA_PREFIX)
