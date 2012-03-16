@@ -14,7 +14,7 @@ $translated_by = "このページはDaiki Nodaが翻訳しました";
 
 //Home Page
 $actual_version = "最新版";
-$actual_version_text = "最新の更新は"$qupzilla_version_date ."に行われました"
+$actual_version_text = "最新の更新は" . $qupzilla_version_date ."に行われました"
 					   "最新版のバージョンは" . $qupzilla_version . "です。更新履歴をぜひご覧ください。<br/>QupZillaをぜひダウンロードしてください<a href=\"download\">こちら</a>からすぐにでもできます！";
 $actual_version_button = "DOWNLOAD";
 $older_versions = "更新履歴";
