@@ -30,7 +30,6 @@
 
 TipLabel::TipLabel(QWidget* parent)
     : SqueezeLabelV1(parent)
-    , m_connected(false)
 {
     setWindowFlags(Qt::ToolTip);
     setForegroundRole(QPalette::ToolTipText);

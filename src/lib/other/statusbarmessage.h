@@ -35,9 +35,6 @@ public:
 
 private:
     void paintEvent(QPaintEvent* ev);
-
-    QupZilla* p_QupZilla;
-    bool m_connected;
 };
 
 class QT_QUPZILLA_EXPORT StatusBarMessage

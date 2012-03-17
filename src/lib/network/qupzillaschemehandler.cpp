@@ -263,6 +263,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%URL%", tr("Url"));
         dPage.replace("%TITLE%", tr("Title"));
         dPage.replace("%APPLY%", tr("Apply"));
+        dPage.replace("%CLOSE%", tr("Close"));
         dPage.replace("%NEW-PAGE%", tr("New Page"));
         dPage.replace("%IMG_SETTINGS%", "qrc:html/setting.png");
         dPage.replace("%SETTINGS-TITLE%", tr("Speed Dial settings"));
