@@ -432,7 +432,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="93"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Hinweis:&lt;/b&gt; Aktuell ist es nur beim Import von HTML Dateien möglich, auch Ordner zu importieren.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="135"/>
@@ -1585,7 +1585,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="90"/>
         <source>Image files</source>
-        <translation type="unfinished">Bild-Dateien</translation>
+        <translation>Bild-Dateien</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="92"/>
@@ -2053,7 +2053,7 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="220"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translation>Erweiterung kann nicht geladen werden!</translation>
     </message>
     <message>
         <source>Cannot load plugin!</source>
@@ -2481,12 +2481,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="142"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Erweiterungen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="431"/>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabs erst laden, wenn sie ausgewählt wurden</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="757"/>
@@ -3000,12 +3000,12 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="160"/>
         <source>Last session crashed</source>
-        <translation type="unfinished">Die letzte Sitzung wurde unerwartet beendet</translation>
+        <translation>Die letzte Sitzung wurde unerwartet beendet</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="161"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;QupZilla ist abgestürzt :-(&lt;/b&gt;&lt;br/&gt;Hoppla,die letzte Sitzung wurde unerwartet beendet. Verzeihung. Möchten Sie den letzten Status wiederherstellen?</translation>
+        <translation>&lt;b&gt;QupZilla ist abgestürzt :-(&lt;/b&gt;&lt;br/&gt;Hoppla,die letzte Sitzung wurde unerwartet beendet. Verzeihung. Möchten Sie den letzten Status wiederherstellen?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="299"/>
@@ -3427,7 +3427,8 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="141"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>/src/lib/network/qupzillaschemehandler.cpp</translatorcomment>
+        <translation type="unfinished">Wenn Sie bei der Nutzung von QupZilla auf Probleme stoßen, deaktivieren Sie bitte zuerst alle Plugins. &lt;br/&gt; Sollte dies das Problem nicht lösen, füllen Sie bitte dieses Formular aus: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="143"/>
@@ -3485,7 +3486,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="304"/>
         <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Seite enthält Informationen über die aktuelle Konfiguration von QupZilla, die für die Ermittlung von Fehlerursachen relevant sind. Bitte fügen Sie diese Ihrem Fehlerbericht bei.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="305"/>
@@ -3500,7 +3501,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="311"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Erweiterungen</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="337"/>
@@ -3548,7 +3549,7 @@
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="380"/>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Erweiterungen verfügbar.</translation>
     </message>
     <message>
         <source>No available plugins.</source>
@@ -4521,7 +4522,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
         <source>Image files</source>
-        <translation type="unfinished">Bild-Dateien</translation>
+        <translation>Bild-Dateien</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>

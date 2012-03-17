@@ -142,7 +142,7 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace("%TITLE%", tr("Report Issue"));
     bPage.replace("%REPORT-ISSUE%", tr("Report Issue"));
     bPage.replace("%PLUGINS-TEXT%", tr("If you are experiencing problems with QupZilla, please try to disable"
-                                       " all extenions first. <br/>If this does not fix it, then please fill out this form: "));
+                                       " all extensions first. <br/>If this does not fix it, then please fill out this form: "));
     bPage.replace("%EMAIL%", tr("Your E-mail"));
     bPage.replace("%TYPE%", tr("Issue type"));
     bPage.replace("%DESCRIPTION%", tr("Issue description"));
@@ -305,7 +305,7 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace("%TITLE%", tr("Configuration Information"));
         cPage.replace("%CONFIG%", tr("Configuration Information"));
         cPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
-        cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about QupZilla's current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports."));
+        cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about QupZilla's current configuration - relevant for troubleshooting. Please include this information when submitting bug reports."));
         cPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
         cPage.replace("%PATHS%", tr("Paths"));
         cPage.replace("%BUILD-CONFIG%", tr("Build Configuration"));
