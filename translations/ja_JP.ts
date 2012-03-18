@@ -2728,20 +2728,20 @@
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
+        <translation>&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>現在%1個のタブが開いています。セッションは保存されません。QupZillaを終了しますか?</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">次回からは表示しない</translation>
+        <translation>次回からは表示しない</translation>
     </message>
     <message>
         <source>There are still open tabs</source>
-        <translation type="unfinished">まだ開いているタブがあります</translation>
+        <translation>まだ開いているタブがあります</translation>
     </message>
 </context>
 <context>
@@ -3064,15 +3064,15 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>QupZillaを使用中に問題が発生した場合はまずエクステンションを無効にしてみてください。&lt;br/&gt;それでも問題が解決されない場合以下のフォームに書き込んでください:</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">閉じる</translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>このページはQupZillaの現在の設定についての情報が表示されています。これらの情報はトラブルシューティングに非常に大切です。バグレポートの際は、これらの情報を含めて送信してください。</translation>
     </message>
 </context>
 <context>
@@ -3962,7 +3962,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>Javascriptアラート</translation>
     </message>
 </context>
 <context>
