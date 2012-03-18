@@ -1401,11 +1401,11 @@
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="382"/>
-        <source>Sorry, the file 
- %1 
+        <source>Sorry, the file
+ %1
  was not found!</source>
-        <translation>Maaf, berkas 
- %1 
+        <translation>Maaf, berkas
+ %1
  tidak ditemukan!</translation>
     </message>
     <message>
@@ -3192,19 +3192,20 @@
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1813"/>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+        <source>There are still %1 open tabs and your session won&apos;t be stored.
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Masih ada %1 tab terbuka dan sesi anda tidak akan disimpan.
+Anda yakin untuk menutup QupZilla?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1814"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">Jangan tanya lagi</translation>
+        <translation>Jangan tanya lagi</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1815"/>
         <source>There are still open tabs</source>
-        <translation type="unfinished">Masih ada tab yang terbuka</translation>
+        <translation>Masih ada tab yang terbuka</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="440"/>
@@ -3473,11 +3474,7 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-<<<<<<< HEAD
         <translation>Halaman ini memuat informasi tentang konfigurasi terakhir Qupzilla yang relevan untuk perbaikan. Harap mengikutsertakan informasi ini saat mengirimkan laporan kerusakan.</translation>
-=======
-        <translation type="obsolete">Halaman ini memuat informasi tentang konfigurasi terakhir Qupzilla yang relevan untuk perbaikan. Harap mengikutsertakan informasi ini saat mengirimkan laporan kerusakan.</translation>
->>>>>>> upstream/master
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="309"/>
@@ -3539,7 +3536,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="144"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Jika anda mengalami permasalahan dengan QupZilla, mohon nonaktifkan dahulu semua ekstensi. &lt;br/&gt;Jika hal ini tidak dapat membantu, silakan isi form berikut ini: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="311"/>
@@ -3617,11 +3614,7 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-<<<<<<< HEAD
         <translation>Jika anda mengalami permasalahan dengan QupZilla, nonaktifkan dahulu semua ekstensi. &lt;br/&gt;Jika hal ini tidak dapat membantu, silakan isi form berikut ini: </translation>
-=======
-        <translation type="obsolete">Jika anda mengalami permasalahan dengan QupZilla, nonaktifkan dahulu semua ekstensi. &lt;br/&gt;Jika hal ini tidak dapat membantu, silakan isi form berikut ini: </translation>
->>>>>>> upstream/master
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="150"/>
@@ -3656,7 +3649,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Close</source>
-        <translation type="unfinished">Tutup</translation>
+        <translation>Tutup</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="269"/>
@@ -3714,18 +3707,7 @@ Are you sure to quit QupZilla?</source>
         <translation>Ubah ukuran halaman:</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="380"/>
-        <source>No available extensions.</source>
-        <translation>Ekstensi tidak tersedia.</translation>
-=======
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="308"/>
-        <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
->>>>>>> upstream/master
-    </message>
-    <message>
-        <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="384"/>
         <source>No available extensions.</source>
         <translation>Ekstensi tidak tersedia.</translation>
     </message>
@@ -4766,7 +4748,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <name>WebPage</name>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="352"/>
-        <source>To show this page, QupZilla must resend request which do it again 
+        <source>To show this page, QupZilla must resend request which do it again
 (like searching on making an shoping, which has been already done.)</source>
         <translation></translation>
     </message>
@@ -4888,7 +4870,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="687"/>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>Peringatan JavaScript</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="695"/>
