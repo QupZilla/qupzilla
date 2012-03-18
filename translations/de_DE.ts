@@ -3148,17 +3148,17 @@
         <location filename="../src/lib/app/qupzilla.cpp" line="1813"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Es sind noch %1 Tabs geöffnet und Ihre Sitzung wird nicht gespeichert. Möchten Sie QupZilla wirklich beenden?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1814"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">Nicht mehr fragen</translation>
+        <translation>Nicht mehr fragen</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1815"/>
         <source>There are still open tabs</source>
-        <translation type="unfinished">Es sind noch Tabs geöffnet</translation>
+        <translation>Es sind noch Tabs geöffnet</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
@@ -3675,7 +3675,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="308"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Seite enthält Informationen über die aktuelle Konfiguration von QupZilla, die für die Ermittlung von Fehlerursachen relevant sind. Bitte fügen Sie diese Ihrem Fehlerbericht bei.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="322"/>
@@ -3783,12 +3783,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="144"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn Sie bei der Nutzung von QupZilla auf Probleme stoßen, deaktivieren Sie bitte zuerst alle Erweiterungen. &lt;br/&gt; Sollte dies das Problem nicht lösen, füllen Sie bitte dieses Formular aus: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Close</source>
-        <translation type="unfinished">Schließen</translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="270"/>
@@ -4900,7 +4900,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="687"/>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>JavaScript Warnmeldung</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="695"/>
