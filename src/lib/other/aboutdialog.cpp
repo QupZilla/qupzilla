@@ -62,7 +62,7 @@ void AboutDialog::showAbout()
 #endif
                                                                           ));
         m_aboutHtml.append(tr("<b>WebKit version %1</b></p>").arg(QupZilla::WEBKITVERSION));
-        m_aboutHtml.append(tr("<p>&copy; %1 %2<br/>").arg(QupZilla::COPYRIGHT, QupZilla::AUTHOR));
+        m_aboutHtml.append(QString("<p>&copy; %1 %2<br/>").arg(QupZilla::COPYRIGHT, QupZilla::AUTHOR));
         m_aboutHtml.append(tr("<small>Build time: %1 </small></p>").arg(QupZilla::BUILDTIME));
         m_aboutHtml.append(QString("<p><a href=%1>%1</a></p>").arg(QupZilla::WWWADDRESS));
         m_aboutHtml.append("<p>" + mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()) + "</p>");

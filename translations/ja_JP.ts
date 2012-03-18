@@ -30,7 +30,7 @@
     <message>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
         <translatorcomment>そのまま</translatorcomment>
-        <translation>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</translation>
+        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
@@ -864,11 +864,11 @@
     <message>
         <source>There are still open tabs</source>
         <translatorcomment>保留</translatorcomment>
-        <translation>まだ開いているタブがあります</translation>
+        <translation type="obsolete">まだ開いているタブがあります</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation>次回からは表示しない</translation>
+        <translation type="obsolete">次回からは表示しない</translation>
     </message>
 </context>
 <context>
@@ -2699,7 +2699,7 @@
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
         <translatorcomment>意訳。保留。</translatorcomment>
-        <translation>%1個のタブが開いています。セッションは保存されませんがQupZillaを終了しますか?</translation>
+        <translation type="obsolete">%1個のタブが開いています。セッションは保存されませんがQupZillaを終了しますか?</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
@@ -2729,6 +2729,19 @@
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation>&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
+    </message>
+    <message>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+Are you sure to quit QupZilla?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t ask again</source>
+        <translation type="unfinished">次回からは表示しない</translation>
+    </message>
+    <message>
+        <source>There are still open tabs</source>
+        <translation type="unfinished">まだ開いているタブがあります</translation>
     </message>
 </context>
 <context>
@@ -3035,11 +3048,11 @@
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>QupZillaを使用中に問題が発生した場合はまずエクステンションを無効にしてみてください。&lt;br/&gt;それでも問題が解決されない場合以下のフォームに書き込んでください:</translation>
+        <translation type="obsolete">QupZillaを使用中に問題が発生した場合はまずエクステンションを無効にしてみてください。&lt;br/&gt;それでも問題が解決されない場合以下のフォームに書き込んでください:</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation>このページはQupZillaの現在の設定について表示しています。これらの情報はトラブルシューティングに非常に有用ですので、バグレポート送信の際にはこれらの情報を一緒に送信してください。</translation>
+        <translation type="obsolete">このページはQupZillaの現在の設定について表示しています。これらの情報はトラブルシューティングに非常に有用ですので、バグレポート送信の際にはこれらの情報を一緒に送信してください。</translation>
     </message>
     <message>
         <source>Extensions</source>
@@ -3048,6 +3061,18 @@
     <message>
         <source>No available extensions.</source>
         <translation>エクステンションが見つかりません。</translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">閉じる</translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3542,7 +3567,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Delete</source>
-        <translation>削除</translation>
+        <translation type="obsolete">削除</translation>
     </message>
     <message>
         <source>Select All</source>
@@ -3929,11 +3954,15 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>JavaScript alert - %1</source>
         <translatorcomment>javascript alertで出てくる奴→警告、要再考。</translatorcomment>
-        <translation> 警告- %1</translation>
+        <translation type="obsolete"> 警告- %1</translation>
     </message>
     <message>
         <source>Choose file...</source>
         <translation>ファイルの選択...</translation>
+    </message>
+    <message>
+        <source>JavaScript alert</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Todos os direitos reservados.&lt;br/&gt;</translation>
+        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Todos os direitos reservados.&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
@@ -878,11 +878,11 @@
     <name>CloseDialog</name>
     <message>
         <source>There are still open tabs</source>
-        <translation>Ainda existem abas abertas</translation>
+        <translation type="obsolete">Ainda existem abas abertas</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation>Não perguntar novamente</translation>
+        <translation type="obsolete">Não perguntar novamente</translation>
     </message>
 </context>
 <context>
@@ -2659,7 +2659,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation>Ainda existem %1 guias abertas e a sessão não será gravada. Tem a certeza que deseja sair?</translation>
+        <translation type="obsolete">Ainda existem %1 guias abertas e a sessão não será gravada. Tem a certeza que deseja sair?</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
@@ -2700,6 +2700,19 @@ não foi encontrado!</translation>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation type="unfinished">&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
+    </message>
+    <message>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+Are you sure to quit QupZilla?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t ask again</source>
+        <translation type="unfinished">Não perguntar novamente</translation>
+    </message>
+    <message>
+        <source>There are still open tabs</source>
+        <translation type="unfinished">Ainda existem abas abertas</translation>
     </message>
 </context>
 <context>
@@ -2993,19 +3006,23 @@ não foi encontrado!</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No available extensions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fechar</translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3498,7 +3515,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Delete</source>
-        <translation>Apagar</translation>
+        <translation type="obsolete">Apagar</translation>
     </message>
     <message>
         <source>Error!</source>
@@ -3780,7 +3797,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>JavaScript alert - %1</source>
-        <translation>Alerta JavaScript - %1</translation>
+        <translation type="obsolete">Alerta JavaScript - %1</translation>
     </message>
     <message>
         <source>Confirm form resubmission</source>
@@ -3871,6 +3888,10 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Para mostrar esta página, o QupZilla precisa reenviar o pedido solicitado.
 (é como fazer alguma coisa, que você já havia feito anteriormente)</translation>
+    </message>
+    <message>
+        <source>JavaScript alert</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
