@@ -62,6 +62,7 @@
 PlainEditWithLines::PlainEditWithLines(QWidget* parent)
     : QPlainTextEdit(parent)
     , m_lineNumberArea(new LineNumberArea(this))
+    , m_isShowingCursor(false)
     , m_countCache(-1, -1)
 {
     connect(this, SIGNAL(blockCountChanged(int)), this, SLOT(updateLineNumberAreaWidth(int)));
@@ -84,6 +85,16 @@ int PlainEditWithLines::lineNumberAreaWidth()
     int space = 5 + fontMetrics().width(QLatin1Char('9')) * digits;
 
     return space;
+}
+
+void PlainEditWithLines::setShowingCursor(bool show)
+{
+    m_isShowingCursor = show;
+}
+
+bool PlainEditWithLines::isShowingCursor() const
+{
+    return m_isShowingCursor;
 }
 
 void PlainEditWithLines::setReadOnly(bool ro)
@@ -138,17 +149,21 @@ void PlainEditWithLines::resizeEvent(QResizeEvent* e)
 
 void PlainEditWithLines::highlightCurrentLine()
 {
-    QList<QTextEdit::ExtraSelection> extraSelections;
+    if (!m_isShowingCursor) {
+        return;
+    }
+
+    const QColor &lineColor = palette().color(QPalette::Highlight).lighter();
+    QList<QTextEdit::ExtraSelection> selectionsList;
     QTextEdit::ExtraSelection selection;
-    QColor lineColor = palette().color(QPalette::Highlight).lighter();
 
     selection.format.setBackground(lineColor);
     selection.format.setProperty(QTextFormat::FullWidthSelection, true);
     selection.cursor = textCursor();
     selection.cursor.clearSelection();
-    extraSelections.append(selection);
+    selectionsList.append(selection);
 
-    setExtraSelections(extraSelections);
+    setExtraSelections(selectionsList);
 }
 
 void PlainEditWithLines::lineNumberAreaPaintEvent(QPaintEvent* event)

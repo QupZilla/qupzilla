@@ -82,6 +82,7 @@ TabWidget::TabWidget(QupZilla* mainClass, QWidget* parent)
     , m_lastTabIndex(0)
     , m_lastBackgroundTabIndex(-1)
     , m_isClosingToLastTabIndex(false)
+    , m_isRestoringState(false)
     , m_closedTabsManager(new ClosedTabsManager)
     , m_locationBars(new QStackedWidget)
 {
@@ -376,7 +377,7 @@ void TabWidget::closeTab(int index)
 
 void TabWidget::currentTabChanged(int index)
 {
-    if (index < 0) {
+    if (index < 0 || m_isRestoringState) {
         return;
     }
 
@@ -516,12 +517,13 @@ int TabWidget::duplicateTab(int index)
     WebTab* webTab = weTab(index);
 
     const QUrl &url = webTab->url();
+    const QString &title = webTab->title();
     const QByteArray &history = webTab->historyData();
 
     QNetworkRequest req(url);
     req.setRawHeader("Referer", url.toEncoded());
 
-    int id = addView(req, tabText(index), Qz::NT_CleanNotSelectedTab);
+    int id = addView(req, title, Qz::NT_CleanNotSelectedTab);
     weTab(id)->setHistoryData(history);
 
     return id;
@@ -661,6 +663,8 @@ void TabWidget::restorePinnedTabs()
     QList<QByteArray> tabHistory;
     stream >> tabHistory;
 
+    m_isRestoringState = true;
+
     for (int i = 0; i < pinnedTabs.count(); ++i) {
         QUrl url = QUrl::fromEncoded(pinnedTabs.at(i).toUtf8());
 
@@ -686,6 +690,8 @@ void TabWidget::restorePinnedTabs()
         m_tabBar->updateCloseButton(addedIndex);
         m_tabBar->moveTab(addedIndex, i);
     }
+
+    m_isRestoringState = false;
 }
 
 QByteArray TabWidget::saveState()
@@ -728,6 +734,8 @@ bool TabWidget::restoreState(const QByteArray &state)
 
     stream >> tabListCount;
 
+    m_isRestoringState = true;
+
     for (int i = 0; i < tabListCount; ++i) {
         WebTab::SavedTab tab;
         stream >> tab;
@@ -737,6 +745,8 @@ bool TabWidget::restoreState(const QByteArray &state)
     }
 
     stream >> currentTab;
+
+    m_isRestoringState = false;
 
     setCurrentIndex(currentTab);
     currentTabChanged(currentTab);

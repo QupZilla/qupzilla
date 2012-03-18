@@ -43,6 +43,10 @@ AnimatedWidget::AnimatedWidget(const Direction &direction, int duration, QWidget
 
 void AnimatedWidget::startAnimation()
 {
+    if (m_aniGroup->state() == QAnimationGroup::Running) {
+        return;
+    }
+
     if (m_direction == Down) {
         Y_SHOWN = 0;
         Y_HIDDEN = -m_widget->height();
@@ -62,6 +66,10 @@ void AnimatedWidget::startAnimation()
 
 void AnimatedWidget::hide()
 {
+    if (m_aniGroup->state() == QAnimationGroup::Running) {
+        return;
+    }
+
     m_positionAni->setEndValue(QPoint(m_widget->pos().x(), Y_HIDDEN));
     m_heightAni->setEndValue(0);
 

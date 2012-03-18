@@ -150,6 +150,8 @@ void LocationBar::showGoButton()
     m_bookmarkIcon->hide();
     m_rssIcon->hide();
     m_goIcon->show();
+
+    updateTextMargins();
 }
 
 void LocationBar::hideGoButton()
@@ -161,6 +163,8 @@ void LocationBar::hideGoButton()
     m_rssIcon->setVisible(m_rssIconVisible);
     m_bookmarkIcon->show();
     m_goIcon->hide();
+
+    updateTextMargins();
 }
 
 void LocationBar::showMostVisited()
@@ -172,6 +176,7 @@ void LocationBar::showMostVisited()
         QKeyEvent event(QEvent::KeyPress, Qt::Key_unknown, Qt::NoModifier, QString(" "));
         keyPressEvent(&event);
     }
+
     m_locationCompleter->showMostVisited();
 }
 
@@ -196,6 +201,8 @@ void LocationBar::rssIconClicked()
 void LocationBar::showRSSIcon(bool state)
 {
     m_rssIcon->setVisible(state);
+
+    updateTextMargins();
 }
 
 void LocationBar::showUrl(const QUrl &url)

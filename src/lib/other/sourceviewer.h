@@ -36,11 +36,13 @@ public:
     explicit SourceViewer(QWebFrame* frame, const QString &selectedHtml);
     PlainEditWithLines* sourceEdit() { return m_sourceEdit; }
 
-signals:
-
-public slots:
-
 private slots:
+    void copyAvailable(bool yes);
+    void redoAvailable(bool available);
+    void undoAvailable(bool available);
+    void pasteAvailable();
+
+    void loadSource();
     void save();
     void findText();
     void reload();
@@ -53,6 +55,14 @@ private:
     PlainEditWithLines* m_sourceEdit;
     QWeakPointer<QWebFrame> m_frame;
     QStatusBar* m_statusBar;
+
+    QString m_selectedHtml;
+
+    QAction* m_actionUndo;
+    QAction* m_actionRedo;
+    QAction* m_actionCut;
+    QAction* m_actionCopy;
+    QAction* m_actionPaste;
 };
 
 #endif // SOURCEVIEWER_H

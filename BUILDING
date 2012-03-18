@@ -74,6 +74,16 @@ Available Defines
                           
                           example:
                           $ export USE_WEBGL="true"
+                          
+   USE_QTWEBKIT_2_2       Enable support for Geolocation and Notifications API.
+                          You need to have QtWebKit version at least 2.2 to pass compilation
+                          with this define.
+                          Note: In order to get support for Geolocation and Notifications,
+                          your QtWebKit has to be compiled with its support.
+                          (disabled by default)
+                          
+                          example:
+                          $ export USE_QTWEBKIT_2_2="true"
 
    NONBLOCK_JS_DIALOGS    Enable non-blocking JavaScript dialogs from alert() prompt()
                           and confirm() functions. They are shown inside page and are not 
@@ -128,5 +138,4 @@ Available Defines
                           
                           example:
                           $ export QUPZILLA_PREFIX="/usr/"
-                          
-                          
+                                   

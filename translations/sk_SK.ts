@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Všetky práva vyhradené.&lt;br/&gt;</translation>
+        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Všetky práva vyhradené.&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
@@ -878,11 +878,11 @@
     <name>CloseDialog</name>
     <message>
         <source>There are still open tabs</source>
-        <translation>Stále sú otvorené karty</translation>
+        <translation type="obsolete">Stále sú otvorené karty</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation>Viac sa uz nepýtať</translation>
+        <translation type="obsolete">Viac sa uz nepýtať</translation>
     </message>
 </context>
 <context>
@@ -2639,7 +2639,7 @@
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation>Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
+        <translation type="obsolete">Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
     </message>
     <message>
         <source>QupZilla</source>
@@ -2700,6 +2700,19 @@
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation type="unfinished">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
+    </message>
+    <message>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+Are you sure to quit QupZilla?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t ask again</source>
+        <translation type="unfinished">Viac sa uz nepýtať</translation>
+    </message>
+    <message>
+        <source>There are still open tabs</source>
+        <translation type="unfinished">Stále sú otvorené karty</translation>
     </message>
 </context>
 <context>
@@ -3001,19 +3014,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No available extensions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Zatvoriť</translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3506,7 +3523,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Delete</source>
-        <translation>Vymazať</translation>
+        <translation type="obsolete">Vymazať</translation>
     </message>
     <message>
         <source>Error!</source>
@@ -3870,7 +3887,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>JavaScript alert - %1</source>
-        <translation>Výstraha JavaScript - %1</translation>
+        <translation type="obsolete">Výstraha JavaScript - %1</translation>
     </message>
     <message>
         <source>Confirm form resubmission</source>
@@ -3879,6 +3896,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Proxy server not found</source>
         <translation>Proxy server nenájdený</translation>
+    </message>
+    <message>
+        <source>JavaScript alert</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

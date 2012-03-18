@@ -71,12 +71,12 @@ public:
 
     void setLeftMargin(int margin);
 
+public slots:
+    void updateTextMargins();
+
 protected:
     void resizeEvent(QResizeEvent* event);
     bool event(QEvent* event);
-
-protected slots:
-    void updateTextMargins();
 
 private:
     void init();

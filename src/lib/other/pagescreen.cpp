@@ -52,12 +52,16 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
 
 void PageScreen::dialogAccepted()
 {
-    const QString &path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."),
-                          QDir::homePath() + "/" + QString("%1.png").arg(qz_filterCharsFromFilename(m_pageTitle)));
+    const QString &suggestedPath = QDir::homePath() + "/" + QString("%1.png").arg(qz_filterCharsFromFilename(m_pageTitle));
+    QString path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."),
+                          suggestedPath);
 
     if (!path.isEmpty()) {
-        m_pageImage.save(path);
+        if (!path.endsWith(".png", Qt::CaseInsensitive)) {
+            path.append(".png");
+        }
 
+        m_pageImage.save(path, "PNG");
         QTimer::singleShot(0, this, SLOT(close()));
     }
 }

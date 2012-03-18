@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;ყველა უფლება დაცულია.&lt;br/&gt;</translation>
+        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;ყველა უფლება დაცულია.&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
@@ -850,11 +850,11 @@
     <name>CloseDialog</name>
     <message>
         <source>There are still open tabs</source>
-        <translation>რამდენიმე ჩანართი კვლავ გახსნილია</translation>
+        <translation type="obsolete">რამდენიმე ჩანართი კვლავ გახსნილია</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation>მეტი აღარ შემეკითხო</translation>
+        <translation type="obsolete">მეტი აღარ შემეკითხო</translation>
     </message>
 </context>
 <context>
@@ -2639,7 +2639,7 @@
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation>თქვენ კვლავ გაქვთ %1 გახსნილი ჩანართი და თქვენი სესია არ შეინახება. დარწმუნებული ხართ რომ QupZilla-დან გამოსვლა გსურთ?</translation>
+        <translation type="obsolete">თქვენ კვლავ გაქვთ %1 გახსნილი ჩანართი და თქვენი სესია არ შეინახება. დარწმუნებული ხართ რომ QupZilla-დან გამოსვლა გსურთ?</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
@@ -2668,6 +2668,19 @@
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
         <translation type="unfinished">&lt;b&gt;QupZilla ავარიუალად დაიხურა :-(&lt;/b&gt;&lt;br/&gt;უი, QupZilla-ს ბოლო სესია მოულოდნელად შეწყდა. ბოდიშს გიხდით ამისათვის. გსურთ ბოლო შენახული მდგომარებოის აღდგენა ვცადოთ?</translation>
+    </message>
+    <message>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+Are you sure to quit QupZilla?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t ask again</source>
+        <translation type="unfinished">მეტი აღარ შემეკითხო</translation>
+    </message>
+    <message>
+        <source>There are still open tabs</source>
+        <translation type="unfinished">რამდენიმე ჩანართი კვლავ გახსნილია</translation>
     </message>
 </context>
 <context>
@@ -2965,19 +2978,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No available extensions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">დახურვა</translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3461,7 +3478,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Delete</source>
-        <translation>წაშლა</translation>
+        <translation type="obsolete">წაშლა</translation>
     </message>
     <message>
         <source>Select All</source>
@@ -3837,11 +3854,15 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>JavaScript alert - %1</source>
-        <translation>JavaScript გაფრთხილება - %1</translation>
+        <translation type="obsolete">JavaScript გაფრთხილება - %1</translation>
     </message>
     <message>
         <source>Choose file...</source>
         <translation>ფაილის არჩევა...</translation>
+    </message>
+    <message>
+        <source>JavaScript alert</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

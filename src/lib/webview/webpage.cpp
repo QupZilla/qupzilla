@@ -22,11 +22,6 @@
 #include "downloadmanager.h"
 #include "webpluginfactory.h"
 #include "mainapplication.h"
-#ifdef NONBLOCK_JS_DIALOGS
-#include "ui_jsconfirm.h"
-#include "ui_jsalert.h"
-#include "ui_jsprompt.h"
-#endif
 #include "checkboxdialog.h"
 #include "widget.h"
 #include "globalfunctions.h"
@@ -36,6 +31,14 @@
 #include "popupwebview.h"
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
+
+#ifdef NONBLOCK_JS_DIALOGS
+#include "ui_jsconfirm.h"
+#include "ui_jsalert.h"
+#include "ui_jsprompt.h"
+
+#include <QPushButton>
+#endif
 
 #include <QDir>
 #include <QWebHistory>
@@ -82,7 +85,7 @@ WebPage::WebPage(QupZilla* mainClass)
 
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
 
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+#ifdef USE_QTWEBKIT_2_2
     connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)), this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
 #endif
 }
@@ -286,13 +289,37 @@ void WebPage::windowCloseRequested()
     webView->closeView();
 }
 
-#if (QTWEBKIT_VERSION >= QTWEBKIT_VERSION_CHECK(2, 2, 0))
+#ifdef USE_QTWEBKIT_2_2
 void WebPage::featurePermissionRequested(QWebFrame* frame, const QWebPage::Feature &feature)
 {
     // We should probably ask user here ... -,-
     setFeaturePermission(frame, feature, PermissionGrantedByUser);
 }
 #endif
+
+bool WebPage::event(QEvent* event)
+{
+    if (event->type() == QEvent::Leave) {
+        // QWebPagePrivate::leaveEvent():
+        // Fake a mouse move event just outside of the widget, since all
+        // the interesting mouse-out behavior like invalidating scrollbars
+        // is handled by the WebKit event handler's mouseMoved function.
+
+        // However, its implementation fake mouse move event on QCursor::pos()
+        // position that is in global screen coordinates. So instead of
+        // really faking it, it just creates mouse move event somewhere in
+        // page. It can for example focus a link, and then link url gets
+        // stuck in status bar message.
+
+        // So we are faking mouse move event with proper coordinates for
+        // so called "just outside of the widget" position
+
+        QMouseEvent fakeEvent(QEvent::MouseMove, QPoint(0, -1), Qt::NoButton, Qt::NoButton, Qt::NoModifier);
+        return QWebPage::event(&fakeEvent);
+    }
+
+    return QWebPage::event(event);
+}
 
 void WebPage::setSSLCertificate(const QSslCertificate &cert)
 {

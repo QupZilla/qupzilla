@@ -18,6 +18,7 @@
 #include "mousegesturesplugin.h"
 #include "pluginproxy.h"
 #include "mousegestures.h"
+#include "mainapplication.h"
 #include "qupzilla.h"
 
 #include <QTranslator>

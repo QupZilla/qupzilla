@@ -78,6 +78,7 @@ private:
         QRegExp pattern;
         QTextCharFormat format;
     };
+
     QVector<HighlightingRule> highlightingRules;
 
     QRegExp commentStartExpression;

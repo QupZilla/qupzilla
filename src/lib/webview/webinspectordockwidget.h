@@ -44,6 +44,8 @@ public:
     explicit WebInspectorDockWidget(QupZilla* mainClass);
     ~WebInspectorDockWidget();
 
+    void toggleVisibility();
+
 signals:
 
 public slots:

@@ -58,10 +58,12 @@ QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* pa
     setOperation(QNetworkAccessManager::GetOperation);
     setRequest(req);
     setUrl(req.url());
-
     m_pageName = req.url().path();
-    if (m_pageName == "about" || m_pageName == "reportbug" || m_pageName == "start" ||
-            m_pageName == "speeddial" || m_pageName == "config") {
+
+    QStringList knownPages;
+    knownPages << "about" << "reportbug" << "start" << "speeddial" << "config";
+
+    if (knownPages.contains(m_pageName)) {
         m_buffer.open(QIODevice::ReadWrite);
         setError(QNetworkReply::NoError, tr("No Error"));
 
@@ -140,7 +142,7 @@ QString QupZillaSchemeReply::reportbugPage()
     bPage.replace("%TITLE%", tr("Report Issue"));
     bPage.replace("%REPORT-ISSUE%", tr("Report Issue"));
     bPage.replace("%PLUGINS-TEXT%", tr("If you are experiencing problems with QupZilla, please try to disable"
-                                       " all extenions first. <br/>If this does not fix it, then please fill out this form: "));
+                                       " all extensions first. <br/>If this does not fix it, then please fill out this form: "));
     bPage.replace("%EMAIL%", tr("Your E-mail"));
     bPage.replace("%TYPE%", tr("Issue type"));
     bPage.replace("%DESCRIPTION%", tr("Issue description"));
@@ -261,6 +263,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace("%URL%", tr("Url"));
         dPage.replace("%TITLE%", tr("Title"));
         dPage.replace("%APPLY%", tr("Apply"));
+        dPage.replace("%CLOSE%", tr("Close"));
         dPage.replace("%NEW-PAGE%", tr("New Page"));
         dPage.replace("%IMG_SETTINGS%", "qrc:html/setting.png");
         dPage.replace("%SETTINGS-TITLE%", tr("Speed Dial settings"));
@@ -302,7 +305,7 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace("%TITLE%", tr("Configuration Information"));
         cPage.replace("%CONFIG%", tr("Configuration Information"));
         cPage.replace("%INFORMATIONS-ABOUT-VERSION%", tr("Information about version"));
-        cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about QupZilla's current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports."));
+        cPage.replace("%CONFIG-ABOUT%", tr("This page contains information about QupZilla's current configuration - relevant for troubleshooting. Please include this information when submitting bug reports."));
         cPage.replace("%BROWSER-IDENTIFICATION%", tr("Browser Identification"));
         cPage.replace("%PATHS%", tr("Paths"));
         cPage.replace("%BUILD-CONFIG%", tr("Build Configuration"));

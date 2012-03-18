@@ -31,16 +31,10 @@ class QT_QUPZILLA_EXPORT TipLabel : public SqueezeLabelV1
 public:
     TipLabel(QWidget* parent);
 
-    void setMainWindow(QupZilla* main);
-
     bool eventFilter(QObject* o, QEvent* e);
-    void show();
 
 private:
     void paintEvent(QPaintEvent* ev);
-
-    QupZilla* p_QupZilla;
-    bool m_connected;
 };
 
 class QT_QUPZILLA_EXPORT StatusBarMessage

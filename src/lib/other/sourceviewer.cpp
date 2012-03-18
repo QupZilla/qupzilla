@@ -31,29 +31,30 @@
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QWebFrame>
+#include <QTimer>
 
 SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     : QWidget(0)
     , m_frame(frame)
+    , m_selectedHtml(selectedHtml)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("Source of ") + frame->url().toString());
     m_layout = new QBoxLayout(QBoxLayout::TopToBottom, this);
     m_sourceEdit = new PlainEditWithLines(this);
     m_sourceEdit->setObjectName("sourceviewer-textedit");
+    m_sourceEdit->setReadOnly(true);
+    m_sourceEdit->setUndoRedoEnabled(false);
 
     m_statusBar = new QStatusBar(this);
     m_statusBar->showMessage(frame->url().toString());
+
     QMenuBar* menuBar = new QMenuBar(this);
     m_layout->addWidget(m_sourceEdit);
     m_layout->addWidget(m_statusBar);
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
     m_layout->setMenuBar(menuBar);
-
-    this->resize(650, 600);
-    m_sourceEdit->setReadOnly(true);
-    m_sourceEdit->moveCursor(QTextCursor::Start);
 
     QFont font;
     font.setFamily("Tahoma");
@@ -63,6 +64,9 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     m_sourceEdit->setFont(font);
     new HtmlHighlighter(m_sourceEdit->document());
 
+    resize(650, 600);
+    qz_centerWidgetToParent(this, frame->page()->view());
+
     QMenu* menuFile = new QMenu(tr("File"));
     menuFile->addAction(QIcon::fromTheme("document-save"), tr("Save as..."), this, SLOT(save()))->setShortcut(QKeySequence("Ctrl+S"));
     menuFile->addSeparator();
@@ -70,19 +74,24 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     menuBar->addMenu(menuFile);
 
     QMenu* menuEdit = new QMenu(tr("Edit"));
-    menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("Undo"), m_sourceEdit, SLOT(undo()))->setShortcut(QKeySequence("Ctrl+Z"));
-    menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("Redo"), m_sourceEdit, SLOT(redo()))->setShortcut(QKeySequence("Ctrl+Shift+Z"));
+    m_actionUndo = menuEdit->addAction(QIcon::fromTheme("edit-undo"), tr("Undo"), m_sourceEdit, SLOT(undo()));
+    m_actionRedo = menuEdit->addAction(QIcon::fromTheme("edit-redo"), tr("Redo"), m_sourceEdit, SLOT(redo()));
     menuEdit->addSeparator();
-    menuEdit->addAction(QIcon::fromTheme("edit-cut"), tr("Cut"), m_sourceEdit, SLOT(cut()))->setShortcut(QKeySequence("Ctrl+X"));
-    menuEdit->addAction(QIcon::fromTheme("edit-copy"), tr("Copy"), m_sourceEdit, SLOT(copy()))->setShortcut(QKeySequence("Ctrl+C"));
-    menuEdit->addAction(QIcon::fromTheme("edit-paste"), tr("Paste"), m_sourceEdit, SLOT(paste()))->setShortcut(QKeySequence("Ctrl+V"));
-    menuEdit->addAction(QIcon::fromTheme("edit-delete"), tr("Delete"))->setShortcut(QKeySequence("Del"));
+    m_actionCut = menuEdit->addAction(QIcon::fromTheme("edit-cut"), tr("Cut"), m_sourceEdit, SLOT(cut()));
+    m_actionCopy = menuEdit->addAction(QIcon::fromTheme("edit-copy"), tr("Copy"), m_sourceEdit, SLOT(copy()));
+    m_actionPaste = menuEdit->addAction(QIcon::fromTheme("edit-paste"), tr("Paste"), m_sourceEdit, SLOT(paste()));
     menuEdit->addSeparator();
     menuEdit->addAction(QIcon::fromTheme("edit-select-all"), tr("Select All"), m_sourceEdit, SLOT(selectAll()))->setShortcut(QKeySequence("Ctrl+A"));
     menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("Find"), this, SLOT(findText()))->setShortcut(QKeySequence("Ctrl+F"));
     menuEdit->addSeparator();
     menuEdit->addAction(QIcon::fromTheme("go-jump"), tr("Go to Line..."), this, SLOT(goToLine()))->setShortcut(QKeySequence("Ctrl+L"));
     menuBar->addMenu(menuEdit);
+
+    m_actionUndo->setShortcut(QKeySequence("Ctrl+Z"));
+    m_actionRedo->setShortcut(QKeySequence("Ctrl+Shift+Z"));
+    m_actionCut->setShortcut(QKeySequence("Ctrl+X"));
+    m_actionCopy->setShortcut(QKeySequence("Ctrl+C"));
+    m_actionPaste->setShortcut(QKeySequence("Ctrl+V"));
 
     QMenu* menuView = new QMenu(tr("View"));
     menuView->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("Reload"), this, SLOT(reload()))->setShortcut(QKeySequence("F5"));
@@ -92,21 +101,51 @@ SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
     menuView->actions().at(3)->setChecked(true);
     menuBar->addMenu(menuView);
 
-    qz_centerWidgetToParent(this, frame->page()->view());
+    connect(m_sourceEdit, SIGNAL(copyAvailable(bool)), this, SLOT(copyAvailable(bool)));
+    connect(m_sourceEdit, SIGNAL(redoAvailable(bool)), this, SLOT(redoAvailable(bool)));
+    connect(m_sourceEdit, SIGNAL(undoAvailable(bool)), this, SLOT(undoAvailable(bool)));
+    connect(menuEdit, SIGNAL(aboutToShow()), this, SLOT(pasteAvailable()));
 
-    m_sourceEdit->setUndoRedoEnabled(false);
-    m_sourceEdit->insertPlainText(frame->toHtml());
-    m_sourceEdit->setUndoRedoEnabled(true);
+    QTimer::singleShot(0, this, SLOT(loadSource()));
+}
+
+void SourceViewer::copyAvailable(bool yes)
+{
+    m_actionCopy->setEnabled(yes);
+    m_actionCut->setEnabled(yes);
+}
+
+void SourceViewer::redoAvailable(bool available)
+{
+    m_actionRedo->setEnabled(available);
+}
+
+void SourceViewer::undoAvailable(bool available)
+{
+    m_actionUndo->setEnabled(available);
+}
+
+void SourceViewer::pasteAvailable()
+{
+    m_actionPaste->setEnabled(m_sourceEdit->canPaste());
+}
+
+void SourceViewer::loadSource()
+{
+    m_actionUndo->setEnabled(false);
+    m_actionRedo->setEnabled(false);
+    m_actionCut->setEnabled(false);
+    m_actionCopy->setEnabled(false);
+    m_actionPaste->setEnabled(false);
+
+    m_sourceEdit->setPlainText(m_frame.data()->toHtml());
 
     //Highlight selectedHtml
-    if (!selectedHtml.isEmpty()) {
-        m_sourceEdit->find(selectedHtml, QTextDocument::FindWholeWords);
+    if (!m_selectedHtml.isEmpty()) {
+        m_sourceEdit->find(m_selectedHtml, QTextDocument::FindWholeWords);
     }
-    else {
-        QTextCursor cursor = m_sourceEdit->textCursor();
-        cursor.setPosition(0);
-        m_sourceEdit->setTextCursor(cursor);
-    }
+
+    m_sourceEdit->setShowingCursor(true);
 }
 
 void SourceViewer::save()
@@ -145,7 +184,7 @@ void SourceViewer::reload()
 {
     if (m_frame) {
         m_sourceEdit->clear();
-        m_sourceEdit->insertPlainText(m_frame.data()->toHtml());
+        m_sourceEdit->setPlainText(m_frame.data()->toHtml());
 
         m_statusBar->showMessage(tr("Source reloaded"));
     }
@@ -157,6 +196,7 @@ void SourceViewer::reload()
 void SourceViewer::setTextEditable()
 {
     m_sourceEdit->setReadOnly(!m_sourceEdit->isReadOnly());
+    m_sourceEdit->setUndoRedoEnabled(true);
 
     m_statusBar->showMessage(tr("Editable changed"));
 }
