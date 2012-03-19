@@ -92,6 +92,7 @@ void AboutDialog::showAuthors()
                                          "Federico Fabiani<br/>"
                                          "Francesco Marinucci<br/>"
                                          "Jorge Sevilla<br/>"
+                                         "Ștefan Comănescu<br/>"
                                          "Michał Szymanowski<br/>"
                                          "Mariusz Fik<br/>"
                                          "Jérôme Giry<br/>"
