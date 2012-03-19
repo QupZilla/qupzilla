@@ -217,6 +217,7 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Federico Fabiani", "federico.fabiani85@gmail.com") + " (Italian)<br/>" +
                       authorString("Francesco Marinucci", "framarinucci@gmail.com") + " (Italian)<br/>" +
                       authorString("Jorge Sevilla", "jsevi@ozu.es") + " (Spanish)<br/>" +
+                      authorString("Ștefan Comănescu", "sdfanq@gmail.com") + " (Romanian)<br/>" +
                       authorString("Michał Szymanowski", "tylkobuba@gmail.com") + " (Polish)<br/>" +
                       authorString("Mariusz Fik", "fisiu@opensuse.org") + " (Polish)<br/>" +
                       authorString("Jérôme Giry", "baikalink@hotmail.fr") + " (French)<br/>" +
