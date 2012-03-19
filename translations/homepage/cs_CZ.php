@@ -20,7 +20,7 @@ $older_versions = "Changelog";
 $older_versions_text = "Zajímá Vás co nového se stalo od této verze po tuto? <br/><br/>Kompletní <a>changelogu</a> všech verzí lze nalézt  na githubu!";
 $older_versions_button = "Changelog";
 $reportbug = "Nahlásit chybu";
-$reportbug_text = "Pokud jste našli chybu nebo máte pouze nápad na <a>vylepšení</a>, právě toto místo je pro Vás!<br/> Vaše problém se bude řešit co nejdříve to bude možné!";
+$reportbug_text = "Pokud jste našli chybu nebo máte pouze nápad na <a>vylepšení</a>, právě toto místo je pro Vás!<br/> Váš problém se bude řešit co nejdříve to bude možné!";
 $reportbug_button = "Nahlásit";
 $technology = "Technologie";
 $technology_text = "QupZilla je moderní webový prohlížeč založený na jádře WebKitu a frameworku Qt. WebKit zaručí <a>rychlé</a> zobrazení stránek a Qt funkčnost na všech
@@ -32,7 +32,7 @@ $library_header = "Společná knihovna";
 $library_text = "QupZilla sjednocuje záložky, historii a rss čtečku do jednoho přehledného okna. Už nikdy více oken, QupZilla používá pouze jedno!<br/>
 S integrovanou čtečkou rss kanálů můžete být informován aktualitami z Vašich oblíbených stránek. QupZilla také zvládne importovat záložky z jiných prohlížečů.";
 $adblock_header = "Integrovaný AdBlock";
-$adblock_text = "Také nenávidíte stránky plné reklam? Zbytečně Vás zdržují při načítání stránek? Jediná věc kterou musíte s QupZillou udělat, je aktualizovat EasyList nebo přidat Vašee vlastní pravidla a můžete surfovat bez reklam.";
+$adblock_text = "Také nenávidíte stránky plné reklam? Zbytečně Vás zdržují při načítání stránek? Jediná věc kterou musíte s QupZillou udělat, je aktualizovat EasyList nebo přidat Vaše vlastní pravidla a můžete surfovat bez reklam.";
 $speeddial_header = "Rychlá volba (Speed dial)";
 $speeddial_text = "Tento populární doplněk je konečně dostupný i pro uživatele QupZilly! Nyní máte rychlý přístup k oblíbeným záložkám na jediné stránce. Samozřejmostí je plná podpora řazení přetažením a načítání náhledů stránek.";
 $devnews_header = "Vývojové novinky";
