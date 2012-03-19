@@ -24,4 +24,6 @@ git_revision
 *.exe
 *.dll
 *.lib
+*.exp
+*.zip
 Thumbs.db
