@@ -430,7 +430,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="93"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Noot:&lt;/b&gt; Op dit moment kunnen bladwijzermappen alleen geimporteerd worden d.m.v. een HTML-bestand.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="135"/>
@@ -1582,7 +1582,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="90"/>
         <source>Image files</source>
-        <translation type="unfinished">Afbeeldingsbestanden</translation>
+        <translation>Afbeeldingsbestanden</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="92"/>
@@ -2050,7 +2050,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="220"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan extensie niet laden!</translation>
     </message>
     <message>
         <source>Cannot load plugin!</source>
@@ -2406,12 +2406,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="142"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Extensies</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="431"/>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Laad tabbladen niet totdat aangeklikt</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="757"/>
@@ -2996,12 +2996,12 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="160"/>
         <source>Last session crashed</source>
-        <translation type="unfinished">Laatste sessie gecrashed</translation>
+        <translation>Laatste sessie crashte</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="161"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;QupZilla crashte :-(&lt;/b&gt;&lt;br/&gt;Oeps, de laatste sessie van QupZilla eindigde met een crash. We verontschuldigen ons. Wilt u proberen om de opgeslagen status te herstellen?</translation>
+        <translation>&lt;b&gt;QupZilla crashte :-(&lt;/b&gt;&lt;br/&gt;Oeps, de laatste sessie van QupZilla eindigde met een crash. We verontschuldigen ons. Wilt u proberen om de laatst opgeslagen status te herstellen?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="299"/>
@@ -3026,32 +3026,32 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="325"/>
         <source>&amp;Edit</source>
-        <translation>Be&amp;werken</translation>
+        <translation>Be&amp;werk</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="326"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Ongedaan maken</translation>
+        <translation>&amp;Maak ongedaan</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="327"/>
         <source>&amp;Redo</source>
-        <translation>&amp;Herhalen</translation>
+        <translation>&amp;Herhaal</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="329"/>
         <source>&amp;Cut</source>
-        <translation>&amp;Knippen</translation>
+        <translation>&amp;Knip</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="330"/>
         <source>C&amp;opy</source>
-        <translation>K&amp;opiëren</translation>
+        <translation>K&amp;opieer</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="331"/>
         <source>&amp;Paste</source>
-        <translation>&amp;Plakken</translation>
+        <translation>&amp;Plak</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="333"/>
@@ -3061,7 +3061,7 @@ werd niet gevonden!</translation>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="334"/>
         <source>&amp;Find</source>
-        <translation>&amp;Zoeken</translation>
+        <translation>&amp;Zoek</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="345"/>
@@ -3147,17 +3147,18 @@ werd niet gevonden!</translation>
         <location filename="../src/lib/app/qupzilla.cpp" line="1813"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Er zijn nog steeds %1 openstaande tabbladen en uw sessie wordt niet opgeslagen. 
+Weet u zeker dat u QupZIlla wilt afsluiten?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1814"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">Nooit meer vragen</translation>
+        <translation>Vraag nooit meer</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1815"/>
         <source>There are still open tabs</source>
-        <translation type="unfinished">Er zijn nog geopende tabbladen</translation>
+        <translation>Er zijn nog openstaande tabbladen</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
@@ -3176,12 +3177,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="364"/>
         <source>&amp;Stop</source>
-        <translation>&amp;Stoppen</translation>
+        <translation>&amp;Stop</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="367"/>
         <source>&amp;Reload</source>
-        <translation>&amp;Herladen</translation>
+        <translation>&amp;Herlaad</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="370"/>
@@ -3454,7 +3455,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="144"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Indien u problemen ondervindt met QupZilla, probeer dan alstublieft eerst alle extensies uit te schakelen. &lt;br/&gt;Indien dit het niet oplost, vul dan dit formulier in: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="148"/>
@@ -3554,7 +3555,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="311"/>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Bouwconfiguratie</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="313"/>
@@ -3569,7 +3570,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="315"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Extensies</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="316"/>
@@ -3658,7 +3659,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Close</source>
-        <translation type="unfinished">Sluit</translation>
+        <translation>Sluit</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="269"/>
@@ -3718,12 +3719,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="308"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze pagina bevat informatie over QupZilla&apos;s huidige configuratie - nuttig voor probleemoplossing. Verstuur deze informatie mee bij het verzenden van bug-rapporten.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="384"/>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen beschikbare extensies.</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
@@ -3736,7 +3737,7 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="344"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="345"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitgeschakeld</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="348"/>
@@ -3745,32 +3746,32 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="357"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="360"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Ingeschakeld&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="364"/>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>Debugbare bouw</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="365"/>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>WebGL-ondersteuning</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="366"/>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7-API</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="367"/>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE-integratie</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="368"/>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>Meeneembare bouw</translation>
     </message>
     <message>
         <source>No available plugins.</source>
@@ -4537,7 +4538,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
         <source>Image files</source>
-        <translation type="unfinished">Afbeeldingsbestanden</translation>
+        <translation>Afbeeldingsbestanden</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>
@@ -4890,7 +4891,7 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="687"/>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>JavaScript-waarschuwing</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="695"/>
