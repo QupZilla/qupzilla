@@ -436,7 +436,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Momentálne len import z html súboru importuje aj zložky.</translation>
     </message>
 </context>
 <context>
@@ -1248,7 +1248,7 @@
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázky</translation>
     </message>
 </context>
 <context>
@@ -1408,7 +1408,7 @@
     <name>LicenseViewer</name>
     <message>
         <source>License Viewer</source>
-        <translation type="unfinished">Prehliadač licencie</translation>
+        <translation>Prehliadač licencie</translation>
     </message>
 </context>
 <context>
@@ -1623,7 +1623,7 @@
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nemožno načítať rozšírenie!</translation>
     </message>
 </context>
 <context>
@@ -2270,15 +2270,15 @@
     </message>
     <message>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Povoliť Netscape pluginy (Flash plugin)</translation>
     </message>
     <message>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenačítať panely pokiaľ nie sú vybrané</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozšírenia</translation>
     </message>
 </context>
 <context>
@@ -2679,40 +2679,41 @@
     </message>
     <message>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML súbory</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázky</translation>
     </message>
     <message>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>Textové súbory</translation>
     </message>
     <message>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Všetky súbory</translation>
     </message>
     <message>
         <source>Last session crashed</source>
-        <translation type="unfinished">Minulá relácia spadla</translation>
+        <translation>Minulá relácia spadla</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
+        <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ešte je otvorených %1 panelov a Vaša relácia nebude uložená.
+Skutočne chcete skončiť?</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">Viac sa uz nepýtať</translation>
+        <translation>Viac sa uz nepýtať</translation>
     </message>
     <message>
         <source>There are still open tabs</source>
-        <translation type="unfinished">Stále sú otvorené karty</translation>
+        <translation>Stále sú otvorené karty</translation>
     </message>
 </context>
 <context>
@@ -2983,55 +2984,55 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurácia zostavenia</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakázané</translation>
     </message>
     <message>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Povolené&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug nastavenia</translation>
     </message>
     <message>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>Podpora WebGL</translation>
     </message>
     <message>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7 API</translation>
     </message>
     <message>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE integrácia</translation>
     </message>
     <message>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>Portable zostavenie</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozšírenia</translation>
     </message>
     <message>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Žiadne dostupné doplnky.</translation>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Pokiaľ máte problém s používaním QupZilly, zakážte prosím všetky doplnky. &lt;br/&gt; Pokiaľ problém pretrváva, vyplňte tento formulár: </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Zatvoriť</translation>
+        <translation>Zatvoriť</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Táto stránka obsahuje informácie o aktuálnej konfigurácii QupZilly - dôležité informácie k riešeniu problémov. Priložte prosím tieto informácie k hláseniu problémov.</translation>
     </message>
 </context>
 <context>
@@ -3609,7 +3610,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázky</translation>
     </message>
 </context>
 <context>
@@ -3899,7 +3900,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>JavaScript upozornenie</translation>
     </message>
 </context>
 <context>
@@ -4109,7 +4110,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytvoriť vyhľadávač</translation>
     </message>
 </context>
 <context>
