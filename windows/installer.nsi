@@ -46,6 +46,7 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Tradchinese"
 !insertmacro MUI_LANGUAGE "Simpchinese"
 !insertmacro MUI_LANGUAGE "Bahasa Indonesia"
+!insertmacro MUI_LANGUAGE "Japanese"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
@@ -217,6 +218,12 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\sr_RS.qm"
   File "locale\qt_sr_BA.qm"
   File "locale\qt_sr_RS.qm"
+  SectionEnd
+
+  Section "Japanese"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ja_JP.qm"
+  File "locale\qt_ja.qm"
   SectionEnd
 
 SectionGroupEnd
