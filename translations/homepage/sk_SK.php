@@ -14,7 +14,7 @@ $footer_site = "www.qupzilla.com";
 //Home Page
 $actual_version = "Aktuálna verzia";
 $actual_version_text = "Aktuálna verzia QupZilly je z ". $qupzilla_version_date . 
-					   "jedná sa o verziu" . $qupzilla_version . ". Zmeny môžete nájsť v changelogu. <br/>Neváhajte a <a href=\"download\">sťahujte</a> ešte dnes!";
+					   " jedná sa o verziu " . $qupzilla_version . ". Zmeny môžete nájsť v changelogu. <br/>Neváhajte a <a href=\"download\">sťahujte</a> ešte dnes!";
 $actual_version_button = "DOWNLOAD";
 $older_versions = "Changelog";
 $older_versions_text = "Zaujímá Vás, čo nové se stalo od tejto verzie po túto? <br/><br/>Kompletný <a>changelog</a> všetkých verzií je možné nájsť na githubu!";

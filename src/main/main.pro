@@ -3,8 +3,8 @@ unix: QT += dbus
 
 TARGET = qupzilla
 TEMPLATE = app
-!unix: LIBS += -L../../bin -lqupzilla
-unix: LIBS += ../../bin/libqupzilla.so
+!unix|mac: LIBS += -L../../bin -lqupzilla
+!mac:unix: LIBS += ../../bin/libqupzilla.so
 
 include(../defines.pri)
 include(../install.pri)

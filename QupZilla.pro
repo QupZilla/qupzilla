@@ -10,5 +10,8 @@ lessThan(QT_VERSION, 4.7) {
     error("QupZilla requires at least Qt 4.7!")
 }
 
+# Create plugins directory first on Mac / Linux
+mac|unix: system(mkdir bin/plugins)
+
 TEMPLATE = subdirs
 SUBDIRS = src
