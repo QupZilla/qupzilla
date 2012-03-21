@@ -79,6 +79,6 @@ void PopupStatusBarMessage::clearMessage()
         m_popupWindow->statusBar()->showMessage("");
     }
     else {
-        m_statusBarText->hide();
+        m_statusBarText->hideDelayed();
     }
 }

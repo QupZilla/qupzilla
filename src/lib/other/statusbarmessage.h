@@ -24,17 +24,24 @@
 #include "squeezelabelv1.h"
 #include "animatedwidget.h"
 
+class QTimer;
+
 class QupZilla;
 
 class QT_QUPZILLA_EXPORT TipLabel : public SqueezeLabelV1
 {
 public:
-    TipLabel(QWidget* parent);
+    explicit TipLabel(QWidget* parent);
+
+    void show();
+    void hideDelayed();
 
     bool eventFilter(QObject* o, QEvent* e);
 
 private:
     void paintEvent(QPaintEvent* ev);
+
+    QTimer* m_timer;
 };
 
 class QT_QUPZILLA_EXPORT StatusBarMessage

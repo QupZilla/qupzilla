@@ -11,7 +11,7 @@ lessThan(QT_VERSION, 4.7) {
 }
 
 # Create plugins directory first on Mac / Linux
-mac|unix: system(mkdir bin/plugins)
+mac|unix: system(test -d bin/plugins || mkdir bin/plugins)
 
 TEMPLATE = subdirs
 SUBDIRS = src

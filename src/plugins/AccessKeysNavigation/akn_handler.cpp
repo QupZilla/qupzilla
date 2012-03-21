@@ -99,6 +99,7 @@ bool AKN_Handler::handleKeyPress(QObject* obj, QKeyEvent* event)
     }
 
     if (event->key() != m_key) {
+        m_lastKeyPressTime = QTime();
         return false;
     }
 
@@ -187,7 +188,7 @@ void AKN_Handler::handleAccessKey(QKeyEvent* event)
             p -= frame->scrollPosition();
             frame = frame->parentFrame();
         }
-        while (frame && frame != m_view->page()->mainFrame());
+        while (frame && frame != m_view->page()->currentFrame());
 
         QMouseEvent pevent(QEvent::MouseButtonPress, p, Qt::LeftButton, 0, 0);
         qApp->sendEvent(m_view, &pevent);
@@ -227,11 +228,11 @@ void AKN_Handler::showAccessKeys()
         unusedKeys << QLatin1Char(c);
     }
 
-    QRect viewport = QRect(page->mainFrame()->scrollPosition(), page->viewportSize());
+    QRect viewport = QRect(page->currentFrame()->scrollPosition(), page->viewportSize());
     // Priority first goes to elements with accesskey attributes
     QList<QWebElement> alreadyLabeled;
     foreach(const QString & elementType, supportedElement) {
-        QList<QWebElement> result = page->mainFrame()->findAllElements(elementType).toList();
+        QList<QWebElement> result = page->currentFrame()->findAllElements(elementType).toList();
         foreach(const QWebElement & element, result) {
             const QRect geometry = element.geometry();
             if (geometry.size().isEmpty()
@@ -262,7 +263,7 @@ void AKN_Handler::showAccessKeys()
     // Pick an access key first from the letters in the text and then from the
     // list of unused access keys
     foreach(const QString & elementType, supportedElement) {
-        QWebElementCollection result = page->mainFrame()->findAllElements(elementType);
+        QWebElementCollection result = page->currentFrame()->findAllElements(elementType);
         foreach(const QWebElement & element, result) {
             const QRect geometry = element.geometry();
             if (unusedKeys.isEmpty()
@@ -330,7 +331,7 @@ void AKN_Handler::makeAccessKeyLabel(const QChar &accessKey, const QWebElement &
     label->setAutoFillBackground(true);
     label->setFrameStyle(QFrame::Box | QFrame::Plain);
     QPoint point = element.geometry().center();
-    point -= m_view->page()->mainFrame()->scrollPosition();
+    point -= m_view->page()->currentFrame()->scrollPosition();
     label->move(point);
     label->show();
     point.setX(point.x() - label->width() / 2);

@@ -18,7 +18,7 @@
 #include "akn_plugin.h"
 #include "akn_handler.h"
 #include "akn_settings.h"
-#include "mainapplication.h"
+#include "mainapplication.h
 #include "pluginproxy.h"
 #include "qupzilla.h"
 
@@ -36,7 +36,7 @@ PluginSpec AKN_Plugin::pluginSpec()
     spec.name = "Access Keys Navigation";
     spec.info = "Access keys navigation for QupZilla";
     spec.description = "Provides support for navigating in webpages by keyboard shortcuts";
-    spec.version = "0.2.2";
+    spec.version = "0.3.1";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":/accesskeysnavigation/data/icon.png");
     spec.hasSettings = true;

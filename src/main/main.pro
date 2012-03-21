@@ -2,7 +2,10 @@ QT += core gui webkit sql network script
 unix: QT += dbus
 
 TARGET = qupzilla
+mac: TARGET = QupZilla
+
 TEMPLATE = app
+
 !unix|mac: LIBS += -L../../bin -lqupzilla
 !mac:unix: LIBS += ../../bin/libqupzilla.so
 

@@ -27,6 +27,7 @@
 #include <QToolTip>
 #include <QStylePainter>
 #include <QWebFrame>
+#include <QTimer>
 
 TipLabel::TipLabel(QWidget* parent)
     : SqueezeLabelV1(parent)
@@ -39,7 +40,24 @@ TipLabel::TipLabel(QWidget* parent)
     setFrameStyle(QFrame::NoFrame);
     setMargin(3);
 
+    m_timer = new QTimer(this);
+    m_timer->setSingleShot(true);
+    m_timer->setInterval(500);
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(hide()));
+
     qApp->installEventFilter(this);
+}
+
+void TipLabel::show()
+{
+    m_timer->stop();
+
+    SqueezeLabelV1::show();
+}
+
+void TipLabel::hideDelayed()
+{
+    m_timer->start();
 }
 
 void TipLabel::paintEvent(QPaintEvent* ev)
@@ -128,6 +146,6 @@ void StatusBarMessage::clearMessage()
         p_QupZilla->statusBar()->showMessage("");
     }
     else {
-        m_statusBarText->hide();
+        m_statusBarText->hideDelayed();
     }
 }
