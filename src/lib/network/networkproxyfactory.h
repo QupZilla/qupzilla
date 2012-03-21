@@ -36,11 +36,19 @@ public:
 private:
     ProxyPreference m_proxyPreference;
     QNetworkProxy::ProxyType m_proxyType;
+
     QString m_hostName;
     quint16 m_port;
     QString m_username;
     QString m_password;
+
+    QString m_httpsHostName;
+    quint16 m_httpsPort;
+    QString m_httpsUsername;
+    QString m_httpsPassword;
+
     QStringList m_proxyExceptions;
+    bool m_useDifferentProxyForHttps;
 };
 
 #endif // NETWORKPROXYFACTORY_H

@@ -71,6 +71,7 @@ private slots:
     void setManualProxyConfigurationEnabled(bool state);
     void useExternalDownManagerChanged(bool state);
     void changeUserAgentChanged(bool state);
+    void useDifferentProxyForHttpsChanged(bool state);
 
     void cacheValueChanged(int value);
     void pageCacheValueChanged(int value);

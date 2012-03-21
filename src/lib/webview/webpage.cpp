@@ -510,6 +510,9 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         case QNetworkReply::ContentNotFoundError:
             errorString = tr("Content not found");
             break;
+        case QNetworkReply::UnknownNetworkError:
+            errorString = exOption->errorString.isEmpty() ? tr("Unknown network error") : exOption->errorString;
+            break;
         case QNetworkReply::ContentAccessDenied:
             if (exOption->errorString.startsWith("AdBlockRule")) {
                 if (exOption->frame != erPage->mainFrame()) { //Content in <iframe>
@@ -557,7 +560,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             errorString = tr("Content Access Denied");
             break;
         default:
-            qDebug() << "Content error: " << exOption->errorString;
+            qDebug() << "Content error: " << exOption->errorString << exOption->error;
             return false;
         }
     }

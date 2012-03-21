@@ -31,10 +31,18 @@ void NetworkProxyFactory::loadSettings()
     settings.beginGroup("Web-Proxy");
     m_proxyPreference = ProxyPreference(settings.value("UseProxy", SystemProxy).toInt());
     m_proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::HttpProxy).toInt());
+    m_useDifferentProxyForHttps = settings.value("UseDifferentProxyForHttps", false).toBool();
+
     m_hostName = settings.value("HostName", "").toString();
     m_port = settings.value("Port", 8080).toInt();
     m_username = settings.value("Username", "").toString();
     m_password = settings.value("Password", "").toString();
+
+    m_httpsHostName = settings.value("HttpsHostName", "").toString();
+    m_httpsPort = settings.value("HttpsPort", 8080).toInt();
+    m_httpsUsername = settings.value("HttpsUsername", "").toString();
+    m_httpsPassword = settings.value("HttpsPassword", "").toString();
+
     m_proxyExceptions = settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList();
     settings.endGroup();
 }
@@ -44,13 +52,12 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
     QNetworkProxy proxy;
 
     if (m_proxyExceptions.contains(query.url().host(), Qt::CaseInsensitive)) {
-        proxy.setType(QNetworkProxy::NoProxy);
+        return QList<QNetworkProxy>() << QNetworkProxy::NoProxy;
     }
 
     switch (m_proxyPreference) {
     case SystemProxy:
         return systemProxyForQuery(query);
-        break;
 
     case NoProxy:
         proxy.setType(QNetworkProxy::NoProxy);
@@ -58,10 +65,28 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
 
     case DefinedProxy:
         proxy.setType(m_proxyType);
-        proxy.setHostName(m_hostName);
-        proxy.setPort(m_port);
-        proxy.setUser(m_username);
-        proxy.setPassword(m_password);
+
+        if (m_useDifferentProxyForHttps && query.url().scheme() == "https") {
+            proxy.setHostName(m_httpsHostName);
+            proxy.setPort(m_httpsPort);
+            proxy.setUser(m_httpsUsername);
+            proxy.setPassword(m_httpsPassword);
+        }
+        else {
+            proxy.setHostName(m_hostName);
+            proxy.setPort(m_port);
+            proxy.setUser(m_username);
+            proxy.setPassword(m_password);
+        }
+
+        if (proxy.hostName().isEmpty()) {
+            proxy = QNetworkProxy::NoProxy;
+        }
+
+        break;
+
+    default:
+        qWarning("NetworkProxyFactory::queryProxy Unknown proxy type!");
         break;
     }
 

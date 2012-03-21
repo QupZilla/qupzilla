@@ -373,16 +373,14 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         ui->languages->addItem(language + ", " + country + " (" + loc + ")", name);
     }
 
-    //Proxy Config
+    // Proxy Configuration
     settings.beginGroup("Web-Proxy");
     NetworkProxyFactory::ProxyPreference proxyPreference = NetworkProxyFactory::ProxyPreference(settings.value("UseProxy", NetworkProxyFactory::SystemProxy).toInt());
     QNetworkProxy::ProxyType proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::HttpProxy).toInt());
 
-    connect(ui->manualProxy, SIGNAL(toggled(bool)), this, SLOT(setManualProxyConfigurationEnabled(bool)));
     ui->systemProxy->setChecked(proxyPreference == NetworkProxyFactory::SystemProxy);
     ui->noProxy->setChecked(proxyPreference == NetworkProxyFactory::NoProxy);
     ui->manualProxy->setChecked(proxyPreference == NetworkProxyFactory::DefinedProxy);
-    setManualProxyConfigurationEnabled(proxyPreference == NetworkProxyFactory::DefinedProxy);
     if (proxyType == QNetworkProxy::HttpProxy) {
         ui->proxyType->setCurrentIndex(0);
     }
@@ -394,8 +392,21 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->proxyPort->setText(settings.value("Port", 8080).toString());
     ui->proxyUsername->setText(settings.value("Username", "").toString());
     ui->proxyPassword->setText(settings.value("Password", "").toString());
+
+    ui->useHttpsProxy->setChecked(settings.value("UseDifferentProxyForHttps", false).toBool());
+    ui->httpsProxyServer->setText(settings.value("HttpsHostName", "").toString());
+    ui->httpsProxyPort->setText(settings.value("HttpsPort", 8080).toString());
+    ui->httpsProxyUsername->setText(settings.value("HttpsUsername", "").toString());
+    ui->httpsProxyPassword->setText(settings.value("HttpsPassword", "").toString());
+
     ui->proxyExceptions->setText(settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList().join(","));
     settings.endGroup();
+
+    useDifferentProxyForHttpsChanged(ui->useHttpsProxy->isChecked());
+    setManualProxyConfigurationEnabled(proxyPreference == NetworkProxyFactory::DefinedProxy);
+
+    connect(ui->manualProxy, SIGNAL(toggled(bool)), this, SLOT(setManualProxyConfigurationEnabled(bool)));
+    connect(ui->useHttpsProxy, SIGNAL(toggled(bool)), this, SLOT(useDifferentProxyForHttpsChanged(bool)));
 
     //CONNECTS
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
@@ -533,7 +544,10 @@ void Preferences::setManualProxyConfigurationEnabled(bool state)
     ui->proxyPort->setEnabled(state);
     ui->proxyUsername->setEnabled(state);
     ui->proxyPassword->setEnabled(state);
-    ui->proxyExceptions->setEnabled(state);
+
+    useDifferentProxyForHttpsChanged(state ? ui->useHttpsProxy->isChecked() : false);
+
+    ui->useHttpsProxy->setEnabled(state);
 }
 
 void Preferences::allowJavaScriptChanged(bool state)
@@ -607,6 +621,14 @@ void Preferences::useExternalDownManagerChanged(bool state)
 void Preferences::changeUserAgentChanged(bool state)
 {
     ui->userAgentCombo->setEnabled(state);
+}
+
+void Preferences::useDifferentProxyForHttpsChanged(bool state)
+{
+    ui->httpsProxyServer->setEnabled(state);
+    ui->httpsProxyPort->setEnabled(state);
+    ui->httpsProxyUsername->setEnabled(state);
+    ui->httpsProxyPassword->setEnabled(state);
 }
 
 void Preferences::showPassManager(bool state)
@@ -870,6 +892,13 @@ void Preferences::saveSettings()
     settings.setValue("Port", ui->proxyPort->text().toInt());
     settings.setValue("Username", ui->proxyUsername->text());
     settings.setValue("Password", ui->proxyPassword->text());
+
+    settings.setValue("UseDifferentProxyForHttps", ui->useHttpsProxy->isChecked());
+    settings.setValue("HttpsHostName", ui->httpsProxyServer->text());
+    settings.setValue("HttpsPort", ui->httpsProxyPort->text());
+    settings.setValue("HttpsUsername", ui->httpsProxyUsername->text());
+    settings.setValue("HttpsPassword", ui->httpsProxyPassword->text());
+
     settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(","));
     settings.endGroup();
 

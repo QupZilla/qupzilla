@@ -18,7 +18,7 @@
 #include "akn_plugin.h"
 #include "akn_handler.h"
 #include "akn_settings.h"
-#include "mainapplication.h
+#include "mainapplication.h"
 #include "pluginproxy.h"
 #include "qupzilla.h"
 
