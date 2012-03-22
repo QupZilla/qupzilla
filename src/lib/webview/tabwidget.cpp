@@ -159,11 +159,6 @@ WebTab* TabWidget::weTab(int index)
     return qobject_cast<WebTab*>(widget(index));
 }
 
-void TabWidget::createKeyPressEvent(QKeyEvent* event)
-{
-    QTabWidget::keyPressEvent(event);
-}
-
 void TabWidget::showButtons()
 {
     m_buttonListTabs->show();
@@ -470,6 +465,18 @@ void TabWidget::setTabText(int index, const QString &text)
     }
 
     QTabWidget::setTabText(index, newtext);
+}
+
+void TabWidget::nextTab()
+{
+    QKeyEvent fakeEvent(QKeyEvent::KeyPress, Qt::Key_Tab, Qt::ControlModifier);
+    keyPressEvent(&fakeEvent);
+}
+
+void TabWidget::previousTab()
+{
+    QKeyEvent fakeEvent(QKeyEvent::KeyPress, Qt::Key_Backtab, QFlags<Qt::KeyboardModifier>(Qt::ControlModifier + Qt::ShiftModifier));
+    keyPressEvent(&fakeEvent);
 }
 
 void TabWidget::reloadTab(int index)

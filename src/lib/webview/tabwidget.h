@@ -69,16 +69,18 @@ public:
     void setTabIcon(int index, const QIcon &icon);
     void setTabText(int index, const QString &text);
 
-    inline TabBar* getTabBar() { return m_tabBar; }
-    inline ClosedTabsManager* closedTabsManager() { return m_closedTabsManager; }
+    void nextTab();
+    void previousTab();
+
+    void showTabBar();
+
+    TabBar* getTabBar() { return m_tabBar; }
+    ClosedTabsManager* closedTabsManager() { return m_closedTabsManager; }
     bool canRestoreTab();
     QList<WebTab*> allTabs(bool withPinned = true);
     QStackedWidget* locationBars() { return m_locationBars; }
     ToolButton* buttonListTabs() { return m_buttonListTabs; }
     AddTabButton* buttonAddTab() { return m_buttonAddTab; }
-
-    void createKeyPressEvent(QKeyEvent* event);
-    void showTabBar();
 
     void disconnectObjects();
 

@@ -1651,13 +1651,29 @@ void QupZilla::keyPressEvent(QKeyEvent* event)
 
     case Qt::Key_Tab:
         if (event->modifiers() == Qt::ControlModifier) {
-            m_tabWidget->createKeyPressEvent(event);
+            m_tabWidget->nextTab();
+            event->accept();
         }
         break;
 
     case Qt::Key_Backtab:
         if (event->modifiers() == (Qt::ControlModifier + Qt::ShiftModifier)) {
-            m_tabWidget->createKeyPressEvent(event);
+            m_tabWidget->previousTab();
+            event->accept();
+        }
+        break;
+
+    case Qt::Key_PageDown:
+        if (event->modifiers() == Qt::ControlModifier) {
+            m_tabWidget->nextTab();
+            event->accept();
+        }
+        break;
+
+    case Qt::Key_PageUp:
+        if (event->modifiers() == Qt::ControlModifier) {
+            m_tabWidget->previousTab();
+            event->accept();
         }
         break;
 
