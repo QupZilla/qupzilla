@@ -36,10 +36,6 @@
         <translation>&lt;b&gt;Издање Вебкита %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Сва права задржана.&lt;br/&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="66"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;Датум компајлирања: %1 &lt;/small&gt;&lt;/p&gt;</translation>
@@ -1075,17 +1071,6 @@
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="291"/>
         <source>No more information available.</source>
         <translation>Нема више доступних података.</translation>
-    </message>
-</context>
-<context>
-    <name>CloseDialog</name>
-    <message>
-        <source>There are still open tabs</source>
-        <translation type="obsolete">Још увек имате отворених језичака</translation>
-    </message>
-    <message>
-        <source>Don&apos;t ask again</source>
-        <translation type="obsolete">Не питај поново</translation>
     </message>
 </context>
 <context>
@@ -3151,17 +3136,18 @@
         <location filename="../src/lib/app/qupzilla.cpp" line="1813"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Још увек имате %1 отворених језичака а ваша сесија неће бити сачувана. 
+Желите ли заиста да напустите Капзилу?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1814"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">Не питај поново</translation>
+        <translation>Не питај поново</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1815"/>
         <source>There are still open tabs</source>
-        <translation type="unfinished">Још увек имате отворених језичака</translation>
+        <translation>Још увек имате отворених језичака</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="440"/>
@@ -3353,10 +3339,6 @@ Are you sure to quit QupZilla?</source>
         <translation>Покретање приватног прегледања</translation>
     </message>
     <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation type="obsolete">Још увек имате %1 отворених језичака а ваша сесија неће бити сачувана. Желите ли заиста да напустите Капзилу?</translation>
-    </message>
-    <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
         <translation>Успешно сте додали РСС довод „%1“.</translation>
@@ -3429,10 +3411,6 @@ Are you sure to quit QupZilla?</source>
         <translation>Подаци о поставкама</translation>
     </message>
     <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="obsolete">Ова страница садржи податке о текућим Капзилиним подешавањима, све оно што је важно за решавање проблема. Укључите ове податке приликом слања извештаја о грешкама.</translation>
-    </message>
-    <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="309"/>
         <source>Browser Identification</source>
         <translation>Идентификација прегледача</translation>
@@ -3492,7 +3470,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="144"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ако имате проблема са Капзилом најпре покушајте да онемогућите проширења. &lt;br/&gt;Ако то не помогне, онда попуните овај формулар: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="311"/>
@@ -3565,10 +3543,6 @@ Are you sure to quit QupZilla?</source>
         <translation>Главни програмер</translation>
     </message>
     <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="obsolete">Ако имате проблема са Капзилом најпре покушајте да онемогућите проширења. &lt;br/&gt;Ако то не помогне, онда попуните овај формулар: </translation>
-    </message>
-    <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="150"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
         <translation>Е-адреса није обавезна&lt;br/&gt;&lt;b&gt;Напомена: &lt;/b&gt;Најпре &lt;a href=%1&gt;овде&lt;/a&gt; прочитајте како направити извештај о грешци.</translation>
@@ -3601,7 +3575,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Close</source>
-        <translation type="unfinished">Затвори</translation>
+        <translation>Затвори</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="269"/>
@@ -3661,7 +3635,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="308"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ова страница садржи податке о текућим Капзилиним подешавањима битним за решавање проблема. Укључите ове податке приликом слања извештаја о грешци.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="384"/>
@@ -4067,7 +4041,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="333"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation>Грешка приликом додавања мотора претраге &lt;br&gt;&lt;b&gt;Извештај о грешци: &lt;/b&gt; %1</translation>
+        <translation>Грешка приликом додавања мотора претраге &lt;br&gt;&lt;b&gt;Порука грешке: &lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
@@ -4353,10 +4327,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/other/sourceviewer.cpp" line="82"/>
         <source>Paste</source>
         <translation>Налепи</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="obsolete">Обриши</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="84"/>
@@ -4812,16 +4782,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="687"/>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>Јаваскрипт упозорење</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="695"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Не дозволи овој страници да прави још дијалога</translation>
-    </message>
-    <message>
-        <source>JavaScript alert - %1</source>
-        <translation type="obsolete">Јаваскрипт упозорење - %1</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="743"/>
