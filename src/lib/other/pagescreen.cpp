@@ -54,7 +54,7 @@ void PageScreen::dialogAccepted()
 {
     const QString &suggestedPath = QDir::homePath() + "/" + QString("%1.png").arg(qz_filterCharsFromFilename(m_pageTitle));
     QString path = QFileDialog::getSaveFileName(this, tr("Save Page Screen..."),
-                          suggestedPath);
+                   suggestedPath);
 
     if (!path.isEmpty()) {
         if (!path.endsWith(".png", Qt::CaseInsensitive)) {

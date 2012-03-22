@@ -269,12 +269,9 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
         baseName = tr("NoNameDownload");
     }
 
-    if (endName.isEmpty()) {
-        endName = "html";
+    if (!endName.isEmpty()) {
+        endName.prepend(".");
     }
-
-    endName.prepend(".");
-
 
     QString name = baseName + endName;
 
