@@ -36,10 +36,6 @@
         <translation>&lt;b&gt;Webkit版本 %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;版權所有&lt;br/&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="66"/>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;建立時間： %1 &lt;/small&gt;&lt;/p&gt;</translation>
@@ -430,7 +426,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="93"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;注意:&lt;/b&gt;現在只有從HTML檔案匯入才能同時匯入書籤資料夾。</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="135"/>
@@ -711,7 +707,7 @@
         <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="467"/>
         <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="484"/>
         <source>Unsorted Bookmarks</source>
-        <translation>餵分類書籤</translation>
+        <translation>未分類書籤</translation>
     </message>
 </context>
 <context>
@@ -1075,17 +1071,6 @@
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="291"/>
         <source>No more information available.</source>
         <translation>沒有提供其他資訊。</translation>
-    </message>
-</context>
-<context>
-    <name>CloseDialog</name>
-    <message>
-        <source>There are still open tabs</source>
-        <translation type="obsolete">總是開啟分頁</translation>
-    </message>
-    <message>
-        <source>Don&apos;t ask again</source>
-        <translation type="obsolete">不要在詢問</translation>
     </message>
 </context>
 <context>
@@ -1798,14 +1783,6 @@
 </context>
 <context>
     <name>MainApplication</name>
-    <message>
-        <source>Last session crashed</source>
-        <translation type="obsolete">上一個不正常結束</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="obsolete">&lt;b&gt;抱歉，QupZilla上次被不正常結束:-(&lt;/b&gt;&lt;br/&gt;您要還原上一次的狀態嗎?</translation>
-    </message>
 </context>
 <context>
     <name>NavigationBar</name>
@@ -2011,11 +1988,7 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="220"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot load plugin!</source>
-        <translation type="obsolete">無法執行外掛!</translation>
+        <translation>無法讀取外掛!</translation>
     </message>
 </context>
 <context>
@@ -2072,10 +2045,6 @@
         <location filename="../src/lib/preferences/preferences.ui" line="137"/>
         <source>Notifications</source>
         <translation>通知</translation>
-    </message>
-    <message>
-        <source>Plugins</source>
-        <translation type="obsolete">外掛</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="147"/>
@@ -2387,7 +2356,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="142"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>外掛</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="431"/>
@@ -3032,12 +3001,12 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="160"/>
         <source>Last session crashed</source>
-        <translation type="unfinished">上一個不正常結束</translation>
+        <translation>上一個不正常結束</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="161"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;抱歉，QupZilla上次被不正常結束:-(&lt;/b&gt;&lt;br/&gt;您要還原上一次的狀態嗎?</translation>
+        <translation>&lt;b&gt;抱歉，QupZilla上次被不正常結束:-(&lt;/b&gt;&lt;br/&gt;您要還原上一次的狀態嗎?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="325"/>
@@ -3158,17 +3127,18 @@
         <location filename="../src/lib/app/qupzilla.cpp" line="1813"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>仍然有%1個開啟中分頁且您的會話並不會被儲存。
+您確定還要離開QupZilla嗎?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1814"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">不要在詢問</translation>
+        <translation>不要在詢問</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1815"/>
         <source>There are still open tabs</source>
-        <translation type="unfinished">總是開啟分頁</translation>
+        <translation>仍然有開啟中分頁</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="440"/>
@@ -3300,10 +3270,6 @@ Are you sure to quit QupZilla?</source>
         <translation>所有檔案</translation>
     </message>
     <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation type="obsolete">還有%1開啟的分頁將不會被儲存。確定要離開?</translation>
-    </message>
-    <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="285"/>
         <source>Pr&amp;eferences</source>
         <translation>偏好設定(&amp;e)</translation>
@@ -3410,7 +3376,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="144"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>如果拰在使用QupZilla時遇到問題，請先停用所有外掛。&lt;br/&gt;如果問題人然存在，請填寫此表單: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="148"/>
@@ -3447,7 +3413,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="308"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>此頁包涵QupZilla現在的設定相關訊息(也許有關解決問題)。回報問題給我們時請附上這些資訊。</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="309"/>
@@ -3506,10 +3472,6 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="306"/>
         <source>Configuration Information</source>
         <translation>設定資訊</translation>
-    </message>
-    <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="obsolete">此頁包含有關QupZilla現在的設定現在的設定、外掛等。進行錯誤回報時，請同時將這些相關訊息一起提交。</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="311"/>
@@ -3572,10 +3534,6 @@ Are you sure to quit QupZilla?</source>
         <translation>主題</translation>
     </message>
     <message>
-        <source>Plugins</source>
-        <translation type="obsolete">外掛</translation>
-    </message>
-    <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="339"/>
         <source>Translations</source>
         <translation>翻譯</translation>
@@ -3618,7 +3576,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="266"/>
         <source>Close</source>
-        <translation type="unfinished">關閉</translation>
+        <translation>關閉</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="269"/>
@@ -3678,7 +3636,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="315"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>外掛</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="341"/>
@@ -3726,11 +3684,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="384"/>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No available plugins.</source>
-        <translation type="obsolete">沒有可用外掛。</translation>
+        <translation>無可用外掛。</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="259"/>
@@ -3746,10 +3700,6 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="257"/>
         <source>Remove</source>
         <translation>移除</translation>
-    </message>
-    <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="obsolete">如果您的QupZilla遇到問題，請先嘗試禁用所有外掛， &lt;br/&gt;如果沒有幫助，那麼請填寫此表格:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="151"/>
@@ -4378,10 +4328,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>貼上</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation type="obsolete">刪除</translation>
-    </message>
-    <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="84"/>
         <source>Select All</source>
         <translation>全選</translation>
@@ -4834,16 +4780,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="687"/>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>JavaScript 警告</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="695"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>創見附加的對話，防止此頁</translation>
-    </message>
-    <message>
-        <source>JavaScript alert - %1</source>
-        <translation type="obsolete">JavaScript 警告 - %1</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="743"/>
