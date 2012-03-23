@@ -34,6 +34,11 @@ class QT_QUPZILLA_EXPORT ClearPrivateData : public QDialog
 public:
     explicit ClearPrivateData(QupZilla* mainClass, QWidget* parent = 0);
 
+    static void clearLocalStorage();
+    static void clearWebDatabases();
+    static void clearCache();
+    static void clearIcons();
+
 private slots:
     void historyClicked(bool state);
     void dialogAccepted();

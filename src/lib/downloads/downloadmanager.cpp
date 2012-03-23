@@ -204,7 +204,7 @@ void DownloadManager::download(const QNetworkRequest &request, WebPage* page, bo
     handleUnsupportedContent(m_networkManager->get(req), page, fromPageDownload, suggestedFileName);
 }
 
-void DownloadManager::handleUnsupportedContent(QNetworkReply *reply, WebPage *page, bool fromPageDownload, const QString &suggestedFileName)
+void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool fromPageDownload, const QString &suggestedFileName)
 {
     if (!page || reply->url().scheme() == "qupzilla") {
         return;

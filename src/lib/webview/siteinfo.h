@@ -45,6 +45,7 @@ public:
     static QString showCertInfo(const QString &string);
 
 private slots:
+    void databaseItemChanged(QListWidgetItem* item);
     void showImagePreview(QTreeWidgetItem* item);
     void securityDetailsClicked();
 
@@ -55,6 +56,7 @@ private slots:
 private:
     Ui::SiteInfo* ui;
     CertificateInfoWidget* m_certWidget;
+    WebView* m_view;
 
     QPixmap m_activePixmap;
     QUrl m_baseUrl;

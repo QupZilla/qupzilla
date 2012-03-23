@@ -31,6 +31,8 @@
 #include <QNetworkDiskCache>
 #include <QWebFrame>
 #include <QClipboard>
+#include <QWebSecurityOrigin>
+#include <QWebDatabase>
 
 QString SiteInfo::showCertInfo(const QString &string)
 {
@@ -46,13 +48,15 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::SiteInfo)
     , m_certWidget(0)
+    , m_view(view)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
     ui->listWidget->item(0)->setIcon(QIcon::fromTheme("document-properties", QIcon(":/icons/preferences/document-properties.png")));
     ui->listWidget->item(1)->setIcon(QIcon::fromTheme("applications-graphics", QIcon(":/icons/preferences/applications-graphics.png")));
-    ui->listWidget->item(2)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
+    ui->listWidget->item(2)->setIcon(QIcon::fromTheme("text-x-sql", QIcon(":/icons/preferences/text-x-sql.png")));
+    ui->listWidget->item(3)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
     ui->listWidget->item(0)->setSelected(true);
 
     WebPage* webPage = qobject_cast<WebPage*>(view->page());
@@ -123,6 +127,24 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
         ui->treeImages->addTopLevelItem(item);
     }
 
+    //DATABASES
+    const QList<QWebDatabase> databases = frame->securityOrigin().databases();
+
+    int counter = 0;
+    foreach(const QWebDatabase & b, databases) {
+        QListWidgetItem* item = new QListWidgetItem(ui->databaseList);
+        item->setText(b.displayName());
+        item->setData(Qt::UserRole + 10, counter);
+
+        ++counter;
+    }
+
+    if (counter == 0) {
+        QListWidgetItem* item = new QListWidgetItem(ui->databaseList);
+        item->setText(tr("No databases are used by this page."));
+        item->setFlags(item->flags() & Qt::ItemIsSelectable);
+    }
+
     //SECURITY
     if (cert.isValid()) {
         ui->securityLabel->setText(tr("<b>Connection is Encrypted.</b>"));
@@ -140,6 +162,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     connect(ui->secDetailsButton, SIGNAL(clicked()), this, SLOT(securityDetailsClicked()));
     connect(ui->saveButton, SIGNAL(clicked(QAbstractButton*)), this, SLOT(downloadImage()));
 
+    connect(ui->databaseList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(databaseItemChanged(QListWidgetItem*)));
     connect(ui->treeImages, SIGNAL(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)), this, SLOT(showImagePreview(QTreeWidgetItem*)));
     connect(ui->treeImages, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(imagesCustomContextMenuRequested(const QPoint &)));
 
@@ -159,6 +182,27 @@ void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)
     menu.addSeparator();
     menu.addAction(QIcon::fromTheme("document-save"), tr("Save Image to Disk"), this, SLOT(downloadImage()));
     menu.exec(QCursor::pos());
+}
+
+void SiteInfo::databaseItemChanged(QListWidgetItem* item)
+{
+    if (!item) {
+        return;
+    }
+
+    int id = item->data(Qt::UserRole + 10).toInt();
+    const QList<QWebDatabase> &list = m_view->page()->mainFrame()->securityOrigin().databases();
+
+    if (id > list.count() - 1) {
+        qDebug("database is shit");
+        return;
+    }
+
+    const QWebDatabase &db = list.at(id);
+
+    ui->databaseName->setText(QString("%1 (%2)").arg(db.displayName(), db.name()));
+    ui->databasePath->setText(db.fileName());
+    ui->databaseSize->setText(DownloadItem::fileSizeToString(db.size()));
 }
 
 void SiteInfo::copyActionData()
@@ -237,7 +281,7 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
 
 void SiteInfo::securityDetailsClicked()
 {
-    ui->listWidget->setCurrentRow(2);
+    ui->listWidget->setCurrentRow(3);
 }
 
 SiteInfo::~SiteInfo()

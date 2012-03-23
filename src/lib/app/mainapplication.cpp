@@ -46,6 +46,7 @@
 #include "settings.h"
 #include "locationbarsettings.h"
 #include "webviewsettings.h"
+#include "clearprivatedata.h"
 
 #ifdef Q_WS_MAC
 #include <QFileOpenEvent>
@@ -612,8 +613,7 @@ void MainApplication::saveSettings()
         m_historymodel->clearHistory();
     }
     if (deleteHtml5Storage) {
-        qz_removeDir(m_activeProfil + "Databases");
-        qz_removeDir(m_activeProfil + "LocalStorage");
+        ClearPrivateData::clearLocalStorage();
     }
 
     m_searchEnginesManager->saveSettings();

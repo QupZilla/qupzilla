@@ -24,7 +24,9 @@
 #include "clickablelabel.h"
 #include "ui_clearprivatedata.h"
 #include "iconprovider.h"
+#include "globalfunctions.h"
 
+#include <QWebDatabase>
 #include <QWebSettings>
 #include <QNetworkDiskCache>
 #include <QDateTime>
@@ -50,6 +52,35 @@ void ClearPrivateData::historyClicked(bool state)
     ui->historyLength->setEnabled(state);
 }
 
+void ClearPrivateData::clearLocalStorage()
+{
+    const QString &profile = mApp->getActiveProfilPath();
+
+    qz_removeDir(profile + "LocalStorage");
+}
+
+void ClearPrivateData::clearWebDatabases()
+{
+    const QString &profile = mApp->getActiveProfilPath();
+
+    QWebDatabase::removeAllDatabases();
+    qz_removeDir(profile + "Databases");
+}
+
+void ClearPrivateData::clearCache()
+{
+    mApp->webSettings()->clearMemoryCaches();
+    mApp->networkManager()->cache()->clear();
+
+    QFile::remove(mApp->getActiveProfilPath() + "ApplicationCache.db");
+}
+
+void ClearPrivateData::clearIcons()
+{
+    mApp->webSettings()->clearIconDatabase();
+    mApp->iconProvider()->clearIconDatabase();
+}
+
 void ClearPrivateData::clearFlash()
 {
     p_QupZilla->tabWidget()->addView(QUrl("http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html"));
@@ -58,6 +89,7 @@ void ClearPrivateData::clearFlash()
 void ClearPrivateData::dialogAccepted()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
+
     if (ui->history->isChecked()) {
         QDateTime dateTime = QDateTime::currentDateTime();
         qint64 nowMS = QDateTime::currentMSecsSinceEpoch();
@@ -83,18 +115,28 @@ void ClearPrivateData::dialogAccepted()
         query.exec("DELETE FROM history WHERE date > " + QString::number(date));
         query.exec("VACUUM");
     }
+
     if (ui->cookies->isChecked()) {
-        QList<QNetworkCookie> cookies;
-        mApp->cookieJar()->setAllCookies(cookies);
+        mApp->cookieJar()->setAllCookies(QList<QNetworkCookie>());
     }
+
     if (ui->cache->isChecked()) {
-        mApp->webSettings()->clearMemoryCaches();
-        mApp->networkManager()->cache()->clear();
+        clearCache();
     }
+
+    if (ui->databases->isChecked()) {
+        clearWebDatabases();
+    }
+
+    if (ui->localStorage->isChecked()) {
+        clearLocalStorage();
+    }
+
     if (ui->icons->isChecked()) {
-        mApp->webSettings()->clearIconDatabase();
-        mApp->iconProvider()->clearIconDatabase();
+        clearIcons();
     }
+
     QApplication::restoreOverrideCursor();
+
     close();
 }

@@ -41,6 +41,7 @@
 #include "autofillmodel.h"
 #include "settings.h"
 #include "tabbedwebview.h"
+#include "clearprivatedata.h"
 
 #include <QSettings>
 #include <QInputDialog>
@@ -503,9 +504,7 @@ void Preferences::chooseUserStyleClicked()
 
 void Preferences::deleteHtml5storage()
 {
-    QString activeProfil = mApp->getActiveProfilPath();
-    qz_removeDir(activeProfil + "Databases");
-    qz_removeDir(activeProfil + "LocalStorage");
+    ClearPrivateData::clearLocalStorage();
 
     ui->deleteHtml5storage->setText(tr("Deleted"));
     ui->deleteHtml5storage->setEnabled(false);
