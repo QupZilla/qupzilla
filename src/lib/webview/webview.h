@@ -83,7 +83,8 @@ protected slots:
     void openUrlInNewWindow();
     void sendLinkByMail();
     void copyLinkToClipboard();
-    void downloadLinkToDisk();
+    void downloadPage();
+    void downloadUrlToDisk();
     void copyImageToClipboard();
     void openActionUrl();
     void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());

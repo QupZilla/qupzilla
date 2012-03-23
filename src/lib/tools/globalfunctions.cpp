@@ -210,14 +210,20 @@ QString qz_getFileNameFromUrl(const QUrl &url)
         fileName.remove("/");
     }
 
-    return qz_filterCharsFromFilename(fileName);
+    fileName = qz_filterCharsFromFilename(fileName);
+
+    if (fileName.isEmpty()) {
+        fileName = qz_filterCharsFromFilename(url.host().replace(".", "-"));
+    }
+
+    return fileName;
 }
 
 QString qz_filterCharsFromFilename(const QString &name)
 {
     QString value = name;
+    value.replace("/", "-");
     value.remove("\\");
-    value.remove("/");
     value.remove(":");
     value.remove("*");
     value.remove("?");

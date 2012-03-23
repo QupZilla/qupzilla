@@ -1504,9 +1504,13 @@ void QupZilla::fullScreen(bool make)
 void QupZilla::savePage()
 {
     QNetworkRequest request(weView()->url());
+    QString suggestedFileName = qz_getFileNameFromUrl(weView()->url());
+    if (!suggestedFileName.contains(".")) {
+        suggestedFileName.append(".html");
+    }
 
     DownloadManager* dManager = mApp->downManager();
-    dManager->download(request, weView()->webPage(), false);
+    dManager->download(request, weView()->webPage(), false, suggestedFileName);
 }
 
 void QupZilla::sendLink()

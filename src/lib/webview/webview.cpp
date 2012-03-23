@@ -338,11 +338,24 @@ void WebView::copyLinkToClipboard()
     }
 }
 
-void WebView::downloadLinkToDisk()
+void WebView::downloadPage()
+{
+    QNetworkRequest request(url());
+    QString suggestedFileName = qz_getFileNameFromUrl(url());
+    if (!suggestedFileName.contains(".")) {
+        suggestedFileName.append(".html");
+    }
+
+    DownloadManager* dManager = mApp->downManager();
+    dManager->download(request, qobject_cast<WebPage*>(page()), false, suggestedFileName);
+}
+
+void WebView::downloadUrlToDisk()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        DownloadManager* dManager = mApp->downManager();
         QNetworkRequest request(action->data().toUrl());
+
+        DownloadManager* dManager = mApp->downManager();
         dManager->download(request, qobject_cast<WebPage*>(page()), false);
     }
 }
@@ -662,7 +675,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
 
     menu->addSeparator();
     menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
-    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadLinkToDisk()))->setData(url());
+    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadPage()));
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendLinkByMail()))->setData(url());
     menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printPage()));
@@ -691,7 +704,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
     menu->addSeparator();
     menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());
-    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadLinkToDisk()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadUrlToDisk()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.linkUrl());
     menu->addSeparator();
@@ -713,7 +726,7 @@ void WebView::createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
     menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(hitTest.imageUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
     menu->addSeparator();
-    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadLinkToDisk()))->setData(hitTest.imageUrl());
+    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadUrlToDisk()))->setData(hitTest.imageUrl());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(hitTest.imageUrl());
     menu->addSeparator();
 
@@ -797,7 +810,7 @@ void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(videoUrl);
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(videoUrl);
-    menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadLinkToDisk()))->setData(videoUrl);
+    menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadUrlToDisk()))->setData(videoUrl);
 }
 
 void WebView::pauseMedia()

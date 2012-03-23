@@ -190,7 +190,7 @@ void DownloadManager::clearList()
     qDeleteAll(items);
 }
 
-void DownloadManager::download(const QNetworkRequest &request, WebPage* page, bool askWhatToDo)
+void DownloadManager::download(const QNetworkRequest &request, WebPage* page, bool fromPageDownload, const QString &suggestedFileName)
 {
     if (!page) {
         return;
@@ -201,16 +201,16 @@ void DownloadManager::download(const QNetworkRequest &request, WebPage* page, bo
     req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), 0);
     req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), 0);
 
-    handleUnsupportedContent(m_networkManager->get(req), page, askWhatToDo);
+    handleUnsupportedContent(m_networkManager->get(req), page, fromPageDownload, suggestedFileName);
 }
 
-void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool askWhatToDo)
+void DownloadManager::handleUnsupportedContent(QNetworkReply *reply, WebPage *page, bool fromPageDownload, const QString &suggestedFileName)
 {
-    if (reply->url().scheme() == "qupzilla") {
+    if (!page || reply->url().scheme() == "qupzilla") {
         return;
     }
 
-    if (m_useExternalManager) {
+    if (!fromPageDownload && m_useExternalManager) {
         startExternalManager(reply->url());
         reply->abort();
         reply->deleteLater();
@@ -225,7 +225,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* pa
     h->setLastDownloadOption(m_lastDownloadOption);
     h->setDownloadManager(this);
     h->setListWidget(ui->list);
-    h->handleUnsupportedContent(reply, askWhatToDo);
+    h->handleUnsupportedContent(reply, fromPageDownload, suggestedFileName);
 }
 
 void DownloadManager::itemCreated(QListWidgetItem* item, DownloadItem* downItem)

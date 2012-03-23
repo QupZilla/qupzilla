@@ -49,8 +49,9 @@ public:
 
     void loadSettings();
 
-    void download(const QNetworkRequest &request, WebPage* page, bool askWhatToDo = true);
-    void handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool askWhatToDo = true);
+    void download(const QNetworkRequest &request, WebPage* page, bool fromPageDownload = true, const QString &suggestedFileName = QString());
+    void handleUnsupportedContent(QNetworkReply* reply, WebPage* page, bool fromPageDownload = true, const QString &suggestedFileName = QString());
+
     bool canClose();
     void setLastDownloadPath(const QString &lastPath) { m_lastDownloadPath = lastPath; }
     void setLastDownloadOption(const DownloadOption &option) { m_lastDownloadOption = option; }

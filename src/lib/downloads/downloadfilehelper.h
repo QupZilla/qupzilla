@@ -43,7 +43,7 @@ public:
     void setDownloadManager(DownloadManager* m) { m_manager = m; }
     void setLastDownloadOption(const DownloadManager::DownloadOption &option) { m_lastDownloadOption = option; }
 
-    void handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo);
+    void handleUnsupportedContent(QNetworkReply* reply, bool askWhatToDo, const QString &suggestedFileName);
 
 signals:
     void itemCreated(QListWidgetItem* item, DownloadItem* downItem);
