@@ -806,6 +806,14 @@
         <source>All</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Clear web databases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear local storage</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ClickToFlash</name>
@@ -2203,6 +2211,18 @@
         <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use different proxy for https connection</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3332,6 +3352,30 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Preview not available</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Databases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Database details&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;database not selected&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No databases are used by this page.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SiteInfoWidget</name>
@@ -3502,6 +3546,13 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Image files</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SqueezeLabelV2</name>
+    <message>
+        <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3783,6 +3834,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>JavaScript alert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown network error</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

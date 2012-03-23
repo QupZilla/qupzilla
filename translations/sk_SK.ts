@@ -838,6 +838,14 @@
         <source>Earlier Today</source>
         <translation>Dnes</translation>
     </message>
+    <message>
+        <source>Clear web databases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear local storage</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ClickToFlash</name>
@@ -2280,6 +2288,18 @@
         <source>Extensions</source>
         <translation>Rozšírenia</translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation type="unfinished">Server:</translation>
+    </message>
+    <message>
+        <source>Use different proxy for https connection</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3436,6 +3456,30 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <source>Cannot write to file!</source>
         <translation>Nedá sa zapisovať do súboru!</translation>
     </message>
+    <message>
+        <source>Databases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Database details&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Názov:</translation>
+    </message>
+    <message>
+        <source>Path:</source>
+        <translation type="unfinished">Cesta:</translation>
+    </message>
+    <message>
+        <source>&lt;database not selected&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No databases are used by this page.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SiteInfoWidget</name>
@@ -3611,6 +3655,13 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Image files</source>
         <translation>Obrázky</translation>
+    </message>
+</context>
+<context>
+    <name>SqueezeLabelV2</name>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Kopírovať</translation>
     </message>
 </context>
 <context>
@@ -3901,6 +3952,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>JavaScript alert</source>
         <translation>JavaScript upozornenie</translation>
+    </message>
+    <message>
+        <source>Unknown network error</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
