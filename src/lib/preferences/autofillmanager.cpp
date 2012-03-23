@@ -54,6 +54,7 @@ AutoFillManager::AutoFillManager(QWidget* parent)
 void AutoFillManager::loadPasswords()
 {
     ui->showPasswords->setText(tr("Show Passwords"));
+    m_passwordsShown = false;
 
     QSqlQuery query;
     query.exec("SELECT server, username, password, id FROM autofill");

@@ -388,6 +388,9 @@ QByteArray AutoFillModel::exportPasswords()
 
 bool AutoFillModel::importPasswords(const QByteArray &data)
 {
+    QSqlDatabase db = QSqlDatabase::database();
+    db.transaction();
+
     QXmlStreamReader xml(data);
 
     while (!xml.atEnd()) {
@@ -465,6 +468,7 @@ bool AutoFillModel::importPasswords(const QByteArray &data)
             }
         }
     }
+    db.commit();
 
-    return xml.hasError();
+    return !xml.hasError();
 }
