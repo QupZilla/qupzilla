@@ -1782,9 +1782,6 @@
     </message>
 </context>
 <context>
-    <name>MainApplication</name>
-</context>
-<context>
     <name>NavigationBar</name>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="41"/>
