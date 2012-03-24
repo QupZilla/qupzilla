@@ -18,9 +18,7 @@
 
 #include <iostream>
 
-#include "commandlineoptions.h"
 #include "mainapplication.h"
-#include "proxystyle.h"
 
 #ifdef Q_WS_X11
 #include <signal.h>
@@ -44,23 +42,7 @@ int main(int argc, char* argv[])
     signal(SIGPIPE, sigpipe_handler);
 #endif
 
-    QList<CommandLineOptions::ActionPair> cmdActions;
-
-    if (argc > 1) {
-        CommandLineOptions cmd(argc, argv);
-        cmdActions = cmd.getActions();
-        foreach(const CommandLineOptions::ActionPair & pair, cmdActions) {
-            switch (pair.action) {
-            case Qz::CL_ExitAction:
-                return 0;
-                break;
-            default:
-                break;
-            }
-        }
-    }
-
-    MainApplication app(cmdActions, argc, argv);
+    MainApplication app(argc, argv);
 
     if (app.isClosing()) {
 //        Not showing any output, otherwise XFCE shows "Failed to execute default browser. I/O error" error
@@ -70,8 +52,5 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    app.setStyle(new ProxyStyle());
-
-    int result = app.exec();
-    return result;
+    return app.exec();
 }

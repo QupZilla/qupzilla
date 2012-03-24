@@ -18,9 +18,10 @@
 #include "commandlineoptions.h"
 #include "qupzilla.h"
 
-CommandLineOptions::CommandLineOptions(int &argc, char** argv)
+#include <QCoreApplication>
+
+CommandLineOptions::CommandLineOptions(int &argc)
     : m_argc(argc)
-    , m_argv(argv)
 {
     parseActions();
 }
@@ -35,26 +36,26 @@ void CommandLineOptions::showHelp()
     using namespace std;
 
     const char* help = " Usage: qupzilla [options] URL  \n"
-                       "\n"
-                       " QupZilla options:\n"
-                       "    -h or --help                        print this message \n"
-                       "    -a or --authors                     print QupZilla authors \n"
-                       "    -v or --version                     print QupZilla version \n"
-                       "\n"
-                       "    -p=PROFILE or --profile=PROFILE     start with specified profile \n"
-                       "    -ne or --no-extensions              start without extensions\n"
-                       "\n"
-                       " Options to control running QupZilla:\n"
-                       "    -nt or --new-tab                    open new tab\n"
-                       "    -nw or --new-window                 open new window\n"
-                       "    -pb or --private-browsing           start private browsing\n"
-                       "    -dm or --download-manager           show download manager\n"
-                       "\n"
-                       " QupZilla is a new, fast and secure web browser\n"
-                       " based on WebKit core (http://webkit.org) and\n"
-                       " written in Qt Framework (http://qt.nokia.com) \n\n"
-                       " For more information please visit wiki at \n"
-                       " https://github.com/nowrep/QupZilla/wiki \n";
+            "\n"
+            " QupZilla options:\n"
+            "    -h or --help                        print this message \n"
+            "    -a or --authors                     print QupZilla authors \n"
+            "    -v or --version                     print QupZilla version \n"
+            "\n"
+            "    -p=PROFILE or --profile=PROFILE     start with specified profile \n"
+            "    -ne or --no-extensions              start without extensions\n"
+            "\n"
+            " Options to control running QupZilla:\n"
+            "    -nt or --new-tab                    open new tab\n"
+            "    -nw or --new-window                 open new window\n"
+            "    -pb or --private-browsing           start private browsing\n"
+            "    -dm or --download-manager           show download manager\n"
+            "\n"
+            " QupZilla is a new, fast and secure web browser\n"
+            " based on WebKit core (http://webkit.org) and\n"
+            " written in Qt Framework (http://qt.nokia.com) \n\n"
+            " For more information please visit wiki at \n"
+            " https://github.com/nowrep/QupZilla/wiki \n";
 
     cout << help << " > " << QupZilla::WWWADDRESS.toUtf8().data() << endl;
 }
@@ -63,9 +64,15 @@ void CommandLineOptions::parseActions()
 {
     using namespace std;
 
+    const QStringList &arguments = QCoreApplication::arguments();
+    if (arguments.isEmpty()) {
+        return;
+    }
+
     // Skip first argument (it should be program itself)
-    for (int i = 1; i < m_argc; i++) {
-        QString arg(m_argv[i]);
+    for (int i = 1; i < arguments.count(); ++i) {
+        QString arg = arguments.at(i);
+
         if (arg == "-h" || arg == "--help") {
             showHelp();
             ActionPair pair;
@@ -85,9 +92,9 @@ void CommandLineOptions::parseActions()
 
         if (arg == "-v" || arg == "--version") {
             cout << "QupZilla v" << QupZilla::VERSION.toUtf8().data()
-#ifdef GIT_REVISION
+        #ifdef GIT_REVISION
                  << " rev " << GIT_REVISION << " "
-#endif
+        #endif
                  << "(build " << QupZilla::BUILDTIME.toUtf8().data() << ")"
                  << endl;
             ActionPair pair;
@@ -142,9 +149,10 @@ void CommandLineOptions::parseActions()
         }
     }
 
-    QString url(m_argv[m_argc - 1]);
-    if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-") && url.contains(".")) {
-        cout << "QupZilla: Starting with url " << url.toUtf8().data() << endl;
+    const QString &url = arguments.last();
+
+    if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-") &&
+            (url.contains(".") || url.contains("/") || url.contains("\\"))) {
         ActionPair pair;
         pair.action = Qz::CL_OpenUrl;
         pair.text = url;
