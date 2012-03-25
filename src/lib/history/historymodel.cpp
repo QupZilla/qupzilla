@@ -140,7 +140,7 @@ void HistoryModel::deleteHistoryEntry(const QString &url, const QString &title)
         deleteHistoryEntry(id);
     }
 }
-#include <QDebug>
+
 void HistoryModel::slotDeleteHistoryEntry(const QList<int> &list)
 {
     QSqlDatabase db = QSqlDatabase::database();
@@ -151,10 +151,6 @@ void HistoryModel::slotDeleteHistoryEntry(const QList<int> &list)
         query.prepare("SELECT id, count, date, url, title FROM history WHERE id=?");
         query.bindValue(0, index);
         query.exec();
-        if (!query.next()) {
-            qDebug() << "invalid id" << index;
-            continue;
-        }
 
         HistoryEntry entry;
         entry.id = query.value(0).toInt();

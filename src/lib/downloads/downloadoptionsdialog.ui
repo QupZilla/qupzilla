@@ -47,7 +47,7 @@
     </widget>
    </item>
    <item row="1" column="1" colspan="2">
-    <widget class="SqueezeLabelV1" name="fileName">
+    <widget class="SqueezeLabelV2" name="fileName">
      <property name="text">
       <string/>
      </property>
@@ -166,9 +166,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>SqueezeLabelV1</class>
+   <class>SqueezeLabelV2</class>
    <extends>QLabel</extends>
-   <header>squeezelabelv1.h</header>
+   <header>squeezelabelv2.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

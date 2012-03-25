@@ -33,7 +33,7 @@ public:
 
     typedef QList<ActionPair> ActionPairList;
 
-    explicit CommandLineOptions(int &argc, char** argv);
+    explicit CommandLineOptions(int &argc);
     ActionPairList getActions();
 
 private:
@@ -41,7 +41,6 @@ private:
     void parseActions();
 
     int m_argc;
-    char** m_argv;
     ActionPairList m_actions;
 };
 

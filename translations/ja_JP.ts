@@ -822,6 +822,15 @@
         <source>All</source>
         <translation>すべて</translation>
     </message>
+    <message>
+        <source>Clear web databases</source>
+        <translation>webデータベースを消去する</translation>
+    </message>
+    <message>
+        <source>Clear local storage</source>
+        <translatorcomment>未定</translatorcomment>
+        <translation>local strageを消去する</translation>
+    </message>
 </context>
 <context>
     <name>ClickToFlash</name>
@@ -2298,6 +2307,18 @@
         <translatorcomment>なにこれこわい</translatorcomment>
         <translation>エクステンション</translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
+        <translation>&lt;b&gt;例外&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation>サーバー:</translation>
+    </message>
+    <message>
+        <source>Use different proxy for https connection</source>
+        <translation>https接続の際には異なるプロキシを使用する</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3484,6 +3505,30 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Preview not available</source>
         <translation>この画像のプレビューはできません</translation>
     </message>
+    <message>
+        <source>Databases</source>
+        <translation>データベース</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Database details&lt;/b&gt;</source>
+        <translation>&lt;b&gt;データベースの詳細&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>名前:</translation>
+    </message>
+    <message>
+        <source>Path:</source>
+        <translation>パス:</translation>
+    </message>
+    <message>
+        <source>&lt;database not selected&gt;</source>
+        <translation>&lt;データベースが選択されていません&gt;</translation>
+    </message>
+    <message>
+        <source>No databases are used by this page.</source>
+        <translation>このページではデータベースは使用されていません。</translation>
+    </message>
 </context>
 <context>
     <name>SiteInfoWidget</name>
@@ -3662,6 +3707,13 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Image files</source>
         <translation>画像ファイル</translation>
+    </message>
+</context>
+<context>
+    <name>SqueezeLabelV2</name>
+    <message>
+        <source>Copy</source>
+        <translation>コピー</translation>
     </message>
 </context>
 <context>
@@ -3963,6 +4015,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>JavaScript alert</source>
         <translation>Javascriptアラート</translation>
+    </message>
+    <message>
+        <source>Unknown network error</source>
+        <translation>予期しないエラーが発生しました</translation>
     </message>
 </context>
 <context>

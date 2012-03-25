@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ja_JP">
+<TS version="2.0" language="cs_CZ">
 <context>
     <name>AKN_Settings</name>
     <message>
         <location filename="../akn_settings.ui" line="14"/>
         <source>Access Keys Navigation</source>
-        <translation>Access Keys Navigation</translation>
+        <translation>Navigation med Snabbknappar</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="20"/>
         <source>&lt;h1&gt;Access Keys Navigation&lt;/h1&gt;</source>
-        <translation>&lt;h1&gt;Access Keys Navigation&lt;/h1&gt;</translation>
+        <translation>&lt;h1&gt;Navigation med Snabbknappar&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="33"/>
@@ -31,17 +31,17 @@
     <message>
         <location filename="../akn_settings.ui" line="51"/>
         <source>Double press</source>
-        <translation>キーのダブルプレス</translation>
+        <translation>Dubbeltryck</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="58"/>
         <source>Key for showing access keys:</source>
-        <translation>アクセスキーを表示するキー:</translation>
+        <translation>Tangent för att visa snabbknappar:</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="103"/>
         <source>License</source>
-        <translation>ライセンス</translation>
+        <translation>Licens</translation>
     </message>
 </context>
 </TS>

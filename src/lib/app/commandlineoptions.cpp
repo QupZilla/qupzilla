@@ -18,9 +18,10 @@
 #include "commandlineoptions.h"
 #include "qupzilla.h"
 
-CommandLineOptions::CommandLineOptions(int &argc, char** argv)
+#include <QCoreApplication>
+
+CommandLineOptions::CommandLineOptions(int &argc)
     : m_argc(argc)
-    , m_argv(argv)
 {
     parseActions();
 }
@@ -63,9 +64,15 @@ void CommandLineOptions::parseActions()
 {
     using namespace std;
 
+    const QStringList &arguments = QCoreApplication::arguments();
+    if (arguments.isEmpty()) {
+        return;
+    }
+
     // Skip first argument (it should be program itself)
-    for (int i = 1; i < m_argc; i++) {
-        QString arg(m_argv[i]);
+    for (int i = 1; i < arguments.count(); ++i) {
+        QString arg = arguments.at(i);
+
         if (arg == "-h" || arg == "--help") {
             showHelp();
             ActionPair pair;
@@ -142,9 +149,10 @@ void CommandLineOptions::parseActions()
         }
     }
 
-    QString url(m_argv[m_argc - 1]);
-    if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-") && url.contains(".")) {
-        cout << "QupZilla: Starting with url " << url.toUtf8().data() << endl;
+    const QString &url = arguments.last();
+
+    if (m_argc > 1 && !url.isEmpty() && !url.startsWith("-") &&
+            (url.contains(".") || url.contains("/") || url.contains("\\"))) {
         ActionPair pair;
         pair.action = Qz::CL_OpenUrl;
         pair.text = url;

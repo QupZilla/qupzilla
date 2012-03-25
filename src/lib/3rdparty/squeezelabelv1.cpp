@@ -15,5 +15,6 @@ void SqueezeLabelV1::paintEvent(QPaintEvent* event)
             setText(elided);
         }
     }
+
     QLabel::paintEvent(event);
 }

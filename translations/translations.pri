@@ -20,8 +20,6 @@ TRANSLATIONS += $$PWD/cs_CZ.ts\
                 $$PWD/ja_JP.ts\
                 $$PWD/ro_RO.ts\
 
-include(../src/defines.pri)
-
 updateqm.input = TRANSLATIONS
 updateqm.output = $$PWD/../bin/locale/${QMAKE_FILE_BASE}.qm
 updateqm.commands = $$QMAKE_LRELEASE -silent ${QMAKE_FILE_IN} -qm $$PWD/../bin/locale/${QMAKE_FILE_BASE}.qm

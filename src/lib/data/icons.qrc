@@ -63,5 +63,6 @@
         <file>icons/menu/translate.png</file>
         <file>icons/menu/duck.png</file>
         <file>icons/exeicons/qupzilla-window.png</file>
+        <file>icons/preferences/text-x-sql.png</file>
     </qresource>
 </RCC>

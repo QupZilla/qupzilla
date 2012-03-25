@@ -46,6 +46,9 @@
 #include "settings.h"
 #include "locationbarsettings.h"
 #include "webviewsettings.h"
+#include "clearprivatedata.h"
+#include "proxystyle.h"
+#include "commandlineoptions.h"
 
 #ifdef Q_WS_MAC
 #include <QFileOpenEvent>
@@ -80,7 +83,7 @@
 #define NO_SYSTEM_DATAPATH
 #endif
 
-MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cmdActions, int &argc, char** argv)
+MainApplication::MainApplication(int &argc, char** argv)
     : QtSingleApplication("QupZillaWebBrowser", argc, argv)
     , m_cookiemanager(0)
     , m_browsingLibrary(0)
@@ -131,7 +134,9 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     QString startProfile;
 
     if (argc > 1) {
-        foreach(const CommandLineOptions::ActionPair & pair, cmdActions) {
+        CommandLineOptions cmd(argc);
+
+        foreach(const CommandLineOptions::ActionPair & pair, cmd.getActions()) {
             switch (pair.action) {
             case Qz::CL_StartWithoutAddons:
                 noAddons = true;
@@ -155,9 +160,12 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
                 m_postLaunchActions.append(PrivateBrowsing);
                 break;
             case Qz::CL_OpenUrl:
-                startUrl = QUrl(pair.text.toUtf8());
+                startUrl = QUrl::fromUserInput(pair.text);
                 messages.append("URL:" + pair.text);
                 break;
+            case Qz::CL_ExitAction:
+                m_isClosing = true;
+                return;
             default:
                 break;
             }
@@ -182,6 +190,7 @@ MainApplication::MainApplication(const QList<CommandLineOptions::ActionPair> &cm
     setQuitOnLastWindowClosed(true);
 #endif
 
+    setStyle(new ProxyStyle);
     setApplicationName("QupZilla");
     setApplicationVersion(QupZilla::VERSION);
     setOrganizationDomain("qupzilla");
@@ -440,7 +449,7 @@ void MainApplication::receiveAppMessage(QString message)
 {
     QWidget* actWin = getWindow();
     if (message.startsWith("URL:")) {
-        QUrl url = QUrl::fromEncoded(message.mid(4).toUtf8());
+        QUrl url = QUrl::fromUserInput(message.mid(4));
         addNewTab(url);
         actWin = getWindow();
     }
@@ -612,8 +621,7 @@ void MainApplication::saveSettings()
         m_historymodel->clearHistory();
     }
     if (deleteHtml5Storage) {
-        qz_removeDir(m_activeProfil + "Databases");
-        qz_removeDir(m_activeProfil + "LocalStorage");
+        ClearPrivateData::clearLocalStorage();
     }
 
     m_searchEnginesManager->saveSettings();

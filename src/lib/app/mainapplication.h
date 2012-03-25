@@ -25,7 +25,6 @@
 #include <QWeakPointer>
 
 #include "qtsingleapplication.h"
-#include "commandlineoptions.h"
 #include "qz_namespace.h"
 
 class QWebSettings;
@@ -58,7 +57,7 @@ public:
     QString TRANSLATIONSDIR;
     QString THEMESDIR;
 
-    explicit MainApplication(const CommandLineOptions::ActionPairList &cmdActions, int &argc, char** argv);
+    explicit MainApplication(int &argc, char** argv);
 
     void connectDatabase();
     void loadSettings();

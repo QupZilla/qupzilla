@@ -8,6 +8,7 @@
         <file>locale/sk_SK.qm</file>
         <file>locale/sr_BA.qm</file>
         <file>locale/sr_RS.qm</file>
+        <file>locale/sv_SE.qm</file>
         <file>locale/zh_CN.qm</file>
         <file>locale/zh_TW.qm</file>
     </qresource>

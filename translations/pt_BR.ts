@@ -436,7 +436,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Observação:&lt;/b&gt; Atualmente, estamos importanto favoritos e pastas somente de arquivos HTML.</translation>
     </message>
 </context>
 <context>
@@ -573,7 +573,7 @@
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation>Abrir link na aba a&amp;tual</translation>
+        <translation>Abrir link na guia a&amp;tual</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
@@ -652,7 +652,7 @@
     </message>
     <message>
         <source>Show Only Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostras Somente Icons</translation>
     </message>
 </context>
 <context>
@@ -711,11 +711,11 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Remover</translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar aos Favoritos</translation>
     </message>
 </context>
 <context>
@@ -838,6 +838,14 @@
         <source>Earlier Today</source>
         <translation>Hoje</translation>
     </message>
+    <message>
+        <source>Clear web databases</source>
+        <translation>Limpar Banco de Dados da Web</translation>
+    </message>
+    <message>
+        <source>Clear local storage</source>
+        <translation>Limpar arquivos temporários</translation>
+    </message>
 </context>
 <context>
     <name>ClickToFlash</name>
@@ -878,7 +886,7 @@
     <name>CloseDialog</name>
     <message>
         <source>There are still open tabs</source>
-        <translation type="obsolete">Ainda existem abas abertas</translation>
+        <translation type="obsolete">Você ainda possui guias abertas</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
@@ -973,43 +981,43 @@
     </message>
     <message>
         <source>Stored Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookies Salvos</translation>
     </message>
     <message>
         <source>Cookie Filtering</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrar Cookie</translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookie Whitelist&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookies desses servidores SEMPRE serão aceitos (mesmo que você desabilite a função cookies)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Adicionar</translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Remover</translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Cookies Blacklist&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookies desses servidores NUNCA serão aceitos (mesmo que você habilite a função cookies)</translation>
     </message>
     <message>
         <source>Add to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar à whitelist</translation>
     </message>
     <message>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar à Blacklist</translation>
     </message>
 </context>
 <context>
@@ -1248,7 +1256,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagens</translation>
     </message>
 </context>
 <context>
@@ -1408,7 +1416,7 @@ não foi encontrado!</translation>
     <name>LicenseViewer</name>
     <message>
         <source>License Viewer</source>
-        <translation type="unfinished">Visualizador de licença</translation>
+        <translation>Visualizador de licença</translation>
     </message>
 </context>
 <context>
@@ -1440,7 +1448,7 @@ não foi encontrado!</translation>
     <message>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
-        <translation type="unfinished">.com.br</translation>
+        <translation>.com.br</translation>
     </message>
 </context>
 <context>
@@ -1619,11 +1627,11 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Erro!</translation>
+        <translation>Erro!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível carregar essa extensão!</translation>
     </message>
 </context>
 <context>
@@ -2270,15 +2278,27 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir Plugins NetScape (Flash plugin)</translation>
     </message>
     <message>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Não carregar guias até ser selecionada</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Extensões</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Excessões&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation>Servidor:</translation>
+    </message>
+    <message>
+        <source>Use different proxy for https connection</source>
+        <translation>Usar proxy diferente para conexões https</translation>
     </message>
 </context>
 <context>
@@ -2675,44 +2695,45 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informações de Configurações</translation>
     </message>
     <message>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos HTML</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagens</translation>
     </message>
     <message>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos de texto</translation>
     </message>
     <message>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Todos os Arquivos</translation>
     </message>
     <message>
         <source>Last session crashed</source>
-        <translation type="unfinished">O navegador foi fechado de forma incorreta</translation>
+        <translation>O navegador foi fechado de forma incorreta</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
+        <translation>&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ainda há %1 guias abertas. A sua sessão não será salva.
+Você tem certeza que deseja sair do QupZilla?</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">Não perguntar novamente</translation>
+        <translation>Não perguntar novamente</translation>
     </message>
     <message>
         <source>There are still open tabs</source>
-        <translation type="unfinished">Ainda existem abas abertas</translation>
+        <translation>Ainda existem guias abertas</translation>
     </message>
 </context>
 <context>
@@ -2931,99 +2952,99 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"></translation>
+        <translation>O Email é opicional&lt;br/&gt;&lt;b&gt;Observação:&lt;/b&gt;Por favor, leia como reportar um bug &lt;a href=%1&gt;aqui&lt;/a&gt; antes.</translation>
     </message>
     <message>
         <source>Cover</source>
-        <translation type="unfinished"></translation>
+        <translation>Cover</translation>
     </message>
     <message>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informações de Configurações</translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished">Preferências</translation>
+        <translation>Preferências</translation>
     </message>
     <message>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation>Opções</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">Valor</translation>
+        <translation>Valor</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Descrição</translation>
     </message>
     <message>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versão do Aplicativo</translation>
     </message>
     <message>
         <source>Qt version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versão do Qt</translation>
     </message>
     <message>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuração da compilação</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Desabilitado</translation>
     </message>
     <message>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Habilitado&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>Compilar</translation>
     </message>
     <message>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>Suporte WebGL</translation>
     </message>
     <message>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7 API</translation>
     </message>
     <message>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>Integração com o KDE</translation>
     </message>
     <message>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>Compilação Portátil</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Extensões</translation>
     </message>
     <message>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não há extensões disponíveis.</translation>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Se você estiver enfrentando problemas com o QupZilla, tente desabilitar as extensões.&lt;br/&gt;Se não funcionar, por favor, preencha o formulário abaixo: </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fechar</translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Essa página contém informações sobre as configurações atuais do QupZilla - que são importantes para sabermos a causa do problema. Por favor, inclua essas informações quanto for reportar um bug (por favor, escreva em Inglês).</translation>
     </message>
 </context>
 <context>
@@ -3397,7 +3418,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Save image...</source>
-        <translation>Salvaragem...</translation>
+        <translation>Salvar imagem...</translation>
     </message>
     <message>
         <source>Security</source>
@@ -3421,11 +3442,35 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
-        <translation>&lt;b&gt;A conexão para essa página é seguda com um certificado.&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;A conexão para essa página é sgura por causa desse certificado.&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Cannot write to file!</source>
         <translation>Não foi possível escrever no arquivo!</translation>
+    </message>
+    <message>
+        <source>Databases</source>
+        <translation>Banco de Dados</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Database details&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Detalhe do banco de dados&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>Nome:</translation>
+    </message>
+    <message>
+        <source>Path:</source>
+        <translation>Atalho:</translation>
+    </message>
+    <message>
+        <source>&lt;database not selected&gt;</source>
+        <translation>&lt;nenhum banco de dados selecionado&gt;</translation>
+    </message>
+    <message>
+        <source>No databases are used by this page.</source>
+        <translation>Essa página não usa nenhum banco de dados.</translation>
     </message>
 </context>
 <context>
@@ -3601,7 +3646,14 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagens</translation>
+    </message>
+</context>
+<context>
+    <name>SqueezeLabelV2</name>
+    <message>
+        <source>Copy</source>
+        <translation>Copiar</translation>
     </message>
 </context>
 <context>
@@ -3695,7 +3747,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Loading...</source>
-        <translation>A carregar...</translation>
+        <translation>Carregando...</translation>
     </message>
     <message>
         <source>No Named Page</source>
@@ -3853,7 +3905,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>QupZilla can&apos;t load page from %1.</source>
-        <translation>O Qupzilla não conseguiu carregar a página %1.</translation>
+        <translation>O QupZilla não conseguiu carregar a página %1.</translation>
     </message>
     <message>
         <source>Server not found</source>
@@ -3891,7 +3943,11 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>Alerta JavaScript</translation>
+    </message>
+    <message>
+        <source>Unknown network error</source>
+        <translation>Erro de rede desconhecido</translation>
     </message>
 </context>
 <context>
@@ -4081,7 +4137,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>&amp;Copy Media Address</source>
-        <translation>&amp;Copiar endereço multimidia</translation>
+        <translation>&amp;Copiar endereço multimídia</translation>
     </message>
     <message>
         <source>Send text...</source>
@@ -4089,7 +4145,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>&amp;Send Media Address</source>
-        <translation>&amp;Enviar endereço multimidia</translation>
+        <translation>&amp;Enviar endereço multimídia</translation>
     </message>
     <message>
         <source>Copy image ad&amp;dress</source>
@@ -4097,11 +4153,11 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translation>Procurar com...</translation>
     </message>
     <message>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Criar Motor de Busca</translation>
     </message>
 </context>
 <context>

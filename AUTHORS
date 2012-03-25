@@ -4,12 +4,12 @@ David Rosca <nowrep@gmail.com>
 
 Contributors:
 
-Mladen Pejaković      <pejakm@gmail.com>              (webview context menu improvements, speed dial background)
-Bryan M Dunsmore      <dunsmoreb@gmail.com>           (opening background tabs, closing window when closing last tab)
-Mariusz Fik           <fisiu@opensuse.org>            (fixed tab order in preferences dialog)
-Daniele Cocca         <jmc@chakra-project.org>        (close tabs with middle click, initial work on speed dial)
-Giuseppe Calà         <jiveaxe@gmail.com>             (fixed loading of bookmarklets)
-Jan Rajnoha           <honza.rajny@hotmail.com>       (QupZilla icon)
+Mladen Pejaković      <pejakm@gmail.com>                (webview context menu improvements, speed dial background)
+Bryan M Dunsmore      <dunsmoreb@gmail.com>             (opening background tabs, closing window when closing last tab)
+Mariusz Fik           <fisiu@opensuse.org>              (fixed tab order in preferences dialog)
+Daniele Cocca         <jmc@chakra-project.org>          (close tabs with middle click, initial work on speed dial)
+Giuseppe Calà         <jiveaxe@gmail.com>               (fixed loading of bookmarklets)
+Jan Rajnoha           <honza.rajny@hotmail.com>         (QupZilla icon)
 
 Translators:
 
@@ -35,10 +35,11 @@ Widya Walesa          <walecha99@gmail.com>             (Indonesian)
 Beqa Arabuli          <arabulibeqa@gmail.com>           (Georgian)
 Daiki Noda            <sys.pdr.pdm9@gmail.com>          (Japanese)
 Ștefan Comănescu      <sdfanq@gmail.com>                (Romanian)
+Gábor Oberle          <oberleg@myopera.com>             (Hungarian)
 
 Special thanks:
 
-Jonathan Hooverman    <jonathan.hooverman@gmail.com>  (english language correction)
-Peter Vacula          <pvacula1989@gmail.com>         (for a big support in the beginnigs)
-Sergio Cipolla        <secipolla@gmail.com>           (modifications to QupZilla icon)
-Radomir Orkac                                         (qupzilla.com domain)
+Jonathan Hooverman    <jonathan.hooverman@gmail.com>    (english language correction)
+Peter Vacula          <pvacula1989@gmail.com>           (for a big support in the beginnigs)
+Sergio Cipolla        <secipolla@gmail.com>             (modifications to QupZilla icon)
+Radomir Orkac                                           (qupzilla.com domain)

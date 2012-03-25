@@ -320,7 +320,7 @@ void LocationBar::contextMenuEvent(QContextMenuEvent* event)
     m_pasteAndGoAction->setEnabled(!QApplication::clipboard()->text().isEmpty());
 
     //Prevent choosing first option with double rightclick
-    QPoint pos = mapToGlobal(event->pos());
+    QPoint pos = event->globalPos();
     QPoint p(pos.x(), pos.y() + 1);
     m_menu->popup(p);
 }
