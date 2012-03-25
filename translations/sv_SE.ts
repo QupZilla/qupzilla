@@ -430,7 +430,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="93"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Observera:&lt;/b&gt; För närvarande kan endast Importera från HTML-fil importera bokmärkesmappar.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="135"/>
@@ -1020,12 +1020,12 @@
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
         <source>Clear web databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Rensa webbdatabaser</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="150"/>
         <source>Clear local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Rensa lokal lagring</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="160"/>
@@ -1592,7 +1592,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="90"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildfiler</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="92"/>
@@ -1800,7 +1800,7 @@
     <message>
         <location filename="../src/lib/other/licenseviewer.cpp" line="25"/>
         <source>License Viewer</source>
-        <translation type="unfinished">Licensvisare</translation>
+        <translation>Licensvisare</translation>
     </message>
 </context>
 <context>
@@ -2060,7 +2060,7 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="220"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan ej ladda insticksmodul!</translation>
     </message>
     <message>
         <source>Cannot load plugin!</source>
@@ -2392,17 +2392,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="142"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Insticksmoduler</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="431"/>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Hämta inte flikar förrän de väljs</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="757"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillåt Netscape-insticksmoduler (Flash)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="913"/>
@@ -2510,17 +2510,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1244"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Undantag&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1251"/>
         <source>Server:</source>
-        <translation type="unfinished">Server:</translation>
+        <translation>Server:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1302"/>
         <source>Use different proxy for https connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd annan proxy för https-anslutningar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1332"/>
@@ -3104,12 +3104,12 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="160"/>
         <source>Last session crashed</source>
-        <translation type="unfinished">Senaste sessionen kraschade</translation>
+        <translation>Senaste sessionen kraschade</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="161"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;QupZilla krashade :-(&lt;/b&gt;&lt;br/&gt;Hoppsan,den senaste sessionen av QupZilla avslutades oväntat. Vi är ledsna för detta. Vill du prova att återställa senast sparade läge?</translation>
+        <translation>&lt;b&gt;QupZilla krashade :-(&lt;/b&gt;&lt;br/&gt;Hoppsan,den senaste sessionen av QupZilla avslutades oväntat. Vi är ledsna för detta. Vill du prova att återställa senast sparade läge?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="310"/>
@@ -3240,17 +3240,18 @@
         <location filename="../src/lib/app/qupzilla.cpp" line="1833"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Det finns fortfarande %1 öppna flikar och din session kommer inte att sparas.
+Är du säker på att du vill avsluta QupZilla?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1834"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">Fråga inte igen</translation>
+        <translation>Fråga inte igen</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1835"/>
         <source>There are still open tabs</source>
-        <translation type="unfinished">Det finns fortfarande öppna flikar</translation>
+        <translation>Det finns fortfarande öppna flikar</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="440"/>
@@ -3384,22 +3385,22 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1436"/>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML-filer</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1436"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildfiler</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1436"/>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>Textfiler</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1436"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Alla filer&lt;</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1438"/>
@@ -3577,12 +3578,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="144"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Om du har problem med QupZilla, prova att inaktivera alla insticksmoduler först. &lt;br/&gt; Om detta inte löser problemet, fyll i i detta formulär: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="312"/>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Byggflaggor</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="314"/>
@@ -3597,7 +3598,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="316"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Insticksmoduler</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="317"/>
@@ -3686,7 +3687,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="267"/>
         <source>Close</source>
-        <translation type="unfinished">Stäng</translation>
+        <translation>Stäng</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="270"/>
@@ -3746,12 +3747,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="309"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Denna sida innehåller information om QupZillas aktuella konfiguration - relevant för felsökning. Vänligen inkludera denna information i buggrapporter.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="385"/>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Inga tillgängliga insticksmoduler</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
@@ -3764,7 +3765,7 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="345"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="346"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Inaktiverad</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="349"/>
@@ -3773,7 +3774,7 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="358"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="361"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Aktiverad&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="365"/>
@@ -3783,17 +3784,17 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="366"/>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>WebGL-stöd</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="367"/>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7 API</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="368"/>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE-integration</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="369"/>
@@ -4235,7 +4236,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="67"/>
         <source>Databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Databaser</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="72"/>
@@ -4301,24 +4302,24 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="363"/>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Databasdetaljer&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="372"/>
         <source>Name:</source>
-        <translation type="unfinished">Namn:</translation>
+        <translation>Namn:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="379"/>
         <source>Path:</source>
-        <translation type="unfinished">Sökväg:</translation>
+        <translation>Sökväg:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="393"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="403"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="413"/>
         <source>&lt;database not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;databas inte vald&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="40"/>
@@ -4328,7 +4329,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="144"/>
         <source>No databases are used by this page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Inga databaser används av denna sida.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="150"/>
@@ -4597,7 +4598,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildfiler</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>
@@ -4615,7 +4616,7 @@ Efter att ha lagt till eller tagit bort certifikats sökvägar måste QupZilla s
     <message>
         <location filename="../src/lib/3rdparty/squeezelabelv2.cpp" line="57"/>
         <source>Copy</source>
-        <translation type="unfinished">Kopiera</translation>
+        <translation>Kopiera</translation>
     </message>
 </context>
 <context>
@@ -4909,7 +4910,7 @@ beställningsbekräftelse)</translation>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="514"/>
         <source>Unknown network error</source>
-        <translation type="unfinished"></translation>
+        <translation>Okänt nätverksfel</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="540"/>
@@ -4964,7 +4965,7 @@ beställningsbekräftelse)</translation>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="690"/>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>JavaScript-varning</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="698"/>
@@ -5109,7 +5110,7 @@ beställningsbekräftelse)</translation>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="549"/>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Skapa sökmotor</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="649"/>

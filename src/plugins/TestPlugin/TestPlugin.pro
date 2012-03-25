@@ -20,6 +20,7 @@ TRANSLATIONS += translations/cs_CZ.ts\
                 translations/sk_SK.ts\
                 translations/sr_BA.ts\
                 translations/sr_RS.ts\
+                translations/sv_SE.ts\
                 translations/zh_CN.ts\
                 translations/zh_TW.ts\
 

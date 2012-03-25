@@ -51,7 +51,7 @@ void SqueezeLabelV2::copy()
     }
 }
 
-void SqueezeLabelV2::contextMenuEvent(QContextMenuEvent *event)
+void SqueezeLabelV2::contextMenuEvent(QContextMenuEvent* event)
 {
     QMenu menu;
     QAction* act = menu.addAction(tr("Copy"), this, SLOT(copy()));
@@ -61,7 +61,7 @@ void SqueezeLabelV2::contextMenuEvent(QContextMenuEvent *event)
     menu.exec(event->globalPos());
 }
 
-void SqueezeLabelV2::keyPressEvent(QKeyEvent *event)
+void SqueezeLabelV2::keyPressEvent(QKeyEvent* event)
 {
     if (event->key() == Qt::Key_C && event->modifiers() == Qt::ControlModifier) {
         copy();

@@ -37,8 +37,8 @@ private slots:
     void copy();
 
 protected:
-    void contextMenuEvent(QContextMenuEvent *event);
-    void keyPressEvent(QKeyEvent *event);
+    void contextMenuEvent(QContextMenuEvent* event);
+    void keyPressEvent(QKeyEvent* event);
     void resizeEvent(QResizeEvent* event);
 
 private:
