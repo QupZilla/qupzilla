@@ -1000,12 +1000,12 @@
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
         <source>Clear web databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Bersihkan database web</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="150"/>
         <source>Clear local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Bersihkan penyimpanan lokal</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="160"/>
@@ -1414,7 +1414,9 @@
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Maaf, berkas 
+ %1 
+ tidak ditemukan!</translation>
     </message>
     <message>
         <source>Sorry, the file
@@ -2488,17 +2490,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1244"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Pengecualian&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1251"/>
         <source>Server:</source>
-        <translation type="unfinished">Server:</translation>
+        <translation>Server:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1302"/>
         <source>Use different proxy for https connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Gunakan proxy berbeda untuk koneksi https</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1332"/>
@@ -3228,7 +3230,8 @@
         <location filename="../src/lib/app/qupzilla.cpp" line="1833"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Masih ada %1 tab yang terbuka dan sesi anda tidak akan disimpan. 
+Anda yakin untuk berhenti dari QupZilla?</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored.
@@ -3748,7 +3751,7 @@ Anda yakin untuk menutup QupZilla?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="309"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Halaman ini memuat informasi tentang konfigurasi terakhir Qupzilla yang relevan untuk perbaikan. Harap mengikutsertakan informasi ini saat mengirimkan laporan kerusakan.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="385"/>
@@ -4233,7 +4236,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="67"/>
         <source>Databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Database</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="72"/>
@@ -4299,24 +4302,24 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="363"/>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Detil database&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="372"/>
         <source>Name:</source>
-        <translation type="unfinished">Nama:</translation>
+        <translation>Nama:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="379"/>
         <source>Path:</source>
-        <translation type="unfinished">Lokasi:</translation>
+        <translation>Lokasi:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="393"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="403"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="413"/>
         <source>&lt;database not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;database tidak dipilih&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="40"/>
@@ -4326,7 +4329,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="144"/>
         <source>No databases are used by this page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak ada database yang digunakan halaman ini.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="150"/>
@@ -4613,7 +4616,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/3rdparty/squeezelabelv2.cpp" line="57"/>
         <source>Copy</source>
-        <translation type="unfinished">Salin</translation>
+        <translation>Salin</translation>
     </message>
 </context>
 <context>
@@ -4835,7 +4838,8 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
         <location filename="../src/lib/webview/webpage.cpp" line="352"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Untuk menampilkan halaman ini, QupZilla harus mengirim ulang permintaan yang melakukannya lagi 
+(seperti pencarian saat belanja, yang sudah dilakukan sebelumnya.)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="354"/>
@@ -4905,7 +4909,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="514"/>
         <source>Unknown network error</source>
-        <translation type="unfinished"></translation>
+        <translation>Kesalahan jaringan tidak diketahui</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="540"/>
