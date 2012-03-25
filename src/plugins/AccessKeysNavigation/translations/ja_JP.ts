@@ -36,7 +36,7 @@
     <message>
         <location filename="../akn_settings.ui" line="58"/>
         <source>Key for showing access keys:</source>
-        <translation>現在のアクセスキーに対応するキー:</translation>
+        <translation>アクセスキーを表示するキー:</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="103"/>
