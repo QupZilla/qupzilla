@@ -178,6 +178,26 @@ LangString DESC_SecDesktop ${LANG_ITALIAN} "Aggiunge il lanciatore al desktop."
 LangString DESC_SecExtensions ${LANG_ITALIAN} "Associa QupZilla ai file .htm and .html"
 LangString DESC_SecThemes ${LANG_ITALIAN} "Temi aggiuntivi per QupZilla"
 
+;;;;Romanian
+LangString TITLE_SecMain ${LANG_ROMANIAN} "Componente principale"
+LangString TITLE_SecTranslations ${LANG_ROMANIAN} "Traduceri"
+LangString TITLE_SecPlugins ${LANG_ROMANIAN} "Plugin-uri"
+LangString TITLE_SecExamplePlugin ${LANG_ROMANIAN} "Exemplu de plugin"
+LangString TITLE_SecDesktop ${LANG_ROMANIAN} "Iconiță Desktop"
+LangString TITLE_SecExtensions ${LANG_ROMANIAN} "Asocieri fișiere"
+LangString TITLE_SecThemes ${LANG_ROMANIAN} "Teme"
+
+LangString FILE_Htm ${LANG_ROMANIAN} "Fișier HTM"
+LangString FILE_Html ${LANG_ROMANIAN} "Fișier HTML"
+;
+LangString DESC_SecMain ${LANG_ROMANIAN} "Componentele principale ale aplicației."
+LangString DESC_SecTranslations ${LANG_ROMANIAN} "Alte traduceri disponibile pentru instalare. Predefinită este Engleza."
+LangString DESC_SecPlugins ${LANG_ROMANIAN} "Alte plugin-uri sunt disponibile pentru instalare."
+LangString DESC_SecExamplePlugin ${LANG_ROMANIAN} "Exemplu de plugin inutil."
+LangString DESC_SecDesktop ${LANG_ROMANIAN} "Adaugă scurtătură pe Desktop."
+LangString DESC_SecExtensions ${LANG_ROMANIAN} "Asociază QupZilla cu .htm și fișiere .html"
+LangString DESC_SecThemes ${LANG_ROMANIAN} "Teme adiționale pentru QupZilla"
+
 ;;;;Traditional Chinese
 LangString TITLE_SecMain ${LANG_TRADCHINESE} "主要組件"
 LangString TITLE_SecTranslations ${LANG_TRADCHINESE} "翻譯"
