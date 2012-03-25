@@ -53,6 +53,11 @@ void SqueezeLabelV2::copy()
 
 void SqueezeLabelV2::contextMenuEvent(QContextMenuEvent* event)
 {
+    if (!(textInteractionFlags() & Qt::TextSelectableByMouse) && !(textInteractionFlags() & Qt::TextSelectableByKeyboard)) {
+        event->ignore();
+        return;
+    }
+
     QMenu menu;
     QAction* act = menu.addAction(tr("Copy"), this, SLOT(copy()));
     act->setShortcut(QKeySequence("Ctrl+C"));
