@@ -21,6 +21,7 @@
 #include "speeddial.h"
 #include "settings.h"
 
+#include <iostream>
 #include <QPluginLoader>
 #include <QDir>
 
