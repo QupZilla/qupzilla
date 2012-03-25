@@ -107,7 +107,8 @@ void AboutDialog::showAuthors()
                                          "Wu Cheng-Hong<br/>"
                                          "Widya Walesa<br/>"
                                          "Beqa Arabuli<br/>"
-                                         "Daiki Noda")
+                                         "Daiki Noda<br/>"
+                                         "Gábor Oberle")
                              ));
         m_authorsHtml.append("</div></center>");
     }

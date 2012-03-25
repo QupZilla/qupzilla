@@ -232,7 +232,8 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Wu Cheng-Hong", "stu2731652@gmail.com") + " (Traditional Chinese)<br/>" +
                       authorString("Widya Walesa", "walecha99@gmail.com") + " (Indonesian)<br/>" +
                       authorString("Beqa Arabuli", "arabulibeqa@gmail.com") + " (Georgian)<br/>" +
-                      authorString("Daiki Noda", "sys.pdr.pdm9@gmail.com") + " (Japanese)"
+                      authorString("Daiki Noda", "sys.pdr.pdm9@gmail.com") + " (Japanese)<br/>" +
+                      authorString("Gábor Oberle", "oberleg@myopera.com") + " (Hungarian)"
                      );
     }
 
