@@ -436,7 +436,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Notă:&lt;/b&gt; Deocamdată, doar importarea din fișiere HTML poate importa deasemenea directoare de semne de carte.</translation>
     </message>
 </context>
 <context>
@@ -812,11 +812,11 @@
     </message>
     <message>
         <source>Clear web databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Șterge bazele de date web</translation>
     </message>
     <message>
         <source>Clear local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Șterge stocarea locală</translation>
     </message>
 </context>
 <context>
@@ -1595,7 +1595,7 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translation>Extensia nu a putut fi încărcată!</translation>
     </message>
 </context>
 <context>
@@ -2248,19 +2248,19 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Extensii</translation>
     </message>
     <message>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Excepții&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Server:</source>
-        <translation type="unfinished">Server:</translation>
+        <translation>Server:</translation>
     </message>
     <message>
         <source>Use different proxy for https connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Folosește proxy diferit pentru conexiuni http</translation>
     </message>
 </context>
 <context>
@@ -2677,24 +2677,25 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Last session crashed</source>
-        <translation type="unfinished">Ultima sesiune a eșuat</translation>
+        <translation>Ultima sesiune a eșuat</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;QupZilla a eșuat:-(&lt;/b&gt;&lt;br/&gt;Oops, ultima sesiune a QupZilla a fost întreruptă in mod neașteptat. Ne cerem scuze pentru asta. Ați dori să incercați să restaurați ultima sesiune?</translation>
+        <translation>&lt;b&gt;QupZilla a eșuat:-(&lt;/b&gt;&lt;br/&gt;Oops, ultima sesiune a QupZilla a fost întreruptă in mod neașteptat. Ne cerem scuze pentru asta. Ați dori să incercați să restaurați ultima sesiune?</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Mai sunt %1 tab-uri deschise și sesiunea dvs. nu va fi stocată. 
+Sunteți sigur că doriți să închideți QupZilla?</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">Nu întreba din nou</translation>
+        <translation>Nu întreba din nou</translation>
     </message>
     <message>
         <source>There are still open tabs</source>
-        <translation type="unfinished">Încă sunt taburi deschise</translation>
+        <translation>Încă sunt taburi deschise</translation>
     </message>
 </context>
 <context>
@@ -2993,23 +2994,23 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Dacă întâmpinați probleme cu QupZilla, vă rugăm încercați să dezactivați toate extensiile întâi. &lt;br/&gt;Dacă asta nu remediază problema, vă rugăm cumpletați următorul formular:</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Închide</translation>
+        <translation>Închide</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Această pagină conține informații despre configurarea curentă a QupZilla -  relevante pentru remedierea problemelor. Vă rugăm să includeți aceste informații la trimiterea raport-urilor despre bug-uri.</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Extensii</translation>
     </message>
     <message>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nu sunt extensii disponibile.</translation>
     </message>
 </context>
 <context>
@@ -3414,27 +3415,27 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     </message>
     <message>
         <source>Databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Baze de date</translation>
     </message>
     <message>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Detalii bază de date&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">Nume:</translation>
+        <translation>Nume:</translation>
     </message>
     <message>
         <source>Path:</source>
-        <translation type="unfinished">Cale:</translation>
+        <translation>Cale:</translation>
     </message>
     <message>
         <source>&lt;database not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;baza de date nu este selectată&gt;</translation>
     </message>
     <message>
         <source>No databases are used by this page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nu există baze de date folosite de către această pagină.</translation>
     </message>
 </context>
 <context>
@@ -3617,7 +3618,7 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <name>SqueezeLabelV2</name>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copiază</translation>
+        <translation>Copiază</translation>
     </message>
 </context>
 <context>
@@ -3902,11 +3903,11 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     </message>
     <message>
         <source>Unknown network error</source>
-        <translation type="unfinished"></translation>
+        <translation>Eroare de rețea necunoscută</translation>
     </message>
     <message>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>Alertă Javascript</translation>
     </message>
 </context>
 <context>
