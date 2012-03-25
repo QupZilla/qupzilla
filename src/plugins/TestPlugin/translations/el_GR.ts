@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de_DE" sourcelanguage="en_US">
+<TS version="2.0" language="el">
 <context>
     <name>TestPlugin</name>
     <message>
         <location filename="../testplugin.cpp" line="92"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλείσιμο</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="103"/>
         <source>Example Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις παραδειγματικού προσθέτου</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="127"/>
