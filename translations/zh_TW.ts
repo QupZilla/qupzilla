@@ -1045,7 +1045,7 @@
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="132"/>
         <source>Object blocked by ClickToFlash</source>
-        <translation>選擇Flash封鎖的物件</translation>
+        <translation>物件被ClickToFlash封鎖</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="133"/>
@@ -1060,7 +1060,7 @@
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="136"/>
         <source>Add %1 to whitelist</source>
-        <translation>將%1加入白名單</translation>
+        <translation>將%1加入優先名單</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="274"/>
@@ -1176,7 +1176,7 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="254"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Cookie白名單&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Cookie優先名單&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="261"/>
@@ -1228,7 +1228,7 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="210"/>
         <source>Add to whitelist</source>
-        <translation>加到白名單</translation>
+        <translation>加到優先名單</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="230"/>
@@ -3031,7 +3031,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="161"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>&lt;b&gt;抱歉，QupZilla上次被不正常結束:-(&lt;/b&gt;&lt;br/&gt;您要還原上一次的狀態嗎?</translation>
+        <translation>&lt;b&gt;不好意思，QupZilla被不正常結束:-(&lt;/b&gt;&lt;br/&gt;我們對此感到相當抱歉。您想要還原結束前儲存的狀態嗎?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="325"/>
@@ -3146,7 +3146,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="678"/>
         <source> (Private Browsing)</source>
-        <translation>(私密瀏覽)</translation>
+        <translation> (私密瀏覽)</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1833"/>
@@ -3302,7 +3302,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="481"/>
         <source>Information about application</source>
-        <translation>軟體資訊</translation>
+        <translation>程式資訊</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="970"/>
@@ -3317,7 +3317,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1350"/>
         <source>%1 - QupZilla</source>
-        <translation></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="310"/>
@@ -3337,7 +3337,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1554"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>開啟私密瀏覽時，有關您的隱私行動將禁止:</translation>
+        <translation>開啟私密瀏覽時，有關您的隱私動作將被禁止:</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1557"/>
@@ -3367,7 +3367,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="31"/>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>您已經成功加入RSS feed&quot;%1&quot;。</translation>
+        <translation>您已經成功加入RSS 訂閱&quot;%1&quot;。</translation>
     </message>
 </context>
 <context>
