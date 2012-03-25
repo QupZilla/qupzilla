@@ -1020,12 +1020,12 @@
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
         <source>Clear web databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Web-Datenbanken löschen</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="150"/>
         <source>Clear local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokalen Speicherplatz löschen</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="160"/>
@@ -2518,17 +2518,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1244"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Ausnahmen&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1251"/>
         <source>Server:</source>
-        <translation type="unfinished">Server:</translation>
+        <translation>Server:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1302"/>
         <source>Use different proxy for https connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Einen anderen Proxy für https Verbindungen nutzen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1332"/>
@@ -4245,7 +4245,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="67"/>
         <source>Databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Datenbanken</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="72"/>
@@ -4301,24 +4301,24 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="363"/>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Details zur Datenbank&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="372"/>
         <source>Name:</source>
-        <translation type="unfinished">Name:</translation>
+        <translation>Name:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="379"/>
         <source>Path:</source>
-        <translation type="unfinished">Pfad:</translation>
+        <translation>Pfad:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="393"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="403"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="413"/>
         <source>&lt;database not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Keine Datenbank ausgewählt&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="179"/>
@@ -4338,7 +4338,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="144"/>
         <source>No databases are used by this page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dieser Seite ist keine Datenbank zugeordnet.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="150"/>
@@ -4625,7 +4625,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/3rdparty/squeezelabelv2.cpp" line="57"/>
         <source>Copy</source>
-        <translation type="unfinished">Kopieren</translation>
+        <translation>Kopieren</translation>
     </message>
 </context>
 <context>
@@ -4919,7 +4919,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="514"/>
         <source>Unknown network error</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Netzwerkfehler</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="540"/>
