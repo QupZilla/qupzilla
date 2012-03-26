@@ -44,14 +44,13 @@ TipLabel::TipLabel(QWidget* parent)
     m_timer->setSingleShot(true);
     m_timer->setInterval(500);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(hide()));
-
-    qApp->installEventFilter(this);
 }
 
-void TipLabel::show()
+void TipLabel::show(QWidget* widget)
 {
     m_timer->stop();
 
+    widget->installEventFilter(this);
     SqueezeLabelV1::show();
 }
 
@@ -77,13 +76,7 @@ bool TipLabel::eventFilter(QObject* o, QEvent* e)
 
     switch (e->type()) {
     case QEvent::Leave:
-    case QEvent::WindowActivate:
     case QEvent::WindowDeactivate:
-    case QEvent::MouseButtonPress:
-    case QEvent::MouseButtonRelease:
-    case QEvent::MouseButtonDblClick:
-    case QEvent::FocusIn:
-    case QEvent::FocusOut:
     case QEvent::Wheel:
         hide();
         break;
@@ -91,6 +84,7 @@ bool TipLabel::eventFilter(QObject* o, QEvent* e)
     default:
         break;
     }
+
     return false;
 }
 
@@ -136,7 +130,7 @@ void StatusBarMessage::showMessage(const QString &message)
         }
 
         m_statusBarText->move(view->mapToGlobal(position));
-        m_statusBarText->show();
+        m_statusBarText->show(view);
     }
 }
 

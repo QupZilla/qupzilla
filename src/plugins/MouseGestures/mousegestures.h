@@ -20,6 +20,7 @@
 
 #include <QObject>
 #include <QMouseEvent>
+#include <QWeakPointer>
 
 class WebView;
 class QjtMouseGestureFilter;
@@ -51,7 +52,7 @@ private slots:
 
 private:
     QjtMouseGestureFilter* m_filter;
-    WebView* m_view;
+    QWeakPointer<WebView> m_view;
 
 };
 

@@ -16,11 +16,10 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 
-#include <iostream>
-
 #include "mainapplication.h"
 
 #ifdef Q_WS_X11
+#include <iostream>
 #include <signal.h>
 void sigpipe_handler(int s)
 {

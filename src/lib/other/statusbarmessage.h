@@ -33,7 +33,7 @@ class QT_QUPZILLA_EXPORT TipLabel : public SqueezeLabelV1
 public:
     explicit TipLabel(QWidget* parent);
 
-    void show();
+    void show(QWidget* widget);
     void hideDelayed();
 
     bool eventFilter(QObject* o, QEvent* e);

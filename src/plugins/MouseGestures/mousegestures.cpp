@@ -93,37 +93,65 @@ void MouseGestures::showSettings(QWidget* parent)
 
 void MouseGestures::upGestured()
 {
-    m_view->stop();
+    if (!m_view) {
+        return;
+    }
+
+    m_view.data()->stop();
 }
 
 void MouseGestures::downGestured()
 {
-    m_view->openUrlInNewTab(QUrl(), Qz::NT_CleanSelectedTabAtTheEnd);
+    if (!m_view) {
+        return;
+    }
+
+    m_view.data()->openUrlInNewTab(QUrl(), Qz::NT_CleanSelectedTabAtTheEnd);
 }
 
 void MouseGestures::leftGestured()
 {
-    m_view->back();
+    if (!m_view) {
+        return;
+    }
+
+    m_view.data()->back();
 }
 
 void MouseGestures::rightGestured()
 {
-    m_view->forward();
+    if (!m_view) {
+        return;
+    }
+
+    m_view.data()->forward();
 }
 
 void MouseGestures::downRightGestured()
 {
-    m_view->closeView();
+    if (!m_view) {
+        return;
+    }
+
+    m_view.data()->closeView();
 }
 
 void MouseGestures::downLeftGestured()
 {
-    m_view->load(mApp->getWindow()->homepageUrl());
+    if (!m_view) {
+        return;
+    }
+
+    m_view.data()->load(mApp->getWindow()->homepageUrl());
 }
 
 void MouseGestures::upDownGestured()
 {
-    m_view->reload();
+    if (!m_view) {
+        return;
+    }
+
+    m_view.data()->reload();
 }
 
 MouseGestures::~MouseGestures()

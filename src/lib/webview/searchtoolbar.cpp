@@ -52,7 +52,7 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
     QShortcut* findPreviousAction = new QShortcut(QKeySequence("Shift+F3"), this);
     connect(findPreviousAction, SIGNAL(activated()), this, SLOT(findPrevious()));
 
-    qApp->installEventFilter(this);
+    parent->installEventFilter(this);
 }
 
 QLineEdit* SearchToolBar::searchLine()

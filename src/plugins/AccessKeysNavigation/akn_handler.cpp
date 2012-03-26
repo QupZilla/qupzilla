@@ -64,7 +64,6 @@ Qt::Key keyFromCode(int code)
 
 AKN_Handler::AKN_Handler(const QString &sPath, QObject* parent)
     : QObject(parent)
-    , m_view(0)
     , m_accessKeysVisible(false)
     , m_settingsPath(sPath)
 {
@@ -129,7 +128,7 @@ bool AKN_Handler::handleKeyPress(QObject* obj, QKeyEvent* event)
 
 bool AKN_Handler::eventFilter(QObject* obj, QEvent* event)
 {
-    if (obj != m_view) {
+    if (obj != m_view.data()) {
         return false;
     }
 
@@ -188,13 +187,13 @@ void AKN_Handler::handleAccessKey(QKeyEvent* event)
             p -= frame->scrollPosition();
             frame = frame->parentFrame();
         }
-        while (frame && frame != m_view->page()->currentFrame());
+        while (frame && frame != m_view.data()->page()->currentFrame());
 
         QMouseEvent pevent(QEvent::MouseButtonPress, p, Qt::LeftButton, 0, 0);
-        qApp->sendEvent(m_view, &pevent);
+        qApp->sendEvent(m_view.data(), &pevent);
 
         QMouseEvent revent(QEvent::MouseButtonRelease, p, Qt::LeftButton, 0, 0);
-        qApp->sendEvent(m_view, &revent);
+        qApp->sendEvent(m_view.data(), &revent);
 
         hideAccessKeys();
     }
@@ -206,7 +205,7 @@ void AKN_Handler::showAccessKeys()
         return;
     }
 
-    QWebPage* page = m_view->page();
+    QWebPage* page = m_view.data()->page();
 
     QStringList supportedElement;
     supportedElement << QLatin1String("input")
@@ -292,8 +291,8 @@ void AKN_Handler::showAccessKeys()
     // Install event filter and connect loadStarted
     m_accessKeysVisible = !m_accessKeyLabels.isEmpty();
     if (m_accessKeysVisible) {
-        qApp->installEventFilter(this);
-        connect(m_view, SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
+        m_view.data()->installEventFilter(this);
+        connect(m_view.data(), SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
     }
 }
 
@@ -307,11 +306,11 @@ void AKN_Handler::hideAccessKeys()
         }
         m_accessKeyLabels.clear();
         m_accessKeyNodes.clear();
-        m_view->update();
+        m_view.data()->update();
 
         // Uninstall event filter and disconnect loadStarted
-        qApp->removeEventFilter(this);
-        disconnect(m_view, SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
+        m_view.data()->removeEventFilter(this);
+        disconnect(m_view.data(), SIGNAL(loadStarted()), this, SLOT(hideAccessKeys()));
     }
 
     m_accessKeysVisible = false;
@@ -319,7 +318,7 @@ void AKN_Handler::hideAccessKeys()
 
 void AKN_Handler::makeAccessKeyLabel(const QChar &accessKey, const QWebElement &element)
 {
-    QLabel* label = new QLabel(m_view);
+    QLabel* label = new QLabel(m_view.data());
     label->setText(QString(QLatin1String("<b>%1</b>")).arg(accessKey));
 
     QPalette p = QToolTip::palette();
@@ -331,7 +330,7 @@ void AKN_Handler::makeAccessKeyLabel(const QChar &accessKey, const QWebElement &
     label->setAutoFillBackground(true);
     label->setFrameStyle(QFrame::Box | QFrame::Plain);
     QPoint point = element.geometry().center();
-    point -= m_view->page()->currentFrame()->scrollPosition();
+    point -= m_view.data()->page()->currentFrame()->scrollPosition();
     label->move(point);
     label->show();
     point.setX(point.x() - label->width() / 2);

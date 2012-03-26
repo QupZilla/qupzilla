@@ -50,7 +50,7 @@ SourceViewerSearch::SourceViewerSearch(SourceViewer* parent)
     connect(findPreviousAction, SIGNAL(activated()), this, SLOT(previous()));
 
     startAnimation();
-    qApp->installEventFilter(this);
+    parent->installEventFilter(this);
 }
 
 void SourceViewerSearch::activateLineEdit()

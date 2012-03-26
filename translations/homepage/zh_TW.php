@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Header + Footer
 $site_title = "QupZilla - 輕巧的跨平台瀏覽器";
 $qupzilla = "QupZilla";

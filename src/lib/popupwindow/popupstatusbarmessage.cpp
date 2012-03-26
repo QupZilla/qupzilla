@@ -69,7 +69,7 @@ void PopupStatusBarMessage::showMessage(const QString &message)
         }
 
         m_statusBarText->move(view->mapToGlobal(position));
-        m_statusBarText->show();
+        m_statusBarText->show(view);
     }
 }
 
