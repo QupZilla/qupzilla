@@ -2016,7 +2016,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="97"/>
         <source>General</source>
-        <translation>通用</translation>
+        <translation>一般</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="107"/>
@@ -2066,7 +2066,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="165"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
-        <translation>&lt;B&gt;啟動中&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;啟動中&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="196"/>
