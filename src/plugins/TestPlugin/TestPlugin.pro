@@ -19,6 +19,7 @@ TRANSLATIONS += translations/cs_CZ.ts\
                 translations/id_ID.ts\
                 translations/ja_JP.ts\
                 translations/nl_NL.ts\
+                translations/pt_PT.ts\
                 translations/ro_RO.ts\
                 translations/sk_SK.ts\
                 translations/sr_BA.ts\
