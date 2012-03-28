@@ -108,7 +108,8 @@ void AboutDialog::showAuthors()
                                          "Widya Walesa<br/>"
                                          "Beqa Arabuli<br/>"
                                          "Daiki Noda<br/>"
-                                         "Gábor Oberle")
+                                         "Gábor Oberle<br/>"
+                                         "Piccoro McKay Lenz")
                              ));
         m_authorsHtml.append("</div></center>");
     }
