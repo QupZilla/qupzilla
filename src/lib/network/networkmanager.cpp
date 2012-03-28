@@ -391,7 +391,7 @@ void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
     }
 
     if (!deleted) {
-        qWarning() << "NetworkManager::removeLocalCertificate cannot remove certificate" << cert;
+        qWarning() << "NetworkManager::removeLocalCertificate cannot remove certificate";
     }
 }
 

@@ -47,7 +47,6 @@
 #include <QTimer>
 #include <QNetworkReply>
 #include <QDebug>
-#include <QStyle>
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -580,8 +579,8 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     QString errString = file.readAll();
     errString.replace("%TITLE%", tr("Failed loading page"));
 
-    errString.replace("%IMAGE%", qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
-    errString.replace("%FAVICON%", qz_pixmapToByteArray(MainApplication::style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
+    errString.replace("%IMAGE%", qz_pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+    errString.replace("%FAVICON%", qz_pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
     errString.replace("%BOX-BORDER%", "qrc:html/box-border.png");
 
     errString.replace("%HEADING%", errorString);
