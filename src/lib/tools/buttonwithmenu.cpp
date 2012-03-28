@@ -78,7 +78,7 @@ void ButtonWithMenu::removeItem(const Item &item)
     }
 
     if (m_currentItem == item) {
-        setCurrentItem(m_items.first());
+        setCurrentItem(m_items.at(0));
     }
 }
 

@@ -1833,7 +1833,7 @@ bool QupZilla::quitApp()
         dialog.setText(tr("There are still %1 open tabs and your session won't be stored. \nAre you sure to quit QupZilla?").arg(m_tabWidget->count()));
         dialog.setCheckBoxText(tr("Don't ask again"));
         dialog.setWindowTitle(tr("There are still open tabs"));
-        dialog.setPixmap(style()->standardPixmap(QStyle::SP_MessageBoxWarning));
+        dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning));
         if (dialog.exec() != QDialog::Accepted) {
             return false;
         }

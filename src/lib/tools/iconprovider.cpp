@@ -133,10 +133,23 @@ void IconProvider::clearIconDatabase()
 
 QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 {
-#ifdef Q_WS_X11
-    return mApp->style()->standardIcon(icon);
-#else
     switch (icon) {
+    case QStyle::SP_MessageBoxCritical:
+        return QIcon::fromTheme("dialog-error", mApp->style()->standardIcon(QStyle::SP_MessageBoxCritical));
+
+    case QStyle::SP_MessageBoxInformation:
+        return QIcon::fromTheme("dialog-information", mApp->style()->standardIcon(QStyle::SP_MessageBoxInformation));
+
+    case QStyle::SP_MessageBoxQuestion:
+        return QIcon::fromTheme("dialog-question", mApp->style()->standardIcon(QStyle::SP_MessageBoxQuestion));
+
+    case QStyle::SP_MessageBoxWarning:
+        return QIcon::fromTheme("dialog-warning", mApp->style()->standardIcon(QStyle::SP_MessageBoxWarning));
+
+#ifdef Q_WS_X11
+    default:
+        return mApp->style()->standardIcon(icon);
+#else
     case QStyle::SP_DialogCloseButton:
         return QIcon(":/icons/faenza/close.png");
 
@@ -154,37 +167,8 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 
     default:
         return QIcon();
-        break;
-    }
 #endif
-}
-
-QPixmap IconProvider::standardPixmap(QStyle::StandardPixmap icon)
-{
-#ifdef Q_WS_X11
-    return mApp->style()->standardPixmap(icon);
-#else
-    switch (icon) {
-    case QStyle::SP_DialogCloseButton:
-        return QPixmap(":/icons/faenza/close.png");
-
-    case QStyle::SP_BrowserStop:
-        return QPixmap(":/icons/faenza/stop.png");
-
-    case QStyle::SP_BrowserReload:
-        return QPixmap(":/icons/faenza/reload.png");
-
-    case QStyle::SP_ArrowForward:
-        return QPixmap(":/icons/faenza/forward.png");
-
-    case QStyle::SP_ArrowBack:
-        return QPixmap(":/icons/faenza/back.png");
-
-    default:
-        return QPixmap();
-        break;
     }
-#endif
 }
 
 QIcon IconProvider::fromTheme(const QString &icon)

@@ -51,7 +51,6 @@ public:
     static QByteArray iconToBase64(const QIcon &icon);
 
     static QIcon standardIcon(QStyle::StandardPixmap icon);
-    static QPixmap standardPixmap(QStyle::StandardPixmap icon);
     static QIcon fromTheme(const QString &icon);
 
     static QIcon emptyWebIcon();

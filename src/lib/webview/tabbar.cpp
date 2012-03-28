@@ -450,7 +450,7 @@ void TabBar::dropEvent(QDropEvent* event)
     else {
         WebTab* tab = p_QupZilla->weView(index)->webTab();
         if (tab->isRestored()) {
-            tab->view()->load(mime->urls().first());
+            tab->view()->load(mime->urls().at(0));
         }
     }
 }

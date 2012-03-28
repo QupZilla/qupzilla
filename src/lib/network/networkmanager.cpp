@@ -370,25 +370,28 @@ void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
 
     //Delete cert file from profile
     bool deleted = false;
-    QString certFileName = fileNameForCert(cert);
-    int startIndex = 0;
     QDirIterator it(mApp->getActiveProfilPath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it.hasNext()) {
-        QString filePath = startIndex == 0 ? it.next() : it.next().mid(startIndex);
-        if (!filePath.contains(certFileName)) {
+        const QString &filePath = it.next();
+        const QList<QSslCertificate> &certs = QSslCertificate::fromPath(filePath);
+        if (certs.isEmpty()) {
             continue;
         }
 
-        QFile file(filePath);
-        if (!file.remove()) {
-            qWarning() << "NetworkManager::removeLocalCertificate cannot remove file" << filePath;
+        const QSslCertificate &cert_ = certs.at(0);
+        if (cert == cert_) {
+            QFile file(filePath);
+            if (!file.remove()) {
+                qWarning() << "NetworkManager::removeLocalCertificate cannot remove file" << filePath;
+            }
+
+            deleted = true;
+            break;
         }
-        deleted = true;
-        break;
     }
 
     if (!deleted) {
-        qWarning() << "NetworkManager::removeLocalCertificate cannot find file" << certFileName;
+        qWarning() << "NetworkManager::removeLocalCertificate cannot remove certificate" << cert;
     }
 }
 
@@ -452,10 +455,9 @@ void NetworkManager::loadCertificates()
 #ifdef Q_WS_WIN
         // Used from Qt 4.7.4 qsslcertificate.cpp and modified because QSslCertificate::fromPath
         // is kind of a bugged on Windows, it does work only with full path to cert file
-        int startIndex = 0;
         QDirIterator it(path, QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
         while (it.hasNext()) {
-            QString filePath = startIndex == 0 ? it.next() : it.next().mid(startIndex);
+            QString filePath = it.next();
             if (!filePath.endsWith(".crt")) {
                 continue;
             }
@@ -471,10 +473,9 @@ void NetworkManager::loadCertificates()
     }
     //Local Certificates
 #ifdef Q_WS_WIN
-    int startIndex = 0;
     QDirIterator it_(mApp->getActiveProfilPath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it_.hasNext()) {
-        QString filePath = startIndex == 0 ? it_.next() : it_.next().mid(startIndex);
+        QString filePath = it_.next();
         if (!filePath.endsWith(".crt")) {
             continue;
         }

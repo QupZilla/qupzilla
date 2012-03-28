@@ -14,7 +14,11 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QLabel" name="iconLabel"/>
+      <widget class="QLabel" name="iconLabel">
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QLabel" name="textLabel">

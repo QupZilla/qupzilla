@@ -34,7 +34,8 @@ class QT_QUPZILLA_EXPORT CheckBoxDialog : public QDialog
 public:
     explicit CheckBoxDialog(const QDialogButtonBox::StandardButtons &buttons, QWidget* parent = 0);
 
-    void setPixmap(const QPixmap &pixmap);
+    void setIcon(const QIcon &icon);
+
     void setText(const QString &text);
     void setCheckBoxText(const QString &text);
 

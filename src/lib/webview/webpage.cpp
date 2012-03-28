@@ -31,6 +31,7 @@
 #include "popupwebview.h"
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
+#include "iconprovider.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -454,7 +455,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
         QString suggestedFileName;
         if (!exOption->suggestedFileNames.isEmpty()) {
-            suggestedFileName = exOption->suggestedFileNames.first();
+            suggestedFileName = exOption->suggestedFileNames.at(0);
         }
 
         exReturn->fileNames = QFileDialog::getOpenFileNames(0, tr("Select files to upload..."), suggestedFileName);
@@ -696,7 +697,7 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     dialog.setWindowTitle(title);
     dialog.setText(msg);
     dialog.setCheckBoxText(tr("Prevent this page from creating additional dialogs"));
-    dialog.setPixmap(mApp->style()->standardPixmap(QStyle::SP_MessageBoxInformation));
+    dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxInformation));
     dialog.exec();
 
     m_blockAlerts = dialog.isChecked();

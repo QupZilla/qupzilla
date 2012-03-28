@@ -19,7 +19,7 @@
 #include "ui_checkboxdialog.h"
 
 CheckBoxDialog::CheckBoxDialog(const QDialogButtonBox::StandardButtons &buttons, QWidget* parent)
-    : QDialog(parent)
+    : QDialog(parent, Qt::MSWindowsFixedSizeDialogHint | Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint)
     , ui(new Ui::CheckBoxDialog)
 {
     ui->setupUi(this);
@@ -27,10 +27,10 @@ CheckBoxDialog::CheckBoxDialog(const QDialogButtonBox::StandardButtons &buttons,
     ui->buttonBox->setStandardButtons(buttons);
 }
 
-void CheckBoxDialog::setPixmap(const QPixmap &pixmap)
+void CheckBoxDialog::setIcon(const QIcon &icon)
 {
-    ui->iconLabel->setPixmap(pixmap);
-    ui->iconLabel->setFixedWidth(pixmap.width());
+    ui->iconLabel->setPixmap(icon.pixmap(48, 48));
+    ui->iconLabel->setFixedWidth(48);
 }
 
 void CheckBoxDialog::setText(const QString &text)
