@@ -47,10 +47,10 @@ public:
 
 private slots:
     void saveSettings();
+
     void buttonClicked(QAbstractButton* button);
     void showStackedPage(QListWidgetItem* item);
 
-    void newTabChanged();
     void chooseDownPath();
     void showCookieManager();
     void useActualHomepage();
@@ -73,6 +73,8 @@ private slots:
     void changeUserAgentChanged(bool state);
     void useDifferentProxyForHttpsChanged(bool state);
 
+    void newTabChanged(int value);
+    void afterLaunchChanged(int value);
     void cacheValueChanged(int value);
     void pageCacheValueChanged(int value);
 

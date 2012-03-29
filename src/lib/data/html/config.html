@@ -21,6 +21,20 @@ table.tbl {width: 100%;margin: 15px 0;border-radius: 4px;padding: 0px;border: 2p
 .no-available-plugins{background: white !important; text-align: center !important;}
 .tbl td:nth-of-type(2){color: black;max-width: 400px;max-height: 50px;overflow:auto;}
 </style>
+<script type="text/javascript">
+function addPlugins() {
+    var table = document.getElementById('npapi-plugins');
+    for(var i = 0; i < navigator.plugins.length; i++) {
+        var plugin = navigator.plugins[i];
+        if (plugin.name == '') {
+            continue;
+        }
+
+        table.innerHTML += "<tr><td>" + plugin.name + "</td><td colspan=3>" + plugin.description + "</td></tr>";
+    }
+}
+window.addEventListener("load", addPlugins, false);
+</script>
 </head>
 <body>
   <div id="box">
@@ -53,6 +67,9 @@ table.tbl {width: 100%;margin: 15px 0;border-radius: 4px;padding: 0px;border: 2p
     <tbody>
       %PLUGINS-INFO%
     </tbody>
+    <tbody id="npapi-plugins">
+
+    </tbody>
   </table>
 
 <h2>%PREFS%</h2>
@@ -69,6 +86,5 @@ table.tbl {width: 100%;margin: 15px 0;border-radius: 4px;padding: 0px;border: 2p
 <small style="text-align:justify">
 %CONFIG-ABOUT%
 </small>
-
-  </div>
+</div>
 </body></html>

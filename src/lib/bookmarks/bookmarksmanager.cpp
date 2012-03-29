@@ -187,6 +187,8 @@ void BookmarksManager::deleteItem()
         return;
     }
 
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
     if (item->text(1).isEmpty()) { // Delete folder
         QString folder = item->text(0);
         m_bookmarksModel->removeFolder(folder);
@@ -195,6 +197,7 @@ void BookmarksManager::deleteItem()
 
     int id = item->data(0, Qt::UserRole + 10).toInt();
     m_bookmarksModel->removeBookmark(id);
+    QApplication::restoreOverrideCursor();
 }
 
 void BookmarksManager::addBookmark(WebView* view)

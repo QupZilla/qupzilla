@@ -118,7 +118,10 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         ui->newTab->setCurrentIndex(3);
         ui->newTabFrame->setVisible(true);
     }
-    connect(ui->newTab, SIGNAL(currentIndexChanged(int)), this, SLOT(newTabChanged()));
+
+    afterLaunchChanged(ui->afterLaunch->currentIndex());
+    connect(ui->afterLaunch, SIGNAL(currentIndexChanged(int)), this, SLOT(afterLaunchChanged(int)));
+    connect(ui->newTab, SIGNAL(currentIndexChanged(int)), this, SLOT(newTabChanged(int)));
     connect(ui->useCurrentBut, SIGNAL(clicked()), this, SLOT(useActualHomepage()));
     connect(ui->newTabUseCurrent, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
 
@@ -420,7 +423,6 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
 
     ui->version->setText(" QupZilla v" + QupZilla::VERSION);
-
     showStackedPage(ui->listWidget->item(0));
 }
 
@@ -520,16 +522,6 @@ void Preferences::chooseExternalDownloadManager()
     ui->externalDownExecutable->setText(path);
 }
 
-void Preferences::newTabChanged()
-{
-    if (ui->newTab->currentIndex() == 3) {
-        ui->newTabFrame->setVisible(true);
-    }
-    else {
-        ui->newTabFrame->setVisible(false);
-    }
-}
-
 void Preferences::downLocChanged(bool state)
 {
     ui->downButt->setEnabled(state);
@@ -590,6 +582,16 @@ void Preferences::showAcceptLanguage()
     a->exec();
 
     delete a;
+}
+
+void Preferences::newTabChanged(int value)
+{
+    ui->newTabFrame->setVisible(value == 3);
+}
+
+void Preferences::afterLaunchChanged(int value)
+{
+    ui->dontLoadTabsUntilSelected->setEnabled(value == 3);
 }
 
 void Preferences::cacheValueChanged(int value)
@@ -660,7 +662,7 @@ void Preferences::createProfile()
 {
     QString name = QInputDialog::getText(this, tr("New Profile"), tr("Enter the new profile's name:"));
     name = qz_filterCharsFromFilename(name);
-    if (name.isEmpty() || name.contains("/") || name.contains("\\")) {
+    if (name.isEmpty()) {
         return;
     }
     QDir dir(mApp->PROFILEDIR + "profiles/");

@@ -124,6 +124,7 @@ void HistoryManager::copyUrl()
 
 void HistoryManager::deleteItem()
 {
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     QList<int> list;
 
     foreach(QTreeWidgetItem * item, ui->historyTree->selectedItems()) {
@@ -163,6 +164,7 @@ void HistoryManager::deleteItem()
     }
 
     m_historyModel->deleteHistoryEntry(list);
+    QApplication::restoreOverrideCursor();
 }
 
 void HistoryManager::historyEntryAdded(const HistoryEntry &entry)

@@ -3205,7 +3205,7 @@ Opravdu chcete skončit?</translation>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="356"/>
         <source>&amp;Menu Bar</source>
-        <translation>&amp;Menu</translation>
+        <translation>&amp;Hlavní nabídka</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="360"/>
