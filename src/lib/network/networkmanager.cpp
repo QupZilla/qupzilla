@@ -187,15 +187,15 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
         }
 
         QSslCertificate cert = error.certificate();
-        certs.append("<ul><li>");
-        certs.append(tr("<b>Organization: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::Organization)));
-        certs.append("</li><li>");
-        certs.append(tr("<b>Domain Name: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::CommonName)));
-        certs.append("</li><li>");
-        certs.append(tr("<b>Expiration Date: </b>") + cert.expiryDate().toString("hh:mm:ss dddd d. MMMM yyyy"));
-        certs.append("</li><li>");
-        certs.append(tr("<b>Error: </b>") + error.errorString());
-        certs.append("</li></ul>");
+        certs += "<ul><li>";
+        certs += tr("<b>Organization: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::Organization));
+        certs += "</li><li>";
+        certs += tr("<b>Domain Name: </b>") + CertificateInfoWidget::clearCertSpecialSymbols(cert.subjectInfo(QSslCertificate::CommonName));
+        certs += "</li><li>";
+        certs += tr("<b>Expiration Date: </b>") + cert.expiryDate().toString("hh:mm:ss dddd d. MMMM yyyy");
+        certs += "</li><li>";
+        certs += tr("<b>Error: </b>") + error.errorString();
+        certs += "</li></ul>";
     }
 
     QString text2 = tr("Would you like to make an exception for this certificate?");

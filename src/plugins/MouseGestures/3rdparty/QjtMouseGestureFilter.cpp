@@ -107,7 +107,7 @@ void QjtMouseGestureFilter::addGesture(QjtMouseGesture* gesture)
 {
     Gesture::DirectionList dl;
 
-    for (DirectionList::const_iterator source = gesture->directions().begin(); source != gesture->directions().end(); ++source) {
+    for (DirectionList::const_iterator source = gesture->directions().constBegin(); source != gesture->directions().end(); ++source) {
         dl.push_back(*source);
     }
 
@@ -120,7 +120,7 @@ void QjtMouseGestureFilter::addGesture(QjtMouseGesture* gesture)
 void QjtMouseGestureFilter::clearGestures(bool deleteGestures)
 {
     if (deleteGestures)
-        for (GestureList::const_iterator i = d->gestures.begin(); i != d->gestures.end(); ++i) {
+        for (GestureList::const_iterator i = d->gestures.constBegin(); i != d->gestures.constEnd(); ++i) {
             delete *i;
         }
 

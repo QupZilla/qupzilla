@@ -15,7 +15,7 @@ win32 {
     LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 }
 
-DEFINES *= QT_NO_URL_CAST_FROM_STRING
+DEFINES *= QT_NO_URL_CAST_FROM_STRING QT_USE_FAST_OPERATOR_PLUS QT_USE_FAST_CONCATENATION
 
 ##It won't compile on windows with this define. Some bug in qtsingleapp / qvector template
 !win32: !CONFIG(debug, debug|release): DEFINES *= QT_NO_DEBUG_OUTPUT

@@ -55,18 +55,18 @@ void AboutDialog::showAbout()
 {
     ui->authorsButton->setText(tr("Authors and Contributors"));
     if (m_aboutHtml.isEmpty()) {
-        m_aboutHtml.append("<center><div style='margin:10px;'>");
-        m_aboutHtml.append(tr("<p><b>Application version %1</b><br/>").arg(QupZilla::VERSION
+        m_aboutHtml += "<center><div style='margin:10px;'>";
+        m_aboutHtml += tr("<p><b>Application version %1</b><br/>").arg(QupZilla::VERSION
 #ifdef GIT_REVISION
                            + " (" + GIT_REVISION + ")"
 #endif
-                                                                          ));
-        m_aboutHtml.append(tr("<b>WebKit version %1</b></p>").arg(QupZilla::WEBKITVERSION));
-        m_aboutHtml.append(QString("<p>&copy; %1 %2<br/>").arg(QupZilla::COPYRIGHT, QupZilla::AUTHOR));
-        m_aboutHtml.append(tr("<small>Build time: %1 </small></p>").arg(QupZilla::BUILDTIME));
-        m_aboutHtml.append(QString("<p><a href=%1>%1</a></p>").arg(QupZilla::WWWADDRESS));
-        m_aboutHtml.append("<p>" + mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()) + "</p>");
-        m_aboutHtml.append("</div></center>");
+                                                                          );
+        m_aboutHtml += tr("<b>WebKit version %1</b></p>").arg(QupZilla::WEBKITVERSION);
+        m_aboutHtml += QString("<p>&copy; %1 %2<br/>").arg(QupZilla::COPYRIGHT, QupZilla::AUTHOR);
+        m_aboutHtml += tr("<small>Build time: %1 </small></p>").arg(QupZilla::BUILDTIME);
+        m_aboutHtml += QString("<p><a href=%1>%1</a></p>").arg(QupZilla::WWWADDRESS);
+        m_aboutHtml += "<p>" + mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()) + "</p>";
+        m_aboutHtml += "</div></center>";
     }
     ui->textBrowser->setHtml(m_aboutHtml);
 }
@@ -75,17 +75,17 @@ void AboutDialog::showAuthors()
 {
     ui->authorsButton->setText(tr("< About QupZilla"));
     if (m_authorsHtml.isEmpty()) {
-        m_authorsHtml.append("<center><div style='margin:10px;'>");
-        m_authorsHtml.append(tr("<p><b>Main developer:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>"));
-        m_authorsHtml.append(tr("<p><b>Contributors:</b><br/>%1</p>").arg(
+        m_authorsHtml += "<center><div style='margin:10px;'>";
+        m_authorsHtml += tr("<p><b>Main developer:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>");
+        m_authorsHtml += tr("<p><b>Contributors:</b><br/>%1</p>").arg(
                                  QString::fromUtf8("Mladen Pejaković<br/>"
                                          "Bryan M Dunsmore<br/>"
                                          "Mariusz Fik<br/>"
                                          "Jan Rajnoha<br/>"
                                          "Daniele Cocca")
-                             ));
+                             );
 
-        m_authorsHtml.append(tr("<p><b>Translators:</b><br/>%1</p>").arg(
+        m_authorsHtml += tr("<p><b>Translators:</b><br/>%1</p>").arg(
                                  QString::fromUtf8("Heimen Stoffels<br/>"
                                          "Peter Vacula<br/>"
                                          "Jonathan Hooverman<br/>"
@@ -110,9 +110,10 @@ void AboutDialog::showAuthors()
                                          "Daiki Noda<br/>"
                                          "Gábor Oberle<br/>"
                                          "Piccoro McKay Lenz")
-                             ));
-        m_authorsHtml.append("</div></center>");
+                             );
+        m_authorsHtml += "</div></center>";
     }
+
     ui->textBrowser->setHtml(m_authorsHtml);
 }
 

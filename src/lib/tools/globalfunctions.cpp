@@ -164,13 +164,11 @@ QString qz_urlEncodeQueryString(const QUrl &url)
     QString returnString = url.toString(QUrl::RemoveQuery | QUrl::RemoveFragment);
 
     if (url.hasQuery()) {
-        returnString.append("?");
-        returnString.append(url.encodedQuery());
+        returnString += "?" + url.encodedQuery();
     }
 
     if (url.hasFragment()) {
-        returnString.append("#");
-        returnString.append(url.encodedFragment());
+        returnString += "#" + url.encodedFragment();
     }
 
     returnString.replace(" ", "%20");

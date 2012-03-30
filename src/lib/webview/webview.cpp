@@ -685,7 +685,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     if (url().scheme() == "http" || url().scheme() == "https") {
         //             bool result = validateConfirm(tr("Do you want to upload this page to an online source code validator?"));
         //                 if (result)
-        menu->addAction(tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData("http://validator.w3.org/check?uri=" + url().toString());
+        menu->addAction(tr("Validate page"), this, SLOT(openUrlInSelectedTab()))->setData(QUrl("http://validator.w3.org/check?uri=" + url().toString()));
     }
 
     menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
@@ -757,7 +757,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     connect(gtwact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
     menu->addAction(gtwact);
     Action* dictact = new Action(QIcon::fromTheme("accessories-dictionary"), tr("Dictionary"));
-    dictact->setData("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText);
+    dictact->setData(QUrl("http://" + (langCode != "" ? langCode + "." : langCode) + "wiktionary.org/wiki/Special:Search?search=" + selectedText));
     connect(dictact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
     connect(dictact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
     menu->addAction(dictact);
