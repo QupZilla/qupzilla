@@ -217,11 +217,12 @@ void LocationBar::showUrl(const QUrl &url)
         stringUrl = "";
     }
 
-    if (url.toEncoded() != text()) {
-        setText(stringUrl);
+    if (stringUrl == text()) {
+        return;
     }
 
-    p_QupZilla->statusBarMessage()->clearMessage();
+    setText(stringUrl);
+
     hideGoButton();
     m_bookmarkIcon->checkBookmark(url);
 }

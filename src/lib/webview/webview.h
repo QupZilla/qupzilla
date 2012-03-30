@@ -53,7 +53,6 @@ public:
 signals:
     void viewportResized(QSize);
     void showNotification(QWidget*);
-    void iconChanged();
 
 public slots:
     void zoomIn();
@@ -134,6 +133,8 @@ protected:
 private slots:
     void pauseMedia();
     void muteMedia();
+    void frameStateChanged();
+    void emitChangedUrl();
 
 private:
     QList<int> m_zoomLevels;

@@ -35,6 +35,7 @@
 #include "pluginproxy.h"
 
 #include <QDir>
+#include <QTimer>
 #include <QDesktopServices>
 #include <QNetworkRequest>
 #include <QWebHistory>
@@ -53,7 +54,6 @@ WebView::WebView(QWidget* parent)
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
-
     connect(this, SIGNAL(iconChanged()), this, SLOT(slotIconChanged()));
 
     // Zoom levels same as in firefox
@@ -98,7 +98,7 @@ QString WebView::title() const
 
 QUrl WebView::url() const
 {
-    QUrl returnUrl = QWebView::url();
+    QUrl returnUrl = page()->mainFrame()->baseUrl();
 
     if (returnUrl.isEmpty()) {
         returnUrl = m_aboutToLoadUrl;
@@ -112,6 +112,8 @@ void WebView::setPage(QWebPage* page)
     QWebView::setPage(page);
 
     setZoom(WebViewSettings::defaultZoom);
+
+    connect(page, SIGNAL(saveFrameStateRequested(QWebFrame*,QWebHistoryItem*)), this, SLOT(frameStateChanged()));
 }
 
 void WebView::load(const QUrl &url)
@@ -310,6 +312,17 @@ void WebView::slotLoadFinished()
     m_lastUrl = url();
 }
 
+void WebView::frameStateChanged()
+{
+    // QWebFrame::baseUrl() is not updated yet, so we are invoking 0 second timer
+    QTimer::singleShot(0, this, SLOT(emitChangedUrl()));
+}
+
+void WebView::emitChangedUrl()
+{
+    emit urlChanged(url());
+}
+
 void WebView::slotIconChanged()
 {
     m_siteIcon = icon();
@@ -437,7 +450,7 @@ void WebView::openUrlInBackgroundTab()
 
 void WebView::loadClickedFrame()
 {
-    QUrl frameUrl = m_clickedFrame->url();
+    QUrl frameUrl = m_clickedFrame->baseUrl();
     if (frameUrl.isEmpty()) {
         frameUrl = m_clickedFrame->requestedUrl();
     }
@@ -447,7 +460,7 @@ void WebView::loadClickedFrame()
 
 void WebView::loadClickedFrameInNewTab()
 {
-    QUrl frameUrl = m_clickedFrame->url();
+    QUrl frameUrl = m_clickedFrame->baseUrl();
     if (frameUrl.isEmpty()) {
         frameUrl = m_clickedFrame->requestedUrl();
     }
@@ -457,7 +470,7 @@ void WebView::loadClickedFrameInNewTab()
 
 void WebView::reloadClickedFrame()
 {
-    QUrl frameUrl = m_clickedFrame->url();
+    QUrl frameUrl = m_clickedFrame->baseUrl();
     if (frameUrl.isEmpty()) {
         frameUrl = m_clickedFrame->requestedUrl();
     }
