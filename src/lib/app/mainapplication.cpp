@@ -315,38 +315,25 @@ void MainApplication::loadSettings()
     setStyleSheet(css);
 
     webSettings();
+
     //Web browsing settings
     settings.beginGroup("Web-Browser-Settings");
-    bool allowFlash = settings.value("allowFlash", true).toBool();
-    bool allowJavaScript = settings.value("allowJavaScript", true).toBool();
-    bool allowJavaScriptOpenWindow = settings.value("allowJavaScriptOpenWindow", false).toBool();
-    bool allowJava = settings.value("allowJava", true).toBool();
-    bool dnsPrefetch = settings.value("DNS-Prefetch", false).toBool();
-    bool jsClipboard = settings.value("JavaScriptCanAccessClipboard", true).toBool();
-    bool linkInFocuschain = settings.value("IncludeLinkInFocusChain", false).toBool();
-    bool zoomTextOnly = settings.value("zoomTextOnly", false).toBool();
-    bool printElBg = settings.value("PrintElementBackground", true).toBool();
-    bool xssAuditing = settings.value("XSSAuditing", false).toBool();
-    bool html5storage = settings.value("HTML5StorageEnabled", true).toBool();
-    int maxCachedPages = settings.value("maximumCachedPages", 3).toInt();
-    int scrollingLines = settings.value("wheelScrollLines", wheelScrollLines()).toInt();
-    QUrl userStyleSheet = QUrl::fromLocalFile(settings.value("userStyleSheet", "").toString());
-    WebPage::setUserAgent(settings.value("UserAgent", "").toString());
-    settings.endGroup();
-
     m_websettings->enablePersistentStorage(m_activeProfil);
     m_websettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
-    m_websettings->setAttribute(QWebSettings::PluginsEnabled, allowFlash);
-    m_websettings->setAttribute(QWebSettings::JavascriptEnabled, allowJavaScript);
-    m_websettings->setAttribute(QWebSettings::JavascriptCanOpenWindows, allowJavaScriptOpenWindow);
-    m_websettings->setAttribute(QWebSettings::JavaEnabled, allowJava);
-    m_websettings->setAttribute(QWebSettings::DnsPrefetchEnabled, dnsPrefetch);
-    m_websettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, jsClipboard);
-    m_websettings->setAttribute(QWebSettings::LinksIncludedInFocusChain, linkInFocuschain);
-    m_websettings->setAttribute(QWebSettings::ZoomTextOnly, zoomTextOnly);
-    m_websettings->setAttribute(QWebSettings::PrintElementBackgrounds, printElBg);
-    m_websettings->setAttribute(QWebSettings::XSSAuditingEnabled, xssAuditing);
-    m_websettings->setAttribute(QWebSettings::LocalStorageEnabled, html5storage);
+    m_websettings->setAttribute(QWebSettings::PluginsEnabled, settings.value("allowFlash", true).toBool());
+    m_websettings->setAttribute(QWebSettings::JavascriptEnabled, settings.value("allowJavaScript", true).toBool());
+    m_websettings->setAttribute(QWebSettings::JavascriptCanOpenWindows, settings.value("allowJavaScriptOpenWindow", false).toBool());
+    m_websettings->setAttribute(QWebSettings::JavaEnabled, settings.value("allowJava", true).toBool());
+    m_websettings->setAttribute(QWebSettings::DnsPrefetchEnabled, settings.value("DNS-Prefetch", false).toBool());
+    m_websettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, settings.value("JavaScriptCanAccessClipboard", true).toBool());
+    m_websettings->setAttribute(QWebSettings::LinksIncludedInFocusChain, settings.value("IncludeLinkInFocusChain", false).toBool());
+    m_websettings->setAttribute(QWebSettings::ZoomTextOnly, settings.value("zoomTextOnly", false).toBool());
+    m_websettings->setAttribute(QWebSettings::PrintElementBackgrounds, settings.value("PrintElementBackground", true).toBool());
+    m_websettings->setAttribute(QWebSettings::XSSAuditingEnabled, settings.value("XSSAuditing", false).toBool());
+    m_websettings->setAttribute(QWebSettings::LocalStorageEnabled, settings.value("HTML5StorageEnabled", true).toBool());
+    m_websettings->setMaximumPagesInCache(settings.value("maximumCachedPages", 3).toInt());
+    m_websettings->setDefaultTextEncoding(settings.value("DefaultEncoding", m_websettings->defaultTextEncoding()).toString());
+
 #ifdef USE_WEBGL
     m_websettings->setAttribute(QWebSettings::WebGLEnabled, true);
     m_websettings->setAttribute(QWebSettings::AcceleratedCompositingEnabled, true);
@@ -356,6 +343,11 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::HyperlinkAuditingEnabled, true);
     m_websettings->setAttribute(QWebSettings::JavascriptCanCloseWindows, true);
 #endif
+
+    setWheelScrollLines(settings.value("wheelScrollLines", wheelScrollLines()).toInt());
+    m_websettings->setUserStyleSheetUrl(QUrl::fromLocalFile(settings.value("userStyleSheet", "").toString()));
+    WebPage::setUserAgent(settings.value("UserAgent", "").toString());
+    settings.endGroup();
 
     settings.beginGroup("Browser-Fonts");
     m_websettings->setFontFamily(QWebSettings::StandardFont, settings.value("StandardFont", m_websettings->fontFamily(QWebSettings::StandardFont)).toString());
@@ -370,16 +362,11 @@ void MainApplication::loadSettings()
     m_websettings->setFontSize(QWebSettings::MinimumLogicalFontSize, settings.value("MinimumLogicalFontSize", m_websettings->fontSize(QWebSettings::MinimumLogicalFontSize)).toInt());
     settings.endGroup();
 
-    m_websettings->setUserStyleSheetUrl(userStyleSheet);
     m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::emptyWebIcon().pixmap(16, 16));
     m_websettings->setWebGraphic(QWebSettings::MissingImageGraphic, QPixmap());
 
     // Allows to load files from qrc: scheme in qupzilla: pages
     QWebSecurityOrigin::addLocalScheme("qupzilla");
-
-    m_websettings->setMaximumPagesInCache(maxCachedPages);
-
-    setWheelScrollLines(scrollingLines);
 
     if (m_downloadManager) {
         m_downloadManager->loadSettings();
@@ -550,7 +537,7 @@ void MainApplication::translateApp()
     QLocale locale;
     Settings settings;
     settings.beginGroup("Language");
-    QString file = settings.value("language", locale.name() + ".qm").toString();
+    QString file = settings.value("language", locale.name().append(".qm")).toString();
     QString shortLoc = file.left(2);
     QString longLoc = file.left(5);
 

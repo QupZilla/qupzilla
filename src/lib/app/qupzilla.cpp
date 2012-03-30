@@ -977,7 +977,7 @@ void QupZilla::aboutToShowEncodingMenu()
         if (QTextCodec::codecForName(name)->aliases().contains(name)) {
             continue;
         }
-        QAction* action = new QAction(name == "System" ? tr("Default") : name, this);
+        QAction* action = new QAction(name, 0);
         action->setData(name);
         action->setCheckable(true);
         connect(action, SIGNAL(triggered()), this, SLOT(changeEncoding()));
@@ -1026,7 +1026,12 @@ void QupZilla::aboutToShowEncodingMenu()
 void QupZilla::changeEncoding()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        mApp->webSettings()->setDefaultTextEncoding(action->data().toString());
+        const QString &encoding = action->data().toString();
+        mApp->webSettings()->setDefaultTextEncoding(encoding);
+
+        Settings settings;
+        settings.setValue("Web-Browser-Settings/DefaultEncoding", encoding);
+
         reload();
     }
 }

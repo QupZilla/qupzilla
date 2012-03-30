@@ -58,9 +58,9 @@ void AboutDialog::showAbout()
         m_aboutHtml += "<center><div style='margin:10px;'>";
         m_aboutHtml += tr("<p><b>Application version %1</b><br/>").arg(QupZilla::VERSION
 #ifdef GIT_REVISION
-                           + " (" + GIT_REVISION + ")"
+                       + " (" + GIT_REVISION + ")"
 #endif
-                                                                          );
+                                                                      );
         m_aboutHtml += tr("<b>WebKit version %1</b></p>").arg(QupZilla::WEBKITVERSION);
         m_aboutHtml += QString("<p>&copy; %1 %2<br/>").arg(QupZilla::COPYRIGHT, QupZilla::AUTHOR);
         m_aboutHtml += tr("<small>Build time: %1 </small></p>").arg(QupZilla::BUILDTIME);
@@ -78,39 +78,39 @@ void AboutDialog::showAuthors()
         m_authorsHtml += "<center><div style='margin:10px;'>";
         m_authorsHtml += tr("<p><b>Main developer:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>");
         m_authorsHtml += tr("<p><b>Contributors:</b><br/>%1</p>").arg(
-                                 QString::fromUtf8("Mladen Pejaković<br/>"
-                                         "Bryan M Dunsmore<br/>"
-                                         "Mariusz Fik<br/>"
-                                         "Jan Rajnoha<br/>"
-                                         "Daniele Cocca")
-                             );
+                             QString::fromUtf8("Mladen Pejaković<br/>"
+                                               "Bryan M Dunsmore<br/>"
+                                               "Mariusz Fik<br/>"
+                                               "Jan Rajnoha<br/>"
+                                               "Daniele Cocca")
+                         );
 
         m_authorsHtml += tr("<p><b>Translators:</b><br/>%1</p>").arg(
-                                 QString::fromUtf8("Heimen Stoffels<br/>"
-                                         "Peter Vacula<br/>"
-                                         "Jonathan Hooverman<br/>"
-                                         "Federico Fabiani<br/>"
-                                         "Francesco Marinucci<br/>"
-                                         "Jorge Sevilla<br/>"
-                                         "Ștefan Comănescu<br/>"
-                                         "Michał Szymanowski<br/>"
-                                         "Mariusz Fik<br/>"
-                                         "Jérôme Giry<br/>"
-                                         "Nicolas Ourceau<br/>"
-                                         "Vasilis Tsivikis<br/>"
-                                         "Rustam Salakhutdinov<br/>"
-                                         "Oleg Brezhnev<br/>"
-                                         "Sérgio Marques<br/>"
-                                         "Alexandre Carvalho<br/>"
-                                         "Mladen Pejaković<br/>"
-                                         "Unink-Lio<br/>"
-                                         "Wu Cheng-Hong<br/>"
-                                         "Widya Walesa<br/>"
-                                         "Beqa Arabuli<br/>"
-                                         "Daiki Noda<br/>"
-                                         "Gábor Oberle<br/>"
-                                         "Piccoro McKay Lenz")
-                             );
+                             QString::fromUtf8("Heimen Stoffels<br/>"
+                                               "Peter Vacula<br/>"
+                                               "Jonathan Hooverman<br/>"
+                                               "Federico Fabiani<br/>"
+                                               "Francesco Marinucci<br/>"
+                                               "Jorge Sevilla<br/>"
+                                               "Ștefan Comănescu<br/>"
+                                               "Michał Szymanowski<br/>"
+                                               "Mariusz Fik<br/>"
+                                               "Jérôme Giry<br/>"
+                                               "Nicolas Ourceau<br/>"
+                                               "Vasilis Tsivikis<br/>"
+                                               "Rustam Salakhutdinov<br/>"
+                                               "Oleg Brezhnev<br/>"
+                                               "Sérgio Marques<br/>"
+                                               "Alexandre Carvalho<br/>"
+                                               "Mladen Pejaković<br/>"
+                                               "Unink-Lio<br/>"
+                                               "Wu Cheng-Hong<br/>"
+                                               "Widya Walesa<br/>"
+                                               "Beqa Arabuli<br/>"
+                                               "Daiki Noda<br/>"
+                                               "Gábor Oberle<br/>"
+                                               "Piccoro McKay Lenz")
+                         );
         m_authorsHtml += "</div></center>";
     }
 
