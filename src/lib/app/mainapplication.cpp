@@ -47,7 +47,6 @@
 #include "locationbarsettings.h"
 #include "webviewsettings.h"
 #include "clearprivatedata.h"
-#include "proxystyle.h"
 #include "commandlineoptions.h"
 
 #ifdef Q_WS_MAC
@@ -190,7 +189,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     setQuitOnLastWindowClosed(true);
 #endif
 
-    setStyle(new ProxyStyle);
     setApplicationName("QupZilla");
     setApplicationVersion(QupZilla::VERSION);
     setOrganizationDomain("qupzilla");

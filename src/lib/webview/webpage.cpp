@@ -423,6 +423,11 @@ void WebPage::cleanBlockedObjects()
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
 {
+    // Let Google services play nice with us
+    if (url.host().contains("google")) {
+        return "Mozilla/5.0 " + qz_buildSystem() + " AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7";
+    }
+
     if (m_userAgent.isEmpty()) {
         m_userAgent = QWebPage::userAgentForUrl(url);
 #ifdef Q_WS_MAC

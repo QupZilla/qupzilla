@@ -17,6 +17,7 @@
 * ============================================================ */
 
 #include "mainapplication.h"
+#include "proxystyle.h"
 
 #ifdef Q_WS_X11
 #include <iostream>
@@ -50,6 +51,8 @@ int main(int argc, char* argv[])
 //        }
         return 0;
     }
+
+    app.setStyle(new ProxyStyle);
 
     return app.exec();
 }
