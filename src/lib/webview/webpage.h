@@ -106,6 +106,7 @@ private:
 
     static QString m_lastUploadLocation;
     static QString m_userAgent;
+    static QString m_fakeUserAgent;
     static QUrl m_lastUnsupportedUrl;
 
     QupZilla* p_QupZilla;

@@ -54,6 +54,7 @@
 
 QString WebPage::m_lastUploadLocation = QDir::homePath();
 QString WebPage::m_userAgent = QString();
+QString WebPage::m_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + qWebKitVersion() + " (KHTML, like Gecko) Chrome/10.0 Safari/" + qWebKitVersion();
 QUrl WebPage::m_lastUnsupportedUrl = QUrl();
 
 WebPage::WebPage(QupZilla* mainClass)
@@ -425,7 +426,7 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
 {
     // Let Google services play nice with us
     if (url.host().contains("google")) {
-        return "Mozilla/5.0 " + qz_buildSystem() + " AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7";
+        return m_fakeUserAgent;
     }
 
     if (m_userAgent.isEmpty()) {

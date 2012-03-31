@@ -81,6 +81,7 @@ protected slots:
     // Context menu slots
     void openUrlInNewWindow();
     void sendLinkByMail();
+    void sendPageByMail();
     void copyLinkToClipboard();
     void downloadPage();
     void downloadUrlToDisk();

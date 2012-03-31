@@ -339,9 +339,15 @@ void WebView::openUrlInNewWindow()
 void WebView::sendLinkByMail()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        const QUrl &url = QUrl::fromEncoded("mailto:?body=" + QUrl::toPercentEncoding(action->data().toUrl().toEncoded()));
-        QDesktopServices::openUrl(url);
+        const QUrl &mailUrl = QUrl::fromEncoded("mailto:?body=" + QUrl::toPercentEncoding(action->data().toUrl().toEncoded()));
+        QDesktopServices::openUrl(mailUrl);
     }
+}
+
+void WebView::sendPageByMail()
+{
+    const QUrl &mailUrl = QUrl::fromEncoded("mailto:?body=" + QUrl::toPercentEncoding(url().toEncoded()) + "&subject=" + QUrl::toPercentEncoding(title()));
+    QDesktopServices::openUrl(mailUrl);
 }
 
 void WebView::copyLinkToClipboard()
@@ -690,7 +696,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     menu->addAction(IconProvider::fromTheme("user-bookmarks"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(downloadPage()));
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
-    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendLinkByMail()))->setData(url());
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
     menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printPage()));
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(selectAll()));
