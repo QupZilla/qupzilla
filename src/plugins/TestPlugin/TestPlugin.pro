@@ -17,6 +17,7 @@ TRANSLATIONS += translations/cs_CZ.ts\
                 translations/el_GR.ts\
                 translations/es_ES.ts \
                 translations/id_ID.ts\
+                translations/it_IT.ts\
                 translations/ja_JP.ts\
                 translations/nl_NL.ts\
                 translations/pt_PT.ts\
