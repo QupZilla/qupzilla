@@ -35,6 +35,7 @@ TRANSLATIONS = \
     translations/nl_NL.ts \
     translations/pt_PT.ts \
     translations/ro_RO.ts \
+    translations/ru_RU.ts \
     translations/sk_SK.ts \
     translations/sr_BA.ts \
     translations/sr_RS.ts \

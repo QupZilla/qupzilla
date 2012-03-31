@@ -113,7 +113,7 @@ void WebView::setPage(QWebPage* page)
 
     setZoom(WebViewSettings::defaultZoom);
 
-    connect(page, SIGNAL(saveFrameStateRequested(QWebFrame*,QWebHistoryItem*)), this, SLOT(frameStateChanged()));
+    connect(page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
 }
 
 void WebView::load(const QUrl &url)
