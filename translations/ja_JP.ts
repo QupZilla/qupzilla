@@ -3732,7 +3732,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation>タブの重複を解消する(&amp;D)</translation>
+        <translation>タブの複製(&amp;D)</translation>
     </message>
     <message>
         <source>Un&amp;pin Tab</source>
