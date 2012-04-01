@@ -1472,8 +1472,7 @@ void QupZilla::savePage()
 
 void QupZilla::sendLink()
 {
-    const QUrl &url = QUrl::fromEncoded("mailto:?body=" + QUrl::toPercentEncoding(weView()->url().toEncoded()));
-    QDesktopServices::openUrl(url);
+    weView()->sendPageByMail();
 }
 
 void QupZilla::printPage(QWebFrame* frame)

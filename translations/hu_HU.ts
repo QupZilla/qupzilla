@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hirdetésblokkoló</translation>
     </message>
     <message>
         <source>Delete Rule</source>
@@ -130,58 +130,58 @@
     <name>AdBlockIcon</name>
     <message>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation type="unfinished"></translation>
+        <translation>A hirdetésblokkoló megakadályozza a weboldalakon a nemkívánt tartalmak megjelenését</translation>
     </message>
     <message>
         <source>Blocked popup window</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokkolt felugró ablak</translation>
     </message>
     <message>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation type="unfinished"></translation>
+        <translation>A hirdetésblokkoló blokkolt egy nemkívánt felugró ablakot.</translation>
     </message>
     <message>
         <source>AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation>Hirdetésblokkoló</translation>
     </message>
     <message>
         <source>Show AdBlock &amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>A hirdetésblokkoló &amp;beállítása</translation>
     </message>
     <message>
         <source>Blocked Popup Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokkolt felugró ablakok</translation>
     </message>
     <message>
         <source>%1 with (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / (%2)</translation>
     </message>
     <message>
         <source>No content blocked</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs letiltott tartalom</translation>
     </message>
     <message>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Letiltott internetcím (Hirdetésblokkolási szabályok) - ide kattintva szerkeszthető</translation>
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation type="unfinished"></translation>
+        <translation>Segítség saját szabályok &amp;készítéséhez</translation>
     </message>
 </context>
 <context>
     <name>AddAcceptLanguage</name>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyelv hozzáadása</translation>
     </message>
     <message>
         <source>Choose preferred language for web sites</source>
-        <translation type="unfinished"></translation>
+        <translation>A weboldalak megjelenítéséhez előnybe részesített nyelv kiválasztása</translation>
     </message>
     <message>
         <source>Personal definition:</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyéni beállítás:</translation>
     </message>
 </context>
 <context>
@@ -204,7 +204,7 @@
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Szerkesztés</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -244,7 +244,7 @@
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Megerősítés</translation>
     </message>
     <message>
         <source>Are you sure to delete all passwords on your computer?</source>
@@ -287,33 +287,33 @@
     <name>AutoFillNotification</name>
     <message>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation type="unfinished"></translation>
+        <translation>Emlékezzen a QupZilla a jelszóra ehhez: &lt;b&gt;%1&lt;/b&gt;, itt: %2?</translation>
     </message>
 </context>
 <context>
     <name>AutoFillWidget</name>
     <message>
         <source>Remember</source>
-        <translation type="unfinished"></translation>
+        <translation>Megjegyez</translation>
     </message>
     <message>
         <source>Never For This Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezen az oldalon sohasem</translation>
     </message>
     <message>
         <source>Not Now</source>
-        <translation type="unfinished"></translation>
+        <translation>Most ne</translation>
     </message>
 </context>
 <context>
     <name>BookmarkIcon</name>
     <message>
         <source>Bookmark this Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Oldal mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>Edit this bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Ennek a könyvjelzőnek a szerkesztése</translation>
     </message>
 </context>
 <context>
@@ -344,11 +344,11 @@
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Az oldal neve</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Internetcím</translation>
     </message>
     <message>
         <source>Next</source>
@@ -356,7 +356,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
@@ -372,7 +372,7 @@
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hiba!</translation>
     </message>
     <message>
         <source>Choose directory...</source>
@@ -412,7 +412,7 @@
     </message>
     <message>
         <source>No Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nincs hiba</translation>
     </message>
     <message>
         <source>Unable to open file.</source>
@@ -439,15 +439,15 @@
     <name>BookmarksManager</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Könyvjelzők</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Az oldal neve</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Internetcím</translation>
     </message>
     <message>
         <source>Add Folder</source>
@@ -542,38 +542,38 @@
     <name>BookmarksModel</name>
     <message>
         <source>Bookmarks In Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelzők a Menüben</translation>
     </message>
     <message>
         <source>Bookmarks In ToolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelzők az Eszköztárban</translation>
     </message>
     <message>
         <source>Unsorted Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem rendezett könyvjelzők</translation>
     </message>
 </context>
 <context>
     <name>BookmarksSideBar</name>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés...</translation>
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Hivatkozás megnyitása a jelenlegi &amp;fülön</translation>
     </message>
     <message>
         <source>Open link in &amp;new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Hivatkozás megnyitása &amp;új fülön</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>A cím másolása</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Törlés</translation>
     </message>
 </context>
 <context>
@@ -584,7 +584,7 @@
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Összes &amp;jelenlegi fül mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>&amp;Organize Bookmarks</source>
@@ -644,116 +644,116 @@
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Üres</translation>
     </message>
 </context>
 <context>
     <name>BookmarksWidget</name>
     <message>
         <source>Folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvtár/Mappa:</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Név:</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentés</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezárás</translation>
     </message>
     <message>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás a Könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>Add to Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás a Gyorsindítóhoz</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelző szerkesztése</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Eltávolítás a Gyorsindítóból</translation>
     </message>
 </context>
 <context>
     <name>BrowsingLibrary</name>
     <message>
         <source>Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvtár</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés...</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Előzmények</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelzők</translation>
     </message>
     <message>
         <source>RSS</source>
-        <translation type="unfinished"></translation>
+        <translation>RSS</translation>
     </message>
     <message>
         <source>Database Optimized</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatbázis optimizálva</translation>
     </message>
     <message>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Az adatbázis sikeresen optimizálva.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Az adatbázis mérete előtte: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Optimalizálás után: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
     <name>CertificateInfoWidget</name>
     <message>
         <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Kibocsátva a következő részére:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Common Name (CN):</source>
-        <translation type="unfinished"></translation>
+        <translation>Általános név (CN):</translation>
     </message>
     <message>
         <source>Organization (O):</source>
-        <translation type="unfinished"></translation>
+        <translation>Szervezet (O):</translation>
     </message>
     <message>
         <source>Organizational Unit (OU):</source>
-        <translation type="unfinished"></translation>
+        <translation>Szervezeti egység (OU):</translation>
     </message>
     <message>
         <source>Serial Number:</source>
-        <translation type="unfinished"></translation>
+        <translation>Szériaszám:</translation>
     </message>
     <message>
         <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Kibocsátó:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Validity&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Érvényesség&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Issued On:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kibocsátva:</translation>
     </message>
     <message>
         <source>Expires On:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lejárat:</translation>
     </message>
 </context>
 <context>
@@ -806,40 +806,48 @@
         <source>All</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Clear web databases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear local storage</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ClickToFlash</name>
     <message>
         <source>Object blocked by ClickToFlash</source>
-        <translation type="unfinished"></translation>
+        <translation>A weblapelemet a ClickToFlash blokkolta</translation>
     </message>
     <message>
         <source>Show more information about object</source>
-        <translation type="unfinished"></translation>
+        <translation>Bővebb információ az elemről</translation>
     </message>
     <message>
         <source>Delete object</source>
-        <translation type="unfinished"></translation>
+        <translation>Elem törlése</translation>
     </message>
     <message>
         <source>Add %1 to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 hozzáadása a Kivételekhez</translation>
     </message>
     <message>
         <source>Flash Object</source>
-        <translation type="unfinished"></translation>
+        <translation>Flash elem</translation>
     </message>
     <message>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Jellemző név&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Érték&lt;/b&gt;</translation>
     </message>
     <message>
         <source>No more information available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs több elérhető információ.</translation>
     </message>
 </context>
 <context>
@@ -918,7 +926,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hozzáadás</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -938,7 +946,7 @@
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Megerősítés</translation>
     </message>
     <message>
         <source>Are you sure to delete all cookies on your computer?</source>
@@ -973,174 +981,176 @@
     <name>DownloadFileHelper</name>
     <message>
         <source>Save file as...</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl mentése másként...</translation>
     </message>
     <message>
         <source>NoNameDownload</source>
-        <translation type="unfinished"></translation>
+        <translation>Névtelen letöltés</translation>
     </message>
 </context>
 <context>
     <name>DownloadItem</name>
     <message>
         <source>Remaining time unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>A hátralévő időt jelenleg nem lehet meghatározni</translation>
     </message>
     <message>
         <source>Done - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Elkészült! - %1</translation>
     </message>
     <message>
         <source>Cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>Megszakítva</translation>
     </message>
     <message>
         <source>few seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>néhány másodperc</translation>
     </message>
     <message>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>másodperc</translation>
     </message>
     <message>
         <source>minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>perc</translation>
     </message>
     <message>
         <source>hours</source>
-        <translation type="unfinished"></translation>
+        <translation>óra</translation>
     </message>
     <message>
         <source>Unknown speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ismeretlen sebesség</translation>
     </message>
     <message>
         <source>Unknown size</source>
-        <translation type="unfinished"></translation>
+        <translation>Ismeretlen méret</translation>
     </message>
     <message>
         <source>%2 - unknown size (%3)</source>
-        <translation type="unfinished"></translation>
+        <translation>%2 - ismeretlen méret (%3)</translation>
     </message>
     <message>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fennmaradó idő: %1 Letöltési méret: %2 / %3 (%4 sebességgel)</translation>
     </message>
     <message>
         <source>Cancelled - %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Megszakítva - %1</translation>
     </message>
     <message>
         <source>Delete file</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl törlése</translation>
     </message>
     <message>
         <source>Do you want to also delete dowloaded file?</source>
-        <translation type="unfinished"></translation>
+        <translation>A letöltött fájl is törölve legyen?</translation>
     </message>
     <message>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl megnyitása</translation>
     </message>
     <message>
         <source>Open Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvtár (mappa) megnyitása</translation>
     </message>
     <message>
         <source>Go to Download Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Ugrás a letöltési oldalra</translation>
     </message>
     <message>
         <source>Copy Download Link</source>
-        <translation type="unfinished"></translation>
+        <translation>A letöltés internetcímének kimásolása</translation>
     </message>
     <message>
         <source>Cancel downloading</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltés megszakítása</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiürítés</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiba</translation>
     </message>
     <message>
         <source>Not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem található</translation>
     </message>
     <message>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Sajnos, ez a fájl: 
+ %1 
+ nem található!</translation>
     </message>
     <message>
         <source>Error: Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiba: Nem lehet felülírni vagy létrehozni a fájlt!</translation>
     </message>
     <message>
         <source>Error: </source>
-        <translation type="unfinished"></translation>
+        <translation>Hiba: </translation>
     </message>
 </context>
 <context>
     <name>DownloadManager</name>
     <message>
         <source>Download Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltéskezelő</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiürítés</translation>
     </message>
     <message>
         <source>Executable: </source>
-        <translation type="unfinished"></translation>
+        <translation>Indítófájl:</translation>
     </message>
     <message>
         <source>Arguments: </source>
-        <translation type="unfinished"></translation>
+        <translation>Programutasítások:</translation>
     </message>
     <message>
         <source>Cannot start external download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet elindítani külső letöltéskezelőt</translation>
     </message>
     <message>
         <source>Cannot start external download manager! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet elindítani a külső letöltéskezelőt! %1</translation>
     </message>
     <message>
         <source>%1% of %2 files (%3) %4 remaining</source>
-        <translation type="unfinished"></translation>
+        <translation>%2 fájlból %1% kész (sebesség: %3), fennmaradó idő: %4</translation>
     </message>
     <message>
         <source>% - Download Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>% - Letöltéskezelő</translation>
     </message>
     <message>
         <source>Download Finished</source>
-        <translation type="unfinished"></translation>
+        <translation>A letöltés befejeződött</translation>
     </message>
     <message>
         <source>All files have been successfully downloaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>Minden fájl sikeresen letöltve.</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Figyelmeztetés</translation>
     </message>
     <message>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
-        <translation type="unfinished"></translation>
+        <translation>A program bezárásával az összes még be nem fejeződött letöltés törlődik! Biztosan kilép?</translation>
     </message>
 </context>
 <context>
     <name>DownloadOptionsDialog</name>
     <message>
         <source>Opening</source>
-        <translation type="unfinished"></translation>
+        <translation>Megnyitás</translation>
     </message>
     <message>
         <source>You have chosen to open</source>
@@ -1156,38 +1166,38 @@
     </message>
     <message>
         <source>What should QupZilla do with this file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Mit csináljon a QupZilla ezzel a fájllal?</translation>
     </message>
     <message>
         <source>Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>Megnyitás...</translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl mentése</translation>
     </message>
     <message>
         <source>Opening %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 megnyitása</translation>
     </message>
 </context>
 <context>
     <name>EditSearchEngine</name>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Név:</translation>
     </message>
     <message>
         <source>Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Internetcím:</translation>
     </message>
     <message>
         <source>Shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>Használandó rövidítés:</translation>
     </message>
     <message>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikon:</translation>
     </message>
     <message>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
@@ -1195,34 +1205,34 @@
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás fájlból ...</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikon kiválasztása...</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Képfájlok</translation>
     </message>
 </context>
 <context>
     <name>HistoryManager</name>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Előzmények</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Az oldal neve</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Internetcím</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Törlés</translation>
     </message>
     <message>
         <source>Clear All History</source>
@@ -1258,7 +1268,7 @@
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Megerősítés</translation>
     </message>
     <message>
         <source>Are you sure to delete all history?</source>
@@ -1328,105 +1338,105 @@
     <name>HistorySideBar</name>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés...</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Az oldal neve</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>A cím másolása</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Ma</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezen a héten</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Ebben a hónapban</translation>
     </message>
 </context>
 <context>
     <name>LicenseViewer</name>
     <message>
         <source>License Viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>Licensz megtekintése</translation>
     </message>
 </context>
 <context>
     <name>LocationBar</name>
     <message>
         <source>Add RSS from this page...</source>
-        <translation type="unfinished"></translation>
+        <translation>RSS hozzáadása erről a lapról...</translation>
     </message>
     <message>
         <source>Enter URL address or search on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Internetcím megadása vagy keresés itt: %1</translation>
     </message>
     <message>
         <source>Paste And &amp;Go</source>
-        <translation type="unfinished"></translation>
+        <translation>Beillesztés és &amp;ugrás</translation>
     </message>
     <message>
         <source>Clear All</source>
-        <translation type="unfinished"></translation>
+        <translation>Összes törlése</translation>
     </message>
     <message>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
-        <translation type="unfinished"></translation>
+        <translation>.hu</translation>
     </message>
     <message>
         <source>Show information about this page</source>
-        <translation type="unfinished"></translation>
+        <translation>Információk megjelenítése erről az oldalról</translation>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Névtelen lap</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Vissza</translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Előre</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Kezdőoldal</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Új fül</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Főmenü</translation>
     </message>
     <message>
         <source>Exit Fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Kilépés teljes képernyős módból</translation>
     </message>
     <message>
         <source>Clear history</source>
-        <translation type="unfinished"></translation>
+        <translation>Előzmények törlése</translation>
     </message>
 </context>
 <context>
@@ -1492,77 +1502,77 @@
     <name>PageScreen</name>
     <message>
         <source>Page Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Képernyőkép</translation>
     </message>
     <message>
         <source>Save Page Screen...</source>
-        <translation type="unfinished"></translation>
+        <translation>Képernyőkép mentése...</translation>
     </message>
 </context>
 <context>
     <name>PluginsList</name>
     <message>
         <source>Application Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Programbővítmények</translation>
     </message>
     <message>
         <source>Allow Application Extensions to be loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Programbővítmények használatának engedélyezése</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>WebKit Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>WebKit bővítmények</translation>
     </message>
     <message>
         <source>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Click To Flash Plugin&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Click To Flash is a plugin which blocks auto loading of Flash content at page. You can always load it manually by clicking on the Flash play icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>A Click To Flash bővítmény csak akkor engedi elindulni a Flash tartalmakat, ha a Flash play ikonra kattintunk.</translation>
     </message>
     <message>
         <source>Whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Kivételek</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Allow Click To Flash</source>
-        <translation type="unfinished"></translation>
+        <translation>A Click To Flash engedélyezése</translation>
     </message>
     <message>
         <source>Add site to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Webcím hozzáadása a Kivételekhez</translation>
     </message>
     <message>
         <source>Server without http:// (ex. youtube.com)</source>
-        <translation type="unfinished"></translation>
+        <translation>Webcím http:// előtag nélkül (például: youtube.com)</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translation>A bővítményt nem lehetett betölteni!</translation>
     </message>
 </context>
 <context>
     <name>PopupWindow</name>
     <message>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
 </context>
 <context>
@@ -1769,7 +1779,7 @@
     </message>
     <message>
         <source>Add .co.uk domain by pressing ALT key</source>
-        <translation>A .co.uk toldalék hozzáadása az internetcímek végéhez, az ALT billentyű lenyomásával</translation>
+        <translation>A .hu toldalék hozzáadása az internetcímek végéhez, az ALT és az ENTER billentyűk lenyomásával</translation>
     </message>
     <message>
         <source>Ask when closing multiple tabs</source>
@@ -1824,7 +1834,7 @@
     <message>
         <source>Include links in focus chain</source>
         <extracomment>focus also links on page (basically &lt;a&gt; elements) when pressing Tab key</extracomment>
-        <translation>Linkek fókuszálása az adott oldalon</translation>
+        <translation>Linkek kiemelése az adott oldalon</translation>
     </message>
     <message>
         <source>Zoom text only</source>
@@ -1872,7 +1882,7 @@
     </message>
     <message>
         <source>Allow storing web icons</source>
-        <translation>Honlapikonok tárolásának engedélyezése</translation>
+        <translation type="obsolete">Honlapikonok tárolásának engedélyezése</translation>
     </message>
     <message>
         <source>Allow saving history</source>
@@ -2086,11 +2096,11 @@
     </message>
     <message>
         <source>Send Do Not Track header to servers</source>
-        <translation>Ne kövess fejléc küldése a szerver felé</translation>
+        <translation>&quot;A felhasználó nyomon követésének letiltása&quot; parancs küldése a szerver felé</translation>
     </message>
     <message>
         <source>Send Referer header to servers</source>
-        <translation>Utalási fejléc küldése a szerver felé</translation>
+        <translation>A hivatkozások kiindulási helyének közlése a szerverrel</translation>
     </message>
     <message>
         <source>Block popup windows</source>
@@ -2204,47 +2214,59 @@
         <source>Extensions</source>
         <translation>Kiegészítők</translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Kivételek&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation>Szerver:</translation>
+    </message>
+    <message>
+        <source>Use different proxy for https connection</source>
+        <translation>Más proxy használata https kapcsolathoz</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Native System Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Alapértelmezett rendszerértesítés</translation>
     </message>
     <message>
         <source>The file is not an OpenSearch 1.1 file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a fájl nem egy OpenSearch 1.1 fájl.</translation>
     </message>
     <message>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;nincs beállítva a tanúsítványban&gt;</translation>
     </message>
 </context>
 <context>
     <name>QtWin</name>
     <message>
         <source>Open new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Új fül nyitása</translation>
     </message>
     <message>
         <source>Opens a new tab if browser is running</source>
-        <translation type="unfinished"></translation>
+        <translation>Új fület nyit, ha a böngésző fut</translation>
     </message>
     <message>
         <source>Open new window</source>
-        <translation type="unfinished"></translation>
+        <translation>Új ablak nyitása</translation>
     </message>
     <message>
         <source>Opens a new window if browser is running</source>
-        <translation type="unfinished"></translation>
+        <translation>Új ablak nyílik, ha a böngésző fut</translation>
     </message>
     <message>
         <source>Open download manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltéskezelő megnyitása</translation>
     </message>
     <message>
         <source>Opens a download manager if browser is running</source>
-        <translation type="unfinished"></translation>
+        <translation>A letöltéskezelő megnyitása, ha a böngésző fut</translation>
     </message>
 </context>
 <context>
@@ -2499,7 +2521,7 @@
     </message>
     <message>
         <source>Web In&amp;spector</source>
-        <translation>Webvi&amp;zsgáló</translation>
+        <translation>Weboldalak el&amp;emeinek vizsgálata</translation>
     </message>
     <message>
         <source>Clear Recent &amp;History</source>
@@ -2640,135 +2662,135 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     <name>QupZillaSchemeReply</name>
     <message>
         <source>No Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs hiba</translation>
     </message>
     <message>
         <source>Not Found</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem található</translation>
     </message>
     <message>
         <source>Report Issue</source>
-        <translation type="unfinished"></translation>
+        <translation>Javaslat, probléma jelzése</translation>
     </message>
     <message>
         <source>Your E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>Saját e-mail cím</translation>
     </message>
     <message>
         <source>Issue type</source>
-        <translation type="unfinished"></translation>
+        <translation>Javaslat, probléma típusa</translation>
     </message>
     <message>
         <source>Issue description</source>
-        <translation type="unfinished"></translation>
+        <translation>Javaslat, probléma leírása</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>Küldés</translation>
     </message>
     <message>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mail cím nem kötelező, de megadható&lt;br/&gt;&lt;b&gt;Megjegyzés: &lt;/b&gt;Kérjük olvassa el, hogyan kell hibajelentést készíteni, először is itt: &lt;a&gt;%1&lt;/a&gt; .</translation>
     </message>
     <message>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"></translation>
+        <translation>Kérjük minden szükséges mezőt töltsön ki!</translation>
     </message>
     <message>
         <source>Start Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Kezdőoldal</translation>
     </message>
     <message>
         <source>Google Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Google kereső</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation type="unfinished"></translation>
+        <translation>Google keresési eredmények</translation>
     </message>
     <message>
         <source>About QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>A QupZilláról</translation>
     </message>
     <message>
         <source>Information about version</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzióinformációk</translation>
     </message>
     <message>
         <source>Copyright</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerzői jog</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Változatszám</translation>
     </message>
     <message>
         <source>WebKit version</source>
-        <translation type="unfinished"></translation>
+        <translation>Webkit változatszám</translation>
     </message>
     <message>
         <source>Main developer</source>
-        <translation type="unfinished"></translation>
+        <translation>Fő fejlesztő</translation>
     </message>
     <message>
         <source>Contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>Közreműködők</translation>
     </message>
     <message>
         <source>Translators</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyelvi fordítók</translation>
     </message>
     <message>
         <source>Speed Dial</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyorsindító</translation>
     </message>
     <message>
         <source>Add New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Új oldal hozzáadása</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerkesztés</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Újratöltés</translation>
     </message>
     <message>
         <source>Load title from page</source>
-        <translation type="unfinished"></translation>
+        <translation>Oldal elnevezésének betöltése az oldalról</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Internetcím</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Az oldal neve</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Alkalmaz</translation>
     </message>
     <message>
         <source>New Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Új oldal</translation>
     </message>
     <message>
         <source>Speed Dial settings</source>
-        <translation type="unfinished"></translation>
+        <translation>A gyorsindító beállításai</translation>
     </message>
     <message>
         <source>Placement: </source>
-        <translation type="unfinished"></translation>
+        <translation>Elhelyezés: </translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Cover</source>
@@ -2776,163 +2798,163 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Igazítás az oldalhoz</translation>
     </message>
     <message>
         <source>Fit Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Szélességhez igazítás</translation>
     </message>
     <message>
         <source>Fit Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Magassághoz igazítás</translation>
     </message>
     <message>
         <source>Use background image</source>
-        <translation type="unfinished"></translation>
+        <translation>Háttérkép használata</translation>
     </message>
     <message>
         <source>Select image</source>
-        <translation type="unfinished"></translation>
+        <translation>Képfájl kiválasztása</translation>
     </message>
     <message>
         <source>Maximum pages in a row:</source>
-        <translation type="unfinished"></translation>
+        <translation>Egy sorban lévő lapok maximális száma:</translation>
     </message>
     <message>
         <source>Change size of pages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lapok méretének megváltoztatása:</translation>
     </message>
     <message>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Összetevők adatai</translation>
     </message>
     <message>
         <source>Browser Identification</source>
-        <translation type="unfinished"></translation>
+        <translation>Böngésző azonosítás</translation>
     </message>
     <message>
         <source>Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Elérési utak</translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Érték</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Név</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerző</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Leírás</translation>
     </message>
     <message>
         <source>Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Profil</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Saved session</source>
-        <translation type="unfinished"></translation>
+        <translation>Elmentett munkamenet</translation>
     </message>
     <message>
         <source>Pinned tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Megjelölt fülek</translation>
     </message>
     <message>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatok</translation>
     </message>
     <message>
         <source>Themes</source>
-        <translation type="unfinished"></translation>
+        <translation>Témák</translation>
     </message>
     <message>
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyelvi fordítások</translation>
     </message>
     <message>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translation>Böngésző változatszám</translation>
     </message>
     <message>
         <source>Qt version</source>
-        <translation type="unfinished"></translation>
+        <translation>Qt változatszám</translation>
     </message>
     <message>
         <source>Build time</source>
-        <translation type="unfinished"></translation>
+        <translation>Elkészítés ideje</translation>
     </message>
     <message>
         <source>Platform</source>
-        <translation type="unfinished"></translation>
+        <translation>Operációs rendszer</translation>
     </message>
     <message>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzió összetevők</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Kikapcsolva</translation>
     </message>
     <message>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Engedélyezve&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>Fejlesztői változat</translation>
     </message>
     <message>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>WebGL támogatás</translation>
     </message>
     <message>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7 API</translation>
     </message>
     <message>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE beillesztés</translation>
     </message>
     <message>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>Hordozható változat</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Bővítmények</translation>
     </message>
     <message>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs elérhető bővítmény.</translation>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ha gondok adódnak a böngészővel, kérjük, elsőként próbálja meg letiltani a bővítményeket. &lt;br/&gt;Ha így sem javul a dolog, akkor töltse ki ezt a kérdőívet: </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezárás</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez az oldal információkat tartalmaz a böngésző jelenlegi beállításairól - amelyet a hibaelhárításhoz használhatunk. Kérjük, ezeket az információkat is helyezze bele a hibabejelentésébe.</translation>
     </message>
 </context>
 <context>
@@ -2943,7 +2965,7 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Üres</translation>
     </message>
     <message>
         <source>Add feed</source>
@@ -3031,29 +3053,29 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>RSSNotification</name>
     <message>
         <source>Open RSS Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>RSS kezelő megnyitása</translation>
     </message>
 </context>
 <context>
     <name>RSSWidget</name>
     <message>
         <source>Add RSS Feeds from this site</source>
-        <translation type="unfinished"></translation>
+        <translation>RSS hozzáadása erről a lapról</translation>
     </message>
     <message>
         <source>Untitled feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Cím nélküli RSS feed</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás</translation>
     </message>
 </context>
 <context>
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">SSL kezelő</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
@@ -3081,11 +3103,11 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Beállítások</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hozzáadás</translation>
     </message>
     <message>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
@@ -3117,107 +3139,107 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>SearchEnginesDialog</name>
     <message>
         <source>Manage Search Engines</source>
-        <translation type="unfinished"></translation>
+        <translation>Internetes keresők kezelése</translation>
     </message>
     <message>
         <source>Add...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás...</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerkesztés</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Le</translation>
     </message>
     <message>
         <source>Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Internetes kereső</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Használandó rövidítés</translation>
     </message>
     <message>
         <source>Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Alapértelmezések</translation>
     </message>
     <message>
         <source>Add Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Internetes kereső hozzáadása</translation>
     </message>
     <message>
         <source>Edit Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Internetes kereső szerkesztése</translation>
     </message>
 </context>
 <context>
     <name>SearchEnginesManager</name>
     <message>
         <source>Search Engine Added</source>
-        <translation type="unfinished"></translation>
+        <translation>Internetes kereső hozzáadva</translation>
     </message>
     <message>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a kereső: %1 sikeresen hozzáadva.</translation>
     </message>
     <message>
         <source>Search Engine is not valid!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a kereső érvénytelen!</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>HibaHiba</translation>
     </message>
     <message>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiba keletkezett a kereső hozzáadásakor &lt;br&gt;&lt;b&gt;Hibaüzenet: &lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
     <name>SearchToolBar</name>
     <message>
         <source>No results found.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs eredménye a keresésnek.</translation>
     </message>
 </context>
 <context>
     <name>SearchToolbar</name>
     <message>
         <source>Search: </source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés: </translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés...</translation>
     </message>
     <message>
         <source>Highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiemelés</translation>
     </message>
     <message>
         <source>Case sensitive</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagy- és kisbetűérzékeny</translation>
     </message>
 </context>
 <context>
     <name>SideBar</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelzők</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Előzmények</translation>
     </message>
 </context>
 <context>
@@ -3228,7 +3250,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Általános</translation>
     </message>
     <message>
         <source>Media</source>
@@ -3260,7 +3282,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Érték</translation>
     </message>
     <message>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
@@ -3316,7 +3338,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hiba!</translation>
     </message>
     <message>
         <source>This preview is not available!</source>
@@ -3334,40 +3356,64 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Preview not available</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Databases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Database details&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;database not selected&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No databases are used by this page.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SiteInfoWidget</name>
     <message>
         <source>More...</source>
-        <translation type="unfinished"></translation>
+        <translation>Továbbiak...</translation>
     </message>
     <message>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>A kapcsolat ezzel a weboldallal &lt;b&gt;titkosított&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>A kapcsolat ezzel a weboldallal &lt;b&gt;nem titkosított&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation type="unfinished"></translation>
+        <translation>A Qupzillával ennyiszer lett megtekintve ez az oldal: &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez az oldal &lt;b&gt;még nem lett megtekintve&lt;/b&gt; ebben a böngészőben.</translation>
     </message>
     <message>
         <source>first</source>
-        <translation type="unfinished"></translation>
+        <translation>első</translation>
     </message>
     <message>
         <source>second</source>
-        <translation type="unfinished"></translation>
+        <translation>második</translation>
     </message>
     <message>
         <source>third</source>
-        <translation type="unfinished"></translation>
+        <translation>harmadik</translation>
     </message>
 </context>
 <context>
@@ -3386,11 +3432,11 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bezárás</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Szerkesztés</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -3446,7 +3492,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hiba!</translation>
     </message>
     <message>
         <source>Cannot write to file!</source>
@@ -3485,26 +3531,33 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>SourceViewerSearch</name>
     <message>
         <source>Search: </source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés: </translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés...</translation>
     </message>
 </context>
 <context>
     <name>SpeedDial</name>
     <message>
         <source>Select image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép kiválasztása...</translation>
     </message>
     <message>
         <source>Unable to load</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet betölteni</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Képfájlok</translation>
+    </message>
+</context>
+<context>
+    <name>SqueezeLabelV2</name>
+    <message>
+        <source>Copy</source>
+        <translation>Másolás</translation>
     </message>
 </context>
 <context>
@@ -3543,7 +3596,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Összes &amp;jelenlegi fül mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>Close Ot&amp;her Tabs</source>
@@ -3563,117 +3616,117 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nemrég &amp;bezárt fülek visszaállítása</translation>
     </message>
 </context>
 <context>
     <name>TabWidget</name>
     <message>
         <source>List of tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Fülek listája</translation>
     </message>
     <message>
         <source>New Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Új fül</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Betöltés...</translation>
     </message>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Névtelen lap</translation>
     </message>
     <message>
         <source>Currently you have %1 opened tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelenleg %1 fül van megnyitva</translation>
     </message>
     <message>
         <source>New tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Új fül</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Üres</translation>
     </message>
     <message>
         <source>Restore All Closed Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Az összes bezárt fül visszaállítása</translation>
     </message>
     <message>
         <source>Clear list</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista törlése</translation>
     </message>
 </context>
 <context>
     <name>TabbedWebView</name>
     <message>
         <source>Failed loading page</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem sikerült betölteni az oldalt</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Betöltés...</translation>
     </message>
     <message>
         <source>%1 - QupZilla</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - QupZilla</translation>
     </message>
     <message>
         <source>Inspect Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Elem vizsgálata</translation>
     </message>
 </context>
 <context>
     <name>ThemeManager</name>
     <message>
         <source>&lt;b&gt;Name:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Név:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Author:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Szerző:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Leírás:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licensz</translation>
     </message>
 </context>
 <context>
     <name>ToolButton</name>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Leállítás</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Betöltés ismét</translation>
     </message>
 </context>
 <context>
     <name>Updater</name>
     <message>
         <source>Update available</source>
-        <translation type="unfinished"></translation>
+        <translation>Frissítés érhető el</translation>
     </message>
     <message>
         <source>New version of QupZilla is ready to download.</source>
-        <translation type="unfinished"></translation>
+        <translation>Letölthető a QupZilla újabb változata.</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Frissítés</translation>
     </message>
 </context>
 <context>
     <name>WebInspectorDockWidget</name>
     <message>
         <source>Web Inspector</source>
-        <translation type="unfinished"></translation>
+        <translation>Weboldalak elemeinek vizsgálata</translation>
     </message>
 </context>
 <context>
@@ -3787,175 +3840,179 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>JavaScript alert</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Unknown network error</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WebSearchBar</name>
     <message>
         <source>Manage Search Engines</source>
-        <translation type="unfinished"></translation>
+        <translation>Internetes keresők kezelése</translation>
     </message>
     <message>
         <source>Add %1 ...</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 hozzáadása...</translation>
     </message>
     <message>
         <source>Paste And &amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Beilleszt és &amp;keres</translation>
     </message>
     <message>
         <source>Clear All</source>
-        <translation type="unfinished"></translation>
+        <translation>Összes törlése</translation>
     </message>
 </context>
 <context>
     <name>WebView</name>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Névtelen lap</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vissza</translation>
     </message>
     <message>
         <source>&amp;Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Előre</translation>
     </message>
     <message>
         <source>&amp;Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Betöltés megint</translation>
     </message>
     <message>
         <source>S&amp;top</source>
-        <translation type="unfinished"></translation>
+        <translation>L&amp;eállítás</translation>
     </message>
     <message>
         <source>This frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a keret</translation>
     </message>
     <message>
         <source>Show &amp;only this frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Csak &amp;ez a keret legyen látható</translation>
     </message>
     <message>
         <source>Show this frame in new &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyisd meg ezt a keretet új &amp;fülön</translation>
     </message>
     <message>
         <source>Print frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Keret kinyomtatása</translation>
     </message>
     <message>
         <source>Zoom &amp;in</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagyít&amp;ás</translation>
     </message>
     <message>
         <source>&amp;Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kicsinyítés</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Alapértelmezett nagyítási arány visszaállítása</translation>
     </message>
     <message>
         <source>Show so&amp;urce of frame</source>
-        <translation type="unfinished"></translation>
+        <translation>A keret fo&amp;rráskódjának megtekintése</translation>
     </message>
     <message>
         <source>Book&amp;mark page</source>
-        <translation type="unfinished"></translation>
+        <translation>Olda&amp;l mentése a Könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Az oldal mentése mint...</translation>
     </message>
     <message>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Az oldal internetcímének kimásolása</translation>
     </message>
     <message>
         <source>Send page link...</source>
-        <translation type="unfinished"></translation>
+        <translation>Az oldal internetcímének elküldése...</translation>
     </message>
     <message>
         <source>&amp;Print page</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Az oldal kinyomtatása</translation>
     </message>
     <message>
         <source>Select &amp;all</source>
-        <translation type="unfinished"></translation>
+        <translation>Az összes &amp;kijelölése</translation>
     </message>
     <message>
         <source>Validate page</source>
-        <translation type="unfinished"></translation>
+        <translation>Oldal érvényesítése</translation>
     </message>
     <message>
         <source>Show so&amp;urce code</source>
-        <translation type="unfinished"></translation>
+        <translation>A keret fo&amp;rráskódjának megtekintése</translation>
     </message>
     <message>
         <source>Show info ab&amp;out site</source>
-        <translation type="unfinished"></translation>
+        <translation>Információk megjelenítése er&amp;ről az oldalról</translation>
     </message>
     <message>
         <source>Open link in new &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Hivatkozás megnyitása új &amp;fülön</translation>
     </message>
     <message>
         <source>Open link in new &amp;window</source>
-        <translation type="unfinished"></translation>
+        <translation>Hivatkozás megnyitása új &amp;ablakban</translation>
     </message>
     <message>
         <source>B&amp;ookmark link</source>
-        <translation type="unfinished"></translation>
+        <translation>H&amp;ivatkozás felvétele a Könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hivatkozás mentése mint...</translation>
     </message>
     <message>
         <source>Send link...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hivatkozás küldése...</translation>
     </message>
     <message>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;A hivatkozás címének másolása</translation>
     </message>
     <message>
         <source>Show i&amp;mage</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép m&amp;utatása</translation>
     </message>
     <message>
         <source>Copy im&amp;age</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép másol&amp;ása</translation>
     </message>
     <message>
         <source>Copy image ad&amp;dress</source>
-        <translation type="unfinished"></translation>
+        <translation>A kép címének ki&amp;másolása</translation>
     </message>
     <message>
         <source>&amp;Save image as...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;A kép mentése mint...</translation>
     </message>
     <message>
         <source>Send image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép küldése...</translation>
     </message>
     <message>
         <source>Send text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg küldése...</translation>
     </message>
     <message>
         <source>Google Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>Google Fordító</translation>
     </message>
     <message>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Szótár</translation>
     </message>
     <message>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"></translation>
+        <translation>Ugrás az &amp;internetcímhez</translation>
     </message>
     <message>
         <source>Search &quot;%1 ..&quot; with %2</source>
@@ -4002,7 +4059,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>jsAlert</name>
     <message>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne jelenjenek meg további párbeszédablakok ezen az oldalon</translation>
     </message>
 </context>
 </TS>

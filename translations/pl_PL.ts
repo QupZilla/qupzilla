@@ -431,7 +431,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="93"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Notka:&lt;/b&gt; Aktualnie można importować jedynie z pliku html.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.ui" line="135"/>
@@ -772,7 +772,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="83"/>
         <source>Show Only Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż tylko Ikony</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="89"/>
@@ -859,7 +859,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="79"/>
         <source>Remove</source>
-        <translation type="unfinished">Usuń</translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="105"/>
@@ -874,7 +874,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="143"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj do zakładek</translation>
     </message>
     <message>
         <source>Add into Bookmarks</source>
@@ -1020,12 +1020,13 @@
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
         <source>Clear web databases</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Trudno zrozumieć kontekst (do poprawy)</translatorcomment>
+        <translation type="unfinished">Wyczyść web database</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="150"/>
         <source>Clear local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyczyśc lokalnie przechowywane dane</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="160"/>
@@ -1137,7 +1138,7 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="27"/>
         <source>Stored Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Przechowywane cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="33"/>
@@ -1215,39 +1216,39 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="248"/>
         <source>Cookie Filtering</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtr Cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="254"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Biała lista cookies&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="261"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookies z tych serwerów ZAWSZE będą akceptowane(nawet gdy opcja zapisy cookies jest wyłączona)</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="286"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="340"/>
         <source>Add</source>
-        <translation type="unfinished">Dodaj</translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="293"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="347"/>
         <source>Remove</source>
-        <translation type="unfinished">Usuń</translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="305"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Czarna lista cookies&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="312"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Cookies z tych serwerów NIGDY nie będą akceptowane</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="139"/>
@@ -1272,12 +1273,12 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="210"/>
         <source>Add to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj do białej listy</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="230"/>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj do czarnej listy</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="224"/>
@@ -1592,7 +1593,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="90"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrazki</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.cpp" line="92"/>
@@ -1800,7 +1801,8 @@
     <message>
         <location filename="../src/lib/other/licenseviewer.cpp" line="25"/>
         <source>License Viewer</source>
-        <translation type="unfinished">Podgląd licencji</translation>
+        <translatorcomment>co w tym jest źle ?</translatorcomment>
+        <translation>Podgląd licencji</translation>
     </message>
 </context>
 <context>
@@ -2056,12 +2058,12 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="220"/>
         <source>Error!</source>
-        <translation type="unfinished">Błąd!</translation>
+        <translation>Błąd!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="220"/>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie ładuj rozszerzeń !</translation>
     </message>
 </context>
 <context>
@@ -2566,17 +2568,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="142"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozszerzenia</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="431"/>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie ładuj kart zanim bedą zaznaczone</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="757"/>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Zezów na pluginy od Netscape(Flash plugin)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="913"/>
@@ -2596,17 +2598,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1244"/>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Rozszerzenia&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1251"/>
         <source>Server:</source>
-        <translation type="unfinished">Serwer:</translation>
+        <translation>Serwer:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1302"/>
         <source>Use different proxy for https connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyj innego proxy dla połączeń https</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1332"/>
@@ -3022,12 +3024,12 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="160"/>
         <source>Last session crashed</source>
-        <translation type="unfinished">Ostatnia sesja uległa awarii</translation>
+        <translation>Ostatnia sesja uległa awarii</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="161"/>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;QupZilla uległa awarii :-(&lt;/b&gt;&lt;br/&gt;Oops, ostatnia sesja QupZilli niespodziewanie zakończyła się błędem. Przepraszamy za to. Czy przywrócić ostatnia sesję?</translation>
+        <translation>&lt;b&gt;QupZilla uległa awarii :-(&lt;/b&gt;&lt;br/&gt;Oops, ostatnia sesja QupZilli niespodziewanie zakończyła się błędem. Przepraszamy za to. Czy przywrócić ostatnia sesję?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="299"/>
@@ -3138,17 +3140,18 @@
         <location filename="../src/lib/app/qupzilla.cpp" line="1833"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Nadal jest otwarta %1 liczba kart które nie zostaną zapisane.
+Czy na pewno chcesz zamknąć QupZille?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1834"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">Nie pytaj ponownie</translation>
+        <translation>Nie pytaj ponownie</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1835"/>
         <source>There are still open tabs</source>
-        <translation type="unfinished">Nadal są otwarte karty</translation>
+        <translation>Nadal są otwarte karty</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="417"/>
@@ -3232,7 +3235,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="486"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informacje o konfiguracji</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="970"/>
@@ -3252,22 +3255,22 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1436"/>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki HTML</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1436"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrazki</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1436"/>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki tekstowe</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1436"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Wszystkie pliki</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="1558"/>
@@ -3518,7 +3521,7 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="306"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="307"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informacje Konfiguracji</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="310"/>
@@ -3550,12 +3553,12 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="323"/>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translation>Wersja programu</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="328"/>
         <source>Qt version</source>
-        <translation type="unfinished"></translation>
+        <translation>Wersja Qt</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="330"/>
@@ -3575,37 +3578,37 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="313"/>
         <source>Preferences</source>
-        <translation type="unfinished">Ustawienia</translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="312"/>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Build Configuration</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="314"/>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcje</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="315"/>
         <source>Value</source>
-        <translation type="unfinished">Wartość</translation>
+        <translation>Wartość</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="316"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozszerzenia</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="317"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Imię</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="319"/>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="320"/>
@@ -3684,7 +3687,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="267"/>
         <source>Close</source>
-        <translation type="unfinished">Zamknij</translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="270"/>
@@ -3758,7 +3761,7 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="345"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="346"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyłącz</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="349"/>
@@ -3767,32 +3770,32 @@ Are you sure to quit QupZilla?</source>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="358"/>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="361"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Włącz&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="365"/>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug build</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="366"/>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>Działanie WebGL</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="367"/>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7 API</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="368"/>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>Integracja z KDE</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="369"/>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>Portable</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="260"/>
@@ -4225,7 +4228,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="67"/>
         <source>Databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Baza danych</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="72"/>
@@ -4281,17 +4284,17 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="363"/>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Detale bazy danych&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="372"/>
         <source>Name:</source>
-        <translation type="unfinished">Nazwa:</translation>
+        <translation>Nazwa:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="379"/>
         <source>Path:</source>
-        <translation type="unfinished">Ścieżka:</translation>
+        <translation>Ścieżka:</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="393"/>
@@ -4318,6 +4321,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="144"/>
         <source>No databases are used by this page.</source>
+        <translatorcomment>What database ? Mysql from site ?</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4587,7 +4591,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrazki</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>
@@ -4605,7 +4609,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/lib/3rdparty/squeezelabelv2.cpp" line="57"/>
         <source>Copy</source>
-        <translation type="unfinished">Kopiuj</translation>
+        <translation>Kopiuj</translation>
     </message>
 </context>
 <context>
@@ -4898,7 +4902,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="514"/>
         <source>Unknown network error</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieznany błąd połączenia</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="540"/>
@@ -4953,7 +4957,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="690"/>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>Alarm JavaScript</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="698"/>
@@ -5043,7 +5047,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="549"/>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Utwórz Silnik wyszukiwania</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="660"/>
@@ -5113,7 +5117,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="787"/>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukaj z...</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="808"/>
