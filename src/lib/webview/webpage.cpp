@@ -767,6 +767,8 @@ void WebPage::disconnectObjects()
 
     disconnect(this);
     m_networkProxy->disconnectObjects();
+
+    mApp->plugins()->emitWebPageDeleted(this);
 }
 
 WebPage::~WebPage()

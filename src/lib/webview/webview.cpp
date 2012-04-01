@@ -49,7 +49,9 @@ WebView::WebView(QWidget* parent)
     , m_isLoading(false)
     , m_progress(0)
     , m_clickedFrame(0)
-    , m_actionsHaveImages(false)
+    , m_actionReload(0)
+    , m_actionStop(0)
+    , m_actionsInitialized(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
@@ -60,8 +62,6 @@ WebView::WebView(QWidget* parent)
     m_zoomLevels << 30 << 50 << 67 << 80 << 90 << 100 << 110 << 120 << 133 << 150 << 170 << 200 << 240 << 300;
 
     installEventFilter(this);
-
-    mApp->plugins()->emitWebViewCreated(this);
 }
 
 QIcon WebView::icon() const
@@ -112,8 +112,9 @@ void WebView::setPage(QWebPage* page)
     QWebView::setPage(page);
 
     setZoom(WebViewSettings::defaultZoom);
-
     connect(page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
+
+    mApp->plugins()->emitWebPageCreated(qobject_cast<WebPage*>(page));
 }
 
 void WebView::load(const QUrl &url)
@@ -291,6 +292,11 @@ void WebView::slotLoadStarted()
 {
     m_isLoading = true;
     m_progress = 0;
+
+    if (m_actionsInitialized) {
+        m_actionStop->setEnabled(true);
+        m_actionReload->setEnabled(false);
+    }
 }
 
 void WebView::slotLoadProgress(int progress)
@@ -302,6 +308,11 @@ void WebView::slotLoadFinished()
 {
     m_isLoading = false;
     m_progress = 100;
+
+    if (m_actionsInitialized) {
+        m_actionStop->setEnabled(false);
+        m_actionReload->setEnabled(true);
+    }
 
     if (m_lastUrl != url()) {
         mApp->history()->addHistoryEntry(this);
@@ -578,13 +589,22 @@ void WebView::createSearchEngine()
 
 void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, const QPoint &pos)
 {
-    if (!m_actionsHaveImages) {
-        m_actionsHaveImages = true;
+    if (!m_actionsInitialized) {
+        m_actionsInitialized = true;
 
         pageAction(QWebPage::Cut)->setIcon(QIcon::fromTheme("edit-cut"));
         pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
         pageAction(QWebPage::Paste)->setIcon(QIcon::fromTheme("edit-paste"));
         pageAction(QWebPage::SelectAll)->setIcon(QIcon::fromTheme("edit-select-all"));
+
+        m_actionReload = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this);
+        m_actionStop = new QAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this);
+
+        connect(m_actionReload, SIGNAL(triggered()), this, SLOT(reload()));
+        connect(m_actionStop, SIGNAL(triggered()), this, SLOT(stop()));
+
+        m_actionReload->setEnabled(!isLoading());
+        m_actionStop->setEnabled(isLoading());
     }
 
     if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != "javascript") {
@@ -669,9 +689,8 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
     action->setEnabled(WebHistoryWrapper::canGoForward(history()));
 
-    menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload"), this, SLOT(reload()));
-    action = menu->addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("S&top"), this, SLOT(stop()));
-    action->setEnabled(isLoading());
+    menu->addAction(m_actionReload);
+    menu->addAction(m_actionStop);
     menu->addSeparator();
 
     if (frameAtPos && page()->mainFrame() != frameAtPos) {
@@ -1098,6 +1117,4 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
 void WebView::disconnectObjects()
 {
     disconnect(this);
-
-    mApp->plugins()->emitWebViewDeleted(this);
 }

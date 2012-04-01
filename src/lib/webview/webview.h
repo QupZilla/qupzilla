@@ -97,7 +97,6 @@ protected slots:
 
     void createSearchEngine();
 
-
     // Clicked frame actions
     void loadClickedFrame();
     void loadClickedFrameInNewTab();
@@ -152,7 +151,10 @@ private:
     QWebElement m_clickedElement;
     QWebFrame* m_clickedFrame;
     QUrl m_clickedUrl;
-    bool m_actionsHaveImages;
+
+    QAction* m_actionReload;
+    QAction* m_actionStop;
+    bool m_actionsInitialized;
 
     QList<QTouchEvent::TouchPoint> m_touchPoints;
 };

@@ -192,14 +192,14 @@ bool PluginProxy::processKeyRelease(const Qz::ObjectName &type, QObject* obj, QK
     return accepted;
 }
 
-void PluginProxy::emitWebViewCreated(WebView* view)
+void PluginProxy::emitWebPageCreated(WebPage* page)
 {
-    emit webViewCreated(view);
+    emit webPageCreated(page);
 }
 
-void PluginProxy::emitWebViewDeleted(WebView* view)
+void PluginProxy::emitWebPageDeleted(WebPage* page)
 {
-    emit webViewDeleted(view);
+    emit webPageDeleted(page);
 }
 
 void PluginProxy::emitMainWindowCreated(QupZilla* window)

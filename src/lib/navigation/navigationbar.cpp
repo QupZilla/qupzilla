@@ -48,6 +48,14 @@ QString titleForUrl(QString title, const QUrl &url)
     return title;
 }
 
+QIcon iconForPage(const QUrl &url, const QIcon &sIcon)
+{
+    QIcon icon;
+    icon.addPixmap(url.scheme() == "qupzilla" ? QIcon(":icons/qupzilla.png").pixmap(16, 16) :_iconForUrl(url).pixmap(16, 16));
+    icon.addPixmap(sIcon.pixmap(16, 16), QIcon::Active);
+    return icon;
+}
+
 NavigationBar::NavigationBar(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
     , p_QupZilla(mainClass)
@@ -196,7 +204,8 @@ void NavigationBar::aboutToShowHistoryBackMenu()
         if (item.isValid() && lastUrl != item.url()) {
             QString title = titleForUrl(item.title(), item.url());
 
-            Action* act = new Action(_iconForUrl(item.url()), title);
+            const QIcon &icon = iconForPage(item.url(), IconProvider::fromTheme("go-previous"));
+            Action* act = new Action(icon, title);
             act->setData(i);
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
             connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));
@@ -232,7 +241,8 @@ void NavigationBar::aboutToShowHistoryNextMenu()
         if (item.isValid() && lastUrl != item.url()) {
             QString title = titleForUrl(item.title(), item.url());
 
-            Action* act = new Action(_iconForUrl(item.url()), title);
+            const QIcon &icon = iconForPage(item.url(), IconProvider::fromTheme("go-next"));
+            Action* act = new Action(icon, title);
             act->setData(i);
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
             connect(act, SIGNAL(middleClicked()), this, SLOT(goAtHistoryIndexInNewTab()));

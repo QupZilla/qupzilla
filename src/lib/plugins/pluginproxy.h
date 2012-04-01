@@ -22,6 +22,7 @@
 #include "qz_namespace.h"
 
 class QupZilla;
+class WebPage;
 
 class QT_QUPZILLA_EXPORT PluginProxy : public Plugins
 {
@@ -49,15 +50,15 @@ public:
     bool processKeyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event);
     bool processKeyRelease(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event);
 
-    void emitWebViewCreated(WebView* view);
-    void emitWebViewDeleted(WebView* view);
+    void emitWebPageCreated(WebPage* page);
+    void emitWebPageDeleted(WebPage* page);
 
     void emitMainWindowCreated(QupZilla* window);
     void emitMainWindowDeleted(QupZilla* window);
 
 signals:
-    void webViewCreated(WebView* view);
-    void webViewDeleted(WebView* view);
+    void webPageCreated(WebPage* page);
+    void webPageDeleted(WebPage* page);
 
     void mainWindowCreated(QupZilla* window);
     void mainWindowDeleted(QupZilla* window);
