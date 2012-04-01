@@ -15,25 +15,26 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "docktitlebarwidget.h"
-#include "iconprovider.h"
+#ifndef SIDEBARINTERFACE_H
+#define SIDEBARINTERFACE_H
 
-DockTitleBarWidget::DockTitleBarWidget(const QString &title, QWidget* parent)
-    : QWidget(parent)
+#include <QObject>
+
+#include "qz_namespace.h"
+
+class QAction;
+
+class QupZilla;
+
+class QT_QUPZILLA_EXPORT SideBarInterface : public QObject
 {
-    setupUi(this);
-    closeButton->setIcon(QIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton).pixmap(16, 16)));
-    label->setText(title);
-    connect(closeButton, SIGNAL(clicked()), parent, SLOT(close()));
+public:
+    explicit SideBarInterface(QObject* parent = 0) : QObject(parent) { }
 
-    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
-}
+    virtual QString title() const = 0;
+    virtual QAction* menuAction() = 0;
 
-void DockTitleBarWidget::setTitle(const QString &title)
-{
-    label->setText(title);
-}
+    virtual QWidget* createSideBarWidget(QupZilla* mainWindow) = 0;
+};
 
-DockTitleBarWidget::~DockTitleBarWidget()
-{
-}
+#endif // SIDEBARINTERFACE_H

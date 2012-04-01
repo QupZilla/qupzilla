@@ -68,7 +68,7 @@ bool MouseGesturesPlugin::testPlugin()
 
 QTranslator* MouseGesturesPlugin::getTranslator(const QString &locale)
 {
-    QTranslator* translator = new QTranslator();
+    QTranslator* translator = new QTranslator(this);
     translator->load(":/mousegestures/locale/" + locale);
     return translator;
 }

@@ -8,8 +8,10 @@ TARGET = TestPlugin
 # OS/2 allows only 8 chars in TARGET
 os2: TARGET = TestPlug
 
-SOURCES += testplugin.cpp
-HEADERS += testplugin.h
+SOURCES += testplugin.cpp \
+    testplugin_sidebar.cpp
+HEADERS += testplugin.h \
+    testplugin_sidebar.h
 RESOURCES += testplugin.qrc
 
 TRANSLATIONS += translations/cs_CZ.ts\

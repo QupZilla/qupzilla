@@ -100,6 +100,7 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     , m_macMenuBar(new QMenuBar())
 #endif
     , m_actionPrivateBrowsing(0)
+    , m_sideBarManager(new SideBarManager(this))
     , m_statusBarMessage(new StatusBarMessage(this))
     , m_usingTransparentBackground(false)
 {
@@ -372,15 +373,6 @@ void QupZilla::setupMenu()
     actionEncoding->setMenu(m_menuEncoding);
     connect(m_menuEncoding, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));
 
-    m_actionShowBookmarksSideBar = new QAction(tr("Bookmarks"), this);
-    m_actionShowBookmarksSideBar->setCheckable(true);
-    m_actionShowBookmarksSideBar->setShortcut(QKeySequence("Ctrl+B"));
-    connect(m_actionShowBookmarksSideBar, SIGNAL(triggered()), this, SLOT(showBookmarksSideBar()));
-    m_actionShowHistorySideBar = new QAction(tr("History"), this);
-    m_actionShowHistorySideBar->setCheckable(true);
-    m_actionShowHistorySideBar->setShortcut(QKeySequence("Ctrl+H"));
-    connect(m_actionShowHistorySideBar, SIGNAL(triggered()), this, SLOT(showHistorySideBar()));
-
     QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
 #ifndef Q_WS_MAC
     toolbarsMenu->addAction(m_actionShowMenubar);
@@ -388,8 +380,7 @@ void QupZilla::setupMenu()
     toolbarsMenu->addAction(m_actionShowToolbar);
     toolbarsMenu->addAction(m_actionShowBookmarksToolbar);
     QMenu* sidebarsMenu = new QMenu(tr("Sidebars"));
-    sidebarsMenu->addAction(m_actionShowBookmarksSideBar);
-    sidebarsMenu->addAction(m_actionShowHistorySideBar);
+    m_sideBarManager->setSideBarMenu(sidebarsMenu);
 
     m_menuView->addMenu(toolbarsMenu);
     m_menuView->addMenu(sidebarsMenu);
@@ -588,14 +579,7 @@ void QupZilla::loadSettings()
     m_navigationBar->buttonNext()->setVisible(showBackForwardIcons);
     m_navigationBar->buttonAddTab()->setVisible(showAddTab);
 
-    if (activeSideBar != "None") {
-        if (activeSideBar == "Bookmarks") {
-            m_actionShowBookmarksSideBar->trigger();
-        }
-        else if (activeSideBar == "History") {
-            m_actionShowHistorySideBar->trigger();
-        }
-    }
+    m_sideBarManager->showSideBar(activeSideBar);
 
     //Private browsing
     m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
@@ -924,16 +908,6 @@ void QupZilla::aboutToShowViewMenu()
 #endif
     m_actionShowStatusbar->setChecked(statusBar()->isVisible());
     m_actionShowBookmarksToolbar->setChecked(m_bookmarksToolbar->isVisible());
-
-    if (!m_sideBar) {
-        m_actionShowBookmarksSideBar->setChecked(false);
-        m_actionShowHistorySideBar->setChecked(false);
-    }
-    else {
-        SideBar::SideWidget actWidget = m_sideBar.data()->activeWidget();
-        m_actionShowBookmarksSideBar->setChecked(actWidget == SideBar::Bookmarks);
-        m_actionShowHistorySideBar->setChecked(actWidget == SideBar::History);
-    }
 }
 
 void QupZilla::aboutToShowEditMenu()
@@ -1233,42 +1207,20 @@ void QupZilla::showBookmarksToolbar()
     settings.setValue("Browser-View-Settings/showBookmarksToolbar", !status);
 }
 
-void QupZilla::showBookmarksSideBar()
-{
-    addSideBar();
-
-    if (m_sideBar.data()->activeWidget() != SideBar::Bookmarks) {
-        m_sideBar.data()->showBookmarks();
-    }
-    else {
-        m_sideBar.data()->close();
-    }
-}
-
-void QupZilla::showHistorySideBar()
-{
-    addSideBar();
-
-    if (m_sideBar.data()->activeWidget() != SideBar::History) {
-        m_sideBar.data()->showHistory();
-    }
-    else {
-        m_sideBar.data()->close();
-    }
-}
-
-void QupZilla::addSideBar()
+SideBar* QupZilla::addSideBar()
 {
     if (m_sideBar) {
-        return;
+        return m_sideBar.data();
     }
 
-    m_sideBar = new SideBar(this);
+    m_sideBar = new SideBar(m_sideBarManager, this);
 
     m_mainSplitter->insertWidget(0, m_sideBar.data());
     m_mainSplitter->setCollapsible(0, false);
 
     m_mainSplitter->setSizes(QList<int>() << m_sideBarWidth << m_webViewWidth);
+
+    return m_sideBar.data();
 }
 
 void QupZilla::saveSideBarWidth()

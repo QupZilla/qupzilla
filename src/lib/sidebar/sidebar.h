@@ -19,40 +19,69 @@
 #define SIDEBAR_H
 
 #include <QWidget>
+#include <QHash>
+#include <QWeakPointer>
 
 #include "qz_namespace.h"
 
 class QVBoxLayout;
+class QMenu;
 
 class DockTitleBarWidget;
+class SideBarInterface;
+class SideBarManager;
 class QupZilla;
 
 class QT_QUPZILLA_EXPORT SideBar : public QWidget
 {
     Q_OBJECT
 public:
-    enum SideWidget { None = 0, Bookmarks, History, RSS };
-
-    explicit SideBar(QupZilla* mainClass, QWidget* parent = 0);
-    ~SideBar();
+    explicit SideBar(SideBarManager* manager, QupZilla* mainClass);
 
     void showBookmarks();
     void showHistory();
-    void showRSS();
-    SideWidget activeWidget() { return m_activeWidget; }
 
-signals:
+    void setTitle(const QString &title);
+    void setWidget(QWidget* widget);
 
 public slots:
     void close();
 
 private:
-    void setWidget(QWidget* widget);
-
     QupZilla* p_QupZilla;
     QVBoxLayout* m_layout;
     DockTitleBarWidget* m_titleBar;
-    SideWidget m_activeWidget;
+    SideBarManager* m_manager;
+};
+
+class QT_QUPZILLA_EXPORT SideBarManager : public QObject
+{
+    Q_OBJECT
+public:
+    explicit SideBarManager(QupZilla* parent);
+
+    void setSideBarMenu(QMenu* menu);
+    void refreshMenu();
+
+    void showSideBar(const QString &id);
+    void sideBarRemoved(const QString &id);
+    void closeSideBar();
+
+    static QHash<QString, QWeakPointer<SideBarInterface> > m_sidebars;
+    static void addSidebar(const QString &id, SideBarInterface* interface);
+    static void removeSidebar(const QString &id);
+
+private slots:
+    void slotShowSideBar();
+
+private:
+    void updateActions();
+
+    QupZilla* p_QupZilla;
+    QWeakPointer<SideBar> m_sideBar;
+    QMenu* m_menu;
+
+    QString m_activeBar;
 };
 
 #endif // SIDEBAR_H

@@ -20,7 +20,6 @@
 
 #include <QPixmap>
 #include <QtPlugin>
-#include <QWebHitTestResult>
 
 #include "qz_namespace.h"
 
@@ -47,6 +46,7 @@ class QMenu;
 class QWebHitTestResult;
 class QMouseEvent;
 class QKeyEvent;
+class QWheelEvent;
 
 class WebView;
 

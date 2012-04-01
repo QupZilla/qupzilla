@@ -416,6 +416,21 @@ bool MainApplication::isStateChanged()
     return false;
 }
 
+QList<QupZilla*> MainApplication::mainWindows()
+{
+    QList<QupZilla*> list;
+
+    for (int i = 0; i < m_mainWindows.count(); i++) {
+        if (!m_mainWindows.at(i)) {
+            continue;
+        }
+
+        list.append(m_mainWindows.at(i).data());
+    }
+
+    return list;
+}
+
 void MainApplication::togglePrivateBrowsingMode(bool state)
 {
     webSettings()->setAttribute(QWebSettings::PrivateBrowsingEnabled, state);
@@ -543,9 +558,9 @@ void MainApplication::translateApp()
         return;
     }
 
-    QTranslator* app = new QTranslator();
+    QTranslator* app = new QTranslator(this);
     app->load(TRANSLATIONSDIR + file);
-    QTranslator* sys = new QTranslator();
+    QTranslator* sys = new QTranslator(this);
 
     if (QFile::exists(TRANSLATIONSDIR + "qt_" + longLoc + ".qm")) {
         sys->load(TRANSLATIONSDIR + "qt_" + longLoc + ".qm");

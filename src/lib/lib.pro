@@ -308,7 +308,8 @@ HEADERS  += \
     bookmarksimport/bookmarksimporticonfetcher.h \
     other/checkboxdialog.h \
     network/schemehandler.h \
-    tools/plaineditwithlines.h
+    tools/plaineditwithlines.h \
+    sidebar/sidebarinterface.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

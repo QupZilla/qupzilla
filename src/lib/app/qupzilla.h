@@ -41,6 +41,7 @@ class MainApplication;
 class WebTab;
 class AdBlockIcon;
 class SideBar;
+class SideBarManager;
 class ProgressBar;
 class StatusBarMessage;
 class NavigationBar;
@@ -75,6 +76,7 @@ public:
 
     void restoreWindowState(const QByteArray &window, const QByteArray &tabs);
 
+    SideBar* addSideBar();
     virtual QMenuBar* menuBar() const;
 
     TabbedWebView* weView() const;
@@ -84,16 +86,17 @@ public:
     inline BookmarksToolbar* bookmarksToolbar() { return m_bookmarksToolbar; }
     inline StatusBarMessage* statusBarMessage() { return m_statusBarMessage; }
     inline NavigationBar* navigationBar() { return m_navigationBar; }
-
+    inline SideBarManager* sideBarManager() { return m_sideBarManager; }
     inline ProgressBar* progressBar() { return m_progressBar; }
-    inline QString activeProfil() { return m_activeProfil; }
-    inline QString activeLanguage() { return m_activeLanguage; }
     inline QLabel* ipLabel() { return m_ipLabel; }
     inline AdBlockIcon* adBlockIcon() { return m_adblockIcon; }
     inline QMenu* menuHelp() { return m_menuHelp; }
     inline QAction* actionRestoreTab() { return m_actionRestoreTab; }
     inline QAction* actionReload() { return m_actionReload; }
     inline QMenu* superMenu() { return m_superMenu; }
+
+    inline QString activeProfil() { return m_activeProfil; }
+    inline QString activeLanguage() { return m_activeLanguage; }
 
     inline bool isClosing() { return m_isClosing; }
     inline QUrl homepageUrl() { return m_homepage; }
@@ -147,9 +150,7 @@ private slots:
     void searchOnPage();
     void showCookieManager();
     void showHistoryManager();
-    void showHistorySideBar();
     void showBookmarksManager();
-    void showBookmarksSideBar();
     void showRSSManager();
     void showDownloadManager();
     void showMenubar();
@@ -197,7 +198,6 @@ private:
 
     void setupUi();
     void setupMenu();
-    void addSideBar();
 
     void disconnectObjects();
 
@@ -255,6 +255,7 @@ private:
     BookmarksToolbar* m_bookmarksToolbar;
     TabWidget* m_tabWidget;
     QWeakPointer<SideBar> m_sideBar;
+    SideBarManager* m_sideBarManager;
     StatusBarMessage* m_statusBarMessage;
     NavigationBar* m_navigationBar;
 

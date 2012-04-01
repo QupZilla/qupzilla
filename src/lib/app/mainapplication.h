@@ -67,6 +67,8 @@ public:
     void aboutToCloseWindow(QupZilla* window);
     bool isStateChanged();
 
+    QList<QupZilla*> mainWindows();
+
     inline static MainApplication* getInstance() { return static_cast<MainApplication*>(QCoreApplication::instance()); }
     inline QString getActiveProfilPath() { return m_activeProfil; }
     inline QString getActiveLanguage() { return m_activeLanguage; }

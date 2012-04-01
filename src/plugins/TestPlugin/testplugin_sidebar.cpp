@@ -15,25 +15,44 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "docktitlebarwidget.h"
-#include "iconprovider.h"
+#include "testplugin_sidebar.h"
 
-DockTitleBarWidget::DockTitleBarWidget(const QString &title, QWidget* parent)
-    : QWidget(parent)
+#include <QAction>
+#include <QLabel>
+#include <QPushButton>
+#include <QVBoxLayout>
+
+TestPlugin_Sidebar::TestPlugin_Sidebar(QObject* parent)
+    : SideBarInterface(parent)
 {
-    setupUi(this);
-    closeButton->setIcon(QIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton).pixmap(16, 16)));
-    label->setText(title);
-    connect(closeButton, SIGNAL(clicked()), parent, SLOT(close()));
-
-    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 }
 
-void DockTitleBarWidget::setTitle(const QString &title)
+QString TestPlugin_Sidebar::title() const
 {
-    label->setText(title);
+    return tr("Testing Sidebar");
 }
 
-DockTitleBarWidget::~DockTitleBarWidget()
+QAction* TestPlugin_Sidebar::menuAction()
 {
+    QAction* act = new QAction(tr("Testing Sidebar"), 0);
+    act->setCheckable(true);
+
+    return act;
+}
+
+QWidget* TestPlugin_Sidebar::createSideBarWidget(QupZilla* mainWindow)
+{
+    Q_UNUSED(mainWindow)
+
+    QWidget* w = new QWidget;
+    QPushButton* b = new QPushButton("Example Plugin v0.0.1");
+    QLabel* label = new QLabel();
+    label->setPixmap(QPixmap(":icons/other/about.png"));
+
+    QVBoxLayout* l = new QVBoxLayout(w);
+    l->addWidget(label);
+    l->addWidget(b);
+    w->setLayout(l);
+
+    return w;
 }
