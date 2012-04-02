@@ -1021,7 +1021,7 @@
         <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
         <source>Clear web databases</source>
         <translatorcomment>Trudno zrozumieć kontekst (do poprawy)</translatorcomment>
-        <translation type="unfinished">Wyczyść web database</translation>
+        <translation type="unfinished">Wyczyść bazy danych www</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="150"/>
@@ -3483,7 +3483,7 @@ Czy na pewno chcesz zamknąć QupZille?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="144"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>Jeśli QupZilla sprawia problemy, spróbuj najpierw wyłączyć wszystkie rozszerzenia. &lt;br /&gt;Jeśli problem nie zniknie, zgłoś go przy użyciu formularza:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="148"/>
@@ -3613,7 +3613,7 @@ Czy na pewno chcesz zamknąć QupZille?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="320"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Opis</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="335"/>
@@ -3657,7 +3657,7 @@ Czy na pewno chcesz zamknąć QupZille?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="150"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"></translation>
+        <translation>Adres e-mail nie jest obowiązkowy&lt;br/&gt;&lt;b&gt;Uwaga: &lt;/b&gt;Proszę najpierw zapoznać się z &lt;a href=%1&gt;przewodnikiem&lt;/a&gt; jak zgłaszać błędy.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="203"/>
@@ -3747,12 +3747,12 @@ Czy na pewno chcesz zamknąć QupZille?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="309"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Strona zawiera informacje o bieżącej konfiguracji QupZilli - przydatne podczas rozwiązywania problemów. Należy dołączyć je do wysyłanego raportu z opisem błędu.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="385"/>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Brak dostępnych rozszerzeń.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="342"/>
@@ -4301,7 +4301,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
         <location filename="../src/lib/webview/siteinfo.ui" line="403"/>
         <location filename="../src/lib/webview/siteinfo.ui" line="413"/>
         <source>&lt;database not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;nie wybrano bazy danych&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.ui" line="179"/>
@@ -4322,7 +4322,7 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
         <location filename="../src/lib/webview/siteinfo.cpp" line="144"/>
         <source>No databases are used by this page.</source>
         <translatorcomment>What database ? Mysql from site ?</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>Strona nie używa żadnej bazy danych.</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/siteinfo.cpp" line="150"/>
