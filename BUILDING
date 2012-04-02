@@ -12,12 +12,11 @@ General
   Path section.
   
   You may want to build QupZilla with debugging symbols (for generating
-  backtrace of crash) as easily as adding one line to src/src.pro:
+  backtrace of crash) as easily as adding one line to src/defines.pri:
                
                CONFIG += debug
                
   QupZilla requires Qt (>=4.7.0) and QtWebKit (at least version included in Qt 4.7)
-               
 
 Microsoft Windows
 ----------------------------------------------------------------------------------
@@ -54,7 +53,7 @@ FreeBSD
 Available Defines
 ----------------------------------------------------------------------------------
 
-  You can set define directly in project file (src/src.pro)
+  You can set define directly in file (src/defines.pri)
   or set environment variable by
   
     $ export NAME="value"
@@ -75,6 +74,16 @@ Available Defines
                           
                           example:
                           $ export USE_WEBGL="true"
+                          
+   USE_QTWEBKIT_2_2       Enable support for Geolocation and Notifications API.
+                          You need to have QtWebKit version at least 2.2 to pass compilation
+                          with this define.
+                          Note: In order to get support for Geolocation and Notifications,
+                          your QtWebKit has to be compiled with its support.
+                          (disabled by default)
+                          
+                          example:
+                          $ export USE_QTWEBKIT_2_2="true"
 
    NONBLOCK_JS_DIALOGS    Enable non-blocking JavaScript dialogs from alert() prompt()
                           and confirm() functions. They are shown inside page and are not 
@@ -87,7 +96,7 @@ Available Defines
                           (disabled by default)
                           
                           example:
-                          $ export NONBLOCK_JS_DIALOGS="true"                          
+                          $ export NONBLOCK_JS_DIALOGS="true"       
                           
                        
  Windows specific defines:
@@ -129,5 +138,4 @@ Available Defines
                           
                           example:
                           $ export QUPZILLA_PREFIX="/usr/"
-                          
-                          
+                                   

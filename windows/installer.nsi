@@ -3,7 +3,7 @@
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.1.5"
+!define /date PRODUCT_VERSION "1.2.0"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -32,19 +32,23 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_LANGUAGE "Czech"
 !insertmacro MUI_LANGUAGE "Slovak"
-!insertmacro MUI_LANGUAGE "Dutch"
 !insertmacro MUI_LANGUAGE "German"
-!insertmacro MUI_LANGUAGE "Greek"
+!insertmacro MUI_LANGUAGE "Dutch"
 !insertmacro MUI_LANGUAGE "Portuguese"
-!insertmacro MUI_LANGUAGE "Italian"
+!insertmacro MUI_LANGUAGE "Greek"
 !insertmacro MUI_LANGUAGE "French"
+!insertmacro MUI_LANGUAGE "Italian"
+!insertmacro MUI_LANGUAGE "Romanian"
+!insertmacro MUI_LANGUAGE "Tradchinese"
+!insertmacro MUI_LANGUAGE "Simpchinese"
+!insertmacro MUI_LANGUAGE "Indonesian"
+!insertmacro MUI_LANGUAGE "Georgian"
+!insertmacro MUI_LANGUAGE "Japanese"
+!insertmacro MUI_LANGUAGE "Swedish"
 
 !insertmacro MUI_LANGUAGE "Korean"
 !insertmacro MUI_LANGUAGE "Russian"
 !insertmacro MUI_LANGUAGE "Spanish"
-!insertmacro MUI_LANGUAGE "Swedish"
-!insertmacro MUI_LANGUAGE "Tradchinese"
-!insertmacro MUI_LANGUAGE "Simpchinese"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
@@ -218,14 +222,18 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   File "locale\qt_sr_RS.qm"
   SectionEnd
 
+  Section "Japanese"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ja_JP.qm"
+  File "locale\qt_ja.qm"
+  SectionEnd
+
 SectionGroupEnd
 
-SectionGroup $(TITLE_SecPlugins) SecPlugins
-  Section $(TITLE_SecExamplePlugin) SecExamplePlugin
-  SetOutPath "$INSTDIR\plugins"
-  File "plugins\ExamplePlugin.dll"
-  SectionEnd
-SectionGroupEnd
+Section $(TITLE_SecPlugins) SecPlugins
+SetOutPath "$INSTDIR\plugins"
+File "plugins\*.dll"
+SectionEnd
 
 Section $(TITLE_SecExtensions) SecExtensions
   SetOutPath "$INSTDIR"
@@ -294,22 +302,38 @@ Function .onInit
         ;Language selection dialog
 
         Push ""
-    Push ${LANG_ENGLISH}
+        Push ${LANG_ENGLISH}
         Push English
-        Push ${LANG_GERMAN}
-        Push German
         Push ${LANG_CZECH}
         Push Czech
         Push ${LANG_SLOVAK}
         Push Slovak
+        Push ${LANG_GERMAN}
+        Push German
         Push ${LANG_DUTCH}
         Push Dutch
-        Push ${LANG_GREEK}
-        Push Greek
         Push ${LANG_PORTUGUESE}
         Push Portuguese
+        Push ${LANG_GREEK}
+        Push Greek
+        Push ${LANG_FRENCH}
+        Push French
         Push ${LANG_ITALIAN}
         Push Italian
+        Push ${LANG_ROMANIAN}
+        Push Romanian
+        Push ${LANG_TRADCHINESE}
+        Push TraditionalChinese
+        Push ${LANG_SIMPCHINESE}
+        Push SimplifiedChinese
+        Push ${LANG_INDONESIAN}
+        Push Indonesian
+        Push ${LANG_GEORGIAN}
+        Push Georgian
+        Push ${LANG_JAPANESE}
+        Push Japanese
+        Push ${LANG_SWEDISH}
+        Push Swedish
         Push A ; A means auto count languages
                ; for the auto count to work the first empty push (Push "") must remain
         LangDLL::LangDialog "Installer Language" "Please select the language of the installer"

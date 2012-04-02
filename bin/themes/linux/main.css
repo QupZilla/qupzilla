@@ -117,6 +117,7 @@
 
 #locationbar[secured="true"]
 {
+    color: black;
     background-color: #ffffbc;
 }
 
@@ -161,8 +162,7 @@
 #bookmarksbar QToolButton
 {
     border-image: url(images/transp.png);
-    border-width: 1px;
-    padding-right: -5px;
+    border-width: 0px;
     height: 15px;
 }
 
@@ -271,6 +271,7 @@ DesktopNotification
 {
     background: transparent;
 }
+
 DesktopNotification #frame
 {
     border: 2px solid darkblue;

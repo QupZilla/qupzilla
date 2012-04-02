@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Header + Footer
 $site_title = "QupZilla - Легкий мультиплатформенный веб-браузер";
 $qupzilla = "QupZilla";
@@ -45,10 +45,11 @@ $other_linux = "Другой дистрибутив Linux";
 $source_code = "Исходный код";
 $choose_os = "Пожалуйста, выберите вашу операционную систему";
 $windows_text = "32-х битный и 64-х битный установщик для Windows можно скачать кликнув по ссылке ниже";
-$ubuntu_text = "Пользователи Oneiric, Natty и Maverick могут установить QupZilla выполнив эти команды";
+$ubuntu_text = "Пользователи Precise, Oneiric, Natty и Maverick могут установить QupZilla выполнив эти команды";
 $for_development_version = "Версия для разработки:";
 $packages_text = "32-х и 64-х битные пакеты";
 $tarballs_text = "32-х и 64-х битные предварительно скомпилированные архивы";
+$qupzilla_for_text = "QupZilla for";
 $can_be_downloaded = "могут быть скачаны по ссылке ниже";
 $source_text = "Вы можете получить исходный код, скопировав репозиторий ( если у вас установлен git)";
 $source_text2 = "Также можно просмотреть его онлайн и скачать в архиве zip";

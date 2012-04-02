@@ -1,8 +1,10 @@
 #!/bin/bash
 
-lupdate ../plugins/TestPlugin/TestPlugin.pro -no-obsolete -ts ../plugins/TestPlugin/cs_CZ.ts
+lupdate ../src/plugins/TestPlugin/TestPlugin.pro -no-obsolete
 
-lupdate ../plugins/TestPlugin/TestPlugin.pro -no-obsolete -ts ../plugins/TestPlugin/sk_SK.ts
+lupdate ../src/plugins/MouseGestures/MouseGestures.pro -no-obsolete
+
+lupdate ../src/plugins/AccessKeysNavigation/AccessKeysNavigation.pro -no-obsolete
 
 read -p "Press [ENTER] to close terminal"
 exit

@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Všetky práva vyhradené.&lt;br/&gt;</translation>
+        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Všetky práva vyhradené.&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
@@ -434,6 +434,10 @@
         <source>File does not exist.</source>
         <translation>Súbor neexistuje.</translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
+        <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Momentálne len import z html súboru importuje aj zložky.</translation>
+    </message>
 </context>
 <context>
     <name>BookmarksManager</name>
@@ -592,7 +596,7 @@
     </message>
     <message>
         <source>Hide Most &amp;Visited</source>
-        <translation>Skryť najna&amp;vštevovanejšie</translation>
+        <translation type="obsolete">Skryť najna&amp;vštevovanejšie</translation>
     </message>
     <message>
         <source>Move right</source>
@@ -646,6 +650,10 @@
         <source>Url: </source>
         <translation>Url: </translation>
     </message>
+    <message>
+        <source>Show Only Icons</source>
+        <translation>Zobraziť len ikony</translation>
+    </message>
 </context>
 <context>
     <name>BookmarksWidget</name>
@@ -675,11 +683,11 @@
     </message>
     <message>
         <source>Add into Bookmarks</source>
-        <translation>Pridať do záložiek</translation>
+        <translation type="obsolete">Pridať do záložiek</translation>
     </message>
     <message>
         <source>Add into Speed Dial</source>
-        <translation>Pridať do rychlej voľby</translation>
+        <translation type="obsolete">Pridať do rychlej voľby</translation>
     </message>
     <message>
         <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
@@ -703,7 +711,11 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť</translation>
+    </message>
+    <message>
+        <source>Add to Bookmarks</source>
+        <translation>Pridať do záložiek</translation>
     </message>
 </context>
 <context>
@@ -826,6 +838,14 @@
         <source>Earlier Today</source>
         <translation>Dnes</translation>
     </message>
+    <message>
+        <source>Clear web databases</source>
+        <translation>Vymazať webové databázy</translation>
+    </message>
+    <message>
+        <source>Clear local storage</source>
+        <translation>Vymazať lokálne úložiská</translation>
+    </message>
 </context>
 <context>
     <name>ClickToFlash</name>
@@ -866,11 +886,11 @@
     <name>CloseDialog</name>
     <message>
         <source>There are still open tabs</source>
-        <translation>Stále sú otvorené karty</translation>
+        <translation type="obsolete">Stále sú otvorené karty</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation>Viac sa uz nepýtať</translation>
+        <translation type="obsolete">Viac sa uz nepýtať</translation>
     </message>
 </context>
 <context>
@@ -958,6 +978,46 @@
     <message>
         <source>Cookie name</source>
         <translation>Názov cookie</translation>
+    </message>
+    <message>
+        <source>Stored Cookies</source>
+        <translation>Uložené cookies</translation>
+    </message>
+    <message>
+        <source>Cookie Filtering</source>
+        <translation>Filtrovanie cookies</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Biela listina&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
+        <translation>Cookies z týchto serverov budú VŽDY uložené (aj keď máte zakázané ukladanie cookies)</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Pridať</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Odstrániť</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Čieran listina&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Cookies from these servers will NEVER be accepted</source>
+        <translation>Cookies z týchto serverov budú VŽDY odmietnuté</translation>
+    </message>
+    <message>
+        <source>Add to whitelist</source>
+        <translation>Pridať do bielej listiny</translation>
+    </message>
+    <message>
+        <source>Add to blacklist</source>
+        <translation>Pridať do čiernej listiny</translation>
     </message>
 </context>
 <context>
@@ -1194,6 +1254,10 @@
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
         <translation>&lt;b&gt;Poznámka: &lt;/b&gt;%s v url reprezentuje hľadaný reťazec</translation>
     </message>
+    <message>
+        <source>Image files</source>
+        <translation>Obrázky</translation>
+    </message>
 </context>
 <context>
     <name>HistoryManager</name>
@@ -1349,6 +1413,13 @@
     </message>
 </context>
 <context>
+    <name>LicenseViewer</name>
+    <message>
+        <source>License Viewer</source>
+        <translation>Prehliadač licencie</translation>
+    </message>
+</context>
+<context>
     <name>LocationBar</name>
     <message>
         <source>Add RSS from this page...</source>
@@ -1380,11 +1451,11 @@
     <name>MainApplication</name>
     <message>
         <source>Last session crashed</source>
-        <translation>Minulá relácia spadla</translation>
+        <translation type="obsolete">Minulá relácia spadla</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
+        <translation type="obsolete">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
     </message>
 </context>
 <context>
@@ -1493,7 +1564,7 @@
     </message>
     <message>
         <source>screen.png</source>
-        <translation>obrazstranky.png</translation>
+        <translation type="obsolete">obrazstranky.png</translation>
     </message>
 </context>
 <context>
@@ -1520,7 +1591,7 @@
     </message>
     <message>
         <source>Load Plugins</source>
-        <translation>Načítať plugin</translation>
+        <translation type="obsolete">Načítať plugin</translation>
     </message>
     <message>
         <source>Application Extensions</source>
@@ -1549,6 +1620,18 @@
     <message>
         <source>WebKit Plugins</source>
         <translation>WebKit pluginy</translation>
+    </message>
+    <message>
+        <source>Error!</source>
+        <translation>Chyba!</translation>
+    </message>
+    <message>
+        <source>Cannot load plugin!</source>
+        <translation type="obsolete">Nemožno načítať plugin!</translation>
+    </message>
+    <message>
+        <source>Cannot load extension!</source>
+        <translation>Nemožno načítať rozšírenie!</translation>
     </message>
 </context>
 <context>
@@ -1815,7 +1898,7 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation>Pluginy</translation>
+        <translation type="obsolete">Pluginy</translation>
     </message>
     <message>
         <source>Print element background</source>
@@ -2059,7 +2142,7 @@
     </message>
     <message>
         <source>Allow Plugins (Flash plugin)</source>
-        <translation>Povoliť pluginy (Flash plugin)</translation>
+        <translation type="obsolete">Povoliť pluginy (Flash plugin)</translation>
     </message>
     <message>
         <source>Select all text by clicking in address bar</source>
@@ -2192,6 +2275,30 @@
     <message>
         <source>Change browser identification:</source>
         <translation>Zmeniť identifikáciu prehliadača:</translation>
+    </message>
+    <message>
+        <source>Allow Netscape Plugins (Flash plugin)</source>
+        <translation>Povoliť Netscape pluginy (Flash plugin)</translation>
+    </message>
+    <message>
+        <source>Don&apos;t load tabs until selected</source>
+        <translation>Nenačítať panely pokiaľ nie sú vybrané</translation>
+    </message>
+    <message>
+        <source>Extensions</source>
+        <translation>Rozšírenia</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Výnimky&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation>Server:</translation>
+    </message>
+    <message>
+        <source>Use different proxy for https connection</source>
+        <translation>Použiť iný proxy pre https pripojenie</translation>
     </message>
 </context>
 <context>
@@ -2552,7 +2659,7 @@
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation>Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
+        <translation type="obsolete">Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
     </message>
     <message>
         <source>QupZilla</source>
@@ -2588,7 +2695,45 @@
     </message>
     <message>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informácie o konfigurácií</translation>
+    </message>
+    <message>
+        <source>HTML files</source>
+        <translation>HTML súbory</translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation>Obrázky</translation>
+    </message>
+    <message>
+        <source>Text files</source>
+        <translation>Textové súbory</translation>
+    </message>
+    <message>
+        <source>All files</source>
+        <translation>Všetky súbory</translation>
+    </message>
+    <message>
+        <source>Last session crashed</source>
+        <translation>Minulá relácia spadla</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
+        <translation>&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
+    </message>
+    <message>
+        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+Are you sure to quit QupZilla?</source>
+        <translation>Ešte je otvorených %1 panelov a Vaša relácia nebude uložená.
+Skutočne chcete skončiť?</translation>
+    </message>
+    <message>
+        <source>Don&apos;t ask again</source>
+        <translation>Viac sa uz nepýtať</translation>
+    </message>
+    <message>
+        <source>There are still open tabs</source>
+        <translation>Stále sú otvorené karty</translation>
     </message>
 </context>
 <context>
@@ -2675,7 +2820,7 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation>Pluginy</translation>
+        <translation type="obsolete">Pluginy</translation>
     </message>
     <message>
         <source>Profile</source>
@@ -2755,7 +2900,7 @@
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>Pokiaľ máte problém s používaním QupZilly, zakážte všetky doplnky. &lt;br/&gt; Pokiaľ problém pretrváva, vyplňte tento formulár: </translation>
+        <translation type="obsolete">Pokiaľ máte problém s používaním QupZilly, zakážte všetky doplnky. &lt;br/&gt; Pokiaľ problém pretrváva, vyplňte tento formulár: </translation>
     </message>
     <message>
         <source>Please fill out all required fields!</source>
@@ -2811,51 +2956,103 @@
     </message>
     <message>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mail je nepovinný&lt;br/&gt;&lt;b&gt;Poznámka: &lt;/b&gt;Prosím,najskôr si &lt;a  href=%1&gt;tu&lt;/a&gt; prečítajte ako nahlásiť chybu.</translation>
     </message>
     <message>
         <source>Configuration Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informácie o konfigurácií</translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished">Nastavenia</translation>
+        <translation>Nastavenia</translation>
     </message>
     <message>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation>Možnosť</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">Hodnota</translation>
+        <translation>Hodnota</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Meno</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Popis</translation>
     </message>
     <message>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzia aplikácie</translation>
     </message>
     <message>
         <source>Qt version</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzia QT</translation>
     </message>
     <message>
         <source>No available plugins.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Žiadne dostupné doplnky.</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Táto stránka obsahuje informácie o aktuálnej konfigurácií QupZilly, pluginov a všetkých dôležitých informáciach na riešenie problémov. Prosím, priložte tieto informácie k hlásenému problému.</translation>
+    </message>
+    <message>
+        <source>Build Configuration</source>
+        <translation>Konfigurácia zostavenia</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation>Zakázané</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Povolené&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Debug build</source>
+        <translation>Debug nastavenia</translation>
+    </message>
+    <message>
+        <source>WebGL support</source>
+        <translation>Podpora WebGL</translation>
+    </message>
+    <message>
+        <source>Windows 7 API</source>
+        <translation>Windows 7 API</translation>
+    </message>
+    <message>
+        <source>KDE integration</source>
+        <translation>KDE integrácia</translation>
+    </message>
+    <message>
+        <source>Portable build</source>
+        <translation>Portable zostavenie</translation>
+    </message>
+    <message>
+        <source>Extensions</source>
+        <translation>Rozšírenia</translation>
+    </message>
+    <message>
+        <source>No available extensions.</source>
+        <translation>Žiadne dostupné doplnky.</translation>
+    </message>
+    <message>
+        <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
+        <translation>Pokiaľ máte problém s používaním QupZilly, zakážte prosím všetky doplnky. &lt;br/&gt; Pokiaľ problém pretrváva, vyplňte tento formulár: </translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zatvoriť</translation>
+    </message>
+    <message>
+        <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
+        <translation>Táto stránka obsahuje informácie o aktuálnej konfigurácii QupZilly - dôležité informácie k riešeniu problémov. Priložte prosím tieto informácie k hláseniu problémov.</translation>
     </message>
 </context>
 <context>
@@ -3259,6 +3456,30 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <source>Cannot write to file!</source>
         <translation>Nedá sa zapisovať do súboru!</translation>
     </message>
+    <message>
+        <source>Databases</source>
+        <translation>Databázy</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Database details&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Detaily databázy&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>Názov:</translation>
+    </message>
+    <message>
+        <source>Path:</source>
+        <translation>Cesta:</translation>
+    </message>
+    <message>
+        <source>&lt;database not selected&gt;</source>
+        <translation>&lt;nebola vybratá databáza&gt;</translation>
+    </message>
+    <message>
+        <source>No databases are used by this page.</source>
+        <translation>Táto stránka nepoužíva žiadnu databázu.</translation>
+    </message>
 </context>
 <context>
     <name>SiteInfoWidget</name>
@@ -3347,7 +3568,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Delete</source>
-        <translation>Vymazať</translation>
+        <translation type="obsolete">Vymazať</translation>
     </message>
     <message>
         <source>Error!</source>
@@ -3430,6 +3651,17 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Select image...</source>
         <translation>Zvoliť obrázok...</translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation>Obrázky</translation>
+    </message>
+</context>
+<context>
+    <name>SqueezeLabelV2</name>
+    <message>
+        <source>Copy</source>
+        <translation>Kopírovať</translation>
     </message>
 </context>
 <context>
@@ -3565,7 +3797,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>License Viewer</source>
-        <translation>Prehliadač licencie</translation>
+        <translation type="obsolete">Prehliadač licencie</translation>
     </message>
     <message>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>
@@ -3707,7 +3939,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>JavaScript alert - %1</source>
-        <translation>Výstraha JavaScript - %1</translation>
+        <translation type="obsolete">Výstraha JavaScript - %1</translation>
     </message>
     <message>
         <source>Confirm form resubmission</source>
@@ -3716,6 +3948,14 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Proxy server not found</source>
         <translation>Proxy server nenájdený</translation>
+    </message>
+    <message>
+        <source>JavaScript alert</source>
+        <translation>JavaScript upozornenie</translation>
+    </message>
+    <message>
+        <source>Unknown network error</source>
+        <translation>Neznáma sieťová chyba</translation>
     </message>
 </context>
 <context>
@@ -3918,6 +4158,14 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Save Media To &amp;Disk</source>
         <translation>&amp;Uložiť médium na disk</translation>
+    </message>
+    <message>
+        <source>Search with...</source>
+        <translation>Hľadať s...</translation>
+    </message>
+    <message>
+        <source>Create Search Engine</source>
+        <translation>Vytvoriť vyhľadávač</translation>
     </message>
 </context>
 <context>

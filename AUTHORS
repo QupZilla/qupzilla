@@ -4,20 +4,18 @@ David Rosca <nowrep@gmail.com>
 
 Contributors:
 
-Mladen Pejaković      <pejakm@gmail.com>              (webview context menu improvements, speed dial background)
-Bryan M Dunsmore      <dunsmoreb@gmail.com>           (opening background tabs, closing window when closing last tab)
-Mariusz Fik           <fisiu@opensuse.org>            (fixed tab order in preferences dialog)
-Daniele Cocca         <jmc@chakra-project.org>        (close tabs with middle click, initial work on speed dial)
-Giuseppe Calà         <jiveaxe@gmail.com>             (fixed loading of bookmarklets)
-Jan Rajnoha           <honza.rajny@hotmail.com>       (QupZilla icon)
+Mladen Pejaković      <pejakm@gmail.com>                (webview context menu improvements, speed dial background)
+Bryan M Dunsmore      <dunsmoreb@gmail.com>             (opening background tabs, closing window when closing last tab)
+Mariusz Fik           <fisiu@opensuse.org>              (fixed tab order in preferences dialog)
+Daniele Cocca         <jmc@chakra-project.org>          (close tabs with middle click, initial work on speed dial)
+Giuseppe Calà         <jiveaxe@gmail.com>               (fixed loading of bookmarklets)
+Jan Rajnoha           <honza.rajny@hotmail.com>         (QupZilla icon)
 
 Translators:
 
 Jonathan Hooverman    <jonathan.hooverman@gmail.com>    (German)
 Heimen Stoffels       <vistausss@gmail.com>             (Dutch)
 Peter Vacula          <pvacula1989@gmail.com>           (Slovak)
-Ján Ďanovský          <dagsoftware@yahoo.com>           (Slovak)
-Unink-Lio             <unink4451@163.com>               (Chinese)
 Federico Fabiani      <federico.fabiani85@gmail.com>    (Italian)
 Francesco Marinucci   <framarinucci@gmail.com>          (Italian)
 Jorge Sevilla         <jsevi@ozu.es>                    (Spanish)
@@ -29,12 +27,20 @@ Vasilis Tsivikis      <vasitsiv.dev@gmail.com>          (Greek)
 Rustam Salakhutdinov  <salahutd@gmail.com>              (Russian)
 Oleg Brezhnev         <oleg-423@yandex.ru>              (Russian)
 Sérgio Marques        <smarquespt@gmail.com>            (Portuguese)
+Alexandre Carvalho    <alexandre05@live.com>            (Brazilian Portuguese)
 Mladen Pejaković      <pejakm@gmail.com>                (Serbian)
+Unink-Lio             <unink4451@163.com>               (Chinese)
 Wu Cheng-Hong         <stu2731652@gmail.com>            (Traditional Chinese)
+Widya Walesa          <walecha99@gmail.com>             (Indonesian)
+Beqa Arabuli          <arabulibeqa@gmail.com>           (Georgian)
+Daiki Noda            <sys.pdr.pdm9@gmail.com>          (Japanese)
+Ștefan Comănescu      <sdfanq@gmail.com>                (Romanian)
+Gábor Oberle          <oberleg@myopera.com>             (Hungarian)
+Piccoro McKay Lenz    <mckaygerhard@gmail.com>          (Venezulean Spanish)
 
 Special thanks:
 
-Jonathan Hooverman    <jonathan.hooverman@gmail.com>  (english language correction)
-Peter Vacula          <pvacula1989@gmail.com>         (for a big support in the beginnigs)
-Sergio Cipolla        <secipolla@gmail.com>           (modifications to QupZilla icon)
-Radomir Orkac                                         (qupzilla.com domain)
+Jonathan Hooverman    <jonathan.hooverman@gmail.com>    (english language correction)
+Peter Vacula          <pvacula1989@gmail.com>           (for a big support in the beginnigs)
+Sergio Cipolla        <secipolla@gmail.com>             (modifications to QupZilla icon)
+Radomir Orkac                                           (qupzilla.com domain)
