@@ -43,7 +43,7 @@ private:
     Ui::AKN_Settings* ui;
 
     AKN_Handler* m_handler;
-    QString m_settingsPath;
+    QString m_settingsFile;
 };
 
 #endif // AKN_SETTINGS_H

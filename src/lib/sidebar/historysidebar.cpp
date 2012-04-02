@@ -182,6 +182,7 @@ void HistorySideBar::slotRefreshTable()
     query.exec("SELECT title, url, id, date FROM history ORDER BY date DESC");
 
     int counter = 0;
+    QWeakPointer<HistorySideBar> guard = this;
     QHash<QString, QTreeWidgetItem*> hash;
     while (query.next()) {
         const QString &title = query.value(0).toString();
@@ -230,6 +231,10 @@ void HistorySideBar::slotRefreshTable()
         if (counter > 200) {
             QApplication::processEvents();
             counter = 0;
+        }
+
+        if (!guard) {
+            break;
         }
     }
 

@@ -118,6 +118,11 @@ void Plugins::loadPlugins()
         return;
     }
 
+    QDir settingsDir(mApp->getActiveProfilPath() + "extensions/");
+    if (!settingsDir.exists()) {
+        settingsDir.mkdir(settingsDir.absolutePath());
+    }
+
     foreach(const QString & fullPath, m_allowedPlugins) {
         QPluginLoader* loader = new QPluginLoader(fullPath);
         PluginInterface* iPlugin = qobject_cast<PluginInterface*>(loader->instance());
@@ -191,7 +196,7 @@ PluginInterface* Plugins::initPlugin(PluginInterface* interface, QPluginLoader* 
         return 0;
     }
 
-    interface->init(mApp->getActiveProfilPath() + "plugins.ini");
+    interface->init(mApp->getActiveProfilPath() + "extensions/");
 
     if (!interface->testPlugin()) {
         interface->unload();

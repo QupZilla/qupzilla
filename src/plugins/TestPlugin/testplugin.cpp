@@ -59,6 +59,9 @@ void TestPlugin::init(const QString &sPath)
     // it will be called even if we return false from testPlugin()
     // so it is recommended not to call any QupZilla function here
 
+    // Settings path is PROFILE/extensions/, in this directory
+    // you can use global .ini file for QSettings named "extensions.ini"
+    // or create new folder for your plugin and save in it anything you want
     m_settingsPath = sPath;
 
     // Registering this plugin as a MousePressHandler.

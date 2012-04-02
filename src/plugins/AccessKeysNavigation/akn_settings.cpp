@@ -28,11 +28,11 @@ AKN_Settings::AKN_Settings(AKN_Handler* handler, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::AKN_Settings)
     , m_handler(handler)
-    , m_settingsPath(handler->settingsPath())
+    , m_settingsFile(handler->settingsPath() + "extensions.ini")
 {
     ui->setupUi(this);
 
-    QSettings settings(m_settingsPath, QSettings::IniFormat);
+    QSettings settings(m_settingsFile, QSettings::IniFormat);
     settings.beginGroup("AccessKeysNavigation");
     ui->key->setCurrentIndex(settings.value("Key", 0).toInt());
     ui->doubleClick->setChecked(settings.value("DoublePress", true).toBool());
@@ -44,7 +44,7 @@ AKN_Settings::AKN_Settings(AKN_Handler* handler, QWidget* parent)
 
 void AKN_Settings::dialogAccepted()
 {
-    QSettings settings(m_settingsPath, QSettings::IniFormat);
+    QSettings settings(m_settingsFile, QSettings::IniFormat);
     settings.beginGroup("AccessKeysNavigation");
     settings.setValue("Key", ui->key->currentIndex());
     settings.setValue("DoublePress", ui->doubleClick->isChecked());

@@ -153,6 +153,7 @@ void CookieManager::slotRefreshTable()
     ui->cookieTree->clear();
 
     int counter = 0;
+    QWeakPointer<CookieManager> guard = this;
     QHash<QString, QTreeWidgetItem*> hash;
     for (int i = 0; i < allCookies.count(); ++i) {
         const QNetworkCookie &cookie = allCookies.at(i);
@@ -187,6 +188,10 @@ void CookieManager::slotRefreshTable()
         if (counter > 200) {
             QApplication::processEvents();
             counter = 0;
+        }
+
+        if (!guard) {
+            break;
         }
     }
 
