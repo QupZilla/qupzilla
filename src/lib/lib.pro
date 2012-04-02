@@ -1,6 +1,6 @@
 QT += core gui webkit sql network script
 unix:QT += dbus
-TARGET = qupzilla
+TARGET = QupZilla
 TEMPLATE = lib
 
 DEFINES *= QUPZILLA_SHAREDLIBRARY

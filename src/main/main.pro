@@ -6,8 +6,8 @@ mac: TARGET = QupZilla
 
 TEMPLATE = app
 
-!unix|mac: LIBS += -L../../bin -lqupzilla
-!mac:unix: LIBS += ../../bin/libqupzilla.so
+!unix|mac: LIBS += -L../../bin -lQupZilla
+!mac:unix: LIBS += ../../bin/libQupZilla.so
 
 include(../defines.pri)
 include(../install.pri)
