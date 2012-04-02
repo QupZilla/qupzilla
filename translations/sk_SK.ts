@@ -840,11 +840,11 @@
     </message>
     <message>
         <source>Clear web databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazať webové databázy</translation>
     </message>
     <message>
         <source>Clear local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazať lokálne úložiská</translation>
     </message>
 </context>
 <context>
@@ -2290,15 +2290,15 @@
     </message>
     <message>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Výnimky&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Server:</source>
-        <translation type="unfinished">Server:</translation>
+        <translation>Server:</translation>
     </message>
     <message>
         <source>Use different proxy for https connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Použiť iný proxy pre https pripojenie</translation>
     </message>
 </context>
 <context>
@@ -3458,27 +3458,27 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Databázy</translation>
     </message>
     <message>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Detaily databázy&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">Názov:</translation>
+        <translation>Názov:</translation>
     </message>
     <message>
         <source>Path:</source>
-        <translation type="unfinished">Cesta:</translation>
+        <translation>Cesta:</translation>
     </message>
     <message>
         <source>&lt;database not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;nebola vybratá databáza&gt;</translation>
     </message>
     <message>
         <source>No databases are used by this page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Táto stránka nepoužíva žiadnu databázu.</translation>
     </message>
 </context>
 <context>
@@ -3661,7 +3661,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <name>SqueezeLabelV2</name>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Kopírovať</translation>
+        <translation>Kopírovať</translation>
     </message>
 </context>
 <context>
@@ -3955,7 +3955,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Unknown network error</source>
-        <translation type="unfinished"></translation>
+        <translation>Neznáma sieťová chyba</translation>
     </message>
 </context>
 <context>
