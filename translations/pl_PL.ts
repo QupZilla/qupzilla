@@ -1020,7 +1020,7 @@
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
         <source>Clear web databases</source>
-        <translatorcomment>Trudno zrozumieć kontekst (do poprawy)</translatorcomment>
+        <translatorcomment>Z czasem poprawić. Jakieś sugestie?</translatorcomment>
         <translation type="unfinished">Wyczyść bazy danych www</translation>
     </message>
     <message>
@@ -1046,7 +1046,7 @@
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="57"/>
         <source>Clear cookies from Adobe Flash Player</source>
-        <translation>Usuń cisteczka z Adobe Flash Player</translation>
+        <translation>Usuń ciasteczka z Adobe Flash Player</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="77"/>
@@ -1138,7 +1138,7 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="27"/>
         <source>Stored Cookies</source>
-        <translation>Przechowywane cookies</translation>
+        <translation>Przechowywane ciasteczka</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="33"/>
@@ -1216,17 +1216,17 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="248"/>
         <source>Cookie Filtering</source>
-        <translation>Filtr Cookies</translation>
+        <translation>Filtrowanie ciasteczek</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="254"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Biała lista cookies&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Biała lista ciasteczek&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="261"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation>Cookies z tych serwerów ZAWSZE będą akceptowane(nawet gdy opcja zapisy cookies jest wyłączona)</translation>
+        <translation>Ciasteczka z tych serwerów będą ZAWSZE akceptowane(nawet gdy opcja zapisywania ciasteczek jest wyłączona)</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="286"/>
@@ -1243,12 +1243,12 @@
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="305"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Czarna lista cookies&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Czarna lista ciasteczek&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="312"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation>Cookies z tych serwerów NIGDY nie będą akceptowane</translation>
+        <translation>Ciasteczka z tych serwerów nie będą NIGDY akceptowane</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="139"/>
