@@ -159,7 +159,11 @@ void Plugins::loadAvailablePlugins()
     QStringList dirs;
     dirs << mApp->DATADIR + "plugins/"
 #ifdef Q_WS_X11
+#ifdef USE_LIBPATH
+         << USE_LIBPATH
+#else
          << "/usr/lib/qupzilla/"
+#endif
 #endif
          << mApp->PROFILEDIR + "plugins/";
 

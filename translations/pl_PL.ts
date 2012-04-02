@@ -1021,7 +1021,7 @@
         <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
         <source>Clear web databases</source>
         <translatorcomment>Z czasem poprawić. Jakieś sugestie?</translatorcomment>
-        <translation type="unfinished">Wyczyść bazy danych www</translation>
+        <translation>Wyczyść bazy danych www</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="150"/>

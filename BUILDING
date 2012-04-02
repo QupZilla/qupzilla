@@ -1,4 +1,4 @@
-General 
+General
 ----------------------------------------------------------------------------------
 
   If you can, you should use precompiled packages for your distribution.
@@ -8,14 +8,14 @@ General
   from git to specific directory by your system you compiled for.
   On Linux, you can easily do it by running make install.
   If you are unsure where is the right place, you can check it directly from
-  QupZilla by clicking from Help Menu to Informations about program, then in 
+  QupZilla by clicking from Help Menu to Informations about program, then in
   Path section.
-  
+
   You may want to build QupZilla with debugging symbols (for generating
   backtrace of crash) as easily as adding one line to src/defines.pri:
-               
+
                CONFIG += debug
-               
+
   QupZilla requires Qt (>=4.7.0) and QtWebKit (at least version included in Qt 4.7)
 
 Microsoft Windows
@@ -26,27 +26,27 @@ Microsoft Windows
   Building with Microsoft Visual C++ Compiler 2010 is possible only with Qt 4.8.0
   and higher. If you try to compile with Qt 4.7, you will get random crashes when
   running QupZilla.
-  Building with MingW is perhaps possible too, but MingW QtWebKit crashes with 
+  Building with MingW is perhaps possible too, but MingW QtWebKit crashes with
   every Flash, so MingW is not officially supported.
-  If you don't meet this, please use precompiled version, which is also in smart 
+  If you don't meet this, please use precompiled version, which is also in smart
   windows installer.
- 
+
 Linux / Unix
 ----------------------------------------------------------------------------------
 
   There is no extra dependency, you only need Qt tools.
- 
+
 OS/2
 ----------------------------------------------------------------------------------
 
-  I cannot provide support for QupZilla on OS/2 as I don't have access to 
+  I cannot provide support for QupZilla on OS/2 as I don't have access to
   machine with OS/2, but it is possible to get QupZilla working there.
-  
+
 FreeBSD
 ----------------------------------------------------------------------------------
 
   You may need to set few sysctls to get QupZilla running with raster graphics system.
-  
+
   For more informations, please see FAQ.
 
 
@@ -55,87 +55,94 @@ Available Defines
 
   You can set define directly in file (src/defines.pri)
   or set environment variable by
-  
+
     $ export NAME="value"
 
  General:
    PORTABLE_BUILD         QupZilla won't write any data outside of path of exection.
                           It will also disable plugins by default.
                           (disabled by default)
-                          
+
                           example:
                           $ export PORTABLE_BUILD="true"
-                          
-                          
+
+
    USE_WEBGL              Enable WebGL. You need to build QupZilla with WebKit built
                           with WebGL support, otherwise you won't be able to compile
                           without errors.
                           (disabled by default)
-                          
+
                           example:
                           $ export USE_WEBGL="true"
-                          
+
    USE_QTWEBKIT_2_2       Enable support for Geolocation and Notifications API.
                           You need to have QtWebKit version at least 2.2 to pass compilation
                           with this define.
                           Note: In order to get support for Geolocation and Notifications,
                           your QtWebKit has to be compiled with its support.
                           (disabled by default)
-                          
+
                           example:
                           $ export USE_QTWEBKIT_2_2="true"
 
    NONBLOCK_JS_DIALOGS    Enable non-blocking JavaScript dialogs from alert() prompt()
-                          and confirm() functions. They are shown inside page and are not 
+                          and confirm() functions. They are shown inside page and are not
                           blocking application window.
-                          However, due to synchronous API, there is a possible crash when 
+                          However, due to synchronous API, there is a possible crash when
                           closing browser windows with opened dialogs.
                           If you can take this risk and/or make sure you aren't closing browser
                           with opened dialogs, you may enable this option.
                           These dialogs are much more beautiful than normal QDialogs.
                           (disabled by default)
-                          
+
                           example:
-                          $ export NONBLOCK_JS_DIALOGS="true"       
-                          
-                       
+                          $ export NONBLOCK_JS_DIALOGS="true"
+
+
  Windows specific defines:
- 
+
      W7API                Enable Windows 7 API support
                           Requires linking against libraries from Microsoft Visual C++
                           Compiler 2010
                           (enabled by default)
-     
+
      W7TASKBAR            Enable Windows 7 Taskbar support
                           Requires linking against libraries from Microsoft Visual C++
                           Compiler 2010
                           May cause crash when downloading files on some systems.
                           (disabled by default)
 
- 
+
  Linux / Unix specific defines:
- 
+
      KDE                  For now, it just use better oxygen icons in Preferences.
                           Nepomuk integration is planned, and it will be enabled with
                           this define also.
-                          
+
                           example:
                           $ export KDE="true"
- 
+
+     USE_LIBPATH          By default, /usr/lib/ is used for libqupzilla and /usr/lib/qupzilla
+                          for plugins.
+                          You can change it by setting this define.
+
+                          example:
+                          $ export USE_LIBPATH="/usr/lib64/"
+
      NO_SYSTEM_DATAPATH   By default, QupZilla is using /usr/share/qupzilla/ path
                           for storing themes, translations and plugins.
                           By setting this define, QupZilla will use path of execution.
                           (disabled by default)
-                          
+
                           example:
                           $ export NO_SYSTEM_DATAPATH="true"
-                          
+
      QUPZILLA_PREFIX      You can define different prefix. Prefix must contain ending slash.
                           (default prefix is "/usr/")
                           QupZilla binary will then be moved to PREFIX/bin/, use
                           PREFIX/share/qupzilla/ as datadir, PREFIX/share/applications for
                           desktop launcher and PREFIX/share/pixmaps for icon.
-                          
+
                           example:
                           $ export QUPZILLA_PREFIX="/usr/"
-                                   
+

@@ -29,6 +29,7 @@ d_kde = $$(KDE)
 d_portable = $$(PORTABLE_BUILD)
 d_nonblock_dialogs = $$(NONBLOCK_JS_DIALOGS)
 d_use_qtwebkit_2_2 = $$(USE_QTWEBKIT_2_2)
+d_use_lib_path = $$(USE_LIB_PATH)
 
 equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
@@ -54,6 +55,11 @@ equals(d_use_qtwebkit_2_2, "true") { DEFINES *= USE_QTWEBKIT_2_2 }
         launcher_folder = "$$d_prefix"share/applications
         icon_folder = "$$d_prefix"share/pixmaps
         hicolor_folder = "$$d_prefix"share/icons/hicolor
+    }
+
+    !equals(d_use_lib_path, "") {
+        library_folder = $$d_use_lib_path
+        DEFINES *= USE_LIBPATH=\\\"""$$d_use_lib_path/"\\\""
     }
 
     DEFINES *= USE_DATADIR=\\\"""$$data_folder/"\\\""
