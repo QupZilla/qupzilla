@@ -134,7 +134,7 @@ void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
         QNetworkRequest request = reply->request();
         QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
         WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-        if (!webPage) {
+        if (!WebPage::isPointerSafeToUse(webPage)) {
             return;
         }
 
@@ -169,7 +169,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     QNetworkRequest request = reply->request();
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
     WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-    if (!webPage) {
+    if (!WebPage::isPointerSafeToUse(webPage)) {
         return;
     }
 

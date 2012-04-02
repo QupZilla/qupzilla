@@ -69,17 +69,20 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         update100b4();
         update100rc1();
         update100();
+        update118();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.0.0-rc1")) {
         update100rc1();
         update100();
+        update118();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.0.0")) {
         update100();
+        update118();
         return;
     }
 
@@ -90,6 +93,11 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
 
     if (profileVersion == Updater::parseVersionFromString("1.1.5")) {
         // Do nothing, nothing changed
+        return;
+    }
+
+    if (profileVersion == Updater::parseVersionFromString("1.1.8")) {
+        update118();
         return;
     }
 
@@ -140,4 +148,13 @@ void ProfileUpdater::update100()
     QSqlQuery query;
     query.exec("ALTER TABLE autofill ADD COLUMN last_used NUMERIC");
     query.exec("UPDATE autofill SET last_used=0");
+}
+
+void ProfileUpdater::update118()
+{
+    std::cout << "QupZilla: Upgrading profile version from 1.1.8..." << std::endl;
+    mApp->connectDatabase();
+
+    QSqlQuery query;
+    query.exec("ALTER TABLE folders ADD COLUMN parent TEXT");
 }

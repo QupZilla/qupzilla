@@ -41,7 +41,6 @@
 #include "mainapplication.h"
 #include "aboutdialog.h"
 #include "pluginproxy.h"
-#include "qtwin.h"
 #include "checkboxdialog.h"
 #include "adblockmanager.h"
 #include "clickablelabel.h"
@@ -63,6 +62,7 @@
 #include "settings.h"
 #include "webtab.h"
 #include "speeddial.h"
+#include "qtwin.h"
 
 #include <QSplitter>
 #include <QStatusBar>

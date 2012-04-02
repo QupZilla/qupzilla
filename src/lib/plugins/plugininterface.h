@@ -20,6 +20,7 @@
 
 #include <QPixmap>
 #include <QtPlugin>
+#include <QWebHitTestResult>
 
 #include "qz_namespace.h"
 

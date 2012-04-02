@@ -53,9 +53,10 @@
 #include <QWebFrame>
 
 QString WebPage::m_lastUploadLocation = QDir::homePath();
-QString WebPage::m_userAgent = QString();
+QString WebPage::m_userAgent;
 QString WebPage::m_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + qWebKitVersion() + " (KHTML, like Gecko) Chrome/10.0 Safari/" + qWebKitVersion();
-QUrl WebPage::m_lastUnsupportedUrl = QUrl();
+QUrl WebPage::m_lastUnsupportedUrl;
+QList<WebPage*> WebPage::m_deletedPages;
 
 WebPage::WebPage(QupZilla* mainClass)
     : QWebPage()
@@ -758,12 +759,19 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
     return fileName;
 }
 
+bool WebPage::isPointerSafeToUse(WebPage *page)
+{
+    return page == 0 ? false : !m_deletedPages.contains(page);
+}
+
 void WebPage::disconnectObjects()
 {
     if (m_runningLoop) {
         m_runningLoop->exit(1);
         m_runningLoop = 0;
     }
+
+    m_deletedPages.append(this);
 
     disconnect(this);
     m_networkProxy->disconnectObjects();
@@ -776,5 +784,9 @@ WebPage::~WebPage()
     if (m_runningLoop) {
         m_runningLoop->exit(1);
         m_runningLoop = 0;
+    }
+
+    if (!m_deletedPages.contains(this)) {
+       m_deletedPages.append(this);
     }
 }

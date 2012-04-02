@@ -83,7 +83,7 @@ QNetworkReply* AdBlockNetwork::block(const QNetworkRequest &request)
     if (blockedRule) {
         QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
         WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-        if (webPage) {
+        if (WebPage::isPointerSafeToUse(webPage)) {
             webPage->addAdBlockRule(blockedRule->filter(), request.url());
         }
 
