@@ -33,7 +33,7 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
     ui->setupUi(this);
 
     WebView* view = p_QupZilla->weView();
-    WebPage* webPage = qobject_cast<WebPage*>(view->page());
+    WebPage* webPage = view->page();
     QUrl url = view->url();
 
     if (webPage->sslCertificate().isValid()) {

@@ -19,6 +19,7 @@
 #include "ui_rsswidget.h"
 #include "mainapplication.h"
 #include "tabbedwebview.h"
+#include "webpage.h"
 #include "rssmanager.h"
 #include "rssnotification.h"
 

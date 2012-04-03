@@ -32,7 +32,7 @@ QString TestPlugin_Sidebar::title() const
     return tr("Testing Sidebar");
 }
 
-QAction* TestPlugin_Sidebar::menuAction()
+QAction* TestPlugin_Sidebar::createMenuAction()
 {
     QAction* act = new QAction(tr("Testing Sidebar"), 0);
     act->setCheckable(true);

@@ -18,6 +18,7 @@
 #include "pagescreen.h"
 #include "ui_pagescreen.h"
 #include "tabbedwebview.h"
+#include "webpage.h"
 #include "globalfunctions.h"
 
 #include <QFileDialog>

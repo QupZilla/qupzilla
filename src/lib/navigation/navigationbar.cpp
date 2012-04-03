@@ -26,6 +26,7 @@
 #include "enhancedmenu.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
+#include "webpage.h"
 
 #include <QSplitter>
 #include <QHBoxLayout>

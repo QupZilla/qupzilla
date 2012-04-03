@@ -49,6 +49,7 @@ WebView::WebView(QWidget* parent)
     , m_isLoading(false)
     , m_progress(0)
     , m_clickedFrame(0)
+    , m_page(0)
     , m_actionReload(0)
     , m_actionStop(0)
     , m_actionsInitialized(false)
@@ -98,7 +99,7 @@ QString WebView::title() const
 
 QUrl WebView::url() const
 {
-    QUrl returnUrl = page()->mainFrame()->baseUrl();
+    QUrl returnUrl = page()->url();
 
     if (returnUrl.isEmpty()) {
         returnUrl = m_aboutToLoadUrl;
@@ -107,14 +108,20 @@ QUrl WebView::url() const
     return returnUrl;
 }
 
+WebPage* WebView::page() const
+{
+    return m_page;
+}
+
 void WebView::setPage(QWebPage* page)
 {
     QWebView::setPage(page);
+    m_page = qobject_cast<WebPage*>(page);
 
     setZoom(WebViewSettings::defaultZoom);
     connect(page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
 
-    mApp->plugins()->emitWebPageCreated(qobject_cast<WebPage*>(page));
+    mApp->plugins()->emitWebPageCreated(m_page);
 }
 
 void WebView::load(const QUrl &url)
@@ -318,7 +325,7 @@ void WebView::slotLoadFinished()
         mApp->history()->addHistoryEntry(this);
     }
 
-    mApp->autoFill()->completePage(qobject_cast<WebPage*>(page()));
+    mApp->autoFill()->completePage(page());
 
     m_lastUrl = url();
 }
@@ -377,7 +384,7 @@ void WebView::downloadPage()
     }
 
     DownloadManager* dManager = mApp->downManager();
-    dManager->download(request, qobject_cast<WebPage*>(page()), false, suggestedFileName);
+    dManager->download(request, page(), false, suggestedFileName);
 }
 
 void WebView::downloadUrlToDisk()
@@ -386,7 +393,7 @@ void WebView::downloadUrlToDisk()
         QNetworkRequest request(action->data().toUrl());
 
         DownloadManager* dManager = mApp->downManager();
-        dManager->download(request, qobject_cast<WebPage*>(page()), false);
+        dManager->download(request, page(), false);
     }
 }
 

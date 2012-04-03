@@ -1,4 +1,3 @@
-QT += webkit
 TARGET = AccessKeysNavigation
 os2: TARGET  = AcKeyNav
 

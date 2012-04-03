@@ -56,7 +56,7 @@ QString WebPage::m_lastUploadLocation = QDir::homePath();
 QString WebPage::m_userAgent;
 QString WebPage::m_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + qWebKitVersion() + " (KHTML, like Gecko) Chrome/10.0 Safari/" + qWebKitVersion();
 QUrl WebPage::m_lastUnsupportedUrl;
-QList<WebPage*> WebPage::m_deletedPages;
+QList<WebPage*> WebPage::m_livingPages;
 
 WebPage::WebPage(QupZilla* mainClass)
     : QWebPage()
@@ -90,6 +90,8 @@ WebPage::WebPage(QupZilla* mainClass)
 #ifdef USE_QTWEBKIT_2_2
     connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)), this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
 #endif
+
+    m_livingPages.append(this);
 }
 
 QUrl WebPage::url() const
@@ -759,9 +761,13 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
     return fileName;
 }
 
-bool WebPage::isPointerSafeToUse(WebPage *page)
+bool WebPage::isPointerSafeToUse(WebPage* page)
 {
-    return page == 0 ? false : !m_deletedPages.contains(page);
+    // Pointer to WebPage is passed with every QNetworkRequest casted to void*
+    // So there is no way to test whether pointer is still valid or not, except
+    // this hack.
+
+    return page == 0 ? false : m_livingPages.contains(page);
 }
 
 void WebPage::disconnectObjects()
@@ -771,7 +777,7 @@ void WebPage::disconnectObjects()
         m_runningLoop = 0;
     }
 
-    m_deletedPages.append(this);
+    m_livingPages.removeOne(this);
 
     disconnect(this);
     m_networkProxy->disconnectObjects();
@@ -786,7 +792,5 @@ WebPage::~WebPage()
         m_runningLoop = 0;
     }
 
-    if (!m_deletedPages.contains(this)) {
-       m_deletedPages.append(this);
-    }
+    m_livingPages.removeOne(this);
 }

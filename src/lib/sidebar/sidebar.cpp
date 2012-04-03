@@ -134,7 +134,7 @@ void SideBarManager::refreshMenu()
             continue;
         }
 
-        QAction* act = sidebar.data()->menuAction();
+        QAction* act = sidebar.data()->createMenuAction();
         act->setData(m_sidebars.key(sidebar));
         connect(act, SIGNAL(triggered()), this, SLOT(slotShowSideBar()));
 

@@ -1,4 +1,3 @@
-QT += webkit
 TARGET = MouseGestures
 os2: TARGET = MouseGes
 

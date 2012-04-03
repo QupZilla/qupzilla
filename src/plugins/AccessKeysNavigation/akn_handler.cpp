@@ -35,6 +35,7 @@
  */
 #include "akn_handler.h"
 #include "webview.h"
+#include "webpage.h"
 
 #include <QApplication>
 #include <QSettings>

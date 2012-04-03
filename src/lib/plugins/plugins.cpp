@@ -160,7 +160,7 @@ void Plugins::loadAvailablePlugins()
     dirs << mApp->DATADIR + "plugins/"
 #ifdef Q_WS_X11
 #ifdef USE_LIBPATH
-         << USE_LIBPATH
+         << USE_LIBPATH + "qupzilla/"
 #else
          << "/usr/lib/qupzilla/"
 #endif

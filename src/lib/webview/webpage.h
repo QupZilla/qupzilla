@@ -109,7 +109,7 @@ private:
     static QString m_userAgent;
     static QString m_fakeUserAgent;
     static QUrl m_lastUnsupportedUrl;
-    static QList<WebPage*> m_deletedPages;
+    static QList<WebPage*> m_livingPages;
 
     QupZilla* p_QupZilla;
     NetworkManagerProxy* m_networkProxy;
