@@ -1467,7 +1467,7 @@ void QupZilla::savePage()
     }
 
     DownloadManager* dManager = mApp->downManager();
-    dManager->download(request, weView()->webPage(), false, suggestedFileName);
+    dManager->download(request, weView()->page(), false, suggestedFileName);
 }
 
 void QupZilla::sendLink()
@@ -1746,7 +1746,7 @@ void QupZilla::disconnectObjects()
     foreach(WebTab * tab, m_tabWidget->allTabs()) {
         tab->disconnectObjects();
         tab->view()->disconnectObjects();
-        tab->view()->webPage()->disconnectObjects();
+        tab->view()->page()->disconnectObjects();
     }
 
     foreach(const QWeakPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {

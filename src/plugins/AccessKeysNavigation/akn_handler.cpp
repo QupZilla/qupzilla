@@ -66,19 +66,19 @@ Qt::Key keyFromCode(int code)
 AKN_Handler::AKN_Handler(const QString &sPath, QObject* parent)
     : QObject(parent)
     , m_accessKeysVisible(false)
-    , m_settingsPath(sPath)
+    , m_settingsFile(sPath + "extensions.ini")
 {
     loadSettings();
 }
 
-QString AKN_Handler::settingsPath()
+QString AKN_Handler::settingsFile()
 {
-    return m_settingsPath;
+    return m_settingsFile;
 }
 
 void AKN_Handler::loadSettings()
 {
-    QSettings settings(m_settingsPath, QSettings::IniFormat);
+    QSettings settings(m_settingsFile, QSettings::IniFormat);
 
     settings.beginGroup("AccessKeysNavigation");
     m_key = keyFromCode(settings.value("Key", 0).toInt());

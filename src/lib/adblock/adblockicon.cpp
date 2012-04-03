@@ -104,7 +104,7 @@ void AdBlockIcon::createMenu(QMenu* menu)
     }
 
     menu->addSeparator();
-    QList<WebPage::AdBlockedEntry> entries = p_QupZilla->weView()->webPage()->adBlockedEntries();
+    QList<WebPage::AdBlockedEntry> entries = p_QupZilla->weView()->page()->adBlockedEntries();
     if (entries.isEmpty()) {
         menu->addAction(tr("No content blocked"))->setEnabled(false);
     }

@@ -119,7 +119,8 @@ void WebView::setPage(QWebPage* page)
     m_page = qobject_cast<WebPage*>(page);
 
     setZoom(WebViewSettings::defaultZoom);
-    connect(page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
+    connect(m_page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
+    connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 
     mApp->plugins()->emitWebPageCreated(m_page);
 }

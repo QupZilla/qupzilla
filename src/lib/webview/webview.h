@@ -56,6 +56,7 @@ public:
 signals:
     void viewportResized(QSize);
     void showNotification(QWidget*);
+    void privacyChanged(bool);
 
 public slots:
     void zoomIn();

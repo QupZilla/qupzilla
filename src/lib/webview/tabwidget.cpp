@@ -309,7 +309,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         p_QupZilla->locationBar()->setFocus();
     }
 
-    if (openFlags & Qz::NT_SelectedTab) {
+    if (openFlags & Qz::NT_SelectedTab || openFlags & Qz::NT_NotSelectedTab) {
         m_isClosingToLastTabIndex = true;
     }
 
@@ -329,7 +329,7 @@ void TabWidget::closeTab(int index)
     }
 
     TabbedWebView* webView = webTab->view();
-    WebPage* webPage = webView->webPage();
+    WebPage* webPage = webView->page();
 
     if (count() == 1) {
         if (m_dontQuitWithOneTab) {
@@ -376,7 +376,7 @@ void TabWidget::currentTabChanged(int index)
         return;
     }
 
-    m_isClosingToLastTabIndex = false;
+    m_isClosingToLastTabIndex = m_lastBackgroundTabIndex == index;
     m_lastBackgroundTabIndex = -1;
 
     WebTab* webTab = weTab(index);

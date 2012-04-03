@@ -372,7 +372,7 @@ QString QupZillaSchemeReply::configPage()
     }
 
     QString page = cPage;
-    page.replace("%USER-AGENT%", mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()));
+    page.replace("%USER-AGENT%", mApp->getWindow()->weView()->page()->userAgentForUrl(QUrl()));
 
     QString pluginsString;
     const QList<Plugins::Plugin> &availablePlugins = mApp->plugins()->getAvailablePlugins();

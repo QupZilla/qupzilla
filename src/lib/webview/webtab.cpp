@@ -90,7 +90,7 @@ WebTab::WebTab(QupZilla* mainClass, LocationBar* locationBar)
     connect(m_view, SIGNAL(loadFinished(bool)), m_locationBar.data(), SLOT(siteIconChanged()));
     connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar.data(), SLOT(showUrl(QUrl)));
     connect(m_view, SIGNAL(rssChanged(bool)), m_locationBar.data(), SLOT(showRSSIcon(bool)));
-    connect(m_view->webPage(), SIGNAL(privacyChanged(bool)), m_locationBar.data(), SLOT(setPrivacy(bool)));
+    connect(m_view, SIGNAL(privacyChanged(bool)), m_locationBar.data(), SLOT(setPrivacy(bool)));
     connect(m_locationBar.data(), SIGNAL(loadUrl(QUrl)), m_view, SLOT(load(QUrl)));
 }
 
