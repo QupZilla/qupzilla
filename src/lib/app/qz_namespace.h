@@ -47,6 +47,7 @@ enum BrowserWindow {
 enum CommandLineAction {
     CL_NoAction,
     CL_OpenUrl,
+    CL_OpenUrlInCurrentTab,
     CL_StartWithProfile,
     CL_StartWithoutAddons,
     CL_NewTab,

@@ -50,6 +50,7 @@ void CommandLineOptions::showHelp()
                        "    -nw or --new-window                 open new window\n"
                        "    -pb or --private-browsing           start private browsing\n"
                        "    -dm or --download-manager           show download manager\n"
+                       "    -ct=URL or --current-tab=URL        open URL in current tab\n"
                        "\n"
                        " QupZilla is a new, fast and secure web browser\n"
                        " based on WebKit core (http://webkit.org) and\n"
@@ -145,6 +146,15 @@ void CommandLineOptions::parseActions()
             ActionPair pair;
             pair.action = Qz::CL_StartPrivateBrowsing;
             pair.text = "";
+            m_actions.append(pair);
+        }
+
+        if (arg.startsWith("-ct") || arg.startsWith("--current-tab")) {
+            arg.remove("-ct=");
+            arg.remove("--current-tab=");
+            ActionPair pair;
+            pair.action = Qz::CL_OpenUrlInCurrentTab;
+            pair.text = arg;
             m_actions.append(pair);
         }
     }

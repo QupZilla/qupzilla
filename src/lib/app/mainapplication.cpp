@@ -158,6 +158,11 @@ MainApplication::MainApplication(int &argc, char** argv)
                 messages.append("ACTION:StartPrivateBrowsing");
                 m_postLaunchActions.append(PrivateBrowsing);
                 break;
+            case Qz::CL_OpenUrlInCurrentTab:
+                startUrl = QUrl::fromUserInput(pair.text);
+                messages.append("ACTION:OpenUrlInCurrentTab" + pair.text);
+                m_postLaunchActions.append(PrivateBrowsing);
+                break;
             case Qz::CL_OpenUrl:
                 startUrl = QUrl::fromUserInput(pair.text);
                 messages.append("URL:" + pair.text);
@@ -448,6 +453,8 @@ void MainApplication::sendMessages(Qz::AppMessageType mes, bool state)
 void MainApplication::receiveAppMessage(QString message)
 {
     QWidget* actWin = getWindow();
+    QUrl actUrl;
+
     if (message.startsWith("URL:")) {
         QUrl url = QUrl::fromUserInput(message.mid(4));
         addNewTab(url);
@@ -457,7 +464,6 @@ void MainApplication::receiveAppMessage(QString message)
         QString text = message.mid(7);
         if (text == "NewTab") {
             addNewTab();
-            actWin = getWindow();
         }
         else if (text == "NewWindow") {
             actWin = makeNewWindow(Qz::BW_NewWindow);
@@ -468,19 +474,27 @@ void MainApplication::receiveAppMessage(QString message)
         }
         else if (text == "StartPrivateBrowsing") {
             sendMessages(Qz::AM_StartPrivateBrowsing, true);
-            actWin = getWindow();
+        }
+        else if (text.startsWith("OpenUrlInCurrentTab")) {
+            actUrl = QUrl::fromUserInput(text.remove("OpenUrlInCurrentTab"));
         }
     }
 
     if (!actWin && !isClosing()) { // It can only occur if download manager window was still open
-        makeNewWindow(Qz::BW_NewWindow);
+        makeNewWindow(Qz::BW_NewWindow, actUrl);
         return;
     }
+
+    QupZilla* qz = qobject_cast<QupZilla*>(actWin);
 
     actWin->setWindowState(actWin->windowState() & ~Qt::WindowMinimized);
     actWin->raise();
     actWin->activateWindow();
     actWin->setFocus();
+
+    if (qz && !actUrl.isEmpty()) {
+        qz->loadAddress(actUrl);
+    }
 }
 
 void MainApplication::addNewTab(const QUrl &url)
