@@ -66,6 +66,8 @@ public:
     void scheduleAdjustPage();
     bool isRunningLoop();
 
+    bool loadingError() const;
+
     static void setUserAgent(const QString &agent);
     QString userAgentForUrl(const QUrl &url) const;
 
@@ -126,8 +128,6 @@ private:
     bool m_blockAlerts;
     bool m_secureStatus;
     bool m_adjustingScheduled;
-
-    bool m_isClosing;
 };
 
 #endif // WEBPAGE_H

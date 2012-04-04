@@ -67,7 +67,6 @@ WebPage::WebPage(QupZilla* mainClass)
     , m_runningLoop(0)
     , m_blockAlerts(false)
     , m_secureStatus(false)
-    , m_isClosing(false)
 {
     m_networkProxy = new NetworkManagerProxy(this);
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
@@ -133,6 +132,11 @@ void WebPage::scheduleAdjustPage()
         webView->resize(newSize);
         webView->resize(originalSize);
     }
+}
+
+bool WebPage::loadingError() const
+{
+    return !mainFrame()->findFirstElement("span[id=\"qupzilla-error-page\"]").isNull();
 }
 
 bool WebPage::isRunningLoop()
@@ -553,7 +557,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     errString.replace("%RULE%", tr("Blocked by rule <i>%1</i>").arg(rule));
 
                     exReturn->baseUrl = exOption->url;
-                    exReturn->content = errString.toUtf8();
+                    exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
 
                     if (PopupWebPage* popupPage = qobject_cast<PopupWebPage*>(exOption->frame->page())) {
                         WebView* view = qobject_cast<WebView*>(popupPage->view());
@@ -599,7 +603,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     errString.replace("%LI-3%", tr("If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web."));
     errString.replace("%TRY-AGAIN%", tr("Try Again"));
 
-    exReturn->content = errString.toUtf8();
+    exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
     return true;
 }
 
@@ -631,7 +635,7 @@ bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, 
     m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
 
-    if (eLoop.exec() == 1 || m_isClosing) {
+    if (eLoop.exec() == 1) {
         return result;
     }
     m_runningLoop = 0;
@@ -673,7 +677,7 @@ bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
     m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
 
-    if (eLoop.exec() == 1 || m_isClosing) {
+    if (eLoop.exec() == 1) {
         return false;
     }
     m_runningLoop = 0;
@@ -728,7 +732,7 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
 
-    if (eLoop.exec() == 1 || m_isClosing) {
+    if (eLoop.exec() == 1) {
         return;
     }
     m_runningLoop = 0;

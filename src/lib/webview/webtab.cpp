@@ -224,8 +224,9 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
         m_savedTab = tab;
         int index = tabIndex();
 
-        m_view->tabWidget()->setTabIcon(tabIndex(), tab.icon);
+        m_view->tabWidget()->setTabIcon(index, tab.icon);
         m_view->tabWidget()->setTabText(index, tab.title);
+        m_view->tabWidget()->setTabToolTip(index, tab.title);
         m_locationBar.data()->showUrl(tab.url);
     }
     else {

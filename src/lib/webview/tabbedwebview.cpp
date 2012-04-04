@@ -82,8 +82,6 @@ void TabbedWebView::slotIconChanged()
         return;
     }
 
-    mApp->iconProvider()->saveIcon(this);
-
     showIcon();
 }
 

@@ -41,6 +41,7 @@ public:
 
     void load(const QNetworkRequest &request, QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation, const QByteArray &body = QByteArray());
 
+    bool loadingError() const;
     bool isLoading() const;
     int loadProgress() const;
 

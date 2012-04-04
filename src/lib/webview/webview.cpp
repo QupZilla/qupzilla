@@ -155,6 +155,11 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 
 }
 
+bool WebView::loadingError() const
+{
+    return page()->loadingError();
+}
+
 bool WebView::isLoading() const
 {
     return m_isLoading;
@@ -343,8 +348,12 @@ void WebView::emitChangedUrl()
 
 void WebView::slotIconChanged()
 {
-    m_siteIcon = icon();
-    m_siteIconUrl = url();
+    if (!loadingError()) {
+        m_siteIcon = icon();
+        m_siteIconUrl = url();
+
+        mApp->iconProvider()->saveIcon(this);
+    }
 }
 
 void WebView::openUrlInNewWindow()
