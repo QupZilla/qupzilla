@@ -29,7 +29,7 @@ d_kde = $$(KDE)
 d_portable = $$(PORTABLE_BUILD)
 d_nonblock_dialogs = $$(NONBLOCK_JS_DIALOGS)
 d_use_qtwebkit_2_2 = $$(USE_QTWEBKIT_2_2)
-d_use_lib_path = $$(USE_LIB_PATH)
+d_use_lib_path = $$(USE_LIBPATH)
 
 equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
