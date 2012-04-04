@@ -72,8 +72,8 @@ bool MouseGestures::mousePress(QObject* obj, QMouseEvent* event)
 
     if (frame->scrollBarGeometry(Qt::Vertical).contains(event->pos()) ||
             frame->scrollBarGeometry(Qt::Horizontal).contains(event->pos())) {
-            return false;
-}
+        return false;
+    }
 
     m_filter->mouseButtonPressEvent(event);
 

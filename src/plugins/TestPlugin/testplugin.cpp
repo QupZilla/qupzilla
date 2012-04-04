@@ -98,7 +98,7 @@ QTranslator* TestPlugin::getTranslator(const QString &locale)
     // QString locale will contains "fr_FR.qm" for French locale
 
     QTranslator* translator = new QTranslator(this);
-    translator->load(":/testplugin/locale/" + locale);
+    translator->load(locale, ":/testplugin/locale/");
     return translator;
 }
 

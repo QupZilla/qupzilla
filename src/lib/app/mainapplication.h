@@ -70,8 +70,8 @@ public:
     QList<QupZilla*> mainWindows();
 
     inline static MainApplication* getInstance() { return static_cast<MainApplication*>(QCoreApplication::instance()); }
-    inline QString getActiveProfilPath() { return m_activeProfil; }
-    inline QString getActiveLanguage() { return m_activeLanguage; }
+    inline QString currentProfilePath() { return m_activeProfil; }
+    inline QString currentLanguage() { return m_activeLanguage; }
     inline bool isClosing() { return m_isClosing; }
     inline bool isStartingAfterCrash() { return m_startingAfterCrash; }
     inline int windowCount() { return m_mainWindows.count(); }

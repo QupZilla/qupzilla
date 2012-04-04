@@ -126,7 +126,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     connect(ui->newTabUseCurrent, SIGNAL(clicked()), this, SLOT(useActualNewTab()));
 
     //PROFILES
-    m_actProfileName = mApp->getActiveProfilPath();
+    m_actProfileName = mApp->currentProfilePath();
     m_actProfileName = m_actProfileName.left(m_actProfileName.length() - 1);
     m_actProfileName = m_actProfileName.mid(m_actProfileName.lastIndexOf("/"));
     m_actProfileName.remove("/");
@@ -351,14 +351,12 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     //OTHER
     //Languages
     QString activeLanguage = "";
-    if (!p_QupZilla->activeLanguage().isEmpty()) {
-        activeLanguage = p_QupZilla->activeLanguage();
-        QString loc = activeLanguage;
-        loc.remove(".qm");
-        QLocale locale(loc);
+    if (!mApp->currentLanguage().isEmpty()) {
+        activeLanguage = mApp->currentLanguage();
+        QLocale locale(activeLanguage);
         QString country = QLocale::countryToString(locale.country());
         QString language = QLocale::languageToString(locale.language());
-        ui->languages->addItem(language + ", " + country + " (" + loc + ")", activeLanguage);
+        ui->languages->addItem(language + ", " + country + " (" + activeLanguage + ")", activeLanguage);
     }
     ui->languages->addItem("English (en_US)");
 
@@ -374,7 +372,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         QLocale locale(loc);
         QString country = QLocale::countryToString(locale.country());
         QString language = QLocale::languageToString(locale.language());
-        ui->languages->addItem(language + ", " + country + " (" + loc + ")", name);
+        ui->languages->addItem(language + ", " + country + " (" + loc + ")", loc);
     }
 
     // Proxy Configuration

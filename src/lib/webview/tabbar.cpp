@@ -71,6 +71,7 @@ void TabBar::loadSettings()
     settings.beginGroup("Browser-Tabs-Settings");
 
     setMovable(settings.value("makeTabsMovable", true).toBool());
+
     if (settings.value("ActivateLastTabWhenClosingActual", false).toBool()) {
         setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
     }

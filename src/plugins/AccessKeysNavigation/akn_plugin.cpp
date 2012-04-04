@@ -66,7 +66,7 @@ bool AKN_Plugin::testPlugin()
 QTranslator* AKN_Plugin::getTranslator(const QString &locale)
 {
     QTranslator* translator = new QTranslator(this);
-    translator->load(":/accesskeysnavigation/locale/" + locale);
+    translator->load(locale, ":/accesskeysnavigation/locale/");
     return translator;
 }
 

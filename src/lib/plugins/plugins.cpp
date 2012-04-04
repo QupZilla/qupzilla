@@ -118,7 +118,7 @@ void Plugins::loadPlugins()
         return;
     }
 
-    QDir settingsDir(mApp->getActiveProfilPath() + "extensions/");
+    QDir settingsDir(mApp->currentProfilePath() + "extensions/");
     if (!settingsDir.exists()) {
         settingsDir.mkdir(settingsDir.absolutePath());
     }
@@ -200,7 +200,7 @@ PluginInterface* Plugins::initPlugin(PluginInterface* interface, QPluginLoader* 
         return 0;
     }
 
-    interface->init(mApp->getActiveProfilPath() + "extensions/");
+    interface->init(mApp->currentProfilePath() + "extensions/");
 
     if (!interface->testPlugin()) {
         interface->unload();
@@ -208,7 +208,7 @@ PluginInterface* Plugins::initPlugin(PluginInterface* interface, QPluginLoader* 
         return 0;
     }
 
-    qApp->installTranslator(interface->getTranslator(mApp->getActiveLanguage()));
+    qApp->installTranslator(interface->getTranslator(mApp->currentLanguage()));
     return interface;
 }
 

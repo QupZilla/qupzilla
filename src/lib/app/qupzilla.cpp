@@ -79,7 +79,7 @@
 #include <QWebHistory>
 #include <QMessageBox>
 
-const QString QupZilla::VERSION = "1.1.8";
+const QString QupZilla::VERSION = "1.2.0";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2012";
@@ -109,8 +109,6 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     setWindowTitle(tr("QupZilla"));
 
     m_isStarting = true;
-    m_activeProfil = mApp->getActiveProfilPath();
-    m_activeLanguage = mApp->getActiveLanguage();
 
     setupUi();
     setupMenu();
@@ -236,6 +234,7 @@ void QupZilla::setupUi()
 
     locationBarWidth = settings.value("LocationBarWidth", 480).toInt();
     websearchBarWidth = settings.value("WebSearchBarWidth", 140).toInt();
+    settings.endGroup();
 
     QWidget* widget = new QWidget(this);
     widget->setCursor(Qt::ArrowCursor);

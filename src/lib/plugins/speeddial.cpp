@@ -60,11 +60,11 @@ void SpeedDial::loadSettings()
     }
     changed(allPages);
 
-    m_thumbnailsDir = mApp->getActiveProfilPath() + "thumbnails/";
+    m_thumbnailsDir = mApp->currentProfilePath() + "thumbnails/";
 
     // If needed, create thumbnails directory
     if (!QDir(m_thumbnailsDir).exists()) {
-        QDir(mApp->getActiveProfilPath()).mkdir("thumbnails");
+        QDir(mApp->currentProfilePath()).mkdir("thumbnails");
     }
 }
 

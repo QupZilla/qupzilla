@@ -130,8 +130,8 @@ void TabWidget::loadSettings()
     m_dontQuitWithOneTab = settings.value("dontQuitWithOneTab", false).toBool();
     m_closedInsteadOpened = settings.value("closedInsteadOpenedTabs", false).toBool();
     m_newTabAfterActive = settings.value("newTabAfterActive", true).toBool();
-
     settings.endGroup();
+
     settings.beginGroup("Web-URL-Settings");
     m_urlOnNewTab = settings.value("newTabUrl", "qupzilla:speeddial").toUrl();
     settings.endGroup();
@@ -647,7 +647,7 @@ void TabWidget::savePinnedTabs()
     stream << tabs;
     stream << tabsHistory;
 
-    QFile file(mApp->getActiveProfilPath() + "pinnedtabs.dat");
+    QFile file(mApp->currentProfilePath() + "pinnedtabs.dat");
     file.open(QIODevice::WriteOnly);
     file.write(data);
     file.close();
@@ -655,7 +655,7 @@ void TabWidget::savePinnedTabs()
 
 void TabWidget::restorePinnedTabs()
 {
-    QFile file(mApp->getActiveProfilPath() + "pinnedtabs.dat");
+    QFile file(mApp->currentProfilePath() + "pinnedtabs.dat");
     file.open(QIODevice::ReadOnly);
     QByteArray sd = file.readAll();
     file.close();

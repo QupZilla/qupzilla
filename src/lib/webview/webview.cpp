@@ -803,7 +803,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
     menu->addSeparator();
 
-    QString langCode = mApp->getActiveLanguage().left(2);
+    QString langCode = mApp->currentLanguage().left(2);
     QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
     Action* gtwact = new Action(QIcon(":icons/menu/translate.png"), tr("Google Translate"));
     gtwact->setData(googleTranslateUrl);

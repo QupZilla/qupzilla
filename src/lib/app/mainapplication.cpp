@@ -561,27 +561,14 @@ void MainApplication::connectDatabase()
 
 void MainApplication::translateApp()
 {
-    QLocale locale;
     Settings settings;
-    settings.beginGroup("Language");
-    QString file = settings.value("language", locale.name().append(".qm")).toString();
-    QString shortLoc = file.left(2);
-    QString longLoc = file.left(5);
-
-    if (file == "" || !QFile::exists(TRANSLATIONSDIR + file)) {
-        return;
-    }
+    const QString &file = settings.value("Language/language", QLocale::system().name()).toString();
 
     QTranslator* app = new QTranslator(this);
-    app->load(TRANSLATIONSDIR + file);
-    QTranslator* sys = new QTranslator(this);
+    app->load(file, TRANSLATIONSDIR);
 
-    if (QFile::exists(TRANSLATIONSDIR + "qt_" + longLoc + ".qm")) {
-        sys->load(TRANSLATIONSDIR + "qt_" + longLoc + ".qm");
-    }
-    else if (QFile::exists(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm")) {
-        sys->load(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm");
-    }
+    QTranslator* sys = new QTranslator(this);
+    sys->load("qt_" + file, TRANSLATIONSDIR);
 
     m_activeLanguage = file;
 
@@ -645,7 +632,7 @@ void MainApplication::saveSettings()
     m_iconProvider->saveIconsToDatabase();
 
     AdBlockManager::instance()->save();
-    QFile::remove(getActiveProfilPath() + "WebpageIcons.db");
+    QFile::remove(currentProfilePath() + "WebpageIcons.db");
     Settings::syncSettings();
 }
 
