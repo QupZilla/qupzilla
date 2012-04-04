@@ -57,7 +57,6 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setTabsClosable(true);
     setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
-    loadSettings();
 
     setAcceptDrops(true);
 

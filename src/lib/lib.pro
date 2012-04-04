@@ -363,6 +363,11 @@ RESOURCES += \
     INSTALLS += target
 }
 
+mac {
+    target.path = Contents/MacOS
+    QMAKE_BUNDLE_DATA += target
+}
+
 message(========== Building libqupzilla ==========)
 message( Using following defines:)
 message($$DEFINES)

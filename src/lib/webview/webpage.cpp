@@ -67,6 +67,7 @@ WebPage::WebPage(QupZilla* mainClass)
     , m_runningLoop(0)
     , m_blockAlerts(false)
     , m_secureStatus(false)
+    , m_adjustingScheduled(false)
 {
     m_networkProxy = new NetworkManagerProxy(this);
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());

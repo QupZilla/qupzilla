@@ -43,6 +43,11 @@ UI_DIR = build
     INSTALLS += target
 }
 
+mac {
+    target.path = Contents/MacOS/qupzilla
+    QMAKE_BUNDLE_DATA += target
+}
+
 updateqm.input = TRANSLATIONS
 updateqm.output = locale/${QMAKE_FILE_BASE}.qm
 updateqm.commands = $$QMAKE_LRELEASE -silent ${QMAKE_FILE_IN} -qm locale/${QMAKE_FILE_BASE}.qm
