@@ -57,7 +57,6 @@
 #include "webinspectordockwidget.h"
 #include "bookmarksimportdialog.h"
 #include "globalfunctions.h"
-#include "webhistorywrapper.h"
 #include "enhancedmenu.h"
 #include "settings.h"
 #include "webtab.h"
@@ -77,6 +76,7 @@
 #include <QDesktopServices>
 #include <QPrintPreviewDialog>
 #include <QWebFrame>
+#include <QWebHistory>
 #include <QMessageBox>
 
 const QString QupZilla::VERSION = "1.1.8";
@@ -813,12 +813,13 @@ void QupZilla::aboutToShowBookmarksMenu()
 
 void QupZilla::aboutToShowHistoryMenu()
 {
-    if (!weView()) {
+    TabbedWebView* view = weView();
+    if (!view) {
         return;
     }
 
-    m_menuHistory->actions().at(0)->setEnabled(WebHistoryWrapper::canGoBack(weView()->history()));
-    m_menuHistory->actions().at(1)->setEnabled(WebHistoryWrapper::canGoForward(weView()->history()));
+    m_menuHistory->actions().at(0)->setEnabled(view->history()->canGoBack());
+    m_menuHistory->actions().at(1)->setEnabled(view->history()->canGoForward());
 }
 
 void QupZilla::aboutToHideHistoryMenu()

@@ -17,7 +17,6 @@
 * ============================================================ */
 #include "webview.h"
 #include "webpage.h"
-#include "webhistorywrapper.h"
 #include "mainapplication.h"
 #include "globalfunctions.h"
 #include "iconprovider.h"
@@ -271,8 +270,8 @@ void WebView::back()
 {
     QWebHistory* history = page()->history();
 
-    if (WebHistoryWrapper::canGoBack(history)) {
-        WebHistoryWrapper::goBack(history);
+    if (history->canGoBack()) {
+        history->back();
 
         emit urlChanged(url());
         emit iconChanged();
@@ -283,8 +282,8 @@ void WebView::forward()
 {
     QWebHistory* history = page()->history();
 
-    if (WebHistoryWrapper::canGoForward(history)) {
-        WebHistoryWrapper::goForward(history);
+    if (history->canGoForward()) {
+        history->forward();
 
         emit urlChanged(url());
         emit iconChanged();
@@ -691,11 +690,11 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
 
     QAction* action = menu->addAction(tr("&Back"), this, SLOT(back()));
     action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
-    action->setEnabled(WebHistoryWrapper::canGoBack(history()));
+    action->setEnabled(history()->canGoBack());
 
     action = menu->addAction(tr("&Forward"), this, SLOT(forward()));
     action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
-    action->setEnabled(WebHistoryWrapper::canGoForward(history()));
+    action->setEnabled(history()->canGoForward());
 
     menu->addAction(m_actionReload);
     menu->addAction(m_actionStop);
