@@ -91,7 +91,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_networkmanager(0)
     , m_cookiejar(0)
     , m_rssmanager(0)
-    , m_plugins(0)
     , m_bookmarksModel(0)
     , m_downloadManager(0)
     , m_autofill(0)
@@ -238,8 +237,10 @@ MainApplication::MainApplication(int &argc, char** argv)
     loadSettings();
     networkManager()->loadCertificates();
 
+    m_plugins = new PluginProxy;
+
     if (!noAddons) {
-        plugins()->loadPlugins();
+        m_plugins->loadPlugins();
     }
 
     if (checkUpdates) {
@@ -644,14 +645,6 @@ BrowsingLibrary* MainApplication::browsingLibrary()
     return m_browsingLibrary;
 }
 
-PluginProxy* MainApplication::plugins()
-{
-    if (!m_plugins) {
-        m_plugins = new PluginProxy();
-    }
-    return m_plugins;
-}
-
 CookieManager* MainApplication::cookieManager()
 {
     if (!m_cookiemanager) {
@@ -699,6 +692,11 @@ RSSManager* MainApplication::rssManager()
         m_rssmanager = new RSSManager(getWindow());
     }
     return m_rssmanager;
+}
+
+PluginProxy* MainApplication::plugins()
+{
+    return m_plugins;
 }
 
 BookmarksModel* MainApplication::bookmarksModel()

@@ -25,18 +25,7 @@
 PluginProxy::PluginProxy()
     : Plugins()
 {
-}
-
-void PluginProxy::unloadPlugin(Plugins::Plugin* plugin)
-{
-    m_mousePressHandlers.removeOne(plugin->instance);
-    m_mouseReleaseHandlers.removeOne(plugin->instance);
-    m_mouseMoveHandlers.removeOne(plugin->instance);
-
-    m_keyPressHandlers.removeOne(plugin->instance);
-    m_keyReleaseHandlers.removeOne(plugin->instance);
-
-    Plugins::unloadPlugin(plugin);
+    connect(this, SIGNAL(pluginUnloaded(PluginInterface*)), this, SLOT(pluginUnloaded(PluginInterface*)));
 }
 
 void PluginProxy::registerAppEventHandler(const PluginProxy::EventHandlerType &type, PluginInterface* obj)
@@ -88,6 +77,16 @@ void PluginProxy::registerAppEventHandler(const PluginProxy::EventHandlerType &t
         qWarning("PluginProxy::registerAppEventHandler registering unknown event handler type");
         break;
     }
+}
+
+void PluginProxy::pluginUnloaded(PluginInterface* plugin)
+{
+    m_mousePressHandlers.removeOne(plugin);
+    m_mouseReleaseHandlers.removeOne(plugin);
+    m_mouseMoveHandlers.removeOne(plugin);
+
+    m_keyPressHandlers.removeOne(plugin);
+    m_keyReleaseHandlers.removeOne(plugin);
 }
 
 void PluginProxy::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)

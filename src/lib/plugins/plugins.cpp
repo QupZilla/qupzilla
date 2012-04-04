@@ -75,6 +75,7 @@ void Plugins::unloadPlugin(Plugins::Plugin* plugin)
 
     plugin->instance->unload();
     plugin->pluginLoader->unload();
+    emit pluginUnloaded(plugin->instance);
 
     m_availablePlugins.removeOne(*plugin);
     plugin->instance = 0;
@@ -134,13 +135,13 @@ void Plugins::loadPlugins()
         plugin.fullPath = fullPath;
         plugin.pluginLoader = loader;
         plugin.instance = initPlugin(iPlugin, loader);
-        plugin.pluginSpec = iPlugin->pluginSpec();
 
         if (plugin.isLoaded()) {
-            m_loadedPlugins.append(plugin.instance);
-        }
+            plugin.pluginSpec = iPlugin->pluginSpec();
 
-        m_availablePlugins.append(plugin);
+            m_loadedPlugins.append(plugin.instance);
+            m_availablePlugins.append(plugin);
+        }
     }
 
     refreshLoadedPlugins();
@@ -205,10 +206,14 @@ PluginInterface* Plugins::initPlugin(PluginInterface* interface, QPluginLoader* 
     if (!interface->testPlugin()) {
         interface->unload();
         loader->unload();
+
+        emit pluginUnloaded(interface);
+
         return 0;
     }
 
     qApp->installTranslator(interface->getTranslator(mApp->currentLanguage()));
+
     return interface;
 }
 

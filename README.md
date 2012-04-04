@@ -1,8 +1,8 @@
 QupZilla Web Browser
 ----------------------------------------------------------------------------------------
-   
-Homepage: http://www.qupzilla.com   
-Blog: http://blog.qupzilla.com/   
+
+Homepage: http://www.qupzilla.com
+Blog: http://blog.qupzilla.com/
 IRC: `#qupzilla` at `irc.freenode.net`
 
 About QupZilla
@@ -20,7 +20,7 @@ and edit the local CA Certificates database with an SSL Manager.
 QupZilla's main aim is to be a very fast and very stable QtWebKit browser available to everyone.
 There are already a lot of QtWebKit browsers available, but they are either bound to the KDE
 environment (rekonq), are not actively developed or very unstable and miss important
-features. But there is missing a multiplatform, modern and actively developed browser. QupZilla 
+features. But there is missing a multiplatform, modern and actively developed browser. QupZilla
 is trying to fill this gap by providing a very stable browsing experience.
 
 History
@@ -45,10 +45,16 @@ Then you can start compiling by running this commands:
 
 After a successful compilation the executable binary can be found in the bin/ directory.
 
-To install QupZilla, you will have to run this command: (it may be necessary to run it as root)
+On Linux/Unix: To install QupZilla, you will have to run this command: (it may be necessary to run it as root)
 
     $ make install
-    
+
+On Mac OS X: To deploy QupZilla in bundle, run this command:
+
+    $ cd scripts && ./macdeploy.sh full-path-to-macdeployqt
+
+You need to specify path to `macdeployqt` only if it is not in PATH.
+
 Current version
 ----------------------------------------------------------------------------------------
 
@@ -58,17 +64,17 @@ However, if you want the latest revision, just take the latest code snapshot eit
 downloading a tarball or running:
 
     $ git clone git://github.com/nowrep/QupZilla.git
-    
+
 If you are using Ubuntu, you can download QupZilla from PPA:
 
     $ sudo add-apt-repository ppa:nowrep/qupzilla
     $ sudo apt-get update
     $ sudo apt-get install qupzilla
-    
+
     for development version:
-    
+
     $ sudo apt-get install qupzilla-next
-    
+
 FAQ and Changelog
 ----------------------------------------------------------------------------------------
 

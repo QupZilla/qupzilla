@@ -142,7 +142,7 @@
     </message>
     <message>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation>AdBlock-ის დაბლოკა არასასურველი ამომხტარი ფანჯრები.</translation>
+        <translation>AdBlock-მა დაბლოკა არასასურველი ამომხტარი ფანჯარა.</translation>
     </message>
     <message>
         <source>AdBlock</source>
@@ -436,7 +436,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;შენიშვნა:&lt;/b&gt; ჯერ-ჯერობით მხოლოდ Html ფაილიდან შემოტანას შეუძლია სანიშნების საქაღალდეებით შემოტანა.</translation>
     </message>
 </context>
 <context>
@@ -812,11 +812,11 @@
     </message>
     <message>
         <source>Clear web databases</source>
-        <translation type="unfinished"></translation>
+        <translation>ვებ მონაცემთა ბაზის გასუფთავება</translation>
     </message>
     <message>
         <source>Clear local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>ლოკალური საცავის გასუფთავება</translation>
     </message>
 </context>
 <context>
@@ -1228,7 +1228,7 @@
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>სურათის ფაილები</translation>
     </message>
 </context>
 <context>
@@ -1388,7 +1388,7 @@
     <name>LicenseViewer</name>
     <message>
         <source>License Viewer</source>
-        <translation type="unfinished">ლიცენზიის მნახველი</translation>
+        <translation>ლიცენზიის მნახველი</translation>
     </message>
 </context>
 <context>
@@ -1599,7 +1599,7 @@
     </message>
     <message>
         <source>Cannot load extension!</source>
-        <translation type="unfinished"></translation>
+        <translation>გაფართოების ჩატვირთვა ვერ მოხერხდა!</translation>
     </message>
 </context>
 <context>
@@ -2246,27 +2246,27 @@
     </message>
     <message>
         <source>Allow Netscape Plugins (Flash plugin)</source>
-        <translation type="unfinished"></translation>
+        <translation>Netscape-ს მოდულების დაშვება (Flash მოდული)</translation>
     </message>
     <message>
         <source>Don&apos;t load tabs until selected</source>
-        <translation type="unfinished"></translation>
+        <translation>არ ჩაიტვირთოს ჩანართების სანამ არ აირჩევა</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>გაფართოებები</translation>
     </message>
     <message>
         <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;გამონაკლისები&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Server:</source>
-        <translation type="unfinished">სერვერი:</translation>
+        <translation>სერვერი:</translation>
     </message>
     <message>
         <source>Use different proxy for https connection</source>
-        <translation type="unfinished"></translation>
+        <translation>სხვა პროქსის გამოყენება https კავშირებისთვის</translation>
     </message>
 </context>
 <context>
@@ -2667,40 +2667,41 @@
     </message>
     <message>
         <source>HTML files</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML ფაილები</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>სურათის ფაილები</translation>
     </message>
     <message>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>ტექსტური ფაილები</translation>
     </message>
     <message>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველა ფაილი</translation>
     </message>
     <message>
         <source>Last session crashed</source>
-        <translation type="unfinished">ბოლო სესია ავარიულად დაიხურა</translation>
+        <translation>ბოლო სესია ავარიულად დაიხურა</translation>
     </message>
     <message>
         <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="unfinished">&lt;b&gt;QupZilla ავარიუალად დაიხურა :-(&lt;/b&gt;&lt;br/&gt;უი, QupZilla-ს ბოლო სესია მოულოდნელად შეწყდა. ბოდიშს გიხდით ამისათვის. გსურთ ბოლო შენახული მდგომარებოის აღდგენა ვცადოთ?</translation>
+        <translation>&lt;b&gt;QupZilla ავარიუალად დაიხურა :-(&lt;/b&gt;&lt;br/&gt;უი, QupZilla-ს ბოლო სესია მოულოდნელად შეწყდა. ბოდიშს გიხდით ამისათვის. გსურთ ბოლო შენახული მდგომარებოის აღდგენა ვცადოთ?</translation>
     </message>
     <message>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>ახლა კვლავ გახსნილია %1 ჩანართი და თქვენი სესია არ აღდგება. 
+დარწმუნებული ხართ რომ QupZilla-ს დახურვა გსურთ?</translation>
     </message>
     <message>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished">მეტი აღარ შემეკითხო</translation>
+        <translation>მეტი აღარ შემეკითხო</translation>
     </message>
     <message>
         <source>There are still open tabs</source>
-        <translation type="unfinished">რამდენიმე ჩანართი კვლავ გახსნილია</translation>
+        <translation>რამდენიმე ჩანართი კვლავ გახსნილია</translation>
     </message>
 </context>
 <context>
@@ -2967,55 +2968,55 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Build Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>აწყობის კონფიგურაცია</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>გამორთული</translation>
     </message>
     <message>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;ჩართული&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Debug build</source>
-        <translation type="unfinished"></translation>
+        <translation>გამართვისთვის აწყობილი</translation>
     </message>
     <message>
         <source>WebGL support</source>
-        <translation type="unfinished"></translation>
+        <translation>WebGL მხარდაჭერა</translation>
     </message>
     <message>
         <source>Windows 7 API</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 7-ის API</translation>
     </message>
     <message>
         <source>KDE integration</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE-სთან ინტეგრაცია</translation>
     </message>
     <message>
         <source>Portable build</source>
-        <translation type="unfinished"></translation>
+        <translation>პორტატული ვერსია</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>გაფართოებები</translation>
     </message>
     <message>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>გაფართოებები არ არის ხელმისაწვდომი.</translation>
     </message>
     <message>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="unfinished"></translation>
+        <translation>თუ QupZilla-სთან პრობლემები გაქვთ, გთხოვთ პირველ რიგში ცადეთ ყველა გაფართოების გამორთვა. &lt;br/&gt;თუ ამან არ უშველა, მაშინ შეავსეთ ეს ფორმა:</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">დახურვა</translation>
+        <translation>დახურვა</translation>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>ეს გვერდი შეიცავს ინფორმაციას QupZilla-ს მიმდინარე კონფიგურაციის შესახებ - საჭიროს პრობლემის აღმოფხვრისთვის. გთხოვთ მოაყოლეთ ეს ინფორმაცია შეცდომის შეტყობინების გამოგზავნისას.</translation>
     </message>
 </context>
 <context>
@@ -3420,27 +3421,27 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Databases</source>
-        <translation type="unfinished"></translation>
+        <translation>მონაცემთა ბაზები</translation>
     </message>
     <message>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;მონაცემთა ბაზის შესახებ&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">სახელი:</translation>
+        <translation>სახელი:</translation>
     </message>
     <message>
         <source>Path:</source>
-        <translation type="unfinished">მდებარეობა:</translation>
+        <translation>მდებარეობა:</translation>
     </message>
     <message>
         <source>&lt;database not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;database not selected&gt;</translation>
     </message>
     <message>
         <source>No databases are used by this page.</source>
-        <translation type="unfinished"></translation>
+        <translation>ეს გვერდი არ იყენეს მონაცემთა ბაზას.</translation>
     </message>
 </context>
 <context>
@@ -3616,14 +3617,14 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"></translation>
+        <translation>სურათის ფაილები</translation>
     </message>
 </context>
 <context>
     <name>SqueezeLabelV2</name>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">კოპირება</translation>
+        <translation>კოპირება</translation>
     </message>
 </context>
 <context>
@@ -3913,11 +3914,11 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>JavaScript შეტყობინება</translation>
     </message>
     <message>
         <source>Unknown network error</source>
-        <translation type="unfinished"></translation>
+        <translation>ქსელის უცნობის შეცდომა</translation>
     </message>
 </context>
 <context>
@@ -4127,7 +4128,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>საძიებო სისტემის შექმნა</translation>
     </message>
 </context>
 <context>

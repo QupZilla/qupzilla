@@ -35,7 +35,6 @@ public:
 
     explicit PluginProxy();
 
-    void unloadPlugin(Plugin* plugin);
     void registerAppEventHandler(const EventHandlerType &type, PluginInterface* obj);
 
     void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r);
@@ -62,6 +61,9 @@ signals:
 
     void mainWindowCreated(QupZilla* window);
     void mainWindowDeleted(QupZilla* window);
+
+private slots:
+    void pluginUnloaded(PluginInterface* plugin);
 
 private:
     QList<PluginInterface*> m_mouseDoubleClickHandlers;

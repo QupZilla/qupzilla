@@ -40,6 +40,11 @@ public:
         QPluginLoader* pluginLoader;
         PluginInterface* instance;
 
+        Plugin() {
+            pluginLoader = 0;
+            instance = 0;
+        }
+
         bool isLoaded() const {
             return instance;
         }
@@ -77,6 +82,9 @@ public slots:
 
 protected:
     QList<PluginInterface*> m_loadedPlugins;
+
+signals:
+    void pluginUnloaded(PluginInterface* plugin);
 
 private:
     PluginInterface* initPlugin(PluginInterface* interface, QPluginLoader* loader);

@@ -143,6 +143,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
         if (actProfileName == name) {
             continue;
         }
+
         ui->startProfile->addItem(name);
     }
     connect(ui->createProfile, SIGNAL(clicked()), this, SLOT(createProfile()));

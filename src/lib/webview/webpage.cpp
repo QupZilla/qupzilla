@@ -54,7 +54,7 @@
 
 QString WebPage::m_lastUploadLocation = QDir::homePath();
 QString WebPage::m_userAgent;
-QString WebPage::m_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + qWebKitVersion() + " (KHTML, like Gecko) Chrome/10.0 Safari/" + qWebKitVersion();
+QString WebPage::m_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + QupZilla::WEBKITVERSION + " (KHTML, like Gecko) Chrome/10.0 Safari/" + QupZilla::WEBKITVERSION;
 QUrl WebPage::m_lastUnsupportedUrl;
 QList<WebPage*> WebPage::m_livingPages;
 

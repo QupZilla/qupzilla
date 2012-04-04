@@ -79,7 +79,7 @@
 #include <QWebHistory>
 #include <QMessageBox>
 
-const QString QupZilla::VERSION = "1.2.0";
+const QString QupZilla::VERSION = "1.1.8";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2012";
@@ -88,7 +88,7 @@ const QString QupZilla::WIKIADDRESS = "https://github.com/nowrep/QupZilla/wiki";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
 QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
-    : QMainWindow(0)
+    : QMainWindow()
     , m_historyMenuChanged(true)
     , m_bookmarksMenuChanged(true)
     , m_isClosing(false)
