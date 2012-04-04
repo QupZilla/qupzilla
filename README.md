@@ -1,8 +1,8 @@
 QupZilla Web Browser
 ----------------------------------------------------------------------------------------
 
-Homepage: http://www.qupzilla.com
-Blog: http://blog.qupzilla.com/
+Homepage: http://www.qupzilla.com   
+Blog: http://blog.qupzilla.com/   
 IRC: `#qupzilla` at `irc.freenode.net`
 
 About QupZilla

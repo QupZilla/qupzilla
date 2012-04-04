@@ -1,27 +1,29 @@
 #!/bin/bash
 COMMAND=$1
+LIBRARY_NAME="libQupZilla.1.dylib"
 
 if [ $COMMAND = "" ]; then
  $COMMAND="macdeployqt"
 fi
 
 # cd to directory with bundle
-cd ../build
+test -d build || cd ..
+cd build
 
 # copy libQupZilla into bundle
-cp libQupZilla* QupZilla.app/Contents/MacOS/QupZilla
+cp $LIBRARY_NAME QupZilla.app/Contents/MacOS/
 
 # copy all plugins into bundle
 test -d QupZilla.app/Contents/Resources/plugins || mkdir QupZilla.app/Contents/Resources/plugins
-cp plugins/*.dylib QupZilla.app/Contents/Resources/plugins
+cp plugins/*.dylib QupZilla.app/Contents/Resources/plugins/
 
 # fix libQupZilla
-install_name_tool -change libQupZilla.1.dylib @executable_path/libQupZilla.1.dylib QupZilla.app/Contents/MacOS/QupZilla
+install_name_tool -change $LIBRARY_NAME @executable_path/$LIBRARY_NAME QupZilla.app/Contents/MacOS/QupZilla
 
 # fix plugins
-for plugin in QupZilla.app/Contents/Resources/plugins*.dylib
+for plugin in QupZilla.app/Contents/Resources/plugins/*.dylib
 do
- install_name_tool -change libQupZilla.1.dylib @executable_path/libQupZilla.1.dylib $plugin
+ install_name_tool -change $LIBRARY_NAME @executable_path/$LIBRARY_NAME $plugin
 done
 
 # run macdeployqt

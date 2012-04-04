@@ -66,17 +66,33 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
     QString bookmarks = QString::fromUtf8(m_file.readAll());
     m_file.close();
 
-    bookmarks = bookmarks.mid(0, bookmarks.lastIndexOf("</DL><p>"));
-    int start = bookmarks.indexOf("<DL><p>", Qt::CaseInsensitive);
+
+    // Converting tags to lower case -,-
+    // For some reason Qt::CaseInsensitive is not everytime insensitive :-D
+
+    bookmarks.replace("<DL", "<dl");
+    bookmarks.replace("</DL", "</dl");
+    bookmarks.replace("<DT", "<dt");
+    bookmarks.replace("</DT", "</dt");
+    bookmarks.replace("<P", "<p");
+    bookmarks.replace("</P", "</p");
+    bookmarks.replace("<A", "<a");
+    bookmarks.replace("</A", "</a");
+    bookmarks.replace("HREF=", "href=");
+    bookmarks.replace("<H3", "<h3");
+    bookmarks.replace("</H3", "</h3");
+
+    bookmarks = bookmarks.mid(0, bookmarks.lastIndexOf("</dl><p>"));
+    int start = bookmarks.indexOf("<dl><p>");
 
     QStringList folders("Html Import");
 
     while (start > 0) {
         QString string = bookmarks.mid(start);
 
-        int posOfFolder = string.indexOf("<DT><H3", Qt::CaseInsensitive);
-        int posOfEndFolder = string.indexOf("</DL><p>", Qt::CaseInsensitive);
-        int posOfLink = string.indexOf("<DT><A", Qt::CaseInsensitive);
+        int posOfFolder = string.indexOf("<dt><h3");
+        int posOfEndFolder = string.indexOf("</dl><p>");
+        int posOfLink = string.indexOf("<dt><a");
 
         int nearest = qzMin(posOfLink, qzMin(posOfFolder, posOfEndFolder));
         if (nearest == -1) {
@@ -85,7 +101,7 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
 
         if (nearest == posOfFolder) {
             // Next is folder
-            QRegExp rx("<DT><H3(.*)>(.*)</H3>", Qt::CaseInsensitive);
+            QRegExp rx("<dt><h3(.*)>(.*)</h3>");
             rx.setMinimal(true);
             rx.indexIn(string);
 
@@ -98,20 +114,22 @@ QList<BookmarksModel::Bookmark> HtmlImporter::exportBookmarks()
         }
         else if (nearest == posOfEndFolder) {
             // Next is end of folder
-            folders.removeLast();
+            if (!folders.isEmpty()) {
+                folders.removeLast();
+            }
 
             start += posOfEndFolder + 8;
         }
         else {
             // Next is link
-            QRegExp rx("<DT><A(.*)>(.*)</A>", Qt::CaseInsensitive);
+            QRegExp rx("<dt><a(.*)>(.*)</a>");
             rx.setMinimal(true);
             rx.indexIn(string);
 
             QString arguments = rx.cap(1);
             QString linkName = rx.cap(2);
 
-            QRegExp rx2("HREF=\"(.*)\"", Qt::CaseInsensitive);
+            QRegExp rx2("href=\"(.*)\"");
             rx2.setMinimal(true);
             rx2.indexIn(arguments);
 

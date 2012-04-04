@@ -18,10 +18,12 @@
 #include "profileupdater.h"
 #include "qupzilla.h"
 #include "updater.h"
+#include "globalfunctions.h"
 #include "mainapplication.h"
 
 #include <QDir>
 #include <QSqlQuery>
+#include <QMessageBox>
 #include <iostream>
 
 ProfileUpdater::ProfileUpdater(const QString &profilePath)
@@ -111,7 +113,18 @@ void ProfileUpdater::copyDataToProfile()
     QDir profileDir(m_profilePath);
     profileDir.mkdir("certificates");
 
-    QFile(m_profilePath + "browsedata.db").remove();
+    QFile browseData(m_profilePath + "browsedata.db");
+    if (browseData.exists()) {
+        const QString &browseDataBackup = qz_ensureUniqueFilename(m_profilePath + "browsedata-backup.db");
+        const QString &settingsBackup = qz_ensureUniqueFilename(m_profilePath + "settings-backup.ini");
+        browseData.copy(browseDataBackup);
+        QFile(m_profilePath + "settings.ini").copy(settingsBackup);
+        const QString &text = "Incompatible profile version has been detected. To avoid losing your profile data, they were "
+                "backed up in following directories:<br/><br/><b>" + browseDataBackup + "<br/>" + settingsBackup + "<br/></b>";
+        QMessageBox::warning(0, "QupZilla: Incompatible profile version", text);
+    }
+
+    browseData.remove();
     QFile(":data/browsedata.db").copy(m_profilePath + "browsedata.db");
     QFile(m_profilePath + "browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
 }
