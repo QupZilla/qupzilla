@@ -16,8 +16,7 @@ win32 {
 }
 
 DEFINES *= QT_NO_URL_CAST_FROM_STRING
-# Apparently, it may cause crashes on some machines
-#DEFINES *= QT_USE_QSTRINGBUILDER
+DEFINES *= QT_USE_QSTRINGBUILDER
 
 ##It won't compile on windows with this define. Some bug in qtsingleapp / qvector template
 !win32: !CONFIG(debug, debug|release): DEFINES *= QT_NO_DEBUG_OUTPUT
