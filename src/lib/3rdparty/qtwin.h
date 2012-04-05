@@ -60,7 +60,6 @@ public:
     static bool isCompositionEnabled();
     static QColor colorizationColor();
 
-public slots:
     static void setupJumpList();
 
 private:

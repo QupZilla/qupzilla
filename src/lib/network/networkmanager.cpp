@@ -473,7 +473,7 @@ void NetworkManager::loadCertificates()
     }
     //Local Certificates
 #ifdef Q_WS_WIN
-    QDirIterator it_(mApp->getActiveProfilPath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
+    QDirIterator it_(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it_.hasNext()) {
         QString filePath = it_.next();
         if (!filePath.endsWith(".crt")) {
