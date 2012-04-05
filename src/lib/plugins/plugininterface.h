@@ -33,6 +33,10 @@ struct PluginSpec {
     QPixmap icon;
     bool hasSettings;
 
+    PluginSpec() {
+        hasSettings = false;
+    }
+
     bool operator==(const PluginSpec &other) {
         return (this->name == other.name &&
                 this->info == other.info &&

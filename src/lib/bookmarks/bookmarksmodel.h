@@ -80,16 +80,17 @@ public:
     bool saveBookmark(const QUrl &url, const QString &title, const QIcon &icon, const QString &folder = "unsorted");
     bool saveBookmark(WebView* view, QString folder = QString());
 
-    bool removeBookmark(int id);
-    bool removeBookmark(const QUrl &url);
-    bool removeBookmark(WebView* view);
+    void removeBookmark(const QUrl &url);
+    void removeBookmark(WebView* view);
+    void removeBookmark(int id);
+    void removeBookmark(const QList<int> list);
 
     bool editBookmark(int id, const QString &title = "", const QUrl &url = QUrl(), const QString &folder = "");
 //    bool editBookmark(int id, const QString &title, const QString &folder);
 //    bool editBookmark(int id, const QUrl &url, const QString &title);
 
     bool createFolder(const QString &name);
-    bool removeFolder(const QString &name);
+    void removeFolder(const QString &name);
 
     QList<Bookmark> folderBookmarks(const QString &name);
 

@@ -25,12 +25,6 @@
 #include <QPluginLoader>
 #include <QDir>
 
-#ifdef PORTABLE_BUILD
-#define DEFAULT_ENABLE_PLUGINS false
-#else
-#define DEFAULT_ENABLE_PLUGINS true
-#endif
-
 Plugins::Plugins(QObject* parent)
     : QObject(parent)
     , m_pluginsLoaded(false)

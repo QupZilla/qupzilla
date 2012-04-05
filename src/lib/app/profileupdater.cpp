@@ -120,7 +120,7 @@ void ProfileUpdater::copyDataToProfile()
         browseData.copy(browseDataBackup);
         QFile(m_profilePath + "settings.ini").copy(settingsBackup);
         const QString &text = "Incompatible profile version has been detected. To avoid losing your profile data, they were "
-                "backed up in following directories:<br/><br/><b>" + browseDataBackup + "<br/>" + settingsBackup + "<br/></b>";
+                              "backed up in following directories:<br/><br/><b>" + browseDataBackup + "<br/>" + settingsBackup + "<br/></b>";
         QMessageBox::warning(0, "QupZilla: Incompatible profile version", text);
     }
 

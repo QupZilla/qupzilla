@@ -81,4 +81,40 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 
 }
 
+#ifdef Q_WS_WIN
+#define DEFAULT_THEME_NAME "windows"
+#elif defined(Q_WS_X11)
+#define DEFAULT_THEME_NAME "linux"
+#elif defined(Q_WS_MAC)
+#define DEFAULT_THEME_NAME "mac"
+#elif defined(Q_OS_OS2)
+#define DEFAULT_THEME_NAME "windows"
+#else
+#define DEFAULT_THEME_NAME "default"
+#endif
+
+#ifdef Q_WS_WIN
+#define DEFAULT_CHECK_UPDATES true
+#else
+#define DEFAULT_CHECK_UPDATES false
+#endif
+
+#ifdef Q_WS_WIN
+#define DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG false
+#else
+#define DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG true
+#endif
+
+#ifdef PORTABLE_BUILD
+#define DEFAULT_ENABLE_PLUGINS false
+#else
+#define DEFAULT_ENABLE_PLUGINS true
+#endif
+
+#ifdef Q_WS_WIN
+#define DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG false
+#else
+#define DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG true
+#endif
+
 #endif // QZ_NAMESPACE_H

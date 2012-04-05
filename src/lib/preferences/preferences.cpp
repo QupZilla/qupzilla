@@ -48,14 +48,6 @@
 #include <QFileDialog>
 #include <QMessageBox>
 
-#ifdef Q_WS_WIN
-#define DEFAULT_CHECK_UPDATES true
-#define DEFAULT_USE_NATIVE_DIALOG false
-#else
-#define DEFAULT_CHECK_UPDATES false
-#define DEFAULT_USE_NATIVE_DIALOG true
-#endif
-
 Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::Preferences)
@@ -285,7 +277,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     settings.beginGroup("DownloadManager");
     ui->downLoc->setText(settings.value("defaultDownloadPath", "").toString());
     ui->closeDownManOnFinish->setChecked(settings.value("CloseManagerOnFinish", false).toBool());
-    ui->downlaodNativeSystemDialog->setChecked(settings.value("useNativeDialog", DEFAULT_USE_NATIVE_DIALOG).toBool());
+    ui->downlaodNativeSystemDialog->setChecked(settings.value("useNativeDialog", DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG).toBool());
     if (ui->downLoc->text().isEmpty()) {
         ui->askEverytime->setChecked(true);
     }

@@ -60,24 +60,6 @@
 #include <QTimer>
 #include <QTranslator>
 
-#ifdef Q_WS_WIN
-#define DEFAULT_CHECK_UPDATES true
-#else
-#define DEFAULT_CHECK_UPDATES false
-#endif
-
-#ifdef Q_WS_WIN
-#define DEFAULT_THEME_NAME "windows"
-#elif defined(Q_WS_X11)
-#define DEFAULT_THEME_NAME "linux"
-#elif defined(Q_WS_MAC)
-#define DEFAULT_THEME_NAME "mac"
-#elif defined(Q_OS_OS2)
-#define DEFAULT_THEME_NAME "windows"
-#else
-#define DEFAULT_THEME_NAME "default"
-#endif
-
 #if defined(PORTABLE_BUILD) && !defined(NO_SYSTEM_DATAPATH)
 #define NO_SYSTEM_DATAPATH
 #endif

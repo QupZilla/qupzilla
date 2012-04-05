@@ -45,13 +45,13 @@ Then you can start compiling by running this commands:
 
 After a successful compilation the executable binary can be found in the bin/ directory.
 
-On Linux/Unix: To install QupZilla, you will have to run this command: (it may be necessary to run it as root)
+On Linux/Unix: To install QupZilla, run this command: (it may be necessary to run it as root)
 
     $ make install
 
 On Mac OS X: To deploy QupZilla in bundle, run this command:
 
-    $ cd scripts && ./macdeploy.sh full-path-to-macdeployqt
+    $ ./scripts/macdeploy.sh full-path-to-macdeployqt
 
 You need to specify path to `macdeployqt` only if it is not in PATH.
 
@@ -80,6 +80,4 @@ FAQ and Changelog
 
 If you are experiencing some sort of problem, please read the FAQ before you open an issue.
 
-FAQ:       https://github.com/nowrep/QupZilla/wiki/FAQ
-
-Changelog: https://github.com/nowrep/QupZilla/wiki/Changelog
+[FAQ](https://github.com/nowrep/QupZilla/wiki/FAQ) | [Changelog](https://github.com/nowrep/QupZilla/wiki/Changelog) | [Bug Reports](https://github.com/nowrep/QupZilla/wiki/Bug-Reports)
