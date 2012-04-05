@@ -11,3 +11,9 @@ The list is not sorted by priority.
 * New LocationBar completer
 * (KDE) Nepomuk integration
 * Page previews as tooltip on tabs (like Opera)
+* Support for remote Web inspector
+* option to save RSS feeds in external reader
+* Session manager
+* Editable toolbar
+* NoScript plugin
+* GreaseMonkey plugin (userscripts)

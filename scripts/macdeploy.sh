@@ -1,14 +1,20 @@
 #!/bin/bash
-COMMAND=$1
+#
+# Usage: ./macdeploy.sh [<full-path-to-macdeployqt>]
+# 
+# macdeployqt is usually located in QTDIR/bin/macdeployqt
+# If path to macdeployqt is not specified, using it from PATH
+
+COMMAND="macdeployqt"
 LIBRARY_NAME="libQupZilla.1.dylib"
 
-if [ $COMMAND = "" ]; then
- $COMMAND="macdeployqt"
+if [ -n "$1" ]; then
+ COMMAND=$1
 fi
 
 # cd to directory with bundle
-test -d build || cd ..
-cd build
+test -d bin || cd ..
+cd bin
 
 # copy libQupZilla into bundle
 cp $LIBRARY_NAME QupZilla.app/Contents/MacOS/
