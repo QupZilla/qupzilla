@@ -876,6 +876,10 @@ bool MainApplication::checkSettingsDir()
     QFile(PROFILEDIR + "profiles/default/browsedata.db").remove();
     QFile(":data/browsedata.db").copy(PROFILEDIR + "profiles/default/browsedata.db");
     QFile(PROFILEDIR + "profiles/default/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
+    QFile versionFile(PROFILEDIR + "profiles/default/version");
+    versionFile.open(QFile::WriteOnly);
+    versionFile.write(QupZilla::VERSION.toUtf8());
+    versionFile.close();
 
     return dir.isReadable();
 }
