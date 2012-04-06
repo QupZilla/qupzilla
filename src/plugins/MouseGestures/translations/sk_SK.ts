@@ -58,10 +58,5 @@
         <source>License</source>
         <translation>Licencia</translation>
     </message>
-    <message>
-        <location filename="../mousegesturessettingsdialog.cpp" line="24"/>
-        <source>License Viewer</source>
-        <translation>Prehliadač licencií</translation>
-    </message>
 </context>
 </TS>

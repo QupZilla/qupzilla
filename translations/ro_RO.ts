@@ -28,10 +28,6 @@
         <translation>&lt;b&gt;Versiune WebKit %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Toate drepturile rezervate.&lt;br/&gt;</translation>
-    </message>
-    <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;Versiune compilată: %1 &lt;/small&gt;&lt;/p&gt;</translation>
     </message>
@@ -855,17 +851,6 @@
     </message>
 </context>
 <context>
-    <name>CloseDialog</name>
-    <message>
-        <source>There are still open tabs</source>
-        <translation type="obsolete">Încă sunt taburi deschise</translation>
-    </message>
-    <message>
-        <source>Don&apos;t ask again</source>
-        <translation type="obsolete">Nu întreba din nou</translation>
-    </message>
-</context>
-<context>
     <name>CookieManager</name>
     <message>
         <source>Cookies</source>
@@ -1293,10 +1278,6 @@ nu a putut fi găsit!</translation>
 <context>
     <name>HistoryModel</name>
     <message>
-        <source>Failed loading page</source>
-        <translation>Încarcarea paginii a eșuat</translation>
-    </message>
-    <message>
         <source>No Named Page</source>
         <translation>Pagină fără nume</translation>
     </message>
@@ -1417,17 +1398,6 @@ nu a putut fi găsit!</translation>
     <message>
         <source>Show information about this page</source>
         <translation>Afișează informații desprea această pagină</translation>
-    </message>
-</context>
-<context>
-    <name>MainApplication</name>
-    <message>
-        <source>Last session crashed</source>
-        <translation type="obsolete">Ultima sesiune a eșuat</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="obsolete">&lt;b&gt;QupZilla a eșuat:-(&lt;/b&gt;&lt;br/&gt;Oops, ultima sesiune a QupZilla a fost întreruptă in mod neașteptat. Ne cerem scuze pentru asta. Ați dori să incercați să restaurați ultima sesiune?</translation>
     </message>
 </context>
 <context>
@@ -1590,10 +1560,6 @@ nu a putut fi găsit!</translation>
         <translation>Eroare!</translation>
     </message>
     <message>
-        <source>Cannot load plugin!</source>
-        <translation type="obsolete">Plugin-ul nu poate fi încărcat!</translation>
-    </message>
-    <message>
         <source>Cannot load extension!</source>
         <translation>Extensia nu a putut fi încărcată!</translation>
     </message>
@@ -1650,10 +1616,6 @@ nu a putut fi găsit!</translation>
     <message>
         <source>Notifications</source>
         <translation>Notificări</translation>
-    </message>
-    <message>
-        <source>Plugins</source>
-        <translation type="obsolete">Plugin-uri</translation>
     </message>
     <message>
         <source>Other</source>
@@ -1915,10 +1877,6 @@ nu a putut fi găsit!</translation>
     <message>
         <source>50 MB</source>
         <translation>50 MB</translation>
-    </message>
-    <message>
-        <source>Allow storing web icons</source>
-        <translation>Permite stocarea iconițelor web</translation>
     </message>
     <message>
         <source>Allow saving history</source>
@@ -2448,14 +2406,6 @@ nu a putut fi găsit!</translation>
         <translation>&amp;Encodarea caracterelor</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation>Semne de carte</translation>
-    </message>
-    <message>
-        <source>History</source>
-        <translation>Istoric</translation>
-    </message>
-    <message>
         <source>Toolbars</source>
         <translation>Bare de unelte</translation>
     </message>
@@ -2612,10 +2562,6 @@ nu a putut fi găsit!</translation>
         <translation>Altele</translation>
     </message>
     <message>
-        <source>Default</source>
-        <translation>Implicit</translation>
-    </message>
-    <message>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -2650,10 +2596,6 @@ nu a putut fi găsit!</translation>
     <message>
         <source>Start Private Browsing</source>
         <translation>Pornește navigarea privată</translation>
-    </message>
-    <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation type="obsolete">Mai sunt %1 tab-uri deschise și sesiunea dvs. nu va fi stocată. Sunteți sigur că doriți să închideți QupZilla?</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
@@ -2711,10 +2653,6 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     <message>
         <source>Report Issue</source>
         <translation>Raportează problemă</translation>
-    </message>
-    <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="obsolete">Dacă întâmpinați probleme cu QupZilla, vă rugăm încercați să dezactivați toate plugin-urile. &lt;br/&gt;Dacă asta nu remediază problema, vă rugăm cumpletați următorul formular:</translation>
     </message>
     <message>
         <source>Your E-mail</source>
@@ -2873,10 +2811,6 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
         <translation>Informații despre configurare</translation>
     </message>
     <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="obsolete">Această pagină contine informații despre configurarea curentă a QupZilla, plugin-uri, etc. toate informațiile relevante pentru remedierea problemelor. Vă rugăm să includeți aceste informații la trimiterea raport-urilor despre bug-uri.</translation>
-    </message>
-    <message>
         <source>Browser Identification</source>
         <translation>Identificarea browser-ului</translation>
     </message>
@@ -2895,10 +2829,6 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     <message>
         <source>Value</source>
         <translation>Valoare</translation>
-    </message>
-    <message>
-        <source>Plugins</source>
-        <translation type="obsolete">Plugin-uri</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2955,10 +2885,6 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     <message>
         <source>Platform</source>
         <translation>Platforma</translation>
-    </message>
-    <message>
-        <source>No available plugins.</source>
-        <translation type="obsolete">Nu sunt plugin-uri disponibile.</translation>
     </message>
     <message>
         <source>Build Configuration</source>
@@ -3516,10 +3442,6 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
         <translation>Lipește</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation type="obsolete">Șterge</translation>
-    </message>
-    <message>
         <source>Select All</source>
         <translation>Selectează tot</translation>
     </message>
@@ -3892,10 +3814,6 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Interzice acestei pagini să deschidă dialoguri noi</translation>
-    </message>
-    <message>
-        <source>JavaScript alert - %1</source>
-        <translation type="obsolete">Alertă JavaScript - %1</translation>
     </message>
     <message>
         <source>Choose file...</source>

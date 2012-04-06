@@ -28,10 +28,6 @@
         <translation>&lt;b&gt;WebKit-ის ვერსია %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;ყველა უფლება დაცულია.&lt;br/&gt;</translation>
-    </message>
-    <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;აწყობის დრო: %1 &lt;/small&gt;&lt;/p&gt;</translation>
     </message>
@@ -855,17 +851,6 @@
     </message>
 </context>
 <context>
-    <name>CloseDialog</name>
-    <message>
-        <source>There are still open tabs</source>
-        <translation type="obsolete">რამდენიმე ჩანართი კვლავ გახსნილია</translation>
-    </message>
-    <message>
-        <source>Don&apos;t ask again</source>
-        <translation type="obsolete">მეტი აღარ შემეკითხო</translation>
-    </message>
-</context>
-<context>
     <name>CookieManager</name>
     <message>
         <source>Cookies</source>
@@ -1293,10 +1278,6 @@
 <context>
     <name>HistoryModel</name>
     <message>
-        <source>Failed loading page</source>
-        <translation>გვერდის ჩატვირთვა ჩაიშალა</translation>
-    </message>
-    <message>
         <source>No Named Page</source>
         <translation>უსათაურო გვერდი</translation>
     </message>
@@ -1420,17 +1401,6 @@
     </message>
 </context>
 <context>
-    <name>MainApplication</name>
-    <message>
-        <source>Last session crashed</source>
-        <translation type="obsolete">ბოლო სესია ავარიულად დაიხურა</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="obsolete">&lt;b&gt;QupZilla ავარიუალად დაიხურა :-(&lt;/b&gt;&lt;br/&gt;უი, QupZilla-ს ბოლო სესია მოულოდნელად შეწყდა. ბოდიშს გიხდით ამისათვის. გსურთ ბოლო შენახული მდგომარებოის აღდგენა ვცადოთ?</translation>
-    </message>
-</context>
-<context>
     <name>NavigationBar</name>
     <message>
         <source>No Named Page</source>
@@ -1534,10 +1504,6 @@
         <source>Save Page Screen...</source>
         <translation>გვერდის ასლის შენახვა...</translation>
     </message>
-    <message>
-        <source>screen.png</source>
-        <translation type="obsolete">screen.png</translation>
-    </message>
 </context>
 <context>
     <name>PluginsList</name>
@@ -1592,10 +1558,6 @@
     <message>
         <source>Error!</source>
         <translation>შეცდომა!</translation>
-    </message>
-    <message>
-        <source>Cannot load plugin!</source>
-        <translation type="obsolete">მოდულის ჩატვირთვა ვერ მოხერხდა!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
@@ -1654,10 +1616,6 @@
     <message>
         <source>Notifications</source>
         <translation>შეტყობინებები</translation>
-    </message>
-    <message>
-        <source>Plugins</source>
-        <translation type="obsolete">მოდულები</translation>
     </message>
     <message>
         <source>Other</source>
@@ -1848,10 +1806,6 @@
         <translation>ვებ კონფიგურაცია</translation>
     </message>
     <message>
-        <source>Allow Plugins (Flash plugin)</source>
-        <translation type="obsolete">მოდულების დაშვება (Flash მოდული)</translation>
-    </message>
-    <message>
         <source>Allow JavaScript</source>
         <translation>JavaScript-ის დაშვება</translation>
     </message>
@@ -1921,10 +1875,6 @@
     <message>
         <source>50 MB</source>
         <translation>50 მბ</translation>
-    </message>
-    <message>
-        <source>Allow storing web icons</source>
-        <translation>ვებ ხატუილების შენახვის დაშვება</translation>
     </message>
     <message>
         <source>Allow saving history</source>
@@ -2454,14 +2404,6 @@
         <translation>სიმბოლოების &amp;კოდირება</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation>სანიშნები</translation>
-    </message>
-    <message>
-        <source>History</source>
-        <translation>ისტორია</translation>
-    </message>
-    <message>
         <source>Toolbars</source>
         <translation>ხელსაწყოთა ზოლები</translation>
     </message>
@@ -2618,10 +2560,6 @@
         <translation>სხვა</translation>
     </message>
     <message>
-        <source>Default</source>
-        <translation>ნაგულისხმევი</translation>
-    </message>
-    <message>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -2656,10 +2594,6 @@
     <message>
         <source>Start Private Browsing</source>
         <translation>პირადი ბრაუზინგის დაწყება</translation>
-    </message>
-    <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation type="obsolete">თქვენ კვლავ გაქვთ %1 გახსნილი ჩანართი და თქვენი სესია არ შეინახება. დარწმუნებული ხართ რომ QupZilla-დან გამოსვლა გსურთ?</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
@@ -2717,10 +2651,6 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>Report Issue</source>
         <translation>შეცდომის შეტყობინება</translation>
-    </message>
-    <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="obsolete">თუ QupZilla-ს გამოყენებისას პრობლემები გაქვთ, გთხოვთ პირველ რიგში ყველა მოდულის გამორთვა ცადეთ. &lt;br/&gt;თუ ეს ვერ მოაგვარებს თქვენს პრობლემას, გთხოვთ შეავსეთ ეს ფორმა: </translation>
     </message>
     <message>
         <source>Your E-mail</source>
@@ -2879,10 +2809,6 @@ Are you sure to quit QupZilla?</source>
         <translation>კონფიგურაციის ინფორმაცია</translation>
     </message>
     <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="obsolete">ეს გვერდი შეიცავს ინფორმაციას QupZilla-ს მიმდინარე კონფიგურაციის, მოდულების, ა.შ, და ყველა საჭირო ინფორმაციას პრობლემის აღმოფხვრის შესახებ. გთხოვთ მოაყოლეთ ეს ინფორმაცია შეცდომის გამოგზავნის დროს.</translation>
-    </message>
-    <message>
         <source>Browser Identification</source>
         <translation>ბრაუზერის იდენტიფიკაცია</translation>
     </message>
@@ -2901,10 +2827,6 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>Value</source>
         <translation>მნიშვნელობა</translation>
-    </message>
-    <message>
-        <source>Plugins</source>
-        <translation type="obsolete">მოდულები</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2961,10 +2883,6 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>Platform</source>
         <translation>პლატფორმა</translation>
-    </message>
-    <message>
-        <source>No available plugins.</source>
-        <translation type="obsolete">ხელმისაწვდომი მოდულები არ არის.</translation>
     </message>
     <message>
         <source>Build Configuration</source>
@@ -3522,10 +3440,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>ჩასმა</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation type="obsolete">წაშლა</translation>
-    </message>
-    <message>
         <source>Select All</source>
         <translation>ყველას არჩევა</translation>
     </message>
@@ -3762,10 +3676,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>License</source>
         <translation>ლიცენზია</translation>
     </message>
-    <message>
-        <source>License Viewer</source>
-        <translation type="obsolete">ლიცენზიის მნახველი</translation>
-    </message>
 </context>
 <context>
     <name>ToolButton</name>
@@ -3903,10 +3813,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>ამ გვერდისთვის დამატებითი დიალოგების აკრძალვა</translation>
-    </message>
-    <message>
-        <source>JavaScript alert - %1</source>
-        <translation type="obsolete">JavaScript გაფრთხილება - %1</translation>
     </message>
     <message>
         <source>Choose file...</source>

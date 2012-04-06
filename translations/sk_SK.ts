@@ -28,10 +28,6 @@
         <translation>Autori</translation>
     </message>
     <message>
-        <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Všetky práva vyhradené.&lt;br/&gt;</translation>
-    </message>
-    <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;Dátum zostavenia: %1 &lt;/small&gt;&lt;/p&gt;</translation>
     </message>
@@ -595,10 +591,6 @@
         <translation>Odstrániť záložku</translation>
     </message>
     <message>
-        <source>Hide Most &amp;Visited</source>
-        <translation type="obsolete">Skryť najna&amp;vštevovanejšie</translation>
-    </message>
-    <message>
         <source>Move right</source>
         <translation>Posunúť doprava</translation>
     </message>
@@ -670,36 +662,12 @@
         <translation>Názov:</translation>
     </message>
     <message>
-        <source>Remove Bookmark</source>
-        <translation type="obsolete">Odstrániť záložku</translation>
-    </message>
-    <message>
-        <source>Edit This Bookmark</source>
-        <translation type="obsolete">Upraviť túto záložku</translation>
-    </message>
-    <message>
         <source>Folder:</source>
         <translation>Priečinok:</translation>
     </message>
     <message>
-        <source>Add into Bookmarks</source>
-        <translation type="obsolete">Pridať do záložiek</translation>
-    </message>
-    <message>
-        <source>Add into Speed Dial</source>
-        <translation type="obsolete">Pridať do rychlej voľby</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Pridať záložku&lt;/b&gt;</translation>
-    </message>
-    <message>
         <source>Edit Bookmark</source>
         <translation>Upraviť záložku</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Upraviť záložku&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Remove from Speed Dial</source>
@@ -880,17 +848,6 @@
     <message>
         <source>No more information available.</source>
         <translation>Žiadne ďalšie informácie.</translation>
-    </message>
-</context>
-<context>
-    <name>CloseDialog</name>
-    <message>
-        <source>There are still open tabs</source>
-        <translation type="obsolete">Stále sú otvorené karty</translation>
-    </message>
-    <message>
-        <source>Don&apos;t ask again</source>
-        <translation type="obsolete">Viac sa uz nepýtať</translation>
     </message>
 </context>
 <context>
@@ -1372,10 +1329,6 @@
         <source>No Named Page</source>
         <translation>Stránka bez názvu</translation>
     </message>
-    <message>
-        <source>Failed loading page</source>
-        <translation>Chyba pri načítaní stránky</translation>
-    </message>
 </context>
 <context>
     <name>HistorySideBar</name>
@@ -1445,17 +1398,6 @@
     <message>
         <source>Show information about this page</source>
         <translation>Zobraziť informácie o tejto stránke</translation>
-    </message>
-</context>
-<context>
-    <name>MainApplication</name>
-    <message>
-        <source>Last session crashed</source>
-        <translation type="obsolete">Minulá relácia spadla</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="obsolete">&lt;b&gt;QupZilla spadla :-(&lt;/b&gt;&lt;br/&gt;Oops, minulá relácia QupZilly skončila pádom. Veľmi sa ospravedlňujeme. Chcete sa pokúsiť obnoviť uložený stav?</translation>
     </message>
 </context>
 <context>
@@ -1562,10 +1504,6 @@
         <source>Save Page Screen...</source>
         <translation>Uložiť obraz stránky...</translation>
     </message>
-    <message>
-        <source>screen.png</source>
-        <translation type="obsolete">obrazstranky.png</translation>
-    </message>
 </context>
 <context>
     <name>PluginsList</name>
@@ -1588,10 +1526,6 @@
     <message>
         <source>Allow Application Extensions to be loaded</source>
         <translation>Povoliť načítanie rozšírení programu</translation>
-    </message>
-    <message>
-        <source>Load Plugins</source>
-        <translation type="obsolete">Načítať plugin</translation>
     </message>
     <message>
         <source>Application Extensions</source>
@@ -1624,10 +1558,6 @@
     <message>
         <source>Error!</source>
         <translation>Chyba!</translation>
-    </message>
-    <message>
-        <source>Cannot load plugin!</source>
-        <translation type="obsolete">Nemožno načítať plugin!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
@@ -1765,10 +1695,6 @@
         <translation>Štartový profil:</translation>
     </message>
     <message>
-        <source>Allow storing web icons</source>
-        <translation>Povoliť ukladanie webových ikon</translation>
-    </message>
-    <message>
         <source>Allow saving passwords from sites</source>
         <translation>Povoliť ukladanie hesiel zo stránok</translation>
     </message>
@@ -1895,10 +1821,6 @@
     <message>
         <source>lines on page</source>
         <translation>riadky na stránke</translation>
-    </message>
-    <message>
-        <source>Plugins</source>
-        <translation type="obsolete">Pluginy</translation>
     </message>
     <message>
         <source>Print element background</source>
@@ -2139,10 +2061,6 @@
     <message>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>Zobraziť panel záložiek pri štarte</translation>
-    </message>
-    <message>
-        <source>Allow Plugins (Flash plugin)</source>
-        <translation type="obsolete">Povoliť pluginy (Flash plugin)</translation>
     </message>
     <message>
         <source>Select all text by clicking in address bar</source>
@@ -2486,10 +2404,6 @@
         <translation>&amp;Záložky</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation>Záložky</translation>
-    </message>
-    <message>
         <source>Webpages are not added to the history.</source>
         <translation>Stránky nie sú pridávané do histórie.</translation>
     </message>
@@ -2564,10 +2478,6 @@
     <message>
         <source>Report &amp;Issue</source>
         <translation>Nahlásiť &amp;problém</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>Štandardné</translation>
     </message>
     <message>
         <source>&amp;Navigation Toolbar</source>
@@ -2650,16 +2560,8 @@
         <translation>Pridať &amp;všetky karty do záložiek</translation>
     </message>
     <message>
-        <source>History</source>
-        <translation>História</translation>
-    </message>
-    <message>
         <source>Sidebars</source>
         <translation>Bočné panely</translation>
-    </message>
-    <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation type="obsolete">Stále sú otvorené %1 karty a vaša relácia nebude uložená. Ste si istý, že chcete skončiť?</translation>
     </message>
     <message>
         <source>QupZilla</source>
@@ -2819,10 +2721,6 @@ Skutočne chcete skončiť?</translation>
         <translation>Preklady</translation>
     </message>
     <message>
-        <source>Plugins</source>
-        <translation type="obsolete">Pluginy</translation>
-    </message>
-    <message>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
@@ -2893,14 +2791,6 @@ Skutočne chcete skončiť?</translation>
     <message>
         <source>Load title from page</source>
         <translation>Načítať názov zo stránky</translation>
-    </message>
-    <message>
-        <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation type="obsolete">E-mail je nepovinný&lt;br/&gt;&lt;b&gt;Poznámka: &lt;/b&gt;Používajte prosím len anglický jazyk.</translation>
-    </message>
-    <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="obsolete">Pokiaľ máte problém s používaním QupZilly, zakážte všetky doplnky. &lt;br/&gt; Pokiaľ problém pretrváva, vyplňte tento formulár: </translation>
     </message>
     <message>
         <source>Please fill out all required fields!</source>
@@ -2993,14 +2883,6 @@ Skutočne chcete skončiť?</translation>
     <message>
         <source>Qt version</source>
         <translation>Verzia QT</translation>
-    </message>
-    <message>
-        <source>No available plugins.</source>
-        <translation type="obsolete">Žiadne dostupné doplnky.</translation>
-    </message>
-    <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="obsolete">Táto stránka obsahuje informácie o aktuálnej konfigurácií QupZilly, pluginov a všetkých dôležitých informáciach na riešenie problémov. Prosím, priložte tieto informácie k hlásenému problému.</translation>
     </message>
     <message>
         <source>Build Configuration</source>
@@ -3567,10 +3449,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>Povolenie úprav zmenené</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation type="obsolete">Vymazať</translation>
-    </message>
-    <message>
         <source>Error!</source>
         <translation>Chyba!</translation>
     </message>
@@ -3796,10 +3674,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
         <translation>&lt;b&gt;Názov:&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>License Viewer</source>
-        <translation type="obsolete">Prehliadač licencie</translation>
-    </message>
-    <message>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Popis:&lt;/b&gt;</translation>
     </message>
@@ -3936,10 +3810,6 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Zabrániť tejto stránke vo vytváraní ďalších dialógov</translation>
-    </message>
-    <message>
-        <source>JavaScript alert - %1</source>
-        <translation type="obsolete">Výstraha JavaScript - %1</translation>
     </message>
     <message>
         <source>Confirm form resubmission</source>

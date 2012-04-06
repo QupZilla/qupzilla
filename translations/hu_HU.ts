@@ -83,7 +83,7 @@
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Keresés...</translation>
     </message>
     <message>
         <source>Rule</source>
@@ -499,11 +499,11 @@
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hivatkozás megnyitása a jelenlegi &amp;fülön</translation>
     </message>
     <message>
         <source>Open link in &amp;new tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hivatkozás megnyitása &amp;új fülön</translation>
     </message>
     <message>
         <source>Move bookmark to &amp;folder</source>
@@ -632,7 +632,7 @@
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Könyvjelző szerkesztése</translation>
     </message>
     <message>
         <source>Most visited</source>
@@ -768,7 +768,7 @@
     </message>
     <message>
         <source>Clear history</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Előzmények törlése</translation>
     </message>
     <message>
         <source>Clear cookies</source>
@@ -878,7 +878,7 @@
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Név:</translation>
     </message>
     <message>
         <source>Value:</source>
@@ -886,7 +886,7 @@
     </message>
     <message>
         <source>Server:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Szerver:</translation>
     </message>
     <message>
         <source>Path:</source>
@@ -1244,27 +1244,27 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">A cím másolása</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ma</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ezen a héten</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ebben a hónapban</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1278,12 +1278,8 @@
 <context>
     <name>HistoryModel</name>
     <message>
-        <source>Failed loading page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Névtelen lap</translation>
     </message>
     <message>
         <source>January</source>
@@ -1881,10 +1877,6 @@
         <translation>50 MB</translation>
     </message>
     <message>
-        <source>Allow storing web icons</source>
-        <translation type="obsolete">Honlapikonok tárolásának engedélyezése</translation>
-    </message>
-    <message>
         <source>Allow saving history</source>
         <translation>Előzmények tárolásának engedélyezése</translation>
     </message>
@@ -2412,14 +2404,6 @@
         <translation>Karakter&amp;kódolás</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation>Könyvjelzők</translation>
-    </message>
-    <message>
-        <source>History</source>
-        <translation>Előzmények</translation>
-    </message>
-    <message>
         <source>Toolbars</source>
         <translation>Eszköztárak</translation>
     </message>
@@ -2574,10 +2558,6 @@
     <message>
         <source>Other</source>
         <translation>Egyéb</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>Alapértelmezett</translation>
     </message>
     <message>
         <source>%1 - QupZilla</source>
@@ -2993,7 +2973,7 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Betöltés...</translation>
     </message>
     <message>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
@@ -3030,11 +3010,11 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
         <source>Error in fetching feed</source>
@@ -3306,7 +3286,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;nincs beállítva a tanúsítványban&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
@@ -3366,7 +3346,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Név:</translation>
     </message>
     <message>
         <source>Path:</source>
@@ -3452,7 +3432,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Másolás</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -3806,7 +3786,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Failed loading page</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nem sikerült betölteni az oldalt</translation>
     </message>
     <message>
         <source>QupZilla can&apos;t load page from %1.</source>
@@ -3830,7 +3810,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ne jelenjenek meg további párbeszédablakok ezen az oldalon</translation>
     </message>
     <message>
         <source>Choose file...</source>

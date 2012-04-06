@@ -1276,10 +1276,6 @@
 <context>
     <name>HistoryModel</name>
     <message>
-        <source>Failed loading page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No Named Page</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1879,10 +1875,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Allow storing web icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Allow saving history</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2409,14 +2401,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Toolbars</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2570,10 +2554,6 @@
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

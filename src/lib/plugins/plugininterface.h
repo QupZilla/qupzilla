@@ -37,7 +37,7 @@ struct PluginSpec {
         hasSettings = false;
     }
 
-    bool operator==(const PluginSpec &other) {
+    bool operator==(const PluginSpec &other) const {
         return (this->name == other.name &&
                 this->info == other.info &&
                 this->description == other.description &&

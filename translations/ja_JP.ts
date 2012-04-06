@@ -28,11 +28,6 @@
         <translation>&lt;b&gt;WebKitのバージョン情報 %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translatorcomment>そのまま</translatorcomment>
-        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</translation>
-    </message>
-    <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;このソフトウェアは以下の日時でビルドされました: %1 &lt;/small&gt;&lt;/p&gt;</translation>
     </message>
@@ -869,18 +864,6 @@
     </message>
 </context>
 <context>
-    <name>CloseDialog</name>
-    <message>
-        <source>There are still open tabs</source>
-        <translatorcomment>保留</translatorcomment>
-        <translation type="obsolete">まだ開いているタブがあります</translation>
-    </message>
-    <message>
-        <source>Don&apos;t ask again</source>
-        <translation type="obsolete">次回からは表示しない</translation>
-    </message>
-</context>
-<context>
     <name>CookieManager</name>
     <message>
         <source>Cookies</source>
@@ -1318,10 +1301,6 @@
 <context>
     <name>HistoryModel</name>
     <message>
-        <source>Failed loading page</source>
-        <translation>ページの読み込みに失敗しました</translation>
-    </message>
-    <message>
         <source>No Named Page</source>
         <translation>無題</translation>
     </message>
@@ -1447,17 +1426,6 @@
     </message>
 </context>
 <context>
-    <name>MainApplication</name>
-    <message>
-        <source>Last session crashed</source>
-        <translation type="obsolete">前回のセッションがクラッシュしました</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="obsolete">&lt;b&gt;QupZillaがクラッシュしてしまいました(/_;)&lt;/b&gt;&gt;&lt;br/&gt;前回のQupZillaのセッションは予期せず終了されました。申し訳ありません、前回のセッションを復元しますか?</translation>
-    </message>
-</context>
-<context>
     <name>NavigationBar</name>
     <message>
         <source>No Named Page</source>
@@ -1562,10 +1530,6 @@
         <source>Save Page Screen...</source>
         <translation>ページのスクリーンショットを保存...</translation>
     </message>
-    <message>
-        <source>screen.png</source>
-        <translation type="obsolete">スクリーンショット.png</translation>
-    </message>
 </context>
 <context>
     <name>PluginsList</name>
@@ -1622,10 +1586,6 @@
     <message>
         <source>Error!</source>
         <translation>エラーが発生しました!</translation>
-    </message>
-    <message>
-        <source>Cannot load plugin!</source>
-        <translation type="obsolete">プラグインが読み込めません!</translation>
     </message>
     <message>
         <source>Cannot load extension!</source>
@@ -1686,11 +1646,6 @@
     <message>
         <source>Notifications</source>
         <translation>通知</translation>
-    </message>
-    <message>
-        <source>Plugins</source>
-        <translatorcomment>拡張機能の方がいいかプラグインの方がいいか。要再考</translatorcomment>
-        <translation type="obsolete">拡張機能</translation>
     </message>
     <message>
         <source>Other</source>
@@ -1890,10 +1845,6 @@
         <translation>Web設定</translation>
     </message>
     <message>
-        <source>Allow Plugins (Flash plugin)</source>
-        <translation type="obsolete">プラグインを有効にする</translation>
-    </message>
-    <message>
         <source>Allow JavaScript</source>
         <translation>Javascriptを有効にする</translation>
     </message>
@@ -1965,10 +1916,6 @@
     <message>
         <source>50 MB</source>
         <translation>50 MB</translation>
-    </message>
-    <message>
-        <source>Allow storing web icons</source>
-        <translation>アイコンの保存を有効にする</translation>
     </message>
     <message>
         <source>Allow saving history</source>
@@ -2508,14 +2455,6 @@
         <translation>文字コードエンコーディング(&amp;E)</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation>ブックマーク</translation>
-    </message>
-    <message>
-        <source>History</source>
-        <translation>履歴</translation>
-    </message>
-    <message>
         <source>Toolbars</source>
         <translation>ツールバー</translation>
     </message>
@@ -2675,11 +2614,6 @@
         <translation>その他</translation>
     </message>
     <message>
-        <source>Default</source>
-        <translatorcomment>保留</translatorcomment>
-        <translation>既定</translation>
-    </message>
-    <message>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -2716,11 +2650,6 @@
     <message>
         <source>Start Private Browsing</source>
         <translation>プライベートブラウジングを開始する</translation>
-    </message>
-    <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translatorcomment>意訳。保留。</translatorcomment>
-        <translation type="obsolete">%1個のタブが開いています。セッションは保存されませんがQupZillaを終了しますか?</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
@@ -2778,10 +2707,6 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>Report Issue</source>
         <translation>問題を報告する</translation>
-    </message>
-    <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="obsolete">QupZillaを使用中に問題が発生した場合はまずプラグインを無効にしてみてください。&lt;br/&gt;それでも問題が解決されない場合以下のフォームに書き込んでください:</translation>
     </message>
     <message>
         <source>Your E-mail</source>
@@ -2943,11 +2868,6 @@ Are you sure to quit QupZilla?</source>
         <translation>設定情報</translation>
     </message>
     <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, plugins, etc, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translatorcomment>意訳</translatorcomment>
-        <translation type="obsolete">このページはQupZillaの現在の設定について表示しています。これらの情報はトラブルシューティングに非常に有用ですので、バグレポート送信の際にはこれらの情報を一緒に送信してください。</translation>
-    </message>
-    <message>
         <source>Browser Identification</source>
         <translatorcomment>意訳</translatorcomment>
         <translation>User Agent</translation>
@@ -2969,10 +2889,6 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>Value</source>
         <translation>値</translation>
-    </message>
-    <message>
-        <source>Plugins</source>
-        <translation type="obsolete">プラグイン</translation>
     </message>
     <message>
         <source>Name</source>
@@ -3032,10 +2948,6 @@ Are you sure to quit QupZilla?</source>
         <translation>プラットフォーム</translation>
     </message>
     <message>
-        <source>No available plugins.</source>
-        <translation type="obsolete">表示可能なプラグインはありません。</translation>
-    </message>
-    <message>
         <source>Build Configuration</source>
         <translation>ビルド設定</translation>
     </message>
@@ -3066,14 +2978,6 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>Portable build</source>
         <translation>Portable build</translation>
-    </message>
-    <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all extenions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="obsolete">QupZillaを使用中に問題が発生した場合はまずエクステンションを無効にしてみてください。&lt;br/&gt;それでも問題が解決されない場合以下のフォームに書き込んでください:</translation>
-    </message>
-    <message>
-        <source>This page contains information about QupZilla&apos;s current configuration, all relevant information for troubleshooting. Please include these information when sending bug reports.</source>
-        <translation type="obsolete">このページはQupZillaの現在の設定について表示しています。これらの情報はトラブルシューティングに非常に有用ですので、バグレポート送信の際にはこれらの情報を一緒に送信してください。</translation>
     </message>
     <message>
         <source>Extensions</source>
@@ -3611,10 +3515,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>貼り付け</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation type="obsolete">削除</translation>
-    </message>
-    <message>
         <source>Select All</source>
         <translation></translation>
     </message>
@@ -4002,11 +3902,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>このページでこれ以上ダイアログを表示させない</translation>
-    </message>
-    <message>
-        <source>JavaScript alert - %1</source>
-        <translatorcomment>javascript alertで出てくる奴→警告、要再考。</translatorcomment>
-        <translation type="obsolete"> 警告- %1</translation>
     </message>
     <message>
         <source>Choose file...</source>

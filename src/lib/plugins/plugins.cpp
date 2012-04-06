@@ -184,7 +184,9 @@ void Plugins::loadAvailablePlugins()
 
             loader->unload();
 
-            m_availablePlugins.append(plugin);
+            if (!alreadySpecInAvailable(plugin.pluginSpec)) {
+                m_availablePlugins.append(plugin);
+            }
         }
     }
 }
@@ -220,4 +222,15 @@ void Plugins::refreshLoadedPlugins()
             m_loadedPlugins.append(plugin.instance);
         }
     }
+}
+
+bool Plugins::alreadySpecInAvailable(const PluginSpec &spec)
+{
+    foreach (const Plugin & plugin, m_availablePlugins) {
+        if (plugin.pluginSpec == spec) {
+            return true;
+        }
+    }
+
+    return false;
 }
