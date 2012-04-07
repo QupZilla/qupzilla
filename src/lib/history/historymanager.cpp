@@ -306,9 +306,9 @@ void HistoryManager::slotRefreshTable()
         item->setText(1, url.toEncoded());
         item->setToolTip(0, title);
         item->setToolTip(1, url.toEncoded());
-
         item->setData(0, Qt::UserRole + 10, id);
         item->setIcon(0, _iconForUrl(url));
+
         ui->historyTree->addTopLevelItem(item);
 
         ++counter;

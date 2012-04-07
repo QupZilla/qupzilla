@@ -130,8 +130,8 @@ void TabWidget::loadSettings()
     m_dontQuitWithOneTab = settings.value("dontQuitWithOneTab", false).toBool();
     m_closedInsteadOpened = settings.value("closedInsteadOpenedTabs", false).toBool();
     m_newTabAfterActive = settings.value("newTabAfterActive", true).toBool();
-
     settings.endGroup();
+
     settings.beginGroup("Web-URL-Settings");
     m_urlOnNewTab = settings.value("newTabUrl", "qupzilla:speeddial").toUrl();
     settings.endGroup();
@@ -309,7 +309,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         p_QupZilla->locationBar()->setFocus();
     }
 
-    if (openFlags & Qz::NT_SelectedTab) {
+    if (openFlags & Qz::NT_SelectedTab || openFlags & Qz::NT_NotSelectedTab) {
         m_isClosingToLastTabIndex = true;
     }
 
@@ -329,7 +329,7 @@ void TabWidget::closeTab(int index)
     }
 
     TabbedWebView* webView = webTab->view();
-    WebPage* webPage = webView->webPage();
+    WebPage* webPage = webView->page();
 
     if (count() == 1) {
         if (m_dontQuitWithOneTab) {
@@ -376,7 +376,7 @@ void TabWidget::currentTabChanged(int index)
         return;
     }
 
-    m_isClosingToLastTabIndex = false;
+    m_isClosingToLastTabIndex = m_lastBackgroundTabIndex == index;
     m_lastBackgroundTabIndex = -1;
 
     WebTab* webTab = weTab(index);
@@ -647,7 +647,7 @@ void TabWidget::savePinnedTabs()
     stream << tabs;
     stream << tabsHistory;
 
-    QFile file(mApp->getActiveProfilPath() + "pinnedtabs.dat");
+    QFile file(mApp->currentProfilePath() + "pinnedtabs.dat");
     file.open(QIODevice::WriteOnly);
     file.write(data);
     file.close();
@@ -655,7 +655,7 @@ void TabWidget::savePinnedTabs()
 
 void TabWidget::restorePinnedTabs()
 {
-    QFile file(mApp->getActiveProfilPath() + "pinnedtabs.dat");
+    QFile file(mApp->currentProfilePath() + "pinnedtabs.dat");
     file.open(QIODevice::ReadOnly);
     QByteArray sd = file.readAll();
     file.close();

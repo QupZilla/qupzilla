@@ -242,7 +242,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
 
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
     WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-    if (!webPage) {
+    if (!WebPage::isPointerSafeToUse(webPage)) {
         return;
     }
     WebView* webView = qobject_cast<WebView*>(webPage->view());

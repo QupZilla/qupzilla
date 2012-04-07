@@ -35,12 +35,6 @@
 #include <QProcess>
 #include <QMessageBox>
 
-#ifdef Q_WS_WIN
-#define DEFAULT_USE_NATIVE_DIALOG false
-#else
-#define DEFAULT_USE_NATIVE_DIALOG true
-#endif
-
 DownloadManager::DownloadManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::DownloadManager)
@@ -76,7 +70,7 @@ void DownloadManager::loadSettings()
     m_downloadPath = settings.value("defaultDownloadPath", "").toString();
     m_lastDownloadPath = settings.value("lastDownloadPath", QDir::homePath().append("/")).toString();
     m_closeOnFinish = settings.value("CloseManagerOnFinish", false).toBool();
-    m_useNativeDialog = settings.value("useNativeDialog", DEFAULT_USE_NATIVE_DIALOG).toBool();
+    m_useNativeDialog = settings.value("useNativeDialog", DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG).toBool();
 
     m_useExternalManager = settings.value("UseExternalManager", false).toBool();
     m_externalExecutable = settings.value("ExternalManagerExecutable", "").toString();

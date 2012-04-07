@@ -17,7 +17,6 @@
 * ============================================================ */
 #include "webview.h"
 #include "webpage.h"
-#include "webhistorywrapper.h"
 #include "mainapplication.h"
 #include "globalfunctions.h"
 #include "iconprovider.h"
@@ -49,6 +48,7 @@ WebView::WebView(QWidget* parent)
     , m_isLoading(false)
     , m_progress(0)
     , m_clickedFrame(0)
+    , m_page(0)
     , m_actionReload(0)
     , m_actionStop(0)
     , m_actionsInitialized(false)
@@ -98,7 +98,7 @@ QString WebView::title() const
 
 QUrl WebView::url() const
 {
-    QUrl returnUrl = page()->mainFrame()->baseUrl();
+    QUrl returnUrl = page()->url();
 
     if (returnUrl.isEmpty()) {
         returnUrl = m_aboutToLoadUrl;
@@ -107,14 +107,21 @@ QUrl WebView::url() const
     return returnUrl;
 }
 
+WebPage* WebView::page() const
+{
+    return m_page;
+}
+
 void WebView::setPage(QWebPage* page)
 {
     QWebView::setPage(page);
+    m_page = qobject_cast<WebPage*>(page);
 
     setZoom(WebViewSettings::defaultZoom);
-    connect(page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
+    connect(m_page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
+    connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 
-    mApp->plugins()->emitWebPageCreated(qobject_cast<WebPage*>(page));
+    mApp->plugins()->emitWebPageCreated(m_page);
 }
 
 void WebView::load(const QUrl &url)
@@ -146,6 +153,11 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
     emit urlChanged(searchUrl);
     m_aboutToLoadUrl = searchUrl;
 
+}
+
+bool WebView::loadingError() const
+{
+    return page()->loadingError();
 }
 
 bool WebView::isLoading() const
@@ -263,8 +275,8 @@ void WebView::back()
 {
     QWebHistory* history = page()->history();
 
-    if (WebHistoryWrapper::canGoBack(history)) {
-        WebHistoryWrapper::goBack(history);
+    if (history->canGoBack()) {
+        history->back();
 
         emit urlChanged(url());
         emit iconChanged();
@@ -275,8 +287,8 @@ void WebView::forward()
 {
     QWebHistory* history = page()->history();
 
-    if (WebHistoryWrapper::canGoForward(history)) {
-        WebHistoryWrapper::goForward(history);
+    if (history->canGoForward()) {
+        history->forward();
 
         emit urlChanged(url());
         emit iconChanged();
@@ -318,7 +330,7 @@ void WebView::slotLoadFinished()
         mApp->history()->addHistoryEntry(this);
     }
 
-    mApp->autoFill()->completePage(qobject_cast<WebPage*>(page()));
+    mApp->autoFill()->completePage(page());
 
     m_lastUrl = url();
 }
@@ -336,8 +348,12 @@ void WebView::emitChangedUrl()
 
 void WebView::slotIconChanged()
 {
-    m_siteIcon = icon();
-    m_siteIconUrl = url();
+    if (!loadingError()) {
+        m_siteIcon = icon();
+        m_siteIconUrl = url();
+
+        mApp->iconProvider()->saveIcon(this);
+    }
 }
 
 void WebView::openUrlInNewWindow()
@@ -377,7 +393,7 @@ void WebView::downloadPage()
     }
 
     DownloadManager* dManager = mApp->downManager();
-    dManager->download(request, qobject_cast<WebPage*>(page()), false, suggestedFileName);
+    dManager->download(request, page(), false, suggestedFileName);
 }
 
 void WebView::downloadUrlToDisk()
@@ -386,7 +402,7 @@ void WebView::downloadUrlToDisk()
         QNetworkRequest request(action->data().toUrl());
 
         DownloadManager* dManager = mApp->downManager();
-        dManager->download(request, qobject_cast<WebPage*>(page()), false);
+        dManager->download(request, page(), false);
     }
 }
 
@@ -683,11 +699,11 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
 
     QAction* action = menu->addAction(tr("&Back"), this, SLOT(back()));
     action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
-    action->setEnabled(WebHistoryWrapper::canGoBack(history()));
+    action->setEnabled(history()->canGoBack());
 
     action = menu->addAction(tr("&Forward"), this, SLOT(forward()));
     action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowForward));
-    action->setEnabled(WebHistoryWrapper::canGoForward(history()));
+    action->setEnabled(history()->canGoForward());
 
     menu->addAction(m_actionReload);
     menu->addAction(m_actionStop);
@@ -787,7 +803,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
     menu->addSeparator();
 
-    QString langCode = mApp->getActiveLanguage().left(2);
+    QString langCode = mApp->currentLanguage().left(2);
     QUrl googleTranslateUrl = QUrl(QString("http://translate.google.com/#auto|%1|%2").arg(langCode, selectedText));
     Action* gtwact = new Action(QIcon(":icons/menu/translate.png"), tr("Google Translate"));
     gtwact->setData(googleTranslateUrl);

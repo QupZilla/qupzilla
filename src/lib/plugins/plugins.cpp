@@ -25,12 +25,6 @@
 #include <QPluginLoader>
 #include <QDir>
 
-#ifdef PORTABLE_BUILD
-#define DEFAULT_ENABLE_PLUGINS false
-#else
-#define DEFAULT_ENABLE_PLUGINS true
-#endif
-
 Plugins::Plugins(QObject* parent)
     : QObject(parent)
     , m_pluginsLoaded(false)
@@ -75,6 +69,7 @@ void Plugins::unloadPlugin(Plugins::Plugin* plugin)
 
     plugin->instance->unload();
     plugin->pluginLoader->unload();
+    emit pluginUnloaded(plugin->instance);
 
     m_availablePlugins.removeOne(*plugin);
     plugin->instance = 0;
@@ -118,7 +113,7 @@ void Plugins::loadPlugins()
         return;
     }
 
-    QDir settingsDir(mApp->getActiveProfilPath() + "extensions/");
+    QDir settingsDir(mApp->currentProfilePath() + "extensions/");
     if (!settingsDir.exists()) {
         settingsDir.mkdir(settingsDir.absolutePath());
     }
@@ -134,13 +129,13 @@ void Plugins::loadPlugins()
         plugin.fullPath = fullPath;
         plugin.pluginLoader = loader;
         plugin.instance = initPlugin(iPlugin, loader);
-        plugin.pluginSpec = iPlugin->pluginSpec();
 
         if (plugin.isLoaded()) {
-            m_loadedPlugins.append(plugin.instance);
-        }
+            plugin.pluginSpec = iPlugin->pluginSpec();
 
-        m_availablePlugins.append(plugin);
+            m_loadedPlugins.append(plugin.instance);
+            m_availablePlugins.append(plugin);
+        }
     }
 
     refreshLoadedPlugins();
@@ -159,7 +154,11 @@ void Plugins::loadAvailablePlugins()
     QStringList dirs;
     dirs << mApp->DATADIR + "plugins/"
 #ifdef Q_WS_X11
+#ifdef USE_LIBPATH
+         << USE_LIBPATH "qupzilla/"
+#else
          << "/usr/lib/qupzilla/"
+#endif
 #endif
          << mApp->PROFILEDIR + "plugins/";
 
@@ -185,7 +184,9 @@ void Plugins::loadAvailablePlugins()
 
             loader->unload();
 
-            m_availablePlugins.append(plugin);
+            if (!alreadySpecInAvailable(plugin.pluginSpec)) {
+                m_availablePlugins.append(plugin);
+            }
         }
     }
 }
@@ -196,15 +197,19 @@ PluginInterface* Plugins::initPlugin(PluginInterface* interface, QPluginLoader* 
         return 0;
     }
 
-    interface->init(mApp->getActiveProfilPath() + "extensions/");
+    interface->init(mApp->currentProfilePath() + "extensions/");
 
     if (!interface->testPlugin()) {
         interface->unload();
         loader->unload();
+
+        emit pluginUnloaded(interface);
+
         return 0;
     }
 
-    qApp->installTranslator(interface->getTranslator(mApp->getActiveLanguage()));
+    qApp->installTranslator(interface->getTranslator(mApp->currentLanguage()));
+
     return interface;
 }
 
@@ -217,4 +222,15 @@ void Plugins::refreshLoadedPlugins()
             m_loadedPlugins.append(plugin.instance);
         }
     }
+}
+
+bool Plugins::alreadySpecInAvailable(const PluginSpec &spec)
+{
+    foreach (const Plugin & plugin, m_availablePlugins) {
+        if (plugin.pluginSpec == spec) {
+            return true;
+        }
+    }
+
+    return false;
 }

@@ -148,7 +148,7 @@ void BrowsingLibrary::showRSS(QupZilla* mainClass)
 void BrowsingLibrary::optimizeDatabase()
 {
     mApp->setOverrideCursor(Qt::WaitCursor);
-    QString profilePath = mApp->getActiveProfilPath();
+    QString profilePath = mApp->currentProfilePath();
     QString sizeBefore = DownloadItem::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());
     mApp->history()->optimizeHistory();
     QString sizeAfter = DownloadItem::fileSizeToString(QFileInfo(profilePath + "browsedata.db").size());

@@ -23,6 +23,10 @@ QSettings* Settings::m_settings = 0;
 
 Settings::Settings()
 {
+    if (!m_settings->group().isEmpty()) {
+        qDebug("Settings: Creating object with opened group!");
+        m_settings->endGroup();
+    }
 }
 
 void Settings::createSettings(const QString &fileName)
@@ -63,6 +67,7 @@ QSettings* Settings::globalSettings()
 Settings::~Settings()
 {
     if (!m_settings->group().isEmpty()) {
+        qDebug("Settings: Deleting object with opened group!");
         m_settings->endGroup();
     }
 }

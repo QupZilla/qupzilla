@@ -66,9 +66,12 @@ public:
     void scheduleAdjustPage();
     bool isRunningLoop();
 
+    bool loadingError() const;
+
     static void setUserAgent(const QString &agent);
     QString userAgentForUrl(const QUrl &url) const;
 
+    static bool isPointerSafeToUse(WebPage* page);
     void disconnectObjects();
 
 signals:
@@ -108,6 +111,7 @@ private:
     static QString m_userAgent;
     static QString m_fakeUserAgent;
     static QUrl m_lastUnsupportedUrl;
+    static QList<WebPage*> m_livingPages;
 
     QupZilla* p_QupZilla;
     NetworkManagerProxy* m_networkProxy;
@@ -124,8 +128,6 @@ private:
     bool m_blockAlerts;
     bool m_secureStatus;
     bool m_adjustingScheduled;
-
-    bool m_isClosing;
 };
 
 #endif // WEBPAGE_H

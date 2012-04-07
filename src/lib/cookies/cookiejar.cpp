@@ -53,7 +53,7 @@ CookieJar::CookieJar(QupZilla* mainClass, QObject* parent)
     : QNetworkCookieJar(parent)
     , p_QupZilla(mainClass)
 {
-    m_activeProfil = mApp->getActiveProfilPath();
+    m_activeProfil = mApp->currentProfilePath();
     loadSettings();
 }
 

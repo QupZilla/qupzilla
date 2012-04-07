@@ -27,12 +27,6 @@
 #include <QMessageBox>
 #include <QTimer>
 
-#ifdef PORTABLE_BUILD
-#define DEFAULT_ENABLE_PLUGINS false
-#else
-#define DEFAULT_ENABLE_PLUGINS true
-#endif
-
 PluginsList::PluginsList(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::PluginsList)

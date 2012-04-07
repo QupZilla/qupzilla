@@ -40,11 +40,16 @@ public:
         QPluginLoader* pluginLoader;
         PluginInterface* instance;
 
+        Plugin() {
+            pluginLoader = 0;
+            instance = 0;
+        }
+
         bool isLoaded() const {
             return instance;
         }
 
-        bool operator==(const Plugin &other) {
+        bool operator==(const Plugin &other) const {
             return (this->fileName == other.fileName &&
                     this->fullPath == other.fullPath &&
                     this->pluginSpec == other.pluginSpec &&
@@ -78,7 +83,11 @@ public slots:
 protected:
     QList<PluginInterface*> m_loadedPlugins;
 
+signals:
+    void pluginUnloaded(PluginInterface* plugin);
+
 private:
+    bool alreadySpecInAvailable(const PluginSpec &spec);
     PluginInterface* initPlugin(PluginInterface* interface, QPluginLoader* loader);
 
     void refreshLoadedPlugins();

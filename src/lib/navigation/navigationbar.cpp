@@ -26,6 +26,7 @@
 #include "enhancedmenu.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
+#include "webpage.h"
 
 #include <QSplitter>
 #include <QHBoxLayout>
@@ -304,26 +305,25 @@ void NavigationBar::refreshHistory()
     }
 
     QWebHistory* history = p_QupZilla->weView()->page()->history();
-    m_buttonBack->setEnabled(WebHistoryWrapper::canGoBack(history));
-    m_buttonNext->setEnabled(WebHistoryWrapper::canGoForward(history));
+    m_buttonBack->setEnabled(history->canGoBack());
+    m_buttonNext->setEnabled(history->canGoForward());
 }
 
 void NavigationBar::goBack()
 {
     QWebHistory* history = p_QupZilla->weView()->page()->history();
-    WebHistoryWrapper::goBack(history);
+    history->back();
 }
 
 void NavigationBar::goBackInNewTab()
 {
     QWebHistory* history = p_QupZilla->weView()->page()->history();
-    QList<QWebHistoryItem> backItems = WebHistoryWrapper::backItems(1, history);
 
-    if (backItems.isEmpty()) {
+    if (!history->canGoBack()) {
         return;
     }
 
-    int itemIndex = WebHistoryWrapper::indexOfItem(history->items(), backItems.at(0));
+    int itemIndex = WebHistoryWrapper::indexOfItem(history->items(), history->backItem());
     if (itemIndex == -1) {
         return;
     }
@@ -334,19 +334,18 @@ void NavigationBar::goBackInNewTab()
 void NavigationBar::goForward()
 {
     QWebHistory* history = p_QupZilla->weView()->page()->history();
-    WebHistoryWrapper::goForward(history);
+    history->forward();
 }
 
 void NavigationBar::goForwardInNewTab()
 {
     QWebHistory* history = p_QupZilla->weView()->page()->history();
-    QList<QWebHistoryItem> forwardItems = WebHistoryWrapper::forwardItems(1, history);
 
-    if (forwardItems.isEmpty()) {
+    if (!history->canGoForward()) {
         return;
     }
 
-    int itemIndex = WebHistoryWrapper::indexOfItem(history->items(), forwardItems.at(0));
+    int itemIndex = WebHistoryWrapper::indexOfItem(history->items(), history->forwardItem());
     if (itemIndex == -1) {
         return;
     }

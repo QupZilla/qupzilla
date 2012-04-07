@@ -19,11 +19,13 @@
 #define MOUSEGESTURES_H
 
 #include <QObject>
-#include <QMouseEvent>
 #include <QWeakPointer>
+
+class QMouseEvent;
 
 class WebView;
 class QjtMouseGestureFilter;
+
 class MouseGestures : public QObject
 {
     Q_OBJECT

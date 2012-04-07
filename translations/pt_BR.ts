@@ -28,10 +28,6 @@
         <translation>Autores</translation>
     </message>
     <message>
-        <source>&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;All rights reserved.&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;p&gt;&amp;copy; %1 %2&lt;br/&gt;Todos os direitos reservados.&lt;br/&gt;</translation>
-    </message>
-    <message>
         <source>&lt;small&gt;Build time: %1 &lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;small&gt;Compilado em: %1 &lt;/small&gt;&lt;/p&gt;</translation>
     </message>
@@ -603,10 +599,6 @@
         <translation>Editar favorito: </translation>
     </message>
     <message>
-        <source>Hide Most &amp;Visited</source>
-        <translation type="obsolete">Ocultar mais &amp;visitados</translation>
-    </message>
-    <message>
         <source>Move right</source>
         <translation>Mover para a direita</translation>
     </message>
@@ -674,36 +666,12 @@
         <translation>Nome:</translation>
     </message>
     <message>
-        <source>Remove Bookmark</source>
-        <translation type="obsolete">Remover Favorito</translation>
-    </message>
-    <message>
-        <source>Add into Speed Dial</source>
-        <translation type="obsolete">Adicionar ao acesso rápido</translation>
-    </message>
-    <message>
-        <source>Add into Bookmarks</source>
-        <translation type="obsolete">Adicionar aos favoritos</translation>
-    </message>
-    <message>
         <source>Remove from Speed Dial</source>
         <translation>Remover do acesso rápido</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Edit Bookmark&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Editar favoritos&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Edit This Bookmark</source>
-        <translation type="obsolete">Editar este favorito</translation>
-    </message>
-    <message>
         <source>Folder:</source>
         <translation>Pasta:</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Add Bookmark&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Adicionar favorito&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
@@ -880,17 +848,6 @@
     <message>
         <source>Delete object</source>
         <translation>Apagar objeto</translation>
-    </message>
-</context>
-<context>
-    <name>CloseDialog</name>
-    <message>
-        <source>There are still open tabs</source>
-        <translation type="obsolete">Você ainda possui guias abertas</translation>
-    </message>
-    <message>
-        <source>Don&apos;t ask again</source>
-        <translation type="obsolete">Não perguntar novamente</translation>
     </message>
 </context>
 <context>
@@ -1372,10 +1329,6 @@ não foi encontrado!</translation>
         <source>No Named Page</source>
         <translation>Página sem nome</translation>
     </message>
-    <message>
-        <source>Failed loading page</source>
-        <translation>Falha ao carregar a página</translation>
-    </message>
 </context>
 <context>
     <name>HistorySideBar</name>
@@ -1430,10 +1383,6 @@ não foi encontrado!</translation>
         <translation>Adicionar RSS desta página...</translation>
     </message>
     <message>
-        <source>.co.uk</source>
-        <translation type="obsolete">.com.br</translation>
-    </message>
-    <message>
         <source>Enter URL address or search on %1</source>
         <translation>Digite aqui o URL, ou então o que você deseja pesquisar no %1</translation>
     </message>
@@ -1449,17 +1398,6 @@ não foi encontrado!</translation>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.com.br</translation>
-    </message>
-</context>
-<context>
-    <name>MainApplication</name>
-    <message>
-        <source>Last session crashed</source>
-        <translation type="obsolete">O navegador foi fechado de forma incorreta</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;QupZilla crashed :-(&lt;/b&gt;&lt;br/&gt;Oops, the last session of QupZilla was interrupted unexpectedly. We apologize for this. Would you like to try restoring the last saved state?</source>
-        <translation type="obsolete">&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
     </message>
 </context>
 <context>
@@ -1566,10 +1504,6 @@ não foi encontrado!</translation>
         <source>Save Page Screen...</source>
         <translation>Salvar Page Screen...</translation>
     </message>
-    <message>
-        <source>screen.png</source>
-        <translation type="obsolete">screen.png</translation>
-    </message>
 </context>
 <context>
     <name>PluginsList</name>
@@ -1592,10 +1526,6 @@ não foi encontrado!</translation>
     <message>
         <source>Allow Application Extensions to be loaded</source>
         <translation>Permitir carregar extensões</translation>
-    </message>
-    <message>
-        <source>Load Plugins</source>
-        <translation type="obsolete">Carregar plugins</translation>
     </message>
     <message>
         <source>Application Extensions</source>
@@ -1785,10 +1715,6 @@ não foi encontrado!</translation>
         <translation>Usar gerenciador de downloads externos</translation>
     </message>
     <message>
-        <source>Allow storing web icons</source>
-        <translation>Permitir armazenar icons da web</translation>
-    </message>
-    <message>
         <source>Allow saving passwords from sites</source>
         <translation>Permitir salvar senha das páginas</translation>
     </message>
@@ -1931,10 +1857,6 @@ não foi encontrado!</translation>
     <message>
         <source>lines on page</source>
         <translation>linhas na página</translation>
-    </message>
-    <message>
-        <source>Plugins</source>
-        <translation type="obsolete">Plugins</translation>
     </message>
     <message>
         <source>Minimum Logical Font Size</source>
@@ -2249,10 +2171,6 @@ não foi encontrado!</translation>
         <translation>Mostrar barra de favoritos ao iniciar</translation>
     </message>
     <message>
-        <source>Allow Plugins (Flash plugin)</source>
-        <translation type="obsolete">Permitir plugins (Flash)</translation>
-    </message>
-    <message>
         <source>Select all text by clicking in address bar</source>
         <translation>Selecionar todo o texto ao clicar na barra de endereço</translation>
     </message>
@@ -2502,10 +2420,6 @@ não foi encontrado!</translation>
         <translation>&amp;Favoritos</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation>Favoritos</translation>
-    </message>
-    <message>
         <source>Webpages are not added to the history.</source>
         <translation>As páginas web não são adicionadas ao histórico.</translation>
     </message>
@@ -2594,10 +2508,6 @@ não foi encontrado!</translation>
         <translation>Reportar pro&amp;blema</translation>
     </message>
     <message>
-        <source>Default</source>
-        <translation>Padrão</translation>
-    </message>
-    <message>
         <source>&amp;Navigation Toolbar</source>
         <translation>Barra de &amp;navegação</translation>
     </message>
@@ -2678,16 +2588,8 @@ não foi encontrado!</translation>
         <translation>Iniciar navegação privada</translation>
     </message>
     <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. Are you sure to quit QupZilla?</source>
-        <translation type="obsolete">Ainda existem %1 guias abertas e a sessão não será gravada. Tem a certeza que deseja sair?</translation>
-    </message>
-    <message>
         <source>Bookmark &amp;All Tabs</source>
         <translation>M&amp;arcar todos os favoritos</translation>
-    </message>
-    <message>
-        <source>History</source>
-        <translation>Histórico</translation>
     </message>
     <message>
         <source>Sidebars</source>
@@ -2803,10 +2705,6 @@ Você tem certeza que deseja sair do QupZilla?</translation>
         <translation>Informações da versão</translation>
     </message>
     <message>
-        <source>If you are experiencing problems with QupZilla, please try to disable all plugins first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation type="obsolete">Caso esteja com problemas no QupZilla, tente desativar os plugins. &lt;br/&gt;Se os erros persistirem, preencha este formulário: </translation>
-    </message>
-    <message>
         <source>Report Issue</source>
         <translation>Reportar problema</translation>
     </message>
@@ -2859,10 +2757,6 @@ Você tem certeza que deseja sair do QupZilla?</translation>
         <translation>Traduções</translation>
     </message>
     <message>
-        <source>Plugins</source>
-        <translation type="obsolete">Plugins</translation>
-    </message>
-    <message>
         <source>Profile</source>
         <translation>Perfil</translation>
     </message>
@@ -2881,10 +2775,6 @@ Você tem certeza que deseja sair do QupZilla?</translation>
     <message>
         <source>Start Page</source>
         <translation>Página inicial</translation>
-    </message>
-    <message>
-        <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please use English language only.</source>
-        <translation type="obsolete">O email é opcional.&lt;br/&gt;&lt;b&gt;Observação: &lt;/b&gt;Por favor, escreva em Inglês.</translation>
     </message>
     <message>
         <source>Translators</source>
@@ -3559,10 +3449,6 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
         <translation>Editável alterado</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation type="obsolete">Apagar</translation>
-    </message>
-    <message>
         <source>Error!</source>
         <translation>Erro!</translation>
     </message>
@@ -3788,10 +3674,6 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
         <translation>&lt;b&gt;Nome:&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>License Viewer</source>
-        <translation type="obsolete">Visualizador de licença</translation>
-    </message>
-    <message>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Descrição:&lt;/b&gt;</translation>
     </message>
@@ -3846,10 +3728,6 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <source>Proxy connection refused</source>
         <translation>Conexão de proxy recusada</translation>
-    </message>
-    <message>
-        <source>JavaScript alert - %1</source>
-        <translation type="obsolete">Alerta JavaScript - %1</translation>
     </message>
     <message>
         <source>Confirm form resubmission</source>

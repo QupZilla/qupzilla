@@ -311,7 +311,7 @@ CertificateInfoWidget::CertificateInfoWidget(const QSslCertificate &cert, QWidge
     ui->issuedByO->setText(showCertInfo(cert.issuerInfo(QSslCertificate::Organization)));
     ui->issuedByOU->setText(showCertInfo(cert.issuerInfo(QSslCertificate::OrganizationalUnitName)));
     //Validity
-    QLocale locale = QLocale(mApp->getActiveLanguage().left(5));
+    QLocale locale = QLocale(mApp->currentLanguage());
     ui->validityIssuedOn->setText(locale.toString(cert.effectiveDate(), "dddd d. MMMM yyyy"));
     ui->validityExpiresOn->setText(locale.toString(cert.expiryDate(), "dddd d. MMMM yyyy"));
 }

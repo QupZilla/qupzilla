@@ -28,8 +28,6 @@ class QWebHistoryItem;
 class WebHistoryWrapper
 {
 public:
-    explicit WebHistoryWrapper();
-
     static QList<QWebHistoryItem> forwardItems(int maxItems, QWebHistory* history);
     static QList<QWebHistoryItem> backItems(int maxItems, QWebHistory* history);
 

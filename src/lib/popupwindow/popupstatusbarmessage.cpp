@@ -18,6 +18,7 @@
 #include "popupstatusbarmessage.h"
 #include "popupwindow.h"
 #include "popupwebview.h"
+#include "webpage.h"
 #include "statusbarmessage.h"
 #include "mainapplication.h"
 

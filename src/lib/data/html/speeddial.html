@@ -3,7 +3,7 @@
 <title>%SITE-TITLE%</title>
 <link rel="icon" href="%FAVICON%" type="image/x-icon" />
 <style type="text/css" media="screen">
-body {background: #eeeeee url(%IMG_BACKGROUND%) no-repeat center center;background-size: %B_SIZE%;font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color: #525c66;}
+body {background: #eeeeee url('%IMG_BACKGROUND%') no-repeat center center;background-size: %B_SIZE%;font: 13px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;color: #525c66;}
 body * {-webkit-user-select: none;font-size: 100%;line-height: 1.6;margin: 0px;}
 .add {position: absolute;right:10px;top:10px;width: 24px;height: 24px;background: url(%IMG_PLUS%); cursor: pointer;}
 
@@ -35,7 +35,7 @@ span.reload:hover {border-color: grey; border-radius: 4px;}
 #settingsBox {margin-left:auto;margin-right: auto;margin-top: 100px;width: 350px;height: auto;padding:0 8px;-webkit-border-image: url(%BOX-BORDER%) 25;-webkit-box-shadow: 0px 5px 80px #505050;border-radius:10px;border-width: 20px;}
 #settingsBox .content {margin-left:auto;margin-right:auto;padding-bottom:2px;border-bottom: 1px solid #888;}
 #settingsBox .thumbhold {margin-left:auto;margin-right:auto;margin-bottom: 5px;padding: 1px;border-radius: 10px;text-align:center;width:180px;height:100px;background: #AAA;}
-#settingsBox .thumbhold p {padding: 0;background: #eeeeee url(%IMG_BACKGROUND%) no-repeat center center;background-size: %B_SIZE%;width: 178px;height:98px;border-radius: 10px;position: relative;left: 1px;top: 1px;line-height:98px;cursor:default;}
+#settingsBox .thumbhold p {padding: 0;background: #eeeeee url('%IMG_BACKGROUND%') no-repeat center center;background-size: %B_SIZE%;width: 178px;height:98px;border-radius: 10px;position: relative;left: 1px;top: 1px;line-height:98px;cursor:default;}
 #settingsBox p label {margin: 2px;padding: 1px;text-align: center;}
 #settingsBox p select {margin: 2px;padding: 1px;text-align: center;width: auto;}
 #settingsBox p select option {text-align: center;}
@@ -107,7 +107,7 @@ function onEditClick(box) {
         '<input type="text" id="formTitle" value="' + boxTitle + '"></td></tr>' +
         '<tr><td></td><td><input type="checkbox" id="fetchTitle" onclick="onFetchTitleClick(this)">' +
         '<label for="fetchTitle">  ' + TITLE_FETCHTITLE + ' </label></td></tr>' +
-        '</table><p class="buttonbox"><input type="button" value=" %CLOSE% " onClick="hideEditBox();">' + 
+        '</table><p class="buttonbox"><input type="button" value=" %CLOSE% " onClick="hideEditBox();">' +
         '<input type="button" value="   ' + EDIT + '   " onClick="boxEdited()"></p>' +
         '</div></div>');
 
@@ -306,7 +306,7 @@ function alignPage() {
 function bgImageSel() {
     var img = speeddial.getOpenFileName();
     if (img) {
-      document.getElementById('BgImgHold').value = 'file://' + img;
+      document.getElementById('BgImgHold').value = img;
     }
 }
 

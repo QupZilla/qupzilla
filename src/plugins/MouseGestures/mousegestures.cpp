@@ -17,12 +17,16 @@
 * ============================================================ */
 #include "mousegestures.h"
 #include "webview.h"
+#include "webpage.h"
 #include "mainapplication.h"
 #include "qupzilla.h"
 #include "mousegesturessettingsdialog.h"
 
 #include "QjtMouseGestureFilter.h"
 #include "QjtMouseGesture.h"
+
+#include <QMouseEvent>
+#include <QWebFrame>
 
 MouseGestures::MouseGestures(QObject* parent) :
     QObject(parent)
@@ -63,6 +67,13 @@ MouseGestures::MouseGestures(QObject* parent) :
 bool MouseGestures::mousePress(QObject* obj, QMouseEvent* event)
 {
     m_view = qobject_cast<WebView*>(obj);
+
+    QWebFrame* frame = m_view.data()->page()->mainFrame();
+
+    if (frame->scrollBarGeometry(Qt::Vertical).contains(event->pos()) ||
+            frame->scrollBarGeometry(Qt::Horizontal).contains(event->pos())) {
+        return false;
+    }
 
     m_filter->mouseButtonPressEvent(event);
 

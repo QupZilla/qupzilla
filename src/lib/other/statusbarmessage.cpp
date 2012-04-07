@@ -19,6 +19,7 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
+#include "webpage.h"
 #include "squeezelabelv1.h"
 #include "mainapplication.h"
 

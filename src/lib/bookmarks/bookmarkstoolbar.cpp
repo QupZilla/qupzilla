@@ -41,6 +41,7 @@ BookmarksToolbar::BookmarksToolbar(QupZilla* mainClass, QWidget* parent)
     , p_QupZilla(mainClass)
     , m_bookmarksModel(mApp->bookmarksModel())
     , m_historyModel(mApp->history())
+    , m_toolButtonStyle(Qt::ToolButtonTextBesideIcon)
 {
     setObjectName("bookmarksbar");
     m_layout = new QHBoxLayout();
@@ -606,10 +607,7 @@ void BookmarksToolbar::dragEnterEvent(QDragEnterEvent* e)
 
 void BookmarksToolbar::showOnlyIconsChanged()
 {
-    m_toolButtonStyle = Qt::ToolButtonTextBesideIcon;
-    if (m_bookmarksModel->isShowingOnlyIconsInToolbar()) {
-        m_toolButtonStyle = Qt::ToolButtonIconOnly;
-    }
+    m_toolButtonStyle = m_bookmarksModel->isShowingOnlyIconsInToolbar() ? Qt::ToolButtonIconOnly : Qt::ToolButtonTextBesideIcon;
 
     for (int i = 0; i < m_layout->count(); ++i) {
         ToolButton* button = qobject_cast<ToolButton*>(m_layout->itemAt(i)->widget());

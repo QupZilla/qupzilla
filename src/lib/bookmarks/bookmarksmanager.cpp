@@ -192,6 +192,8 @@ void BookmarksManager::deleteItem()
     if (item->text(1).isEmpty()) { // Delete folder
         QString folder = item->text(0);
         m_bookmarksModel->removeFolder(folder);
+
+        QApplication::restoreOverrideCursor();
         return;
     }
 

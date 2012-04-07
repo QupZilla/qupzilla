@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="el">
+<TS version="2.0" language="cs_CZ" sourcelanguage="en_US">
 <context>
     <name>TestPlugin</name>
     <message>
         <location filename="../testplugin.cpp" line="112"/>
         <source>Close</source>
-        <translation>Κλείσιμο</translation>
+        <translation>დახურვა</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="123"/>
         <source>Example Plugin Settings</source>
-        <translation>Ρυθμίσεις παραδειγματικού προσθέτου</translation>
+        <translation>სამაგალითო მოდულის პარამეტრები</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="149"/>
         <source>My first plugin action</source>
-        <translation>Η ενέργεια του πρώτου μου προσθέτου</translation>
+        <translation>ჩემი მოდულის პირველი მოქმედება</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="164"/>
         <source>Hello</source>
-        <translation>Γεια</translation>
+        <translation>გამარჯობა</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="164"/>
         <source>First plugin action works :-)</source>
-        <translation>Η ενέργεια του πρώτου προσθέτου δουλεύει :-)</translation>
+        <translation>მოდულის პირველი მოქმედება მუშაობს :-)</translation>
     </message>
 </context>
 <context>

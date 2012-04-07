@@ -40,7 +40,6 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     : WebView(webTab)
     , p_QupZilla(mainClass)
     , m_tabWidget(p_QupZilla->tabWidget())
-    , m_page(0)
     , m_webTab(webTab)
     , m_menu(new Menu(this))
     , m_mouseTrack(false)
@@ -68,21 +67,11 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
 
 void TabbedWebView::setWebPage(WebPage* page)
 {
-    if (m_page == page) {
-        return;
-    }
+    page->setWebView(this);
+    page->setParent(this);
+    setPage(page);
 
-    if (m_page) {
-        delete m_page;
-        m_page = 0;
-    }
-
-    m_page = page;
-    m_page->setWebView(this);
-    m_page->setParent(this);
-    setPage(m_page);
-
-    connect(m_page, SIGNAL(linkHovered(QString, QString, QString)), this, SLOT(linkHovered(QString, QString, QString)));
+    connect(page, SIGNAL(linkHovered(QString, QString, QString)), this, SLOT(linkHovered(QString, QString, QString)));
 }
 
 void TabbedWebView::slotIconChanged()
@@ -93,8 +82,6 @@ void TabbedWebView::slotIconChanged()
         return;
     }
 
-    mApp->iconProvider()->saveIcon(this);
-
     showIcon();
 }
 
@@ -102,11 +89,6 @@ void TabbedWebView::inspectElement()
 {
     p_QupZilla->showWebInspector(false);
     triggerPageAction(QWebPage::InspectElement);
-}
-
-WebPage* TabbedWebView::webPage() const
-{
-    return m_page;
 }
 
 WebTab* TabbedWebView::webTab() const
@@ -234,7 +216,6 @@ void TabbedWebView::linkHovered(const QString &link, const QString &title, const
             p_QupZilla->statusBarMessage()->clearMessage();
         }
     }
-    m_hoveredLink = link;
 }
 
 int TabbedWebView::tabIndex() const

@@ -28,7 +28,7 @@ AKN_Settings::AKN_Settings(AKN_Handler* handler, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::AKN_Settings)
     , m_handler(handler)
-    , m_settingsFile(handler->settingsPath() + "extensions.ini")
+    , m_settingsFile(handler->settingsFile())
 {
     ui->setupUi(this);
 

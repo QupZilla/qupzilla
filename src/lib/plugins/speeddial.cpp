@@ -60,11 +60,11 @@ void SpeedDial::loadSettings()
     }
     changed(allPages);
 
-    m_thumbnailsDir = mApp->getActiveProfilPath() + "thumbnails/";
+    m_thumbnailsDir = mApp->currentProfilePath() + "thumbnails/";
 
     // If needed, create thumbnails directory
     if (!QDir(m_thumbnailsDir).exists()) {
-        QDir(mApp->getActiveProfilPath()).mkdir("thumbnails");
+        QDir(mApp->currentProfilePath()).mkdir("thumbnails");
     }
 }
 
@@ -276,8 +276,13 @@ void SpeedDial::removeImageForUrl(const QString &url)
 QString SpeedDial::getOpenFileName()
 {
     const QString &fileTypes = QString("%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff)").arg(tr("Image files"));
+    const QString &image = QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), fileTypes);
 
-    return QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), fileTypes);
+    if (image.isEmpty()) {
+            return image;
+    }
+
+    return QUrl::fromLocalFile(image).toString();
 }
 
 QString SpeedDial::urlFromUserInput(const QString &url)

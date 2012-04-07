@@ -54,14 +54,14 @@ void ClearPrivateData::historyClicked(bool state)
 
 void ClearPrivateData::clearLocalStorage()
 {
-    const QString &profile = mApp->getActiveProfilPath();
+    const QString &profile = mApp->currentProfilePath();
 
     qz_removeDir(profile + "LocalStorage");
 }
 
 void ClearPrivateData::clearWebDatabases()
 {
-    const QString &profile = mApp->getActiveProfilPath();
+    const QString &profile = mApp->currentProfilePath();
 
     QWebDatabase::removeAllDatabases();
     qz_removeDir(profile + "Databases");
@@ -72,7 +72,7 @@ void ClearPrivateData::clearCache()
     mApp->webSettings()->clearMemoryCaches();
     mApp->networkManager()->cache()->clear();
 
-    QFile::remove(mApp->getActiveProfilPath() + "ApplicationCache.db");
+    QFile::remove(mApp->currentProfilePath() + "ApplicationCache.db");
 }
 
 void ClearPrivateData::clearIcons()

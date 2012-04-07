@@ -32,8 +32,8 @@ public:
     explicit SideBarInterface(QObject* parent = 0) : QObject(parent) { }
 
     virtual QString title() const = 0;
-    virtual QAction* menuAction() = 0;
 
+    virtual QAction* createMenuAction() = 0;
     virtual QWidget* createSideBarWidget(QupZilla* mainWindow) = 0;
 };
 

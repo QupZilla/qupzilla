@@ -60,24 +60,6 @@
 #include <QTimer>
 #include <QTranslator>
 
-#ifdef Q_WS_WIN
-#define DEFAULT_CHECK_UPDATES true
-#else
-#define DEFAULT_CHECK_UPDATES false
-#endif
-
-#ifdef Q_WS_WIN
-#define DEFAULT_THEME_NAME "windows"
-#elif defined(Q_WS_X11)
-#define DEFAULT_THEME_NAME "linux"
-#elif defined(Q_WS_MAC)
-#define DEFAULT_THEME_NAME "mac"
-#elif defined(Q_OS_OS2)
-#define DEFAULT_THEME_NAME "windows"
-#else
-#define DEFAULT_THEME_NAME "default"
-#endif
-
 #if defined(PORTABLE_BUILD) && !defined(NO_SYSTEM_DATAPATH)
 #define NO_SYSTEM_DATAPATH
 #endif
@@ -91,7 +73,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_networkmanager(0)
     , m_cookiejar(0)
     , m_rssmanager(0)
-    , m_plugins(0)
     , m_bookmarksModel(0)
     , m_downloadManager(0)
     , m_autofill(0)
@@ -156,6 +137,11 @@ MainApplication::MainApplication(int &argc, char** argv)
                 break;
             case Qz::CL_StartPrivateBrowsing:
                 messages.append("ACTION:StartPrivateBrowsing");
+                m_postLaunchActions.append(PrivateBrowsing);
+                break;
+            case Qz::CL_OpenUrlInCurrentTab:
+                startUrl = QUrl::fromUserInput(pair.text);
+                messages.append("ACTION:OpenUrlInCurrentTab" + pair.text);
                 m_postLaunchActions.append(PrivateBrowsing);
                 break;
             case Qz::CL_OpenUrl:
@@ -233,8 +219,10 @@ MainApplication::MainApplication(int &argc, char** argv)
     loadSettings();
     networkManager()->loadCertificates();
 
+    m_plugins = new PluginProxy;
+
     if (!noAddons) {
-        plugins()->loadPlugins();
+        m_plugins->loadPlugins();
     }
 
     if (checkUpdates) {
@@ -448,6 +436,8 @@ void MainApplication::sendMessages(Qz::AppMessageType mes, bool state)
 void MainApplication::receiveAppMessage(QString message)
 {
     QWidget* actWin = getWindow();
+    QUrl actUrl;
+
     if (message.startsWith("URL:")) {
         QUrl url = QUrl::fromUserInput(message.mid(4));
         addNewTab(url);
@@ -457,7 +447,6 @@ void MainApplication::receiveAppMessage(QString message)
         QString text = message.mid(7);
         if (text == "NewTab") {
             addNewTab();
-            actWin = getWindow();
         }
         else if (text == "NewWindow") {
             actWin = makeNewWindow(Qz::BW_NewWindow);
@@ -468,19 +457,27 @@ void MainApplication::receiveAppMessage(QString message)
         }
         else if (text == "StartPrivateBrowsing") {
             sendMessages(Qz::AM_StartPrivateBrowsing, true);
-            actWin = getWindow();
+        }
+        else if (text.startsWith("OpenUrlInCurrentTab")) {
+            actUrl = QUrl::fromUserInput(text.remove("OpenUrlInCurrentTab"));
         }
     }
 
     if (!actWin && !isClosing()) { // It can only occur if download manager window was still open
-        makeNewWindow(Qz::BW_NewWindow);
+        makeNewWindow(Qz::BW_NewWindow, actUrl);
         return;
     }
+
+    QupZilla* qz = qobject_cast<QupZilla*>(actWin);
 
     actWin->setWindowState(actWin->windowState() & ~Qt::WindowMinimized);
     actWin->raise();
     actWin->activateWindow();
     actWin->setFocus();
+
+    if (qz && !actUrl.isEmpty()) {
+        qz->loadAddress(actUrl);
+    }
 }
 
 void MainApplication::addNewTab(const QUrl &url)
@@ -547,27 +544,14 @@ void MainApplication::connectDatabase()
 
 void MainApplication::translateApp()
 {
-    QLocale locale;
     Settings settings;
-    settings.beginGroup("Language");
-    QString file = settings.value("language", locale.name().append(".qm")).toString();
-    QString shortLoc = file.left(2);
-    QString longLoc = file.left(5);
-
-    if (file == "" || !QFile::exists(TRANSLATIONSDIR + file)) {
-        return;
-    }
+    const QString &file = settings.value("Language/language", QLocale::system().name()).toString();
 
     QTranslator* app = new QTranslator(this);
-    app->load(TRANSLATIONSDIR + file);
-    QTranslator* sys = new QTranslator(this);
+    app->load(file, TRANSLATIONSDIR);
 
-    if (QFile::exists(TRANSLATIONSDIR + "qt_" + longLoc + ".qm")) {
-        sys->load(TRANSLATIONSDIR + "qt_" + longLoc + ".qm");
-    }
-    else if (QFile::exists(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm")) {
-        sys->load(TRANSLATIONSDIR + "qt_" + shortLoc + ".qm");
-    }
+    QTranslator* sys = new QTranslator(this);
+    sys->load("qt_" + file, TRANSLATIONSDIR);
 
     m_activeLanguage = file;
 
@@ -631,7 +615,7 @@ void MainApplication::saveSettings()
     m_iconProvider->saveIconsToDatabase();
 
     AdBlockManager::instance()->save();
-    QFile::remove(getActiveProfilPath() + "WebpageIcons.db");
+    QFile::remove(currentProfilePath() + "WebpageIcons.db");
     Settings::syncSettings();
 }
 
@@ -641,14 +625,6 @@ BrowsingLibrary* MainApplication::browsingLibrary()
         m_browsingLibrary = new BrowsingLibrary(getWindow());
     }
     return m_browsingLibrary;
-}
-
-PluginProxy* MainApplication::plugins()
-{
-    if (!m_plugins) {
-        m_plugins = new PluginProxy();
-    }
-    return m_plugins;
 }
 
 CookieManager* MainApplication::cookieManager()
@@ -698,6 +674,11 @@ RSSManager* MainApplication::rssManager()
         m_rssmanager = new RSSManager(getWindow());
     }
     return m_rssmanager;
+}
+
+PluginProxy* MainApplication::plugins()
+{
+    return m_plugins;
 }
 
 BookmarksModel* MainApplication::bookmarksModel()
@@ -895,6 +876,10 @@ bool MainApplication::checkSettingsDir()
     QFile(PROFILEDIR + "profiles/default/browsedata.db").remove();
     QFile(":data/browsedata.db").copy(PROFILEDIR + "profiles/default/browsedata.db");
     QFile(PROFILEDIR + "profiles/default/browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
+    QFile versionFile(PROFILEDIR + "profiles/default/version");
+    versionFile.open(QFile::WriteOnly);
+    versionFile.write(QupZilla::VERSION.toUtf8());
+    versionFile.close();
 
     return dir.isReadable();
 }

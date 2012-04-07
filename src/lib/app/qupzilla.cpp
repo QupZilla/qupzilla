@@ -41,7 +41,6 @@
 #include "mainapplication.h"
 #include "aboutdialog.h"
 #include "pluginproxy.h"
-#include "qtwin.h"
 #include "checkboxdialog.h"
 #include "adblockmanager.h"
 #include "clickablelabel.h"
@@ -58,11 +57,11 @@
 #include "webinspectordockwidget.h"
 #include "bookmarksimportdialog.h"
 #include "globalfunctions.h"
-#include "webhistorywrapper.h"
 #include "enhancedmenu.h"
 #include "settings.h"
 #include "webtab.h"
 #include "speeddial.h"
+#include "qtwin.h"
 
 #include <QSplitter>
 #include <QStatusBar>
@@ -77,9 +76,10 @@
 #include <QDesktopServices>
 #include <QPrintPreviewDialog>
 #include <QWebFrame>
+#include <QWebHistory>
 #include <QMessageBox>
 
-const QString QupZilla::VERSION = "1.1.8";
+const QString QupZilla::VERSION = "1.2.0";
 const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2012";
@@ -88,7 +88,7 @@ const QString QupZilla::WIKIADDRESS = "https://github.com/nowrep/QupZilla/wiki";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
 QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
-    : QMainWindow(0)
+    : QMainWindow()
     , m_historyMenuChanged(true)
     , m_bookmarksMenuChanged(true)
     , m_isClosing(false)
@@ -109,8 +109,6 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     setWindowTitle(tr("QupZilla"));
 
     m_isStarting = true;
-    m_activeProfil = mApp->getActiveProfilPath();
-    m_activeLanguage = mApp->getActiveLanguage();
 
     setupUi();
     setupMenu();
@@ -236,6 +234,7 @@ void QupZilla::setupUi()
 
     locationBarWidth = settings.value("LocationBarWidth", 480).toInt();
     websearchBarWidth = settings.value("WebSearchBarWidth", 140).toInt();
+    settings.endGroup();
 
     QWidget* widget = new QWidget(this);
     widget->setCursor(Qt::ArrowCursor);
@@ -813,12 +812,13 @@ void QupZilla::aboutToShowBookmarksMenu()
 
 void QupZilla::aboutToShowHistoryMenu()
 {
-    if (!weView()) {
+    TabbedWebView* view = weView();
+    if (!view) {
         return;
     }
 
-    m_menuHistory->actions().at(0)->setEnabled(WebHistoryWrapper::canGoBack(weView()->history()));
-    m_menuHistory->actions().at(1)->setEnabled(WebHistoryWrapper::canGoForward(weView()->history()));
+    m_menuHistory->actions().at(0)->setEnabled(view->history()->canGoBack());
+    m_menuHistory->actions().at(1)->setEnabled(view->history()->canGoForward());
 }
 
 void QupZilla::aboutToHideHistoryMenu()
@@ -1387,7 +1387,7 @@ void QupZilla::searchOnPage()
 
 void QupZilla::openFile()
 {
-    const QString &fileTypes = QString("%1(*.html *.htm *.shtml *.shtm);;"
+    const QString &fileTypes = QString("%1(*.html *.htm *.shtml *.shtm *.xhtml);;"
                                        "%2(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff);;"
                                        "%3(*.txt);;"
                                        "%4(*.*)").arg(tr("HTML files"), tr("Image files"), tr("Text files"), tr("All files"));
@@ -1467,7 +1467,7 @@ void QupZilla::savePage()
     }
 
     DownloadManager* dManager = mApp->downManager();
-    dManager->download(request, weView()->webPage(), false, suggestedFileName);
+    dManager->download(request, weView()->page(), false, suggestedFileName);
 }
 
 void QupZilla::sendLink()
@@ -1746,7 +1746,7 @@ void QupZilla::disconnectObjects()
     foreach(WebTab * tab, m_tabWidget->allTabs()) {
         tab->disconnectObjects();
         tab->view()->disconnectObjects();
-        tab->view()->webPage()->disconnectObjects();
+        tab->view()->page()->disconnectObjects();
     }
 
     foreach(const QWeakPointer<QWidget> &pointer, m_deleteOnCloseWidgets) {

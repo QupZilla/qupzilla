@@ -24,6 +24,8 @@
 
 #include "qz_namespace.h"
 
+class WebPage;
+
 class QT_QUPZILLA_EXPORT WebView : public QWebView
 {
     Q_OBJECT
@@ -34,10 +36,12 @@ public:
     QString title() const;
     QUrl url() const;
 
+    WebPage* page() const;
     void setPage(QWebPage* page);
 
     void load(const QNetworkRequest &request, QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation, const QByteArray &body = QByteArray());
 
+    bool loadingError() const;
     bool isLoading() const;
     int loadProgress() const;
 
@@ -53,6 +57,7 @@ public:
 signals:
     void viewportResized(QSize);
     void showNotification(QWidget*);
+    void privacyChanged(bool);
 
 public slots:
     void zoomIn();
@@ -152,6 +157,7 @@ private:
     QWebFrame* m_clickedFrame;
     QUrl m_clickedUrl;
 
+    WebPage* m_page;
     QAction* m_actionReload;
     QAction* m_actionStop;
     bool m_actionsInitialized;

@@ -35,7 +35,7 @@ PluginSpec MouseGesturesPlugin::pluginSpec()
     spec.name = "Mouse Gestures";
     spec.info = "Mouse gestures for QupZilla";
     spec.description = "Provides support for navigating in webpages by mouse gestures";
-    spec.version = "0.2.1";
+    spec.version = "0.3.1";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":/mousegestures/data/icon.png");
     spec.hasSettings = true;
@@ -63,13 +63,13 @@ bool MouseGesturesPlugin::testPlugin()
 {
     // Let's be sure, require latest version of QupZilla
 
-    return (QupZilla::VERSION == "1.1.8");
+    return (QupZilla::VERSION == "1.2.0");
 }
 
 QTranslator* MouseGesturesPlugin::getTranslator(const QString &locale)
 {
     QTranslator* translator = new QTranslator(this);
-    translator->load(":/mousegestures/locale/" + locale);
+    translator->load(locale, ":/mousegestures/locale/");
     return translator;
 }
 

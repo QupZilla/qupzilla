@@ -3,7 +3,6 @@
 # Project created by QtCreator 2011-02-13T10:23:13
 #
 #-------------------------------------------------
-QT += webkit
 TARGET = TestPlugin
 # OS/2 allows only 8 chars in TARGET
 os2: TARGET = TestPlug
@@ -22,6 +21,7 @@ TRANSLATIONS += translations/cs_CZ.ts\
                 translations/id_ID.ts\
                 translations/it_IT.ts\
                 translations/ja_JP.ts\
+                translations/ka_GE.ts\
                 translations/nl_NL.ts\
                 translations/pt_PT.ts\
                 translations/ro_RO.ts\

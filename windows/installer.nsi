@@ -70,6 +70,7 @@ Section !$(TITLE_SecMain) SecMain
   SetOutPath "$INSTDIR"
   File "COPYRIGHT.txt"
   File "qupzilla.exe"
+  File "qupzilla.dll"
   File "libeay32.dll"
   File "ssleay32.dll"
   File "msvcp90.dll"
@@ -175,7 +176,9 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   Section "Chinese"
   SetOutPath "$INSTDIR\locale"
   File "locale\zh_CN.qm"
-  File "locale\qt_zh.qm"
+  File "locale\zh_TW.qm"
+  File "locale\qt_zh_CN.qm"
+  File "locale\qt_zh_TW.qm"
   SectionEnd
 
   Section "Polish"
@@ -187,6 +190,7 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   Section "Spanish"
   SetOutPath "$INSTDIR\locale"
   File "locale\es_ES.qm"
+  File "locale\es_VE.qm"
   File "locale\qt_es.qm"
   SectionEnd
 
@@ -211,6 +215,7 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   Section "Portuguese"
   SetOutPath "$INSTDIR\locale"
   File "locale\pt_PT.qm"
+  File "locale\pt_BR.qm"
   File "locale\qt_pt.qm"
   SectionEnd
 
@@ -226,6 +231,33 @@ SectionGroup $(TITLE_SecTranslations) SecTranslations
   SetOutPath "$INSTDIR\locale"
   File "locale\ja_JP.qm"
   File "locale\qt_ja.qm"
+  SectionEnd
+
+  Section "Georgian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ka_GE.qm"
+  SectionEnd
+
+  Section "Hungarian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\hu_HU.qm"
+  File "locale\qt_hu.qm"
+  SectionEnd
+
+  Section "Indonesian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\id_ID.qm"
+  SectionEnd
+
+  Section "Romanian"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\ro_RO.qm"
+  SectionEnd
+
+  Section "Swedish"
+  SetOutPath "$INSTDIR\locale"
+  File "locale\sv_SE.qm"
+  File "locale\qt_sv.qm"
   SectionEnd
 
 SectionGroupEnd
@@ -259,7 +291,6 @@ SectionEnd
   !insertmacro MUI_DESCRIPTION_TEXT ${SecMain} $(DESC_SecMain)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecTranslations} $(DESC_SecTranslations)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecPlugins} $(DESC_SecPlugins)
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecExamplePlugin} $(DESC_SecExamplePlugin)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} $(DESC_SecDesktop)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecExtensions} $(DESC_SecExtensions)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecThemes} $(DESC_SecThemes)

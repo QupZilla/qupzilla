@@ -333,10 +333,10 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), qz_buildSystem()));
 
         cPage.replace("%PATHS-TEXT%",
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->getActiveProfilPath()) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->getActiveProfilPath() + "settings.ini") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), mApp->getActiveProfilPath() + "session.dat") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), mApp->getActiveProfilPath() + "pinnedtabs.dat") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), mApp->currentProfilePath()) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), mApp->currentProfilePath() + "settings.ini") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), mApp->currentProfilePath() + "session.dat") +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), mApp->currentProfilePath() + "pinnedtabs.dat") +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), mApp->DATADIR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), mApp->THEMESDIR) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), mApp->TRANSLATIONSDIR));
@@ -372,7 +372,7 @@ QString QupZillaSchemeReply::configPage()
     }
 
     QString page = cPage;
-    page.replace("%USER-AGENT%", mApp->getWindow()->weView()->webPage()->userAgentForUrl(QUrl()));
+    page.replace("%USER-AGENT%", mApp->getWindow()->weView()->page()->userAgentForUrl(QUrl()));
 
     QString pluginsString;
     const QList<Plugins::Plugin> &availablePlugins = mApp->plugins()->getAvailablePlugins();

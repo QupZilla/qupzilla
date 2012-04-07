@@ -82,7 +82,7 @@ void NetworkManager::loadSettings()
 
     if (settings.value("AllowLocalCache", true).toBool()) {
         m_diskCache = mApp->networkCache();
-        m_diskCache->setCacheDirectory(mApp->getActiveProfilPath() + "/networkcache");
+        m_diskCache->setCacheDirectory(mApp->currentProfilePath() + "/networkcache");
         m_diskCache->setMaximumCacheSize(settings.value("MaximumCacheSize", 50).toInt() * 1024 * 1024); //MegaBytes
         setCache(m_diskCache);
     }
@@ -134,7 +134,7 @@ void NetworkManager::setSSLConfiguration(QNetworkReply* reply)
         QNetworkRequest request = reply->request();
         QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
         WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-        if (!webPage) {
+        if (!WebPage::isPointerSafeToUse(webPage)) {
             return;
         }
 
@@ -169,7 +169,7 @@ void NetworkManager::sslError(QNetworkReply* reply, QList<QSslError> errors)
     QNetworkRequest request = reply->request();
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
     WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-    if (!webPage) {
+    if (!WebPage::isPointerSafeToUse(webPage)) {
         return;
     }
 
@@ -370,7 +370,7 @@ void NetworkManager::removeLocalCertificate(const QSslCertificate &cert)
 
     //Delete cert file from profile
     bool deleted = false;
-    QDirIterator it(mApp->getActiveProfilPath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
+    QDirIterator it(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it.hasNext()) {
         const QString &filePath = it.next();
         const QList<QSslCertificate> &certs = QSslCertificate::fromPath(filePath);
@@ -404,13 +404,13 @@ void NetworkManager::addLocalCertificate(const QSslCertificate &cert)
     m_localCerts.append(cert);
     QSslSocket::addDefaultCaCertificate(cert);
 
-    QDir dir(mApp->getActiveProfilPath());
+    QDir dir(mApp->currentProfilePath());
     if (!dir.exists("certificates")) {
         dir.mkdir("certificates");
     }
 
     QString certFileName = fileNameForCert(cert);
-    QString fileName = qz_ensureUniqueFilename(mApp->getActiveProfilPath() + "certificates/" + certFileName);
+    QString fileName = qz_ensureUniqueFilename(mApp->currentProfilePath() + "certificates/" + certFileName);
 
     QFile file(fileName);
     if (file.open(QFile::WriteOnly)) {
@@ -473,7 +473,7 @@ void NetworkManager::loadCertificates()
     }
     //Local Certificates
 #ifdef Q_WS_WIN
-    QDirIterator it_(mApp->getActiveProfilPath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
+    QDirIterator it_(mApp->currentProfilePath() + "certificates", QDir::Files, QDirIterator::FollowSymlinks | QDirIterator::Subdirectories);
     while (it_.hasNext()) {
         QString filePath = it_.next();
         if (!filePath.endsWith(".crt")) {
@@ -486,7 +486,7 @@ void NetworkManager::loadCertificates()
         }
     }
 #else
-    m_localCerts += QSslCertificate::fromPath(mApp->getActiveProfilPath() + "certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
+    m_localCerts += QSslCertificate::fromPath(mApp->currentProfilePath() + "certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
 #endif
 
     QSslSocket::setDefaultCaCertificates(m_caCerts + m_localCerts);

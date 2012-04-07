@@ -37,9 +37,8 @@ public:
     explicit TabbedWebView(QupZilla* mainClass, WebTab* webTab);
     ~TabbedWebView();
 
-    void setWebPage(WebPage* page);
+    void setWebPage(WebPage* pag);
 
-    WebPage* webPage() const;
     WebTab* webTab() const;
     TabWidget* tabWidget() const;
 
@@ -93,10 +92,8 @@ private:
     QupZilla* p_QupZilla;
     TabWidget* m_tabWidget;
 
-    QString m_hoveredLink;
     QString m_currentIp;
 
-    WebPage* m_page;
     WebTab* m_webTab;
     Menu* m_menu;
 

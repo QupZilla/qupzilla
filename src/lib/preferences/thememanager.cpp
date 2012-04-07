@@ -26,12 +26,6 @@
 #include <QTextBrowser>
 #include <QDir>
 
-#ifdef Q_WS_WIN
-#define DEFAULT_THEME_NAME "windows"
-#else
-#define DEFAULT_THEME_NAME "linux"
-#endif
-
 ThemeManager::ThemeManager(QWidget* parent, Preferences* preferences)
     : QWidget()
     , ui(new Ui::ThemeManager)

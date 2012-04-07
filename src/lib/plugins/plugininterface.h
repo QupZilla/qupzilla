@@ -20,6 +20,7 @@
 
 #include <QPixmap>
 #include <QtPlugin>
+#include <QWebHitTestResult>
 
 #include "qz_namespace.h"
 
@@ -32,7 +33,11 @@ struct PluginSpec {
     QPixmap icon;
     bool hasSettings;
 
-    bool operator==(const PluginSpec &other) {
+    PluginSpec() {
+        hasSettings = false;
+    }
+
+    bool operator==(const PluginSpec &other) const {
         return (this->name == other.name &&
                 this->info == other.info &&
                 this->description == other.description &&

@@ -18,10 +18,12 @@
 #include "profileupdater.h"
 #include "qupzilla.h"
 #include "updater.h"
+#include "globalfunctions.h"
 #include "mainapplication.h"
 
 #include <QDir>
 #include <QSqlQuery>
+#include <QMessageBox>
 #include <iostream>
 
 ProfileUpdater::ProfileUpdater(const QString &profilePath)
@@ -69,17 +71,20 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         update100b4();
         update100rc1();
         update100();
+        update118();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.0.0-rc1")) {
         update100rc1();
         update100();
+        update118();
         return;
     }
 
     if (profileVersion == Updater::parseVersionFromString("1.0.0")) {
         update100();
+        update118();
         return;
     }
 
@@ -93,6 +98,11 @@ void ProfileUpdater::updateProfile(const QString &current, const QString &profil
         return;
     }
 
+    if (profileVersion == Updater::parseVersionFromString("1.1.8")) {
+        update118();
+        return;
+    }
+
     std::cout << "QupZilla: Incompatible profile version detected, overwriting profile data..." << std::endl;
 
     copyDataToProfile();
@@ -103,7 +113,18 @@ void ProfileUpdater::copyDataToProfile()
     QDir profileDir(m_profilePath);
     profileDir.mkdir("certificates");
 
-    QFile(m_profilePath + "browsedata.db").remove();
+    QFile browseData(m_profilePath + "browsedata.db");
+    if (browseData.exists()) {
+        const QString &browseDataBackup = qz_ensureUniqueFilename(m_profilePath + "browsedata-backup.db");
+        const QString &settingsBackup = qz_ensureUniqueFilename(m_profilePath + "settings-backup.ini");
+        browseData.copy(browseDataBackup);
+        QFile(m_profilePath + "settings.ini").copy(settingsBackup);
+        const QString &text = "Incompatible profile version has been detected. To avoid losing your profile data, they were "
+                              "backed up in following directories:<br/><br/><b>" + browseDataBackup + "<br/>" + settingsBackup + "<br/></b>";
+        QMessageBox::warning(0, "QupZilla: Incompatible profile version", text);
+    }
+
+    browseData.remove();
     QFile(":data/browsedata.db").copy(m_profilePath + "browsedata.db");
     QFile(m_profilePath + "browsedata.db").setPermissions(QFile::ReadUser | QFile::WriteUser);
 }
@@ -140,4 +161,13 @@ void ProfileUpdater::update100()
     QSqlQuery query;
     query.exec("ALTER TABLE autofill ADD COLUMN last_used NUMERIC");
     query.exec("UPDATE autofill SET last_used=0");
+}
+
+void ProfileUpdater::update118()
+{
+    std::cout << "QupZilla: Upgrading profile version from 1.1.8..." << std::endl;
+    mApp->connectDatabase();
+
+    QSqlQuery query;
+    query.exec("ALTER TABLE folders ADD COLUMN parent TEXT");
 }

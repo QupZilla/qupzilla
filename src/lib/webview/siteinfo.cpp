@@ -59,7 +59,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     ui->listWidget->item(3)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
     ui->listWidget->item(0)->setSelected(true);
 
-    WebPage* webPage = qobject_cast<WebPage*>(view->page());
+    WebPage* webPage = view->page();
     QWebFrame* frame = view->page()->mainFrame();
     QString title = view->title();
     QSslCertificate cert = webPage->sslCertificate();
@@ -67,7 +67,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
 
     //GENERAL
     ui->heading->setText(QString("<b>%1</b>:").arg(title));
-    ui->siteAddress->setText(frame->baseUrl().toString());
+    ui->siteAddress->setText(view->url().toString());
     ui->sizeLabel->setText(DownloadItem::fileSizeToString(webPage->totalBytes()));
     QString encoding;
 

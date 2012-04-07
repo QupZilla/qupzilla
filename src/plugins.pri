@@ -26,6 +26,7 @@ INCLUDEPATH += $$PWD/lib/3rdparty\
 
 TEMPLATE = lib
 CONFIG += plugin
+QT *= webkit network
 DESTDIR = $$PWD/../bin/plugins/
 
 OBJECTS_DIR = build
@@ -33,8 +34,8 @@ MOC_DIR = build
 RCC_DIR = build
 UI_DIR = build
 
-!unix|mac: LIBS += -L$$PWD/../bin -lqupzilla
-!mac:unix: LIBS += $$PWD/../bin/libqupzilla.so
+!unix|mac: LIBS += -L$$PWD/../bin -lQupZilla
+!mac:unix: LIBS += $$PWD/../bin/libQupZilla.so
 
 !mac:unix {
     target.path = $$library_folder/qupzilla

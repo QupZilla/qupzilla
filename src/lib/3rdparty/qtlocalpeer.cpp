@@ -56,6 +56,8 @@ typedef BOOL(WINAPI* PProcessIdToSessionId)(DWORD, DWORD*);
 static PProcessIdToSessionId pProcessIdToSessionId = 0;
 #endif
 #if defined(Q_OS_UNIX)
+#include <sys/types.h>
+#include <unistd.h>
 #include <time.h>
 #endif
 

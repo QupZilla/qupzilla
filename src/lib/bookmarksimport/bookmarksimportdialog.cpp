@@ -260,15 +260,19 @@ void BookmarksImportDialog::setFile()
 
 void BookmarksImportDialog::addExportedBookmarks()
 {
-    qApp->setOverrideCursor(Qt::WaitCursor);
-
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     BookmarksModel* model = mApp->bookmarksModel();
+
+    QSqlDatabase db = QSqlDatabase::database();
+    db.transaction();
 
     foreach(const Bookmark & b, m_exportedBookmarks) {
         model->saveBookmark(b.url, b.title, IconProvider::iconFromImage(b.image), b.folder);
     }
 
-    qApp->restoreOverrideCursor();
+    db.commit();
+
+    QApplication::restoreOverrideCursor();
 }
 
 void BookmarksImportDialog::setupBrowser(Browser browser)

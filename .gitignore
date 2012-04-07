@@ -1,6 +1,5 @@
 build
 DEBIAN
-tools_
 *.deb
 *.pro.user
 *.autosave
@@ -12,12 +11,8 @@ tools_
 headers*.tar.gz
 license_template
 Makefile*
-TestPlugin-build
-search_*
-src-*
 bin/qupzilla
-*.so
-libqupzilla.*
+lib*.so*
 bin/core
 qupzilla.sh
 git_revision

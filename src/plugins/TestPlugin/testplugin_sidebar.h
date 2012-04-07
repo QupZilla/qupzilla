@@ -27,7 +27,7 @@ public:
     explicit TestPlugin_Sidebar(QObject* parent = 0);
 
     QString title() const;
-    QAction* menuAction();
+    QAction* createMenuAction();
 
     QWidget* createSideBarWidget(QupZilla* mainWindow);
 };

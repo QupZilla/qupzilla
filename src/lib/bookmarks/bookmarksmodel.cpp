@@ -204,41 +204,55 @@ bool BookmarksModel::saveBookmark(WebView* view, QString folder)
     return saveBookmark(view->url(), view->title(), view->icon(), folder);
 }
 
-bool BookmarksModel::removeBookmark(int id)
+void BookmarksModel::removeBookmark(int id)
 {
-    QSqlQuery query;
-    query.prepare("SELECT url, title, folder FROM bookmarks WHERE id = ?");
-    query.bindValue(0, id);
-    query.exec();
-    if (!query.next()) {
-        return false;
+    QList<int> list;
+    list.append(id);
+
+    return removeBookmark(list);
+}
+
+void BookmarksModel::removeBookmark(const QList<int> list)
+{
+    QSqlDatabase db = QSqlDatabase::database();
+    db.transaction();
+
+    foreach (int id, list) {
+        QSqlQuery query;
+        query.prepare("SELECT url, title, folder FROM bookmarks WHERE id = ?");
+        query.bindValue(0, id);
+        query.exec();
+        if (!query.next()) {
+            continue;
+        }
+
+        Bookmark bookmark;
+        bookmark.id = id;
+        bookmark.url = query.value(0).toUrl();
+        bookmark.title = query.value(1).toString();
+        bookmark.folder = query.value(2).toString();
+        bookmark.image = QImage::fromData(query.value(3).toByteArray());
+        bookmark.inSubfolder = isSubfolder(bookmark.folder);
+
+        if (!query.exec("DELETE FROM bookmarks WHERE id = " + QString::number(id))) {
+            continue;
+        }
+
+        emit bookmarkDeleted(bookmark);
     }
 
-    Bookmark bookmark;
-    bookmark.id = id;
-    bookmark.url = query.value(0).toUrl();
-    bookmark.title = query.value(1).toString();
-    bookmark.folder = query.value(2).toString();
-    bookmark.image = QImage::fromData(query.value(3).toByteArray());
-    bookmark.inSubfolder = isSubfolder(bookmark.folder);
-
-    if (!query.exec("DELETE FROM bookmarks WHERE id = " + QString::number(id))) {
-        return false;
-    }
-
-    emit bookmarkDeleted(bookmark);
+    db.commit();
     mApp->sendMessages(Qz::AM_BookmarksChanged, true);
-    return true;
 }
 
-bool BookmarksModel::removeBookmark(const QUrl &url)
+void BookmarksModel::removeBookmark(const QUrl &url)
 {
-    return removeBookmark(bookmarkId(url));
+    removeBookmark(bookmarkId(url));
 }
 
-bool BookmarksModel::removeBookmark(WebView* view)
+void BookmarksModel::removeBookmark(WebView* view)
 {
-    return removeBookmark(bookmarkId(view->url()));
+    removeBookmark(bookmarkId(view->url()));
 }
 
 //bool BookmarksModel::editBookmark(int id, const QString &title, const QString &folder)
@@ -322,37 +336,32 @@ bool BookmarksModel::createFolder(const QString &name)
     return true;
 }
 
-bool BookmarksModel::removeFolder(const QString &name)
+void BookmarksModel::removeFolder(const QString &name)
 {
     if (name == _bookmarksMenu || name == _bookmarksToolbar) {
-        return false;
+        return;
     }
 
     QSqlQuery query;
     query.prepare("SELECT id FROM bookmarks WHERE folder = ? ");
     query.bindValue(0, name);
     if (!query.exec()) {
-        return false;
+        return;
     }
+
+    QList<int> list;
     while (query.next()) {
-        removeBookmark(query.value(0).toInt());
+        list.append(query.value(0).toInt());
     }
+    removeBookmark(list);
 
     query.prepare("DELETE FROM folders WHERE name=?");
     query.bindValue(0, name);
-    if (!query.exec()) {
-        return false;
-    }
-
-    query.prepare("DELETE FROM bookmarks WHERE folder=?");
-    query.bindValue(0, name);
-    if (!query.exec()) {
-        return false;
-    }
+    query.exec();
 
     emit folderDeleted(name);
+
     mApp->sendMessages(Qz::AM_BookmarksChanged, true);
-    return true;
 }
 
 bool BookmarksModel::renameFolder(const QString &before, const QString &after)

@@ -53,9 +53,10 @@
 #include <QWebFrame>
 
 QString WebPage::m_lastUploadLocation = QDir::homePath();
-QString WebPage::m_userAgent = QString();
-QString WebPage::m_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + qWebKitVersion() + " (KHTML, like Gecko) Chrome/10.0 Safari/" + qWebKitVersion();
-QUrl WebPage::m_lastUnsupportedUrl = QUrl();
+QString WebPage::m_userAgent;
+QString WebPage::m_fakeUserAgent;
+QUrl WebPage::m_lastUnsupportedUrl;
+QList<WebPage*> WebPage::m_livingPages;
 
 WebPage::WebPage(QupZilla* mainClass)
     : QWebPage()
@@ -66,7 +67,7 @@ WebPage::WebPage(QupZilla* mainClass)
     , m_runningLoop(0)
     , m_blockAlerts(false)
     , m_secureStatus(false)
-    , m_isClosing(false)
+    , m_adjustingScheduled(false)
 {
     m_networkProxy = new NetworkManagerProxy(this);
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
@@ -89,6 +90,8 @@ WebPage::WebPage(QupZilla* mainClass)
 #ifdef USE_QTWEBKIT_2_2
     connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)), this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
 #endif
+
+    m_livingPages.append(this);
 }
 
 QUrl WebPage::url() const
@@ -130,6 +133,11 @@ void WebPage::scheduleAdjustPage()
         webView->resize(newSize);
         webView->resize(originalSize);
     }
+}
+
+bool WebPage::loadingError() const
+{
+    return !mainFrame()->findFirstElement("span[id=\"qupzilla-error-page\"]").isNull();
 }
 
 bool WebPage::isRunningLoop()
@@ -426,6 +434,10 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
 {
     // Let Google services play nice with us
     if (url.host().contains("google")) {
+        if (m_fakeUserAgent.isEmpty()) {
+            m_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + QupZilla::WEBKITVERSION + " (KHTML, like Gecko) Chrome/10.0 Safari/" + QupZilla::WEBKITVERSION;
+        }
+
         return m_fakeUserAgent;
     }
 
@@ -550,7 +562,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     errString.replace("%RULE%", tr("Blocked by rule <i>%1</i>").arg(rule));
 
                     exReturn->baseUrl = exOption->url;
-                    exReturn->content = errString.toUtf8();
+                    exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
 
                     if (PopupWebPage* popupPage = qobject_cast<PopupWebPage*>(exOption->frame->page())) {
                         WebView* view = qobject_cast<WebView*>(popupPage->view());
@@ -596,7 +608,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     errString.replace("%LI-3%", tr("If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web."));
     errString.replace("%TRY-AGAIN%", tr("Try Again"));
 
-    exReturn->content = errString.toUtf8();
+    exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
     return true;
 }
 
@@ -628,7 +640,7 @@ bool WebPage::javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, 
     m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
 
-    if (eLoop.exec() == 1 || m_isClosing) {
+    if (eLoop.exec() == 1) {
         return result;
     }
     m_runningLoop = 0;
@@ -670,7 +682,7 @@ bool WebPage::javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg)
     m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
 
-    if (eLoop.exec() == 1 || m_isClosing) {
+    if (eLoop.exec() == 1) {
         return false;
     }
     m_runningLoop = 0;
@@ -725,7 +737,7 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     m_runningLoop = &eLoop;
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), &eLoop, SLOT(quit()));
 
-    if (eLoop.exec() == 1 || m_isClosing) {
+    if (eLoop.exec() == 1) {
         return;
     }
     m_runningLoop = 0;
@@ -758,12 +770,23 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
     return fileName;
 }
 
+bool WebPage::isPointerSafeToUse(WebPage* page)
+{
+    // Pointer to WebPage is passed with every QNetworkRequest casted to void*
+    // So there is no way to test whether pointer is still valid or not, except
+    // this hack.
+
+    return page == 0 ? false : m_livingPages.contains(page);
+}
+
 void WebPage::disconnectObjects()
 {
     if (m_runningLoop) {
         m_runningLoop->exit(1);
         m_runningLoop = 0;
     }
+
+    m_livingPages.removeOne(this);
 
     disconnect(this);
     m_networkProxy->disconnectObjects();
@@ -777,4 +800,6 @@ WebPage::~WebPage()
         m_runningLoop->exit(1);
         m_runningLoop = 0;
     }
+
+    m_livingPages.removeOne(this);
 }

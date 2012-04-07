@@ -3,7 +3,7 @@ OBJECTS_DIR = $$PWD/../build
 MOC_DIR = $$PWD/../build
 RCC_DIR = $$PWD/../build
 UI_DIR = $$PWD/../build
-unix: VERSION = 1.1.8
+unix: VERSION = 1.2.0
 
 # Please read BUILD information #
 #DEFINES *= NO_SYSTEM_DATAPATH
@@ -15,7 +15,8 @@ win32 {
     LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 }
 
-DEFINES *= QT_NO_URL_CAST_FROM_STRING QT_USE_FAST_OPERATOR_PLUS QT_USE_FAST_CONCATENATION
+DEFINES *= QT_NO_URL_CAST_FROM_STRING
+DEFINES *= QT_USE_QSTRINGBUILDER
 
 ##It won't compile on windows with this define. Some bug in qtsingleapp / qvector template
 !win32: !CONFIG(debug, debug|release): DEFINES *= QT_NO_DEBUG_OUTPUT
@@ -29,6 +30,7 @@ d_kde = $$(KDE)
 d_portable = $$(PORTABLE_BUILD)
 d_nonblock_dialogs = $$(NONBLOCK_JS_DIALOGS)
 d_use_qtwebkit_2_2 = $$(USE_QTWEBKIT_2_2)
+d_use_lib_path = $$(USE_LIBPATH)
 
 equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
 equals(d_use_webgl, "true") { DEFINES *= USE_WEBGL }
@@ -54,6 +56,11 @@ equals(d_use_qtwebkit_2_2, "true") { DEFINES *= USE_QTWEBKIT_2_2 }
         launcher_folder = "$$d_prefix"share/applications
         icon_folder = "$$d_prefix"share/pixmaps
         hicolor_folder = "$$d_prefix"share/icons/hicolor
+    }
+
+    !equals(d_use_lib_path, "") {
+        library_folder = $$d_use_lib_path
+        DEFINES *= USE_LIBPATH=\\\"""$$d_use_lib_path/"\\\""
     }
 
     DEFINES *= USE_DATADIR=\\\"""$$data_folder/"\\\""

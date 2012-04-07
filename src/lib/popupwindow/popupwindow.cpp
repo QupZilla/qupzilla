@@ -30,7 +30,7 @@
 PopupWindow::PopupWindow(PopupWebView* view, bool showStatusBar)
     : QWidget()
     , m_view(view)
-    , m_page(view->webPage())
+    , m_page(qobject_cast<PopupWebPage*>(view->page()))
 {
     m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);

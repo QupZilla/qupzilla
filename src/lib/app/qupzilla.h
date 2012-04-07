@@ -95,9 +95,6 @@ public:
     inline QAction* actionReload() { return m_actionReload; }
     inline QMenu* superMenu() { return m_superMenu; }
 
-    inline QString activeProfil() { return m_activeProfil; }
-    inline QString activeLanguage() { return m_activeLanguage; }
-
     inline bool isClosing() { return m_isClosing; }
     inline QUrl homepageUrl() { return m_homepage; }
 
@@ -262,8 +259,6 @@ private:
     ProgressBar* m_progressBar;
     QLabel* m_ipLabel;
 
-    QString m_activeProfil;
-    QString m_activeLanguage;
     QString m_lastWindowTitle;
 
     int m_sideBarWidth;

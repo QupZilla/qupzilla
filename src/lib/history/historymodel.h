@@ -64,10 +64,6 @@ public:
 
     void loadSettings();
 
-private slots:
-    void slotAddHistoryEntry(const QUrl &url, QString title);
-    void slotDeleteHistoryEntry(const QList<int> &list);
-
 signals:
     void historyEntryAdded(HistoryEntry entry);
     void historyEntryDeleted(HistoryEntry entry);

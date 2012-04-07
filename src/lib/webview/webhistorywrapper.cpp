@@ -18,11 +18,8 @@
 #include "webhistorywrapper.h"
 
 #include <QUrl>
+#include <QVariant>
 #include <QWebHistory>
-
-WebHistoryWrapper::WebHistoryWrapper()
-{
-}
 
 QList<QWebHistoryItem> WebHistoryWrapper::forwardItems(int maxItems, QWebHistory* history)
 {

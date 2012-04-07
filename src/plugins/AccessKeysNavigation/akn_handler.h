@@ -37,7 +37,7 @@ class AKN_Handler : public QObject
 public:
     explicit AKN_Handler(const QString &sPath, QObject* parent = 0);
 
-    QString settingsPath();
+    QString settingsFile();
     void loadSettings();
 
     bool handleKeyPress(QObject* obj, QKeyEvent* event);
@@ -66,7 +66,7 @@ private:
     Qt::Key m_key;
     bool m_isDoublePress;
     QTime m_lastKeyPressTime;
-    QString m_settingsPath;
+    QString m_settingsFile;
 };
 
 #endif // AKN_HANDLER_H

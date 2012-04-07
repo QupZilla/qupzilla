@@ -57,7 +57,6 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setTabsClosable(true);
     setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
-    loadSettings();
 
     setAcceptDrops(true);
 
@@ -72,6 +71,7 @@ void TabBar::loadSettings()
     settings.beginGroup("Browser-Tabs-Settings");
 
     setMovable(settings.value("makeTabsMovable", true).toBool());
+
     if (settings.value("ActivateLastTabWhenClosingActual", false).toBool()) {
         setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
     }
