@@ -75,62 +75,62 @@
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>A Hirdetésszűrő beállításai</translation>
     </message>
     <message>
         <source>Enable AdBlock</source>
-        <translation type="unfinished"></translation>
+        <translation>Hirdetésszűrő bekapcsolása</translation>
     </message>
     <message>
         <source>Search...</source>
-        <translation type="unfinished">Keresés...</translation>
+        <translation>Keresés...</translation>
     </message>
     <message>
         <source>Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Szabály</translation>
     </message>
     <message>
         <source>Add Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Szabály hozzáadása</translation>
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyList frissítése</translation>
     </message>
     <message>
         <source>AdBlock</source>
-        <translation type="unfinished">Hirdetésblokkoló</translation>
+        <translation>Hirdetésszűrő</translation>
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Szabály törlése</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation type="unfinished"></translation>
+        <translation>A frissítés befejeződött</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>Az EasyList frissítése sikeresen befejeződött.</translation>
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyéni szabályok</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyéni szabály hozzáadása</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation type="unfinished"></translation>
+        <translation>Az egyéni szabály ide írható:</translation>
     </message>
 </context>
 <context>
     <name>AdBlockIcon</name>
     <message>
         <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation>A hirdetésblokkoló megakadályozza a weboldalakon a nemkívánt tartalmak megjelenését</translation>
+        <translation>A Hirdetésszűrő megakadályozza a weboldalakon a nemkívánt tartalmak megjelenését</translation>
     </message>
     <message>
         <source>Blocked popup window</source>
@@ -138,15 +138,15 @@
     </message>
     <message>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation>A hirdetésblokkoló blokkolt egy nemkívánt felugró ablakot.</translation>
+        <translation>A Hirdetésszűrő blokkolt egy nemkívánt felugró ablakot.</translation>
     </message>
     <message>
         <source>AdBlock</source>
-        <translation>Hirdetésblokkoló</translation>
+        <translation>Hirdetésszűrő</translation>
     </message>
     <message>
         <source>Show AdBlock &amp;Settings</source>
-        <translation>A hirdetésblokkoló &amp;beállítása</translation>
+        <translation>A Hirdetésszűrő &amp;beállításai</translation>
     </message>
     <message>
         <source>Blocked Popup Windows</source>
@@ -188,99 +188,99 @@
     <name>AutoFillManager</name>
     <message>
         <source>Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszavak</translation>
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerver</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználónév</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszó</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Szerkesztés</translation>
+        <translation>Szerkesztés</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Eltávolítás</translation>
     </message>
     <message>
         <source>Remove All</source>
-        <translation type="unfinished"></translation>
+        <translation>Az összes eltávolítása</translation>
     </message>
     <message>
         <source>Import/Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Betöltés/Mentés</translation>
     </message>
     <message>
         <source>Show Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>Mutasd a jelszavakat</translation>
     </message>
     <message>
         <source>Exceptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Kizárások</translation>
     </message>
     <message>
         <source>Import Passwords from File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszavak betöltése fájlból...</translation>
     </message>
     <message>
         <source>Export Passwords to File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszavak mentése fájlba...</translation>
     </message>
     <message>
         <source>Are you sure that you want to show all passwords?</source>
-        <translation type="unfinished"></translation>
+        <translation>Biztos, hogy látszódjon minden jelszó?</translation>
     </message>
     <message>
         <source>Hide Passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszavak elrejtése</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">Megerősítés</translation>
+        <translation>Megerősítés</translation>
     </message>
     <message>
         <source>Are you sure to delete all passwords on your computer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Biztosan töröljem az összes elmentett jelszót?</translation>
     </message>
     <message>
         <source>Edit password</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszó szerkesztése</translation>
     </message>
     <message>
         <source>Change password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszó megváltoztatása:</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl megadása...</translation>
     </message>
     <message>
         <source>Cannot read file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet olvasni a fájlt!</translation>
     </message>
     <message>
         <source>Successfully imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Sikeresen betöltve</translation>
     </message>
     <message>
         <source>Error while importing!</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiba keletkezett betöltés közben!</translation>
     </message>
     <message>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet létrehozni a fájlt!</translation>
     </message>
     <message>
         <source>Successfully exported</source>
-        <translation type="unfinished"></translation>
+        <translation>Sikeresen elmentve</translation>
     </message>
 </context>
 <context>
@@ -320,39 +320,39 @@
     <name>BookmarksImportDialog</name>
     <message>
         <source>Import Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelzők betöltése</translation>
     </message>
     <message>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Könyvjelzők betöltése&lt;/b&gt;</translation>
     </message>
     <message>
         <source>From File</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájlból</translation>
     </message>
     <message>
         <source>Choose browser from which you want to import bookmarks:</source>
-        <translation type="unfinished"></translation>
+        <translation>Melyik böngészőből legyenek betöltve a könyvjelzők/kedvencek?:</translation>
     </message>
     <message>
         <source>Choose...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiválasztás...</translation>
     </message>
     <message>
         <source>Fetching icons, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonok átmentése, pillanat...</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished">Az oldal neve</translation>
+        <translation>Az oldal neve</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished">Internetcím</translation>
+        <translation>Internetcím</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Következő</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -360,182 +360,182 @@
     </message>
     <message>
         <source>&lt;b&gt;Importing from %1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Betöltés innen: %1&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Befejezés</translation>
     </message>
     <message>
         <source>Please press Finish to complete importing process.</source>
-        <translation type="unfinished"></translation>
+        <translation>A könyvjelzők betöltése befejeződött. A folyamat lezárásához rá kell kattintani a Befejezés feliratra.</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Hiba!</translation>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <source>Choose directory...</source>
-        <translation type="unfinished"></translation>
+        <translation>Mappa kiválasztása...</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl megadása...</translation>
     </message>
     <message>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>A Mozilla Firefox böngésző &lt;b&gt;places.sqlite&lt;/b&gt; SQLite adatbázisban tárolja a könyvjelzőket. Ez a fájl általában itt található - </translation>
     </message>
     <message>
         <source>Please choose this file to begin importing bookmarks.</source>
-        <translation type="unfinished"></translation>
+        <translation>A könyvjelzők betöltésének megkezdéséhez ennek a fájlnak a kijelölése szükséges.</translation>
     </message>
     <message>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>A Google Chrome böngésző &lt;b&gt;Bookmarks&lt;/b&gt; elnevezésű szöveges fájlban tárolja a könyvjelzőket. Ez a fájl általában itt található - </translation>
     </message>
     <message>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Az Opera böngésző &lt;b&gt;bookmarks.adr&lt;/b&gt; elnevezésű szöveges fájlban tárolja a könyvjelzőket. Ez a fájl általában itt található - </translation>
     </message>
     <message>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation type="unfinished"></translation>
+        <translation>Bármilyen böngészőből betölthetők a könyvjelzők, amely támogatja a könyvjelzők HTML fájlba mentését. Ez a fájl általában ezekkel az utótagokkal (kiterjesztésekkel) rendelkezik</translation>
     </message>
     <message>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation type="unfinished"></translation>
+        <translation>Az Internet Explorer böngésző &lt;b&gt;Kedvencek (angolul: Favorites)&lt;/b&gt; elnevezésű mappában tárolja a könyvjelzőket. Ez a mappa általában itt található - </translation>
     </message>
     <message>
         <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation type="unfinished"></translation>
+        <translation>A könyvjelzők betöltésének megkezdéséhez ennek a mappának a megadása szükséges.</translation>
     </message>
     <message>
         <source>No Error</source>
-        <translation type="unfinished">Nincs hiba</translation>
+        <translation>Nincs hiba</translation>
     </message>
     <message>
         <source>Unable to open file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet megnyitni a fájlt.</translation>
     </message>
     <message>
         <source>Cannot evaluate JSON code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem értékelhető JSON kód.</translation>
     </message>
     <message>
         <source>File does not exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs ilyen fájl.</translation>
     </message>
     <message>
         <source>Unable to open database. Is Firefox running?</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet megnyitni az adatbázist. El van indítva a Firefox?</translation>
     </message>
     <message>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Megjegyzés:&lt;/b&gt; Könyvjelző mappákat jelenleg csak HTML fájlból lehet betölteni.</translation>
     </message>
 </context>
 <context>
     <name>BookmarksManager</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished">Könyvjelzők</translation>
+        <translation>Könyvjelzők</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished">Az oldal neve</translation>
+        <translation>Az oldal neve</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished">Internetcím</translation>
+        <translation>Internetcím</translation>
     </message>
     <message>
         <source>Add Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Mappa/Könyvtár hozzáadása</translation>
     </message>
     <message>
         <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatbázis optimizálása</translation>
     </message>
     <message>
         <source>Import Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelzők betöltése</translation>
     </message>
     <message>
         <source>Add new folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Új mappa hozzáadása</translation>
     </message>
     <message>
         <source>Choose name for new bookmark folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>Az új könyvjelző mappa nevének megadása: </translation>
     </message>
     <message>
         <source>Add new subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>Új almappa hozzáadása</translation>
     </message>
     <message>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation type="unfinished"></translation>
+        <translation>Az új könyvjelző almappa nevének megadása: </translation>
     </message>
     <message>
         <source>Rename Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Mappa átnevezése</translation>
     </message>
     <message>
         <source>Choose name for folder: </source>
-        <translation type="unfinished"></translation>
+        <translation>Mappa nevének megadása: </translation>
     </message>
     <message>
         <source>Add Subfolder</source>
-        <translation type="unfinished"></translation>
+        <translation>Almappa hozzáadása</translation>
     </message>
     <message>
         <source>Rename folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Mappa átnevezése</translation>
     </message>
     <message>
         <source>Remove folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Mappa eltávolítása</translation>
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation type="unfinished">Hivatkozás megnyitása a jelenlegi &amp;fülön</translation>
+        <translation>Hivatkozás megnyitása a jelenlegi &amp;fülön</translation>
     </message>
     <message>
         <source>Open link in &amp;new tab</source>
-        <translation type="unfinished">Hivatkozás megnyitása &amp;új fülön</translation>
+        <translation>Hivatkozás megnyitása &amp;új fülön</translation>
     </message>
     <message>
         <source>Move bookmark to &amp;folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Helyezd a könyvjelzőt &amp;mappába</translation>
     </message>
     <message>
         <source>Rename bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelző átnevezése</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelző törlése</translation>
     </message>
     <message>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Figyelem: &lt;/b&gt;Ez az oldal már a könyvjelzők között van!</translation>
     </message>
     <message>
         <source>Choose name and location of this bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelző nevének és helyének megadása.</translation>
     </message>
     <message>
         <source>Add New Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Új könyvjelző hozzáadása</translation>
     </message>
     <message>
         <source>Choose folder for bookmarks:</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelzők mappájának megadása:</translation>
     </message>
     <message>
         <source>Bookmark All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Összes jelenlegi fül mentése a könyvjelzőkhöz</translation>
     </message>
 </context>
 <context>
@@ -580,71 +580,71 @@
     <name>BookmarksToolbar</name>
     <message>
         <source>&amp;Bookmark Current Page</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Jelenlegi oldal mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
-        <translation type="unfinished">Összes &amp;jelenlegi fül mentése a könyvjelzőkhöz</translation>
+        <translation>Összes &amp;jelenlegi fül mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>&amp;Organize Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Könyvjelzők rendezése</translation>
     </message>
     <message>
         <source>Show Most &amp;Visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Legtöbbet látogatott &amp;oldalak mutatása</translation>
     </message>
     <message>
         <source>Show Only Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Csak az ikonok mutatása</translation>
     </message>
     <message>
         <source>&amp;Hide Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Eszköztár elrejtése</translation>
     </message>
     <message>
         <source>Move right</source>
-        <translation type="unfinished"></translation>
+        <translation>Mozgatás jobbra</translation>
     </message>
     <message>
         <source>Move left</source>
-        <translation type="unfinished"></translation>
+        <translation>Mozgatás balra</translation>
     </message>
     <message>
         <source>Edit bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelző szerkesztése</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelző törlése</translation>
     </message>
     <message>
         <source>Edit bookmark: </source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelző szerkesztése: </translation>
     </message>
     <message>
         <source>Title: </source>
-        <translation type="unfinished"></translation>
+        <translation>Az oldal neve: </translation>
     </message>
     <message>
         <source>Url: </source>
-        <translation type="unfinished"></translation>
+        <translation>Internetcím: </translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished">Könyvjelző szerkesztése</translation>
+        <translation>Könyvjelző szerkesztése</translation>
     </message>
     <message>
         <source>Most visited</source>
-        <translation type="unfinished"></translation>
+        <translation>Legtöbbször látogatott</translation>
     </message>
     <message>
         <source>Sites you visited the most</source>
-        <translation type="unfinished"></translation>
+        <translation>A legtöbbször felkeresett oldalak</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished">Üres</translation>
+        <translation>Üres</translation>
     </message>
 </context>
 <context>
@@ -760,59 +760,59 @@
     <name>ClearPrivateData</name>
     <message>
         <source>Clear Recent History</source>
-        <translation type="unfinished"></translation>
+        <translation>Mai előzmények törlése</translation>
     </message>
     <message>
         <source>Choose what you want to delete:</source>
-        <translation type="unfinished"></translation>
+        <translation>Törölni kívánt elemek kiválasztása:</translation>
     </message>
     <message>
         <source>Clear history</source>
-        <translation type="unfinished">Előzmények törlése</translation>
+        <translation>Előzmények törlése</translation>
     </message>
     <message>
         <source>Clear cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Sütik törlése</translation>
     </message>
     <message>
         <source>Clear cache</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyorsítótár törlése</translation>
     </message>
     <message>
         <source>Clear icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentett ikonok törlése</translation>
     </message>
     <message>
         <source>Clear cookies from Adobe Flash Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Adobe Flash Player sütik törlése</translation>
     </message>
     <message>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Mai előzmények törlése&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Earlier Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Ma, korábban</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"></translation>
+        <translation>Heti</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Havi</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Összes</translation>
     </message>
     <message>
         <source>Clear web databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Webes adatbázisok törlése</translation>
     </message>
     <message>
         <source>Clear local storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Helyi internetes adattár kiürítése</translation>
     </message>
 </context>
 <context>
@@ -854,127 +854,127 @@
     <name>CookieManager</name>
     <message>
         <source>Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Sütik</translation>
     </message>
     <message>
         <source>Stored Cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Elmentett sütik</translation>
     </message>
     <message>
         <source>Find: </source>
-        <translation type="unfinished"></translation>
+        <translation>Találat: </translation>
     </message>
     <message>
         <source>These cookies are stored on your computer:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezek a sütik vannak tárolva a számítógépen:</translation>
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerver</translation>
     </message>
     <message>
         <source>Cookie name</source>
-        <translation type="unfinished"></translation>
+        <translation>Süti neve</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">Név:</translation>
+        <translation>Név:</translation>
     </message>
     <message>
         <source>Value:</source>
-        <translation type="unfinished"></translation>
+        <translation>Érték:</translation>
     </message>
     <message>
         <source>Server:</source>
-        <translation type="unfinished">Szerver:</translation>
+        <translation>Szerver:</translation>
     </message>
     <message>
         <source>Path:</source>
-        <translation type="unfinished"></translation>
+        <translation>Elérési út:</translation>
     </message>
     <message>
         <source>Secure:</source>
-        <translation type="unfinished"></translation>
+        <translation>Biztonság:</translation>
     </message>
     <message>
         <source>Expiration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lejárat:</translation>
     </message>
     <message>
         <source>&lt;cookie not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;nincs kiválasztva süti&gt;</translation>
     </message>
     <message>
         <source>Remove all cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Az összes süti törlése</translation>
     </message>
     <message>
         <source>Remove cookies</source>
-        <translation type="unfinished"></translation>
+        <translation>Sütik eltávolítása</translation>
     </message>
     <message>
         <source>Cookie Filtering</source>
-        <translation type="unfinished"></translation>
+        <translation>Sütik szűrése</translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Süti engedélyezési lista&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezekről a szerverekről a sütik MINDIG el lesznek fogadva (kivéve, ha ki van kapcsolva a sütik mentése)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Hozzáadás</translation>
+        <translation>Hozzáadás</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Eltávolítás</translation>
     </message>
     <message>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Süti tiltólista&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezekről a szerverekről a sütik SOHASEM lesznek engedélyezve</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">Megerősítés</translation>
+        <translation>Megerősítés</translation>
     </message>
     <message>
         <source>Are you sure to delete all cookies on your computer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Biztosan töröljem az összes elmentett sütit?</translation>
     </message>
     <message>
         <source>Secure only</source>
-        <translation type="unfinished"></translation>
+        <translation>Csak a biztonságos</translation>
     </message>
     <message>
         <source>All connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Összes kapcsolat</translation>
     </message>
     <message>
         <source>Session cookie</source>
-        <translation type="unfinished"></translation>
+        <translation>Munkamenet süti</translation>
     </message>
     <message>
         <source>Remove cookie</source>
-        <translation type="unfinished"></translation>
+        <translation>Süti eltávolítása</translation>
     </message>
     <message>
         <source>Add to whitelist</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás az engedélyezettek listájához</translation>
     </message>
     <message>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás a tiltottak listájához</translation>
     </message>
 </context>
 <context>
@@ -1154,15 +1154,15 @@
     </message>
     <message>
         <source>You have chosen to open</source>
-        <translation type="unfinished"></translation>
+        <translation>Megnyitásra kijelölve</translation>
     </message>
     <message>
         <source>which is a:</source>
-        <translation type="unfinished"></translation>
+        <translation>amely:</translation>
     </message>
     <message>
         <source>from:</source>
-        <translation type="unfinished"></translation>
+        <translation>innen:</translation>
     </message>
     <message>
         <source>What should QupZilla do with this file?</source>
@@ -1201,7 +1201,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Megjegyzés: &lt;/b&gt;A keresendő kifejezés helyére a következő karaktereket kell behelyettesíteni az internetes kereső internetcímében: %s</translation>
     </message>
     <message>
         <source>Add from file ...</source>
@@ -1220,114 +1220,118 @@
     <name>HistoryManager</name>
     <message>
         <source>History</source>
-        <translation type="unfinished">Előzmények</translation>
+        <translation>Előzmények</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished">Az oldal neve</translation>
+        <translation>Az oldal neve</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished">Internetcím</translation>
+        <translation>Internetcím</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Clear All History</source>
-        <translation type="unfinished"></translation>
+        <translation>Minden előzmény törlése</translation>
     </message>
     <message>
         <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatbázis optimizálása</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished">Hivatkozás megnyitása a jelenlegi fülön</translation>
+        <translation>Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished">Hivatkozás megnyitása új fülön</translation>
+        <translation>Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished">A cím másolása</translation>
+        <translation>A cím másolása</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished">Ma</translation>
+        <translation>Ma</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation type="unfinished">Ezen a héten</translation>
+        <translation>Ezen a héten</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation type="unfinished">Ebben a hónapban</translation>
+        <translation>Ebben a hónapban</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">Megerősítés</translation>
+        <translation>Megerősítés</translation>
     </message>
     <message>
         <source>Are you sure to delete all history?</source>
-        <translation type="unfinished"></translation>
+        <translation>Minden előzmény törölve legyen?</translation>
     </message>
 </context>
 <context>
     <name>HistoryModel</name>
     <message>
+        <source>Failed loading page</source>
+        <translation>Nem sikerült betölteni az oldalt</translation>
+    </message>
+    <message>
         <source>No Named Page</source>
-        <translation type="unfinished">Névtelen lap</translation>
+        <translation>Névtelen lap</translation>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished"></translation>
+        <translation>Január</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished"></translation>
+        <translation>Február</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished"></translation>
+        <translation>Március</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished"></translation>
+        <translation>Április</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished"></translation>
+        <translation>Május</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished"></translation>
+        <translation>Június</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished"></translation>
+        <translation>Július</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished"></translation>
+        <translation>Augusztus</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished"></translation>
+        <translation>Szeptember</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished"></translation>
+        <translation>Október</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished"></translation>
+        <translation>November</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished"></translation>
+        <translation>December</translation>
     </message>
 </context>
 <context>
@@ -1439,59 +1443,59 @@
     <name>NetworkManager</name>
     <message>
         <source>SSL Certificate Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>SSL Tanúsítvány hiba!</translation>
     </message>
     <message>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation type="unfinished"></translation>
+        <translation>A megnyitandó oldal SSL tanúsítványában a következő hiba található:</translation>
     </message>
     <message>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Szervezet: &lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Domain név: &lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Lejárat ideje: &lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Hiba: &lt;/b&gt;</translation>
     </message>
     <message>
         <source>Would you like to make an exception for this certificate?</source>
-        <translation type="unfinished"></translation>
+        <translation>A böngésző hagyja figyelmen kívül ezt a tanúsítványt?</translation>
     </message>
     <message>
         <source>Authorization required</source>
-        <translation type="unfinished"></translation>
+        <translation>Hitelesítés szükséges</translation>
     </message>
     <message>
         <source>Username: </source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználónév: </translation>
     </message>
     <message>
         <source>Password: </source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszó: </translation>
     </message>
     <message>
         <source>Save username and password on this site</source>
-        <translation type="unfinished"></translation>
+        <translation>Bejelentkezési adatok mentése ehhez az oldalhoz</translation>
     </message>
     <message>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 a felhasználónevet és a jelszót kéri. Az oldal szerint: &quot;%2&quot;</translation>
     </message>
     <message>
         <source>Proxy authorization required</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy hitelesítés szükséges</translation>
     </message>
     <message>
         <source>A username and password are being requested by proxy %1. </source>
-        <translation type="unfinished"></translation>
+        <translation>%1 proxy a felhasználónevet és a jelszót kéri. </translation>
     </message>
 </context>
 <context>
@@ -1875,6 +1879,10 @@
     <message>
         <source>50 MB</source>
         <translation>50 MB</translation>
+    </message>
+    <message>
+        <source>Allow storing web icons</source>
+        <translation type="obsolete">Honlapikonok tárolásának engedélyezése</translation>
     </message>
     <message>
         <source>Allow saving history</source>
@@ -2404,6 +2412,14 @@
         <translation>Karakter&amp;kódolás</translation>
     </message>
     <message>
+        <source>Bookmarks</source>
+        <translation>Könyvjelzők</translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation>Előzmények</translation>
+    </message>
+    <message>
         <source>Toolbars</source>
         <translation>Eszköztárak</translation>
     </message>
@@ -2497,7 +2513,7 @@
     </message>
     <message>
         <source>&amp;AdBlock</source>
-        <translation>&amp;Reklámblokkoló</translation>
+        <translation>&amp;Hirdetésszűrő</translation>
     </message>
     <message>
         <source>RSS &amp;Reader</source>
@@ -2537,7 +2553,7 @@
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
-        <translation>Nemrég &amp;bezárt fülek visszaállítása</translation>
+        <translation>Nemrég &amp;bezárt fül visszaállítása</translation>
     </message>
     <message>
         <source> (Private Browsing)</source>
@@ -2558,6 +2574,10 @@
     <message>
         <source>Other</source>
         <translation>Egyéb</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Alapértelmezett</translation>
     </message>
     <message>
         <source>%1 - QupZilla</source>
@@ -2774,7 +2794,7 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <source>Cover</source>
-        <translation type="unfinished"></translation>
+        <translation>Mozaik</translation>
     </message>
     <message>
         <source>Fit</source>
@@ -2941,92 +2961,93 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     <name>RSSManager</name>
     <message>
         <source>RSS Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>RSS olvasó</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished">Üres</translation>
+        <translation>Üres</translation>
     </message>
     <message>
         <source>Add feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Híroldal hozzáadása</translation>
     </message>
     <message>
         <source>Edit feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Híroldal szerkesztése</translation>
     </message>
     <message>
         <source>Delete feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Híroldal törlése</translation>
     </message>
     <message>
         <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatbázis optimizálása</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Újratöltés</translation>
     </message>
     <message>
         <source>News</source>
-        <translation type="unfinished"></translation>
+        <translation>Hírek</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished">Betöltés...</translation>
+        <translation>Betöltés...</translation>
     </message>
     <message>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincsenek még RSS híroldalak.&lt;/br&gt;
+RSS ikonnal jelölt oldalcímekről hozzá lehet adni híroldalakat.</translation>
     </message>
     <message>
         <source>Add new feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Híroldal hozzáadása</translation>
     </message>
     <message>
         <source>Please enter URL of new feed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Híroldal internetcíme:</translation>
     </message>
     <message>
         <source>New feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Új híroldal</translation>
     </message>
     <message>
         <source>Fill title and URL of a feed: </source>
-        <translation type="unfinished"></translation>
+        <translation>Híroldal nevének és internetcímének kitöltése:</translation>
     </message>
     <message>
         <source>Feed title: </source>
-        <translation type="unfinished"></translation>
+        <translation>Híroldal neve: </translation>
     </message>
     <message>
         <source>Feed URL: </source>
-        <translation type="unfinished"></translation>
+        <translation>Híroldal internetcíme: </translation>
     </message>
     <message>
         <source>Edit RSS Feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Híroldal szerkesztése</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished">Hivatkozás megnyitása a jelenlegi fülön</translation>
+        <translation>Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished">Hivatkozás megnyitása új fülön</translation>
+        <translation>Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
         <source>Error in fetching feed</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiba a híroldal elérésében</translation>
     </message>
     <message>
         <source>RSS feed duplicated</source>
-        <translation type="unfinished"></translation>
+        <translation>Híroldal duplázódott</translation>
     </message>
     <message>
         <source>You already have this feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilyen híroldal már van.</translation>
     </message>
 </context>
 <context>
@@ -3055,64 +3076,65 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation type="unfinished">SSL kezelő</translation>
+        <translation>SSL kezelő</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>CA Hitelesítési Tanúsítványok</translation>
     </message>
     <message>
         <source>Show info</source>
-        <translation type="unfinished"></translation>
+        <translation>Információk mutatása</translation>
     </message>
     <message>
         <source>This is a list of CA Authorities Certificates stored in the standard system path and in user specified paths.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez egy lista a CA Hitelesítési Tanúsítványokról, amelyek a rendszermappában, illetve a felhasználó által megadott mappákban vannak eltárolva.</translation>
     </message>
     <message>
         <source>Local Certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Helyben tárolt tanúsítványok</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Eltávolítás</translation>
     </message>
     <message>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez egy lista a helyben tárolt tanúsítványokról, amelyek a felhasználói profilban vannak eltárolva. A lista tartalmazza a kivételekhez adott tanúsítványokat is.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Beállítások</translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Hozzáadás</translation>
+        <translation>Hozzáadás</translation>
     </message>
     <message>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha a CA Hitelesítési Tanúsítványok nem töltődnének be automatikusan a rendszermappából, akkor egyénileg is megadható a tanúsítványok elérési útja.</translation>
     </message>
     <message>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;MEGJEGYZÉS:&lt;/b&gt;Ennek az opciónak a beállítása magas biztonsági kockázatot jelent!</translation>
     </message>
     <message>
         <source>Ignore all SSL Warnings</source>
-        <translation type="unfinished"></translation>
+        <translation>Az összes SSL figyelmeztetés figyelmen kívül hagyása</translation>
     </message>
     <message>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Az összes tanúsítvány .crt utótagra kell végződjön.
+Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indítani a böngészőt, hogy a változtatások érvénybe lépjenek.</translation>
     </message>
     <message>
         <source>Choose path...</source>
-        <translation type="unfinished"></translation>
+        <translation>Elérési út megadása...</translation>
     </message>
     <message>
         <source>Certificate Informations</source>
-        <translation type="unfinished"></translation>
+        <translation>Tanúsítvány adatok</translation>
     </message>
 </context>
 <context>
@@ -3226,139 +3248,139 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>SiteInfo</name>
     <message>
         <source>Site Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Weboldal adatai</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">Általános</translation>
+        <translation>Általános</translation>
     </message>
     <message>
         <source>Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Média</translation>
     </message>
     <message>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Biztonság</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Méret:</translation>
     </message>
     <message>
         <source>Site address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Oldal címe:</translation>
     </message>
     <message>
         <source>Encoding:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kódolás:</translation>
     </message>
     <message>
         <source>Meta tags of site:</source>
-        <translation type="unfinished"></translation>
+        <translation>Metatagok:</translation>
     </message>
     <message>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">Érték</translation>
+        <translation>Érték</translation>
     </message>
     <message>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Biztonsági információ&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Részletek</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép</translation>
     </message>
     <message>
         <source>Image address</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép címe</translation>
     </message>
     <message>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Előnézet&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished">&lt;nincs beállítva a tanúsítványban&gt;</translation>
+        <translation>&lt;nincs beállítva a tanúsítványban&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Kapcsolat titkosítva.&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Your connection to this page is secured with this certificate: &lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;A kapcsolat ezzel az oldallal biztosítva van a következő tanúsítvánnyal:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;A kapcsolat nincs titkosítva.&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Your connection to this page is not secured!&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;A kapcsolat ezzel az oldallal nem biztonságos!&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Copy Image Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép helyének kimásolása</translation>
     </message>
     <message>
         <source>Copy Image Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép nevének kimásolása</translation>
     </message>
     <message>
         <source>Save Image to Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép mentése</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Hiba!</translation>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <source>This preview is not available!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet megjeleníteni az előnézetet!</translation>
     </message>
     <message>
         <source>Save image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép mentése...</translation>
     </message>
     <message>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet létrehozni a fájlt!</translation>
     </message>
     <message>
         <source>Preview not available</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet megjeleníteni az előnézetet</translation>
     </message>
     <message>
         <source>Databases</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatbázisok</translation>
     </message>
     <message>
         <source>&lt;b&gt;Database details&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Adatbázis részletei&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">Név:</translation>
+        <translation>Név:</translation>
     </message>
     <message>
         <source>Path:</source>
-        <translation type="unfinished"></translation>
+        <translation>Elérési út:</translation>
     </message>
     <message>
         <source>&lt;database not selected&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;nincs kiválasztva adatbázis&gt;</translation>
     </message>
     <message>
         <source>No databases are used by this page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez az oldal nem használja egyik adatbázist sem.</translation>
     </message>
 </context>
 <context>
@@ -3400,111 +3422,111 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>SourceViewer</name>
     <message>
         <source>Source of </source>
-        <translation type="unfinished"></translation>
+        <translation>Forráskód</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl</translation>
     </message>
     <message>
         <source>Save as...</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentés, mint...</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Bezárás</translation>
+        <translation>Bezárás</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Szerkesztés</translation>
+        <translation>Szerkesztés</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Visszavonás</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Mégis</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Kivágás</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Másolás</translation>
+        <translation>Másolás</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Beillesztés</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>Az összes kijelölése</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation>Keres</translation>
     </message>
     <message>
         <source>Go to Line...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ugrás egy sorhoz...</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Nézet</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Betöltés ismét</translation>
     </message>
     <message>
         <source>Editable</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerkeszthető</translation>
     </message>
     <message>
         <source>Word Wrap</source>
-        <translation type="unfinished"></translation>
+        <translation>Sortörés</translation>
     </message>
     <message>
         <source>Save file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl mentése...</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Hiba!</translation>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <source>Cannot write to file!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet létrehozni a fájlt!</translation>
     </message>
     <message>
         <source>Error writing to file</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájlírási hiba</translation>
     </message>
     <message>
         <source>Source successfully saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Forráskód sikeresen mentve</translation>
     </message>
     <message>
         <source>Source reloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Forráskód újratöltve</translation>
     </message>
     <message>
         <source>Cannot reload source. Page has been closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet újra betölteni a forráskódot. Az oldal bezáródott.</translation>
     </message>
     <message>
         <source>Editable changed</source>
-        <translation type="unfinished"></translation>
+        <translation>A szerkeszthető megváltoztatásra került</translation>
     </message>
     <message>
         <source>Word Wrap changed</source>
-        <translation type="unfinished"></translation>
+        <translation>A sortörés megváltoztatásra került</translation>
     </message>
     <message>
         <source>Enter line number</source>
-        <translation type="unfinished"></translation>
+        <translation>Sor számának megadása</translation>
     </message>
 </context>
 <context>
@@ -3544,59 +3566,59 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <name>TabBar</name>
     <message>
         <source>&amp;New tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Új fül</translation>
     </message>
     <message>
         <source>&amp;Stop Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fül leállítása</translation>
     </message>
     <message>
         <source>&amp;Reload Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fül újratöltése</translation>
     </message>
     <message>
         <source>&amp;Duplicate Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nyisd meg ugyanezt az oldalt egy új fülön</translation>
     </message>
     <message>
         <source>Un&amp;pin Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Fü&amp;l megjelölésének törlése</translation>
     </message>
     <message>
         <source>&amp;Pin Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fül megjelölése</translation>
     </message>
     <message>
         <source>Re&amp;load All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Ös&amp;szes fül újra betöltése</translation>
     </message>
     <message>
         <source>&amp;Bookmark This Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Oldal mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
-        <translation type="unfinished">Összes &amp;jelenlegi fül mentése a könyvjelzőkhöz</translation>
+        <translation>Összes &amp;jelenlegi fül mentése a könyvjelzőkhöz</translation>
     </message>
     <message>
         <source>Close Ot&amp;her Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>A többi f&amp;ül bezárása</translation>
     </message>
     <message>
         <source>Cl&amp;ose</source>
-        <translation type="unfinished"></translation>
+        <translation>Be&amp;zárás</translation>
     </message>
     <message>
         <source>Reloa&amp;d All Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Össze&amp;s fül újra betöltése</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Ta&amp;bs</source>
-        <translation type="unfinished"></translation>
+        <translation>Összes &amp;jelenlegi fül mentése a kö&amp;nyvjelzőkhöz</translation>
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
-        <translation type="unfinished">Nemrég &amp;bezárt fülek visszaállítása</translation>
+        <translation>Nemrég &amp;bezárt fül visszaállítása</translation>
     </message>
 </context>
 <context>
@@ -3714,115 +3736,115 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>A lap megjelenítéséhez a böngészőnek újra el kell küldenie az információkat, amelyek már egyszer megadásra kerültek </translation>
     </message>
     <message>
         <source>Confirm form resubmission</source>
-        <translation type="unfinished"></translation>
+        <translation>Űrlapadatok ismételt elküldésének megerősítése</translation>
     </message>
     <message>
         <source>Select files to upload...</source>
-        <translation type="unfinished"></translation>
+        <translation>Feltölteni kívánt fájlok kiválasztása...</translation>
     </message>
     <message>
         <source>Server refused the connection</source>
-        <translation type="unfinished"></translation>
+        <translation>A szerver visszautasította a kapcsolatot</translation>
     </message>
     <message>
         <source>Server closed the connection</source>
-        <translation type="unfinished"></translation>
+        <translation>A szerver bezárta a kapcsolatot</translation>
     </message>
     <message>
         <source>Server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>A szerver nem található</translation>
     </message>
     <message>
         <source>Connection timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapcsolódási idő túllépve</translation>
     </message>
     <message>
         <source>Untrusted connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem megbízható kapcsolat</translation>
     </message>
     <message>
         <source>Temporary network failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Ideiglenes hálózati hiba</translation>
     </message>
     <message>
         <source>Proxy connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy kapcsolat elutasítva</translation>
     </message>
     <message>
         <source>Proxy server not found</source>
-        <translation type="unfinished"></translation>
+        <translation>A proxy szerver nem található</translation>
     </message>
     <message>
         <source>Proxy connection timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy kapcsolódási idő túllépve</translation>
     </message>
     <message>
         <source>Proxy authentication required</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy hitelesítés szükséges</translation>
     </message>
     <message>
         <source>Content not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Tartalom nem található</translation>
     </message>
     <message>
         <source>AdBlocked Content</source>
-        <translation type="unfinished"></translation>
+        <translation>A Hirdetésszűrő által blokkolt tartalom</translation>
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;i&gt;%1&lt;/i&gt; szabály alapján blokkolva</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
-        <translation type="unfinished"></translation>
+        <translation>Tartalom elérése nem engedélyezett</translation>
     </message>
     <message>
         <source>Error code %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 hibakód</translation>
     </message>
     <message>
         <source>Failed loading page</source>
-        <translation type="unfinished">Nem sikerült betölteni az oldalt</translation>
+        <translation>Nem sikerült betölteni az oldalt</translation>
     </message>
     <message>
         <source>QupZilla can&apos;t load page from %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>A QupZilla nem tudja betölteni az oldalt innen: %1.</translation>
     </message>
     <message>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
-        <translation type="unfinished"></translation>
+        <translation>A beírt internetcím ellenőrzése szükséges, lehet, hogy rosszul lett begépelve</translation>
     </message>
     <message>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha semmilyen weboldalt nem lehet megnyitni, lehet, hogy megszakadt az internetkapcsolat.</translation>
     </message>
     <message>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha a számítógép vagy a hálózat proxyt vagy tűzfalat használ, engedélyezni kell az internetelérést a QupZilla számára.</translation>
     </message>
     <message>
         <source>Try Again</source>
-        <translation type="unfinished"></translation>
+        <translation>Ismételt próbálkozás</translation>
     </message>
     <message>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished">Ne jelenjenek meg további párbeszédablakok ezen az oldalon</translation>
+        <translation>Ne jelenjenek meg további párbeszédablakok ezen az oldalon</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl megadása...</translation>
     </message>
     <message>
         <source>JavaScript alert</source>
-        <translation type="unfinished"></translation>
+        <translation>Javascript figyelmeztetés</translation>
     </message>
     <message>
         <source>Unknown network error</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem beazonosítható hálózati hiba</translation>
     </message>
 </context>
 <context>
@@ -3996,43 +4018,43 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1 ..&quot; keresése ezzel: %2</translation>
     </message>
     <message>
         <source>&amp;Play</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lejátszás</translation>
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Szünet</translation>
     </message>
     <message>
         <source>Un&amp;mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha&amp;ng visszaállítása</translation>
     </message>
     <message>
         <source>&amp;Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Elnémítás</translation>
     </message>
     <message>
         <source>&amp;Copy Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Média internetcímének kimásolása</translation>
     </message>
     <message>
         <source>&amp;Send Media Address</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Média internetcímének elküldése</translation>
     </message>
     <message>
         <source>Save Media To &amp;Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Média &amp;mentése</translation>
     </message>
     <message>
         <source>Search with...</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés ezzel...</translation>
     </message>
     <message>
         <source>Create Search Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Internetes kereső adatainak megadása</translation>
     </message>
 </context>
 <context>
