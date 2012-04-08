@@ -27,6 +27,7 @@
 
 #include <QVBoxLayout>
 #include <QWebHistory>
+#include <QWebFrame>
 #include <QLabel>
 
 WebTab::SavedTab::SavedTab(WebTab* webTab)
@@ -226,7 +227,6 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 
         m_view->tabWidget()->setTabIcon(index, tab.icon);
         m_view->tabWidget()->setTabText(index, tab.title);
-        m_view->tabWidget()->setTabToolTip(index, tab.title);
         m_locationBar.data()->showUrl(tab.url);
     }
     else {
@@ -247,6 +247,29 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
     p_restoreTab(tab.url, tab.history);
 }
 
+QPixmap WebTab::renderTabPreview()
+{
+    WebPage* page = m_view->page();
+    const QSize &contentsSize = page->mainFrame()->contentsSize();
+    QSize oldSize = page->viewportSize();
+
+    int renderWidth = qMin(contentsSize.width(), 2000);
+    int renderHeight = qMin(contentsSize.height(), 1500);
+
+    page->setViewportSize(QSize(renderWidth, renderHeight));
+
+    QPixmap pageImage(renderWidth, renderHeight);
+    pageImage.fill(Qt::transparent);
+
+    QPainter p(&pageImage);
+    m_view->page()->mainFrame()->render(&p, QWebFrame::ContentsLayer, m_view->visibleRegion());
+    p.end();
+
+    page->setViewportSize(oldSize);
+
+    pageImage = pageImage.scaled(230, 200, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+    return pageImage.copy(0, 0, 230, 150);
+}
 
 void WebTab::showNotification(QWidget* notif)
 {

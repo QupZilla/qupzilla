@@ -226,7 +226,7 @@ void Plugins::refreshLoadedPlugins()
 
 bool Plugins::alreadySpecInAvailable(const PluginSpec &spec)
 {
-    foreach (const Plugin & plugin, m_availablePlugins) {
+    foreach(const Plugin & plugin, m_availablePlugins) {
         if (plugin.pluginSpec == spec) {
             return true;
         }

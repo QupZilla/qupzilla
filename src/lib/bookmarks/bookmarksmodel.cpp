@@ -217,7 +217,7 @@ void BookmarksModel::removeBookmark(const QList<int> list)
     QSqlDatabase db = QSqlDatabase::database();
     db.transaction();
 
-    foreach (int id, list) {
+    foreach(int id, list) {
         QSqlQuery query;
         query.prepare("SELECT url, title, folder FROM bookmarks WHERE id = ?");
         query.bindValue(0, id);

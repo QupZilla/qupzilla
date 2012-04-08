@@ -168,6 +168,7 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->dontQuitOnTab->setChecked(settings.value("dontQuitWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     ui->closedInsteadOpened->setChecked(settings.value("closedInsteadOpenedTabs", false).toBool());
+    ui->animatedTabPreviews->setChecked(settings.value("previewAnimationsEnabled", true).toBool());
     settings.endGroup();
     //AddressBar
     settings.beginGroup("AddressBar");
@@ -759,6 +760,7 @@ void Preferences::saveSettings()
     settings.setValue("dontQuitWithOneTab", ui->dontQuitOnTab->isChecked());
     settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.setValue("closedInsteadOpenedTabs", ui->closedInsteadOpened->isChecked());
+    settings.setValue("previewAnimationsEnabled", ui->animatedTabPreviews->isChecked());
     settings.endGroup();
 
     //DOWNLOADS

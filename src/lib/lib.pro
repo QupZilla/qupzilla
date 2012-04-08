@@ -34,6 +34,7 @@ INCLUDEPATH += 3rdparty\
                popupwindow\
 
 SOURCES += \
+    webview/tabpreview.cpp \
     3rdparty/qtwin.cpp \
     3rdparty/lineedit.cpp \
     app/qupzilla.cpp \
@@ -171,6 +172,7 @@ SOURCES += \
     tools/plaineditwithlines.cpp
 
 HEADERS  += \
+    webview/tabpreview.h \
     3rdparty/qtwin.h \
     3rdparty/lineedit.h \
     app/qupzilla.h \

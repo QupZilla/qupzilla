@@ -279,7 +279,7 @@ QString SpeedDial::getOpenFileName()
     const QString &image = QFileDialog::getOpenFileName(0, tr("Select image..."), QDir::homePath(), fileTypes);
 
     if (image.isEmpty()) {
-            return image;
+        return image;
     }
 
     return QUrl::fromLocalFile(image).toString();

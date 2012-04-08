@@ -180,7 +180,6 @@ void TabbedWebView::setIp(const QHostInfo &info)
 void TabbedWebView::titleChanged()
 {
     const QString &t = title();
-    m_tabWidget->setTabToolTip(tabIndex(), t);
 
     if (isCurrent()) {
         p_QupZilla->setWindowTitle(tr("%1 - QupZilla").arg(t));
