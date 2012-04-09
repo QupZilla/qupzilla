@@ -65,9 +65,15 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
 
     setAcceptDrops(true);
 
+    connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequested(const QPoint &)));
     connect(m_tabWidget, SIGNAL(pinnedTabClosed()), this, SLOT(pinnedTabClosed()));
     connect(m_tabWidget, SIGNAL(pinnedTabAdded()), this, SLOT(pinnedTabAdded()));
+
+    m_tabPreviewTimer = new QTimer(this);
+    m_tabPreviewTimer->setInterval(200);
+    m_tabPreviewTimer->setSingleShot(true);
+    connect(m_tabPreviewTimer, SIGNAL(timeout()), m_tabPreview, SLOT(hideAnimated()));
 }
 
 void TabBar::loadSettings()
@@ -290,6 +296,13 @@ void TabBar::closeCurrentTab()
     m_tabWidget->closeTab(id);
 }
 
+void TabBar::currentTabChanged(int index)
+{
+    Q_UNUSED(index)
+
+    hideTabPreview(false);
+}
+
 void TabBar::bookmarkTab()
 {
     TabbedWebView* view = p_QupZilla->weView(m_clickedTab);
@@ -352,13 +365,21 @@ void TabBar::showTabPreview()
         return;
     }
 
+    m_tabPreviewTimer->stop();
     m_tabPreview->setWebTab(webTab, m_currentTabPreview == currentIndex());
     m_tabPreview->showOnRect(tabRect(m_currentTabPreview));
 }
 
-void TabBar::hideTabPreview()
+void TabBar::hideTabPreview(bool delayed)
 {
-    m_tabPreview->hide();
+    if (delayed) {
+        m_tabPreviewTimer->start();
+    }
+    else {
+        m_tabPreview->hideAnimated();
+    }
+
+    m_currentTabPreview = -1;
 }
 
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
@@ -401,6 +422,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
         int manhattanLength = (event->pos() - m_dragStartPosition).manhattanLength();
         if (manhattanLength > QApplication::startDragDistance()) {
             m_tabWidget->buttonAddTab()->hide();
+            hideTabPreview();
         }
     }
 
@@ -408,7 +430,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
 
     const int tab = tabAt(event->pos());
 
-    if (tab != -1 && tab != m_currentTabPreview && event->buttons() == Qt::NoButton) {
+    if (tab != -1 && tab != m_currentTabPreview && event->buttons() == Qt::NoButton && m_dragStartPosition.isNull()) {
         m_currentTabPreview = tab;
         if (m_tabPreview->isVisible()) {
             showTabPreview();
@@ -423,6 +445,8 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
 
 void TabBar::mouseReleaseEvent(QMouseEvent* event)
 {
+    m_dragStartPosition = QPoint();
+
     if (mApp->plugins()->processMouseRelease(Qz::ON_TabBar, this, event)) {
         return;
     }
@@ -452,7 +476,6 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
 void TabBar::leaveEvent(QEvent* event)
 {
     hideTabPreview();
-    m_currentTabPreview = -1;
 
     QTabBar::leaveEvent(event);
 }

@@ -28,6 +28,7 @@
 #include <QVBoxLayout>
 #include <QStyleOptionFrame>
 #include <QPropertyAnimation>
+#include <QGraphicsOpacityEffect>
 
 TabPreview::TabPreview(QupZilla* mainClass, QWidget* parent)
     : QFrame(parent)
@@ -55,6 +56,11 @@ TabPreview::TabPreview(QupZilla* mainClass, QWidget* parent)
     setMaximumHeight(170);
 
     m_animation =  new QPropertyAnimation(this, "geometry", this);
+    m_opacityEffect = new QGraphicsOpacityEffect(this);
+    m_opacityAnimation = new QPropertyAnimation(m_opacityEffect, "opacity", this);
+
+    setGraphicsEffect(m_opacityEffect);
+    m_opacityEffect->setOpacity(0.0);
 }
 
 void TabPreview::setWebTab(WebTab* webTab, bool noPixmap)
@@ -73,6 +79,54 @@ void TabPreview::setWebTab(WebTab* webTab, bool noPixmap)
 void TabPreview::setAnimationsEnabled(bool enabled)
 {
     m_animationsEnabled = enabled;
+}
+
+void TabPreview::hideAnimated()
+{
+    if (m_opacityAnimation->state() == QPropertyAnimation::Running) {
+        m_opacityAnimation->stop();
+    }
+
+    if (m_animationsEnabled) {
+        m_opacityAnimation->setDuration(400);
+        m_opacityAnimation->setStartValue(m_opacityEffect->opacity());
+        m_opacityAnimation->setEndValue(0.0);
+        m_opacityAnimation->start();
+
+        connect(m_opacityAnimation, SIGNAL(finished()), this, SLOT(hide()));
+    }
+    else {
+        QFrame::hide();
+    }
+}
+
+void TabPreview::hide()
+{
+    disconnect(m_opacityAnimation, SIGNAL(finished()), this, SLOT(hide()));
+
+    QFrame::hide();
+}
+
+void TabPreview::show()
+{
+    if (!isVisible() && m_animationsEnabled) {
+        showAnimated();
+    }
+
+    QFrame::show();
+}
+
+void TabPreview::showAnimated()
+{
+    disconnect(m_opacityAnimation, SIGNAL(finished()), this, SLOT(hide()));
+
+    if (m_opacityAnimation->state() == QPropertyAnimation::Running) {
+        m_opacityAnimation->stop();
+    }
+    m_opacityAnimation->setDuration(400);
+    m_opacityAnimation->setStartValue(m_opacityEffect->opacity());
+    m_opacityAnimation->setEndValue(1.0);
+    m_opacityAnimation->start();
 }
 
 void TabPreview::paintEvent(QPaintEvent* pe)
@@ -150,12 +204,20 @@ void TabPreview::showOnRect(const QRect &r)
         finishingGeometry = QRect(calculatePosition(r, previewSize), previewSize);
     }
 
-    if (!m_animationsEnabled || !wasVisible) {
+    if (!m_animationsEnabled) {
+        m_opacityEffect->setOpacity(1.0);
         QFrame::setGeometry(finishingGeometry);
-        QFrame::show();
+        return;
     }
     else {
-        setFinishingGeometry(oldGeometry, finishingGeometry);
-        m_animation->start();
+        showAnimated();
     }
+
+    if (!wasVisible) {
+        oldGeometry = finishingGeometry;
+    }
+
+    setFinishingGeometry(oldGeometry, finishingGeometry);
+    m_animation->start();
+
 }

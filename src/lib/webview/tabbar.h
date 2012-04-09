@@ -62,6 +62,7 @@ signals:
 public slots:
 
 private slots:
+    void currentTabChanged(int index);
     void pinnedTabAdded();
     void pinnedTabClosed();
 
@@ -76,7 +77,7 @@ private slots:
     void closeCurrentTab();
 
     void showTabPreview();
-    void hideTabPreview();
+    void hideTabPreview(bool delayed = true);
 
 private:
     void mouseDoubleClickEvent(QMouseEvent* event);
@@ -97,6 +98,7 @@ private:
     QupZilla* p_QupZilla;
     TabWidget* m_tabWidget;
     TabPreview* m_tabPreview;
+    QTimer* m_tabPreviewTimer;
 
     bool m_showCloseButtonWithOneTab;
     bool m_showTabBarWithOneTab;

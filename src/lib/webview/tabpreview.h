@@ -26,7 +26,7 @@ class WebTab;
 class QLabel;
 class QPropertyAnimation;
 class QParallelAnimationGroup;
-
+class QGraphicsOpacityEffect;
 
 class TabPreview : public QFrame
 {
@@ -39,10 +39,17 @@ public:
 
     void setAnimationsEnabled(bool enabled);
 
+public slots:
+    void hideAnimated();
+    void hide();
+
+    void show();
+
 protected:
     void paintEvent(QPaintEvent* pe);
 
 private:
+    void showAnimated();
     void setFinishingGeometry(const QRect &oldGeometry, const QRect &newGeometry);
     QPoint calculatePosition(const QRect &tabRect, const QSize &previewSize);
 
@@ -52,6 +59,8 @@ private:
 
     bool m_animationsEnabled;
     QPropertyAnimation* m_animation;
+    QPropertyAnimation* m_opacityAnimation;
+    QGraphicsOpacityEffect* m_opacityEffect;
 };
 
 #endif // TABPREVIEW_H

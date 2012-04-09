@@ -250,25 +250,29 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 QPixmap WebTab::renderTabPreview()
 {
     WebPage* page = m_view->page();
-    const QSize &contentsSize = page->mainFrame()->contentsSize();
     QSize oldSize = page->viewportSize();
 
-    int renderWidth = qMin(contentsSize.width(), 2000);
-    int renderHeight = qMin(contentsSize.height(), 1500);
+    int renderWidth = qMin(page->mainFrame()->contentsSize().width(), 1280);
+    int renderHeight = renderWidth / 23 * 15;
+
+    const int verticalScrollBarWidth = page->mainFrame()->scrollBarGeometry(Qt::Vertical).width();
+    const int horizontalScrollBarHeight = page->mainFrame()->scrollBarGeometry(Qt::Horizontal).height();
 
     page->setViewportSize(QSize(renderWidth, renderHeight));
+
+    renderWidth -= verticalScrollBarWidth;
+    renderHeight -= horizontalScrollBarHeight;
 
     QPixmap pageImage(renderWidth, renderHeight);
     pageImage.fill(Qt::transparent);
 
     QPainter p(&pageImage);
-    m_view->page()->mainFrame()->render(&p, QWebFrame::ContentsLayer, m_view->visibleRegion());
+    m_view->page()->mainFrame()->render(&p, QWebFrame::ContentsLayer);
     p.end();
 
     page->setViewportSize(oldSize);
 
-    pageImage = pageImage.scaled(230, 200, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
-    return pageImage.copy(0, 0, 230, 150);
+    return pageImage.scaled(230, 150, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 }
 
 void WebTab::showNotification(QWidget* notif)
