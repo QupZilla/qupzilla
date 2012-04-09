@@ -37,6 +37,9 @@ public:
     void setWebTab(WebTab* webTab, bool noPixmap);
     void showOnRect(const QRect &rect);
 
+    int previewIndex();
+    void setPreviewIndex(int index);
+
     void setAnimationsEnabled(bool enabled);
 
 public slots:
@@ -57,6 +60,7 @@ private:
     QLabel* m_pixmap;
     QLabel* m_title;
 
+    int m_previewIndex;
     bool m_animationsEnabled;
     QPropertyAnimation* m_animation;
     QPropertyAnimation* m_opacityAnimation;

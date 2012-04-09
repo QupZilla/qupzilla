@@ -50,7 +50,6 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     , m_tabPreview(new TabPreview(mainClass, tabWidget))
     , m_clickedTab(0)
     , m_pinnedTabsCount(0)
-    , m_currentTabPreview(-1)
     , m_normalTabWidth(0)
     , m_lastTabWidth(0)
     , m_adjustingLastTab(false)
@@ -119,7 +118,7 @@ void TabBar::setVisible(bool visible)
         emit hideButtons();
     }
 
-    m_tabPreview->setVisible(false);
+    hideTabPreview(false);
 
     QTabBar::setVisible(visible);
 }
@@ -360,14 +359,14 @@ int TabBar::normalTabsCount()
 
 void TabBar::showTabPreview()
 {
-    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_currentTabPreview));
+    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabPreview->previewIndex()));
     if (!webTab) {
         return;
     }
 
     m_tabPreviewTimer->stop();
-    m_tabPreview->setWebTab(webTab, m_currentTabPreview == currentIndex());
-    m_tabPreview->showOnRect(tabRect(m_currentTabPreview));
+    m_tabPreview->setWebTab(webTab, m_tabPreview->previewIndex() == currentIndex());
+    m_tabPreview->showOnRect(tabRect(m_tabPreview->previewIndex()));
 }
 
 void TabBar::hideTabPreview(bool delayed)
@@ -378,8 +377,6 @@ void TabBar::hideTabPreview(bool delayed)
     else {
         m_tabPreview->hideAnimated();
     }
-
-    m_currentTabPreview = -1;
 }
 
 void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
@@ -398,6 +395,8 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 
 void TabBar::mousePressEvent(QMouseEvent* event)
 {
+    hideTabPreview(false);
+
     if (mApp->plugins()->processMousePress(Qz::ON_TabBar, this, event)) {
         return;
     }
@@ -430,13 +429,10 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
 
     const int tab = tabAt(event->pos());
 
-    if (tab != -1 && tab != m_currentTabPreview && event->buttons() == Qt::NoButton && m_dragStartPosition.isNull()) {
-        m_currentTabPreview = tab;
+    if (tab != -1 && tab != m_tabPreview->previewIndex() && event->buttons() == Qt::NoButton && m_dragStartPosition.isNull()) {
+        m_tabPreview->setPreviewIndex(tab);
         if (m_tabPreview->isVisible()) {
             showTabPreview();
-        }
-        else {
-            QTimer::singleShot(200, this, SLOT(showTabPreview()));
         }
     }
 
@@ -473,11 +469,16 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     QTabBar::mouseReleaseEvent(event);
 }
 
-void TabBar::leaveEvent(QEvent* event)
+bool TabBar::event(QEvent *event)
 {
-    hideTabPreview();
+    if (event->type() == QEvent::Leave) {
+        hideTabPreview();
+    }
+    else if (event->type() == QEvent::ToolTip && !m_tabPreview->isVisible()) {
+        showTabPreview();
+    }
 
-    QTabBar::leaveEvent(event);
+    return QTabBar::event(event);
 }
 
 void TabBar::wheelEvent(QWheelEvent* event)

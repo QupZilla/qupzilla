@@ -35,6 +35,7 @@ TabPreview::TabPreview(QupZilla* mainClass, QWidget* parent)
     , p_QupZilla(mainClass)
     , m_pixmap(new QLabel)
     , m_title(new QLabel)
+    , m_previewIndex(-1)
     , m_animationsEnabled(true)
 {
     m_pixmap->setAlignment(Qt::AlignHCenter);
@@ -61,6 +62,16 @@ TabPreview::TabPreview(QupZilla* mainClass, QWidget* parent)
 
     setGraphicsEffect(m_opacityEffect);
     m_opacityEffect->setOpacity(0.0);
+}
+
+int TabPreview::previewIndex()
+{
+    return m_previewIndex;
+}
+
+void TabPreview::setPreviewIndex(int index)
+{
+    m_previewIndex = index;
 }
 
 void TabPreview::setWebTab(WebTab* webTab, bool noPixmap)
@@ -102,6 +113,7 @@ void TabPreview::hideAnimated()
 
 void TabPreview::hide()
 {
+    m_previewIndex = -1;
     disconnect(m_opacityAnimation, SIGNAL(finished()), this, SLOT(hide()));
 
     QFrame::hide();

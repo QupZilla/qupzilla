@@ -79,6 +79,7 @@ void AboutDialog::showAuthors()
         m_authorsHtml += tr("<p><b>Main developer:</b><br/>%1 &lt;%2&gt;</p>").arg(QupZilla::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>");
         m_authorsHtml += tr("<p><b>Contributors:</b><br/>%1</p>").arg(
                              QString::fromUtf8("Mladen Pejaković<br/>"
+                                               "Alexander Samilov<br/>"
                                                "Bryan M Dunsmore<br/>"
                                                "Mariusz Fik<br/>"
                                                "Jan Rajnoha<br/>"

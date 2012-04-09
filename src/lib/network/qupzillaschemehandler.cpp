@@ -203,6 +203,7 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.replace("%CONTRIBUTORS%", tr("Contributors"));
         aPage.replace("%CONTRIBUTORS-TEXT%",
                       authorString("Mladen Pejaković", "pejakm@gmail.com") + "<br/>" +
+                      authorString("Alexander Samilov", "alexsamilovskih@gmail.com") + "<br/>" +
                       authorString("Bryan M Dunsmore", "dunsmoreb@gmail.com") + "<br/>" +
                       authorString("Mariusz Fik", "fisiu@opensuse.org") + "<br/>" +
                       authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +

@@ -59,8 +59,6 @@ signals:
     void showButtons();
     void hideButtons();
 
-public slots:
-
 private slots:
     void currentTabChanged(int index);
     void pinnedTabAdded();
@@ -84,8 +82,8 @@ private:
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
-    void leaveEvent(QEvent* event);
     void wheelEvent(QWheelEvent* event);
+    bool event(QEvent *event);
 
     void dragEnterEvent(QDragEnterEvent* event);
     void dropEvent(QDropEvent* event);
@@ -105,7 +103,6 @@ private:
 
     int m_clickedTab;
     int m_pinnedTabsCount;
-    int m_currentTabPreview;
 
     int m_normalTabWidth;
     int m_lastTabWidth;
