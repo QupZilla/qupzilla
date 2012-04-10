@@ -60,7 +60,6 @@ private:
     Ui::SearchToolbar* ui;
     QupZilla* p_QupZilla;
 
-    QPropertyAnimation* m_animation;
     QWebPage::FindFlags m_findFlags;
 };
 

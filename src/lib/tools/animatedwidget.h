@@ -19,21 +19,18 @@
 #define NOTIFICATION_H
 
 #include <QWidget>
+#include <QTimeLine>
 
 #include "qz_namespace.h"
-
-class QPropertyAnimation;
-class QParallelAnimationGroup;
 
 class QT_QUPZILLA_EXPORT AnimatedWidget : public QWidget
 {
     Q_OBJECT
-    Q_PROPERTY(int fixedheight READ height WRITE setFixedHeight)
 
 public:
     enum Direction { Down, Up };
+
     explicit AnimatedWidget(const Direction &direction = Down, int duration = 300, QWidget* parent = 0);
-    ~AnimatedWidget();
 
     QWidget* widget() { return m_widget; }
 
@@ -41,18 +38,19 @@ public slots:
     void hide();
     void startAnimation();
 
+private slots:
+    void animateFrame(int frame);
+
 private:
     void resizeEvent(QResizeEvent* e);
 
-    QPropertyAnimation* m_positionAni;
-    QPropertyAnimation* m_heightAni;
-    QParallelAnimationGroup* m_aniGroup;
+    Direction m_direction;
+    QTimeLine m_timeLine;
+    qreal m_stepHeight;
+    qreal m_stepY;
+    int m_startY;
 
     QWidget* m_widget;
-
-    int Y_SHOWN;
-    int Y_HIDDEN;
-    Direction m_direction;
 };
 
 #endif // NOTIFICATION_H
