@@ -81,7 +81,8 @@ void TabBar::loadSettings()
     settings.beginGroup("Browser-Tabs-Settings");
 
     setMovable(settings.value("makeTabsMovable", true).toBool());
-    m_tabPreview->setAnimationsEnabled(settings.value("previewAnimationsEnabled", true).toBool());
+    m_tabPreview->setAnimationsEnabled(settings.value("tabPreviewAnimationsEnabled", true).toBool());
+    m_showTabPreviews = settings.value("showTabPreviews", true).toBool();
 
     if (settings.value("ActivateLastTabWhenClosingActual", false).toBool()) {
         setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
@@ -469,13 +470,24 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     QTabBar::mouseReleaseEvent(event);
 }
 
-bool TabBar::event(QEvent *event)
+bool TabBar::event(QEvent* event)
 {
-    if (event->type() == QEvent::Leave) {
+    switch (event->type()) {
+    case QEvent::Leave:
         hideTabPreview();
-    }
-    else if (event->type() == QEvent::ToolTip && !m_tabPreview->isVisible()) {
-        showTabPreview();
+        break;
+
+    case QEvent::ToolTip:
+        if (m_showTabPreviews) {
+            if (!m_tabPreview->isVisible()) {
+                showTabPreview();
+            }
+            return true;
+        }
+        break;
+
+    default:
+        break;
     }
 
     return QTabBar::event(event);

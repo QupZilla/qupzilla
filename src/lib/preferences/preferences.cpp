@@ -168,8 +168,12 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
     ui->dontQuitOnTab->setChecked(settings.value("dontQuitWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     ui->closedInsteadOpened->setChecked(settings.value("closedInsteadOpenedTabs", false).toBool());
-    ui->animatedTabPreviews->setChecked(settings.value("previewAnimationsEnabled", true).toBool());
+    ui->showTabPreviews->setChecked(settings.value("showTabPreviews", true).toBool());
+    ui->animatedTabPreviews->setChecked(settings.value("tabPreviewAnimationsEnabled", true).toBool());
     settings.endGroup();
+    connect(ui->showTabPreviews, SIGNAL(toggled(bool)), this, SLOT(showTabPreviewsChanged(bool)));
+    showTabPreviewsChanged(ui->showTabPreviews->isChecked());
+
     //AddressBar
     settings.beginGroup("AddressBar");
     ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
@@ -624,6 +628,11 @@ void Preferences::useDifferentProxyForHttpsChanged(bool state)
     ui->httpsProxyPassword->setEnabled(state);
 }
 
+void Preferences::showTabPreviewsChanged(bool state)
+{
+    ui->animatedTabPreviews->setEnabled(state);
+}
+
 void Preferences::showPassManager(bool state)
 {
     m_autoFillManager->setVisible(state);
@@ -760,7 +769,8 @@ void Preferences::saveSettings()
     settings.setValue("dontQuitWithOneTab", ui->dontQuitOnTab->isChecked());
     settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.setValue("closedInsteadOpenedTabs", ui->closedInsteadOpened->isChecked());
-    settings.setValue("previewAnimationsEnabled", ui->animatedTabPreviews->isChecked());
+    settings.setValue("showTabPreviews", ui->showTabPreviews->isChecked());
+    settings.setValue("tabPreviewAnimationsEnabled", ui->animatedTabPreviews->isChecked());
     settings.endGroup();
 
     //DOWNLOADS

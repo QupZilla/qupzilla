@@ -464,6 +464,7 @@ void TabWidget::setTabText(int index, const QString &text)
         }
     }
 
+    setTabToolTip(index, text);
     QTabWidget::setTabText(index, newtext);
 }
 

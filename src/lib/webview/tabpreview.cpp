@@ -161,7 +161,7 @@ void TabPreview::setFinishingGeometry(const QRect &oldGeometry, const QRect &new
 QPoint TabPreview::calculatePosition(const QRect &tabRect, const QSize &previewSize)
 {
     QPoint p;
-    p.setY(tabRect.y() + tabRect.height() + 2);
+    p.setY(tabRect.y() + tabRect.height() + 1);
 
     // Map to center of tab
     if (tabRect.width() > previewSize.width()) {

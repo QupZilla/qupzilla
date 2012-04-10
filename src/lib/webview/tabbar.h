@@ -83,7 +83,7 @@ private:
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
     void wheelEvent(QWheelEvent* event);
-    bool event(QEvent *event);
+    bool event(QEvent* event);
 
     void dragEnterEvent(QDragEnterEvent* event);
     void dropEvent(QDropEvent* event);
@@ -98,8 +98,7 @@ private:
     TabPreview* m_tabPreview;
     QTimer* m_tabPreviewTimer;
 
-    bool m_showCloseButtonWithOneTab;
-    bool m_showTabBarWithOneTab;
+    bool m_showTabPreviews;
 
     int m_clickedTab;
     int m_pinnedTabsCount;
