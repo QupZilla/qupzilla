@@ -1279,7 +1279,7 @@
     <name>HistoryModel</name>
     <message>
         <source>Failed loading page</source>
-        <translation>Nem sikerült betölteni az oldalt</translation>
+        <translation type="obsolete">Nem sikerült betölteni az oldalt</translation>
     </message>
     <message>
         <source>No Named Page</source>
@@ -2226,6 +2226,14 @@
         <source>Use different proxy for https connection</source>
         <translation>Más proxy használata https kapcsolathoz</translation>
     </message>
+    <message>
+        <source>Show tab previews</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2413,11 +2421,11 @@
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation>Könyvjelzők</translation>
+        <translation type="obsolete">Könyvjelzők</translation>
     </message>
     <message>
         <source>History</source>
-        <translation>Előzmények</translation>
+        <translation type="obsolete">Előzmények</translation>
     </message>
     <message>
         <source>Toolbars</source>
@@ -2521,7 +2529,7 @@
     </message>
     <message>
         <source>Web In&amp;spector</source>
-        <translation>Weboldalak el&amp;emeinek vizsgálata</translation>
+        <translation>Weboldal el&amp;emeinek vizsgálata</translation>
     </message>
     <message>
         <source>Clear Recent &amp;History</source>
@@ -2577,7 +2585,7 @@
     </message>
     <message>
         <source>Default</source>
-        <translation>Alapértelmezett</translation>
+        <translation type="obsolete">Alapértelmezett</translation>
     </message>
     <message>
         <source>%1 - QupZilla</source>
@@ -2790,15 +2798,15 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation>Középre helyezés eredeti méretben</translation>
     </message>
     <message>
         <source>Cover</source>
-        <translation>Mozaik</translation>
+        <translation>Háttér kitöltése</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Igazítás az oldalhoz</translation>
+        <translation>Háttér méretéhez igazítás</translation>
     </message>
     <message>
         <source>Fit Width</source>
@@ -3728,7 +3736,7 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     <name>WebInspectorDockWidget</name>
     <message>
         <source>Web Inspector</source>
-        <translation>Weboldalak elemeinek vizsgálata</translation>
+        <translation>Weboldal elemeinek vizsgálata</translation>
     </message>
 </context>
 <context>

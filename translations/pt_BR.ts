@@ -2218,6 +2218,14 @@ não foi encontrado!</translation>
         <source>Use different proxy for https connection</source>
         <translation>Usar proxy diferente para conexões https</translation>
     </message>
+    <message>
+        <source>Show tab previews</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

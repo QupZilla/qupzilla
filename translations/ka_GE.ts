@@ -2218,6 +2218,14 @@
         <source>Use different proxy for https connection</source>
         <translation>სხვა პროქსის გამოყენება https კავშირებისთვის</translation>
     </message>
+    <message>
+        <source>Show tab previews</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
