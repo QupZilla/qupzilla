@@ -2419,12 +2419,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="645"/>
         <source>Show tab previews</source>
-        <translation type="unfinished"></translation>
+        <translation>Tab-Vorschau anzeigen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="766"/>
         <source>Make tab previews animated</source>
-        <translation type="unfinished"></translation>
+        <translation>Tab-Vorschau animieren</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
