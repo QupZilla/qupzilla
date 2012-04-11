@@ -177,7 +177,7 @@
     </message>
     <message>
         <source>Personal definition:</source>
-        <translation>Vlastné definície:</translation>
+        <translation>Vlastná definícia:</translation>
     </message>
     <message>
         <source>Choose preferred language for web sites</source>
@@ -212,7 +212,7 @@
     </message>
     <message>
         <source>Show Passwords</source>
-        <translation>Zobraziť heslo</translation>
+        <translation>Zobraziť heslá</translation>
     </message>
     <message>
         <source>Remove All</source>
@@ -224,7 +224,7 @@
     </message>
     <message>
         <source>Username</source>
-        <translation>Užívateľ</translation>
+        <translation>Meno používateľa</translation>
     </message>
     <message>
         <source>Passwords</source>
@@ -252,11 +252,11 @@
     </message>
     <message>
         <source>Import Passwords from File...</source>
-        <translation>Imporotovať heslo zo súboru...</translation>
+        <translation>Imporotovať heslá zo súboru...</translation>
     </message>
     <message>
         <source>Export Passwords to File...</source>
-        <translation>Exportovať heslo zo súboru...</translation>
+        <translation>Exportovať heslá do súboru...</translation>
     </message>
     <message>
         <source>Choose file...</source>
@@ -276,11 +276,11 @@
     </message>
     <message>
         <source>Successfully imported</source>
-        <translation>Importovanie prebehlo úspešne</translation>
+        <translation>Importovanie úspešné</translation>
     </message>
     <message>
         <source>Successfully exported</source>
-        <translation>Exportovanie prebehlo úspešne</translation>
+        <translation>Exportovanie úspešné</translation>
     </message>
 </context>
 <context>
@@ -324,7 +324,7 @@
     </message>
     <message>
         <source>Next</source>
-        <translation>Ďalší</translation>
+        <translation>Ďalej</translation>
     </message>
     <message>
         <source>Title</source>
@@ -336,7 +336,7 @@
     </message>
     <message>
         <source>Please choose this file to begin importing bookmarks.</source>
-        <translation>Prosím zvoľte tento súbor pre zahájenie importu.</translation>
+        <translation>Prosím vyberte súbor pre zahájenie importu záložiek.</translation>
     </message>
     <message>
         <source>Choose file...</source>
@@ -360,7 +360,7 @@
     </message>
     <message>
         <source>Fetching icons, please wait...</source>
-        <translation>Získavám ikony, prosím čakajte...</translation>
+        <translation>Získavajú sa ikony, prosím čakajte...</translation>
     </message>
     <message>
         <source>From File</source>
@@ -368,7 +368,7 @@
     </message>
     <message>
         <source>Choose directory...</source>
-        <translation>Zvoľte umiestnenie...</translation>
+        <translation>Zvoľte priečinok...</translation>
     </message>
     <message>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
@@ -384,7 +384,7 @@
     </message>
     <message>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Google Chrome ukladá svoje záložky v SQLite databáze &lt;b&gt;places.sqlite&lt;/b&gt;. Tento súbor sa obvykle nachádza v </translation>
+        <translation>Google Chrome ukladá svoje záložky v textovom súbore &lt;b&gt;places.sqlite&lt;/b&gt;. Tento súbor sa obvykle nachádza v </translation>
     </message>
     <message>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
@@ -392,11 +392,11 @@
     </message>
     <message>
         <source>Opera stores its bookmarks in &lt;b&gt;bookmarks.adr&lt;/b&gt; text file. This file is usually located in </source>
-        <translation>Opera ukladá svoje záložky v SQLite databáze &lt;b&gt;places.sqlite&lt;/b&gt;. Tento súbor sa obvykle nachádza v </translation>
+        <translation>Opera ukladá svoje záložky v textovom súbore &lt;b&gt;places.sqlite&lt;/b&gt;. Tento súbor sa obvykle nachádza v </translation>
     </message>
     <message>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation>Internet Explorer ukladá svoje záložky v SQLite databáze &lt;b&gt;places.sqlite&lt;/b&gt;. Tento súbor sa obvykle nachádza v </translation>
+        <translation>Internet Explorer ukladá svoje záložky v priečinku &lt;b&gt;places.sqlite&lt;/b&gt;. Tento priečinok sa obvykle nachádza v </translation>
     </message>
     <message>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
@@ -404,7 +404,7 @@
     </message>
     <message>
         <source>Please choose this folder to begin importing bookmarks.</source>
-        <translation>Prosím zvoľte tento priečinok pre zahájenie importu.</translation>
+        <translation>Prosím vyberte priečinok pre zahájenie importu.</translation>
     </message>
     <message>
         <source>Please press Finish to complete importing process.</source>
@@ -432,7 +432,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Note:&lt;/b&gt; Currently, only import from Html File can import also bookmark folders.</source>
-        <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Momentálne len import z html súboru importuje aj zložky.</translation>
+        <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Momentálne iba import z html súboru importuje aj priečinky záložiek.</translation>
     </message>
 </context>
 <context>
@@ -455,7 +455,7 @@
     </message>
     <message>
         <source>Choose name for new subfolder in bookmarks toolbar: </source>
-        <translation>Zvoľte meno pre nový podpriečinok v panely záložiek: </translation>
+        <translation>Zvoľte názov nového podpriečinka v paneli záložiek: </translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -467,11 +467,11 @@
     </message>
     <message>
         <source>Choose name for new bookmark folder: </source>
-        <translation>Zvoľte názov nového priečinka:</translation>
+        <translation>Vyberte názov nového priečinka záložiek:</translation>
     </message>
     <message>
         <source>Choose folder for bookmarks:</source>
-        <translation>Zvoľte priečinok pre záložky:</translation>
+        <translation>Vyberte priečinok pre záložky:</translation>
     </message>
     <message>
         <source>Import Bookmarks</source>
@@ -491,7 +491,7 @@
     </message>
     <message>
         <source>Choose name for folder: </source>
-        <translation>Zvoľte meno pre priečinok: </translation>
+        <translation>Vyberte názov priečinka: </translation>
     </message>
     <message>
         <source>Move bookmark to &amp;folder</source>
@@ -527,22 +527,22 @@
     </message>
     <message>
         <source>&lt;b&gt;Warning: &lt;/b&gt;You already have bookmarked this page!</source>
-        <translation>&lt;b&gt;Upozornenie: &lt;/b&gt;Túto stránku už máte v záložkách!</translation>
+        <translation>&lt;b&gt;Varovanie: &lt;/b&gt;Túto stránku už máte v záložkách!</translation>
     </message>
     <message>
         <source>Choose name and location of this bookmark.</source>
-        <translation>Zvoľte názov a umiestnenie záložky.</translation>
+        <translation>V\berte názov a umiestnenie záložky.</translation>
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation>Otvoriť odkaz v &amp;aktuálnom panely</translation>
+        <translation>Otvoriť odkaz na &amp;aktuálnej karte</translation>
     </message>
 </context>
 <context>
     <name>BookmarksModel</name>
     <message>
         <source>Unsorted Bookmarks</source>
-        <translation>Neroztriedené záložky</translation>
+        <translation>Nepotriedené záložky</translation>
     </message>
     <message>
         <source>Bookmarks In Menu</source>
@@ -550,7 +550,7 @@
     </message>
     <message>
         <source>Bookmarks In ToolBar</source>
-        <translation>Panel záložiek</translation>
+        <translation>Záložky na paneli nástrojov</translation>
     </message>
 </context>
 <context>
@@ -573,7 +573,7 @@
     </message>
     <message>
         <source>Open link in current &amp;tab</source>
-        <translation>Otvoriť odkaz v &amp;aktuálnom panely</translation>
+        <translation>Otvoriť odkaz na &amp;aktuálnej karte</translation>
     </message>
 </context>
 <context>
