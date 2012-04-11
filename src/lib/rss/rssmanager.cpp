@@ -243,7 +243,7 @@ void RSSManager::customContextMenuRequested(const QPoint &position)
     menu.addAction(tr("Open link in new tab"), this, SLOT(loadFeedInNewTab()))->setData(link);
 
     //Prevent choosing first option with double rightclick
-    QPoint pos = QCursor::pos();
+    QPoint pos = treeWidget->viewport()->mapToGlobal(position);
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 }

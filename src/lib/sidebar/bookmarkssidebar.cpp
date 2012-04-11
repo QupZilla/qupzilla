@@ -119,7 +119,7 @@ void BookmarksSideBar::contextMenuRequested(const QPoint &position)
     menu.addAction(tr("&Delete"), this, SLOT(deleteItem()));
 
     //Prevent choosing first option with double rightclick
-    QPoint pos = QCursor::pos();
+    QPoint pos = ui->bookmarksTree->viewport()->mapToGlobal(position);
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 }

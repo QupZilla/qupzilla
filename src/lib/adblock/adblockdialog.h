@@ -68,7 +68,7 @@ private slots:
     void addCustomRule();
     void firstRefresh();
     void refreshAfterUpdate();
-    void customContextMenuRequested();
+    void contextMenuRequested(const QPoint &pos);
 
     void editRule();
     void deleteRule();

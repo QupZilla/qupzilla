@@ -68,7 +68,7 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
     connect(reloadButton, SIGNAL(clicked()), this, SLOT(updateSubscription()));
     connect(search, SIGNAL(textChanged(QString)), treeWidget, SLOT(filterString(QString)));
     connect(m_manager->subscription(), SIGNAL(rulesUpdated()), this, SLOT(refreshAfterUpdate()));
-    connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested()));
+    connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
 
 //    QTimer::singleShot(0, this, SLOT(firstRefresh()));
     firstRefresh();
@@ -97,13 +97,13 @@ void AdBlockDialog::deleteRule()
     refresh();
 }
 
-void AdBlockDialog::customContextMenuRequested()
+void AdBlockDialog::contextMenuRequested(const QPoint &pos)
 {
     QMenu menu;
     menu.addAction(tr("Add Rule"), this, SLOT(addCustomRule()));
     menu.addSeparator();
     menu.addAction(tr("Delete Rule"), this, SLOT(deleteRule()));
-    menu.exec(QCursor::pos());
+    menu.exec(treeWidget->viewport()->mapToGlobal(pos));
 }
 
 void AdBlockDialog::firstRefresh()

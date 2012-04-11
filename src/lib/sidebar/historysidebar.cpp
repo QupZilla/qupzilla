@@ -102,7 +102,7 @@ void HistorySideBar::contextMenuRequested(const QPoint &position)
     menu.addAction(tr("Copy address"), this, SLOT(copyAddress()))->setData(link);
 
     //Prevent choosing first option with double rightclick
-    QPoint pos = QCursor::pos();
+    QPoint pos = ui->historyTree->viewport()->mapToGlobal(position);
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
 }
