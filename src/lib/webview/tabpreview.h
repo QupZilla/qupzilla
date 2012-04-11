@@ -20,13 +20,12 @@
 #define TABPREVIEW_H
 
 #include <QFrame>
+#include <QTimeLine>
+#include <QGraphicsOpacityEffect>
 
 class QupZilla;
 class WebTab;
 class QLabel;
-class QPropertyAnimation;
-class QParallelAnimationGroup;
-class QGraphicsOpacityEffect;
 
 class TabPreview : public QFrame
 {
@@ -48,23 +47,34 @@ public slots:
 
     void show();
 
+private slots:
+    void setOpacity(int opacity);
+    void setAnimationFrame(int frame);
+
 protected:
     void paintEvent(QPaintEvent* pe);
 
 private:
     void showAnimated();
-    void setFinishingGeometry(const QRect &oldGeometry, const QRect &newGeometry);
+    void calculateSteps(const QRect &oldGeometry, const QRect &newGeometry);
     QPoint calculatePosition(const QRect &tabRect, const QSize &previewSize);
 
     QupZilla* p_QupZilla;
-    QLabel* m_pixmap;
+    QLabel* m_pixmapLabel;
     QLabel* m_title;
 
     int m_previewIndex;
     bool m_animationsEnabled;
-    QPropertyAnimation* m_animation;
-    QPropertyAnimation* m_opacityAnimation;
-    QGraphicsOpacityEffect* m_opacityEffect;
+
+    QTimeLine m_opacityTimeLine;
+    QGraphicsOpacityEffect m_opacityEffect;
+
+    QTimeLine m_animation;
+    QRect m_startGeometry;
+    qreal m_stepX;
+    qreal m_stepY;
+    qreal m_stepWidth;
+    qreal m_stepHeight;
 };
 
 #endif // TABPREVIEW_H
