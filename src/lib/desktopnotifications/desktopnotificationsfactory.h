@@ -47,7 +47,7 @@ private:
     QPoint m_position;
 
     QWeakPointer<DesktopNotification> m_desktopNotif;
-    unsigned int m_uint;
+    quint32 m_uint;
 };
 
 #endif // DESKTOPNOTIFICATIONSFACTORY_H
