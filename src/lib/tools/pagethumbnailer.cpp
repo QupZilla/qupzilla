@@ -118,14 +118,16 @@ void PageThumbnailer::createThumbnail(bool status)
 
     m_title = m_page->mainFrame()->title();
 
-    QImage image(m_page->viewportSize(), QImage::Format_ARGB32_Premultiplied);
-    QPainter painter(&image);
-    m_page->mainFrame()->render(&painter);
+    QPixmap pixmap(2 * m_size);
+
+    qreal scalingFactor = 2 * static_cast<qreal>(m_size.width()) / 1280;
+
+    QPainter painter(&pixmap);
+    painter.scale(scalingFactor, scalingFactor);
+    m_page->mainFrame()->render(&painter, QWebFrame::ContentsLayer);
     painter.end();
 
-    QImage scaledImage = image.scaled(m_size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
-
-    emit thumbnailCreated(QPixmap::fromImage(scaledImage));
+    emit thumbnailCreated(pixmap.scaled(m_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 }
 
 PageThumbnailer::~PageThumbnailer()

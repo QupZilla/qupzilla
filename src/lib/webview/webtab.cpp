@@ -253,20 +253,16 @@ QPixmap WebTab::renderTabPreview()
     WebPage* page = m_view->page();
     QSize oldSize = page->viewportSize();
 
-    int renderWidth = qMin(page->mainFrame()->contentsSize().width(), 1280);
-    int renderHeight = renderWidth / 23 * 15;
-
-    const int verticalScrollBarWidth = page->mainFrame()->scrollBarGeometry(Qt::Vertical).width();
-    const int horizontalScrollBarHeight = page->mainFrame()->scrollBarGeometry(Qt::Horizontal).height();
-
-    page->setViewportSize(QSize(renderWidth, renderHeight));
-
-    renderWidth -= verticalScrollBarWidth;
-    renderHeight -= horizontalScrollBarHeight;
-
     const int previewWidth = 230;
     const int previewHeight = 150;
+    const int verticalScrollBarWidth = page->mainFrame()->scrollBarGeometry(Qt::Vertical).width();
+    const int horizontalScrollBarWidth = page->mainFrame()->scrollBarGeometry(Qt::Horizontal).height();
+
+    int renderWidth = qMin(page->mainFrame()->contentsSize().width(), 1280) - verticalScrollBarWidth;
+    int renderHeight = (renderWidth / 23 * 15) - horizontalScrollBarWidth;
     qreal scalingFactor = 2 * static_cast<qreal>(previewWidth) / renderWidth;
+
+    page->setViewportSize(QSize(renderWidth, renderHeight));
 
     QPixmap pageImage(2 * previewWidth, 2 * previewHeight);
     pageImage.fill(Qt::transparent);

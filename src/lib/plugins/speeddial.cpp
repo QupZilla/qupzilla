@@ -26,6 +26,7 @@
 #include <QDebug>
 #include <QWebFrame>
 #include <QWebPage>
+#include <QImage>
 
 #define ENSURE_LOADED if (!m_loaded) loadSettings();
 
@@ -259,7 +260,7 @@ void SpeedDial::loadThumbnail(const QString &url, bool loadTitle)
     PageThumbnailer* thumbnailer = new PageThumbnailer(this);
     thumbnailer->setUrl(QUrl::fromEncoded(url.toUtf8()));
     thumbnailer->setLoadTitle(loadTitle);
-    connect(thumbnailer, SIGNAL(thumbnailCreated(QPixmap)), this, SLOT(thumbnailCreated(QPixmap)));
+    connect(thumbnailer, SIGNAL(thumbnailCreated(const QPixmap&)), this, SLOT(thumbnailCreated(const QPixmap&)));
 
     thumbnailer->start();
 }
@@ -310,7 +311,7 @@ void SpeedDial::setSdSize(int count)
     m_sizeOfSpeedDials = count;
 }
 
-void SpeedDial::thumbnailCreated(const QPixmap &image)
+void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
 {
     PageThumbnailer* thumbnailer = qobject_cast<PageThumbnailer*>(sender());
     if (!thumbnailer) {
@@ -322,13 +323,13 @@ void SpeedDial::thumbnailCreated(const QPixmap &image)
     QString url = thumbnailer->url().toString();
     QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
-    if (image.isNull()) {
+    if (pixmap.isNull()) {
         fileName = "qrc:/html/broken-page.png";
         title = tr("Unable to load");
         loadTitle = true;
     }
     else {
-        if (!image.save(fileName)) {
+        if (!pixmap.save(fileName, "PNG")) {
             qWarning() << "SpeedDial::thumbnailCreated Cannot save thumbnail to " << fileName;
         }
 

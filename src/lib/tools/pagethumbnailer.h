@@ -22,11 +22,11 @@
 #include <QSize>
 #include <QUrl>
 #include <QWebPluginFactory>
-#include <QPixmap>
 
 #include "qz_namespace.h"
 
 class QWebPage;
+class QPixmap;
 
 class QT_QUPZILLA_EXPORT CleanPluginFactory : public QWebPluginFactory
 {
@@ -59,7 +59,7 @@ public:
     void start();
 
 signals:
-    void thumbnailCreated(QPixmap);
+    void thumbnailCreated(const QPixmap&);
 
 public slots:
 
