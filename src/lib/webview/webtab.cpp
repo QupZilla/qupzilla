@@ -264,16 +264,21 @@ QPixmap WebTab::renderTabPreview()
     renderWidth -= verticalScrollBarWidth;
     renderHeight -= horizontalScrollBarHeight;
 
-    QPixmap pageImage(renderWidth, renderHeight);
+    const int previewWidth = 230;
+    const int previewHeight = 150;
+    qreal scalingFactor = 2 * static_cast<qreal>(previewWidth) / renderWidth;
+
+    QPixmap pageImage(2 * previewWidth, 2 * previewHeight);
     pageImage.fill(Qt::transparent);
 
     QPainter p(&pageImage);
+    p.scale(scalingFactor, scalingFactor);
     m_view->page()->mainFrame()->render(&p, QWebFrame::ContentsLayer);
     p.end();
 
     page->setViewportSize(oldSize);
 
-    return pageImage.scaled(230, 150, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    return pageImage.scaled(previewWidth, previewHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 }
 
 void WebTab::showNotification(QWidget* notif)
