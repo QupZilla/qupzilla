@@ -29,7 +29,7 @@
 #include "browsinglibrary.h"
 #include "bookmarksmanager.h"
 #include "settings.h"
-#include "webviewsettings.h"
+#include "websettings.h"
 #include "enhancedmenu.h"
 #include "pluginproxy.h"
 
@@ -117,7 +117,7 @@ void WebView::setPage(QWebPage* page)
     QWebView::setPage(page);
     m_page = qobject_cast<WebPage*>(page);
 
-    setZoom(WebViewSettings::defaultZoom);
+    setZoom(WebSettings::defaultZoom);
     connect(m_page, SIGNAL(saveFrameStateRequested(QWebFrame*, QWebHistoryItem*)), this, SLOT(frameStateChanged()));
     connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 

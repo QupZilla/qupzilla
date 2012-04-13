@@ -162,14 +162,14 @@ SOURCES += \
     popupwindow/popuplocationbar.cpp \
     webview/tabbedwebview.cpp \
     webview/webview.cpp \
-    webview/webviewsettings.cpp \
     preferences/pluginlistdelegate.cpp \
     popupwindow/popupstatusbarmessage.cpp \
     other/licenseviewer.cpp \
     bookmarksimport/bookmarksimporticonfetcher.cpp \
     other/checkboxdialog.cpp \
     network/schemehandler.cpp \
-    tools/plaineditwithlines.cpp
+    tools/plaineditwithlines.cpp \
+    webview/websettings.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -303,7 +303,6 @@ HEADERS  += \
     webview/tabbedwebview.h \
     webview/webview.h \
     app/qz_namespace.h \
-    webview/webviewsettings.h \
     preferences/pluginlistdelegate.h \
     popupwindow/popupstatusbarmessage.h \
     other/licenseviewer.h \
@@ -311,7 +310,8 @@ HEADERS  += \
     other/checkboxdialog.h \
     network/schemehandler.h \
     tools/plaineditwithlines.h \
-    sidebar/sidebarinterface.h
+    sidebar/sidebarinterface.h \
+    webview/websettings.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

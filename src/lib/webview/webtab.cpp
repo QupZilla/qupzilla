@@ -23,7 +23,7 @@
 #include "tabwidget.h"
 #include "locationbar.h"
 #include "globalfunctions.h"
-#include "webviewsettings.h"
+#include "websettings.h"
 
 #include <QVBoxLayout>
 #include <QWebHistory>
@@ -221,7 +221,7 @@ bool WebTab::isRestored() const
 
 void WebTab::restoreTab(const WebTab::SavedTab &tab)
 {
-    if (WebViewSettings::loadTabsOnActivation) {
+    if (WebSettings::loadTabsOnActivation) {
         m_savedTab = tab;
         int index = tabIndex();
 

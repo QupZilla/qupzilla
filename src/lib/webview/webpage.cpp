@@ -32,6 +32,7 @@
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
 #include "iconprovider.h"
+#include "websettings.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -282,6 +283,52 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
     reply->deleteLater();
 }
 
+void WebPage::handleUnknownProtocol(const QUrl &url)
+{
+    const QString &protocol = url.scheme();
+
+    if (WebSettings::blockedProtocols.contains(protocol)) {
+        qDebug() << "WebPage::handleUnknownProtocol Protocol" << protocol << "is blocked!";
+        return;
+    }
+
+    if (WebSettings::autoOpenProtocols.contains(protocol)) {
+        QDesktopServices::openUrl(url);
+        return;
+    }
+
+    const QString &text = tr("QupZilla cannot handle <b>%1:</b> links. The requested link "
+                             "is <ul><li>%2</li></ul>Do you want QupZilla to try "
+                             "open this link in system application?<br/>").arg(protocol, url.toString());
+    CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, view());
+    dialog.setText(text);
+    dialog.setCheckBoxText(tr("Remember my choice for this protocol"));
+    dialog.setWindowTitle(tr("External Protocol Request"));
+    dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxQuestion));
+
+    switch (dialog.exec()) {
+    case QDialog::Accepted:
+        if (dialog.isChecked()) {
+            WebSettings::autoOpenProtocols.append(protocol);
+            WebSettings::saveSettings();
+        }
+
+        QDesktopServices::openUrl(url);
+        break;
+
+    case QDialog::Rejected:
+        if (dialog.isChecked()) {
+            WebSettings::blockedProtocols.append(protocol);
+            WebSettings::saveSettings();
+        }
+
+        break;
+
+    default:
+        break;
+    }
+}
+
 void WebPage::downloadRequested(const QNetworkRequest &request)
 {
     DownloadManager* dManager = mApp->downManager();
@@ -530,6 +577,10 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             break;
         case QNetworkReply::UnknownNetworkError:
             errorString = exOption->errorString.isEmpty() ? tr("Unknown network error") : exOption->errorString;
+            break;
+        case QNetworkReply::ProtocolUnknownError:
+            handleUnknownProtocol(exOption->url);
+            return false;
             break;
         case QNetworkReply::ContentAccessDenied:
             if (exOption->errorString.startsWith("AdBlockRule")) {

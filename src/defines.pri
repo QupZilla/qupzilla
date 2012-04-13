@@ -18,9 +18,6 @@ win32 {
 DEFINES *= QT_NO_URL_CAST_FROM_STRING
 DEFINES *= QT_USE_QSTRINGBUILDER
 
-##It won't compile on windows with this define. Some bug in qtsingleapp / qvector template
-!win32: !CONFIG(debug, debug|release): DEFINES *= QT_NO_DEBUG_OUTPUT
-
 CONFIG(debug, debug|release): DEFINES *= QUPZILLA_DEBUG_BUILD
 
 d_no_system_datapath = $$(NO_SYSTEM_DATAPATH)

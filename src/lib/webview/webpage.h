@@ -102,10 +102,12 @@ protected:
     QWebPage* createWindow(QWebPage::WebWindowType type);
 
 private:
-    virtual bool supportsExtension(Extension extension) const;
-    virtual bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
+    bool supportsExtension(Extension extension) const;
+    bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
     QString chooseFile(QWebFrame* originatingFrame, const QString &oldFile);
+
+    void handleUnknownProtocol(const QUrl &url);
 
     static QString m_lastUploadLocation;
     static QString m_userAgent;
