@@ -816,7 +816,8 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     connect(dictact, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
     menu->addAction(dictact);
 
-    QString selectedString = selectedText.trimmed();
+    // #379: Remove newlines
+    QString selectedString = selectedText.trimmed().remove("\n");
     if (!selectedString.contains(".")) {
         // Try to add .com
         selectedString.append(".com");
