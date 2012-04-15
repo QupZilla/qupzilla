@@ -260,7 +260,7 @@ void SpeedDial::loadThumbnail(const QString &url, bool loadTitle)
     PageThumbnailer* thumbnailer = new PageThumbnailer(this);
     thumbnailer->setUrl(QUrl::fromEncoded(url.toUtf8()));
     thumbnailer->setLoadTitle(loadTitle);
-    connect(thumbnailer, SIGNAL(thumbnailCreated(const QPixmap&)), this, SLOT(thumbnailCreated(const QPixmap&)));
+    connect(thumbnailer, SIGNAL(thumbnailCreated(const QPixmap &)), this, SLOT(thumbnailCreated(const QPixmap &)));
 
     thumbnailer->start();
 }

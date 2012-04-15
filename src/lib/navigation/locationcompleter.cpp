@@ -116,21 +116,43 @@ void LocationCompleter::showMostVisited()
 
 void LocationCompleter::refreshCompleter(const QString &string)
 {
-    int limit;
-    if (string.size() < 3) {
-        limit = 25;
-    }
-    else {
-        limit = 15;
-    }
-
-    QSqlQuery query;
-    query.exec("SELECT title, url FROM history WHERE title LIKE '%" + string + "%' OR url LIKE '%" + string + "%' ORDER BY count DESC LIMIT " + QString::number(limit));
+    int limit = string.size() < 3 ? 25 : 15;
     int i = 0;
+    QString searchString = QString("%%1%").arg(string);
+
     QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
     QTreeView* treeView = qobject_cast<QTreeView*>(popup());
-
     cModel->clear();
+
+    QSqlQuery query;
+    query.prepare("SELECT title, url, icon FROM bookmarks WHERE title LIKE ? OR url LIKE ? LIMIT ?");
+    query.addBindValue(searchString);
+    query.addBindValue(searchString);
+    query.addBindValue(limit);
+    query.exec();
+
+    while (query.next()) {
+        QStandardItem* iconText = new QStandardItem();
+        QStandardItem* findUrl = new QStandardItem();
+        QString url = query.value(1).toUrl().toEncoded();
+
+        iconText->setIcon(IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray())));
+        iconText->setText(query.value(0).toString().replace("\n", "").append("\n" + url));
+
+        findUrl->setText(url);
+        QList<QStandardItem*> items;
+        items.append(iconText);
+        items.append(findUrl);
+        cModel->insertRow(i, items);
+        i++;
+    }
+
+    query.prepare("SELECT title, url FROM history WHERE title LIKE ? OR url LIKE ? ORDER BY count DESC LIMIT ?");
+    query.addBindValue(searchString);
+    query.addBindValue(searchString);
+    query.addBindValue(limit - i);
+    query.exec();
+
     while (query.next()) {
         QStandardItem* iconText = new QStandardItem();
         QStandardItem* findUrl = new QStandardItem();
@@ -146,20 +168,6 @@ void LocationCompleter::refreshCompleter(const QString &string)
         cModel->insertRow(i, items);
         i++;
     }
-
-//    if (i == 0) {
-//        QStandardItem* iconText = new QStandardItem();
-//        QStandardItem* findUrl = new QStandardItem();
-//        QString url("http://www.google.com/search?client=qupzilla&q="+string);
-
-//        iconText->setIcon(QIcon(":/icons/menu/google.png"));
-//        iconText->setText(tr("Search %1 on Google.com\n..........").arg(string));
-//        findUrl->setText(url);
-//        QList<QStandardItem*> items;
-//        items.append(iconText);
-//        items.append(findUrl);
-//        cModel->insertRow(i, items);
-//    }
 
     treeView->header()->setResizeMode(0, QHeaderView::Stretch);
     treeView->header()->resizeSection(1, 0);

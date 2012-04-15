@@ -365,6 +365,6 @@ RESOURCES += \
     INSTALLS += target
 }
 
-message(========== Building libqupzilla ==========)
+message(===========================================)
 message( Using following defines:)
-message($$DEFINES)
+message(  $$DEFINES)

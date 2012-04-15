@@ -59,7 +59,7 @@ public:
     void start();
 
 signals:
-    void thumbnailCreated(const QPixmap&);
+    void thumbnailCreated(const QPixmap &);
 
 public slots:
 
