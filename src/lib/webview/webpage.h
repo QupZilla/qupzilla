@@ -100,6 +100,7 @@ private slots:
 protected:
     bool event(QEvent* event);
     QWebPage* createWindow(QWebPage::WebWindowType type);
+    QObject* createPlugin(const QString &classid, const QUrl &url, const QStringList &paramNames, const QStringList &paramValues);
 
 private:
     bool supportsExtension(Extension extension) const;

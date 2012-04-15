@@ -229,9 +229,43 @@ void ClickToFlash::load()
         qWarning("Click2Flash: Cannot find Flash object.");
     }
     else {
-        QWebElement substitute = m_element.clone();
-        substitute.setAttribute(QLatin1String("type"), "application/futuresplash");
-        m_element.replace(substitute);
+        /*
+           Old code caused sometimes flashing of the whole browser window and then somehow
+           ruined rendering of opacity effects, etc.. in the window on X11.
+
+                QWebElement substitute = m_element.clone();
+                substitute.setAttribute(QLatin1String("type"), "application/futuresplash");
+                m_element.replace(substitute);
+
+           So asynchronous JavaScript code is used to remove element from page and then substitute
+           it with unblocked Flash. The JavaScript code is:
+
+                var qz_c2f_clone = this.cloneNode(true);
+                var qz_c2f_parentNode = this.parentNode;
+                var qz_c2f_nextSibling = this.nextSibling;
+
+                this.parentNode.removeChild(this);
+
+                setTimeout(function(){
+                    if(qz_c2f_nextSibling) {
+                        qz_c2f_parentNode.insertBefore(qz_c2f_clone,qz_c2f_nextSibling);
+                    }
+                    else {
+                        qz_c2f_parentNode.appendChild(qz_c2f_clone);
+                    }
+                }, 0);
+
+        */
+
+        m_element.setAttribute("type", "application/futuresplash");
+        QString js = "var qz_c2f_clone=this.cloneNode(true);var qz_c2f_parentNode=this.parentNode;"
+                     "var qz_c2f_nextSibling=this.nextSibling;this.parentNode.removeChild(this);"
+                     "setTimeout(function(){if(qz_c2f_nextSibling){"
+                     "qz_c2f_parentNode.insertBefore(qz_c2f_clone,qz_c2f_nextSibling);}"
+                     "else{qz_c2f_parentNode.appendChild(qz_c2f_clone);}"
+                     "}, 0);";
+        m_element.evaluateJavaScript(js);
+
 
         acceptedUrl = m_url;
         acceptedArgNames = m_argumentNames;
@@ -294,8 +328,4 @@ void ClickToFlash::showInfo()
     widg->setMaximumHeight(500);
     qz_centerWidgetToParent(widg, m_page->view());
     widg->show();
-}
-
-ClickToFlash::~ClickToFlash()
-{
 }

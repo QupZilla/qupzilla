@@ -432,6 +432,12 @@ QWebPage* WebPage::createWindow(QWebPage::WebWindowType type)
     return new PopupWebPage(type, p_QupZilla);
 }
 
+QObject* WebPage::createPlugin(const QString &classid, const QUrl &url, const QStringList &paramNames, const QStringList &paramValues)
+{
+    qDebug() << Q_FUNC_INFO;
+    return pluginFactory()->create(classid, url, paramNames, paramValues);
+}
+
 void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
 {
     AdBlockedEntry entry;
