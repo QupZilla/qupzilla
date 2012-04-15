@@ -253,23 +253,24 @@ void ClickToFlash::load()
                     else {
                         qz_c2f_parentNode.appendChild(qz_c2f_clone);
                     }
-                }, 0);
+                }, 250);
 
         */
 
+        acceptedUrl = m_url;
+        acceptedArgNames = m_argumentNames;
+        acceptedArgValues = m_argumentValues;
+
         m_element.setAttribute("type", "application/futuresplash");
+
         QString js = "var qz_c2f_clone=this.cloneNode(true);var qz_c2f_parentNode=this.parentNode;"
                      "var qz_c2f_nextSibling=this.nextSibling;this.parentNode.removeChild(this);"
                      "setTimeout(function(){if(qz_c2f_nextSibling){"
                      "qz_c2f_parentNode.insertBefore(qz_c2f_clone,qz_c2f_nextSibling);}"
                      "else{qz_c2f_parentNode.appendChild(qz_c2f_clone);}"
-                     "}, 0);";
+                     "}, 250);";
+
         m_element.evaluateJavaScript(js);
-
-
-        acceptedUrl = m_url;
-        acceptedArgNames = m_argumentNames;
-        acceptedArgValues = m_argumentValues;
     }
 }
 
