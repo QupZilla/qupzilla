@@ -267,8 +267,7 @@ void ClickToFlash::load()
                      "var qz_c2f_nextSibling=this.nextSibling;this.parentNode.removeChild(this);"
                      "setTimeout(function(){if(qz_c2f_nextSibling){"
                      "qz_c2f_parentNode.insertBefore(qz_c2f_clone,qz_c2f_nextSibling);}"
-                     "else{qz_c2f_parentNode.appendChild(qz_c2f_clone);}"
-                     "}, 250);";
+                     "else{qz_c2f_parentNode.appendChild(qz_c2f_clone);}},250);";
 
         m_element.evaluateJavaScript(js);
     }

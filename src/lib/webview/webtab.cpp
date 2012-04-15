@@ -29,6 +29,7 @@
 #include <QWebHistory>
 #include <QWebFrame>
 #include <QLabel>
+#include <QStyle>
 
 WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
@@ -255,16 +256,15 @@ QPixmap WebTab::renderTabPreview()
 
     const int previewWidth = 230;
     const int previewHeight = 150;
-    const int verticalScrollBarWidth = page->mainFrame()->scrollBarGeometry(Qt::Vertical).width();
-    const int horizontalScrollBarWidth = page->mainFrame()->scrollBarGeometry(Qt::Horizontal).height();
+    const int scrollBarExtent = style()->pixelMetric(QStyle::PM_ScrollBarExtent);
     const int pageWidth = qMin(page->mainFrame()->contentsSize().width(), 1280);
     const int pageHeight = (pageWidth / 23 * 15);
     const qreal scalingFactor = 2 * static_cast<qreal>(previewWidth) / pageWidth;
 
     page->setViewportSize(QSize(pageWidth, pageHeight));
 
-    QPixmap pageImage((2 * previewWidth) - verticalScrollBarWidth, (2 * previewHeight) - horizontalScrollBarWidth);
-    pageImage.fill(Qt::red);
+    QPixmap pageImage((2 * previewWidth) - scrollBarExtent, (2 * previewHeight) - scrollBarExtent);
+    pageImage.fill(Qt::transparent);
 
     QPainter p(&pageImage);
     p.scale(scalingFactor, scalingFactor);
