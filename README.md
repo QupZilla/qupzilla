@@ -63,7 +63,7 @@ and the sources from the download section at [homepage](http://www.qupzilla.com/
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:
 
-    $ git clone git://github.com/nowrep/QupZilla.git
+    $ git clone git://github.com/QupZilla/QupZilla.git
 
 If you are using Ubuntu, you can download QupZilla from PPA:
 

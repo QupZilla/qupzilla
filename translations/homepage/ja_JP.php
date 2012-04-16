@@ -61,10 +61,10 @@ $getting_source_text1 = "もっとも簡単にQupZillaのソースを手に入�
 $getting_source_text2 = "バグの発見やパッチはe-mailやgithubで受け付けています。";
 $translating = "QupZillaを翻訳する";
 $translating_text = "翻訳もQupZillaの大きな助けとなります。新しい翻訳を開始するときはまず私(作者)にお知らせください。必要な作業をいくつかします。翻訳の追加や改善はe-mailやgithubで受け付けています。";
-$translating_moreinfo = "翻訳に関するより詳しい情報は<a href='https://github.com/nowrep/QupZilla/wiki/Translating'>ここ</a>を見て下さい。 [wiki at github]";
+$translating_moreinfo = "翻訳に関するより詳しい情報は<a href='https://github.com/QupZilla/QupZilla/wiki/Translating'>ここ</a>を見て下さい。 [wiki at github]";
 $creators = "QupZillaはだれが作ったのか?";
 $creators_text = "プロジェクトオーナー、メンテナー、メイン開発の<b>David Rosca</b>はチェコの学生です (nowrep)。<br/>
-コーディングや翻訳、サポートで貢献のあった方のリストも<a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>ここ</a>から参照できます [at github].<br/><br/>IRCチャンネルにも参加できます <b>#qupzilla</b> irc.freenode.netでQupZillaにかかわる人々とチャットしましょう。";
+コーディングや翻訳、サポートで貢献のあった方のリストも<a href='https://github.com/QupZilla/QupZilla/blob/master/AUTHORS'>ここ</a>から参照できます [at github].<br/><br/>IRCチャンネルにも参加できます <b>#qupzilla</b> irc.freenode.netでQupZillaにかかわる人々とチャットしましょう。";
 $share_with_friends = "友達にQupZillaをすすめる！";
 $share_with_friends_text = "QupZillaを気に入っていただけましたか？ ぜひお友達とシェアしてください！";
 ?>
