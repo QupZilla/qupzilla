@@ -65,10 +65,10 @@ $getting_source_text1  = "La façon la plus simple d'obtenir les sources de QupZ
 $getting_source_text2 = "Vous pouvez ensuite commencer à coder. Vous pouvez m'envoyer vos modifications par e-mail ou sur GitHub.";
 $translating = "Traductions dans d'autres langues";
 $translating_text  = "Une autre façon de participer est d'ajouter ou d'améliorer les traductions existantes. Si vous voulez ajouter une nouvelle langue, vous pouvez générer un nouveau fichier de traduction manuellement, ou me contacter et je le ferai pour vous. Vous pouvez m'envoyer votre traduction à nouveau par e-mail ou sur GitHub.";
-$translating_moreinfo = "Plus d'informations sur la traduction <a href='https://github.com/QupZilla/QupZilla/wiki/Translating'>ici</a> [wiki sur GitHub]";
+$translating_moreinfo = "Plus d'informations sur la traduction <a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>ici</a> [wiki sur GitHub]";
 $creators = "Qui développe QupZilla ?";
 $creators_text  = "Le responsable du projet, mainteneur et développeur principal est un étudiant tchèque <b>David Rosca</b> (nowrep).<br/>
-Outre le codage, d'autres contributeurs participent également en réalisant les traductions ou en soutenant QupZilla. La liste complête des contributeurs peut être trouvée <a href='https://github.com/QupZilla/QupZilla/blob/master/AUTHORS'>ici</a>  [sur GitHub].<br/><br/>Vous pouvez aussi rejoindre le canal IRC  <b>#qupzilla</b> sur irc.freenode.net pour discuter avec les gens impliqués dans QupZilla.";
+Outre le codage, d'autres contributeurs participent également en réalisant les traductions ou en soutenant QupZilla. La liste complête des contributeurs peut être trouvée <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>ici</a>  [sur GitHub].<br/><br/>Vous pouvez aussi rejoindre le canal IRC  <b>#qupzilla</b> sur irc.freenode.net pour discuter avec les gens impliqués dans QupZilla.";
 $share_with_friends = "Partagez avec vos amis!";
 $share_with_friends_text = "Vous aimez QupZilla ? Alors partagez-le avec vos amis !!"
 ?>

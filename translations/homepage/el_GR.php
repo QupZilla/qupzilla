@@ -65,10 +65,10 @@ $getting_source_text1 = "Ο ευκολότερος τρόπος να πάρετ�
 $getting_source_text2 = "και μετά μπορείτε να αρχίσετε να προγραμματίζετε. Μπορείτε να μου στείλετε τα patch σας μέσο e-mail ή στο github.";
 $translating = "Μεταφράζοντας σε άλλες γλώσσες";
 $translating_text = "Άλλος τρόπος για να συνεισφέρετε είναι να προσθέσετε ή να βελτιώσετε μια τρέχουσα μετάφραση. Αν θέλετε να προσθέσετε μια νέα γλώσσα, μπορείτε να δημιουργήσετε νέα αρχεία μετάφρασης χειροκίνητα, ή μπορείτε να επικοινωνήσετε μαζί μου, και θα το κάνω για σας. Μπορείτε να μου στείλετε τις μεταφράσεις σας ξανά μέσω e-mail ή στο github.";
-$translating_moreinfo = "Περισσότερες πληροφορίες περί μετάφρασης <a href='https://github.com/QupZilla/QupZilla/wiki/Translating'>εδώ</a> [wiki στο github]";
+$translating_moreinfo = "Περισσότερες πληροφορίες περί μετάφρασης <a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>εδώ</a> [wiki στο github]";
 $creators = "Ποιός είναι ο δημιουργός του QupZilla;";
 $creators_text = "Ο ιδιοκτήτης του έργου, συντηρητής και κύριος προγραμματιστής είναι ο Τσέχος φοιτητής <b>David Rosca</b> (nowrep).<br/>
-Πέρα από τον κώδικα, άλλοι συνεισφέρουν επίσης κάνοντας μεταφράσεις και υποστηρίζοντας το QupZilla. Μια πλήρης λίστα με τους συνεισφέροντες μπορεί να βρεθεί <a href='https://github.com/QupZilla/QupZilla/blob/master/AUTHORS'>εδώ</a> [στο github].<br/><br/>Μπορείτε επίσης να μπείτε στο κανάλι του IRC <b>#qupzilla</b> στο irc.freenode.net για να συνομιλήσετε με κόσμο που εμπλέκεται με το QupZilla.";
+Πέρα από τον κώδικα, άλλοι συνεισφέρουν επίσης κάνοντας μεταφράσεις και υποστηρίζοντας το QupZilla. Μια πλήρης λίστα με τους συνεισφέροντες μπορεί να βρεθεί <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>εδώ</a> [στο github].<br/><br/>Μπορείτε επίσης να μπείτε στο κανάλι του IRC <b>#qupzilla</b> στο irc.freenode.net για να συνομιλήσετε με κόσμο που εμπλέκεται με το QupZilla.";
 $share_with_friends = "Μοιραστείτε με φίλους!";
 $share_with_friends_text = "Σας αρέσει το QupZilla; Τότε μοιραστείτε το με τους φίλους σας!";
 ?>

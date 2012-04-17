@@ -65,10 +65,10 @@ $getting_source_text1 = "Cara termudah untuk memperoleh kode sumber QupZilla ada
 $getting_source_text2 = "dan anda dapat langsung membongkarnya. Anda dapat mengirimkan perbaikan anda melalui surel atau di github.";
 $translating = "Menterjemahkan ke bahasa yang lain";
 $translating_text = "Cara lain untuk berkontribusi adalah menambah atau meningkatkan terjemahan saat ini. Jika anda ingin menambahkan bahasa baru, anda dapat menyusun berkas terjemahan baru secara manual, atau anda dapat menghubungi saya, dan saya akan melakukannya untuk anda. Anda dapat mengirimkan terjemahan anda kembali melalui email atau di github.";
-$translating_moreinfo = "Informasi lanjutan tentang penterjemahan <a href='https://github.com/QupZilla/QupZilla/wiki/Translating'>di sini</a> [wiki di github]";
+$translating_moreinfo = "Informasi lanjutan tentang penterjemahan <a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>di sini</a> [wiki di github]";
 $creators = "Siapa yang membuat QupZilla?";
 $creators_text = "Pemilik proyek, pengelola dan pengembang utama adalah pelajar Czech <b>David Rosca</b> (nowrep).<br/>
-Selain dari pengkodean, pihak lain juga berkontribusi dengan membuat terjemahan atau mendukung QupZilla. Daftar lengkap dari kontributor dapat dilihat di <a href='https://github.com/QupZilla/QupZilla/blob/master/AUTHORS'>sini</a> [di github].<br/><br/>Anda juga dapat bergabung di kanal IRC <b>#qupzilla</b> di irc.freenode.net untuk berbincang dengan orang-orang yang terlibat di QupZilla.";
+Selain dari pengkodean, pihak lain juga berkontribusi dengan membuat terjemahan atau mendukung QupZilla. Daftar lengkap dari kontributor dapat dilihat di <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>sini</a> [di github].<br/><br/>Anda juga dapat bergabung di kanal IRC <b>#qupzilla</b> di irc.freenode.net untuk berbincang dengan orang-orang yang terlibat di QupZilla.";
 $share_with_friends = "Bagi Dengan Teman!";
 $share_with_friends_text = "Anda menyukai QupZilla? Bagikan pada teman-teman anda!";
 ?>

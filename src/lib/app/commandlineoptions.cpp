@@ -56,7 +56,7 @@ void CommandLineOptions::showHelp()
                        " based on WebKit core (http://webkit.org) and\n"
                        " written in Qt Framework (http://qt.nokia.com) \n\n"
                        " For more information please visit wiki at \n"
-                       " https://github.com/QupZilla/QupZilla/wiki \n";
+                       " https://github.com/QupZilla/qupzilla/wiki \n";
 
     cout << help << " > " << QupZilla::WWWADDRESS.toUtf8().data() << endl;
 }

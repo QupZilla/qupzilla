@@ -65,10 +65,10 @@ $getting_source_text1 = "Il modo più semplice per ottenere i sorgenti di QupZil
 $getting_source_text2 = "e poi puoi iniziare l'hacking. Puoi inviarmi le correzioni via e-mail o su github.";
 $translating = "Tradurre in atre lingue";
 $translating_text = "Un altro modo per contribuire è aggiungere traduzioni o migliorare quelle attuali. Se vuoi aggiungere una nuova traduzione, puoi generare manualmente il nuovo file di traduzione, o puoi contattarmi e lo farò io per te. Puoi inviarmi anche le traduzioni via e-mail o su github.";
-$translating_moreinfo = "Maggiori informazioni sulla traduzione <a href='https://github.com/QupZilla/QupZilla/wiki/Translating'>qui</a> [wiki at github]";
+$translating_moreinfo = "Maggiori informazioni sulla traduzione <a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>qui</a> [wiki at github]";
 $creators = "Chi crea QupZilla?";
 $creators_text = "Il proprietario, mantenitore e sviluppatore principale del progetto è lo studente Ceco <b>David Rosca</b> (nowrep).<br/>
-Oltre alla programmazione, anche altre persone contribuiscono a QupZilla, traducendolo o supportandolo. La lista completa dei collaboratori può essere trovata <a href='https://github.com/QupZilla/QupZilla/blob/master/AUTHORS'>qui</a> [su github].<br/><br/>Puoi anche collegarti al canale IRC <b>#qupzilla</b> su irc.freenode.net per parlare con le persone coinvolte in QupZilla.";
+Oltre alla programmazione, anche altre persone contribuiscono a QupZilla, traducendolo o supportandolo. La lista completa dei collaboratori può essere trovata <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>qui</a> [su github].<br/><br/>Puoi anche collegarti al canale IRC <b>#qupzilla</b> su irc.freenode.net per parlare con le persone coinvolte in QupZilla.";
 $share_with_friends = "Dillo ai tuoi amici!";
 $share_with_friends_text = "Ti piace QupZilla? Allora condividilo con i tuoi amici!"
 ?>

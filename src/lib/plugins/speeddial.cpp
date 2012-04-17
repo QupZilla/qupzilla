@@ -56,7 +56,7 @@ void SpeedDial::loadSettings()
         allPages = "url:\"http://www.google.com\"|title:\"Google\";"
                    "url:\"http://www.qupzilla.com\"|title:\"QupZilla\";"
                    "url:\"http://blog.qupzilla.com\"|title:\"QupZilla Blog\";"
-                   "url:\"https://github.com/QupZilla/QupZilla\"|title:\"QupZilla GitHub\";"
+                   "url:\"https://github.com/QupZilla/qupzilla\"|title:\"QupZilla GitHub\";"
                    "url:\"https://facebook.com\"|title:\"Facebook\";";
     }
     changed(allPages);

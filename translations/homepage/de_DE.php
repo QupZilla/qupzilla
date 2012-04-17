@@ -65,10 +65,10 @@ $getting_source_text1 = "Der einfachste Weg, den Quellcode von QupZilla zu besch
 $getting_source_text2 = "Nun können Sie mit der Arbeit beginnen. Bitte senden Sie mir Ihre Erweiterungen per E-Mail oder über github.";
 $translating = "Übersetzung in weitere Sprachen";
 $translating_text = "Eine weitere Möglichkeit der Mitarbeit ist, Übersetzungen zu erstellen oder bestehende zu verbessern. Wenn Sie eine neue Übersetzung erstellen möchten, so können Sie die dazu erforderliche Datei manuell erzeugen oder mit mir Kontakt aufnehmen. Ich werde sie Ihnen zur Verfügung stellen. Bitte übermitteln Sie mir Ihre Übersetzung per E-Mail oder über github.";
-$translating_moreinfo = "Weitere Informationen zu Übersetzungen finden Sie <a href='https://github.com/QupZilla/QupZilla/wiki/Translating'>hier</a> [wiki auf github]";
+$translating_moreinfo = "Weitere Informationen zu Übersetzungen finden Sie <a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>hier</a> [wiki auf github]";
 $creators = "Wer entwickelt QupZilla?";
 $creators_text = "Verantwortlich für dieses Projekt und dessen Pflege sowie Hauptentwickler ist der tschechische Student <b>David Rosca</b> (nowrep).<br/>
-Außer der eigentlichen Programmierarbeit unterstützen weitere Mitarbeiter dieses Projekt, indem sie z.B. Übersetzungen erstellen oder QupZilla testen. Eine vollständige Liste aller Mitarbeiter befindet sich <a href='https://github.com/QupZilla/QupZilla/blob/master/AUTHORS'>hier</a> [auf github].<br/><br/>Sie können sich ebenfalls dem IRC channel <b>#qupzilla</b> auf irc.freenode.net anschließen, um mit den Leuten zu chatten, die an QupZilla beteiligt sind.";
+Außer der eigentlichen Programmierarbeit unterstützen weitere Mitarbeiter dieses Projekt, indem sie z.B. Übersetzungen erstellen oder QupZilla testen. Eine vollständige Liste aller Mitarbeiter befindet sich <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>hier</a> [auf github].<br/><br/>Sie können sich ebenfalls dem IRC channel <b>#qupzilla</b> auf irc.freenode.net anschließen, um mit den Leuten zu chatten, die an QupZilla beteiligt sind.";
 $share_with_friends = "Mit Freunden teilen!";
 $share_with_friends_text = "Mögen Sie QupZilla? Dann teilen Sie ihn mit Ihren Freunden!";
 ?>

@@ -61,9 +61,9 @@ $getting_source_text1 = "O método mais fácil de obter o código fonte é clona
 $getting_source_text2 = "e já pode começar a mexer no código. Pode enviar as suas correções por correio eletrónico ou 	através do github.";
 $translating = "Traduzir o programa";
 $translating_text = "Outra forma de contribuir no desenvolvimento é adicionando ou corrigindo as traduções existentes. Se quiser adicionar um novo idioma, pode gerar o ficheiro manualmente ou contactar-me para que eu o crie por si. Posteriormente, pode enviar o ficheiro traduzido por correio eletrónico ou através do github.";
-$translating_moreinfo = "Pode encontrar mais informações sobre o processo de traduções <a href='https://github.com/QupZilla/QupZilla/wiki/Translating'>aqui</a> [wiki no github]";
+$translating_moreinfo = "Pode encontrar mais informações sobre o processo de traduções <a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>aqui</a> [wiki no github]";
 $creators = "Quem é o programador do QupZilla?";
-$creators_text = "O criador e programador principal do Qupzilla é um estudante Checo de nome <b>David Rosca</b> (nowrep).<br/>Para além do programador principal, outras pessoas ajudam no desenvolvimento, tradução e apoio ao QupZilla. Pode encontrar a lista de contributos <a href='https://github.com/QupZilla/QupZilla/blob/master/AUTHORS'>aqui</a> [no github].<br/><br/>Você também pode ajudar. Aceda ao canal IRC do <b>#qupzilla</b> em irc.freenode.net e converse com as pessoas envolvidas no desenvolvimento do QupZilla.";
+$creators_text = "O criador e programador principal do Qupzilla é um estudante Checo de nome <b>David Rosca</b> (nowrep).<br/>Para além do programador principal, outras pessoas ajudam no desenvolvimento, tradução e apoio ao QupZilla. Pode encontrar a lista de contributos <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>aqui</a> [no github].<br/><br/>Você também pode ajudar. Aceda ao canal IRC do <b>#qupzilla</b> em irc.freenode.net e converse com as pessoas envolvidas no desenvolvimento do QupZilla.";
 $share_with_friends = "Partilhar com os amigos!";
 $share_with_friends_text = "Gosta do QupZilla? Então, partilhe-o com os seus amigos!";
 ?>

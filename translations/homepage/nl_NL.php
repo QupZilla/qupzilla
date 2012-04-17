@@ -65,10 +65,10 @@ $getting_source_text1 = "De makkelijste manier om QupZilla-broncode te verkrijge
 $getting_source_text2 = "en dan kunt u beginnen met hacken. U kunt uw patches aan me opsturen via e-mail of op Github.";
 $translating = "Vertalen naar andere talen";
 $translating_text = "Een andere manier om bij te dragen is vertalingen toe te voegen of huidige te verbeteren. Indien u een nieuwe taal wilt toevoegen, kunt u een vertalingssjabloon creeren of u kunt mij contacteren en dan zal ik het voor u doen. U kunt vertalingen eveneens opsturen via e-mail of op Github.";
-$translating_moreinfo = "Meer info over vertalen <a href='https://github.com/QupZilla/QupZilla/wiki/Translating'>hier</a> [wiki op Github]";
+$translating_moreinfo = "Meer info over vertalen <a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>hier</a> [wiki op Github]";
 $creators = "Wie creërt QupZilla?";
 $creators_text = "De project-eigenaar, -onderhouder en hoofdontwikkelaar is de Tjechische student <b>David Rosca</b> (nowrep).<br/>
-Buiten het programmeren, dragen anderen tevens bij door het maken van vertalingen of het ondersteunen van QupZilla. Een volledige lijst van bijdragers kan <a href='https://github.com/QupZilla/QupZilla/blob/master/AUTHORS'>hier</a> worden gevonden [op github].<br/><br/>U kunt tevens deelnemen op ons IRC-kanaal <b>#qupzilla</b> op irc.freenode.net om te chatten met mensen die zich bezig houden met QupZilla.";
+Buiten het programmeren, dragen anderen tevens bij door het maken van vertalingen of het ondersteunen van QupZilla. Een volledige lijst van bijdragers kan <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>hier</a> worden gevonden [op github].<br/><br/>U kunt tevens deelnemen op ons IRC-kanaal <b>#qupzilla</b> op irc.freenode.net om te chatten met mensen die zich bezig houden met QupZilla.";
 $share_with_friends = "Deel met uw vrienden!";
 $share_with_friends_text = "Vind u QupZilla geweldig? Deel het dan met vrienden!";
 ?>

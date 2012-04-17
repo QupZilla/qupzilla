@@ -64,10 +64,10 @@ $getting_source_text1 = "取得QupZilla的原始碼最簡單的方法就是從Gi
 $getting_source_text2 = "然後就可以開始改寫它們。您可以藉由電子郵件或是Github將補釘包提交給我們。";
 $translating = "翻譯成您所使用的語言";
 $translating_text = "另一個幫助我們的方法是提供我們QupZilla的翻譯或是協助改進翻譯。如果您想要增加新的語言，您可以手動新增翻譯文件，您也可以聯絡我們，我將協助您完成。您可以藉由電子郵見或是Github將翻譯文件提交給我們。";
-$translating_moreinfo = "更多關於翻譯的資訊：<a href='https://github.com/QupZilla/QupZilla/wiki/Translating'>點擊這裡吧！</a> [github上的wiki]";
+$translating_moreinfo = "更多關於翻譯的資訊：<a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>點擊這裡吧！</a> [github上的wiki]";
 $creators = "誰創造了QupZilla？";
 $creators_text = "這個計畫的擁有者、維護者以及主要開發者為捷克的學生<b>David Rosca</b>(nowrep)。<br/>
-除了程式的撰寫之外，其他貢獻者也為此計畫翻譯或支持。完整的貢獻人員名單請參考<a href='https://github.com/QupZilla/QupZilla/blob/master/AUTHORS'>這裡</a> [at github]。<br/><br/>您也可以加入IRC頻道<b>#qupzilla</b> at irc.freenode.net和參與此計畫的我們聊聊天。";
+除了程式的撰寫之外，其他貢獻者也為此計畫翻譯或支持。完整的貢獻人員名單請參考<a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>這裡</a> [at github]。<br/><br/>您也可以加入IRC頻道<b>#qupzilla</b> at irc.freenode.net和參與此計畫的我們聊聊天。";
 $share_with_friends = "和您的朋友分享！";
 $share_with_friends_text = "喜歡QupZilla？那就跟你的朋友分享它吧！";
 ?>

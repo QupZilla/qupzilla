@@ -84,11 +84,11 @@ const QString QupZilla::BUILDTIME =  __DATE__" "__TIME__;
 const QString QupZilla::AUTHOR = "David Rosca";
 const QString QupZilla::COPYRIGHT = "2010-2012";
 const QString QupZilla::WWWADDRESS = "http://www.qupzilla.com";
-const QString QupZilla::WIKIADDRESS = "https://github.com/QupZilla/QupZilla/wiki";
+const QString QupZilla::WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
 const QString QupZilla::WEBKITVERSION = qWebKitVersion();
 
 QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
-    : QMainWindow()
+    : QMainWindow(0)
     , m_historyMenuChanged(true)
     , m_bookmarksMenuChanged(true)
     , m_isClosing(false)
