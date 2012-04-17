@@ -74,9 +74,15 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
 
 void RSSWidget::showAt(QWidget* _parent)
 {
-    QPoint p = _parent->mapToGlobal(QPoint(0, 0));
-    move((p.x() + _parent->width() - width()), p.y() + _parent->height());
     show();
+
+    const QPoint &widgetPos = _parent->mapToGlobal(QPoint(0, 0));
+
+    QPoint newPos;
+    newPos.setX(widgetPos.x() + _parent->width() - width());
+    newPos.setY(widgetPos.y() + _parent->height());
+
+    move(newPos);
 }
 
 void RSSWidget::addRss()

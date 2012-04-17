@@ -31,6 +31,10 @@ WebPluginFactory::WebPluginFactory(WebPage* page)
 
 QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const
 {
+    if (url.isEmpty()) {
+        return 0;
+    }
+
     QString mime = mimeType.trimmed(); //Fixing bad behaviour when mimeType contains spaces
     if (mime.isEmpty()) {
         if (url.toString().endsWith(".swf")) {
@@ -43,7 +47,7 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, cons
 
     if (mime != "application/x-shockwave-flash") {
         if (mime != "application/futuresplash" && mime != "application/x-java-applet") {
-            qDebug()  << "WebPluginFactory::create missing mimeType handler for: " << mime;
+            qDebug()  << "WebPluginFactory::create creating object of mimeType : " << mime;
         }
         return 0;
     }

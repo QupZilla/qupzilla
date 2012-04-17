@@ -240,20 +240,18 @@ void ClickToFlash::load()
            So asynchronous JavaScript code is used to remove element from page and then substitute
            it with unblocked Flash. The JavaScript code is:
 
-                var qz_c2f_clone = this.cloneNode(true);
-                var qz_c2f_parentNode = this.parentNode;
-                var qz_c2f_nextSibling = this.nextSibling;
+               var qz_c2f_clone = this.cloneNode(true);
+               var qz_c2f_parentNode = this.parentNode;
+               var qz_c2f_substituteElement = document.createElement(this.tagName);
 
-                this.parentNode.removeChild(this);
+               qz_c2f_substituteElement.width = this.width;
+               qz_c2f_substituteElement.height = this.height;
 
-                setTimeout(function(){
-                    if(qz_c2f_nextSibling) {
-                        qz_c2f_parentNode.insertBefore(qz_c2f_clone,qz_c2f_nextSibling);
-                    }
-                    else {
-                        qz_c2f_parentNode.appendChild(qz_c2f_clone);
-                    }
-                }, 250);
+               this.parentNode.replaceChild(qz_c2f_substituteElement, this);
+
+               setTimeout(function(){
+                   qz_c2f_parentNode.replaceChild(qz_c2f_clone, qz_c2f_substituteElement);
+               }, 250);
 
         */
 
@@ -264,10 +262,10 @@ void ClickToFlash::load()
         m_element.setAttribute("type", "application/futuresplash");
 
         QString js = "var qz_c2f_clone=this.cloneNode(true);var qz_c2f_parentNode=this.parentNode;"
-                     "var qz_c2f_nextSibling=this.nextSibling;this.parentNode.removeChild(this);"
-                     "setTimeout(function(){if(qz_c2f_nextSibling){"
-                     "qz_c2f_parentNode.insertBefore(qz_c2f_clone,qz_c2f_nextSibling);}"
-                     "else{qz_c2f_parentNode.appendChild(qz_c2f_clone);}},250);";
+                     "var qz_c2f_substituteElement=document.createElement(this.tagName);"
+                     "qz_c2f_substituteElement.width=this.width;qz_c2f_substituteElement.height=this.height;"
+                     "this.parentNode.replaceChild(qz_c2f_substituteElement,this);setTimeout(function(){"
+                     "qz_c2f_parentNode.replaceChild(qz_c2f_clone,qz_c2f_substituteElement);},250);";
 
         m_element.evaluateJavaScript(js);
     }
