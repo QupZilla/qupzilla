@@ -32,7 +32,7 @@ WebPluginFactory::WebPluginFactory(WebPage* page)
 QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const
 {
     if (url.isEmpty()) {
-        return 0;
+        return new QObject();
     }
 
     QString mime = mimeType.trimmed(); //Fixing bad behaviour when mimeType contains spaces

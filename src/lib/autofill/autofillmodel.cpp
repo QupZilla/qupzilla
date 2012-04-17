@@ -238,7 +238,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
         return;
     }
 
-    m_lastOutgoingData = outgoingData;
+    const QByteArray &data = convertWebKitFormBoundaryIfNeccessary(outgoingData);
 
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
     WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
@@ -281,9 +281,9 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     foreach(const QWebElement & formElement, allForms) {
         foreach(const QWebElement &inputElement, formElement.findAll("input[type=\"password\"]")) {
             passwordName = inputElement.attribute("name");
-            passwordValue = getValueFromData(outgoingData, inputElement);
+            passwordValue = getValueFromData(data, inputElement);
 
-            if (!passwordValue.isEmpty() && dataContains(outgoingData, passwordName)) {
+            if (!passwordValue.isEmpty() && dataContains(data, passwordName)) {
                 foundForm = formElement;
                 break;
             }
@@ -304,13 +304,13 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
 
     foreach(const QWebElement &element, foundForm.findAll("input[type=\"text\"]")) {
         usernameName = element.attribute("name");
-        usernameValue = getValueFromData(outgoingData, element);
+        usernameValue = getValueFromData(data, element);
         if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {
             break;
         }
     }
 
-    AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, outgoingData, usernameValue, passwordValue);
+    AutoFillNotification* aWidget = new AutoFillNotification(siteUrl, data, usernameValue, passwordValue);
     webView->addNotification(aWidget);
 }
 
@@ -318,7 +318,7 @@ QString AutoFillModel::getValueFromData(const QByteArray &data, QWebElement elem
 {
     QString name = element.attribute("name");
     if (name.isEmpty()) {
-        return "";
+        return QString();
     }
 
     QString value = element.evaluateJavaScript("this.value").toString();
@@ -336,9 +336,54 @@ QString AutoFillModel::getValueFromData(const QByteArray &data, QWebElement elem
     return value;
 }
 
+QByteArray AutoFillModel::convertWebKitFormBoundaryIfNeccessary(const QByteArray &data)
+{
+    /* Sometimes, data are passed in this format:
+
+        ------WebKitFormBoundary0bBp3bFMdGwqanMp
+        Content-Disposition: form-data; name="name-of-attribute"
+
+        value-of-attribute
+        ------WebKitFormBoundary0bBp3bFMdGwqanMp--
+
+       So this function converts this format into url
+    */
+
+    if (!data.contains(QByteArray("------WebKitFormBoundary"))) {
+        return data;
+    }
+
+    QByteArray formatedData;
+    QRegExp rx("name=\"(.*)------WebKitFormBoundary");
+    rx.setMinimal(true);
+
+    int pos = 0;
+    while ((pos = rx.indexIn(data, pos)) != -1) {
+        QString string = rx.cap(1);
+        pos += rx.matchedLength();
+
+        int endOfAttributeName = string.indexOf("\"");
+        if (endOfAttributeName == -1) {
+            continue;
+        }
+
+        QString attrName = string.left(endOfAttributeName);
+        QString attrValue = string.mid(endOfAttributeName + 1).trimmed().remove("\n");
+
+        if (attrName.isEmpty() || attrValue.isEmpty()) {
+            continue;
+        }
+
+        formatedData.append(attrName + "=" + attrValue + "&");
+    }
+
+    return formatedData;
+}
+
 bool AutoFillModel::dataContains(const QByteArray &data, const QString &attributeName)
 {
     QueryItems queryItems = QUrl::fromEncoded("http://a.b/?" + data).queryItems();
+
     for (int i = 0; i < queryItems.count(); i++) {
         QueryItem item = queryItems.at(i);
 
