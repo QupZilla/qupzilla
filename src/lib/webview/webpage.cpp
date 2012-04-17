@@ -53,11 +53,11 @@
 #include <QFileDialog>
 #include <QWebFrame>
 
-QString WebPage::m_lastUploadLocation = QDir::homePath();
-QString WebPage::m_userAgent;
-QString WebPage::m_fakeUserAgent;
-QUrl WebPage::m_lastUnsupportedUrl;
-QList<WebPage*> WebPage::m_livingPages;
+QString WebPage::s_lastUploadLocation = QDir::homePath();
+QString WebPage::s_userAgent;
+QString WebPage::s_fakeUserAgent;
+QUrl WebPage::s_lastUnsupportedUrl;
+QList<WebPage*> WebPage::s_livingPages;
 
 WebPage::WebPage(QupZilla* mainClass)
     : QWebPage()
@@ -92,7 +92,7 @@ WebPage::WebPage(QupZilla* mainClass)
     connect(this, SIGNAL(featurePermissionRequested(QWebFrame*, QWebPage::Feature)), this, SLOT(featurePermissionRequested(QWebFrame*, QWebPage::Feature)));
 #endif
 
-    m_livingPages.append(this);
+    s_livingPages.append(this);
 }
 
 QUrl WebPage::url() const
@@ -149,10 +149,10 @@ bool WebPage::isRunningLoop()
 void WebPage::setUserAgent(const QString &agent)
 {
     if (!agent.isEmpty()) {
-        m_userAgent = QString("%1 (QupZilla %2)").arg(agent, QupZilla::VERSION);
+        s_userAgent = QString("%1 (QupZilla %2)").arg(agent, QupZilla::VERSION);
     }
     else {
-        m_userAgent = agent;
+        s_userAgent = agent;
     }
 }
 
@@ -267,8 +267,8 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
         // (to prevent endless loop in case QDesktopServices::openUrl decide
         // to open the url again in QupZilla )
 
-        if (m_lastUnsupportedUrl != url) {
-            m_lastUnsupportedUrl = url;
+        if (s_lastUnsupportedUrl != url) {
+            s_lastUnsupportedUrl = url;
             QDesktopServices::openUrl(url);
         }
 
@@ -299,7 +299,7 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
 
     const QString &text = tr("QupZilla cannot handle <b>%1:</b> links. The requested link "
                              "is <ul><li>%2</li></ul>Do you want QupZilla to try "
-                             "open this link in system application?<br/>").arg(protocol, url.toString());
+                             "open this link in system application?").arg(protocol, url.toString());
     CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, view());
     dialog.setText(text);
     dialog.setCheckBoxText(tr("Remember my choice for this protocol"));
@@ -487,15 +487,15 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
 {
     // Let Google services play nice with us
     if (url.host().contains("google")) {
-        if (m_fakeUserAgent.isEmpty()) {
-            m_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + QupZilla::WEBKITVERSION + " (KHTML, like Gecko) Chrome/10.0 Safari/" + QupZilla::WEBKITVERSION;
+        if (s_fakeUserAgent.isEmpty()) {
+            s_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + QupZilla::WEBKITVERSION + " (KHTML, like Gecko) Chrome/10.0 Safari/" + QupZilla::WEBKITVERSION;
         }
 
-        return m_fakeUserAgent;
+        return s_fakeUserAgent;
     }
 
-    if (m_userAgent.isEmpty()) {
-        m_userAgent = QWebPage::userAgentForUrl(url);
+    if (s_userAgent.isEmpty()) {
+        s_userAgent = QWebPage::userAgentForUrl(url);
 #ifdef Q_WS_MAC
 #ifdef __i386__ || __x86_64__
         m_userAgent.replace("PPC Mac OS X", "Intel Mac OS X");
@@ -503,7 +503,7 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
 #endif
     }
 
-    return m_userAgent;
+    return s_userAgent;
 }
 
 bool WebPage::supportsExtension(Extension extension) const
@@ -812,7 +812,7 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
     QString suggFileName;
 
     if (oldFile.isEmpty()) {
-        suggFileName = m_lastUploadLocation;
+        suggFileName = s_lastUploadLocation;
     }
     else {
         suggFileName = oldFile;
@@ -821,7 +821,7 @@ QString WebPage::chooseFile(QWebFrame* originatingFrame, const QString &oldFile)
     const QString &fileName = QFileDialog::getOpenFileName(originatingFrame->page()->view(), tr("Choose file..."), suggFileName);
 
     if (!fileName.isEmpty()) {
-        m_lastUploadLocation = fileName;
+        s_lastUploadLocation = fileName;
     }
 
     return fileName;
@@ -833,7 +833,7 @@ bool WebPage::isPointerSafeToUse(WebPage* page)
     // So there is no way to test whether pointer is still valid or not, except
     // this hack.
 
-    return page == 0 ? false : m_livingPages.contains(page);
+    return page == 0 ? false : s_livingPages.contains(page);
 }
 
 void WebPage::disconnectObjects()
@@ -843,7 +843,7 @@ void WebPage::disconnectObjects()
         m_runningLoop = 0;
     }
 
-    m_livingPages.removeOne(this);
+    s_livingPages.removeOne(this);
 
     disconnect(this);
     m_networkProxy->disconnectObjects();
@@ -858,5 +858,5 @@ WebPage::~WebPage()
         m_runningLoop = 0;
     }
 
-    m_livingPages.removeOne(this);
+    s_livingPages.removeOne(this);
 }

@@ -57,7 +57,7 @@ public:
 private:
     bool dataContains(const QByteArray &data, const QString &attributeName);
     QString getValueFromData(const QByteArray &data, QWebElement element);
-    QByteArray convertWebKitFormBoundaryIfNeccessary(const QByteArray &data);
+    QByteArray convertWebKitFormBoundaryIfNecessary(const QByteArray &data);
 
     QupZilla* p_QupZilla;
     bool m_isStoring;

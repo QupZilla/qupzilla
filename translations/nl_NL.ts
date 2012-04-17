@@ -1063,22 +1063,22 @@
         <translation>Voeg %1 toe aan witte lijst</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="274"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="306"/>
         <source>Flash Object</source>
         <translation>Flash-object</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="277"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="309"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Naam van attribuut&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="277"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="309"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Waarde&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="291"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="323"/>
         <source>No more information available.</source>
         <translation>Geen verdere informatie beschikbaar.</translation>
     </message>
@@ -4194,9 +4194,9 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Pad:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="393"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="403"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="413"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="399"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="415"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="431"/>
         <source>&lt;database not selected&gt;</source>
         <translation>&lt;database niet geselecteerd&gt;</translation>
     </message>
@@ -4482,17 +4482,17 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="279"/>
         <source>Image files</source>
         <translation>Afbeeldingsbestanden</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="279"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>
         <source>Select image...</source>
         <translation>Selecteer afbeelding...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="327"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="328"/>
         <source>Unable to load</source>
         <translation>Niet in staat om te laden</translation>
     </message>
@@ -4717,144 +4717,159 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="361"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="300"/>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="305"/>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="306"/>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="408"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Om deze pagina te tonen, moet QupZulla het verzoek opnieuw versturen
 (zoals zoeken op het maken van een shoping, welke al gedaan is.)</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="363"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="410"/>
         <source>Confirm form resubmission</source>
         <translation>Bevestig herindiening forumlier</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="478"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="531"/>
         <source>Select files to upload...</source>
         <translation>Selecteer bestanden om te uploaden...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="499"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="552"/>
         <source>Server refused the connection</source>
         <translation>Server weigerde de verbinding</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="502"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="555"/>
         <source>Server closed the connection</source>
         <translation>Server sloot de verbinding</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="505"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="558"/>
         <source>Server not found</source>
         <translation>Server niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="508"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="561"/>
         <source>Connection timed out</source>
         <translation>Verbinding onderbroken</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="511"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="564"/>
         <source>Untrusted connection</source>
         <translation>Onbeveiligde verbinding</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="514"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="567"/>
         <source>Temporary network failure</source>
         <translation>Tijdelijke netwerkfout</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="517"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="570"/>
         <source>Proxy connection refused</source>
         <translation>Proxy-verbinding geweigerd</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="520"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="573"/>
         <source>Proxy server not found</source>
         <translation>Proxy-server niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="523"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="576"/>
         <source>Proxy connection timed out</source>
         <translation>Proxy-verbinding tijdsonderbreking</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="526"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="579"/>
         <source>Proxy authentication required</source>
         <translation>Proxy-authenticatie benodigd</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="529"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="582"/>
         <source>Content not found</source>
         <translation>Inhoud niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="532"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="585"/>
         <source>Unknown network error</source>
         <translation>Onbekende netwerkfout</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="558"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="615"/>
         <source>AdBlocked Content</source>
         <translation>Door AdBlock geblokkeerde inhoud</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="562"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="619"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Geblokkeerd door regel &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="578"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="635"/>
         <source>Content Access Denied</source>
         <translation>Inhoudstoegang geweigerd</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="586"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="643"/>
         <source>Error code %1</source>
         <translation>Foutcode %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="598"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="655"/>
         <source>Failed loading page</source>
         <translation>Mislukt om pagina te laden</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="605"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="662"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla kan de pagina niet laden van %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="606"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="663"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Controleer het adres op typfouten zoals &lt;b&gt;ww.&lt;/b&gt;voorbeeld.nl in plaats van &lt;b&gt;www.&lt;/b&gt;voorbeeld.nl</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="607"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="664"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Indien u niet in staat bent om eender welke pagina te laden, controleer dan uw netwerkverbinding.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="608"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="665"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Indien uw computer of netwerk beveiligd is door een firewall of proxy, zorg dan dat QupZilla toestemming heeft om het web te benaderen.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="609"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="666"/>
         <source>Try Again</source>
         <translation>Probeer nogmaals</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="708"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="765"/>
         <source>JavaScript alert</source>
         <translation>JavaScript-waarschuwing</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="716"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="773"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Voorkom dat deze pagina extra dialoogvensters aanmaakt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="764"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="821"/>
         <source>Choose file...</source>
         <translation>Kies bestand...</translation>
     </message>
@@ -5000,42 +5015,42 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Toon info &amp;over site</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="841"/>
+        <location filename="../src/lib/webview/webview.cpp" line="842"/>
         <source>Search with...</source>
         <translation>Zoek met...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="863"/>
         <source>&amp;Play</source>
         <translation>&amp;Speel af</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="863"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pauzeer</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="864"/>
         <source>Un&amp;mute</source>
         <translation>Ont&amp;demp</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="864"/>
         <source>&amp;Mute</source>
         <translation>&amp;Demp</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="865"/>
+        <location filename="../src/lib/webview/webview.cpp" line="866"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Kopieer media-adres</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="866"/>
+        <location filename="../src/lib/webview/webview.cpp" line="867"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Verstuur media-adres</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="867"/>
+        <location filename="../src/lib/webview/webview.cpp" line="868"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Sla media op naar &amp;schijf</translation>
     </message>
@@ -5096,12 +5111,12 @@ Na het toevoegen of verwijderen van paden, is het noodzakelijk om de browser te 
         <translation>Woordenboek</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="827"/>
+        <location filename="../src/lib/webview/webview.cpp" line="828"/>
         <source>Go to &amp;web address</source>
         <translation>Ga naar &amp;webadres</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="840"/>
+        <location filename="../src/lib/webview/webview.cpp" line="841"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Zoek &quot;%1 ..&quot; met %2</translation>
     </message>

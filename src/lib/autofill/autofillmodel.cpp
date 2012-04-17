@@ -238,7 +238,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
         return;
     }
 
-    const QByteArray &data = convertWebKitFormBoundaryIfNeccessary(outgoingData);
+    const QByteArray &data = convertWebKitFormBoundaryIfNecessary(outgoingData);
 
     QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
     WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
@@ -336,7 +336,7 @@ QString AutoFillModel::getValueFromData(const QByteArray &data, QWebElement elem
     return value;
 }
 
-QByteArray AutoFillModel::convertWebKitFormBoundaryIfNeccessary(const QByteArray &data)
+QByteArray AutoFillModel::convertWebKitFormBoundaryIfNecessary(const QByteArray &data)
 {
     /* Sometimes, data are passed in this format:
 

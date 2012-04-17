@@ -3835,6 +3835,18 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
         <source>JavaScript alert</source>
         <translation>Alertă Javascript</translation>
     </message>
+    <message>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WebSearchBar</name>

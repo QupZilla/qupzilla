@@ -1064,22 +1064,22 @@
         <translation>Tambahkan %1 ke daftar putih</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="274"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="306"/>
         <source>Flash Object</source>
         <translation>Obyek Flash</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="277"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="309"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nama Atribut&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="277"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="309"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nilai&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="291"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="323"/>
         <source>No more information available.</source>
         <translation>Tiada informasi tambahan tersedia.</translation>
     </message>
@@ -4206,9 +4206,9 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
         <translation>Lokasi:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="393"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="403"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="413"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="399"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="415"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="431"/>
         <source>&lt;database not selected&gt;</source>
         <translation>&lt;database tidak dipilih&gt;</translation>
     </message>
@@ -4483,17 +4483,17 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="279"/>
         <source>Image files</source>
         <translation>Berkas gambar</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="279"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>
         <source>Select image...</source>
         <translation>Pilih gambar...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="327"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="328"/>
         <source>Unable to load</source>
         <translation>Tidak dapat memuat</translation>
     </message>
@@ -4718,144 +4718,159 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="361"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="300"/>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="305"/>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="306"/>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="408"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Untuk menampilkan halaman ini, QupZilla harus mengirim ulang permintaan yang melakukannya lagi 
 (seperti pencarian saat belanja, yang sudah dilakukan sebelumnya.)</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="363"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="410"/>
         <source>Confirm form resubmission</source>
         <translation>Konfirmasi pengiriman ulang formulir</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="478"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="531"/>
         <source>Select files to upload...</source>
         <translation>Pilih berkas untuk diunggah...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="499"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="552"/>
         <source>Server refused the connection</source>
         <translation>Server menolak koneksi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="502"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="555"/>
         <source>Server closed the connection</source>
         <translation>Server menutup koneksi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="505"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="558"/>
         <source>Server not found</source>
         <translation>Server tidak ditemukan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="508"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="561"/>
         <source>Connection timed out</source>
         <translation>Batas waktu koneksi habis</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="511"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="564"/>
         <source>Untrusted connection</source>
         <translation>Koneksi tidak dapat dipercaya</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="514"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="567"/>
         <source>Temporary network failure</source>
         <translation>Kegagalan jaringan sementara</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="517"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="570"/>
         <source>Proxy connection refused</source>
         <translation>Koneksi ke proxy ditolak</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="520"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="573"/>
         <source>Proxy server not found</source>
         <translation>Server proxy tidak ditemukan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="523"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="576"/>
         <source>Proxy connection timed out</source>
         <translation>Batas waktu koneksi ke proxy habis</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="526"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="579"/>
         <source>Proxy authentication required</source>
         <translation>Otentikasi proxy dibutuhkan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="529"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="582"/>
         <source>Content not found</source>
         <translation>Isi tidak ditemukan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="532"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="585"/>
         <source>Unknown network error</source>
         <translation>Kesalahan jaringan tidak diketahui</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="558"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="615"/>
         <source>AdBlocked Content</source>
         <translation>Isi yang diblokir AdBlok</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="562"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="619"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Diblokir oleh aturan &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="578"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="635"/>
         <source>Content Access Denied</source>
         <translation>Akses Terhadap Isi Ditolak</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="586"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="643"/>
         <source>Error code %1</source>
         <translation>Kode kesalahan %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="598"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="655"/>
         <source>Failed loading page</source>
         <translation>Halaman gagal dimuat</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="605"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="662"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla tidak dapat memuat halaman dari %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="606"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="663"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Periksa ejaan alamat dari kesalahan pengetikan seperti &lt;b&gt;ww.&lt;/b&gt;contoh.com dari yang seharusnya &lt;b&gt;www.&lt;/b&gt;contoh.com</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="607"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="664"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Jika anda tidak dapat memuat halaman apapun, periksa koneksi jaringan komputer.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="608"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="665"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Jika komputer atau jaringan dilindungi firewall atau proxy, pastikan bahwa QupZilla diperbolehkan untuk mengakses Web.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="609"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="666"/>
         <source>Try Again</source>
         <translation>Coba Lagi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="708"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="765"/>
         <source>JavaScript alert</source>
         <translation>Peringatan JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="716"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="773"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Halangi halaman ini untuk membuat dialog tambahan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="764"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="821"/>
         <source>Choose file...</source>
         <translation>Pilih berkas...</translation>
     </message>
@@ -5072,52 +5087,52 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
         <translation>Kamus</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="827"/>
+        <location filename="../src/lib/webview/webview.cpp" line="828"/>
         <source>Go to &amp;web address</source>
         <translation>Buka alamat &amp;web</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="840"/>
+        <location filename="../src/lib/webview/webview.cpp" line="841"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Cari &quot;%1..&quot; dengan %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="841"/>
+        <location filename="../src/lib/webview/webview.cpp" line="842"/>
         <source>Search with...</source>
         <translation>Cari dengan...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="863"/>
         <source>&amp;Play</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="863"/>
         <source>&amp;Pause</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="864"/>
         <source>Un&amp;mute</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="864"/>
         <source>&amp;Mute</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="865"/>
+        <location filename="../src/lib/webview/webview.cpp" line="866"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Salin Alamat Media</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="866"/>
+        <location filename="../src/lib/webview/webview.cpp" line="867"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Kirimkan Alamat Media</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="867"/>
+        <location filename="../src/lib/webview/webview.cpp" line="868"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Simpan Media ke &amp;Disk</translation>
     </message>

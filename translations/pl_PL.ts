@@ -1065,22 +1065,22 @@
         <translation>Dodaj %1 do zaufanej listy</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="274"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="306"/>
         <source>Flash Object</source>
         <translation>Obiekt Flash</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="277"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="309"/>
         <source>&lt;b&gt;Attribute Name&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nazwa atrybutu&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="277"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="309"/>
         <source>&lt;b&gt;Value&lt;/b&gt;</source>
         <translation>&lt;b&gt;Wartość&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/clicktoflash.cpp" line="291"/>
+        <location filename="../src/lib/plugins/clicktoflash.cpp" line="323"/>
         <source>No more information available.</source>
         <translation>Nie ma więcej dostępnych informacji.</translation>
     </message>
@@ -4198,9 +4198,9 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
         <translation>Ścieżka:</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/siteinfo.ui" line="393"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="403"/>
-        <location filename="../src/lib/webview/siteinfo.ui" line="413"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="399"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="415"/>
+        <location filename="../src/lib/webview/siteinfo.ui" line="431"/>
         <source>&lt;database not selected&gt;</source>
         <translation>&lt;nie wybrano bazy danych&gt;</translation>
     </message>
@@ -4486,17 +4486,17 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="278"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="279"/>
         <source>Image files</source>
         <translation>Obrazki</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="279"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="280"/>
         <source>Select image...</source>
         <translation>Wybierz obraz...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="327"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="328"/>
         <source>Unable to load</source>
         <translation>Nie można wczytać</translation>
     </message>
@@ -4721,144 +4721,159 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="361"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="300"/>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="305"/>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="306"/>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webview/webpage.cpp" line="408"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Aby wyświetlić tę stronę, QupZilla musi wysłać ponownie żądanie do serwera
 (jak wyszukiwanie czy kupowanie czegoś, co zostało już zrobione.)</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="363"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="410"/>
         <source>Confirm form resubmission</source>
         <translation>Potwierdź ponowne przesłanie formularza</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="478"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="531"/>
         <source>Select files to upload...</source>
         <translation>Wybierz pliki do wysłania...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="499"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="552"/>
         <source>Server refused the connection</source>
         <translation>Serwer odrzucił połączenie</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="502"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="555"/>
         <source>Server closed the connection</source>
         <translation>Serwer przerwał połączenie</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="505"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="558"/>
         <source>Server not found</source>
         <translation>Serwer nie znaleziony</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="508"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="561"/>
         <source>Connection timed out</source>
         <translation>Przekroczono limit czasu połączenia</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="511"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="564"/>
         <source>Untrusted connection</source>
         <translation>Niezaufane połączenie</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="514"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="567"/>
         <source>Temporary network failure</source>
         <translation>Chwilowy błąd sieci</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="517"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="570"/>
         <source>Proxy connection refused</source>
         <translation>Połączenie proxy przerwane</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="520"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="573"/>
         <source>Proxy server not found</source>
         <translation>Nie znaleziono serwera proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="523"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="576"/>
         <source>Proxy connection timed out</source>
         <translation>Przekroczono limit czasu połączenia proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="526"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="579"/>
         <source>Proxy authentication required</source>
         <translation>Wymagana aututentykacja proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="529"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="582"/>
         <source>Content not found</source>
         <translation>Zawartość nie znaleziona</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="532"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="585"/>
         <source>Unknown network error</source>
         <translation>Nieznany błąd połączenia</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="558"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="615"/>
         <source>AdBlocked Content</source>
         <translation>AdBlock zablokował</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="562"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="619"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Zablokowano regułą &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="578"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="635"/>
         <source>Content Access Denied</source>
         <translation>Dostęp zablokowany</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="586"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="643"/>
         <source>Error code %1</source>
         <translation>Kod błędu %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="598"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="655"/>
         <source>Failed loading page</source>
         <translation>Błąd ładowania strony</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="605"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="662"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla nie może załadować strony z serwera %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="606"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="663"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Sprawdź czy adres został wpisnay poprawnie, gdzie zamiast np. &lt;b&gt;ww.&lt;/b&gt;serwer.pl powinno być &lt;b&gt;www.&lt;/b&gt;serwer.pl</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="607"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="664"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Jeśli nie możesz otworzyć żadnej strony, sprawdź swoje połączenie z internetem.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="608"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="665"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Jeśli twój komputer lub sieć jest zabezpieczona za pomocą firewalla lub proxy, upewnij się że QupZilla ma zezwolenie na dostęp do sieci.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="609"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="666"/>
         <source>Try Again</source>
         <translation>Spróbuj ponownie</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="708"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="765"/>
         <source>JavaScript alert</source>
         <translation>Alarm JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="716"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="773"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Zapobiegaj otwieraniu dodatkowych okien dialogowych na tej stronie</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="764"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="821"/>
         <source>Choose file...</source>
         <translation>Wybierz plik...</translation>
     </message>
@@ -5004,42 +5019,42 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
         <translation>Pokaż &amp;informacje o stronie</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="841"/>
+        <location filename="../src/lib/webview/webview.cpp" line="842"/>
         <source>Search with...</source>
         <translation>Szukaj z...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="863"/>
         <source>&amp;Play</source>
         <translation>O&amp;dtwarzaj</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="862"/>
+        <location filename="../src/lib/webview/webview.cpp" line="863"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pauza</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="864"/>
         <source>Un&amp;mute</source>
         <translation>Włącz &amp;dźwięk</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="863"/>
+        <location filename="../src/lib/webview/webview.cpp" line="864"/>
         <source>&amp;Mute</source>
         <translation>&amp;Wycisz</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="865"/>
+        <location filename="../src/lib/webview/webview.cpp" line="866"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Kopiuj adres filmu wideo</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="866"/>
+        <location filename="../src/lib/webview/webview.cpp" line="867"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Wyślij adres filmu wideo</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="867"/>
+        <location filename="../src/lib/webview/webview.cpp" line="868"/>
         <source>Save Media To &amp;Disk</source>
         <translation>&amp;Zapisz film wideo na dysk</translation>
     </message>
@@ -5100,12 +5115,12 @@ Po dodaniu lub usunięciu ścieżki certyfikatu, konieczne jest ponowne uruchomi
         <translation>Słownik</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="827"/>
+        <location filename="../src/lib/webview/webview.cpp" line="828"/>
         <source>Go to &amp;web address</source>
         <translation>Przejdź do adresu &amp;www</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webview.cpp" line="840"/>
+        <location filename="../src/lib/webview/webview.cpp" line="841"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Szukaj &quot;%1 ..&quot; z %2</translation>
     </message>
