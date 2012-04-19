@@ -24,6 +24,7 @@
 #include "settings.h"
 
 #include <QInputDialog>
+#include <QTextDocument>
 #include <QMessageBox>
 #include <QTimer>
 
@@ -156,15 +157,19 @@ void PluginsList::refresh()
         PluginSpec spec = plugin.pluginSpec;
 
         QListWidgetItem* item = new QListWidgetItem(ui->list);
-        QString pluginInfo = QString("<b>%1</b> %2 (%3)<br/>\n%4<br/>\n%5\n").arg(spec.name, spec.version, spec.author, spec.info, spec.description);
-        item->setText(pluginInfo);
-
-
         QIcon icon = QIcon(spec.icon);
         if (icon.isNull()) {
             icon = QIcon(":/icons/preferences/extension.png");
         }
         item->setIcon(icon);
+
+        QString pluginInfo = QString("<b>%1</b> %2<br/><i>%3</i><br/>%4").arg(spec.name, spec.version, Qt::escape(spec.author), spec.info);
+        item->setToolTip(pluginInfo);
+
+        item->setText(spec.name);
+        item->setData(Qt::UserRole, spec.version);
+        item->setData(Qt::UserRole + 1, spec.info);
+        item->setData(Qt::UserRole + 2, spec.description);
 
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(plugin.isLoaded() ? Qt::Checked : Qt::Unchecked);

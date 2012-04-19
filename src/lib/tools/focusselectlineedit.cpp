@@ -19,7 +19,7 @@
 
 #include <QFocusEvent>
 
-FocusSelectLineEdit::FocusSelectLineEdit(QWidget *parent)
+FocusSelectLineEdit::FocusSelectLineEdit(QWidget* parent)
     : QLineEdit(parent)
     , m_mouseFocusReason(false)
 {
@@ -32,7 +32,7 @@ void FocusSelectLineEdit::setFocus()
     QLineEdit::setFocus();
 }
 
-void FocusSelectLineEdit::focusInEvent(QFocusEvent *event)
+void FocusSelectLineEdit::focusInEvent(QFocusEvent* event)
 {
     m_mouseFocusReason = event->reason() == Qt::MouseFocusReason;
     selectAll();
@@ -40,7 +40,7 @@ void FocusSelectLineEdit::focusInEvent(QFocusEvent *event)
     QLineEdit::focusInEvent(event);
 }
 
-void FocusSelectLineEdit::mousePressEvent(QMouseEvent *event)
+void FocusSelectLineEdit::mousePressEvent(QMouseEvent* event)
 {
     if (m_mouseFocusReason) {
         m_mouseFocusReason = false;

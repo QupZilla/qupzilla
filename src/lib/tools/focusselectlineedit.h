@@ -20,18 +20,20 @@
 
 #include <QLineEdit>
 
-class FocusSelectLineEdit : public QLineEdit
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT FocusSelectLineEdit : public QLineEdit
 {
     Q_OBJECT
 public:
-    explicit FocusSelectLineEdit(QWidget *parent = 0);
+    explicit FocusSelectLineEdit(QWidget* parent = 0);
 
 public slots:
     void setFocus();
 
 protected:
-    void focusInEvent(QFocusEvent *event);
-    void mousePressEvent(QMouseEvent *event);
+    void focusInEvent(QFocusEvent* event);
+    void mousePressEvent(QMouseEvent* event);
 
     bool m_mouseFocusReason;
 
