@@ -170,7 +170,8 @@ SOURCES += \
     network/schemehandler.cpp \
     tools/plaineditwithlines.cpp \
     webview/websettings.cpp \
-    tools/focusselectlineedit.cpp
+    tools/focusselectlineedit.cpp \
+    navigation/locationcompleterdelegate.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -313,7 +314,8 @@ HEADERS  += \
     tools/plaineditwithlines.h \
     sidebar/sidebarinterface.h \
     webview/websettings.h \
-    tools/focusselectlineedit.h
+    tools/focusselectlineedit.h \
+    navigation/locationcompleterdelegate.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

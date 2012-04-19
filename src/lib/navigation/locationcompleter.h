@@ -22,6 +22,8 @@
 
 #include "qz_namespace.h"
 
+class CompleterTreeView;
+
 class QT_QUPZILLA_EXPORT LocationCompleter : public QCompleter
 {
     Q_OBJECT
@@ -35,6 +37,9 @@ signals:
 public slots:
     void refreshCompleter(const QString &string);
     void showMostVisited();
+
+private:
+    CompleterTreeView* m_treeView;
 };
 
 #endif // LOCATIONCOMPLETER_H

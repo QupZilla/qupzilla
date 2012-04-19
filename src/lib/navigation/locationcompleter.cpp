@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationcompleter.h"
+#include "locationcompleterdelegate.h"
 #include "locationbar.h"
 #include "iconprovider.h"
 #include "mainapplication.h"
@@ -28,23 +29,25 @@
 LocationCompleter::LocationCompleter(QObject* parent)
     : QCompleter(parent)
 {
-    setMaxVisibleItems(6);
     QStandardItemModel* completeModel = new QStandardItemModel();
 
     setModel(completeModel);
-    QTreeView* treeView = new QTreeView;
+    m_treeView = new CompleterTreeView();
 
-    setPopup(treeView);
-    treeView->setRootIsDecorated(false);
-    treeView->header()->hide();
-    treeView->header()->setStretchLastSection(false);
-    treeView->header()->setResizeMode(0, QHeaderView::Stretch);
-    treeView->header()->resizeSection(1, 0);
+    setPopup(m_treeView);
+    m_treeView->setRootIsDecorated(false);
+    m_treeView->header()->hide();
+    m_treeView->header()->setStretchLastSection(false);
+    m_treeView->header()->setResizeMode(0, QHeaderView::Stretch);
+    m_treeView->header()->resizeSection(1, 0);
+
+    m_treeView->setItemDelegateForColumn(0, new LocationCompleterDelegate(m_treeView));
 
     setCompletionMode(QCompleter::PopupCompletion);
     setCaseSensitivity(Qt::CaseInsensitive);
     setWrapAround(true);
     setCompletionColumn(1);
+    setMaxVisibleItems(6);
 }
 
 QStringList LocationCompleter::splitPath(const QString &path) const
@@ -87,7 +90,6 @@ void LocationCompleter::showMostVisited()
     query.exec("SELECT title, url FROM history ORDER BY count DESC LIMIT 15");
     int i = 0;
     QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
-    QTreeView* treeView = qobject_cast<QTreeView*>(popup());
 
     cModel->clear();
     while (query.next()) {
@@ -96,7 +98,8 @@ void LocationCompleter::showMostVisited()
         QString url = query.value(1).toUrl().toEncoded();
 
         iconText->setIcon(_iconForUrl(query.value(1).toUrl()).pixmap(16, 16));
-        iconText->setText(query.value(0).toString().replace("\n", "").append("\n" + url));
+        iconText->setText(query.value(0).toString());
+        iconText->setData(query.value(1), Qt::UserRole);
 
         findUrl->setText(url);
         QList<QStandardItem*> items;
@@ -106,8 +109,8 @@ void LocationCompleter::showMostVisited()
         i++;
     }
 
-    treeView->header()->setResizeMode(0, QHeaderView::Stretch);
-    treeView->header()->resizeSection(1, 0);
+    m_treeView->header()->setResizeMode(0, QHeaderView::Stretch);
+    m_treeView->header()->resizeSection(1, 0);
 
     popup()->setMinimumHeight(190);
 
@@ -121,7 +124,6 @@ void LocationCompleter::refreshCompleter(const QString &string)
     QString searchString = QString("%%1%").arg(string);
 
     QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
-    QTreeView* treeView = qobject_cast<QTreeView*>(popup());
     cModel->clear();
 
     QSqlQuery query;
@@ -137,7 +139,8 @@ void LocationCompleter::refreshCompleter(const QString &string)
         QString url = query.value(1).toUrl().toEncoded();
 
         iconText->setIcon(IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray())));
-        iconText->setText(query.value(0).toString().replace("\n", "").append("\n" + url));
+        iconText->setText(query.value(0).toString());
+        iconText->setData(query.value(1), Qt::UserRole);
 
         findUrl->setText(url);
         QList<QStandardItem*> items;
@@ -159,7 +162,8 @@ void LocationCompleter::refreshCompleter(const QString &string)
         QString url = query.value(1).toUrl().toEncoded();
 
         iconText->setIcon(_iconForUrl(query.value(1).toUrl()).pixmap(16, 16));
-        iconText->setText(query.value(0).toString().replace("\n", "").append("\n" + url));
+        iconText->setText(query.value(0).toString());
+        iconText->setData(query.value(1), Qt::UserRole);
 
         findUrl->setText(url);
         QList<QStandardItem*> items;
@@ -169,15 +173,15 @@ void LocationCompleter::refreshCompleter(const QString &string)
         i++;
     }
 
-    treeView->header()->setResizeMode(0, QHeaderView::Stretch);
-    treeView->header()->resizeSection(1, 0);
+    m_treeView->header()->setResizeMode(0, QHeaderView::Stretch);
+    m_treeView->header()->resizeSection(1, 0);
 
     if (i > 6) {
-        popup()->setMinimumHeight(190);
+        m_treeView->setMinimumHeight(6 * m_treeView->rowHeight());
     }
     else {
-        popup()->setMinimumHeight(0);
+        m_treeView->setMinimumHeight(0);
     }
 
-    popup()->setUpdatesEnabled(true);
+    m_treeView->setUpdatesEnabled(true);
 }

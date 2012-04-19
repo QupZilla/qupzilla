@@ -19,11 +19,7 @@
 
 #include <QPainter>
 #include <QListWidget>
-#include <QTextLayout>
-#include <QTextDocument>
-#include <QTextBlock>
 #include <QApplication>
-#include <QScrollBar>
 
 PluginListDelegate::PluginListDelegate(QListWidget* parent)
     : QStyledItemDelegate(parent)
