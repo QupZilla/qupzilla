@@ -4719,7 +4719,7 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="300"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation>QupZilla nemůže otevřít &lt;b&gt;%1:&lt;/b&gt; odkazy. Vyžádaný link je &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Chcete aby QupZilla otevřela tento odkaz v systémové aplikaci?</translation>
+        <translation type="unfinished">QupZilla nemůže otevřít &lt;b&gt;%1:&lt;/b&gt; odkazy. Vyžádaný odkaz je &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Chcete aby QupZilla otevřela tento odkaz v systémové aplikaci?</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="305"/>
