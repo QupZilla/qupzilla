@@ -15,52 +15,26 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SEARCHTOOLBAR_H
-#define SEARCHTOOLBAR_H
+#ifndef FOCUSSELECTLINEEDIT_H
+#define FOCUSSELECTLINEEDIT_H
 
-#include <QWebPage>
+#include <QLineEdit>
 
-#include "qz_namespace.h"
-#include "animatedwidget.h"
-
-namespace Ui
-{
-class SearchToolbar;
-}
-
-class QLineEdit;
-
-class QupZilla;
-class LineEdit;
-
-class QT_QUPZILLA_EXPORT SearchToolBar : public AnimatedWidget
+class FocusSelectLineEdit : public QLineEdit
 {
     Q_OBJECT
 public:
-    explicit SearchToolBar(QupZilla* mainClass, QWidget* parent = 0);
-    ~SearchToolBar();
-
-    void focusSearchLine();
-    bool eventFilter(QObject* obj, QEvent* event);
-
-signals:
+    explicit FocusSelectLineEdit(QWidget *parent = 0);
 
 public slots:
-    void searchText(const QString &text);
-    void updateFindFlags();
-    void highlightChanged();
-    void caseSensitivityChanged();
+    void setFocus();
 
-    void findNext();
-    void findPrevious();
+protected:
+    void focusInEvent(QFocusEvent *event);
+    void mousePressEvent(QMouseEvent *event);
 
-    void hide();
+    bool m_mouseFocusReason;
 
-private:
-    Ui::SearchToolbar* ui;
-    QupZilla* p_QupZilla;
-
-    QWebPage::FindFlags m_findFlags;
 };
 
-#endif // SEARCHTOOLBAR_H
+#endif // FOCUSSELECTLINEEDIT_H

@@ -206,7 +206,6 @@ void AdBlockDialog::itemChanged(QTreeWidgetItem* item)
     m_itemChangingBlock = false;
 }
 
-
 void AdBlockDialog::addCustomRule()
 {
     QString newRule = QInputDialog::getText(this, tr("Add Custom Rule"), tr("Please write your rule here:"));

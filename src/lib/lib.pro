@@ -169,7 +169,8 @@ SOURCES += \
     other/checkboxdialog.cpp \
     network/schemehandler.cpp \
     tools/plaineditwithlines.cpp \
-    webview/websettings.cpp
+    webview/websettings.cpp \
+    tools/focusselectlineedit.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -311,7 +312,8 @@ HEADERS  += \
     network/schemehandler.h \
     tools/plaineditwithlines.h \
     sidebar/sidebarinterface.h \
-    webview/websettings.h
+    webview/websettings.h \
+    tools/focusselectlineedit.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

@@ -15,52 +15,37 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SEARCHTOOLBAR_H
-#define SEARCHTOOLBAR_H
+#include "focusselectlineedit.h"
 
-#include <QWebPage>
+#include <QFocusEvent>
 
-#include "qz_namespace.h"
-#include "animatedwidget.h"
-
-namespace Ui
+FocusSelectLineEdit::FocusSelectLineEdit(QWidget *parent)
+    : QLineEdit(parent)
+    , m_mouseFocusReason(false)
 {
-class SearchToolbar;
 }
 
-class QLineEdit;
-
-class QupZilla;
-class LineEdit;
-
-class QT_QUPZILLA_EXPORT SearchToolBar : public AnimatedWidget
+void FocusSelectLineEdit::setFocus()
 {
-    Q_OBJECT
-public:
-    explicit SearchToolBar(QupZilla* mainClass, QWidget* parent = 0);
-    ~SearchToolBar();
+    selectAll();
 
-    void focusSearchLine();
-    bool eventFilter(QObject* obj, QEvent* event);
+    QLineEdit::setFocus();
+}
 
-signals:
+void FocusSelectLineEdit::focusInEvent(QFocusEvent *event)
+{
+    m_mouseFocusReason = event->reason() == Qt::MouseFocusReason;
+    selectAll();
 
-public slots:
-    void searchText(const QString &text);
-    void updateFindFlags();
-    void highlightChanged();
-    void caseSensitivityChanged();
+    QLineEdit::focusInEvent(event);
+}
 
-    void findNext();
-    void findPrevious();
+void FocusSelectLineEdit::mousePressEvent(QMouseEvent *event)
+{
+    if (m_mouseFocusReason) {
+        m_mouseFocusReason = false;
+        return;
+    }
 
-    void hide();
-
-private:
-    Ui::SearchToolbar* ui;
-    QupZilla* p_QupZilla;
-
-    QWebPage::FindFlags m_findFlags;
-};
-
-#endif // SEARCHTOOLBAR_H
+    QLineEdit::mousePressEvent(event);
+}

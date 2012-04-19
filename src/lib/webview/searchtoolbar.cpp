@@ -55,9 +55,9 @@ SearchToolBar::SearchToolBar(QupZilla* mainClass, QWidget* parent)
     mainClass->installEventFilter(this);
 }
 
-QLineEdit* SearchToolBar::searchLine()
+void SearchToolBar::focusSearchLine()
 {
-    return ui->lineEdit;
+    ui->lineEdit->setFocus();
 }
 
 void SearchToolBar::hide()
@@ -146,12 +146,13 @@ void SearchToolBar::searchText(const QString &text)
 
 bool SearchToolBar::eventFilter(QObject* obj, QEvent* event)
 {
+    Q_UNUSED(obj);
+
     if (event->type() == QEvent::KeyPress && static_cast<QKeyEvent*>(event)->key() == Qt::Key_Escape) {
         hide();
-        return false;
     }
 
-    return AnimatedWidget::eventFilter(obj, event);
+    return false;
 }
 
 SearchToolBar::~SearchToolBar()

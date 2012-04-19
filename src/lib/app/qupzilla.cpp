@@ -1376,13 +1376,13 @@ void QupZilla::searchOnPage()
             return;
         }
 
-        search->searchLine()->setFocus();
+        search->focusSearchLine();
         return;
     }
 
     SearchToolBar* search = new SearchToolBar(this);
     m_mainLayout->insertWidget(3, search);
-    search->searchLine()->setFocus();
+    search->focusSearchLine();
 }
 
 void QupZilla::openFile()
