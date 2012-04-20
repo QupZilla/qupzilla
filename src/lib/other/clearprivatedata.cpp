@@ -19,6 +19,7 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "cookiejar.h"
+#include "settings.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "clickablelabel.h"
@@ -31,6 +32,7 @@
 #include <QNetworkDiskCache>
 #include <QDateTime>
 #include <QSqlQuery>
+#include <QCloseEvent>
 
 ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent)
     : QDialog(parent)
@@ -45,6 +47,11 @@ ClearPrivateData::ClearPrivateData(QupZilla* mainClass, QWidget* parent)
 
     //Resizing +2 of sizeHint to get visible underlined link
     resize(sizeHint().width(), sizeHint().height() + 2);
+
+    Settings settings;
+    settings.beginGroup("ClearPrivateData");
+    restoreState(settings.value("state", QByteArray()).toByteArray());
+    settings.endGroup();
 }
 
 void ClearPrivateData::historyClicked(bool state)
@@ -84,6 +91,16 @@ void ClearPrivateData::clearIcons()
 void ClearPrivateData::clearFlash()
 {
     p_QupZilla->tabWidget()->addView(QUrl("http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html"));
+}
+
+void ClearPrivateData::closeEvent(QCloseEvent* e)
+{
+    Settings settings;
+    settings.beginGroup("ClearPrivateData");
+    settings.setValue("state", saveState());
+    settings.endGroup();
+
+    e->accept();
 }
 
 void ClearPrivateData::dialogAccepted()
@@ -139,4 +156,70 @@ void ClearPrivateData::dialogAccepted()
     QApplication::restoreOverrideCursor();
 
     close();
+}
+
+static const int stateDataVersion = 0x0001;
+
+void ClearPrivateData::restoreState(const QByteArray &state)
+{
+    QDataStream stream(state);
+    if (stream.atEnd()) {
+        return;
+    }
+
+    int version = -1;
+    int historyIndex = -1;
+    bool databases = false;
+    bool localStorage = false;
+    bool cache = false;
+    bool cookies = false;
+    bool icons = false;
+
+    stream >> version;
+    if (version != stateDataVersion) {
+        return;
+    }
+
+    stream >> historyIndex;
+    stream >> databases;
+    stream >> localStorage;
+    stream >> cache;
+    stream >> cookies;
+    stream >> icons;
+
+    if (historyIndex != -1) {
+        ui->history->setChecked(true);
+        ui->historyLength->setEnabled(true);
+        ui->historyLength->setCurrentIndex(historyIndex);
+    }
+
+    ui->databases->setChecked(databases);
+    ui->localStorage->setChecked(localStorage);
+    ui->cache->setChecked(cache);
+    ui->cookies->setChecked(cookies);
+    ui->icons->setChecked(icons);
+}
+
+QByteArray ClearPrivateData::saveState()
+{
+    // history - web database - local storage - cache - cookies - icons
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+
+    stream << stateDataVersion;
+
+    if (!ui->history->isChecked()) {
+        stream << -1;
+    }
+    else {
+        stream << ui->historyLength->currentIndex();
+    }
+
+    stream << ui->databases->isChecked();
+    stream << ui->localStorage->isChecked();
+    stream << ui->cache->isChecked();
+    stream << ui->cookies->isChecked();
+    stream << ui->icons->isChecked();
+
+    return data;
 }
