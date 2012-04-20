@@ -22,7 +22,7 @@
 
 #include "qz_namespace.h"
 
-class CompleterTreeView;
+class CompleterListView;
 
 class QT_QUPZILLA_EXPORT LocationCompleter : public QCompleter
 {
@@ -39,7 +39,7 @@ public slots:
     void showMostVisited();
 
 private:
-    CompleterTreeView* m_treeView;
+    CompleterListView* m_listView;
 };
 
 #endif // LOCATIONCOMPLETER_H

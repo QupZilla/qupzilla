@@ -55,8 +55,9 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     const int checkboxSize = 18;
     const int checkboxYPos = center - (checkboxSize / 2);
     QStyleOptionViewItemV4 opt2 = opt;
-    opt2.rect = QRect(leftPosition, checkboxYPos, checkboxSize, checkboxSize);
     opt2.checkState == Qt::Checked ? opt2.state |= QStyle::State_On : opt2.state |= QStyle::State_Off;
+    QRect styleCheckBoxRect = style->subElementRect(QStyle::SE_ViewItemCheckIndicator, &opt2, w);
+    opt2.rect = QRect(leftPosition, checkboxYPos, styleCheckBoxRect.width(), styleCheckBoxRect.height());
     style->drawPrimitive(QStyle::PE_IndicatorViewItemCheck, &opt2, painter, w);
     leftPosition = opt2.rect.right() + m_padding;
 

@@ -19,15 +19,15 @@
 #define LOCATIONCOMPLETERDELEGATE_H
 
 #include <QStyledItemDelegate>
-#include <QTreeView>
+#include <QListView>
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT CompleterTreeView : public QTreeView
+class QT_QUPZILLA_EXPORT CompleterListView : public QListView
 {
     Q_OBJECT
 public:
-    explicit CompleterTreeView(QWidget* parent = 0);
+    explicit CompleterListView(QWidget* parent = 0);
 
     bool ignoreSelectedFlag() const;
 
@@ -50,7 +50,7 @@ private:
 class QT_QUPZILLA_EXPORT LocationCompleterDelegate : public QStyledItemDelegate
 {
 public:
-    explicit LocationCompleterDelegate(CompleterTreeView* parent = 0);
+    explicit LocationCompleterDelegate(CompleterListView* parent = 0);
 
     void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
@@ -59,7 +59,7 @@ private:
     mutable int m_rowHeight;
     mutable int m_padding;
 
-    CompleterTreeView* m_treeView;
+    CompleterListView* m_listView;
 };
 
 #endif // LOCATIONCOMPLETERDELEGATE_H

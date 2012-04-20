@@ -18,46 +18,45 @@
 #include "locationcompleterdelegate.h"
 
 #include <QPainter>
-#include <QTreeView>
 #include <QApplication>
 #include <QMouseEvent>
 
 #include <QDebug>
 
-CompleterTreeView::CompleterTreeView(QWidget* parent)
-    : QTreeView(parent)
+CompleterListView::CompleterListView(QWidget* parent)
+    : QListView(parent)
     , m_selectedItemByMousePosition(false)
     , m_rowHeight(0)
 {
     setMouseTracking(true);
 }
 
-bool CompleterTreeView::ignoreSelectedFlag() const
+bool CompleterListView::ignoreSelectedFlag() const
 {
     return m_selectedItemByMousePosition;
 }
 
-int CompleterTreeView::rowHeight() const
+int CompleterListView::rowHeight() const
 {
     return m_rowHeight;
 }
 
-void CompleterTreeView::setRowHeight(int height)
+void CompleterListView::setRowHeight(int height)
 {
     m_rowHeight = height;
 }
 
-void CompleterTreeView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
+void CompleterListView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
 {
     m_selectedItemByMousePosition = false;
     m_lastMouseIndex = current;
 
-    QTreeView::currentChanged(current, previous);
+    QListView::currentChanged(current, previous);
 
     viewport()->repaint();
 }
 
-void CompleterTreeView::mouseMoveEvent(QMouseEvent* event)
+void CompleterListView::mouseMoveEvent(QMouseEvent* event)
 {
     QModelIndex last = m_lastMouseIndex;
     QModelIndex atCursor = indexAt(mapFromGlobal(QCursor::pos()));
@@ -71,23 +70,23 @@ void CompleterTreeView::mouseMoveEvent(QMouseEvent* event)
         viewport()->repaint();
     }
 
-    QTreeView::mouseMoveEvent(event);
+    QListView::mouseMoveEvent(event);
 }
 
-void CompleterTreeView::keyPressEvent(QKeyEvent* event)
+void CompleterListView::keyPressEvent(QKeyEvent* event)
 {
     if (currentIndex() != m_lastMouseIndex) {
         setCurrentIndex(m_lastMouseIndex);
     }
 
-    QTreeView::keyPressEvent(event);
+    QListView::keyPressEvent(event);
 }
 
-LocationCompleterDelegate::LocationCompleterDelegate(CompleterTreeView* parent)
+LocationCompleterDelegate::LocationCompleterDelegate(CompleterListView* parent)
     : QStyledItemDelegate(parent)
     , m_rowHeight(0)
     , m_padding(0)
-    , m_treeView(parent)
+    , m_listView(parent)
 {
 }
 
@@ -110,7 +109,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     int leftPosition = m_padding * 2;
     int rightPosition = opt.rect.right() - m_padding;
 
-    if (m_treeView->ignoreSelectedFlag()) {
+    if (m_listView->ignoreSelectedFlag()) {
         if (opt.state.testFlag(QStyle::State_MouseOver)) {
             opt.state |= QStyle::State_Selected;
         }
@@ -137,14 +136,14 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const int leftTitleEdge = leftPosition + 2;
     const int rightTitleEdge = rightPosition - m_padding;
     QRect titleRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
-    QString title(titleMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, titleRect.width()));
+    QString title(titleMetrics.elidedText(index.data(Qt::UserRole).toString(), Qt::ElideRight, titleRect.width()));
     painter->setFont(titleFont);
     style->drawItemText(painter, titleRect, Qt::AlignLeft | Qt::TextSingleLine, opt.palette, true, title, colorRole);
 
     // Draw link
     const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading();
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
-    const QString &link = opt.fontMetrics.elidedText(index.data(Qt::UserRole).toString(), Qt::ElideRight, linkRect.width());
+    const QString &link = opt.fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, linkRect.width());
     painter->setFont(opt.font);
     style->drawItemText(painter, linkRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, link, colorLinkRole);
 }
@@ -170,8 +169,8 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
 
         m_rowHeight = 2 * m_padding + opt.fontMetrics.leading() + opt.fontMetrics.height() + titleMetrics.height();
 
-        m_treeView->setRowHeight(m_rowHeight);
-        m_treeView->setMaximumHeight(6 * m_rowHeight);
+        m_listView->setRowHeight(m_rowHeight);
+        m_listView->setMaximumHeight(6 * m_rowHeight);
     }
 
     return QSize(200, m_rowHeight);
