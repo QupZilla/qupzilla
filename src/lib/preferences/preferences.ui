@@ -1860,7 +1860,7 @@
        <item row="17" column="0" colspan="4">
         <widget class="QLabel" name="label_49">
          <property name="text">
-          <string>Edit CA certificates in SSL Manager</string>
+          <string>Edit CA certificates</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -1915,7 +1915,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>SSL Manager</string>
+          <string>Certificate Manager</string>
          </property>
         </widget>
        </item>

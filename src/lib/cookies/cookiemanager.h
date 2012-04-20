@@ -58,6 +58,7 @@ private slots:
 
 private:
     void closeEvent(QCloseEvent* e);
+    void keyPressEvent(QKeyEvent* e);
 
     Ui::CookieManager* ui;
 

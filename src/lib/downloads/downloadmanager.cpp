@@ -91,6 +91,15 @@ void DownloadManager::resizeEvent(QResizeEvent* e)
     emit resized(size());
 }
 
+void DownloadManager::keyPressEvent(QKeyEvent* e)
+{
+    if (e->key() == Qt::Key_Escape) {
+        close();
+    }
+
+    QWidget::keyPressEvent(e);
+}
+
 void DownloadManager::startExternalManager(const QUrl &url)
 {
     QStringList arguments = m_externalArguments.split(" ");
@@ -111,13 +120,13 @@ bool DownloadManager::winEvent(MSG* message, long* result)
 }
 #endif
 
-void DownloadManager::timerEvent(QTimerEvent* event)
+void DownloadManager::timerEvent(QTimerEvent* e)
 {
     QList<QTime> remTimes;
     QList<int> progresses;
     QList<double> speeds;
 
-    if (event->timerId() == m_timer.timerId()) {
+    if (e->timerId() == m_timer.timerId()) {
         if (!ui->list->count()) {
             ui->speedLabel->clear();
             setWindowTitle(tr("Download Manager"));
@@ -164,7 +173,7 @@ void DownloadManager::timerEvent(QTimerEvent* event)
 #endif
     }
     else {
-        QWidget::timerEvent(event);
+        QWidget::timerEvent(e);
     }
 }
 

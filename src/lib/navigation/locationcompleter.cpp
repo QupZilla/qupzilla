@@ -63,7 +63,7 @@ void LocationCompleter::showMostVisited()
         cModel->appendRow(item);
     }
 
-    popup()->setMinimumHeight(190);
+    m_listView->setMinimumHeight(6 * m_listView->rowHeight());
 
     QCompleter::complete();
 }

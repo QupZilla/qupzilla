@@ -287,6 +287,15 @@ void CookieManager::closeEvent(QCloseEvent* e)
     e->accept();
 }
 
+void CookieManager::keyPressEvent(QKeyEvent* e)
+{
+    if (e->key() == Qt::Key_Escape) {
+        close();
+    }
+
+    QWidget::keyPressEvent(e);
+}
+
 CookieManager::~CookieManager()
 {
     delete ui;
