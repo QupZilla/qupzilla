@@ -4720,17 +4720,17 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="300"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla tidak dapat menangani tautan &lt;b&gt;%1:&lt;/b&gt;. Tautan yang diminta adalah &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Apakah anda ingin QupZilla membuka tautan ini menggunakan aplikasi sistem?</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="305"/>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingat pilihan saya untuk protokol ini</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="306"/>
         <source>External Protocol Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Permintaan Protokol Eksternal</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="408"/>
