@@ -128,7 +128,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     }
 
     //DATABASES
-    const QList<QWebDatabase> databases = frame->securityOrigin().databases();
+    const QList<QWebDatabase> &databases = frame->securityOrigin().databases();
 
     int counter = 0;
     foreach(const QWebDatabase & b, databases) {

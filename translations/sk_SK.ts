@@ -2220,11 +2220,11 @@
     </message>
     <message>
         <source>Show tab previews</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť náhľad kariet</translation>
     </message>
     <message>
         <source>Make tab previews animated</source>
-        <translation type="unfinished"></translation>
+        <translation>Animovať náhľady kariet</translation>
     </message>
 </context>
 <context>
@@ -3834,6 +3834,18 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>Unknown network error</source>
         <translation>Neznáma sieťová chyba</translation>
+    </message>
+    <message>
+        <source>Remember my choice for this protocol</source>
+        <translation>Zapamätať moju voľbu pre tento protokol</translation>
+    </message>
+    <message>
+        <source>External Protocol Request</source>
+        <translation>Externý protokol</translation>
+    </message>
+    <message>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation>QupZilla nemôže otvoriť &lt;b&gt;%1:&lt;/b&gt; odkazy. Vyžiadany odkaz je &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Chcete aby QupZila otvorila tento odkaz v systémovej aplikácií?</translation>
     </message>
 </context>
 <context>

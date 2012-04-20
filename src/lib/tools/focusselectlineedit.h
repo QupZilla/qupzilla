@@ -15,31 +15,28 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef LOCATIONCOMPLETER_H
-#define LOCATIONCOMPLETER_H
+#ifndef FOCUSSELECTLINEEDIT_H
+#define FOCUSSELECTLINEEDIT_H
 
-#include <QCompleter>
+#include <QLineEdit>
 
 #include "qz_namespace.h"
 
-class CompleterListView;
-
-class QT_QUPZILLA_EXPORT LocationCompleter : public QCompleter
+class QT_QUPZILLA_EXPORT FocusSelectLineEdit : public QLineEdit
 {
     Q_OBJECT
 public:
-    explicit LocationCompleter(QObject* parent = 0);
-
-    virtual QStringList splitPath(const QString &path) const;
-
-signals:
+    explicit FocusSelectLineEdit(QWidget* parent = 0);
 
 public slots:
-    void refreshCompleter(const QString &string);
-    void showMostVisited();
+    void setFocus();
 
-private:
-    CompleterListView* m_listView;
+protected:
+    void focusInEvent(QFocusEvent* event);
+    void mousePressEvent(QMouseEvent* event);
+
+    bool m_mouseFocusReason;
+
 };
 
-#endif // LOCATIONCOMPLETER_H
+#endif // FOCUSSELECTLINEEDIT_H

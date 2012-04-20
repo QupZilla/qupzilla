@@ -42,6 +42,7 @@ SSLManager::SSLManager(QWidget* parent)
 
     connect(ui->localList, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(showLocalCertInfo()));
     connect(ui->localInfoButton, SIGNAL(clicked()), this, SLOT(showLocalCertInfo()));
+    connect(ui->addLocalCert, SIGNAL(clicked()), this, SLOT(addLocalCertificate()));
 
     connect(ui->addPath, SIGNAL(clicked()), this, SLOT(addPath()));
     connect(ui->deletePath, SIGNAL(clicked()), this, SLOT(deletePath()));
@@ -126,6 +127,24 @@ void SSLManager::showCaCertInfo()
 
     QSslCertificate cert = m_caCerts.at(item->data(Qt::UserRole + 10).toInt());
     showCertificateInfo(cert);
+}
+
+void SSLManager::addLocalCertificate()
+{
+    const QString &path = QFileDialog::getOpenFileName(this, tr("Import certificate..."), QDir::homePath(), "*.crt");
+
+    if (path.isEmpty()) {
+        return;
+    }
+
+    const QList<QSslCertificate> list = QSslCertificate::fromPath(path);
+    if (list.isEmpty()) {
+        return;
+    }
+
+    mApp->networkManager()->addLocalCertificate(list.at(0));
+
+    refreshLocalList();
 }
 
 void SSLManager::showLocalCertInfo()

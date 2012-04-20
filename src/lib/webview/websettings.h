@@ -20,15 +20,21 @@
 
 #include "qz_namespace.h"
 
-class WebViewSettings
+#include <QStringList>
+
+class WebSettings
 {
 public:
-    WebViewSettings();
+    WebSettings();
 
     static void loadSettings();
+    static void saveSettings();
 
     static int defaultZoom;
     static bool loadTabsOnActivation;
+
+    static QStringList autoOpenProtocols;
+    static QStringList blockedProtocols;
 };
 
 #endif // WEBVIEWSETTINGS_H

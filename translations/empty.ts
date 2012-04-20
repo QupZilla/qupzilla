@@ -3828,6 +3828,18 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>Unknown network error</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WebSearchBar</name>

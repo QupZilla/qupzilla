@@ -56,7 +56,7 @@ void SpeedDial::loadSettings()
         allPages = "url:\"http://www.google.com\"|title:\"Google\";"
                    "url:\"http://www.qupzilla.com\"|title:\"QupZilla\";"
                    "url:\"http://blog.qupzilla.com\"|title:\"QupZilla Blog\";"
-                   "url:\"https://github.com/nowrep/QupZilla\"|title:\"QupZilla GitHub\";"
+                   "url:\"https://github.com/QupZilla/qupzilla\"|title:\"QupZilla GitHub\";"
                    "url:\"https://facebook.com\"|title:\"Facebook\";";
     }
     changed(allPages);
@@ -260,7 +260,7 @@ void SpeedDial::loadThumbnail(const QString &url, bool loadTitle)
     PageThumbnailer* thumbnailer = new PageThumbnailer(this);
     thumbnailer->setUrl(QUrl::fromEncoded(url.toUtf8()));
     thumbnailer->setLoadTitle(loadTitle);
-    connect(thumbnailer, SIGNAL(thumbnailCreated(const QPixmap&)), this, SLOT(thumbnailCreated(const QPixmap&)));
+    connect(thumbnailer, SIGNAL(thumbnailCreated(const QPixmap &)), this, SLOT(thumbnailCreated(const QPixmap &)));
 
     thumbnailer->start();
 }

@@ -100,18 +100,21 @@ private slots:
 protected:
     bool event(QEvent* event);
     QWebPage* createWindow(QWebPage::WebWindowType type);
+    QObject* createPlugin(const QString &classid, const QUrl &url, const QStringList &paramNames, const QStringList &paramValues);
 
 private:
-    virtual bool supportsExtension(Extension extension) const;
-    virtual bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
+    bool supportsExtension(Extension extension) const;
+    bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
     QString chooseFile(QWebFrame* originatingFrame, const QString &oldFile);
 
-    static QString m_lastUploadLocation;
-    static QString m_userAgent;
-    static QString m_fakeUserAgent;
-    static QUrl m_lastUnsupportedUrl;
-    static QList<WebPage*> m_livingPages;
+    void handleUnknownProtocol(const QUrl &url);
+
+    static QString s_lastUploadLocation;
+    static QString s_userAgent;
+    static QString s_fakeUserAgent;
+    static QUrl s_lastUnsupportedUrl;
+    static QList<WebPage*> s_livingPages;
 
     QupZilla* p_QupZilla;
     NetworkManagerProxy* m_networkProxy;

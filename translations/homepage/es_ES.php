@@ -65,10 +65,10 @@ $getting_source_text1 = "La forma más sencilla de obtener el código fuente de 
 $getting_source_text2 = "y entonces puede empezar a modificar el código. Puede enviarme sus parches por correo electrónico o a github.";
 $translating = "Traducir a otros idiomas";
 $translating_text = "Otra forma para contribuir es añadir o mejorar las traducciones actuales. Si desea añadir un idioma nuevo, puede generar nuevas traducciones del archivo manualmente, o puede contactar conmigo y lo haré yo por usted. Puede enviarme sus traducciones por correo electrónico o a github.";
-$translating_moreinfo = "Más información acerca de la traducción <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>aquí</a> [wiki en github]";
+$translating_moreinfo = "Más información acerca de la traducción <a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>aquí</a> [wiki en github]";
 $creators = "¿Quién crea QupZilla?";
 $creators_text = "El propietario del proyecto, mantenedor y principal desarrollador es el estudiante checo <b>David Rosca</b> (nowrep).<br/>
-Además de con el código, otros también contribuyen traduciendo o dando soporte a QupZilla. La lista completa de contribuidores puede encontrarse <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>aquí</a> [en github].<br/><br/>También puede participar en el canal IRC <b>#qupzilla</b> en irc.freenode.net para chatear con gente involucrada con QupZilla.";
+Además de con el código, otros también contribuyen traduciendo o dando soporte a QupZilla. La lista completa de contribuidores puede encontrarse <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>aquí</a> [en github].<br/><br/>También puede participar en el canal IRC <b>#qupzilla</b> en irc.freenode.net para chatear con gente involucrada con QupZilla.";
 $share_with_friends = "¡Comparta con sus amigos!";
 $share_with_friends_text = "¿Le gusta QupZilla? ¡Entonces compártalo con sus amigos!";
 ?>

@@ -63,10 +63,10 @@ $getting_source_text1 = "Nejjednodušší způsob jak získat zdrojový kód Qup
 $getting_source_text2 = "a můžete se pustit do vývoje. Vaše patche mi můžete posílat e-mailem nebo přímo na githubu.";
 $translating = "Překlad do jiných jazyků";
 $translating_text = "Další způsob jak přispět je přidat nebo upravit stávající překlady. Pokud chcete přidat dosud neobsažený překlad, můžete si buď vygenerovat překladový soubor, nebo mne kontaktovat a já to udělám za Vás. Vaše překlady mi opět můžete posílat e-mailem nebo na githubu.";
-$translating_moreinfo = "Více informací o překládání <a href='https://github.com/nowrep/QupZilla/wiki/Translating'>zde</a> [wiki na githubu]";
+$translating_moreinfo = "Více informací o překládání <a href='https://github.com/QupZilla/qupzilla/wiki/Translating'>zde</a> [wiki na githubu]";
 $creators = "Kdo vytváří QupZillu?";
 $creators_text = "Správcem projektu a hlavním vývojářem je český student <b>David Rosca</b> (nowrep).<br/>
-Ostatní kromě programování také přispívají překládáním a podporováním QupZilly. Celý seznam přispěvatelů lze najít <a href='https://github.com/nowrep/QupZilla/blob/master/AUTHORS'>zde</a> [na githubu].<br/><br/>Také se můžete připojit na IRC kanál <b>#qupzilla</b> na irc.freenode.net a komunikovat s lidmi zapojenými do QupZilly.";
+Ostatní kromě programování také přispívají překládáním a podporováním QupZilly. Celý seznam přispěvatelů lze najít <a href='https://github.com/QupZilla/qupzilla/blob/master/AUTHORS'>zde</a> [na githubu].<br/><br/>Také se můžete připojit na IRC kanál <b>#qupzilla</b> na irc.freenode.net a komunikovat s lidmi zapojenými do QupZilly.";
 $share_with_friends = "Sdílet s přáteli!";
 $share_with_friends_text = "Máte rádi QupZillu? Sdílejte ji tedy s Vašimi přáteli!";
 ?>

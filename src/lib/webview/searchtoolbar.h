@@ -40,7 +40,7 @@ public:
     explicit SearchToolBar(QupZilla* mainClass, QWidget* parent = 0);
     ~SearchToolBar();
 
-    QLineEdit* searchLine();
+    void focusSearchLine();
     bool eventFilter(QObject* obj, QEvent* event);
 
 signals:

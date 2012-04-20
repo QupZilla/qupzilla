@@ -15,23 +15,36 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "webviewsettings.h"
+#include "websettings.h"
 #include "settings.h"
 
-int WebViewSettings::defaultZoom = 100;
-bool WebViewSettings::loadTabsOnActivation = false;
+int WebSettings::defaultZoom = 100;
+bool WebSettings::loadTabsOnActivation = false;
 
-WebViewSettings::WebViewSettings()
-{
-}
+QStringList WebSettings::autoOpenProtocols;
+QStringList WebSettings::blockedProtocols;
 
-void WebViewSettings::loadSettings()
+void WebSettings::loadSettings()
 {
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
 
     defaultZoom = settings.value("DefaultZoom", 100).toInt();
     loadTabsOnActivation = settings.value("LoadTabsOnActivation", false).toBool();
+
+    autoOpenProtocols = settings.value("AutomaticallyOpenProtocols", QStringList()).toStringList();
+    blockedProtocols = settings.value("BlockOpeningProtocols", QStringList()).toStringList();
+
+    settings.endGroup();
+}
+
+void WebSettings::saveSettings()
+{
+    Settings settings;
+    settings.beginGroup("Web-Browser-Settings");
+
+    settings.setValue("AutomaticallyOpenProtocols", autoOpenProtocols);
+    settings.setValue("BlockOpeningProtocols", blockedProtocols);
 
     settings.endGroup();
 }

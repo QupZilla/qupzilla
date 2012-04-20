@@ -63,7 +63,7 @@ and the sources from the download section at [homepage](http://www.qupzilla.com/
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:
 
-    $ git clone git://github.com/nowrep/QupZilla.git
+    $ git clone git://github.com/QupZilla/qupzilla.git
 
 If you are using Ubuntu, you can download QupZilla from PPA:
 
@@ -80,4 +80,4 @@ FAQ and Changelog
 
 If you are experiencing some sort of problem, please read the FAQ before you open an issue.
 
-[FAQ](https://github.com/nowrep/QupZilla/wiki/FAQ) | [Changelog](https://github.com/nowrep/QupZilla/wiki/Changelog) | [Bug Reports](https://github.com/nowrep/QupZilla/wiki/Bug-Reports)
+[FAQ](https://github.com/QupZilla/qupzilla/wiki/FAQ) | [Changelog](https://github.com/QupZilla/qupzilla/wiki/Changelog) | [Bug Reports](https://github.com/QupZilla/qupzilla/wiki/Bug-Reports)

@@ -1731,11 +1731,11 @@
     </message>
     <message>
         <source>Show Navigation ToolBar on start</source>
-        <translation>Irányítópult megjelenítése elinduláskor</translation>
+        <translation>Vezérlőelemek megjelenítése elinduláskor</translation>
     </message>
     <message>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Irányítópult&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Vezérlőelemek&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Show Home button</source>
@@ -1950,27 +1950,27 @@
     </message>
     <message>
         <source>Standard</source>
-        <translation>Standard</translation>
+        <translation>Általános típusok</translation>
     </message>
     <message>
         <source>Fixed</source>
-        <translation>Fixed</translation>
+        <translation>Rögzített méretű (szélességű) betűk</translation>
     </message>
     <message>
         <source>Serif</source>
-        <translation>Serif</translation>
+        <translation>Talpas betűk</translation>
     </message>
     <message>
         <source>Sans Serif</source>
-        <translation>Sans Serif</translation>
+        <translation>Talp nélküli betűk</translation>
     </message>
     <message>
         <source>Cursive</source>
-        <translation>Cursive</translation>
+        <translation>Folyóírásos betűk</translation>
     </message>
     <message>
         <source>Fantasy</source>
-        <translation>Fantasy</translation>
+        <translation>Fantáziabetűk</translation>
     </message>
     <message>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
@@ -2068,7 +2068,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Match domain exactly and filter tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable this options first!</source>
-        <translation>&lt;b&gt;Figyelem:&lt;/b&gt; A Csak a megnyitott weboldaltól fogad sütiket, más címekről nem és a Nyomkövető sütik szűrésének engedélyezése opció néhány weboldalon a sütik letiltását eredményezheti. Ha problémákat észlel, kapcsolja ki ezeket az opciókat!</translation>
+        <translation>&lt;b&gt;Figyelem:&lt;/b&gt; A &quot;Csak a megnyitott weboldaltól fogad sütiket, más címekről nem&quot; és a &quot;Nyomkövető sütik szűrésének engedélyezése&quot; opció néhány weboldalon a sütik letiltását eredményezheti. Ha problémákat észlel, kapcsolja ki ezeket az opciókat!</translation>
     </message>
     <message>
         <source>Cookies Manager</source>
@@ -2389,7 +2389,7 @@
     </message>
     <message>
         <source>&amp;Navigation Toolbar</source>
-        <translation>&amp;Irányítópult</translation>
+        <translation>&amp;Vezérlőelemek</translation>
     </message>
     <message>
         <source>&amp;Bookmarks Toolbar</source>
@@ -3124,7 +3124,7 @@ RSS ikonnal jelölt oldalcímekről hozzá lehet adni híroldalakat.</translatio
     </message>
     <message>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation>&lt;b&gt;MEGJEGYZÉS:&lt;/b&gt;Ennek az opciónak a beállítása magas biztonsági kockázatot jelent!</translation>
+        <translation>&lt;b&gt;MEGJEGYZÉS:&lt;/b&gt; Ennek az opciónak a beállítása magas biztonsági kockázatot jelent!</translation>
     </message>
     <message>
         <source>Ignore all SSL Warnings</source>
@@ -3853,6 +3853,18 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     <message>
         <source>Unknown network error</source>
         <translation>Nem beazonosítható hálózati hiba</translation>
+    </message>
+    <message>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

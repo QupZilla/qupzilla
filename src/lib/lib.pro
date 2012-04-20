@@ -162,14 +162,16 @@ SOURCES += \
     popupwindow/popuplocationbar.cpp \
     webview/tabbedwebview.cpp \
     webview/webview.cpp \
-    webview/webviewsettings.cpp \
     preferences/pluginlistdelegate.cpp \
     popupwindow/popupstatusbarmessage.cpp \
     other/licenseviewer.cpp \
     bookmarksimport/bookmarksimporticonfetcher.cpp \
     other/checkboxdialog.cpp \
     network/schemehandler.cpp \
-    tools/plaineditwithlines.cpp
+    tools/plaineditwithlines.cpp \
+    webview/websettings.cpp \
+    tools/focusselectlineedit.cpp \
+    navigation/locationcompleterdelegate.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -303,7 +305,6 @@ HEADERS  += \
     webview/tabbedwebview.h \
     webview/webview.h \
     app/qz_namespace.h \
-    webview/webviewsettings.h \
     preferences/pluginlistdelegate.h \
     popupwindow/popupstatusbarmessage.h \
     other/licenseviewer.h \
@@ -311,7 +312,10 @@ HEADERS  += \
     other/checkboxdialog.h \
     network/schemehandler.h \
     tools/plaineditwithlines.h \
-    sidebar/sidebarinterface.h
+    sidebar/sidebarinterface.h \
+    webview/websettings.h \
+    tools/focusselectlineedit.h \
+    navigation/locationcompleterdelegate.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -365,6 +369,6 @@ RESOURCES += \
     INSTALLS += target
 }
 
-message(========== Building libqupzilla ==========)
+message(===========================================)
 message( Using following defines:)
-message($$DEFINES)
+message(  $$DEFINES)

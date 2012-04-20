@@ -165,6 +165,15 @@ void BrowsingLibrary::closeEvent(QCloseEvent* e)
     e->accept();
 }
 
+void BrowsingLibrary::keyPressEvent(QKeyEvent* e)
+{
+    if (e->key() == Qt::Key_Escape) {
+        close();
+    }
+
+    QWidget::keyPressEvent(e);
+}
+
 BrowsingLibrary::~BrowsingLibrary()
 {
     delete ui;

@@ -23,12 +23,13 @@
 #include "tabwidget.h"
 #include "locationbar.h"
 #include "globalfunctions.h"
-#include "webviewsettings.h"
+#include "websettings.h"
 
 #include <QVBoxLayout>
 #include <QWebHistory>
 #include <QWebFrame>
 #include <QLabel>
+#include <QStyle>
 
 WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
@@ -221,7 +222,7 @@ bool WebTab::isRestored() const
 
 void WebTab::restoreTab(const WebTab::SavedTab &tab)
 {
-    if (WebViewSettings::loadTabsOnActivation) {
+    if (WebSettings::loadTabsOnActivation) {
         m_savedTab = tab;
         int index = tabIndex();
 
@@ -255,16 +256,14 @@ QPixmap WebTab::renderTabPreview()
 
     const int previewWidth = 230;
     const int previewHeight = 150;
-    const int verticalScrollBarWidth = page->mainFrame()->scrollBarGeometry(Qt::Vertical).width();
-    const int horizontalScrollBarWidth = page->mainFrame()->scrollBarGeometry(Qt::Horizontal).height();
+    const int scrollBarExtent = style()->pixelMetric(QStyle::PM_ScrollBarExtent);
+    const int pageWidth = qMin(page->mainFrame()->contentsSize().width(), 1280);
+    const int pageHeight = (pageWidth / 23 * 15);
+    const qreal scalingFactor = 2 * static_cast<qreal>(previewWidth) / pageWidth;
 
-    int renderWidth = qMin(page->mainFrame()->contentsSize().width(), 1280) - verticalScrollBarWidth;
-    int renderHeight = (renderWidth / 23 * 15) - horizontalScrollBarWidth;
-    qreal scalingFactor = 2 * static_cast<qreal>(previewWidth) / renderWidth;
+    page->setViewportSize(QSize(pageWidth, pageHeight));
 
-    page->setViewportSize(QSize(renderWidth, renderHeight));
-
-    QPixmap pageImage(2 * previewWidth, 2 * previewHeight);
+    QPixmap pageImage((2 * previewWidth) - scrollBarExtent, (2 * previewHeight) - scrollBarExtent);
     pageImage.fill(Qt::transparent);
 
     QPainter p(&pageImage);

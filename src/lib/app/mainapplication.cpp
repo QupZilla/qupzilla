@@ -45,7 +45,7 @@
 #include "webpage.h"
 #include "settings.h"
 #include "locationbarsettings.h"
-#include "webviewsettings.h"
+#include "websettings.h"
 #include "clearprivatedata.h"
 #include "commandlineoptions.h"
 
@@ -359,7 +359,7 @@ void MainApplication::loadSettings()
     }
 
     LocationBarSettings::loadSettings();
-    WebViewSettings::loadSettings();
+    WebSettings::loadSettings();
 }
 
 void MainApplication::reloadSettings()

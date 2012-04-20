@@ -16,160 +16,115 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationcompleter.h"
+#include "locationcompleterdelegate.h"
 #include "locationbar.h"
 #include "iconprovider.h"
 #include "mainapplication.h"
 
 #include <QStandardItemModel>
-#include <QTreeView>
-#include <QHeaderView>
 #include <QSqlQuery>
 
 LocationCompleter::LocationCompleter(QObject* parent)
     : QCompleter(parent)
 {
-    setMaxVisibleItems(6);
     QStandardItemModel* completeModel = new QStandardItemModel();
-
     setModel(completeModel);
-    QTreeView* treeView = new QTreeView;
 
-    setPopup(treeView);
-    treeView->setRootIsDecorated(false);
-    treeView->header()->hide();
-    treeView->header()->setStretchLastSection(false);
-    treeView->header()->setResizeMode(0, QHeaderView::Stretch);
-    treeView->header()->resizeSection(1, 0);
+    m_listView = new CompleterListView();
+    m_listView->setItemDelegateForColumn(0, new LocationCompleterDelegate(m_listView));
+    setPopup(m_listView);
 
     setCompletionMode(QCompleter::PopupCompletion);
-    setCaseSensitivity(Qt::CaseInsensitive);
-    setWrapAround(true);
-    setCompletionColumn(1);
+    setMaxVisibleItems(6);
 }
 
 QStringList LocationCompleter::splitPath(const QString &path) const
 {
     Q_UNUSED(path);
-    return QStringList("");
-#if 0
-    QStringList returned = QCompleter::splitPath(path);
-    QStringList returned2;
-    QSqlQuery query;
-    query.exec("SELECT url FROM history WHERE title LIKE '%" + path + "%' OR url LIKE '%" + path + "%' ORDER BY count DESC LIMIT 1");
-    if (query.next()) {
-        QString url = query.value(0).toString();
-        bool titleSearching = false;
-        if (!url.contains(path)) {
-            titleSearching = true;
-        }
-        QString prefix = url.mid(0, url.indexOf(path));
-        foreach(const QString & string, returned) {
-            if (titleSearching) {
-                returned2.append(url);
-            }
-            else {
-                returned2.append(prefix + string);
-            }
-        }
-        return returned2;
-    }
-    else {
-        foreach(const QString & string, returned)
-        returned2.append("http://www.google.com/search?client=qupzilla&q=" + string);
-        return returned2;
-    }
-#endif
+    return QStringList();
 }
 
 void LocationCompleter::showMostVisited()
 {
-    QSqlQuery query;
-    query.exec("SELECT title, url FROM history ORDER BY count DESC LIMIT 15");
-    int i = 0;
     QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
-    QTreeView* treeView = qobject_cast<QTreeView*>(popup());
-
     cModel->clear();
+
+    QSqlQuery query;
+    query.exec("SELECT url, title FROM history ORDER BY count DESC LIMIT 15");
+
     while (query.next()) {
-        QStandardItem* iconText = new QStandardItem();
-        QStandardItem* findUrl = new QStandardItem();
-        QString url = query.value(1).toUrl().toEncoded();
+        QStandardItem* item = new QStandardItem();
+        const QUrl &url = query.value(0).toUrl();
 
-        iconText->setIcon(_iconForUrl(query.value(1).toUrl()).pixmap(16, 16));
-        iconText->setText(query.value(0).toString().replace("\n", "").append("\n" + url));
+        item->setIcon(_iconForUrl(url));
+        item->setText(url.toEncoded());
+        item->setData(query.value(1), Qt::UserRole);
 
-        findUrl->setText(url);
-        QList<QStandardItem*> items;
-        items.append(iconText);
-        items.append(findUrl);
-        cModel->insertRow(i, items);
-        i++;
+        cModel->appendRow(item);
     }
 
-    treeView->header()->setResizeMode(0, QHeaderView::Stretch);
-    treeView->header()->resizeSection(1, 0);
-
-    popup()->setMinimumHeight(190);
+    m_listView->setMinimumHeight(6 * m_listView->rowHeight());
 
     QCompleter::complete();
 }
 
 void LocationCompleter::refreshCompleter(const QString &string)
 {
-    int limit;
-    if (string.size() < 3) {
-        limit = 25;
-    }
-    else {
-        limit = 15;
-    }
+    int limit = string.size() < 3 ? 25 : 15;
+    QString searchString = QString("%%1%").arg(string);
+    QList<QUrl> urlList;
+
+    QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
+    cModel->clear();
 
     QSqlQuery query;
-    query.exec("SELECT title, url FROM history WHERE title LIKE '%" + string + "%' OR url LIKE '%" + string + "%' ORDER BY count DESC LIMIT " + QString::number(limit));
-    int i = 0;
-    QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
-    QTreeView* treeView = qobject_cast<QTreeView*>(popup());
+    query.prepare("SELECT url, title, icon FROM bookmarks WHERE title LIKE ? OR url LIKE ? LIMIT ?");
+    query.addBindValue(searchString);
+    query.addBindValue(searchString);
+    query.addBindValue(limit);
+    query.exec();
 
-    cModel->clear();
     while (query.next()) {
-        QStandardItem* iconText = new QStandardItem();
-        QStandardItem* findUrl = new QStandardItem();
-        QString url = query.value(1).toUrl().toEncoded();
+        QStandardItem* item = new QStandardItem();
+        const QUrl &url = query.value(0).toUrl();
 
-        iconText->setIcon(_iconForUrl(query.value(1).toUrl()).pixmap(16, 16));
-        iconText->setText(query.value(0).toString().replace("\n", "").append("\n" + url));
+        item->setText(url.toEncoded());
+        item->setData(query.value(1), Qt::UserRole);
+        item->setIcon(IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray())));
 
-        findUrl->setText(url);
-        QList<QStandardItem*> items;
-        items.append(iconText);
-        items.append(findUrl);
-        cModel->insertRow(i, items);
-        i++;
+        cModel->appendRow(item);
+        urlList.append(url);
     }
 
-//    if (i == 0) {
-//        QStandardItem* iconText = new QStandardItem();
-//        QStandardItem* findUrl = new QStandardItem();
-//        QString url("http://www.google.com/search?client=qupzilla&q="+string);
+    limit -= query.size();
 
-//        iconText->setIcon(QIcon(":/icons/menu/google.png"));
-//        iconText->setText(tr("Search %1 on Google.com\n..........").arg(string));
-//        findUrl->setText(url);
-//        QList<QStandardItem*> items;
-//        items.append(iconText);
-//        items.append(findUrl);
-//        cModel->insertRow(i, items);
-//    }
+    query.prepare("SELECT url, title FROM history WHERE title LIKE ? OR url LIKE ? ORDER BY count DESC LIMIT ?");
+    query.addBindValue(searchString);
+    query.addBindValue(searchString);
+    query.addBindValue(limit);
+    query.exec();
 
-    treeView->header()->setResizeMode(0, QHeaderView::Stretch);
-    treeView->header()->resizeSection(1, 0);
+    while (query.next()) {
+        QStandardItem* item = new QStandardItem();
+        const QUrl &url = query.value(0).toUrl();
 
-    if (i > 6) {
-        popup()->setMinimumHeight(190);
+        if (urlList.contains(url)) {
+            continue;
+        }
+
+        item->setIcon(_iconForUrl(url));
+        item->setText(url.toEncoded());
+        item->setData(query.value(1), Qt::UserRole);
+
+        cModel->appendRow(item);
+    }
+
+    if (cModel->rowCount() > 6) {
+        m_listView->setMinimumHeight(6 * m_listView->rowHeight());
     }
     else {
-        popup()->setMinimumHeight(0);
+        m_listView->setMinimumHeight(0);
     }
 
-    popup()->setUpdatesEnabled(true);
+    m_listView->setUpdatesEnabled(true);
 }
