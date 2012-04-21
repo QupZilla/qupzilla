@@ -29,6 +29,7 @@ CompleterListView::CompleterListView(QWidget* parent)
     , m_rowHeight(0)
 {
     setMouseTracking(true);
+    setUniformItemSizes(true);
 }
 
 bool CompleterListView::ignoreSelectedFlag() const

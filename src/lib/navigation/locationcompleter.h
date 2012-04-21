@@ -22,6 +22,8 @@
 
 #include "qz_namespace.h"
 
+class QStandardItemModel;
+
 class CompleterListView;
 
 class QT_QUPZILLA_EXPORT LocationCompleter : public QCompleter
@@ -40,6 +42,7 @@ public slots:
 
 private:
     CompleterListView* m_listView;
+    QStandardItemModel* m_model;
 };
 
 #endif // LOCATIONCOMPLETER_H

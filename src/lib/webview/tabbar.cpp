@@ -180,7 +180,7 @@ QSize TabBar::tabSizeHint(int index) const
     QSize size = QTabBar::tabSizeHint(index);
     WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(index));
     TabBar* tabBar = const_cast <TabBar*>(this);
-    tabBar->m_adjustingLastTab = false;
+    m_adjustingLastTab = false;
 
     if (webTab && webTab->isPinned()) {
         size.setWidth(PINNED_TAB_WIDTH);
@@ -189,24 +189,24 @@ QSize TabBar::tabSizeHint(int index) const
         int availableWidth = width() - (PINNED_TAB_WIDTH * m_pinnedTabsCount) - m_tabWidget->buttonListTabs()->width() - m_tabWidget->buttonAddTab()->width();
         int normalTabsCount = count() - m_pinnedTabsCount;
         if (availableWidth >= MAXIMUM_TAB_WIDTH * normalTabsCount) {
-            tabBar->m_normalTabWidth = MAXIMUM_TAB_WIDTH;
+            m_normalTabWidth = MAXIMUM_TAB_WIDTH;
             size.setWidth(m_normalTabWidth);
         }
         else if (availableWidth < MINIMUM_TAB_WIDTH * normalTabsCount) {
-            tabBar->m_normalTabWidth = MINIMUM_TAB_WIDTH;
+            m_normalTabWidth = MINIMUM_TAB_WIDTH;
             size.setWidth(m_normalTabWidth);
         }
         else {
             int maxWidthForTab = availableWidth / normalTabsCount;
-            tabBar->m_normalTabWidth = maxWidthForTab;
+            m_normalTabWidth = maxWidthForTab;
             //Fill any empty space (we've got from rounding) with last tab
             if (index == count() - 1) {
-                tabBar->m_lastTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
-                tabBar->m_adjustingLastTab = true;
+                m_lastTabWidth = (availableWidth - maxWidthForTab * normalTabsCount) + maxWidthForTab;
+                m_adjustingLastTab = true;
                 size.setWidth(m_lastTabWidth);
             }
             else {
-                tabBar->m_lastTabWidth = maxWidthForTab;
+                m_lastTabWidth = maxWidthForTab;
                 size.setWidth(m_lastTabWidth);
             }
         }

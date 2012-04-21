@@ -27,11 +27,12 @@
 LocationCompleter::LocationCompleter(QObject* parent)
     : QCompleter(parent)
 {
-    QStandardItemModel* completeModel = new QStandardItemModel();
-    setModel(completeModel);
+    m_model = new QStandardItemModel();
 
     m_listView = new CompleterListView();
     m_listView->setItemDelegateForColumn(0, new LocationCompleterDelegate(m_listView));
+
+    setModel(m_model);
     setPopup(m_listView);
 
     setCompletionMode(QCompleter::PopupCompletion);
@@ -46,8 +47,7 @@ QStringList LocationCompleter::splitPath(const QString &path) const
 
 void LocationCompleter::showMostVisited()
 {
-    QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
-    cModel->clear();
+    m_model->clear();
 
     QSqlQuery query;
     query.exec("SELECT url, title FROM history ORDER BY count DESC LIMIT 15");
@@ -60,10 +60,8 @@ void LocationCompleter::showMostVisited()
         item->setText(url.toEncoded());
         item->setData(query.value(1), Qt::UserRole);
 
-        cModel->appendRow(item);
+        m_model->appendRow(item);
     }
-
-    m_listView->setMinimumHeight(6 * m_listView->rowHeight());
 
     QCompleter::complete();
 }
@@ -74,8 +72,7 @@ void LocationCompleter::refreshCompleter(const QString &string)
     QString searchString = QString("%%1%").arg(string);
     QList<QUrl> urlList;
 
-    QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
-    cModel->clear();
+    m_model->clear();
 
     QSqlQuery query;
     query.prepare("SELECT url, title, icon FROM bookmarks WHERE title LIKE ? OR url LIKE ? LIMIT ?");
@@ -92,7 +89,7 @@ void LocationCompleter::refreshCompleter(const QString &string)
         item->setData(query.value(1), Qt::UserRole);
         item->setIcon(IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray())));
 
-        cModel->appendRow(item);
+        m_model->appendRow(item);
         urlList.append(url);
     }
 
@@ -116,15 +113,6 @@ void LocationCompleter::refreshCompleter(const QString &string)
         item->setText(url.toEncoded());
         item->setData(query.value(1), Qt::UserRole);
 
-        cModel->appendRow(item);
+        m_model->appendRow(item);
     }
-
-    if (cModel->rowCount() > 6) {
-        m_listView->setMinimumHeight(6 * m_listView->rowHeight());
-    }
-    else {
-        m_listView->setMinimumHeight(0);
-    }
-
-    m_listView->setUpdatesEnabled(true);
 }

@@ -85,7 +85,6 @@ SOURCES += \
     rss/rsswidget.cpp \
     autofill/autofillnotification.cpp \
     rss/rssnotification.cpp \
-    navigation/locationpopup.cpp \
     preferences/sslmanager.cpp \
     tools/animatedwidget.cpp \
     tools/htmlhighlighter.cpp \
@@ -226,7 +225,6 @@ HEADERS  += \
     rss/rsswidget.h \
     autofill/autofillnotification.h \
     rss/rssnotification.h \
-    navigation/locationpopup.h \
     preferences/sslmanager.h \
     tools/animatedwidget.h \
     tools/htmlhighlighter.h \
