@@ -20,7 +20,6 @@
 #include "tabbedwebview.h"
 #include "rssmanager.h"
 #include "mainapplication.h"
-#include "locationcompleter.h"
 #include "clickablelabel.h"
 #include "siteinfowidget.h"
 #include "rsswidget.h"
@@ -66,12 +65,11 @@ LocationBar::LocationBar(QupZilla* mainClass)
 
     setWidgetSpacing(0);
 
-    m_locationCompleter = new LocationCompleter();
-    setCompleter(m_locationCompleter);
+    m_completer.setLocationBar(this);
+    connect(&m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
+    connect(&m_completer, SIGNAL(completionActivated()), this, SLOT(urlEnter()));
 
     connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdit()));
-    connect(this, SIGNAL(textEdited(QString)), m_locationCompleter, SLOT(refreshCompleter(QString)));
-    connect(m_locationCompleter->popup(), SIGNAL(clicked(QModelIndex)), this, SLOT(urlEnter()));
     connect(m_siteIcon, SIGNAL(clicked()), this, SLOT(showSiteInfo()));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(urlEnter()));
     connect(m_rssIcon, SIGNAL(clicked(QPoint)), this, SLOT(rssIconClicked()));
@@ -91,6 +89,12 @@ void LocationBar::setText(const QString &text)
 void LocationBar::updatePlaceHolderText()
 {
     setPlaceholderText(tr("Enter URL address or search on %1").arg(mApp->searchEnginesManager()->activeEngine().name));
+}
+
+void LocationBar::showCompletion(const QString &newText)
+{
+    LineEdit::setText(newText);
+    end(false);
 }
 
 QUrl LocationBar::createUrl()
@@ -124,7 +128,7 @@ QUrl LocationBar::createUrl()
 
 void LocationBar::urlEnter()
 {
-    m_locationCompleter->popup()->hide();
+    m_completer.closePopup();
     m_webView->setFocus();
 
     emit loadUrl(createUrl());
@@ -132,6 +136,13 @@ void LocationBar::urlEnter()
 
 void LocationBar::textEdit()
 {
+    if (!text().isEmpty()) {
+        m_completer.complete(text());
+    }
+    else {
+        m_completer.closePopup();
+    }
+
     showGoButton();
 }
 
@@ -165,15 +176,7 @@ void LocationBar::hideGoButton()
 
 void LocationBar::showMostVisited()
 {
-    if (text().isEmpty()) {
-        // Workaround: If we show popup when text in locationbar is empty and then
-        // move up and down in completer and then we leave completer -> completer will
-        // set text in locationbar back to last "real" completion
-        QKeyEvent event(QEvent::KeyPress, Qt::Key_unknown, Qt::NoModifier, QString(" "));
-        keyPressEvent(&event);
-    }
-
-    m_locationCompleter->showMostVisited();
+    m_completer.complete(QString());
 }
 
 void LocationBar::showSiteInfo()
@@ -400,6 +403,10 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_Down:
+        m_completer.complete(text());
+        break;
+
     case Qt::Key_Escape:
         m_webView->setFocus();
         showUrl(m_webView->url());
@@ -470,5 +477,4 @@ void LocationBar::keyReleaseEvent(QKeyEvent* event)
 LocationBar::~LocationBar()
 {
     delete m_bookmarkIcon;
-    delete m_locationCompleter;
 }

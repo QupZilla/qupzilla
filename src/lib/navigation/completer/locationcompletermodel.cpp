@@ -15,64 +15,36 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "locationcompleter.h"
-#include "locationcompleterdelegate.h"
-#include "locationbar.h"
+#include "locationcompletermodel.h"
 #include "iconprovider.h"
 #include "mainapplication.h"
 
-#include <QStandardItemModel>
 #include <QSqlQuery>
 
-LocationCompleter::LocationCompleter(QObject* parent)
-    : QCompleter(parent)
+LocationCompleterModel::LocationCompleterModel(QObject* parent)
+    : QStandardItemModel(parent)
+    , m_lastCompletion(QChar(QChar::Nbsp))
 {
-    m_model = new QStandardItemModel();
-
-    m_listView = new CompleterListView();
-    m_listView->setItemDelegateForColumn(0, new LocationCompleterDelegate(m_listView));
-
-    setModel(m_model);
-    setPopup(m_listView);
-
-    setCompletionMode(QCompleter::PopupCompletion);
-    setMaxVisibleItems(6);
 }
 
-QStringList LocationCompleter::splitPath(const QString &path) const
+void LocationCompleterModel::refreshCompletions(const QString &string)
 {
-    Q_UNUSED(path);
-    return QStringList();
-}
-
-void LocationCompleter::showMostVisited()
-{
-    m_model->clear();
-
-    QSqlQuery query;
-    query.exec("SELECT url, title FROM history ORDER BY count DESC LIMIT 15");
-
-    while (query.next()) {
-        QStandardItem* item = new QStandardItem();
-        const QUrl &url = query.value(0).toUrl();
-
-        item->setIcon(_iconForUrl(url));
-        item->setText(url.toEncoded());
-        item->setData(query.value(1), Qt::UserRole);
-
-        m_model->appendRow(item);
+    if (m_lastCompletion == string) {
+        return;
     }
 
-    QCompleter::complete();
-}
+    m_lastCompletion = string;
 
-void LocationCompleter::refreshCompleter(const QString &string)
-{
+    if (string.isEmpty()) {
+        showMostVisited();
+        return;
+    }
+
+    clear();
+
     int limit = string.size() < 3 ? 25 : 15;
     QString searchString = QString("%%1%").arg(string);
     QList<QUrl> urlList;
-
-    m_model->clear();
 
     QSqlQuery query;
     query.prepare("SELECT url, title, icon FROM bookmarks WHERE title LIKE ? OR url LIKE ? LIMIT ?");
@@ -89,7 +61,7 @@ void LocationCompleter::refreshCompleter(const QString &string)
         item->setData(query.value(1), Qt::UserRole);
         item->setIcon(IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray())));
 
-        m_model->appendRow(item);
+        appendRow(item);
         urlList.append(url);
     }
 
@@ -113,6 +85,25 @@ void LocationCompleter::refreshCompleter(const QString &string)
         item->setText(url.toEncoded());
         item->setData(query.value(1), Qt::UserRole);
 
-        m_model->appendRow(item);
+        appendRow(item);
+    }
+}
+
+void LocationCompleterModel::showMostVisited()
+{
+    clear();
+
+    QSqlQuery query;
+    query.exec("SELECT url, title FROM history ORDER BY count DESC LIMIT 15");
+
+    while (query.next()) {
+        QStandardItem* item = new QStandardItem();
+        const QUrl &url = query.value(0).toUrl();
+
+        item->setIcon(_iconForUrl(url));
+        item->setText(url.toEncoded());
+        item->setData(query.value(1), Qt::UserRole);
+
+        appendRow(item);
     }
 }

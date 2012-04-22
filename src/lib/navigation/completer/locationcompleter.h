@@ -18,31 +18,46 @@
 #ifndef LOCATIONCOMPLETER_H
 #define LOCATIONCOMPLETER_H
 
-#include <QCompleter>
+#include <QObject>
 
 #include "qz_namespace.h"
 
-class QStandardItemModel;
+class QModelIndex;
 
-class CompleterListView;
+class LocationCompleterModel;
+class LocationCompleterView;
+class LocationBar;
 
-class QT_QUPZILLA_EXPORT LocationCompleter : public QCompleter
+class QT_QUPZILLA_EXPORT LocationCompleter : public QObject
 {
     Q_OBJECT
 public:
     explicit LocationCompleter(QObject* parent = 0);
 
-    virtual QStringList splitPath(const QString &path) const;
+    void setLocationBar(LocationBar* locationBar);
+    void closePopup();
 
 signals:
+    void showCompletion(const QString &);
+    void completionActivated();
 
 public slots:
-    void refreshCompleter(const QString &string);
+    void complete(const QString &string);
     void showMostVisited();
 
+private slots:
+    void currentChanged(const QModelIndex &index);
+    void popupClosed();
+
 private:
-    CompleterListView* m_listView;
-    QStandardItemModel* m_model;
+    void showPopup();
+    void adjustPopupSize();
+
+    LocationBar* m_locationBar;
+    QString m_originalText;
+
+    static LocationCompleterView* s_view;
+    static LocationCompleterModel* s_model;
 };
 
 #endif // LOCATIONCOMPLETER_H
