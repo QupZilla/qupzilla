@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "locationcompleterdelegate.h"
 #include "locationcompleterview.h"
+#include "iconprovider.h"
 
 #include <QPainter>
 #include <QApplication>
@@ -49,20 +50,20 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     int leftPosition = m_padding * 2;
     int rightPosition = opt.rect.right() - m_padding;
 
-//    if (m_view->ignoreSelectedFlag()) {
-//        if (opt.state.testFlag(QStyle::State_MouseOver)) {
+    opt.state &= ~QStyle::State_MouseOver;
+
     if (m_view->hoveredIndex() == index) {
         opt.state |= QStyle::State_Selected;
     }
     else {
         opt.state &= ~QStyle::State_Selected;
     }
-//    }
 
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
     const QPalette::ColorRole colorLinkRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Link;
 
     // Draw background
+    painter->fillRect(opt.rect, Qt::white);
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
     // Draw icon
@@ -87,6 +88,15 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const QString &link = opt.fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, linkRect.width());
     painter->setFont(opt.font);
     style->drawItemText(painter, linkRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, link, colorLinkRole);
+
+    // Draw star to bookmark items
+    if (index.data(Qt::UserRole + 1).toBool()) {
+        const QPixmap starPixmap = qIconProvider->bookmarkIcon();
+        QSize starSize = starPixmap.size();
+        QPoint pos(rightPosition - starSize.width(), opt.rect.top() + m_padding);
+        QRect starRect(pos, starSize);
+        painter->drawPixmap(starRect, starPixmap);
+    }
 }
 
 QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

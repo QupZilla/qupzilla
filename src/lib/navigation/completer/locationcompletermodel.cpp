@@ -57,9 +57,10 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
         QStandardItem* item = new QStandardItem();
         const QUrl &url = query.value(0).toUrl();
 
+        item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray())));
         item->setText(url.toEncoded());
         item->setData(query.value(1), Qt::UserRole);
-        item->setIcon(IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray())));
+        item->setData(QVariant(true), Qt::UserRole + 1); // From bookmarks
 
         appendRow(item);
         urlList.append(url);
@@ -84,6 +85,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
         item->setIcon(_iconForUrl(url));
         item->setText(url.toEncoded());
         item->setData(query.value(1), Qt::UserRole);
+        item->setData(QVariant(false), Qt::UserRole + 1);
 
         appendRow(item);
     }
@@ -103,6 +105,7 @@ void LocationCompleterModel::showMostVisited()
         item->setIcon(_iconForUrl(url));
         item->setText(url.toEncoded());
         item->setData(query.value(1), Qt::UserRole);
+        item->setData(QVariant(false), Qt::UserRole + 1);
 
         appendRow(item);
     }

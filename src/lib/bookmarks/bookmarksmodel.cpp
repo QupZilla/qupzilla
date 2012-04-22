@@ -161,7 +161,7 @@ bool BookmarksModel::saveBookmark(const QUrl &url, const QString &title, const Q
 
     QImage image = icon.pixmap(16, 16).toImage();
     if (image.isNull()) {
-        image = IconProvider::emptyWebImage();
+        image = qIconProvider->emptyWebImage();
     }
 
     if (!isFolder(folder)) {

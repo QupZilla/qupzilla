@@ -78,7 +78,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_autofill(0)
     , m_networkCache(new QNetworkDiskCache(this))
     , m_desktopNotifications(0)
-    , m_iconProvider(new IconProvider(this))
     , m_searchEnginesManager(0)
     , m_dbWriter(new DatabaseWriter(this))
     , m_isClosing(false)
@@ -348,7 +347,7 @@ void MainApplication::loadSettings()
     m_websettings->setFontSize(QWebSettings::MinimumLogicalFontSize, settings.value("MinimumLogicalFontSize", m_websettings->fontSize(QWebSettings::MinimumLogicalFontSize)).toInt());
     settings.endGroup();
 
-    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::emptyWebIcon().pixmap(16, 16));
+    m_websettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, qIconProvider->emptyWebIcon().pixmap(16, 16));
     m_websettings->setWebGraphic(QWebSettings::MissingImageGraphic, QPixmap());
 
     // Allows to load files from qrc: scheme in qupzilla: pages
@@ -612,7 +611,7 @@ void MainApplication::saveSettings()
     m_networkmanager->saveCertificates();
     m_plugins->c2f_saveSettings();
     m_plugins->speedDial()->saveSettings();
-    m_iconProvider->saveIconsToDatabase();
+    qIconProvider->saveIconsToDatabase();
 
     AdBlockManager::instance()->save();
     QFile::remove(currentProfilePath() + "WebpageIcons.db");

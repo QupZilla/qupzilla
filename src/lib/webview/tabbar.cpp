@@ -138,10 +138,10 @@ void TabBar::contextMenuRequested(const QPoint &position)
             return;
         }
         if (p_QupZilla->weView(m_clickedTab)->isLoading()) {
-            menu.addAction(IconProvider::standardIcon(QStyle::SP_BrowserStop), tr("&Stop Tab"), this, SLOT(stopTab()));
+            menu.addAction(qIconProvider->standardIcon(QStyle::SP_BrowserStop), tr("&Stop Tab"), this, SLOT(stopTab()));
         }
         else {
-            menu.addAction(IconProvider::standardIcon(QStyle::SP_BrowserReload), tr("&Reload Tab"), this, SLOT(reloadTab()));
+            menu.addAction(qIconProvider->standardIcon(QStyle::SP_BrowserReload), tr("&Reload Tab"), this, SLOT(reloadTab()));
         }
 
         menu.addAction(tr("&Duplicate Tab"), this, SLOT(duplicateTab()));

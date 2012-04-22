@@ -41,7 +41,7 @@
 #include <QClipboard>
 
 LocationBar::LocationBar(QupZilla* mainClass)
-    : LineEdit()
+    : LineEdit(mainClass)
     , p_QupZilla(mainClass)
     , m_webView(0)
     , m_menu(new QMenu(this))
@@ -240,7 +240,7 @@ void LocationBar::siteIconChanged()
 
 void LocationBar::clearIcon()
 {
-    m_siteIcon->setIcon(IconProvider::emptyWebIcon());
+    m_siteIcon->setIcon(qIconProvider->emptyWebIcon());
 }
 
 void LocationBar::setPrivacy(bool state)
