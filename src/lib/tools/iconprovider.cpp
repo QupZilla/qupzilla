@@ -35,7 +35,7 @@ IconProvider::IconProvider(QWidget* parent)
     connect(m_timer, SIGNAL(timeout()), this, SLOT(saveIconsToDatabase()));
 }
 
-IconProvider *IconProvider::instance()
+IconProvider* IconProvider::instance()
 {
     if (!s_instance) {
         s_instance = new IconProvider;

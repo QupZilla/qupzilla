@@ -2074,11 +2074,11 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>Manager SSL</translation>
+        <translation type="obsolete">Manager SSL</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>Editează certificate CA în managerul SSL</translation>
+        <translation type="obsolete">Editează certificate CA în managerul SSL</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2226,6 +2226,14 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3065,7 +3073,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation>Manager SSL</translation>
+        <translation type="obsolete">Manager SSL</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
@@ -3124,6 +3132,18 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     <message>
         <source>Certificate Informations</source>
         <translation>Informatii despre certificat</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

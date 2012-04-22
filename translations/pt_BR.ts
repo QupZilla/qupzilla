@@ -1720,7 +1720,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>Gerenciador SSL</translation>
+        <translation type="obsolete">Gerenciador SSL</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -1828,7 +1828,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>Editar certificados no gerenciador SSL</translation>
+        <translation type="obsolete">Editar certificados no gerenciador SSL</translation>
     </message>
     <message>
         <source>Allow JAVA</source>
@@ -2224,6 +2224,14 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3072,7 +3080,7 @@ Adicione os feeds clicando no símbolo RSS existente na barra de navegação, em
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>Gerenciador SSL</translation>
+        <translation type="obsolete">Gerenciador SSL</translation>
     </message>
     <message>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
@@ -3123,6 +3131,18 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
         <translation>Esta é a lista de certificados locais guardados no seu perfil. Também contém todos os certificados que foram excecionados.</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
