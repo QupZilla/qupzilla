@@ -640,6 +640,11 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         }
     }
     else if (exOption->domain == QWebPage::Http) {
+        // 200 status code = OK
+        // It shouldn't be reported as an error, but sometimes it is ...
+        if (exOption->error == 200) {
+            return false;
+        }
         errorString = tr("Error code %1").arg(exOption->error);
     }
     else if (exOption->domain == QWebPage::WebKit) {
