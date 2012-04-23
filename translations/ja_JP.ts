@@ -1535,11 +1535,13 @@
     <name>PluginsList</name>
     <message>
         <source>Application Extensions</source>
-        <translation>アプリケーションの拡張機能</translation>
+        <translatorcomment>(案2)アプリケーションの拡張機能</translatorcomment>
+        <translation>拡張機能</translation>
     </message>
     <message>
         <source>Allow Application Extensions to be loaded</source>
-        <translation>アプリケーションの拡張機能を有効にする</translation>
+        <translatorcomment>(案2)アプリケーションの拡張機能を有効にする</translatorcomment>
+        <translation>拡張機能を有効にする</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -2268,11 +2270,11 @@
     </message>
     <message>
         <source>Show tab previews</source>
-        <translation type="unfinished"></translation>
+        <translation>タブプレビューを表示する</translation>
     </message>
     <message>
         <source>Make tab previews animated</source>
-        <translation type="unfinished"></translation>
+        <translation>タブプレビューのアニメーションを有効にする</translation>
     </message>
 </context>
 <context>
@@ -3925,15 +3927,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>未完</translatorcomment>
+        <translation>このプロトコルに対する設定を記憶する</translation>
     </message>
     <message>
         <source>External Protocol Request</source>
-        <translation type="unfinished"></translation>
+        <translation>外部プロトコル　リクエスト</translation>
     </message>
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ここようわからん</translatorcomment>
+        <translation>QupZillaは&lt;b&gt;%1:&lt;/b&gt;のリンクを処理できません。リクエストされたリンクは&lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;システムアプリケーションでこのリンクを開きますか？</translation>
     </message>
 </context>
 <context>
