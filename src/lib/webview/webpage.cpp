@@ -485,8 +485,10 @@ void WebPage::cleanBlockedObjects()
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
 {
-    // Let Google services play nice with us
-    if (url.host().contains("google")) {
+    const QString &host = url.host();
+
+    // Let Google services (and Facebook) play nice with us
+    if (host.contains("google") || host.contains("facebook")) {
         if (s_fakeUserAgent.isEmpty()) {
             s_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + QupZilla::WEBKITVERSION + " (KHTML, like Gecko) Chrome/10.0 Safari/" + QupZilla::WEBKITVERSION;
         }
