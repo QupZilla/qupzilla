@@ -2551,7 +2551,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Zertifikat-Manager</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1925"/>
@@ -2596,7 +2596,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
         <source>Manage CA certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>CA Zertifikate verwalten</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1969"/>
@@ -3923,7 +3923,7 @@ Bitte fügen Sie welche über das RSS Symbol in der Navigationsleiste hinzu.</tr
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="79"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Import</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="115"/>
@@ -3955,7 +3955,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="14"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Zertifikat-Manager</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="106"/>
@@ -3986,7 +3986,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="134"/>
         <source>Import certificate...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zertifikat importieren...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="165"/>
