@@ -213,7 +213,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* pa
         return;
     }
 
-    if (!fromPageDownload && m_useExternalManager) {
+    if (fromPageDownload && m_useExternalManager) {
         startExternalManager(reply->url());
         reply->abort();
         reply->deleteLater();
