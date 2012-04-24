@@ -4719,17 +4719,18 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="300"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla kann die &lt;b&gt;%1:&lt;/b&gt; Links nicht öffnen. Der angeforderte Link lautet &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Möchten Sie, dass QupZilla versucht, diesen Link mit der Systemanwendung zu öffnen?</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="305"/>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Immer mit dieser Anwendung öffnen</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="306"/>
         <source>External Protocol Request</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Examples: apt:package or tomahawk:nameOfSong/Artist/album</translatorcomment>
+        <translation>Mit externer Anwendung öffnen</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="408"/>
