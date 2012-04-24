@@ -205,7 +205,7 @@ void NavigationBar::aboutToShowHistoryBackMenu()
         if (item.isValid() && lastUrl != item.url()) {
             QString title = titleForUrl(item.title(), item.url());
 
-            const QIcon &icon = iconForPage(item.url(), IconProvider::standardIcon(QStyle::SP_ArrowBack));
+            const QIcon &icon = iconForPage(item.url(), qIconProvider->standardIcon(QStyle::SP_ArrowBack));
             Action* act = new Action(icon, title);
             act->setData(i);
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));
@@ -242,7 +242,7 @@ void NavigationBar::aboutToShowHistoryNextMenu()
         if (item.isValid() && lastUrl != item.url()) {
             QString title = titleForUrl(item.title(), item.url());
 
-            const QIcon &icon = iconForPage(item.url(), IconProvider::standardIcon(QStyle::SP_ArrowForward));
+            const QIcon &icon = iconForPage(item.url(), qIconProvider->standardIcon(QStyle::SP_ArrowForward));
             Action* act = new Action(icon, title);
             act->setData(i);
             connect(act, SIGNAL(triggered()), this, SLOT(goAtHistoryIndex()));

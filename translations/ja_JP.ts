@@ -1535,11 +1535,13 @@
     <name>PluginsList</name>
     <message>
         <source>Application Extensions</source>
-        <translation>アプリケーションの拡張機能</translation>
+        <translatorcomment>(案2)アプリケーションの拡張機能</translatorcomment>
+        <translation>拡張機能</translation>
     </message>
     <message>
         <source>Allow Application Extensions to be loaded</source>
-        <translation>アプリケーションの拡張機能を有効にする</translation>
+        <translatorcomment>(案2)アプリケーションの拡張機能を有効にする</translatorcomment>
+        <translation>拡張機能を有効にする</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -2118,11 +2120,11 @@
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>SSLマネージャ</translation>
+        <translation type="obsolete">SSLマネージャ</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>SSLマネージャ内の公開鍵証明書を編集する</translation>
+        <translation type="obsolete">SSLマネージャ内の公開鍵証明書を編集する</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2268,10 +2270,18 @@
     </message>
     <message>
         <source>Show tab previews</source>
-        <translation type="unfinished"></translation>
+        <translation>タブプレビューを表示する</translation>
     </message>
     <message>
         <source>Make tab previews animated</source>
+        <translation>タブプレビューのアニメーションを有効にする</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3129,7 +3139,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation>SSLマネージャ</translation>
+        <translation type="obsolete">SSLマネージャ</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
@@ -3191,6 +3201,18 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Certificate Informations</source>
         <translation>証明書情報</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3925,15 +3947,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>未完</translatorcomment>
+        <translation>このプロトコルに対する設定を記憶する</translation>
     </message>
     <message>
         <source>External Protocol Request</source>
-        <translation type="unfinished"></translation>
+        <translation>外部プロトコル　リクエスト</translation>
     </message>
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ここようわからん</translatorcomment>
+        <translation>QupZillaは&lt;b&gt;%1:&lt;/b&gt;のリンクを処理できません。リクエストされたリンクは&lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;システムアプリケーションでこのリンクを開きますか？</translation>
     </message>
 </context>
 <context>

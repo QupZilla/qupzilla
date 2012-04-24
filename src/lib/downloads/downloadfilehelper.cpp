@@ -243,6 +243,7 @@ QString DownloadFileHelper::getFileName(QNetworkReply* reply)
             }
         }
     }
+
     if (path.isEmpty()) {
         path = reply->url().path();
     }

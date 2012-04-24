@@ -85,7 +85,7 @@ void ClearPrivateData::clearCache()
 void ClearPrivateData::clearIcons()
 {
     mApp->webSettings()->clearIconDatabase();
-    mApp->iconProvider()->clearIconDatabase();
+    qIconProvider->clearIconDatabase();
 }
 
 void ClearPrivateData::clearFlash()

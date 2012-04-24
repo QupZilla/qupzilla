@@ -95,7 +95,6 @@ public:
     SearchEnginesManager* searchEnginesManager();
     QNetworkDiskCache* networkCache() { return m_networkCache; }
     DesktopNotificationsFactory* desktopNotifications();
-    IconProvider* iconProvider() { return m_iconProvider; }
     DatabaseWriter* dbWriter() { return m_dbWriter; }
 
 #ifdef Q_WS_MAC
@@ -139,7 +138,6 @@ private:
     AutoFillModel* m_autofill;
     QNetworkDiskCache* m_networkCache;
     DesktopNotificationsFactory* m_desktopNotifications;
-    IconProvider* m_iconProvider;
     SearchEnginesManager* m_searchEnginesManager;
     DatabaseWriter* m_dbWriter;
 

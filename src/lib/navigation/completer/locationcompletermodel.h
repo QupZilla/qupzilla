@@ -15,36 +15,26 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef LOCATIONPOPUP_H
-#define LOCATIONPOPUP_H
+#ifndef LOCATIONCOMPLETERMODEL_H
+#define LOCATIONCOMPLETERMODEL_H
 
-#include <QAbstractItemView>
+#include <QStandardItemModel>
 
-#include "qz_namespace.h"
-
-class QT_QUPZILLA_EXPORT LocationPopup : public QAbstractItemView
+class LocationCompleterModel : public QStandardItemModel
 {
-    Q_OBJECT
 public:
-    explicit LocationPopup(QWidget* parent = 0);
+    explicit LocationCompleterModel(QObject* parent = 0);
+
+    void refreshCompletions(const QString &string);
+    void showMostVisited();
 
 signals:
 
 public slots:
-    void show();
+
 private:
-#if 0
-    QRect visualRect(const QModelIndex &index) const;
-    void scrollTo(const QModelIndex &index, ScrollHint hint);
-    QModelIndex indexAt(const QPoint &point) const;
-    QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);
-    int horizontalOffset() const;
-    int verticalOffset() const;
-    bool isIndexHidden(const QModelIndex &index) const;
-    void setSelection(const QRect &rect, QItemSelectionModel::SelectionFlags command);
-    QRegion visualRegionForSelection(const QItemSelection &selection) const;
-#endif
-    QWidget* m_parent;
+    QString m_lastCompletion;
+
 };
 
-#endif // LOCATIONPOPUP_H
+#endif // LOCATIONCOMPLETERMODEL_H

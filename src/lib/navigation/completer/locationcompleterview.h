@@ -15,28 +15,39 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "rssnotification.h"
-#include "ui_rssnotification.h"
-#include "mainapplication.h"
-#include "qupzilla.h"
-#include "iconprovider.h"
+#ifndef LOCATIONCOMPLETERVIEW_H
+#define LOCATIONCOMPLETERVIEW_H
 
-RSSNotification::RSSNotification(QString host, QWidget* parent)
-    : AnimatedWidget(AnimatedWidget::Down, 300, parent)
-    , ui(new Ui::RSSNotification)
+#include <QListView>
+
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT LocationCompleterView : public QListView
 {
-    setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(widget());
-    ui->closeButton->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
-    ui->label->setText(QupZilla::tr("You have successfully added RSS feed \"%1\".").arg(host));
+    Q_OBJECT
+public:
+    explicit LocationCompleterView();
 
-    connect(ui->pushButton, SIGNAL(clicked()), mApp->getWindow(), SLOT(showRSSManager()));
-    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(hide()));
-    connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
-    startAnimation();
-}
+    QPersistentModelIndex hoveredIndex() const;
 
-RSSNotification::~RSSNotification()
-{
-    delete ui;
-}
+    bool eventFilter(QObject* object, QEvent* event);
+
+signals:
+    void closed();
+
+public slots:
+    void close();
+
+private slots:
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous);
+
+protected:
+    void mouseMoveEvent(QMouseEvent* event);
+
+private:
+    bool m_ignoreNextMouseMove;
+
+    QPersistentModelIndex m_hoveredIndex;
+};
+
+#endif // LOCATIONCOMPLETERVIEW_H

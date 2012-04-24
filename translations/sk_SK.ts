@@ -1700,7 +1700,7 @@
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>Správca SSL</translation>
+        <translation type="obsolete">Správca SSL</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2140,7 +2140,7 @@
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>Upraviť CA Certifikáty v správcovi SSL</translation>
+        <translation type="obsolete">Upraviť CA Certifikáty v správcovi SSL</translation>
     </message>
     <message>
         <source>Delete now</source>
@@ -2225,6 +2225,14 @@
     <message>
         <source>Make tab previews animated</source>
         <translation>Animovať náhľady kariet</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3072,7 +3080,7 @@ Prosím pridajte nejaké kliknutím na RSS ikonku v navigačnom paneli na strán
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>Správca certifikátov</translation>
+        <translation type="obsolete">Správca certifikátov</translation>
     </message>
     <message>
         <source>If CA Authorities Certificates were not automatically loaded from the system, you can specify paths manually where the certificates are stored.</source>
@@ -3123,6 +3131,18 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>This is a list of Local Certificates stored in your user profile. It also contains all certificates, that have received an exception.</source>
         <translation>Toto je zoznam lokálnych certifikátov uložených v používateľovom profile. Tento zoznam taktiež obsahuje všetky certifikáty, ktoré obdržali výnimku.</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

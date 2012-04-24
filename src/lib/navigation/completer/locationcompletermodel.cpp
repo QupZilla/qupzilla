@@ -15,67 +15,36 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "locationcompleter.h"
-#include "locationcompleterdelegate.h"
-#include "locationbar.h"
+#include "locationcompletermodel.h"
 #include "iconprovider.h"
 #include "mainapplication.h"
 
-#include <QStandardItemModel>
 #include <QSqlQuery>
 
-LocationCompleter::LocationCompleter(QObject* parent)
-    : QCompleter(parent)
+LocationCompleterModel::LocationCompleterModel(QObject* parent)
+    : QStandardItemModel(parent)
+    , m_lastCompletion(QChar(QChar::Nbsp))
 {
-    QStandardItemModel* completeModel = new QStandardItemModel();
-    setModel(completeModel);
-
-    m_listView = new CompleterListView();
-    m_listView->setItemDelegateForColumn(0, new LocationCompleterDelegate(m_listView));
-    setPopup(m_listView);
-
-    setCompletionMode(QCompleter::PopupCompletion);
-    setMaxVisibleItems(6);
 }
 
-QStringList LocationCompleter::splitPath(const QString &path) const
+void LocationCompleterModel::refreshCompletions(const QString &string)
 {
-    Q_UNUSED(path);
-    return QStringList();
-}
-
-void LocationCompleter::showMostVisited()
-{
-    QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
-    cModel->clear();
-
-    QSqlQuery query;
-    query.exec("SELECT url, title FROM history ORDER BY count DESC LIMIT 15");
-
-    while (query.next()) {
-        QStandardItem* item = new QStandardItem();
-        const QUrl &url = query.value(0).toUrl();
-
-        item->setIcon(_iconForUrl(url));
-        item->setText(url.toEncoded());
-        item->setData(query.value(1), Qt::UserRole);
-
-        cModel->appendRow(item);
+    if (m_lastCompletion == string) {
+        return;
     }
 
-    m_listView->setMinimumHeight(6 * m_listView->rowHeight());
+    m_lastCompletion = string;
 
-    QCompleter::complete();
-}
+    if (string.isEmpty()) {
+        showMostVisited();
+        return;
+    }
 
-void LocationCompleter::refreshCompleter(const QString &string)
-{
+    clear();
+
     int limit = string.size() < 3 ? 25 : 15;
     QString searchString = QString("%%1%").arg(string);
     QList<QUrl> urlList;
-
-    QStandardItemModel* cModel = qobject_cast<QStandardItemModel*>(model());
-    cModel->clear();
 
     QSqlQuery query;
     query.prepare("SELECT url, title, icon FROM bookmarks WHERE title LIKE ? OR url LIKE ? LIMIT ?");
@@ -88,11 +57,12 @@ void LocationCompleter::refreshCompleter(const QString &string)
         QStandardItem* item = new QStandardItem();
         const QUrl &url = query.value(0).toUrl();
 
+        item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray())));
         item->setText(url.toEncoded());
         item->setData(query.value(1), Qt::UserRole);
-        item->setIcon(IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray())));
+        item->setData(QVariant(true), Qt::UserRole + 1); // From bookmarks
 
-        cModel->appendRow(item);
+        appendRow(item);
         urlList.append(url);
     }
 
@@ -115,16 +85,28 @@ void LocationCompleter::refreshCompleter(const QString &string)
         item->setIcon(_iconForUrl(url));
         item->setText(url.toEncoded());
         item->setData(query.value(1), Qt::UserRole);
+        item->setData(QVariant(false), Qt::UserRole + 1);
 
-        cModel->appendRow(item);
+        appendRow(item);
     }
+}
 
-    if (cModel->rowCount() > 6) {
-        m_listView->setMinimumHeight(6 * m_listView->rowHeight());
-    }
-    else {
-        m_listView->setMinimumHeight(0);
-    }
+void LocationCompleterModel::showMostVisited()
+{
+    clear();
 
-    m_listView->setUpdatesEnabled(true);
+    QSqlQuery query;
+    query.exec("SELECT url, title FROM history ORDER BY count DESC LIMIT 15");
+
+    while (query.next()) {
+        QStandardItem* item = new QStandardItem();
+        const QUrl &url = query.value(0).toUrl();
+
+        item->setIcon(_iconForUrl(url));
+        item->setText(url.toEncoded());
+        item->setData(query.value(1), Qt::UserRole);
+        item->setData(QVariant(false), Qt::UserRole + 1);
+
+        appendRow(item);
+    }
 }

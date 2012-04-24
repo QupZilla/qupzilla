@@ -280,7 +280,7 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
     locBar->setWebView(webView);
 
     setTabText(index, title);
-    setTabIcon(index, IconProvider::emptyWebIcon());
+    setTabIcon(index, qIconProvider->emptyWebIcon());
 
     if (openFlags & Qz::NT_SelectedTab) {
         setCurrentIndex(index);

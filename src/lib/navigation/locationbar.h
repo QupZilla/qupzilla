@@ -22,6 +22,7 @@
 
 #include "qz_namespace.h"
 #include "lineedit.h"
+#include "completer/locationcompleter.h"
 
 class QupZilla;
 class LineEdit;
@@ -52,7 +53,7 @@ signals:
 
 public slots:
     void showUrl(const QUrl &url);
-    virtual void setText(const QString &text);
+    void setText(const QString &text);
 
 private slots:
     void siteIconChanged();
@@ -67,6 +68,7 @@ private slots:
     void pasteAndGo();
 
     void updatePlaceHolderText();
+    void showCompletion(const QString &newText);
 
 private:
     void contextMenuEvent(QContextMenuEvent* event);
@@ -82,6 +84,8 @@ private:
     void showGoButton();
     void hideGoButton();
 
+    LocationCompleter m_completer;
+
     BookmarkIcon* m_bookmarkIcon;
     GoIcon* m_goIcon;
     RssIcon* m_rssIcon;
@@ -89,7 +93,6 @@ private:
 
     QupZilla* p_QupZilla;
     TabbedWebView* m_webView;
-    LocationCompleter* m_locationCompleter;
 
     QMenu* m_menu;
     QAction* m_pasteAndGoAction;

@@ -304,7 +304,7 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
     dialog.setText(text);
     dialog.setCheckBoxText(tr("Remember my choice for this protocol"));
     dialog.setWindowTitle(tr("External Protocol Request"));
-    dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxQuestion));
+    dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxQuestion));
 
     switch (dialog.exec()) {
     case QDialog::Accepted:
@@ -485,10 +485,12 @@ void WebPage::cleanBlockedObjects()
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
 {
-    // Let Google services play nice with us
-    if (url.host().contains("google")) {
+    const QString &host = url.host();
+
+    // Let Google services (and Facebook) play nice with us
+    if (host.contains("google") || host.contains("facebook")) {
         if (s_fakeUserAgent.isEmpty()) {
-            s_fakeUserAgent = "Mozilla/5.0 (" + qz_buildSystem() + ") AppleWebKit/" + QupZilla::WEBKITVERSION + " (KHTML, like Gecko) Chrome/10.0 Safari/" + QupZilla::WEBKITVERSION;
+            s_fakeUserAgent = QString("Mozilla/5.0 (%1) AppleWebKit/%2 (KHTML, like Gecko) Chrome/10.0 Safari/%2").arg(qz_buildSystem(), QupZilla::WEBKITVERSION);
         }
 
         return s_fakeUserAgent;
@@ -640,6 +642,11 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         }
     }
     else if (exOption->domain == QWebPage::Http) {
+        // 200 status code = OK
+        // It shouldn't be reported as an error, but sometimes it is ...
+        if (exOption->error == 200) {
+            return false;
+        }
         errorString = tr("Error code %1").arg(exOption->error);
     }
     else if (exOption->domain == QWebPage::WebKit) {
@@ -654,8 +661,8 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
     QString errString = file.readAll();
     errString.replace("%TITLE%", tr("Failed loading page"));
 
-    errString.replace("%IMAGE%", qz_pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
-    errString.replace("%FAVICON%", qz_pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
+    errString.replace("%IMAGE%", qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+    errString.replace("%FAVICON%", qz_pixmapToByteArray(qIconProvider->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16, 16)));
     errString.replace("%BOX-BORDER%", "qrc:html/box-border.png");
 
     errString.replace("%HEADING%", errorString);
@@ -771,7 +778,7 @@ void WebPage::javaScriptAlert(QWebFrame* originatingFrame, const QString &msg)
     dialog.setWindowTitle(title);
     dialog.setText(msg);
     dialog.setCheckBoxText(tr("Prevent this page from creating additional dialogs"));
-    dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxInformation));
+    dialog.setIcon(qIconProvider->standardIcon(QStyle::SP_MessageBoxInformation));
     dialog.exec();
 
     m_blockAlerts = dialog.isChecked();

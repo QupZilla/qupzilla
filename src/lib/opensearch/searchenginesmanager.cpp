@@ -35,7 +35,7 @@
 
 QIcon SearchEnginesManager::iconForSearchEngine(const QUrl &url)
 {
-    QIcon ic = IconProvider::iconFromImage(mApp->iconProvider()->iconForDomain(url));
+    QIcon ic = qIconProvider->iconFromImage(qIconProvider->iconForDomain(url));
     if (ic.isNull()) {
         ic = QIcon(":icons/menu/search-icon.png");
     }
@@ -65,7 +65,7 @@ void SearchEnginesManager::loadSettings()
     while (query.next()) {
         Engine en;
         en.name = query.value(0).toString();
-        en.icon = IconProvider::iconFromBase64(query.value(1).toByteArray());
+        en.icon = qIconProvider->iconFromBase64(query.value(1).toByteArray());
         en.url = query.value(2).toString();
         en.shortcut = query.value(3).toString();
         en.suggestionsUrl = query.value(4).toString();
@@ -407,7 +407,7 @@ void SearchEnginesManager::saveSettings()
     foreach(const Engine & en, m_allEngines) {
         query.prepare("INSERT INTO search_engines (name, icon, url, shortcut, suggestionsUrl, suggestionsParameters) VALUES (?, ?, ?, ?, ?, ?)");
         query.bindValue(0, en.name);
-        query.bindValue(1, IconProvider::iconToBase64(en.icon));
+        query.bindValue(1, qIconProvider->iconToBase64(en.icon));
         query.bindValue(2, en.url);
         query.bindValue(3, en.shortcut);
         query.bindValue(4, en.suggestionsUrl);
