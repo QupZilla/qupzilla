@@ -45,6 +45,7 @@ QPersistentModelIndex LocationCompleterView::hoveredIndex() const
 
 bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 {
+    Q_UNUSED(object)
     // Event filter based on QCompleter::eventFilter from qcompleter.cpp
 
     switch (event->type()) {
@@ -121,12 +122,12 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
         } // switch (keyEvent->key())
 
         (static_cast<QObject*>(focusProxy()))->event(keyEvent);
-        break;
+        return true;
     }
 
     case QEvent::Show:
         m_ignoreNextMouseMove = true;
-        return false;
+        break;
 
     case QEvent::MouseButtonPress:
         if (!underMouse()) {
@@ -135,16 +136,16 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
         }
         break;
 
-    case QEvent::InputMethod:
     case QEvent::ShortcutOverride:
+    case QEvent::InputMethod:
         QApplication::sendEvent(focusProxy(), event);
         break;
 
     default:
-        return QListView::eventFilter(object, event);
+        break;
     } // switch (event->type())
 
-    return QListView::eventFilter(object, event);
+    return false;
 }
 
 void LocationCompleterView::close()
