@@ -293,7 +293,7 @@ QString SpeedDial::urlFromUserInput(const QString &url)
 
 void SpeedDial::setBackgroundImage(const QString &image)
 {
-    m_backgroundImage = QUrl(image).toEncoded();
+    m_backgroundImage = image;
 }
 
 void SpeedDial::setBackgroundImageSize(const QString &size)
