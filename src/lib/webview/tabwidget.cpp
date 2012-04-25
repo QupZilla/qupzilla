@@ -289,13 +289,6 @@ int TabWidget::addView(QNetworkRequest req, const QString &title, const Qz::NewT
         m_lastBackgroundTabIndex = index;
     }
 
-    if (count() == 1 && m_hideTabBarWithOneTab) {
-        tabBar()->setVisible(false);
-    }
-    else {
-        tabBar()->setVisible(true);
-    }
-
     connect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     connect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
@@ -350,15 +343,12 @@ void TabWidget::closeTab(int index)
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     disconnect(webView, SIGNAL(changed()), mApp, SLOT(setStateChanged()));
     disconnect(webView, SIGNAL(ipChanged(QString)), p_QupZilla->ipLabel(), SLOT(setText(QString)));
+
     //Save last tab url and history
     m_closedTabsManager->saveView(webTab, index);
 
     if (m_isClosingToLastTabIndex && m_lastTabIndex < count() && index == currentIndex()) {
         setCurrentIndex(m_lastTabIndex);
-    }
-
-    if (count() == 2 && m_hideTabBarWithOneTab) {
-        tabBar()->setVisible(false);
     }
 
     m_lastBackgroundTabIndex = -1;
@@ -398,6 +388,20 @@ void TabWidget::tabMoved(int before, int after)
 
     m_isClosingToLastTabIndex = false;
     m_lastBackgroundTabIndex = -1;
+}
+
+void TabWidget::tabInserted(int index)
+{
+    Q_UNUSED(index)
+
+    tabBar()->setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
+}
+
+void TabWidget::tabRemoved(int index)
+{
+    Q_UNUSED(index)
+
+    tabBar()->setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
 }
 
 void TabWidget::startTabAnimation(int index)

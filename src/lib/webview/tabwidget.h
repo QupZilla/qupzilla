@@ -118,6 +118,9 @@ private slots:
     void tabMoved(int before, int after);
 
 private:
+    void tabInserted(int index);
+    void tabRemoved(int index);
+
     void resizeEvent(QResizeEvent* e);
 
     WebTab* weTab();
