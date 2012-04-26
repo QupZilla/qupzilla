@@ -25,7 +25,6 @@
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
 #include "followredirectreply.h"
-#include "databasewriter.h"
 #include "networkmanager.h"
 
 #include <QMenu>
@@ -35,6 +34,7 @@
 #include <QMessageBox>
 #include <QNetworkReply>
 #include <QBuffer>
+#include <QSqlQuery>
 
 RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -397,7 +397,7 @@ bool RSSManager::addRssFeed(const QUrl &url, const QString &title, const QIcon &
         buffer.open(QIODevice::WriteOnly);
         image.save(&buffer, "PNG");
         query.bindValue(2, buffer.data());
-        mApp->dbWriter()->executeQuery(query);
+        query.exec();
         return true;
     }
 
