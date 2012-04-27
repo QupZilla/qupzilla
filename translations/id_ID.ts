@@ -2611,7 +2611,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
         <source>Manage CA certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Kelola Sertifikat CA</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1925"/>
@@ -2660,7 +2660,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Manajer Sertifikat</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1969"/>
@@ -3909,7 +3909,7 @@ Silakan tambahi dengan menggunakan icon RSS di bilah navigasi bilamana situs men
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="14"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Manajer Sertifikat</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="24"/>
@@ -3935,7 +3935,7 @@ Silakan tambahi dengan menggunakan icon RSS di bilah navigasi bilamana situs men
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="79"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Impor</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="106"/>
@@ -3988,7 +3988,7 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="134"/>
         <source>Import certificate...</source>
-        <translation type="unfinished"></translation>
+        <translation>Impor sertifikat...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="165"/>
