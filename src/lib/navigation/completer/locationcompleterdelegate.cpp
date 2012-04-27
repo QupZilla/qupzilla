@@ -16,77 +16,18 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationcompleterdelegate.h"
+#include "locationcompleterview.h"
+#include "iconprovider.h"
 
 #include <QPainter>
 #include <QApplication>
 #include <QMouseEvent>
 
-#include <QDebug>
-
-CompleterListView::CompleterListView(QWidget* parent)
-    : QListView(parent)
-    , m_selectedItemByMousePosition(false)
-    , m_rowHeight(0)
-{
-    setMouseTracking(true);
-}
-
-bool CompleterListView::ignoreSelectedFlag() const
-{
-    return m_selectedItemByMousePosition;
-}
-
-int CompleterListView::rowHeight() const
-{
-    return m_rowHeight;
-}
-
-void CompleterListView::setRowHeight(int height)
-{
-    m_rowHeight = height;
-}
-
-void CompleterListView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
-{
-    m_selectedItemByMousePosition = false;
-    m_lastMouseIndex = current;
-
-    QListView::currentChanged(current, previous);
-
-    viewport()->repaint();
-}
-
-void CompleterListView::mouseMoveEvent(QMouseEvent* event)
-{
-    QModelIndex last = m_lastMouseIndex;
-    QModelIndex atCursor = indexAt(mapFromGlobal(QCursor::pos()));
-
-    if (atCursor.isValid()) {
-        m_lastMouseIndex = atCursor;
-        m_selectedItemByMousePosition = true;
-    }
-
-    if (last != atCursor) {
-        viewport()->repaint();
-    }
-
-    QListView::mouseMoveEvent(event);
-}
-
-void CompleterListView::keyPressEvent(QKeyEvent* event)
-{
-    if (currentIndex() != m_lastMouseIndex) {
-        setCurrentIndex(m_lastMouseIndex);
-    }
-
-    QListView::keyPressEvent(event);
-}
-
-LocationCompleterDelegate::LocationCompleterDelegate(CompleterListView* parent)
+LocationCompleterDelegate::LocationCompleterDelegate(LocationCompleterView* parent)
     : QStyledItemDelegate(parent)
     , m_rowHeight(0)
     , m_padding(0)
-    , m_listView(parent)
+    , m_view(parent)
 {
 }
 
@@ -109,19 +50,20 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     int leftPosition = m_padding * 2;
     int rightPosition = opt.rect.right() - m_padding;
 
-    if (m_listView->ignoreSelectedFlag()) {
-        if (opt.state.testFlag(QStyle::State_MouseOver)) {
-            opt.state |= QStyle::State_Selected;
-        }
-        else {
-            opt.state &= ~QStyle::State_Selected;
-        }
+    opt.state &= ~QStyle::State_MouseOver;
+
+    if (m_view->hoveredIndex() == index) {
+        opt.state |= QStyle::State_Selected;
+    }
+    else {
+        opt.state &= ~QStyle::State_Selected;
     }
 
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
     const QPalette::ColorRole colorLinkRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Link;
 
     // Draw background
+    painter->fillRect(opt.rect, Qt::white);
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
     // Draw icon
@@ -146,6 +88,15 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const QString &link = opt.fontMetrics.elidedText(index.data(Qt::DisplayRole).toString(), Qt::ElideRight, linkRect.width());
     painter->setFont(opt.font);
     style->drawItemText(painter, linkRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, link, colorLinkRole);
+
+    // Draw star to bookmark items
+    if (index.data(Qt::UserRole + 1).toBool()) {
+        const QPixmap starPixmap = qIconProvider->bookmarkIcon();
+        QSize starSize = starPixmap.size();
+        QPoint pos(rightPosition - starSize.width(), opt.rect.top() + m_padding);
+        QRect starRect(pos, starSize);
+        painter->drawPixmap(starRect, starPixmap);
+    }
 }
 
 QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -168,11 +119,7 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
         const QFontMetrics titleMetrics(titleFont);
 
         m_rowHeight = 2 * m_padding + opt.fontMetrics.leading() + opt.fontMetrics.height() + titleMetrics.height();
-
-        m_listView->setRowHeight(m_rowHeight);
-        m_listView->setMaximumHeight(6 * m_rowHeight);
     }
 
     return QSize(200, m_rowHeight);
 }
-

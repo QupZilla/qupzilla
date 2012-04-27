@@ -338,6 +338,7 @@ function sdSizeToggle() {
     var check = document.getElementById('SdSizeToggle');
     var SdSize = document.getElementById('SdSize');
     var SdSizeSl = document.getElementById('sliderValueSd');
+
     SdSize.disabled = (check.checked ? false : true);
     SdSize.value = (check.checked ? SdSize.value : 231);
     SdSizeSl.innerHTML = (check.checked ? DIAL_WIDTH : 231);
@@ -347,9 +348,11 @@ function bgImgUpdate() {
     var imgUrl = document.getElementById('BgImgHold').value;
     var imgSize = document.getElementById('BgImgSelSiz').value;
     var imgThumb = document.getElementById('thumb');
+
     imgThumb.style.backgroundImage = 'url("' + imgUrl + '")';
     imgThumb.title = imgUrl.substring(imgUrl.lastIndexOf('/')+1);
     imgThumb.style.backgroundSize = imgSize;
+
     document.body.style.backgroundImage = 'url("' + imgUrl + '")';
     document.body.style.backgroundSize = imgSize;
 }
@@ -377,6 +380,7 @@ $(document).ready(function () {
 %INITIAL-SCRIPT%
 
 alignPage();
+
 $(window).resize(function() { alignPage(); });
 $("div").disableSelection();
 $("#quickdial").sortable({

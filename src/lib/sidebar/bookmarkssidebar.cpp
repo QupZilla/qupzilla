@@ -131,7 +131,7 @@ void BookmarksSideBar::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
     item->setData(0, Qt::UserRole + 10, bookmark.id);
-    item->setIcon(0, IconProvider::iconFromImage(bookmark.image));
+    item->setIcon(0, qIconProvider->iconFromImage(bookmark.image));
     item->setToolTip(0, bookmark.url.toEncoded());
 
     if (bookmark.folder != "unsorted") {
@@ -244,7 +244,7 @@ void BookmarksSideBar::refreshTable()
         QUrl url = query.value(1).toUrl();
         int id = query.value(2).toInt();
         QString folder = query.value(3).toString();
-        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(4).toByteArray()));
+        QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray()));
         QTreeWidgetItem* item;
         if (folder == "bookmarksMenu") {
             folder = _bookmarksMenu;

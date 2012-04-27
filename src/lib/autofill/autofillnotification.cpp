@@ -33,7 +33,7 @@ AutoFillNotification::AutoFillNotification(const QUrl &url, const QByteArray &da
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
     ui->label->setText(tr("Do you want QupZilla to remember the password for <b>%1</b> on %2?").arg(user, url.host()));
-    ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
+    ui->closeButton->setIcon(qIconProvider->standardIcon(QStyle::SP_DialogCloseButton));
 
     connect(ui->remember, SIGNAL(clicked()), this, SLOT(remember()));
     connect(ui->never, SIGNAL(clicked()), this, SLOT(never()));

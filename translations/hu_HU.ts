@@ -2080,11 +2080,11 @@
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>SSL kezelő</translation>
+        <translation type="obsolete">SSL kezelő</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>CA tanúsítványok szerkesztése az SSL kezelőben</translation>
+        <translation type="obsolete">CA tanúsítványok szerkesztése az SSL kezelőben</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2232,6 +2232,14 @@
     </message>
     <message>
         <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3084,7 +3092,7 @@ RSS ikonnal jelölt oldalcímekről hozzá lehet adni híroldalakat.</translatio
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation>SSL kezelő</translation>
+        <translation type="obsolete">SSL kezelő</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
@@ -3143,6 +3151,18 @@ Tanúsítványok elérési útjának megváltoztatása esetén, újra kell indí
     <message>
         <source>Certificate Informations</source>
         <translation>Tanúsítvány adatok</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

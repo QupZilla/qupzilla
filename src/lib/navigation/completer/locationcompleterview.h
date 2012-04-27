@@ -15,44 +15,39 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef CLEARPRIVATEDATA_H
-#define CLEARPRIVATEDATA_H
+#ifndef LOCATIONCOMPLETERVIEW_H
+#define LOCATIONCOMPLETERVIEW_H
 
-#include <QDialog>
+#include <QListView>
 
 #include "qz_namespace.h"
 
-namespace Ui
-{
-class ClearPrivateData;
-}
-
-class QupZilla;
-class QT_QUPZILLA_EXPORT ClearPrivateData : public QDialog
+class QT_QUPZILLA_EXPORT LocationCompleterView : public QListView
 {
     Q_OBJECT
 public:
-    explicit ClearPrivateData(QupZilla* mainClass, QWidget* parent = 0);
+    explicit LocationCompleterView();
 
-    static void clearLocalStorage();
-    static void clearWebDatabases();
-    static void clearCache();
-    static void clearIcons();
+    QPersistentModelIndex hoveredIndex() const;
+
+    bool eventFilter(QObject* object, QEvent* event);
+
+signals:
+    void closed();
+
+public slots:
+    void close();
 
 private slots:
-    void historyClicked(bool state);
-    void dialogAccepted();
-    void clearFlash();
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous);
+
+protected:
+    void mouseMoveEvent(QMouseEvent* event);
 
 private:
-    void closeEvent(QCloseEvent* e);
+    bool m_ignoreNextMouseMove;
 
-    void restoreState(const QByteArray &state);
-    QByteArray saveState();
-
-    QupZilla* p_QupZilla;
-    Ui::ClearPrivateData* ui;
-
+    QPersistentModelIndex m_hoveredIndex;
 };
 
-#endif // CLEARPRIVATEDATA_H
+#endif // LOCATIONCOMPLETERVIEW_H

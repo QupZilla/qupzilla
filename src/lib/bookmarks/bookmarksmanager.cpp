@@ -308,7 +308,7 @@ void BookmarksManager::refreshTable()
         QUrl url = query.value(1).toUrl();
         int id = query.value(2).toInt();
         QString folder = query.value(3).toString();
-        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(4).toByteArray()));
+        QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(4).toByteArray()));
         QTreeWidgetItem* item = new QTreeWidgetItem();
         if (folder == "bookmarksMenu") {
             folder = _bookmarksMenu;
@@ -350,7 +350,7 @@ void BookmarksManager::refreshTable()
             QString title = query2.value(0).toString();
             QUrl url = query2.value(1).toUrl();
             int id = query2.value(2).toInt();
-            QIcon icon = IconProvider::iconFromImage(QImage::fromData(query2.value(3).toByteArray()));
+            QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query2.value(3).toByteArray()));
             QTreeWidgetItem* item = new QTreeWidgetItem(newItem);
 
             item->setText(0, title);
@@ -378,7 +378,7 @@ void BookmarksManager::addBookmark(const BookmarksModel::Bookmark &bookmark)
     item->setText(0, bookmark.title);
     item->setText(1, bookmark.url.toEncoded());
     item->setData(0, Qt::UserRole + 10, bookmark.id);
-    item->setIcon(0, IconProvider::iconFromImage(bookmark.image));
+    item->setIcon(0, qIconProvider->iconFromImage(bookmark.image));
     item->setToolTip(0, bookmark.title);
     item->setToolTip(1, bookmark.url.toEncoded());
     item->setFlags(item->flags() | Qt::ItemIsEditable);

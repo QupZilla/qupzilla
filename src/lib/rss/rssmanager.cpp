@@ -25,7 +25,6 @@
 #include "browsinglibrary.h"
 #include "globalfunctions.h"
 #include "followredirectreply.h"
-#include "databasewriter.h"
 #include "networkmanager.h"
 
 #include <QMenu>
@@ -35,6 +34,7 @@
 #include <QMessageBox>
 #include <QNetworkReply>
 #include <QBuffer>
+#include <QSqlQuery>
 
 RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     : QWidget(parent)
@@ -49,7 +49,7 @@ RSSManager::RSSManager(QupZilla* mainClass, QWidget* parent)
     m_reloadButton = new QToolButton(this);
     m_reloadButton->setAutoRaise(true);
     m_reloadButton->setToolTip(tr("Reload"));
-    m_reloadButton->setIcon(IconProvider::standardIcon(QStyle::SP_BrowserReload));
+    m_reloadButton->setIcon(qIconProvider->standardIcon(QStyle::SP_BrowserReload));
 
     ui->tabWidget->setCornerWidget(m_reloadButton);
 
@@ -85,7 +85,7 @@ void RSSManager::refreshTable()
     while (query.next()) {
         QUrl address = query.value(0).toUrl();
         QString title = query.value(1).toString();
-        QIcon icon = IconProvider::iconFromImage(QImage::fromData(query.value(2).toByteArray()));
+        QIcon icon = qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray()));
         TreeWidget* tree = new TreeWidget();
         tree->setHeaderLabel(tr("News"));
         tree->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -385,7 +385,7 @@ bool RSSManager::addRssFeed(const QUrl &url, const QString &title, const QIcon &
     if (!query.next()) {
         QImage image = icon.pixmap(16, 16).toImage();
 
-        if (image == IconProvider::emptyWebImage()) {
+        if (image == qIconProvider->emptyWebImage()) {
             image.load(":icons/other/feed.png");
         }
 
@@ -397,7 +397,7 @@ bool RSSManager::addRssFeed(const QUrl &url, const QString &title, const QIcon &
         buffer.open(QIODevice::WriteOnly);
         image.save(&buffer, "PNG");
         query.bindValue(2, buffer.data());
-        mApp->dbWriter()->executeQuery(query);
+        query.exec();
         return true;
     }
 

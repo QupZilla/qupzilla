@@ -18,9 +18,10 @@
 #ifndef ICONPROVIDER_H
 #define ICONPROVIDER_H
 
-#define _iconForUrl(url) IconProvider::iconFromImage(mApp->iconProvider()->iconForUrl(url))
+#define qIconProvider IconProvider::instance()
+#define _iconForUrl(url) qIconProvider->iconFromImage(qIconProvider->iconForUrl(url))
 
-#include <QObject>
+#include <QWidget>
 #include <QImage>
 #include <QUrl>
 #include <QStyle>
@@ -32,12 +33,16 @@ class QIcon;
 
 class WebView;
 
-class QT_QUPZILLA_EXPORT IconProvider : public QObject
+// Needs to be QWidget subclass, otherwise qproperty- setting won't work
+class QT_QUPZILLA_EXPORT IconProvider : public QWidget
 {
     Q_OBJECT
+    Q_PROPERTY(QPixmap bookmarkIcon READ bookmarkIcon WRITE setBookmarkIcon)
+
 public:
-    explicit IconProvider(QObject* parent = 0);
-    ~IconProvider();
+    explicit IconProvider(QWidget* parent = 0);
+
+    static IconProvider* instance();
 
     void clearIconDatabase();
 
@@ -45,16 +50,19 @@ public:
     QImage iconForUrl(const QUrl &url);
     QImage iconForDomain(const QUrl &url);
 
-    static QIcon iconFromImage(const QImage &image);
+    QIcon iconFromImage(const QImage &image);
 
-    static QIcon iconFromBase64(const QByteArray &data);
-    static QByteArray iconToBase64(const QIcon &icon);
+    QIcon iconFromBase64(const QByteArray &data);
+    QByteArray iconToBase64(const QIcon &icon);
 
-    static QIcon standardIcon(QStyle::StandardPixmap icon);
-    static QIcon fromTheme(const QString &icon);
+    QIcon standardIcon(QStyle::StandardPixmap icon);
+    QIcon fromTheme(const QString &icon);
 
-    static QIcon emptyWebIcon();
-    static QImage emptyWebImage();
+    QIcon emptyWebIcon();
+    QImage emptyWebImage();
+
+    QPixmap bookmarkIcon();
+    void setBookmarkIcon(const QPixmap &pixmap);
 
 signals:
 
@@ -69,9 +77,12 @@ private:
         QImage image;
     };
 
-    static QImage m_emptyWebImage;
-    QList<Icon> m_iconBuffer;
+    static IconProvider* s_instance;
 
+    QImage m_emptyWebImage;
+    QPixmap m_bookmarkIcon;
+
+    QList<Icon> m_iconBuffer;
 };
 
 #endif // ICONPROVIDER_H

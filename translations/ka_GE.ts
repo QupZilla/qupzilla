@@ -2072,11 +2072,11 @@
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>SSL მმართველი</translation>
+        <translation type="obsolete">SSL მმართველი</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>CA სერტიფიკატების რედაქტირება SSL მმართველში</translation>
+        <translation type="obsolete">CA სერტიფიკატების რედაქტირება SSL მმართველში</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2224,6 +2224,14 @@
     </message>
     <message>
         <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3063,7 +3071,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation>SSL მმართველი</translation>
+        <translation type="obsolete">SSL მმართველი</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
@@ -3122,6 +3130,18 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Certificate Informations</source>
         <translation>სერტიფიკატის ინფორმაცია</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

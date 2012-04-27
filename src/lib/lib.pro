@@ -50,7 +50,6 @@ SOURCES += \
     history/historymodel.cpp \
     history/historymanager.cpp \
     navigation/websearchbar.cpp \
-    navigation/locationcompleter.cpp \
     navigation/locationbar.cpp \
     network/networkmanagerproxy.cpp \
     network/networkmanager.cpp \
@@ -85,7 +84,6 @@ SOURCES += \
     rss/rsswidget.cpp \
     autofill/autofillnotification.cpp \
     rss/rssnotification.cpp \
-    navigation/locationpopup.cpp \
     preferences/sslmanager.cpp \
     tools/animatedwidget.cpp \
     tools/htmlhighlighter.cpp \
@@ -171,7 +169,10 @@ SOURCES += \
     tools/plaineditwithlines.cpp \
     webview/websettings.cpp \
     tools/focusselectlineedit.cpp \
-    navigation/locationcompleterdelegate.cpp
+    navigation/completer/locationcompleterdelegate.cpp \
+    navigation/completer/locationcompleter.cpp \
+    navigation/completer/locationcompletermodel.cpp \
+    navigation/completer/locationcompleterview.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -190,7 +191,6 @@ HEADERS  += \
     history/historymodel.h \
     history/historymanager.h \
     navigation/websearchbar.h \
-    navigation/locationcompleter.h \
     navigation/locationbar.h \
     network/networkmanagerproxy.h \
     network/networkmanager.h \
@@ -226,7 +226,6 @@ HEADERS  += \
     rss/rsswidget.h \
     autofill/autofillnotification.h \
     rss/rssnotification.h \
-    navigation/locationpopup.h \
     preferences/sslmanager.h \
     tools/animatedwidget.h \
     tools/htmlhighlighter.h \
@@ -315,7 +314,10 @@ HEADERS  += \
     sidebar/sidebarinterface.h \
     webview/websettings.h \
     tools/focusselectlineedit.h \
-    navigation/locationcompleterdelegate.h
+    navigation/completer/locationcompleterdelegate.h \
+    navigation/completer/locationcompleter.h \
+    navigation/completer/locationcompletermodel.h \
+    navigation/completer/locationcompleterview.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
