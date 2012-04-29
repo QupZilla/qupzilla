@@ -2325,12 +2325,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="645"/>
         <source>Show tab previews</source>
-        <translation type="unfinished"></translation>
+        <translation>Приказуј прегледе језичака</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="766"/>
         <source>Make tab previews animated</source>
-        <translation type="unfinished"></translation>
+        <translation>Анимирај прегледе језичака</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
@@ -2625,14 +2625,6 @@
         <translation>&lt;b&gt;ССЛ сертификати&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">ССЛ менаџер</translation>
-    </message>
-    <message>
-        <source>Edit CA certificates in SSL Manager</source>
-        <translation type="obsolete">Уредите сертификате издавача у ССЛ менаџеру</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1856"/>
         <location filename="../src/lib/preferences/preferences.ui" line="2115"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
@@ -2651,7 +2643,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менаџер сертификата</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1969"/>
@@ -2706,7 +2698,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
         <source>Manage CA certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Управљај сертификатима</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2122"/>
@@ -3899,13 +3891,9 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 <context>
     <name>SSLManager</name>
     <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">ССЛ менаџер</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="14"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менаџер сертификата</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="24"/>
@@ -3931,7 +3919,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="79"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Увези</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="106"/>
@@ -3984,7 +3972,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="134"/>
         <source>Import certificate...</source>
-        <translation type="unfinished"></translation>
+        <translation>Увоз сертификата...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="165"/>
@@ -4738,17 +4726,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="300"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"></translation>
+        <translation>Капзила не може да рукује &lt;b&gt;%1:&lt;/b&gt; везама. Захтевана веза је &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Желите ли да Капзила покуша да отвори ову везу помоћу системског програма?</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="305"/>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Запамти мој избор за за овај протокол</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="306"/>
         <source>External Protocol Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Захтев за спољашњи протокол</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="408"/>
