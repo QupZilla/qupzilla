@@ -22,7 +22,7 @@
 #include "cookiemanager.h"
 #include "cookiejar.h"
 #include "browsinglibrary.h"
-#include "historymodel.h"
+#include "history.h"
 #include "networkmanager.h"
 #include "rssmanager.h"
 #include "updater.h"
@@ -634,10 +634,10 @@ CookieManager* MainApplication::cookieManager()
     return m_cookiemanager;
 }
 
-HistoryModel* MainApplication::history()
+History* MainApplication::history()
 {
     if (!m_historymodel) {
-        m_historymodel = new HistoryModel(getWindow());
+        m_historymodel = new History(this);
     }
     return m_historymodel;
 }

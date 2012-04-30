@@ -61,7 +61,7 @@ private:
     HistoryManager* m_historyManager;
     BookmarksManager* m_bookmarksManager;
     RSSManager* m_rssManager;
-    bool m_historyLoaded;
+
     bool m_bookmarksLoaded;
     bool m_rssLoaded;
 };

@@ -21,14 +21,12 @@
 #include <QWidget>
 
 #include "qz_namespace.h"
-#include "historymodel.h"
+#include "historyview.h"
 
 namespace Ui
 {
 class HistorySideBar;
 }
-
-class QTreeWidgetItem;
 
 class QupZilla;
 
@@ -41,22 +39,11 @@ public:
     ~HistorySideBar();
 
 private slots:
-    void itemDoubleClicked(QTreeWidgetItem* item);
-    void contextMenuRequested(const QPoint &position);
-    void loadInNewTab();
-    void itemControlClicked(QTreeWidgetItem* item);
-    void copyAddress();
-
-    void slotRefreshTable();
-
-    void historyEntryAdded(const HistoryEntry &entry);
-    void historyEntryDeleted(const HistoryEntry &entry);
-    void historyEntryEdited(const HistoryEntry &before, const HistoryEntry &after);
+    void openLink(const QUrl &url, HistoryView::OpenBehavior openIn);
 
 private:
     Ui::HistorySideBar* ui;
     QupZilla* p_QupZilla;
-    HistoryModel* m_historyModel;
 };
 
 #endif // HISTORYSIDEBAR_H

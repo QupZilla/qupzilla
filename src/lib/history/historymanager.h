@@ -22,7 +22,7 @@
 #include <QWeakPointer>
 
 #include "qz_namespace.h"
-#include "historymodel.h"
+#include "historyview.h"
 
 namespace Ui
 {
@@ -42,33 +42,23 @@ public:
     ~HistoryManager();
 
     void setMainWindow(QupZilla* window);
-    void refreshTable();
+
+    void restoreState(const QByteArray &state);
+    QByteArray saveState();
 
 public slots:
     void search(const QString &searchText);
 
 private slots:
+    void openLink(const QUrl &url, HistoryView::OpenBehavior openIn);
     void optimizeDb();
-    void itemDoubleClicked(QTreeWidgetItem* item);
-    void slotRefreshTable();
-
-    void deleteItem();
     void clearHistory();
-    void contextMenuRequested(const QPoint &position);
-    void loadInNewTab();
-    void copyUrl();
-
-    void historyEntryAdded(const HistoryEntry &entry);
-    void historyEntryDeleted(const HistoryEntry &entry);
-    void historyEntryEdited(const HistoryEntry &before, const HistoryEntry &after);
 
 private:
     QupZilla* getQupZilla();
+
     Ui::HistoryManager* ui;
     QWeakPointer<QupZilla> p_QupZilla;
-    HistoryModel* m_historyModel;
-
-    QList<int> m_ignoredIds;
 };
 
 #endif // HISTORYMANAGER_H

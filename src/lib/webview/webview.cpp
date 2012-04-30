@@ -20,7 +20,7 @@
 #include "mainapplication.h"
 #include "globalfunctions.h"
 #include "iconprovider.h"
-#include "historymodel.h"
+#include "history.h"
 #include "autofillmodel.h"
 #include "downloadmanager.h"
 #include "sourceviewer.h"

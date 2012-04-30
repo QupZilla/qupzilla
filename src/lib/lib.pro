@@ -8,6 +8,7 @@ DEFINES *= QUPZILLA_SHAREDLIBRARY
 include(3rdparty/qtsingleapplication.pri)
 include(../defines.pri)
 include(../../translations/translations.pri)
+#include(../../tests/modeltest/modeltest.pri)
 
 INCLUDEPATH += 3rdparty\
                app\
@@ -47,7 +48,6 @@ SOURCES += \
     cookies/cookiemanager.cpp \
     cookies/cookiejar.cpp \
     downloads/downloadmanager.cpp \
-    history/historymodel.cpp \
     history/historymanager.cpp \
     navigation/websearchbar.cpp \
     navigation/locationbar.cpp \
@@ -172,7 +172,12 @@ SOURCES += \
     navigation/completer/locationcompleterdelegate.cpp \
     navigation/completer/locationcompleter.cpp \
     navigation/completer/locationcompletermodel.cpp \
-    navigation/completer/locationcompleterview.cpp
+    navigation/completer/locationcompleterview.cpp \
+    history/history.cpp \
+    history/historymodel.cpp \
+    history/historyview.cpp \
+    history/historyitem.cpp \
+    tools/headerview.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -188,7 +193,6 @@ HEADERS  += \
     cookies/cookiemanager.h \
     cookies/cookiejar.h \
     downloads/downloadmanager.h \
-    history/historymodel.h \
     history/historymanager.h \
     navigation/websearchbar.h \
     navigation/locationbar.h \
@@ -317,7 +321,12 @@ HEADERS  += \
     navigation/completer/locationcompleterdelegate.h \
     navigation/completer/locationcompleter.h \
     navigation/completer/locationcompletermodel.h \
-    navigation/completer/locationcompleterview.h
+    navigation/completer/locationcompleterview.h \
+    history/history.h \
+    history/historymodel.h \
+    history/historyview.h \
+    history/historyitem.h \
+    tools/headerview.h
 
 FORMS    += \
     preferences/autofillmanager.ui \

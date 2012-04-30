@@ -21,7 +21,7 @@
 #include "webpage.h"
 #include "tabbedwebview.h"
 #include "lineedit.h"
-#include "historymodel.h"
+#include "history.h"
 #include "locationbar.h"
 #include "searchtoolbar.h"
 #include "websearchbar.h"
@@ -578,7 +578,7 @@ void QupZilla::loadSettings()
     m_navigationBar->buttonNext()->setVisible(showBackForwardIcons);
     m_navigationBar->buttonAddTab()->setVisible(showAddTab);
 
-    m_sideBarManager->showSideBar(activeSideBar);
+    m_sideBarManager->showSideBar(activeSideBar, false);
 
     //Private browsing
     m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
@@ -1147,6 +1147,7 @@ void QupZilla::showCookieManager()
     m->show();
     m->raise();
 }
+
 
 void QupZilla::showHistoryManager()
 {

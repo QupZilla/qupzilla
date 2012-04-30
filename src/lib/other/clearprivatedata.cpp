@@ -19,6 +19,7 @@
 #include "qupzilla.h"
 #include "tabwidget.h"
 #include "cookiejar.h"
+#include "history.h"
 #include "settings.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
@@ -108,29 +109,34 @@ void ClearPrivateData::dialogAccepted()
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     if (ui->history->isChecked()) {
-        QDateTime dateTime = QDateTime::currentDateTime();
-        qint64 nowMS = QDateTime::currentMSecsSinceEpoch();
-        qint64 date = 0;
+        qint64 start = QDateTime::currentMSecsSinceEpoch();
+        qint64 end = 0;
+
+        const QDate &today = QDate::currentDate();
+        const QDate &week = today.addDays(1 - today.dayOfWeek());
+        const QDate &month = QDate(today.year(), today.month(), 1);
 
         switch (ui->historyLength->currentIndex()) {
         case 0: //Later Today
-            dateTime.setTime(QTime(0, 0));
-            date = dateTime.toMSecsSinceEpoch();
+            end = QDateTime(today).toMSecsSinceEpoch();
             break;
         case 1: //Week
-            date = nowMS - 60u * 60u * 24u * 7u * 1000u;
+            end = QDateTime(week).toMSecsSinceEpoch();
             break;
         case 2: //Month
-            date = nowMS - 60u * 60u * 24u * 30u * 1000u;
+            end = QDateTime(month).toMSecsSinceEpoch();
             break;
         case 3: //All
-            date = 0;
             break;
         }
 
-        QSqlQuery query;
-        query.exec("DELETE FROM history WHERE date > " + QString::number(date));
-        query.exec("VACUUM");
+        if (end == 0) {
+            mApp->history()->clearHistory();
+        }
+        else {
+            const QList<int> &indexes = mApp->history()->indexesFromTimeRange(start, end);
+            mApp->history()->deleteHistoryEntry(indexes);
+        }
     }
 
     if (ui->cookies->isChecked()) {

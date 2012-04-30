@@ -162,7 +162,7 @@ void SideBarManager::updateActions()
     }
 }
 
-void SideBarManager::showSideBar(const QString &id)
+void SideBarManager::showSideBar(const QString &id, bool toggle)
 {
     if (id == "None") {
         return;
@@ -173,9 +173,14 @@ void SideBarManager::showSideBar(const QString &id)
     }
 
     if (id == m_activeBar) {
+        if (!toggle) {
+            return;
+        }
         m_sideBar.data()->close();
-
         m_activeBar = "None";
+
+        Settings settings;
+        settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
         return;
     }
 
@@ -199,7 +204,7 @@ void SideBarManager::showSideBar(const QString &id)
     m_activeBar = id;
 
     Settings settings;
-    settings.setValue("Browser-View-Settings/SideBar", id);
+    settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
 
     updateActions();
 }

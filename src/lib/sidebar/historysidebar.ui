@@ -34,33 +34,22 @@
     </widget>
    </item>
    <item>
-    <widget class="TreeWidget" name="historyTree">
-     <property name="contextMenuPolicy">
-      <enum>Qt::CustomContextMenu</enum>
-     </property>
+    <widget class="HistoryView" name="historyTree">
      <property name="alternatingRowColors">
       <bool>true</bool>
      </property>
      <property name="headerHidden">
       <bool>true</bool>
      </property>
-     <attribute name="headerDefaultSectionSize">
-      <number>330</number>
-     </attribute>
-     <column>
-      <property name="text">
-       <string>Title</string>
-      </property>
-     </column>
     </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TreeWidget</class>
-   <extends>QTreeWidget</extends>
-   <header>treewidget.h</header>
+   <class>HistoryView</class>
+   <extends>QTreeView</extends>
+   <header>historyview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

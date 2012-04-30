@@ -33,7 +33,7 @@ class QNetworkDiskCache;
 class QupZilla;
 class CookieManager;
 class BrowsingLibrary;
-class HistoryModel;
+class History;
 class NetworkManager;
 class CookieJar;
 class RSSManager;
@@ -83,7 +83,7 @@ public:
     QupZilla* getWindow();
     CookieManager* cookieManager();
     BrowsingLibrary* browsingLibrary();
-    HistoryModel* history();
+    History* history();
     QWebSettings* webSettings();
     NetworkManager* networkManager();
     CookieJar* cookieJar();
@@ -127,7 +127,7 @@ private:
 
     CookieManager* m_cookiemanager;
     BrowsingLibrary* m_browsingLibrary;
-    HistoryModel* m_historymodel;
+    History* m_historymodel;
     QWebSettings* m_websettings;
     NetworkManager* m_networkmanager;
     CookieJar* m_cookiejar;
