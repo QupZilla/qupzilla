@@ -1217,6 +1217,61 @@ nu a putut fi găsit!</translation>
     </message>
 </context>
 <context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">Ianuarie</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">Februarie</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">Martie</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">Aprilie</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">Mai</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">Iunie</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">Iulie</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">August</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">Septembrie</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">Octombrie</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">Noiembrie</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">Decembrie</translation>
+    </message>
+</context>
+<context>
     <name>HistoryManager</name>
     <message>
         <source>History</source>
@@ -1224,11 +1279,11 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Titlu</translation>
+        <translation type="obsolete">Titlu</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation type="obsolete">Url</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1244,27 +1299,27 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Deschide legătura în tab curent</translation>
+        <translation type="obsolete">Deschide legătura în tab curent</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Deschide legătura în tab nou</translation>
+        <translation type="obsolete">Deschide legătura în tab nou</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Copiază adresa</translation>
+        <translation type="obsolete">Copiază adresa</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Astăzi</translation>
+        <translation type="obsolete">Astăzi</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Săptamâna aceasta</translation>
+        <translation type="obsolete">Săptamâna aceasta</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Luna aceasta</translation>
+        <translation type="obsolete">Luna aceasta</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1279,55 +1334,83 @@ nu a putut fi găsit!</translation>
     <name>HistoryModel</name>
     <message>
         <source>No Named Page</source>
-        <translation>Pagină fără nume</translation>
+        <translation type="obsolete">Pagină fără nume</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>Ianuarie</translation>
+        <translation type="obsolete">Ianuarie</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>Februarie</translation>
+        <translation type="obsolete">Februarie</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>Martie</translation>
+        <translation type="obsolete">Martie</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>Aprilie</translation>
+        <translation type="obsolete">Aprilie</translation>
     </message>
     <message>
         <source>May</source>
-        <translation>Mai</translation>
+        <translation type="obsolete">Mai</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>Iunie</translation>
+        <translation type="obsolete">Iunie</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>Iulie</translation>
+        <translation type="obsolete">Iulie</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>August</translation>
+        <translation type="obsolete">August</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>Septembrie</translation>
+        <translation type="obsolete">Septembrie</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>Octombrie</translation>
+        <translation type="obsolete">Octombrie</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>Noiembrie</translation>
+        <translation type="obsolete">Noiembrie</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>Decembrie</translation>
+        <translation type="obsolete">Decembrie</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished">Titlu</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">Astăzi</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">Luna aceasta</translation>
     </message>
 </context>
 <context>
@@ -1338,31 +1421,54 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Titlu</translation>
+        <translation type="obsolete">Titlu</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Deschide link in tab curent</translation>
+        <translation type="obsolete">Deschide link in tab curent</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Deschide link in tab nou</translation>
+        <translation type="obsolete">Deschide link in tab nou</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Copiază adresa</translation>
+        <translation type="obsolete">Copiază adresa</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Astăzi</translation>
+        <translation type="obsolete">Astăzi</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Săptămâna aceasta</translation>
+        <translation type="obsolete">Săptămâna aceasta</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Luna aceasta</translation>
+        <translation type="obsolete">Luna aceasta</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">Copiază adresa</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

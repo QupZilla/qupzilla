@@ -1215,66 +1215,7 @@
     </message>
 </context>
 <context>
-    <name>HistoryManager</name>
-    <message>
-        <source>History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Url</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Clear All History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Optimize Database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open link in current tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Confirmation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Are you sure to delete all history?</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>HistoryModel</name>
+    <name>History</name>
     <message>
         <source>No Named Page</source>
         <translation type="unfinished"></translation>
@@ -1329,25 +1270,48 @@
     </message>
 </context>
 <context>
-    <name>HistorySideBar</name>
+    <name>HistoryManager</name>
     <message>
-        <source>Search...</source>
+        <source>History</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear All History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Optimize Database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirmation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure to delete all history?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HistoryModel</name>
     <message>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open link in current tab</source>
+        <source>Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open link in new tab</source>
+        <source>Visit Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copy address</source>
+        <source>Visit Count</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1360,6 +1324,36 @@
     </message>
     <message>
         <source>This Month</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HistorySideBar</name>
+    <message>
+        <source>Search...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

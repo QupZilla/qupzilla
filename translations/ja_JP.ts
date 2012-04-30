@@ -1240,17 +1240,64 @@
     </message>
 </context>
 <context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished">無題</translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">1月</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">2月</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">3月</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">4月</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">5月</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">6月</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">7月</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">8月</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">9月</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">10月</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">11月</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">12月</translation>
+    </message>
+</context>
+<context>
     <name>HistoryManager</name>
     <message>
         <source>History</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Url</source>
         <translation></translation>
     </message>
     <message>
@@ -1267,27 +1314,27 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>現在のタブでリンクを開く</translation>
+        <translation type="obsolete">現在のタブでリンクを開く</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>新しいタブでリンクを開く</translation>
+        <translation type="obsolete">新しいタブでリンクを開く</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>アドレスのコピー</translation>
+        <translation type="obsolete">アドレスのコピー</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>今日</translation>
+        <translation type="obsolete">今日</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>今週</translation>
+        <translation type="obsolete">今週</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>今月</translation>
+        <translation type="obsolete">今月</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1302,55 +1349,83 @@
     <name>HistoryModel</name>
     <message>
         <source>No Named Page</source>
-        <translation>無題</translation>
+        <translation type="obsolete">無題</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>1月</translation>
+        <translation type="obsolete">1月</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>2月</translation>
+        <translation type="obsolete">2月</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>3月</translation>
+        <translation type="obsolete">3月</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>4月</translation>
+        <translation type="obsolete">4月</translation>
     </message>
     <message>
         <source>May</source>
-        <translation>5月</translation>
+        <translation type="obsolete">5月</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>6月</translation>
+        <translation type="obsolete">6月</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>7月</translation>
+        <translation type="obsolete">7月</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>8月</translation>
+        <translation type="obsolete">8月</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>9月</translation>
+        <translation type="obsolete">9月</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>10月</translation>
+        <translation type="obsolete">10月</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>11月</translation>
+        <translation type="obsolete">11月</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>12月</translation>
+        <translation type="obsolete">12月</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished">ページ名</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">今日</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished">今週</translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">今月</translation>
     </message>
 </context>
 <context>
@@ -1361,31 +1436,54 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>ページ名</translation>
+        <translation type="obsolete">ページ名</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>現在のタブでリンクを開く</translation>
+        <translation type="obsolete">現在のタブでリンクを開く</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>新しいタブでリンクを開く</translation>
+        <translation type="obsolete">新しいタブでリンクを開く</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>アドレスのコピー</translation>
+        <translation type="obsolete">アドレスのコピー</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>今日</translation>
+        <translation type="obsolete">今日</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>今週</translation>
+        <translation type="obsolete">今週</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>今月</translation>
+        <translation type="obsolete">今月</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">現在のタブでリンクを開く</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished">新しいタブでリンクを開く</translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">アドレスのコピー</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">削除</translation>
     </message>
 </context>
 <context>

@@ -1217,26 +1217,81 @@ não foi encontrado!</translation>
     </message>
 </context>
 <context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished">Página sem nome</translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">Janeiro</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">Fevereiro</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">Março</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">Abril</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">Maio</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">Junho</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">Julho</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">Agosto</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">Setembro</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">Outubro</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">Novembro</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">Dezembro</translation>
+    </message>
+</context>
+<context>
     <name>HistoryManager</name>
     <message>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation type="obsolete">Url</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Esta semana</translation>
+        <translation type="obsolete">Esta semana</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Título</translation>
+        <translation type="obsolete">Título</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Hoje</translation>
+        <translation type="obsolete">Hoje</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Copiar endereço</translation>
+        <translation type="obsolete">Copiar endereço</translation>
     </message>
     <message>
         <source>Are you sure to delete all history?</source>
@@ -1248,11 +1303,11 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Este mês</translation>
+        <translation type="obsolete">Este mês</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Abrir link em uma nova guia</translation>
+        <translation type="obsolete">Abrir link em uma nova guia</translation>
     </message>
     <message>
         <source>Clear All History</source>
@@ -1264,7 +1319,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Abrir link na guia atual</translation>
+        <translation type="obsolete">Abrir link na guia atual</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1279,82 +1334,110 @@ não foi encontrado!</translation>
     <name>HistoryModel</name>
     <message>
         <source>May</source>
-        <translation>Maio</translation>
+        <translation type="obsolete">Maio</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>Julho</translation>
+        <translation type="obsolete">Julho</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>Junho</translation>
+        <translation type="obsolete">Junho</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>Abril</translation>
+        <translation type="obsolete">Abril</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>Março</translation>
+        <translation type="obsolete">Março</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>Janeiro</translation>
+        <translation type="obsolete">Janeiro</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>Agosto</translation>
+        <translation type="obsolete">Agosto</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>Outubro</translation>
+        <translation type="obsolete">Outubro</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>Novembro</translation>
+        <translation type="obsolete">Novembro</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>Setembro</translation>
+        <translation type="obsolete">Setembro</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>Fevereiro</translation>
+        <translation type="obsolete">Fevereiro</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>Dezembro</translation>
+        <translation type="obsolete">Dezembro</translation>
     </message>
     <message>
         <source>No Named Page</source>
-        <translation>Página sem nome</translation>
+        <translation type="obsolete">Página sem nome</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished">Título</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">Hoje</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished">Esta semana</translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">Este mês</translation>
     </message>
 </context>
 <context>
     <name>HistorySideBar</name>
     <message>
         <source>This Week</source>
-        <translation>Esta semana</translation>
+        <translation type="obsolete">Esta semana</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Título</translation>
+        <translation type="obsolete">Título</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Hoje</translation>
+        <translation type="obsolete">Hoje</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Copiar endereço</translation>
+        <translation type="obsolete">Copiar endereço</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Este mês</translation>
+        <translation type="obsolete">Este mês</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Abrir link em uma nova guia</translation>
+        <translation type="obsolete">Abrir link em uma nova guia</translation>
     </message>
     <message>
         <source>Search...</source>
@@ -1362,7 +1445,30 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Abrir link na guia atual</translation>
+        <translation type="obsolete">Abrir link na guia atual</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">Abrir link na guia atual</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">Copiar endereço</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Remover</translation>
     </message>
 </context>
 <context>
