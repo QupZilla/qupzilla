@@ -63,7 +63,7 @@ public:
     void setSideBarMenu(QMenu* menu);
     void refreshMenu();
 
-    void showSideBar(const QString &id);
+    void showSideBar(const QString &id, bool toggle = true);
     void sideBarRemoved(const QString &id);
     void closeSideBar();
 

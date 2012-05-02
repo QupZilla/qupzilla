@@ -20,7 +20,7 @@
 #include "mainapplication.h"
 #include "bookmarksmodel.h"
 #include "iconprovider.h"
-#include "historymodel.h"
+#include "history.h"
 #include "toolbutton.h"
 #include "databasewriter.h"
 #include "enhancedmenu.h"

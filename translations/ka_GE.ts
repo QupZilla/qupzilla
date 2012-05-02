@@ -1217,6 +1217,61 @@
     </message>
 </context>
 <context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">იანვარი</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">თებერვალი</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">მარტი</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">აპრილი</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">მაისი</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">ივნისი</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">ივლისი</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">აგვისტო</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">სექტემბერი</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">ოქტომბერი</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">ნოემბერი</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">დეკემბერი</translation>
+    </message>
+</context>
+<context>
     <name>HistoryManager</name>
     <message>
         <source>History</source>
@@ -1224,11 +1279,11 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>სათაური</translation>
+        <translation type="obsolete">სათაური</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation>ბმული</translation>
+        <translation type="obsolete">ბმული</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1244,27 +1299,27 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>ბმულის გახნსა მიმდინარე ჩანართში</translation>
+        <translation type="obsolete">ბმულის გახნსა მიმდინარე ჩანართში</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>ბმულის გახნსა ახალ ჩანრთში</translation>
+        <translation type="obsolete">ბმულის გახნსა ახალ ჩანრთში</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>მისამართის კოპირება</translation>
+        <translation type="obsolete">მისამართის კოპირება</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>დღეს</translation>
+        <translation type="obsolete">დღეს</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>ამ კვირაში</translation>
+        <translation type="obsolete">ამ კვირაში</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>ამ თვეში</translation>
+        <translation type="obsolete">ამ თვეში</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1279,55 +1334,83 @@
     <name>HistoryModel</name>
     <message>
         <source>No Named Page</source>
-        <translation>უსათაურო გვერდი</translation>
+        <translation type="obsolete">უსათაურო გვერდი</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>იანვარი</translation>
+        <translation type="obsolete">იანვარი</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>თებერვალი</translation>
+        <translation type="obsolete">თებერვალი</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>მარტი</translation>
+        <translation type="obsolete">მარტი</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>აპრილი</translation>
+        <translation type="obsolete">აპრილი</translation>
     </message>
     <message>
         <source>May</source>
-        <translation>მაისი</translation>
+        <translation type="obsolete">მაისი</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>ივნისი</translation>
+        <translation type="obsolete">ივნისი</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>ივლისი</translation>
+        <translation type="obsolete">ივლისი</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>აგვისტო</translation>
+        <translation type="obsolete">აგვისტო</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>სექტემბერი</translation>
+        <translation type="obsolete">სექტემბერი</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>ოქტომბერი</translation>
+        <translation type="obsolete">ოქტომბერი</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>ნოემბერი</translation>
+        <translation type="obsolete">ნოემბერი</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>დეკემბერი</translation>
+        <translation type="obsolete">დეკემბერი</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">დღეს</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished">ამ კვირაში</translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">ამ თვეში</translation>
     </message>
 </context>
 <context>
@@ -1338,31 +1421,54 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>სათაური</translation>
+        <translation type="obsolete">სათაური</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>ბმულის გახნსა მიმდინარე ჩანართში</translation>
+        <translation type="obsolete">ბმულის გახნსა მიმდინარე ჩანართში</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>ბმულის გახნსა ახალ ჩანრთში</translation>
+        <translation type="obsolete">ბმულის გახნსა ახალ ჩანრთში</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>მისამართის კოპირება</translation>
+        <translation type="obsolete">მისამართის კოპირება</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>დღეს</translation>
+        <translation type="obsolete">დღეს</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>ამ კვირაში</translation>
+        <translation type="obsolete">ამ კვირაში</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>ამ თვეში</translation>
+        <translation type="obsolete">ამ თვეში</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">ბმულის გახნსა მიმდინარე ჩანართში</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished">ბმულის გახნსა ახალ ჩანრთში</translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">მისამართის კოპირება</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">წაშლა</translation>
     </message>
 </context>
 <context>

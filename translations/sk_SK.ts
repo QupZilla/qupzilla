@@ -1217,22 +1217,77 @@
     </message>
 </context>
 <context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">Január</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">Február</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">Marec</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">Apríl</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">Máj</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">Jún</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">Júl</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">August</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">September</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">Október</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">November</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">December</translation>
+    </message>
+</context>
+<context>
     <name>HistoryManager</name>
     <message>
         <source>Url</source>
-        <translation>Adresa</translation>
+        <translation type="obsolete">Adresa</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Tento týždeň</translation>
+        <translation type="obsolete">Tento týždeň</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Názov</translation>
+        <translation type="obsolete">Názov</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Dnes</translation>
+        <translation type="obsolete">Dnes</translation>
     </message>
     <message>
         <source>Are you sure to delete all history?</source>
@@ -1244,11 +1299,11 @@
     </message>
     <message>
         <source>This Month</source>
-        <translation>Tento mesiac</translation>
+        <translation type="obsolete">Tento mesiac</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Otvoriť odkaz na novej karte</translation>
+        <translation type="obsolete">Otvoriť odkaz na novej karte</translation>
     </message>
     <message>
         <source>Clear All History</source>
@@ -1268,93 +1323,121 @@
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Kopírovať adresu</translation>
+        <translation type="obsolete">Kopírovať adresu</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Otvoriť odkaz v aktuálnom panely</translation>
+        <translation type="obsolete">Otvoriť odkaz v aktuálnom panely</translation>
     </message>
 </context>
 <context>
     <name>HistoryModel</name>
     <message>
         <source>May</source>
-        <translation>Máj</translation>
+        <translation type="obsolete">Máj</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>Júl</translation>
+        <translation type="obsolete">Júl</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>Jún</translation>
+        <translation type="obsolete">Jún</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>Apríl</translation>
+        <translation type="obsolete">Apríl</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>Marec</translation>
+        <translation type="obsolete">Marec</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>Január</translation>
+        <translation type="obsolete">Január</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>August</translation>
+        <translation type="obsolete">August</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>Október</translation>
+        <translation type="obsolete">Október</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>November</translation>
+        <translation type="obsolete">November</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>September</translation>
+        <translation type="obsolete">September</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>Február</translation>
+        <translation type="obsolete">Február</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>December</translation>
+        <translation type="obsolete">December</translation>
     </message>
     <message>
         <source>No Named Page</source>
-        <translation>Stránka bez názvu</translation>
+        <translation type="obsolete">Stránka bez názvu</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">Dnes</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished">Tento týždeň</translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">Tento mesiac</translation>
     </message>
 </context>
 <context>
     <name>HistorySideBar</name>
     <message>
         <source>This Week</source>
-        <translation>Tento týždeň</translation>
+        <translation type="obsolete">Tento týždeň</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Názov</translation>
+        <translation type="obsolete">Názov</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Dnes</translation>
+        <translation type="obsolete">Dnes</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Kopírovať adresu</translation>
+        <translation type="obsolete">Kopírovať adresu</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Tento mesiac</translation>
+        <translation type="obsolete">Tento mesiac</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Otvoriť odkaz na novej karte</translation>
+        <translation type="obsolete">Otvoriť odkaz na novej karte</translation>
     </message>
     <message>
         <source>Search...</source>
@@ -1362,7 +1445,30 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Otvoriť odkaz v aktuálnom panely</translation>
+        <translation type="obsolete">Otvoriť odkaz v aktuálnom panely</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">Otvoriť odkaz v aktuálnom panely</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished">Otvoriť odkaz na novej karte</translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">Kopírovať adresu</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

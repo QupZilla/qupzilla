@@ -14,29 +14,6 @@
    <string>History</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="4">
-    <widget class="TreeWidget" name="historyTree">
-     <property name="contextMenuPolicy">
-      <enum>Qt::CustomContextMenu</enum>
-     </property>
-     <property name="alternatingRowColors">
-      <bool>true</bool>
-     </property>
-     <attribute name="headerDefaultSectionSize">
-      <number>330</number>
-     </attribute>
-     <column>
-      <property name="text">
-       <string>Title</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Url</string>
-      </property>
-     </column>
-    </widget>
-   </item>
    <item row="1" column="0">
     <widget class="QPushButton" name="deleteB">
      <property name="text">
@@ -77,18 +54,25 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="0" colspan="4">
+    <widget class="HistoryView" name="historyTree">
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TreeWidget</class>
-   <extends>QTreeWidget</extends>
-   <header>treewidget.h</header>
-  </customwidget>
-  <customwidget>
    <class>ClickableLabel</class>
    <extends>QLabel</extends>
    <header>clickablelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>HistoryView</class>
+   <extends>QTreeView</extends>
+   <header>historyview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

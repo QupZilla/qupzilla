@@ -1217,6 +1217,61 @@
     </message>
 </context>
 <context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished">Névtelen lap</translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">Január</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">Február</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">Március</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">Április</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">Május</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">Június</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">Július</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">Augusztus</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">Szeptember</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">Október</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">November</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">December</translation>
+    </message>
+</context>
+<context>
     <name>HistoryManager</name>
     <message>
         <source>History</source>
@@ -1224,11 +1279,11 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>Az oldal neve</translation>
+        <translation type="obsolete">Az oldal neve</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation>Internetcím</translation>
+        <translation type="obsolete">Internetcím</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1244,27 +1299,27 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Hivatkozás megnyitása a jelenlegi fülön</translation>
+        <translation type="obsolete">Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Hivatkozás megnyitása új fülön</translation>
+        <translation type="obsolete">Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>A cím másolása</translation>
+        <translation type="obsolete">A cím másolása</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Ma</translation>
+        <translation type="obsolete">Ma</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Ezen a héten</translation>
+        <translation type="obsolete">Ezen a héten</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Ebben a hónapban</translation>
+        <translation type="obsolete">Ebben a hónapban</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1283,55 +1338,83 @@
     </message>
     <message>
         <source>No Named Page</source>
-        <translation>Névtelen lap</translation>
+        <translation type="obsolete">Névtelen lap</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>Január</translation>
+        <translation type="obsolete">Január</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>Február</translation>
+        <translation type="obsolete">Február</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>Március</translation>
+        <translation type="obsolete">Március</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>Április</translation>
+        <translation type="obsolete">Április</translation>
     </message>
     <message>
         <source>May</source>
-        <translation>Május</translation>
+        <translation type="obsolete">Május</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>Június</translation>
+        <translation type="obsolete">Június</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>Július</translation>
+        <translation type="obsolete">Július</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>Augusztus</translation>
+        <translation type="obsolete">Augusztus</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>Szeptember</translation>
+        <translation type="obsolete">Szeptember</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>Október</translation>
+        <translation type="obsolete">Október</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>November</translation>
+        <translation type="obsolete">November</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>December</translation>
+        <translation type="obsolete">December</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished">Az oldal neve</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">Ma</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished">Ezen a héten</translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">Ebben a hónapban</translation>
     </message>
 </context>
 <context>
@@ -1342,31 +1425,54 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>Az oldal neve</translation>
+        <translation type="obsolete">Az oldal neve</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Hivatkozás megnyitása a jelenlegi fülön</translation>
+        <translation type="obsolete">Hivatkozás megnyitása a jelenlegi fülön</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Hivatkozás megnyitása új fülön</translation>
+        <translation type="obsolete">Hivatkozás megnyitása új fülön</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>A cím másolása</translation>
+        <translation type="obsolete">A cím másolása</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Ma</translation>
+        <translation type="obsolete">Ma</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Ezen a héten</translation>
+        <translation type="obsolete">Ezen a héten</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Ebben a hónapban</translation>
+        <translation type="obsolete">Ebben a hónapban</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">Hivatkozás megnyitása a jelenlegi fülön</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished">Hivatkozás megnyitása új fülön</translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished">A cím másolása</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

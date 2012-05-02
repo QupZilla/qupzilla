@@ -19,7 +19,7 @@
 #include "ui_preferences.h"
 #include "qupzilla.h"
 #include "bookmarkstoolbar.h"
-#include "historymodel.h"
+#include "history.h"
 #include "tabwidget.h"
 #include "cookiejar.h"
 #include "locationbar.h"

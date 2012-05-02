@@ -18,67 +18,95 @@
 #ifndef HISTORYMODEL_H
 #define HISTORYMODEL_H
 
-#include <QObject>
-#include <QList>
-#include <QDateTime>
-#include <QUrl>
+#include <QAbstractItemModel>
+#include <QSortFilterProxyModel>
 
 #include "qz_namespace.h"
+#include "history.h"
 
-class QIcon;
+class QTimer;
 
-class QupZilla;
-class WebView;
+class History;
+class HistoryItem;
 
-class QT_QUPZILLA_EXPORT HistoryModel : public QObject
+class QT_QUPZILLA_EXPORT HistoryModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
-    HistoryModel(QupZilla* mainClass);
-
-    struct HistoryEntry {
-        int id;
-        int count;
-        QDateTime date;
-        QUrl url;
-        QString title;
+    enum Roles {
+        IdRole = Qt::UserRole + 1,
+        TitleRole = Qt::UserRole + 2,
+        UrlRole = Qt::UserRole + 3,
+        UrlStringRole = Qt::UserRole + 4,
+        IconRole = Qt::UserRole + 5,
+        IconLoadedRole = Qt::UserRole + 6,
+        IsTopLevelRole = Qt::UserRole + 7,
+        TimestampStartRole = Qt::UserRole + 8,
+        TimestampEndRole = Qt::UserRole + 9,
+        MaxRole = TimestampEndRole
     };
 
-    static QString titleCaseLocalizedMonth(int month);
+    explicit HistoryModel(History* history);
 
-    void addHistoryEntry(WebView* view);
-    void addHistoryEntry(const QUrl &url, QString title);
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+    QVariant data(const QModelIndex &index, int role) const;
+    bool setData(const QModelIndex &index, const QVariant &value, int role);
 
-    void deleteHistoryEntry(int index);
-    void deleteHistoryEntry(const QList<int> &list);
-    void deleteHistoryEntry(const QString &url, const QString &title);
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
+    QModelIndex parent(const QModelIndex &child) const;
+    Qt::ItemFlags flags(const QModelIndex &index) const;
 
-    bool urlIsStored(const QString &url);
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
-    QList<HistoryEntry> mostVisited(int count);
+    bool canFetchMore(const QModelIndex &parent) const;
+    void fetchMore(const QModelIndex &parent);
 
-    bool clearHistory();
-    bool optimizeHistory();
-    bool isSaving();
-    void setSaving(bool state);
+    bool hasChildren(const QModelIndex &parent) const;
 
-    void loadSettings();
+    HistoryItem* itemFromIndex(const QModelIndex &index) const;
 
 signals:
-    void historyEntryAdded(HistoryEntry entry);
-    void historyEntryDeleted(HistoryEntry entry);
-    void historyEntryEdited(HistoryEntry before, HistoryEntry after);
-    //WARNING: Incomplete HistoryEntry structs are passed to historyEntryEdited!
-    void historyClear();
 
-    void signalAddHistoryEntry(QUrl url, QString title);
-    void signalDeleteHistoryEntry(QList<int> list);
+private slots:
+    void resetHistory();
+
+    void historyEntryAdded(const HistoryEntry &entry);
+    void historyEntryDeleted(const HistoryEntry &entry);
+    void historyEntryEdited(const HistoryEntry &before, const HistoryEntry &after);
 
 private:
-    bool m_isSaving;
-    QupZilla* p_QupZilla;
+    HistoryItem* findHistoryItem(const HistoryEntry &entry);
+    void checkEmptyParentItem(HistoryItem* item);
+    void init();
+
+    HistoryItem* m_rootItem;
+    HistoryItem* m_todayItem;
+    History* m_history;
 };
 
-typedef HistoryModel::HistoryEntry HistoryEntry;
+class QT_QUPZILLA_EXPORT HistoryFilterModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
+    explicit HistoryFilterModel(QAbstractItemModel* parent);
+
+public slots:
+    void setFilterFixedString(const QString &pattern);
+
+signals:
+    void expandAllItems();
+    void collapseAllItems();
+
+protected:
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const;
+
+private slots:
+    void startFiltering();
+
+private:
+    QString m_pattern;
+    QTimer* m_filterTimer;
+};
 
 #endif // HISTORYMODEL_H

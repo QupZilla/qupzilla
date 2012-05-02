@@ -15,21 +15,39 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "webhistoryinterface.h"
-#include "mainapplication.h"
-#include "history.h"
+#ifndef HEADERVIEW_H
+#define HEADERVIEW_H
 
-WebHistoryInterface::WebHistoryInterface(QObject* parent)
-    : QWebHistoryInterface(parent)
-{
-}
+#include <QHeaderView>
 
-void WebHistoryInterface::addHistoryEntry(const QString &url)
-{
-    m_clickedLinks.append(url);
-}
+class QContextMenuEvent;
 
-bool WebHistoryInterface::historyContains(const QString &url) const
+#include "qz_namespace.h"
+
+class QT_QUPZILLA_EXPORT HeaderView : public QHeaderView
 {
-    return m_clickedLinks.contains(url);
-}
+    Q_OBJECT
+public:
+    explicit HeaderView(QAbstractItemView* parent);
+
+    void setDefaultSectionSizes(const QList<double> &sizes);
+    QList<double> defaultSectionSizes() const;
+
+    bool restoreState(const QByteArray &state);
+
+private slots:
+    void toggleSectionVisibility();
+
+private:
+    void showEvent(QShowEvent* event);
+    void contextMenuEvent(QContextMenuEvent* event);
+
+    QAbstractItemView* m_parent;
+    QMenu* m_menu;
+
+    bool m_resizeOnShow;
+    QList<double> m_sectionSizes;
+    QByteArray m_restoreData;
+};
+
+#endif // HEADERVIEW_H

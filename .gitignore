@@ -22,3 +22,4 @@ git_revision
 *.exp
 *.zip
 Thumbs.db
+tests/modeltest

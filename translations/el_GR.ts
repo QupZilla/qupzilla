@@ -891,27 +891,27 @@
         <translation>Αναζήτηση...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="51"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
         <source>History</source>
         <translation>Ιστορικό</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
         <source>Bookmarks</source>
         <translation>Σελιδοδείκτες</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="54"/>
         <source>RSS</source>
         <translation>RSS</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="156"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="148"/>
         <source>Database Optimized</source>
         <translation>Βελτιστοποιήθηκε η βάση δεδομένων</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="156"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="148"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation>Βελτιστοποιήθηκε επιτυχώς η βάση δεδομένων. &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Μέγεθος βάσης δεδομένων πρίν: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Μέγεθος βάσης δεδομένων μετά: &lt;/b&gt;%2</translation>
     </message>
@@ -1558,6 +1558,74 @@
     </message>
 </context>
 <context>
+    <name>History</name>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="75"/>
+        <source>No Named Page</source>
+        <translation type="unfinished">Ανώνυμη σελίδα</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="262"/>
+        <source>January</source>
+        <translation type="unfinished">Ιανουάριος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="264"/>
+        <source>February</source>
+        <translation type="unfinished">Φεβρουάριος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="266"/>
+        <source>March</source>
+        <translation type="unfinished">Μάρτιος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="268"/>
+        <source>April</source>
+        <translation type="unfinished">Απρίλιος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="270"/>
+        <source>May</source>
+        <translation type="unfinished">Μάϊος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="272"/>
+        <source>June</source>
+        <translation type="unfinished">Ιούνιος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="274"/>
+        <source>July</source>
+        <translation type="unfinished">Ιούλιος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="276"/>
+        <source>August</source>
+        <translation type="unfinished">Αύγουστος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="278"/>
+        <source>September</source>
+        <translation type="unfinished">Σεπτέμβριος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="280"/>
+        <source>October</source>
+        <translation type="unfinished">Οκτώβριος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="282"/>
+        <source>November</source>
+        <translation type="unfinished">Νοέμβριος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="284"/>
+        <source>December</source>
+        <translation type="unfinished">Δεκέμβριος</translation>
+    </message>
+</context>
+<context>
     <name>HistoryManager</name>
     <message>
         <location filename="../src/lib/history/historymanager.ui" line="14"/>
@@ -1565,70 +1633,59 @@
         <translation>Ιστορικό</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="30"/>
         <source>Title</source>
-        <translation>Τίτλος</translation>
+        <translation type="obsolete">Τίτλος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="35"/>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation type="obsolete">Url</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="43"/>
+        <location filename="../src/lib/history/historymanager.ui" line="20"/>
         <source>Delete</source>
         <translation>Διαγραφή</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="50"/>
+        <location filename="../src/lib/history/historymanager.ui" line="27"/>
         <source>Clear All History</source>
         <translation>Εκκαθάριση όλου του ιστορικού</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="73"/>
+        <location filename="../src/lib/history/historymanager.ui" line="50"/>
         <source>Optimize Database</source>
         <translation>Βελτιστοποίηση βάσης δεδομένων</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="107"/>
         <source>Open link in current tab</source>
-        <translation>Άνοιγμα συνδέσμου στην τρέχουσα καρτέλα</translation>
+        <translation type="obsolete">Άνοιγμα συνδέσμου στην τρέχουσα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="108"/>
         <source>Open link in new tab</source>
-        <translation>Άνοιγμα συνδέσμου σε νέα καρτέλα</translation>
+        <translation type="obsolete">Άνοιγμα συνδέσμου σε νέα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="110"/>
         <source>Copy address</source>
-        <translation>Αντιγραφή διεύθυνσης</translation>
+        <translation type="obsolete">Αντιγραφή διεύθυνσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="179"/>
-        <location filename="../src/lib/history/historymanager.cpp" line="278"/>
         <source>Today</source>
-        <translation>Σήμερα</translation>
+        <translation type="obsolete">Σήμερα</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="182"/>
-        <location filename="../src/lib/history/historymanager.cpp" line="281"/>
         <source>This Week</source>
-        <translation>Αυτή τη βδομάδα</translation>
+        <translation type="obsolete">Αυτή τη βδομάδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="185"/>
-        <location filename="../src/lib/history/historymanager.cpp" line="284"/>
         <source>This Month</source>
-        <translation>Αυτό το μήνα</translation>
+        <translation type="obsolete">Αυτό το μήνα</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="242"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="74"/>
         <source>Confirmation</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="243"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="75"/>
         <source>Are you sure to delete all history?</source>
         <translation>Είστε σίγουροι ότι θέλετε να διαγράψετε όλο το ιστορικό;</translation>
     </message>
@@ -1636,69 +1693,92 @@
 <context>
     <name>HistoryModel</name>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="65"/>
         <source>No Named Page</source>
-        <translation>Ανώνυμη σελίδα</translation>
+        <translation type="obsolete">Ανώνυμη σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="219"/>
         <source>January</source>
-        <translation>Ιανουάριος</translation>
+        <translation type="obsolete">Ιανουάριος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="221"/>
         <source>February</source>
-        <translation>Φεβρουάριος</translation>
+        <translation type="obsolete">Φεβρουάριος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="223"/>
         <source>March</source>
-        <translation>Μάρτιος</translation>
+        <translation type="obsolete">Μάρτιος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="225"/>
         <source>April</source>
-        <translation>Απρίλιος</translation>
+        <translation type="obsolete">Απρίλιος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="227"/>
         <source>May</source>
-        <translation>Μάϊος</translation>
+        <translation type="obsolete">Μάϊος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="229"/>
         <source>June</source>
-        <translation>Ιούνιος</translation>
+        <translation type="obsolete">Ιούνιος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="231"/>
         <source>July</source>
-        <translation>Ιούλιος</translation>
+        <translation type="obsolete">Ιούλιος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="233"/>
         <source>August</source>
-        <translation>Αύγουστος</translation>
+        <translation type="obsolete">Αύγουστος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="235"/>
         <source>September</source>
-        <translation>Σεπτέμβριος</translation>
+        <translation type="obsolete">Σεπτέμβριος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="237"/>
         <source>October</source>
-        <translation>Οκτώβριος</translation>
+        <translation type="obsolete">Οκτώβριος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="239"/>
         <source>November</source>
-        <translation>Νοέμβριος</translation>
+        <translation type="obsolete">Νοέμβριος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="241"/>
         <source>December</source>
-        <translation>Δεκέμβριος</translation>
+        <translation type="obsolete">Δεκέμβριος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="56"/>
+        <source>Title</source>
+        <translation type="unfinished">Τίτλος</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="58"/>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="60"/>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="62"/>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="316"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="444"/>
+        <source>Today</source>
+        <translation type="unfinished">Σήμερα</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="449"/>
+        <source>This Week</source>
+        <translation type="unfinished">Αυτή τη βδομάδα</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="454"/>
+        <source>This Month</source>
+        <translation type="unfinished">Αυτό το μήνα</translation>
     </message>
 </context>
 <context>
@@ -1709,42 +1789,60 @@
         <translation>Αναζήτηση...</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.ui" line="52"/>
         <source>Title</source>
-        <translation>Τίτλος</translation>
+        <translation type="obsolete">Τίτλος</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="99"/>
         <source>Open link in current tab</source>
-        <translation>Άνοιγμα συνδέσμου στην τρέχουσα καρτέλα</translation>
+        <translation type="obsolete">Άνοιγμα συνδέσμου στην τρέχουσα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="100"/>
         <source>Open link in new tab</source>
-        <translation>Άνοιγμα συνδέσμου σε νέα καρτέλα</translation>
+        <translation type="obsolete">Άνοιγμα συνδέσμου σε νέα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="102"/>
         <source>Copy address</source>
-        <translation>Αντιγραφή διεύθυνσης</translation>
+        <translation type="obsolete">Αντιγραφή διεύθυνσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="119"/>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="195"/>
         <source>Today</source>
-        <translation>Σήμερα</translation>
+        <translation type="obsolete">Σήμερα</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="122"/>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="198"/>
         <source>This Week</source>
-        <translation>Αυτή τη βδομάδα</translation>
+        <translation type="obsolete">Αυτή τη βδομάδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="125"/>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="201"/>
         <source>This Month</source>
-        <translation>Αυτό το μήνα</translation>
+        <translation type="obsolete">Αυτό το μήνα</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="151"/>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">Άνοιγμα συνδέσμου στην τρέχουσα καρτέλα</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="152"/>
+        <source>Open link in new tab</source>
+        <translation type="unfinished">Άνοιγμα συνδέσμου σε νέα καρτέλα</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="154"/>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="155"/>
+        <source>Copy address</source>
+        <translation type="unfinished">Αντιγραφή διεύθυνσης</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="157"/>
+        <source>Remove</source>
+        <translation type="unfinished">Αφαίρεση</translation>
     </message>
 </context>
 <context>
@@ -3160,19 +3258,19 @@
         <translation>(Ιδιωτική περιήγηση)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1789"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1790"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
         <translation>Υπάρχουν ακόμα %1 ανοιχτές καρτέλες και η συνεδρία σας δεν θα αποθηκευτεί.
 Είστε σίγουρος ότι θέλετε να κλείσετε το QupZilla;</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1790"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1791"/>
         <source>Don&apos;t ask again</source>
         <translation>Μην ρωτήσεις ξανά</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1791"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1792"/>
         <source>There are still open tabs</source>
         <translation>Υπάρχουν ανοιχτές καρτέλες</translation>
     </message>
@@ -3241,7 +3339,7 @@ Are you sure to quit QupZilla?</source>
         <translation>Πληροφορίες για την εφαρμογή</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1307"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1308"/>
         <source>%1 - QupZilla</source>
         <translation>%1 QupZilla</translation>
     </message>
@@ -3301,62 +3399,62 @@ Are you sure to quit QupZilla?</source>
         <translation>Άλλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1394"/>
         <source>HTML files</source>
         <translation>Αρχεία HTML</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1394"/>
         <source>Image files</source>
         <translation>Αρχεία εικόνων</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1394"/>
         <source>Text files</source>
         <translation>Αρχεία κειμένου</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1394"/>
         <source>All files</source>
         <translation>Όλα τα αρχεία</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1395"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1396"/>
         <source>Open file...</source>
         <translation>Άνοιγμα αρχείου...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1509"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1510"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Είστε σίγουροι ότι θέλετε να εκκινήσετε την ιδιωτική περιήγηση;</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1510"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1511"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Όταν η ιδιωτική περιήγηση είναι ενεργή, κάποιες ενέργειες που αφορούν το ιδιωτικό σας απόρρητο θα είναι απενεργοποιημένες:</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1513"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1514"/>
         <source>Webpages are not added to the history.</source>
         <translation>Οι ιστοσελίδες δεν προστίθενται στο ιστορικό.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1514"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1515"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Δεν υπάρχει πρόσβαση στα τρέχοντα cookies.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1515"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1516"/>
         <source>Your session is not stored.</source>
         <translation>Η συνεδρία σας δεν αποθηκεύεται.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1517"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1518"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Μέχρι να κλείσετε το παράθυρο, μπορείτε ακόμα να κάνετε κλικ στα κουμπιά Πίσω και Μπροστά για να επιστρέψετε στις σελίδες που ανοίξατε.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1522"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1523"/>
         <source>Start Private Browsing</source>
         <translation>Έναρξη ιδιωτικής περιήγησης</translation>
     </message>
@@ -4633,17 +4731,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Νέα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="607"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="611"/>
         <source>Empty</source>
         <translation>Άδειο</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="610"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="614"/>
         <source>Restore All Closed Tabs</source>
         <translation>Επαναφορά όλων των κλεισμένων καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="611"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="615"/>
         <source>Clear list</source>
         <translation>Εκκαθάριση λίστας</translation>
     </message>
@@ -4764,132 +4862,132 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation>Επιβεβαίωση νέας υποβολής φόρμας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="531"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="533"/>
         <source>Select files to upload...</source>
         <translation>Επιλογή αρχείων για μεταφόρτωση...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="552"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="554"/>
         <source>Server refused the connection</source>
         <translation>Ο διακομιστής αρνήθηκε την σύνδεση</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="555"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="557"/>
         <source>Server closed the connection</source>
         <translation>Ο διακομιστής έκλεισε την σύνδεση</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="558"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="560"/>
         <source>Server not found</source>
         <translation>Δεν βρέθηκε ο διακομιστής</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="561"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="563"/>
         <source>Connection timed out</source>
         <translation>Έληξε η σύνδεση</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="564"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="566"/>
         <source>Untrusted connection</source>
         <translation>Μη έμπιστη σύνδεση</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="567"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="569"/>
         <source>Temporary network failure</source>
         <translation>Προσωρινή αποτυχία δικτύου</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="570"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="572"/>
         <source>Proxy connection refused</source>
         <translation>Αρνήθηκε η σύνδεση με τον μεσολαβητή</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="573"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="575"/>
         <source>Proxy server not found</source>
         <translation>Δεν βρέθηκε διακομιστής διαμεσολάβησης</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="576"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="578"/>
         <source>Proxy connection timed out</source>
         <translation>Έληξε η σύνδεση με τον μεσολαβητή</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="579"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="581"/>
         <source>Proxy authentication required</source>
         <translation>Απαιτειται εξουσιοδότηση μεσολαβητή</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="582"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="584"/>
         <source>Content not found</source>
         <translation>Το περιεχόμενο δεν βρέθηκε</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="585"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="587"/>
         <source>Unknown network error</source>
         <translation>Άγνωστο σφάλμα δικτύου</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="615"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="617"/>
         <source>AdBlocked Content</source>
         <translation>Φραγμένο περιεχόμενο Adblock</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="619"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="621"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Φράχτηκε από τον κανόνα &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="635"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="637"/>
         <source>Content Access Denied</source>
         <translation>Απορρίφτηκε η πρόσβαση περιεχομένου</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="643"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="650"/>
         <source>Error code %1</source>
         <translation>Σφάλμα κώδικα %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="655"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="662"/>
         <source>Failed loading page</source>
         <translation>Αποτυχία φόρτωσης σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="662"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="669"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>Το QupZilla δεν μπορεί να φορτώσει την σελίδα από %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="663"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="670"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Ελέγξτε την διεύθυνση για τυπογραφικά λάθη όπως &lt;b&gt;ww.&lt;/b&gt;example.com αντί για &lt;b&gt;www.&lt;/b&gt;example.com</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="664"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="671"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Αν δεν μπορείτε να φορτώσετε καμία σελίδα, ελέγξτε την σύνδεση του υπολογιστή σας με το δίκτυο.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="665"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="672"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Αν ο υπολογιστής σας ή το δίκτυο σας προστατεύεται από ένα τείχος προστασίας (firewall) ή proxy, βεβαιωθείτε ότι το QupZilla επιτρέπεται να έχει πρόσβαση στο διαδίκτυο.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="666"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="673"/>
         <source>Try Again</source>
         <translation>Δοκιμάστε ξανά</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="765"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="772"/>
         <source>JavaScript alert</source>
         <translation>Ειδοποίηση JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="773"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="780"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Να εμποδιστεί αυτή η σελίδα να δημιουργεί επιπλέον διαλόγους</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="821"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="828"/>
         <source>Choose file...</source>
         <translation>Επιλογή αρχείου...</translation>
     </message>

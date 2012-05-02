@@ -892,27 +892,27 @@
         <translation>Cari...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="51"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
         <source>History</source>
         <translation>Sejarah</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="52"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
         <source>Bookmarks</source>
         <translation>Bookmark</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="54"/>
         <source>RSS</source>
         <translation>RSS</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="156"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="148"/>
         <source>Database Optimized</source>
         <translation>Database teroptimasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="156"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="148"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation>Database berhasil dioptimasi.&lt;br/&gt;&lt;b&gt;Ukuran Database Sebelumnya: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Ukuran Database Sekarang: &lt;/b&gt;%2</translation>
     </message>
@@ -1558,6 +1558,74 @@
     </message>
 </context>
 <context>
+    <name>History</name>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="75"/>
+        <source>No Named Page</source>
+        <translation type="unfinished">Halaman Tanpa Nama</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="262"/>
+        <source>January</source>
+        <translation type="unfinished">Januari</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="264"/>
+        <source>February</source>
+        <translation type="unfinished">Februari</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="266"/>
+        <source>March</source>
+        <translation type="unfinished">Maret</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="268"/>
+        <source>April</source>
+        <translation type="unfinished">April</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="270"/>
+        <source>May</source>
+        <translation type="unfinished">Mei</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="272"/>
+        <source>June</source>
+        <translation type="unfinished">Juni</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="274"/>
+        <source>July</source>
+        <translation type="unfinished">Juli</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="276"/>
+        <source>August</source>
+        <translation type="unfinished">Agustus</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="278"/>
+        <source>September</source>
+        <translation type="unfinished">September</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="280"/>
+        <source>October</source>
+        <translation type="unfinished">Oktober</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="282"/>
+        <source>November</source>
+        <translation type="unfinished">November</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/history.cpp" line="284"/>
+        <source>December</source>
+        <translation type="unfinished">Desember</translation>
+    </message>
+</context>
+<context>
     <name>HistoryManager</name>
     <message>
         <location filename="../src/lib/history/historymanager.ui" line="14"/>
@@ -1565,70 +1633,59 @@
         <translation>Sejarah</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="30"/>
         <source>Title</source>
-        <translation>Judul</translation>
+        <translation type="obsolete">Judul</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="35"/>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation type="obsolete">Url</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="43"/>
+        <location filename="../src/lib/history/historymanager.ui" line="20"/>
         <source>Delete</source>
         <translation>Hapus</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="50"/>
+        <location filename="../src/lib/history/historymanager.ui" line="27"/>
         <source>Clear All History</source>
         <translation>Bersihkan Seluruh Sejarah</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.ui" line="73"/>
+        <location filename="../src/lib/history/historymanager.ui" line="50"/>
         <source>Optimize Database</source>
         <translation>Optimasi Database</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="107"/>
         <source>Open link in current tab</source>
-        <translation>Buka tautan di tab ini</translation>
+        <translation type="obsolete">Buka tautan di tab ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="108"/>
         <source>Open link in new tab</source>
-        <translation>Buka tautan di tab baru</translation>
+        <translation type="obsolete">Buka tautan di tab baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="110"/>
         <source>Copy address</source>
-        <translation>Salin alamat</translation>
+        <translation type="obsolete">Salin alamat</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="179"/>
-        <location filename="../src/lib/history/historymanager.cpp" line="278"/>
         <source>Today</source>
-        <translation>Hari Ini</translation>
+        <translation type="obsolete">Hari Ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="182"/>
-        <location filename="../src/lib/history/historymanager.cpp" line="281"/>
         <source>This Week</source>
-        <translation>Minggu Ini</translation>
+        <translation type="obsolete">Minggu Ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="185"/>
-        <location filename="../src/lib/history/historymanager.cpp" line="284"/>
         <source>This Month</source>
-        <translation>Bulan Ini</translation>
+        <translation type="obsolete">Bulan Ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="242"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="74"/>
         <source>Confirmation</source>
         <translation>Konfirmasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymanager.cpp" line="243"/>
+        <location filename="../src/lib/history/historymanager.cpp" line="75"/>
         <source>Are you sure to delete all history?</source>
         <translation>Anda yakin untuk menghapus seluruh sejarah?</translation>
     </message>
@@ -1636,69 +1693,92 @@
 <context>
     <name>HistoryModel</name>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="65"/>
         <source>No Named Page</source>
-        <translation>Halaman Tanpa Nama</translation>
+        <translation type="obsolete">Halaman Tanpa Nama</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="219"/>
         <source>January</source>
-        <translation>Januari</translation>
+        <translation type="obsolete">Januari</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="221"/>
         <source>February</source>
-        <translation>Februari</translation>
+        <translation type="obsolete">Februari</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="223"/>
         <source>March</source>
-        <translation>Maret</translation>
+        <translation type="obsolete">Maret</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="225"/>
         <source>April</source>
-        <translation>April</translation>
+        <translation type="obsolete">April</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="227"/>
         <source>May</source>
-        <translation>Mei</translation>
+        <translation type="obsolete">Mei</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="229"/>
         <source>June</source>
-        <translation>Juni</translation>
+        <translation type="obsolete">Juni</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="231"/>
         <source>July</source>
-        <translation>Juli</translation>
+        <translation type="obsolete">Juli</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="233"/>
         <source>August</source>
-        <translation>Agustus</translation>
+        <translation type="obsolete">Agustus</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="235"/>
         <source>September</source>
-        <translation>September</translation>
+        <translation type="obsolete">September</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="237"/>
         <source>October</source>
-        <translation>Oktober</translation>
+        <translation type="obsolete">Oktober</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="239"/>
         <source>November</source>
-        <translation>November</translation>
+        <translation type="obsolete">November</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="241"/>
         <source>December</source>
-        <translation>Desember</translation>
+        <translation type="obsolete">Desember</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="56"/>
+        <source>Title</source>
+        <translation type="unfinished">Judul</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="58"/>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="60"/>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="62"/>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="316"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="444"/>
+        <source>Today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="449"/>
+        <source>This Week</source>
+        <translation type="unfinished">Minggu Ini</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymodel.cpp" line="454"/>
+        <source>This Month</source>
+        <translation type="unfinished">Bulan Ini</translation>
     </message>
 </context>
 <context>
@@ -1709,42 +1789,60 @@
         <translation>Cari...</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.ui" line="52"/>
         <source>Title</source>
-        <translation>Judul</translation>
+        <translation type="obsolete">Judul</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="99"/>
         <source>Open link in current tab</source>
-        <translation>Buka tautan di tab ini</translation>
+        <translation type="obsolete">Buka tautan di tab ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="100"/>
         <source>Open link in new tab</source>
-        <translation>Buka tautan di tab baru</translation>
+        <translation type="obsolete">Buka tautan di tab baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="102"/>
         <source>Copy address</source>
-        <translation>Salin alamat</translation>
+        <translation type="obsolete">Salin alamat</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="119"/>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="195"/>
         <source>Today</source>
-        <translation>Hari ini</translation>
+        <translation type="obsolete">Hari ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="122"/>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="198"/>
         <source>This Week</source>
-        <translation>Minggu Ini</translation>
+        <translation type="obsolete">Minggu Ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="125"/>
-        <location filename="../src/lib/sidebar/historysidebar.cpp" line="201"/>
         <source>This Month</source>
-        <translation>Bulan Ini</translation>
+        <translation type="obsolete">Bulan Ini</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="151"/>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">Buka tautan di tab ini</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="152"/>
+        <source>Open link in new tab</source>
+        <translation type="unfinished">Buka tautan di tab baru</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="154"/>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="155"/>
+        <source>Copy address</source>
+        <translation type="unfinished">Salin alamat</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historyview.cpp" line="157"/>
+        <source>Remove</source>
+        <translation type="unfinished">Hapus</translation>
     </message>
 </context>
 <context>
@@ -3163,19 +3261,19 @@
         <translation>(Perambahan Privat)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1789"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1790"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
         <translation>Masih ada %1 tab yang terbuka dan sesi anda tidak akan disimpan. 
 Anda yakin untuk berhenti dari QupZilla?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1790"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1791"/>
         <source>Don&apos;t ask again</source>
         <translation>Jangan tanya lagi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1791"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1792"/>
         <source>There are still open tabs</source>
         <translation>Masih ada tab yang terbuka</translation>
     </message>
@@ -3244,7 +3342,7 @@ Anda yakin untuk berhenti dari QupZilla?</translation>
         <translation>Informasi tentang aplikasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1307"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1308"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -3304,62 +3402,62 @@ Anda yakin untuk berhenti dari QupZilla?</translation>
         <translation>Lainnya</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1394"/>
         <source>HTML files</source>
         <translation>Berkas HTML</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1394"/>
         <source>Image files</source>
         <translation>Berkas gambar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1394"/>
         <source>Text files</source>
         <translation>Berkas teks</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1393"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1394"/>
         <source>All files</source>
         <translation>Semua berkas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1395"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1396"/>
         <source>Open file...</source>
         <translation>Buka berkas...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1509"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1510"/>
         <source>Are you sure you want to turn on private browsing?</source>
         <translation>Anda yakin untuk menjalankan perambahan privat?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1510"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1511"/>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
         <translation>Saat perambahan privat aktif, beberapa aksi yang terkait dengan privasi anda akan dinonaktifkan:</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1513"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1514"/>
         <source>Webpages are not added to the history.</source>
         <translation>Laman web tidak ditambahkan ke sejarah.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1514"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1515"/>
         <source>Current cookies cannot be accessed.</source>
         <translation>Cookie saat ini tidak dapat diakses.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1515"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1516"/>
         <source>Your session is not stored.</source>
         <translation>Sesi anda tidak disimpan.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1517"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1518"/>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translation>Anda masih dapat mengklik tombol Maju dan Mundur untuk kembali ke laman web yang sudah dibuka, hingga jendela ditutup.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/qupzilla.cpp" line="1522"/>
+        <location filename="../src/lib/app/qupzilla.cpp" line="1523"/>
         <source>Start Private Browsing</source>
         <translation>Memulai Perambahan Privat</translation>
     </message>
@@ -4636,17 +4734,17 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
         <translation>Tab baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="607"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="611"/>
         <source>Empty</source>
         <translation>Kosong</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="610"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="614"/>
         <source>Restore All Closed Tabs</source>
         <translation>Kembalikan Semua Tab Yang Ditutup</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/tabwidget.cpp" line="611"/>
+        <location filename="../src/lib/webview/tabwidget.cpp" line="615"/>
         <source>Clear list</source>
         <translation>Bersihkan daftar</translation>
     </message>
@@ -4767,132 +4865,132 @@ Setelah menambahi atau menghapus lokasi sertifikat, QupZilla harus direstart aga
         <translation>Konfirmasi pengiriman ulang formulir</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="531"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="533"/>
         <source>Select files to upload...</source>
         <translation>Pilih berkas untuk diunggah...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="552"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="554"/>
         <source>Server refused the connection</source>
         <translation>Server menolak koneksi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="555"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="557"/>
         <source>Server closed the connection</source>
         <translation>Server menutup koneksi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="558"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="560"/>
         <source>Server not found</source>
         <translation>Server tidak ditemukan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="561"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="563"/>
         <source>Connection timed out</source>
         <translation>Batas waktu koneksi habis</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="564"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="566"/>
         <source>Untrusted connection</source>
         <translation>Koneksi tidak dapat dipercaya</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="567"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="569"/>
         <source>Temporary network failure</source>
         <translation>Kegagalan jaringan sementara</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="570"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="572"/>
         <source>Proxy connection refused</source>
         <translation>Koneksi ke proxy ditolak</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="573"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="575"/>
         <source>Proxy server not found</source>
         <translation>Server proxy tidak ditemukan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="576"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="578"/>
         <source>Proxy connection timed out</source>
         <translation>Batas waktu koneksi ke proxy habis</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="579"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="581"/>
         <source>Proxy authentication required</source>
         <translation>Otentikasi proxy dibutuhkan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="582"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="584"/>
         <source>Content not found</source>
         <translation>Isi tidak ditemukan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="585"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="587"/>
         <source>Unknown network error</source>
         <translation>Kesalahan jaringan tidak diketahui</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="615"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="617"/>
         <source>AdBlocked Content</source>
         <translation>Isi yang diblokir AdBlok</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="619"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="621"/>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Diblokir oleh aturan &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="635"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="637"/>
         <source>Content Access Denied</source>
         <translation>Akses Terhadap Isi Ditolak</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="643"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="650"/>
         <source>Error code %1</source>
         <translation>Kode kesalahan %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="655"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="662"/>
         <source>Failed loading page</source>
         <translation>Halaman gagal dimuat</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="662"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="669"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla tidak dapat memuat halaman dari %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="663"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="670"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Periksa ejaan alamat dari kesalahan pengetikan seperti &lt;b&gt;ww.&lt;/b&gt;contoh.com dari yang seharusnya &lt;b&gt;www.&lt;/b&gt;contoh.com</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="664"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="671"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Jika anda tidak dapat memuat halaman apapun, periksa koneksi jaringan komputer.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="665"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="672"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Jika komputer atau jaringan dilindungi firewall atau proxy, pastikan bahwa QupZilla diperbolehkan untuk mengakses Web.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="666"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="673"/>
         <source>Try Again</source>
         <translation>Coba Lagi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="765"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="772"/>
         <source>JavaScript alert</source>
         <translation>Peringatan JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="773"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="780"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Halangi halaman ini untuk membuat dialog tambahan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webview/webpage.cpp" line="821"/>
+        <location filename="../src/lib/webview/webpage.cpp" line="828"/>
         <source>Choose file...</source>
         <translation>Pilih berkas...</translation>
     </message>
