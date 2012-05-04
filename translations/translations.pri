@@ -21,6 +21,7 @@ TRANSLATIONS += $$PWD/cs_CZ.ts\
                 $$PWD/ja_JP.ts\
                 $$PWD/ro_RO.ts\
                 $$PWD/hu_HU.ts\
+                $$PWD/uk_UA.ts\
 
 updateqm.input = TRANSLATIONS
 updateqm.output = $$PWD/../bin/locale/${QMAKE_FILE_BASE}.qm
