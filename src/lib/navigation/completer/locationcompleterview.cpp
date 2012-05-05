@@ -16,6 +16,9 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationcompleterview.h"
+#include "locationcompletermodel.h"
+#include "mainapplication.h"
+#include "history.h"
 
 #include <QKeyEvent>
 #include <QApplication>
@@ -115,6 +118,17 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
                 return true;
             }
             return false;
+
+        case Qt::Key_Delete:
+            if (viewport()->rect().contains(visualRect(curIndex)) &&
+                    !curIndex.data(LocationCompleterModel::BookmarkRole).toBool()) {
+                int id = curIndex.data(LocationCompleterModel::IdRole).toInt();
+                model()->removeRow(curIndex.row(), curIndex.parent());
+
+                mApp->history()->deleteHistoryEntry(id);
+                return true;
+            }
+            break;
 
         case Qt::Key_PageUp:
         case Qt::Key_PageDown:

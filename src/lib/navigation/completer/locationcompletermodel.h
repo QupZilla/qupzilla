@@ -23,6 +23,11 @@
 class LocationCompleterModel : public QStandardItemModel
 {
 public:
+    enum Role {
+        TitleRole = Qt::UserRole + 1,
+        BookmarkRole = Qt::UserRole + 2,
+        IdRole = Qt::UserRole + 3
+    };
     explicit LocationCompleterModel(QObject* parent = 0);
 
     void refreshCompletions(const QString &string);

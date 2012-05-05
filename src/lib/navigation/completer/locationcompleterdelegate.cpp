@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "locationcompleterdelegate.h"
 #include "locationcompleterview.h"
+#include "locationcompletermodel.h"
 #include "iconprovider.h"
 
 #include <QPainter>
@@ -78,7 +79,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const int leftTitleEdge = leftPosition + 2;
     const int rightTitleEdge = rightPosition - m_padding;
     QRect titleRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
-    QString title(titleMetrics.elidedText(index.data(Qt::UserRole).toString(), Qt::ElideRight, titleRect.width()));
+    QString title(titleMetrics.elidedText(index.data(LocationCompleterModel::TitleRole).toString(), Qt::ElideRight, titleRect.width()));
     painter->setFont(titleFont);
     style->drawItemText(painter, titleRect, Qt::AlignLeft | Qt::TextSingleLine, opt.palette, true, title, colorRole);
 
@@ -90,7 +91,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     style->drawItemText(painter, linkRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, link, colorLinkRole);
 
     // Draw star to bookmark items
-    if (index.data(Qt::UserRole + 1).toBool()) {
+    if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
         const QPixmap starPixmap = qIconProvider->bookmarkIcon();
         QSize starSize = starPixmap.size();
         QPoint pos(rightPosition - starSize.width(), opt.rect.top() + m_padding);
