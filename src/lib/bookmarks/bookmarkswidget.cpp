@@ -123,10 +123,13 @@ void BookmarksWidget::toggleSpeedDial()
 
 void BookmarksWidget::showAt(QWidget* _parent)
 {
-    show();
+    layout()->invalidate();
+    layout()->activate();
 
     QPoint p = _parent->mapToGlobal(QPoint(0, 0));
     move((p.x() + _parent->width()) - width(), p.y() + _parent->height());
+
+    show();
 }
 
 BookmarksWidget::~BookmarksWidget()
