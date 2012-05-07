@@ -1243,55 +1243,55 @@
     <name>History</name>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished">無題</translation>
+        <translation>無題</translation>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished">1月</translation>
+        <translation>1月</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished">2月</translation>
+        <translation>2月</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished">3月</translation>
+        <translation>3月</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished">4月</translation>
+        <translation>4月</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished">5月</translation>
+        <translation>5月</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished">6月</translation>
+        <translation>6月</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished">7月</translation>
+        <translation>7月</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished">8月</translation>
+        <translation>8月</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished">9月</translation>
+        <translation>9月</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished">10月</translation>
+        <translation>10月</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished">11月</translation>
+        <translation>11月</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished">12月</translation>
+        <translation>12月</translation>
     </message>
 </context>
 <context>
@@ -1401,31 +1401,31 @@
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished">ページ名</translation>
+        <translation>ページ名</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>アドレス</translation>
     </message>
     <message>
         <source>Visit Date</source>
-        <translation type="unfinished"></translation>
+        <translation>訪れた日時</translation>
     </message>
     <message>
         <source>Visit Count</source>
-        <translation type="unfinished"></translation>
+        <translation>訪れた回数</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished">今日</translation>
+        <translation>今日</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation type="unfinished">今週</translation>
+        <translation>今週</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation type="unfinished">今月</translation>
+        <translation>今月</translation>
     </message>
 </context>
 <context>
@@ -1467,23 +1467,23 @@
     <name>HistoryView</name>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished">現在のタブでリンクを開く</translation>
+        <translation>現在のタブでリンクを開く</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished">新しいタブでリンクを開く</translation>
+        <translation>新しいタブでリンクを開く</translation>
     </message>
     <message>
         <source>Copy title</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ名のコピー</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished">アドレスのコピー</translation>
+        <translation>アドレスのコピー</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">削除</translation>
+        <translation>削除</translation>
     </message>
 </context>
 <context>
@@ -2376,11 +2376,12 @@
     </message>
     <message>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>証明書マネージャ</translation>
     </message>
     <message>
         <source>Manage CA certificates</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>ここ直したい</translatorcomment>
+        <translation>公開鍵証明書の設定</translation>
     </message>
 </context>
 <context>
@@ -3302,15 +3303,15 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>証明書マネージャ</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>インポート</translation>
     </message>
     <message>
         <source>Import certificate...</source>
-        <translation type="unfinished"></translation>
+        <translation>証明書のインポート...</translation>
     </message>
 </context>
 <context>
