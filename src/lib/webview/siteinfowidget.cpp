@@ -88,10 +88,13 @@ SiteInfoWidget::SiteInfoWidget(QupZilla* mainClass, QWidget* parent)
 
 void SiteInfoWidget::showAt(QWidget* _parent)
 {
-    show();
+    layout()->invalidate();
+    layout()->activate();
 
     QPoint p = _parent->mapToGlobal(QPoint(0, 0));
     move(p.x(), p.y() + _parent->height());
+
+    show();
 }
 
 SiteInfoWidget::~SiteInfoWidget()

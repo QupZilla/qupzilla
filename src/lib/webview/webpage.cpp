@@ -370,7 +370,9 @@ bool WebPage::event(QEvent* event)
         // So we are faking mouse move event with proper coordinates for
         // so called "just outside of the widget" position
 
-        QMouseEvent fakeEvent(QEvent::MouseMove, QPoint(0, -1), Qt::NoButton, Qt::NoButton, Qt::NoModifier);
+        QPoint mousePos(view()->mapFromGlobal(QCursor::pos()).x(), -1);
+        QMouseEvent fakeEvent(QEvent::MouseMove, mousePos, Qt::NoButton, Qt::NoButton, Qt::NoModifier);
+
         return QWebPage::event(&fakeEvent);
     }
 

@@ -235,7 +235,8 @@ QString QupZillaSchemeReply::aboutPage()
                       authorString("Beqa Arabuli", "arabulibeqa@gmail.com") + " (Georgian)<br/>" +
                       authorString("Daiki Noda", "sys.pdr.pdm9@gmail.com") + " (Japanese)<br/>" +
                       authorString("Gábor Oberle", "oberleg@myopera.com") + " (Hungarian)<br/>" +
-                      authorString("Piccoro McKay Lenz", "mckaygerhard@gmail.com") + " (Venezulean Spanish)"
+                      authorString("Piccoro McKay Lenz", "mckaygerhard@gmail.com") + " (Venezulean Spanish)<br/>" +
+                      authorString("Stanislav Kuznietsov", "stanislav_kuznetsov@ukr.net") + " (Ukrainian)"
                      );
     }
 

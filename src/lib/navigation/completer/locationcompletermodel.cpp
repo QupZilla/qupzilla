@@ -47,7 +47,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
     QList<QUrl> urlList;
 
     QSqlQuery query;
-    query.prepare("SELECT url, title, icon FROM bookmarks WHERE title LIKE ? OR url LIKE ? LIMIT ?");
+    query.prepare("SELECT id, url, title, icon FROM bookmarks WHERE title LIKE ? OR url LIKE ? LIMIT ?");
     query.addBindValue(searchString);
     query.addBindValue(searchString);
     query.addBindValue(limit);
@@ -55,20 +55,20 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
     while (query.next()) {
         QStandardItem* item = new QStandardItem();
-        const QUrl &url = query.value(0).toUrl();
+        const QUrl &url = query.value(1).toUrl();
 
-        item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(2).toByteArray())));
+        item->setIcon(qIconProvider->iconFromImage(QImage::fromData(query.value(3).toByteArray())));
         item->setText(url.toEncoded());
-        item->setData(query.value(1), Qt::UserRole);
-        item->setData(QVariant(true), Qt::UserRole + 1); // From bookmarks
-
+        item->setData(query.value(0), IdRole);
+        item->setData(query.value(2), TitleRole);
+        item->setData(QVariant(true), BookmarkRole);
         appendRow(item);
         urlList.append(url);
     }
 
     limit -= query.size();
 
-    query.prepare("SELECT url, title FROM history WHERE title LIKE ? OR url LIKE ? ORDER BY count DESC LIMIT ?");
+    query.prepare("SELECT id, url, title FROM history WHERE title LIKE ? OR url LIKE ? ORDER BY count DESC LIMIT ?");
     query.addBindValue(searchString);
     query.addBindValue(searchString);
     query.addBindValue(limit);
@@ -76,7 +76,7 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
     while (query.next()) {
         QStandardItem* item = new QStandardItem();
-        const QUrl &url = query.value(0).toUrl();
+        const QUrl &url = query.value(1).toUrl();
 
         if (urlList.contains(url)) {
             continue;
@@ -84,8 +84,9 @@ void LocationCompleterModel::refreshCompletions(const QString &string)
 
         item->setIcon(_iconForUrl(url));
         item->setText(url.toEncoded());
-        item->setData(query.value(1), Qt::UserRole);
-        item->setData(QVariant(false), Qt::UserRole + 1);
+        item->setData(query.value(0), IdRole);
+        item->setData(query.value(2), TitleRole);
+        item->setData(QVariant(false), BookmarkRole);
 
         appendRow(item);
     }
@@ -96,16 +97,17 @@ void LocationCompleterModel::showMostVisited()
     clear();
 
     QSqlQuery query;
-    query.exec("SELECT url, title FROM history ORDER BY count DESC LIMIT 15");
+    query.exec("SELECT id, url, title FROM history ORDER BY count DESC LIMIT 15");
 
     while (query.next()) {
         QStandardItem* item = new QStandardItem();
-        const QUrl &url = query.value(0).toUrl();
+        const QUrl &url = query.value(1).toUrl();
 
         item->setIcon(_iconForUrl(url));
         item->setText(url.toEncoded());
-        item->setData(query.value(1), Qt::UserRole);
-        item->setData(QVariant(false), Qt::UserRole + 1);
+        item->setData(query.value(0), IdRole);
+        item->setData(query.value(2), TitleRole);
+        item->setData(QVariant(false), BookmarkRole);
 
         appendRow(item);
     }
