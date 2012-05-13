@@ -140,7 +140,7 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
         return;
     }
 
-    if (isUrlValid(url)) {
+    if (url.isEmpty() || isUrlValid(url)) {
         QWebView::load(request, operation, body);
         emit urlChanged(url);
         m_aboutToLoadUrl = url;
