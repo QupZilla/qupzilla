@@ -297,10 +297,13 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
         return;
     }
 
+    CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, view());
+
+    const QString &wrappedUrl = qz_alignTextToWidth(url.toString(), "<br/>", dialog.fontMetrics(), 450);
     const QString &text = tr("QupZilla cannot handle <b>%1:</b> links. The requested link "
                              "is <ul><li>%2</li></ul>Do you want QupZilla to try "
-                             "open this link in system application?").arg(protocol, url.toString());
-    CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, view());
+                             "open this link in system application?").arg(protocol, wrappedUrl);
+
     dialog.setText(text);
     dialog.setCheckBoxText(tr("Remember my choice for this protocol"));
     dialog.setWindowTitle(tr("External Protocol Request"));

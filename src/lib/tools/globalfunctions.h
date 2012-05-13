@@ -20,6 +20,7 @@
 
 #include "qz_namespace.h"
 
+class QFontMetrics;
 class QPixmap;
 class QWidget;
 class QUrl;
@@ -41,8 +42,9 @@ QString QT_QUPZILLA_EXPORT qz_urlEncodeQueryString(const QUrl &url);
 
 QString QT_QUPZILLA_EXPORT qz_ensureUniqueFilename(const QString &name);
 QString QT_QUPZILLA_EXPORT qz_getFileNameFromUrl(const QUrl &url);
-
 QString QT_QUPZILLA_EXPORT qz_filterCharsFromFilename(const QString &name);
+
+QString QT_QUPZILLA_EXPORT qz_alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width);
 
 QString QT_QUPZILLA_EXPORT qz_buildSystem();
 
