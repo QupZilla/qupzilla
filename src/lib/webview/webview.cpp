@@ -104,6 +104,10 @@ QUrl WebView::url() const
         returnUrl = m_aboutToLoadUrl;
     }
 
+    if (returnUrl.toString() == "about:blank") {
+        returnUrl = QUrl();
+    }
+
     return returnUrl;
 }
 
@@ -131,23 +135,23 @@ void WebView::load(const QUrl &url)
 
 void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operation operation, const QByteArray &body)
 {
-    const QUrl &url = request.url();
+    const QUrl &reqUrl = request.url();
 
-    if (url.scheme() == "javascript") {
+    if (reqUrl.scheme() == "javascript") {
         // Getting scriptSource from PercentEncoding to properly load bookmarklets
-        QString scriptSource = QUrl::fromPercentEncoding(url.toString().mid(11).toUtf8());
+        QString scriptSource = QUrl::fromPercentEncoding(reqUrl.toString().mid(11).toUtf8());
         page()->mainFrame()->evaluateJavaScript(scriptSource);
         return;
     }
 
-    if (isUrlValid(url)) {
+    if (reqUrl.isEmpty() || isUrlValid(reqUrl)) {
         QWebView::load(request, operation, body);
-        emit urlChanged(url);
-        m_aboutToLoadUrl = url;
+        emit urlChanged(url());
+        m_aboutToLoadUrl = reqUrl;
         return;
     }
 
-    const QUrl &searchUrl = mApp->searchEnginesManager()->searchUrl(url.toString());
+    const QUrl &searchUrl = mApp->searchEnginesManager()->searchUrl(reqUrl.toString());
     QWebView::load(searchUrl);
 
     emit urlChanged(searchUrl);

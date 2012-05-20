@@ -233,6 +233,34 @@ QString qz_filterCharsFromFilename(const QString &name)
     return value;
 }
 
+QString qz_alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width)
+{
+    int pos = 0;
+    QString returnString;
+
+    while (pos <= string.size()) {
+        QString part = string.mid(pos);
+        QString elidedLine = metrics.elidedText(part, Qt::ElideRight, width);
+
+        if (elidedLine.isEmpty()) {
+            break;
+        }
+
+        if (elidedLine.size() != part.size()) {
+            elidedLine = elidedLine.mid(0, elidedLine.size() - 3);
+        }
+
+        if (!returnString.isEmpty()) {
+            returnString += text;
+        }
+
+        returnString += elidedLine;
+        pos += elidedLine.size();
+    }
+
+    return returnString;
+}
+
 QString qz_buildSystem()
 {
 #ifdef Q_OS_LINUX
