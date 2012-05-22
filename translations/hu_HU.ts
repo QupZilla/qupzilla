@@ -537,6 +537,10 @@
         <source>Bookmark All Tabs</source>
         <translation>Összes jelenlegi fül mentése a könyvjelzőkhöz</translation>
     </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -1205,15 +1209,19 @@
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>Hozzáadás fájlból ...</translation>
+        <translation type="obsolete">Hozzáadás fájlból ...</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>Ikon kiválasztása...</translation>
+        <translation type="obsolete">Ikon kiválasztása...</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation>Képfájlok</translation>
+        <translation type="obsolete">Képfájlok</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1473,6 +1481,37 @@
     <message>
         <source>Remove</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">Ikon kiválasztása...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished">Fájl megadása...</translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">Képfájlok</translation>
     </message>
 </context>
 <context>

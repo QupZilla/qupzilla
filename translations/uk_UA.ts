@@ -540,6 +540,10 @@
         <source>Bookmark All Tabs</source>
         <translation>Додати до закладок всі вкладки</translation>
     </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -1208,15 +1212,74 @@
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>Додати з файлу...</translation>
+        <translation type="obsolete">Додати з файлу...</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>Оберіть іконку...</translation>
+        <translation type="obsolete">Оберіть іконку...</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation>Файли зображень</translation>
+        <translation type="obsolete">Файли зображень</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>History</name>
+    <message>
+        <source>No Named Page</source>
+        <translation type="unfinished">Безіменна сторінка</translation>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished">Січень</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished">Лютий</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished">Березень</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished">Квітень</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished">Травень</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished">Червень</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished">Липень</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished">Серпень</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished">Вересень</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished">Жовтень</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished">Листопад</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished">Грудень</translation>
     </message>
 </context>
 <context>
@@ -1227,11 +1290,11 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>Назва</translation>
+        <translation type="obsolete">Назва</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation>Url-адреса</translation>
+        <translation type="obsolete">Url-адреса</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1247,27 +1310,27 @@
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Відкрити посилання в поточній вкладці</translation>
+        <translation type="obsolete">Відкрити посилання в поточній вкладці</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Відкрити посилання в новій вкладці</translation>
+        <translation type="obsolete">Відкрити посилання в новій вкладці</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Скопіювати адресу</translation>
+        <translation type="obsolete">Скопіювати адресу</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Сьогодні</translation>
+        <translation type="obsolete">Сьогодні</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Цього тижня</translation>
+        <translation type="obsolete">Цього тижня</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Цього місяця</translation>
+        <translation type="obsolete">Цього місяця</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1282,59 +1345,87 @@
     <name>HistoryModel</name>
     <message>
         <source>Failed loading page</source>
-        <translation>Не вдалося завантажити сторінку</translation>
+        <translation type="obsolete">Не вдалося завантажити сторінку</translation>
     </message>
     <message>
         <source>No Named Page</source>
-        <translation>Безіменна сторінка</translation>
+        <translation type="obsolete">Безіменна сторінка</translation>
     </message>
     <message>
         <source>January</source>
-        <translation>Січень</translation>
+        <translation type="obsolete">Січень</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>Лютий</translation>
+        <translation type="obsolete">Лютий</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>Березень</translation>
+        <translation type="obsolete">Березень</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>Квітень</translation>
+        <translation type="obsolete">Квітень</translation>
     </message>
     <message>
         <source>May</source>
-        <translation>Травень</translation>
+        <translation type="obsolete">Травень</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>Червень</translation>
+        <translation type="obsolete">Червень</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>Липень</translation>
+        <translation type="obsolete">Липень</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>Серпень</translation>
+        <translation type="obsolete">Серпень</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>Вересень</translation>
+        <translation type="obsolete">Вересень</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>Жовтень</translation>
+        <translation type="obsolete">Жовтень</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>Листопад</translation>
+        <translation type="obsolete">Листопад</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>Грудень</translation>
+        <translation type="obsolete">Грудень</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished">Назва</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished">Сьогодні</translation>
+    </message>
+    <message>
+        <source>This Week</source>
+        <translation type="unfinished">Цього тижня</translation>
+    </message>
+    <message>
+        <source>This Month</source>
+        <translation type="unfinished">Цього місяця</translation>
     </message>
 </context>
 <context>
@@ -1345,31 +1436,85 @@
     </message>
     <message>
         <source>Title</source>
-        <translation>Назва</translation>
+        <translation type="obsolete">Назва</translation>
     </message>
     <message>
         <source>Open link in current tab</source>
-        <translation>Відкрити посилання в поточній вкладці</translation>
+        <translation type="obsolete">Відкрити посилання в поточній вкладці</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation>Відкрити посилання в новій вкладці</translation>
+        <translation type="obsolete">Відкрити посилання в новій вкладці</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Копіювати адресу</translation>
+        <translation type="obsolete">Копіювати адресу</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>Сьогодні</translation>
+        <translation type="obsolete">Сьогодні</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation>Цього тижня</translation>
+        <translation type="obsolete">Цього тижня</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation>Цього місяця</translation>
+        <translation type="obsolete">Цього місяця</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Open link in current tab</source>
+        <translation type="unfinished">Відкрити посилання в поточній вкладці</translation>
+    </message>
+    <message>
+        <source>Open link in new tab</source>
+        <translation type="unfinished">Відкрити посилання в новій вкладці</translation>
+    </message>
+    <message>
+        <source>Copy title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Видалити</translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">Оберіть іконку...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">Файли зображень</translation>
     </message>
 </context>
 <context>
@@ -1885,7 +2030,7 @@
     </message>
     <message>
         <source>Allow storing web icons</source>
-        <translation>Дозволити зберігання іконок з нету</translation>
+        <translation type="obsolete">Дозволити зберігання іконок з нету</translation>
     </message>
     <message>
         <source>Allow saving history</source>
@@ -2083,11 +2228,11 @@
     </message>
     <message>
         <source>SSL Manager</source>
-        <translation>Менеджер SSL</translation>
+        <translation type="obsolete">Менеджер SSL</translation>
     </message>
     <message>
         <source>Edit CA certificates in SSL Manager</source>
-        <translation>Редагувати CA-сертифікати в SSL-менеджері</translation>
+        <translation type="obsolete">Редагувати CA-сертифікати в SSL-менеджері</translation>
     </message>
     <message>
         <source>JavaScript can access clipboard</source>
@@ -2228,6 +2373,22 @@
     <message>
         <source>Use different proxy for https connection</source>
         <translation>Використовувати різні проксі для https-з&apos;єднання</translation>
+    </message>
+    <message>
+        <source>Show tab previews</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make tab previews animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage CA certificates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2418,11 +2579,11 @@
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation>Закладки</translation>
+        <translation type="obsolete">Закладки</translation>
     </message>
     <message>
         <source>History</source>
-        <translation>Історія</translation>
+        <translation type="obsolete">Історія</translation>
     </message>
     <message>
         <source>Toolbars</source>
@@ -2584,7 +2745,7 @@
     </message>
     <message>
         <source>Default</source>
-        <translation>За замовчуванням</translation>
+        <translation type="obsolete">За замовчуванням</translation>
     </message>
     <message>
         <source>%1 - QupZilla</source>
@@ -3084,7 +3245,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>SSLManager</name>
     <message>
         <source>SSL Manager</source>
-        <translation>Менеджер SSL</translation>
+        <translation type="obsolete">Менеджер SSL</translation>
     </message>
     <message>
         <source>CA Authorities Certificates</source>
@@ -3143,6 +3304,18 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Certificate Informations</source>
         <translation>Інформація про сертифікати</translation>
+    </message>
+    <message>
+        <source>Certificate Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import certificate...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3854,6 +4027,18 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <source>Unknown network error</source>
         <translation>Невідома мережна помилка</translation>
+    </message>
+    <message>
+        <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember my choice for this protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

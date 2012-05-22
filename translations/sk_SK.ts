@@ -537,6 +537,10 @@
         <source>Open link in current &amp;tab</source>
         <translation>Otvoriť odkaz na &amp;aktuálnej karte</translation>
     </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -1197,11 +1201,11 @@
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>Zvoľte ikonu...</translation>
+        <translation type="obsolete">Zvoľte ikonu...</translation>
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>Pridať zo súboru...</translation>
+        <translation type="obsolete">Pridať zo súboru...</translation>
     </message>
     <message>
         <source>Shortcut:</source>
@@ -1213,7 +1217,11 @@
     </message>
     <message>
         <source>Image files</source>
-        <translation>Obrázky</translation>
+        <translation type="obsolete">Obrázky</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1469,6 +1477,37 @@
     <message>
         <source>Remove</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">Zvoľte ikonu...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">Obrázky</translation>
     </message>
 </context>
 <context>
