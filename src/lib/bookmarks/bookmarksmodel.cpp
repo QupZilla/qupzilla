@@ -280,12 +280,12 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     if (title.isEmpty() && url.isEmpty() && folder.isEmpty()) {
         return false;
     }
+
     QSqlQuery query;
-    if (!query.exec("SELECT title, url, folder, icon FROM bookmarks WHERE id = " + QString::number(id))) {
+    query.exec("SELECT title, url, folder, icon FROM bookmarks WHERE id = " + QString::number(id));
+    if (!query.next()) {
         return false;
     }
-
-    query.next();
 
     Bookmark before;
     before.id = id;
@@ -308,6 +308,42 @@ bool BookmarksModel::editBookmark(int id, const QString &title, const QUrl &url,
     query.bindValue(1, after.url.toString());
     query.bindValue(2, after.folder);
     query.bindValue(3, id);
+
+    if (!query.exec()) {
+        return false;
+    }
+
+    emit bookmarkEdited(before, after);
+    mApp->sendMessages(Qz::AM_BookmarksChanged, true);
+    return true;
+}
+
+bool BookmarksModel::changeIcon(int id, const QIcon &icon)
+{
+    QSqlQuery query;
+    query.exec("SELECT title, url, folder, icon FROM bookmarks WHERE id = " + QString::number(id));
+    if (!query.next()) {
+        return false;
+    }
+
+    Bookmark before;
+    before.id = id;
+    before.title = query.value(0).toString();
+    before.url = query.value(1).toUrl();
+    before.folder = query.value(2).toString();
+    before.image = QImage::fromData(query.value(3).toByteArray());
+    before.inSubfolder = isSubfolder(before.folder);
+
+    Bookmark after = before;
+    after.image = icon.pixmap(16).toImage();
+
+    query.prepare("UPDATE bookmarks SET icon = ? WHERE id = ?");
+    QByteArray ba;
+    QBuffer buffer(&ba);
+    buffer.open(QIODevice::WriteOnly);
+    after.image.save(&buffer, "PNG");
+    query.bindValue(0, buffer.data());
+    query.bindValue(1, id);
 
     if (!query.exec()) {
         return false;
