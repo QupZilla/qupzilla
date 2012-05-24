@@ -105,7 +105,7 @@ QUrl LocationBar::createUrl()
     int firstSpacePos = text().indexOf(" ");
     if (firstSpacePos != -1) {
         QString shortcut = text().mid(0, firstSpacePos);
-        QString searchedString = text().mid(firstSpacePos).trimmed();
+        QString searchedString = QUrl::toPercentEncoding(text().mid(firstSpacePos).trimmed());
 
         SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);
         if (!en.name.isEmpty()) {

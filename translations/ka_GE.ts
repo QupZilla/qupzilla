@@ -537,6 +537,10 @@
         <source>Bookmark All Tabs</source>
         <translation>ყველა ჩანართის ჩანიშვნა</translation>
     </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -1205,15 +1209,19 @@
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>ფაილიდან დამატება...</translation>
+        <translation type="obsolete">ფაილიდან დამატება...</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>ხატულის არჩევა...</translation>
+        <translation type="obsolete">ხატულის არჩევა...</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation>სურათის ფაილები</translation>
+        <translation type="obsolete">სურათის ფაილები</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1469,6 +1477,37 @@
     <message>
         <source>Remove</source>
         <translation type="unfinished">წაშლა</translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">ხატულის არჩევა...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished">ფაილის არჩევა...</translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">სურათის ფაილები</translation>
     </message>
 </context>
 <context>

@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "editsearchengine.h"
 #include "ui_editsearchengine.h"
+#include "iconchooser.h"
 
 #include <QFileDialog>
 
@@ -87,12 +88,10 @@ void EditSearchEngine::hideIconLabels()
 
 void EditSearchEngine::chooseIcon()
 {
-    const QString &fileTypes = QString("%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff)").arg(tr("Image files"));
+    IconChooser chooser(this);
+    QIcon icon = chooser.exec();
 
-    QString path = QFileDialog::getOpenFileName(this, tr("Choose icon..."), QDir::homePath(), fileTypes);
-    if (path.isEmpty()) {
-        return;
+    if (!icon.isNull()) {
+        setIcon(icon);
     }
-
-    setIcon(QIcon(path));
 }

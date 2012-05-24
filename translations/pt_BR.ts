@@ -537,6 +537,10 @@
         <source>Add Subfolder</source>
         <translation>Adicionar subpasta</translation>
     </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -1197,11 +1201,11 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>Escolha icon...</translation>
+        <translation type="obsolete">Escolha icon...</translation>
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>Adicionar do arquivo...</translation>
+        <translation type="obsolete">Adicionar do arquivo...</translation>
     </message>
     <message>
         <source>Shortcut:</source>
@@ -1213,7 +1217,11 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation>Imagens</translation>
+        <translation type="obsolete">Imagens</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1469,6 +1477,37 @@ não foi encontrado!</translation>
     <message>
         <source>Remove</source>
         <translation type="unfinished">Remover</translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">Escolha icon...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">Imagens</translation>
     </message>
 </context>
 <context>

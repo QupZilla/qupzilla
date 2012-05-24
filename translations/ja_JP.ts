@@ -546,6 +546,10 @@
         <source>Bookmark All Tabs</source>
         <translation>全てのタブをブックマークする</translation>
     </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -1228,15 +1232,19 @@
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>ファイルから追加する...</translation>
+        <translation type="obsolete">ファイルから追加する...</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>アイコンを選択する...</translation>
+        <translation type="obsolete">アイコンを選択する...</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation>画像ファイル</translation>
+        <translation type="obsolete">画像ファイル</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1484,6 +1492,37 @@
     <message>
         <source>Remove</source>
         <translation>削除</translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">アイコンを選択する...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished">ファイルの選択...</translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">画像ファイル</translation>
     </message>
 </context>
 <context>

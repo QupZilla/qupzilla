@@ -52,7 +52,7 @@ void Menu::mouseReleaseEvent(QMouseEvent* e)
         return;
     }
 
-    if (e->button() == Qt::LeftButton && e->modifiers() == Qt::NoModifier) {
+    if ((e->button() == Qt::LeftButton || e->button() == Qt::RightButton) && e->modifiers() == Qt::NoModifier) {
         closeAllMenus();
         act->trigger();
         e->accept();

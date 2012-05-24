@@ -177,7 +177,8 @@ SOURCES += \
     history/historymodel.cpp \
     history/historyview.cpp \
     history/historyitem.cpp \
-    tools/headerview.cpp
+    tools/headerview.cpp \
+    other/iconchooser.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -326,7 +327,8 @@ HEADERS  += \
     history/historymodel.h \
     history/historyview.h \
     history/historyitem.h \
-    tools/headerview.h
+    tools/headerview.h \
+    other/iconchooser.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -367,7 +369,8 @@ FORMS    += \
     opensearch/searchenginesdialog.ui \
     opensearch/editsearchengine.ui \
     bookmarksimport/bookmarksimportdialog.ui \
-    other/checkboxdialog.ui
+    other/checkboxdialog.ui \
+    other/iconchooser.ui
 
 RESOURCES += \
     data/icons.qrc \

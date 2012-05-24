@@ -315,7 +315,6 @@ void TabWidget::closeTab(int index)
         index = currentIndex();
     }
 
-
     WebTab* webTab = weTab(index);
     if (!webTab) {
         return;

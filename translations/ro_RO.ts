@@ -537,6 +537,10 @@
         <source>Bookmark All Tabs</source>
         <translation>Adaugă semn de carte pentru toate tab-urile</translation>
     </message>
+    <message>
+        <source>Change icon</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarksModel</name>
@@ -1205,15 +1209,19 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation>Adaugă din fișier ...</translation>
+        <translation type="obsolete">Adaugă din fișier ...</translation>
     </message>
     <message>
         <source>Choose icon...</source>
-        <translation>Alege iconiță...</translation>
+        <translation type="obsolete">Alege iconiță...</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation>Fișiere imagine</translation>
+        <translation type="obsolete">Fișiere imagine</translation>
+    </message>
+    <message>
+        <source>Change...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1469,6 +1477,37 @@ nu a putut fi găsit!</translation>
     <message>
         <source>Remove</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>IconChooser</name>
+    <message>
+        <source>Choose icon...</source>
+        <translation type="unfinished">Alege iconiță...</translation>
+    </message>
+    <message>
+        <source>From file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image (.png, .jpg, .jpeg, .gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose file...</source>
+        <translation type="unfinished">Alege fișier...</translation>
+    </message>
+    <message>
+        <source>From database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Site Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation type="unfinished">Fișiere imagine</translation>
     </message>
 </context>
 <context>
