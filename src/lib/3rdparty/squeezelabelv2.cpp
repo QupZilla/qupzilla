@@ -85,3 +85,32 @@ void SqueezeLabelV2::resizeEvent(QResizeEvent* event)
     QString elided = fm.elidedText(m_originalText, Qt::ElideMiddle, width());
     QLabel::setText(elided);
 }
+
+void SqueezeLabelV2::mousePressEvent(QMouseEvent* event)
+{
+    if (event->buttons() & Qt::LeftButton) {
+        m_dragStart = event->pos();
+    }
+
+    QLabel::mousePressEvent(event);
+}
+
+void SqueezeLabelV2::mouseMoveEvent(QMouseEvent* event)
+{
+    if (!(event->buttons() & Qt::LeftButton) || selectedText().length() != text().length()) {
+        QLabel::mouseMoveEvent(event);
+        return;
+    }
+
+    int manhattanLength = (event->pos() - m_dragStart).manhattanLength();
+    if (manhattanLength <= QApplication::startDragDistance()) {
+        return;
+    }
+
+    QDrag* drag = new QDrag(this);
+    QMimeData* mime = new QMimeData;
+    mime->setText(m_originalText);
+
+    drag->setMimeData(mime);
+    drag->exec();
+}
