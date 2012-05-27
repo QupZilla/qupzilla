@@ -384,7 +384,7 @@ bool WebPage::event(QEvent* event)
             // Left on left
             mousePos = QPoint(-1, cursorPos.y());
         }
-        else if(cursorPos.y() > view()->height()) {
+        else if (cursorPos.y() > view()->height()) {
             // Left on bottom
             mousePos = QPoint(cursorPos.x(), view()->height() + 1);
         }

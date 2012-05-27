@@ -47,6 +47,8 @@ public:
 
     void disconnectObjects();
 
+    void wheelEvent(QWheelEvent* event);
+
 signals:
     void reloadTab(int index);
     void stopTab(int index);
@@ -82,7 +84,6 @@ private:
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
-    void wheelEvent(QWheelEvent* event);
     bool event(QEvent* event);
 
     void dragEnterEvent(QDragEnterEvent* event);

@@ -36,6 +36,7 @@
 #include <QMenu>
 #include <QStackedWidget>
 #include <QWebHistory>
+#include <QClipboard>
 #include <QFile>
 
 AddTabButton::AddTabButton(TabWidget* tabWidget, TabBar* tabBar)
@@ -48,6 +49,25 @@ AddTabButton::AddTabButton(TabWidget* tabWidget, TabBar* tabBar)
     setFocusPolicy(Qt::NoFocus);
     setAcceptDrops(true);
     setToolTip(TabWidget::tr("New Tab"));
+}
+
+void AddTabButton::wheelEvent(QWheelEvent* event)
+{
+    m_tabBar->wheelEvent(event);
+}
+
+void AddTabButton::mouseReleaseEvent(QMouseEvent* event)
+{
+    if (event->button() == Qt::MiddleButton && rect().contains(event->pos())) {
+        QString selectionClipboard = QApplication::clipboard()->text(QClipboard::Selection);
+        QUrl guessedUrl = WebView::guessUrlFromString(selectionClipboard);
+
+        if (!guessedUrl.isEmpty()) {
+            m_tabWidget->addView(guessedUrl, Qz::NT_SelectedTabAtTheEnd);
+        }
+    }
+
+    ToolButton::mouseReleaseEvent(event);
 }
 
 void AddTabButton::dragEnterEvent(QDragEnterEvent* event)
