@@ -19,6 +19,7 @@
 
 #include <QByteArray>
 #include <QPixmap>
+#include <QPainter>
 #include <QBuffer>
 #include <QFile>
 #include <QDir>
@@ -259,6 +260,42 @@ QString qz_alignTextToWidth(const QString &string, const QString &text, const QF
     }
 
     return returnString;
+}
+
+QPixmap qz_createPixmapForSite(const QIcon &icon, const QString &title, const QString &url)
+{
+    const QFontMetrics fontMetrics = QApplication::fontMetrics();
+    const int padding = 4;
+    const int maxWidth = fontMetrics.width(title.length() > url.length() ? title : url) + 3 * padding + 16;
+
+    const int width = qMin(maxWidth, 150);
+    const int height = fontMetrics.height() * 2 + fontMetrics.leading() + 2 * padding;
+
+    QPixmap pixmap(width, height);
+    QPainter painter(&pixmap);
+
+    // Draw background
+    QPen pen(Qt::black);
+    pen.setWidth(1);
+    painter.setPen(pen);
+
+    painter.fillRect(QRect(0, 0, width, height), Qt::white);
+    painter.drawRect(0, 0, width - 1, height - 1);
+
+    // Draw icon
+    QRect iconRect(0, 0, 16 + 2 * padding, height);
+    icon.paint(&painter, iconRect);
+
+    // Draw title
+    QRect titleRect(iconRect.width(), padding, width - padding - iconRect.width(), fontMetrics.height());
+    painter.drawText(titleRect, fontMetrics.elidedText(title, Qt::ElideRight, titleRect.width()));
+
+    // Draw url
+    QRect urlRect(titleRect.x(), titleRect.bottom() + fontMetrics.leading(), titleRect.width(), titleRect.height());
+    painter.setPen(QApplication::palette().color(QPalette::Link));
+    painter.drawText(urlRect, fontMetrics.elidedText(url, Qt::ElideRight, urlRect.width()));
+
+    return pixmap;
 }
 
 QString qz_buildSystem()

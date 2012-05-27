@@ -56,6 +56,7 @@ WebSearchBar::WebSearchBar(QupZilla* mainClass, QWidget* parent)
     , m_reloadingEngines(false)
 {
     setObjectName("websearchbar");
+    setDragEnabled(true);
 
     m_buttonSearch = new WebSearchBar_Button(this);
 

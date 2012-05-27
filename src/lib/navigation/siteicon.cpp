@@ -18,6 +18,7 @@
 #include "siteicon.h"
 #include "locationbar.h"
 #include "tabbedwebview.h"
+#include "globalfunctions.h"
 
 #include <QApplication>
 
@@ -41,7 +42,7 @@ void SiteIcon::contextMenuEvent(QContextMenuEvent* e)
 void SiteIcon::mousePressEvent(QMouseEvent* e)
 {
     if (e->buttons() & Qt::LeftButton) {
-        m_dragStartPosition = mapFromGlobal(e->globalPos());
+        m_dragStartPosition = e->pos();
     }
 
     // Prevent propagating to LocationBar
@@ -53,6 +54,7 @@ void SiteIcon::mousePressEvent(QMouseEvent* e)
 void SiteIcon::mouseMoveEvent(QMouseEvent* e)
 {
     if (!m_locationBar || !(e->buttons() & Qt::LeftButton)) {
+        ToolButton::mouseMoveEvent(e);
         return;
     }
 
@@ -62,14 +64,17 @@ void SiteIcon::mouseMoveEvent(QMouseEvent* e)
         return;
     }
 
+    QUrl url = m_locationBar->webView()->url();
+    QString title = m_locationBar->webView()->title();
+
     QDrag* drag = new QDrag(this);
     QMimeData* mime = new QMimeData;
-    mime->setUrls(QList<QUrl>() << m_locationBar->webView()->url());
-    mime->setText(m_locationBar->webView()->title());
+    mime->setUrls(QList<QUrl>() << url);
+    mime->setText(title);
     mime->setImageData(icon().pixmap(16, 16).toImage());
 
     drag->setMimeData(mime);
-    drag->setPixmap(icon().pixmap(16, 16));
+    drag->setPixmap(qz_createPixmapForSite(icon(), title, url.toString()));
 
     drag->exec();
 }
