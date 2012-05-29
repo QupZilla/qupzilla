@@ -636,7 +636,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="290"/>
         <source>Change icon</source>
-        <translation type="unfinished"></translation>
+        <translation>更換圖示</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="596"/>
@@ -1546,19 +1546,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="97"/>
         <source>Change...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add from file ...</source>
-        <translation type="obsolete">從檔案新增...</translation>
-    </message>
-    <message>
-        <source>Image files</source>
-        <translation type="obsolete">影像檔案</translation>
-    </message>
-    <message>
-        <source>Choose icon...</source>
-        <translation type="obsolete">選擇圖示...</translation>
+        <translation>更換...</translation>
     </message>
 </context>
 <context>
@@ -1636,15 +1624,7 @@
         <source>History</source>
         <translation>歷史</translation>
     </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">標題</translation>
-    </message>
-    <message>
-        <source>Url</source>
-        <translation type="obsolete">網址</translation>
-    </message>
-    <message>
+     <message>
         <location filename="../src/lib/history/historymanager.ui" line="20"/>
         <source>Delete</source>
         <translation>刪除</translation>
@@ -1660,30 +1640,6 @@
         <translation>最佳化資料庫</translation>
     </message>
     <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">在目前分頁中開啟連結</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">在新分頁中開啟連結</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">複製位址</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">今日</translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="obsolete">本週</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">本月</translation>
-    </message>
-    <message>
         <location filename="../src/lib/history/historymanager.cpp" line="74"/>
         <source>Confirmation</source>
         <translation>確認</translation>
@@ -1696,58 +1652,6 @@
 </context>
 <context>
     <name>HistoryModel</name>
-    <message>
-        <source>No Named Page</source>
-        <translation type="obsolete">未命名頁面</translation>
-    </message>
-    <message>
-        <source>January</source>
-        <translation type="obsolete">一月</translation>
-    </message>
-    <message>
-        <source>February</source>
-        <translation type="obsolete">二月</translation>
-    </message>
-    <message>
-        <source>March</source>
-        <translation type="obsolete">三月</translation>
-    </message>
-    <message>
-        <source>April</source>
-        <translation type="obsolete">四月</translation>
-    </message>
-    <message>
-        <source>May</source>
-        <translation type="obsolete">五月</translation>
-    </message>
-    <message>
-        <source>June</source>
-        <translation type="obsolete">六月</translation>
-    </message>
-    <message>
-        <source>July</source>
-        <translation type="obsolete">七月</translation>
-    </message>
-    <message>
-        <source>August</source>
-        <translation type="obsolete">八月</translation>
-    </message>
-    <message>
-        <source>September</source>
-        <translation type="obsolete">九月</translation>
-    </message>
-    <message>
-        <source>October</source>
-        <translation type="obsolete">十月</translation>
-    </message>
-    <message>
-        <source>November</source>
-        <translation type="obsolete">十一月</translation>
-    </message>
-    <message>
-        <source>December</source>
-        <translation type="obsolete">十二月</translation>
-    </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="56"/>
         <source>Title</source>
@@ -1792,34 +1696,6 @@
         <source>Search...</source>
         <translation>搜尋...</translation>
     </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">標題</translation>
-    </message>
-    <message>
-        <source>Open link in current tab</source>
-        <translation type="obsolete">在目前分頁中開啟連結</translation>
-    </message>
-    <message>
-        <source>Open link in new tab</source>
-        <translation type="obsolete">在新分頁中開啟連結</translation>
-    </message>
-    <message>
-        <source>Copy address</source>
-        <translation type="obsolete">複製位址</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation type="obsolete">今日</translation>
-    </message>
-    <message>
-        <source>This Week</source>
-        <translation type="obsolete">本週</translation>
-    </message>
-    <message>
-        <source>This Month</source>
-        <translation type="obsolete">本月</translation>
-    </message>
 </context>
 <context>
     <name>HistoryView</name>
@@ -1855,37 +1731,37 @@
         <location filename="../src/lib/other/iconchooser.ui" line="14"/>
         <location filename="../src/lib/other/iconchooser.cpp" line="39"/>
         <source>Choose icon...</source>
-        <translation type="unfinished">選擇圖示...</translation>
+        <translation>選擇圖示...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="20"/>
         <source>From file</source>
-        <translation type="unfinished"></translation>
+        <translation>從檔案</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="29"/>
         <source>Image (.png, .jpg, .jpeg, .gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>影像(.png, .jpg, .jpeg, .gif)</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="42"/>
         <source>Choose file...</source>
-        <translation type="unfinished">選擇檔案...</translation>
+        <translation>選擇檔案...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="52"/>
         <source>From database</source>
-        <translation type="unfinished"></translation>
+        <translation>從資料庫</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="61"/>
         <source>Site Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>網站位址:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.cpp" line="38"/>
         <source>Image files</source>
-        <translation type="unfinished">影像檔案</translation>
+        <translation>影像檔案</translation>
     </message>
 </context>
 <context>
@@ -2820,15 +2696,7 @@
         <source>&lt;b&gt;SSL Certificates&lt;/b&gt;</source>
         <translation>&lt;b&gt;SSL 憑證&lt;/b&gt;</translation>
     </message>
-    <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">SSL 管理員</translation>
-    </message>
-    <message>
-        <source>Edit CA certificates in SSL Manager</source>
-        <translation type="obsolete">在 SSL 管理員中編輯 CA 憑證</translation>
-    </message>
-    <message>
+     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1856"/>
         <location filename="../src/lib/preferences/preferences.ui" line="2115"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
@@ -4038,10 +3906,6 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 </context>
 <context>
     <name>SSLManager</name>
-    <message>
-        <source>SSL Manager</source>
-        <translation type="obsolete">SSL 管理員</translation>
-    </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="24"/>
         <source>CA Authorities Certificates</source>
