@@ -95,6 +95,7 @@ protected slots:
     void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
     void showSiteInfo();
     void searchSelectedText();
+    void searchSelectedTextInBackgroundTab();
     void bookmarkLink();
     void showSourceOfSelection();
     void openUrlInSelectedTab();
