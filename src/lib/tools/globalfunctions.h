@@ -22,6 +22,7 @@
 
 class QFontMetrics;
 class QPixmap;
+class QIcon;
 class QWidget;
 class QUrl;
 
@@ -45,6 +46,8 @@ QString QT_QUPZILLA_EXPORT qz_getFileNameFromUrl(const QUrl &url);
 QString QT_QUPZILLA_EXPORT qz_filterCharsFromFilename(const QString &name);
 
 QString QT_QUPZILLA_EXPORT qz_alignTextToWidth(const QString &string, const QString &text, const QFontMetrics &metrics, int width);
+
+QPixmap QT_QUPZILLA_EXPORT qz_createPixmapForSite(const QIcon &icon, const QString &title, const QString &url);
 
 QString QT_QUPZILLA_EXPORT qz_buildSystem();
 

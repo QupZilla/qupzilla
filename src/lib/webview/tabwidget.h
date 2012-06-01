@@ -41,6 +41,8 @@ public:
     explicit AddTabButton(TabWidget* tabWidget, TabBar* tabBar);
 
 private:
+    void wheelEvent(QWheelEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
     void dragEnterEvent(QDragEnterEvent* event);
     void dropEvent(QDropEvent* event);
 

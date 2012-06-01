@@ -50,6 +50,7 @@ LocationBar::LocationBar(QupZilla* mainClass)
     , m_holdingAlt(false)
 {
     setObjectName("locationbar");
+    setDragEnabled(true);
 
     m_bookmarkIcon = new BookmarkIcon(p_QupZilla);
     m_goIcon = new GoIcon(this);

@@ -41,8 +41,12 @@ protected:
     void keyPressEvent(QKeyEvent* event);
     void resizeEvent(QResizeEvent* event);
 
+    void mousePressEvent(QMouseEvent* event);
+    void mouseMoveEvent(QMouseEvent* event);
+
 private:
     QString m_originalText;
+    QPoint m_dragStart;
 };
 
 #endif // SQUEEZELABELV2_H
