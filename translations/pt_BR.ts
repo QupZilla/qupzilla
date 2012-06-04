@@ -539,7 +539,7 @@
     </message>
     <message>
         <source>Change icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Mudar ícone</translation>
     </message>
 </context>
 <context>
@@ -1221,62 +1221,62 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Change...</source>
-        <translation type="unfinished"></translation>
+        <translation>Alterar...</translation>
     </message>
 </context>
 <context>
     <name>History</name>
     <message>
         <source>No Named Page</source>
-        <translation type="unfinished">Página sem nome</translation>
+        <translation>Página sem nome</translation>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished">Janeiro</translation>
+        <translation>Janeiro</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished">Fevereiro</translation>
+        <translation>Fevereiro</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished">Março</translation>
+        <translation>Março</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished">Abril</translation>
+        <translation>Abril</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished">Maio</translation>
+        <translation>Maio</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished">Junho</translation>
+        <translation>Junho</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished">Julho</translation>
+        <translation>Julho</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished">Agosto</translation>
+        <translation>Agosto</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished">Setembro</translation>
+        <translation>Setembro</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished">Outubro</translation>
+        <translation>Outubro</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished">Novembro</translation>
+        <translation>Novembro</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished">Dezembro</translation>
+        <translation>Dezembro</translation>
     </message>
 </context>
 <context>
@@ -1394,31 +1394,31 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished">Título</translation>
+        <translation>Título</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Endereço</translation>
     </message>
     <message>
         <source>Visit Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Data de visita</translation>
     </message>
     <message>
         <source>Visit Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Contador de visitas</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished">Hoje</translation>
+        <translation>Hoje</translation>
     </message>
     <message>
         <source>This Week</source>
-        <translation type="unfinished">Esta semana</translation>
+        <translation>Esta semana</translation>
     </message>
     <message>
         <source>This Month</source>
-        <translation type="unfinished">Este mês</translation>
+        <translation>Este mês</translation>
     </message>
 </context>
 <context>
@@ -1460,54 +1460,54 @@ não foi encontrado!</translation>
     <name>HistoryView</name>
     <message>
         <source>Open link in current tab</source>
-        <translation type="unfinished">Abrir link na guia atual</translation>
+        <translation>Abrir link na guia atual</translation>
     </message>
     <message>
         <source>Open link in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir link em uma nova guia</translation>
     </message>
     <message>
         <source>Copy title</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar título</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished">Copiar endereço</translation>
+        <translation>Copiar endereço</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Remover</translation>
+        <translation>Remover</translation>
     </message>
 </context>
 <context>
     <name>IconChooser</name>
     <message>
         <source>Choose icon...</source>
-        <translation type="unfinished">Escolha icon...</translation>
+        <translation>Escolher ícone...</translation>
     </message>
     <message>
         <source>From file</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolher do seu computador</translation>
     </message>
     <message>
         <source>Image (.png, .jpg, .jpeg, .gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem (.png, .jpg, .jpeg, .gif)</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolher arquivo...</translation>
     </message>
     <message>
         <source>From database</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolher do banco de dados</translation>
     </message>
     <message>
         <source>Site Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished">Imagens</translation>
+        <translation>Imagens</translation>
     </message>
 </context>
 <context>
@@ -2365,19 +2365,19 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Show tab previews</source>
-        <translation type="unfinished"></translation>
+        <translation>Pré visualizar guias</translation>
     </message>
     <message>
         <source>Make tab previews animated</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir animação</translation>
     </message>
     <message>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerenciador de Certificados</translation>
     </message>
     <message>
         <source>Manage CA certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerenciar certificados de autoridade</translation>
     </message>
 </context>
 <context>
@@ -3279,15 +3279,15 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerenciador de Certificados</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar</translation>
     </message>
     <message>
         <source>Import certificate...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar certificado...</translation>
     </message>
 </context>
 <context>
@@ -4002,15 +4002,15 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Memorizar minha escolha para esse protocolo</translation>
     </message>
     <message>
         <source>External Protocol Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Pedido de protocolo adicional</translation>
     </message>
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"></translation>
+        <translation>O QupZilla não consegue entender &lt;b&gt;%1&lt;/b&gt; links. Quem está pedindo é/são: &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;. Você deseja que o QupZilla tente abrir esses links nos aplicativos do sistema? </translation>
     </message>
 </context>
 <context>
