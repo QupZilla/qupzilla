@@ -668,7 +668,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="290"/>
         <source>Change icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar icono</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="291"/>
@@ -1397,7 +1397,7 @@
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Lo siento, el archivo %1 no se encontro!</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="398"/>
@@ -1548,7 +1548,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="97"/>
         <source>Change...</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar...</translation>
     </message>
     <message>
         <source>Add from file ...</source>
@@ -1568,67 +1568,67 @@
     <message>
         <location filename="../src/lib/history/history.cpp" line="75"/>
         <source>No Named Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagina sin nombre</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="262"/>
         <source>January</source>
-        <translation type="unfinished">Enero</translation>
+        <translation>Enero</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="264"/>
         <source>February</source>
-        <translation type="unfinished">Febrero</translation>
+        <translation>Febrero</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="266"/>
         <source>March</source>
-        <translation type="unfinished">Marzo</translation>
+        <translation>Marzo</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="268"/>
         <source>April</source>
-        <translation type="unfinished">Abril</translation>
+        <translation>Abril</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="270"/>
         <source>May</source>
-        <translation type="unfinished">Mayo</translation>
+        <translation>Mayo</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="272"/>
         <source>June</source>
-        <translation type="unfinished">Junio</translation>
+        <translation>Junio</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="274"/>
         <source>July</source>
-        <translation type="unfinished">Julio</translation>
+        <translation>Julio</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="276"/>
         <source>August</source>
-        <translation type="unfinished">Agosto</translation>
+        <translation>Agosto</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="278"/>
         <source>September</source>
-        <translation type="unfinished">Septiembre</translation>
+        <translation>Septiembre</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="280"/>
         <source>October</source>
-        <translation type="unfinished">Octubre</translation>
+        <translation>Octubre</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="282"/>
         <source>November</source>
-        <translation type="unfinished">Noviembre</translation>
+        <translation>Noviembre</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="284"/>
         <source>December</source>
-        <translation type="unfinished">Diciembre</translation>
+        <translation>Diciembre</translation>
     </message>
 </context>
 <context>
@@ -1753,38 +1753,38 @@
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="56"/>
         <source>Title</source>
-        <translation type="unfinished">Nombre</translation>
+        <translation>Titulo</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="58"/>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Direccion</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="60"/>
         <source>Visit Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Visitado</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="62"/>
         <source>Visit Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Visitas</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="316"/>
         <location filename="../src/lib/history/historymodel.cpp" line="444"/>
         <source>Today</source>
-        <translation type="unfinished">Hoy</translation>
+        <translation>Hoy</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="449"/>
         <source>This Week</source>
-        <translation type="unfinished">Esta semana</translation>
+        <translation>Esta semana</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="454"/>
         <source>This Month</source>
-        <translation type="unfinished">Este mes</translation>
+        <translation>Este mes</translation>
     </message>
 </context>
 <context>
@@ -1828,27 +1828,27 @@
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="151"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished">Abrir enlace en la pestaña actual</translation>
+        <translation>Abrir enlace en la pestaña actual</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="152"/>
         <source>Open link in new tab</source>
-        <translation type="unfinished">Abrir enlace en una nueva pestaña</translation>
+        <translation>Abrir enlace en una nueva pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="154"/>
         <source>Copy title</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar titulo</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="155"/>
         <source>Copy address</source>
-        <translation type="unfinished">Copiar dirección</translation>
+        <translation>Copiar dirección</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="157"/>
         <source>Remove</source>
-        <translation type="unfinished">Eliminar</translation>
+        <translation>Eliminar</translation>
     </message>
 </context>
 <context>
@@ -1857,37 +1857,37 @@
         <location filename="../src/lib/other/iconchooser.ui" line="14"/>
         <location filename="../src/lib/other/iconchooser.cpp" line="39"/>
         <source>Choose icon...</source>
-        <translation type="unfinished">Elegir icono...</translation>
+        <translation>Elegir icono...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="20"/>
         <source>From file</source>
-        <translation type="unfinished"></translation>
+        <translation>Desde archivo</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="29"/>
         <source>Image (.png, .jpg, .jpeg, .gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>Image (.png, .jpg, .jpeg, .gif)</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="42"/>
         <source>Choose file...</source>
-        <translation type="unfinished">Elegir archivo...</translation>
+        <translation>Elegir archivo...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="52"/>
         <source>From database</source>
-        <translation type="unfinished"></translation>
+        <translation>Desde base de datos</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="61"/>
         <source>Site Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.cpp" line="38"/>
         <source>Image files</source>
-        <translation type="unfinished">Archivos de imagenes</translation>
+        <translation>Archivos de imagenes</translation>
     </message>
 </context>
 <context>
@@ -2514,12 +2514,12 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="645"/>
         <source>Show tab previews</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar previsualizaciones</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="766"/>
         <source>Make tab previews animated</source>
-        <translation type="unfinished"></translation>
+        <translation>Previsualizaciones animadas</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
@@ -2697,7 +2697,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Manejador de certificados</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1955"/>
@@ -2801,7 +2801,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
         <source>Manage CA certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Manejar certificados CA</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1925"/>
@@ -3236,7 +3236,8 @@
         <location filename="../src/lib/app/qupzilla.cpp" line="1790"/>
         <source>There are still %1 open tabs and your session won&apos;t be stored. 
 Are you sure to quit QupZilla?</source>
-        <translation type="unfinished"></translation>
+        <translation>Todavia estan %1 pestañas abiertas en tu sesion sin guardar. 
+Estas seguro de quitar Qupzilla?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="375"/>
@@ -4064,7 +4065,7 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="79"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="115"/>
@@ -4096,7 +4097,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="14"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Menjador de Certificados</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="106"/>
@@ -4127,7 +4128,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="134"/>
         <source>Import certificate...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar certificado...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="165"/>
@@ -4881,23 +4882,24 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="303"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla no supo manejar &lt;b&gt;%1:&lt;/b&gt; de enlaces. Se pidio el enlace &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;. Quiere que Qupzilla intente abrir este tipo de enlaces en aplicaciones del sistema?</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="308"/>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Recordar mi eleccion para este protocolo</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="309"/>
         <source>External Protocol Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Peticion de Protocolo externo</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="413"/>
         <source>To show this page, QupZilla must resend request which do it again 
 (like searching on making an shoping, which has been already done.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Para mostrar esta pagina, QupZilla debe reenviar los datos nuevamente 
+(asi como una compra previa, la cual ha sido completada.)</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="415"/>
@@ -5294,7 +5296,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="93"/>
         <source>No Named Page</source>
-        <translation>Página en blanco</translation>
+        <translation>Pagina sin nombre</translation>
     </message>
 </context>
 <context>
