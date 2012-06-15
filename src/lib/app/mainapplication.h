@@ -93,7 +93,7 @@ public:
     DownloadManager* downManager();
     AutoFillModel* autoFill();
     SearchEnginesManager* searchEnginesManager();
-    QNetworkDiskCache* networkCache() { return m_networkCache; }
+    QNetworkDiskCache* networkCache();
     DesktopNotificationsFactory* desktopNotifications();
     DatabaseWriter* dbWriter() { return m_dbWriter; }
 

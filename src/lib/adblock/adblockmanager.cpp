@@ -93,7 +93,7 @@ AdBlockPage* AdBlockManager::page()
     return m_adBlockPage;
 }
 
-AdBlockSubscription *AdBlockManager::subscription()
+AdBlockSubscription* AdBlockManager::subscription()
 {
     return m_subscriptions.at(0);
 }
@@ -109,7 +109,7 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
 
     const AdBlockRule* blockedRule = 0;
 
-    foreach (AdBlockSubscription* subscription, m_subscriptions) {
+    foreach(AdBlockSubscription * subscription, m_subscriptions) {
         if (subscription->allow(urlString)) {
             return 0;
         }

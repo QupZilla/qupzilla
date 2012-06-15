@@ -67,7 +67,7 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
     connect(this, SIGNAL(sslErrors(QNetworkReply*, QList<QSslError>)), this, SLOT(sslError(QNetworkReply*, QList<QSslError>)));
     connect(this, SIGNAL(finished(QNetworkReply*)), this, SLOT(setSSLConfiguration(QNetworkReply*)));
 
-    m_schemeHandlers["qupzilla"] = new QupZillaSchemeHandler;
+    m_schemeHandlers["qupzilla"] = new QupZillaSchemeHandler();
 
     m_proxyFactory = new NetworkProxyFactory();
     setProxyFactory(m_proxyFactory);
@@ -80,10 +80,9 @@ void NetworkManager::loadSettings()
     settings.beginGroup("Web-Browser-Settings");
 
     if (settings.value("AllowLocalCache", true).toBool()) {
-        m_diskCache = mApp->networkCache();
-        m_diskCache->setCacheDirectory(mApp->currentProfilePath() + "/networkcache");
-        m_diskCache->setMaximumCacheSize(settings.value("MaximumCacheSize", 50).toInt() * 1024 * 1024); //MegaBytes
-        setCache(m_diskCache);
+        QNetworkDiskCache* cache = mApp->networkCache();
+        cache->setMaximumCacheSize(settings.value("MaximumCacheSize", 50).toInt() * 1024 * 1024); //MegaBytes
+        setCache(cache);
     }
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
     m_sendReferer = settings.value("SendReferer", true).toBool();

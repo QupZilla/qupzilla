@@ -24,8 +24,6 @@
 #include "qz_namespace.h"
 #include "networkmanagerproxy.h"
 
-class QNetworkDiskCache;
-
 class QupZilla;
 class AdBlockManager;
 class NetworkProxyFactory;
@@ -72,7 +70,6 @@ private slots:
 private:
     AdBlockManager* m_adblockManager;
     QupZilla* p_QupZilla;
-    QNetworkDiskCache* m_diskCache;
     NetworkProxyFactory* m_proxyFactory;
 
     QStringList m_certPaths;
