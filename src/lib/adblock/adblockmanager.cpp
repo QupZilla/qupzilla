@@ -162,6 +162,7 @@ void AdBlockManager::rulesUpdated()
     Settings settings;
     settings.beginGroup("AdBlock");
     settings.setValue("lastUpdate", QDateTime::currentDateTime());
+    settings.endGroup();
 
     emit rulesChanged();
 }
