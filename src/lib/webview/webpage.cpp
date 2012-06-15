@@ -510,8 +510,8 @@ QString WebPage::userAgentForUrl(const QUrl &url) const
 {
     const QString &host = url.host();
 
-    // Let Google services (and Facebook) play nice with us
-    if (host.contains("google") || host.contains("facebook")) {
+    // Let Google services play nice with us
+    if (host.contains("google")) {
         if (s_fakeUserAgent.isEmpty()) {
             s_fakeUserAgent = QString("Mozilla/5.0 (%1) AppleWebKit/%2 (KHTML, like Gecko) Chrome/10.0 Safari/%2").arg(qz_buildSystem(), QupZilla::WEBKITVERSION);
         }
