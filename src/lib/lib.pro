@@ -91,7 +91,6 @@ SOURCES += \
     adblock/adblocksubscription.cpp \
     adblock/adblockrule.cpp \
     adblock/adblockpage.cpp \
-    adblock/adblocknetwork.cpp \
     adblock/adblockmanager.cpp \
     adblock/adblockdialog.cpp \
     adblock/adblockblockednetworkreply.cpp \
@@ -238,7 +237,6 @@ HEADERS  += \
     adblock/adblocksubscription.h \
     adblock/adblockrule.h \
     adblock/adblockpage.h \
-    adblock/adblocknetwork.h \
     adblock/adblockmanager.h \
     adblock/adblockdialog.h \
     adblock/adblockblockednetworkreply.h \

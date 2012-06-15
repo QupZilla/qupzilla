@@ -23,7 +23,6 @@
 #include "webpage.h"
 #include "pluginproxy.h"
 #include "adblockmanager.h"
-#include "adblocknetwork.h"
 #include "networkproxyfactory.h"
 #include "qupzillaschemehandler.h"
 #include "certificateinfowidget.h"
@@ -59,7 +58,7 @@ QString fileNameForCert(const QSslCertificate &cert)
 
 NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
     : NetworkManagerProxy(parent)
-    , m_adblockNetwork(0)
+    , m_adblockManager(0)
     , p_QupZilla(mainClass)
     , m_ignoreAllWarnings(false)
 {
@@ -348,10 +347,10 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
 
     // Adblock
     if (op == QNetworkAccessManager::GetOperation) {
-        if (!m_adblockNetwork) {
-            m_adblockNetwork = AdBlockManager::instance()->network();
+        if (!m_adblockManager) {
+            m_adblockManager = AdBlockManager::instance();
         }
-        reply = m_adblockNetwork->block(req);
+        reply = m_adblockManager->block(req);
         if (reply) {
             return reply;
         }

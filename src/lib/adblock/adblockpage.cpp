@@ -108,11 +108,11 @@ void AdBlockPage::applyRulesToPage(QWebPage* page)
     }
 
     QString host = page->mainFrame()->url().host();
-    AdBlockSubscription* subscription = manager->subscription();
+//    AdBlockSubscription* subscription = manager->subscription();
 
-    QList<const AdBlockRule*> rules = subscription->pageRules();
-    foreach(const AdBlockRule * rule, rules) {
-        checkRule(rule, page, host);
-    }
+//    QList<const AdBlockRule*> rules = subscription->pageRules();
+//    foreach(const AdBlockRule * rule, rules) {
+//        checkRule(rule, page, host);
+//    }
 }
 

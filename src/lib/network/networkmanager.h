@@ -27,7 +27,7 @@
 class QNetworkDiskCache;
 
 class QupZilla;
-class AdBlockNetwork;
+class AdBlockManager;
 class NetworkProxyFactory;
 class QupZillaSchemeHandler;
 class SchemeHandler;
@@ -70,7 +70,7 @@ private slots:
     void setSSLConfiguration(QNetworkReply* reply);
 
 private:
-    AdBlockNetwork* m_adblockNetwork;
+    AdBlockManager* m_adblockManager;
     QupZilla* p_QupZilla;
     QNetworkDiskCache* m_diskCache;
     NetworkProxyFactory* m_proxyFactory;

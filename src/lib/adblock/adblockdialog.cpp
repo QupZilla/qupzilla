@@ -67,7 +67,7 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
     connect(addButton, SIGNAL(clicked()), this, SLOT(addCustomRule()));
     connect(reloadButton, SIGNAL(clicked()), this, SLOT(updateSubscription()));
     connect(search, SIGNAL(textChanged(QString)), treeWidget, SLOT(filterString(QString)));
-    connect(m_manager->subscription(), SIGNAL(rulesUpdated()), this, SLOT(refreshAfterUpdate()));
+    connect(m_manager, SIGNAL(rulesChanged()), this, SLOT(refreshAfterUpdate()));
     connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
 
 //    QTimer::singleShot(0, this, SLOT(firstRefresh()));

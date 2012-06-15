@@ -44,10 +44,11 @@
  */
 #include "adblockmanager.h"
 #include "adblockdialog.h"
-#include "adblocknetwork.h"
 #include "adblockpage.h"
 #include "adblocksubscription.h"
+#include "adblockblockednetworkreply.h"
 #include "mainapplication.h"
+#include "webpage.h"
 #include "networkmanager.h"
 #include "qupzilla.h"
 #include "settings.h"
@@ -62,7 +63,6 @@ AdBlockManager::AdBlockManager(QObject* parent)
     , m_enabled(true)
     , m_adBlockNetwork(0)
     , m_adBlockPage(0)
-    , m_subscription(0)
 {
 }
 
@@ -85,20 +85,52 @@ void AdBlockManager::setEnabled(bool enabled)
     mApp->sendMessages(Qz::AM_SetAdBlockIconEnabled, enabled);
 }
 
-AdBlockNetwork* AdBlockManager::network()
-{
-    if (!m_adBlockNetwork) {
-        m_adBlockNetwork = new AdBlockNetwork(this);
-    }
-    return m_adBlockNetwork;
-}
-
 AdBlockPage* AdBlockManager::page()
 {
     if (!m_adBlockPage) {
         m_adBlockPage = new AdBlockPage(this);
     }
     return m_adBlockPage;
+}
+
+AdBlockSubscription *AdBlockManager::subscription()
+{
+    return m_subscriptions.at(0);
+}
+
+QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
+{
+    const QString &urlString = request.url().toEncoded();
+    const QString &urlScheme = request.url().scheme();
+
+    if (!isEnabled() || urlScheme == "data" || urlScheme == "qrc" || urlScheme == "file" || urlScheme == "qupzilla") {
+        return 0;
+    }
+
+    const AdBlockRule* blockedRule = 0;
+
+    foreach (AdBlockSubscription* subscription, m_subscriptions) {
+        if (subscription->allow(urlString)) {
+            return 0;
+        }
+
+        if (const AdBlockRule* rule = subscription->block(urlString)) {
+            blockedRule = rule;
+        }
+
+        if (blockedRule) {
+            QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
+            WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
+            if (WebPage::isPointerSafeToUse(webPage)) {
+                webPage->addAdBlockRule(blockedRule->filter(), request.url());
+            }
+
+            AdBlockBlockedNetworkReply* reply = new AdBlockBlockedNetworkReply(request, blockedRule, this);
+            return reply;
+        }
+    }
+
+    return 0;
 }
 
 void AdBlockManager::load()
@@ -114,12 +146,14 @@ void AdBlockManager::load()
     QDateTime lastUpdate = settings.value("lastUpdate", QDateTime()).toDateTime();
     settings.endGroup();
 
-    m_subscription = new AdBlockSubscription();
-    connect(m_subscription, SIGNAL(rulesChanged()), this, SIGNAL(rulesChanged()));
-    connect(m_subscription, SIGNAL(rulesUpdated()), this, SLOT(rulesUpdated()));
+    AdBlockSubscription* easyList = new AdBlockSubscription();
+    connect(easyList, SIGNAL(rulesChanged()), this, SIGNAL(rulesChanged()));
+    connect(easyList, SIGNAL(rulesUpdated()), this, SLOT(rulesUpdated()));
+
+    m_subscriptions.append(easyList);
 
     if (lastUpdate.addDays(3) < QDateTime::currentDateTime()) {
-        m_subscription->scheduleUpdate();
+        easyList->scheduleUpdate();
     }
 }
 
@@ -137,7 +171,8 @@ void AdBlockManager::save()
     if (!m_loaded) {
         return;
     }
-    m_subscription->saveRules();
+
+    subscription()->saveRules();
 
     Settings settings;
     settings.beginGroup(QLatin1String("AdBlock"));
