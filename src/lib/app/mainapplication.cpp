@@ -76,7 +76,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_bookmarksModel(0)
     , m_downloadManager(0)
     , m_autofill(0)
-    , m_networkCache(new QNetworkDiskCache(this))
+    , m_networkCache(0)
     , m_desktopNotifications(0)
     , m_searchEnginesManager(0)
     , m_dbWriter(new DatabaseWriter(this))
@@ -710,6 +710,16 @@ SearchEnginesManager* MainApplication::searchEnginesManager()
         m_searchEnginesManager = new SearchEnginesManager();
     }
     return m_searchEnginesManager;
+}
+
+QNetworkDiskCache* MainApplication::networkCache()
+{
+    if (!m_networkCache) {
+        m_networkCache = new QNetworkDiskCache(this);
+        m_networkCache->setCacheDirectory(m_activeProfil + "/networkcache");
+    }
+
+    return m_networkCache;
 }
 
 DesktopNotificationsFactory* MainApplication::desktopNotifications()

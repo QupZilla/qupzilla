@@ -58,7 +58,7 @@ extern "C" {
 IObjectArray : public IUnknown {
     public:
         virtual HRESULT STDMETHODCALLTYPE GetCount(
-            /* [out] */ __RPC__out UINT* pcObjects) = 0;
+            /* [out] */ __RPC__out UINT * pcObjects) = 0;
 
         virtual HRESULT STDMETHODCALLTYPE GetAt(
             /* [in] */ UINT uiIndex,
@@ -82,10 +82,10 @@ IObjectArray : public IUnknown {
 IObjectCollection : public IObjectArray {
     public:
         virtual HRESULT STDMETHODCALLTYPE AddObject(
-            /* [in] */ __RPC__in_opt IUnknown* punk) = 0;
+            /* [in] */ __RPC__in_opt IUnknown * punk) = 0;
 
         virtual HRESULT STDMETHODCALLTYPE AddFromArray(
-            /* [in] */ __RPC__in_opt IObjectArray* poaSource) = 0;
+            /* [in] */ __RPC__in_opt IObjectArray * poaSource) = 0;
 
         virtual HRESULT STDMETHODCALLTYPE RemoveObjectAt(
             /* [in] */ UINT uiIndex) = 0;
@@ -132,19 +132,19 @@ public:
         /* [string][in] */ __RPC__in_string LPCWSTR pszAppID) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE BeginList(
-        /* [out] */ __RPC__out UINT* pcMinSlots,
+        /* [out] */ __RPC__out UINT * pcMinSlots,
         /* [in] */ __RPC__in REFIID riid,
         /* [iid_is][out] */ __RPC__deref_out_opt void** ppv) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AppendCategory(
         /* [string][in] */ __RPC__in_string LPCWSTR pszCategory,
-        /* [in] */ __RPC__in_opt IObjectArray* poa) = 0;
+        /* [in] */ __RPC__in_opt IObjectArray * poa) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AppendKnownCategory(
         /* [in] */ KNOWNDESTCATEGORY category) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AddUserTasks(
-        /* [in] */ __RPC__in_opt IObjectArray* poa) = 0;
+        /* [in] */ __RPC__in_opt IObjectArray * poa) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CommitList(void) = 0;
 
@@ -311,7 +311,7 @@ public:
 
     virtual HRESULT STDMETHODCALLTYPE SetThumbnailClip(
         /* [in] */ __RPC__in HWND hwnd,
-        /* [in] */ __RPC__in RECT* prcClip) = 0;
+        /* [in] */ __RPC__in RECT * prcClip) = 0;
 };
 
 #endif  //_MSC_VER >= 1500 && _MSC_VER < 1600

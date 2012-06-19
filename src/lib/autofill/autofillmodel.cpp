@@ -279,7 +279,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     }
 
     foreach(const QWebElement & formElement, allForms) {
-        foreach(const QWebElement &inputElement, formElement.findAll("input[type=\"password\"]")) {
+        foreach(const QWebElement & inputElement, formElement.findAll("input[type=\"password\"]")) {
             passwordName = inputElement.attribute("name");
             passwordValue = getValueFromData(data, inputElement);
 
@@ -302,7 +302,7 @@ void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgo
     // We need to find username, we suppose that username is first not empty input[type=text] in form
     // Tell me better solution. Maybe first try to find name="user", name="username" ?
 
-    foreach(const QWebElement &element, foundForm.findAll("input[type=\"text\"]")) {
+    foreach(const QWebElement & element, foundForm.findAll("input[type=\"text\"]")) {
         usernameName = element.attribute("name");
         usernameValue = getValueFromData(data, element);
         if (!usernameName.isEmpty() && !usernameValue.isEmpty()) {

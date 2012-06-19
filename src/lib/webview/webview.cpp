@@ -452,6 +452,19 @@ void WebView::searchSelectedText()
     openUrlInNewTab(urlToLoad, Qz::NT_SelectedTab);
 }
 
+void WebView::searchSelectedTextInBackgroundTab()
+{
+    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    if (QAction* act = qobject_cast<QAction*>(sender())) {
+        if (act->data().isValid()) {
+            engine = qVariantValue<SearchEngine>(act->data());
+        }
+    }
+
+    const QUrl &urlToLoad = mApp->searchEnginesManager()->searchUrl(engine, selectedText());
+    openUrlInNewTab(urlToLoad, Qz::NT_NotSelectedTab);
+}
+
 void WebView::bookmarkLink()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
@@ -831,6 +844,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     if (isUrlValid(guessedUrl)) {
         Action* act = new Action(QIcon::fromTheme("document-open-remote"), tr("Go to &web address"));
         act->setData(guessedUrl);
+
         connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
         connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
         menu->addAction(act);
@@ -842,12 +856,23 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     selectedText.replace("\n", " ").replace("\t", "");
 
     SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
-    menu->addAction(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name), this, SLOT(searchSelectedText()));
-    QMenu* swMenu = new QMenu(tr("Search with..."));
+    Action* act = new Action(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name));
+    connect(act, SIGNAL(triggered()), this, SLOT(searchSelectedText()));
+    connect(act, SIGNAL(middleClicked()), this, SLOT(searchSelectedTextInBackgroundTab()));
+    menu->addAction(act);
+
+    // Search with ...
+    Menu* swMenu = new Menu(tr("Search with..."), menu);
     SearchEnginesManager* searchManager = mApp->searchEnginesManager();
     foreach(const SearchEngine & en, searchManager->allEngines()) {
-        swMenu->addAction(en.icon, en.name, this, SLOT(searchSelectedText()))->setData(qVariantFromValue(en));
+        Action* act = new Action(en.icon, en.name);
+        act->setData(qVariantFromValue(en));
+
+        connect(act, SIGNAL(triggered()), this, SLOT(searchSelectedText()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(searchSelectedTextInBackgroundTab()));
+        swMenu->addAction(act);
     }
+
     menu->addMenu(swMenu);
 }
 

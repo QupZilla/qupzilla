@@ -65,6 +65,10 @@ void BookmarksModel::setShowingOnlyIconsInToolbar(bool state)
 
 bool BookmarksModel::isFolder(const QString &name)
 {
+    if (name == "bookmarksToolbar" || name == "bookmarksMenu" || name == "unsorted") {
+        return true;
+    }
+
     QSqlQuery query;
     query.prepare("SELECT name FROM folders WHERE name = ?");
     query.bindValue(0, name);

@@ -51,6 +51,8 @@
 #include "qz_namespace.h"
 
 class QUrl;
+class QNetworkReply;
+class QNetworkRequest;
 
 class AdBlockDialog;
 class AdBlockNetwork;
@@ -61,9 +63,6 @@ class QT_QUPZILLA_EXPORT AdBlockManager : public QObject
 {
     Q_OBJECT
 
-signals:
-    void rulesChanged();
-
 public:
     AdBlockManager(QObject* parent = 0);
     ~AdBlockManager();
@@ -73,17 +72,23 @@ public:
     static AdBlockManager* instance();
     bool isEnabled() { if (!m_loaded) load(); return m_enabled; }
 
-    AdBlockSubscription* subscription() { return m_subscription; }
-    AdBlockNetwork* network();
     AdBlockPage* page();
+    // FIXME: Remove when completely changed to multi-subscription model
+    AdBlockSubscription* subscription();
+
+    QNetworkReply* block(const QNetworkRequest &request);
 
 public slots:
     void setEnabled(bool enabled);
-    AdBlockDialog* showDialog();
     void showRule();
+
+    AdBlockDialog* showDialog();
 
 private slots:
     void rulesUpdated();
+
+signals:
+    void rulesChanged();
 
 private:
     static AdBlockManager* s_adBlockManager;
@@ -93,7 +98,7 @@ private:
     QWeakPointer<AdBlockDialog> m_adBlockDialog;
     AdBlockNetwork* m_adBlockNetwork;
     AdBlockPage* m_adBlockPage;
-    AdBlockSubscription* m_subscription;
+    QList<AdBlockSubscription*> m_subscriptions;
 };
 
 #endif // ADBLOCKMANAGER_H

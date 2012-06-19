@@ -77,8 +77,8 @@ void ClearPrivateData::clearWebDatabases()
 
 void ClearPrivateData::clearCache()
 {
+    mApp->networkCache()->clear();
     mApp->webSettings()->clearMemoryCaches();
-    mApp->networkManager()->cache()->clear();
 
     QFile::remove(mApp->currentProfilePath() + "ApplicationCache.db");
 }

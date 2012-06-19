@@ -118,7 +118,7 @@ void MouseGestureRecognizer::addPoint(int x, int y)
     dx = x - d->positions.back().x;
     dy = y - d->positions.back().y;
 
-    if (dx* dx + dy* dy >= d->minimumMovement2) {
+    if (dx * dx + dy * dy >= d->minimumMovement2) {
         d->positions.push_back(Pos(x, y));
     }
 }
