@@ -44,19 +44,25 @@
  */
 
 #include "adblockblockednetworkreply.h"
+#include "adblocksubscription.h"
 #include "adblockrule.h"
 
 #include <QNetworkRequest>
 #include <QTimer>
 
-AdBlockBlockedNetworkReply::AdBlockBlockedNetworkReply(const QNetworkRequest &request, const AdBlockRule* rule, QObject* parent)
+AdBlockBlockedNetworkReply::AdBlockBlockedNetworkReply(const AdBlockSubscription* subscription, const AdBlockRule* rule, QObject* parent)
     : QNetworkReply(parent)
 {
     setOperation(QNetworkAccessManager::GetOperation);
-    setRequest(request);
-    setUrl(request.url());
-    setError(QNetworkReply::ContentAccessDenied, QString("AdBlockRule:%1").arg(rule->filter()));
+    setError(QNetworkReply::ContentAccessDenied, QString("AdBlock: %1 (%2)").arg(subscription->title(), rule->filter()));
+
     QTimer::singleShot(0, this, SLOT(delayedFinished()));
+}
+
+void AdBlockBlockedNetworkReply::setRequest(const QNetworkRequest &request)
+{
+    QNetworkReply::setRequest(request);
+    setUrl(request.url());
 }
 
 qint64 AdBlockBlockedNetworkReply::readData(char* data, qint64 maxSize)

@@ -125,7 +125,9 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
                 webPage->addAdBlockRule(blockedRule->filter(), request.url());
             }
 
-            AdBlockBlockedNetworkReply* reply = new AdBlockBlockedNetworkReply(request, blockedRule, this);
+            AdBlockBlockedNetworkReply* reply = new AdBlockBlockedNetworkReply(subscription, blockedRule, this);
+            reply->setRequest(request);
+
             return reply;
         }
     }
@@ -147,6 +149,7 @@ void AdBlockManager::load()
     settings.endGroup();
 
     AdBlockSubscription* easyList = new AdBlockSubscription();
+    easyList->setTitle("EasyList");
     connect(easyList, SIGNAL(rulesChanged()), this, SIGNAL(rulesChanged()));
     connect(easyList, SIGNAL(rulesUpdated()), this, SLOT(rulesUpdated()));
 

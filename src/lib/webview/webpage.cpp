@@ -614,7 +614,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             return false;
             break;
         case QNetworkReply::ContentAccessDenied:
-            if (exOption->errorString.startsWith("AdBlockRule")) {
+            if (exOption->errorString.startsWith("AdBlock")) {
                 if (exOption->frame != erPage->mainFrame()) { //Content in <iframe>
                     QWebElement docElement = erPage->mainFrame()->documentElement();
 
@@ -632,7 +632,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                 }
                 else {   //The whole page is blocked
                     QString rule = exOption->errorString;
-                    rule.remove("AdBlockRule:");
+                    rule.remove("AdBlock:");
 
                     QFile file(":/html/adblockPage.html");
                     file.open(QFile::ReadOnly);
@@ -641,7 +641,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     errString.replace("%IMAGE%", "qrc:html/adblock_big.png");
                     errString.replace("%FAVICON%", "qrc:html/adblock_big.png");
 
-                    errString.replace("%RULE%", tr("Blocked by rule <i>%1</i>").arg(rule));
+                    errString.replace("%RULE%", tr("Blocked by <i>%1</i>").arg(rule));
 
                     exReturn->baseUrl = exOption->url;
                     exReturn->content = QString(errString + "<span id=\"qupzilla-error-page\"></span>").toUtf8();
