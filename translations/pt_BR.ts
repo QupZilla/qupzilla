@@ -1119,7 +1119,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>% - Download Manager</source>
-        <translation>%s - Gerenciador de Downloads</translation>
+        <translation>% - Gerenciador de Downloads</translation>
     </message>
     <message>
         <source>Download Manager</source>
