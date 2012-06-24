@@ -54,6 +54,7 @@
 #include <QFormLayout>
 #include <QMenu>
 #include <QTimer>
+#include <QNetworkRequest>
 #include <QWebHitTestResult>
 
 QUrl ClickToFlash::acceptedUrl;
@@ -74,9 +75,7 @@ ClickToFlash::ClickToFlash(const QUrl &pluginUrl, const QStringList &argumentNam
     //AdBlock
     AdBlockManager* manager = AdBlockManager::instance();
     if (manager->isEnabled()) {
-        QString urlString = pluginUrl.toEncoded();
-        AdBlockSubscription* subscription = manager->subscription();
-        if (!subscription->allow(urlString) && subscription->block(urlString)) {
+        if (manager->block(QNetworkRequest(pluginUrl))) {
             QTimer::singleShot(200, this, SLOT(hideAdBlocked()));
             return;
         }

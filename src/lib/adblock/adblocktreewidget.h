@@ -15,18 +15,43 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SCHEMEHANDLER_H
-#define SCHEMEHANDLER_H
+#ifndef ADBLOCKTREEWIDGET_H
+#define ADBLOCKTREEWIDGET_H
 
-#include <QNetworkAccessManager>
+#include <QTreeWidget>
 
 #include "qz_namespace.h"
+#include "treewidget.h"
 
-class QT_QUPZILLA_EXPORT SchemeHandler
+class AdBlockSubscription;
+
+class QT_QUPZILLA_EXPORT AdBlockTreeWidget : public TreeWidget
 {
+    Q_OBJECT
 public:
-    SchemeHandler() { }
-    virtual QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData) = 0;
+    explicit AdBlockTreeWidget(AdBlockSubscription* subscription, QWidget* parent = 0);
+
+    AdBlockSubscription* subscription() const;
+
+signals:
+
+public slots:
+    void addRule();
+    void removeRule();
+
+private slots:
+    void contextMenuRequested(const QPoint &pos);
+    void itemChanged(QTreeWidgetItem* item);
+
+    void refresh();
+    void subscriptionUpdated();
+
+private:
+    AdBlockSubscription* m_subscription;
+    QTreeWidgetItem* m_topItem;
+
+    bool m_itemChangingBlock;
+
 };
 
-#endif // SCHEMEHANDLER_H
+#endif // ADBLOCKTREEWIDGET_H

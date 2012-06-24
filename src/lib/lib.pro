@@ -164,7 +164,6 @@ SOURCES += \
     other/licenseviewer.cpp \
     bookmarksimport/bookmarksimporticonfetcher.cpp \
     other/checkboxdialog.cpp \
-    network/schemehandler.cpp \
     tools/plaineditwithlines.cpp \
     webview/websettings.cpp \
     tools/focusselectlineedit.cpp \
@@ -177,7 +176,11 @@ SOURCES += \
     history/historyview.cpp \
     history/historyitem.cpp \
     tools/headerview.cpp \
-    other/iconchooser.cpp
+    other/iconchooser.cpp \
+    adblock/adblocktreewidget.cpp \
+    adblock/adblockaddsubscriptiondialog.cpp \
+    adblock/adblockschemehandler.cpp \
+    tools/emptynetworkreply.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -326,7 +329,11 @@ HEADERS  += \
     history/historyview.h \
     history/historyitem.h \
     tools/headerview.h \
-    other/iconchooser.h
+    other/iconchooser.h \
+    adblock/adblocktreewidget.h \
+    adblock/adblockaddsubscriptiondialog.h \
+    adblock/adblockschemehandler.h \
+    tools/emptynetworkreply.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
@@ -368,7 +375,8 @@ FORMS    += \
     opensearch/editsearchengine.ui \
     bookmarksimport/bookmarksimportdialog.ui \
     other/checkboxdialog.ui \
-    other/iconchooser.ui
+    other/iconchooser.ui \
+    adblock/adblockaddsubscriptiondialog.ui
 
 RESOURCES += \
     data/icons.qrc \

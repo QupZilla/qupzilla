@@ -15,8 +15,18 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
+#ifndef ADBLOCKSCHEMEHANDLER_H
+#define ADBLOCKSCHEMEHANDLER_H
+
+#include "qz_namespace.h"
 #include "schemehandler.h"
 
-SchemeHandler::SchemeHandler()
+class QT_QUPZILLA_EXPORT AdBlockSchemeHandler : public SchemeHandler
 {
-}
+public:
+    AdBlockSchemeHandler();
+
+    QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
+};
+
+#endif // ADBLOCKSCHEMEHANDLER_H

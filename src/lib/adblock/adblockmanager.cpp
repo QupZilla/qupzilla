@@ -15,33 +15,6 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-/**
- * Copyright (c) 2009, Benjamin C. Meyer <ben@meyerhome.net>
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- * 3. Neither the name of the Benjamin Meyer nor the names of its contributors
- *    may be used to endorse or promote products derived from this software
- *    without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
- * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
- * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
- * SUCH DAMAGE.
- */
 #include "adblockmanager.h"
 #include "adblockdialog.h"
 #include "adblockpage.h"
@@ -49,11 +22,16 @@
 #include "adblockblockednetworkreply.h"
 #include "mainapplication.h"
 #include "webpage.h"
+#include "globalfunctions.h"
 #include "networkmanager.h"
 #include "qupzilla.h"
 #include "settings.h"
 
 #include <QDateTime>
+#include <QTextStream>
+#include <QDir>
+#include <QTimer>
+#include <QDebug>
 
 AdBlockManager* AdBlockManager::s_adBlockManager = 0;
 
@@ -61,8 +39,6 @@ AdBlockManager::AdBlockManager(QObject* parent)
     : QObject(parent)
     , m_loaded(false)
     , m_enabled(true)
-    , m_adBlockNetwork(0)
-    , m_adBlockPage(0)
 {
 }
 
@@ -80,22 +56,14 @@ void AdBlockManager::setEnabled(bool enabled)
     if (isEnabled() == enabled) {
         return;
     }
+
     m_enabled = enabled;
-    emit rulesChanged();
     mApp->sendMessages(Qz::AM_SetAdBlockIconEnabled, enabled);
 }
 
-AdBlockPage* AdBlockManager::page()
+QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
 {
-    if (!m_adBlockPage) {
-        m_adBlockPage = new AdBlockPage(this);
-    }
-    return m_adBlockPage;
-}
-
-AdBlockSubscription* AdBlockManager::subscription()
-{
-    return m_subscriptions.at(0);
+    return m_subscriptions;
 }
 
 QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
@@ -135,6 +103,49 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
     return 0;
 }
 
+AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const QString &url)
+{
+    if (title.isEmpty() || url.isEmpty()) {
+        return 0;
+    }
+
+    QString fileName = qz_filterCharsFromFilename(title.toLower()) + ".txt";
+    QString filePath = qz_ensureUniqueFilename(mApp->currentProfilePath() + "adblock/" + fileName);
+
+    QByteArray data = QString("Title: %1\nUrl: %2\n[Adblock Plus 1.1.1]").arg(title, url).toAscii();
+
+    QFile file(filePath);
+    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
+        qWarning() << "AdBlockManager: Cannot write to file" << filePath;
+        return 0;
+    }
+
+    file.write(data);
+    file.close();
+
+    AdBlockSubscription* subscription = new AdBlockSubscription(title, this);
+    subscription->setUrl(QUrl(url));
+    subscription->setFilePath(filePath);
+    subscription->loadSubscription();
+
+    m_subscriptions.insert(m_subscriptions.count() - 1, subscription);
+
+    return subscription;
+}
+
+bool AdBlockManager::removeSubscription(AdBlockSubscription* subscription)
+{
+    if (!m_subscriptions.contains(subscription) || !subscription->canBeRemoved()) {
+        return false;
+    }
+
+    QFile(subscription->filePath()).remove();
+    m_subscriptions.removeOne(subscription);
+
+    delete subscription;
+    return true;
+}
+
 void AdBlockManager::load()
 {
     if (m_loaded) {
@@ -148,26 +159,66 @@ void AdBlockManager::load()
     QDateTime lastUpdate = settings.value("lastUpdate", QDateTime()).toDateTime();
     settings.endGroup();
 
-    AdBlockSubscription* easyList = new AdBlockSubscription();
-    easyList->setTitle("EasyList");
-    connect(easyList, SIGNAL(rulesChanged()), this, SIGNAL(rulesChanged()));
-    connect(easyList, SIGNAL(rulesUpdated()), this, SLOT(rulesUpdated()));
+    QDir adblockDir(mApp->currentProfilePath() + "adblock");
+    // Create if neccessary
+    if (!adblockDir.exists()) {
+        QDir(mApp->currentProfilePath()).mkdir("adblock");
+    }
 
-    m_subscriptions.append(easyList);
+    foreach(const QString & fileName, adblockDir.entryList(QStringList("*.txt"), QDir::Files)) {
+        if (fileName == "easylist.txt" || fileName == "customlist.txt") {
+            continue;
+        }
 
-    if (lastUpdate.addDays(3) < QDateTime::currentDateTime()) {
-        easyList->scheduleUpdate();
+        const QString absolutePath = adblockDir.absoluteFilePath(fileName);
+        QFile file(absolutePath);
+        if (!file.open(QFile::ReadOnly)) {
+            continue;
+        }
+
+        QTextStream textStream(&file);
+        QString title = textStream.readLine(1024).remove("Title: ");
+        QUrl url = QUrl(textStream.readLine(1024).remove("Url: "));
+
+        if (title.isEmpty() || !url.isValid()) {
+            qWarning() << "AdBlockManager: Invalid subscription file" << absolutePath;
+            continue;
+        }
+
+        AdBlockSubscription* subscription = new AdBlockSubscription(title, this);
+        subscription->setUrl(url);
+        subscription->setFilePath(absolutePath);
+        m_subscriptions.append(subscription);
+    }
+
+    // Prepend EasyList
+    AdBlockSubscription* easyList = new AdBlockEasyList(this);
+    m_subscriptions.prepend(easyList);
+
+    // Append CustomList
+    AdBlockSubscription* customList = new AdBlockCustomList(this);
+    m_subscriptions.append(customList);
+
+    // Load all subscriptions
+    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+        subscription->loadSubscription();
+    }
+
+    if (lastUpdate.addDays(5) < QDateTime::currentDateTime()) {
+        QTimer::singleShot(1000 * 60, this, SLOT(updateAllSubscriptions()));
     }
 }
 
-void AdBlockManager::rulesUpdated()
+void AdBlockManager::updateAllSubscriptions()
 {
+    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+        subscription->updateSubscription();
+    }
+
     Settings settings;
     settings.beginGroup("AdBlock");
     settings.setValue("lastUpdate", QDateTime::currentDateTime());
     settings.endGroup();
-
-    emit rulesChanged();
 }
 
 void AdBlockManager::save()
@@ -176,11 +227,13 @@ void AdBlockManager::save()
         return;
     }
 
-    subscription()->saveRules();
+    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+        subscription->saveSubscription();
+    }
 
     Settings settings;
-    settings.beginGroup(QLatin1String("AdBlock"));
-    settings.setValue(QLatin1String("enabled"), m_enabled);
+    settings.beginGroup("AdBlock");
+    settings.setValue("enabled", m_enabled);
     settings.endGroup();
 }
 
@@ -199,8 +252,4 @@ void AdBlockManager::showRule()
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         showDialog()->search->setText(action->data().toString());
     }
-}
-
-AdBlockManager::~AdBlockManager()
-{
 }

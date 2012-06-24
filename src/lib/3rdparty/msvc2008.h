@@ -38,66 +38,66 @@ typedef interface IObjectCollection IObjectCollection;
 #ifdef __cplusplus
 extern "C" {
 #endif
-    /*
-     ****************************************************************************************************
-                                             IObjectArray
+/*
+ ****************************************************************************************************
+                                         IObjectArray
 
-                                         <from ObjectArray.h>
-     ****************************************************************************************************
-    */
+                                     <from ObjectArray.h>
+ ****************************************************************************************************
+*/
 #ifndef __IObjectArray_INTERFACE_DEFINED__
 #define __IObjectArray_INTERFACE_DEFINED__
 
-    /* interface IObjectArray */
-    /* [unique][object][uuid][helpstring] */
+/* interface IObjectArray */
+/* [unique][object][uuid][helpstring] */
 
 
-    EXTERN_C const IID IID_IObjectArray;
+EXTERN_C const IID IID_IObjectArray;
 
-    MIDL_INTERFACE("92CA9DCD-5622-4bba-A805-5E9F541BD8C9")
+MIDL_INTERFACE("92CA9DCD-5622-4bba-A805-5E9F541BD8C9")
 IObjectArray : public IUnknown {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE GetCount(
-            /* [out] */ __RPC__out UINT * pcObjects) = 0;
+public:
+    virtual HRESULT STDMETHODCALLTYPE GetCount(
+        /* [out] */ __RPC__out UINT * pcObjects) = 0;
 
-        virtual HRESULT STDMETHODCALLTYPE GetAt(
-            /* [in] */ UINT uiIndex,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [iid_is][out] */ __RPC__deref_out_opt void** ppv) = 0;
+    virtual HRESULT STDMETHODCALLTYPE GetAt(
+        /* [in] */ UINT uiIndex,
+        /* [in] */ __RPC__in REFIID riid,
+        /* [iid_is][out] */ __RPC__deref_out_opt void** ppv) = 0;
 
-    };
+};
 #endif  /* __IObjectArray_INTERFACE_DEFINED__ */
 
 
 #ifndef __IObjectCollection_INTERFACE_DEFINED__
 #define __IObjectCollection_INTERFACE_DEFINED__
 
-    /* interface IObjectCollection */
-    /* [unique][object][uuid] */
+/* interface IObjectCollection */
+/* [unique][object][uuid] */
 
 
-    EXTERN_C const IID IID_IObjectCollection;
+EXTERN_C const IID IID_IObjectCollection;
 
-    MIDL_INTERFACE("5632b1a4-e38a-400a-928a-d4cd63230295")
+MIDL_INTERFACE("5632b1a4-e38a-400a-928a-d4cd63230295")
 IObjectCollection : public IObjectArray {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE AddObject(
-            /* [in] */ __RPC__in_opt IUnknown * punk) = 0;
+public:
+    virtual HRESULT STDMETHODCALLTYPE AddObject(
+        /* [in] */ __RPC__in_opt IUnknown * punk) = 0;
 
-        virtual HRESULT STDMETHODCALLTYPE AddFromArray(
-            /* [in] */ __RPC__in_opt IObjectArray * poaSource) = 0;
+    virtual HRESULT STDMETHODCALLTYPE AddFromArray(
+        /* [in] */ __RPC__in_opt IObjectArray * poaSource) = 0;
 
-        virtual HRESULT STDMETHODCALLTYPE RemoveObjectAt(
-            /* [in] */ UINT uiIndex) = 0;
+    virtual HRESULT STDMETHODCALLTYPE RemoveObjectAt(
+        /* [in] */ UINT uiIndex) = 0;
 
-        virtual HRESULT STDMETHODCALLTYPE Clear(void) = 0;
+    virtual HRESULT STDMETHODCALLTYPE Clear(void) = 0;
 
-    };
+};
 #endif  /* __IObjectCollection_INTERFACE_DEFINED__ */
 
 
-    /* Additional Prototypes for ALL interfaces */
-    /* end of Additional Prototypes */
+/* Additional Prototypes for ALL interfaces */
+/* end of Additional Prototypes */
 
 #ifdef __cplusplus
 }
@@ -189,13 +189,13 @@ class DECLSPEC_UUID("77f10cf0-3db5-4966-b520-b7c54fd35ed6")
 */
 #define DEFINE_ENUM_FLAG_OPERATORS(ENUMTYPE) \
     extern "C++" { \
-        inline ENUMTYPE operator | (ENUMTYPE a, ENUMTYPE b) { return ENUMTYPE(((int)a) | ((int)b)); } \
-        inline ENUMTYPE &operator |= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((int &)a) |= ((int)b)); } \
-        inline ENUMTYPE operator & (ENUMTYPE a, ENUMTYPE b) { return ENUMTYPE(((int)a) & ((int)b)); } \
-        inline ENUMTYPE &operator &= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((int &)a) &= ((int)b)); } \
-        inline ENUMTYPE operator ~ (ENUMTYPE a) { return ENUMTYPE(~((int)a)); } \
-        inline ENUMTYPE operator ^ (ENUMTYPE a, ENUMTYPE b) { return ENUMTYPE(((int)a) ^ ((int)b)); } \
-        inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((int &)a) ^= ((int)b)); } \
+    inline ENUMTYPE operator | (ENUMTYPE a, ENUMTYPE b) { return ENUMTYPE(((int)a) | ((int)b)); } \
+    inline ENUMTYPE &operator |= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((int &)a) |= ((int)b)); } \
+    inline ENUMTYPE operator & (ENUMTYPE a, ENUMTYPE b) { return ENUMTYPE(((int)a) & ((int)b)); } \
+    inline ENUMTYPE &operator &= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((int &)a) &= ((int)b)); } \
+    inline ENUMTYPE operator ~ (ENUMTYPE a) { return ENUMTYPE(~((int)a)); } \
+    inline ENUMTYPE operator ^ (ENUMTYPE a, ENUMTYPE b) { return ENUMTYPE(((int)a) ^ ((int)b)); } \
+    inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((int &)a) ^= ((int)b)); } \
     }
 
 #ifdef MIDL_PASS
@@ -261,57 +261,57 @@ EXTERN_C const IID IID_ITaskbarList3;
 MIDL_INTERFACE("ea1afb91-9e28-4b86-90e9-9e9f8a5eefaf")
 ITaskbarList3 : public ITaskbarList2 {
 public:
-    virtual HRESULT STDMETHODCALLTYPE SetProgressValue(
-        /* [in] */ __RPC__in HWND hwnd,
-        /* [in] */ ULONGLONG ullCompleted,
-        /* [in] */ ULONGLONG ullTotal) = 0;
+virtual HRESULT STDMETHODCALLTYPE SetProgressValue(
+    /* [in] */ __RPC__in HWND hwnd,
+    /* [in] */ ULONGLONG ullCompleted,
+    /* [in] */ ULONGLONG ullTotal) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE SetProgressState(
-        /* [in] */ __RPC__in HWND hwnd,
-        /* [in] */ TBPFLAG tbpFlags) = 0;
+virtual HRESULT STDMETHODCALLTYPE SetProgressState(
+    /* [in] */ __RPC__in HWND hwnd,
+    /* [in] */ TBPFLAG tbpFlags) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE RegisterTab(
-        /* [in] */ __RPC__in HWND hwndTab,
-        /* [in] */ __RPC__in HWND hwndMDI) = 0;
+virtual HRESULT STDMETHODCALLTYPE RegisterTab(
+    /* [in] */ __RPC__in HWND hwndTab,
+    /* [in] */ __RPC__in HWND hwndMDI) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE UnregisterTab(
-        /* [in] */ __RPC__in HWND hwndTab) = 0;
+virtual HRESULT STDMETHODCALLTYPE UnregisterTab(
+    /* [in] */ __RPC__in HWND hwndTab) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE SetTabOrder(
-        /* [in] */ __RPC__in HWND hwndTab,
-        /* [in] */ __RPC__in HWND hwndInsertBefore) = 0;
+virtual HRESULT STDMETHODCALLTYPE SetTabOrder(
+    /* [in] */ __RPC__in HWND hwndTab,
+    /* [in] */ __RPC__in HWND hwndInsertBefore) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE SetTabActive(
-        /* [in] */ __RPC__in HWND hwndTab,
-        /* [in] */ __RPC__in HWND hwndMDI,
-        /* [in] */ DWORD dwReserved) = 0;
+virtual HRESULT STDMETHODCALLTYPE SetTabActive(
+    /* [in] */ __RPC__in HWND hwndTab,
+    /* [in] */ __RPC__in HWND hwndMDI,
+    /* [in] */ DWORD dwReserved) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE ThumbBarAddButtons(
-        /* [in] */ __RPC__in HWND hwnd,
-        /* [in] */ UINT cButtons,
-        /* [size_is][in] */ __RPC__in_ecount_full(cButtons) LPTHUMBBUTTON pButton) = 0;
+virtual HRESULT STDMETHODCALLTYPE ThumbBarAddButtons(
+    /* [in] */ __RPC__in HWND hwnd,
+    /* [in] */ UINT cButtons,
+    /* [size_is][in] */ __RPC__in_ecount_full(cButtons) LPTHUMBBUTTON pButton) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE ThumbBarUpdateButtons(
-        /* [in] */ __RPC__in HWND hwnd,
-        /* [in] */ UINT cButtons,
-        /* [size_is][in] */ __RPC__in_ecount_full(cButtons) LPTHUMBBUTTON pButton) = 0;
+virtual HRESULT STDMETHODCALLTYPE ThumbBarUpdateButtons(
+    /* [in] */ __RPC__in HWND hwnd,
+    /* [in] */ UINT cButtons,
+    /* [size_is][in] */ __RPC__in_ecount_full(cButtons) LPTHUMBBUTTON pButton) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE ThumbBarSetImageList(
-        /* [in] */ __RPC__in HWND hwnd,
-        /* [in] */ __RPC__in_opt HIMAGELIST himl) = 0;
+virtual HRESULT STDMETHODCALLTYPE ThumbBarSetImageList(
+    /* [in] */ __RPC__in HWND hwnd,
+    /* [in] */ __RPC__in_opt HIMAGELIST himl) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE SetOverlayIcon(
-        /* [in] */ __RPC__in HWND hwnd,
-        /* [in] */ __RPC__in HICON hIcon,
-        /* [string][unique][in] */ __RPC__in_opt_string LPCWSTR pszDescription) = 0;
+virtual HRESULT STDMETHODCALLTYPE SetOverlayIcon(
+    /* [in] */ __RPC__in HWND hwnd,
+    /* [in] */ __RPC__in HICON hIcon,
+    /* [string][unique][in] */ __RPC__in_opt_string LPCWSTR pszDescription) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE SetThumbnailTooltip(
-        /* [in] */ __RPC__in HWND hwnd,
-        /* [string][unique][in] */ __RPC__in_opt_string LPCWSTR pszTip) = 0;
+virtual HRESULT STDMETHODCALLTYPE SetThumbnailTooltip(
+    /* [in] */ __RPC__in HWND hwnd,
+    /* [string][unique][in] */ __RPC__in_opt_string LPCWSTR pszTip) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE SetThumbnailClip(
-        /* [in] */ __RPC__in HWND hwnd,
-        /* [in] */ __RPC__in RECT * prcClip) = 0;
+virtual HRESULT STDMETHODCALLTYPE SetThumbnailClip(
+    /* [in] */ __RPC__in HWND hwnd,
+    /* [in] */ __RPC__in RECT * prcClip) = 0;
 };
 
 #endif  //_MSC_VER >= 1500 && _MSC_VER < 1600

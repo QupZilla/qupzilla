@@ -38,11 +38,11 @@ class QT_QUPZILLA_EXPORT QupZillaSchemeReply : public QNetworkReply
 public:
     explicit QupZillaSchemeReply(const QNetworkRequest &req, QObject* parent = 0);
 
-    virtual qint64 bytesAvailable() const;
+    qint64 bytesAvailable() const;
 
 protected:
-    virtual qint64 readData(char* data, qint64 maxSize);
-    virtual void abort() { }
+    qint64 readData(char* data, qint64 maxSize);
+    void abort() { }
 
 private slots:
     void delayedFinish();

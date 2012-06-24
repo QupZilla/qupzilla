@@ -114,7 +114,6 @@ void qz_removeDir(const QString &d)
     }
 }
 
-
 QString qz_samePartOfStrings(const QString &one, const QString &other)
 {
     int i = 0;
@@ -221,6 +220,7 @@ QString qz_getFileNameFromUrl(const QUrl &url)
 QString qz_filterCharsFromFilename(const QString &name)
 {
     QString value = name;
+
     value.replace("/", "-");
     value.remove("\\");
     value.remove(":");

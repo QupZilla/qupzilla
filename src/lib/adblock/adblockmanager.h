@@ -15,33 +15,6 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-/**
- * Copyright (c) 2009, Benjamin C. Meyer <ben@meyerhome.net>
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- * 3. Neither the name of the Benjamin Meyer nor the names of its contributors
- *    may be used to endorse or promote products derived from this software
- *    without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
- * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
- * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
- * SUCH DAMAGE.
- */
 #ifndef ADBLOCKMANAGER_H
 #define ADBLOCKMANAGER_H
 
@@ -55,8 +28,6 @@ class QNetworkReply;
 class QNetworkRequest;
 
 class AdBlockDialog;
-class AdBlockNetwork;
-class AdBlockPage;
 class AdBlockSubscription;
 
 class QT_QUPZILLA_EXPORT AdBlockManager : public QObject
@@ -65,39 +36,34 @@ class QT_QUPZILLA_EXPORT AdBlockManager : public QObject
 
 public:
     AdBlockManager(QObject* parent = 0);
-    ~AdBlockManager();
+    static AdBlockManager* instance();
 
     void load();
     void save();
-    static AdBlockManager* instance();
+
     bool isEnabled() { if (!m_loaded) load(); return m_enabled; }
 
-    AdBlockPage* page();
-    // FIXME: Remove when completely changed to multi-subscription model
-    AdBlockSubscription* subscription();
-
+    QList<AdBlockSubscription*> subscriptions() const;
     QNetworkReply* block(const QNetworkRequest &request);
+
+    AdBlockSubscription* addSubscription(const QString &title, const QString &url);
+    bool removeSubscription(AdBlockSubscription* subscription);
 
 public slots:
     void setEnabled(bool enabled);
     void showRule();
 
+    void updateAllSubscriptions();
+
     AdBlockDialog* showDialog();
-
-private slots:
-    void rulesUpdated();
-
-signals:
-    void rulesChanged();
 
 private:
     static AdBlockManager* s_adBlockManager;
 
     bool m_loaded;
     bool m_enabled;
+
     QWeakPointer<AdBlockDialog> m_adBlockDialog;
-    AdBlockNetwork* m_adBlockNetwork;
-    AdBlockPage* m_adBlockPage;
     QList<AdBlockSubscription*> m_subscriptions;
 };
 

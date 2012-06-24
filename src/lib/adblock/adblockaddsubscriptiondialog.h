@@ -15,18 +15,47 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SCHEMEHANDLER_H
-#define SCHEMEHANDLER_H
+#ifndef ADBLOCKADDSUBSCRIPTIONDIALOG_H
+#define ADBLOCKADDSUBSCRIPTIONDIALOG_H
 
-#include <QNetworkAccessManager>
+#include <QDialog>
+#include <QList>
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT SchemeHandler
+namespace Ui
 {
+class AdBlockAddSubscriptionDialog;
+}
+
+class QT_QUPZILLA_EXPORT AdBlockAddSubscriptionDialog : public QDialog
+{
+    Q_OBJECT
+
 public:
-    SchemeHandler() { }
-    virtual QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData) = 0;
+    explicit AdBlockAddSubscriptionDialog(QWidget* parent = 0);
+    ~AdBlockAddSubscriptionDialog();
+
+    QString title() const;
+    QString url() const;
+
+private slots:
+    void indexChanged(int index);
+
+private:
+    Ui::AdBlockAddSubscriptionDialog* ui;
+
+    struct Subscription {
+        QString title;
+        QString url;
+
+        Subscription(const QString &t, const QString &u) {
+            title = t;
+            url = u;
+        }
+    };
+
+    QList<Subscription> m_knownSubscriptions;
 };
 
-#endif // SCHEMEHANDLER_H
+#endif // ADBLOCKADDSUBSCRIPTIONDIALOG_H

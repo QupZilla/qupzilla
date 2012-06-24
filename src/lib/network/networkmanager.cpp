@@ -23,6 +23,7 @@
 #include "webpage.h"
 #include "pluginproxy.h"
 #include "adblockmanager.h"
+#include "adblockschemehandler.h"
 #include "networkproxyfactory.h"
 #include "qupzillaschemehandler.h"
 #include "certificateinfowidget.h"
@@ -68,6 +69,7 @@ NetworkManager::NetworkManager(QupZilla* mainClass, QObject* parent)
     connect(this, SIGNAL(finished(QNetworkReply*)), this, SLOT(setSSLConfiguration(QNetworkReply*)));
 
     m_schemeHandlers["qupzilla"] = new QupZillaSchemeHandler();
+    m_schemeHandlers["abp"] = new AdBlockSchemeHandler();
 
     m_proxyFactory = new NetworkProxyFactory();
     setProxyFactory(m_proxyFactory);

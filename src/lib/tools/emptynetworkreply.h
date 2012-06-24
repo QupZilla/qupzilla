@@ -15,18 +15,25 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SCHEMEHANDLER_H
-#define SCHEMEHANDLER_H
+#ifndef EMPTYNETWORKREPLY_H
+#define EMPTYNETWORKREPLY_H
 
-#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 #include "qz_namespace.h"
 
-class QT_QUPZILLA_EXPORT SchemeHandler
+class QT_QUPZILLA_EXPORT EmptyNetworkReply : public QNetworkReply
 {
+    Q_OBJECT
 public:
-    SchemeHandler() { }
-    virtual QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData) = 0;
+    explicit EmptyNetworkReply(QObject* parent = 0);
+
+private slots:
+    void delayedFinish();
+
+protected:
+    qint64 readData(char* data, qint64 maxSize);
+    void abort() { }
 };
 
-#endif // SCHEMEHANDLER_H
+#endif // EMPTYNETWORKREPLY_H
