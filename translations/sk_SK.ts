@@ -72,26 +72,52 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished">Vlastné pravidlá</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>Rule</source>
-        <translation>Pravidlo</translation>
+        <translation type="obsolete">Pravidlo</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyList bol úspešne aktualizovaný.</translation>
+        <translation type="obsolete">EasyList bol úspešne aktualizovaný.</translation>
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>Aktualizovať EasyList</translation>
+        <translation type="obsolete">Aktualizovať EasyList</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>Prosím, sem napíšte vlastné pravidlo:</translation>
+        <translation type="obsolete">Prosím, sem napíšte vlastné pravidlo:</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>Pridať vlastné pravidlo</translation>
+        <translation type="obsolete">Pridať vlastné pravidlo</translation>
     </message>
     <message>
         <source>Enable AdBlock</source>
@@ -107,7 +133,7 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>Vymazať pravidlo</translation>
+        <translation type="obsolete">Vymazať pravidlo</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -115,15 +141,46 @@
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation>Vlastné pravidlá</translation>
+        <translation type="obsolete">Vlastné pravidlá</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>Aktualizácia dokončená</translation>
+        <translation type="obsolete">Aktualizácia dokončená</translation>
     </message>
     <message>
         <source>AdBlock Configuration</source>
         <translation>Natavenia AdBlocku</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -146,7 +203,7 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Zistiť viac o písaní p&amp;ravidiel</translation>
+        <translation type="obsolete">Zistiť viac o písaní p&amp;ravidiel</translation>
     </message>
     <message>
         <source>AdBlock lets you block unwanted content on web pages</source>
@@ -167,6 +224,40 @@
     <message>
         <source>Blocked Popup Windows</source>
         <translation>Zablokované vyskakovacie okná</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished">Pridať pravidlo</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished">Pridať vlastné pravidlo</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished">Prosím, sem napíšte vlastné pravidlo:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3904,7 +3995,7 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Blokované pravidlom &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="obsolete">Blokované pravidlom &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -4011,6 +4102,10 @@ Po pridaní či odobratí ciest k certifikátom je nutné reštartovať prehliad
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>QupZilla nemôže otvoriť &lt;b&gt;%1:&lt;/b&gt; odkazy. Vyžiadany odkaz je &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Chcete aby QupZila otvorila tento odkaz v systémovej aplikácií?</translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

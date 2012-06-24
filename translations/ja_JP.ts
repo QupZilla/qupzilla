@@ -73,6 +73,32 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished">カスタムルールの編集</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -88,7 +114,7 @@
     </message>
     <message>
         <source>Rule</source>
-        <translation>ルール</translation>
+        <translation type="obsolete">ルール</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -96,7 +122,7 @@
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>EasyListのアップデート</translation>
+        <translation type="obsolete">EasyListのアップデート</translation>
     </message>
     <message>
         <source>AdBlock</source>
@@ -104,27 +130,58 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>ルールの削除</translation>
+        <translation type="obsolete">ルールの削除</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>更新の完了</translation>
+        <translation type="obsolete">更新の完了</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyListの更新に成功しました。</translation>
+        <translation type="obsolete">EasyListの更新に成功しました。</translation>
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation>カスタムルールの編集</translation>
+        <translation type="obsolete">カスタムルールの編集</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>カスタムルールの追加</translation>
+        <translation type="obsolete">カスタムルールの追加</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>新しいルールの追加:</translation>
+        <translation type="obsolete">新しいルールの追加:</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -170,7 +227,41 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>広告ブロックの書き方ついて(&amp;R)</translation>
+        <translation type="obsolete">広告ブロックの書き方ついて(&amp;R)</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished">ルールを追加する</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished">カスタムルールの追加</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished">新しいルールの追加:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4030,7 +4121,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>&lt;i&gt;%1&lt;/i&gt;によってブロックされています</translation>
+        <translation type="obsolete">&lt;i&gt;%1&lt;/i&gt;によってブロックされています</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -4096,6 +4187,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translatorcomment>ここようわからん</translatorcomment>
         <translation>QupZillaは&lt;b&gt;%1:&lt;/b&gt;のリンクを処理できません。リクエストされたリンクは&lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;システムアプリケーションでこのリンクを開きますか？</translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

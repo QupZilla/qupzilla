@@ -72,26 +72,52 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished">Filtros Personalizados</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>Rule</source>
-        <translation>Filtro</translation>
+        <translation type="obsolete">Filtro</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>A EasyList foi atualizada com sucesso.</translation>
+        <translation type="obsolete">A EasyList foi atualizada com sucesso.</translation>
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>Atualizar EasyList</translation>
+        <translation type="obsolete">Atualizar EasyList</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>Escreva aqui o seu filtro:</translation>
+        <translation type="obsolete">Escreva aqui o seu filtro:</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>Adicionar filtro personalizado</translation>
+        <translation type="obsolete">Adicionar filtro personalizado</translation>
     </message>
     <message>
         <source>Enable AdBlock</source>
@@ -107,7 +133,7 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>Apagar Filtro</translation>
+        <translation type="obsolete">Apagar Filtro</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -115,15 +141,46 @@
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation>Filtros Personalizados</translation>
+        <translation type="obsolete">Filtros Personalizados</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>Atualização concluída</translation>
+        <translation type="obsolete">Atualização concluída</translation>
     </message>
     <message>
         <source>AdBlock Configuration</source>
         <translation>Configuração AdBlock</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -166,7 +223,41 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Saber mais sobre as &amp;regras</translation>
+        <translation type="obsolete">Saber mais sobre as &amp;regras</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished">Adicionar Filtro</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished">Adicionar filtro personalizado</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished">Escreva aqui o seu filtro:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3924,7 +4015,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Bloqueado pela regra &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="obsolete">Bloqueado pela regra &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -4011,6 +4102,10 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>O QupZilla não consegue entender &lt;b&gt;%1&lt;/b&gt; links. Quem está pedindo é/são: &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;. Você deseja que o QupZilla tente abrir esses links nos aplicativos do sistema? </translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

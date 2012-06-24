@@ -72,6 +72,32 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished">შერჩეული წესები</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -87,7 +113,7 @@
     </message>
     <message>
         <source>Rule</source>
-        <translation>წესი</translation>
+        <translation type="obsolete">წესი</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -95,7 +121,7 @@
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>EasyList-ის განახლება</translation>
+        <translation type="obsolete">EasyList-ის განახლება</translation>
     </message>
     <message>
         <source>AdBlock</source>
@@ -103,27 +129,58 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>წესის წაშლა</translation>
+        <translation type="obsolete">წესის წაშლა</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>განახლება დასრულდა</translation>
+        <translation type="obsolete">განახლება დასრულდა</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyList წარმატებით განახლდა.</translation>
+        <translation type="obsolete">EasyList წარმატებით განახლდა.</translation>
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation>შერჩეული წესები</translation>
+        <translation type="obsolete">შერჩეული წესები</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>სასურველი წესის დამატება</translation>
+        <translation type="obsolete">სასურველი წესის დამატება</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>გთხოვთ ჩაწერეთ თქვენი წესი აქ:</translation>
+        <translation type="obsolete">გთხოვთ ჩაწერეთ თქვენი წესი აქ:</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -166,7 +223,41 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>&amp;წესების წერის შესახებ მეტის გაგება</translation>
+        <translation type="obsolete">&amp;წესების წერის შესახებ მეტის გაგება</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished">წესის დამატება</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished">სასურველი წესის დამატება</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished">გთხოვთ ჩაწერეთ თქვენი წესი აქ:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3949,7 +4040,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>დაბლოკილია წესით &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="obsolete">დაბლოკილია წესით &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -4009,6 +4100,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

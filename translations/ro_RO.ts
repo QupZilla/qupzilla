@@ -72,6 +72,32 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished">Reguli personalizate</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -87,7 +113,7 @@
     </message>
     <message>
         <source>Rule</source>
-        <translation>Regulă</translation>
+        <translation type="obsolete">Regulă</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -95,7 +121,7 @@
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>Actualizează EasyList</translation>
+        <translation type="obsolete">Actualizează EasyList</translation>
     </message>
     <message>
         <source>AdBlock</source>
@@ -103,27 +129,58 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>Șterge regulă</translation>
+        <translation type="obsolete">Șterge regulă</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>Actualizare completă</translation>
+        <translation type="obsolete">Actualizare completă</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyList a fost actualizat cu succes.</translation>
+        <translation type="obsolete">EasyList a fost actualizat cu succes.</translation>
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation>Reguli personalizate</translation>
+        <translation type="obsolete">Reguli personalizate</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>Adaugă regulă personalizată</translation>
+        <translation type="obsolete">Adaugă regulă personalizată</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>Va rugăm scrieți regula aici:</translation>
+        <translation type="obsolete">Va rugăm scrieți regula aici:</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -166,7 +223,41 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Învață despre &amp;reguli de scriere</translation>
+        <translation type="obsolete">Învață despre &amp;reguli de scriere</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished">Adaugă regulă</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished">Adaugă regulă personalizată</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished">Va rugăm scrieți regula aici:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3950,7 +4041,7 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Blocat de regula &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="obsolete">Blocat de regula &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -4010,6 +4101,10 @@ După adăugarea sau ștergerea de căi pentru certificate, este necesar să res
     </message>
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

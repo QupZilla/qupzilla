@@ -72,6 +72,32 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -86,15 +112,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Rule</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Add Rule</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update EasyList</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -102,27 +120,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete Rule</source>
+        <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update completed</source>
+        <source>Remove Rule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>EasyList has been successfully updated.</source>
+        <source>Add Subscription</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Custom Rules</source>
+        <source>Remove Subscription</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add Custom Rule</source>
+        <source>Update Subscriptions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please write your rule here:</source>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -164,8 +189,38 @@
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
     <message>
-        <source>Learn About Writing &amp;Rules</source>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3806,10 +3861,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Content Access Denied</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3867,6 +3918,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

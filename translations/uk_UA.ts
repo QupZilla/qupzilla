@@ -74,6 +74,32 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation type="unfinished">Правила користувача</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>AdBlock Configuration</source>
@@ -89,7 +115,7 @@
     </message>
     <message>
         <source>Rule</source>
-        <translation>Правило</translation>
+        <translation type="obsolete">Правило</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -97,7 +123,7 @@
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>Оновити EasyList</translation>
+        <translation type="obsolete">Оновити EasyList</translation>
     </message>
     <message>
         <source>AdBlock</source>
@@ -105,28 +131,59 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>Видалити правило</translation>
+        <translation type="obsolete">Видалити правило</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>Оновлення завершено</translation>
+        <translation type="obsolete">Оновлення завершено</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>EasyList було успішно оновлено.</translation>
+        <translation type="obsolete">EasyList було успішно оновлено.</translation>
     </message>
     <message>
         <source>Custom Rules</source>
         <translatorcomment>Custom = користувач</translatorcomment>
-        <translation>Правила користувача</translation>
+        <translation type="obsolete">Правила користувача</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>Додати правило користувача</translation>
+        <translation type="obsolete">Додати правило користувача</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>Будь ласка, напишіть Ваше правило тут:</translation>
+        <translation type="obsolete">Будь ласка, напишіть Ваше правило тут:</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -169,7 +226,41 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Дізнатись про написання &amp;правил</translation>
+        <translation type="obsolete">Дізнатись про написання &amp;правил</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation type="unfinished">Додати правило</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation type="unfinished">Додати правило користувача</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation type="unfinished">Будь ласка, напишіть Ваше правило тут:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3978,7 +4069,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Заблоковано правилом &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="obsolete">Заблоковано правилом &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -4038,6 +4129,10 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>External Protocol Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
