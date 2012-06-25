@@ -41,9 +41,13 @@ public:
     void load();
     void save();
 
-    bool isEnabled() { if (!m_loaded) load(); return m_enabled; }
+    bool isEnabled();
+
+    QString elementHidingRules() const;
+    QString elementHidingRulesForDomain(const QString &domain) const;
 
     QList<AdBlockSubscription*> subscriptions() const;
+
     QNetworkReply* block(const QNetworkRequest &request);
 
     AdBlockSubscription* addSubscription(const QString &title, const QString &url);

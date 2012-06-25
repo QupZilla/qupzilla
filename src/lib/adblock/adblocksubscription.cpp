@@ -195,24 +195,42 @@ void AdBlockSubscription::saveDownloadedData(QByteArray &data)
     file.close();
 }
 
-const AdBlockRule* AdBlockSubscription::allow(const QString &urlString) const
+const AdBlockRule* AdBlockSubscription::allow(const QString &urlDomain, const QString &urlString) const
 {
     foreach(const AdBlockRule * rule, m_networkExceptionRules) {
-        if (rule->networkMatch(urlString)) {
+        if (rule->networkMatch(urlDomain, urlString)) {
             return rule;
         }
     }
     return 0;
 }
 
-const AdBlockRule* AdBlockSubscription::block(const QString &urlString) const
+const AdBlockRule* AdBlockSubscription::block(const QString &urlDomain, const QString &urlString) const
 {
     foreach(const AdBlockRule * rule, m_networkBlockRules) {
-        if (rule->networkMatch(urlString)) {
+        if (rule->networkMatch(urlDomain, urlString)) {
             return rule;
         }
     }
     return 0;
+}
+
+QString AdBlockSubscription::elementHidingRules() const
+{
+    return m_elementHidingRules;
+}
+
+QString AdBlockSubscription::elementHidingRulesForDomain(const QString &domain) const
+{
+    QString rules;
+
+    foreach(const AdBlockRule * rule, m_domainRestrictedCssRules) {
+        if (rule->matchDomain(domain)) {
+            rules.append(rule->cssSelector() + ",");
+        }
+    }
+
+    return rules;
 }
 
 QList<AdBlockRule> AdBlockSubscription::allRules() const
@@ -279,6 +297,7 @@ void AdBlockSubscription::populateCache()
 {
     m_networkExceptionRules.clear();
     m_networkBlockRules.clear();
+    m_domainRestrictedCssRules.clear();
     m_elementHidingRules.clear();
 
     for (int i = 0; i < m_rules.count(); ++i) {
@@ -287,8 +306,13 @@ void AdBlockSubscription::populateCache()
             continue;
         }
 
-        if (rule->isCSSRule()) {
-            m_elementHidingRules.append(rule->filter() + ",");
+        if (rule->isCssRule()) {
+            if (rule->isDomainRestricted()) {
+                m_domainRestrictedCssRules.append(rule);
+            }
+            else {
+                m_elementHidingRules.append(rule->cssSelector() + ",");
+            }
             continue;
         }
 
@@ -324,8 +348,9 @@ void AdBlockEasyList::saveDownloadedData(QByteArray &data)
         return;
     }
 
-    // We do not support more than standard blocking, so remove element hiding rules, etc...
-    data = data.left(data.indexOf("General element hiding rules"));
+    // Third-party advertisers rules are with start domain (||) placeholder which needs regexps
+    // So we are ignoring it for keeping good performance
+    data = data.left(data.indexOf("!---------------------------Third-party advertisers"));
 
     file.write(data);
     file.close();

@@ -72,10 +72,11 @@ public:
     virtual void loadSubscription();
     virtual void saveSubscription();
 
-    const AdBlockRule* allow(const QString &urlString) const;
-    const AdBlockRule* block(const QString &urlString) const;
+    const AdBlockRule* allow(const QString &urlDomain, const QString &urlString) const;
+    const AdBlockRule* block(const QString &urlDomain, const QString &urlString) const;
 
-    QString elementHidingRules();
+    QString elementHidingRules() const;
+    QString elementHidingRulesForDomain(const QString &domain) const;
     QList<AdBlockRule> allRules() const;
 
     void enableRule(int offset);
@@ -110,6 +111,7 @@ protected:
     // sorted list
     QList<const AdBlockRule*> m_networkExceptionRules;
     QList<const AdBlockRule*> m_networkBlockRules;
+    QList<const AdBlockRule*> m_domainRestrictedCssRules;
 
 private:
     QString m_title;

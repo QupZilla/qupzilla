@@ -63,7 +63,10 @@ void AdBlockAddSubscriptionDialog::indexChanged(int index)
     const Subscription &subscription = m_knownSubscriptions.at(index);
 
     ui->title->setText(subscription.title);
+    ui->title->setCursorPosition(0);
+
     ui->url->setText(subscription.url);
+    ui->url->setCursorPosition(0);
 }
 
 AdBlockAddSubscriptionDialog::~AdBlockAddSubscriptionDialog()

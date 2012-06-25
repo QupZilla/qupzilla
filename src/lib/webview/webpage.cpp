@@ -31,6 +31,7 @@
 #include "popupwebview.h"
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
+#include "adblockmanager.h"
 #include "iconprovider.h"
 #include "websettings.h"
 
@@ -474,6 +475,17 @@ void WebPage::addAdBlockRule(const QString &filter, const QUrl &url)
 
 void WebPage::cleanBlockedObjects()
 {
+    if (!AdBlockManager::instance()->isEnabled()) {
+        return;
+    }
+
+    // Don't run on local schemes
+    const QString &urlScheme = url().scheme();
+    if (urlScheme == "data" || urlScheme == "qrc" || urlScheme == "file" ||
+            urlScheme == "qupzilla" || urlScheme == "abp") {
+        return;
+    }
+
     QStringList findingStrings;
 
     foreach(const AdBlockedEntry & entry, m_adBlockedEntries) {
@@ -504,6 +516,13 @@ void WebPage::cleanBlockedObjects()
     foreach(QWebElement element, elements) {
         element.setStyleProperty("visibility", "hidden");
     }
+
+    // Apply domain-specific element hiding rules
+    QString elementHiding = AdBlockManager::instance()->elementHidingRulesForDomain(url().host());
+    elementHiding.append("{display: none !important;}\n</style>");
+
+    QWebElement headElement = docElement.findFirst("body");
+    headElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
 }
 
 QString WebPage::userAgentForUrl(const QUrl &url) const

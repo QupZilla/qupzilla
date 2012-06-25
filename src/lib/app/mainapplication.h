@@ -125,6 +125,8 @@ private:
     void translateApp();
     void restoreOtherWindows();
 
+    QUrl userStyleSheet(const QString &filePath) const;
+
     CookieManager* m_cookiemanager;
     BrowsingLibrary* m_browsingLibrary;
     History* m_historymodel;

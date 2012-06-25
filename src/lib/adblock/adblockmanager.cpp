@@ -40,6 +40,7 @@ AdBlockManager::AdBlockManager(QObject* parent)
     , m_loaded(false)
     , m_enabled(true)
 {
+    load();
 }
 
 AdBlockManager* AdBlockManager::instance()
@@ -69,20 +70,22 @@ QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
 QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
 {
     const QString &urlString = request.url().toEncoded();
+    const QString &urlDomain = request.url().host();
     const QString &urlScheme = request.url().scheme();
 
-    if (!isEnabled() || urlScheme == "data" || urlScheme == "qrc" || urlScheme == "file" || urlScheme == "qupzilla") {
+    if (!isEnabled() || urlScheme == "data" || urlScheme == "qrc" ||
+            urlScheme == "file" || urlScheme == "qupzilla" || urlScheme == "abp") {
         return 0;
     }
 
     const AdBlockRule* blockedRule = 0;
 
     foreach(AdBlockSubscription * subscription, m_subscriptions) {
-        if (subscription->allow(urlString)) {
+        if (subscription->allow(urlDomain, urlString)) {
             return 0;
         }
 
-        if (const AdBlockRule* rule = subscription->block(urlString)) {
+        if (const AdBlockRule* rule = subscription->block(urlDomain, urlString)) {
             blockedRule = rule;
         }
 
@@ -148,16 +151,19 @@ bool AdBlockManager::removeSubscription(AdBlockSubscription* subscription)
 
 void AdBlockManager::load()
 {
-    if (m_loaded) {
+    if (!m_enabled || m_loaded) {
         return;
     }
-    m_loaded = true;
 
     Settings settings;
     settings.beginGroup("AdBlock");
     m_enabled = settings.value("enabled", m_enabled).toBool();
     QDateTime lastUpdate = settings.value("lastUpdate", QDateTime()).toDateTime();
     settings.endGroup();
+
+    if (!m_enabled) {
+        return;
+    }
 
     QDir adblockDir(mApp->currentProfilePath() + "adblock");
     // Create if neccessary
@@ -207,6 +213,8 @@ void AdBlockManager::load()
     if (lastUpdate.addDays(5) < QDateTime::currentDateTime()) {
         QTimer::singleShot(1000 * 60, this, SLOT(updateAllSubscriptions()));
     }
+
+    m_loaded = true;
 }
 
 void AdBlockManager::updateAllSubscriptions()
@@ -235,6 +243,43 @@ void AdBlockManager::save()
     settings.beginGroup("AdBlock");
     settings.setValue("enabled", m_enabled);
     settings.endGroup();
+}
+
+bool AdBlockManager::isEnabled()
+{
+    return m_enabled;
+}
+
+QString AdBlockManager::elementHidingRules() const
+{
+    QString rules;
+
+    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+        rules.append(subscription->elementHidingRules());
+    }
+
+    // Remove last ","
+    if (!rules.isEmpty()) {
+        rules = rules.mid(0, rules.size() - 1);
+    }
+
+    return rules;
+}
+
+QString AdBlockManager::elementHidingRulesForDomain(const QString &domain) const
+{
+    QString rules;
+
+    foreach(AdBlockSubscription * subscription, m_subscriptions) {
+        rules.append(subscription->elementHidingRulesForDomain(domain));
+    }
+
+    // Remove last ","
+    if (!rules.isEmpty()) {
+        rules = rules.mid(0, rules.size() - 1);
+    }
+
+    return rules;
 }
 
 AdBlockDialog* AdBlockManager::showDialog()

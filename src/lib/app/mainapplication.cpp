@@ -330,7 +330,7 @@ void MainApplication::loadSettings()
 #endif
 
     setWheelScrollLines(settings.value("wheelScrollLines", wheelScrollLines()).toInt());
-    m_websettings->setUserStyleSheetUrl(QUrl::fromLocalFile(settings.value("userStyleSheet", "").toString()));
+    m_websettings->setUserStyleSheetUrl(userStyleSheet(settings.value("userStyleSheet", "").toString()));
     WebPage::setUserAgent(settings.value("UserAgent", "").toString());
     settings.endGroup();
 
@@ -842,6 +842,25 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
 
     m_isRestoring = false;
     return true;
+}
+
+QUrl MainApplication::userStyleSheet(const QString &filePath) const
+{
+    QString userStyle;
+
+    QFile file(filePath);
+    if (!filePath.isEmpty() && file.open(QFile::ReadOnly)) {
+        userStyle = file.readAll();
+        userStyle.remove("\n");
+        file.close();
+    }
+
+    userStyle.append(AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}");
+
+    QString encodedStyle = userStyle.toAscii().toBase64();
+    QString dataString = QString("data:text/css;charset=utf-8;base64,%1").arg(encodedStyle);
+
+    return QUrl(dataString);
 }
 
 bool MainApplication::checkSettingsDir()
