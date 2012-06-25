@@ -79,15 +79,15 @@ public:
     QString elementHidingRulesForDomain(const QString &domain) const;
     QList<AdBlockRule> allRules() const;
 
-    void enableRule(int offset);
-    void disableRule(int offset);
+    const AdBlockRule* enableRule(int offset);
+    const AdBlockRule* disableRule(int offset);
 
     virtual bool canEditRules() const;
     virtual bool canBeRemoved() const;
 
     virtual int addRule(const AdBlockRule &rule);
     virtual bool removeRule(int offset);
-    virtual bool replaceRule(const AdBlockRule &rule, int offset);
+    virtual const AdBlockRule* replaceRule(const AdBlockRule &rule, int offset);
 
 public slots:
     void updateSubscription();
@@ -142,7 +142,7 @@ public:
 
     int addRule(const AdBlockRule &rule);
     bool removeRule(int offset);
-    bool replaceRule(const AdBlockRule &rule, int offset);
+    const AdBlockRule* replaceRule(const AdBlockRule &rule, int offset);
 };
 
 #endif // ADBLOCKSUBSCRIPTION_H

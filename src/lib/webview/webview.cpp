@@ -146,7 +146,7 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 
     if (reqUrl.isEmpty() || isUrlValid(reqUrl)) {
         QWebView::load(request, operation, body);
-        emit urlChanged(url());
+        emit urlChanged(reqUrl);
         m_aboutToLoadUrl = reqUrl;
         return;
     }
@@ -156,7 +156,6 @@ void WebView::load(const QNetworkRequest &request, QNetworkAccessManager::Operat
 
     emit urlChanged(searchUrl);
     m_aboutToLoadUrl = searchUrl;
-
 }
 
 bool WebView::loadingError() const

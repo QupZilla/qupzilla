@@ -24,6 +24,7 @@
 #include "treewidget.h"
 
 class AdBlockSubscription;
+class AdBlockRule;
 
 class QT_QUPZILLA_EXPORT AdBlockTreeWidget : public TreeWidget
 {
@@ -32,8 +33,6 @@ public:
     explicit AdBlockTreeWidget(AdBlockSubscription* subscription, QWidget* parent = 0);
 
     AdBlockSubscription* subscription() const;
-
-signals:
 
 public slots:
     void addRule();
@@ -47,11 +46,12 @@ private slots:
     void subscriptionUpdated();
 
 private:
+    void adjustItemColor(QTreeWidgetItem* item, const AdBlockRule &rule);
+
     AdBlockSubscription* m_subscription;
     QTreeWidgetItem* m_topItem;
 
     bool m_itemChangingBlock;
-
 };
 
 #endif // ADBLOCKTREEWIDGET_H

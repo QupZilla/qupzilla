@@ -238,30 +238,24 @@ QList<AdBlockRule> AdBlockSubscription::allRules() const
     return m_rules;
 }
 
-void AdBlockSubscription::enableRule(int offset)
+const AdBlockRule* AdBlockSubscription::enableRule(int offset)
 {
     if (!qz_listContainsIndex(m_rules, offset)) {
-        return;
+        return 0;
     }
 
-    const AdBlockRule &rule = m_rules.at(offset);
-
-    if (rule.filter().startsWith("!")) {
-        m_rules[offset].setFilter(rule.filter().mid(1));
-    }
+    m_rules[offset].setEnabled(true);
+    return &m_rules[offset];
 }
 
-void AdBlockSubscription::disableRule(int offset)
+const AdBlockRule* AdBlockSubscription::disableRule(int offset)
 {
     if (!qz_listContainsIndex(m_rules, offset)) {
-        return;
+        return 0;
     }
 
-    const AdBlockRule &rule = m_rules.at(offset);
-
-    if (!rule.filter().startsWith("!")) {
-        m_rules[offset].setFilter("!" + rule.filter());
-    }
+    m_rules[offset].setEnabled(false);
+    return &m_rules[offset];
 }
 
 bool AdBlockSubscription::canEditRules() const
@@ -286,11 +280,11 @@ bool AdBlockSubscription::removeRule(int offset)
     return false;
 }
 
-bool AdBlockSubscription::replaceRule(const AdBlockRule &rule, int offset)
+const AdBlockRule* AdBlockSubscription::replaceRule(const AdBlockRule &rule, int offset)
 {
     Q_UNUSED(rule)
     Q_UNUSED(offset)
-    return false;
+    return 0;
 }
 
 void AdBlockSubscription::populateCache()
@@ -394,14 +388,14 @@ bool AdBlockCustomList::removeRule(int offset)
     return true;
 }
 
-bool AdBlockCustomList::replaceRule(const AdBlockRule &rule, int offset)
+const AdBlockRule* AdBlockCustomList::replaceRule(const AdBlockRule &rule, int offset)
 {
     if (!qz_listContainsIndex(m_rules, offset)) {
-        return false;
+        return 0;
     }
 
     m_rules[offset] = rule;
     populateCache();
 
-    return true;
+    return &m_rules[offset];
 }

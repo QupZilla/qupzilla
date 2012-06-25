@@ -79,28 +79,25 @@ void AdBlockTreeWidget::itemChanged(QTreeWidgetItem* item)
     if (item->checkState(0) == Qt::Unchecked && !item->text(0).startsWith("!")) {
         // Disable rule
         int offset = item->data(0, Qt::UserRole + 10).toInt();
-        QFont italicFont;
-        italicFont.setItalic(true);
-        item->setFont(0, italicFont);
         item->setText(0, item->text(0).prepend("!"));
 
-        m_subscription->disableRule(offset);
+        const AdBlockRule* rule = m_subscription->disableRule(offset);
+        adjustItemColor(item, *rule);
     }
     else if (item->checkState(0) == Qt::Checked && item->text(0).startsWith("!")) {
         // Enable rule
         int offset = item->data(0, Qt::UserRole + 10).toInt();
-        item->setFont(0, QFont());
-        QString newText = item->text(0).mid(1);
-        item->setText(0, newText);
+        item->setText(0, item->text(0).mid(1));
 
-        m_subscription->enableRule(offset);
+        const AdBlockRule* rule = m_subscription->enableRule(offset);
+        adjustItemColor(item, *rule);
     }
     else if (m_subscription->canEditRules()) {
         // Custom rule has been changed
         int offset = item->data(0, Qt::UserRole + 10).toInt();
 
-        AdBlockRule rul(item->text(0));
-        m_subscription->replaceRule(rul, offset);
+        const AdBlockRule* rule = m_subscription->replaceRule(AdBlockRule(item->text(0)), offset);
+        adjustItemColor(item, *rule);
     }
 
     m_itemChangingBlock = false;
@@ -153,6 +150,28 @@ void AdBlockTreeWidget::subscriptionUpdated()
     m_itemChangingBlock = false;
 }
 
+void AdBlockTreeWidget::adjustItemColor(QTreeWidgetItem* item, const AdBlockRule &rule)
+{
+    if (!rule.isEnabled()) {
+        QFont font;
+        font.setItalic(true);
+        item->setForeground(0, QColor(Qt::gray));
+        item->setFont(0, font);
+    }
+    else if (rule.isCssRule()) {
+        item->setForeground(0, QColor(Qt::darkBlue));
+        item->setFont(0, QFont());
+    }
+    else if (rule.isException()) {
+        item->setForeground(0, QColor(Qt::darkGreen));
+        item->setFont(0, QFont());
+    }
+    else {
+        item->setForeground(0, QColor());
+        item->setFont(0, QFont());
+    }
+}
+
 void AdBlockTreeWidget::refresh()
 {
     m_itemChangingBlock = true;
@@ -160,8 +179,6 @@ void AdBlockTreeWidget::refresh()
 
     QFont boldFont;
     boldFont.setBold(true);
-    QFont italicFont;
-    italicFont.setItalic(true);
 
     m_topItem = new QTreeWidgetItem(this);
     m_topItem->setText(0, m_subscription->title());
@@ -182,10 +199,7 @@ void AdBlockTreeWidget::refresh()
             item->setFlags(item->flags() | Qt::ItemIsEditable);
         }
 
-        if (!rule.isEnabled()) {
-            item->setFont(0, italicFont);
-        }
-
+        adjustItemColor(item, rule);
         ++index;
     }
 
