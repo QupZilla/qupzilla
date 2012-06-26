@@ -76,26 +76,27 @@
     <name>AdBlockAddSubscriptionDialog</name>
     <message>
         <source>Title:</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ名:</translation>
     </message>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>アドレス:</translation>
     </message>
     <message>
         <source>Add new subscription to AdBlock:</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>未定</translatorcomment>
+        <translation>Adblockが新しく購読する:</translation>
     </message>
     <message>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>購読する</translation>
     </message>
 </context>
 <context>
     <name>AdBlockCustomList</name>
     <message>
         <source>Custom Rules</source>
-        <translation type="unfinished">カスタムルールの編集</translation>
+        <translation>カスタムルールの編集</translation>
     </message>
 </context>
 <context>
@@ -154,34 +155,34 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>オプション</translation>
     </message>
     <message>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>ルールを削除する</translation>
     </message>
     <message>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>購読する</translation>
     </message>
     <message>
         <source>Remove Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>購読を削除する</translation>
     </message>
     <message>
         <source>Update Subscriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>購読しているフィルタを更新する</translation>
     </message>
     <message>
         <source>Learn about writing rules...</source>
-        <translation type="unfinished"></translation>
+        <translation>Adblockの季報について学ぶ...</translation>
     </message>
 </context>
 <context>
     <name>AdBlockEasyList</name>
     <message>
         <source>EasyList</source>
-        <translation type="unfinished"></translation>
+        <translation>Easylist</translation>
     </message>
 </context>
 <context>
@@ -234,34 +235,34 @@
     <name>AdBlockManager</name>
     <message>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;%1&lt;/b&gt;を購読しますか？</translation>
     </message>
     <message>
         <source>AdBlock Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Adblockフィルタの購読</translation>
     </message>
 </context>
 <context>
     <name>AdBlockTreeWidget</name>
     <message>
         <source>Add Rule</source>
-        <translation type="unfinished">ルールを追加する</translation>
+        <translation>ルールを追加する</translation>
     </message>
     <message>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>ルールを削除する</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation type="unfinished">カスタムルールの追加</translation>
+        <translation>カスタムルールの追加</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation type="unfinished">新しいルールの追加:</translation>
+        <translation>新しいルールの追加:</translation>
     </message>
     <message>
         <source>%1 (recently updated)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1(最近アップデートされたもの)</translation>
     </message>
 </context>
 <context>
@@ -639,7 +640,7 @@
     </message>
     <message>
         <source>Change icon</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンの変更</translation>
     </message>
 </context>
 <context>
@@ -1335,7 +1336,7 @@
     </message>
     <message>
         <source>Change...</source>
-        <translation type="unfinished"></translation>
+        <translation>変更する...</translation>
     </message>
 </context>
 <context>
@@ -1589,31 +1590,31 @@
     <name>IconChooser</name>
     <message>
         <source>Choose icon...</source>
-        <translation type="unfinished">アイコンを選択する...</translation>
+        <translation>アイコンを選択する...</translation>
     </message>
     <message>
         <source>From file</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルから</translation>
     </message>
     <message>
         <source>Image (.png, .jpg, .jpeg, .gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>画像(.png, .jpg, .jpeg, .gif)</translation>
     </message>
     <message>
         <source>Choose file...</source>
-        <translation type="unfinished">ファイルの選択...</translation>
+        <translation>ファイルの選択...</translation>
     </message>
     <message>
         <source>From database</source>
-        <translation type="unfinished"></translation>
+        <translation>データベースから</translation>
     </message>
     <message>
         <source>Site Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>サイトのURL:</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished">画像ファイル</translation>
+        <translation>画像ファイル</translation>
     </message>
 </context>
 <context>
@@ -1640,7 +1641,7 @@
     </message>
     <message>
         <source>Clear All</source>
-        <translation>アドレスバーをクリア</translation>
+        <translation>ロケーションバーをクリア</translation>
     </message>
     <message>
         <source>.co.uk</source>
@@ -2031,7 +2032,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Address Bar behaviour&lt;/b&gt;</source>
-        <translation>&lt;b&gt;アドレスバーの設定&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;ロケーションバーの設定&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Select all text by double clicking in address bar</source>
@@ -2599,7 +2600,7 @@
     <message>
         <source>Open Location</source>
         <translatorcomment>わからない</translatorcomment>
-        <translation>アドレスバー</translation>
+        <translation>ロケーションバー</translation>
     </message>
     <message>
         <source>Open &amp;File</source>
@@ -3248,15 +3249,15 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Search on Web</source>
-        <translation type="unfinished"></translation>
+        <translation>Webで検索する</translation>
     </message>
     <message>
         <source>Search results provided by DuckDuckGo</source>
-        <translation type="unfinished"></translation>
+        <translation>検索結果はDuckDuckGoから提供されます</translation>
     </message>
     <message>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;プライベートブラウジング&lt;h1/&gt;</translation>
     </message>
 </context>
 <context>
@@ -3301,7 +3302,7 @@ Are you sure to quit QupZilla?</source>
         <source>You don&apos;t have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translatorcomment>意訳</translatorcomment>
-        <translation>RSSフィードがありません。&lt;br/&gt;RSSフィードが取得可能な場合アドレスバーにRSSアイコンが表示されます。</translation>
+        <translation>RSSフィードがありません。&lt;br/&gt;RSSフィードが取得可能な場合ロケーションバーにRSSアイコンが表示されます。</translation>
     </message>
     <message>
         <source>Add new feed</source>
@@ -4202,7 +4203,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;i&gt;%1&lt;i/&gt;によってブロックされました</translation>
     </message>
 </context>
 <context>
