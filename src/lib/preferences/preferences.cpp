@@ -160,10 +160,10 @@ Preferences::Preferences(QupZilla* mainClass, QWidget* parent)
 
     //TABS
     settings.beginGroup("Browser-Tabs-Settings");
-    ui->makeMovable->setChecked(settings.value("makeTabsMovable", true).toBool());
     ui->hideTabsOnTab->setChecked(settings.value("hideTabsWithOneTab", false).toBool());
     ui->activateLastTab->setChecked(settings.value("ActivateLastTabWhenClosingActual", false).toBool());
     ui->openNewTabAfterActive->setChecked(settings.value("newTabAfterActive", true).toBool());
+    ui->switchToNewTabs->setChecked(settings.value("OpenNewTabsSelected", false).toBool());
     ui->dontQuitOnTab->setChecked(settings.value("dontQuitWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     ui->closedInsteadOpened->setChecked(settings.value("closedInsteadOpenedTabs", false).toBool());
@@ -748,7 +748,6 @@ void Preferences::saveSettings()
 
     //WINDOW
     settings.beginGroup("Browser-View-Settings");
-
     settings.setValue("showStatusbar", ui->showStatusbar->isChecked());
     settings.setValue("showBookmarksToolbar", ui->showBookmarksToolbar->isChecked());
     settings.setValue("showNavigationToolbar", ui->showNavigationToolbar->isChecked());
@@ -760,10 +759,10 @@ void Preferences::saveSettings()
 
     //TABS
     settings.beginGroup("Browser-Tabs-Settings");
-    settings.setValue("makeTabsMovable", ui->makeMovable->isChecked());
     settings.setValue("hideTabsWithOneTab", ui->hideTabsOnTab->isChecked());
     settings.setValue("ActivateLastTabWhenClosingActual", ui->activateLastTab->isChecked());
     settings.setValue("newTabAfterActive", ui->openNewTabAfterActive->isChecked());
+    settings.setValue("OpenNewTabsSelected", ui->switchToNewTabs->isChecked());
     settings.setValue("dontQuitWithOneTab", ui->dontQuitOnTab->isChecked());
     settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.setValue("closedInsteadOpenedTabs", ui->closedInsteadOpened->isChecked());

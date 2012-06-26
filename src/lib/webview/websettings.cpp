@@ -21,6 +21,7 @@
 int WebSettings::defaultZoom = 100;
 bool WebSettings::loadTabsOnActivation = false;
 
+Qz::NewTabPositionFlag WebSettings::newTabPosition;
 QStringList WebSettings::autoOpenProtocols;
 QStringList WebSettings::blockedProtocols;
 
@@ -35,6 +36,10 @@ void WebSettings::loadSettings()
     autoOpenProtocols = settings.value("AutomaticallyOpenProtocols", QStringList()).toStringList();
     blockedProtocols = settings.value("BlockOpeningProtocols", QStringList()).toStringList();
 
+    settings.endGroup();
+
+    settings.beginGroup("Browser-Tabs-Settings");
+    newTabPosition = settings.value("OpenNewTabsSelected", false).toBool() ? Qz::NT_SelectedTab : Qz::NT_NotSelectedTab;
     settings.endGroup();
 }
 

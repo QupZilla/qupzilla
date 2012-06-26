@@ -33,6 +33,7 @@ public:
     static int defaultZoom;
     static bool loadTabsOnActivation;
 
+    static Qz::NewTabPositionFlag newTabPosition;
     static QStringList autoOpenProtocols;
     static QStringList blockedProtocols;
 };

@@ -497,6 +497,16 @@ void WebView::openUrlInBackgroundTab()
     }
 }
 
+void WebView::userDefinedOpenUrlInNewTab(const QUrl &url)
+{
+    if (QAction* action = qobject_cast<QAction*>(sender())) {
+        openUrlInNewTab(action->data().toUrl(), WebSettings::newTabPosition);
+    }
+    else {
+        openUrlInNewTab(url, WebSettings::newTabPosition);
+    }
+}
+
 void WebView::loadClickedFrame()
 {
     QUrl frameUrl = m_clickedFrame->baseUrl();
@@ -770,7 +780,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     }
 
     menu->addSeparator();
-    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(openUrlInBackgroundTab()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon(":/icons/menu/popup.png"), tr("Open link in new &tab"), this, SLOT(userDefinedOpenUrlInNewTab()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("window-new"), tr("Open link in new &window"), this, SLOT(openUrlInNewWindow()))->setData(hitTest.linkUrl());
     menu->addSeparator();
     menu->addAction(qIconProvider->fromTheme("user-bookmarks"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(hitTest.linkUrl());
@@ -791,7 +801,7 @@ void WebView::createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
     Action* act = new Action(tr("Show i&mage"));
     act->setData(hitTest.imageUrl());
     connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
-    connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+    connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInNewTab()));
     menu->addAction(act);
     menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(hitTest.imageUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
@@ -845,7 +855,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
         act->setData(guessedUrl);
 
         connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
-        connect(act, SIGNAL(middleClicked()), this, SLOT(openUrlInBackgroundTab()));
+        connect(act, SIGNAL(middleClicked()), this, SLOT(userDefinedOpenUrlInNewTab()));
         menu->addAction(act);
     }
 
@@ -976,7 +986,7 @@ void WebView::mousePressEvent(QMouseEvent* event)
         if (frame) {
             const QUrl &link = frame->hitTestContent(event->pos()).linkUrl();
             if (event->modifiers() == Qt::ControlModifier && isUrlValid(link)) {
-                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                userDefinedOpenUrlInNewTab(link);
                 event->accept();
                 return;
             }
@@ -1002,7 +1012,7 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
         if (frame) {
             const QUrl &link = frame->hitTestContent(event->pos()).linkUrl();
             if (m_clickedUrl == link && isUrlValid(link)) {
-                openUrlInNewTab(link, Qz::NT_NotSelectedTab);
+                userDefinedOpenUrlInNewTab(link);
                 event->accept();
                 return;
             }
