@@ -61,6 +61,7 @@ TabBar::TabBar(QupZilla* mainClass, TabWidget* tabWidget)
     setDocumentMode(true);
     setFocusPolicy(Qt::NoFocus);
     setMouseTracking(true);
+    setMovable(true);
 
     setAcceptDrops(true);
 
