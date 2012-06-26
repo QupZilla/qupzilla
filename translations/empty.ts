@@ -1911,10 +1911,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ask when entering Private Browsing mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Mouse wheel scrolls</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2649,34 +2645,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Are you sure you want to turn on private browsing?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Webpages are not added to the history.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Current cookies cannot be accessed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Your session is not stored.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Start Private Browsing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2758,14 +2726,6 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Start Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Google Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search results provided by Google</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3014,6 +2974,18 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

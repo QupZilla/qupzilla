@@ -2324,7 +2324,7 @@
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>Pýtať sa pri zapínaní súkromného prehliadania</translation>
+        <translation type="obsolete">Pýtať sa pri zapínaní súkromného prehliadania</translation>
     </message>
     <message>
         <source>Active profile:</source>
@@ -2585,7 +2585,7 @@
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>Ste si istý, že chcete zapnúť súkromné prehliadanie?</translation>
+        <translation type="obsolete">Ste si istý, že chcete zapnúť súkromné prehliadanie?</translation>
     </message>
     <message>
         <source>Close Window</source>
@@ -2657,7 +2657,7 @@
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>Stránky nie sú pridávané do histórie.</translation>
+        <translation type="obsolete">Stránky nie sú pridávané do histórie.</translation>
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
@@ -2705,7 +2705,7 @@
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Kým nezatvoríte okno, stále môžte používať tlačidlá Späť a Dopredu k vráteniu sa na stránky, ktoré ste mali otvorené.</translation>
+        <translation type="obsolete">Kým nezatvoríte okno, stále môžte používať tlačidlá Späť a Dopredu k vráteniu sa na stránky, ktoré ste mali otvorené.</translation>
     </message>
     <message>
         <source>Clear list</source>
@@ -2721,7 +2721,7 @@
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>Vaša relácia nie je uložená.</translation>
+        <translation type="obsolete">Vaša relácia nie je uložená.</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
@@ -2777,7 +2777,7 @@
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>Aktuálne cookies nie sú dostupné.</translation>
+        <translation type="obsolete">Aktuálne cookies nie sú dostupné.</translation>
     </message>
     <message>
         <source>IP Address of current page</source>
@@ -2797,7 +2797,7 @@
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Keď je zapnuté súkromné prehliadanie, niektoré akcie týkajúce sa vášho súkromia sú vypnuté:</translation>
+        <translation type="obsolete">Keď je zapnuté súkromné prehliadanie, niektoré akcie týkajúce sa vášho súkromia sú vypnuté:</translation>
     </message>
     <message>
         <source>Import bookmarks...</source>
@@ -2805,7 +2805,7 @@
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>Spustiť súkromné prehliadanie</translation>
+        <translation type="obsolete">Spustiť súkromné prehliadanie</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
@@ -3018,7 +3018,7 @@ Skutočne chcete skončiť?</translation>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Vyhľadávanie Google</translation>
+        <translation type="obsolete">Vyhľadávanie Google</translation>
     </message>
     <message>
         <source>New Page</source>
@@ -3034,7 +3034,7 @@ Skutočne chcete skončiť?</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>Výsledky vyhľadávania poskytované Googleom</translation>
+        <translation type="obsolete">Výsledky vyhľadávania poskytované Googleom</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -3187,6 +3187,18 @@ Skutočne chcete skončiť?</translation>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Táto stránka obsahuje informácie o aktuálnej konfigurácii QupZilly - dôležité informácie k riešeniu problémov. Priložte prosím tieto informácie k hláseniu problémov.</translation>
+    </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

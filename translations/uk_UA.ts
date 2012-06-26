@@ -2081,7 +2081,7 @@
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>Питати під час запуску Приватного перегляду</translation>
+        <translation type="obsolete">Питати під час запуску Приватного перегляду</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
@@ -2849,31 +2849,31 @@
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
         <translatorcomment>private browsing</translatorcomment>
-        <translation>Ви впевнені що хочете увімкнути Приватний перегляд?</translation>
+        <translation type="obsolete">Ви впевнені що хочете увімкнути Приватний перегляд?</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Коли приватний перегляд увімкнено, деякі функції, що можуть порушити Вашу приватність, будуть відключені:</translation>
+        <translation type="obsolete">Коли приватний перегляд увімкнено, деякі функції, що можуть порушити Вашу приватність, будуть відключені:</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>Переглянуті веб-сторінки не додаватимуться до історії.</translation>
+        <translation type="obsolete">Переглянуті веб-сторінки не додаватимуться до історії.</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>Поточні cookies будуть недоступними.</translation>
+        <translation type="obsolete">Поточні cookies будуть недоступними.</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>Ваша сесія не збережеться.</translation>
+        <translation type="obsolete">Ваша сесія не збережеться.</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Допоки Ви не закриєте вікно, Ви все ще можете використовувати кнопки &quot;Назад&quot; і &quot;Вперед&quot;, щоб повернутись до сторінок, які ви відкривали.</translation>
+        <translation type="obsolete">Допоки Ви не закриєте вікно, Ви все ще можете використовувати кнопки &quot;Назад&quot; і &quot;Вперед&quot;, щоб повернутись до сторінок, які ви відкривали.</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>Запустити Приватний перегляд</translation>
+        <translation type="obsolete">Запустити Приватний перегляд</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
@@ -2962,11 +2962,11 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Пошук Google</translation>
+        <translation type="obsolete">Пошук Google</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>Результати пошуку надані Googl&apos;ом</translation>
+        <translation type="obsolete">Результати пошуку надані Googl&apos;ом</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -3215,6 +3215,18 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Ця сторінка містить інфомацію про поточну конфігурацію QupZill&apos;и - актуальна для усунення неполадок. Будь ласка, включіть цю інформацію коли заповнюватимете звіти про помилки.</translation>
+    </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -2147,7 +2147,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>Perguntar ao entrar no modo de navegação privada</translation>
+        <translation type="obsolete">Perguntar ao entrar no modo de navegação privada</translation>
     </message>
     <message>
         <source>Create New</source>
@@ -2589,7 +2589,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>Tem a certeza que deseja ativar a navegação privada?</translation>
+        <translation type="obsolete">Tem a certeza que deseja ativar a navegação privada?</translation>
     </message>
     <message>
         <source>Web In&amp;spector</source>
@@ -2673,7 +2673,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>As páginas web não são adicionadas ao histórico.</translation>
+        <translation type="obsolete">As páginas web não são adicionadas ao histórico.</translation>
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
@@ -2721,7 +2721,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Até você fechar a janela, você ainda poderá usar os botões &quot;Voltar&quot; e &quot;Avançar&quot; para navegar por sites que você entrou anteriormente.</translation>
+        <translation type="obsolete">Até você fechar a janela, você ainda poderá usar os botões &quot;Voltar&quot; e &quot;Avançar&quot; para navegar por sites que você entrou anteriormente.</translation>
     </message>
     <message>
         <source>Clear list</source>
@@ -2745,7 +2745,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>A sua sessão não pode ser gravada.</translation>
+        <translation type="obsolete">A sua sessão não pode ser gravada.</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
@@ -2809,7 +2809,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>Os cookies atuais não estão acessíveis.</translation>
+        <translation type="obsolete">Os cookies atuais não estão acessíveis.</translation>
     </message>
     <message>
         <source>IP Address of current page</source>
@@ -2829,7 +2829,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Se a navegação privada estiver ativa, alguns elementos de privacidade estarão inativos:</translation>
+        <translation type="obsolete">Se a navegação privada estiver ativa, alguns elementos de privacidade estarão inativos:</translation>
     </message>
     <message>
         <source>Import bookmarks...</source>
@@ -2837,7 +2837,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>Iniciar navegação privada</translation>
+        <translation type="obsolete">Iniciar navegação privada</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
@@ -3054,7 +3054,7 @@ Você tem certeza que deseja sair do QupZilla?</translation>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Procurar no Google</translation>
+        <translation type="obsolete">Procurar no Google</translation>
     </message>
     <message>
         <source>Speed Dial settings</source>
@@ -3078,7 +3078,7 @@ Você tem certeza que deseja sair do QupZilla?</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>Resultados disponibilizados pelo Google</translation>
+        <translation type="obsolete">Resultados disponibilizados pelo Google</translation>
     </message>
     <message>
         <source>Change size of pages:</source>
@@ -3187,6 +3187,18 @@ Você tem certeza que deseja sair do QupZilla?</translation>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Essa página contém informações sobre as configurações atuais do QupZilla - que são importantes para sabermos a causa do problema. Por favor, inclua essas informações quanto for reportar um bug (por favor, escreva em Inglês).</translation>
+    </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

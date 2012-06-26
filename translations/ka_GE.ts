@@ -2074,7 +2074,7 @@
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>დასტური პირადი ბრაუზინგის რეჟიმში შესვლისას</translation>
+        <translation type="obsolete">დასტური პირადი ბრაუზინგის რეჟიმში შესვლისას</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
@@ -2821,31 +2821,31 @@
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>დარწმუნებული ხართ რომ პირადი ბრაუზინგის ჩართვა გსურთ?</translation>
+        <translation type="obsolete">დარწმუნებული ხართ რომ პირადი ბრაუზინგის ჩართვა გსურთ?</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>პირადი ბრაუზინგის ჩართვისას, ხდება ზოგიერთი ისეთი მოქმედების გამორთვა რომელიც თქვენს კონფიდენციალურობას ეხება :</translation>
+        <translation type="obsolete">პირადი ბრაუზინგის ჩართვისას, ხდება ზოგიერთი ისეთი მოქმედების გამორთვა რომელიც თქვენს კონფიდენციალურობას ეხება :</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>ისტორიაში არ არის არცერთი ვებ-გვერდი.</translation>
+        <translation type="obsolete">ისტორიაში არ არის არცერთი ვებ-გვერდი.</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>მიმდინარე ფუნთუშა მიუწვდომელია.</translation>
+        <translation type="obsolete">მიმდინარე ფუნთუშა მიუწვდომელია.</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>თქვენი სესია არ შენახულა.</translation>
+        <translation type="obsolete">თქვენი სესია არ შენახულა.</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>სანამ ამ ფანჯარას დახურავთ, თქვენ შეგიძლიათ დააწკაპუნოთ უკან და წინ წასვლის ღილაკებზე რათა გადახვიდეთ ვებ-გვერდებზე რომლებიც გახსნილი გქონდათ.</translation>
+        <translation type="obsolete">სანამ ამ ფანჯარას დახურავთ, თქვენ შეგიძლიათ დააწკაპუნოთ უკან და წინ წასვლის ღილაკებზე რათა გადახვიდეთ ვებ-გვერდებზე რომლებიც გახსნილი გქონდათ.</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>პირადი ბრაუზინგის დაწყება</translation>
+        <translation type="obsolete">პირადი ბრაუზინგის დაწყება</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
@@ -2934,11 +2934,11 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Google ძებნა</translation>
+        <translation type="obsolete">Google ძებნა</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>ძებნის შედეგები მოწოდებულია Google-ს მიერ</translation>
+        <translation type="obsolete">ძებნის შედეგები მოწოდებულია Google-ს მიერ</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -3187,6 +3187,18 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>ეს გვერდი შეიცავს ინფორმაციას QupZilla-ს მიმდინარე კონფიგურაციის შესახებ - საჭიროს პრობლემის აღმოფხვრისთვის. გთხოვთ მოაყოლეთ ეს ინფორმაცია შეცდომის შეტყობინების გამოგზავნისას.</translation>
+    </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

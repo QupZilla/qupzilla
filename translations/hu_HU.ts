@@ -2078,7 +2078,7 @@
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>Megerősítés kérése Privát Böngészés indításakor</translation>
+        <translation type="obsolete">Megerősítés kérése Privát Böngészés indításakor</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
@@ -2841,31 +2841,31 @@
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>Biztos, hogy a Privát Böngészést szeretné használni?</translation>
+        <translation type="obsolete">Biztos, hogy a Privát Böngészést szeretné használni?</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Privát Böngészés módban nem minden funkció használható. Lásd:</translation>
+        <translation type="obsolete">Privát Böngészés módban nem minden funkció használható. Lásd:</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>Nem lettek hozzáadva weboldalak az Előzményekhez.</translation>
+        <translation type="obsolete">Nem lettek hozzáadva weboldalak az Előzményekhez.</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>A jelenlegi sütik nem elérhetőek.</translation>
+        <translation type="obsolete">A jelenlegi sütik nem elérhetőek.</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>A munkamenet nem került mentésre.</translation>
+        <translation type="obsolete">A munkamenet nem került mentésre.</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Amíg az ablak nincs bezárva, a Vissza és az Előre gombokkal még vissza lehet térni az előzőleg megnyitott oldalakhoz.</translation>
+        <translation type="obsolete">Amíg az ablak nincs bezárva, a Vissza és az Előre gombokkal még vissza lehet térni az előzőleg megnyitott oldalakhoz.</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>Privát Böngészés indítása</translation>
+        <translation type="obsolete">Privát Böngészés indítása</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
@@ -2954,11 +2954,11 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Google kereső</translation>
+        <translation type="obsolete">Google kereső</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>Google keresési eredmények</translation>
+        <translation type="obsolete">Google keresési eredmények</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -3207,6 +3207,18 @@ Biztosan ki szeretne lépni a böngészőből?</translation>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Ez az oldal információkat tartalmaz a böngésző jelenlegi beállításairól - amelyet a hibaelhárításhoz használhatunk. Kérjük, ezeket az információkat is helyezze bele a hibabejelentésébe.</translation>
+    </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

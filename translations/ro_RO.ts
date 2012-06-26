@@ -2076,7 +2076,7 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>Întreabă la intrarea în modul privat de navigare</translation>
+        <translation type="obsolete">Întreabă la intrarea în modul privat de navigare</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
@@ -2823,31 +2823,31 @@ nu a putut fi găsit!</translation>
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>Sunteți sigur că doriți să porniți navigarea privată?</translation>
+        <translation type="obsolete">Sunteți sigur că doriți să porniți navigarea privată?</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Când navigarea privată este pornită, unele acțiuni ce privesc intimitatea dvs. vor fi dezactivate:</translation>
+        <translation type="obsolete">Când navigarea privată este pornită, unele acțiuni ce privesc intimitatea dvs. vor fi dezactivate:</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>Paginile web nu sunt adăugate la istoric.</translation>
+        <translation type="obsolete">Paginile web nu sunt adăugate la istoric.</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>Cookie-urile curente nu pot fi accesate.</translation>
+        <translation type="obsolete">Cookie-urile curente nu pot fi accesate.</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>Sesiunea dvs. nu este stocată.</translation>
+        <translation type="obsolete">Sesiunea dvs. nu este stocată.</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Pâna când închideți fereastra, puteți încă să apăsați butonul de Înapoi si Înainte pentru a reveni la pagina deschisă.</translation>
+        <translation type="obsolete">Pâna când închideți fereastra, puteți încă să apăsați butonul de Înapoi si Înainte pentru a reveni la pagina deschisă.</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>Pornește navigarea privată</translation>
+        <translation type="obsolete">Pornește navigarea privată</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
@@ -2936,11 +2936,11 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Căutare Google</translation>
+        <translation type="obsolete">Căutare Google</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>Rezultatele căutării oferite de Google</translation>
+        <translation type="obsolete">Rezultatele căutării oferite de Google</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -3189,6 +3189,18 @@ Sunteți sigur că doriți să închideți QupZilla?</translation>
     <message>
         <source>No available extensions.</source>
         <translation>Nu sunt extensii disponibile.</translation>
+    </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

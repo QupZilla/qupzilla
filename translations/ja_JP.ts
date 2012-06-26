@@ -2109,7 +2109,7 @@
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>プライベートブラウジングモードを開始するとき確認する</translation>
+        <translation type="obsolete">プライベートブラウジングモードを開始するとき確認する</translation>
     </message>
     <message>
         <source>Mouse wheel scrolls</source>
@@ -2870,33 +2870,33 @@
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>プライベートブラウジングモードを開始しますか?</translation>
+        <translation type="obsolete">プライベートブラウジングモードを開始しますか?</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>プライベートブラウジングモードが有効になるとプライバシー関連のいくつかの挙動が制限されます:</translation>
+        <translation type="obsolete">プライベートブラウジングモードが有効になるとプライバシー関連のいくつかの挙動が制限されます:</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>ページの閲覧履歴が残らない。</translation>
+        <translation type="obsolete">ページの閲覧履歴が残らない。</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
         <translatorcomment>保留。意味はだいたいわかるが適訳見つからず。</translatorcomment>
-        <translation>Cookieが保存されない。</translation>
+        <translation type="obsolete">Cookieが保存されない。</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>セッションが保存されない。</translation>
+        <translation type="obsolete">セッションが保存されない。</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
         <translatorcomment>意訳</translatorcomment>
-        <translation>履歴及びセッションは保存されませんがページ上で戻る進むは利用できます。</translation>
+        <translation type="obsolete">履歴及びセッションは保存されませんがページ上で戻る進むは利用できます。</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>プライベートブラウジングを開始する</translation>
+        <translation type="obsolete">プライベートブラウジングを開始する</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
@@ -2986,11 +2986,11 @@ Are you sure to quit QupZilla?</source>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Google検索</translation>
+        <translation type="obsolete">Google検索</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>検索結果はGoogleから提供されます</translation>
+        <translation type="obsolete">検索結果はGoogleから提供されます</translation>
     </message>
     <message>
         <source>About QupZilla</source>
@@ -3245,6 +3245,18 @@ Are you sure to quit QupZilla?</source>
     <message>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>このページはQupZillaの現在の設定についての情報が表示されています。これらの情報はトラブルシューティングに非常に大切です。バグレポートの際は、これらの情報を含めて送信してください。</translation>
+    </message>
+    <message>
+        <source>Search on Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
