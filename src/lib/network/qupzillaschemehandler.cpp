@@ -167,10 +167,11 @@ QString QupZillaSchemeReply::startPage()
     sPage.replace("%ABOUT-IMG%", "qrc:icons/other/about.png");
 
     sPage.replace("%TITLE%", tr("Start Page"));
-    sPage.replace("%BUTTON-LABEL%", tr("Google Search"));
-    sPage.replace("%SEARCH-BY-GOOGLE%", tr("Search results provided by Google"));
+    sPage.replace("%BUTTON-LABEL%", tr("Search on Web"));
+    sPage.replace("%SEARCH-BY%", tr("Search results provided by DuckDuckGo"));
     sPage.replace("%WWW%", QupZilla::WIKIADDRESS);
     sPage.replace("%ABOUT-QUPZILLA%", tr("About QupZilla"));
+    sPage.replace("%PRIVATE-BROWSING%", mApp->isPrivateSession() ? tr("<h1>Private Browsing</h1>") : "");
 
     return sPage;
 }

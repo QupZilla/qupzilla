@@ -841,13 +841,6 @@
                </property>
               </widget>
              </item>
-             <item>
-              <widget class="QCheckBox" name="askOnPrivateBrowsing">
-               <property name="text">
-                <string>Ask when entering Private Browsing mode</string>
-               </property>
-              </widget>
-             </item>
             </layout>
            </item>
            <item row="2" column="0">

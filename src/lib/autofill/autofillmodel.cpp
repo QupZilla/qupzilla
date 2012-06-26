@@ -234,7 +234,7 @@ void AutoFillModel::completePage(WebPage* page)
 void AutoFillModel::post(const QNetworkRequest &request, const QByteArray &outgoingData)
 {
     //Dont save in private browsing
-    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
+    if (mApp->isPrivateSession()) {
         return;
     }
 

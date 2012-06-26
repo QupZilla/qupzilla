@@ -54,18 +54,20 @@
 #endif
 #include <QWebSecurityOrigin>
 #include <QNetworkDiskCache>
-#include <QDir>
 #include <QDesktopServices>
-#include <QSettings>
-#include <QTimer>
 #include <QTranslator>
+#include <QSettings>
+#include <QProcess>
+#include <QDebug>
+#include <QTimer>
+#include <QDir>
 
 #if defined(PORTABLE_BUILD) && !defined(NO_SYSTEM_DATAPATH)
 #define NO_SYSTEM_DATAPATH
 #endif
 
 MainApplication::MainApplication(int &argc, char** argv)
-    : QtSingleApplication("QupZillaWebBrowser", argc, argv)
+    : QtSingleApplication(argc, argv)
     , m_cookiemanager(0)
     , m_browsingLibrary(0)
     , m_historymodel(0)
@@ -80,6 +82,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_desktopNotifications(0)
     , m_searchEnginesManager(0)
     , m_dbWriter(new DatabaseWriter(this))
+    , m_isPrivateSession(false)
     , m_isClosing(false)
     , m_isStateChanged(false)
     , m_isRestoring(false)
@@ -135,8 +138,7 @@ MainApplication::MainApplication(int &argc, char** argv)
                 m_postLaunchActions.append(OpenDownloadManager);
                 break;
             case Qz::CL_StartPrivateBrowsing:
-                messages.append("ACTION:StartPrivateBrowsing");
-                m_postLaunchActions.append(PrivateBrowsing);
+                m_isPrivateSession = true;
                 break;
             case Qz::CL_OpenUrlInCurrentTab:
                 startUrl = QUrl::fromUserInput(pair.text);
@@ -154,6 +156,11 @@ MainApplication::MainApplication(int &argc, char** argv)
                 break;
             }
         }
+    }
+
+    // Don't start single application in private browsing
+    if (!m_isPrivateSession) {
+        setAppId("QupZillaWebBrowser");
     }
 
     if (messages.isEmpty()) {
@@ -201,11 +208,6 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     Settings::createSettings(m_activeProfil + "settings.ini");
 
-    Settings settings;
-    m_startingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
-    bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool();
-    settings.setValue("SessionRestore/isRunning", true);
-
     translateApp();
 
     QupZilla* qupzilla = new QupZilla(Qz::BW_FirstAppWindow, startUrl);
@@ -224,8 +226,15 @@ MainApplication::MainApplication(int &argc, char** argv)
         m_plugins->loadPlugins();
     }
 
-    if (checkUpdates) {
-        new Updater(qupzilla);
+    if (!m_isPrivateSession) {
+        Settings settings;
+        m_startingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
+        bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool();
+        settings.setValue("SessionRestore/isRunning", true);
+
+        if (checkUpdates) {
+            new Updater(qupzilla);
+        }
     }
 
     QTimer::singleShot(0, this, SLOT(postLaunch()));
@@ -236,10 +245,6 @@ MainApplication::MainApplication(int &argc, char** argv)
 
 void MainApplication::postLaunch()
 {
-    if (m_postLaunchActions.contains(PrivateBrowsing)) {
-        togglePrivateBrowsingMode(true);
-    }
-
     if (m_postLaunchActions.contains(OpenDownloadManager)) {
         downManager()->show();
     }
@@ -303,7 +308,11 @@ void MainApplication::loadSettings()
 
     //Web browsing settings
     settings.beginGroup("Web-Browser-Settings");
-    m_websettings->enablePersistentStorage(m_activeProfil);
+
+    if (!m_isPrivateSession) {
+        m_websettings->enablePersistentStorage(m_activeProfil);
+        m_websettings->setAttribute(QWebSettings::LocalStorageEnabled, settings.value("HTML5StorageEnabled", true).toBool());
+    }
     m_websettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
     m_websettings->setAttribute(QWebSettings::PluginsEnabled, settings.value("allowFlash", true).toBool());
     m_websettings->setAttribute(QWebSettings::JavascriptEnabled, settings.value("allowJavaScript", true).toBool());
@@ -315,7 +324,6 @@ void MainApplication::loadSettings()
     m_websettings->setAttribute(QWebSettings::ZoomTextOnly, settings.value("zoomTextOnly", false).toBool());
     m_websettings->setAttribute(QWebSettings::PrintElementBackgrounds, settings.value("PrintElementBackground", true).toBool());
     m_websettings->setAttribute(QWebSettings::XSSAuditingEnabled, settings.value("XSSAuditing", false).toBool());
-    m_websettings->setAttribute(QWebSettings::LocalStorageEnabled, settings.value("HTML5StorageEnabled", true).toBool());
     m_websettings->setMaximumPagesInCache(settings.value("maximumCachedPages", 3).toInt());
     m_websettings->setDefaultTextEncoding(settings.value("DefaultEncoding", m_websettings->defaultTextEncoding()).toString());
 
@@ -352,6 +360,11 @@ void MainApplication::loadSettings()
 
     // Allows to load files from qrc: scheme in qupzilla: pages
     QWebSecurityOrigin::addLocalScheme("qupzilla");
+
+    if (m_isPrivateSession) {
+        m_websettings->setAttribute(QWebSettings::PrivateBrowsingEnabled, true);
+        history()->setSaving(false);
+    }
 
     if (m_downloadManager) {
         m_downloadManager->loadSettings();
@@ -418,15 +431,6 @@ QList<QupZilla*> MainApplication::mainWindows()
     return list;
 }
 
-void MainApplication::togglePrivateBrowsingMode(bool state)
-{
-    webSettings()->setAttribute(QWebSettings::PrivateBrowsingEnabled, state);
-    history()->setSaving(!state);
-    cookieJar()->turnPrivateJar(state);
-
-    emit message(Qz::AM_CheckPrivateBrowsing, state);
-}
-
 void MainApplication::sendMessages(Qz::AppMessageType mes, bool state)
 {
     emit message(mes, state);
@@ -453,9 +457,6 @@ void MainApplication::receiveAppMessage(QString message)
         else if (text == "ShowDownloadManager") {
             downManager()->show();
             actWin = downManager();
-        }
-        else if (text == "StartPrivateBrowsing") {
-            sendMessages(Qz::AM_StartPrivateBrowsing, true);
         }
         else if (text.startsWith("OpenUrlInCurrentTab")) {
             actUrl = QUrl::fromUserInput(text.remove("OpenUrlInCurrentTab"));
@@ -534,6 +535,11 @@ void MainApplication::connectDatabase()
         db.setDatabaseName(m_activeProfil + "browsedata.db");
         qWarning("Cannot find SQLite database file! Copying and using the defaults!");
     }
+
+    if (m_isPrivateSession) {
+        db.setConnectOptions("QSQLITE_OPEN_READONLY");
+    }
+
     if (!db.open()) {
         qWarning("Cannot open SQLite database! Continuing without database....");
     }
@@ -583,6 +589,10 @@ void MainApplication::quitApplication()
 
 void MainApplication::saveSettings()
 {
+    if (m_isPrivateSession) {
+        return;
+    }
+
     m_isClosing = true;
     m_networkmanager->disconnectObjects();
 
@@ -730,6 +740,41 @@ DesktopNotificationsFactory* MainApplication::desktopNotifications()
     return m_desktopNotifications;
 }
 
+void MainApplication::startPrivateBrowsing()
+{
+    QStringList args;
+    foreach(const QString & arg, arguments()) {
+        if (arg.startsWith("-")) {
+            args.append(arg);
+        }
+    }
+
+    args.append("--private-browsing");
+
+    if (!QProcess::startDetached(applicationFilePath(), args)) {
+        qWarning() << "MainApplication: Cannot start new browser process for private browsing!" << applicationFilePath() << args;
+    }
+}
+
+QUrl MainApplication::userStyleSheet(const QString &filePath) const
+{
+    QString userStyle;
+
+    QFile file(filePath);
+    if (!filePath.isEmpty() && file.open(QFile::ReadOnly)) {
+        userStyle = file.readAll();
+        userStyle.remove("\n");
+        file.close();
+    }
+
+    userStyle.append(AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}");
+
+    QString encodedStyle = userStyle.toAscii().toBase64();
+    QString dataString = QString("data:text/css;charset=utf-8;base64,%1").arg(encodedStyle);
+
+    return QUrl(dataString);
+}
+
 void MainApplication::aboutToCloseWindow(QupZilla* window)
 {
     if (!window) {
@@ -754,8 +799,7 @@ static const int sessionVersion = 0x0003;
 
 bool MainApplication::saveStateSlot()
 {
-    if (m_websettings->testAttribute(QWebSettings::PrivateBrowsingEnabled) ||
-            m_isRestoring || m_mainWindows.count() == 0) {
+    if (m_isPrivateSession || m_isRestoring || m_mainWindows.count() == 0) {
         return false;
     }
 
@@ -794,7 +838,7 @@ bool MainApplication::saveStateSlot()
 
 bool MainApplication::restoreStateSlot(QupZilla* window)
 {
-    if (m_postLaunchActions.contains(PrivateBrowsing)) {
+    if (m_isPrivateSession) {
         return false;
     }
 
@@ -842,25 +886,6 @@ bool MainApplication::restoreStateSlot(QupZilla* window)
 
     m_isRestoring = false;
     return true;
-}
-
-QUrl MainApplication::userStyleSheet(const QString &filePath) const
-{
-    QString userStyle;
-
-    QFile file(filePath);
-    if (!filePath.isEmpty() && file.open(QFile::ReadOnly)) {
-        userStyle = file.readAll();
-        userStyle.remove("\n");
-        file.close();
-    }
-
-    userStyle.append(AdBlockManager::instance()->elementHidingRules() + "{ display:none !important;}");
-
-    QString encodedStyle = userStyle.toAscii().toBase64();
-    QString dataString = QString("data:text/css;charset=utf-8;base64,%1").arg(encodedStyle);
-
-    return QUrl(dataString);
 }
 
 bool MainApplication::checkSettingsDir()

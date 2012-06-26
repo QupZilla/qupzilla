@@ -81,7 +81,7 @@ void NetworkManager::loadSettings()
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
 
-    if (settings.value("AllowLocalCache", true).toBool()) {
+    if (settings.value("AllowLocalCache", true).toBool() && !mApp->isPrivateSession()) {
         QNetworkDiskCache* cache = mApp->networkCache();
         cache->setMaximumCacheSize(settings.value("MaximumCacheSize", 50).toInt() * 1024 * 1024); //MegaBytes
         setCache(cache);
@@ -260,7 +260,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     emit wantsFocus(reply->url());
 
     //Do not save when private browsing is enabled
-    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
+    if (mApp->isPrivateSession()) {
         save->setVisible(false);
     }
 

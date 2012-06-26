@@ -46,7 +46,7 @@ IconProvider* IconProvider::instance()
 
 void IconProvider::saveIcon(WebView* view)
 {
-    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
+    if (mApp->isPrivateSession()) {
         // Don't save icons in private mode.
         return;
     }

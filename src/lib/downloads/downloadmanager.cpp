@@ -220,7 +220,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, WebPage* pa
         return;
     }
 
-    reply->setProperty("downReply", true);
+    reply->setProperty("downReply", QVariant(true));
 
     DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog, page);
     connect(h, SIGNAL(itemCreated(QListWidgetItem*, DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*, DownloadItem*)));

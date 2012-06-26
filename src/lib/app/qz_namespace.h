@@ -35,7 +35,6 @@ enum AppMessageType {
     AM_ReloadSettings,
     AM_HistoryStateChanged,
     AM_BookmarksChanged,
-    AM_StartPrivateBrowsing
 };
 
 enum BrowserWindow {

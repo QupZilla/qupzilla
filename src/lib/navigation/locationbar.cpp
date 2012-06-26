@@ -246,11 +246,11 @@ void LocationBar::clearIcon()
 
 void LocationBar::setPrivacy(bool state)
 {
-    m_siteIcon->setProperty("secured", state);
+    m_siteIcon->setProperty("secured", QVariant(state));
     m_siteIcon->style()->unpolish(m_siteIcon);
     m_siteIcon->style()->polish(m_siteIcon);
 
-    setProperty("secured", state);
+    setProperty("secured", QVariant(state));
     style()->unpolish(this);
     style()->polish(this);
 }

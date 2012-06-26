@@ -108,6 +108,10 @@ QupZilla::QupZilla(Qz::BrowserWindow type, QUrl startUrl)
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("QupZilla"));
 
+    if (mApp->isPrivateSession()) {
+        setProperty("private", QVariant(true));
+    }
+
     m_isStarting = true;
 
     setupUi();
@@ -450,9 +454,8 @@ void QupZilla::setupMenu()
     m_menuTools->addAction(QIcon::fromTheme("edit-clear"), tr("Clear Recent &History"), this, SLOT(showClearPrivateData()));
     m_actionPrivateBrowsing = new QAction(tr("&Private Browsing"), this);
     m_actionPrivateBrowsing->setShortcut(QKeySequence("Ctrl+Shift+P"));
-    m_actionPrivateBrowsing->setCheckable(true);
-    m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
-    connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), this, SLOT(startPrivate(bool)));
+    m_actionPrivateBrowsing->setVisible(!mApp->isPrivateSession());
+    connect(m_actionPrivateBrowsing, SIGNAL(triggered(bool)), mApp, SLOT(startPrivateBrowsing()));
     m_menuTools->addAction(m_actionPrivateBrowsing);
     m_menuTools->addSeparator();
 #if !defined(Q_WS_X11) && !defined(Q_WS_MAC)
@@ -581,8 +584,7 @@ void QupZilla::loadSettings()
     m_sideBarManager->showSideBar(activeSideBar, false);
 
     //Private browsing
-    m_actionPrivateBrowsing->setChecked(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
-    m_privateBrowsing->setVisible(mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled));
+    m_privateBrowsing->setVisible(mApp->isPrivateSession());
 
 #ifdef Q_WS_WIN
     if (m_usingTransparentBackground && !makeTransparent) {
@@ -657,7 +659,7 @@ void QupZilla::setWindowTitle(const QString &t)
 {
     QString title = t;
 
-    if (mApp->webSettings()->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
+    if (mApp->isPrivateSession()) {
         title.append(tr(" (Private Browsing)"));
     }
 
@@ -693,10 +695,6 @@ void QupZilla::receiveMessage(Qz::AppMessageType mes, bool state)
 
     case Qz::AM_BookmarksChanged:
         m_bookmarksMenuChanged = true;
-        break;
-
-    case Qz::AM_StartPrivateBrowsing:
-        startPrivate(state);
         break;
 
     default:
@@ -1497,40 +1495,6 @@ void QupZilla::savePageScreen()
 {
     PageScreen* p = new PageScreen(weView(), this);
     p->show();
-}
-
-void QupZilla::startPrivate(bool state)
-{
-    static bool askedThisSession = false;
-
-    Settings settings;
-    bool askNow = settings.value("Browser-View-Settings/AskOnPrivate", true).toBool();
-
-    if (state && askNow && !askedThisSession) {
-        QString title = tr("Are you sure you want to turn on private browsing?");
-        QString text1 = tr("When private browsing is turned on, some actions concerning your privacy will be disabled:");
-
-        QStringList actions;
-        actions.append(tr("Webpages are not added to the history."));
-        actions.append(tr("Current cookies cannot be accessed."));
-        actions.append(tr("Your session is not stored."));
-
-        QString text2 = tr("Until you close the window, you can still click the Back and Forward "
-                           "buttons to return to the webpages you have opened.");
-
-        QString message = QString(QLatin1String("<b>%1</b><p>%2</p><ul><li>%3</li></ul><p>%4</p>")).arg(title, text1, actions.join(QLatin1String("</li><li>")), text2);
-
-        QMessageBox::StandardButton button = QMessageBox::question(this, tr("Start Private Browsing"),
-                                             message, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
-        if (button != QMessageBox::Yes) {
-            m_actionPrivateBrowsing->setChecked(false);
-            return;
-        }
-
-        askedThisSession = true;
-    }
-
-    mApp->togglePrivateBrowsingMode(state);
 }
 
 void QupZilla::resizeEvent(QResizeEvent* event)

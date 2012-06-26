@@ -159,8 +159,9 @@ void QtSingleApplication::sysInit(const QString &appId)
 
 QtSingleApplication::QtSingleApplication(int &argc, char** argv, bool GUIenabled)
     : QApplication(argc, argv, GUIenabled)
+    , peer(0)
+    , actWin(0)
 {
-    sysInit();
 }
 
 
@@ -172,6 +173,8 @@ QtSingleApplication::QtSingleApplication(int &argc, char** argv, bool GUIenabled
 
 QtSingleApplication::QtSingleApplication(const QString &appId, int &argc, char** argv)
     : QApplication(argc, argv)
+    , peer(0)
+    , actWin(0)
 {
     sysInit(appId);
 }
@@ -184,8 +187,9 @@ QtSingleApplication::QtSingleApplication(const QString &appId, int &argc, char**
 */
 QtSingleApplication::QtSingleApplication(int &argc, char** argv, Type type)
     : QApplication(argc, argv, type)
+    , peer(0)
+    , actWin(0)
 {
-    sysInit();
 }
 
 
@@ -198,6 +202,8 @@ QtSingleApplication::QtSingleApplication(int &argc, char** argv, Type type)
 */
 QtSingleApplication::QtSingleApplication(Display* dpy, Qt::HANDLE visual, Qt::HANDLE cmap)
     : QApplication(dpy, visual, cmap)
+    , peer(0)
+    , actWin(0)
 {
     sysInit();
 }
@@ -211,6 +217,8 @@ QtSingleApplication::QtSingleApplication(Display* dpy, Qt::HANDLE visual, Qt::HA
 */
 QtSingleApplication::QtSingleApplication(Display* dpy, int &argc, char** argv, Qt::HANDLE visual, Qt::HANDLE cmap)
     : QApplication(dpy, argc, argv, visual, cmap)
+    , peer(0)
+    , actWin(0)
 {
     sysInit();
 }
@@ -224,6 +232,8 @@ QtSingleApplication::QtSingleApplication(Display* dpy, int &argc, char** argv, Q
 */
 QtSingleApplication::QtSingleApplication(Display* dpy, const QString &appId, int argc, char** argv, Qt::HANDLE visual, Qt::HANDLE cmap)
     : QApplication(dpy, argc, argv, visual, cmap)
+    , peer(0)
+    , actWin(0)
 {
     sysInit(appId);
 }
@@ -246,8 +256,13 @@ bool QtSingleApplication::isRunning()
 #ifdef Q_OS_HAIKU
     return false;
 #else
-    return peer->isClient();
+    return (peer && peer->isClient());
 #endif
+}
+
+void QtSingleApplication::setAppId(const QString &id)
+{
+    sysInit(id);
 }
 
 
@@ -269,7 +284,7 @@ bool QtSingleApplication::sendMessage(const QString &message, int timeout)
 #ifdef Q_OS_HAIKU
     return false;
 #else
-    return peer->sendMessage(message, timeout);
+    return (peer && peer->sendMessage(message, timeout));
 #endif
 }
 
@@ -280,7 +295,7 @@ bool QtSingleApplication::sendMessage(const QString &message, int timeout)
 */
 QString QtSingleApplication::id() const
 {
-    return peer->applicationId();
+    return (peer ? peer->applicationId() : "");
 }
 
 
@@ -299,6 +314,10 @@ QString QtSingleApplication::id() const
 void QtSingleApplication::setActivationWindow(QWidget* aw, bool activateOnMessage)
 {
     actWin = aw;
+    if (!peer) {
+        return;
+    }
+
     if (activateOnMessage) {
         connect(peer, SIGNAL(messageReceived(const QString &)), this, SLOT(activateWindow()));
     }

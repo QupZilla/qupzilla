@@ -65,7 +65,7 @@ void SourceViewerSearch::next()
         m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
     }
 
-    ui->lineEdit->setProperty("notfound", !found);
+    ui->lineEdit->setProperty("notfound", QVariant(!found));
 
     ui->lineEdit->style()->unpolish(ui->lineEdit);
     ui->lineEdit->style()->polish(ui->lineEdit);
@@ -78,7 +78,7 @@ void SourceViewerSearch::previous()
         m_sourceViewer->sourceEdit()->moveCursor(QTextCursor::Start);
     }
 
-    ui->lineEdit->setProperty("notfound", !found);
+    ui->lineEdit->setProperty("notfound", QVariant(!found));
 
     ui->lineEdit->style()->unpolish(ui->lineEdit);
     ui->lineEdit->style()->polish(ui->lineEdit);

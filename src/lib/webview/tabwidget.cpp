@@ -653,6 +653,10 @@ QList<WebTab*> TabWidget::allTabs(bool withPinned)
 
 void TabWidget::savePinnedTabs()
 {
+    if (mApp->isPrivateSession()) {
+        return;
+    }
+
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
@@ -679,6 +683,10 @@ void TabWidget::savePinnedTabs()
 
 void TabWidget::restorePinnedTabs()
 {
+    if (mApp->isPrivateSession()) {
+        return;
+    }
+
     QFile file(mApp->currentProfilePath() + "pinnedtabs.dat");
     file.open(QIODevice::ReadOnly);
     QByteArray sd = file.readAll();
