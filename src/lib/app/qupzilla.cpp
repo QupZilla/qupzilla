@@ -1329,7 +1329,7 @@ void QupZilla::updateLoadingActions()
     m_actionReload->setEnabled(!isLoading);
 
     if (isLoading) {
-        m_progressBar->setValue(view->loadProgress());
+        m_progressBar->setValue(view->loadingProgress());
         m_navigationBar->showStopButton();
     }
     else {

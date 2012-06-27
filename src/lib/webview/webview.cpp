@@ -168,9 +168,15 @@ bool WebView::isLoading() const
     return m_isLoading;
 }
 
-int WebView::loadProgress() const
+int WebView::loadingProgress() const
 {
     return m_progress;
+}
+
+void WebView::fakeLoadingProgress(int progress)
+{
+    emit loadStarted();
+    emit loadProgress(progress);
 }
 
 bool WebView::isUrlValid(const QUrl &url)

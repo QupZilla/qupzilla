@@ -43,7 +43,9 @@ public:
 
     bool loadingError() const;
     bool isLoading() const;
-    int loadProgress() const;
+
+    int loadingProgress() const;
+    void fakeLoadingProgress(int progress);
 
     void addNotification(QWidget* notif);
     bool eventFilter(QObject* obj, QEvent* event);

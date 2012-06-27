@@ -119,6 +119,8 @@ void PopupWindow::loadStarted()
 {
     m_progressBar->setValue(0);
     m_progressBar->show();
+
+    m_locationBar->startLoading();
 }
 
 void PopupWindow::loadProgress(int value)
@@ -130,6 +132,8 @@ void PopupWindow::loadProgress(int value)
 void PopupWindow::loadFinished()
 {
     m_progressBar->hide();
+
+    m_locationBar->stopLoading();
 }
 
 void PopupWindow::closeEvent(QCloseEvent* event)

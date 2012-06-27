@@ -48,7 +48,7 @@ TabbedWebView::TabbedWebView(QupZilla* mainClass, WebTab* webTab)
     , m_rssChecked(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
-    connect(this, SIGNAL(loadProgress(int)), this, SLOT(loadingProgress(int)));
+    connect(this, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
 
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
@@ -127,7 +127,7 @@ void TabbedWebView::urlChanged(const QUrl &url)
     }
 }
 
-void TabbedWebView::loadingProgress(int prog)
+void TabbedWebView::loadProgress(int prog)
 {
     if (prog > 60) {
         checkRss();
@@ -318,13 +318,6 @@ void TabbedWebView::disconnectObjects()
     disconnect(p_QupZilla->statusBar());
 
     WebView::disconnectObjects();
-}
-
-void TabbedWebView::fakePageLoading(int progress)
-{
-    WebView::slotLoadStarted();
-    slotLoadStarted();
-    loadingProgress(progress);
 }
 
 TabbedWebView::~TabbedWebView()
