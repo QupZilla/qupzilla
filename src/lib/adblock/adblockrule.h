@@ -52,11 +52,11 @@
 
 #include "qz_namespace.h"
 
+class QNetworkRequest;
 class QUrl;
 
 class AdBlockRule
 {
-
 public:
     AdBlockRule(const QString &filter = QString());
 
@@ -74,8 +74,10 @@ public:
 
     bool isInternalDisabled() const;
 
-    bool networkMatch(const QString &domain, const QString &encodedUrl) const;
+    bool networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const;
+
     bool matchDomain(const QString &domain) const;
+    bool matchThirdParty(const QNetworkRequest &request) const;
 
 private:
     void parseFilter();
@@ -100,6 +102,8 @@ private:
     QStringList m_allowedDomains;
     QStringList m_blockedDomains;
 
+    bool m_thirdParty;
+    bool m_thirdPartyException;
     Qt::CaseSensitivity m_caseSensitivity;
 };
 

@@ -195,23 +195,20 @@ void AdBlockSubscription::saveDownloadedData(QByteArray &data)
     file.close();
 }
 
-const AdBlockRule* AdBlockSubscription::allow(const QString &urlDomain, const QString &urlString) const
+const AdBlockRule* AdBlockSubscription::match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const
 {
     foreach(const AdBlockRule * rule, m_networkExceptionRules) {
-        if (rule->networkMatch(urlDomain, urlString)) {
-            return rule;
+        if (rule->networkMatch(request, urlDomain, urlString)) {
+            return 0;
         }
     }
-    return 0;
-}
 
-const AdBlockRule* AdBlockSubscription::block(const QString &urlDomain, const QString &urlString) const
-{
     foreach(const AdBlockRule * rule, m_networkBlockRules) {
-        if (rule->networkMatch(urlDomain, urlString)) {
+        if (rule->networkMatch(request, urlDomain, urlString)) {
             return rule;
         }
     }
+
     return 0;
 }
 

@@ -52,6 +52,7 @@
 #include "qz_namespace.h"
 #include "adblockrule.h"
 
+class QNetworkRequest;
 class QNetworkReply;
 class QUrl;
 
@@ -72,8 +73,7 @@ public:
     virtual void loadSubscription();
     virtual void saveSubscription();
 
-    const AdBlockRule* allow(const QString &urlDomain, const QString &urlString) const;
-    const AdBlockRule* block(const QString &urlDomain, const QString &urlString) const;
+    const AdBlockRule* match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const;
 
     QString elementHidingRules() const;
     QString elementHidingRulesForDomain(const QString &domain) const;

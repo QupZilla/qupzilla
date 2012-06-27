@@ -78,16 +78,8 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
         return 0;
     }
 
-    const AdBlockRule* blockedRule = 0;
-
     foreach(AdBlockSubscription * subscription, m_subscriptions) {
-        if (subscription->allow(urlDomain, urlString)) {
-            return 0;
-        }
-
-        if (const AdBlockRule* rule = subscription->block(urlDomain, urlString)) {
-            blockedRule = rule;
-        }
+        const AdBlockRule* blockedRule = subscription->match(request, urlDomain, urlString);
 
         if (blockedRule) {
             QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
