@@ -20,6 +20,7 @@
 #include "mainapplication.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
+#include "websettings.h"
 #include "tabwidget.h"
 #include "clickablelabel.h"
 #include "buttonwithmenu.h"
@@ -177,7 +178,7 @@ void WebSearchBar::search()
 void WebSearchBar::searchInNewTab()
 {
     p_QupZilla->weView()->setFocus();
-    p_QupZilla->tabWidget()->addView(m_searchManager->searchUrl(m_activeEngine, text()), Qz::NT_NotSelectedTab);
+    p_QupZilla->tabWidget()->addView(m_searchManager->searchUrl(m_activeEngine, text()), WebSettings::newTabPosition);
 }
 
 void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)

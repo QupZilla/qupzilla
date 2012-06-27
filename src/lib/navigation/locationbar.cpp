@@ -37,6 +37,7 @@
 #include "downicon.h"
 #include "globalfunctions.h"
 #include "iconprovider.h"
+#include "websettings.h"
 
 #include <QClipboard>
 
@@ -428,7 +429,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
             break;
 
         case Qt::AltModifier:
-            p_QupZilla->tabWidget()->addView(createUrl(), Qz::NT_NotSelectedTab);
+            p_QupZilla->tabWidget()->addView(createUrl(), WebSettings::newTabPosition);
             m_holdingAlt = false;
             break;
 
