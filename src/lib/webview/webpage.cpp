@@ -628,10 +628,12 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         case QNetworkReply::UnknownNetworkError:
             errorString = exOption->errorString.isEmpty() ? tr("Unknown network error") : exOption->errorString;
             break;
-        case QNetworkReply::ProtocolUnknownError:
-            handleUnknownProtocol(exOption->url);
+        case QNetworkReply::ProtocolUnknownError: {
+            // Sometimes exOption->url returns just "?" instead of actual url
+            const QUrl unknownProtocolUrl = (exOption->url == QUrl("?")) ? erPage->mainFrame()->requestedUrl() : exOption->url;
+            handleUnknownProtocol(unknownProtocolUrl);
             return false;
-            break;
+        }
         case QNetworkReply::ContentAccessDenied:
             if (exOption->errorString.startsWith("AdBlock")) {
                 if (exOption->frame != erPage->mainFrame()) { //Content in <iframe>
