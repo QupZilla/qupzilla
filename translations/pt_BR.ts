@@ -2040,7 +2040,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Make tabs movable</source>
-        <translation>Permitir movimentar guias</translation>
+        <translation type="obsolete">Permitir movimentar guias</translation>
     </message>
     <message>
         <source>Use Native System Notifications (Linux only)</source>
@@ -2470,6 +2470,10 @@ não foi encontrado!</translation>
         <source>Manage CA certificates</source>
         <translation>Gerenciar certificados de autoridade</translation>
     </message>
+    <message>
+        <source>Automatically switch to newly opened tab</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2733,7 +2737,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>A fonte RSS &quot;%1&quot; foi adicionada com sucesso.</translation>
+        <translation type="obsolete">A fonte RSS &quot;%1&quot; foi adicionada com sucesso.</translation>
     </message>
     <message>
         <source>Open file...</source>
@@ -3298,7 +3302,59 @@ Adicione os feeds clicando no símbolo RSS existente na barra de navegação, em
     <name>RSSNotification</name>
     <message>
         <source>Open RSS Manager</source>
-        <translation>Abrir gerenciador de RSS</translation>
+        <translation type="obsolete">Abrir gerenciador de RSS</translation>
+    </message>
+    <message>
+        <source>Add this feed into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Adicionar</translation>
+    </message>
+    <message>
+        <source>Executable: </source>
+        <translation type="unfinished">Executável: </translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation type="unfinished">Argumentos: </translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Internal Reader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea not running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add feed into other application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

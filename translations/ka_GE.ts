@@ -1995,7 +1995,7 @@
     </message>
     <message>
         <source>Make tabs movable</source>
-        <translation>მოძრავი ჩანართები</translation>
+        <translation type="obsolete">მოძრავი ჩანართები</translation>
     </message>
     <message>
         <source>Hide tabs when there is only one tab</source>
@@ -2470,6 +2470,10 @@
         <source>Manage CA certificates</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Automatically switch to newly opened tab</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2849,7 +2853,7 @@
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>თქვენ წარმატებით დაამატეთ RSS არხი &quot;%1&quot;.</translation>
+        <translation type="obsolete">თქვენ წარმატებით დაამატეთ RSS არხი &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>HTML files</source>
@@ -3297,7 +3301,59 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <name>RSSNotification</name>
     <message>
         <source>Open RSS Manager</source>
-        <translation>RSS მმართველის გახსნა</translation>
+        <translation type="obsolete">RSS მმართველის გახსნა</translation>
+    </message>
+    <message>
+        <source>Add this feed into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">დამატება</translation>
+    </message>
+    <message>
+        <source>Executable: </source>
+        <translation type="unfinished">გამშვები: </translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation type="unfinished">არგუმენტები:</translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Internal Reader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea not running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add feed into other application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
