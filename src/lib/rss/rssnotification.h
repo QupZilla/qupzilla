@@ -18,23 +18,55 @@
 #ifndef RSSNOTIFICATION_H
 #define RSSNOTIFICATION_H
 
+#include <QUrl>
+#include <QIcon>
+
 #include "qz_namespace.h"
 #include "animatedwidget.h"
+
+class WebView;
 
 namespace Ui
 {
 class RSSNotification;
 }
 
-class AnimatedWidget;
 class QT_QUPZILLA_EXPORT RSSNotification : public AnimatedWidget
 {
+    Q_OBJECT
 public:
-    explicit RSSNotification(QString host, QWidget* parent = 0);
+    explicit RSSNotification(const QString &title, const QUrl &url, WebView* parent = 0);
     ~RSSNotification();
 
+public slots:
+    void hide();
+
+private slots:
+    void addRss();
+
 private:
+    enum AppType { WebApplication, DesktopApplication, Internal, Other };
+    struct RssApp {
+        QString title;
+        QString address;
+        QIcon icon;
+        AppType type;
+
+        RssApp(const QString &t, const QString &a, const QIcon &i, AppType ty = WebApplication) {
+            title = t;
+            address = a;
+            icon = i;
+            type = ty;
+        }
+    };
+
     Ui::RSSNotification* ui;
+
+    QString m_title;
+    QUrl m_url;
+    WebView* m_view;
+
+    QList<RssApp> m_rssApps;
 };
 
 #endif // RSSNOTIFICATION_H

@@ -55,7 +55,7 @@ QNetworkReply* AdBlockSchemeHandler::createRequest(QNetworkAccessManager::Operat
         return 0;
     }
 
-    QString message = AdBlockManager::tr("Do you want to add <b>%1</b> subscription?").arg(subscriptionTitle);
+    const QString &message = AdBlockManager::tr("Do you want to add <b>%1</b> subscription?").arg(subscriptionTitle);
 
     QMessageBox::StandardButton result = QMessageBox::question(0, AdBlockManager::tr("AdBlock Subscription"), message, QMessageBox::Yes | QMessageBox::No);
     if (result == QMessageBox::Yes) {

@@ -180,7 +180,8 @@ SOURCES += \
     adblock/adblocktreewidget.cpp \
     adblock/adblockaddsubscriptiondialog.cpp \
     adblock/adblockschemehandler.cpp \
-    tools/emptynetworkreply.cpp
+    tools/emptynetworkreply.cpp \
+    3rdparty/processinfo.cpp
 
 HEADERS  += \
     webview/tabpreview.h \
@@ -333,7 +334,8 @@ HEADERS  += \
     adblock/adblocktreewidget.h \
     adblock/adblockaddsubscriptiondialog.h \
     adblock/adblockschemehandler.h \
-    tools/emptynetworkreply.h
+    tools/emptynetworkreply.h \
+    3rdparty/processinfo.h
 
 FORMS    += \
     preferences/autofillmanager.ui \
