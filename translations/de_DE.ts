@@ -95,22 +95,22 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="14"/>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Abonnement hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="23"/>
         <source>Title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Titel:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="33"/>
         <source>Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Adresse:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="53"/>
         <source>Add new subscription to AdBlock:</source>
-        <translation type="unfinished"></translation>
+        <translation>Neues Abonnement zu AdBlock hinzufügen:</translation>
     </message>
 </context>
 <context>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="353"/>
         <source>Custom Rules</source>
-        <translation type="unfinished">Benutzerdefinierte Regeln</translation>
+        <translation>Benutzerdefinierte Regeln</translation>
     </message>
 </context>
 <context>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="68"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Optionen</translation>
     </message>
     <message>
         <source>Rule</source>
@@ -155,27 +155,27 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="42"/>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Regel entfernen</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="44"/>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Abonnement hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="45"/>
         <source>Remove Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Abonnement entfernen</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="46"/>
         <source>Update Subscriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Abonnements aktualisieren</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="48"/>
         <source>Learn about writing rules...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hilfe zur Erstellung von Regeln...</translation>
     </message>
     <message>
         <source>Update EasyList</source>
@@ -216,7 +216,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="322"/>
         <source>EasyList</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyList</translation>
     </message>
 </context>
 <context>
@@ -277,12 +277,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockschemehandler.cpp" line="58"/>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
-        <translation type="unfinished"></translation>
+        <translation>Möchten Sie das Abonnement &lt;b&gt;%1&lt;/b&gt; hinzufügen?</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockschemehandler.cpp" line="60"/>
         <source>AdBlock Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>AdBlock Abonnement</translation>
     </message>
 </context>
 <context>
@@ -290,27 +290,27 @@
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="60"/>
         <source>Add Rule</source>
-        <translation type="unfinished">Regel hinzufügen</translation>
+        <translation>Regel hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="62"/>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Regel entfernen</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="112"/>
         <source>Add Custom Rule</source>
-        <translation type="unfinished">Benutzerdefinierte Regel hinzufügen</translation>
+        <translation>Benutzerdefinierte Regel hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="112"/>
         <source>Please write your rule here:</source>
-        <translation type="unfinished">Bitte Regel hier eintragen:</translation>
+        <translation>Bitte Regel hier eintragen:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="149"/>
         <source>%1 (recently updated)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (kürzlich aktualisiert)</translation>
     </message>
 </context>
 <context>
@@ -2671,7 +2671,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="768"/>
         <source>Automatically switch to newly opened tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch zu neu geöffnetem Tab wechseln</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
@@ -3869,17 +3869,17 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="170"/>
         <source>Search on Web</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Web suchen</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="171"/>
         <source>Search results provided by DuckDuckGo</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchergebnisse von DuckDuckGo</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="174"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Privater Modus&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="318"/>
@@ -4133,67 +4133,67 @@ Bitte fügen Sie welche über das RSS Symbol in der Navigationsleiste hinzu.</tr
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="55"/>
         <source>Add this feed into</source>
-        <translation type="unfinished"></translation>
+        <translation>Diesen Feed hinzufügen zu</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="84"/>
         <source>Add</source>
-        <translation type="unfinished">Hinzufügen</translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="36"/>
         <source>Executable: </source>
-        <translation type="unfinished">Ausführbare Datei: </translation>
+        <translation>Ausführbare Datei: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="36"/>
         <source>Arguments: </source>
-        <translation type="unfinished">Parameter: </translation>
+        <translation>Parameter: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="37"/>
         <source>Cannot start external program</source>
-        <translation type="unfinished"></translation>
+        <translation>Externes Programm kann nicht gestartet werden</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="37"/>
         <source>Cannot start external program! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Externes Programm kann nicht gestartet werden! %1</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="56"/>
         <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>RSS Feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="78"/>
         <source>Internal Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>Interner RSS Reader</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="79"/>
         <source>Other...</source>
-        <translation type="unfinished"></translation>
+        <translation>Andere...</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
         <source>Liferea not running</source>
-        <translation type="unfinished"></translation>
+        <translation>Liferea ist nicht gestartet</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
         <source>Liferea must be running in order to add new feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte starten Sie Liferea, um neue Feeds hinzuzufügen.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="132"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation type="unfinished"></translation>
+        <translation>Um diesen Feed mit einer anderen Anwendung hinzuzufügen, verwenden Sie bitte diese Informationen:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Titel: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;URL: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Die URL dieses Feeds wurde in die Zwischenablage kopiert.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="135"/>
         <source>Add feed into other application</source>
-        <translation type="unfinished"></translation>
+        <translation>Feed mit anderer Anwendung hinzufügen</translation>
     </message>
 </context>
 <context>
@@ -5155,7 +5155,7 @@ Nachdem Speicherpfade hinzugefügt oder gelöscht wurden, muss QupZilla neu gest
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="665"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Blockiert von &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
