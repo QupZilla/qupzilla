@@ -67,7 +67,7 @@
     <message>
         <location filename="../src/lib/preferences/acceptlanguage.ui" line="25"/>
         <source>Add...</source>
-        <translation>Añadir...</translation>
+        <translation>Agregar...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/acceptlanguage.ui" line="32"/>
@@ -96,22 +96,22 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="14"/>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregar Subscripcion</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="23"/>
         <source>Title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Titulo:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="33"/>
         <source>Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Direccion:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="53"/>
         <source>Add new subscription to AdBlock:</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregar nueva subscripcion AdBlock:</translation>
     </message>
 </context>
 <context>
@@ -119,7 +119,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="353"/>
         <source>Custom Rules</source>
-        <translation type="unfinished">Reglas personalizadas</translation>
+        <translation>Reglas personalizadas</translation>
     </message>
 </context>
 <context>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="68"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciones</translation>
     </message>
     <message>
         <source>Rule</source>
@@ -151,32 +151,32 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="41"/>
         <source>Add Rule</source>
-        <translation>Añadir regla</translation>
+        <translation>Agregar regla</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="42"/>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover regla</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="44"/>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregar Subscripcion</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="45"/>
         <source>Remove Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover Subscripcion</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="46"/>
         <source>Update Subscriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar Subscripciones</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="48"/>
         <source>Learn about writing rules...</source>
-        <translation type="unfinished"></translation>
+        <translation>Aprender acerca de las reglas...</translation>
     </message>
     <message>
         <source>Update EasyList</source>
@@ -206,7 +206,7 @@
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation type="obsolete">Añadir regla personalizada</translation>
+        <translation type="obsolete">Agregar regla personalizada</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
@@ -218,7 +218,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="322"/>
         <source>EasyList</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista sencilla</translation>
     </message>
 </context>
 <context>
@@ -279,12 +279,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockschemehandler.cpp" line="58"/>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
-        <translation type="unfinished"></translation>
+        <translation>Realmente quieres agregar la subscripcion &lt;b&gt;%1&lt;/b&gt;?</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockschemehandler.cpp" line="60"/>
         <source>AdBlock Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Subscripcion AdBlock</translation>
     </message>
 </context>
 <context>
@@ -292,27 +292,27 @@
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="60"/>
         <source>Add Rule</source>
-        <translation type="unfinished">Añadir regla</translation>
+        <translation>Agregar regla</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="62"/>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover regla</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="112"/>
         <source>Add Custom Rule</source>
-        <translation type="unfinished">Añadir regla personalizada</translation>
+        <translation>Agregar regla personalizada</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="112"/>
         <source>Please write your rule here:</source>
-        <translation type="unfinished">Por favor, escriba su regla aquí:</translation>
+        <translation>Por favor, escriba su regla aqui:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="149"/>
         <source>%1 (recently updated)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (actualizada)</translation>
     </message>
 </context>
 <context>
@@ -320,7 +320,7 @@
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="14"/>
         <source>Add Language</source>
-        <translation>Añadir idioma</translation>
+        <translation>Agregar idioma</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="20"/>
@@ -468,7 +468,7 @@
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="35"/>
         <source>Do you want QupZilla to remember the password for &lt;b&gt;%1&lt;/b&gt; on %2?</source>
-        <translation>¿Desea que QupZilla recuerde las contraseñas de &lt;b&gt;%1&lt;/b&gt; en %2?</translation>
+        <translation>¿Desea que QupZilla recuerde las claves de &lt;b&gt;%1&lt;/b&gt; en %2?</translation>
     </message>
 </context>
 <context>
@@ -495,7 +495,7 @@
         <location filename="../src/lib/bookmarks/bookmarkicon.cpp" line="38"/>
         <location filename="../src/lib/bookmarks/bookmarkicon.cpp" line="102"/>
         <source>Bookmark this Page</source>
-        <translation>Añadir esta página a favoritos</translation>
+        <translation>Agregar esta pagina a favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkicon.cpp" line="94"/>
@@ -597,7 +597,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="285"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
-        <translation>Mozilla Firefox almacena sus favoritos en &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. Este archivo suele encontrarse en </translation>
+        <translation>Mozilla Firefox almacena sus favoritos en &lt;b&gt;places.sqlite&lt;/b&gt; de basede datosSQLite. Este archivo suele encontrarse en </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="287"/>
@@ -625,6 +625,7 @@
     <message>
         <location filename="../src/lib/bookmarksimport/bookmarksimportdialog.cpp" line="340"/>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
+        <translatorcomment>we do not have windows due i GPL only sorry</translatorcomment>
         <translation></translation>
     </message>
     <message>
@@ -638,7 +639,7 @@
         <location filename="../src/lib/bookmarksimport/htmlimporter.cpp" line="26"/>
         <location filename="../src/lib/bookmarksimport/operaimporter.cpp" line="24"/>
         <source>No Error</source>
-        <translation>Ningún error</translation>
+        <translation>Sin errores</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarksimport/chromeimporter.cpp" line="45"/>
@@ -683,7 +684,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="43"/>
         <source>Add Folder</source>
-        <translation>Añadir directorio</translation>
+        <translation>Agregar directorio</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.ui" line="66"/>
@@ -698,7 +699,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="253"/>
         <source>Add Subfolder</source>
-        <translation>Añadir subdirectorio</translation>
+        <translation>Agregar subdirectorio</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="136"/>
@@ -708,7 +709,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="101"/>
         <source>Add new folder</source>
-        <translation>Añadir directorio nueva</translation>
+        <translation>Agregar directorio nueva</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="101"/>
@@ -718,7 +719,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="111"/>
         <source>Add new subfolder</source>
-        <translation>Añadir subdirectorio nueva</translation>
+        <translation>Agregar subdirectorio nueva</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="111"/>
@@ -783,7 +784,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="615"/>
         <source>Add New Bookmark</source>
-        <translation>Añadir nuevo marcador</translation>
+        <translation>Agregar nuevo marcador</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="657"/>
@@ -793,7 +794,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="658"/>
         <source>Bookmark All Tabs</source>
-        <translation>Añadir todas las pestañas a favoritos</translation>
+        <translation>Agregar todas las pestañas a favoritos</translation>
     </message>
 </context>
 <context>
@@ -850,12 +851,12 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
         <source>&amp;Bookmark Current Page</source>
-        <translation>&amp;Añadir esta página a favoritos</translation>
+        <translation>&amp;Agregar esta página a favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="76"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation>Añadir &amp;todas las pestañas a favoritos</translation>
+        <translation>Agregar &amp;todas las pestañas a favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
@@ -982,7 +983,7 @@
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="51"/>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="119"/>
         <source>Add to Speed Dial</source>
-        <translation>Añadir a la marcación rápida</translation>
+        <translation>Agregar a la marcación rápida</translation>
     </message>
 </context>
 <context>
@@ -1167,7 +1168,7 @@
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="135"/>
         <source>Add %1 to whitelist</source>
-        <translation>Añadir %1 a la lista blanca</translation>
+        <translation>Agregar %1 a la lista blanca</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/clicktoflash.cpp" line="305"/>
@@ -1294,7 +1295,7 @@
         <location filename="../src/lib/cookies/cookiemanager.ui" line="286"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="340"/>
         <source>Add</source>
-        <translation>Añadir</translation>
+        <translation>Agregar</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="293"/>
@@ -1652,7 +1653,7 @@
     </message>
     <message>
         <source>Add from file ...</source>
-        <translation type="obsolete">Añadir desde archivo ...</translation>
+        <translation type="obsolete">Agregar desde archivo ...</translation>
     </message>
     <message>
         <source>Image files</source>
@@ -2003,7 +2004,7 @@
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="59"/>
         <source>Add RSS from this page...</source>
-        <translation>Añadir RSS desde esta página...</translation>
+        <translation>Agregar RSS desde esta página...</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="93"/>
@@ -2206,7 +2207,7 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="134"/>
         <source>Add</source>
-        <translation>Añadir</translation>
+        <translation>Agregar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="141"/>
@@ -2221,7 +2222,7 @@
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="76"/>
         <source>Add site to whitelist</source>
-        <translation>Añadir sitio a la lista blanca</translation>
+        <translation>Agregar sitio a la lista blanca</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.cpp" line="76"/>
@@ -2429,7 +2430,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="560"/>
         <source>Show Add Tab button</source>
-        <translation>Mostrar botón de añadir pestaña</translation>
+        <translation>Mostrar botón de Agregar pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="567"/>
@@ -2463,7 +2464,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="714"/>
         <source>Add .co.uk domain by pressing ALT key</source>
-        <translation>Añadir dominio .co.uk pulsando la tecla ALT</translation>
+        <translation>Agregar dominio .co.uk pulsando la tecla ALT</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="645"/>
@@ -2622,7 +2623,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="768"/>
         <source>Automatically switch to newly opened tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticamente cambiar a la pestaña nueva al abrirse</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
@@ -3183,7 +3184,7 @@
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="304"/>
         <source>New Tab</source>
-        <translation>Nueva pes&amp;taña</translation>
+        <translation>Nueva pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="305"/>
@@ -3420,12 +3421,12 @@ Estas seguro de quitar Qupzilla?</translation>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="434"/>
         <source>Bookmark &amp;This Page</source>
-        <translation>&amp;Añadir esta página a favoritos</translation>
+        <translation>&amp;Agregar esta página a favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="435"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation>Añadir &amp;todas las pestañas a favoritos</translation>
+        <translation>Agregar &amp;todas las pestañas a favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/app/qupzilla.cpp" line="436"/>
@@ -3808,17 +3809,17 @@ Estas seguro de quitar Qupzilla?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="170"/>
         <source>Search on Web</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar en la internet</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="171"/>
         <source>Search results provided by DuckDuckGo</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar resultados provistos por DuckDuckGo</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="174"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Navegacion privada&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="204"/>
@@ -3838,7 +3839,7 @@ Estas seguro de quitar Qupzilla?</translation>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="261"/>
         <source>Add New Page</source>
-        <translation>Añadir página nueva</translation>
+        <translation>Agregar página nueva</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="271"/>
@@ -4026,7 +4027,7 @@ Estas seguro de quitar Qupzilla?</translation>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="54"/>
         <source>Add feed</source>
-        <translation>Añadir canal</translation>
+        <translation>Agregar canal</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.ui" line="64"/>
@@ -4064,7 +4065,7 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="149"/>
         <source>Add new feed</source>
-        <translation>Añadir un canal nuevo</translation>
+        <translation>Agregar un canal nuevo</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="149"/>
@@ -4131,67 +4132,67 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="55"/>
         <source>Add this feed into</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregar esta semilla</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="84"/>
         <source>Add</source>
-        <translation type="unfinished">Añadir</translation>
+        <translation>Agregar</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="36"/>
         <source>Executable: </source>
-        <translation type="unfinished">Ejecutable:</translation>
+        <translation>Ejecutable:</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="36"/>
         <source>Arguments: </source>
-        <translation type="unfinished">Argumentos:</translation>
+        <translation>Argumentos:</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="37"/>
         <source>Cannot start external program</source>
-        <translation type="unfinished"></translation>
+        <translation>No puedo arrancar el programa externo</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="37"/>
         <source>Cannot start external program! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>No puedo arrancar el programa! %1</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="56"/>
         <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Semilla RSS &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="78"/>
         <source>Internal Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>Lector interno</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="79"/>
         <source>Other...</source>
-        <translation type="unfinished"></translation>
+        <translation>Otro...</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
         <source>Liferea not running</source>
-        <translation type="unfinished"></translation>
+        <translation>Liferea no demonizado</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
         <source>Liferea must be running in order to add new feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Liferea debe estar demonizado para poder agregar semillas.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="132"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation type="unfinished"></translation>
+        <translation>Para agregar esta semilla RSS en otra aplicacion, favor usar esta informacion:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Titulo: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;La direccion Url de esta semilla ha sido copiada en tu portapapeles.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="135"/>
         <source>Add feed into other application</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregar semilla en otra aplicacion</translation>
     </message>
 </context>
 <context>
@@ -4199,7 +4200,7 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/lib/rss/rsswidget.ui" line="59"/>
         <source>Add RSS Feeds from this site</source>
-        <translation>Añadir canales RSS desde este sitio</translation>
+        <translation>Agregar canales RSS desde este sitio</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="56"/>
@@ -4209,7 +4210,7 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="60"/>
         <source>Add</source>
-        <translation>Añadir</translation>
+        <translation>Agregar</translation>
     </message>
 </context>
 <context>
@@ -4259,7 +4260,7 @@ Por favor, añada alguno con el icono RSS de la barra de navegación en sitios q
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Todos los certificados deben tener el sufijo .crt.
-Después de añadir o eliminar rutas de certificados, es necesario reiniciar QupZilla para que los cambios surjan efecto.</translation>
+Después de Agregar o eliminar rutas de certificados, es necesario reiniciar QupZilla para que los cambios surjan efecto.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="68"/>
@@ -4285,7 +4286,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="150"/>
         <source>Add</source>
-        <translation>Añadir</translation>
+        <translation>Agregar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="217"/>
@@ -4318,7 +4319,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="22"/>
         <source>Add...</source>
-        <translation>Añadir...</translation>
+        <translation>Agregar...</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="29"/>
@@ -4359,7 +4360,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="46"/>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="244"/>
         <source>Add Search Engine</source>
-        <translation>Añadir motor de búsqueda</translation>
+        <translation>Agregar motor de búsqueda</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="94"/>
@@ -4392,7 +4393,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="333"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation>Error al añadir el motor de búsqueda &lt;br&gt;&lt;b&gt;Mensaje de error:&lt;/b&gt; %1</translation>
+        <translation>Error al Agregar el motor de búsqueda &lt;br&gt;&lt;b&gt;Mensaje de error:&lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
@@ -4880,12 +4881,12 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="151"/>
         <source>&amp;Bookmark This Tab</source>
-        <translation>&amp;Añadir esta pestaña a favoritos</translation>
+        <translation>&amp;Agregar esta pestaña a favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="152"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation>Añadir &amp;todas las pestañas a favoritos</translation>
+        <translation>Agregar &amp;todas las pestañas a favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="158"/>
@@ -4905,7 +4906,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="164"/>
         <source>Bookmark &amp;All Ta&amp;bs</source>
-        <translation>Añadir &amp;todas las pestañas a favoritos</translation>
+        <translation>Agregar &amp;todas las pestañas a favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/tabbar.cpp" line="166"/>
@@ -5151,7 +5152,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="665"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloqueada por &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
@@ -5223,7 +5224,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="204"/>
         <source>Add %1 ...</source>
-        <translation>Añadir %1 ...</translation>
+        <translation>Agregar %1 ...</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="227"/>
@@ -5291,7 +5292,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="792"/>
         <source>B&amp;ookmark link</source>
-        <translation>Añadir enlace a &amp;favoritos</translation>
+        <translation>Agregar enlace a &amp;favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="793"/>
@@ -5402,7 +5403,7 @@ Después de añadir o eliminar rutas de certificados, es necesario reiniciar Qup
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="763"/>
         <source>Book&amp;mark page</source>
-        <translation>Añadir esta página a &amp;favoritos</translation>
+        <translation>Agregar esta página a &amp;favoritos</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webview.cpp" line="764"/>
