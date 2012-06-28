@@ -250,10 +250,10 @@ LangString DESC_SecDesktop ${LANG_GEORGIAN} "გამშვების და�
 LangString DESC_SecExtensions ${LANG_GEORGIAN} "QupZilla-ს ასოცირება .htm და .html ფაილებთან"
 LangString DESC_SecThemes ${LANG_GEORGIAN} "დამატებითი თემები QupZilla-სთვის"
 
-;;;;JAPANESE
+;;;;Japanese
 LangString TITLE_SecMain ${LANG_JAPANESE} "メインコンポーネント"
 LangString TITLE_SecTranslations ${LANG_JAPANESE} "言語ファイル"
-LangString TITLE_SecPlugins ${LANG_JAPANESE} "プラグイン(拡張機能)"
+LangString TITLE_SecPlugins ${LANG_JAPANESE} "エクステンション(拡張機能)"
 LangString TITLE_SecDesktop ${LANG_JAPANESE} "デスクトップアイコン"
 LangString TITLE_SecExtensions ${LANG_JAPANESE} "ファイルの関連付け"
 LangString TITLE_SecThemes ${LANG_JAPANESE} "テーマ"
