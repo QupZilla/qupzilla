@@ -138,7 +138,10 @@ void SourceViewer::loadSource()
     m_actionCopy->setEnabled(false);
     m_actionPaste->setEnabled(false);
 
-    m_sourceEdit->setPlainText(m_frame.data()->toHtml());
+    QString html = m_frame.data()->toHtml();
+    // Remove AdBlock element hiding rules
+    html.remove(QRegExp("<style type=\"text/css\">\n/\\* AdBlock for QupZilla \\*/\n.*\\{display: none !important;\\}\n</style>"));
+    m_sourceEdit->setPlainText(html);
 
     //Highlight selectedHtml
     if (!m_selectedHtml.isEmpty()) {
