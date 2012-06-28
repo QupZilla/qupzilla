@@ -72,26 +72,52 @@
     </message>
 </context>
 <context>
+    <name>AdBlockAddSubscriptionDialog</name>
+    <message>
+        <source>Title:</source>
+        <translation>Título: </translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Endereço:</translation>
+    </message>
+    <message>
+        <source>Add new subscription to AdBlock:</source>
+        <translation>Adicionar nova inscrição:</translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation>Adicionar Inscrição</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockCustomList</name>
+    <message>
+        <source>Custom Rules</source>
+        <translation>Filtros Personalizados</translation>
+    </message>
+</context>
+<context>
     <name>AdBlockDialog</name>
     <message>
         <source>Rule</source>
-        <translation>Filtro</translation>
+        <translation type="obsolete">Filtro</translation>
     </message>
     <message>
         <source>EasyList has been successfully updated.</source>
-        <translation>A EasyList foi atualizada com sucesso.</translation>
+        <translation type="obsolete">A EasyList foi atualizada com sucesso.</translation>
     </message>
     <message>
         <source>Update EasyList</source>
-        <translation>Atualizar EasyList</translation>
+        <translation type="obsolete">Atualizar EasyList</translation>
     </message>
     <message>
         <source>Please write your rule here:</source>
-        <translation>Escreva aqui o seu filtro:</translation>
+        <translation type="obsolete">Escreva aqui o seu filtro:</translation>
     </message>
     <message>
         <source>Add Custom Rule</source>
-        <translation>Adicionar filtro personalizado</translation>
+        <translation type="obsolete">Adicionar filtro personalizado</translation>
     </message>
     <message>
         <source>Enable AdBlock</source>
@@ -107,7 +133,7 @@
     </message>
     <message>
         <source>Delete Rule</source>
-        <translation>Apagar Filtro</translation>
+        <translation type="obsolete">Apagar Filtro</translation>
     </message>
     <message>
         <source>Add Rule</source>
@@ -115,15 +141,46 @@
     </message>
     <message>
         <source>Custom Rules</source>
-        <translation>Filtros Personalizados</translation>
+        <translation type="obsolete">Filtros Personalizados</translation>
     </message>
     <message>
         <source>Update completed</source>
-        <translation>Atualização concluída</translation>
+        <translation type="obsolete">Atualização concluída</translation>
     </message>
     <message>
         <source>AdBlock Configuration</source>
         <translation>Configuração AdBlock</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Opções</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation>Remover Filtro</translation>
+    </message>
+    <message>
+        <source>Add Subscription</source>
+        <translation>Adicionar Inscrição</translation>
+    </message>
+    <message>
+        <source>Remove Subscription</source>
+        <translation>Remover Inscrição</translation>
+    </message>
+    <message>
+        <source>Update Subscriptions</source>
+        <translation>Atualizar Inscrições</translation>
+    </message>
+    <message>
+        <source>Learn about writing rules...</source>
+        <translation>Aprenda mais sobre como escrever filtros...</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockEasyList</name>
+    <message>
+        <source>EasyList</source>
+        <translation>EasyList</translation>
     </message>
 </context>
 <context>
@@ -166,7 +223,41 @@
     </message>
     <message>
         <source>Learn About Writing &amp;Rules</source>
-        <translation>Saber mais sobre as &amp;regras</translation>
+        <translation type="obsolete">Saber mais sobre como escrever filt&amp;ros</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockManager</name>
+    <message>
+        <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
+        <translation>Você quer adicionar &lt;b&gt;%1&lt;/b&gt; inscrições?</translation>
+    </message>
+    <message>
+        <source>AdBlock Subscription</source>
+        <translation>Inscrições do AdBlock</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockTreeWidget</name>
+    <message>
+        <source>Add Rule</source>
+        <translation>Adicionar Filtro</translation>
+    </message>
+    <message>
+        <source>Remove Rule</source>
+        <translation>Remover Filtro</translation>
+    </message>
+    <message>
+        <source>Add Custom Rule</source>
+        <translation>Adicionar filtro personalizado</translation>
+    </message>
+    <message>
+        <source>Please write your rule here:</source>
+        <translation>Escreva aqui o seu filtro:</translation>
+    </message>
+    <message>
+        <source>%1 (recently updated)</source>
+        <translation>%1 (atualizado recentemente)</translation>
     </message>
 </context>
 <context>
@@ -408,7 +499,7 @@
     </message>
     <message>
         <source>Internet Explorer stores its bookmarks in &lt;b&gt;Favorites&lt;/b&gt; folder. This folder is usually located in </source>
-        <translation>O Internet Explorer salva os favoritos na pasta  &lt;b&gt;Favoritos&lt;/b&gt;, que geralmente fica em</translation>
+        <translation>O Internet Explorer salva os favoritos na pasta &lt;b&gt;Favoritos&lt;/b&gt;, que geralmente fica em</translation>
     </message>
     <message>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in </source>
@@ -439,7 +530,7 @@
     <name>BookmarksManager</name>
     <message>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Title</source>
@@ -588,7 +679,7 @@
     </message>
     <message>
         <source>Url: </source>
-        <translation>Url: </translation>
+        <translation>URL: </translation>
     </message>
     <message>
         <source>&amp;Hide Toolbar</source>
@@ -1031,10 +1122,10 @@
         <translation>Abrir pasta</translation>
     </message>
     <message>
-        <source>Sorry, the file 
- %1 
+        <source>Sorry, the file
+ %1
  was not found!</source>
-        <translation>Desculpa, o arquivo 
+        <translation>Desculpa, o arquivo
 %1
 não foi encontrado!</translation>
     </message>
@@ -1189,7 +1280,7 @@ não foi encontrado!</translation>
     <name>EditSearchEngine</name>
     <message>
         <source>Url:</source>
-        <translation>Url:</translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <source>Icon:</source>
@@ -1213,7 +1304,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url represent searched string</source>
-        <translation>&lt;b&gt;Observação: &lt;/b&gt;%s no url representa o texto procurado</translation>
+        <translation>&lt;b&gt;Observação: &lt;/b&gt;%s no URL representa o texto procurado</translation>
     </message>
     <message>
         <source>Image files</source>
@@ -1283,7 +1374,7 @@ não foi encontrado!</translation>
     <name>HistoryManager</name>
     <message>
         <source>Url</source>
-        <translation type="obsolete">Url</translation>
+        <translation type="obsolete">URL</translation>
     </message>
     <message>
         <source>This Week</source>
@@ -1949,7 +2040,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Make tabs movable</source>
-        <translation>Permitir movimentar guias</translation>
+        <translation type="obsolete">Permitir movimentar guias</translation>
     </message>
     <message>
         <source>Use Native System Notifications (Linux only)</source>
@@ -2056,7 +2147,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Ask when entering Private Browsing mode</source>
-        <translation>Perguntar ao entrar no modo de navegação privada</translation>
+        <translation type="obsolete">Perguntar ao entrar no modo de navegação privada</translation>
     </message>
     <message>
         <source>Create New</source>
@@ -2379,6 +2470,10 @@ não foi encontrado!</translation>
         <source>Manage CA certificates</source>
         <translation>Gerenciar certificados de autoridade</translation>
     </message>
+    <message>
+        <source>Automatically switch to newly opened tab</source>
+        <translation>Alterar automaticamente para a mais nova guia aberta</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2498,7 +2593,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Are you sure you want to turn on private browsing?</source>
-        <translation>Tem a certeza que deseja ativar a navegação privada?</translation>
+        <translation type="obsolete">Tem a certeza que deseja ativar a navegação privada?</translation>
     </message>
     <message>
         <source>Web In&amp;spector</source>
@@ -2582,7 +2677,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Webpages are not added to the history.</source>
-        <translation>As páginas web não são adicionadas ao histórico.</translation>
+        <translation type="obsolete">As páginas web não são adicionadas ao histórico.</translation>
     </message>
     <message>
         <source>Restore &amp;Closed Tab</source>
@@ -2630,7 +2725,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Until you close the window, you can still click the Back and Forward buttons to return to the webpages you have opened.</source>
-        <translation>Até você fechar a janela, você ainda poderá usar os botões &quot;Voltar&quot; e &quot;Avançar&quot; para navegar por sites que você entrou anteriormente.</translation>
+        <translation type="obsolete">Até você fechar a janela, você ainda poderá usar os botões &quot;Voltar&quot; e &quot;Avançar&quot; para navegar por sites que você entrou anteriormente.</translation>
     </message>
     <message>
         <source>Clear list</source>
@@ -2642,7 +2737,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>You have successfully added RSS feed &quot;%1&quot;.</source>
-        <translation>A fonte RSS &quot;%1&quot; foi adicionada com sucesso.</translation>
+        <translation type="obsolete">A fonte RSS &quot;%1&quot; foi adicionada com sucesso.</translation>
     </message>
     <message>
         <source>Open file...</source>
@@ -2654,7 +2749,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Your session is not stored.</source>
-        <translation>A sua sessão não pode ser gravada.</translation>
+        <translation type="obsolete">A sua sessão não pode ser gravada.</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
@@ -2718,7 +2813,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Current cookies cannot be accessed.</source>
-        <translation>Os cookies atuais não estão acessíveis.</translation>
+        <translation type="obsolete">Os cookies atuais não estão acessíveis.</translation>
     </message>
     <message>
         <source>IP Address of current page</source>
@@ -2738,7 +2833,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>When private browsing is turned on, some actions concerning your privacy will be disabled:</source>
-        <translation>Se a navegação privada estiver ativa, alguns elementos de privacidade estarão inativos:</translation>
+        <translation type="obsolete">Se a navegação privada estiver ativa, alguns elementos de privacidade estarão inativos:</translation>
     </message>
     <message>
         <source>Import bookmarks...</source>
@@ -2746,7 +2841,7 @@ não foi encontrado!</translation>
     </message>
     <message>
         <source>Start Private Browsing</source>
-        <translation>Iniciar navegação privada</translation>
+        <translation type="obsolete">Iniciar navegação privada</translation>
     </message>
     <message>
         <source>Bookmark &amp;All Tabs</source>
@@ -2785,7 +2880,7 @@ não foi encontrado!</translation>
         <translation>&lt;b&gt;QupZilla travou :/&lt;/b&gt;&lt;br/&gt;Oops, parece que a última sessão do QupZilla não foi fechada como o planejado. Pedimos mil desculpas por isso. Você deseja que nós tentassemos abrir a última sessão que você estava?</translation>
     </message>
     <message>
-        <source>There are still %1 open tabs and your session won&apos;t be stored. 
+        <source>There are still %1 open tabs and your session won&apos;t be stored.
 Are you sure to quit QupZilla?</source>
         <translation>Ainda há %1 guias abertas. A sua sessão não será salva.
 Você tem certeza que deseja sair do QupZilla?</translation>
@@ -2807,7 +2902,7 @@ Você tem certeza que deseja sair do QupZilla?</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -2963,7 +3058,7 @@ Você tem certeza que deseja sair do QupZilla?</translation>
     </message>
     <message>
         <source>Google Search</source>
-        <translation>Procurar no Google</translation>
+        <translation type="obsolete">Procurar no Google</translation>
     </message>
     <message>
         <source>Speed Dial settings</source>
@@ -2987,7 +3082,7 @@ Você tem certeza que deseja sair do QupZilla?</translation>
     </message>
     <message>
         <source>Search results provided by Google</source>
-        <translation>Resultados disponibilizados pelo Google</translation>
+        <translation type="obsolete">Resultados disponibilizados pelo Google</translation>
     </message>
     <message>
         <source>Change size of pages:</source>
@@ -3097,6 +3192,18 @@ Você tem certeza que deseja sair do QupZilla?</translation>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Essa página contém informações sobre as configurações atuais do QupZilla - que são importantes para sabermos a causa do problema. Por favor, inclua essas informações quanto for reportar um bug (por favor, escreva em Inglês).</translation>
     </message>
+    <message>
+        <source>Search on Web</source>
+        <translation>Procurar na Internet</translation>
+    </message>
+    <message>
+        <source>Search results provided by DuckDuckGo</source>
+        <translation>Resultados direto do DuckDuckGo</translation>
+    </message>
+    <message>
+        <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
+        <translation>&lt;h1&gt;Navegação Privada&lt;/h1&gt;</translation>
+    </message>
 </context>
 <context>
     <name>RSSManager</name>
@@ -3195,7 +3302,59 @@ Adicione os feeds clicando no símbolo RSS existente na barra de navegação, em
     <name>RSSNotification</name>
     <message>
         <source>Open RSS Manager</source>
-        <translation>Abrir gerenciador de RSS</translation>
+        <translation type="obsolete">Abrir gerenciador de RSS</translation>
+    </message>
+    <message>
+        <source>Add this feed into</source>
+        <translation>Adicionar esse fedd no</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Adicionar</translation>
+    </message>
+    <message>
+        <source>Executable: </source>
+        <translation>Executável: </translation>
+    </message>
+    <message>
+        <source>Arguments: </source>
+        <translation>Argumentos: </translation>
+    </message>
+    <message>
+        <source>Cannot start external program</source>
+        <translation>Não foi possível iniciar o programa externo</translation>
+    </message>
+    <message>
+        <source>Cannot start external program! %1</source>
+        <translation>Não foi possível iniciar o programa externo! %1</translation>
+    </message>
+    <message>
+        <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
+        <translation>Feed RSS &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Internal Reader</source>
+        <translation>Leitor Interno</translation>
+    </message>
+    <message>
+        <source>Other...</source>
+        <translation>Outro...</translation>
+    </message>
+    <message>
+        <source>Liferea not running</source>
+        <translation>Liferea não está em execução</translation>
+    </message>
+    <message>
+        <source>Liferea must be running in order to add new feed.</source>
+        <translation>Liferea deve estar em execução para poder adicionar novos feeds.</translation>
+    </message>
+    <message>
+        <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
+        <translation>Para adicionar esse feed RSS em outro aplicativo, por favor, use essa informação:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Título:&lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;URL:&lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;A URL foi copiada para a sua área de transferência.</translation>
+    </message>
+    <message>
+        <source>Add feed into other application</source>
+        <translation>Adicionar feed em outro aplicativo</translation>
     </message>
 </context>
 <context>
@@ -3489,7 +3648,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Copy Image Location</source>
-        <translation>Copiar URL da Imagem</translation>
+        <translation>Copiar link da Imagem</translation>
     </message>
     <message>
         <source>General</source>
@@ -3924,7 +4083,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Bloqueado pela regra &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="obsolete">Bloqueado pelo filtro &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Content Access Denied</source>
@@ -3987,7 +4146,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
         <translation>Falha ao carregar a página</translation>
     </message>
     <message>
-        <source>To show this page, QupZilla must resend request which do it again 
+        <source>To show this page, QupZilla must resend request which do it again
 (like searching on making an shoping, which has been already done.)</source>
         <translation>Para mostrar esta página, o QupZilla precisa reenviar o pedido solicitado.
 (é como fazer alguma coisa, que você já havia feito anteriormente)</translation>
@@ -4011,6 +4170,10 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     <message>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>O QupZilla não consegue entender &lt;b&gt;%1&lt;/b&gt; links. Quem está pedindo é/são: &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;. Você deseja que o QupZilla tente abrir esses links nos aplicativos do sistema? </translation>
+    </message>
+    <message>
+        <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation>Bloqueado por &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
@@ -4072,7 +4235,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>&amp;Copy link address</source>
-        <translation>&amp;Copiar URL</translation>
+        <translation>&amp;Copiar link</translation>
     </message>
     <message>
         <source>Show so&amp;urce of frame</source>
@@ -4212,7 +4375,7 @@ Após adicionar ou remover os caminhos dos certificados, você terá que reinici
     </message>
     <message>
         <source>Copy image ad&amp;dress</source>
-        <translation>Copiar URL &amp;da imagem</translation>
+        <translation>Copiar link &amp;da imagem</translation>
     </message>
     <message>
         <source>Search with...</source>
