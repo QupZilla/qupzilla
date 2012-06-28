@@ -83,7 +83,6 @@ Name[sv]=Öppna ny flik
 Name[zh_TW]=新增分頁
 Name[zh_CN]=新建标签页
 Name[ja]=新しいタブを開く
-
 Exec=qupzilla --new-tab
 TargetEnvironment=Unity
 
