@@ -8,7 +8,7 @@ $menu_home = "ホーム";
 $menu_screenshots = "スクリーンショット";
 $menu_download = "ダウンロード";
 $menu_faq = "FAQ";
-$menu_about = "開発";
+$menu_about = "開発に貢献";
 $footer_site = "www.qupzilla.com";
 $translated_by = "このページはDaiki Nodaが翻訳しました";
 

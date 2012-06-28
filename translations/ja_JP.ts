@@ -2516,7 +2516,7 @@
     </message>
     <message>
         <source>Automatically switch to newly opened tab</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいタブが開かれたとき、すぐにそのタブに切り替える</translation>
     </message>
 </context>
 <context>
@@ -3367,55 +3367,55 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     </message>
     <message>
         <source>Add this feed into</source>
-        <translation type="unfinished"></translation>
+        <translation>このフィードを以下に追加する</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Executable: </source>
-        <translation type="unfinished">実行可能:</translation>
+        <translation>実行可能:</translation>
     </message>
     <message>
         <source>Arguments: </source>
-        <translation type="unfinished">引数:</translation>
+        <translation>引数:</translation>
     </message>
     <message>
         <source>Cannot start external program</source>
-        <translation type="unfinished"></translation>
+        <translation>外部プログラムを起動できません</translation>
     </message>
     <message>
         <source>Cannot start external program! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>外部プログラムを起動できません! %1</translation>
     </message>
     <message>
         <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>RSSフィード &lt;b&gt;&quot;%1&quot;&lt;/b&gt; </translation>
     </message>
     <message>
         <source>Internal Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>内部リーダー</translation>
     </message>
     <message>
         <source>Other...</source>
-        <translation type="unfinished"></translation>
+        <translation>その他...</translation>
     </message>
     <message>
         <source>Liferea not running</source>
-        <translation type="unfinished"></translation>
+        <translation>Lifereaは起動していません</translation>
     </message>
     <message>
         <source>Liferea must be running in order to add new feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいフィードを追加するにはLifereaが起動していなくてはなりません。</translation>
     </message>
     <message>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation type="unfinished"></translation>
+        <translation>このRSSフィードをその他のアプリケーションに追加するにはこの情報を使ってください。:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;ページ名：&lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;URL:&lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;このフィードのURLアドレスはクリップボードにコピーされます。</translation>
     </message>
     <message>
         <source>Add feed into other application</source>
-        <translation type="unfinished"></translation>
+        <translation>フィードをその他のアプリケーションに追加する</translation>
     </message>
 </context>
 <context>
