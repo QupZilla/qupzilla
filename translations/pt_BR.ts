@@ -1122,6 +1122,10 @@
         <translation>Abrir pasta</translation>
     </message>
     <message>
+        <source>Remove</source>
+        <translation>Remover</translation>
+    </message>
+    <message>
         <source>Sorry, the file
  %1
  was not found!</source>
