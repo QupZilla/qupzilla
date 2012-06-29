@@ -96,22 +96,22 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="14"/>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить подписку</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="23"/>
         <source>Title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Заголовок:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="33"/>
         <source>Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="53"/>
         <source>Add new subscription to AdBlock:</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить новую подписку в AdBlock:</translation>
     </message>
 </context>
 <context>
@@ -119,7 +119,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="353"/>
         <source>Custom Rules</source>
-        <translation type="unfinished">Обычные правила </translation>
+        <translation>Обычные правила</translation>
     </message>
 </context>
 <context>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="68"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Опции</translation>
     </message>
     <message>
         <source>Rule</source>
@@ -156,27 +156,27 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="42"/>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Правили удаления</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="44"/>
         <source>Add Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить подписку</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="45"/>
         <source>Remove Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить подписку</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="46"/>
         <source>Update Subscriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Обновить подписки</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="48"/>
         <source>Learn about writing rules...</source>
-        <translation type="unfinished"></translation>
+        <translation>Информация о написании правил...</translation>
     </message>
     <message>
         <source>Update EasyList</source>
@@ -217,7 +217,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="322"/>
         <source>EasyList</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyList</translation>
     </message>
 </context>
 <context>
@@ -278,12 +278,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockschemehandler.cpp" line="58"/>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы хотите добавить &lt;b&gt;%1&lt;/b&gt; подписку?</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockschemehandler.cpp" line="60"/>
         <source>AdBlock Subscription</source>
-        <translation type="unfinished"></translation>
+        <translation>Подписска AdBlock</translation>
     </message>
 </context>
 <context>
@@ -291,27 +291,27 @@
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="60"/>
         <source>Add Rule</source>
-        <translation type="unfinished">Добавить правило</translation>
+        <translation>Добавить правило</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="62"/>
         <source>Remove Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить правило</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="112"/>
         <source>Add Custom Rule</source>
-        <translation type="unfinished">Добавить обычное правило</translation>
+        <translation>Добавить обычное правило</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="112"/>
         <source>Please write your rule here:</source>
-        <translation type="unfinished">Пожалуйста, напишите своё правило здесь:</translation>
+        <translation>Пожалуйста, напишите своё правило здесь:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="149"/>
         <source>%1 (recently updated)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (недавно обновлено)</translation>
     </message>
 </context>
 <context>
@@ -759,7 +759,7 @@
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="291"/>
         <source>Change icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить иконку</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="292"/>
@@ -1654,7 +1654,7 @@
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="97"/>
         <source>Change...</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить...</translation>
     </message>
     <message>
         <source>Add from file ...</source>
@@ -1674,67 +1674,67 @@
     <message>
         <location filename="../src/lib/history/history.cpp" line="75"/>
         <source>No Named Page</source>
-        <translation type="unfinished">Безымянная страница</translation>
+        <translation>Безымянная страница</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="262"/>
         <source>January</source>
-        <translation type="unfinished">Январь</translation>
+        <translation>Январь</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="264"/>
         <source>February</source>
-        <translation type="unfinished">Февраль</translation>
+        <translation>Февраль</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="266"/>
         <source>March</source>
-        <translation type="unfinished">Март</translation>
+        <translation>Март</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="268"/>
         <source>April</source>
-        <translation type="unfinished">Апрель</translation>
+        <translation>Апрель</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="270"/>
         <source>May</source>
-        <translation type="unfinished">Май</translation>
+        <translation>Май</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="272"/>
         <source>June</source>
-        <translation type="unfinished">Июнь</translation>
+        <translation>Июнь</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="274"/>
         <source>July</source>
-        <translation type="unfinished">Июль</translation>
+        <translation>Июль</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="276"/>
         <source>August</source>
-        <translation type="unfinished">Август</translation>
+        <translation>Август</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="278"/>
         <source>September</source>
-        <translation type="unfinished">Сентябрь</translation>
+        <translation>Сентябрь</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="280"/>
         <source>October</source>
-        <translation type="unfinished">Октябрь</translation>
+        <translation>Октябрь</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="282"/>
         <source>November</source>
-        <translation type="unfinished">Ноябрь</translation>
+        <translation>Ноябрь</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="284"/>
         <source>December</source>
-        <translation type="unfinished">Декабрь</translation>
+        <translation>Декабрь</translation>
     </message>
 </context>
 <context>
@@ -1859,38 +1859,38 @@
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="56"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Заголовок</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="58"/>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="60"/>
         <source>Visit Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Дата посещения</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="62"/>
         <source>Visit Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Количество посещений</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="316"/>
         <location filename="../src/lib/history/historymodel.cpp" line="444"/>
         <source>Today</source>
-        <translation type="unfinished">Сегодня</translation>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="449"/>
         <source>This Week</source>
-        <translation type="unfinished">На этой неделе</translation>
+        <translation>На этой неделе</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="454"/>
         <source>This Month</source>
-        <translation type="unfinished">В этом месяце</translation>
+        <translation>В этом месяце</translation>
     </message>
 </context>
 <context>
@@ -1934,27 +1934,27 @@
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="151"/>
         <source>Open link in current tab</source>
-        <translation type="unfinished">Открыть ссылку в текущей вкладке</translation>
+        <translation>Открыть ссылку в текущей вкладке</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="152"/>
         <source>Open link in new tab</source>
-        <translation type="unfinished">Открыть ссылку в новой вкладке</translation>
+        <translation>Открыть ссылку в новой вкладке</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="154"/>
         <source>Copy title</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать заголовок</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="155"/>
         <source>Copy address</source>
-        <translation type="unfinished">Копировать адрес</translation>
+        <translation>Копировать адрес</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historyview.cpp" line="157"/>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
@@ -1963,37 +1963,37 @@
         <location filename="../src/lib/other/iconchooser.ui" line="14"/>
         <location filename="../src/lib/other/iconchooser.cpp" line="39"/>
         <source>Choose icon...</source>
-        <translation type="unfinished">Выбрать значок...</translation>
+        <translation>Выбрать значок...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="20"/>
         <source>From file</source>
-        <translation type="unfinished"></translation>
+        <translation>Из файла</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="29"/>
         <source>Image (.png, .jpg, .jpeg, .gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>Изображение (.png, .jpg, .jpeg, .gif)</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="42"/>
         <source>Choose file...</source>
-        <translation type="unfinished">Выберите файл...</translation>
+        <translation>Выберите файл...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="52"/>
         <source>From database</source>
-        <translation type="unfinished"></translation>
+        <translation>Из базы данных</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="61"/>
         <source>Site Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Url сайта:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.cpp" line="38"/>
         <source>Image files</source>
-        <translation type="unfinished">Файлы изображений</translation>
+        <translation>Файлы изображений</translation>
     </message>
 </context>
 <context>
@@ -2575,17 +2575,17 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="761"/>
         <source>Show tab previews</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать вкладку предварительного просмотра</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="752"/>
         <source>Make tab previews animated</source>
-        <translation type="unfinished"></translation>
+        <translation>Анимировать вкладку предварительного просмотра</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="768"/>
         <source>Automatically switch to newly opened tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматически переключаться на новую вкладку</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="791"/>
@@ -2763,7 +2763,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1911"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер сертификатов</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1948"/>
@@ -2869,7 +2869,7 @@
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1856"/>
         <source>Manage CA certificates</source>
-        <translation type="unfinished"></translation>
+        <translation>Управлять CA сертификатами</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
@@ -3820,17 +3820,17 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="170"/>
         <source>Search on Web</source>
-        <translation type="unfinished"></translation>
+        <translation>Искать в интернете</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="171"/>
         <source>Search results provided by DuckDuckGo</source>
-        <translation type="unfinished"></translation>
+        <translation>Результаты поиска предоставляемые DuckDuckGo</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="174"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Защищенный просмотр&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="204"/>
@@ -4009,7 +4009,7 @@ Are you sure to quit QupZilla?</source>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="270"/>
         <source>Title</source>
-        <translation>Название</translation>
+        <translation>Заголовок</translation>
     </message>
     <message>
         <location filename="../src/lib/network/qupzillaschemehandler.cpp" line="273"/>
@@ -4143,67 +4143,67 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="55"/>
         <source>Add this feed into</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить этот канал в</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="84"/>
         <source>Add</source>
-        <translation type="unfinished">Добавить</translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="36"/>
         <source>Executable: </source>
-        <translation type="unfinished">Активные: </translation>
+        <translation>Активные: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="36"/>
         <source>Arguments: </source>
-        <translation type="unfinished">Аргументы: </translation>
+        <translation>Аргументы: </translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="37"/>
         <source>Cannot start external program</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удается запустить внешнюю программу</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="37"/>
         <source>Cannot start external program! %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удается запустить внешнюю программу! %1</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="56"/>
         <source>RSS feed &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>RSS канал &lt;b&gt;&quot;%1&quot;&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="78"/>
         <source>Internal Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>Внутренне чтение</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="79"/>
         <source>Other...</source>
-        <translation type="unfinished"></translation>
+        <translation>Другие...</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
         <source>Liferea not running</source>
-        <translation type="unfinished"></translation>
+        <translation>Liferea не работает</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="120"/>
         <source>Liferea must be running in order to add new feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Liferea должна быть запущена для того, чтобы добавить новый канал.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="132"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation type="unfinished"></translation>
+        <translation>Чтобы добавить этот канал RSS в другие приложения, пожалуйста, используйте эту информацию:&lt;b&gt;Заголовок: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url адрес этого канала был скопирован в буфер обмена.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="135"/>
         <source>Add feed into other application</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить канал в другие приложения</translation>
     </message>
 </context>
 <context>
@@ -4233,7 +4233,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="14"/>
         <source>Certificate Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер сертификатов</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="24"/>
@@ -4259,7 +4259,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="79"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="106"/>
@@ -4312,7 +4312,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="134"/>
         <source>Import certificate...</source>
-        <translation type="unfinished"></translation>
+        <translation>Импортировать сертификат...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.cpp" line="165"/>
@@ -5068,17 +5068,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="304"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"></translation>
+        <translation>QupZilla не может управлять &lt;b&gt;%1:&lt;/b&gt; ссылками. Запрашиваемая ссылка: &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Вы хотите чтобы QupZilla попыталась открыть ссылку через систему?</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="309"/>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Запомнить мой выбор протокола</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="310"/>
         <source>External Protocol Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Внешний запрос протокола</translation>
     </message>
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="432"/>
@@ -5165,7 +5165,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     <message>
         <location filename="../src/lib/webview/webpage.cpp" line="665"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Заблокировано &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Blocked by rule &lt;i&gt;%1&lt;/i&gt;</source>
