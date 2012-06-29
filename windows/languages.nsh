@@ -284,6 +284,24 @@ LangString FILE_Html ${LANG_SWEDISH} "HTML-fil"
 LangString TITLE_SecThemes ${LANG_SWEDISH} "Teman"
 LangString DESC_SecThemes ${LANG_SWEDISH} "Ytterligare teman för QupZilla"
 
+;;;;Polish
+LangString TITLE_SecMain ${LANG_POLISH} "Składniki podstawowe"
+LangString TITLE_SecTranslations ${LANG_POLISH} "Tłumaczenia"
+LangString TITLE_SecPlugins ${LANG_POLISH} "Wtyczki"
+LangString TITLE_SecDesktop ${LANG_POLISH} "Ikona pulpitu"
+LangString TITLE_SecExtensions ${LANG_POLISH} "Skojarzenia plików"
+LangString TITLE_SecThemes ${LANG_POLISH} "Motywy"
+
+LangString FILE_Htm ${LANG_POLISH} "Plik HTM"
+LangString FILE_Html ${LANG_POLISH} "Plik HTML"
+;
+LangString DESC_SecMain ${LANG_POLISH} "Podstawowe składniki programu."
+LangString DESC_SecTranslations ${LANG_POLISH} "Instalacja dodatkowych wersji językowych. Domyślnie tylko język angielski."
+LangString DESC_SecPlugins ${LANG_POLISH} "Instalacja dodatkowych wtyczek."
+LangString DESC_SecDesktop ${LANG_POLISH} "Dodaj skrót do pulpitu."
+LangString DESC_SecExtensions ${LANG_POLISH} "Skojarz przeglądarkę QupZilla z plikami .htm i .html"
+LangString DESC_SecThemes ${LANG_POLISH} "Dodatkowe motywy dla przeglądarki QupZilla"
+
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
